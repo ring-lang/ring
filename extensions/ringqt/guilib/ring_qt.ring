@@ -28329,7 +28329,9 @@ Class QHPieModelMapper from QPieModelMapper
 		return QHPieModelMapper_model(pObject)
 
 	Func series 
-		return QHPieModelMapper_series(pObject)
+		pTempObj = new QPieSeries
+		pTempObj.pObject = QHPieModelMapper_series(pObject)
+		return pTempObj
 
 	Func setColumnCount P1
 		return QHPieModelMapper_setColumnCount(pObject,P1)
@@ -28888,7 +28890,420 @@ Class QPieLegendMarker from QLegendMarker
 		return pObject
 
 	Func slice 
-		return QPieLegendMarker_slice(pObject)
+		pTempObj = new QPieSlice
+		pTempObj.pObject = QPieLegendMarker_slice(pObject)
+		return pTempObj
+
+Class QPieSeries from QAbstractSeries
+
+	pObject
+
+	Func init P1
+		pObject = QPieSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPieSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func append P1
+		return QPieSeries_append(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func append_2 P1
+		return QPieSeries_append_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func append_3 P1,P2
+		pTempObj = new QPieSlice
+		pTempObj.pObject = QPieSeries_append_3(pObject,P1,P2)
+		return pTempObj
+
+	Func clear 
+		return QPieSeries_clear(pObject)
+
+	Func count 
+		return QPieSeries_count(pObject)
+
+	Func holeSize 
+		return QPieSeries_holeSize(pObject)
+
+	Func horizontalPosition 
+		return QPieSeries_horizontalPosition(pObject)
+
+	Func insert P1,P2
+		return QPieSeries_insert(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func isEmpty 
+		return QPieSeries_isEmpty(pObject)
+
+	Func pieEndAngle 
+		return QPieSeries_pieEndAngle(pObject)
+
+	Func pieSize 
+		return QPieSeries_pieSize(pObject)
+
+	Func pieStartAngle 
+		return QPieSeries_pieStartAngle(pObject)
+
+	Func remove P1
+		return QPieSeries_remove(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setHoleSize P1
+		return QPieSeries_setHoleSize(pObject,P1)
+
+	Func setHorizontalPosition P1
+		return QPieSeries_setHorizontalPosition(pObject,P1)
+
+	Func setLabelsPosition P1
+		return QPieSeries_setLabelsPosition(pObject,P1)
+
+	Func setLabelsVisible P1
+		return QPieSeries_setLabelsVisible(pObject,P1)
+
+	Func setPieEndAngle P1
+		return QPieSeries_setPieEndAngle(pObject,P1)
+
+	Func setPieSize P1
+		return QPieSeries_setPieSize(pObject,P1)
+
+	Func setPieStartAngle P1
+		return QPieSeries_setPieStartAngle(pObject,P1)
+
+	Func setVerticalPosition P1
+		return QPieSeries_setVerticalPosition(pObject,P1)
+
+	Func slices 
+		return QPieSeries_slices(pObject)
+
+	Func sum 
+		return QPieSeries_sum(pObject)
+
+	Func take P1
+		return QPieSeries_take(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func verticalPosition 
+		return QPieSeries_verticalPosition(pObject)
+
+	Func setaddedEvent P1
+		return QPieSeries_setaddedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QPieSeries_setclickedEvent(pObject,P1)
+
+	Func setcountChangedEvent P1
+		return QPieSeries_setcountChangedEvent(pObject,P1)
+
+	Func setdoubleClickedEvent P1
+		return QPieSeries_setdoubleClickedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return QPieSeries_sethoveredEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return QPieSeries_setpressedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return QPieSeries_setreleasedEvent(pObject,P1)
+
+	Func setremovedEvent P1
+		return QPieSeries_setremovedEvent(pObject,P1)
+
+	Func setsumChangedEvent P1
+		return QPieSeries_setsumChangedEvent(pObject,P1)
+
+	Func getaddedEvent 
+		return QPieSeries_getaddedEvent(pObject)
+
+	Func getclickedEvent 
+		return QPieSeries_getclickedEvent(pObject)
+
+	Func getcountChangedEvent 
+		return QPieSeries_getcountChangedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QPieSeries_getdoubleClickedEvent(pObject)
+
+	Func gethoveredEvent 
+		return QPieSeries_gethoveredEvent(pObject)
+
+	Func getpressedEvent 
+		return QPieSeries_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QPieSeries_getreleasedEvent(pObject)
+
+	Func getremovedEvent 
+		return QPieSeries_getremovedEvent(pObject)
+
+	Func getsumChangedEvent 
+		return QPieSeries_getsumChangedEvent(pObject)
+
+Class QPieSlice from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QPieSlice_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPieSlice_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func angleSpan 
+		return QPieSlice_angleSpan(pObject)
+
+	Func borderColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QPieSlice_borderColor(pObject)
+		return pTempObj
+
+	Func borderWidth 
+		return QPieSlice_borderWidth(pObject)
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QPieSlice_brush(pObject)
+		return pTempObj
+
+	Func color 
+		pTempObj = new QColor
+		pTempObj.pObject = QPieSlice_color(pObject)
+		return pTempObj
+
+	Func explodeDistanceFactor 
+		return QPieSlice_explodeDistanceFactor(pObject)
+
+	Func isExploded 
+		return QPieSlice_isExploded(pObject)
+
+	Func isLabelVisible 
+		return QPieSlice_isLabelVisible(pObject)
+
+	Func label 
+		return QPieSlice_label(pObject)
+
+	Func labelArmLengthFactor 
+		return QPieSlice_labelArmLengthFactor(pObject)
+
+	Func labelBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QPieSlice_labelBrush(pObject)
+		return pTempObj
+
+	Func labelColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QPieSlice_labelColor(pObject)
+		return pTempObj
+
+	Func labelFont 
+		pTempObj = new QFont
+		pTempObj.pObject = QPieSlice_labelFont(pObject)
+		return pTempObj
+
+	Func labelPosition 
+		return QPieSlice_labelPosition(pObject)
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QPieSlice_pen(pObject)
+		return pTempObj
+
+	Func percentage 
+		return QPieSlice_percentage(pObject)
+
+	Func series 
+		pTempObj = new QPieSeries
+		pTempObj.pObject = QPieSlice_series(pObject)
+		return pTempObj
+
+	Func setBorderColor P1
+		return QPieSlice_setBorderColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBorderWidth P1
+		return QPieSlice_setBorderWidth(pObject,P1)
+
+	Func setBrush P1
+		return QPieSlice_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setColor P1
+		return QPieSlice_setColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setExplodeDistanceFactor P1
+		return QPieSlice_setExplodeDistanceFactor(pObject,P1)
+
+	Func setExploded P1
+		return QPieSlice_setExploded(pObject,P1)
+
+	Func setLabel P1
+		return QPieSlice_setLabel(pObject,P1)
+
+	Func setLabelArmLengthFactor P1
+		return QPieSlice_setLabelArmLengthFactor(pObject,P1)
+
+	Func setLabelBrush P1
+		return QPieSlice_setLabelBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabelColor P1
+		return QPieSlice_setLabelColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabelFont P1
+		return QPieSlice_setLabelFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabelPosition P1
+		return QPieSlice_setLabelPosition(pObject,P1)
+
+	Func setLabelVisible P1
+		return QPieSlice_setLabelVisible(pObject,P1)
+
+	Func setPen P1
+		return QPieSlice_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setValue P1
+		return QPieSlice_setValue(pObject,P1)
+
+	Func startAngle 
+		return QPieSlice_startAngle(pObject)
+
+	Func value 
+		return QPieSlice_value(pObject)
+
+	Func setangleSpanChangedEvent P1
+		return QPieSlice_setangleSpanChangedEvent(pObject,P1)
+
+	Func setborderColorChangedEvent P1
+		return QPieSlice_setborderColorChangedEvent(pObject,P1)
+
+	Func setborderWidthChangedEvent P1
+		return QPieSlice_setborderWidthChangedEvent(pObject,P1)
+
+	Func setbrushChangedEvent P1
+		return QPieSlice_setbrushChangedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QPieSlice_setclickedEvent(pObject,P1)
+
+	Func setcolorChangedEvent P1
+		return QPieSlice_setcolorChangedEvent(pObject,P1)
+
+	Func setdoubleClickedEvent P1
+		return QPieSlice_setdoubleClickedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return QPieSlice_sethoveredEvent(pObject,P1)
+
+	Func setlabelBrushChangedEvent P1
+		return QPieSlice_setlabelBrushChangedEvent(pObject,P1)
+
+	Func setlabelChangedEvent P1
+		return QPieSlice_setlabelChangedEvent(pObject,P1)
+
+	Func setlabelColorChangedEvent P1
+		return QPieSlice_setlabelColorChangedEvent(pObject,P1)
+
+	Func setlabelFontChangedEvent P1
+		return QPieSlice_setlabelFontChangedEvent(pObject,P1)
+
+	Func setlabelVisibleChangedEvent P1
+		return QPieSlice_setlabelVisibleChangedEvent(pObject,P1)
+
+	Func setpenChangedEvent P1
+		return QPieSlice_setpenChangedEvent(pObject,P1)
+
+	Func setpercentageChangedEvent P1
+		return QPieSlice_setpercentageChangedEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return QPieSlice_setpressedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return QPieSlice_setreleasedEvent(pObject,P1)
+
+	Func setstartAngleChangedEvent P1
+		return QPieSlice_setstartAngleChangedEvent(pObject,P1)
+
+	Func setvalueChangedEvent P1
+		return QPieSlice_setvalueChangedEvent(pObject,P1)
+
+	Func getangleSpanChangedEvent 
+		return QPieSlice_getangleSpanChangedEvent(pObject)
+
+	Func getborderColorChangedEvent 
+		return QPieSlice_getborderColorChangedEvent(pObject)
+
+	Func getborderWidthChangedEvent 
+		return QPieSlice_getborderWidthChangedEvent(pObject)
+
+	Func getbrushChangedEvent 
+		return QPieSlice_getbrushChangedEvent(pObject)
+
+	Func getclickedEvent 
+		return QPieSlice_getclickedEvent(pObject)
+
+	Func getcolorChangedEvent 
+		return QPieSlice_getcolorChangedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QPieSlice_getdoubleClickedEvent(pObject)
+
+	Func gethoveredEvent 
+		return QPieSlice_gethoveredEvent(pObject)
+
+	Func getlabelBrushChangedEvent 
+		return QPieSlice_getlabelBrushChangedEvent(pObject)
+
+	Func getlabelChangedEvent 
+		return QPieSlice_getlabelChangedEvent(pObject)
+
+	Func getlabelColorChangedEvent 
+		return QPieSlice_getlabelColorChangedEvent(pObject)
+
+	Func getlabelFontChangedEvent 
+		return QPieSlice_getlabelFontChangedEvent(pObject)
+
+	Func getlabelVisibleChangedEvent 
+		return QPieSlice_getlabelVisibleChangedEvent(pObject)
+
+	Func getpenChangedEvent 
+		return QPieSlice_getpenChangedEvent(pObject)
+
+	Func getpercentageChangedEvent 
+		return QPieSlice_getpercentageChangedEvent(pObject)
+
+	Func getpressedEvent 
+		return QPieSlice_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QPieSlice_getreleasedEvent(pObject)
+
+	Func getstartAngleChangedEvent 
+		return QPieSlice_getstartAngleChangedEvent(pObject)
+
+	Func getvalueChangedEvent 
+		return QPieSlice_getvalueChangedEvent(pObject)
+
+Class QPolarChart from QChart
+
+	pObject
+
+	Func init P1,P2
+		pObject = QPolarChart_new(GetObjectPointerFromRingObject(P1),P2)
+		return self
+
+	Func delete
+		pObject = QPolarChart_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func addAxis P1,P2
+		return QPolarChart_addAxis(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func axes P1,P2
+		return QPolarChart_axes(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 Class QSize
 

@@ -89,6 +89,8 @@ SOURCES +=   \
     cpp/src/ghxymodelmapper.cpp \
     cpp/src/glegendmarker.cpp \
     cpp/src/glogvalueaxis.cpp \
+    cpp/src/gpieseries.cpp \
+    cpp/src/gpieslice.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -168,7 +170,9 @@ HEADERS  += \
     cpp/include/ghpiemodelmapper.h \
     cpp/include/ghxymodelmapper.h \
     cpp/include/glegendmarker.h \
-    cpp/include/glogvalueaxis.h
+    cpp/include/glogvalueaxis.h \
+    cpp/include/gpieseries.h \
+    cpp/include/gpieslice.h
     
 
 INCLUDEPATH += ../../include
