@@ -89,4 +89,6 @@ load "charts/qhpiemodelmapper.ring"
 load "charts/qhxymodelmapper.ring"
 load "charts/qlegendmarker.ring"
 load "charts/qlogvalueaxis.ring"
+load "charts/qpieseries.ring"
+load "charts/qpieslice.ring"
 #-------------------------------------------------------------------------#
