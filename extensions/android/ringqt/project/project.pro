@@ -97,6 +97,8 @@ SOURCES +=   \
     ghxymodelmapper.cpp \
     glegendmarker.cpp \
     glogvalueaxis.cpp \
+    gpieseries.cpp \
+    gpieslice.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -177,7 +179,9 @@ HEADERS  += \
     ghpiemodelmapper.h \
     ghxymodelmapper.h \
     glegendmarker.h \
-    glogvalueaxis.h
+    glogvalueaxis.h \
+    gpieseries.h \
+    gpieslice.h
 
 CONFIG += warn_off
 
