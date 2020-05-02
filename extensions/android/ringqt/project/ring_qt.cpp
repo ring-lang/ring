@@ -679,6 +679,7 @@ extern "C" {
 	void ring_QHCandlestickModelMapper_freefunc(void *pState,void *pPointer);
 	void ring_QHPieModelMapper_freefunc(void *pState,void *pPointer);
 	void ring_QHXYModelMapper_freefunc(void *pState,void *pPointer);
+	void ring_QHorizontalBarSeries_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -134109,6 +134110,23 @@ RING_FUNC(ring_QHXYModelMapper_getyRowChangedEvent)
 	RING_API_RETSTRING(pObject->getyRowChangedEvent());
 }
 
+
+RING_FUNC(ring_QHorizontalBarSeries_type)
+{
+	QHorizontalBarSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QHorizontalBarSeries *) RING_API_GETCPOINTER(1,"QHorizontalBarSeries");
+	RING_API_RETNUMBER(pObject->type());
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -138003,6 +138021,21 @@ RING_FUNC(ring_QHXYModelMapper_new)
 	}
 	GHXYModelMapper *pObject = new GHXYModelMapper((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QHXYModelMapper");
+}
+
+RING_FUNC(ring_QHorizontalBarSeries_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QHorizontalBarSeries *pObject = new QHorizontalBarSeries((QObject *) RING_API_GETCPOINTER(1,"QObject"));
+	RING_API_RETCPOINTER(pObject,"QHorizontalBarSeries");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -142561,6 +142594,23 @@ RING_FUNC(ring_QHXYModelMapper_delete)
 	}
 }
 
+RING_FUNC(ring_QHorizontalBarSeries_delete)
+{
+	QHorizontalBarSeries *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (QHorizontalBarSeries *) RING_API_GETCPOINTER(1,"QHorizontalBarSeries");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -144434,6 +144484,13 @@ void ring_QHXYModelMapper_freefunc(void *pState,void *pPointer)
 {
 	GHXYModelMapper *pObject ; 
 	pObject = (GHXYModelMapper *) pPointer;
+	delete pObject ;
+}
+
+void ring_QHorizontalBarSeries_freefunc(void *pState,void *pPointer)
+{
+	QHorizontalBarSeries *pObject ; 
+	pObject = (QHorizontalBarSeries *) pPointer;
 	delete pObject ;
 }
 
@@ -151036,6 +151093,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qhxymodelmapper_getseriesreplacedevent",ring_QHXYModelMapper_getseriesReplacedEvent);
 	ring_vm_funcregister("qhxymodelmapper_getxrowchangedevent",ring_QHXYModelMapper_getxRowChangedEvent);
 	ring_vm_funcregister("qhxymodelmapper_getyrowchangedevent",ring_QHXYModelMapper_getyRowChangedEvent);
+	ring_vm_funcregister("qhorizontalbarseries_type",ring_QHorizontalBarSeries_type);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -151304,6 +151362,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qhcandlestickmodelmapper_new",ring_QHCandlestickModelMapper_new);
 	ring_vm_funcregister("qhpiemodelmapper_new",ring_QHPieModelMapper_new);
 	ring_vm_funcregister("qhxymodelmapper_new",ring_QHXYModelMapper_new);
+	ring_vm_funcregister("qhorizontalbarseries_new",ring_QHorizontalBarSeries_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -151572,4 +151631,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qhcandlestickmodelmapper_delete",ring_QHCandlestickModelMapper_delete);
 	ring_vm_funcregister("qhpiemodelmapper_delete",ring_QHPieModelMapper_delete);
 	ring_vm_funcregister("qhxymodelmapper_delete",ring_QHXYModelMapper_delete);
+	ring_vm_funcregister("qhorizontalbarseries_delete",ring_QHorizontalBarSeries_delete);
 }
