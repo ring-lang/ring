@@ -27778,7 +27778,9 @@ Class QChart from QGraphicsWidget
 		return QChart_isZoomed(pObject)
 
 	Func legend 
-		return QChart_legend(pObject)
+		pTempObj = new QLegend
+		pTempObj.pObject = QChart_legend(pObject)
+		return pTempObj
 
 	Func locale 
 		return QChart_locale(pObject)
@@ -28484,6 +28486,139 @@ Class QHorizontalBarSeries from QAbstractBarSeries
 
 	Func type 
 		return QHorizontalBarSeries_type(pObject)
+
+Class QHorizontalPercentBarSeries from QAbstractBarSeries
+
+	pObject
+
+	Func init P1
+		pObject = QHorizontalPercentBarSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QHorizontalPercentBarSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func type 
+		return QHorizontalPercentBarSeries_type(pObject)
+
+Class QHorizontalStackedBarSeries from QAbstractBarSeries
+
+	pObject
+
+	Func init P1
+		pObject = QHorizontalStackedBarSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QHorizontalStackedBarSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func type 
+		return QHorizontalStackedBarSeries_type(pObject)
+
+Class QLegend from QGraphicsWidget
+	Func alignment 
+		return QLegend_alignment()
+
+	Func attachToChart 
+		return QLegend_attachToChart()
+
+	Func borderColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QLegend_borderColor()
+		return pTempObj
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QLegend_brush()
+		return pTempObj
+
+	Func color 
+		pTempObj = new QColor
+		pTempObj.pObject = QLegend_color()
+		return pTempObj
+
+	Func detachFromChart 
+		return QLegend_detachFromChart()
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QLegend_font()
+		return pTempObj
+
+	Func isAttachedToChart 
+		return QLegend_isAttachedToChart()
+
+	Func isBackgroundVisible 
+		return QLegend_isBackgroundVisible()
+
+	Func labelBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QLegend_labelBrush()
+		return pTempObj
+
+	Func labelColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QLegend_labelColor()
+		return pTempObj
+
+	Func markerShape 
+		return QLegend_markerShape()
+
+	Func markers P1
+		return QLegend_markers(GetObjectPointerFromRingObject(P1))
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QLegend_pen()
+		return pTempObj
+
+	Func reverseMarkers 
+		return QLegend_reverseMarkers()
+
+	Func setAlignment P1
+		return QLegend_setAlignment(P1)
+
+	Func setBackgroundVisible P1
+		return QLegend_setBackgroundVisible(P1)
+
+	Func setBorderColor P1
+		return QLegend_setBorderColor(GetObjectPointerFromRingObject(P1))
+
+	Func setBrush P1
+		return QLegend_setBrush(GetObjectPointerFromRingObject(P1))
+
+	Func setColor P1
+		return QLegend_setColor(GetObjectPointerFromRingObject(P1))
+
+	Func setFont P1
+		return QLegend_setFont(GetObjectPointerFromRingObject(P1))
+
+	Func setLabelBrush P1
+		return QLegend_setLabelBrush(GetObjectPointerFromRingObject(P1))
+
+	Func setLabelColor P1
+		return QLegend_setLabelColor(GetObjectPointerFromRingObject(P1))
+
+	Func setMarkerShape P1
+		return QLegend_setMarkerShape(P1)
+
+	Func setPen P1
+		return QLegend_setPen(GetObjectPointerFromRingObject(P1))
+
+	Func setReverseMarkers P1
+		return QLegend_setReverseMarkers(P1)
+
+	Func setShowToolTips P1
+		return QLegend_setShowToolTips(P1)
+
+	Func showToolTips 
+		return QLegend_showToolTips()
 
 Class QSize
 

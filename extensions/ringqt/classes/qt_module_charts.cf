@@ -28,3 +28,6 @@
 <loadfile> charts/qhpiemodelmapper.cf
 <loadfile> charts/qhxymodelmapper.cf
 <loadfile> charts/qhorizontalbarseries.cf
+<loadfile> charts/qhorizontalpercentbarseries.cf
+<loadfile> charts/qhorizontalstackedbarseries.cf
+<loadfile> charts/qlegend.cf

@@ -150,7 +150,7 @@ HEADERS  += \
     cpp/include/ghboxplotmodelmapper.h \
     cpp/include/ghcandlestickmodelmapper.h \
     cpp/include/ghpiemodelmapper.h \
-    cpp/include/ghxymodelmapper.h
+    cpp/include/ghxymodelmapper.h 
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include
