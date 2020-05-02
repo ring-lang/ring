@@ -76,11 +76,9 @@ class GameInterface
 		glShadeModel(GL_SMOOTH)		
 		glClearColor(0.0, 0.0, 0.0, 0.5)
 		glClearDepth(1.0)			
-		glEnable(GL_DEPTH_TEST)	
 		glEnable(GL_CULL_FACE)
 		glDepthFunc(GL_LEQUAL)
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
-		glClear(GL_DEPTH_BUFFER_BIT)
 
 	func Cubes oGame
 		oGame.oGameCube {
@@ -396,7 +394,6 @@ class GameBackground
 		motion()
 
 	func draw
-		glClear(GL_COLOR_BUFFER_BIT)
 		al_draw_bitmap(bitmap,nBackX,nBackY,1)
 
 	func motion
