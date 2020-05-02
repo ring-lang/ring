@@ -5624,6 +5624,56 @@ Parent Class : QGraphicsWidget
 * void setReverseMarkers(bool reverseMarkers)
 * void setShowToolTips(bool show)
 * bool showToolTips(void)
+
+.. index::
+	pair: RingQt Classes Reference; QLegendMarker Class
+
+QLegendMarker Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qlegendmarker.html
+
+
+Parameters : void
+
+
+Parent Class : QObject
+
+* QBrush brush(void)
+* QFont font(void)
+* bool isVisible(void)
+* QString label(void)
+* QBrush labelBrush(void)
+* QPen pen(void)
+* QAbstractSeries * series(void)
+* void setBrush(QBrush brush)
+* void setFont(QFont font)
+* void setLabel(QString label)
+* void setLabelBrush(QBrush brush)
+* void setPen(QPen pen)
+* void setShape(QLegend::MarkerShape shape)
+* void setVisible(bool visible)
+* QLegend::MarkerShape shape(void)
+* void setbrushChangedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setfontChangedEvent(const char *)
+* void sethoveredEvent(const char *)
+* void setlabelBrushChangedEvent(const char *)
+* void setlabelChangedEvent(const char *)
+* void setpenChangedEvent(const char *)
+* void setshapeChangedEvent(const char *)
+* void setvisibleChangedEvent(const char *)
+* const char *getbrushChangedEvent(void)
+* const char *getclickedEvent(void)
+* const char *getfontChangedEvent(void)
+* const char *gethoveredEvent(void)
+* const char *getlabelBrushChangedEvent(void)
+* const char *getlabelChangedEvent(void)
+* const char *getpenChangedEvent(void)
+* const char *getshapeChangedEvent(void)
+* const char *getvisibleChangedEvent(void)
+
 .. index::
 	pair: RingQt Classes Reference; QLineEdit Class
 
@@ -5709,6 +5759,23 @@ Parent Class : QWidget
 * const char *getreturnPressedEvent(void)
 * const char *getselectionChangedEvent(void)
 * const char *gettextEditedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QLineSeries Class
+
+QLineSeries Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qlineseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QXYSeries
+
+* QAbstractSeries::SeriesType type(void)
 
 .. index::
 	pair: RingQt Classes Reference; QLinearGradient Class
@@ -5873,6 +5940,48 @@ Parameters : void
 * QString toolTip(void)
 * int type(void)
 * QString whatsThis(void)
+
+.. index::
+	pair: RingQt Classes Reference; QLogValueAxis Class
+
+QLogValueAxis Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qlogvalueaxis.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractAxis
+
+* qreal base(void)
+* QString labelFormat(void)
+* qreal max(void)
+* qreal min(void)
+* int minorTickCount(void)
+* void setBase(qreal base)
+* void setLabelFormat(QString format)
+* void setMax(qreal max)
+* void setMin(qreal min)
+* void setMinorTickCount(int minorTickCount)
+* void setRange(qreal min, qreal max)
+* int tickCount(void)
+* void setbaseChangedEvent(const char *)
+* void setlabelFormatChangedEvent(const char *)
+* void setmaxChangedEvent(const char *)
+* void setminChangedEvent(const char *)
+* void setminorTickCountChangedEvent(const char *)
+* void setrangeChangedEvent(const char *)
+* void settickCountChangedEvent(const char *)
+* const char *getbaseChangedEvent(void)
+* const char *getlabelFormatChangedEvent(void)
+* const char *getmaxChangedEvent(void)
+* const char *getminChangedEvent(void)
+* const char *getminorTickCountChangedEvent(void)
+* const char *getrangeChangedEvent(void)
+* const char *gettickCountChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QLogicAspect Class
@@ -7882,6 +7991,23 @@ Parameters : Qt3DCore::QNode *
 
 
 .. index::
+	pair: RingQt Classes Reference; QPercentBarSeries Class
+
+QPercentBarSeries Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qpercentbarseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractBarSeries
+
+* QAbstractSeries::SeriesType type(void)
+
+.. index::
 	pair: RingQt Classes Reference; QPhongMaterial Class
 
 QPhongMaterial Class
@@ -7924,6 +8050,19 @@ Parameters : void
 * int size(void)
 * void swap(QPicture)
 
+.. index::
+	pair: RingQt Classes Reference; QPieLegendMarker Class
+
+QPieLegendMarker Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qpielegendmarker.html
+
+
+Parent Class : QLegendMarker
+
+* QPieSlice * slice(void)
 .. index::
 	pair: RingQt Classes Reference; QPixmap Class
 

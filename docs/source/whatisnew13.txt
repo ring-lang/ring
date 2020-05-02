@@ -227,7 +227,12 @@ Better RingQt
 * QHorizontalPercentBarSeries
 * QHorizontalStackedBarSeries
 * QLegend
-	
+* QLegendMarker.
+* QLineSeries
+* QLogValueAxis
+* QPercentBarSeries
+* QPieLegendMarker
+
 (2) Better QtConverter application
 
 This application is used for preparing Qt classes for the Ring Code Generator 
