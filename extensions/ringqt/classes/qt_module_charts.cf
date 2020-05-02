@@ -36,3 +36,6 @@
 <loadfile> charts/qlogvalueaxis.cf
 <loadfile> charts/qpercentbarseries.cf
 <loadfile> charts/qpielegendmarker.cf
+<loadfile> charts/qpieseries.cf
+<loadfile> charts/qpieslice.cf
+<loadfile> charts/qpolarchart.cf

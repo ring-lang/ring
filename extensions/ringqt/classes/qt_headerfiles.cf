@@ -452,6 +452,8 @@ extern "C" {
 #include "ghxymodelmapper.h"
 #include "glegendmarker.h"
 #include "glogvalueaxis.h"
+#include "gpieseries.h"
+#include "gpieslice.h"
 #include <QtCharts>
 </filter>
 

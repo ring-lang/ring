@@ -1,0 +1,7 @@
+<class>
+name: QPolarChart
+para: QGraphicsItem *,Qt::WindowFlags
+parent: QChart
+</class>
+void addAxis(QAbstractAxis *axis, QPolarChart::PolarOrientation polarOrientation)
+QList<QAbstractAxis *> axes(QPolarChart::PolarOrientations polarOrientation, QAbstractSeries *series )

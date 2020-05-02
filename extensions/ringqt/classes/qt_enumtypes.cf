@@ -394,4 +394,7 @@ aEnumTypes + "QChartView::RubberBand"
 aEnumTypes + "QChartView::RubberBands"
 aEnumTypes + "QLegend::MarkerShape"
 aEnumTypes + "QLegendMarker::LegendMarkerType"
+aEnumTypes + "QPieSlice::LabelPosition"
+aEnumTypes + "QPolarChart::PolarOrientation"
+aEnumTypes + "QPolarChart::PolarOrientations"
 </runcode>
