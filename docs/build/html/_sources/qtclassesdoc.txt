@@ -2381,7 +2381,7 @@ Parent Class : QGraphicsWidget
 * bool isDropShadowEnabled(void)
 * bool isPlotAreaBackgroundVisible(void)
 * bool isZoomed(void)
-* QLegend * legend(void)
+* QLegend *legend(void)
 * QLocale locale(void)
 * bool localizeNumbers(void)
 * QPointF mapToPosition(QPointF value, QAbstractSeries *series)
@@ -4928,6 +4928,7 @@ Parent Class : QXYModelMapper
 * const char *getseriesReplacedEvent(void)
 * const char *getxRowChangedEvent(void)
 * const char *getyRowChangedEvent(void)
+
 .. index::
 	pair: RingQt Classes Reference; QHeaderView Class
 
@@ -5025,6 +5026,22 @@ Parent Class : QAbstractItemView
 * const char *getsortIndicatorChangedEvent(void)
 * void geteventparameters(void)
 
+.. index::
+	pair: RingQt Classes Reference; QHorizontalBarSeries Class
+
+QHorizontalBarSeries Class
+==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qhorizontalbarseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractBarSeries
+
+* QAbstractSeries::SeriesType type(void)
 .. index::
 	pair: RingQt Classes Reference; QHostAddress Class
 
