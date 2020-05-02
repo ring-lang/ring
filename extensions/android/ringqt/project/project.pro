@@ -173,7 +173,7 @@ HEADERS  += \
     ghboxplotmodelmapper.h \
     ghcandlestickmodelmapper.h \
     ghpiemodelmapper.h \
-    ghxymodelmapper.h
+    ghxymodelmapper.h 
 
 CONFIG += warn_off
 
