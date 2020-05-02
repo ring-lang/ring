@@ -360,6 +360,8 @@ extern "C" {
 #include "ghcandlestickmodelmapper.h"
 #include "ghpiemodelmapper.h"
 #include "ghxymodelmapper.h"
+#include "glegendmarker.h"
+#include "glogvalueaxis.h"
 #include <QtCharts>
 
 extern "C" {
@@ -683,6 +685,11 @@ extern "C" {
 	void ring_QHorizontalPercentBarSeries_freefunc(void *pState,void *pPointer);
 	void ring_QHorizontalStackedBarSeries_freefunc(void *pState,void *pPointer);
 	void ring_QLegend_freefunc(void *pState,void *pPointer);
+	void ring_QLegendMarker_freefunc(void *pState,void *pPointer);
+	void ring_QLineSeries_freefunc(void *pState,void *pPointer);
+	void ring_QLogValueAxis_freefunc(void *pState,void *pPointer);
+	void ring_QPercentBarSeries_freefunc(void *pState,void *pPointer);
+	void ring_QPieLegendMarker_freefunc(void *pState,void *pPointer);
 
 // End of Functions Prototype - Functions used to Free Memory 
 
@@ -126151,12 +126158,7 @@ RING_FUNC(ring_QAreaLegendMarker_type)
 		return ;
 	}
 	pObject = (QAreaLegendMarker *) RING_API_GETCPOINTER(1,"QAreaLegendMarker");
-	{
-		QLegendMarker::LegendMarkerType *pValue ; 
-		pValue = (QLegendMarker::LegendMarkerType *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLegendMarker::LegendMarkerType)) ;
-		*pValue = pObject->type();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QLegendMarker::LegendMarkerType",ring_state_free);
-	}
+	RING_API_RETNUMBER(pObject->type());
 }
 
 
@@ -126224,12 +126226,7 @@ RING_FUNC(ring_QBoxPlotLegendMarker_type)
 		return ;
 	}
 	pObject = (QBoxPlotLegendMarker *) RING_API_GETCPOINTER(1,"QBoxPlotLegendMarker");
-	{
-		QLegendMarker::LegendMarkerType *pValue ; 
-		pValue = (QLegendMarker::LegendMarkerType *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLegendMarker::LegendMarkerType)) ;
-		*pValue = pObject->type();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QLegendMarker::LegendMarkerType",ring_state_free);
-	}
+	RING_API_RETNUMBER(pObject->type());
 }
 
 
@@ -127677,12 +127674,7 @@ RING_FUNC(ring_QCandlestickLegendMarker_type)
 		return ;
 	}
 	pObject = (QCandlestickLegendMarker *) RING_API_GETCPOINTER(1,"QCandlestickLegendMarker");
-	{
-		QLegendMarker::LegendMarkerType *pValue ; 
-		pValue = (QLegendMarker::LegendMarkerType *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QLegendMarker::LegendMarkerType)) ;
-		*pValue = pObject->type();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QLegendMarker::LegendMarkerType",ring_state_free);
-	}
+	RING_API_RETNUMBER(pObject->type());
 }
 
 
@@ -134718,6 +134710,1192 @@ RING_FUNC(ring_QLegend_showToolTips)
 	RING_API_RETNUMBER(pObject->showToolTips());
 }
 
+
+RING_FUNC(ring_QLegendMarker_brush)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	{
+		QBrush *pValue ; 
+		pValue = new QBrush() ;
+		*pValue = pObject->brush();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QBrush",ring_QBrush_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QLegendMarker_font)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	{
+		QFont *pValue ; 
+		pValue = new QFont() ;
+		*pValue = pObject->font();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QFont",ring_QFont_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QLegendMarker_isVisible)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETNUMBER(pObject->isVisible());
+}
+
+
+RING_FUNC(ring_QLegendMarker_label)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETSTRING(pObject->label().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QLegendMarker_labelBrush)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	{
+		QBrush *pValue ; 
+		pValue = new QBrush() ;
+		*pValue = pObject->labelBrush();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QBrush",ring_QBrush_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QLegendMarker_pen)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	{
+		QPen *pValue ; 
+		pValue = new QPen() ;
+		*pValue = pObject->pen();
+		RING_API_RETMANAGEDCPOINTER(pValue,"QPen",ring_QPen_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QLegendMarker_series)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETCPOINTER(pObject->series(),"QAbstractSeries");
+}
+
+
+RING_FUNC(ring_QLegendMarker_setBrush)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	pObject->setBrush(* (QBrush  *) RING_API_GETCPOINTER(2,"QBrush"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setFont)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	pObject->setFont(* (QFont  *) RING_API_GETCPOINTER(2,"QFont"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setLabel)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLabel(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setLabelBrush)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	pObject->setLabelBrush(* (QBrush  *) RING_API_GETCPOINTER(2,"QBrush"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QBrush"));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setPen)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	pObject->setPen(* (QPen  *) RING_API_GETCPOINTER(2,"QPen"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QPen"));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setShape)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setShape( (QLegend::MarkerShape )  (int) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setVisible)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setVisible( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_shape)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETNUMBER(pObject->shape());
+}
+
+
+RING_FUNC(ring_QLegendMarker_setbrushChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setbrushChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setclickedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setclickedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setfontChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfontChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_sethoveredEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->sethoveredEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setlabelBrushChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setlabelBrushChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setlabelChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setlabelChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setpenChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setpenChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setshapeChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setshapeChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_setvisibleChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setvisibleChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLegendMarker_getbrushChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETSTRING(pObject->getbrushChangedEvent());
+}
+
+
+RING_FUNC(ring_QLegendMarker_getclickedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETSTRING(pObject->getclickedEvent());
+}
+
+
+RING_FUNC(ring_QLegendMarker_getfontChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETSTRING(pObject->getfontChangedEvent());
+}
+
+
+RING_FUNC(ring_QLegendMarker_gethoveredEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETSTRING(pObject->gethoveredEvent());
+}
+
+
+RING_FUNC(ring_QLegendMarker_getlabelBrushChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETSTRING(pObject->getlabelBrushChangedEvent());
+}
+
+
+RING_FUNC(ring_QLegendMarker_getlabelChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETSTRING(pObject->getlabelChangedEvent());
+}
+
+
+RING_FUNC(ring_QLegendMarker_getpenChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETSTRING(pObject->getpenChangedEvent());
+}
+
+
+RING_FUNC(ring_QLegendMarker_getshapeChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETSTRING(pObject->getshapeChangedEvent());
+}
+
+
+RING_FUNC(ring_QLegendMarker_getvisibleChangedEvent)
+{
+	GLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLegendMarker *) RING_API_GETCPOINTER(1,"QLegendMarker");
+	RING_API_RETSTRING(pObject->getvisibleChangedEvent());
+}
+
+
+RING_FUNC(ring_QLineSeries_type)
+{
+	QLineSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QLineSeries *) RING_API_GETCPOINTER(1,"QLineSeries");
+	RING_API_RETNUMBER(pObject->type());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_base)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETNUMBER(pObject->base());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_labelFormat)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETSTRING(pObject->labelFormat().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_max)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETNUMBER(pObject->max());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_min)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETNUMBER(pObject->min());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_minorTickCount)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETNUMBER(pObject->minorTickCount());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setBase)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setBase( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setLabelFormat)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setLabelFormat(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setMax)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMax( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setMin)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMin( (qreal ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setMinorTickCount)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setMinorTickCount( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setRange)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setRange( (qreal ) RING_API_GETNUMBER(2), (qreal ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_tickCount)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETNUMBER(pObject->tickCount());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setbaseChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setbaseChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setlabelFormatChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setlabelFormatChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setmaxChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setmaxChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setminChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setminChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setminorTickCountChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setminorTickCountChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_setrangeChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setrangeChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_settickCountChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->settickCountChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QLogValueAxis_getbaseChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETSTRING(pObject->getbaseChangedEvent());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_getlabelFormatChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETSTRING(pObject->getlabelFormatChangedEvent());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_getmaxChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETSTRING(pObject->getmaxChangedEvent());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_getminChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETSTRING(pObject->getminChangedEvent());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_getminorTickCountChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETSTRING(pObject->getminorTickCountChangedEvent());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_getrangeChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETSTRING(pObject->getrangeChangedEvent());
+}
+
+
+RING_FUNC(ring_QLogValueAxis_gettickCountChangedEvent)
+{
+	GLogValueAxis *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"QLogValueAxis");
+	RING_API_RETSTRING(pObject->gettickCountChangedEvent());
+}
+
+
+RING_FUNC(ring_QPercentBarSeries_type)
+{
+	QPercentBarSeries *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPercentBarSeries *) RING_API_GETCPOINTER(1,"QPercentBarSeries");
+	RING_API_RETNUMBER(pObject->type());
+}
+
+
+RING_FUNC(ring_QPieLegendMarker_slice)
+{
+	QPieLegendMarker *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPieLegendMarker *) RING_API_GETCPOINTER(1,"QPieLegendMarker");
+	RING_API_RETCPOINTER(pObject->slice(),"QPieSlice");
+}
+
 RING_FUNC(ring_QObject_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -138657,6 +139835,21 @@ RING_FUNC(ring_QHorizontalStackedBarSeries_new)
 	}
 	QHorizontalStackedBarSeries *pObject = new QHorizontalStackedBarSeries((QObject *) RING_API_GETCPOINTER(1,"QObject"));
 	RING_API_RETCPOINTER(pObject,"QHorizontalStackedBarSeries");
+}
+
+RING_FUNC(ring_QLogValueAxis_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	GLogValueAxis *pObject = new GLogValueAxis((QObject *) RING_API_GETCPOINTER(1,"QObject"), (VM *) pPointer);
+	RING_API_RETCPOINTER(pObject,"QLogValueAxis");
 }
 
 RING_FUNC(ring_QObject_delete)
@@ -143266,6 +144459,23 @@ RING_FUNC(ring_QHorizontalStackedBarSeries_delete)
 	}
 }
 
+RING_FUNC(ring_QLogValueAxis_delete)
+{
+	GLogValueAxis *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISPOINTER(1) )
+	{
+		pObject = (GLogValueAxis *) RING_API_GETCPOINTER(1,"GLogValueAxis");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 void ring_QObject_freefunc(void *pState,void *pPointer)
 {
 	QObject *pObject ; 
@@ -145160,6 +146370,13 @@ void ring_QHorizontalStackedBarSeries_freefunc(void *pState,void *pPointer)
 {
 	QHorizontalStackedBarSeries *pObject ; 
 	pObject = (QHorizontalStackedBarSeries *) pPointer;
+	delete pObject ;
+}
+
+void ring_QLogValueAxis_freefunc(void *pState,void *pPointer)
+{
+	GLogValueAxis *pObject ; 
+	pObject = (GLogValueAxis *) pPointer;
 	delete pObject ;
 }
 
@@ -151793,6 +153010,68 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlegend_setreversemarkers",ring_QLegend_setReverseMarkers);
 	ring_vm_funcregister("qlegend_setshowtooltips",ring_QLegend_setShowToolTips);
 	ring_vm_funcregister("qlegend_showtooltips",ring_QLegend_showToolTips);
+	ring_vm_funcregister("qlegendmarker_brush",ring_QLegendMarker_brush);
+	ring_vm_funcregister("qlegendmarker_font",ring_QLegendMarker_font);
+	ring_vm_funcregister("qlegendmarker_isvisible",ring_QLegendMarker_isVisible);
+	ring_vm_funcregister("qlegendmarker_label",ring_QLegendMarker_label);
+	ring_vm_funcregister("qlegendmarker_labelbrush",ring_QLegendMarker_labelBrush);
+	ring_vm_funcregister("qlegendmarker_pen",ring_QLegendMarker_pen);
+	ring_vm_funcregister("qlegendmarker_series",ring_QLegendMarker_series);
+	ring_vm_funcregister("qlegendmarker_setbrush",ring_QLegendMarker_setBrush);
+	ring_vm_funcregister("qlegendmarker_setfont",ring_QLegendMarker_setFont);
+	ring_vm_funcregister("qlegendmarker_setlabel",ring_QLegendMarker_setLabel);
+	ring_vm_funcregister("qlegendmarker_setlabelbrush",ring_QLegendMarker_setLabelBrush);
+	ring_vm_funcregister("qlegendmarker_setpen",ring_QLegendMarker_setPen);
+	ring_vm_funcregister("qlegendmarker_setshape",ring_QLegendMarker_setShape);
+	ring_vm_funcregister("qlegendmarker_setvisible",ring_QLegendMarker_setVisible);
+	ring_vm_funcregister("qlegendmarker_shape",ring_QLegendMarker_shape);
+	ring_vm_funcregister("qlegendmarker_setbrushchangedevent",ring_QLegendMarker_setbrushChangedEvent);
+	ring_vm_funcregister("qlegendmarker_setclickedevent",ring_QLegendMarker_setclickedEvent);
+	ring_vm_funcregister("qlegendmarker_setfontchangedevent",ring_QLegendMarker_setfontChangedEvent);
+	ring_vm_funcregister("qlegendmarker_sethoveredevent",ring_QLegendMarker_sethoveredEvent);
+	ring_vm_funcregister("qlegendmarker_setlabelbrushchangedevent",ring_QLegendMarker_setlabelBrushChangedEvent);
+	ring_vm_funcregister("qlegendmarker_setlabelchangedevent",ring_QLegendMarker_setlabelChangedEvent);
+	ring_vm_funcregister("qlegendmarker_setpenchangedevent",ring_QLegendMarker_setpenChangedEvent);
+	ring_vm_funcregister("qlegendmarker_setshapechangedevent",ring_QLegendMarker_setshapeChangedEvent);
+	ring_vm_funcregister("qlegendmarker_setvisiblechangedevent",ring_QLegendMarker_setvisibleChangedEvent);
+	ring_vm_funcregister("qlegendmarker_getbrushchangedevent",ring_QLegendMarker_getbrushChangedEvent);
+	ring_vm_funcregister("qlegendmarker_getclickedevent",ring_QLegendMarker_getclickedEvent);
+	ring_vm_funcregister("qlegendmarker_getfontchangedevent",ring_QLegendMarker_getfontChangedEvent);
+	ring_vm_funcregister("qlegendmarker_gethoveredevent",ring_QLegendMarker_gethoveredEvent);
+	ring_vm_funcregister("qlegendmarker_getlabelbrushchangedevent",ring_QLegendMarker_getlabelBrushChangedEvent);
+	ring_vm_funcregister("qlegendmarker_getlabelchangedevent",ring_QLegendMarker_getlabelChangedEvent);
+	ring_vm_funcregister("qlegendmarker_getpenchangedevent",ring_QLegendMarker_getpenChangedEvent);
+	ring_vm_funcregister("qlegendmarker_getshapechangedevent",ring_QLegendMarker_getshapeChangedEvent);
+	ring_vm_funcregister("qlegendmarker_getvisiblechangedevent",ring_QLegendMarker_getvisibleChangedEvent);
+	ring_vm_funcregister("qlineseries_type",ring_QLineSeries_type);
+	ring_vm_funcregister("qlogvalueaxis_base",ring_QLogValueAxis_base);
+	ring_vm_funcregister("qlogvalueaxis_labelformat",ring_QLogValueAxis_labelFormat);
+	ring_vm_funcregister("qlogvalueaxis_max",ring_QLogValueAxis_max);
+	ring_vm_funcregister("qlogvalueaxis_min",ring_QLogValueAxis_min);
+	ring_vm_funcregister("qlogvalueaxis_minortickcount",ring_QLogValueAxis_minorTickCount);
+	ring_vm_funcregister("qlogvalueaxis_setbase",ring_QLogValueAxis_setBase);
+	ring_vm_funcregister("qlogvalueaxis_setlabelformat",ring_QLogValueAxis_setLabelFormat);
+	ring_vm_funcregister("qlogvalueaxis_setmax",ring_QLogValueAxis_setMax);
+	ring_vm_funcregister("qlogvalueaxis_setmin",ring_QLogValueAxis_setMin);
+	ring_vm_funcregister("qlogvalueaxis_setminortickcount",ring_QLogValueAxis_setMinorTickCount);
+	ring_vm_funcregister("qlogvalueaxis_setrange",ring_QLogValueAxis_setRange);
+	ring_vm_funcregister("qlogvalueaxis_tickcount",ring_QLogValueAxis_tickCount);
+	ring_vm_funcregister("qlogvalueaxis_setbasechangedevent",ring_QLogValueAxis_setbaseChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_setlabelformatchangedevent",ring_QLogValueAxis_setlabelFormatChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_setmaxchangedevent",ring_QLogValueAxis_setmaxChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_setminchangedevent",ring_QLogValueAxis_setminChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_setminortickcountchangedevent",ring_QLogValueAxis_setminorTickCountChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_setrangechangedevent",ring_QLogValueAxis_setrangeChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_settickcountchangedevent",ring_QLogValueAxis_settickCountChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_getbasechangedevent",ring_QLogValueAxis_getbaseChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_getlabelformatchangedevent",ring_QLogValueAxis_getlabelFormatChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_getmaxchangedevent",ring_QLogValueAxis_getmaxChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_getminchangedevent",ring_QLogValueAxis_getminChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_getminortickcountchangedevent",ring_QLogValueAxis_getminorTickCountChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_getrangechangedevent",ring_QLogValueAxis_getrangeChangedEvent);
+	ring_vm_funcregister("qlogvalueaxis_gettickcountchangedevent",ring_QLogValueAxis_gettickCountChangedEvent);
+	ring_vm_funcregister("qpercentbarseries_type",ring_QPercentBarSeries_type);
+	ring_vm_funcregister("qpielegendmarker_slice",ring_QPieLegendMarker_slice);
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
@@ -152064,6 +153343,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qhorizontalbarseries_new",ring_QHorizontalBarSeries_new);
 	ring_vm_funcregister("qhorizontalpercentbarseries_new",ring_QHorizontalPercentBarSeries_new);
 	ring_vm_funcregister("qhorizontalstackedbarseries_new",ring_QHorizontalStackedBarSeries_new);
+	ring_vm_funcregister("qlogvalueaxis_new",ring_QLogValueAxis_new);
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
@@ -152335,4 +153615,5 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qhorizontalbarseries_delete",ring_QHorizontalBarSeries_delete);
 	ring_vm_funcregister("qhorizontalpercentbarseries_delete",ring_QHorizontalPercentBarSeries_delete);
 	ring_vm_funcregister("qhorizontalstackedbarseries_delete",ring_QHorizontalStackedBarSeries_delete);
+	ring_vm_funcregister("qlogvalueaxis_delete",ring_QLogValueAxis_delete);
 }

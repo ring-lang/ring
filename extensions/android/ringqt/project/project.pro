@@ -95,6 +95,8 @@ SOURCES +=   \
     ghcandlestickmodelmapper.cpp \
     ghpiemodelmapper.cpp \
     ghxymodelmapper.cpp \
+    glegendmarker.cpp \
+    glogvalueaxis.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -173,7 +175,9 @@ HEADERS  += \
     ghboxplotmodelmapper.h \
     ghcandlestickmodelmapper.h \
     ghpiemodelmapper.h \
-    ghxymodelmapper.h 
+    ghxymodelmapper.h \
+    glegendmarker.h \
+    glogvalueaxis.h
 
 CONFIG += warn_off
 
