@@ -393,4 +393,5 @@ aEnumTypes + "QChart::ChartType"
 aEnumTypes + "QChartView::RubberBand"
 aEnumTypes + "QChartView::RubberBands"
 aEnumTypes + "QLegend::MarkerShape"
+aEnumTypes + "QLegendMarker::LegendMarkerType"
 </runcode>

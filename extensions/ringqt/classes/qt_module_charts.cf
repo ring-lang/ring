@@ -31,3 +31,8 @@
 <loadfile> charts/qhorizontalpercentbarseries.cf
 <loadfile> charts/qhorizontalstackedbarseries.cf
 <loadfile> charts/qlegend.cf
+<loadfile> charts/qlegendmarker.cf
+<loadfile> charts/qlineseries.cf
+<loadfile> charts/qlogvalueaxis.cf
+<loadfile> charts/qpercentbarseries.cf
+<loadfile> charts/qpielegendmarker.cf

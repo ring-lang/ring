@@ -450,6 +450,8 @@ extern "C" {
 #include "ghcandlestickmodelmapper.h"
 #include "ghpiemodelmapper.h"
 #include "ghxymodelmapper.h"
+#include "glegendmarker.h"
+#include "glogvalueaxis.h"
 #include <QtCharts>
 </filter>
 
