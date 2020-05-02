@@ -232,6 +232,9 @@ Better RingQt
 * QLogValueAxis
 * QPercentBarSeries
 * QPieLegendMarker
+* QPieSeries
+* QPieSlice
+* QPolarChart
 
 (2) Better QtConverter application
 

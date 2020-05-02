@@ -8063,6 +8063,152 @@ C++ Reference : http://doc.qt.io/qt-5/qpielegendmarker.html
 Parent Class : QLegendMarker
 
 * QPieSlice * slice(void)
+
+.. index::
+	pair: RingQt Classes Reference; QPieSeries Class
+
+QPieSeries Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qpieseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractSeries
+
+* bool append_2(QList<QPieSlice *> slices)
+* QPieSlice * append_3(QString label, qreal value)
+* void clear(void)
+* int count(void)
+* qreal holeSize(void)
+* qreal horizontalPosition(void)
+* bool insert(int index, QPieSlice *slice)
+* bool isEmpty(void)
+* qreal pieEndAngle(void)
+* qreal pieSize(void)
+* qreal pieStartAngle(void)
+* bool remove(QPieSlice *slice)
+* void setHoleSize(qreal holeSize)
+* void setHorizontalPosition(qreal relativePosition)
+* void setLabelsPosition(QPieSlice::LabelPosition position)
+* void setLabelsVisible(bool visible)
+* void setPieEndAngle(qreal angle)
+* void setPieSize(qreal relativeSize)
+* void setPieStartAngle(qreal startAngle)
+* void setVerticalPosition(qreal relativePosition)
+* QList<QPieSlice *> slices(void)
+* qreal sum(void)
+* bool take(QPieSlice *slice)
+* qreal verticalPosition(void)
+* void setaddedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setcountChangedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void sethoveredEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* void setremovedEvent(const char *)
+* void setsumChangedEvent(const char *)
+* const char *getaddedEvent(void)
+* const char *getclickedEvent(void)
+* const char *getcountChangedEvent(void)
+* const char *getdoubleClickedEvent(void)
+* const char *gethoveredEvent(void)
+* const char *getpressedEvent(void)
+* const char *getreleasedEvent(void)
+* const char *getremovedEvent(void)
+* const char *getsumChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QPieSlice Class
+
+QPieSlice Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qpieslice.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* QColor borderColor(void)
+* int borderWidth(void)
+* QBrush brush(void)
+* QColor color(void)
+* qreal explodeDistanceFactor(void)
+* bool isExploded(void)
+* bool isLabelVisible(void)
+* QString label(void)
+* qreal labelArmLengthFactor(void)
+* QBrush labelBrush(void)
+* QColor labelColor(void)
+* QFont labelFont(void)
+* QPieSlice::LabelPosition labelPosition(void)
+* QPen pen(void)
+* qreal percentage(void)
+* QPieSeries * series(void)
+* void setBorderColor(QColor color)
+* void setBorderWidth(int width)
+* void setBrush(QBrush brush)
+* void setColor(QColor color)
+* void setExplodeDistanceFactor(qreal factor)
+* void setExploded(bool exploded)
+* void setLabel(QString label)
+* void setLabelArmLengthFactor(qreal factor)
+* void setLabelBrush(QBrush brush)
+* void setLabelColor(QColor color)
+* void setLabelFont(QFont font)
+* void setLabelPosition(QPieSlice::LabelPosition position)
+* void setLabelVisible(bool visible)
+* void setPen(QPen pen)
+* void setValue(qreal value)
+* qreal startAngle(void)
+* qreal value(void)
+* void setangleSpanChangedEvent(const char *)
+* void setborderColorChangedEvent(const char *)
+* void setborderWidthChangedEvent(const char *)
+* void setbrushChangedEvent(const char *)
+* void setclickedEvent(const char *)
+* void setcolorChangedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void sethoveredEvent(const char *)
+* void setlabelBrushChangedEvent(const char *)
+* void setlabelChangedEvent(const char *)
+* void setlabelColorChangedEvent(const char *)
+* void setlabelFontChangedEvent(const char *)
+* void setlabelVisibleChangedEvent(const char *)
+* void setpenChangedEvent(const char *)
+* void setpercentageChangedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* void setstartAngleChangedEvent(const char *)
+* void setvalueChangedEvent(const char *)
+* const char *getangleSpanChangedEvent(void)
+* const char *getborderColorChangedEvent(void)
+* const char *getborderWidthChangedEvent(void)
+* const char *getbrushChangedEvent(void)
+* const char *getclickedEvent(void)
+* const char *getcolorChangedEvent(void)
+* const char *getdoubleClickedEvent(void)
+* const char *gethoveredEvent(void)
+* const char *getlabelBrushChangedEvent(void)
+* const char *getlabelChangedEvent(void)
+* const char *getlabelColorChangedEvent(void)
+* const char *getlabelFontChangedEvent(void)
+* const char *getlabelVisibleChangedEvent(void)
+* const char *getpenChangedEvent(void)
+* const char *getpercentageChangedEvent(void)
+* const char *getpressedEvent(void)
+* const char *getreleasedEvent(void)
+* const char *getstartAngleChangedEvent(void)
+* const char *getvalueChangedEvent(void)
+
 .. index::
 	pair: RingQt Classes Reference; QPixmap Class
 
@@ -8313,6 +8459,22 @@ Parameters : Qt3DCore::QNode *
 * void setColor(QColor)
 * void setIntensity(float intensity)
 
+.. index::
+	pair: RingQt Classes Reference; QPolarChart Class
+
+QPolarChart Class
+=================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qpolarchart.html
+
+
+Parameters : QGraphicsItem *,Qt::WindowFlags
+
+
+Parent Class : QChart
+
+* QList<QAbstractAxis *> axes(QPolarChart::PolarOrientations polarOrientation, QAbstractSeries *series )
 .. index::
 	pair: RingQt Classes Reference; QPrintDialog Class
 
@@ -11978,6 +12140,22 @@ C++ Reference : http://doc.qt.io/qt-5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -12005,22 +12183,6 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
