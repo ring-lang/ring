@@ -79,6 +79,7 @@ class GameInterface
 		glEnable(GL_CULL_FACE)
 		glDepthFunc(GL_LEQUAL)
 		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
+		glClear(GL_DEPTH_BUFFER_BIT)
 
 	func Cubes oGame
 		oGame.oGameCube {
@@ -394,6 +395,7 @@ class GameBackground
 		motion()
 
 	func draw
+		glClear(GL_COLOR_BUFFER_BIT)
 		al_draw_bitmap(bitmap,nBackX,nBackY,1)
 
 	func motion
@@ -464,7 +466,6 @@ class GraphicsAppBase
 		al_set_new_display_flags(ALLEGRO_OPENGL) 
 		display = al_create_display(SCREEN_W,SCREEN_H)
 		al_set_window_title(display,TITLE)
-		al_set_display_icon(display,al_load_bitmap("image/o.png"))
 		al_clear_to_color(al_map_rgb(0,0,0))
 		event_queue = al_create_event_queue()
 		al_register_event_source(event_queue, 
