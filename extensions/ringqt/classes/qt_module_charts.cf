@@ -27,3 +27,4 @@
 <loadfile> charts/qhcandlestickmodelmapper.cf
 <loadfile> charts/qhpiemodelmapper.cf
 <loadfile> charts/qhxymodelmapper.cf
+<loadfile> charts/qhorizontalbarseries.cf
