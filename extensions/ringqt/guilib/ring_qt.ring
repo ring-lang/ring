@@ -26529,7 +26529,9 @@ Class QAreaSeries from QAbstractSeries
 		return pTempObj
 
 	Func lowerSeries 
-		return QAreaSeries_lowerSeries(pObject)
+		pTempObj = new QLineSeries
+		pTempObj.pObject = QAreaSeries_lowerSeries(pObject)
+		return pTempObj
 
 	Func pen 
 		pTempObj = new QPen
@@ -26595,7 +26597,9 @@ Class QAreaSeries from QAbstractSeries
 		return QAreaSeries_setUpperSeries(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func upperSeries 
-		return QAreaSeries_upperSeries(pObject)
+		pTempObj = new QLineSeries
+		pTempObj.pObject = QAreaSeries_upperSeries(pObject)
+		return pTempObj
 
 	Func setborderColorChangedEvent P1
 		return QAreaSeries_setborderColorChangedEvent(pObject,P1)
@@ -28619,6 +28623,272 @@ Class QLegend from QGraphicsWidget
 
 	Func showToolTips 
 		return QLegend_showToolTips()
+
+Class QLegendMarker from QObject
+
+	pObject
+
+	Func init 
+		pObject = QLegendMarker_new()
+		return self
+
+	Func delete
+		pObject = QLegendMarker_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QLegendMarker_brush(pObject)
+		return pTempObj
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QLegendMarker_font(pObject)
+		return pTempObj
+
+	Func isVisible 
+		return QLegendMarker_isVisible(pObject)
+
+	Func label 
+		return QLegendMarker_label(pObject)
+
+	Func labelBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QLegendMarker_labelBrush(pObject)
+		return pTempObj
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QLegendMarker_pen(pObject)
+		return pTempObj
+
+	Func series 
+		pTempObj = new QAbstractSeries
+		pTempObj.pObject = QLegendMarker_series(pObject)
+		return pTempObj
+
+	Func setBrush P1
+		return QLegendMarker_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFont P1
+		return QLegendMarker_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setLabel P1
+		return QLegendMarker_setLabel(pObject,P1)
+
+	Func setLabelBrush P1
+		return QLegendMarker_setLabelBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPen P1
+		return QLegendMarker_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setShape P1
+		return QLegendMarker_setShape(pObject,P1)
+
+	Func setVisible P1
+		return QLegendMarker_setVisible(pObject,P1)
+
+	Func shape 
+		return QLegendMarker_shape(pObject)
+
+	Func setbrushChangedEvent P1
+		return QLegendMarker_setbrushChangedEvent(pObject,P1)
+
+	Func setclickedEvent P1
+		return QLegendMarker_setclickedEvent(pObject,P1)
+
+	Func setfontChangedEvent P1
+		return QLegendMarker_setfontChangedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return QLegendMarker_sethoveredEvent(pObject,P1)
+
+	Func setlabelBrushChangedEvent P1
+		return QLegendMarker_setlabelBrushChangedEvent(pObject,P1)
+
+	Func setlabelChangedEvent P1
+		return QLegendMarker_setlabelChangedEvent(pObject,P1)
+
+	Func setpenChangedEvent P1
+		return QLegendMarker_setpenChangedEvent(pObject,P1)
+
+	Func setshapeChangedEvent P1
+		return QLegendMarker_setshapeChangedEvent(pObject,P1)
+
+	Func setvisibleChangedEvent P1
+		return QLegendMarker_setvisibleChangedEvent(pObject,P1)
+
+	Func getbrushChangedEvent 
+		return QLegendMarker_getbrushChangedEvent(pObject)
+
+	Func getclickedEvent 
+		return QLegendMarker_getclickedEvent(pObject)
+
+	Func getfontChangedEvent 
+		return QLegendMarker_getfontChangedEvent(pObject)
+
+	Func gethoveredEvent 
+		return QLegendMarker_gethoveredEvent(pObject)
+
+	Func getlabelBrushChangedEvent 
+		return QLegendMarker_getlabelBrushChangedEvent(pObject)
+
+	Func getlabelChangedEvent 
+		return QLegendMarker_getlabelChangedEvent(pObject)
+
+	Func getpenChangedEvent 
+		return QLegendMarker_getpenChangedEvent(pObject)
+
+	Func getshapeChangedEvent 
+		return QLegendMarker_getshapeChangedEvent(pObject)
+
+	Func getvisibleChangedEvent 
+		return QLegendMarker_getvisibleChangedEvent(pObject)
+
+Class QLineSeries from QXYSeries
+
+	pObject
+
+	Func init P1
+		pObject = QLineSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QLineSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func type 
+		return QLineSeries_type(pObject)
+
+Class QLogValueAxis from QAbstractAxis
+
+	pObject
+
+	Func init P1
+		pObject = QLogValueAxis_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QLogValueAxis_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func base 
+		return QLogValueAxis_base(pObject)
+
+	Func labelFormat 
+		return QLogValueAxis_labelFormat(pObject)
+
+	Func max 
+		return QLogValueAxis_max(pObject)
+
+	Func min 
+		return QLogValueAxis_min(pObject)
+
+	Func minorTickCount 
+		return QLogValueAxis_minorTickCount(pObject)
+
+	Func setBase P1
+		return QLogValueAxis_setBase(pObject,P1)
+
+	Func setLabelFormat P1
+		return QLogValueAxis_setLabelFormat(pObject,P1)
+
+	Func setMax P1
+		return QLogValueAxis_setMax(pObject,P1)
+
+	Func setMin P1
+		return QLogValueAxis_setMin(pObject,P1)
+
+	Func setMinorTickCount P1
+		return QLogValueAxis_setMinorTickCount(pObject,P1)
+
+	Func setRange P1,P2
+		return QLogValueAxis_setRange(pObject,P1,P2)
+
+	Func tickCount 
+		return QLogValueAxis_tickCount(pObject)
+
+	Func setbaseChangedEvent P1
+		return QLogValueAxis_setbaseChangedEvent(pObject,P1)
+
+	Func setlabelFormatChangedEvent P1
+		return QLogValueAxis_setlabelFormatChangedEvent(pObject,P1)
+
+	Func setmaxChangedEvent P1
+		return QLogValueAxis_setmaxChangedEvent(pObject,P1)
+
+	Func setminChangedEvent P1
+		return QLogValueAxis_setminChangedEvent(pObject,P1)
+
+	Func setminorTickCountChangedEvent P1
+		return QLogValueAxis_setminorTickCountChangedEvent(pObject,P1)
+
+	Func setrangeChangedEvent P1
+		return QLogValueAxis_setrangeChangedEvent(pObject,P1)
+
+	Func settickCountChangedEvent P1
+		return QLogValueAxis_settickCountChangedEvent(pObject,P1)
+
+	Func getbaseChangedEvent 
+		return QLogValueAxis_getbaseChangedEvent(pObject)
+
+	Func getlabelFormatChangedEvent 
+		return QLogValueAxis_getlabelFormatChangedEvent(pObject)
+
+	Func getmaxChangedEvent 
+		return QLogValueAxis_getmaxChangedEvent(pObject)
+
+	Func getminChangedEvent 
+		return QLogValueAxis_getminChangedEvent(pObject)
+
+	Func getminorTickCountChangedEvent 
+		return QLogValueAxis_getminorTickCountChangedEvent(pObject)
+
+	Func getrangeChangedEvent 
+		return QLogValueAxis_getrangeChangedEvent(pObject)
+
+	Func gettickCountChangedEvent 
+		return QLogValueAxis_gettickCountChangedEvent(pObject)
+
+Class QPercentBarSeries from QAbstractBarSeries
+
+	pObject
+
+	Func init P1
+		pObject = QPercentBarSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPercentBarSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func type 
+		return QPercentBarSeries_type(pObject)
+
+Class QPieLegendMarker from QLegendMarker
+
+	pObject
+
+	Func init P1
+		pObject = QPieLegendMarker_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QPieLegendMarker_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func slice 
+		return QPieLegendMarker_slice(pObject)
 
 Class QSize
 

@@ -80,6 +80,8 @@ SOURCES +=   \
     cpp/src/ghcandlestickmodelmapper.cpp \
     cpp/src/ghpiemodelmapper.cpp \
     cpp/src/ghxymodelmapper.cpp \
+    cpp/src/glegendmarker.cpp \
+    cpp/src/glogvalueaxis.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -150,7 +152,9 @@ HEADERS  += \
     cpp/include/ghboxplotmodelmapper.h \
     cpp/include/ghcandlestickmodelmapper.h \
     cpp/include/ghpiemodelmapper.h \
-    cpp/include/ghxymodelmapper.h 
+    cpp/include/ghxymodelmapper.h \
+    cpp/include/glegendmarker.h \
+    cpp/include/glogvalueaxis.h
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include
