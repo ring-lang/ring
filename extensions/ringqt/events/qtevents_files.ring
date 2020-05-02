@@ -87,4 +87,6 @@ load "charts/qhboxplotmodelmapper.ring"
 load "charts/qhcandlestickmodelmapper.ring"
 load "charts/qhpiemodelmapper.ring"
 load "charts/qhxymodelmapper.ring"
+load "charts/qlegendmarker.ring"
+load "charts/qlogvalueaxis.ring"
 #-------------------------------------------------------------------------#
