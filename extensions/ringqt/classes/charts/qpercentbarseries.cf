@@ -1,0 +1,8 @@
+<class>
+name: QPercentBarSeries
+para: QObject *
+parent: QAbstractBarSeries
+abstract
+</class>
+
+QAbstractSeries::SeriesType type(void)
