@@ -224,6 +224,9 @@ Better RingQt
 * QHPieModelMapper
 * QHXYModelMapper
 * QHorizontalBarSeries
+* QHorizontalPercentBarSeries
+* QHorizontalStackedBarSeries
+* QLegend
 	
 (2) Better QtConverter application
 

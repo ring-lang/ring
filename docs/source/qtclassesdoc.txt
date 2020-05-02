@@ -5042,6 +5042,41 @@ Parameters : QObject *
 Parent Class : QAbstractBarSeries
 
 * QAbstractSeries::SeriesType type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QHorizontalPercentBarSeries Class
+
+QHorizontalPercentBarSeries Class
+=================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qhorizontalpercentbarseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractBarSeries
+
+* QAbstractSeries::SeriesType type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QHorizontalStackedBarSeries Class
+
+QHorizontalStackedBarSeries Class
+=================================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qhorizontalstackedbarseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractBarSeries
+
+* QAbstractSeries::SeriesType type(void)
+
 .. index::
 	pair: RingQt Classes Reference; QHostAddress Class
 
@@ -5549,6 +5584,46 @@ Parent Class : QObject
 * void update(void)
 * QSize  closestAcceptableSize( QWidget * widget,  QSize   size)
 
+.. index::
+	pair: RingQt Classes Reference; QLegend Class
+
+QLegend Class
+=============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qlegend.html
+
+
+Parent Class : QGraphicsWidget
+
+* Qt::Alignment alignment(void)
+* void attachToChart(void)
+* QColor borderColor(void)
+* QBrush brush(void)
+* QColor color(void)
+* void detachFromChart(void)
+* QFont font(void)
+* bool isAttachedToChart(void)
+* bool isBackgroundVisible(void)
+* QBrush labelBrush(void)
+* QColor labelColor(void)
+* QLegend::MarkerShape markerShape(void)
+* QList<QLegendMarker *> markers(QAbstractSeries *series)
+* QPen pen(void)
+* bool reverseMarkers(void)
+* void setAlignment(Qt::Alignment alignment)
+* void setBackgroundVisible(bool visible)
+* void setBorderColor(QColor color)
+* void setBrush(QBrush brush)
+* void setColor(QColor color)
+* void setFont(QFont font)
+* void setLabelBrush(QBrush brush)
+* void setLabelColor(QColor color)
+* void setMarkerShape(QLegend::MarkerShape shape)
+* void setPen(QPen pen)
+* void setReverseMarkers(bool reverseMarkers)
+* void setShowToolTips(bool show)
+* bool showToolTips(void)
 .. index::
 	pair: RingQt Classes Reference; QLineEdit Class
 
@@ -11764,22 +11839,6 @@ C++ Reference : http://doc.qt.io/qt-5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -11807,6 +11866,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
