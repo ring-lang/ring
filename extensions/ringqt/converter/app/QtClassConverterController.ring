@@ -591,7 +591,11 @@ func WriteClassFiles
 		   lower(cClassName) + ".ring"
 
 	write(cClassFile,oView.QtcfOutputTE.toplaintext())
-	write(cEventsFile,oView.QteventsOutputTE.toplaintext())
+
+	cEventsFileContent = oView.QteventsOutputTE.toplaintext()
+	if trim(cEventsFileContent) != NULL
+		write(cEventsFile,oView.QteventsOutputTE.toplaintext())
+	ok
 
 	msginfo("Writing Files","Opeartion done!")
 
