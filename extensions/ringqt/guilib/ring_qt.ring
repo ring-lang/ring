@@ -28468,6 +28468,23 @@ Class QHXYModelMapper from QXYModelMapper
 	Func getyRowChangedEvent 
 		return QHXYModelMapper_getyRowChangedEvent(pObject)
 
+Class QHorizontalBarSeries from QAbstractBarSeries
+
+	pObject
+
+	Func init P1
+		pObject = QHorizontalBarSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QHorizontalBarSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func type 
+		return QHorizontalBarSeries_type(pObject)
+
 Class QSize
 
 	pObject
