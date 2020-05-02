@@ -1,0 +1,44 @@
+<class>
+name: QLegendMarker
+para: void 
+parent: QObject
+codename: GLegendMarker
+abstract
+passvmpointer
+</class>
+
+QBrush brush(void)
+QFont font(void)
+bool isVisible(void)
+QString label(void)
+QBrush labelBrush(void)
+QPen pen(void)
+QAbstractSeries * series(void)
+void setBrush(QBrush brush)
+void setFont(QFont font)
+void setLabel(QString label)
+void setLabelBrush(QBrush brush)
+void setPen(QPen pen)
+void setShape(QLegend::MarkerShape shape)
+void setVisible(bool visible)
+QLegend::MarkerShape shape(void)
+
+void setbrushChangedEvent(const char *)
+void setclickedEvent(const char *)
+void setfontChangedEvent(const char *)
+void sethoveredEvent(const char *)
+void setlabelBrushChangedEvent(const char *)
+void setlabelChangedEvent(const char *)
+void setpenChangedEvent(const char *)
+void setshapeChangedEvent(const char *)
+void setvisibleChangedEvent(const char *)
+
+const char *getbrushChangedEvent(void)
+const char *getclickedEvent(void)
+const char *getfontChangedEvent(void)
+const char *gethoveredEvent(void)
+const char *getlabelBrushChangedEvent(void)
+const char *getlabelChangedEvent(void)
+const char *getpenChangedEvent(void)
+const char *getshapeChangedEvent(void)
+const char *getvisibleChangedEvent(void)
