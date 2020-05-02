@@ -28,14 +28,15 @@ func main
 
 class TicTacToe3D from GameLogic
 
-	FPS = 120
-	TITLE = "TicTacToe 3D"
+	FPS	= 120
+	TITLE	= "TicTacToe 3D"
+	ICON	= "image/o.png"
 
-	oBackground = new GameBackground
-	oGameSound = new GameSound
-	oGameCube = new GameCube
-	oGameOver = new GameOver
-	oGameInterface = new GameInterface 
+	oBackground	= new GameBackground
+	oGameSound	= new GameSound
+	oGameCube	= new GameCube
+	oGameOver	= new GameOver
+	oGameInterface	= new GameInterface 
 
 	func loadresources
 		oGameOver.loadresources()
@@ -447,6 +448,7 @@ class GraphicsAppBase
 	Mouse_X 		= 0
 	Mouse_Y			= 0
 	TITLE 			= "Graphics Application"
+	ICON			= ""
 	PRINT_MOUSE_XY 	= False
 
 	func start
@@ -466,6 +468,9 @@ class GraphicsAppBase
 		al_set_new_display_flags(ALLEGRO_OPENGL) 
 		display = al_create_display(SCREEN_W,SCREEN_H)
 		al_set_window_title(display,TITLE)
+		if not ICON = NULL
+			al_set_display_icon(display,al_load_bitmap(ICON))
+		ok
 		al_clear_to_color(al_map_rgb(0,0,0))
 		event_queue = al_create_event_queue()
 		al_register_event_source(event_queue, 
