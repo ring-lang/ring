@@ -1,0 +1,34 @@
+<class>
+name: QVPieModelMapper
+para: QObject *
+parent: QPieModelMapper
+codename: GVPieModelMapper
+passvmpointer
+</class>
+
+int firstRow(void)
+int labelsColumn(void)
+QAbstractItemModel * model(void)
+int rowCount(void)
+QPieSeries * series(void)
+void setFirstRow(int firstRow)
+void setLabelsColumn(int labelsColumn)
+void setModel(QAbstractItemModel *model)
+void setRowCount(int rowCount)
+void setSeries(QPieSeries *series)
+void setValuesColumn(int valuesColumn)
+int valuesColumn(void)
+
+void setfirstRowChangedEvent(const char *)
+void setlabelsColumnChangedEvent(const char *)
+void setmodelReplacedEvent(const char *)
+void setrowCountChangedEvent(const char *)
+void setseriesReplacedEvent(const char *)
+void setvaluesColumnChangedEvent(const char *)
+
+const char *getfirstRowChangedEvent(void)
+const char *getlabelsColumnChangedEvent(void)
+const char *getmodelReplacedEvent(void)
+const char *getrowCountChangedEvent(void)
+const char *getseriesReplacedEvent(void)
+const char *getvaluesColumnChangedEvent(void)
