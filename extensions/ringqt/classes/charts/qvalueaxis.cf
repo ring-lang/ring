@@ -1,0 +1,45 @@
+<class>
+name: QValueAxis
+para: QObject *
+parent: QAbstractAxis
+codename: GValueAxis
+passvmpointer
+</class>
+
+QString labelFormat(void)
+qreal max(void)
+qreal min(void)
+int minorTickCount(void)
+void setLabelFormat(QString format)
+void setMax(qreal max)
+void setMin(qreal min)
+void setMinorTickCount(int count)
+void setRange(qreal min, qreal max)
+void setTickAnchor(qreal anchor)
+void setTickCount(int count)
+void setTickInterval(qreal insterval)
+void setTickType(QValueAxis::TickType type)
+qreal tickAnchor(void)
+int tickCount(void)
+qreal tickInterval(void)
+QValueAxis::TickType tickType(void)
+
+void setlabelFormatChangedEvent(const char *)
+void setmaxChangedEvent(const char *)
+void setminChangedEvent(const char *)
+void setminorTickCountChangedEvent(const char *)
+void setrangeChangedEvent(const char *)
+void settickAnchorChangedEvent(const char *)
+void settickCountChangedEvent(const char *)
+void settickIntervalChangedEvent(const char *)
+void settickTypeChangedEvent(const char *)
+
+const char *getlabelFormatChangedEvent(void)
+const char *getmaxChangedEvent(void)
+const char *getminChangedEvent(void)
+const char *getminorTickCountChangedEvent(void)
+const char *getrangeChangedEvent(void)
+const char *gettickAnchorChangedEvent(void)
+const char *gettickCountChangedEvent(void)
+const char *gettickIntervalChangedEvent(void)
+const char *gettickTypeChangedEvent(void)
