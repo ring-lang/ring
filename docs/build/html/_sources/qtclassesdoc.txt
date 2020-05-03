@@ -8475,6 +8475,7 @@ Parameters : QGraphicsItem *,Qt::WindowFlags
 Parent Class : QChart
 
 * QList<QAbstractAxis *> axes(QPolarChart::PolarOrientations polarOrientation, QAbstractSeries *series )
+
 .. index::
 	pair: RingQt Classes Reference; QPrintDialog Class
 
@@ -9157,6 +9158,36 @@ Parameters : Qt3DCore::QNode *
 * void setShaderProgram(Qt3DRender::QShaderProgram *shaderProgram)
 
 .. index::
+	pair: RingQt Classes Reference; QScatterSeries Class
+
+QScatterSeries Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qscatterseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QXYSeries
+
+* QBrush brush(void)
+* QScatterSeries::MarkerShape markerShape(void)
+* qreal markerSize(void)
+* void setBorderColor(QColor color)
+* void setMarkerShape(QScatterSeries::MarkerShape shape)
+* void setMarkerSize(qreal size)
+* void setborderColorChangedEvent(const char *)
+* void setcolorChangedEvent(const char *)
+* void setmarkerShapeChangedEvent(const char *)
+* void setmarkerSizeChangedEvent(const char *)
+* const char *getborderColorChangedEvent(void)
+* const char *getcolorChangedEvent(void)
+* const char *getmarkerShapeChangedEvent(void)
+* const char *getmarkerSizeChangedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QSceneLoader Class
 
 QSceneLoader Class
@@ -9490,6 +9521,23 @@ Parent Class : QWidget
 * void showMessage(QString message, int alignment ,QColor color)
 
 .. index::
+	pair: RingQt Classes Reference; QSplineSeries Class
+
+QSplineSeries Class
+===================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qsplineseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QLineSeries
+
+* QAbstractSeries::SeriesType type(void)
+
+.. index::
 	pair: RingQt Classes Reference; QSplitter Class
 
 QSplitter Class
@@ -9769,6 +9817,23 @@ Parameters : void
 * void setNull(int index)
 * void setValue(int index, QVariant)
 * QVariant value(int index)
+
+.. index::
+	pair: RingQt Classes Reference; QStackedBarSeries Class
+
+QStackedBarSeries Class
+=======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qstackedbarseries.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractBarSeries
+
+* QAbstractSeries::SeriesType type(void)
 
 .. index::
 	pair: RingQt Classes Reference; QStackedWidget Class
@@ -11693,6 +11758,45 @@ Parameters : void
 * QString toString(void)
 
 .. index::
+	pair: RingQt Classes Reference; QVBarModelMapper Class
+
+QVBarModelMapper Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qvbarmodelmapper.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* int firstRow(void)
+* int lastBarSetColumn(void)
+* QAbstractItemModel * model(void)
+* int rowCount(void)
+* QAbstractBarSeries * series(void)
+* void setFirstBarSetColumn(int firstBarSetColumn)
+* void setFirstRow(int firstRow)
+* void setLastBarSetColumn(int lastBarSetColumn)
+* void setModel(QAbstractItemModel *model)
+* void setRowCount(int rowCount)
+* void setSeries(QAbstractBarSeries *series)
+* void setfirstBarSetColumnChangedEvent(const char *)
+* void setfirstRowChangedEvent(const char *)
+* void setlastBarSetColumnChangedEvent(const char *)
+* void setmodelReplacedEvent(const char *)
+* void setrowCountChangedEvent(const char *)
+* void setseriesReplacedEvent(const char *)
+* const char *getfirstBarSetColumnChangedEvent(void)
+* const char *getfirstRowChangedEvent(void)
+* const char *getlastBarSetColumnChangedEvent(void)
+* const char *getmodelReplacedEvent(void)
+* const char *getrowCountChangedEvent(void)
+* const char *getseriesReplacedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QVBoxLayout Class
 
 QVBoxLayout Class
@@ -11709,6 +11813,220 @@ Parent Class : QBoxLayout
 
 * void addWidget(QWidget *)
 * void addLayout(QLayout *)
+
+.. index::
+	pair: RingQt Classes Reference; QVBoxPlotModelMapper Class
+
+QVBoxPlotModelMapper Class
+==========================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qvboxplotmodelmapper.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* int firstRow(void)
+* int lastBoxSetColumn(void)
+* QAbstractItemModel * model(void)
+* int rowCount(void)
+* QBoxPlotSeries * series(void)
+* void setFirstBoxSetColumn(int firstBoxSetColumn)
+* void setFirstRow(int firstRow)
+* void setLastBoxSetColumn(int lastBoxSetColumn)
+* void setModel(QAbstractItemModel *model)
+* void setRowCount(int rowCount)
+* void setSeries(QBoxPlotSeries *series)
+* void setfirstBoxSetColumnChangedEvent(const char *)
+* void setfirstRowChangedEvent(const char *)
+* void setlastBoxSetColumnChangedEvent(const char *)
+* void setmodelReplacedEvent(const char *)
+* void setrowCountChangedEvent(const char *)
+* void setseriesReplacedEvent(const char *)
+* const char *getfirstBoxSetColumnChangedEvent(void)
+* const char *getfirstRowChangedEvent(void)
+* const char *getlastBoxSetColumnChangedEvent(void)
+* const char *getmodelReplacedEvent(void)
+* const char *getrowCountChangedEvent(void)
+* const char *getseriesReplacedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QVCandlestickModelMapper Class
+
+QVCandlestickModelMapper Class
+==============================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qvcandlestickmodelmapper.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QCandlestickModelMapper
+
+* int closeRow(void)
+* int firstSetColumn(void)
+* int highRow(void)
+* int lastSetColumn(void)
+* int lowRow(void)
+* int openRow(void)
+* void setCloseRow(int closeRow)
+* void setFirstSetColumn(int firstSetColumn)
+* void setHighRow(int highRow)
+* void setLastSetColumn(int lastSetColumn)
+* void setLowRow(int lowRow)
+* void setOpenRow(int openRow)
+* void setTimestampRow(int timestampRow)
+* int timestampRow(void)
+* void setcloseRowChangedEvent(const char *)
+* void setfirstSetColumnChangedEvent(const char *)
+* void sethighRowChangedEvent(const char *)
+* void setlastSetColumnChangedEvent(const char *)
+* void setlowRowChangedEvent(const char *)
+* void setopenRowChangedEvent(const char *)
+* void settimestampRowChangedEvent(const char *)
+* const char *getcloseRowChangedEvent(void)
+* const char *getfirstSetColumnChangedEvent(void)
+* const char *gethighRowChangedEvent(void)
+* const char *getlastSetColumnChangedEvent(void)
+* const char *getlowRowChangedEvent(void)
+* const char *getopenRowChangedEvent(void)
+* const char *gettimestampRowChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QVPieModelMapper Class
+
+QVPieModelMapper Class
+======================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qvpiemodelmapper.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QPieModelMapper
+
+* int firstRow(void)
+* int labelsColumn(void)
+* QAbstractItemModel * model(void)
+* int rowCount(void)
+* QPieSeries * series(void)
+* void setFirstRow(int firstRow)
+* void setLabelsColumn(int labelsColumn)
+* void setModel(QAbstractItemModel *model)
+* void setRowCount(int rowCount)
+* void setSeries(QPieSeries *series)
+* void setValuesColumn(int valuesColumn)
+* int valuesColumn(void)
+* void setfirstRowChangedEvent(const char *)
+* void setlabelsColumnChangedEvent(const char *)
+* void setmodelReplacedEvent(const char *)
+* void setrowCountChangedEvent(const char *)
+* void setseriesReplacedEvent(const char *)
+* void setvaluesColumnChangedEvent(const char *)
+* const char *getfirstRowChangedEvent(void)
+* const char *getlabelsColumnChangedEvent(void)
+* const char *getmodelReplacedEvent(void)
+* const char *getrowCountChangedEvent(void)
+* const char *getseriesReplacedEvent(void)
+* const char *getvaluesColumnChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QVXYModelMapper Class
+
+QVXYModelMapper Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qvxymodelmapper.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QXYModelMapper
+
+* int firstRow(void)
+* QAbstractItemModel * model(void)
+* int rowCount(void)
+* QXYSeries * series(void)
+* void setFirstRow(int firstRow)
+* void setModel(QAbstractItemModel *model)
+* void setRowCount(int rowCount)
+* void setSeries(QXYSeries *series)
+* void setXColumn(int xColumn)
+* void setYColumn(int yColumn)
+* int xColumn(void)
+* int yColumn(void)
+* void setfirstRowChangedEvent(const char *)
+* void setmodelReplacedEvent(const char *)
+* void setrowCountChangedEvent(const char *)
+* void setseriesReplacedEvent(const char *)
+* void setxColumnChangedEvent(const char *)
+* void setyColumnChangedEvent(const char *)
+* const char *getfirstRowChangedEvent(void)
+* const char *getmodelReplacedEvent(void)
+* const char *getrowCountChangedEvent(void)
+* const char *getseriesReplacedEvent(void)
+* const char *getxColumnChangedEvent(void)
+* const char *getyColumnChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QValueAxis Class
+
+QValueAxis Class
+================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qvalueaxis.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QAbstractAxis
+
+* QString labelFormat(void)
+* qreal max(void)
+* qreal min(void)
+* int minorTickCount(void)
+* void setLabelFormat(QString format)
+* void setMax(qreal max)
+* void setMin(qreal min)
+* void setMinorTickCount(int count)
+* void setRange(qreal min, qreal max)
+* void setTickAnchor(qreal anchor)
+* void setTickCount(int count)
+* void setTickInterval(qreal insterval)
+* void setTickType(QValueAxis::TickType type)
+* qreal tickAnchor(void)
+* int tickCount(void)
+* qreal tickInterval(void)
+* QValueAxis::TickType tickType(void)
+* void setlabelFormatChangedEvent(const char *)
+* void setmaxChangedEvent(const char *)
+* void setminChangedEvent(const char *)
+* void setminorTickCountChangedEvent(const char *)
+* void setrangeChangedEvent(const char *)
+* void settickAnchorChangedEvent(const char *)
+* void settickCountChangedEvent(const char *)
+* void settickIntervalChangedEvent(const char *)
+* void settickTypeChangedEvent(const char *)
+* const char *getlabelFormatChangedEvent(void)
+* const char *getmaxChangedEvent(void)
+* const char *getminChangedEvent(void)
+* const char *getminorTickCountChangedEvent(void)
+* const char *getrangeChangedEvent(void)
+* const char *gettickAnchorChangedEvent(void)
+* const char *gettickCountChangedEvent(void)
+* const char *gettickIntervalChangedEvent(void)
+* const char *gettickTypeChangedEvent(void)
 
 .. index::
 	pair: RingQt Classes Reference; QVariant Class
@@ -12546,6 +12864,104 @@ Parent Class : QObject
 * const char *getxChangedEvent(void)
 * const char *getyChangedEvent(void)
 
+.. index::
+	pair: RingQt Classes Reference; QXYLegendMarker Class
+
+QXYLegendMarker Class
+=====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qxylegendmarker.html
+
+
+Parent Class : QLegendMarker
+
+* QXYSeries * series(void)
+* QLegendMarker::LegendMarkerType type(void)
+
+.. index::
+	pair: RingQt Classes Reference; QXYSeries Class
+
+QXYSeries Class
+===============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qxyseries.html
+
+
+Parent Class : QAbstractSeries
+
+* void append(qreal x, qreal y)
+* void append_2(QPointF point)
+* void append_3(QList<QPointF> points)
+* QPointF at(int index)
+* QBrush brush(void)
+* void clear(void)
+* QColor color(void)
+* int count(void)
+* void insert(int index, QPointF point)
+* QPen pen(void)
+* bool pointLabelsClipping(void)
+* QColor pointLabelsColor(void)
+* QFont pointLabelsFont(void)
+* QString pointLabelsFormat(void)
+* bool pointLabelsVisible(void)
+* QList<QPointF> points(void)
+* QVector<QPointF> pointsVector(void)
+* bool pointsVisible(void)
+* void remove(qreal x, qreal y)
+* void remove_2(QPointF point)
+* void remove_3(int index)
+* void removePoints(int index, int count)
+* void replace(qreal oldX, qreal oldY, qreal newX, qreal newY)
+* void replace_2(QPointF oldPoint, QPointF newPoint)
+* void replace_3(int index, qreal newX, qreal newY)
+* void replace_4(int index, QPointF newPoint)
+* void replace_5(QList<QPointF> points)
+* void replace_6(QVector<QPointF> points)
+* void setBrush(QBrush brush)
+* void setColor(QColor color)
+* void setPen(QPen pen)
+* void setPointLabelsClipping(bool enabled)
+* void setPointLabelsColor(QColor color)
+* void setPointLabelsFont(QFont font)
+* void setPointLabelsFormat(QString format)
+* void setPointLabelsVisible(bool visible)
+* void setPointsVisible(bool visible)
+* void setclickedEvent(const char *)
+* void setcolorChangedEvent(const char *)
+* void setdoubleClickedEvent(const char *)
+* void sethoveredEvent(const char *)
+* void setpenChangedEvent(const char *)
+* void setpointAddedEvent(const char *)
+* void setpointLabelsClippingChangedEvent(const char *)
+* void setpointLabelsColorChangedEvent(const char *)
+* void setpointLabelsFontChangedEvent(const char *)
+* void setpointLabelsFormatChangedEvent(const char *)
+* void setpointLabelsVisibilityChangedEvent(const char *)
+* void setpointRemovedEvent(const char *)
+* void setpointReplacedEvent(const char *)
+* void setpointsRemovedEvent(const char *)
+* void setpointsReplacedEvent(const char *)
+* void setpressedEvent(const char *)
+* void setreleasedEvent(const char *)
+* const char *getclickedEvent(void)
+* const char *getcolorChangedEvent(void)
+* const char *getdoubleClickedEvent(void)
+* const char *gethoveredEvent(void)
+* const char *getpenChangedEvent(void)
+* const char *getpointAddedEvent(void)
+* const char *getpointLabelsClippingChangedEvent(void)
+* const char *getpointLabelsColorChangedEvent(void)
+* const char *getpointLabelsFontChangedEvent(void)
+* const char *getpointLabelsFormatChangedEvent(void)
+* const char *getpointLabelsVisibilityChangedEvent(void)
+* const char *getpointRemovedEvent(void)
+* const char *getpointReplacedEvent(void)
+* const char *getpointsRemovedEvent(void)
+* const char *getpointsReplacedEvent(void)
+* const char *getpressedEvent(void)
+* const char *getreleasedEvent(void)
 .. index::
 	pair: RingQt Classes Reference; QXmlStreamAttribute Class
 
