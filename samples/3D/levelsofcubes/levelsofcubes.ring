@@ -1,17 +1,18 @@
-#1 Sample : Top-Down View - Many Levels of Cubes
+#==============================================================#
+# Sample : Top-Down View - Many Levels of Cubes
 # 2018, Mahmoud Fayed <msfclipper@yahoo.com>
-
+#==============================================================#
 
 # Load Libraries
 	load "gamelib.ring"		# RingAllegro Library
 	load "opengl21lib.ring"		# RingOpenGL  Library
 
-#==============================================================
+#==============================================================#
 # To Support MacOS X
 	al_run_main()	
 	func al_game_start 	# Called by al_run_main()
 		main()		# Now we call our main function
-#==============================================================
+#==============================================================#
 
 func main
 
@@ -156,43 +157,43 @@ class GraphicsApp from GraphicsAppBase
 
 		glBegin(GL_QUADS)
 			// Front Face
-
 			glTexCoord2f(0.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
 			glTexCoord2f(1.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
 			glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0,  1.0)
 			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
 			// Back Face
-#			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
-#			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
-#			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
-#			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
+			/*
+			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
+			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
+			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
+			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
+			*/
 			// Top Face
 			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
 			glTexCoord2f(0.0, 0.0) glVertex3f(-1.0,  1.0,  1.0)
 			glTexCoord2f(1.0, 0.0) glVertex3f( 1.0,  1.0,  1.0)
 			glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
 			// Bottom Face
-#			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0, -1.0, -1.0)
-#			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0, -1.0, -1.0)
-#			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
-#			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
-		if i = 10
-			// Right face
-			glTexCoord2f(1.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
-			glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
-			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0,  1.0)
+			/*
+			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0, -1.0, -1.0)
+			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0, -1.0, -1.0)
 			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
-		but i = -10
-			// Left Face
-			glTexCoord2f(0.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
 			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
-			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
-			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
-		ok
+			*/
+			if i = 10
+				// Right face
+				glTexCoord2f(1.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
+				glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
+				glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0,  1.0)
+				glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
+			but i = -10
+				// Left Face
+				glTexCoord2f(0.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
+				glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
+				glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
+				glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
+			ok
 		glEnd()
-
-
-	
 
 	func set2DMode
 		glMatrixMode(GL_PROJECTION)
@@ -201,8 +202,6 @@ class GraphicsApp from GraphicsAppBase
 		glLoadIdentity()
 		glDisable(GL_CULL_FACE) 
 
-
-	
 
 class GraphicsAppBase
 
