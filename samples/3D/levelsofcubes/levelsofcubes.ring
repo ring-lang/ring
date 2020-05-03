@@ -210,8 +210,8 @@ class GraphicsAppBase
 
 	FPS 		= 120 
 
-	SCREEN_W 	= 1280
-	SCREEN_H 	= 800
+	SCREEN_W 	= 1200
+	SCREEN_H 	= 700
 
 	KEY_UP		= 1
 	KEY_DOWN 	= 2
