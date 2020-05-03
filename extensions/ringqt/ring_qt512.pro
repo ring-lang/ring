@@ -91,6 +91,14 @@ SOURCES +=   \
     cpp/src/glogvalueaxis.cpp \
     cpp/src/gpieseries.cpp \
     cpp/src/gpieslice.cpp \
+    cpp/src/gscatterseries.cpp \
+    cpp/src/gvbarmodelmapper.cpp \
+    cpp/src/gvboxplotmodelmapper.cpp \
+    cpp/src/gvcandlestickmodelmapper.cpp \
+    cpp/src/gvpiemodelmapper.cpp \
+    cpp/src/gvxymodelmapper.cpp \
+    cpp/src/gvalueaxis.cpp \
+    cpp/src/gxyseries.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -172,7 +180,15 @@ HEADERS  += \
     cpp/include/glegendmarker.h \
     cpp/include/glogvalueaxis.h \
     cpp/include/gpieseries.h \
-    cpp/include/gpieslice.h
+    cpp/include/gpieslice.h \
+    cpp/include/gscatterseries.h \
+    cpp/include/gvbarmodelmapper.h \
+    cpp/include/gvboxplotmodelmapper.h \
+    cpp/include/gvcandlestickmodelmapper.h \
+    cpp/include/gvpiemodelmapper.h \
+    cpp/include/gvxymodelmapper.h \
+    cpp/include/gvalueaxis.h \
+    cpp/include/gxyseries.h
     
 
 INCLUDEPATH += ../../include

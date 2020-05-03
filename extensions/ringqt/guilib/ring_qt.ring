@@ -28414,7 +28414,9 @@ Class QHXYModelMapper from QXYModelMapper
 		return QHXYModelMapper_model(pObject)
 
 	Func series 
-		return QHXYModelMapper_series(pObject)
+		pTempObj = new QXYSeries
+		pTempObj.pObject = QHXYModelMapper_series(pObject)
+		return pTempObj
 
 	Func setColumnCount P1
 		return QHXYModelMapper_setColumnCount(pObject,P1)
@@ -29304,6 +29306,918 @@ Class QPolarChart from QChart
 
 	Func axes P1,P2
 		return QPolarChart_axes(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+Class QScatterSeries from QXYSeries
+
+	pObject
+
+	Func init P1
+		pObject = QScatterSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QScatterSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func borderColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QScatterSeries_borderColor(pObject)
+		return pTempObj
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QScatterSeries_brush(pObject)
+		return pTempObj
+
+	Func markerShape 
+		return QScatterSeries_markerShape(pObject)
+
+	Func markerSize 
+		return QScatterSeries_markerSize(pObject)
+
+	Func setBorderColor P1
+		return QScatterSeries_setBorderColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setMarkerShape P1
+		return QScatterSeries_setMarkerShape(pObject,P1)
+
+	Func setMarkerSize P1
+		return QScatterSeries_setMarkerSize(pObject,P1)
+
+	Func setborderColorChangedEvent P1
+		return QScatterSeries_setborderColorChangedEvent(pObject,P1)
+
+	Func setcolorChangedEvent P1
+		return QScatterSeries_setcolorChangedEvent(pObject,P1)
+
+	Func setmarkerShapeChangedEvent P1
+		return QScatterSeries_setmarkerShapeChangedEvent(pObject,P1)
+
+	Func setmarkerSizeChangedEvent P1
+		return QScatterSeries_setmarkerSizeChangedEvent(pObject,P1)
+
+	Func getborderColorChangedEvent 
+		return QScatterSeries_getborderColorChangedEvent(pObject)
+
+	Func getcolorChangedEvent 
+		return QScatterSeries_getcolorChangedEvent(pObject)
+
+	Func getmarkerShapeChangedEvent 
+		return QScatterSeries_getmarkerShapeChangedEvent(pObject)
+
+	Func getmarkerSizeChangedEvent 
+		return QScatterSeries_getmarkerSizeChangedEvent(pObject)
+
+Class QSplineSeries from QLineSeries
+
+	pObject
+
+	Func init P1
+		pObject = QSplineSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QSplineSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func type 
+		return QSplineSeries_type(pObject)
+
+Class QStackedBarSeries from QAbstractBarSeries
+
+	pObject
+
+	Func init P1
+		pObject = QStackedBarSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QStackedBarSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func type 
+		return QStackedBarSeries_type(pObject)
+
+Class QVBarModelMapper from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QVBarModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QVBarModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func firstBarSetColumn 
+		return QVBarModelMapper_firstBarSetColumn(pObject)
+
+	Func firstRow 
+		return QVBarModelMapper_firstRow(pObject)
+
+	Func lastBarSetColumn 
+		return QVBarModelMapper_lastBarSetColumn(pObject)
+
+	Func model 
+		return QVBarModelMapper_model(pObject)
+
+	Func rowCount 
+		return QVBarModelMapper_rowCount(pObject)
+
+	Func series 
+		return QVBarModelMapper_series(pObject)
+
+	Func setFirstBarSetColumn P1
+		return QVBarModelMapper_setFirstBarSetColumn(pObject,P1)
+
+	Func setFirstRow P1
+		return QVBarModelMapper_setFirstRow(pObject,P1)
+
+	Func setLastBarSetColumn P1
+		return QVBarModelMapper_setLastBarSetColumn(pObject,P1)
+
+	Func setModel P1
+		return QVBarModelMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRowCount P1
+		return QVBarModelMapper_setRowCount(pObject,P1)
+
+	Func setSeries P1
+		return QVBarModelMapper_setSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setfirstBarSetColumnChangedEvent P1
+		return QVBarModelMapper_setfirstBarSetColumnChangedEvent(pObject,P1)
+
+	Func setfirstRowChangedEvent P1
+		return QVBarModelMapper_setfirstRowChangedEvent(pObject,P1)
+
+	Func setlastBarSetColumnChangedEvent P1
+		return QVBarModelMapper_setlastBarSetColumnChangedEvent(pObject,P1)
+
+	Func setmodelReplacedEvent P1
+		return QVBarModelMapper_setmodelReplacedEvent(pObject,P1)
+
+	Func setrowCountChangedEvent P1
+		return QVBarModelMapper_setrowCountChangedEvent(pObject,P1)
+
+	Func setseriesReplacedEvent P1
+		return QVBarModelMapper_setseriesReplacedEvent(pObject,P1)
+
+	Func getfirstBarSetColumnChangedEvent 
+		return QVBarModelMapper_getfirstBarSetColumnChangedEvent(pObject)
+
+	Func getfirstRowChangedEvent 
+		return QVBarModelMapper_getfirstRowChangedEvent(pObject)
+
+	Func getlastBarSetColumnChangedEvent 
+		return QVBarModelMapper_getlastBarSetColumnChangedEvent(pObject)
+
+	Func getmodelReplacedEvent 
+		return QVBarModelMapper_getmodelReplacedEvent(pObject)
+
+	Func getrowCountChangedEvent 
+		return QVBarModelMapper_getrowCountChangedEvent(pObject)
+
+	Func getseriesReplacedEvent 
+		return QVBarModelMapper_getseriesReplacedEvent(pObject)
+
+Class QVBoxPlotModelMapper from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QVBoxPlotModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QVBoxPlotModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func firstBoxSetColumn 
+		return QVBoxPlotModelMapper_firstBoxSetColumn(pObject)
+
+	Func firstRow 
+		return QVBoxPlotModelMapper_firstRow(pObject)
+
+	Func lastBoxSetColumn 
+		return QVBoxPlotModelMapper_lastBoxSetColumn(pObject)
+
+	Func model 
+		return QVBoxPlotModelMapper_model(pObject)
+
+	Func rowCount 
+		return QVBoxPlotModelMapper_rowCount(pObject)
+
+	Func series 
+		pTempObj = new QBoxPlotSeries
+		pTempObj.pObject = QVBoxPlotModelMapper_series(pObject)
+		return pTempObj
+
+	Func setFirstBoxSetColumn P1
+		return QVBoxPlotModelMapper_setFirstBoxSetColumn(pObject,P1)
+
+	Func setFirstRow P1
+		return QVBoxPlotModelMapper_setFirstRow(pObject,P1)
+
+	Func setLastBoxSetColumn P1
+		return QVBoxPlotModelMapper_setLastBoxSetColumn(pObject,P1)
+
+	Func setModel P1
+		return QVBoxPlotModelMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRowCount P1
+		return QVBoxPlotModelMapper_setRowCount(pObject,P1)
+
+	Func setSeries P1
+		return QVBoxPlotModelMapper_setSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setfirstBoxSetColumnChangedEvent P1
+		return QVBoxPlotModelMapper_setfirstBoxSetColumnChangedEvent(pObject,P1)
+
+	Func setfirstRowChangedEvent P1
+		return QVBoxPlotModelMapper_setfirstRowChangedEvent(pObject,P1)
+
+	Func setlastBoxSetColumnChangedEvent P1
+		return QVBoxPlotModelMapper_setlastBoxSetColumnChangedEvent(pObject,P1)
+
+	Func setmodelReplacedEvent P1
+		return QVBoxPlotModelMapper_setmodelReplacedEvent(pObject,P1)
+
+	Func setrowCountChangedEvent P1
+		return QVBoxPlotModelMapper_setrowCountChangedEvent(pObject,P1)
+
+	Func setseriesReplacedEvent P1
+		return QVBoxPlotModelMapper_setseriesReplacedEvent(pObject,P1)
+
+	Func getfirstBoxSetColumnChangedEvent 
+		return QVBoxPlotModelMapper_getfirstBoxSetColumnChangedEvent(pObject)
+
+	Func getfirstRowChangedEvent 
+		return QVBoxPlotModelMapper_getfirstRowChangedEvent(pObject)
+
+	Func getlastBoxSetColumnChangedEvent 
+		return QVBoxPlotModelMapper_getlastBoxSetColumnChangedEvent(pObject)
+
+	Func getmodelReplacedEvent 
+		return QVBoxPlotModelMapper_getmodelReplacedEvent(pObject)
+
+	Func getrowCountChangedEvent 
+		return QVBoxPlotModelMapper_getrowCountChangedEvent(pObject)
+
+	Func getseriesReplacedEvent 
+		return QVBoxPlotModelMapper_getseriesReplacedEvent(pObject)
+
+Class QVCandlestickModelMapper from QCandlestickModelMapper
+
+	pObject
+
+	Func init P1
+		pObject = QVCandlestickModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QVCandlestickModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func closeRow 
+		return QVCandlestickModelMapper_closeRow(pObject)
+
+	Func firstSetColumn 
+		return QVCandlestickModelMapper_firstSetColumn(pObject)
+
+	Func highRow 
+		return QVCandlestickModelMapper_highRow(pObject)
+
+	Func lastSetColumn 
+		return QVCandlestickModelMapper_lastSetColumn(pObject)
+
+	Func lowRow 
+		return QVCandlestickModelMapper_lowRow(pObject)
+
+	Func openRow 
+		return QVCandlestickModelMapper_openRow(pObject)
+
+	Func setCloseRow P1
+		return QVCandlestickModelMapper_setCloseRow(pObject,P1)
+
+	Func setFirstSetColumn P1
+		return QVCandlestickModelMapper_setFirstSetColumn(pObject,P1)
+
+	Func setHighRow P1
+		return QVCandlestickModelMapper_setHighRow(pObject,P1)
+
+	Func setLastSetColumn P1
+		return QVCandlestickModelMapper_setLastSetColumn(pObject,P1)
+
+	Func setLowRow P1
+		return QVCandlestickModelMapper_setLowRow(pObject,P1)
+
+	Func setOpenRow P1
+		return QVCandlestickModelMapper_setOpenRow(pObject,P1)
+
+	Func setTimestampRow P1
+		return QVCandlestickModelMapper_setTimestampRow(pObject,P1)
+
+	Func timestampRow 
+		return QVCandlestickModelMapper_timestampRow(pObject)
+
+	Func setcloseRowChangedEvent P1
+		return QVCandlestickModelMapper_setcloseRowChangedEvent(pObject,P1)
+
+	Func setfirstSetColumnChangedEvent P1
+		return QVCandlestickModelMapper_setfirstSetColumnChangedEvent(pObject,P1)
+
+	Func sethighRowChangedEvent P1
+		return QVCandlestickModelMapper_sethighRowChangedEvent(pObject,P1)
+
+	Func setlastSetColumnChangedEvent P1
+		return QVCandlestickModelMapper_setlastSetColumnChangedEvent(pObject,P1)
+
+	Func setlowRowChangedEvent P1
+		return QVCandlestickModelMapper_setlowRowChangedEvent(pObject,P1)
+
+	Func setopenRowChangedEvent P1
+		return QVCandlestickModelMapper_setopenRowChangedEvent(pObject,P1)
+
+	Func settimestampRowChangedEvent P1
+		return QVCandlestickModelMapper_settimestampRowChangedEvent(pObject,P1)
+
+	Func getcloseRowChangedEvent 
+		return QVCandlestickModelMapper_getcloseRowChangedEvent(pObject)
+
+	Func getfirstSetColumnChangedEvent 
+		return QVCandlestickModelMapper_getfirstSetColumnChangedEvent(pObject)
+
+	Func gethighRowChangedEvent 
+		return QVCandlestickModelMapper_gethighRowChangedEvent(pObject)
+
+	Func getlastSetColumnChangedEvent 
+		return QVCandlestickModelMapper_getlastSetColumnChangedEvent(pObject)
+
+	Func getlowRowChangedEvent 
+		return QVCandlestickModelMapper_getlowRowChangedEvent(pObject)
+
+	Func getopenRowChangedEvent 
+		return QVCandlestickModelMapper_getopenRowChangedEvent(pObject)
+
+	Func gettimestampRowChangedEvent 
+		return QVCandlestickModelMapper_gettimestampRowChangedEvent(pObject)
+
+Class QVPieModelMapper from QPieModelMapper
+
+	pObject
+
+	Func init P1
+		pObject = QVPieModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QVPieModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func firstRow 
+		return QVPieModelMapper_firstRow(pObject)
+
+	Func labelsColumn 
+		return QVPieModelMapper_labelsColumn(pObject)
+
+	Func model 
+		return QVPieModelMapper_model(pObject)
+
+	Func rowCount 
+		return QVPieModelMapper_rowCount(pObject)
+
+	Func series 
+		pTempObj = new QPieSeries
+		pTempObj.pObject = QVPieModelMapper_series(pObject)
+		return pTempObj
+
+	Func setFirstRow P1
+		return QVPieModelMapper_setFirstRow(pObject,P1)
+
+	Func setLabelsColumn P1
+		return QVPieModelMapper_setLabelsColumn(pObject,P1)
+
+	Func setModel P1
+		return QVPieModelMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRowCount P1
+		return QVPieModelMapper_setRowCount(pObject,P1)
+
+	Func setSeries P1
+		return QVPieModelMapper_setSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setValuesColumn P1
+		return QVPieModelMapper_setValuesColumn(pObject,P1)
+
+	Func valuesColumn 
+		return QVPieModelMapper_valuesColumn(pObject)
+
+	Func setfirstRowChangedEvent P1
+		return QVPieModelMapper_setfirstRowChangedEvent(pObject,P1)
+
+	Func setlabelsColumnChangedEvent P1
+		return QVPieModelMapper_setlabelsColumnChangedEvent(pObject,P1)
+
+	Func setmodelReplacedEvent P1
+		return QVPieModelMapper_setmodelReplacedEvent(pObject,P1)
+
+	Func setrowCountChangedEvent P1
+		return QVPieModelMapper_setrowCountChangedEvent(pObject,P1)
+
+	Func setseriesReplacedEvent P1
+		return QVPieModelMapper_setseriesReplacedEvent(pObject,P1)
+
+	Func setvaluesColumnChangedEvent P1
+		return QVPieModelMapper_setvaluesColumnChangedEvent(pObject,P1)
+
+	Func getfirstRowChangedEvent 
+		return QVPieModelMapper_getfirstRowChangedEvent(pObject)
+
+	Func getlabelsColumnChangedEvent 
+		return QVPieModelMapper_getlabelsColumnChangedEvent(pObject)
+
+	Func getmodelReplacedEvent 
+		return QVPieModelMapper_getmodelReplacedEvent(pObject)
+
+	Func getrowCountChangedEvent 
+		return QVPieModelMapper_getrowCountChangedEvent(pObject)
+
+	Func getseriesReplacedEvent 
+		return QVPieModelMapper_getseriesReplacedEvent(pObject)
+
+	Func getvaluesColumnChangedEvent 
+		return QVPieModelMapper_getvaluesColumnChangedEvent(pObject)
+
+Class QVXYModelMapper from QXYModelMapper
+
+	pObject
+
+	Func init P1
+		pObject = QVXYModelMapper_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QVXYModelMapper_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func firstRow 
+		return QVXYModelMapper_firstRow(pObject)
+
+	Func model 
+		return QVXYModelMapper_model(pObject)
+
+	Func rowCount 
+		return QVXYModelMapper_rowCount(pObject)
+
+	Func series 
+		pTempObj = new QXYSeries
+		pTempObj.pObject = QVXYModelMapper_series(pObject)
+		return pTempObj
+
+	Func setFirstRow P1
+		return QVXYModelMapper_setFirstRow(pObject,P1)
+
+	Func setModel P1
+		return QVXYModelMapper_setModel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setRowCount P1
+		return QVXYModelMapper_setRowCount(pObject,P1)
+
+	Func setSeries P1
+		return QVXYModelMapper_setSeries(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setXColumn P1
+		return QVXYModelMapper_setXColumn(pObject,P1)
+
+	Func setYColumn P1
+		return QVXYModelMapper_setYColumn(pObject,P1)
+
+	Func xColumn 
+		return QVXYModelMapper_xColumn(pObject)
+
+	Func yColumn 
+		return QVXYModelMapper_yColumn(pObject)
+
+	Func setfirstRowChangedEvent P1
+		return QVXYModelMapper_setfirstRowChangedEvent(pObject,P1)
+
+	Func setmodelReplacedEvent P1
+		return QVXYModelMapper_setmodelReplacedEvent(pObject,P1)
+
+	Func setrowCountChangedEvent P1
+		return QVXYModelMapper_setrowCountChangedEvent(pObject,P1)
+
+	Func setseriesReplacedEvent P1
+		return QVXYModelMapper_setseriesReplacedEvent(pObject,P1)
+
+	Func setxColumnChangedEvent P1
+		return QVXYModelMapper_setxColumnChangedEvent(pObject,P1)
+
+	Func setyColumnChangedEvent P1
+		return QVXYModelMapper_setyColumnChangedEvent(pObject,P1)
+
+	Func getfirstRowChangedEvent 
+		return QVXYModelMapper_getfirstRowChangedEvent(pObject)
+
+	Func getmodelReplacedEvent 
+		return QVXYModelMapper_getmodelReplacedEvent(pObject)
+
+	Func getrowCountChangedEvent 
+		return QVXYModelMapper_getrowCountChangedEvent(pObject)
+
+	Func getseriesReplacedEvent 
+		return QVXYModelMapper_getseriesReplacedEvent(pObject)
+
+	Func getxColumnChangedEvent 
+		return QVXYModelMapper_getxColumnChangedEvent(pObject)
+
+	Func getyColumnChangedEvent 
+		return QVXYModelMapper_getyColumnChangedEvent(pObject)
+
+Class QValueAxis from QAbstractAxis
+
+	pObject
+
+	Func init P1
+		pObject = QValueAxis_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QValueAxis_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func labelFormat 
+		return QValueAxis_labelFormat(pObject)
+
+	Func max 
+		return QValueAxis_max(pObject)
+
+	Func min 
+		return QValueAxis_min(pObject)
+
+	Func minorTickCount 
+		return QValueAxis_minorTickCount(pObject)
+
+	Func setLabelFormat P1
+		return QValueAxis_setLabelFormat(pObject,P1)
+
+	Func setMax P1
+		return QValueAxis_setMax(pObject,P1)
+
+	Func setMin P1
+		return QValueAxis_setMin(pObject,P1)
+
+	Func setMinorTickCount P1
+		return QValueAxis_setMinorTickCount(pObject,P1)
+
+	Func setRange P1,P2
+		return QValueAxis_setRange(pObject,P1,P2)
+
+	Func setTickAnchor P1
+		return QValueAxis_setTickAnchor(pObject,P1)
+
+	Func setTickCount P1
+		return QValueAxis_setTickCount(pObject,P1)
+
+	Func setTickInterval P1
+		return QValueAxis_setTickInterval(pObject,P1)
+
+	Func setTickType P1
+		return QValueAxis_setTickType(pObject,P1)
+
+	Func tickAnchor 
+		return QValueAxis_tickAnchor(pObject)
+
+	Func tickCount 
+		return QValueAxis_tickCount(pObject)
+
+	Func tickInterval 
+		return QValueAxis_tickInterval(pObject)
+
+	Func tickType 
+		return QValueAxis_tickType(pObject)
+
+	Func setlabelFormatChangedEvent P1
+		return QValueAxis_setlabelFormatChangedEvent(pObject,P1)
+
+	Func setmaxChangedEvent P1
+		return QValueAxis_setmaxChangedEvent(pObject,P1)
+
+	Func setminChangedEvent P1
+		return QValueAxis_setminChangedEvent(pObject,P1)
+
+	Func setminorTickCountChangedEvent P1
+		return QValueAxis_setminorTickCountChangedEvent(pObject,P1)
+
+	Func setrangeChangedEvent P1
+		return QValueAxis_setrangeChangedEvent(pObject,P1)
+
+	Func settickAnchorChangedEvent P1
+		return QValueAxis_settickAnchorChangedEvent(pObject,P1)
+
+	Func settickCountChangedEvent P1
+		return QValueAxis_settickCountChangedEvent(pObject,P1)
+
+	Func settickIntervalChangedEvent P1
+		return QValueAxis_settickIntervalChangedEvent(pObject,P1)
+
+	Func settickTypeChangedEvent P1
+		return QValueAxis_settickTypeChangedEvent(pObject,P1)
+
+	Func getlabelFormatChangedEvent 
+		return QValueAxis_getlabelFormatChangedEvent(pObject)
+
+	Func getmaxChangedEvent 
+		return QValueAxis_getmaxChangedEvent(pObject)
+
+	Func getminChangedEvent 
+		return QValueAxis_getminChangedEvent(pObject)
+
+	Func getminorTickCountChangedEvent 
+		return QValueAxis_getminorTickCountChangedEvent(pObject)
+
+	Func getrangeChangedEvent 
+		return QValueAxis_getrangeChangedEvent(pObject)
+
+	Func gettickAnchorChangedEvent 
+		return QValueAxis_gettickAnchorChangedEvent(pObject)
+
+	Func gettickCountChangedEvent 
+		return QValueAxis_gettickCountChangedEvent(pObject)
+
+	Func gettickIntervalChangedEvent 
+		return QValueAxis_gettickIntervalChangedEvent(pObject)
+
+	Func gettickTypeChangedEvent 
+		return QValueAxis_gettickTypeChangedEvent(pObject)
+
+Class QXYLegendMarker from QLegendMarker
+	Func series 
+		pTempObj = new QXYSeries
+		pTempObj.pObject = QXYLegendMarker_series()
+		return pTempObj
+
+	Func type 
+		return QXYLegendMarker_type()
+
+Class QXYSeries from QAbstractSeries
+
+	pObject
+
+	Func init P1
+		pObject = QXYSeries_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QXYSeries_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func append P1,P2
+		return QXYSeries_append(pObject,P1,P2)
+
+	Func append_2 P1
+		return QXYSeries_append_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func append_3 P1
+		return QXYSeries_append_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func at P1
+		pTempObj = new QPointF
+		pTempObj.pObject = QXYSeries_at(pObject,P1)
+		return pTempObj
+
+	Func brush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QXYSeries_brush(pObject)
+		return pTempObj
+
+	Func clear 
+		return QXYSeries_clear(pObject)
+
+	Func color 
+		pTempObj = new QColor
+		pTempObj.pObject = QXYSeries_color(pObject)
+		return pTempObj
+
+	Func count 
+		return QXYSeries_count(pObject)
+
+	Func insert P1,P2
+		return QXYSeries_insert(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func pen 
+		pTempObj = new QPen
+		pTempObj.pObject = QXYSeries_pen(pObject)
+		return pTempObj
+
+	Func pointLabelsClipping 
+		return QXYSeries_pointLabelsClipping(pObject)
+
+	Func pointLabelsColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QXYSeries_pointLabelsColor(pObject)
+		return pTempObj
+
+	Func pointLabelsFont 
+		pTempObj = new QFont
+		pTempObj.pObject = QXYSeries_pointLabelsFont(pObject)
+		return pTempObj
+
+	Func pointLabelsFormat 
+		return QXYSeries_pointLabelsFormat(pObject)
+
+	Func pointLabelsVisible 
+		return QXYSeries_pointLabelsVisible(pObject)
+
+	Func points 
+		return QXYSeries_points(pObject)
+
+	Func pointsVector 
+		return QXYSeries_pointsVector(pObject)
+
+	Func pointsVisible 
+		return QXYSeries_pointsVisible(pObject)
+
+	Func remove P1,P2
+		return QXYSeries_remove(pObject,P1,P2)
+
+	Func remove_2 P1
+		return QXYSeries_remove_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func remove_3 P1
+		return QXYSeries_remove_3(pObject,P1)
+
+	Func removePoints P1,P2
+		return QXYSeries_removePoints(pObject,P1,P2)
+
+	Func replace P1,P2,P3,P4
+		return QXYSeries_replace(pObject,P1,P2,P3,P4)
+
+	Func replace_2 P1,P2
+		return QXYSeries_replace_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func replace_3 P1,P2,P3
+		return QXYSeries_replace_3(pObject,P1,P2,P3)
+
+	Func replace_4 P1,P2
+		return QXYSeries_replace_4(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func replace_5 P1
+		return QXYSeries_replace_5(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func replace_6 P1
+		return QXYSeries_replace_6(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBrush P1
+		return QXYSeries_setBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setColor P1
+		return QXYSeries_setColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPen P1
+		return QXYSeries_setPen(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPointLabelsClipping P1
+		return QXYSeries_setPointLabelsClipping(pObject,P1)
+
+	Func setPointLabelsColor P1
+		return QXYSeries_setPointLabelsColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPointLabelsFont P1
+		return QXYSeries_setPointLabelsFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPointLabelsFormat P1
+		return QXYSeries_setPointLabelsFormat(pObject,P1)
+
+	Func setPointLabelsVisible P1
+		return QXYSeries_setPointLabelsVisible(pObject,P1)
+
+	Func setPointsVisible P1
+		return QXYSeries_setPointsVisible(pObject,P1)
+
+	Func setclickedEvent P1
+		return QXYSeries_setclickedEvent(pObject,P1)
+
+	Func setcolorChangedEvent P1
+		return QXYSeries_setcolorChangedEvent(pObject,P1)
+
+	Func setdoubleClickedEvent P1
+		return QXYSeries_setdoubleClickedEvent(pObject,P1)
+
+	Func sethoveredEvent P1
+		return QXYSeries_sethoveredEvent(pObject,P1)
+
+	Func setpenChangedEvent P1
+		return QXYSeries_setpenChangedEvent(pObject,P1)
+
+	Func setpointAddedEvent P1
+		return QXYSeries_setpointAddedEvent(pObject,P1)
+
+	Func setpointLabelsClippingChangedEvent P1
+		return QXYSeries_setpointLabelsClippingChangedEvent(pObject,P1)
+
+	Func setpointLabelsColorChangedEvent P1
+		return QXYSeries_setpointLabelsColorChangedEvent(pObject,P1)
+
+	Func setpointLabelsFontChangedEvent P1
+		return QXYSeries_setpointLabelsFontChangedEvent(pObject,P1)
+
+	Func setpointLabelsFormatChangedEvent P1
+		return QXYSeries_setpointLabelsFormatChangedEvent(pObject,P1)
+
+	Func setpointLabelsVisibilityChangedEvent P1
+		return QXYSeries_setpointLabelsVisibilityChangedEvent(pObject,P1)
+
+	Func setpointRemovedEvent P1
+		return QXYSeries_setpointRemovedEvent(pObject,P1)
+
+	Func setpointReplacedEvent P1
+		return QXYSeries_setpointReplacedEvent(pObject,P1)
+
+	Func setpointsRemovedEvent P1
+		return QXYSeries_setpointsRemovedEvent(pObject,P1)
+
+	Func setpointsReplacedEvent P1
+		return QXYSeries_setpointsReplacedEvent(pObject,P1)
+
+	Func setpressedEvent P1
+		return QXYSeries_setpressedEvent(pObject,P1)
+
+	Func setreleasedEvent P1
+		return QXYSeries_setreleasedEvent(pObject,P1)
+
+	Func getclickedEvent 
+		return QXYSeries_getclickedEvent(pObject)
+
+	Func getcolorChangedEvent 
+		return QXYSeries_getcolorChangedEvent(pObject)
+
+	Func getdoubleClickedEvent 
+		return QXYSeries_getdoubleClickedEvent(pObject)
+
+	Func gethoveredEvent 
+		return QXYSeries_gethoveredEvent(pObject)
+
+	Func getpenChangedEvent 
+		return QXYSeries_getpenChangedEvent(pObject)
+
+	Func getpointAddedEvent 
+		return QXYSeries_getpointAddedEvent(pObject)
+
+	Func getpointLabelsClippingChangedEvent 
+		return QXYSeries_getpointLabelsClippingChangedEvent(pObject)
+
+	Func getpointLabelsColorChangedEvent 
+		return QXYSeries_getpointLabelsColorChangedEvent(pObject)
+
+	Func getpointLabelsFontChangedEvent 
+		return QXYSeries_getpointLabelsFontChangedEvent(pObject)
+
+	Func getpointLabelsFormatChangedEvent 
+		return QXYSeries_getpointLabelsFormatChangedEvent(pObject)
+
+	Func getpointLabelsVisibilityChangedEvent 
+		return QXYSeries_getpointLabelsVisibilityChangedEvent(pObject)
+
+	Func getpointRemovedEvent 
+		return QXYSeries_getpointRemovedEvent(pObject)
+
+	Func getpointReplacedEvent 
+		return QXYSeries_getpointReplacedEvent(pObject)
+
+	Func getpointsRemovedEvent 
+		return QXYSeries_getpointsRemovedEvent(pObject)
+
+	Func getpointsReplacedEvent 
+		return QXYSeries_getpointsReplacedEvent(pObject)
+
+	Func getpressedEvent 
+		return QXYSeries_getpressedEvent(pObject)
+
+	Func getreleasedEvent 
+		return QXYSeries_getreleasedEvent(pObject)
 
 Class QSize
 
