@@ -1,4 +1,4 @@
-# Sample : Top-Down View - Many Levels of Cubes
+#1 Sample : Top-Down View - Many Levels of Cubes
 # 2018, Mahmoud Fayed <msfclipper@yahoo.com>
 
 
@@ -86,25 +86,25 @@ class GraphicsApp from GraphicsAppBase
 
 		glLoadIdentity()									
 
-		gluLookAt(x, 10, z+5,
+		gluLookAt(x, 10-z/10, z+5,
                         x+lx, 1.0,  z+lz,
                         0.0, 1.0,  0.0)
 
 		glBindTexture(GL_TEXTURE_2D, texture)
 	
 		 for i = -10 to 10
-	                for  j=-3 to 1
+	                for  j =1 to -3 step -1
 	                        glPushMatrix()
 	                        glTranslatef(i*2.0,0,j * 2.0)
-	                        drawCube()
+	                        drawCube(i)
 	                        glTranslatef(1,3,-15)
-	                        drawCube()
+	                        drawCube(i)
 	                        glTranslatef(1,3,-15)
-	                        drawCube()
+	                        drawCube(i)
 	                        glTranslatef(1,3,-15)
-	                        drawCube()
+	                        drawCube(i)
 	                        glTranslatef(1,3,-15)
-	                        drawCube()
+	                        drawCube(i)
 	                        glPopMatrix()
 	                next
 	        next
@@ -152,39 +152,43 @@ class GraphicsApp from GraphicsAppBase
 		lx = sin(angle)
 		lz = -cos(angle)
 
-	func drawcube
+	func drawcube i 
 
 		glBegin(GL_QUADS)
 			// Front Face
+
 			glTexCoord2f(0.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
 			glTexCoord2f(1.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
 			glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0,  1.0)
 			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
 			// Back Face
-			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
-			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
-			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
-			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
+#			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
+#			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
+#			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
+#			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
 			// Top Face
 			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
 			glTexCoord2f(0.0, 0.0) glVertex3f(-1.0,  1.0,  1.0)
 			glTexCoord2f(1.0, 0.0) glVertex3f( 1.0,  1.0,  1.0)
 			glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
 			// Bottom Face
-			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0, -1.0, -1.0)
-			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0, -1.0, -1.0)
-			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
-			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
+#			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0, -1.0, -1.0)
+#			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0, -1.0, -1.0)
+#			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
+#			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
+		if i = 10
 			// Right face
 			glTexCoord2f(1.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
 			glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
 			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0,  1.0)
 			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
+		but i = -10
 			// Left Face
 			glTexCoord2f(0.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
 			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
 			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
 			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
+		ok
 		glEnd()
 
 
