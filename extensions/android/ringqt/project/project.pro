@@ -99,6 +99,14 @@ SOURCES +=   \
     glogvalueaxis.cpp \
     gpieseries.cpp \
     gpieslice.cpp \
+    gscatterseries.cpp \
+    gvbarmodelmapper.cpp \
+    gvboxplotmodelmapper.cpp \
+    gvcandlestickmodelmapper.cpp \
+    gvpiemodelmapper.cpp \
+    gvxymodelmapper.cpp \
+    gvalueaxis.cpp \
+    gxyseries.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -181,7 +189,15 @@ HEADERS  += \
     glegendmarker.h \
     glogvalueaxis.h \
     gpieseries.h \
-    gpieslice.h
+    gscatterseries.h \
+    gpieslice.h \
+    gvbarmodelmapper.h \
+    gvboxplotmodelmapper.h \
+    gvcandlestickmodelmapper.h \
+    gvxymodelmapper.h \
+    gvpiemodelmapper.h \
+    gvalueaxis.h \
+    gxyseries.h
 
 CONFIG += warn_off
 
