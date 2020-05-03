@@ -1,0 +1,8 @@
+<class>
+name: QXYLegendMarker
+parent: QLegendMarker
+nonew
+</class>
+
+QXYSeries * series(void)
+QLegendMarker::LegendMarkerType type(void)
