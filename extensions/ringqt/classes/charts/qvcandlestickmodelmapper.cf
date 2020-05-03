@@ -1,0 +1,38 @@
+<class>
+name: QVCandlestickModelMapper
+para: QObject *
+parent: QCandlestickModelMapper
+codename: GVCandlestickModelMapper
+passvmpointer
+</class>
+
+int closeRow(void)
+int firstSetColumn(void)
+int highRow(void)
+int lastSetColumn(void)
+int lowRow(void)
+int openRow(void)
+void setCloseRow(int closeRow)
+void setFirstSetColumn(int firstSetColumn)
+void setHighRow(int highRow)
+void setLastSetColumn(int lastSetColumn)
+void setLowRow(int lowRow)
+void setOpenRow(int openRow)
+void setTimestampRow(int timestampRow)
+int timestampRow(void)
+
+void setcloseRowChangedEvent(const char *)
+void setfirstSetColumnChangedEvent(const char *)
+void sethighRowChangedEvent(const char *)
+void setlastSetColumnChangedEvent(const char *)
+void setlowRowChangedEvent(const char *)
+void setopenRowChangedEvent(const char *)
+void settimestampRowChangedEvent(const char *)
+
+const char *getcloseRowChangedEvent(void)
+const char *getfirstSetColumnChangedEvent(void)
+const char *gethighRowChangedEvent(void)
+const char *getlastSetColumnChangedEvent(void)
+const char *getlowRowChangedEvent(void)
+const char *getopenRowChangedEvent(void)
+const char *gettimestampRowChangedEvent(void)
