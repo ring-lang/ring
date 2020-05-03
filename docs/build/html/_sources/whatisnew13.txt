@@ -235,6 +235,17 @@ Better RingQt
 * QPieSeries
 * QPieSlice
 * QPolarChart
+* QScatterSeries
+* QSplineSeries
+* QStackedBarSeries
+* QVBarModelMapper
+* QVBoxPlotModelMapper
+* QVCandleStickModelMapper
+* QVPieModelMapper
+* QVXYModelMapper
+* QValueAxis
+* QXYLegendMarker
+* QXYSeries
 
 (2) Better QtConverter application
 
