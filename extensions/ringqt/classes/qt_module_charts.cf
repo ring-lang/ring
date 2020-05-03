@@ -39,3 +39,14 @@
 <loadfile> charts/qpieseries.cf
 <loadfile> charts/qpieslice.cf
 <loadfile> charts/qpolarchart.cf
+<loadfile> charts/qscatterseries.cf
+<loadfile> charts/qsplineseries.cf
+<loadfile> charts/qstackedbarseries.cf
+<loadfile> charts/qvbarmodelmapper.cf
+<loadfile> charts/qvboxplotmodelmapper.cf
+<loadfile> charts/qvcandlestickmodelmapper.cf
+<loadfile> charts/qvpiemodelmapper.cf
+<loadfile> charts/qvxymodelmapper.cf
+<loadfile> charts/qvalueaxis.cf
+<loadfile> charts/qxylegendmarker.cf
+<loadfile> charts/qxyseries.cf

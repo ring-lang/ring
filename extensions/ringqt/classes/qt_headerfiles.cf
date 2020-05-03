@@ -454,6 +454,14 @@ extern "C" {
 #include "glogvalueaxis.h"
 #include "gpieseries.h"
 #include "gpieslice.h"
+#include "gscatterseries.h"
+#include "gvbarmodelmapper.h"
+#include "gvboxplotmodelmapper.h"
+#include "gvcandlestickmodelmapper.h"
+#include "gvpiemodelmapper.h"
+#include "gvxymodelmapper.h"
+#include "gvalueaxis.h"
+#include "gxyseries.h"
 #include <QtCharts>
 </filter>
 
