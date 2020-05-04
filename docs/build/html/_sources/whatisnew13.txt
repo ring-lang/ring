@@ -24,6 +24,7 @@ Ring 1.13 comes with the next features!
 * Matching Game
 * Pairs Game
 * Nim Game
+* Lottery Game
 * Hassouna Course Samples
 * Ring support in SpaceVim
 * Better RingQt
@@ -156,6 +157,17 @@ An implementation for the Nim Game
 	:width: 550pt
 	:height: 400pt
 	:alt: Nim Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Lottery Game
+
+Lottery Game
+============
+
+An implementation for the Lottery Game
+
+.. image:: lotterygame.png
+	:alt: Lottery Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Hassouna Course Samples
