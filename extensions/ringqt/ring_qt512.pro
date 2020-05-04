@@ -99,6 +99,7 @@ SOURCES +=   \
     cpp/src/gvxymodelmapper.cpp \
     cpp/src/gvalueaxis.cpp \
     cpp/src/gxyseries.cpp \
+    cpp/src/ggraphicsscene.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -188,7 +189,8 @@ HEADERS  += \
     cpp/include/gvpiemodelmapper.h \
     cpp/include/gvxymodelmapper.h \
     cpp/include/gvalueaxis.h \
-    cpp/include/gxyseries.h
+    cpp/include/gxyseries.h \
+    cpp/include/ggraphicsscene.h
     
 
 INCLUDEPATH += ../../include

@@ -20091,7 +20091,9 @@ Class QGraphicsView from QAbstractScrollArea
 		return QGraphicsView_scale(pObject,P1,P2)
 
 	Func scene 
-		return QGraphicsView_scene(pObject)
+		pTempObj = new QGraphicsScene
+		pTempObj.pObject = QGraphicsView_scene(pObject)
+		return pTempObj
 
 	Func sceneRect 
 		return QGraphicsView_sceneRect(pObject)
@@ -20176,13 +20178,295 @@ Class QGraphicsView from QAbstractScrollArea
 		return QGraphicsView_viewportUpdateMode(pObject)
 
 	Func invalidateScene P1,P2
-		return QGraphicsView_invalidateScene(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return QGraphicsView_invalidateScene(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func updateScene P1
 		return QGraphicsView_updateScene(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func updateSceneRect P1
 		return QGraphicsView_updateSceneRect(pObject,GetObjectPointerFromRingObject(P1))
+
+Class QGraphicsScene from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QGraphicsScene_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QGraphicsScene_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func activePanel 
+		return QGraphicsScene_activePanel(pObject)
+
+	Func activeWindow 
+		return QGraphicsScene_activeWindow(pObject)
+
+	Func addEllipse P1,P2,P3
+		return QGraphicsScene_addEllipse(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func addEllipse_2 P1,P2,P3,P4,P5,P6
+		return QGraphicsScene_addEllipse_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+
+	Func addItem P1
+		return QGraphicsScene_addItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addLine P1,P2
+		return QGraphicsScene_addLine(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func addLine_2 P1,P2,P3,P4,P5
+		return QGraphicsScene_addLine_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5))
+
+	Func addPath P1,P2,P3
+		return QGraphicsScene_addPath(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func addPixmap P1
+		return QGraphicsScene_addPixmap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func addPolygon P1,P2,P3
+		return QGraphicsScene_addPolygon(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func addRect P1,P2,P3
+		return QGraphicsScene_addRect(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func addRect_2 P1,P2,P3,P4,P5,P6
+		return QGraphicsScene_addRect_2(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
+
+	Func addSimpleText P1,P2
+		return QGraphicsScene_addSimpleText(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func addText P1,P2
+		return QGraphicsScene_addText(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func addWidget P1,P2
+		return QGraphicsScene_addWidget(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func backgroundBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QGraphicsScene_backgroundBrush(pObject)
+		return pTempObj
+
+	Func bspTreeDepth 
+		return QGraphicsScene_bspTreeDepth(pObject)
+
+	Func clearFocus 
+		return QGraphicsScene_clearFocus(pObject)
+
+	Func collidingItems P1,P2
+		return QGraphicsScene_collidingItems(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func createItemGroup P1
+		return QGraphicsScene_createItemGroup(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func destroyItemGroup P1
+		return QGraphicsScene_destroyItemGroup(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func focusItem 
+		return QGraphicsScene_focusItem(pObject)
+
+	Func focusOnTouch 
+		return QGraphicsScene_focusOnTouch(pObject)
+
+	Func font 
+		pTempObj = new QFont
+		pTempObj.pObject = QGraphicsScene_font(pObject)
+		return pTempObj
+
+	Func foregroundBrush 
+		pTempObj = new QBrush
+		pTempObj.pObject = QGraphicsScene_foregroundBrush(pObject)
+		return pTempObj
+
+	Func hasFocus 
+		return QGraphicsScene_hasFocus(pObject)
+
+	Func height 
+		return QGraphicsScene_height(pObject)
+
+	Func inputMethodQuery P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QGraphicsScene_inputMethodQuery(pObject,P1)
+		return pTempObj
+
+	Func invalidate P1,P2,P3,P4,P5
+		return QGraphicsScene_invalidate(pObject,P1,P2,P3,P4,P5)
+
+	Func isActive 
+		return QGraphicsScene_isActive(pObject)
+
+	Func itemAt P1,P2
+		return QGraphicsScene_itemAt(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func itemAt_2 P1,P2,P3
+		return QGraphicsScene_itemAt_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func itemIndexMethod 
+		return QGraphicsScene_itemIndexMethod(pObject)
+
+	Func items P1
+		return QGraphicsScene_items(pObject,P1)
+
+	Func items_2 P1,P2,P3,P4
+		return QGraphicsScene_items_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+
+	Func items_3 P1,P2,P3,P4
+		return QGraphicsScene_items_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+
+	Func items_4 P1,P2,P3,P4
+		return QGraphicsScene_items_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+
+	Func items_5 P1,P2,P3,P4
+		return QGraphicsScene_items_5(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,GetObjectPointerFromRingObject(P4))
+
+	Func items_6 P1,P2,P3,P4,P5,P6,P7
+		return QGraphicsScene_items_6(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),P6,GetObjectPointerFromRingObject(P7))
+
+	Func itemsBoundingRect 
+		return QGraphicsScene_itemsBoundingRect(pObject)
+
+	Func minimumRenderSize 
+		return QGraphicsScene_minimumRenderSize(pObject)
+
+	Func mouseGrabberItem 
+		return QGraphicsScene_mouseGrabberItem(pObject)
+
+	Func palette 
+		return QGraphicsScene_palette(pObject)
+
+	Func removeItem P1
+		return QGraphicsScene_removeItem(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func render P1,P2,P3,P4
+		return QGraphicsScene_render(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),P4)
+
+	Func sceneRect 
+		return QGraphicsScene_sceneRect(pObject)
+
+	Func selectedItems 
+		return QGraphicsScene_selectedItems(pObject)
+
+	Func selectionArea 
+		pTempObj = new QPainterPath
+		pTempObj.pObject = QGraphicsScene_selectionArea(pObject)
+		return pTempObj
+
+	Func sendEvent P1,P2
+		return QGraphicsScene_sendEvent(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setActivePanel P1
+		return QGraphicsScene_setActivePanel(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setActiveWindow P1
+		return QGraphicsScene_setActiveWindow(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBackgroundBrush P1
+		return QGraphicsScene_setBackgroundBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setBspTreeDepth P1
+		return QGraphicsScene_setBspTreeDepth(pObject,P1)
+
+	Func setFocus P1
+		return QGraphicsScene_setFocus(pObject,P1)
+
+	Func setFocusItem P1,P2
+		return QGraphicsScene_setFocusItem(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setFocusOnTouch P1
+		return QGraphicsScene_setFocusOnTouch(pObject,P1)
+
+	Func setFont P1
+		return QGraphicsScene_setFont(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setForegroundBrush P1
+		return QGraphicsScene_setForegroundBrush(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setItemIndexMethod P1
+		return QGraphicsScene_setItemIndexMethod(pObject,P1)
+
+	Func setMinimumRenderSize P1
+		return QGraphicsScene_setMinimumRenderSize(pObject,P1)
+
+	Func setPalette P1
+		return QGraphicsScene_setPalette(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSceneRect P1
+		return QGraphicsScene_setSceneRect(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setSceneRect_2 P1,P2,P3,P4
+		return QGraphicsScene_setSceneRect_2(pObject,P1,P2,P3,P4)
+
+	Func setSelectionArea P1,P2
+		return QGraphicsScene_setSelectionArea(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func setSelectionArea_2 P1,P2,P3
+		return QGraphicsScene_setSelectionArea_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+
+	Func setSelectionArea_3 P1,P2,P3,P4
+		return QGraphicsScene_setSelectionArea_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
+	Func setStickyFocus P1
+		return QGraphicsScene_setStickyFocus(pObject,P1)
+
+	Func setStyle P1
+		return QGraphicsScene_setStyle(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func stickyFocus 
+		return QGraphicsScene_stickyFocus(pObject)
+
+	Func style 
+		return QGraphicsScene_style(pObject)
+
+	Func update P1,P2,P3,P4
+		return QGraphicsScene_update(pObject,P1,P2,P3,P4)
+
+	Func views 
+		return QGraphicsScene_views(pObject)
+
+	Func width 
+		return QGraphicsScene_width(pObject)
+
+	Func advance 
+		return QGraphicsScene_advance(pObject)
+
+	Func clear 
+		return QGraphicsScene_clear(pObject)
+
+	Func clearSelection 
+		return QGraphicsScene_clearSelection(pObject)
+
+	Func invalidate_2 P1,P2
+		return QGraphicsScene_invalidate_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func update_2 P1
+		return QGraphicsScene_update_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setchangedEvent P1
+		return QGraphicsScene_setchangedEvent(pObject,P1)
+
+	Func setfocusItemChangedEvent P1
+		return QGraphicsScene_setfocusItemChangedEvent(pObject,P1)
+
+	Func setsceneRectChangedEvent P1
+		return QGraphicsScene_setsceneRectChangedEvent(pObject,P1)
+
+	Func setselectionChangedEvent P1
+		return QGraphicsScene_setselectionChangedEvent(pObject,P1)
+
+	Func getchangedEvent 
+		return QGraphicsScene_getchangedEvent(pObject)
+
+	Func getfocusItemChangedEvent 
+		return QGraphicsScene_getfocusItemChangedEvent(pObject)
+
+	Func getsceneRectChangedEvent 
+		return QGraphicsScene_getsceneRectChangedEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QGraphicsScene_getselectionChangedEvent(pObject)
 
 Class QOpenGLWidget from QWidget
 
