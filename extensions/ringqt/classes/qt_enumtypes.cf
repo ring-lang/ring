@@ -399,4 +399,7 @@ aEnumTypes + "QPolarChart::PolarOrientation"
 aEnumTypes + "QPolarChart::PolarOrientations"
 aEnumTypes + "QScatterSeries::MarkerShape"
 aEnumTypes + "QValueAxis::TickType"
+aEnumTypes + "QGraphicsScene::ItemIndexMethod"
+aEnumTypes + "QGraphicsScene::SceneLayer"
+aEnumTypes + "QGraphicsScene::SceneLayers"
 </runcode>
