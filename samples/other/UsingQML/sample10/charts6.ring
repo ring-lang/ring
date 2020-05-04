@@ -29,12 +29,12 @@ ChartView {
 
     width: 600
     height: 600
-    theme: ChartView.ChartThemeBrownSand
+    theme: ChartView.ChartThemeDark
     antialiasing: true
-
 	AreaSeries {
         name: "Russian"
         axisX: valueAxis
+
         upperSeries: LineSeries {
             XYPoint { x: 2000; y: 1 }
             XYPoint { x: 2001; y: 1 }
