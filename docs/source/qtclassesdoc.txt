@@ -4484,6 +4484,7 @@ Parameters : QObject *
 
 Parent Class : QObject
 
+* QGraphicsItem * activePanel(void)
 * QGraphicsWidget * activeWindow(void)
 * QGraphicsEllipseItem * addEllipse(QRectF rect, QPen pen, QBrush brush)
 * QGraphicsEllipseItem * addEllipse_2(qreal x, qreal y, qreal w, qreal h, QPen pen, QBrush brush)
@@ -4505,8 +4506,6 @@ Parent Class : QObject
 * QGraphicsItemGroup * createItemGroup(QList<QGraphicsItem *> items)
 * void destroyItemGroup(QGraphicsItemGroup *group)
 * QGraphicsItem * focusItem(void)
-* bool focusOnTouch(void)
-* QFont font(void)
 * QBrush foregroundBrush(void)
 * bool hasFocus(void)
 * qreal height(void)
@@ -4538,8 +4537,6 @@ Parent Class : QObject
 * void setBspTreeDepth(int depth)
 * void setFocus(Qt::FocusReason focusReason)
 * void setFocusItem(QGraphicsItem *item, Qt::FocusReason focusReason)
-* void setFocusOnTouch(bool enabled)
-* void setFont(QFont font)
 * void setForegroundBrush(QBrush brush)
 * void setItemIndexMethod(QGraphicsScene::ItemIndexMethod method)
 * void setMinimumRenderSize(qreal minSize)

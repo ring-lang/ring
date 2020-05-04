@@ -20268,9 +20268,6 @@ Class QGraphicsScene from QObject
 	Func focusItem 
 		return QGraphicsScene_focusItem(pObject)
 
-	Func focusOnTouch 
-		return QGraphicsScene_focusOnTouch(pObject)
-
 	Func font 
 		pTempObj = new QFont
 		pTempObj.pObject = QGraphicsScene_font(pObject)
@@ -20374,9 +20371,6 @@ Class QGraphicsScene from QObject
 
 	Func setFocusItem P1,P2
 		return QGraphicsScene_setFocusItem(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func setFocusOnTouch P1
-		return QGraphicsScene_setFocusOnTouch(pObject,P1)
 
 	Func setFont P1
 		return QGraphicsScene_setFont(pObject,GetObjectPointerFromRingObject(P1))

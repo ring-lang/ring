@@ -5,6 +5,7 @@ parent: QObject
 codename: GGraphicsScene
 passvmpointer
 </class>
+
 QGraphicsItem * activePanel(void)
 QGraphicsWidget * activeWindow(void)
 QGraphicsEllipseItem * addEllipse(QRectF rect, QPen pen, QBrush brush)
@@ -27,7 +28,9 @@ QList<QGraphicsItem *> collidingItems(QGraphicsItem *item, Qt::ItemSelectionMode
 QGraphicsItemGroup * createItemGroup(QList<QGraphicsItem *> items)
 void destroyItemGroup(QGraphicsItemGroup *group)
 QGraphicsItem * focusItem(void)
+<comment>
 bool focusOnTouch(void)
+</comment>
 QFont font(void)
 QBrush foregroundBrush(void)
 bool hasFocus(void)
@@ -60,7 +63,9 @@ void setBackgroundBrush(QBrush brush)
 void setBspTreeDepth(int depth)
 void setFocus(Qt::FocusReason focusReason)
 void setFocusItem(QGraphicsItem *item, Qt::FocusReason focusReason)
+<comment>
 void setFocusOnTouch(bool enabled)
+</comment>
 void setFont(QFont font)
 void setForegroundBrush(QBrush brush)
 void setItemIndexMethod(QGraphicsScene::ItemIndexMethod method)
