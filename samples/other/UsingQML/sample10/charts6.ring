@@ -4,7 +4,7 @@ writeQMLfile()
 
 new qApp {
 	w = new qWidget() {
-		setWindowTitle("Using QML - Display Chart") resize(600,400) move(100,100)
+		setWindowTitle("Using QML - Display Chart") resize(650,650) move(100,100)
 		oQuick = new qQuickWidget(w) {
 			engine().AddImportPath(exefolder()+"qml")
 			setSource(new qURL("hello.qml") )
@@ -27,8 +27,8 @@ import QtCharts 2.0
 
 ChartView {
 
-    width: 400
-    height: 300
+    width: 600
+    height: 600
     theme: ChartView.ChartThemeBrownSand
     antialiasing: true
 
