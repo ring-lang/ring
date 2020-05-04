@@ -11,6 +11,6 @@ Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/Mx4PSVsK
 
 # Screen Shots
 
-![nimgame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/pairs/images/pairsgame.png)
+![pairsgame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/pairs/images/pairsgame.png)
 
-![nimgame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/pairs/images/pairsgame2.png)
+![pairsgame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/pairs/images/pairsgame2.png)
