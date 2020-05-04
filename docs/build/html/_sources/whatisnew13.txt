@@ -278,6 +278,9 @@ More Improvements
 =================
 
 * New Samples
+	* ring/samples/other/helloworld/hello.ring
+	* ring/samples/other/helloworld/hello2.ring
+	* ring/samples/other/helloworld/hello3.ring
 	* ring/samples/other/changeisnull.ring
 	* ring/samples/other/ArrayPathDest/solveArrayPathDest.ring
 	* ring/samples/other/MultipleArrayItemsFind.ring
