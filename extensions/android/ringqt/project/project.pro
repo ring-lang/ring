@@ -107,6 +107,7 @@ SOURCES +=   \
     gvxymodelmapper.cpp \
     gvalueaxis.cpp \
     gxyseries.cpp \
+    ggraphicsscene.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -197,7 +198,8 @@ HEADERS  += \
     gvxymodelmapper.h \
     gvpiemodelmapper.h \
     gvalueaxis.h \
-    gxyseries.h
+    gxyseries.h \
+    ggraphicsscene.h
 
 CONFIG += warn_off
 
