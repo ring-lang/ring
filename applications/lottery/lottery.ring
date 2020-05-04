@@ -44,6 +44,7 @@
         C_StyleRed	 = ' background-color: Red; border-radius: 8px; '
         C_StyleBlack	 = ' background-color: Black; border-radius: 8px; '
         C_StyleYellow	 = ' color: Black; background-color: Yellow; border-radius: 8px; '
+        C_StylePurple	 = ' color: White; background-color: Purple; border-radius: 8px; '
 
 #===================================================================================#
 # The User Interface (Game Window and Buttons)	
@@ -209,7 +210,7 @@ func pUserClick Row,Col
 	ok
 	if user = 1
 		Button[Row][Col] {
-			setStylesheet(C_StyleGreen)
+			setStylesheet(C_StylePurple)
 			setenabled(false)
 			voice.Say(Text())
 		}
