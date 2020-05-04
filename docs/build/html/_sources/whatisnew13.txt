@@ -246,6 +246,7 @@ Better RingQt
 * QValueAxis
 * QXYLegendMarker
 * QXYSeries
+* QGraphicsScene
 
 (2) Better QtConverter application
 
