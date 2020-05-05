@@ -40,6 +40,7 @@
 <loadfile> gui/qdragenterevent.cf
 <loadfile> gui/qdragleaveevent.cf
 <loadfile> gui/qclipboard.cf
+<loadfile> gui/qmovie.cf
 
 <filter> ((iswindows() or ismacosx()) and sysget("RINGQT_ANDROID") = "")
 <loadfile> gui/qopenglfunctions.cf
@@ -57,6 +58,5 @@
 <loadfile> gui/qopenglshaderprogram.cf
 <loadfile> gui/qopenglshader.cf
 <loadfile> gui/qopengltexture.cf
-<loadfile> gui/qmovie.cf
 </filter>
 
