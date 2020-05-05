@@ -402,4 +402,6 @@ aEnumTypes + "QValueAxis::TickType"
 aEnumTypes + "QGraphicsScene::ItemIndexMethod"
 aEnumTypes + "QGraphicsScene::SceneLayer"
 aEnumTypes + "QGraphicsScene::SceneLayers"
+aEnumTypes + "QMovie::CacheMode"
+aEnumTypes + "QMovie::MovieState"
 </runcode>

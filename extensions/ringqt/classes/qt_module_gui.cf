@@ -57,5 +57,6 @@
 <loadfile> gui/qopenglshaderprogram.cf
 <loadfile> gui/qopenglshader.cf
 <loadfile> gui/qopengltexture.cf
+<loadfile> gui/qmovie.cf
 </filter>
 

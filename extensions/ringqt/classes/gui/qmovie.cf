@@ -1,0 +1,54 @@
+<class>
+name: QMovie
+para: QObject *
+parent: QObject
+codename: GMovie
+passvmpointer
+</class>
+
+QColor backgroundColor(void)
+QMovie::CacheMode cacheMode(void)
+int currentFrameNumber(void)
+QImage currentImage(void)
+QPixmap currentPixmap(void)
+QIODevice * device(void)
+QString fileName(void)
+QByteArray format(void)
+int frameCount(void)
+QRect frameRect(void)
+bool isValid(void)
+bool jumpToFrame(int frameNumber)
+QImageReader::ImageReaderError lastError(void)
+QString lastErrorString(void)
+int loopCount(void)
+int nextFrameDelay(void)
+QSize scaledSize(void)
+void setBackgroundColor(QColor color)
+void setCacheMode(QMovie::CacheMode mode)
+void setDevice(QIODevice *device)
+void setFileName(QString fileName)
+void setFormat(QByteArray format)
+void setScaledSize(QSize size)
+int speed(void)
+QMovie::MovieState state(void)
+bool jumpToNextFrame(void)
+void setPaused(bool paused)
+void setSpeed(int percentSpeed)
+void start(void)
+void stop(void)
+
+void seterrorEvent(const char *)
+void setfinishedEvent(const char *)
+void setframeChangedEvent(const char *)
+void setresizedEvent(const char *)
+void setstartedEvent(const char *)
+void setstateChangedEvent(const char *)
+void setupdatedEvent(const char *)
+
+const char *geterrorEvent(void)
+const char *getfinishedEvent(void)
+const char *getframeChangedEvent(void)
+const char *getresizedEvent(void)
+const char *getstartedEvent(void)
+const char *getstateChangedEvent(void)
+const char *getupdatedEvent(void)
