@@ -11146,6 +11146,166 @@ Class QOpenGLTexture
 	Func hasFeature P1
 		return QOpenGLTexture_hasFeature(pObject,P1)
 
+Class QMovie from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QMovie_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QMovie_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func backgroundColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QMovie_backgroundColor(pObject)
+		return pTempObj
+
+	Func cacheMode 
+		return QMovie_cacheMode(pObject)
+
+	Func currentFrameNumber 
+		return QMovie_currentFrameNumber(pObject)
+
+	Func currentImage 
+		pTempObj = new QImage
+		pTempObj.pObject = QMovie_currentImage(pObject)
+		return pTempObj
+
+	Func currentPixmap 
+		pTempObj = new QPixmap
+		pTempObj.pObject = QMovie_currentPixmap(pObject)
+		return pTempObj
+
+	Func device 
+		pTempObj = new QIODevice
+		pTempObj.pObject = QMovie_device(pObject)
+		return pTempObj
+
+	Func fileName 
+		return QMovie_fileName(pObject)
+
+	Func format 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QMovie_format(pObject)
+		return pTempObj
+
+	Func frameCount 
+		return QMovie_frameCount(pObject)
+
+	Func frameRect 
+		pTempObj = new QRect
+		pTempObj.pObject = QMovie_frameRect(pObject)
+		return pTempObj
+
+	Func isValid 
+		return QMovie_isValid(pObject)
+
+	Func jumpToFrame P1
+		return QMovie_jumpToFrame(pObject,P1)
+
+	Func lastError 
+		return QMovie_lastError(pObject)
+
+	Func lastErrorString 
+		return QMovie_lastErrorString(pObject)
+
+	Func loopCount 
+		return QMovie_loopCount(pObject)
+
+	Func nextFrameDelay 
+		return QMovie_nextFrameDelay(pObject)
+
+	Func scaledSize 
+		pTempObj = new QSize
+		pTempObj.pObject = QMovie_scaledSize(pObject)
+		return pTempObj
+
+	Func setBackgroundColor P1
+		return QMovie_setBackgroundColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setCacheMode P1
+		return QMovie_setCacheMode(pObject,P1)
+
+	Func setDevice P1
+		return QMovie_setDevice(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFileName P1
+		return QMovie_setFileName(pObject,P1)
+
+	Func setFormat P1
+		return QMovie_setFormat(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setScaledSize P1
+		return QMovie_setScaledSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func speed 
+		return QMovie_speed(pObject)
+
+	Func state 
+		return QMovie_state(pObject)
+
+	Func jumpToNextFrame 
+		return QMovie_jumpToNextFrame(pObject)
+
+	Func setPaused P1
+		return QMovie_setPaused(pObject,P1)
+
+	Func setSpeed P1
+		return QMovie_setSpeed(pObject,P1)
+
+	Func start 
+		return QMovie_start(pObject)
+
+	Func stop 
+		return QMovie_stop(pObject)
+
+	Func seterrorEvent P1
+		return QMovie_seterrorEvent(pObject,P1)
+
+	Func setfinishedEvent P1
+		return QMovie_setfinishedEvent(pObject,P1)
+
+	Func setframeChangedEvent P1
+		return QMovie_setframeChangedEvent(pObject,P1)
+
+	Func setresizedEvent P1
+		return QMovie_setresizedEvent(pObject,P1)
+
+	Func setstartedEvent P1
+		return QMovie_setstartedEvent(pObject,P1)
+
+	Func setstateChangedEvent P1
+		return QMovie_setstateChangedEvent(pObject,P1)
+
+	Func setupdatedEvent P1
+		return QMovie_setupdatedEvent(pObject,P1)
+
+	Func geterrorEvent 
+		return QMovie_geterrorEvent(pObject)
+
+	Func getfinishedEvent 
+		return QMovie_getfinishedEvent(pObject)
+
+	Func getframeChangedEvent 
+		return QMovie_getframeChangedEvent(pObject)
+
+	Func getresizedEvent 
+		return QMovie_getresizedEvent(pObject)
+
+	Func getstartedEvent 
+		return QMovie_getstartedEvent(pObject)
+
+	Func getstateChangedEvent 
+		return QMovie_getstateChangedEvent(pObject)
+
+	Func getupdatedEvent 
+		return QMovie_getupdatedEvent(pObject)
+
 Class QApp from QGuiApplication
 	Func exec 
 		return QApp_exec()
@@ -11907,7 +12067,9 @@ Class QLabel from QWidget
 		return QLabel_margin(pObject)
 
 	Func movie 
-		return QLabel_movie(pObject)
+		pTempObj = new QMovie
+		pTempObj.pObject = QLabel_movie(pObject)
+		return pTempObj
 
 	Func openExternalLinks 
 		return QLabel_openExternalLinks(pObject)
