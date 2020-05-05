@@ -223,64 +223,53 @@ func pUserClick Row,Col
 
 func lotteryDraw
 
-        if user = 1
-		return
-        ok
+        if user = 1 return ok
         if user = 2
-	PairsXY = newlist(size*size,2)
-
-	randList = 1:6
-	randList = randomList(randList)
-
-	for n = 1 to size
-		for m = 1 to size
-			ind = (n-1)*size + m
-			PairsXY[ind][1] = n
-			PairsXY[ind][2] = m
+		PairsXY = newlist(size*size,2)
+		randList = 1:6
+		randList = randomList(randList)
+		for n = 1 to size
+			for m = 1 to size
+				ind = (n-1)*size + m
+				PairsXY[ind][1] = n
+				PairsXY[ind][2] = m
+			next
 		next
-	next
-
-	for nr = 1 to limit
-		rand1 = random(len(randList)-1)+1
-                if len(randList) = 1
-			rand1 = 1
-                ok
-		rand2 = randList[rand1]
-		row = pairsXY[rand1][1]
-		col = pairsXY[rand1][2]
-                if Lottery[rand1][rand2] = 1
-			Button[rand1][rand2].setStylesheet(C_StyleYellow)
-			score++
-			labelShowScore.settext(string(score))
-                else
-			Button[rand1][rand2].setStylesheet(C_StyleBlack)
-                ok
-		del(PairsXY,rand1)
-		del(randList,rand1)
-	next
+		for nr = 1 to limit
+			rand1 = random(len(randList)-1)+1
+	                if len(randList) = 1
+				rand1 = 1
+	                ok
+			rand2	= randList[rand1]
+			row	= pairsXY[rand1][1]
+			col	= pairsXY[rand1][2]
+	                if Lottery[rand1][rand2] = 1
+				Button[rand1][rand2].setStylesheet(C_StyleYellow)
+				score++
+				labelShowScore.settext(string(score))
+	                else
+				Button[rand1][rand2].setStylesheet(C_StyleBlack)
+	                ok
+			del(PairsXY,rand1)
+			del(randList,rand1)
+		next
         ok
         user = 0
 
 func newGame
 
-     click = 0
-     user = 1
-     score = 0
-     labelShowScore.settext(string(score))
-     labelShowChoice.settext("0")
-     for n = 1 to size
-         for m = 1 to size
-             Button[n][m].setStylesheet(C_StyleGray)
-             Button[n][m].setenabled(true)
-         next
-     next
-
-     for n = 1 to size
-         for m = 1 to size
-             Lottery[n][m] = 0
-         next
-     next
-
+	click = 0
+	user = 1
+	score = 0
+	labelShowScore.settext(string(score))
+	labelShowChoice.settext("0")
+	for n = 1 to size
+		for m = 1 to size
+			Button[n][m].setStylesheet(C_StyleGray)
+			Button[n][m].setenabled(true)
+			Lottery[n][m] = 0
+		next
+	next
 
 func timerMan
 
@@ -290,7 +279,7 @@ func timerMan
 	if nowSeconds < 10  
 		nowSeconds = "0"+ nowSeconds
 	ok
-	nowMinSec  = ""+ nowMinute +":"+ nowSeconds        
+	nowMinSec  = "" + nowMinute + ":" + nowSeconds        
 	labelShowTime.setText(nowMinSec)
 
 func randomList aInput
