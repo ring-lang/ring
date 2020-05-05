@@ -294,6 +294,7 @@ More Improvements
 	* ring/samples/other/evalinscope/enum.ring
 	* ring/samples/other/customtablewidget.ring
 	* ring/samples/other/customtablewidget2.ring
+	* ring/samples/other/endian.ring
 	* ring/samples/other/UsingQML/sample10 folder (Charts Samples)
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
