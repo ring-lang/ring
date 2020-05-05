@@ -7,6 +7,7 @@ load "core/qthread.ring"
 load "gui/qwindow.ring"
 load "gui/qguiapplication.ring"
 load "gui/qdrag.ring"
+load "gui/qmovie.ring"
 #-------------------------------------------------------------------------#
 load "widgets/qpushbutton.ring"
 load "widgets/qaction.ring"
