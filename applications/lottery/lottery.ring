@@ -127,7 +127,7 @@ app = new qApp {
                                         setFont(new qFont("Verdana",C_FONTSIZE,50,0))
                                         num = (Row-1)*size+Col
                                         settext(string(num))
-					setclickevent("pUserClick(" + string(Row) + "," + string(Col) + ")")
+					setclickevent("UserClick(" + string(Row) + "," + string(Col) + ")")
 					setMaximumWidth(100)
 					setMaximumHeight(100)
                                         setStylesheet(C_StyleGray)
@@ -188,7 +188,6 @@ app = new qApp {
 		voice = new QTextToSpeech(win) {
 			say("Welcome to the Lottery Game, Select 6 Numbers!")
 		}
-		
 
 		show()
 
@@ -202,7 +201,7 @@ app = new qApp {
 # Game Logic
 #===================================================================================#
 
-func pUserClick Row,Col
+func userClick Row,Col
 
 	click++
 	if click > limit or Lottery[Row][Col] = 1
