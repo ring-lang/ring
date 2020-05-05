@@ -259,6 +259,7 @@ Better RingQt
 * QXYLegendMarker
 * QXYSeries
 * QGraphicsScene
+* QMovie
 
 (2) Better QtConverter application
 
