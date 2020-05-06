@@ -161,103 +161,91 @@ func MoveBlock oGame,oMap
 
 	switch cDirection
 		on :right 
-			# Next move will be Down
-				cDirection = :Down
-			# Don't go outsize the screen (Right Corner)
-				for t = 1 to len(aBlock)
-					aHead = aBlock[t]
-					if aHead[2] = C_LEVEL_COLSCOUNT	 
-						# Be sure we have a move down!
-							MoveBlock(oGame,oMap)
-						return
-					ok
-				next
-			# Hide Shape Blocks, Then Move one step to the Right		
-				for t = 1 to len(aBlock)
-					aHead = aBlock[t]
-					HideCell(aHead)
-					aHead[2]++
-					aBlock[t] = aHead
-				next 
-			# Move the shape only if the move is possible for all of the shape blocks	
-				for t = 1 to len(aBlock)
-					aHead = aBlock[t]
-					if aHead[1] < 1 or aHead[2] < 1 loop ok
-					if aLevel[aHead[1]][aHead[2]] != C_EMPTY
-						aLevel = aLevelCopy	
-						aBlock = aBlockCopy
-						ShowBlock()
-						# Be sure we have a move down!
-							MoveBlock(oGame,oMap)
-						return 
-					ok
-					ShowCell(aHead)
-				next 
-			# Be sure we have a move down! even if someone keep pressing the Right key
-				MoveBlock(oGame,oMap)
-	
+			if MoveRightOrLeft(oGame,oMap,aLevelCopy,aBlockCopy,C_LEVEL_COLSCOUNT,1) return ok
 		on :left 
-			# Next move will be Down
-				cDirection = :Down
-			# Don't go outsize the screen (Left Corner)
-				for t = 1 to len(aBlock)
-					aHead = aBlock[t]
-					if aHead[2] = 1	
-						# Be sure we have a move down!
-							MoveBlock(oGame,oMap)
-						return
-					ok
-				next
-			# Hide Shape Blocks, Then Move one step to the left
-				for t = 1 to len(aBlock)
-					aHead = aBlock[t]
-					HideCell(aHead)
-					aHead[2]--
-					aBlock[t] = aHead
-				next 
-			# Move the shape only if the move is possible for all of the shape blocks	
-				for t = 1 to len(aBlock)
-					aHead = aBlock[t]
-					if aHead[1] < 1 or aHead[2] < 1 loop ok
-					if aLevel[aHead[1]][aHead[2]] != C_EMPTY
-						aLevel = aLevelCopy
-						aBlock = aBlockCopy
-						ShowBlock()
-						# Be sure we have a move down!
-						# Even if someone keep pressing the Right key
-							MoveBlock(oGame,oMap)
-						return 
-					ok
-					ShowCell(aHead)
-				next 
-			# Be sure we have a move down! even if someone keep pressing the Right key
-				MoveBlock(oGame,oMap)
+			if MoveRightOrLeft(oGame,oMap,aLevelCopy,aBlockCopy,1,-1) return ok
 		on :down
-			# Hide Shape Blocks then move one step down
-				for t = len(aBlock) to 1 step -1
-					aHead = aBlock[t]
-					if aHead[1] = C_LEVEL_ROWSCOUNT	
-						aLevel = aLevelCopy	
-						NewBlock(oGame)
-						return 
-					ok
-					HideCell(aHead)
-					aHead[1]++
-					aBlock[t] = aHead
-				next 
-			# Move the shape only if the move is possible for all of the shape blocks	
-				for t = 1 to len(aBlock)
-					aHead = aBlock[t]
-					if aHead[1] < 1 or aHead[2] < 1 loop ok
-					if aLevel[aHead[1]][aHead[2]] != C_EMPTY
-						aLevel = aLevelCopy
-						NewBlock(oGame)	
-						return 
-					ok
-					ShowCell(aHead)
-				next 
+			if MoveDown(oGame,oMap,aLevelCopy,aBlockCopy) return ok
 	off
 	UpdateGameMap(oGame)
+
+func MoveRightOrLeft oGame,oMap,aLevelCopy,aBlockCopy,nLimit,nIncrement
+
+	# Next move will be Down
+		cDirection = :Down
+	# Don't go outsize the screen (Right|Left Corner)
+		for t = 1 to len(aBlock)
+			aHead = aBlock[t]
+			if aHead[2] = nLimit	 
+				# Be sure we have a move down!
+					MoveBlock(oGame,oMap)
+				return True
+			ok
+		next
+	# Hide Shape Blocks, Then Move one step to the Right|Left	
+		for t = 1 to len(aBlock)
+			aHead = aBlock[t]
+			HideCell(aHead)
+			aHead[2] = aHead[2] + nIncrement
+			aBlock[t] = aHead
+		next 
+	# Move the shape only if the move is possible for all of the shape blocks	
+		if MoveShapeIfPossible(oGame,oMap,aLevelCopy,aBlockCopy,True)
+			return True
+		ok 		
+	# Be sure we have a move down! even if someone keep pressing the Right key
+		MoveBlock(oGame,oMap)
+
+	return False	# False means Return from the end of the function
+
+func MoveShapeIfPossible oGame,oMap,aLevelCopy,aBlockCopy,lCallMoveDown
+
+	# Move the shape only if the move is possible for all of the shape blocks	
+		for t = 1 to len(aBlock)
+			aHead = aBlock[t]
+			if aHead[1] < 1 or aHead[2] < 1 loop ok
+			if aLevel[aHead[1]][aHead[2]] != C_EMPTY
+				aLevel = aLevelCopy	
+				aBlock = aBlockCopy
+				# Be sure we have a move down!
+					if lCallMoveDown
+						ShowBlock()
+						MoveBlock(oGame,oMap)
+					ok
+				return True
+			ok
+			ShowCell(aHead)
+		next 
+	return False 
+
+
+func MoveDown oGame,oMap,aLevelCopy,aBlockCopy
+
+	# Hide Shape Blocks then move one step down
+		for t = len(aBlock) to 1 step -1
+			aHead = aBlock[t]
+			if aHead[1] = C_LEVEL_ROWSCOUNT	
+				aLevel = aLevelCopy	
+				NewBlock(oGame)
+				return True
+			ok
+			HideCell(aHead)
+			aHead[1]++
+			aBlock[t] = aHead
+		next 
+	# Move the shape only if the move is possible for all of the shape blocks	
+		for t = 1 to len(aBlock)
+			aHead = aBlock[t]
+			if aHead[1] < 1 or aHead[2] < 1 loop ok
+			if aLevel[aHead[1]][aHead[2]] != C_EMPTY
+				aLevel = aLevelCopy
+				NewBlock(oGame)	
+				return True
+			ok
+			ShowCell(aHead)
+		next 
+	# Tells caller that Return from the end of the function
+		return False 
 
 func HideCell aCell
 
