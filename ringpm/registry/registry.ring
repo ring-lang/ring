@@ -558,5 +558,10 @@ aPackagesRegistry = [
 	[ :name = "moneyboxes",
 	  :description = "MoneyBoxes game package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "tetris",
+	  :description = "Tetris game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
+
 ]
