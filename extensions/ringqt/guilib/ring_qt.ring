@@ -8624,12 +8624,6 @@ Class QMovie from QObject
 	Func jumpToFrame P1
 		return QMovie_jumpToFrame(pObject,P1)
 
-	Func lastError 
-		return QMovie_lastError(pObject)
-
-	Func lastErrorString 
-		return QMovie_lastErrorString(pObject)
-
 	Func loopCount 
 		return QMovie_loopCount(pObject)
 

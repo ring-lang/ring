@@ -18,8 +18,10 @@ int frameCount(void)
 QRect frameRect(void)
 bool isValid(void)
 bool jumpToFrame(int frameNumber)
+<comment>
 QImageReader::ImageReaderError lastError(void)
 QString lastErrorString(void)
+</comment>
 int loopCount(void)
 int nextFrameDelay(void)
 QSize scaledSize(void)
