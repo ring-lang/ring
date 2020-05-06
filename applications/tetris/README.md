@@ -13,4 +13,4 @@ Using Ring Game Engine for 2D Games
 
 Screen Shot:
 
-![Tetris](https://github.com/ring-lang/ring/blob/master/applications/tetris/images/snake.png)
+![Tetris](https://github.com/ring-lang/ring/blob/master/applications/tetris/images/tetris.png)
