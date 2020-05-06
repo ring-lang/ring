@@ -206,7 +206,8 @@ aAllPackagesInfo = [
 		"snakesandladders",
 		"starsfighter",
 		"superman2016",
-		"androidringlibsdl"
+		"androidringlibsdl",
+		"tetris"
 	],
 	:ringallegro = 	[
 		"squarespuzzle"
