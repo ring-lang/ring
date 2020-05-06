@@ -238,6 +238,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/lottery" target="_blank">Lottery Game</a>',
 					'<img src="lotterygame.png" width="100%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/tetris" target="_blank">Tetris Game</a>',
+					'<img src="tetris.png" width="100%" height="400">'
 				]
 			    ]
                  ],
