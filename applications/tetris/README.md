@@ -23,7 +23,7 @@ Using Ring Game Engine for 2D Games
 
 (3) Score: You get 10 points when completing a row (The game check for nested rows completion as expected)
 
-(4) The game is designed to work forever without user interaction (After Game Over, the Game Restart automatically)
+(4) The game is designed to work forever without user interaction (After Game Over, the Game restarts automatically)
 
 # Using RingPM
 

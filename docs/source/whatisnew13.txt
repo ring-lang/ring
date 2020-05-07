@@ -178,6 +178,14 @@ Tetris Game
 
 An implementation for the Tetris Game
 
+Features
+
+* New Shapes are selected in random way (Different Shape, Color & Position)
+* You can move and rotate the shapes, increase the speed.
+* Score: You get 10 points when completing a row (The game check for nested rows completion as expected)
+* The game is designed to work forever without user interaction (After Game Over, the Game restarts automatically)
+
+
 .. image:: tetris.png
 	:alt: Tetris Game
 
