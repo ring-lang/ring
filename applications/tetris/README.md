@@ -7,9 +7,9 @@ Using Ring Game Engine for 2D Games
 
 	Arrows (Right|Left)	: Move the Shape
 
-	Arrows (Down)		: Increase the Speed
-	
 	Arrows (Up)		: Shape Rotation	
+
+	Arrows (Down)		: Increase the Speed
 
 	SPACE			: Restart the level
 
