@@ -17,9 +17,9 @@ Using Ring Game Engine for 2D Games
 
 # Features
 
-(1) You can move and rotate the shapes, increase the speed.
+(1) New Shapes are selected in random way (Different Shape, Color & Position)
 
-(2) New Shapes are selected in random way (Different Shape, Color & Position)
+(1) You can move and rotate the shapes, increase the speed.
 
 (3) Score: You get 10 points when completing a row (The game check for nested rows completion as expected)
 
