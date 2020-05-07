@@ -29,7 +29,8 @@
 
 	# Timers 
 		nKeyClock 	= clock()
-		nMoveClock 	= clock() 		
+		nMoveClock 	= clock() 	
+		nRotateClock	= clock()	
 
 	# Game Over
 		lGameOver 	= False
@@ -121,6 +122,8 @@ func main
 							on Key_Down
 								nMovementSpeed = 100
 								cDirection = :Down
+							on Key_Up
+								cDirection = :Rotate
 						off
 				}
 
@@ -164,6 +167,8 @@ func MoveBlock oGame,oMap
 			if MoveRightOrLeft(oGame,oMap,aLevelCopy,aBlockCopy,C_LEVEL_COLSCOUNT,1) return ok
 		on :left 
 			if MoveRightOrLeft(oGame,oMap,aLevelCopy,aBlockCopy,1,-1) return ok
+		on :rotate 
+			if RotateBlock(oGame,oMap,aLevelCopy,aBlockCopy) return ok
 		on :down
 			if MoveDown(oGame,oMap,aLevelCopy,aBlockCopy) return ok
 	off
@@ -250,16 +255,27 @@ func MoveDown oGame,oMap,aLevelCopy,aBlockCopy
 func HideCell aCell
 
 	# Check if we are outside the screen 
-		if aCell[1] < 1 or aCell[2] < 1 return ok
+		if IsOutsideTheScreen(aCell) return ok
 	# Hide the block 
 		aLevel[aCell[1]][aCell[2]] = C_EMPTY
 
 func ShowCell aCell
 
 	# Check if we are outside the screen 
-		if aCell[1] < 1 or aCell[2] < 1 return ok
+		if IsOutsideTheScreen(aCell) return ok
 	# Dispaly the block 
 		aLevel[aCell[1]][aCell[2]] = C_BLOCK
+
+func IsOutsideTheScreen aCell 
+
+	# Check if a point is outside the screen corners 
+		x = aCell[2]	y = aCell[1]
+		if x < 1 or y < 1 or 
+			x > C_LEVEL_COLSCOUNT or
+			y > C_LEVEL_ROWSCOUNT
+			return True
+		ok
+	return False 
 	
 func UpdateGameMap oGame
 
@@ -438,3 +454,41 @@ func delay nTime
 		t1 = clock()
 		while clock() - t1  < (nTime * Clockspersecond())
 		end 
+
+func RotateBlock oGame,oMap,aLevelCopy,aBlockCopy
+
+	cDirection = :Down
+
+	# Don't respond many times in short time
+		if (clock() - nRotateClock) / clockspersecond() < 0.3
+			MoveBlock(oGame,oMap)
+			return
+		ok
+		nRotateClock = clock()
+	
+	# Avoid [] Shape
+		if nShape = 3 return ok
+
+	# Apply the rotation 
+		for t = 1 to len(aBlock) 
+			aHead = aBlock[t]
+			HideCell(aHead)
+			y1 = aBlock[t][1]	x1 = aBlock[t][2]
+			py = aBlock[2][1]	px = aBlock[2][2]
+			x2 = (y1 + px - py)	y2 = (px + py - x1)
+			aBlock[t][1] = y2
+			aBlock[t][2] = x2
+			# Avoid rotation outside the screen borders 
+				if IsOutsideTheScreen(aBlock[t])
+					aBlock = aBlockCopy		
+					return True
+				ok
+		next 
+
+	# Check for collisions 	
+		if MoveShapeIfPossible(oGame,oMap,aLevelCopy,aBlockCopy,True)
+			return True 
+		ok
+	
+	# Be sure we have a move down! even if someone keep pressing the Right key
+		MoveBlock(oGame,oMap)

@@ -5,11 +5,15 @@ An implementation for the popular Tetris Game
 
 Using Ring Game Engine for 2D Games 
 
-	Arrows (Up|Down|Right|Left) : Move the Shape
+	Arrows (Right|Left)	: Move the Shape
 
-	ESC : Close the Game
+	Arrows (Down)		: Increase the Speed
 	
-	SPACE : Restart the level
+	Arrows (Up)		: Shape Rotation	
+
+	ESC			: Close the Game
+	
+	SPACE			: Restart the level
 
 # Using RingPM
 
