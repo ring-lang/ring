@@ -353,12 +353,13 @@ func NewShape oGame
 func AddNewShape oGame
 
 	# Support different shapes 
-		nShape = Random(6)+1 
+		nShape = Random(6)+1   
+		# The second cell is used as a center for the Rotation 
 		switch nShape
 		on 1  # O 
 			aBlock = [ [1,1] , [2,1] , [1,2] , [2,2] ]
-		on 2  # I
-			aBlock = [ [1,1] , [2,1] , [3,1] , [4,1] ]
+		on 2  # I  
+			aBlock = [ [2,1] , [4,1] , [3,1] , [1,1] ]
 		on 3  # S
 			aBlock = [ [3,1] , [3,2] , [2,2] , [2,3] ]
 		on 4  # Z
