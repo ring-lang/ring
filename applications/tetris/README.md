@@ -15,21 +15,7 @@ Using Ring Game Engine for 2D Games
 	
 	SPACE			: Restart the level
 
-# Using RingPM
-
-To quickly install and run the game using the Ring Package Manager
-
-	ringpm refresh
-	ringpm install tetris
-	ringpm run tetris
-
-# Screen Shot
-
-![Tetris](https://github.com/ring-lang/ring/blob/master/applications/tetris/images/tetris.png)
-
 # Features
-
-Features
 
 (1) You can move the shape (Right|Left)
 
@@ -44,3 +30,16 @@ Features
 (6) Score: You get 10 points when completing a row (The game check for nested rows completion as expected)
 
 (7) The game is designed to work forever without user interaction (After Game Over, the Game Restart automatically)
+
+# Using RingPM
+
+To quickly install and run the game using the Ring Package Manager
+
+	ringpm refresh
+	ringpm install tetris
+	ringpm run tetris
+
+# Screen Shot
+
+![Tetris](https://github.com/ring-lang/ring/blob/master/applications/tetris/images/tetris.png)
+
