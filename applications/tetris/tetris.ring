@@ -138,7 +138,7 @@ func main
 		}
 
 		# Start the game by adding new block!
-			AddNewBlock(self)
+			AddNewShape(self)
 
 	}         
 
@@ -168,7 +168,7 @@ func MoveBlock oGame,oMap
 		on :left 
 			if MoveRightOrLeft(oGame,oMap,aLevelCopy,aBlockCopy,1,-1) return ok
 		on :rotate 
-			if RotateBlock(oGame,oMap,aLevelCopy,aBlockCopy) return ok
+			if RotateShape(oGame,oMap,aLevelCopy,aBlockCopy) return ok
 		on :down
 			if MoveDown(oGame,oMap,aLevelCopy,aBlockCopy) return ok
 	off
@@ -214,7 +214,7 @@ func MoveShapeIfPossible oGame,oMap,aLevelCopy,aBlockCopy,lCallMoveDown
 				aBlock = aBlockCopy
 				# Be sure we have a move down!
 					if lCallMoveDown
-						ShowBlock()
+						ShowShape()
 						MoveBlock(oGame,oMap)
 					ok
 				return True
@@ -231,7 +231,7 @@ func MoveDown oGame,oMap,aLevelCopy,aBlockCopy
 			aHead = aBlock[t]
 			if aHead[1] = C_LEVEL_ROWSCOUNT	
 				aLevel = aLevelCopy	
-				NewBlock(oGame)
+				NewShape(oGame)
 				return True
 			ok
 			HideCell(aHead)
@@ -244,7 +244,7 @@ func MoveDown oGame,oMap,aLevelCopy,aBlockCopy
 			if aHead[1] < 1 or aHead[2] < 1 loop ok
 			if aLevel[aHead[1]][aHead[2]] != C_EMPTY
 				aLevel = aLevelCopy
-				NewBlock(oGame)	
+				NewShape(oGame)	
 				return True
 			ok
 			ShowCell(aHead)
@@ -317,7 +317,7 @@ func Restart oGame
 		clearLevelData()
 
 	# Add the Block
-		AddNewBlock(oGame)
+		AddNewShape(oGame)
 
 	# Restart the Level
 		cDirection = :Down
@@ -332,7 +332,7 @@ func Restart oGame
 		oGame.find(:Score).text = "Score : " + nScore
 
 
-func clearLevelData
+func ClearLevelData
 
 	# Set all cells to Empty
 		aLevel = list(C_LEVEL_ROWSCOUNT)
@@ -343,14 +343,14 @@ func clearLevelData
 			next
 		next
 	
-func NewBlock oGame
+func NewShape oGame
 
 	# Before inserting new blocks, check complete rows and game over 	
 		CheckCompleteRow(oGame)
 		CheckGameOver(oGame)
-		AddNewBlock(oGame)
+		AddNewShape(oGame)
 
-func AddNewBlock oGame
+func AddNewShape oGame
 
 	# Support different shapes 
 		nShape = Random(6)+1 
@@ -391,10 +391,10 @@ func AddNewBlock oGame
 		if C_BLOCK > 7 C_BLOCK = 2 ok
 	
 	# Display the block and set the default speed 
-		ShowBlock()
+		ShowShape()
 		nMovementSpeed  = 10
 
-func ShowBlock
+func ShowShape
 
 	# Show the different cells in the shape
 		for t = len(aBlock) to 1 step -1
@@ -448,14 +448,14 @@ func CheckCompleteRow oGame
 		next
 		UpdateGameMap(oGame)
 
-func delay nTime 
+func Delay nTime 
 
 	# Wait for some time (nTime in seconds)
 		t1 = clock()
 		while clock() - t1  < (nTime * Clockspersecond())
 		end 
 
-func RotateBlock oGame,oMap,aLevelCopy,aBlockCopy
+func RotateShape oGame,oMap,aLevelCopy,aBlockCopy
 
 	cDirection = :Down
 
