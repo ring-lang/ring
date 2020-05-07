@@ -11,9 +11,9 @@ Using Ring Game Engine for 2D Games
 	
 	Arrows (Up)		: Shape Rotation	
 
-	ESC			: Close the Game
-	
 	SPACE			: Restart the level
+
+	ESC			: Close the Game
 
 # Features
 
