@@ -23,6 +23,24 @@ To quickly install and run the game using the Ring Package Manager
 	ringpm install tetris
 	ringpm run tetris
 
-Screen Shot:
+# Screen Shot
 
 ![Tetris](https://github.com/ring-lang/ring/blob/master/applications/tetris/images/tetris.png)
+
+# Features
+
+Features
+
+(1) You can move the shape (Right|Left)
+
+(2) You can rotate the shape (Up key)
+
+(3) New Shapes are selected in random way (Different Shape, Color & Position)
+
+(4) You can press the DOWN key to increase the speed
+
+(5) Pressing the SPACE key will RESTART the game
+
+(6) Score: You get 10 points when completing a row (The game check for nested rows completion as expected)
+
+(7) The game is designed to work forever without user interaction (After Game Over, the Game Restart automatically)
