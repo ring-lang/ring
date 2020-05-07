@@ -17,19 +17,13 @@ Using Ring Game Engine for 2D Games
 
 # Features
 
-(1) You can move the shape (Right|Left)
+(1) You can move and rotate the shapes, increase the speed.
 
-(2) You can rotate the shape (Up key)
+(2) New Shapes are selected in random way (Different Shape, Color & Position)
 
-(3) New Shapes are selected in random way (Different Shape, Color & Position)
+(3) Score: You get 10 points when completing a row (The game check for nested rows completion as expected)
 
-(4) You can press the DOWN key to increase the speed
-
-(5) Pressing the SPACE key will RESTART the game
-
-(6) Score: You get 10 points when completing a row (The game check for nested rows completion as expected)
-
-(7) The game is designed to work forever without user interaction (After Game Over, the Game Restart automatically)
+(4) The game is designed to work forever without user interaction (After Game Over, the Game Restart automatically)
 
 # Using RingPM
 
