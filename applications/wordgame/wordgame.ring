@@ -49,7 +49,8 @@
         rowWord         = list(size1)
         colWord         = list(size2)
 	
-	LayoutButtonRow2= list(size1)             // Layout for buttons
+	LayoutButtonRow2 = list(size1)             // Layout for buttons
+        MatchingListSave = MatchingList
 
         C_StyleGray	= ' color: Purple; background-color: LightGray; border-radius: 8px; '
         C_StyleYellow	= ' color: Yellow; background-color: Black; border-radius: 8px; '
@@ -200,6 +201,10 @@ app = new qApp {
 #============================
 
 func createWordList()
+
+     if len(MatchingList) < 10
+        MatchingList = MatchingListSave
+     ok
 
      for n = 1 to len(MatchingList)
          if len(MatchingList[n][1]) > 12
