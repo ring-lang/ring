@@ -41,8 +41,8 @@
         score           = 0  
         checkScore      = 0                  
 	
-        WordListScore   = WordList
-	limit		= 12
+        WordList        = []
+	limit		= 6
 	
 	Button		= newlist(size1,size2)    // main buttons for letters
 	PairsXY		= newlist(size1*size2,2)  // store coordinates (x,y) of cells
@@ -180,7 +180,8 @@ app = new qApp {
 			setInterval(1000)
 			setTimeoutEvent("timerMan()")  ### ==>> Func
 			start()
-		}		
+		}
+                createWordList()		
                 newGame()
 		show()
 
@@ -193,6 +194,35 @@ app = new qApp {
 #===================================================================================#
 # Game Logic
 #===================================================================================#
+
+#============================
+# create words list
+#============================
+
+func createWordList()
+
+     for n = 1 to len(MatchingList)
+         if len(MatchingList[n][1]) > 12
+            del(MatchingList,n)
+         ok
+         if len(MatchingList[n][2]) > 12
+            del(MatchingList,n)
+         ok
+     next
+
+     WordList = []
+     for n = 1 to limit
+         randList = 1:len(MatchingList)
+         rand1 = random(len(MatchingList)-1)+1
+         rand2 = random(1)+1
+         if rand2 = 1
+            temp = MatchingList[rand1][1]
+         else
+            temp = MatchingList[rand1][2]
+         ok
+         add(WordList,temp)
+         del(MatchingList,rand1)
+     next
 
 #============================
 # set buttons colour to gray
@@ -307,7 +337,6 @@ func checkLettersScore
 func showLetters
 
         LettersList = []
-	WordList = ["Hello","Welcome","USA","Egypt","Ring","Programming"]
         for n = 1 to len(WordList)
             for m = 1 to len(WordList[n])
                 add(LettersList,WordList[n][m])
@@ -396,6 +425,7 @@ func newGame
                 Button[n][m].setstylesheet(C_StyleGray)
             next
         next
+        createWordList()
 	showLetters()
 
 #============================
