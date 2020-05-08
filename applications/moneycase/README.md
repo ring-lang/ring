@@ -11,4 +11,4 @@ Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/AAGgKy2R
 
 # Screen Shot
 
-![magicballs](https://raw.githubusercontent.com/ring-lang/ring/master/applications/moneycase/images/moneycase.png)
+![moneycase](https://raw.githubusercontent.com/ring-lang/ring/master/applications/moneycase/images/moneycase.png)
