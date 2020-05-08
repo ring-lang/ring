@@ -1,28 +1,48 @@
 // peg-solitaire: peg-soli-1.ring
-// Author : Nestor Kuka
 // This program solves the (English) peg solitaire board game.
 // http://en.wikipedia.org/wiki/Peg_solitaire
-// https://golang.org/doc/play/solitaire.go
+// quell: https://golang.org/doc/play/solitaire.go
+
+// at the beginning mai 2020 - nestor kuka
+
+// runtime ring: ~ 60 sec.
 
 Load "stdlib.ring"
 // solitaire board as string:
 // The board must be surrounded by 2 illegal fields in each direction 
 // so that move() doesn't need to check the board boundaries.
 // Periods represent illegal fields, x are pegs, and o are holes.
+
+// clasic:
 b = "..........................xxx........xxx......xxxxxxx....xxxoxxx....xxxxxxx......xxx........xxx.........................."
 
-N = 11  		 				// length of a row (11x11)
-pd = [-1, -N, 1, N]	// possible directions
-moves = 0						// number of times move is called
+/*
+clasic:
+...........
+...........
+....xxx....
+....xxx....
+..xxxxxxx..
+..xxxoxxx..
+..xxxxxxx..
+....xxx....
+....xxx....
+...........
+...........
+*/
+
+N = 11  		 			// length of a row (11x11)
+pd = [-1, -N, 1, N]			// possible directions
+moves = 0					// number of times move is called
 center = 0					// empty hole
-cnt = 32						// count the sucefull moves
+cnt= 0						// count the sucefull moves
 
 ? " "
 ? "Show board:"
 show_b(b)
 ? " "
-? "Time : " +Time()
-//t1 = clock()
+? " Don't despair. It takes - almost a minute..."
+? " "
 ? "Solution Steps: "
 
 // ---------------------------------------------- show the board
@@ -64,7 +84,6 @@ func main() {
 	ok
 	? ""
 	? "Moves tried: " + moves
-	? "Time : " +Time()
 }
 
 // ---------------------------------------------- move(pos, dir)
@@ -121,9 +140,9 @@ func solve() {
 					// see if this new board has a solution.
 					if solve() 					// recursion 
 						unmove(pos, pd[dir])	// position & direction
-						cnt = cnt - 1
-						? ">>------->  Move no. :"+ cnt
 						show_b(b)				// show the move
+						cnt = cnt+1
+						? ">>------->  Move no. :"+ cnt
 						return true
 					ok
 					unmove(pos, pd[dir])
