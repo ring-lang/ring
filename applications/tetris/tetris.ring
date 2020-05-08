@@ -42,6 +42,9 @@
 	# Score 
 		nScore		= 0
 
+	# Rotation
+		nRotationIndex  = 1
+
 #============================================================================#
 # Game User Interface 
 #============================================================================#
@@ -113,7 +116,7 @@ func main
 						Switch nkey 
 							on Key_Esc
 								oGame.Shutdown()
-							on Key_Space 
+							on Key_Space
 								Restart(oGame)
 							on Key_Right
 								cDirection = :Right
@@ -331,6 +334,8 @@ func Restart oGame
 		nScore		= 0
 		oGame.find(:Score).text = "Score : " + nScore
 
+	# Rotation
+		nRotationIndex  = 1
 
 func ClearLevelData
 
@@ -353,13 +358,13 @@ func NewShape oGame
 func AddNewShape oGame
 
 	# Support different shapes 
-		nShape = Random(6)+1   
+		nShape = Random(6)+1  
 		# The second cell is used as a center for the Rotation 
 		switch nShape
 		on 1  # O 
 			aBlock = [ [1,1] , [2,1] , [1,2] , [2,2] ]
 		on 2  # I  
-			aBlock = [ [2,1] , [4,1] , [3,1] , [1,1] ]
+			aBlock = [ [1,2] , [2,2] , [3,2] , [4,2] ]
 		on 3  # S
 			aBlock = [ [3,1] , [3,2] , [2,2] , [2,3] ]
 		on 4  # Z
@@ -394,6 +399,7 @@ func AddNewShape oGame
 	# Display the block and set the default speed 
 		ShowShape()
 		nMovementSpeed  = 10
+		nRotationIndex  = 1
 
 func ShowShape
 
@@ -475,8 +481,19 @@ func RotateShape oGame,oMap,aLevelCopy,aBlockCopy
 			aHead = aBlock[t]
 			HideCell(aHead)
 			y1 = aBlock[t][1]	x1 = aBlock[t][2]
-			py = aBlock[2][1]	px = aBlock[2][2]
+			py = aBlockCopy[2][1]	px = aBlockCopy[2][2]
 			x2 = (y1 + px - py)	y2 = (px + py - x1)
+			# I Shape Rotation 
+				if nShape = 2 
+					switch nRotationIndex
+						on 1 	# Do Nothing
+						on 2	# Increment Y,X 
+							x2++ y2++
+						on 3    # Do Nothing 
+						on 4    # Decrement Y,X
+							x2-- y2--
+					off					
+				ok
 			aBlock[t][1] = y2
 			aBlock[t][2] = x2
 			# Avoid rotation outside the screen borders 
@@ -490,6 +507,10 @@ func RotateShape oGame,oMap,aLevelCopy,aBlockCopy
 		if MoveShapeIfPossible(oGame,oMap,aLevelCopy,aBlockCopy,True)
 			return True 
 		ok
+
+	# We did the rotation, Update the Rotation index 
+		nRotationIndex++
+		if nRotationIndex=5 nRotationIndex=1 ok
 	
 	# Be sure we have a move down! even if someone keep pressing the Right key
 		MoveBlock(oGame,oMap)
