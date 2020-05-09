@@ -42,7 +42,7 @@
         checkScore      = 0 
         nNumberOfMoves  = 0               
 	
-        WordList        = []
+        WordList2        = []
 	limit		= 6
 	
 	Button		= newlist(size1,size2)    // main buttons for letters
@@ -52,7 +52,7 @@
         labelWord       = list(limit)
 	
 	LayoutButtonRow2 = list(size1)             // Layout for buttons
-        MatchingListSave = MatchingList
+        WordListSave = WordList
 
         C_StyleGray	= ' color: Purple; background-color: LightGray; border-radius: 8px; '
         C_StyleYellow	= ' color: Yellow; background-color: Black; border-radius: 8px; '
@@ -122,6 +122,7 @@ app = new qApp {
                 for n = 1 to 2
 	            labelWord[n] = new QLabel(win) {
 			           setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+                                   setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
 		    }
                     LayoutButtonRow7.AddWidget(labelWord[n])
                 next
@@ -170,7 +171,6 @@ app = new qApp {
 		LayoutButtonRow6.AddWidget(labelEmpty2)
 
 		LayoutButtonMain.AddLayout(LayoutButtonRow6)
-		//LayoutButtonMain.AddLayout(LayoutButtonRow7)
 
 		LayoutButtonRow1 {
 			AddWidget(labelTime)
@@ -214,7 +214,7 @@ app = new qApp {
 
 func showWordList()
 
-     ListWord = WordList
+     ListWord = WordList2
      for n = 1 to len(ListWord)
          len = len(ListWord[n])
          temp = random(len-1)+1
@@ -233,31 +233,31 @@ func showWordList()
 
 func createWordList()
 
-     if len(MatchingList) < 10
-        MatchingList = MatchingListSave
+     if len(WordList) < 10
+        WordList = MatchingListSave
      ok
 
-     for n = 1 to len(MatchingList)
-         if len(MatchingList[n][1]) > 12
-            del(MatchingList,n)
+     for n = 1 to len(WordList)
+         if len(WordList[n][1]) > 12
+            del(WordList,n)
          ok
-         if len(MatchingList[n][2]) > 12
-            del(MatchingList,n)
+         if len(WordList[n][2]) > 12
+            del(WordList,n)
          ok
      next
 
-     WordList = []
+     WordList2 = []
      for n = 1 to limit
-         randList = 1:len(MatchingList)
-         rand1 = random(len(MatchingList)-1)+1
+         randList = 1:len(WordList)
+         rand1 = random(len(WordList)-1)+1
          rand2 = random(1)+1
          if rand2 = 1
-            temp = MatchingList[rand1][1]
+            temp = WordList[rand1][1]
          else
-            temp = MatchingList[rand1][2]
+            temp = WordList[rand1][2]
          ok
-         add(WordList,temp)
-         del(MatchingList,rand1)
+         add(WordList2,temp)
+         del(WordList,rand1)
      next
 
 #============================
@@ -289,10 +289,10 @@ func checkLetters
              ok
              rowWord[row] = rowWord[row] + temp
          next
-         for word = 1 to len(WordList)
-             findWord = substr(rowWord[row],WordList[word])
+         for word = 1 to len(WordList2)
+             findWord = substr(rowWord[row],WordList2[word])
              if findWord > 0
-                for n = 1 to len(WordList[word])
+                for n = 1 to len(WordList2[word])
                     Button[row][findWord+n-1].setstylesheet(C_StyleYellow)
                 next
              ok
@@ -308,10 +308,10 @@ func checkLetters
              ok
              colWord[col] = colWord[col] + temp
          next
-         for word = 1 to len(WordList)
-             findWord = substr(colWord[col],WordList[word])
+         for word = 1 to len(WordList2)
+             findWord = substr(colWord[col],WordList2[word])
              if findWord > 0
-                for n = 1 to len(WordList[word])
+                for n = 1 to len(WordList2[word])
                     Button[findWord+n-1][col].setstylesheet(C_StyleYellow)
                 next
              ok
@@ -324,7 +324,7 @@ func checkLetters
 
 func checkLettersScore
 
-     WordListScore = WordList
+     WordListScore = WordList2
      score = 0
      labelShowScore.settext(string(score))
 
@@ -343,6 +343,10 @@ func checkLettersScore
                     del(WordListScore,word)
                     score++
                     labelShowScore.settext(string(score))
+                    if score = 6
+                       labelWord[1].settext("Game Over! You Win!")
+                       labelWord[2].settext("")
+                    ok
              ok
          next
      next
@@ -362,6 +366,10 @@ func checkLettersScore
                     del(WordListScore,word)
                     score++
                     labelShowScore.settext(string(score))
+                    if score = 6
+                       labelWord[1].settext("Game Over! You Win!")
+                       labelWord[2].settext("")
+                    ok
              ok
          next
      next
@@ -373,9 +381,9 @@ func checkLettersScore
 func showLetters
 
         LettersList = []
-        for n = 1 to len(WordList)
-            for m = 1 to len(WordList[n])
-                add(LettersList,WordList[n][m])
+        for n = 1 to len(WordList2)
+            for m = 1 to len(WordList2[n])
+                add(LettersList,WordList2[n][m])
             next
         next
 	LettersList = randomList(LettersList)
@@ -430,7 +438,8 @@ func pUserClick Row,Col
                 swap++
                 labelShowSwap.settext(string(swap))
                 if swap > nNumberOfMoves
-                   see "Game Over!" + nl
+                   labelWord[1].settext("Game Over!")
+                   labelWord[2].settext("")
                    for n = 1 to size1
                        for m = 1 to size2
                            Button[n][m].setenabled(false)
@@ -457,7 +466,7 @@ func newGame
 	labelShowSwap.settext("0")
         score = 0
         labelShowScore.settext(string(score))
-        WordListScore   = WordList
+        WordListScore   = WordList2
 	PairsXY = newlist(size1*size2,2)
         for n = 1 to size1
             for m = 1 to size2

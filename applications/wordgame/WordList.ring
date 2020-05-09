@@ -1,4 +1,4 @@
-MatchingList = [
+WordList = [
 ["Afghanistan","Kabul"],
 ["Albania","Tirana(Tirane)"],
 ["Algeria","Algiers"],
