@@ -1,11 +1,13 @@
 #==============================================================#
 # Sample : Top-Down View - Many Levels of Cubes
 # 2018, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2020, optimized by Ilir Liburn <iliribur@gmail.com>
 #==============================================================#
 
 # Load Libraries
 	load "gamelib.ring"		# RingAllegro Library
 	load "opengl21lib.ring"		# RingOpenGL  Library
+	load "stdlib.ring"
 
 #==============================================================#
 # To Support MacOS X
@@ -26,7 +28,7 @@ class GraphicsApp from GraphicsAppBase
 	TITLE = "Sample : Top-Down View - Many Levels of Cubes"
 
 	bitmap texture font
-	bitmap2 texture2
+	bitmap2 texture2 font2
 
 	// angle of rotation for the camera direction
 		angle=0.0
@@ -37,23 +39,26 @@ class GraphicsApp from GraphicsAppBase
 		x=0.0
 		z=5.0
 
+	time = 0
+	frame = 0
 	fraction = 0.1
-
 	nSpeed = 10
 
 	func loadresources
 
 		bitmap = al_load_bitmap("n1.jpg")
 		texture = al_get_opengl_texture(bitmap)
-		font = al_load_ttf_font("pirulen.ttf",54,0 )
 		bitmap2 = al_load_bitmap("back.jpg")
 		texture2 = al_get_opengl_texture(bitmap2)
+		font = al_load_ttf_font("pirulen.ttf",54,0 )
+		font2 = al_create_builtin_font()
 
 	func destroyResources
 
-		al_destroy_bitmap(bitmap)
+		al_destroy_font(font2)
 		al_destroy_font(font)
 		al_destroy_bitmap(bitmap2)
+		al_destroy_bitmap(bitmap)
 
 	func drawScene
 
@@ -73,42 +78,44 @@ class GraphicsApp from GraphicsAppBase
 		glEnable(GL_TEXTURE_2D)							
 		glshademodel(gl_SMOOTH)
 
-		glClearColor(0.0, 0.0, 0.0, 0.0)
+		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
+
+		glEnable(GL_CULL_FACE)
+
+//		disabled for better performance after cube faces reorder
+/*
 		glClearDepth(1)			
 
 		glEnable(GL_DEPTH_TEST)	
 
-		glEnable(GL_CULL_FACE)
-
 		glDepthFunc(GL_LEQUAL)
-		glHint(GL_PERSPECTIVE_CORRECTION_HINT, GL_NICEST)
 
 		glClear( GL_DEPTH_BUFFER_BIT)	 
-
-		glLoadIdentity()									
-
+*/
 		gluLookAt(x, 10-z/10, z+5,
                         x+lx, 1.0,  z+lz,
                         0.0, 1.0,  0.0)
 
 		glBindTexture(GL_TEXTURE_2D, texture)
-	
-		 for i = -10 to 10
-	                for  j =1 to -3 step -1
-	                        glPushMatrix()
-	                        glTranslatef(i*2.0,0,j * 2.0)
-	                        drawCube(i)
-	                        glTranslatef(1,3,-15)
-	                        drawCube(i)
-	                        glTranslatef(1,3,-15)
-	                        drawCube(i)
-	                        glTranslatef(1,3,-15)
-	                        drawCube(i)
-	                        glTranslatef(1,3,-15)
-	                        drawCube(i)
-	                        glPopMatrix()
-	                next
-	        next
+
+		for k = -1 to 1
+			for i = k*10 to k step -k | 1
+				for  j = -3 to 1
+					glPushMatrix()
+		 			glTranslatef(i*2.0,0,j * 2.0)
+					drawCube(i, j)
+					glTranslatef(1,3,-15)
+					drawCube(i, j)
+					glTranslatef(1,3,-15)
+		                        drawCube(i, j)
+		                        glTranslatef(1,3,-15)
+		                        drawCube(i, j)
+		                        glTranslatef(1,3,-15)
+		                        drawCube(i, j)
+		                        glPopMatrix()
+				next
+			next
+		next
 
 		set2DMODE()
 
@@ -116,6 +123,17 @@ class GraphicsApp from GraphicsAppBase
 			ALLEGRO_ALIGN_LEFT,
 			"Ring is fun!")
 
+		al_draw_text(font2, al_map_rgb(100,255,100), 10, 10,
+			ALLEGRO_ALIGN_LEFT,
+			"" + fps + " FPS")
+	
+		frame++
+
+		if clock() - time >= clockspersecond()
+	 		time = clock()
+			fps = frame
+	 		frame = 0
+		ok
 
 		if key[key_left]
 			for t = 1 to nSpeed
@@ -125,7 +143,8 @@ class GraphicsApp from GraphicsAppBase
 			for t = 1 to nSpeed
 				moveright()
 			next
-		but key[key_up]
+		ok
+		if key[key_up]
 			for t = 1 to nSpeed
 				moveup()
 			next
@@ -153,14 +172,29 @@ class GraphicsApp from GraphicsAppBase
 		lx = sin(angle)
 		lz = -cos(angle)
 
-	func drawcube i 
+	func drawcube i, j
 
 		glBegin(GL_QUADS)
+			// Left Face
+			if i = -10
+				glTexCoord2f(0.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
+				glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
+				glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
+				glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
+			// Right face
+			but i = 10
+				glTexCoord2f(1.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
+				glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
+				glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0,  1.0)
+				glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
+			ok
 			// Front Face
-			glTexCoord2f(0.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
-			glTexCoord2f(1.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
-			glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0,  1.0)
-			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
+			if j = 1
+				glTexCoord2f(0.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
+				glTexCoord2f(1.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
+				glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0,  1.0)
+				glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
+			ok
 			// Back Face
 			/*
 			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
@@ -180,19 +214,6 @@ class GraphicsApp from GraphicsAppBase
 			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
 			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
 			*/
-			if i = 10
-				// Right face
-				glTexCoord2f(1.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
-				glTexCoord2f(1.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
-				glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0,  1.0)
-				glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0,  1.0)
-			but i = -10
-				// Left Face
-				glTexCoord2f(0.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
-				glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0,  1.0)
-				glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
-				glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
-			ok
 		glEnd()
 
 	func set2DMode
@@ -322,3 +343,4 @@ class GraphicsAppBase
 	func drawScene
 
 	func destroyResources
+
