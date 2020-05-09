@@ -15,9 +15,9 @@ screenHeight = 720
 #SetConfigFlags(FLAG_FULLSCREEN_MODE) // | FLAG_VSYNC_HINT)
 InitWindow(screenWidth, screenHeight, TITLE)
 
-font = LoadFont("pirulen.ttf")
-texture = LoadTexture("n1.jpg")
-background = LoadTexture("back.jpg")
+font = LoadFont("resources/pirulen.ttf")
+texture = LoadTexture("resources/n1.jpg")
+background = LoadTexture("resources/back.jpg")
 
 // angle of rotation for the camera direction
 angle=0.0
