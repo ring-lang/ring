@@ -68,7 +68,6 @@ app = new qApp
 				   x = (Row-1)*width
 				   y = (Col-1)*height
 				   setgeometry(x,y,width,height)
-				   setclickevent("UserLeftMouse(" + string(Row) + "," + string(Col) + ")")
 				   setStyleSheet(C_ButtonEmptyStyle)
 				   setSizePolicy(1,1) 
 				   installEventFilter(myFilter)
