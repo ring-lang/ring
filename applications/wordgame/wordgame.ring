@@ -39,10 +39,13 @@
 	time2		= 0
 	swap		= 0
         score           = 0  
-        checkScore      = 0 
+        checkScore      = 0
+        checkVoice      = 0 
         nNumberOfMoves  = 0               
 	
-        WordList2        = []
+        WordList2       = []
+        WordList3       = []
+        WordList4       = []
 	limit		= 6
 	
 	Button		= newlist(size1,size2)    // main buttons for letters
@@ -383,6 +386,7 @@ func checkLetters
 func checkLettersScore
 
      WordListScore = WordList2
+     WordList3 = []
      score = 0
      labelShowScore.settext(string(score))
 
@@ -398,6 +402,7 @@ func checkLettersScore
          for word = 1 to len(WordListScore)
              findWord = substr(rowWord[row],WordListScore[word])
              if findWord > 0
+                    add(WordList3,WordListScore[word])
                     del(WordListScore,word)
                     score++
                     labelShowScore.settext(string(score))
@@ -423,6 +428,7 @@ func checkLettersScore
          for word = 1 to len(WordListScore)
              findWord = substr(colWord[col],WordListScore[word])
              if findWord > 0
+                    add(WordList3,WordListScore[word])
                     del(WordListScore,word)
                     score++
                     labelShowScore.settext(string(score))
@@ -510,8 +516,18 @@ func pUserClick Row,Col
                        next
                    next
                 ok
+                WordList4 = WordList3
                 checkLetters()
                 checkLettersScore()
+                
+                len4 = len(WordList4)
+                len3 = len(WordList3)
+                if len3 > len4                 
+                   see "word = " + WordList3[len3] + nl
+                   voice = new QTextToSpeech(win) {
+                           say(WordList3[len3]) }
+                ok
+
                 click = 1
                 return
 	ok
@@ -523,6 +539,7 @@ func pUserClick Row,Col
 func newGame
 
         click = 1
+        checkVoice = 0 
 	labelShowTime.setText("0:00")
 	time1 = clock()
 	TimerMan.start()
