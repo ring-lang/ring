@@ -39,7 +39,8 @@
 	time2		= 0
 	swap		= 0
         score           = 0  
-        checkScore      = 0                  
+        checkScore      = 0 
+        nNumberOfMoves  = 0               
 	
         WordList        = []
 	limit		= 6
@@ -48,6 +49,7 @@
 	PairsXY		= newlist(size1*size2,2)  // store coordinates (x,y) of cells
         rowWord         = list(size1)
         colWord         = list(size2)
+        labelWord       = list(limit)
 	
 	LayoutButtonRow2 = list(size1)             // Layout for buttons
         MatchingListSave = MatchingList
@@ -85,6 +87,8 @@ app = new qApp {
 		LayoutButtonRow4 = new QHBoxLayout()
 		LayoutButtonRow5 = new QHBoxLayout()
 		LayoutButtonRow6 = new QHBoxLayout()
+		LayoutButtonRow7 = new QHBoxLayout()
+		LayoutButtonRow8 = new QVBoxLayout()
 		
 		labelEmpty1 = new QLabel(win)
 		labelEmpty2 = new QLabel(win)
@@ -154,9 +158,24 @@ app = new qApp {
 			settext("0")
 		}
 
+		labelWords = new QLabel(win) {
+			     setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+			     settext("Words: ")
+		}
+
+                for n = 1 to 2
+	            labelWord[n] = new QLabel(win) {
+			           setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+		    }
+                    LayoutButtonRow8.AddWidget(labelWord[n])
+                next
+
 		LayoutButtonRow6.AddWidget(labelEmpty2)
+		LayoutButtonRow7.AddWidget(labelWords)
 
 		LayoutButtonMain.AddLayout(LayoutButtonRow6)
+		LayoutButtonMain.AddLayout(LayoutButtonRow7)
+		LayoutButtonMain.AddLayout(LayoutButtonRow8)
 
 		LayoutButtonRow1 {
 			AddWidget(labelTime)
@@ -182,8 +201,9 @@ app = new qApp {
 			setTimeoutEvent("timerMan()")  ### ==>> Func
 			start()
 		}
-                createWordList()		
+                createWordList()
                 newGame()
+                showWordList()
 		show()
 
 	}
@@ -195,6 +215,25 @@ app = new qApp {
 #===================================================================================#
 # Game Logic
 #===================================================================================#
+
+#============================
+# show words list in label
+#============================
+
+func showWordList()
+
+     ListWord = WordList
+     for n = 1 to len(ListWord)
+         len = len(ListWord[n])
+         temp = random(len-1)+1
+         ListWord[n][temp] = "?"
+     next
+     listWords1 = ListWord[1] + " -- " + ListWord[2] + " -- " + ListWord[3]
+     listWords2 = ListWord[4] + " -- " + ListWord[5] + " -- " + ListWord[6]
+     labelWord[1].settext(listWords1)
+     labelWord[2].settext(listWords2)
+     nNumberOfMoves = len(ListWord[1]) + len(ListWord[2]) + len(ListWord[3]) +
+                      len(ListWord[4]) + len(ListWord[5]) + len(ListWord[6]) + 15
 
 #============================
 # create words list
@@ -371,10 +410,6 @@ func showLetters
 	    del(randList,rand1)                  // delete rand1 random number
 	next
 
-        abcWord = sort(WordList)
-        see "You must discover the words:" + nl + nl
-        see abcWord
-
 #================================
 # handle the user click on button
 #================================    
@@ -402,6 +437,14 @@ func pUserClick Row,Col
                                      setStylesheet(C_StyleGray) }
                 swap++
                 labelShowSwap.settext(string(swap))
+                if swap > nNumberOfMoves
+                   see "Game Over!" + nl
+                   for n = 1 to size1
+                       for m = 1 to size2
+                           Button[n][m].setenabled(false)
+                       next
+                   next
+                ok
                 checkLetters()
                 checkLettersScore()
                 click = 1
@@ -427,11 +470,13 @@ func newGame
         for n = 1 to size1
             for m = 1 to size2
                 Button[n][m].settext("")
+                Button[n][m].setenabled(true)
                 Button[n][m].setstylesheet(C_StyleGray)
             next
         next
         createWordList()
 	showLetters()
+        showWordList()
 
 #============================
 # function for timer
