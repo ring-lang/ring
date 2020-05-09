@@ -87,8 +87,7 @@ app = new qApp {
 		LayoutButtonRow4 = new QHBoxLayout()
 		LayoutButtonRow5 = new QHBoxLayout()
 		LayoutButtonRow6 = new QHBoxLayout()
-		LayoutButtonRow7 = new QHBoxLayout()
-		LayoutButtonRow8 = new QVBoxLayout()
+		LayoutButtonRow7 = new QVBoxLayout()
 		
 		labelEmpty1 = new QLabel(win)
 		labelEmpty2 = new QLabel(win)
@@ -117,7 +116,17 @@ app = new qApp {
 			AddLayout(LayoutButtonRow1)
 			AddLayout(LayoutButtonRow5)
 			AddLayout(LayoutButtonRow4)
+
 		}
+
+                for n = 1 to 2
+	            labelWord[n] = new QLabel(win) {
+			           setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+		    }
+                    LayoutButtonRow7.AddWidget(labelWord[n])
+                next
+
+		LayoutButtonMain.AddLayout(LayoutButtonRow7)
 
 		for Row = 1 to size1
 			LayoutButtonRow2[Row] = new QHBoxLayout() {
@@ -158,24 +167,10 @@ app = new qApp {
 			settext("0")
 		}
 
-		labelWords = new QLabel(win) {
-			     setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-			     settext("Words: ")
-		}
-
-                for n = 1 to 2
-	            labelWord[n] = new QLabel(win) {
-			           setFont(new qFont("Verdana",C_FONTSIZE,50,0))
-		    }
-                    LayoutButtonRow8.AddWidget(labelWord[n])
-                next
-
 		LayoutButtonRow6.AddWidget(labelEmpty2)
-		LayoutButtonRow7.AddWidget(labelWords)
 
 		LayoutButtonMain.AddLayout(LayoutButtonRow6)
-		LayoutButtonMain.AddLayout(LayoutButtonRow7)
-		LayoutButtonMain.AddLayout(LayoutButtonRow8)
+		//LayoutButtonMain.AddLayout(LayoutButtonRow7)
 
 		LayoutButtonRow1 {
 			AddWidget(labelTime)
@@ -205,11 +200,8 @@ app = new qApp {
                 newGame()
                 showWordList()
 		show()
-
 	}
-
 	exec()
-
 }
 
 #===================================================================================#
