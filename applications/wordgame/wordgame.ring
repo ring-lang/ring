@@ -344,7 +344,7 @@ func checkLettersScore
                     score++
                     labelShowScore.settext(string(score))
                     if score = 6
-                       labelWord[1].settext("Game Over! You Win!")
+                       labelWord[1].settext("You Win!")
                        labelWord[2].settext("")
                     ok
              ok
@@ -367,7 +367,7 @@ func checkLettersScore
                     score++
                     labelShowScore.settext(string(score))
                     if score = 6
-                       labelWord[1].settext("Game Over! You Win!")
+                       labelWord[1].settext("You Win!")
                        labelWord[2].settext("")
                     ok
              ok
