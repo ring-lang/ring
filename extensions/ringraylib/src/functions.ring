@@ -681,3 +681,6 @@ func WaveCrop wave, initSample, finalSample
 
 func GetWaveData wave
 	return GetWaveData_2(GPData(wave))
+
+func DrawTextEx font,text,position,fontSize,spacing,tint
+	return DrawTextEx_2(GPData(font),text,GPData(position),fontSize,spacing,tint)

@@ -293,7 +293,7 @@ Image GenImageFontAtlas(CharInfo *chars, int charsCount, int fontSize, int paddi
 void UnloadFont@2(Font font)
 void DrawFPS(int posX, int posY)
 void DrawText(const char *text, int posX, int posY, int fontSize, Color color)
-void DrawTextEx(Font font, const char *text, Vector2 position, float fontSize, float spacing, Color tint)
+void DrawTextEx@2(Font font, const char *text, Vector2 position, float fontSize, float spacing, Color tint)
 void DrawTextRec@2(Font font, const char *text, Rectangle rec, float fontSize, float spacing, bool wordWrap, Color tint)
 void DrawTextRecEx@2(Font font, const char *text, Rectangle rec, float fontSize, float spacing, bool wordWrap, Color tint,int selectStart, int selectLength, Color selectText, Color selectBack)
 int MeasureText(const char *text, int fontSize)

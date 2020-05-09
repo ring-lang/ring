@@ -13113,7 +13113,7 @@ RING_FUNC(ring_DrawText)
 }
 
 
-RING_FUNC(ring_DrawTextEx)
+RING_FUNC(ring_DrawTextEx_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17147,7 +17147,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("unloadfont_2",ring_UnloadFont_2);
 	ring_vm_funcregister("drawfps",ring_DrawFPS);
 	ring_vm_funcregister("drawtext",ring_DrawText);
-	ring_vm_funcregister("drawtextex",ring_DrawTextEx);
+	ring_vm_funcregister("drawtextex_2",ring_DrawTextEx_2);
 	ring_vm_funcregister("drawtextrec_2",ring_DrawTextRec_2);
 	ring_vm_funcregister("drawtextrecex_2",ring_DrawTextRecEx_2);
 	ring_vm_funcregister("measuretext",ring_MeasureText);
