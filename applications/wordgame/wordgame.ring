@@ -502,6 +502,7 @@ func pUserClick Row,Col
                 if swap > nNumberOfMoves
                    labelWord[1].settext("Game Over!")
                    labelWord[2].settext("")
+                   TimerMan.stop()
                    pSetEnabledFalse()
                    for n = 1 to size1
                        for m = 1 to size2
