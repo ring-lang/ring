@@ -79,11 +79,6 @@ Questions Game
 
 An implementation for the Questions Game
 
-.. image:: questionsgame.png
-	:width: 550pt
-	:height: 350pt
-	:alt: Questions Game
-
 A screen shot for the game on Mobile devices like Android
 
 .. image:: questions_mobile.png
@@ -204,11 +199,6 @@ The Rockets sample
 .. image:: hassouna3.png
 	:alt: Sample from Hassouna Course 
 
-The Ship sample
-
-.. image:: hassouna2.png
-	:alt: Sample from Hassouna Course 
-
 .. index:: 
 	pair: What is new in Ring 1.13?; Ring support in SpaceVim
 
@@ -317,6 +307,7 @@ More Improvements
 	* ring/samples/other/customtablewidget2.ring
 	* ring/samples/other/endian.ring
 	* ring/samples/other/UsingQML/sample10 folder (Charts Samples)
+	* ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Ring Notepad - View Menu - Source Code (Full Screen)
@@ -332,6 +323,7 @@ More Improvements
 * Type Hints library - Better Code
 * StdLib - IsMainSourceFile() function - Better Code
 * RingLibSDL - Update LibSDL version from 2.0.10 to 2.0.12
+* RingRayLib - DrawTextEx() Function - Better Code
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
 * Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
 * Ring Compiler - ring_parser.c - Better Code
