@@ -3,8 +3,6 @@ Lottery Game
 
 Author : Gal Zsolt
 
-Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/YuDrYvT-qCY
-
 # To run the application
 
 	ring lottery.ring

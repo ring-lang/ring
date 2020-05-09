@@ -3,8 +3,6 @@ RockPaperScissors Game
 
 Author : Gal Zsolt 
 
-Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/oaSzjIhqBeU
-
 # To Run
 
 	ring RockPaperScissorsGame.ring

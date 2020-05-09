@@ -3,8 +3,6 @@ Pairs Game
 
 Author : Gal Zsolt, Bert Mariani
 
-Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/Mx4PSVsKfHU
-
 # To run the application
 
 	ring PairsGame.ring
