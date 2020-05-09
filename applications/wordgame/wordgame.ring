@@ -152,6 +152,12 @@ app = new qApp {
 			setClickEvent("newGame()") 
 		}
 
+		buttonSolve = new QPushButton(win) {
+			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
+			settext("Solve")
+			setClickEvent("pSolve()") 
+		}
+
 		buttonExit = new QPushButton(win) {
 			setFont(new qFont("Verdana",C_FONTSIZE,50,0))
 			settext("Exit")
@@ -181,6 +187,7 @@ app = new qApp {
 
 		LayoutButtonRow3 {
 			AddWidget(buttonNewGame)
+                        AddWidget(buttonSolve)
 			AddWidget(labelScore)
 			AddWidget(labelShowScore)
 			AddWidget(buttonExit)
@@ -207,6 +214,57 @@ app = new qApp {
 #===================================================================================#
 # Game Logic
 #===================================================================================#
+
+#============================
+# show full words list
+#============================
+
+func pSolve()
+
+     for n = 1 to size1
+         for m = 1 to size2
+             Button[n][m].settext("")
+         next
+     next
+
+     rowList = 1:12
+     for n = 1 to 6
+         rowind = random(len(rowList)-1)+1
+         row = rowList[rowind]
+         word = WordList2[n]
+         lenWord = len(word)
+         len = 12 - lenWord
+         rand2 = random(len-1)+1
+         col = 0
+         for m = rand2 to rand2+lenWord-1
+             col = col + 1
+             temp = word[col]
+             Button[row][m].settext(temp)
+         next
+         del(rowList,rowind)
+     next
+
+
+     ListWord = WordList2
+     listWords1 = ListWord[1] + " -- " + ListWord[2] + " -- " + ListWord[3]
+     listWords2 = ListWord[4] + " -- " + ListWord[5] + " -- " + ListWord[6]
+     labelWord[1].settext(listWords1)
+     labelWord[2].settext(listWords2)
+     labelShowSwap.settext("0")
+     score = 6
+     labelShowScore.settext(string(score))
+     pSetEnabledFalse()
+
+#============================
+# show words list in label
+#============================
+
+func pSetEnabledFalse
+     for n = 1 to size1
+         for m = 1 to size2
+             Button[n][m].setenabled(false)
+         next
+     next
 
 #============================
 # show words list in label
@@ -238,10 +296,10 @@ func createWordList()
      ok
 
      for n = 1 to len(WordList)
-         if len(WordList[n][1]) > 12
+         if len(WordList[n][1]) > 10
             del(WordList,n)
          ok
-         if len(WordList[n][2]) > 12
+         if len(WordList[n][2]) > 10
             del(WordList,n)
          ok
      next
@@ -346,6 +404,8 @@ func checkLettersScore
                     if score = 6
                        labelWord[1].settext("You Win!")
                        labelWord[2].settext("")
+                       pSetEnabledFalse()
+                       TimerMan.stop()
                     ok
              ok
          next
@@ -369,6 +429,8 @@ func checkLettersScore
                     if score = 6
                        labelWord[1].settext("You Win!")
                        labelWord[2].settext("")
+                       pSetEnabledFalse()
+                       TimerMan.stop()
                     ok
              ok
          next
@@ -440,6 +502,7 @@ func pUserClick Row,Col
                 if swap > nNumberOfMoves
                    labelWord[1].settext("Game Over!")
                    labelWord[2].settext("")
+                   pSetEnabledFalse()
                    for n = 1 to size1
                        for m = 1 to size2
                            Button[n][m].setenabled(false)
