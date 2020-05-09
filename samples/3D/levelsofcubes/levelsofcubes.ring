@@ -82,16 +82,6 @@ class GraphicsApp from GraphicsAppBase
 
 		glEnable(GL_CULL_FACE)
 
-//		disabled for better performance after cube faces reorder
-/*
-		glClearDepth(1)			
-
-		glEnable(GL_DEPTH_TEST)	
-
-		glDepthFunc(GL_LEQUAL)
-
-		glClear( GL_DEPTH_BUFFER_BIT)	 
-*/
 		gluLookAt(x, 10-z/10, z+5,
                         x+lx, 1.0,  z+lz,
                         0.0, 1.0,  0.0)
