@@ -325,8 +325,6 @@ func createWordList()
          del(WordList,rand1)
      next
 
-     WordList2 = ["Italy","Germany","Hungary","Denmark","Finland","Japan"]
-
 #============================
 # set buttons colour to gray
 #============================
