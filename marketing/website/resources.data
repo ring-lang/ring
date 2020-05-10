@@ -241,7 +241,11 @@
 				],
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/tetris" target="_blank">Tetris Game</a>',
-					'<img src="tetris.png" width="100%" height="400">'
+					'<img src="tetris.png" width="100%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/wordgame" target="_blank">Word Game</a>',
+					'<img src="wordgame2.png" width="100%">'
 				]
 			    ]
                  ],
