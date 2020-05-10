@@ -39,7 +39,10 @@
 	time2		= 0
 	swap		= 0
         score           = 0  
+        scoreOld        = 0
         checkScore      = 0
+        checkVoice      = 0
+        wordVoice       = 0 
         nNumberOfMoves  = 0               
 	
         WordList2       = []
@@ -54,7 +57,8 @@
         labelWord       = list(limit)
 	
 	LayoutButtonRow2 = list(size1)             // Layout for buttons
-        WordListSave = WordList
+        WordListSave     = WordList
+        WordListScore    = []
 
         C_StyleGray	= ' color: Purple; background-color: LightGray; border-radius: 8px; '
         C_StyleYellow	= ' color: Yellow; background-color: Black; border-radius: 8px; '
@@ -226,6 +230,7 @@ func pSolve()
      for n = 1 to size1
          for m = 1 to size2
              Button[n][m].settext("")
+             Button[n][m].setstylesheet(C_StyleGray)
          next
      next
 
@@ -320,6 +325,8 @@ func createWordList()
          del(WordList,rand1)
      next
 
+     WordList2 = ["Italy","Germany","Hungary","Denmark","Finland","Japan"]
+
 #============================
 # set buttons colour to gray
 #============================
@@ -384,10 +391,12 @@ func checkLetters
 
 func checkLettersScore
 
+     scoreOld = score
      WordListScore = WordList2
-     WordList3 = []
+     WordListTemp = WordListScore
      score = 0
      labelShowScore.settext(string(score))
+     checkVoice = 0
 
      for row = 1 to size1                        // search words in rows
          rowWord[row] = ""
@@ -401,7 +410,6 @@ func checkLettersScore
          for word = 1 to len(WordListScore)
              findWord = substr(rowWord[row],WordListScore[word])
              if findWord > 0
-                    add(WordList3,WordListScore[word])
                     del(WordListScore,word)
                     score++
                     labelShowScore.settext(string(score))
@@ -411,6 +419,7 @@ func checkLettersScore
                        pSetEnabledFalse()
                        TimerMan.stop()
                     ok
+                    checkVoice = 1
              ok
          next
      next
@@ -427,7 +436,6 @@ func checkLettersScore
          for word = 1 to len(WordListScore)
              findWord = substr(colWord[col],WordListScore[word])
              if findWord > 0
-                    add(WordList3,WordListScore[word])
                     del(WordListScore,word)
                     score++
                     labelShowScore.settext(string(score))
@@ -437,6 +445,7 @@ func checkLettersScore
                        pSetEnabledFalse()
                        TimerMan.stop()
                     ok
+                    checkVoice = 1
              ok
          next
      next
@@ -483,6 +492,7 @@ func showLetters
 
 func pUserClick Row,Col
 
+        WordListTemp = WordListScore
 	if click = 1                                    // show letters of first click
 		Button[Row][Col] { letter1 = text() 
                                    setStylesheet(C_StyleGreen)
@@ -515,12 +525,25 @@ func pUserClick Row,Col
                        next
                    next
                 ok
-                WordList4 = WordList3
+
                 checkLetters()
                 checkLettersScore()
-                
-                len4 = len(WordList4)
-                len3 = len(WordList3)
+
+                len1 = len(WordListTemp)
+                len2 = len(WordListScore)
+                if len1 > len2
+                   for n = 1 to len2
+                       temp = WordListScore[n]
+                       ind = find(WordListTemp,temp)
+                       del(WordListTemp,ind)
+                   next
+                   wordVoice = WordListTemp[1]
+                ok
+
+                if (score > scoreOld)
+                    voice = new QTextToSpeech(win) {
+                            say(wordVoice) }
+                ok
 
                 click = 1
                 return
@@ -533,6 +556,7 @@ func pUserClick Row,Col
 func newGame
 
         click = 1
+        checkVoice = 0 
 	labelShowTime.setText("0:00")
 	time1 = clock()
 	TimerMan.start()
