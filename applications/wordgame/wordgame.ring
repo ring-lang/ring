@@ -40,7 +40,6 @@
 	swap		= 0
         score           = 0  
         checkScore      = 0
-        checkVoice      = 0 
         nNumberOfMoves  = 0               
 	
         WordList2       = []
@@ -522,11 +521,6 @@ func pUserClick Row,Col
                 
                 len4 = len(WordList4)
                 len3 = len(WordList3)
-                if len3 > len4                 
-                   see "word = " + WordList3[len3] + nl
-                   voice = new QTextToSpeech(win) {
-                           say(WordList3[len3]) }
-                ok
 
                 click = 1
                 return
@@ -539,7 +533,6 @@ func pUserClick Row,Col
 func newGame
 
         click = 1
-        checkVoice = 0 
 	labelShowTime.setText("0:00")
 	time1 = clock()
 	TimerMan.start()
