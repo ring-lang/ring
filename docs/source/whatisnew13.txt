@@ -26,6 +26,7 @@ Ring 1.13 comes with the next features!
 * Nim Game
 * Lottery Game
 * Tetris Game
+* Word Game
 * Hassouna Course Samples
 * Ring support in SpaceVim
 * Better RingQt
@@ -180,9 +181,22 @@ Features
 * Score: You get 10 points when completing a row (The game check for nested rows completion as expected)
 * The game is designed to work forever without user interaction (After Game Over, the Game restarts automatically)
 
-
 .. image:: tetris.png
 	:alt: Tetris Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Word Game
+
+Word Game
+=========
+
+An implementation for the Word Game
+
+.. image:: wordgame.png
+	:alt: Word Game
+
+.. image:: wordgame2.png
+	:alt: Word Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Hassouna Course Samples
