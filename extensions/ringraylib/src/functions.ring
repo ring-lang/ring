@@ -684,3 +684,6 @@ func GetWaveData wave
 
 func DrawTextEx font,text,position,fontSize,spacing,tint
 	return DrawTextEx_2(GPData(font),text,GPData(position),fontSize,spacing,tint)
+
+func DrawCubeTexture texture,position,width,height,length,color
+	return DrawCubeTexture_2(GPData(texture),GPData(position),width,height,length,GPData(color))

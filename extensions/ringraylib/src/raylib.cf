@@ -321,7 +321,7 @@ void DrawCube@2(Vector3 position, float width, float height, float length, Color
 void DrawCubeV@2(Vector3 position, Vector3 size, Color color)
 void DrawCubeWires@2(Vector3 position, float width, float height, float length, Color color)
 void DrawCubeWiresV@2(Vector3 position, Vector3 size, Color color)
-void DrawCubeTexture(Texture2D texture, Vector3 position, float width, float height, float length, Color color)
+void DrawCubeTexture@2(Texture2D texture, Vector3 position, float width, float height, float length, Color color)
 void DrawSphere@2(Vector3 centerPos, float radius, Color color)
 void DrawSphereEx@2(Vector3 centerPos, float radius, int rings, int slices, Color color)
 void DrawSphereWires@2(Vector3 centerPos, float radius, int rings, int slices, Color color)

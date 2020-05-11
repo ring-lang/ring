@@ -13689,7 +13689,7 @@ RING_FUNC(ring_DrawCubeWiresV_2)
 }
 
 
-RING_FUNC(ring_DrawCubeTexture)
+RING_FUNC(ring_DrawCubeTexture_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17175,7 +17175,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawcubev_2",ring_DrawCubeV_2);
 	ring_vm_funcregister("drawcubewires_2",ring_DrawCubeWires_2);
 	ring_vm_funcregister("drawcubewiresv_2",ring_DrawCubeWiresV_2);
-	ring_vm_funcregister("drawcubetexture",ring_DrawCubeTexture);
+	ring_vm_funcregister("drawcubetexture_2",ring_DrawCubeTexture_2);
 	ring_vm_funcregister("drawsphere_2",ring_DrawSphere_2);
 	ring_vm_funcregister("drawsphereex_2",ring_DrawSphereEx_2);
 	ring_vm_funcregister("drawspherewires_2",ring_DrawSphereWires_2);
