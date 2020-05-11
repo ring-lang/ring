@@ -207,7 +207,8 @@ aAllPackagesInfo = [
 		"starsfighter",
 		"superman2016",
 		"androidringlibsdl",
-		"tetris"
+		"tetris",
+		"escape"
 	],
 	:ringallegro = 	[
 		"squarespuzzle"
@@ -232,6 +233,9 @@ aAllPackagesInfo = [
 
 	],
 	:calendar = 	[
+
+	],
+	:escape = 	[
 
 	]
 ]
