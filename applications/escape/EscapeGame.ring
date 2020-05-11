@@ -55,6 +55,9 @@
 		nKeyboardSpeed  = 15
 		nMovementSpeed  = 15
 
+	# Score 
+		nScore		= 0
+
 load "gameengine.ring"        	
 
 func main          		
@@ -160,8 +163,19 @@ func main
 					ok
 				ok
 			}
-
 		}
+
+		# Display the score!
+			text {
+				name = :Score
+		                size = 16
+		                file = "fonts/pirulen.ttf"
+		                x = 10  y=10
+				color = rgb(0,255,0)
+				animate = False
+				text = "Score : " + nScore
+			}
+
 	}         
 
 func MoveSnake oGame,oMap
@@ -267,19 +281,6 @@ func DisplayGameOver oGame
 		}
         }
 
-func Restart oGame
-	# Restart the Level
-		lGameOver	= False
-		aLevel		= aLevelCopy  
-		aSnake 		= [ [3,3] , [3,4] , [3,5] ]
-		cDirection	= :Right
-		aPlayer		= [ :Row = 13, :Col = 4 ]
-		aLevel[13][4]	= 4
-		newX		= 0
-		newY		= 0
-		NewFood()
-		UpdateGameMap(oGame)
-
 func MovePlayer oGame,nNewRow,nNewCol
 		switch aLevel[nNewRow][nNewCol] 
 			on C_EMPTY
@@ -296,10 +297,30 @@ func MovePlayer oGame,nNewRow,nNewCol
 				aPlayer[:col] = nNewCol
 				NewFood()
 				UpdateGameMap(oGame)
+				# Update the Score
+					nScore += 10
+					oGame.find(:Score).text = "Score : " + nScore
+
 			on C_SNAKE
 				aLevel[aPlayer[:row]][aPlayer[:col]] = C_DIE
 				UpdateGameMap(oGame)
 				DisplayGameOver(oGame) 
 		off
 	return
+
+func Restart oGame
+	# Restart the Level
+		lGameOver	= False
+		aLevel		= aLevelCopy  
+		aSnake 		= [ [3,3] , [3,4] , [3,5] ]
+		cDirection	= :Right
+		aPlayer		= [ :Row = 13, :Col = 4 ]
+		aLevel[13][4]	= 4
+		newX		= 0
+		newY		= 0
+		NewFood()
+		UpdateGameMap(oGame)
+		# Set the score 
+			nScore		= 0
+			oGame.find(:Score).text = "Score : " + nScore
 
