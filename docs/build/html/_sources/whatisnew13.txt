@@ -27,6 +27,7 @@ Ring 1.13 comes with the next features!
 * Lottery Game
 * Tetris Game
 * Word Game
+* Escape Game
 * Hassouna Course Samples
 * Ring support in SpaceVim
 * Better RingQt
@@ -197,6 +198,17 @@ An implementation for the Word Game
 
 .. image:: wordgame2.png
 	:alt: Word Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Escape Game
+
+Escape Game
+===========
+
+Escape from the Snake and collect the Stars to prevent it from growing!
+
+.. image:: escapegame.png
+	:alt: Escape Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Hassouna Course Samples
