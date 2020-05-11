@@ -25,7 +25,7 @@
 
 	# Player 
 		aPlayer = [ :Row = 13, :Col = 4 ]
-		aLevel[13][4] = 4
+		aLevel[13][4] = C_PLAYER
 
 	# Add the Snake
 		aSnake 		= [ [3,3] , [3,4] , [3,5] ]
@@ -151,7 +151,7 @@ func main
 					else 
 						cDirection = :Left
 						MoveSnake(oGame,oSelf) 
-						cDirection = :UP						cDirection = :UP
+						cDirection = :UP
 					ok
 				but nSnakeY < newY 
 					if cDirection != :Up
@@ -330,7 +330,7 @@ func Restart oGame
 		aSnake 		= [ [3,3] , [3,4] , [3,5] ]
 		cDirection	= :Right
 		aPlayer		= [ :Row = 13, :Col = 4 ]
-		aLevel[13][4]	= 4
+		aLevel[13][4]	= C_PLAYER
 		newX		= 0
 		newY		= 0
 		NewFood()
