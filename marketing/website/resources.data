@@ -246,6 +246,10 @@
 				[
 					'<a href="https://github.com/ring-lang/ring/tree/master/applications/wordgame" target="_blank">Word Game</a>',
 					'<img src="wordgame2.png" width="100%">'
+				],
+				[
+					'<a href="https://github.com/ring-lang/ring/tree/master/applications/escape" target="_blank">Escape Game</a>',
+					'<img src="escapegame.png" width="100%">'
 				]
 			    ]
                  ],
