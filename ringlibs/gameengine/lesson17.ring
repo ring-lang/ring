@@ -16,13 +16,14 @@ func NewButton oGame,nX,nY,nWidth,nHeight,cText,cFunc
                         x = nX y=nY width = nWidth height=nHeight
 			AddAttribute(self,:Text)
 			AddAttribute(self,:EventCode)
+			AddAttribute(self,:oFont)
+			oFont = oResources.LoadFont("fonts/pirulen.ttf",20)
 			Text = cText
 			EventCode = cFunc
                         draw = func oGame,oSelf {
                                 oSelf {
 					gl_draw_filled_rectangle(x,y,x+width,y+height,gl_map_rgb(0,100,255))
 					gl_draw_rectangle(x,y,x+width,y+height,gl_map_rgb(0,0,0),2)
-					oFont = oResources.LoadFont("fonts/pirulen.ttf",20)
 					gl_draw_text(oFont,gl_map_rgb(0,0,0),x+width/2,y+5,1,Text)
 				}
 			}
