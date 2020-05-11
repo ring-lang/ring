@@ -13,7 +13,7 @@ Using Ring Game Engine for 2D Games
 
 # Features
 
-(1) The Snakes move automatically to collect the stars and grow!
+(1) The Snake can move automatically to collect the stars and grow!
 
 (2) The Snake can attack the player!
 
