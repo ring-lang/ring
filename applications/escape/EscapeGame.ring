@@ -9,8 +9,8 @@
 
 	# Map Items
 		C_EMPTY 	= 1
-		C_WALL  	= 2
-		C_DOOR  	= 3
+		C_SNAKE  	= 2
+		C_FOOD  	= 3
                 C_PLAYER        = 4
                 C_DIE           = 5
 	
@@ -23,22 +23,26 @@
 			next
 		next
 
+	# Player 
+		aPlayer = [ :Row = 13, :Col = 4 ]
+		aLevel[13][4] = 4
+
 	# Add the Snake
 		aSnake 		= [ [3,3] , [3,4] , [3,5] ]
-		aLevel[3][3] 	= C_WALL
-		aLevel[3][4] 	= C_WALL
-		aLevel[3][5] 	= C_WALL
+		aLevel[3][3] 	= C_SNAKE
+		aLevel[3][4] 	= C_SNAKE
+		aLevel[3][5] 	= C_SNAKE
 		cDirection 	= :Right
 
 	# For Game Restart 
 		aLevelCopy  	= aLevel 
 
-	# Create the first Door 
+	# Create the first Food 
 		oldY		= 0
 		oldX		= 0
 		newY		= 0
 		newX		= 0
-		NewDoor()
+		NewFood()
 
 	# Timers 
 		nKeyClock 	= clock()
@@ -50,10 +54,6 @@
 	# Speed 
 		nKeyboardSpeed  = 15
 		nMovementSpeed  = 15
-
-	# Player 
-		aPlayer = [ :Row = 13, :Col = 4 ]
-		aLevel[13][4] = 4
 
 load "gameengine.ring"        	
 
@@ -191,9 +191,9 @@ func MoveSnake oGame,oMap
 				newY = oldY
 				newX = oldX
 			ok
-	but (aLevel[aHead[1]][aHead[2]] = C_DOOR) 
-		NewDoor()
-	but aLevel[aHead[1]][aHead[2]] = C_WALL
+	but (aLevel[aHead[1]][aHead[2]] = C_FOOD) 
+		NewFood()
+	but aLevel[aHead[1]][aHead[2]] = C_SNAKE
 		if CheckAnotherCell() = False
 			HideCell(aSnake[1])
 		ok
@@ -218,15 +218,15 @@ func CheckAnotherCell
 		next
 	return False 
 
-func NewDoor
+func NewFood
 	# Snake ---> Attack the Star 
-		lNewDoor = False 
-		while lNewDoor = False
+		lNewFood = False 
+		while lNewFood = False
 			newY = 2+random(C_LEVEL_ROWSCOUNT-3)
 			newX = 2+random(C_LEVEL_COLSCOUNT-3)
 			if aLevel[newY][newX] = C_EMPTY
-				aLevel[newY][newX] = C_DOOR
-				lNewDoor = True 
+				aLevel[newY][newX] = C_FOOD
+				lNewFood = True 
 			ok
 		end			
 	# Snake ---> Attack the Player 
@@ -241,7 +241,7 @@ func HideCell aCell
 	aLevel[aCell[1]][aCell[2]] = C_EMPTY
 
 func ShowCell aCell
-	aLevel[aCell[1]][aCell[2]] = C_WALL
+	aLevel[aCell[1]][aCell[2]] = C_SNAKE
 	
 func UpdateGameMap oGame
 	oGame.find(:Map).aMap = aLevel
@@ -277,7 +277,7 @@ func Restart oGame
 		aLevel[13][4]	= 4
 		newX		= 0
 		newY		= 0
-		NewDoor()
+		NewFood()
 		UpdateGameMap(oGame)
 
 func MovePlayer oGame,nNewRow,nNewCol
@@ -288,15 +288,15 @@ func MovePlayer oGame,nNewRow,nNewCol
 				UpdateGameMap(oGame)
 				aPlayer[:row] = nNewRow
 				aPlayer[:col] = nNewCol
-			on C_DOOR
+			on C_FOOD
 				aLevel[aPlayer[:row]][aPlayer[:col]] = C_EMPTY
 				aLevel[nNewRow][nNewCol] = C_PLAYER
 				UpdateGameMap(oGame)
 				aPlayer[:row] = nNewRow
 				aPlayer[:col] = nNewCol
-				NewDoor()
+				NewFood()
 				UpdateGameMap(oGame)
-			on C_WALL
+			on C_SNAKE
 				aLevel[aPlayer[:row]][aPlayer[:col]] = C_DIE
 				UpdateGameMap(oGame)
 				DisplayGameOver(oGame) 
