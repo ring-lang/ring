@@ -4,7 +4,7 @@
 # Game Data 
 
 	# Map Size
-		C_LEVEL_ROWSCOUNT = 20
+		C_LEVEL_ROWSCOUNT = 19
 		C_LEVEL_COLSCOUNT = 27
 
 	# Map Items
@@ -74,7 +74,7 @@ func main
 		Map {
 
 			name = :Map
-
+			Y = 30
 			blockwidth  = 30
 			blockheight = 30
 
@@ -170,11 +170,23 @@ func main
 				name = :Score
 		                size = 16
 		                file = "fonts/pirulen.ttf"
-		                x = 10  y=10
-				color = rgb(0,255,0)
+		                x = 150  y=0
+				color = rgb(0,0,0)
 				animate = False
 				text = "Score : " + nScore
 			}
+
+		# Display the Snake Size 
+			text {
+				name = :SnakeSize
+		                size = 16
+		                file = "fonts/pirulen.ttf"
+		                x = 450  y=0
+				color = rgb(0,0,0)
+				animate = False
+				text = "Snake Size : " + len(aSnake)
+			}
+
 
 	}         
 
@@ -221,6 +233,9 @@ func MoveSnake oGame,oMap
 	aSnake + aHead
 	ShowCell(aHead)
 	UpdateGameMap(oGame)
+	# Update the Snake Size
+		oGame.find(:SnakeSize).text = "Snake Size : " + len(aSnake)
+
 
 func CheckAnotherCell  
 	# Check if we don't have another cell in this place 
