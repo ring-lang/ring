@@ -6,7 +6,7 @@
 
 func GetParameters cProgramName
 	aPara = sysargv
-	cEXEFileName = JustFileName(exefilename())
+	cEXEFileName = lower(JustFileName(exefilename()))
 	# Windows ---> ring.exe | ringw.exe 
 	# Linux | macOS --->  ring 
 	# Remove .exe from the file name 
