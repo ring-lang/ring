@@ -7,7 +7,7 @@
 # Load Libraries
 	load "gamelib.ring"		# RingAllegro Library
 	load "opengl21lib.ring"		# RingOpenGL  Library
-	load "stdlib.ring"
+
 
 #==============================================================#
 # To Support MacOS X
@@ -88,7 +88,7 @@ class GraphicsApp from GraphicsAppBase
 
 		glBindTexture(GL_TEXTURE_2D, texture)
 
-		for k = -1 to 1
+		for k = 1 to -1 step -1
 			for i = k*10 to k step -k | 1
 				for  j = -3 to 1
 					glPushMatrix()
@@ -186,12 +186,12 @@ class GraphicsApp from GraphicsAppBase
 				glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0,  1.0)
 			ok
 			// Back Face
-			/*
-			glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
-			glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
-			glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
-			glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
-			*/
+			if j = -3
+				glTexCoord2f(1.0, 0.0) glVertex3f(-1.0, -1.0, -1.0)
+				glTexCoord2f(1.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
+				glTexCoord2f(0.0, 1.0) glVertex3f( 1.0,  1.0, -1.0)
+				glTexCoord2f(0.0, 0.0) glVertex3f( 1.0, -1.0, -1.0)
+			ok
 			// Top Face
 			glTexCoord2f(0.0, 1.0) glVertex3f(-1.0,  1.0, -1.0)
 			glTexCoord2f(0.0, 0.0) glVertex3f(-1.0,  1.0,  1.0)
