@@ -11,7 +11,6 @@ fNumber
 Type: double
 dNumber
 cBytes
-cBytesDouble
 END:
 Type: Ring_uData
 Ring_uData
@@ -163,12 +162,18 @@ uData
 ring_vm_file_bytes2int
 Type: Ring_uData
 uData
+Type: int
+x
 ring_vm_file_bytes2float
 Type: Ring_uData
 uData
+Type: int
+x
 ring_vm_file_bytes2double
 Type: Ring_uData
 uData
+Type: int
+x
 ring_vm_file_freefunc
 Type: FILE *
 fp
