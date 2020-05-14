@@ -351,6 +351,7 @@ More Improvements
 * StdLib - IsMainSourceFile() function - Better Code
 * RingLibSDL - Update LibSDL version from 2.0.10 to 2.0.12
 * RingRayLib - DrawTextEx() Function - Better Code
+* RingOpenGL - Better Code
 * RingPM - Support terminals that pass the executable name using UPPER case
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
 * Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
