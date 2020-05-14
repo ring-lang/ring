@@ -47,6 +47,8 @@ SOURCES +=   \
     cpp/src/gcalendarwidget.cpp \
     cpp/src/gtabbar.cpp \
     cpp/src/gdrag.cpp \
+    cpp/src/ggraphicsscene.cpp \
+    cpp/src/gmovie.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -84,7 +86,9 @@ HEADERS  += \
     cpp/include/gcalendarwidget.h \
     cpp/include/gdockwidget.h \
     cpp/include/gtabbar.h \
-    cpp/include/gdrag.h     
+    cpp/include/gdrag.h \
+    cpp/include/ggraphicsscene.h \
+    cpp/include/gmovie.h 
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include
