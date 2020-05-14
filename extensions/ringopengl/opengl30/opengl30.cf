@@ -43,6 +43,9 @@ aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
 aEnumTypes + "GLsizei"
 aEnumTypes + "GLclampf"
+
+aStringTypes + "const GLubyte *"
+aStringTypes + "GLubyte *"
 </runcode>
 
 <comment>
@@ -1215,7 +1218,7 @@ void glGetSeparableFilter(GLenum target,GLenum format,GLenum type,GLvoid * row,G
 void glGetShaderiv(GLuint shader,GLenum pname,GLint *params)
 void glGetShaderInfoLog(GLuint shader,GLsizei maxLength,GLsizei *length,GLchar *infoLog)
 void glGetShaderSource(GLuint shader,GLsizei bufSize,GLsizei *length,GLchar *source)
-const GLubyte* glGetString(GLenum name)
+const GLubyte *glGetString(GLenum name)
 void glGetTexEnvfv(GLenum target,GLenum pname,GLfloat * params)
 void glGetTexEnviv(GLenum target,GLenum pname,GLint * params)
 void glGetTexGendv(GLenum coord,GLenum pname,GLdouble * params)

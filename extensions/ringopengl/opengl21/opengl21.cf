@@ -46,6 +46,7 @@ aEnumTypes + "GLsizei"
 aEnumTypes + "GLclampf"
 
 aStringTypes + "const GLubyte *"
+aStringTypes + "GLubyte *"
 </runcode>
 
 <comment>

@@ -3016,11 +3016,11 @@ RING_FUNC(ring_glBitmap)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(7) ) {
+	if ( ! RING_API_ISSTRING(7) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glBitmap( (GLsizei )  (int) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4), (GLfloat ) RING_API_GETNUMBER(5), (GLfloat ) RING_API_GETNUMBER(6),(GLubyte *) RING_API_GETCPOINTER(7,"GLubyte"));
+	glBitmap( (GLsizei )  (int) RING_API_GETNUMBER(1), (GLsizei )  (int) RING_API_GETNUMBER(2), (GLfloat ) RING_API_GETNUMBER(3), (GLfloat ) RING_API_GETNUMBER(4), (GLfloat ) RING_API_GETNUMBER(5), (GLfloat ) RING_API_GETNUMBER(6),RING_API_GETSTRING(7));
 }
 
 
@@ -3412,11 +3412,11 @@ RING_FUNC(ring_glColor3ubv)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glColor3ubv((GLubyte *) RING_API_GETCPOINTER(1,"GLubyte"));
+	glColor3ubv(RING_API_GETSTRING(1));
 }
 
 
@@ -3724,11 +3724,11 @@ RING_FUNC(ring_glColor4ubv)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glColor4ubv((GLubyte *) RING_API_GETCPOINTER(1,"GLubyte"));
+	glColor4ubv(RING_API_GETSTRING(1));
 }
 
 
@@ -5108,11 +5108,11 @@ RING_FUNC(ring_glGetPolygonStipple)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glGetPolygonStipple((GLubyte *) RING_API_GETCPOINTER(1,"GLubyte"));
+	glGetPolygonStipple(RING_API_GETSTRING(1));
 }
 
 
@@ -5126,7 +5126,7 @@ RING_FUNC(ring_glGetString)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(glGetString( (GLenum )  (int) RING_API_GETNUMBER(1)),"GLubyte");
+	RING_API_RETSTRING(glGetString( (GLenum )  (int) RING_API_GETNUMBER(1)));
 }
 
 
@@ -5552,11 +5552,11 @@ RING_FUNC(ring_glIndexubv)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glIndexubv((GLubyte *) RING_API_GETCPOINTER(1,"GLubyte"));
+	glIndexubv(RING_API_GETSTRING(1));
 }
 
 
@@ -6796,11 +6796,11 @@ RING_FUNC(ring_glPolygonStipple)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glPolygonStipple((GLubyte *) RING_API_GETCPOINTER(1,"GLubyte"));
+	glPolygonStipple(RING_API_GETSTRING(1));
 }
 
 

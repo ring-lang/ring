@@ -8214,11 +8214,11 @@ RING_FUNC(ring_glGetPolygonStipple)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glGetPolygonStipple((GLubyte *) RING_API_GETCPOINTER(1,"GLubyte"));
+	glGetPolygonStipple(RING_API_GETSTRING(1));
 }
 
 
