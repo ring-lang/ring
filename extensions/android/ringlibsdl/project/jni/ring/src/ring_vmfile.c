@@ -692,7 +692,7 @@ void ring_vm_file_int2bytes ( void *pPointer )
 	}
 	if ( RING_API_ISNUMBER(1) ) {
 		uData.iNumber = (int) RING_API_GETNUMBER(1) ;
-		RING_API_RETSTRING2(uData.cBytes,4);
+		RING_API_RETSTRING2(uData.cBytes,sizeof(int));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -707,7 +707,7 @@ void ring_vm_file_float2bytes ( void *pPointer )
 	}
 	if ( RING_API_ISNUMBER(1) ) {
 		uData.fNumber = (float) RING_API_GETNUMBER(1) ;
-		RING_API_RETSTRING2(uData.cBytes,4);
+		RING_API_RETSTRING2(uData.cBytes,sizeof(float));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -722,7 +722,7 @@ void ring_vm_file_double2bytes ( void *pPointer )
 	}
 	if ( RING_API_ISNUMBER(1) ) {
 		uData.dNumber = RING_API_GETNUMBER(1) ;
-		RING_API_RETSTRING2(uData.cBytesDouble,8);
+		RING_API_RETSTRING2(uData.cBytes,sizeof(double));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
@@ -731,16 +731,16 @@ void ring_vm_file_double2bytes ( void *pPointer )
 void ring_vm_file_bytes2int ( void *pPointer )
 {
 	Ring_uData uData  ;
+	int x  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		if ( RING_API_GETSTRINGSIZE(1) == 4 ) {
-			uData.cBytes[0] = RING_API_GETSTRING(1)[0] ;
-			uData.cBytes[1] = RING_API_GETSTRING(1)[1] ;
-			uData.cBytes[2] = RING_API_GETSTRING(1)[2] ;
-			uData.cBytes[3] = RING_API_GETSTRING(1)[3] ;
+		if ( RING_API_GETSTRINGSIZE(1) == sizeof(int) ) {
+			for ( x = 0 ; x < sizeof(int) ; x++ ) {
+				uData.cBytes[x] = RING_API_GETSTRING(1)[x] ;
+			}
 			RING_API_RETNUMBER((double) uData.iNumber);
 			return ;
 		}
@@ -751,16 +751,16 @@ void ring_vm_file_bytes2int ( void *pPointer )
 void ring_vm_file_bytes2float ( void *pPointer )
 {
 	Ring_uData uData  ;
+	int x  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		if ( RING_API_GETSTRINGSIZE(1) == 4 ) {
-			uData.cBytes[0] = RING_API_GETSTRING(1)[0] ;
-			uData.cBytes[1] = RING_API_GETSTRING(1)[1] ;
-			uData.cBytes[2] = RING_API_GETSTRING(1)[2] ;
-			uData.cBytes[3] = RING_API_GETSTRING(1)[3] ;
+		if ( RING_API_GETSTRINGSIZE(1) == sizeof(float) ) {
+			for ( x = 0 ; x < sizeof(float) ; x++ ) {
+				uData.cBytes[x] = RING_API_GETSTRING(1)[x] ;
+			}
 			RING_API_RETNUMBER((double) uData.fNumber);
 			return ;
 		}
@@ -771,20 +771,16 @@ void ring_vm_file_bytes2float ( void *pPointer )
 void ring_vm_file_bytes2double ( void *pPointer )
 {
 	Ring_uData uData  ;
+	int x  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		if ( RING_API_GETSTRINGSIZE(1) == 8 ) {
-			uData.cBytesDouble[0] = RING_API_GETSTRING(1)[0] ;
-			uData.cBytesDouble[1] = RING_API_GETSTRING(1)[1] ;
-			uData.cBytesDouble[2] = RING_API_GETSTRING(1)[2] ;
-			uData.cBytesDouble[3] = RING_API_GETSTRING(1)[3] ;
-			uData.cBytesDouble[4] = RING_API_GETSTRING(1)[4] ;
-			uData.cBytesDouble[5] = RING_API_GETSTRING(1)[5] ;
-			uData.cBytesDouble[6] = RING_API_GETSTRING(1)[6] ;
-			uData.cBytesDouble[7] = RING_API_GETSTRING(1)[7] ;
+		if ( RING_API_GETSTRINGSIZE(1) == sizeof(double) ) {
+			for ( x = 0 ; x < sizeof(double) ; x++ ) {
+				uData.cBytes[x] = RING_API_GETSTRING(1)[x] ;
+			}
 			RING_API_RETNUMBER(uData.dNumber);
 			return ;
 		}

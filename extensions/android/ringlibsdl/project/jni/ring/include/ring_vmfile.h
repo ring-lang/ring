@@ -85,7 +85,6 @@ typedef union Ring_uData {
 	int iNumber  ;
 	float fNumber  ;
 	double dNumber  ;
-	char cBytes[4]  ;
-	char cBytesDouble[8]  ;
+	char cBytes[8]  ;
 } Ring_uData ;
 #endif
