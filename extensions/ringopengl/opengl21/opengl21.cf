@@ -44,6 +44,8 @@ aEnumTypes + "GLbitfield"
 aEnumTypes + "GLenum"
 aEnumTypes + "GLsizei"
 aEnumTypes + "GLclampf"
+
+aStringTypes + "const GLubyte *"
 </runcode>
 
 <comment>
@@ -1112,7 +1114,7 @@ void glGetSeparableFilter(GLenum target,GLenum format,GLenum type,GLvoid * row,G
 void glGetShaderiv(GLuint shader,GLenum pname,GLint *params)
 void glGetShaderInfoLog(GLuint shader,GLsizei maxLength,GLsizei *length,GLchar *infoLog)
 void glGetShaderSource(GLuint shader,GLsizei bufSize,GLsizei *length,GLchar *source)
-const GLubyte* glGetString(GLenum name)
+const GLubyte *glGetString(GLenum name)
 void glGetTexEnvfv(GLenum target,GLenum pname,GLfloat * params)
 void glGetTexEnviv(GLenum target,GLenum pname,GLint * params)
 void glGetTexGendv(GLenum coord,GLenum pname,GLdouble * params)
@@ -1480,9 +1482,9 @@ void gluEndCurve(GLUnurbs* nurb)
 void gluEndPolygon(GLUtesselator* tess)
 void gluEndSurface(GLUnurbs* nurb)
 void gluEndTrim(GLUnurbs* nurb)
-const GLubyte * gluErrorString(GLenum error)
+const GLubyte *gluErrorString(GLenum error)
 void gluGetNurbsProperty(GLUnurbs* nurb,GLenum property,GLfloat* data)
-const GLubyte * gluGetString(GLenum name)
+const GLubyte *gluGetString(GLenum name)
 void gluGetTessProperty(GLUtesselator* tess,GLenum which,GLdouble* data)
 void gluLoadSamplingMatrices(GLUnurbs* nurb,const GLfloat * model,const GLfloat * perspective,const GLint * view)
 void gluLookAt(GLdouble eyeX,GLdouble eyeY,GLdouble eyeZ,GLdouble centerX,GLdouble centerY,GLdouble centerZ,GLdouble upX,GLdouble upY,GLdouble upZ)
