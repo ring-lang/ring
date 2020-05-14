@@ -10,6 +10,7 @@
 
 #include <GL/glew.h>
 #include <GL/glut.h>
+#include <GL/gl.h>
 
 RING_FUNC(ring_get_gl_zero)
 {
@@ -17541,6 +17542,72 @@ RING_FUNC(ring_glDisable)
 	glDisable( (GLenum )  (int) RING_API_GETNUMBER(1));
 }
 
+
+RING_FUNC(ring_glewInit)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(glewInit());
+}
+
+
+RING_FUNC(ring_glewIsSupported)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(glewIsSupported(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_glewGetExtension)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(glewGetExtension(RING_API_GETSTRING(1)));
+}
+
+
+RING_FUNC(ring_glewGetErrorString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(glewGetErrorString( (GLenum )  (int) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_glewGetString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(glewGetString( (GLenum )  (int) RING_API_GETNUMBER(1)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glaccum",ring_glAccum);
@@ -18136,6 +18203,11 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutessvertex",ring_gluTessVertex);
 	ring_vm_funcregister("gluunproject",ring_gluUnProject);
 	ring_vm_funcregister("gldisable",ring_glDisable);
+	ring_vm_funcregister("glewinit",ring_glewInit);
+	ring_vm_funcregister("glewissupported",ring_glewIsSupported);
+	ring_vm_funcregister("glewgetextension",ring_glewGetExtension);
+	ring_vm_funcregister("glewgeterrorstring",ring_glewGetErrorString);
+	ring_vm_funcregister("glewgetstring",ring_glewGetString);
 	ring_vm_funcregister("get_gl_zero",ring_get_gl_zero);
 	ring_vm_funcregister("get_gl_false",ring_get_gl_false);
 	ring_vm_funcregister("get_gl_logic_op",ring_get_gl_logic_op);

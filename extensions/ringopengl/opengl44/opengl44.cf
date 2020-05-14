@@ -18,6 +18,7 @@
 <filter> iswindows()
 #include <GL/glew.h>
 #include <GL/glut.h>
+#include <GL/gl.h>
 </filter>
 
 </code>
@@ -1703,3 +1704,13 @@ void gluTessProperty(GLUtesselator* tess,GLenum which,GLdouble data)
 void gluTessVertex(GLUtesselator* tess,GLdouble * location,GLvoid* data) 
 GLint gluUnProject(GLdouble winX,GLdouble winY,GLdouble winZ,const GLdouble * model,const GLdouble * proj,const GLint * view,GLdouble* objX,GLdouble* objY,GLdouble* objZ)
 void glDisable(GLenum cap)
+
+<comment>
+GLEW
+</comment>
+
+GLenum glewInit(void)
+GLboolean glewIsSupported(const char *name)
+GLboolean glewGetExtension(const char *name)
+const GLubyte *glewGetErrorString(GLenum error)
+const GLubyte *glewGetString(GLenum name)

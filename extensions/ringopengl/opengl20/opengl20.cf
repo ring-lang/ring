@@ -18,6 +18,7 @@
 <filter> iswindows()
 #include <GL/glew.h>
 #include <GL/glut.h>
+#include <GL/gl.h>
 </filter>
 
 </code>
@@ -1237,3 +1238,12 @@ void glVertex4sv(const GLshort *v)
 void glVertexPointer(GLint size, GLenum type, GLsizei stride, const void *pointer)
 void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)
 
+<comment>
+GLEW
+</comment>
+
+GLenum glewInit(void)
+GLboolean glewIsSupported(const char *name)
+GLboolean glewGetExtension(const char *name)
+const GLubyte *glewGetErrorString(GLenum error)
+const GLubyte *glewGetString(GLenum name)
