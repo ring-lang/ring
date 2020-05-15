@@ -11626,7 +11626,7 @@ RING_FUNC(ring_LoadImageRaw_2)
 }
 
 
-RING_FUNC(ring_ExportImage)
+RING_FUNC(ring_ExportImage_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -11642,7 +11642,7 @@ RING_FUNC(ring_ExportImage)
 }
 
 
-RING_FUNC(ring_ExportImageAsCode)
+RING_FUNC(ring_ExportImageAsCode_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17074,8 +17074,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadimageex_2",ring_LoadImageEx_2);
 	ring_vm_funcregister("loadimagepro_2",ring_LoadImagePro_2);
 	ring_vm_funcregister("loadimageraw_2",ring_LoadImageRaw_2);
-	ring_vm_funcregister("exportimage",ring_ExportImage);
-	ring_vm_funcregister("exportimageascode",ring_ExportImageAsCode);
+	ring_vm_funcregister("exportimage_2",ring_ExportImage_2);
+	ring_vm_funcregister("exportimageascode_2",ring_ExportImageAsCode_2);
 	ring_vm_funcregister("loadtexture_2",ring_LoadTexture_2);
 	ring_vm_funcregister("loadtexturefromimage_2",ring_LoadTextureFromImage_2);
 	ring_vm_funcregister("loadtexturecubemap",ring_LoadTextureCubemap);

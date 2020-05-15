@@ -766,3 +766,9 @@ func DrawRectangleGradientH posX, posY, width, height, color1, color2
 
 func DrawRectangleLines posX, posY, width, height, color 
 	return DrawRectangleLines_2(posX, posY, width, height, GPData(color))
+
+func ExportImage image, fileName 
+	return ExportImage_2( GPData(image), fileName ) 
+
+func ExportImageAsCode image, fileName
+	return ExportImageAsCode_2( GPData(image), fileName )
