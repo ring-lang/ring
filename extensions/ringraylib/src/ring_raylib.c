@@ -11820,7 +11820,7 @@ RING_FUNC(ring_GetPixelDataSize)
 }
 
 
-RING_FUNC(ring_GetTextureData)
+RING_FUNC(ring_GetTextureData_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -11837,7 +11837,7 @@ RING_FUNC(ring_GetTextureData)
 }
 
 
-RING_FUNC(ring_GetScreenData)
+RING_FUNC(ring_GetScreenData_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -11852,7 +11852,7 @@ RING_FUNC(ring_GetScreenData)
 }
 
 
-RING_FUNC(ring_UpdateTexture)
+RING_FUNC(ring_UpdateTexture_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -11868,7 +11868,7 @@ RING_FUNC(ring_UpdateTexture)
 }
 
 
-RING_FUNC(ring_ImageCopy)
+RING_FUNC(ring_ImageCopy_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -11885,7 +11885,7 @@ RING_FUNC(ring_ImageCopy)
 }
 
 
-RING_FUNC(ring_ImageToPOT)
+RING_FUNC(ring_ImageToPOT_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -11901,7 +11901,7 @@ RING_FUNC(ring_ImageToPOT)
 }
 
 
-RING_FUNC(ring_ImageFormat)
+RING_FUNC(ring_ImageFormat_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -11919,7 +11919,7 @@ RING_FUNC(ring_ImageFormat)
 }
 
 
-RING_FUNC(ring_ImageAlphaMask)
+RING_FUNC(ring_ImageAlphaMask_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -11935,7 +11935,7 @@ RING_FUNC(ring_ImageAlphaMask)
 }
 
 
-RING_FUNC(ring_ImageAlphaClear)
+RING_FUNC(ring_ImageAlphaClear_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -11955,7 +11955,7 @@ RING_FUNC(ring_ImageAlphaClear)
 }
 
 
-RING_FUNC(ring_ImageAlphaCrop)
+RING_FUNC(ring_ImageAlphaCrop_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -11973,7 +11973,7 @@ RING_FUNC(ring_ImageAlphaCrop)
 }
 
 
-RING_FUNC(ring_ImageAlphaPremultiply)
+RING_FUNC(ring_ImageAlphaPremultiply_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17086,16 +17086,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getimagedata_2",ring_GetImageData_2);
 	ring_vm_funcregister("getimagedatanormalized_2",ring_GetImageDataNormalized_2);
 	ring_vm_funcregister("getpixeldatasize",ring_GetPixelDataSize);
-	ring_vm_funcregister("gettexturedata",ring_GetTextureData);
-	ring_vm_funcregister("getscreendata",ring_GetScreenData);
-	ring_vm_funcregister("updatetexture",ring_UpdateTexture);
-	ring_vm_funcregister("imagecopy",ring_ImageCopy);
-	ring_vm_funcregister("imagetopot",ring_ImageToPOT);
-	ring_vm_funcregister("imageformat",ring_ImageFormat);
-	ring_vm_funcregister("imagealphamask",ring_ImageAlphaMask);
-	ring_vm_funcregister("imagealphaclear",ring_ImageAlphaClear);
-	ring_vm_funcregister("imagealphacrop",ring_ImageAlphaCrop);
-	ring_vm_funcregister("imagealphapremultiply",ring_ImageAlphaPremultiply);
+	ring_vm_funcregister("gettexturedata_2",ring_GetTextureData_2);
+	ring_vm_funcregister("getscreendata_2",ring_GetScreenData_2);
+	ring_vm_funcregister("updatetexture_2",ring_UpdateTexture_2);
+	ring_vm_funcregister("imagecopy_2",ring_ImageCopy_2);
+	ring_vm_funcregister("imagetopot_2",ring_ImageToPOT_2);
+	ring_vm_funcregister("imageformat_2",ring_ImageFormat_2);
+	ring_vm_funcregister("imagealphamask_2",ring_ImageAlphaMask_2);
+	ring_vm_funcregister("imagealphaclear_2",ring_ImageAlphaClear_2);
+	ring_vm_funcregister("imagealphacrop_2",ring_ImageAlphaCrop_2);
+	ring_vm_funcregister("imagealphapremultiply_2",ring_ImageAlphaPremultiply_2);
 	ring_vm_funcregister("imagecrop_2",ring_ImageCrop_2);
 	ring_vm_funcregister("imageresize_2",ring_ImageResize_2);
 	ring_vm_funcregister("imageresizenn",ring_ImageResizeNN);

@@ -785,3 +785,39 @@ func GetImageDataNormalized image
 	oVector4 = new Vector4 
 	oVector4.setData( GetImageDataNormalized_2( GPData(image) ) )
 	return oVector4
+
+func GetTextureData texture
+	oImage = new Image 
+	oImage.setData( GetTextureData_2( GPData(texture) ) )
+	return oImage
+
+func GetScreenData
+	oImage = new Image 
+	oImage.setData( GetScreenData_2() )
+	return oImage
+
+func UpdateTexture texture, pixels 
+	return UpdateTexture_2( GPData(texture), pixels )
+
+func ImageCopy image
+	oImage = new Image 
+	oImage.setData( ImageCopy_2(GPData(image)) )
+	return oImage
+
+func ImageToPOT image, fillColor
+	return ImageToPOT_2( GPData(image), GPData(fillColor) )
+
+func ImageFormat image, newFormat 
+	return ImageFormat_2( GPData(image), newFormat )
+
+func ImageAlphaMask image, alphaMask
+	return ImageAlphaMask_2( GPData(image), GPData(alphaMask) )
+
+func ImageAlphaClear image, color, threshold
+	return ImageAlphaClear_2( GPData(image), GPData(color), threshold )
+
+func ImageAlphaCrop image, threshold
+	return ImageAlphaCrop_2( GPData(image), threshold )
+
+func ImageAlphaPremultiply image
+	return ImageAlphaPremultiply_2( GPData(image) )
