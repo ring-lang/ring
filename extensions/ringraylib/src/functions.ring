@@ -693,3 +693,6 @@ func SetWindowIcon image
 
 func BeginTextureMode target
 	return BeginTextureMode_2( GPData(target) )
+
+func ClearBackground color
+	return ClearBackground_2( GPData(color) )

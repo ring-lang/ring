@@ -9392,7 +9392,7 @@ RING_FUNC(ring_DisableCursor)
 }
 
 
-RING_FUNC(ring_ClearBackground)
+RING_FUNC(ring_ClearBackground_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -16941,7 +16941,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("iscursorhidden",ring_IsCursorHidden);
 	ring_vm_funcregister("enablecursor",ring_EnableCursor);
 	ring_vm_funcregister("disablecursor",ring_DisableCursor);
-	ring_vm_funcregister("clearbackground",ring_ClearBackground);
+	ring_vm_funcregister("clearbackground_2",ring_ClearBackground_2);
 	ring_vm_funcregister("begindrawing",ring_BeginDrawing);
 	ring_vm_funcregister("enddrawing",ring_EndDrawing);
 	ring_vm_funcregister("beginmode2d_2",ring_BeginMode2D_2);
