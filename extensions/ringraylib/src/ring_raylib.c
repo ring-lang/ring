@@ -13955,7 +13955,7 @@ RING_FUNC(ring_UnloadModel_2)
 }
 
 
-RING_FUNC(ring_LoadMeshes)
+RING_FUNC(ring_LoadMeshes_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -13974,7 +13974,7 @@ RING_FUNC(ring_LoadMeshes)
 }
 
 
-RING_FUNC(ring_ExportMesh)
+RING_FUNC(ring_ExportMesh_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -13990,7 +13990,7 @@ RING_FUNC(ring_ExportMesh)
 }
 
 
-RING_FUNC(ring_UnloadMesh)
+RING_FUNC(ring_UnloadMesh_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17188,9 +17188,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadmodel_2",ring_LoadModel_2);
 	ring_vm_funcregister("loadmodelfrommesh_2",ring_LoadModelFromMesh_2);
 	ring_vm_funcregister("unloadmodel_2",ring_UnloadModel_2);
-	ring_vm_funcregister("loadmeshes",ring_LoadMeshes);
-	ring_vm_funcregister("exportmesh",ring_ExportMesh);
-	ring_vm_funcregister("unloadmesh",ring_UnloadMesh);
+	ring_vm_funcregister("loadmeshes_2",ring_LoadMeshes_2);
+	ring_vm_funcregister("exportmesh_2",ring_ExportMesh_2);
+	ring_vm_funcregister("unloadmesh_2",ring_UnloadMesh_2);
 	ring_vm_funcregister("loadmaterials",ring_LoadMaterials);
 	ring_vm_funcregister("loadmaterialdefault",ring_LoadMaterialDefault);
 	ring_vm_funcregister("unloadmaterial",ring_UnloadMaterial);

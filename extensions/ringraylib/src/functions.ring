@@ -946,3 +946,14 @@ func LoadModelFromMesh mesh
 
 func UnloadModel model
 	return UnloadModel_2( GPData(model) )
+
+func LoadMeshes fileName, meshCount
+	oMesh = new Mesh 
+	oMesh.setData(LoadMeshes_2( fileName, meshCount ) )
+	return oMesh 
+
+func ExportMesh mesh, fileName
+	return ExportMesh_2( GPData(mesh), fileName )
+
+func UnloadMesh mesh
+	return UnloadMesh_2( GPData(mesh) )
