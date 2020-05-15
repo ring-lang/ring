@@ -1041,3 +1041,19 @@ func MeshTangents mesh
 
 func MeshBinormals mesh
 	return MeshBinormals_2( GPData(mesh) )
+
+func DrawBoundingBox box, color
+	return DrawBoundingBox_2( GPData(box), GPData(color) )
+
+func CheckCollisionBoxes box1, box2
+	return CheckCollisionBoxes_2( GPData(box1), GPData(box2) )
+
+func GetCollisionRayModel ray, model
+	oRayHitInfo = new RayHitInfo
+	oRayHitInfo.setData(GetCollisionRayModel_2( GPData(ray), GPData(model) ) )
+	return oRayHitInfo
+
+func GetCollisionRayGround ray, groundHeight
+	oRayHitInfo = new RayHitInfo
+	oRayHitInfo.setData(GetCollisionRayGround_2( GPData(ray), groundHeight ) )
+	return oRayHitInfo
