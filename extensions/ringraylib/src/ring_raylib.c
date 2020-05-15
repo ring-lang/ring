@@ -9589,7 +9589,7 @@ RING_FUNC(ring_GetTime)
 }
 
 
-RING_FUNC(ring_ColorToInt)
+RING_FUNC(ring_ColorToInt_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -9601,7 +9601,7 @@ RING_FUNC(ring_ColorToInt)
 }
 
 
-RING_FUNC(ring_ColorNormalize)
+RING_FUNC(ring_ColorNormalize_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -9618,7 +9618,7 @@ RING_FUNC(ring_ColorNormalize)
 }
 
 
-RING_FUNC(ring_ColorToHSV)
+RING_FUNC(ring_ColorToHSV_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -16957,9 +16957,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getfps",ring_GetFPS);
 	ring_vm_funcregister("getframetime",ring_GetFrameTime);
 	ring_vm_funcregister("gettime",ring_GetTime);
-	ring_vm_funcregister("colortoint",ring_ColorToInt);
-	ring_vm_funcregister("colornormalize",ring_ColorNormalize);
-	ring_vm_funcregister("colortohsv",ring_ColorToHSV);
+	ring_vm_funcregister("colortoint_2",ring_ColorToInt_2);
+	ring_vm_funcregister("colornormalize_2",ring_ColorNormalize_2);
+	ring_vm_funcregister("colortohsv_2",ring_ColorToHSV_2);
 	ring_vm_funcregister("colorfromhsv_2",ring_ColorFromHSV_2);
 	ring_vm_funcregister("getcolor",ring_GetColor);
 	ring_vm_funcregister("fade",ring_Fade);

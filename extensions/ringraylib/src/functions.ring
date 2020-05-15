@@ -696,3 +696,16 @@ func BeginTextureMode target
 
 func ClearBackground color
 	return ClearBackground_2( GPData(color) )
+
+func ColorToInt color
+	return ColorToInt_2( GPData(color) )
+
+func ColorNormalize color 
+	oVector4 = new Vector4 
+	oVector4.setData( ColorNormalize_2(GPData(color)) )
+	return oVector4 
+
+func ColorToHSV color 
+	oVector4 = new Vector4 
+	oVector4.setData( ColorToHSV_2(GPData(color)) )
+	return oVector4 
