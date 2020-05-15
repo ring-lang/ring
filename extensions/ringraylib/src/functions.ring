@@ -735,3 +735,7 @@ func GetGestureDragVector
 	oVector2.setData( GetGestureDragVector_2() )
 	return oVector2 
 
+func GetGesturePinchVector 
+	oVector2 = new Vector2 
+	oVector2.setData( GetGesturePinchVector_2() )
+	return oVector2 
