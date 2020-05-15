@@ -9114,7 +9114,7 @@ RING_FUNC(ring_HideWindow)
 }
 
 
-RING_FUNC(ring_SetWindowIcon)
+RING_FUNC(ring_SetWindowIcon_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -16919,7 +16919,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("togglefullscreen",ring_ToggleFullscreen);
 	ring_vm_funcregister("unhidewindow",ring_UnhideWindow);
 	ring_vm_funcregister("hidewindow",ring_HideWindow);
-	ring_vm_funcregister("setwindowicon",ring_SetWindowIcon);
+	ring_vm_funcregister("setwindowicon_2",ring_SetWindowIcon_2);
 	ring_vm_funcregister("setwindowtitle",ring_SetWindowTitle);
 	ring_vm_funcregister("setwindowposition",ring_SetWindowPosition);
 	ring_vm_funcregister("setwindowmonitor",ring_SetWindowMonitor);

@@ -687,3 +687,6 @@ func DrawTextEx font,text,position,fontSize,spacing,tint
 
 func DrawCubeTexture texture,position,width,height,length,color
 	return DrawCubeTexture_2(GPData(texture),GPData(position),width,height,length,GPData(color))
+
+func SetWindowIcon image 
+	return SetWindowIcon_2( GPData(image) )
