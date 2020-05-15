@@ -848,3 +848,55 @@ func ImageTextEx font, text, fontSize, spacing, tint
 	oImage = new Image 
 	oImage.setData(ImageTextEx_2( GPData(font), text, fontSize, spacing, GPData(tint) ) )
 	return oImage
+
+func GenImageColor width,  height, color
+	oImage = new Image 
+	oImage.setData(GenImageColor_2( width,  height, GPData(color) ) )
+	return oImage
+
+func GenImageGradientV width, height, top, bottom
+	oImage = new Image 
+	oImage.setData(GenImageGradientV_2( width, height, GPData(top), GPData(bottom)) )
+	return oImage
+
+func GenImageGradientH width, height, left, right
+	oImage = new Image 
+	oImage.setData(GenImageGradientH_2( width, height, GPData(left), GPData(right) ) )
+	return oImage
+
+func GenImageGradientRadial width, height, density, inner, outer
+	oImage = new Image 
+	oImage.setData(GenImageGradientRadial_2( width, height, density, GPData(inner), GPData(outer) ) )
+	return oImage
+
+func GenImageChecked width, height, checksX, checksY, col1, col2
+	oImage = new Image 
+	oImage.setData(GenImageChecked_2( width, height, checksX, checksY, GPData(col1), GPData(col2) ) )
+	return oImage
+
+func GenImageWhiteNoise width, height, factor
+	oImage = new Image 
+	oImage.setData(GenImageWhiteNoise_2(width, height, factor))
+	return oImage
+
+func GenImagePerlinNoise width, height, offsetX, offsetY, scale
+	oImage = new Image 
+	oImage.setData(GenImagePerlinNoise_2( width, height, offsetX, offsetY, scale) )
+	return oImage
+
+func GenImageCellular width, height, tileSize
+	oImage = new Image 
+	oImage.setData(GenImageCellular_2( width, height, tileSize) )
+	return oImage
+
+func GenTextureMipmaps texture
+	return GenTextureMipmaps_2( GPData(texture) )
+
+func SetTextureFilter texture, filterMode
+	return SetTextureFilter_2( GPData(texture), filterMode )
+
+func SetTextureWrap texture, wrapMode
+	return SetTextureWrap_2( GPData(texture), wrapMode )
+
+func DrawTextureV texture, position, tint
+	return DrawTextureV_2( GPData(texture), GPData(position), GPData(tint) )

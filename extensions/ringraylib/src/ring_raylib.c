@@ -12472,7 +12472,7 @@ RING_FUNC(ring_ImageColorReplace_2)
 }
 
 
-RING_FUNC(ring_GenImageColor)
+RING_FUNC(ring_GenImageColor_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -12497,7 +12497,7 @@ RING_FUNC(ring_GenImageColor)
 }
 
 
-RING_FUNC(ring_GenImageGradientV)
+RING_FUNC(ring_GenImageGradientV_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -12524,7 +12524,7 @@ RING_FUNC(ring_GenImageGradientV)
 }
 
 
-RING_FUNC(ring_GenImageGradientH)
+RING_FUNC(ring_GenImageGradientH_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -12551,7 +12551,7 @@ RING_FUNC(ring_GenImageGradientH)
 }
 
 
-RING_FUNC(ring_GenImageGradientRadial)
+RING_FUNC(ring_GenImageGradientRadial_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -12582,7 +12582,7 @@ RING_FUNC(ring_GenImageGradientRadial)
 }
 
 
-RING_FUNC(ring_GenImageChecked)
+RING_FUNC(ring_GenImageChecked_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -12617,7 +12617,7 @@ RING_FUNC(ring_GenImageChecked)
 }
 
 
-RING_FUNC(ring_GenImageWhiteNoise)
+RING_FUNC(ring_GenImageWhiteNoise_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -12644,7 +12644,7 @@ RING_FUNC(ring_GenImageWhiteNoise)
 }
 
 
-RING_FUNC(ring_GenImagePerlinNoise)
+RING_FUNC(ring_GenImagePerlinNoise_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -12679,7 +12679,7 @@ RING_FUNC(ring_GenImagePerlinNoise)
 }
 
 
-RING_FUNC(ring_GenImageCellular)
+RING_FUNC(ring_GenImageCellular_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -12706,7 +12706,7 @@ RING_FUNC(ring_GenImageCellular)
 }
 
 
-RING_FUNC(ring_GenTextureMipmaps)
+RING_FUNC(ring_GenTextureMipmaps_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -12720,7 +12720,7 @@ RING_FUNC(ring_GenTextureMipmaps)
 }
 
 
-RING_FUNC(ring_SetTextureFilter)
+RING_FUNC(ring_SetTextureFilter_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -12736,7 +12736,7 @@ RING_FUNC(ring_SetTextureFilter)
 }
 
 
-RING_FUNC(ring_SetTextureWrap)
+RING_FUNC(ring_SetTextureWrap_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -12774,7 +12774,7 @@ RING_FUNC(ring_DrawTexture_2)
 }
 
 
-RING_FUNC(ring_DrawTextureV)
+RING_FUNC(ring_DrawTextureV_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -17120,19 +17120,19 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagecolorcontrast_2",ring_ImageColorContrast_2);
 	ring_vm_funcregister("imagecolorbrightness_2",ring_ImageColorBrightness_2);
 	ring_vm_funcregister("imagecolorreplace_2",ring_ImageColorReplace_2);
-	ring_vm_funcregister("genimagecolor",ring_GenImageColor);
-	ring_vm_funcregister("genimagegradientv",ring_GenImageGradientV);
-	ring_vm_funcregister("genimagegradienth",ring_GenImageGradientH);
-	ring_vm_funcregister("genimagegradientradial",ring_GenImageGradientRadial);
-	ring_vm_funcregister("genimagechecked",ring_GenImageChecked);
-	ring_vm_funcregister("genimagewhitenoise",ring_GenImageWhiteNoise);
-	ring_vm_funcregister("genimageperlinnoise",ring_GenImagePerlinNoise);
-	ring_vm_funcregister("genimagecellular",ring_GenImageCellular);
-	ring_vm_funcregister("gentexturemipmaps",ring_GenTextureMipmaps);
-	ring_vm_funcregister("settexturefilter",ring_SetTextureFilter);
-	ring_vm_funcregister("settexturewrap",ring_SetTextureWrap);
+	ring_vm_funcregister("genimagecolor_2",ring_GenImageColor_2);
+	ring_vm_funcregister("genimagegradientv_2",ring_GenImageGradientV_2);
+	ring_vm_funcregister("genimagegradienth_2",ring_GenImageGradientH_2);
+	ring_vm_funcregister("genimagegradientradial_2",ring_GenImageGradientRadial_2);
+	ring_vm_funcregister("genimagechecked_2",ring_GenImageChecked_2);
+	ring_vm_funcregister("genimagewhitenoise_2",ring_GenImageWhiteNoise_2);
+	ring_vm_funcregister("genimageperlinnoise_2",ring_GenImagePerlinNoise_2);
+	ring_vm_funcregister("genimagecellular_2",ring_GenImageCellular_2);
+	ring_vm_funcregister("gentexturemipmaps_2",ring_GenTextureMipmaps_2);
+	ring_vm_funcregister("settexturefilter_2",ring_SetTextureFilter_2);
+	ring_vm_funcregister("settexturewrap_2",ring_SetTextureWrap_2);
 	ring_vm_funcregister("drawtexture_2",ring_DrawTexture_2);
-	ring_vm_funcregister("drawtexturev",ring_DrawTextureV);
+	ring_vm_funcregister("drawtexturev_2",ring_DrawTextureV_2);
 	ring_vm_funcregister("drawtextureex_2",ring_DrawTextureEx_2);
 	ring_vm_funcregister("drawtexturerec_2",ring_DrawTextureRec_2);
 	ring_vm_funcregister("drawtexturequad_2",ring_DrawTextureQuad_2);
