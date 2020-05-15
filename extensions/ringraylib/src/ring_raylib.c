@@ -10037,7 +10037,7 @@ RING_FUNC(ring_OpenURL)
 }
 
 
-RING_FUNC(ring_IsKeyPressed)
+RING_FUNC(ring_IsKeyPressed_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -10065,7 +10065,7 @@ RING_FUNC(ring_IsKeyDown_2)
 }
 
 
-RING_FUNC(ring_IsKeyReleased)
+RING_FUNC(ring_IsKeyReleased_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -10079,7 +10079,7 @@ RING_FUNC(ring_IsKeyReleased)
 }
 
 
-RING_FUNC(ring_IsKeyUp)
+RING_FUNC(ring_IsKeyUp_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -10103,7 +10103,7 @@ RING_FUNC(ring_GetKeyPressed)
 }
 
 
-RING_FUNC(ring_SetExitKey)
+RING_FUNC(ring_SetExitKey_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -16987,12 +16987,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("storagesavevalue",ring_StorageSaveValue);
 	ring_vm_funcregister("storageloadvalue",ring_StorageLoadValue);
 	ring_vm_funcregister("openurl",ring_OpenURL);
-	ring_vm_funcregister("iskeypressed",ring_IsKeyPressed);
+	ring_vm_funcregister("iskeypressed_2",ring_IsKeyPressed_2);
 	ring_vm_funcregister("iskeydown_2",ring_IsKeyDown_2);
-	ring_vm_funcregister("iskeyreleased",ring_IsKeyReleased);
-	ring_vm_funcregister("iskeyup",ring_IsKeyUp);
+	ring_vm_funcregister("iskeyreleased_2",ring_IsKeyReleased_2);
+	ring_vm_funcregister("iskeyup_2",ring_IsKeyUp_2);
 	ring_vm_funcregister("getkeypressed",ring_GetKeyPressed);
-	ring_vm_funcregister("setexitkey",ring_SetExitKey);
+	ring_vm_funcregister("setexitkey_2",ring_SetExitKey_2);
 	ring_vm_funcregister("isgamepadavailable",ring_IsGamepadAvailable);
 	ring_vm_funcregister("isgamepadname",ring_IsGamepadName);
 	ring_vm_funcregister("getgamepadname",ring_GetGamepadName);

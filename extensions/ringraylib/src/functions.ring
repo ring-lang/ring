@@ -124,14 +124,29 @@ func VrDeviceInfo p1,p2,p3,p4,p5,p6,p7,p8
 	oVrDeviceInfo = new VrDeviceInfo(p1,p2,p3,p4,p5,p6,p7,p8)
 	return oVrDeviceInfo
 
-func isKeyDown vKey
+func RayLib_PrepareKey vKey
 	if isNumber(vKey)
-		return isKeyDown_2(vKey)
+		return vKey
 	but isString(vKey)
-		return isKeyDown_2(ASCII(vKey[1]))
+		return ASCII(vKey[1])
 	else 
-		raise("Bad parameter type - IsKeyDown() function")
+		raise("Bad parameter type - RayLib_PrepareKey() function")
 	ok
+
+func isKeyDown vKey
+	return isKeyDown_2(RayLib_PrepareKey(vKey))
+
+func IsKeyPressed vKey
+	return IsKeyPressed_2(RayLib_PrepareKey(vKey))
+
+func IsKeyReleased vKey
+	return IsKeyReleased_2(RayLib_PrepareKey(vKey))
+
+func IsKeyUp vKey
+	return IsKeyUp_2(RayLib_PrepareKey(vKey))
+
+func SetExitKey vKey
+	return SetExitKey_2(RayLib_PrepareKey(vKey))
 
 # Get Pointer Data 
 func GPData vData 
