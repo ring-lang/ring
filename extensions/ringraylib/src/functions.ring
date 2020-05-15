@@ -777,3 +777,6 @@ func LoadRenderTexture width, height
 	oRenderTexture2D = new RenderTexture2D 
 	oRenderTexture2D.setData( LoadRenderTexture_2(width, height) )
 	return oRenderTexture2D
+
+func UnloadRenderTexture target 
+	return UnloadRenderTexture_2(GPData(target))
