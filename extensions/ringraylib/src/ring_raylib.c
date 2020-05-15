@@ -12900,7 +12900,7 @@ RING_FUNC(ring_DrawTextureNPatch_2)
 }
 
 
-RING_FUNC(ring_GetFontDefault)
+RING_FUNC(ring_GetFontDefault_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -12934,7 +12934,7 @@ RING_FUNC(ring_LoadFont_2)
 }
 
 
-RING_FUNC(ring_LoadFontEx)
+RING_FUNC(ring_LoadFontEx_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -12966,7 +12966,7 @@ RING_FUNC(ring_LoadFontEx)
 }
 
 
-RING_FUNC(ring_LoadFontFromImage)
+RING_FUNC(ring_LoadFontFromImage_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -12989,7 +12989,7 @@ RING_FUNC(ring_LoadFontFromImage)
 }
 
 
-RING_FUNC(ring_LoadFontData)
+RING_FUNC(ring_LoadFontData_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13020,7 +13020,7 @@ RING_FUNC(ring_LoadFontData)
 }
 
 
-RING_FUNC(ring_GenImageFontAtlas)
+RING_FUNC(ring_GenImageFontAtlas_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -13235,7 +13235,7 @@ RING_FUNC(ring_MeasureText)
 }
 
 
-RING_FUNC(ring_MeasureTextEx)
+RING_FUNC(ring_MeasureTextEx_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -13264,7 +13264,7 @@ RING_FUNC(ring_MeasureTextEx)
 }
 
 
-RING_FUNC(ring_GetGlyphIndex)
+RING_FUNC(ring_GetGlyphIndex_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17138,12 +17138,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtexturequad_2",ring_DrawTextureQuad_2);
 	ring_vm_funcregister("drawtexturepro_2",ring_DrawTexturePro_2);
 	ring_vm_funcregister("drawtexturenpatch_2",ring_DrawTextureNPatch_2);
-	ring_vm_funcregister("getfontdefault",ring_GetFontDefault);
+	ring_vm_funcregister("getfontdefault_2",ring_GetFontDefault_2);
 	ring_vm_funcregister("loadfont_2",ring_LoadFont_2);
-	ring_vm_funcregister("loadfontex",ring_LoadFontEx);
-	ring_vm_funcregister("loadfontfromimage",ring_LoadFontFromImage);
-	ring_vm_funcregister("loadfontdata",ring_LoadFontData);
-	ring_vm_funcregister("genimagefontatlas",ring_GenImageFontAtlas);
+	ring_vm_funcregister("loadfontex_2",ring_LoadFontEx_2);
+	ring_vm_funcregister("loadfontfromimage_2",ring_LoadFontFromImage_2);
+	ring_vm_funcregister("loadfontdata_2",ring_LoadFontData_2);
+	ring_vm_funcregister("genimagefontatlas_2",ring_GenImageFontAtlas_2);
 	ring_vm_funcregister("unloadfont_2",ring_UnloadFont_2);
 	ring_vm_funcregister("drawfps",ring_DrawFPS);
 	ring_vm_funcregister("drawtext",ring_DrawText);
@@ -17151,8 +17151,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawtextrec_2",ring_DrawTextRec_2);
 	ring_vm_funcregister("drawtextrecex_2",ring_DrawTextRecEx_2);
 	ring_vm_funcregister("measuretext",ring_MeasureText);
-	ring_vm_funcregister("measuretextex",ring_MeasureTextEx);
-	ring_vm_funcregister("getglyphindex",ring_GetGlyphIndex);
+	ring_vm_funcregister("measuretextex_2",ring_MeasureTextEx_2);
+	ring_vm_funcregister("getglyphindex_2",ring_GetGlyphIndex_2);
 	ring_vm_funcregister("getnextcodepoint",ring_GetNextCodepoint);
 	ring_vm_funcregister("textisequal",ring_TextIsEqual);
 	ring_vm_funcregister("textlength",ring_TextLength);

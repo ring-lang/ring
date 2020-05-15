@@ -900,3 +900,36 @@ func SetTextureWrap texture, wrapMode
 
 func DrawTextureV texture, position, tint
 	return DrawTextureV_2( GPData(texture), GPData(position), GPData(tint) )
+
+func GetFontDefault
+	oFont = new Font 
+	oFont.setData(GetFontDefault_2())
+	return oFont
+
+func LoadFontEx fileName, fontSize, fontChars, charsCount
+	oFont = new Font 
+	oFont.setData(LoadFontEx_2( fileName, fontSize, fontChars, charsCount ) )
+	return oFont
+
+func LoadFontFromImage image, key, firstChar
+	oFont = new Font 
+	oFont.setData(LoadFontFromImage_2( GPData(image), GPData(key), firstChar) )
+	return oFont
+
+func LoadFontData fileName, fontSize, fontChars, charsCount, type
+	oCharInfo = new CharInfo
+	oCharInfo.setData(LoadFontData_2( fileName, fontSize, fontChars, charsCount, type) )
+	return oCharInfo
+
+func GenImageFontAtlas chars, charsCount, fontSize, padding, packMethod
+	oImage = new Image 
+	oImage.setData(GenImageFontAtlas_2( GPData(chars), charsCount, fontSize, padding, packMethod ) )
+	return oImage 
+
+func MeasureTextEx font, text, fontSize, spacing
+	oVector2 = new Vector2 
+	oVector2.setData(MeasureTextEx_2( GPData(font), text, fontSize, spacing ) )
+	return oVector2 
+
+func GetGlyphIndex font, character 
+	return GetGlyphIndex_2( GPData(font), character )
