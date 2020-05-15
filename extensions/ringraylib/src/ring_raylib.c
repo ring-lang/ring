@@ -10685,7 +10685,7 @@ RING_FUNC(ring_SetCameraMoveControls)
 }
 
 
-RING_FUNC(ring_DrawPixel)
+RING_FUNC(ring_DrawPixel_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -17032,7 +17032,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setcameraaltcontrol",ring_SetCameraAltControl);
 	ring_vm_funcregister("setcamerasmoothzoomcontrol",ring_SetCameraSmoothZoomControl);
 	ring_vm_funcregister("setcameramovecontrols",ring_SetCameraMoveControls);
-	ring_vm_funcregister("drawpixel",ring_DrawPixel);
+	ring_vm_funcregister("drawpixel_2",ring_DrawPixel_2);
 	ring_vm_funcregister("drawpixelv_2",ring_DrawPixelV_2);
 	ring_vm_funcregister("drawline",ring_DrawLine);
 	ring_vm_funcregister("drawlinev_2",ring_DrawLineV_2);
