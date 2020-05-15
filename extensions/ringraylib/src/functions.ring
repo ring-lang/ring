@@ -709,3 +709,8 @@ func ColorToHSV color
 	oVector4 = new Vector4 
 	oVector4.setData( ColorToHSV_2(GPData(color)) )
 	return oVector4 
+
+func Fade color, alpha 
+	oColor = new Color 
+	oColor.setData( Fade_2( GPData(color), alpha )  )
+	return oColor 

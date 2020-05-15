@@ -9671,7 +9671,7 @@ RING_FUNC(ring_GetColor)
 }
 
 
-RING_FUNC(ring_Fade)
+RING_FUNC(ring_Fade_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -16962,7 +16962,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("colortohsv_2",ring_ColorToHSV_2);
 	ring_vm_funcregister("colorfromhsv_2",ring_ColorFromHSV_2);
 	ring_vm_funcregister("getcolor",ring_GetColor);
-	ring_vm_funcregister("fade",ring_Fade);
+	ring_vm_funcregister("fade_2",ring_Fade_2);
 	ring_vm_funcregister("setconfigflags",ring_SetConfigFlags);
 	ring_vm_funcregister("settraceloglevel",ring_SetTraceLogLevel);
 	ring_vm_funcregister("settracelogexit",ring_SetTraceLogExit);
