@@ -757,3 +757,12 @@ func DrawCircleLines centerX, centerY, radius, color
 
 func DrawRectangle posX, posY, width, height, color 
 	return DrawRectangle_2( posX, posY, width, height, GPData(color) )
+
+func DrawRectangleGradientV posX, posY, width, height, color1, color2
+	return DrawRectangleGradientV_2( posX, posY, width, height, GPData(color1), GPData(color2) )
+
+func DrawRectangleGradientH posX, posY, width, height, color1, color2
+	return DrawRectangleGradientH_2( posX, posY, width, height, GPData(color1), GPData(color2) )
+
+func DrawRectangleLines posX, posY, width, height, color 
+	return DrawRectangleLines_2(posX, posY, width, height, GPData(color))

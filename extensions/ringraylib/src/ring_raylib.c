@@ -11121,7 +11121,7 @@ RING_FUNC(ring_DrawRectanglePro_2)
 }
 
 
-RING_FUNC(ring_DrawRectangleGradientV)
+RING_FUNC(ring_DrawRectangleGradientV_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -11151,7 +11151,7 @@ RING_FUNC(ring_DrawRectangleGradientV)
 }
 
 
-RING_FUNC(ring_DrawRectangleGradientH)
+RING_FUNC(ring_DrawRectangleGradientH_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -11201,7 +11201,7 @@ RING_FUNC(ring_DrawRectangleGradientEx_2)
 }
 
 
-RING_FUNC(ring_DrawRectangleLines)
+RING_FUNC(ring_DrawRectangleLines_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17051,10 +17051,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawrectanglev_2",ring_DrawRectangleV_2);
 	ring_vm_funcregister("drawrectanglerec_2",ring_DrawRectangleRec_2);
 	ring_vm_funcregister("drawrectanglepro_2",ring_DrawRectanglePro_2);
-	ring_vm_funcregister("drawrectanglegradientv",ring_DrawRectangleGradientV);
-	ring_vm_funcregister("drawrectanglegradienth",ring_DrawRectangleGradientH);
+	ring_vm_funcregister("drawrectanglegradientv_2",ring_DrawRectangleGradientV_2);
+	ring_vm_funcregister("drawrectanglegradienth_2",ring_DrawRectangleGradientH_2);
 	ring_vm_funcregister("drawrectanglegradientex_2",ring_DrawRectangleGradientEx_2);
-	ring_vm_funcregister("drawrectanglelines",ring_DrawRectangleLines);
+	ring_vm_funcregister("drawrectanglelines_2",ring_DrawRectangleLines_2);
 	ring_vm_funcregister("drawrectanglelinesex_2",ring_DrawRectangleLinesEx_2);
 	ring_vm_funcregister("drawrectanglerounded_2",ring_DrawRectangleRounded_2);
 	ring_vm_funcregister("drawrectangleroundedlines_2",ring_DrawRectangleRoundedLines_2);
