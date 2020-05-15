@@ -10529,7 +10529,7 @@ RING_FUNC(ring_GetGestureHoldDuration)
 }
 
 
-RING_FUNC(ring_GetGestureDragVector)
+RING_FUNC(ring_GetGestureDragVector_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17022,7 +17022,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getgesturedetected",ring_GetGestureDetected);
 	ring_vm_funcregister("gettouchpointscount",ring_GetTouchPointsCount);
 	ring_vm_funcregister("getgestureholdduration",ring_GetGestureHoldDuration);
-	ring_vm_funcregister("getgesturedragvector",ring_GetGestureDragVector);
+	ring_vm_funcregister("getgesturedragvector_2",ring_GetGestureDragVector_2);
 	ring_vm_funcregister("getgesturedragangle",ring_GetGestureDragAngle);
 	ring_vm_funcregister("getgesturepinchvector",ring_GetGesturePinchVector);
 	ring_vm_funcregister("getgesturepinchangle",ring_GetGesturePinchAngle);

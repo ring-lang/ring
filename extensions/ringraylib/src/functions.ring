@@ -729,3 +729,9 @@ func Fade color, alpha
 	oColor = new Color 
 	oColor.setData( Fade_2( GPData(color), alpha )  )
 	return oColor 
+
+func GetGestureDragVector 
+	oVector2 = new Vector2 
+	oVector2.setData( GetGestureDragVector_2() )
+	return oVector2 
+
