@@ -11043,7 +11043,7 @@ RING_FUNC(ring_DrawRingLines_2)
 }
 
 
-RING_FUNC(ring_DrawRectangle)
+RING_FUNC(ring_DrawRectangle_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17047,7 +17047,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawcirclelines_2",ring_DrawCircleLines_2);
 	ring_vm_funcregister("drawring_2",ring_DrawRing_2);
 	ring_vm_funcregister("drawringlines_2",ring_DrawRingLines_2);
-	ring_vm_funcregister("drawrectangle",ring_DrawRectangle);
+	ring_vm_funcregister("drawrectangle_2",ring_DrawRectangle_2);
 	ring_vm_funcregister("drawrectanglev_2",ring_DrawRectangleV_2);
 	ring_vm_funcregister("drawrectanglerec_2",ring_DrawRectangleRec_2);
 	ring_vm_funcregister("drawrectanglepro_2",ring_DrawRectanglePro_2);
