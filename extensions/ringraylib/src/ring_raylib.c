@@ -14004,7 +14004,7 @@ RING_FUNC(ring_UnloadMesh_2)
 }
 
 
-RING_FUNC(ring_LoadMaterials)
+RING_FUNC(ring_LoadMaterials_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -14023,7 +14023,7 @@ RING_FUNC(ring_LoadMaterials)
 }
 
 
-RING_FUNC(ring_LoadMaterialDefault)
+RING_FUNC(ring_LoadMaterialDefault_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -14038,7 +14038,7 @@ RING_FUNC(ring_LoadMaterialDefault)
 }
 
 
-RING_FUNC(ring_UnloadMaterial)
+RING_FUNC(ring_UnloadMaterial_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -14050,7 +14050,7 @@ RING_FUNC(ring_UnloadMaterial)
 }
 
 
-RING_FUNC(ring_SetMaterialTexture)
+RING_FUNC(ring_SetMaterialTexture_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14070,7 +14070,7 @@ RING_FUNC(ring_SetMaterialTexture)
 }
 
 
-RING_FUNC(ring_SetModelMeshMaterial)
+RING_FUNC(ring_SetModelMeshMaterial_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14092,7 +14092,7 @@ RING_FUNC(ring_SetModelMeshMaterial)
 }
 
 
-RING_FUNC(ring_LoadModelAnimations)
+RING_FUNC(ring_LoadModelAnimations_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -14111,7 +14111,7 @@ RING_FUNC(ring_LoadModelAnimations)
 }
 
 
-RING_FUNC(ring_UpdateModelAnimation)
+RING_FUNC(ring_UpdateModelAnimation_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14129,7 +14129,7 @@ RING_FUNC(ring_UpdateModelAnimation)
 }
 
 
-RING_FUNC(ring_UnloadModelAnimation)
+RING_FUNC(ring_UnloadModelAnimation_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -14141,7 +14141,7 @@ RING_FUNC(ring_UnloadModelAnimation)
 }
 
 
-RING_FUNC(ring_IsModelAnimationValid)
+RING_FUNC(ring_IsModelAnimationValid_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -14155,7 +14155,7 @@ RING_FUNC(ring_IsModelAnimationValid)
 }
 
 
-RING_FUNC(ring_GenMeshPoly)
+RING_FUNC(ring_GenMeshPoly_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -14178,7 +14178,7 @@ RING_FUNC(ring_GenMeshPoly)
 }
 
 
-RING_FUNC(ring_GenMeshPlane)
+RING_FUNC(ring_GenMeshPlane_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -14209,7 +14209,7 @@ RING_FUNC(ring_GenMeshPlane)
 }
 
 
-RING_FUNC(ring_GenMeshCube)
+RING_FUNC(ring_GenMeshCube_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14236,7 +14236,7 @@ RING_FUNC(ring_GenMeshCube)
 }
 
 
-RING_FUNC(ring_GenMeshSphere)
+RING_FUNC(ring_GenMeshSphere_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14263,7 +14263,7 @@ RING_FUNC(ring_GenMeshSphere)
 }
 
 
-RING_FUNC(ring_GenMeshHemiSphere)
+RING_FUNC(ring_GenMeshHemiSphere_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14290,7 +14290,7 @@ RING_FUNC(ring_GenMeshHemiSphere)
 }
 
 
-RING_FUNC(ring_GenMeshCylinder)
+RING_FUNC(ring_GenMeshCylinder_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14317,7 +14317,7 @@ RING_FUNC(ring_GenMeshCylinder)
 }
 
 
-RING_FUNC(ring_GenMeshTorus)
+RING_FUNC(ring_GenMeshTorus_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -14348,7 +14348,7 @@ RING_FUNC(ring_GenMeshTorus)
 }
 
 
-RING_FUNC(ring_GenMeshKnot)
+RING_FUNC(ring_GenMeshKnot_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -17191,23 +17191,23 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadmeshes_2",ring_LoadMeshes_2);
 	ring_vm_funcregister("exportmesh_2",ring_ExportMesh_2);
 	ring_vm_funcregister("unloadmesh_2",ring_UnloadMesh_2);
-	ring_vm_funcregister("loadmaterials",ring_LoadMaterials);
-	ring_vm_funcregister("loadmaterialdefault",ring_LoadMaterialDefault);
-	ring_vm_funcregister("unloadmaterial",ring_UnloadMaterial);
-	ring_vm_funcregister("setmaterialtexture",ring_SetMaterialTexture);
-	ring_vm_funcregister("setmodelmeshmaterial",ring_SetModelMeshMaterial);
-	ring_vm_funcregister("loadmodelanimations",ring_LoadModelAnimations);
-	ring_vm_funcregister("updatemodelanimation",ring_UpdateModelAnimation);
-	ring_vm_funcregister("unloadmodelanimation",ring_UnloadModelAnimation);
-	ring_vm_funcregister("ismodelanimationvalid",ring_IsModelAnimationValid);
-	ring_vm_funcregister("genmeshpoly",ring_GenMeshPoly);
-	ring_vm_funcregister("genmeshplane",ring_GenMeshPlane);
-	ring_vm_funcregister("genmeshcube",ring_GenMeshCube);
-	ring_vm_funcregister("genmeshsphere",ring_GenMeshSphere);
-	ring_vm_funcregister("genmeshhemisphere",ring_GenMeshHemiSphere);
-	ring_vm_funcregister("genmeshcylinder",ring_GenMeshCylinder);
-	ring_vm_funcregister("genmeshtorus",ring_GenMeshTorus);
-	ring_vm_funcregister("genmeshknot",ring_GenMeshKnot);
+	ring_vm_funcregister("loadmaterials_2",ring_LoadMaterials_2);
+	ring_vm_funcregister("loadmaterialdefault_2",ring_LoadMaterialDefault_2);
+	ring_vm_funcregister("unloadmaterial_2",ring_UnloadMaterial_2);
+	ring_vm_funcregister("setmaterialtexture_2",ring_SetMaterialTexture_2);
+	ring_vm_funcregister("setmodelmeshmaterial_2",ring_SetModelMeshMaterial_2);
+	ring_vm_funcregister("loadmodelanimations_2",ring_LoadModelAnimations_2);
+	ring_vm_funcregister("updatemodelanimation_2",ring_UpdateModelAnimation_2);
+	ring_vm_funcregister("unloadmodelanimation_2",ring_UnloadModelAnimation_2);
+	ring_vm_funcregister("ismodelanimationvalid_2",ring_IsModelAnimationValid_2);
+	ring_vm_funcregister("genmeshpoly_2",ring_GenMeshPoly_2);
+	ring_vm_funcregister("genmeshplane_2",ring_GenMeshPlane_2);
+	ring_vm_funcregister("genmeshcube_2",ring_GenMeshCube_2);
+	ring_vm_funcregister("genmeshsphere_2",ring_GenMeshSphere_2);
+	ring_vm_funcregister("genmeshhemisphere_2",ring_GenMeshHemiSphere_2);
+	ring_vm_funcregister("genmeshcylinder_2",ring_GenMeshCylinder_2);
+	ring_vm_funcregister("genmeshtorus_2",ring_GenMeshTorus_2);
+	ring_vm_funcregister("genmeshknot_2",ring_GenMeshKnot_2);
 	ring_vm_funcregister("genmeshheightmap_2",ring_GenMeshHeightmap_2);
 	ring_vm_funcregister("genmeshcubicmap_2",ring_GenMeshCubicmap_2);
 	ring_vm_funcregister("meshboundingbox",ring_MeshBoundingBox);

@@ -957,3 +957,76 @@ func ExportMesh mesh, fileName
 
 func UnloadMesh mesh
 	return UnloadMesh_2( GPData(mesh) )
+
+func LoadMaterials fileName, materialCount
+	oMaterial = new Material 
+	oMaterial.setData(LoadMaterials_2( fileName, materialCount ) )
+	return oMaterial
+
+func LoadMaterialDefault
+	oMaterial = new Material 
+	oMaterial.setData(LoadMaterialDefault_2())
+	return oMaterial
+
+func UnloadMaterial material
+	return UnloadMaterial_2( GPData(material) )
+
+func SetMaterialTexture material, mapType, texture
+	return SetMaterialTexture_2( GPData(material), mapType, GPData(texture) )
+
+func SetModelMeshMaterial model, meshId, materialId
+	return SetModelMeshMaterial_2( GPData(model), meshId, materialId )
+
+func LoadModelAnimations fileName, animsCount
+	oModelAnimation = new ModelAnimation
+	oModelAnimation.setData(LoadModelAnimations_2( fileName, animsCount ) )
+	return oModelAnimation
+
+func UpdateModelAnimation model, anim, frame
+	return UpdateModelAnimation_2( GPData(model), GPData(anim), frame )
+
+func UnloadModelAnimation anim
+	return UnloadModelAnimation_2( GPData(anim) )
+
+func IsModelAnimationValid model, anim
+	return IsModelAnimationValid_2( GPData(model), GPData(anim) )
+
+func GenMeshPoly sides, radius
+	oMesh = new Mesh 
+	oMesh.setData(GenMeshPoly_2( sides, radius ) )
+	return oMesh
+
+func GenMeshPlane width, length, resX, resZ
+	oMesh = new Mesh 
+	oMesh.setData(GenMeshPlane_2( width, length, resX, resZ ) )
+	return oMesh
+
+func GenMeshCube width, height, length
+	oMesh = new Mesh 
+	oMesh.setData(GenMeshCube_2( width, height, length ) ) 
+	return oMesh
+
+func GenMeshSphere radius, rings, slices
+	oMesh = new Mesh 
+	oMesh.setData(GenMeshSphere_2( radius, rings, slices ) )
+	return oMesh
+
+func GenMeshHemiSphere radius, rings, slices
+	oMesh = new Mesh 
+	oMesh.setData(GenMeshHemiSphere_2( radius, rings, slices ) )
+	return oMesh
+
+func GenMeshCylinder radius, height, slices
+	oMesh = new Mesh 
+	oMesh.setData(GenMeshCylinder_2( radius, height, slices ) )
+	return oMesh
+
+func GenMeshTorus radius, size, radSeg, sides
+	oMesh = new Mesh 
+	oMesh.setData(GenMeshTorus_2( radius, size, radSeg, sides ) )
+	return oMesh
+
+func GenMeshKnot radius, size, radSeg, sides
+	oMesh = new Mesh 
+	oMesh.setData(GenMeshKnot_2( radius, size, radSeg, sides ) )
+	return oMesh
