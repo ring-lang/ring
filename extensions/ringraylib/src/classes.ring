@@ -22,6 +22,7 @@ class Vector2 from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		x = raylib_get_vector2_x(oStruct)
 		y = raylib_get_vector2_y(oStruct)
 
@@ -41,6 +42,7 @@ class Vector3 from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		x = raylib_get_vector3_x(oStruct)
 		y = raylib_get_vector3_y(oStruct)
 		z = raylib_get_vector3_z(oStruct)
@@ -62,6 +64,7 @@ class Vector4 from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		x = raylib_get_vector4_x(oStruct)
 		y = raylib_get_vector4_y(oStruct)
 		z = raylib_get_vector4_z(oStruct)
@@ -84,6 +87,7 @@ class Quaternion from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		x = raylib_get_Quaternion_x(oStruct)
 		y = raylib_get_Quaternion_y(oStruct)
 		z = raylib_get_Quaternion_z(oStruct)
@@ -134,6 +138,7 @@ class Matrix from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		m0 = raylib_get_Matrix_m0(oStruct)
 		m1 = raylib_get_Matrix_m1(oStruct)
 		m2 = raylib_get_Matrix_m2(oStruct)
@@ -168,6 +173,7 @@ class Color from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		r = raylib_get_Color_r(oStruct)
 		g = raylib_get_Color_g(oStruct)
 		b = raylib_get_Color_b(oStruct)
@@ -190,6 +196,7 @@ class Rectangle from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		x 	= raylib_get_Rectangle_x(oStruct)
 		y 	= raylib_get_Rectangle_y(oStruct)
 		width 	= raylib_get_Rectangle_width(oStruct)
@@ -214,6 +221,7 @@ class Image from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData   = oStruct  
 		data 	= raylib_get_Image_data(oStruct)
 		width 	= raylib_get_Image_width(oStruct)
 		height 	= raylib_get_Image_height(oStruct)
@@ -238,6 +246,7 @@ class Texture2D from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData 	= oStruct  
 		id 	= raylib_get_Texture2D_id(oStruct)
 		width 	= raylib_get_Texture2D_width(oStruct)
 		height 	= raylib_get_Texture2D_height(oStruct)
@@ -284,6 +293,7 @@ class RenderTexture2D from RayLibBase
 		return oData
 
 	func setdata oStruct 
+		oData 		= oStruct  
 		id	 	= raylib_get_RenderTexture2D_id(oStruct)
 		texture.id 	= raylib_get_RenderTexture2D_texture_id(oStruct)
 		texture.width 	= raylib_get_RenderTexture2D_texture_width(oStruct) 
@@ -328,6 +338,7 @@ class NPatchInfo from RayLibBase
 		return oData
 
 	func setdata oStruct 
+		oData 			= oStruct  
 		sourceRec.x 		= raylib_get_NPatchInfo_sourceRec_x(oStruct)
 		sourceRec.y 		= raylib_get_NPatchInfo_sourceRec_y(oStruct)
 		sourceRec.width		= raylib_get_NPatchInfo_sourceRec_width(oStruct)
@@ -370,6 +381,7 @@ class CharInfo from RayLibBase
 		return oData
 
 	func setdata oStruct 
+		oData 		= oStruct  
 		value		= raylib_get_CharInfo_value(oStruct)
 		rec.x		= raylib_get_CharInfo_rec_x(oStruct)
 		rec.y		= raylib_get_CharInfo_rec_y(oStruct)
@@ -409,6 +421,7 @@ class SpriteFont from RayLibBase
 		return oData
 
 	func setdata oStruct 
+		oData 		= oStruct  
 		texture.id 	= raylib_get_SpriteFont_texture_id(oStruct)
 		texture.width 	= raylib_get_SpriteFont_texture_width(oStruct) 
 		texture.height	= raylib_get_SpriteFont_texture_height(oStruct)
@@ -447,6 +460,7 @@ class Font from RayLibBase
 		return oData
 
 	func setdata oStruct 
+		oData 		= oStruct  
 		texture.id 	= raylib_get_Font_texture_id(oStruct)
 		texture.width 	= raylib_get_Font_texture_width(oStruct) 
 		texture.height	= raylib_get_Font_texture_height(oStruct)
@@ -493,6 +507,7 @@ class Camera3D from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData 	   = oStruct  
 		position.x = raylib_get_Camera3D_position_x(oStruct)
 		position.y = raylib_get_Camera3D_position_y(oStruct)
 		position.z = raylib_get_Camera3D_position_z(oStruct)
@@ -548,6 +563,7 @@ class Mesh from RayLibBase
 		return oData
 
 	func setdata oStruct 
+		oData 		= oStruct  
 		vertexCount	= raylib_get_Mesh_vertexCount(oStruct)
 		triangleCount	= raylib_get_Mesh_triangleCount(oStruct)
 		vertices	= raylib_get_Mesh_vertices(oStruct)
@@ -577,7 +593,8 @@ class Shader from RayLibBase
 		return oData
 
 	func setdata oStruct 
-		id = raylib_get_shader_id(oStruct)
+		oData 	= oStruct  
+		id 	= raylib_get_shader_id(oStruct)
 
 class Material from RayLibBase
 
@@ -596,8 +613,9 @@ class Material from RayLibBase
 		return oData 
 
 	func setdata oStruct 
-		shader.id = raylib_get_Material_shader_id(oStruct)
-		params = raylib_get_Material_params(oStruct)
+		oData 		= oStruct  
+		shader.id 	= raylib_get_Material_shader_id(oStruct)
+		params 		= raylib_get_Material_params(oStruct)
 
 class Transform from RayLibBase
 
@@ -631,6 +649,7 @@ class Transform from RayLibBase
 		return oData 
 
 	func setdata oStruct 
+		oData = oStruct  
 		translation.x = raylib_get_Transform_translation_x(oStruct)
 		translation.y = raylib_get_Transform_translation_y(oStruct)
 		translation.z = raylib_get_Transform_translation_z(oStruct)
@@ -655,7 +674,8 @@ class BoneInfo from RayLibBase
 		return oData 
 
 	func setdata oStruct 
-		parent = raylib_get_Model_parent(oStruct)
+		oData 	= oStruct  
+		parent 	= raylib_get_Model_parent(oStruct)
 
 class Model from RayLibBase
 
@@ -699,6 +719,7 @@ class Model from RayLibBase
 		return oData
 
 	func setdata oStruct 
+		oData = oStruct  
 		transform.m0 = raylib_get_Model_transform_m0(oStruct)
 		transform.m1 = raylib_get_Model_transform_m1(oStruct)
 		transform.m2 = raylib_get_Model_transform_m2(oStruct)
@@ -740,6 +761,7 @@ class ModelAnimation from RayLibBase
 		return oData
 
 	func setdata oStruct 
+		oData = oStruct  
 		boneCount = raylib_get_ModelAnimation_boneCount(oStruct)
 		bones = raylib_get_ModelAnimation_bones(oStruct)
 		frameCount = raylib_get_ModelAnimation_frameCount(oStruct)
@@ -769,6 +791,7 @@ class Ray from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		position.x = raylib_get_Ray_position_x(oStruct)
 		position.y = raylib_get_Ray_position_y(oStruct)
 		position.z = raylib_get_Ray_position_z(oStruct)
@@ -805,6 +828,7 @@ class RayHitInfo from RayLibBase
 		return oData
 
 	func setdata oStruct 
+		oData = oStruct  
 		hit = raylib_get_RayHitInfo_hit(oStruct)
 		distance = raylib_get_RayHitInfo_distance(oStruct)
 		position.x = raylib_get_RayHitInfo_position_x(oStruct)
@@ -839,6 +863,7 @@ class BoundingBox from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		min.x = raylib_get_BoundingBox_min_x(oStruct)
 		min.y = raylib_get_BoundingBox_min_y(oStruct)
 		min.z = raylib_get_BoundingBox_min_z(oStruct)
@@ -865,6 +890,7 @@ class Wave from RayLibBase
 		return oData
 
 	func setdata oStruct 
+		oData = oStruct  
 		sampleCount	= raylib_get_Wave_sampleCount(oStruct)
 		sampleRate	= raylib_get_Wave_sampleRate(oStruct)
 		sampleSize	= raylib_get_Wave_sampleSize(oStruct)
@@ -888,6 +914,7 @@ class Sound from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		audioBuffer	= raylib_get_Sound_AudioBuffer(oStruct)
 		source		= raylib_get_Sound_Source(oStruct)
 		buffer		= raylib_get_Sound_Buffer(oStruct)
@@ -911,8 +938,8 @@ class AudioStream from RayLibBase
 		raylib_set_AudioStream_source(oData,source)
 		return oData	
 
-
 	func setdata oStruct 
+		oData = oStruct  
 		sampleRate 	= raylib_get_AudioStream_sampleRate(oStruct)
 		sampleSize 	= raylib_get_AudioStream_sampleSize(oStruct)
 		channels 	= raylib_get_AudioStream_channels(oStruct)
@@ -943,6 +970,7 @@ class VrDeviceInfo  from RayLibBase
 		return oData	
 
 	func setdata oStruct 
+		oData = oStruct  
 		hResolution = raylib_get_VrDeviceInfo_hResolution(oStruct)
 		vResolution = raylib_get_VrDeviceInfo_vResolution(oStruct)
 		hScreenSize = raylib_get_VrDeviceInfo_hScreenSize(oStruct)
