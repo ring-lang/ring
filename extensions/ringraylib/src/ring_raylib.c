@@ -11715,7 +11715,7 @@ RING_FUNC(ring_LoadTextureCubemap)
 }
 
 
-RING_FUNC(ring_LoadRenderTexture)
+RING_FUNC(ring_LoadRenderTexture_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17079,7 +17079,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadtexture_2",ring_LoadTexture_2);
 	ring_vm_funcregister("loadtexturefromimage_2",ring_LoadTextureFromImage_2);
 	ring_vm_funcregister("loadtexturecubemap",ring_LoadTextureCubemap);
-	ring_vm_funcregister("loadrendertexture",ring_LoadRenderTexture);
+	ring_vm_funcregister("loadrendertexture_2",ring_LoadRenderTexture_2);
 	ring_vm_funcregister("unloadimage_2",ring_UnloadImage_2);
 	ring_vm_funcregister("unloadtexture_2",ring_UnloadTexture_2);
 	ring_vm_funcregister("unloadrendertexture",ring_UnloadRenderTexture);

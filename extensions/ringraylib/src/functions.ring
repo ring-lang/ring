@@ -772,3 +772,8 @@ func ExportImage image, fileName
 
 func ExportImageAsCode image, fileName
 	return ExportImageAsCode_2( GPData(image), fileName )
+
+func LoadRenderTexture width, height
+	oRenderTexture2D = new RenderTexture2D 
+	oRenderTexture2D.setData( LoadRenderTexture_2(width, height) )
+	return oRenderTexture2D
