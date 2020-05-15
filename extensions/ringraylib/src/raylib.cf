@@ -190,7 +190,7 @@ void DrawCircleSector@2(Vector2 center, float radius, int startAngle, int endAng
 void DrawCircleSectorLines@2(Vector2 center, float radius, int startAngle, int endAngle, int segments, Color color)
 void DrawCircleGradient@2(int centerX, int centerY, float radius, Color color1, Color color2)
 void DrawCircleV@2(Vector2 center, float radius, Color color)
-void DrawCircleLines(int centerX, int centerY, float radius, Color color)
+void DrawCircleLines@2(int centerX, int centerY, float radius, Color color)
 void DrawRing@2(Vector2 center, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color)
 void DrawRingLines@2(Vector2 center, float innerRadius, float outerRadius, int startAngle, int endAngle, int segments, Color color)
 void DrawRectangle(int posX, int posY, int width, int height, Color color)

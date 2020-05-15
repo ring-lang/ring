@@ -751,3 +751,6 @@ func DrawCircle centerX, centerY, radius, color
 
 func DrawCircleGradient centerX, centerY, radius, color1, color2
 	return DrawCircleGradient_2( centerX, centerY, radius, GPData(color1), GPData(color2) )
+
+func DrawCircleLines centerX, centerY, radius, color
+	return DrawCircleLines_2( centerX, centerY, radius, GPData(color) )
