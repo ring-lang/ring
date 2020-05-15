@@ -780,3 +780,8 @@ func LoadRenderTexture width, height
 
 func UnloadRenderTexture target 
 	return UnloadRenderTexture_2(GPData(target))
+
+func GetImageDataNormalized image 
+	oVector4 = new Vector4 
+	oVector4.setData( GetImageDataNormalized_2( GPData(image) ) )
+	return oVector4

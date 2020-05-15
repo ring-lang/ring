@@ -11786,7 +11786,7 @@ RING_FUNC(ring_GetImageData_2)
 }
 
 
-RING_FUNC(ring_GetImageDataNormalized)
+RING_FUNC(ring_GetImageDataNormalized_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17084,7 +17084,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("unloadtexture_2",ring_UnloadTexture_2);
 	ring_vm_funcregister("unloadrendertexture_2",ring_UnloadRenderTexture_2);
 	ring_vm_funcregister("getimagedata_2",ring_GetImageData_2);
-	ring_vm_funcregister("getimagedatanormalized",ring_GetImageDataNormalized);
+	ring_vm_funcregister("getimagedatanormalized_2",ring_GetImageDataNormalized_2);
 	ring_vm_funcregister("getpixeldatasize",ring_GetPixelDataSize);
 	ring_vm_funcregister("gettexturedata",ring_GetTextureData);
 	ring_vm_funcregister("getscreendata",ring_GetScreenData);
