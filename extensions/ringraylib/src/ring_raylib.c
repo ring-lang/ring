@@ -13907,7 +13907,7 @@ RING_FUNC(ring_DrawGizmo_2)
 }
 
 
-RING_FUNC(ring_LoadModel)
+RING_FUNC(ring_LoadModel_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -13926,7 +13926,7 @@ RING_FUNC(ring_LoadModel)
 }
 
 
-RING_FUNC(ring_LoadModelFromMesh)
+RING_FUNC(ring_LoadModelFromMesh_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -13943,7 +13943,7 @@ RING_FUNC(ring_LoadModelFromMesh)
 }
 
 
-RING_FUNC(ring_UnloadModel)
+RING_FUNC(ring_UnloadModel_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17185,9 +17185,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawray_2",ring_DrawRay_2);
 	ring_vm_funcregister("drawgrid",ring_DrawGrid);
 	ring_vm_funcregister("drawgizmo_2",ring_DrawGizmo_2);
-	ring_vm_funcregister("loadmodel",ring_LoadModel);
-	ring_vm_funcregister("loadmodelfrommesh",ring_LoadModelFromMesh);
-	ring_vm_funcregister("unloadmodel",ring_UnloadModel);
+	ring_vm_funcregister("loadmodel_2",ring_LoadModel_2);
+	ring_vm_funcregister("loadmodelfrommesh_2",ring_LoadModelFromMesh_2);
+	ring_vm_funcregister("unloadmodel_2",ring_UnloadModel_2);
 	ring_vm_funcregister("loadmeshes",ring_LoadMeshes);
 	ring_vm_funcregister("exportmesh",ring_ExportMesh);
 	ring_vm_funcregister("unloadmesh",ring_UnloadMesh);

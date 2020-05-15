@@ -933,3 +933,16 @@ func MeasureTextEx font, text, fontSize, spacing
 
 func GetGlyphIndex font, character 
 	return GetGlyphIndex_2( GPData(font), character )
+
+func LoadModel fileName
+	oModel = new Model 
+	oModel.setData(LoadModel_2( fileName ) )
+	return oModel 
+
+func LoadModelFromMesh mesh
+	oModel = new Model 
+	oModel.setData(LoadModelFromMesh_2( GPData(mesh) ) )
+	return oModel 
+
+func UnloadModel model
+	return UnloadModel_2( GPData(model) )
