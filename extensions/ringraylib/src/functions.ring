@@ -690,3 +690,6 @@ func DrawCubeTexture texture,position,width,height,length,color
 
 func SetWindowIcon image 
 	return SetWindowIcon_2( GPData(image) )
+
+func BeginTextureMode target
+	return BeginTextureMode_2( GPData(target) )

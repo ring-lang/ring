@@ -9468,7 +9468,7 @@ RING_FUNC(ring_EndMode3D)
 }
 
 
-RING_FUNC(ring_BeginTextureMode)
+RING_FUNC(ring_BeginTextureMode_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -16948,7 +16948,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("endmode2d",ring_EndMode2D);
 	ring_vm_funcregister("beginmode3d_2",ring_BeginMode3D_2);
 	ring_vm_funcregister("endmode3d",ring_EndMode3D);
-	ring_vm_funcregister("begintexturemode",ring_BeginTextureMode);
+	ring_vm_funcregister("begintexturemode_2",ring_BeginTextureMode_2);
 	ring_vm_funcregister("endtexturemode",ring_EndTextureMode);
 	ring_vm_funcregister("getmouseray_2",ring_GetMouseRay_2);
 	ring_vm_funcregister("getworldtoscreen_2",ring_GetWorldToScreen_2);
