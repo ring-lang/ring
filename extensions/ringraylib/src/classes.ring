@@ -690,8 +690,12 @@ class Model from RayLibBase
   		raylib_set_Model_materials(oData,materials)
   		raylib_set_Model_meshMaterial(oData,meshMaterial)
   		raylib_set_Model_boneCount(oData,boneCount)
-  		raylib_set_Model_bones(oData,bones)
-  		raylib_set_Model_bindPose(oData,bindPose)
+		if ! ISNULL(bones)
+	  		raylib_set_Model_bones(oData,bones)
+		ok
+		if ! ISNULL(bindPose)
+	  		raylib_set_Model_bindPose(oData,bindPose)
+		ok
 		return oData
 
 	func setdata oStruct 
