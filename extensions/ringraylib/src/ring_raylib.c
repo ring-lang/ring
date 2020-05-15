@@ -10823,7 +10823,7 @@ RING_FUNC(ring_DrawLineStrip_2)
 }
 
 
-RING_FUNC(ring_DrawCircle)
+RING_FUNC(ring_DrawCircle_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -17039,7 +17039,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("drawlineex_2",ring_DrawLineEx_2);
 	ring_vm_funcregister("drawlinebezier_2",ring_DrawLineBezier_2);
 	ring_vm_funcregister("drawlinestrip_2",ring_DrawLineStrip_2);
-	ring_vm_funcregister("drawcircle",ring_DrawCircle);
+	ring_vm_funcregister("drawcircle_2",ring_DrawCircle_2);
 	ring_vm_funcregister("drawcirclesector_2",ring_DrawCircleSector_2);
 	ring_vm_funcregister("drawcirclesectorlines_2",ring_DrawCircleSectorLines_2);
 	ring_vm_funcregister("drawcirclegradient",ring_DrawCircleGradient);

@@ -745,3 +745,6 @@ func DrawPixel posX, posY, color
 
 func DrawLine startPosX, startPosY, endPosX, endPosY, color
 	return DrawLine_2(startPosX, startPosY, endPosX, endPosY, GPData(color))
+
+func DrawCircle centerX, centerY, radius, color
+	return DrawCircle_2(centerX, centerY, radius, GPData(color) )
