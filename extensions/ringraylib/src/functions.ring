@@ -821,3 +821,30 @@ func ImageAlphaCrop image, threshold
 
 func ImageAlphaPremultiply image
 	return ImageAlphaPremultiply_2( GPData(image) )
+
+func ImageResizeNN image, newWidth, newHeight
+	return ImageResizeNN_2( GPData(image), newWidth, newHeight )
+
+func ImageResizeCanvas image, newWidth, newHeight, offsetX, offsetY, color
+	return ImageResizeCanvas_2( GPData(image), newWidth, newHeight, offsetX, offsetY, GPData(color) )
+
+func ImageMipmaps image
+	return ImageMipmaps_2( GPData(image) )
+
+func ImageDither image, rBpp, gBpp, bBpp, aBpp
+	return ImageDither_2( GPData(image), rBpp, gBpp, bBpp, aBpp )
+
+func ImageExtractPalette image, maxPaletteSize, extractCount
+	oColor = new Color 
+	oColor.setData(ImageExtractPalette_2( GPData(image), maxPaletteSize, extractCount) )
+ 	return oColor
+
+func ImageText text, fontSize, color
+	oImage = new Image 
+	oImage.setData(ImageText_2( text, fontSize, GPData(color) ) )
+	return oImage
+
+func ImageTextEx font, text, fontSize, spacing, tint
+	oImage = new Image 
+	oImage.setData(ImageTextEx_2( GPData(font), text, fontSize, spacing, GPData(tint) ) )
+	return oImage

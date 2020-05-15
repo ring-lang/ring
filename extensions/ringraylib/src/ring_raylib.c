@@ -12025,7 +12025,7 @@ RING_FUNC(ring_ImageResize_2)
 }
 
 
-RING_FUNC(ring_ImageResizeNN)
+RING_FUNC(ring_ImageResizeNN_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -12047,7 +12047,7 @@ RING_FUNC(ring_ImageResizeNN)
 }
 
 
-RING_FUNC(ring_ImageResizeCanvas)
+RING_FUNC(ring_ImageResizeCanvas_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -12079,7 +12079,7 @@ RING_FUNC(ring_ImageResizeCanvas)
 }
 
 
-RING_FUNC(ring_ImageMipmaps)
+RING_FUNC(ring_ImageMipmaps_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -12093,7 +12093,7 @@ RING_FUNC(ring_ImageMipmaps)
 }
 
 
-RING_FUNC(ring_ImageDither)
+RING_FUNC(ring_ImageDither_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -12123,7 +12123,7 @@ RING_FUNC(ring_ImageDither)
 }
 
 
-RING_FUNC(ring_ImageExtractPalette)
+RING_FUNC(ring_ImageExtractPalette_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -12144,7 +12144,7 @@ RING_FUNC(ring_ImageExtractPalette)
 }
 
 
-RING_FUNC(ring_ImageText)
+RING_FUNC(ring_ImageText_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -12169,7 +12169,7 @@ RING_FUNC(ring_ImageText)
 }
 
 
-RING_FUNC(ring_ImageTextEx)
+RING_FUNC(ring_ImageTextEx_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17098,13 +17098,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("imagealphapremultiply_2",ring_ImageAlphaPremultiply_2);
 	ring_vm_funcregister("imagecrop_2",ring_ImageCrop_2);
 	ring_vm_funcregister("imageresize_2",ring_ImageResize_2);
-	ring_vm_funcregister("imageresizenn",ring_ImageResizeNN);
-	ring_vm_funcregister("imageresizecanvas",ring_ImageResizeCanvas);
-	ring_vm_funcregister("imagemipmaps",ring_ImageMipmaps);
-	ring_vm_funcregister("imagedither",ring_ImageDither);
-	ring_vm_funcregister("imageextractpalette",ring_ImageExtractPalette);
-	ring_vm_funcregister("imagetext",ring_ImageText);
-	ring_vm_funcregister("imagetextex",ring_ImageTextEx);
+	ring_vm_funcregister("imageresizenn_2",ring_ImageResizeNN_2);
+	ring_vm_funcregister("imageresizecanvas_2",ring_ImageResizeCanvas_2);
+	ring_vm_funcregister("imagemipmaps_2",ring_ImageMipmaps_2);
+	ring_vm_funcregister("imagedither_2",ring_ImageDither_2);
+	ring_vm_funcregister("imageextractpalette_2",ring_ImageExtractPalette_2);
+	ring_vm_funcregister("imagetext_2",ring_ImageText_2);
+	ring_vm_funcregister("imagetextex_2",ring_ImageTextEx_2);
 	ring_vm_funcregister("imagedraw_2",ring_ImageDraw_2);
 	ring_vm_funcregister("imagedrawrectangle_2",ring_ImageDrawRectangle_2);
 	ring_vm_funcregister("imagedrawrectanglelines_2",ring_ImageDrawRectangleLines_2);
