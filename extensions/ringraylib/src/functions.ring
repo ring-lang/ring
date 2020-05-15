@@ -1030,3 +1030,14 @@ func GenMeshKnot radius, size, radSeg, sides
 	oMesh = new Mesh 
 	oMesh.setData(GenMeshKnot_2( radius, size, radSeg, sides ) )
 	return oMesh
+
+func MeshBoundingBox mesh
+	oBoundingBox = new BoundingBox
+	oBoundingBox.setData(MeshBoundingBox_2( GPData(mesh) ))
+	return oBoundingBox
+
+func MeshTangents mesh
+	return MeshTangents_2( GPData(mesh) )
+
+func MeshBinormals mesh
+	return MeshBinormals_2( GPData(mesh) )

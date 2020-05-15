@@ -14417,7 +14417,7 @@ RING_FUNC(ring_GenMeshCubicmap_2)
 }
 
 
-RING_FUNC(ring_MeshBoundingBox)
+RING_FUNC(ring_MeshBoundingBox_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -14434,7 +14434,7 @@ RING_FUNC(ring_MeshBoundingBox)
 }
 
 
-RING_FUNC(ring_MeshTangents)
+RING_FUNC(ring_MeshTangents_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -14448,7 +14448,7 @@ RING_FUNC(ring_MeshTangents)
 }
 
 
-RING_FUNC(ring_MeshBinormals)
+RING_FUNC(ring_MeshBinormals_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17210,9 +17210,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("genmeshknot_2",ring_GenMeshKnot_2);
 	ring_vm_funcregister("genmeshheightmap_2",ring_GenMeshHeightmap_2);
 	ring_vm_funcregister("genmeshcubicmap_2",ring_GenMeshCubicmap_2);
-	ring_vm_funcregister("meshboundingbox",ring_MeshBoundingBox);
-	ring_vm_funcregister("meshtangents",ring_MeshTangents);
-	ring_vm_funcregister("meshbinormals",ring_MeshBinormals);
+	ring_vm_funcregister("meshboundingbox_2",ring_MeshBoundingBox_2);
+	ring_vm_funcregister("meshtangents_2",ring_MeshTangents_2);
+	ring_vm_funcregister("meshbinormals_2",ring_MeshBinormals_2);
 	ring_vm_funcregister("drawmodel_2",ring_DrawModel_2);
 	ring_vm_funcregister("drawmodelex_2",ring_DrawModelEx_2);
 	ring_vm_funcregister("drawmodelwires_2",ring_DrawModelWires_2);
