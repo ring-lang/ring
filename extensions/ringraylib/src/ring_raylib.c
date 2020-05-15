@@ -10719,7 +10719,7 @@ RING_FUNC(ring_DrawPixelV_2)
 }
 
 
-RING_FUNC(ring_DrawLine)
+RING_FUNC(ring_DrawLine_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17034,7 +17034,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setcameramovecontrols",ring_SetCameraMoveControls);
 	ring_vm_funcregister("drawpixel_2",ring_DrawPixel_2);
 	ring_vm_funcregister("drawpixelv_2",ring_DrawPixelV_2);
-	ring_vm_funcregister("drawline",ring_DrawLine);
+	ring_vm_funcregister("drawline_2",ring_DrawLine_2);
 	ring_vm_funcregister("drawlinev_2",ring_DrawLineV_2);
 	ring_vm_funcregister("drawlineex_2",ring_DrawLineEx_2);
 	ring_vm_funcregister("drawlinebezier_2",ring_DrawLineBezier_2);

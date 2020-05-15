@@ -742,3 +742,6 @@ func GetGesturePinchVector
 
 func DrawPixel posX, posY, color 
 	return DrawPixel_2(posX, posY, GPData(color))
+
+func DrawLine startPosX, startPosY, endPosX, endPosY, color
+	return DrawLine_2(startPosX, startPosY, endPosX, endPosY, GPData(color))
