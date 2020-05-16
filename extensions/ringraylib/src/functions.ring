@@ -1102,3 +1102,7 @@ func SetMatrixProjection proj
 func SetMatrixModelview view
 	return SetMatrixModelview_2( GPData(view) )
 
+func GetMatrixModelview
+	oMatrix = new Matrix
+	oMatrix.setData(GetMatrixModelview_2())
+	return oMatrix

@@ -15013,7 +15013,7 @@ RING_FUNC(ring_SetMatrixModelview_2)
 }
 
 
-RING_FUNC(ring_GetMatrixModelview)
+RING_FUNC(ring_GetMatrixModelview_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17242,7 +17242,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setshadervaluetexture_2",ring_SetShaderValueTexture_2);
 	ring_vm_funcregister("setmatrixprojection_2",ring_SetMatrixProjection_2);
 	ring_vm_funcregister("setmatrixmodelview_2",ring_SetMatrixModelview_2);
-	ring_vm_funcregister("getmatrixmodelview",ring_GetMatrixModelview);
+	ring_vm_funcregister("getmatrixmodelview_2",ring_GetMatrixModelview_2);
 	ring_vm_funcregister("gentexturecubemap",ring_GenTextureCubemap);
 	ring_vm_funcregister("gentextureirradiance",ring_GenTextureIrradiance);
 	ring_vm_funcregister("gentextureprefilter",ring_GenTexturePrefilter);
