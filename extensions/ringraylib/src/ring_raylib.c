@@ -15869,7 +15869,7 @@ RING_FUNC(ring_InitAudioStream_2)
 }
 
 
-RING_FUNC(ring_UpdateAudioStream)
+RING_FUNC(ring_UpdateAudioStream_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -15889,7 +15889,7 @@ RING_FUNC(ring_UpdateAudioStream)
 }
 
 
-RING_FUNC(ring_CloseAudioStream)
+RING_FUNC(ring_CloseAudioStream_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15901,7 +15901,7 @@ RING_FUNC(ring_CloseAudioStream)
 }
 
 
-RING_FUNC(ring_IsAudioBufferProcessed)
+RING_FUNC(ring_IsAudioBufferProcessed_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15913,7 +15913,7 @@ RING_FUNC(ring_IsAudioBufferProcessed)
 }
 
 
-RING_FUNC(ring_PlayAudioStream)
+RING_FUNC(ring_PlayAudioStream_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15925,7 +15925,7 @@ RING_FUNC(ring_PlayAudioStream)
 }
 
 
-RING_FUNC(ring_PauseAudioStream)
+RING_FUNC(ring_PauseAudioStream_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15937,7 +15937,7 @@ RING_FUNC(ring_PauseAudioStream)
 }
 
 
-RING_FUNC(ring_ResumeAudioStream)
+RING_FUNC(ring_ResumeAudioStream_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15949,7 +15949,7 @@ RING_FUNC(ring_ResumeAudioStream)
 }
 
 
-RING_FUNC(ring_IsAudioStreamPlaying)
+RING_FUNC(ring_IsAudioStreamPlaying_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15961,7 +15961,7 @@ RING_FUNC(ring_IsAudioStreamPlaying)
 }
 
 
-RING_FUNC(ring_StopAudioStream)
+RING_FUNC(ring_StopAudioStream_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15973,7 +15973,7 @@ RING_FUNC(ring_StopAudioStream)
 }
 
 
-RING_FUNC(ring_SetAudioStreamVolume)
+RING_FUNC(ring_SetAudioStreamVolume_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -15989,7 +15989,7 @@ RING_FUNC(ring_SetAudioStreamVolume)
 }
 
 
-RING_FUNC(ring_SetAudioStreamPitch)
+RING_FUNC(ring_SetAudioStreamPitch_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17299,16 +17299,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getmusictimelength_2",ring_GetMusicTimeLength_2);
 	ring_vm_funcregister("getmusictimeplayed_2",ring_GetMusicTimePlayed_2);
 	ring_vm_funcregister("initaudiostream_2",ring_InitAudioStream_2);
-	ring_vm_funcregister("updateaudiostream",ring_UpdateAudioStream);
-	ring_vm_funcregister("closeaudiostream",ring_CloseAudioStream);
-	ring_vm_funcregister("isaudiobufferprocessed",ring_IsAudioBufferProcessed);
-	ring_vm_funcregister("playaudiostream",ring_PlayAudioStream);
-	ring_vm_funcregister("pauseaudiostream",ring_PauseAudioStream);
-	ring_vm_funcregister("resumeaudiostream",ring_ResumeAudioStream);
-	ring_vm_funcregister("isaudiostreamplaying",ring_IsAudioStreamPlaying);
-	ring_vm_funcregister("stopaudiostream",ring_StopAudioStream);
-	ring_vm_funcregister("setaudiostreamvolume",ring_SetAudioStreamVolume);
-	ring_vm_funcregister("setaudiostreampitch",ring_SetAudioStreamPitch);
+	ring_vm_funcregister("updateaudiostream_2",ring_UpdateAudioStream_2);
+	ring_vm_funcregister("closeaudiostream_2",ring_CloseAudioStream_2);
+	ring_vm_funcregister("isaudiobufferprocessed_2",ring_IsAudioBufferProcessed_2);
+	ring_vm_funcregister("playaudiostream_2",ring_PlayAudioStream_2);
+	ring_vm_funcregister("pauseaudiostream_2",ring_PauseAudioStream_2);
+	ring_vm_funcregister("resumeaudiostream_2",ring_ResumeAudioStream_2);
+	ring_vm_funcregister("isaudiostreamplaying_2",ring_IsAudioStreamPlaying_2);
+	ring_vm_funcregister("stopaudiostream_2",ring_StopAudioStream_2);
+	ring_vm_funcregister("setaudiostreamvolume_2",ring_SetAudioStreamVolume_2);
+	ring_vm_funcregister("setaudiostreampitch_2",ring_SetAudioStreamPitch_2);
 	ring_vm_funcregister("guienable",ring_GuiEnable);
 	ring_vm_funcregister("guidisable",ring_GuiDisable);
 	ring_vm_funcregister("guilock",ring_GuiLock);

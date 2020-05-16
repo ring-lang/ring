@@ -1178,3 +1178,33 @@ func InitAudioStream sampleRate, sampleSize, channels
 	oAudioStream = new AudioStream
 	oAudioStream.setData(InitAudioStream_2( sampleRate, sampleSize, channels ))
 	return oAudioStream
+
+func UpdateAudioStream stream, data, samplesCount
+	return UpdateAudioStream_2( GPData(stream), data, samplesCount )
+
+func CloseAudioStream stream
+	return CloseAudioStream_2( GPData(stream) )
+
+func IsAudioBufferProcessed stream
+	return IsAudioBufferProcessed_2( GPData(stream) )
+
+func PlayAudioStream stream
+	return PlayAudioStream_2( GPData(stream) )
+
+func PauseAudioStream stream
+	return PauseAudioStream_2( GPData(stream) )
+
+func ResumeAudioStream stream
+	return ResumeAudioStream_2( GPData(stream) )
+
+func IsAudioStreamPlaying stream
+	return IsAudioStreamPlaying_2( GPData(stream) )
+
+func StopAudioStream stream
+	return StopAudioStream_2( GPData(stream) )
+
+func SetAudioStreamVolume stream, volume
+	return SetAudioStreamVolume_2( GPData(stream), volume )
+
+func SetAudioStreamPitch stream, pitch
+	return SetAudioStreamPitch_2( GPData(stream), pitch )
