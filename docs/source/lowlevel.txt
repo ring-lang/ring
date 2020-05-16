@@ -15,6 +15,9 @@ In this chapter we will learn about the low level functions provided by Ring
 * pointer2object()
 * ispointer()
 * ptrcmp()
+* pointer2string()
+* setpointer()
+* getpointer()
 * ringvm_cfunctionslist() 
 * ringvm_functionslist() 
 * ringvm_classeslist() 
@@ -296,6 +299,55 @@ Output:
 
 	1
 	0
+
+.. index:: 
+	pair: Low Level Functions; pointer2string()
+
+pointer2string() function
+=========================
+
+Convert a pointer to a string of binary data
+
+If you want to convert the string to a pointer again use VarPtr() function
+
+Syntax:
+
+.. code-block:: ring
+
+	pointer2string(pointer,nStart,nCount)
+
+Example:
+
+.. code-block:: ring
+
+	name = "ring"
+	pointer = varptr(:name,"char *")
+	? pointer
+	? "Type: " + type(pointer)
+	? "Value: " + Upper(hex(getpointer(pointer)))
+
+	? "Get 4 bytes starting from the pointer address"
+	mystring = Pointer2String(pointer,0,4)
+	? mystring
+
+	? "Get 2 bytes starting from the pointer address + 1"
+	mystring2 = Pointer2String(pointer,1,2)
+	? mystring2
+
+Output:
+
+.. code-block:: ring
+
+	01E03380
+	char *
+	0
+
+	Type: char *
+	Value: 1E03380
+	Get 4 bytes starting from the pointer address
+	ring
+	Get 2 bytes starting from the pointer address + 1
+	in
 
 .. index:: 
 	pair: Low Level Functions; RingVM_CFunctionsList()

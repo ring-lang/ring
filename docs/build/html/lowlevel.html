@@ -62,6 +62,9 @@
 <li>pointer2object()</li>
 <li>ispointer()</li>
 <li>ptrcmp()</li>
+<li>pointer2string()</li>
+<li>setpointer()</li>
+<li>getpointer()</li>
 <li>ringvm_cfunctionslist()</li>
 <li>ringvm_functionslist()</li>
 <li>ringvm_classeslist()</li>
@@ -286,8 +289,46 @@ to create a reference for the parent node (object) in the child node (another ob
 </pre></div>
 </div>
 </div>
+<div class="section" id="pointer2string-function">
+<span id="index-9"></span><h2>pointer2string() function<a class="headerlink" href="#pointer2string-function" title="Permalink to this headline">¶</a></h2>
+<p>Convert a pointer to a string of binary data</p>
+<p>If you want to convert the string to a pointer again use VarPtr() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">pointer2string</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ring&quot;</span>
+<span class="n">pointer</span> <span class="o">=</span> <span class="n">varptr</span><span class="p">(:</span><span class="n">name</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">pointer</span>
+<span class="o">?</span> <span class="s">&quot;Type: &quot;</span> <span class="o">+</span> <span class="n">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Value: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
+
+<span class="o">?</span> <span class="s">&quot;Get 4 bytes starting from the pointer address&quot;</span>
+<span class="n">mystring</span> <span class="o">=</span> <span class="n">Pointer2String</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">mystring</span>
+
+<span class="o">?</span> <span class="s">&quot;Get 2 bytes starting from the pointer address + 1&quot;</span>
+<span class="n">mystring2</span> <span class="o">=</span> <span class="n">Pointer2String</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">mystring2</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mf">01E03380</span>
+<span class="n">char</span> <span class="o">*</span>
+<span class="mi">0</span>
+
+<span class="n">Type</span><span class="p">:</span> <span class="n">char</span> <span class="o">*</span>
+<span class="n">Value</span><span class="p">:</span> <span class="mf">1E03380</span>
+<span class="k">Get</span> <span class="mi">4</span> <span class="n">bytes</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">address</span>
+<span class="n">ring</span>
+<span class="k">Get</span> <span class="mi">2</span> <span class="n">bytes</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">address</span> <span class="o">+</span> <span class="mi">1</span>
+<span class="k">in</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="ringvm-cfunctionslist-function">
-<span id="index-9"></span><h2>ringvm_cfunctionslist() function<a class="headerlink" href="#ringvm-cfunctionslist-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>ringvm_cfunctionslist() function<a class="headerlink" href="#ringvm-cfunctionslist-function" title="Permalink to this headline">¶</a></h2>
 <p>The Function return a list of functions written in C.</p>
 <p>Syntax:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_CFunctionsList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
@@ -299,7 +340,7 @@ to create a reference for the parent node (object) in the child node (another ob
 </div>
 </div>
 <div class="section" id="ringvm-functionslist-function">
-<span id="index-10"></span><h2>ringvm_functionslist() function<a class="headerlink" href="#ringvm-functionslist-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>ringvm_functionslist() function<a class="headerlink" href="#ringvm-functionslist-function" title="Permalink to this headline">¶</a></h2>
 <p>The Function return a list of functions written in Ring.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
@@ -328,7 +369,7 @@ to create a reference for the parent node (object) in the child node (another ob
 </div>
 </div>
 <div class="section" id="ringvm-classeslist-function">
-<span id="index-11"></span><h2>ringvm_classeslist() function<a class="headerlink" href="#ringvm-classeslist-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>ringvm_classeslist() function<a class="headerlink" href="#ringvm-classeslist-function" title="Permalink to this headline">¶</a></h2>
 <p>The Function return a list of Classes.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
@@ -376,7 +417,7 @@ to create a reference for the parent node (object) in the child node (another ob
 </div>
 </div>
 <div class="section" id="ringvm-packageslist-function">
-<span id="index-12"></span><h2>ringvm_packageslist() function<a class="headerlink" href="#ringvm-packageslist-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>ringvm_packageslist() function<a class="headerlink" href="#ringvm-packageslist-function" title="Permalink to this headline">¶</a></h2>
 <p>The Function return a list of Packages.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
@@ -423,7 +464,7 @@ class1
 </div>
 </div>
 <div class="section" id="ringvm-memorylist-function">
-<span id="index-13"></span><h2>ringvm_memorylist() function<a class="headerlink" href="#ringvm-memorylist-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>ringvm_memorylist() function<a class="headerlink" href="#ringvm-memorylist-function" title="Permalink to this headline">¶</a></h2>
 <p>The Function return a list of Memory Scopes and Variables.</p>
 <p>Each List Member is a list contains variables in a different scope.</p>
 <p>Each Item in the scope list is a list contains the next items</p>
@@ -534,7 +575,7 @@ y
 </div>
 </div>
 <div class="section" id="ringvm-calllist-function">
-<span id="index-14"></span><h2>ringvm_calllist() function<a class="headerlink" href="#ringvm-calllist-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>ringvm_calllist() function<a class="headerlink" href="#ringvm-calllist-function" title="Permalink to this headline">¶</a></h2>
 <p>The Function return a list of the functions call list.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
@@ -574,7 +615,7 @@ y
 </div>
 </div>
 <div class="section" id="ringvm-fileslist-function">
-<span id="index-15"></span><h2>ringvm_fileslist() function<a class="headerlink" href="#ringvm-fileslist-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>ringvm_fileslist() function<a class="headerlink" href="#ringvm-fileslist-function" title="Permalink to this headline">¶</a></h2>
 <p>Function return a list of the Ring Files.</p>
 <p>Syntax:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_FilesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
@@ -615,7 +656,7 @@ y
 </div>
 </div>
 <div class="section" id="ringvm-settrace">
-<span id="index-16"></span><h2>ringvm_settrace()<a class="headerlink" href="#ringvm-settrace" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>ringvm_settrace()<a class="headerlink" href="#ringvm-settrace" title="Permalink to this headline">¶</a></h2>
 <p>The function ringvm_settrace() determine the Trace function name</p>
 <p>The trace function is a Ring
 function that will be called for each event</p>
@@ -625,7 +666,7 @@ function that will be called for each event</p>
 </div>
 </div>
 <div class="section" id="ringvm-tracedata">
-<span id="index-17"></span><h2>ringvm_tracedata()<a class="headerlink" href="#ringvm-tracedata" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>ringvm_tracedata()<a class="headerlink" href="#ringvm-tracedata" title="Permalink to this headline">¶</a></h2>
 <p>Inside the function that we will use for tracing events</p>
 <p>We can use the ringvm_tracedata() function to get the event
 data.</p>
@@ -642,7 +683,7 @@ data.</p>
 </div>
 </div>
 <div class="section" id="ringvm-traceevent">
-<span id="index-18"></span><h2>ringvm_traceevent()<a class="headerlink" href="#ringvm-traceevent" title="Permalink to this headline">¶</a></h2>
+<span id="index-19"></span><h2>ringvm_traceevent()<a class="headerlink" href="#ringvm-traceevent" title="Permalink to this headline">¶</a></h2>
 <p>Inside the function that we will use for tracing events</p>
 <p>We can use ringvm_traceevent() to know the event type</p>
 <ul class="simple">
@@ -659,7 +700,7 @@ data.</p>
 </div>
 </div>
 <div class="section" id="ringvm-tracefunc">
-<span id="index-19"></span><h2>ringvm_tracefunc()<a class="headerlink" href="#ringvm-tracefunc" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>ringvm_tracefunc()<a class="headerlink" href="#ringvm-tracefunc" title="Permalink to this headline">¶</a></h2>
 <p>The function return the name of the function that we
 are using for tracing events.</p>
 <p>Syntax:</p>
@@ -668,7 +709,7 @@ are using for tracing events.</p>
 </div>
 </div>
 <div class="section" id="ringvm-scopescount">
-<span id="index-20"></span><h2>ringvm_scopescount()<a class="headerlink" href="#ringvm-scopescount" title="Permalink to this headline">¶</a></h2>
+<span id="index-21"></span><h2>ringvm_scopescount()<a class="headerlink" href="#ringvm-scopescount" title="Permalink to this headline">¶</a></h2>
 <p>We can use the RingVM_ScopesCount() function to know
 the number of scopes used in the application.</p>
 <p>In the start of the program, We have the (global scope only)</p>
@@ -680,7 +721,7 @@ the number of scopes used in the application.</p>
 </div>
 </div>
 <div class="section" id="ringvm-evalinscope">
-<span id="index-21"></span><h2>ringvm_evalinscope()<a class="headerlink" href="#ringvm-evalinscope" title="Permalink to this headline">¶</a></h2>
+<span id="index-22"></span><h2>ringvm_evalinscope()<a class="headerlink" href="#ringvm-evalinscope" title="Permalink to this headline">¶</a></h2>
 <p>The function ringvm_evalinscope() is similar to the eval() function</p>
 <p>Unlike eval() which execute the code in the current scope</p>
 <p>Using RingVM_EvalInScope() we can execute the scope in a specific scope.</p>
@@ -690,7 +731,7 @@ the number of scopes used in the application.</p>
 </div>
 </div>
 <div class="section" id="ringvm-passerror">
-<span id="index-22"></span><h2>ringvm_passerror()<a class="headerlink" href="#ringvm-passerror" title="Permalink to this headline">¶</a></h2>
+<span id="index-23"></span><h2>ringvm_passerror()<a class="headerlink" href="#ringvm-passerror" title="Permalink to this headline">¶</a></h2>
 <p>When we have runtime error, After printing the Error message, Ring
 will end the execution of the program.</p>
 <p>Using ringvm_passerror() we can avoid that, and continue the
@@ -701,7 +742,7 @@ execution of our program.</p>
 </div>
 </div>
 <div class="section" id="ringvm-hideerrormsg">
-<span id="index-23"></span><h2>ringvm_hideerrormsg()<a class="headerlink" href="#ringvm-hideerrormsg" title="Permalink to this headline">¶</a></h2>
+<span id="index-24"></span><h2>ringvm_hideerrormsg()<a class="headerlink" href="#ringvm-hideerrormsg" title="Permalink to this headline">¶</a></h2>
 <p>We can disable/enable displaying the runtime error messages using the
 RingVM_HideErrorMsg() function.</p>
 <p>Syntax:</p>
@@ -710,7 +751,7 @@ RingVM_HideErrorMsg() function.</p>
 </div>
 </div>
 <div class="section" id="ringvm-callfunc">
-<span id="index-24"></span><h2>ringvm_callfunc()<a class="headerlink" href="#ringvm-callfunc" title="Permalink to this headline">¶</a></h2>
+<span id="index-25"></span><h2>ringvm_callfunc()<a class="headerlink" href="#ringvm-callfunc" title="Permalink to this headline">¶</a></h2>
 <p>We can call a function from a string without using eval() using
 the ringvm_callfunc()</p>
 <p>Syntax:</p>
@@ -719,7 +760,7 @@ the ringvm_callfunc()</p>
 </div>
 </div>
 <div class="section" id="example-using-the-trace-functions">
-<span id="index-25"></span><h2>Example - Using the Trace Functions<a class="headerlink" href="#example-using-the-trace-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-26"></span><h2>Example - Using the Trace Functions<a class="headerlink" href="#example-using-the-trace-functions" title="Permalink to this headline">¶</a></h2>
 <p>The next example use the Trace Functions to trace the program Events!</p>
 <p>In practical, We will use the Trace Library instead of
 these low level functions!</p>
@@ -948,7 +989,7 @@ Method or Function : Command
 </div>
 </div>
 <div class="section" id="example-the-trace-library">
-<span id="index-26"></span><h2>Example - The Trace Library<a class="headerlink" href="#example-the-trace-library" title="Permalink to this headline">¶</a></h2>
+<span id="index-27"></span><h2>Example - The Trace Library<a class="headerlink" href="#example-the-trace-library" title="Permalink to this headline">¶</a></h2>
 <p>The next example uses the Trace functions provided by the Ring language
 to create the Trace library.</p>
 <p>Using the Trace library we have nice Tracing
@@ -1143,7 +1184,7 @@ func PrintLocalsData nScope
 </div>
 </div>
 <div class="section" id="ringvm-see-function">
-<span id="index-27"></span><h2>ringvm_see() function<a class="headerlink" href="#ringvm-see-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-28"></span><h2>ringvm_see() function<a class="headerlink" href="#ringvm-see-function" title="Permalink to this headline">¶</a></h2>
 <p>Using the ringvm_see() function we can redefine the behavior of the See command</p>
 <p>Also we can use ring_see() to have the original behavior</p>
 <p>Example:</p>
@@ -1172,7 +1213,7 @@ z: 30.000000
 </div>
 </div>
 <div class="section" id="ringvm-give-function">
-<span id="index-28"></span><h2>ringvm_give() function<a class="headerlink" href="#ringvm-give-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-29"></span><h2>ringvm_give() function<a class="headerlink" href="#ringvm-give-function" title="Permalink to this headline">¶</a></h2>
 <p>Using the ringvm_give() function we can redefine the behavior of the Give command</p>
 <p>Example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
@@ -1190,7 +1231,7 @@ z: 30.000000
 </div>
 </div>
 <div class="section" id="ringvm-info-function">
-<span id="index-29"></span><h2>ringvm_info() function<a class="headerlink" href="#ringvm-info-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-30"></span><h2>ringvm_info() function<a class="headerlink" href="#ringvm-info-function" title="Permalink to this headline">¶</a></h2>
 <p>The ringvm_info() is an internal function that return a list of information about the Ring VM structure.</p>
 <p>It&#8217;s used only by the Ring Team in advanced tests to check the VM status.</p>
 <p>Syntax:</p>
@@ -1217,6 +1258,7 @@ z: 30.000000
 <li><a class="reference internal" href="#pointer2object-function">pointer2object() function</a></li>
 <li><a class="reference internal" href="#ispointer-function">ispointer() function</a></li>
 <li><a class="reference internal" href="#ptrcmp-function">ptrcmp() function</a></li>
+<li><a class="reference internal" href="#pointer2string-function">pointer2string() function</a></li>
 <li><a class="reference internal" href="#ringvm-cfunctionslist-function">ringvm_cfunctionslist() function</a></li>
 <li><a class="reference internal" href="#ringvm-functionslist-function">ringvm_functionslist() function</a></li>
 <li><a class="reference internal" href="#ringvm-classeslist-function">ringvm_classeslist() function</a></li>
