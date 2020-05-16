@@ -14885,7 +14885,7 @@ RING_FUNC(ring_GetTextureDefault_2)
 }
 
 
-RING_FUNC(ring_GetShaderLocation)
+RING_FUNC(ring_GetShaderLocation_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -14901,7 +14901,7 @@ RING_FUNC(ring_GetShaderLocation)
 }
 
 
-RING_FUNC(ring_SetShaderValue)
+RING_FUNC(ring_SetShaderValue_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -14925,7 +14925,7 @@ RING_FUNC(ring_SetShaderValue)
 }
 
 
-RING_FUNC(ring_SetShaderValueV)
+RING_FUNC(ring_SetShaderValueV_2)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -14953,7 +14953,7 @@ RING_FUNC(ring_SetShaderValueV)
 }
 
 
-RING_FUNC(ring_SetShaderValueMatrix)
+RING_FUNC(ring_SetShaderValueMatrix_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14971,7 +14971,7 @@ RING_FUNC(ring_SetShaderValueMatrix)
 }
 
 
-RING_FUNC(ring_SetShaderValueTexture)
+RING_FUNC(ring_SetShaderValueTexture_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -14989,7 +14989,7 @@ RING_FUNC(ring_SetShaderValueTexture)
 }
 
 
-RING_FUNC(ring_SetMatrixProjection)
+RING_FUNC(ring_SetMatrixProjection_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -15001,7 +15001,7 @@ RING_FUNC(ring_SetMatrixProjection)
 }
 
 
-RING_FUNC(ring_SetMatrixModelview)
+RING_FUNC(ring_SetMatrixModelview_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17235,13 +17235,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("unloadshader_2",ring_UnloadShader_2);
 	ring_vm_funcregister("getshaderdefault_2",ring_GetShaderDefault_2);
 	ring_vm_funcregister("gettexturedefault_2",ring_GetTextureDefault_2);
-	ring_vm_funcregister("getshaderlocation",ring_GetShaderLocation);
-	ring_vm_funcregister("setshadervalue",ring_SetShaderValue);
-	ring_vm_funcregister("setshadervaluev",ring_SetShaderValueV);
-	ring_vm_funcregister("setshadervaluematrix",ring_SetShaderValueMatrix);
-	ring_vm_funcregister("setshadervaluetexture",ring_SetShaderValueTexture);
-	ring_vm_funcregister("setmatrixprojection",ring_SetMatrixProjection);
-	ring_vm_funcregister("setmatrixmodelview",ring_SetMatrixModelview);
+	ring_vm_funcregister("getshaderlocation_2",ring_GetShaderLocation_2);
+	ring_vm_funcregister("setshadervalue_2",ring_SetShaderValue_2);
+	ring_vm_funcregister("setshadervaluev_2",ring_SetShaderValueV_2);
+	ring_vm_funcregister("setshadervaluematrix_2",ring_SetShaderValueMatrix_2);
+	ring_vm_funcregister("setshadervaluetexture_2",ring_SetShaderValueTexture_2);
+	ring_vm_funcregister("setmatrixprojection_2",ring_SetMatrixProjection_2);
+	ring_vm_funcregister("setmatrixmodelview_2",ring_SetMatrixModelview_2);
 	ring_vm_funcregister("getmatrixmodelview",ring_GetMatrixModelview);
 	ring_vm_funcregister("gentexturecubemap",ring_GenTextureCubemap);
 	ring_vm_funcregister("gentextureirradiance",ring_GenTextureIrradiance);

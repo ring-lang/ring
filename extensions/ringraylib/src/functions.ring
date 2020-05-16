@@ -1080,3 +1080,25 @@ func GetTextureDefault
 	oTexture2D = new Texture2D
 	oTexture2D.setData(GetTextureDefault_2())
 	return oTexture2D
+
+func GetShaderLocation shader, uniformName
+	return GetShaderLocation_2( GPData(shader), uniformName )
+
+func SetShaderValue shader, uniformLoc, value, uniformType
+	return SetShaderValue_2( GPData(shader), uniformLoc, value, uniformType )
+
+func SetShaderValueV shader, uniformLoc, value, uniformType, count
+	return SetShaderValueV_2( GPData(shader), uniformLoc, value, uniformType, count )
+
+func SetShaderValueMatrix shader, uniformLoc, mat
+	return SetShaderValueMatrix_2( GPData(shader), uniformLoc, GPData(mat) )
+
+func SetShaderValueTexture shader, uniformLoc, texture
+	return SetShaderValueTexture_2( GPData(shader), uniformLoc, GPData(texture) )
+
+func SetMatrixProjection proj
+	return SetMatrixProjection_2( GPData(proj) )
+
+func SetMatrixModelview view
+	return SetMatrixModelview_2( GPData(view) )
+
