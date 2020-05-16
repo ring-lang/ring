@@ -1137,3 +1137,40 @@ func LoadMusicStream fileName
 	oMusic = new Music
 	oMusic.setData(LoadMusicStream_2( fileName ))
 	return oMusic
+
+func UnloadMusicStream music
+	return UnloadMusicStream_2( GPData(music) )
+
+func PlayMusicStream music
+	return PlayMusicStream_2( GPData(music) )
+
+func UpdateMusicStream music
+	return UpdateMusicStream_2( GPData(music) )
+
+func StopMusicStream music
+	return StopMusicStream_2( GPData(music) )
+
+func PauseMusicStream music
+	return PauseMusicStream_2( GPData(music) )
+
+func ResumeMusicStream music
+	return ResumeMusicStream_2( GPData(music) )
+
+func IsMusicPlaying music
+	return IsMusicPlaying_2( GPData(music) )
+
+func SetMusicVolume music, volume
+	return SetMusicVolume_2( GPData(music), volume )
+
+func SetMusicPitch music, pitch
+	return SetMusicPitch_2( GPData(music), pitch )
+
+func SetMusicLoopCount music, count
+	return SetMusicLoopCount_2( GPData(music), count )
+
+func GetMusicTimeLength music
+	return GetMusicTimeLength_2( GPData(music) )
+
+func GetMusicTimePlayed music 
+	return GetMusicTimePlayed_2( GPData(music) )
+
