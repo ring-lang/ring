@@ -1057,3 +1057,8 @@ func GetCollisionRayGround ray, groundHeight
 	oRayHitInfo = new RayHitInfo
 	oRayHitInfo.setData(GetCollisionRayGround_2( GPData(ray), groundHeight ) )
 	return oRayHitInfo
+
+func LoadShader vsFileName, fsFileName
+	oShader = new Shader 
+	oShader.setData(LoadShader_2( vsFileName, fsFileName ))
+	return oShader 

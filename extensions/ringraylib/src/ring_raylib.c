@@ -14797,7 +14797,7 @@ RING_FUNC(ring_LoadText)
 }
 
 
-RING_FUNC(ring_LoadShader)
+RING_FUNC(ring_LoadShader_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17230,7 +17230,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("getcollisionraytriangle_2",ring_GetCollisionRayTriangle_2);
 	ring_vm_funcregister("getcollisionrayground_2",ring_GetCollisionRayGround_2);
 	ring_vm_funcregister("loadtext",ring_LoadText);
-	ring_vm_funcregister("loadshader",ring_LoadShader);
+	ring_vm_funcregister("loadshader_2",ring_LoadShader_2);
 	ring_vm_funcregister("loadshadercode",ring_LoadShaderCode);
 	ring_vm_funcregister("unloadshader",ring_UnloadShader);
 	ring_vm_funcregister("getshaderdefault",ring_GetShaderDefault);
