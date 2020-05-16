@@ -15118,7 +15118,7 @@ RING_FUNC(ring_GenTextureBRDF_2)
 }
 
 
-RING_FUNC(ring_BeginShaderMode)
+RING_FUNC(ring_BeginShaderMode_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17247,7 +17247,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gentextureirradiance_2",ring_GenTextureIrradiance_2);
 	ring_vm_funcregister("gentextureprefilter_2",ring_GenTexturePrefilter_2);
 	ring_vm_funcregister("gentexturebrdf_2",ring_GenTextureBRDF_2);
-	ring_vm_funcregister("beginshadermode",ring_BeginShaderMode);
+	ring_vm_funcregister("beginshadermode_2",ring_BeginShaderMode_2);
 	ring_vm_funcregister("endshadermode",ring_EndShaderMode);
 	ring_vm_funcregister("beginblendmode",ring_BeginBlendMode);
 	ring_vm_funcregister("endblendmode",ring_EndBlendMode);

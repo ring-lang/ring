@@ -1126,3 +1126,6 @@ func GenTextureBRDF shader, size
 	oTexture2D = new Texture2D
 	oTexture2D.setData(GenTextureBRDF_2( GPData(shader), size ) )
 	return oTexture2D
+
+func BeginShaderMode shader
+	return BeginShaderMode_2( GPData(shader) )
