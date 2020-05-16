@@ -10728,6 +10728,20 @@ RING_FUNC(ring_glViewport)
 }
 
 
+RING_FUNC(ring_glDisableClientState)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glDisableClientState( (GLenum )  (int) RING_API_GETNUMBER(1));
+}
+
+
 RING_FUNC(ring_glewInit)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -11131,6 +11145,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glvertex4sv",ring_glVertex4sv);
 	ring_vm_funcregister("glvertexpointer",ring_glVertexPointer);
 	ring_vm_funcregister("glviewport",ring_glViewport);
+	ring_vm_funcregister("gldisableclientstate",ring_glDisableClientState);
 	ring_vm_funcregister("glewinit",ring_glewInit);
 	ring_vm_funcregister("glewissupported",ring_glewIsSupported);
 	ring_vm_funcregister("glewgetextension",ring_glewGetExtension);
