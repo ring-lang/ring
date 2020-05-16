@@ -15028,7 +15028,7 @@ RING_FUNC(ring_GetMatrixModelview_2)
 }
 
 
-RING_FUNC(ring_GenTextureCubemap)
+RING_FUNC(ring_GenTextureCubemap_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -15051,7 +15051,7 @@ RING_FUNC(ring_GenTextureCubemap)
 }
 
 
-RING_FUNC(ring_GenTextureIrradiance)
+RING_FUNC(ring_GenTextureIrradiance_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -15074,7 +15074,7 @@ RING_FUNC(ring_GenTextureIrradiance)
 }
 
 
-RING_FUNC(ring_GenTexturePrefilter)
+RING_FUNC(ring_GenTexturePrefilter_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -15097,7 +15097,7 @@ RING_FUNC(ring_GenTexturePrefilter)
 }
 
 
-RING_FUNC(ring_GenTextureBRDF)
+RING_FUNC(ring_GenTextureBRDF_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17243,10 +17243,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setmatrixprojection_2",ring_SetMatrixProjection_2);
 	ring_vm_funcregister("setmatrixmodelview_2",ring_SetMatrixModelview_2);
 	ring_vm_funcregister("getmatrixmodelview_2",ring_GetMatrixModelview_2);
-	ring_vm_funcregister("gentexturecubemap",ring_GenTextureCubemap);
-	ring_vm_funcregister("gentextureirradiance",ring_GenTextureIrradiance);
-	ring_vm_funcregister("gentextureprefilter",ring_GenTexturePrefilter);
-	ring_vm_funcregister("gentexturebrdf",ring_GenTextureBRDF);
+	ring_vm_funcregister("gentexturecubemap_2",ring_GenTextureCubemap_2);
+	ring_vm_funcregister("gentextureirradiance_2",ring_GenTextureIrradiance_2);
+	ring_vm_funcregister("gentextureprefilter_2",ring_GenTexturePrefilter_2);
+	ring_vm_funcregister("gentexturebrdf_2",ring_GenTextureBRDF_2);
 	ring_vm_funcregister("beginshadermode",ring_BeginShaderMode);
 	ring_vm_funcregister("endshadermode",ring_EndShaderMode);
 	ring_vm_funcregister("beginblendmode",ring_BeginBlendMode);

@@ -1106,3 +1106,23 @@ func GetMatrixModelview
 	oMatrix = new Matrix
 	oMatrix.setData(GetMatrixModelview_2())
 	return oMatrix
+
+func GenTextureCubemap shader, skyHDR, size
+	oTexture2D = new Texture2D
+	oTexture2D.setData(GenTextureCubemap_2( GPdata(shader), GPData(skyHDR), size ))
+	return oTexture2D
+
+func GenTextureIrradiance shader, cubemap, size
+	oTexture2D = new Texture2D
+	oTexture2D.setData(GenTextureIrradiance_2( GPData(shader), GPData(cubemap), size ))
+	return oTexture2D
+
+func GenTexturePrefilter shader, cubemap, size
+	oTexture2D = new Texture2D
+	oTexture2D.setData(GenTexturePrefilter_2( GPData(shader), GPData(cubemap), size ) )
+	return oTexture2D
+
+func GenTextureBRDF shader, size
+	oTexture2D = new Texture2D
+	oTexture2D.setData(GenTextureBRDF_2( GPData(shader), size ) )
+	return oTexture2D
