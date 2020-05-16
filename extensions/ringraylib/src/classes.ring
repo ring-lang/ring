@@ -920,6 +920,19 @@ class Sound from RayLibBase
 		buffer		= raylib_get_Sound_Buffer(oStruct)
 		format		= raylib_get_Sound_Format(oStruct)
 
+class Music 
+
+	oData
+	
+	func init 
+
+	func data 
+		return oData 
+
+	func setdata oStruct 
+		oData = oStruct  
+	
+
 class AudioStream from RayLibBase
 
 	sampleRate sampleSize channels audioBuffer format source
