@@ -14855,7 +14855,7 @@ RING_FUNC(ring_UnloadShader_2)
 }
 
 
-RING_FUNC(ring_GetShaderDefault)
+RING_FUNC(ring_GetShaderDefault_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17233,7 +17233,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("loadshader_2",ring_LoadShader_2);
 	ring_vm_funcregister("loadshadercode_2",ring_LoadShaderCode_2);
 	ring_vm_funcregister("unloadshader_2",ring_UnloadShader_2);
-	ring_vm_funcregister("getshaderdefault",ring_GetShaderDefault);
+	ring_vm_funcregister("getshaderdefault_2",ring_GetShaderDefault_2);
 	ring_vm_funcregister("gettexturedefault",ring_GetTextureDefault);
 	ring_vm_funcregister("getshaderlocation",ring_GetShaderLocation);
 	ring_vm_funcregister("setshadervalue",ring_SetShaderValue);
