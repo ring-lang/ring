@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.25",
+	:version = "1.0.26",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.25",
+			:version = "1.0.26",
 			:branch = "master"
 		]
 	],
@@ -48,6 +48,8 @@ aPackageInfo = [
 		"extensions/ringraylib/examples/more/resources/back.jpg",
 		"extensions/ringraylib/examples/more/resources/n1.jpg",
 		"extensions/ringraylib/examples/more/resources/pirulen.ttf",
+		"extensions/ringraylib/examples/more/resources/cubicmap.png",
+		"extensions/ringraylib/examples/more/resources/cubicmap_atlas.png",
 		"extensions/ringraylib/examples/shapes/ex1_basicshapes.png",
 		"extensions/ringraylib/examples/shapes/ex1_basicshapes.ring",
 		"extensions/ringraylib/examples/shapes/ex2_drawring.ring",
