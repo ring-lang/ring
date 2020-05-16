@@ -2,7 +2,7 @@ name = "ring"
 pointer = varptr(:name,"char *")
 ? pointer
 ? "Type: " + type(pointer)
-? "Value: " + Upper(hex(getpointer(pointer)))
+? "Address: " + Upper(hex(getpointer(pointer)))
 
 ? "Get 4 bytes starting from the pointer address"
 mystring = Pointer2String(pointer,0,4)
