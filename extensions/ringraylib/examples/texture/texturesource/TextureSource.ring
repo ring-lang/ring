@@ -4,7 +4,7 @@
 load "raylib.ring"
 
 screenWidth = 800
-screenHeight = 800
+screenHeight = 600
 
 InitWindow(screenWidth, screenHeight, "raylib [textures] examples - texture source and destination rectangles")
 
