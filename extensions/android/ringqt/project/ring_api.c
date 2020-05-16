@@ -96,6 +96,8 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("space",ring_vmlib_space);
 	ring_vm_funcregister("ptrcmp",ring_vmlib_ptrcmp);
 	ring_vm_funcregister("pointer2string",ring_vmlib_pointer2string);
+	ring_vm_funcregister("setpointer",ring_vmlib_setpointer);
+	ring_vm_funcregister("getpointer",ring_vmlib_getpointer);
 	/* Ring State */
 	ring_vm_funcregister("ring_state_init",ring_vmlib_state_init);
 	ring_vm_funcregister("ring_state_runcode",ring_vmlib_state_runcode);
@@ -2027,10 +2029,42 @@ void ring_vmlib_pointer2string ( void *pPointer )
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	if ( ! ( RING_API_ISPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) ) ) {
+	if ( ! ( RING_API_ISCPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) ) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 	RING_API_RETSTRING2(((const char *) RING_API_GETCPOINTER(1,"OBJECTPOINTER"))+((int) RING_API_GETNUMBER(2)),(int) RING_API_GETNUMBER(3));
+}
+
+void ring_vmlib_setpointer ( void *pPointer )
+{
+	List *pList  ;
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! ( RING_API_ISCPOINTER(1) && RING_API_ISNUMBER(2) ) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pList = RING_API_GETLIST(1) ;
+	ring_list_setpointer(pList,RING_CPOINTER_POINTER,(void *) (size_t) RING_API_GETNUMBER(2));
+}
+
+void ring_vmlib_getpointer ( void *pPointer )
+{
+	List *pList  ;
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! ( RING_API_ISCPOINTER(1) ) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pList = RING_API_GETLIST(1) ;
+	RING_API_RETNUMBER((size_t) ring_list_getpointer(pList,RING_CPOINTER_POINTER));
 }
 /* Ring State */
 
