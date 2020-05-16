@@ -1067,3 +1067,6 @@ func LoadShaderCode vsCode, fsCode
 	oShader = new Shader 
 	oShader.setData(LoadShaderCode_2( vsCode, fsCode ))
 	return oShader 
+
+func UnloadShader shader
+	return UnloadShader_2( GPData(shader) )
