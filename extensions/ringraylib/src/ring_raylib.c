@@ -15667,7 +15667,7 @@ RING_FUNC(ring_GetWaveData_2)
 }
 
 
-RING_FUNC(ring_LoadMusicStream)
+RING_FUNC(ring_LoadMusicStream_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17285,7 +17285,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("wavecopy_2",ring_WaveCopy_2);
 	ring_vm_funcregister("wavecrop_2",ring_WaveCrop_2);
 	ring_vm_funcregister("getwavedata_2",ring_GetWaveData_2);
-	ring_vm_funcregister("loadmusicstream",ring_LoadMusicStream);
+	ring_vm_funcregister("loadmusicstream_2",ring_LoadMusicStream_2);
 	ring_vm_funcregister("unloadmusicstream",ring_UnloadMusicStream);
 	ring_vm_funcregister("playmusicstream",ring_PlayMusicStream);
 	ring_vm_funcregister("updatemusicstream",ring_UpdateMusicStream);

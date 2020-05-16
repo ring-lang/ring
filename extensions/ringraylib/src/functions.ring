@@ -1132,3 +1132,8 @@ func BeginShaderMode shader
 
 func SetVrConfiguration info, distortion
 	return SetVrConfiguration_2( GPData(info), GPData(distortion) )
+
+func LoadMusicStream fileName
+	oMusic = new Music
+	oMusic.setData(LoadMusicStream_2( fileName ))
+	return oMusic
