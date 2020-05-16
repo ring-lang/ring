@@ -15842,7 +15842,7 @@ RING_FUNC(ring_GetMusicTimePlayed_2)
 }
 
 
-RING_FUNC(ring_InitAudioStream)
+RING_FUNC(ring_InitAudioStream_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -17298,7 +17298,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("setmusicloopcount_2",ring_SetMusicLoopCount_2);
 	ring_vm_funcregister("getmusictimelength_2",ring_GetMusicTimeLength_2);
 	ring_vm_funcregister("getmusictimeplayed_2",ring_GetMusicTimePlayed_2);
-	ring_vm_funcregister("initaudiostream",ring_InitAudioStream);
+	ring_vm_funcregister("initaudiostream_2",ring_InitAudioStream_2);
 	ring_vm_funcregister("updateaudiostream",ring_UpdateAudioStream);
 	ring_vm_funcregister("closeaudiostream",ring_CloseAudioStream);
 	ring_vm_funcregister("isaudiobufferprocessed",ring_IsAudioBufferProcessed);

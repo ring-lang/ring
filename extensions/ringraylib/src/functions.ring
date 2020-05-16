@@ -1174,3 +1174,7 @@ func GetMusicTimeLength music
 func GetMusicTimePlayed music 
 	return GetMusicTimePlayed_2( GPData(music) )
 
+func InitAudioStream sampleRate, sampleSize, channels
+	oAudioStream = new AudioStream
+	oAudioStream.setData(InitAudioStream_2( sampleRate, sampleSize, channels ))
+	return oAudioStream
