@@ -31,6 +31,7 @@ Ring 1.13 comes with the next features!
 * Hassouna Course Samples
 * Ring support in SpaceVim
 * Better RingQt
+* More Low Level Functions
 * More Improvements
 
 .. index:: 
@@ -307,6 +308,22 @@ The application user interface is updated for better productivity!
 
 .. image:: qtconverter.png
 	:alt: QtConverter
+
+.. index:: 
+	pair: What is new in Ring 1.13?; More Low Level Functions
+
+More Low Level Functions
+========================
+
+The next functions are added to the Low Level functions 
+
+For more information see the Low Level Functions chapter in the documentation
+
+.. code-block:: ring
+
+	setpointer(pointer,nNewAddress)
+	getpointer(pointer) ---> nAddress
+	pointer2string(pointer,nStart,nCount) ---> cString
 
 .. index:: 
 	pair: What is new in Ring 1.13?; More Improvements

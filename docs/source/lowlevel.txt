@@ -326,7 +326,7 @@ Syntax:
 
 .. code-block:: ring
 
-	nAddress = getpointer(pointer)
+	getpointer(pointer) ---> nAddress
 
 Example:
 
@@ -389,7 +389,7 @@ Syntax:
 
 .. code-block:: ring
 
-	pointer2string(pointer,nStart,nCount)
+	pointer2string(pointer,nStart,nCount) ---> cString
 
 Example:
 
@@ -399,7 +399,7 @@ Example:
 	pointer = varptr(:name,"char *")
 	? pointer
 	? "Type: " + type(pointer)
-	? "Value: " + Upper(hex(getpointer(pointer)))
+	? "Address: " + Upper(hex(getpointer(pointer)))
 
 	? "Get 4 bytes starting from the pointer address"
 	mystring = Pointer2String(pointer,0,4)
@@ -418,7 +418,7 @@ Output:
 	0
 
 	Type: char *
-	Value: 1E03380
+	Address: 1E03380
 	Get 4 bytes starting from the pointer address
 	ring
 	Get 2 bytes starting from the pointer address + 1

@@ -301,7 +301,7 @@ to create a reference for the parent node (object) in the child node (another ob
 <span id="index-10"></span><h2>getpointer() function<a class="headerlink" href="#getpointer-function" title="Permalink to this headline">¶</a></h2>
 <p>Get the pointer address</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">nAddress</span> <span class="o">=</span> <span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -351,7 +351,7 @@ Address: 26E2BA9
 <p>Convert a pointer to a string of binary data</p>
 <p>If you want to convert the string to a pointer again use VarPtr() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">pointer2string</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">pointer2string</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -359,7 +359,7 @@ Address: 26E2BA9
 <span class="n">pointer</span> <span class="o">=</span> <span class="n">varptr</span><span class="p">(:</span><span class="n">name</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">pointer</span>
 <span class="o">?</span> <span class="s">&quot;Type: &quot;</span> <span class="o">+</span> <span class="n">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Value: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
+<span class="o">?</span> <span class="s">&quot;Address: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
 
 <span class="o">?</span> <span class="s">&quot;Get 4 bytes starting from the pointer address&quot;</span>
 <span class="n">mystring</span> <span class="o">=</span> <span class="n">Pointer2String</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
@@ -376,7 +376,7 @@ Address: 26E2BA9
 <span class="mi">0</span>
 
 <span class="n">Type</span><span class="p">:</span> <span class="n">char</span> <span class="o">*</span>
-<span class="n">Value</span><span class="p">:</span> <span class="mf">1E03380</span>
+<span class="n">Address</span><span class="p">:</span> <span class="mf">1E03380</span>
 <span class="k">Get</span> <span class="mi">4</span> <span class="n">bytes</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">address</span>
 <span class="n">ring</span>
 <span class="k">Get</span> <span class="mi">2</span> <span class="n">bytes</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">address</span> <span class="o">+</span> <span class="mi">1</span>
