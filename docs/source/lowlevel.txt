@@ -15,9 +15,9 @@ In this chapter we will learn about the low level functions provided by Ring
 * pointer2object()
 * ispointer()
 * ptrcmp()
-* pointer2string()
 * setpointer()
 * getpointer()
+* pointer2string()
 * ringvm_cfunctionslist() 
 * ringvm_functionslist() 
 * ringvm_classeslist() 
@@ -299,6 +299,81 @@ Output:
 
 	1
 	0
+
+.. index:: 
+	pair: Low Level Functions; setpointer()
+
+setpointer() function
+=====================
+
+Set the pointer address to another address
+
+Syntax:
+
+.. code-block:: ring
+
+	setpointer(pointer,nNewAddress)
+
+.. index:: 
+	pair: Low Level Functions; getpointer()
+
+getpointer() function
+=====================
+
+Get the pointer address
+
+Syntax:
+
+.. code-block:: ring
+
+	nAddress = getpointer(pointer)
+
+Example:
+
+.. code-block:: ring
+
+	? "Sample about using setPointer() and getPointer() functions"
+	? copy("=",50)
+	pointer = NULLPOINTER()
+	? pointer
+	? "Type: " + type(pointer)
+	? "Address: " + Upper(hex(getpointer(pointer)))
+	? copy("=",50)
+	name = "ring"
+	pointer = varptr(:name,"char *")
+	? pointer
+	? "Type: " + type(pointer)
+	? "Address: " + Upper(hex(getpointer(pointer)))
+	? copy("=",50)
+	setpointer(pointer, getpointer(pointer) + 1 )
+	? "After Update"
+	? "Address: " + Upper(hex(getpointer(pointer)))
+	? copy("=",50) 
+
+
+Output:
+
+.. code-block:: ring
+
+	==================================================
+	00000000
+	NULLPOINTER
+	0
+
+	Type: NULLPOINTER
+	Address: 0
+	==================================================
+	026E2BA8
+	char *
+	0
+
+	Type: char *
+	Address: 26E2BA8
+	==================================================
+	After Update
+	Address: 26E2BA9
+	==================================================
+
 
 .. index:: 
 	pair: Low Level Functions; pointer2string()
