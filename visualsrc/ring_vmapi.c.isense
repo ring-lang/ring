@@ -386,6 +386,12 @@ ring_vmlib_ptrcmp
 Type: List *
 pList, *pList2
 ring_vmlib_pointer2string
+ring_vmlib_setpointer
+Type: List *
+pList
+ring_vmlib_getpointer
+Type: List *
+pList
 ring_vmlib_state_init
 Type: RingState *
 pState
