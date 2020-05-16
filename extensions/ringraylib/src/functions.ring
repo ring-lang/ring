@@ -1062,3 +1062,8 @@ func LoadShader vsFileName, fsFileName
 	oShader = new Shader 
 	oShader.setData(LoadShader_2( vsFileName, fsFileName ))
 	return oShader 
+
+func LoadShaderCode vsCode, fsCode
+	oShader = new Shader 
+	oShader.setData(LoadShaderCode_2( vsCode, fsCode ))
+	return oShader 
