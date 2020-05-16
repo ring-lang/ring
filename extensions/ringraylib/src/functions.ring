@@ -1075,3 +1075,8 @@ func GetShaderDefault
 	oShader = new Shader 
 	oShader.setData(GetShaderDefault_2())
 	return oShader 
+
+func GetTextureDefault
+	oTexture2D = new Texture2D
+	oTexture2D.setData(GetTextureDefault_2())
+	return oTexture2D
