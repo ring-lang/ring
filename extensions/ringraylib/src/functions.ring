@@ -1129,3 +1129,6 @@ func GenTextureBRDF shader, size
 
 func BeginShaderMode shader
 	return BeginShaderMode_2( GPData(shader) )
+
+func SetVrConfiguration info, distortion
+	return SetVrConfiguration_2( GPData(info), GPData(distortion) )

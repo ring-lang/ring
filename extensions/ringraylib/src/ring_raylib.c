@@ -15234,7 +15234,7 @@ RING_FUNC(ring_UpdateVrTracking_2)
 }
 
 
-RING_FUNC(ring_SetVrConfiguration)
+RING_FUNC(ring_SetVrConfiguration_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17256,7 +17256,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("initvrsimulator",ring_InitVrSimulator);
 	ring_vm_funcregister("closevrsimulator",ring_CloseVrSimulator);
 	ring_vm_funcregister("updatevrtracking_2",ring_UpdateVrTracking_2);
-	ring_vm_funcregister("setvrconfiguration",ring_SetVrConfiguration);
+	ring_vm_funcregister("setvrconfiguration_2",ring_SetVrConfiguration_2);
 	ring_vm_funcregister("isvrsimulatorready",ring_IsVrSimulatorReady);
 	ring_vm_funcregister("togglevrmode",ring_ToggleVrMode);
 	ring_vm_funcregister("beginvrdrawing",ring_BeginVrDrawing);
