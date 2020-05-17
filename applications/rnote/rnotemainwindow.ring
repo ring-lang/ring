@@ -825,6 +825,7 @@ class RNoteMainWindow
 						append("*.cf")
 						append("*.qml")
 						append("*.ini")
+						append("*.qrc")
 					}
 					setnamefilters(myfiles)
 					setNameFilterDisables(false)
