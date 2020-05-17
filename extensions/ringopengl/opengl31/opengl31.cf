@@ -1656,6 +1656,8 @@ void gluTessVertex(GLUtesselator* tess,GLdouble * location,GLvoid* data)
 GLint gluUnProject(GLdouble winX,GLdouble winY,GLdouble winZ,const GLdouble * model,const GLdouble * proj,const GLint * view,GLdouble* objX,GLdouble* objY,GLdouble* objZ)
 void glDisable(GLenum cap)
 void glDisableClientState(GLenum array)
+void glBindVertexArray(GLuint array)
+void glGenVertexArrays(GLsizei n,const GLuint * arrays)
 
 <comment>
 GLEW

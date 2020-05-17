@@ -17557,6 +17557,38 @@ RING_FUNC(ring_glDisableClientState)
 }
 
 
+RING_FUNC(ring_glBindVertexArray)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glBindVertexArray( (GLuint ) RING_API_GETNUMBER(1));
+}
+
+
+RING_FUNC(ring_glGenVertexArrays)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glGenVertexArrays( (GLsizei )  (int) RING_API_GETNUMBER(1),(GLuint *) RING_API_GETCPOINTER(2,"GLuint"));
+}
+
+
 RING_FUNC(ring_glewInit)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -18218,6 +18250,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("gluunproject",ring_gluUnProject);
 	ring_vm_funcregister("gldisable",ring_glDisable);
 	ring_vm_funcregister("gldisableclientstate",ring_glDisableClientState);
+	ring_vm_funcregister("glbindvertexarray",ring_glBindVertexArray);
+	ring_vm_funcregister("glgenvertexarrays",ring_glGenVertexArrays);
 	ring_vm_funcregister("glewinit",ring_glewInit);
 	ring_vm_funcregister("glewissupported",ring_glewIsSupported);
 	ring_vm_funcregister("glewgetextension",ring_glewGetExtension);

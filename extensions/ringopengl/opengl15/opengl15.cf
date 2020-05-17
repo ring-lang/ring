@@ -1153,7 +1153,8 @@ void glVertex4s(GLshort x, GLshort y, GLshort z, GLshort w)
 void glVertex4sv(const GLshort *v)
 void glVertexPointer(GLint size, GLenum type, GLsizei stride, const void *pointer)
 void glViewport(GLint x, GLint y, GLsizei width, GLsizei height)
-void glDisableClientState(GLenum array)
+void glBindVertexArray(GLuint array)
+void glGenVertexArrays(GLsizei n,const GLuint * arrays)
 
 <comment>
 GLEW
