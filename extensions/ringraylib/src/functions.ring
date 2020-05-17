@@ -1208,3 +1208,6 @@ func SetAudioStreamVolume stream, volume
 
 func SetAudioStreamPitch stream, pitch
 	return SetAudioStreamPitch_2( GPData(stream), pitch )
+
+func getimagepixelr p1, y, x, width 
+	return getimagepixelr_2(GPData(p1), y, x, width)

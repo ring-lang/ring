@@ -548,8 +548,70 @@ RING_FUNC(ring_setmodelmaterialtexture_2) {
 	texture = RING_API_GETCPOINTER(4,"Texture2D");
 	model->materials[nMaterial].maps[nMap].texture = *texture ;
 }
+
+RING_FUNC(ring_getimagepixelr_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].r ) ;
+}
+
+RING_FUNC(ring_getimagepixelg_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].g ) ;
+}
+
+RING_FUNC(ring_getimagepixelb_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].b ) ;
+}
+
+RING_FUNC(ring_getimagepixela_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].a ) ;
+}
+
+
 </code>
 
 <register>
 void setmodelmaterialtexture_2(Model *p1,int p2,int p3,Texture2D *p4)
+int getimagepixelr_2(Color *p1,int y,int x,int width) 
+int getimagepixelg_2(Color *p1,int y,int x,int width) 
+int getimagepixelb_2(Color *p1,int y,int x,int width) 
+int getimagepixela_2(Color *p1,int y,int x,int width) 
 </register>

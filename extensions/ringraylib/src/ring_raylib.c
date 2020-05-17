@@ -16907,6 +16907,64 @@ RING_FUNC(ring_setmodelmaterialtexture_2) {
 	texture = RING_API_GETCPOINTER(4,"Texture2D");
 	model->materials[nMaterial].maps[nMap].texture = *texture ;
 }
+
+RING_FUNC(ring_getimagepixelr_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].r ) ;
+}
+
+RING_FUNC(ring_getimagepixelg_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].g ) ;
+}
+
+RING_FUNC(ring_getimagepixelb_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].b ) ;
+}
+
+RING_FUNC(ring_getimagepixela_2) {
+	Color *data;
+	int y,x,width;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	data = RING_API_GETCPOINTER(1,"Color");
+	y = (int) RING_API_GETNUMBER(2);
+	x = (int) RING_API_GETNUMBER(3);
+	width = (int) RING_API_GETNUMBER(4);
+	RING_API_RETNUMBER( (double) data[y*width + x].a ) ;
+}
+
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("initwindow",ring_InitWindow);
@@ -17355,6 +17413,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("guiupdatestylecomplete",ring_GuiUpdateStyleComplete);
 	ring_vm_funcregister("guiicontext",ring_GuiIconText);
 	ring_vm_funcregister("setmodelmaterialtexture_2",ring_setmodelmaterialtexture_2);
+	ring_vm_funcregister("getimagepixelr_2",ring_getimagepixelr_2);
+	ring_vm_funcregister("getimagepixelg_2",ring_getimagepixelg_2);
+	ring_vm_funcregister("getimagepixelb_2",ring_getimagepixelb_2);
+	ring_vm_funcregister("getimagepixela_2",ring_getimagepixela_2);
 	ring_vm_funcregister("raylib_new_vector2",ring_raylib_new_vector2);
 	ring_vm_funcregister("raylib_new_managed_vector2",ring_raylib_new_managed_vector2);
 	ring_vm_funcregister("raylib_destroy_vector2",ring_raylib_destroy_vector2);
