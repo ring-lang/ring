@@ -17970,7 +17970,7 @@ RING_FUNC(ring_MatrixRotate)
 }
 
 
-RING_FUNC(ring_MatrixRotateXYZ)
+RING_FUNC(ring_MatrixRotateXYZ_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -19240,7 +19240,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("matrixsubtract",ring_MatrixSubtract);
 	ring_vm_funcregister("matrixtranslate",ring_MatrixTranslate);
 	ring_vm_funcregister("matrixrotate",ring_MatrixRotate);
-	ring_vm_funcregister("matrixrotatexyz",ring_MatrixRotateXYZ);
+	ring_vm_funcregister("matrixrotatexyz_2",ring_MatrixRotateXYZ_2);
 	ring_vm_funcregister("matrixrotatex",ring_MatrixRotateX);
 	ring_vm_funcregister("matrixrotatey",ring_MatrixRotateY);
 	ring_vm_funcregister("matrixrotatez",ring_MatrixRotateZ);

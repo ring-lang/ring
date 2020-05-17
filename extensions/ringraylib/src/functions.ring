@@ -1211,3 +1211,8 @@ func SetAudioStreamPitch stream, pitch
 
 func getimagepixelr p1, y, x, width 
 	return getimagepixelr_2(GPData(p1), y, x, width)
+
+func MatrixRotateXYZ ang
+	oMatrix = new Matrix 
+	oMatrix.setData(MatrixRotateXYZ_2( GPData(ang) ))
+	return oMatrix
