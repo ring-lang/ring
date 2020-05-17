@@ -1212,7 +1212,515 @@ func SetAudioStreamPitch stream, pitch
 func getimagepixelr p1, y, x, width 
 	return getimagepixelr_2(GPData(p1), y, x, width)
 
-func MatrixRotateXYZ ang
-	oMatrix = new Matrix 
-	oMatrix.setData(MatrixRotateXYZ_2( GPData(ang) ))
+func Vector2Zero 
+	oVector2 = new Vector2
+	oVector2.setData( Vector2Zero_2() )
+	return oVector2
+
+
+func Vector2One 
+	oVector2 = new Vector2
+	oVector2.setData( Vector2One_2() )
+	return oVector2
+
+
+func Vector2Add p1,p2
+	oVector2 = new Vector2
+	oVector2.setData( Vector2Add_2(GPData(p1),GPData(p2)) )
+	return oVector2
+
+
+func Vector2AddValue p1,p2
+	oVector2 = new Vector2
+	oVector2.setData( Vector2AddValue_2(GPData(p1),p2) )
+	return oVector2
+
+
+func Vector2Subtract p1,p2
+	oVector2 = new Vector2
+	oVector2.setData( Vector2Subtract_2(GPData(p1),GPData(p2)) )
+	return oVector2
+
+
+func Vector2SubtractValue p1,p2
+	oVector2 = new Vector2
+	oVector2.setData( Vector2SubtractValue_2(GPData(p1),p2) )
+	return oVector2
+
+
+func Vector2Length p1
+	return Vector2Length_2(GPData(p1))
+
+
+
+func Vector2LengthSqr p1
+	return Vector2LengthSqr_2(GPData(p1))
+
+
+
+func Vector2DotProduct p1,p2
+	return Vector2DotProduct_2(GPData(p1),GPData(p2))
+
+
+
+func Vector2Distance p1,p2
+	return Vector2Distance_2(GPData(p1),GPData(p2))
+
+
+
+func Vector2Angle p1,p2
+	return Vector2Angle_2(GPData(p1),GPData(p2))
+
+
+
+func Vector2Scale p1,p2
+	oVector2 = new Vector2
+	oVector2.setData( Vector2Scale_2(GPData(p1),p2) )
+	return oVector2
+
+
+func Vector2Multiply p1,p2
+	oVector2 = new Vector2
+	oVector2.setData( Vector2Multiply_2(GPData(p1),GPData(p2)) )
+	return oVector2
+
+
+func Vector2Negate p1
+	oVector2 = new Vector2
+	oVector2.setData( Vector2Negate_2(GPData(p1)) )
+	return oVector2
+
+
+func Vector2Divide p1,p2
+	oVector2 = new Vector2
+	oVector2.setData( Vector2Divide_2(GPData(p1),GPData(p2)) )
+	return oVector2
+
+
+func Vector2Normalize p1
+	oVector2 = new Vector2
+	oVector2.setData( Vector2Normalize_2(GPData(p1)) )
+	return oVector2
+
+
+func Vector2Lerp p1,p2,p3
+	oVector2 = new Vector2
+	oVector2.setData( Vector2Lerp_2(GPData(p1),GPData(p2),p3) )
+	return oVector2
+
+
+func Vector2Rotate p1,p2
+	oVector2 = new Vector2
+	oVector2.setData( Vector2Rotate_2(GPData(p1),p2) )
+	return oVector2
+
+
+func Vector2MoveTowards p1,p2,p3
+	oVector2 = new Vector2
+	oVector2.setData( Vector2MoveTowards_2(GPData(p1),GPData(p2),p3) )
+	return oVector2
+
+
+func Vector3Zero 
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Zero_2() )
+	return oVector3
+
+
+func Vector3One 
+	oVector3 = new Vector3
+	oVector3.setData( Vector3One_2() )
+	return oVector3
+
+
+func Vector3Add p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Add_2(GPData(p1),GPData(p2)) )
+	return oVector3
+
+
+func Vector3AddValue p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3AddValue_2(GPData(p1),p2) )
+	return oVector3
+
+
+func Vector3Subtract p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Subtract_2(GPData(p1),GPData(p2)) )
+	return oVector3
+
+
+func Vector3SubtractValue p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3SubtractValue_2(GPData(p1),p2) )
+	return oVector3
+
+
+func Vector3Scale p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Scale_2(GPData(p1),p2) )
+	return oVector3
+
+
+func Vector3Multiply p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Multiply_2(GPData(p1),GPData(p2)) )
+	return oVector3
+
+
+func Vector3CrossProduct p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3CrossProduct_2(GPData(p1),GPData(p2)) )
+	return oVector3
+
+
+func Vector3Perpendicular p1
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Perpendicular_2(GPData(p1)) )
+	return oVector3
+
+
+func Vector3Length p1
+	return Vector3Length_2(p1)
+
+
+
+func Vector3LengthSqr p1
+	return Vector3LengthSqr_2(p1)
+
+
+
+func Vector3DotProduct p1,p2
+	return Vector3DotProduct_2(GPData(p1),GPData(p2))
+
+
+
+func Vector3Distance p1,p2
+	return Vector3Distance_2(GPData(p1),GPData(p2))
+
+
+
+func Vector3Negate p1
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Negate_2(GPData(p1)) )
+	return oVector3
+
+
+func Vector3Divide p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Divide_2(GPData(p1),GPData(p2)) )
+	return oVector3
+
+
+func Vector3Normalize p1
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Normalize_2(GPData(p1)) )
+	return oVector3
+
+
+func Vector3OrthoNormalize p1,p2
+	return Vector3OrthoNormalize_2(p1,p2)
+
+
+
+func Vector3Transform p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Transform_2(GPData(p1),GPData(p2)) )
+	return oVector3
+
+
+func Vector3RotateByQuaternion p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3RotateByQuaternion_2(GPData(p1),GPData(p2)) )
+	return oVector3
+
+
+func Vector3Lerp p1,p2,p3
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Lerp_2(GPData(p1),GPData(p2),p3) )
+	return oVector3
+
+
+func Vector3Reflect p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Reflect_2(GPData(p1),GPData(p2)) )
+	return oVector3
+
+
+func Vector3Min p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Min_2(GPData(p1),GPData(p2)) )
+	return oVector3
+
+
+func Vector3Max p1,p2
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Max_2(GPData(p1),GPData(p2)) )
+	return oVector3
+
+
+func Vector3Barycenter p1,p2,p3,p4
+	oVector3 = new Vector3
+	oVector3.setData( Vector3Barycenter_2(GPData(p1),GPData(p2),GPData(p3),GPData(p4)) )
+	return oVector3
+
+
+func Vector3ToFloatV p1
+	return Vector3ToFloatV_2(GPData(p1))
+
+
+
+func MatrixDeterminant p1
+	return MatrixDeterminant_2(GPData(p1))
+
+
+
+func MatrixTrace p1
+	return MatrixTrace_2(GPData(p1))
+
+
+
+func MatrixTranspose p1
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixTranspose_2(GPData(p1)) )
 	return oMatrix
+
+
+func MatrixInvert p1
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixInvert_2(GPData(p1)) )
+	return oMatrix
+
+
+func MatrixNormalize p1
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixNormalize_2(GPData(p1)) )
+	return oMatrix
+
+
+func MatrixIdentity 
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixIdentity_2() )
+	return oMatrix
+
+
+func MatrixAdd p1,p2
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixAdd_2(GPData(p1),GPData(p2)) )
+	return oMatrix
+
+
+func MatrixSubtract p1,p2
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixSubtract_2(GPData(p1),GPData(p2)) )
+	return oMatrix
+
+
+func MatrixTranslate p1,p2,p3
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixTranslate_2(p1,p2,p3) )
+	return oMatrix
+
+
+func MatrixRotate p1,p2
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixRotate_2(GPData(p1),p2) )
+	return oMatrix
+
+
+func MatrixRotateXYZ p1
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixRotateXYZ_2(GPData(p1)) )
+	return oMatrix
+
+
+func MatrixRotateX p1
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixRotateX_2(p1) )
+	return oMatrix
+
+
+func MatrixRotateY p1
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixRotateY_2(p1) )
+	return oMatrix
+
+
+func MatrixRotateZ p1
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixRotateZ_2(p1) )
+	return oMatrix
+
+
+func MatrixScale p1,p2,p3
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixScale_2(p1,p2,p3) )
+	return oMatrix
+
+
+func MatrixMultiply p1,p2
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixMultiply_2(GPData(p1),GPData(p2)) )
+	return oMatrix
+
+
+func MatrixFrustum p1,p2,p3,p4,p5,p6
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixFrustum_2(p1,p2,p3,p4,p5,p6) )
+	return oMatrix
+
+
+func MatrixPerspective p1,p2,p3,p4
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixPerspective_2(p1,p2,p3,p4) )
+	return oMatrix
+
+
+func MatrixOrtho p1,p2,p3,p4,p5,p6
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixOrtho_2(p1,p2,p3,p4,p5,p6) )
+	return oMatrix
+
+
+func MatrixLookAt p1,p2,p3
+	oMatrix = new Matrix
+	oMatrix.setData( MatrixLookAt_2(GPData(p1),GPData(p2),GPData(p3)) )
+	return oMatrix
+
+
+func MatrixToFloatV p1
+	return MatrixToFloatV_2(GPData(p1))
+
+
+
+func QuaternionAdd p1,p2
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionAdd_2(GPData(p1),GPData(p2)) )
+	return oQuaternion
+
+
+func QuaternionAddValue p1,p2
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionAddValue_2(GPData(p1),p2) )
+	return oQuaternion
+
+
+func QuaternionSubtract p1,p2
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionSubtract_2(GPData(p1),GPData(p2)) )
+	return oQuaternion
+
+
+func QuaternionSubtractValue p1,p2
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionSubtractValue_2(GPData(p1),p2) )
+	return oQuaternion
+
+
+func QuaternionIdentity 
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionIdentity_2() )
+	return oQuaternion
+
+
+func QuaternionLength p1
+	return QuaternionLength_2(GPData(p1))
+
+
+
+func QuaternionNormalize p1
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionNormalize_2(GPData(p1)) )
+	return oQuaternion
+
+
+func QuaternionInvert p1
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionInvert_2(GPData(p1)) )
+	return oQuaternion
+
+
+func QuaternionMultiply p1,p2
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionMultiply_2(GPData(p1),GPData(p2)) )
+	return oQuaternion
+
+
+func QuaternionScale p1,p2
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionScale_2(GPData(p1),p2) )
+	return oQuaternion
+
+
+func QuaternionDivide p1,p2
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionDivide_2(GPData(p1),GPData(p2)) )
+	return oQuaternion
+
+
+func QuaternionLerp p1,p2,p3
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionLerp_2(GPData(p1),GPData(p2),p3) )
+	return oQuaternion
+
+
+func QuaternionNlerp p1,p2,p3
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionNlerp_2(GPData(p1),GPData(p2),p3) )
+	return oQuaternion
+
+
+func QuaternionSlerp p1,p2,p3
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionSlerp_2(GPData(p1),GPData(p2),p3) )
+	return oQuaternion
+
+
+func QuaternionFromVector3ToVector3 p1,p2
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionFromVector3ToVector3_2(GPData(p1),GPData(p2)) )
+	return oQuaternion
+
+
+func QuaternionFromMatrix p1
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionFromMatrix_2(GPData(p1)) )
+	return oQuaternion
+
+
+func QuaternionToMatrix p1
+	oMatrix = new Matrix
+	oMatrix.setData( QuaternionToMatrix_2(GPData(p1)) )
+	return oMatrix
+
+
+func QuaternionFromAxisAngle p1,p2
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionFromAxisAngle_2(GPData(p1),p2) )
+	return oQuaternion
+
+
+func QuaternionToAxisAngle p1,p2,p3
+	return QuaternionToAxisAngle_2(GPData(p1),p2,p3)
+
+
+
+func QuaternionFromEuler p1,p2,p3
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionFromEuler_2(p1,p2,p3) )
+	return oQuaternion
+
+
+func QuaternionToEuler p1
+	oVector3 = new Vector3
+	oVector3.setData( QuaternionToEuler_2(GPData(p1)) )
+	return oVector3
+
+
+func QuaternionTransform p1,p2
+	oQuaternion = new Quaternion
+	oQuaternion.setData( QuaternionTransform_2(GPData(p1),GPData(p2)) )
+	return oQuaternion
+
+

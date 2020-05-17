@@ -16991,7 +16991,7 @@ RING_FUNC(ring_Remap)
 }
 
 
-RING_FUNC(ring_Vector2Zero)
+RING_FUNC(ring_Vector2Zero_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17006,7 +17006,7 @@ RING_FUNC(ring_Vector2Zero)
 }
 
 
-RING_FUNC(ring_Vector2One)
+RING_FUNC(ring_Vector2One_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17021,7 +17021,7 @@ RING_FUNC(ring_Vector2One)
 }
 
 
-RING_FUNC(ring_Vector2Add)
+RING_FUNC(ring_Vector2Add_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17040,7 +17040,7 @@ RING_FUNC(ring_Vector2Add)
 }
 
 
-RING_FUNC(ring_Vector2AddValue)
+RING_FUNC(ring_Vector2AddValue_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17061,7 +17061,7 @@ RING_FUNC(ring_Vector2AddValue)
 }
 
 
-RING_FUNC(ring_Vector2Subtract)
+RING_FUNC(ring_Vector2Subtract_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17080,7 +17080,7 @@ RING_FUNC(ring_Vector2Subtract)
 }
 
 
-RING_FUNC(ring_Vector2SubtractValue)
+RING_FUNC(ring_Vector2SubtractValue_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17101,7 +17101,7 @@ RING_FUNC(ring_Vector2SubtractValue)
 }
 
 
-RING_FUNC(ring_Vector2Length)
+RING_FUNC(ring_Vector2Length_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17113,7 +17113,7 @@ RING_FUNC(ring_Vector2Length)
 }
 
 
-RING_FUNC(ring_Vector2LengthSqr)
+RING_FUNC(ring_Vector2LengthSqr_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17125,7 +17125,7 @@ RING_FUNC(ring_Vector2LengthSqr)
 }
 
 
-RING_FUNC(ring_Vector2DotProduct)
+RING_FUNC(ring_Vector2DotProduct_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17139,7 +17139,7 @@ RING_FUNC(ring_Vector2DotProduct)
 }
 
 
-RING_FUNC(ring_Vector2Distance)
+RING_FUNC(ring_Vector2Distance_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17153,7 +17153,7 @@ RING_FUNC(ring_Vector2Distance)
 }
 
 
-RING_FUNC(ring_Vector2Angle)
+RING_FUNC(ring_Vector2Angle_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17167,7 +17167,7 @@ RING_FUNC(ring_Vector2Angle)
 }
 
 
-RING_FUNC(ring_Vector2Scale)
+RING_FUNC(ring_Vector2Scale_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17188,7 +17188,7 @@ RING_FUNC(ring_Vector2Scale)
 }
 
 
-RING_FUNC(ring_Vector2Multiply)
+RING_FUNC(ring_Vector2Multiply_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17207,7 +17207,7 @@ RING_FUNC(ring_Vector2Multiply)
 }
 
 
-RING_FUNC(ring_Vector2Negate)
+RING_FUNC(ring_Vector2Negate_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17224,7 +17224,7 @@ RING_FUNC(ring_Vector2Negate)
 }
 
 
-RING_FUNC(ring_Vector2Divide)
+RING_FUNC(ring_Vector2Divide_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17243,7 +17243,7 @@ RING_FUNC(ring_Vector2Divide)
 }
 
 
-RING_FUNC(ring_Vector2Normalize)
+RING_FUNC(ring_Vector2Normalize_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17260,7 +17260,7 @@ RING_FUNC(ring_Vector2Normalize)
 }
 
 
-RING_FUNC(ring_Vector2Lerp)
+RING_FUNC(ring_Vector2Lerp_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -17283,7 +17283,7 @@ RING_FUNC(ring_Vector2Lerp)
 }
 
 
-RING_FUNC(ring_Vector2Rotate)
+RING_FUNC(ring_Vector2Rotate_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17304,7 +17304,7 @@ RING_FUNC(ring_Vector2Rotate)
 }
 
 
-RING_FUNC(ring_Vector2MoveTowards)
+RING_FUNC(ring_Vector2MoveTowards_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -17327,7 +17327,7 @@ RING_FUNC(ring_Vector2MoveTowards)
 }
 
 
-RING_FUNC(ring_Vector3Zero)
+RING_FUNC(ring_Vector3Zero_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17342,7 +17342,7 @@ RING_FUNC(ring_Vector3Zero)
 }
 
 
-RING_FUNC(ring_Vector3One)
+RING_FUNC(ring_Vector3One_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17357,7 +17357,7 @@ RING_FUNC(ring_Vector3One)
 }
 
 
-RING_FUNC(ring_Vector3Add)
+RING_FUNC(ring_Vector3Add_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17376,7 +17376,7 @@ RING_FUNC(ring_Vector3Add)
 }
 
 
-RING_FUNC(ring_Vector3AddValue)
+RING_FUNC(ring_Vector3AddValue_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17397,7 +17397,7 @@ RING_FUNC(ring_Vector3AddValue)
 }
 
 
-RING_FUNC(ring_Vector3Subtract)
+RING_FUNC(ring_Vector3Subtract_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17416,7 +17416,7 @@ RING_FUNC(ring_Vector3Subtract)
 }
 
 
-RING_FUNC(ring_Vector3SubtractValue)
+RING_FUNC(ring_Vector3SubtractValue_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17437,7 +17437,7 @@ RING_FUNC(ring_Vector3SubtractValue)
 }
 
 
-RING_FUNC(ring_Vector3Scale)
+RING_FUNC(ring_Vector3Scale_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17458,7 +17458,7 @@ RING_FUNC(ring_Vector3Scale)
 }
 
 
-RING_FUNC(ring_Vector3Multiply)
+RING_FUNC(ring_Vector3Multiply_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17477,7 +17477,7 @@ RING_FUNC(ring_Vector3Multiply)
 }
 
 
-RING_FUNC(ring_Vector3CrossProduct)
+RING_FUNC(ring_Vector3CrossProduct_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17496,7 +17496,7 @@ RING_FUNC(ring_Vector3CrossProduct)
 }
 
 
-RING_FUNC(ring_Vector3Perpendicular)
+RING_FUNC(ring_Vector3Perpendicular_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17513,7 +17513,7 @@ RING_FUNC(ring_Vector3Perpendicular)
 }
 
 
-RING_FUNC(ring_Vector3Length)
+RING_FUNC(ring_Vector3Length_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17525,7 +17525,7 @@ RING_FUNC(ring_Vector3Length)
 }
 
 
-RING_FUNC(ring_Vector3LengthSqr)
+RING_FUNC(ring_Vector3LengthSqr_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17537,7 +17537,7 @@ RING_FUNC(ring_Vector3LengthSqr)
 }
 
 
-RING_FUNC(ring_Vector3DotProduct)
+RING_FUNC(ring_Vector3DotProduct_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17551,7 +17551,7 @@ RING_FUNC(ring_Vector3DotProduct)
 }
 
 
-RING_FUNC(ring_Vector3Distance)
+RING_FUNC(ring_Vector3Distance_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17565,7 +17565,7 @@ RING_FUNC(ring_Vector3Distance)
 }
 
 
-RING_FUNC(ring_Vector3Negate)
+RING_FUNC(ring_Vector3Negate_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17582,7 +17582,7 @@ RING_FUNC(ring_Vector3Negate)
 }
 
 
-RING_FUNC(ring_Vector3Divide)
+RING_FUNC(ring_Vector3Divide_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17601,7 +17601,7 @@ RING_FUNC(ring_Vector3Divide)
 }
 
 
-RING_FUNC(ring_Vector3Normalize)
+RING_FUNC(ring_Vector3Normalize_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17618,7 +17618,7 @@ RING_FUNC(ring_Vector3Normalize)
 }
 
 
-RING_FUNC(ring_Vector3OrthoNormalize)
+RING_FUNC(ring_Vector3OrthoNormalize_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17636,7 +17636,7 @@ RING_FUNC(ring_Vector3OrthoNormalize)
 }
 
 
-RING_FUNC(ring_Vector3Transform)
+RING_FUNC(ring_Vector3Transform_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17655,7 +17655,7 @@ RING_FUNC(ring_Vector3Transform)
 }
 
 
-RING_FUNC(ring_Vector3RotateByQuaternion)
+RING_FUNC(ring_Vector3RotateByQuaternion_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17674,7 +17674,7 @@ RING_FUNC(ring_Vector3RotateByQuaternion)
 }
 
 
-RING_FUNC(ring_Vector3Lerp)
+RING_FUNC(ring_Vector3Lerp_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -17697,7 +17697,7 @@ RING_FUNC(ring_Vector3Lerp)
 }
 
 
-RING_FUNC(ring_Vector3Reflect)
+RING_FUNC(ring_Vector3Reflect_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17716,7 +17716,7 @@ RING_FUNC(ring_Vector3Reflect)
 }
 
 
-RING_FUNC(ring_Vector3Min)
+RING_FUNC(ring_Vector3Min_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17735,7 +17735,7 @@ RING_FUNC(ring_Vector3Min)
 }
 
 
-RING_FUNC(ring_Vector3Max)
+RING_FUNC(ring_Vector3Max_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17754,7 +17754,7 @@ RING_FUNC(ring_Vector3Max)
 }
 
 
-RING_FUNC(ring_Vector3Barycenter)
+RING_FUNC(ring_Vector3Barycenter_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -17777,7 +17777,7 @@ RING_FUNC(ring_Vector3Barycenter)
 }
 
 
-RING_FUNC(ring_Vector3ToFloatV)
+RING_FUNC(ring_Vector3ToFloatV_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17794,7 +17794,7 @@ RING_FUNC(ring_Vector3ToFloatV)
 }
 
 
-RING_FUNC(ring_MatrixDeterminant)
+RING_FUNC(ring_MatrixDeterminant_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17806,7 +17806,7 @@ RING_FUNC(ring_MatrixDeterminant)
 }
 
 
-RING_FUNC(ring_MatrixTrace)
+RING_FUNC(ring_MatrixTrace_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17818,7 +17818,7 @@ RING_FUNC(ring_MatrixTrace)
 }
 
 
-RING_FUNC(ring_MatrixTranspose)
+RING_FUNC(ring_MatrixTranspose_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17835,7 +17835,7 @@ RING_FUNC(ring_MatrixTranspose)
 }
 
 
-RING_FUNC(ring_MatrixInvert)
+RING_FUNC(ring_MatrixInvert_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17852,7 +17852,7 @@ RING_FUNC(ring_MatrixInvert)
 }
 
 
-RING_FUNC(ring_MatrixNormalize)
+RING_FUNC(ring_MatrixNormalize_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -17869,7 +17869,7 @@ RING_FUNC(ring_MatrixNormalize)
 }
 
 
-RING_FUNC(ring_MatrixIdentity)
+RING_FUNC(ring_MatrixIdentity_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -17884,7 +17884,7 @@ RING_FUNC(ring_MatrixIdentity)
 }
 
 
-RING_FUNC(ring_MatrixAdd)
+RING_FUNC(ring_MatrixAdd_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17903,7 +17903,7 @@ RING_FUNC(ring_MatrixAdd)
 }
 
 
-RING_FUNC(ring_MatrixSubtract)
+RING_FUNC(ring_MatrixSubtract_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17922,7 +17922,7 @@ RING_FUNC(ring_MatrixSubtract)
 }
 
 
-RING_FUNC(ring_MatrixTranslate)
+RING_FUNC(ring_MatrixTranslate_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -17949,7 +17949,7 @@ RING_FUNC(ring_MatrixTranslate)
 }
 
 
-RING_FUNC(ring_MatrixRotate)
+RING_FUNC(ring_MatrixRotate_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -17987,7 +17987,7 @@ RING_FUNC(ring_MatrixRotateXYZ_2)
 }
 
 
-RING_FUNC(ring_MatrixRotateX)
+RING_FUNC(ring_MatrixRotateX_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -18006,7 +18006,7 @@ RING_FUNC(ring_MatrixRotateX)
 }
 
 
-RING_FUNC(ring_MatrixRotateY)
+RING_FUNC(ring_MatrixRotateY_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -18025,7 +18025,7 @@ RING_FUNC(ring_MatrixRotateY)
 }
 
 
-RING_FUNC(ring_MatrixRotateZ)
+RING_FUNC(ring_MatrixRotateZ_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -18044,7 +18044,7 @@ RING_FUNC(ring_MatrixRotateZ)
 }
 
 
-RING_FUNC(ring_MatrixScale)
+RING_FUNC(ring_MatrixScale_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -18071,7 +18071,7 @@ RING_FUNC(ring_MatrixScale)
 }
 
 
-RING_FUNC(ring_MatrixMultiply)
+RING_FUNC(ring_MatrixMultiply_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -18090,7 +18090,7 @@ RING_FUNC(ring_MatrixMultiply)
 }
 
 
-RING_FUNC(ring_MatrixFrustum)
+RING_FUNC(ring_MatrixFrustum_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -18129,7 +18129,7 @@ RING_FUNC(ring_MatrixFrustum)
 }
 
 
-RING_FUNC(ring_MatrixPerspective)
+RING_FUNC(ring_MatrixPerspective_2)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
@@ -18160,7 +18160,7 @@ RING_FUNC(ring_MatrixPerspective)
 }
 
 
-RING_FUNC(ring_MatrixOrtho)
+RING_FUNC(ring_MatrixOrtho_2)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -18199,7 +18199,7 @@ RING_FUNC(ring_MatrixOrtho)
 }
 
 
-RING_FUNC(ring_MatrixLookAt)
+RING_FUNC(ring_MatrixLookAt_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -18220,7 +18220,7 @@ RING_FUNC(ring_MatrixLookAt)
 }
 
 
-RING_FUNC(ring_MatrixToFloatV)
+RING_FUNC(ring_MatrixToFloatV_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -18237,7 +18237,7 @@ RING_FUNC(ring_MatrixToFloatV)
 }
 
 
-RING_FUNC(ring_QuaternionAdd)
+RING_FUNC(ring_QuaternionAdd_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -18256,7 +18256,7 @@ RING_FUNC(ring_QuaternionAdd)
 }
 
 
-RING_FUNC(ring_QuaternionAddValue)
+RING_FUNC(ring_QuaternionAddValue_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -18277,7 +18277,7 @@ RING_FUNC(ring_QuaternionAddValue)
 }
 
 
-RING_FUNC(ring_QuaternionSubtract)
+RING_FUNC(ring_QuaternionSubtract_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -18296,7 +18296,7 @@ RING_FUNC(ring_QuaternionSubtract)
 }
 
 
-RING_FUNC(ring_QuaternionSubtractValue)
+RING_FUNC(ring_QuaternionSubtractValue_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -18317,7 +18317,7 @@ RING_FUNC(ring_QuaternionSubtractValue)
 }
 
 
-RING_FUNC(ring_QuaternionIdentity)
+RING_FUNC(ring_QuaternionIdentity_2)
 {
 	if ( RING_API_PARACOUNT != 0 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -18332,7 +18332,7 @@ RING_FUNC(ring_QuaternionIdentity)
 }
 
 
-RING_FUNC(ring_QuaternionLength)
+RING_FUNC(ring_QuaternionLength_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -18344,7 +18344,7 @@ RING_FUNC(ring_QuaternionLength)
 }
 
 
-RING_FUNC(ring_QuaternionNormalize)
+RING_FUNC(ring_QuaternionNormalize_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -18361,7 +18361,7 @@ RING_FUNC(ring_QuaternionNormalize)
 }
 
 
-RING_FUNC(ring_QuaternionInvert)
+RING_FUNC(ring_QuaternionInvert_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -18378,7 +18378,7 @@ RING_FUNC(ring_QuaternionInvert)
 }
 
 
-RING_FUNC(ring_QuaternionMultiply)
+RING_FUNC(ring_QuaternionMultiply_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -18397,7 +18397,7 @@ RING_FUNC(ring_QuaternionMultiply)
 }
 
 
-RING_FUNC(ring_QuaternionScale)
+RING_FUNC(ring_QuaternionScale_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -18418,7 +18418,7 @@ RING_FUNC(ring_QuaternionScale)
 }
 
 
-RING_FUNC(ring_QuaternionDivide)
+RING_FUNC(ring_QuaternionDivide_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -18437,7 +18437,7 @@ RING_FUNC(ring_QuaternionDivide)
 }
 
 
-RING_FUNC(ring_QuaternionLerp)
+RING_FUNC(ring_QuaternionLerp_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -18460,7 +18460,7 @@ RING_FUNC(ring_QuaternionLerp)
 }
 
 
-RING_FUNC(ring_QuaternionNlerp)
+RING_FUNC(ring_QuaternionNlerp_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -18483,7 +18483,7 @@ RING_FUNC(ring_QuaternionNlerp)
 }
 
 
-RING_FUNC(ring_QuaternionSlerp)
+RING_FUNC(ring_QuaternionSlerp_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -18506,7 +18506,7 @@ RING_FUNC(ring_QuaternionSlerp)
 }
 
 
-RING_FUNC(ring_QuaternionFromVector3ToVector3)
+RING_FUNC(ring_QuaternionFromVector3ToVector3_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -18525,7 +18525,7 @@ RING_FUNC(ring_QuaternionFromVector3ToVector3)
 }
 
 
-RING_FUNC(ring_QuaternionFromMatrix)
+RING_FUNC(ring_QuaternionFromMatrix_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -18542,7 +18542,7 @@ RING_FUNC(ring_QuaternionFromMatrix)
 }
 
 
-RING_FUNC(ring_QuaternionToMatrix)
+RING_FUNC(ring_QuaternionToMatrix_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -18559,7 +18559,7 @@ RING_FUNC(ring_QuaternionToMatrix)
 }
 
 
-RING_FUNC(ring_QuaternionFromAxisAngle)
+RING_FUNC(ring_QuaternionFromAxisAngle_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -18580,7 +18580,7 @@ RING_FUNC(ring_QuaternionFromAxisAngle)
 }
 
 
-RING_FUNC(ring_QuaternionToAxisAngle)
+RING_FUNC(ring_QuaternionToAxisAngle_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -18600,7 +18600,7 @@ RING_FUNC(ring_QuaternionToAxisAngle)
 }
 
 
-RING_FUNC(ring_QuaternionFromEuler)
+RING_FUNC(ring_QuaternionFromEuler_2)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
@@ -18627,7 +18627,7 @@ RING_FUNC(ring_QuaternionFromEuler)
 }
 
 
-RING_FUNC(ring_QuaternionToEuler)
+RING_FUNC(ring_QuaternionToEuler_2)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -18644,7 +18644,7 @@ RING_FUNC(ring_QuaternionToEuler)
 }
 
 
-RING_FUNC(ring_QuaternionTransform)
+RING_FUNC(ring_QuaternionTransform_2)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -19185,94 +19185,94 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("lerp",ring_Lerp);
 	ring_vm_funcregister("normalize",ring_Normalize);
 	ring_vm_funcregister("remap",ring_Remap);
-	ring_vm_funcregister("vector2zero",ring_Vector2Zero);
-	ring_vm_funcregister("vector2one",ring_Vector2One);
-	ring_vm_funcregister("vector2add",ring_Vector2Add);
-	ring_vm_funcregister("vector2addvalue",ring_Vector2AddValue);
-	ring_vm_funcregister("vector2subtract",ring_Vector2Subtract);
-	ring_vm_funcregister("vector2subtractvalue",ring_Vector2SubtractValue);
-	ring_vm_funcregister("vector2length",ring_Vector2Length);
-	ring_vm_funcregister("vector2lengthsqr",ring_Vector2LengthSqr);
-	ring_vm_funcregister("vector2dotproduct",ring_Vector2DotProduct);
-	ring_vm_funcregister("vector2distance",ring_Vector2Distance);
-	ring_vm_funcregister("vector2angle",ring_Vector2Angle);
-	ring_vm_funcregister("vector2scale",ring_Vector2Scale);
-	ring_vm_funcregister("vector2multiply",ring_Vector2Multiply);
-	ring_vm_funcregister("vector2negate",ring_Vector2Negate);
-	ring_vm_funcregister("vector2divide",ring_Vector2Divide);
-	ring_vm_funcregister("vector2normalize",ring_Vector2Normalize);
-	ring_vm_funcregister("vector2lerp",ring_Vector2Lerp);
-	ring_vm_funcregister("vector2rotate",ring_Vector2Rotate);
-	ring_vm_funcregister("vector2movetowards",ring_Vector2MoveTowards);
-	ring_vm_funcregister("vector3zero",ring_Vector3Zero);
-	ring_vm_funcregister("vector3one",ring_Vector3One);
-	ring_vm_funcregister("vector3add",ring_Vector3Add);
-	ring_vm_funcregister("vector3addvalue",ring_Vector3AddValue);
-	ring_vm_funcregister("vector3subtract",ring_Vector3Subtract);
-	ring_vm_funcregister("vector3subtractvalue",ring_Vector3SubtractValue);
-	ring_vm_funcregister("vector3scale",ring_Vector3Scale);
-	ring_vm_funcregister("vector3multiply",ring_Vector3Multiply);
-	ring_vm_funcregister("vector3crossproduct",ring_Vector3CrossProduct);
-	ring_vm_funcregister("vector3perpendicular",ring_Vector3Perpendicular);
-	ring_vm_funcregister("vector3length",ring_Vector3Length);
-	ring_vm_funcregister("vector3lengthsqr",ring_Vector3LengthSqr);
-	ring_vm_funcregister("vector3dotproduct",ring_Vector3DotProduct);
-	ring_vm_funcregister("vector3distance",ring_Vector3Distance);
-	ring_vm_funcregister("vector3negate",ring_Vector3Negate);
-	ring_vm_funcregister("vector3divide",ring_Vector3Divide);
-	ring_vm_funcregister("vector3normalize",ring_Vector3Normalize);
-	ring_vm_funcregister("vector3orthonormalize",ring_Vector3OrthoNormalize);
-	ring_vm_funcregister("vector3transform",ring_Vector3Transform);
-	ring_vm_funcregister("vector3rotatebyquaternion",ring_Vector3RotateByQuaternion);
-	ring_vm_funcregister("vector3lerp",ring_Vector3Lerp);
-	ring_vm_funcregister("vector3reflect",ring_Vector3Reflect);
-	ring_vm_funcregister("vector3min",ring_Vector3Min);
-	ring_vm_funcregister("vector3max",ring_Vector3Max);
-	ring_vm_funcregister("vector3barycenter",ring_Vector3Barycenter);
-	ring_vm_funcregister("vector3tofloatv",ring_Vector3ToFloatV);
-	ring_vm_funcregister("matrixdeterminant",ring_MatrixDeterminant);
-	ring_vm_funcregister("matrixtrace",ring_MatrixTrace);
-	ring_vm_funcregister("matrixtranspose",ring_MatrixTranspose);
-	ring_vm_funcregister("matrixinvert",ring_MatrixInvert);
-	ring_vm_funcregister("matrixnormalize",ring_MatrixNormalize);
-	ring_vm_funcregister("matrixidentity",ring_MatrixIdentity);
-	ring_vm_funcregister("matrixadd",ring_MatrixAdd);
-	ring_vm_funcregister("matrixsubtract",ring_MatrixSubtract);
-	ring_vm_funcregister("matrixtranslate",ring_MatrixTranslate);
-	ring_vm_funcregister("matrixrotate",ring_MatrixRotate);
+	ring_vm_funcregister("vector2zero_2",ring_Vector2Zero_2);
+	ring_vm_funcregister("vector2one_2",ring_Vector2One_2);
+	ring_vm_funcregister("vector2add_2",ring_Vector2Add_2);
+	ring_vm_funcregister("vector2addvalue_2",ring_Vector2AddValue_2);
+	ring_vm_funcregister("vector2subtract_2",ring_Vector2Subtract_2);
+	ring_vm_funcregister("vector2subtractvalue_2",ring_Vector2SubtractValue_2);
+	ring_vm_funcregister("vector2length_2",ring_Vector2Length_2);
+	ring_vm_funcregister("vector2lengthsqr_2",ring_Vector2LengthSqr_2);
+	ring_vm_funcregister("vector2dotproduct_2",ring_Vector2DotProduct_2);
+	ring_vm_funcregister("vector2distance_2",ring_Vector2Distance_2);
+	ring_vm_funcregister("vector2angle_2",ring_Vector2Angle_2);
+	ring_vm_funcregister("vector2scale_2",ring_Vector2Scale_2);
+	ring_vm_funcregister("vector2multiply_2",ring_Vector2Multiply_2);
+	ring_vm_funcregister("vector2negate_2",ring_Vector2Negate_2);
+	ring_vm_funcregister("vector2divide_2",ring_Vector2Divide_2);
+	ring_vm_funcregister("vector2normalize_2",ring_Vector2Normalize_2);
+	ring_vm_funcregister("vector2lerp_2",ring_Vector2Lerp_2);
+	ring_vm_funcregister("vector2rotate_2",ring_Vector2Rotate_2);
+	ring_vm_funcregister("vector2movetowards_2",ring_Vector2MoveTowards_2);
+	ring_vm_funcregister("vector3zero_2",ring_Vector3Zero_2);
+	ring_vm_funcregister("vector3one_2",ring_Vector3One_2);
+	ring_vm_funcregister("vector3add_2",ring_Vector3Add_2);
+	ring_vm_funcregister("vector3addvalue_2",ring_Vector3AddValue_2);
+	ring_vm_funcregister("vector3subtract_2",ring_Vector3Subtract_2);
+	ring_vm_funcregister("vector3subtractvalue_2",ring_Vector3SubtractValue_2);
+	ring_vm_funcregister("vector3scale_2",ring_Vector3Scale_2);
+	ring_vm_funcregister("vector3multiply_2",ring_Vector3Multiply_2);
+	ring_vm_funcregister("vector3crossproduct_2",ring_Vector3CrossProduct_2);
+	ring_vm_funcregister("vector3perpendicular_2",ring_Vector3Perpendicular_2);
+	ring_vm_funcregister("vector3length_2",ring_Vector3Length_2);
+	ring_vm_funcregister("vector3lengthsqr_2",ring_Vector3LengthSqr_2);
+	ring_vm_funcregister("vector3dotproduct_2",ring_Vector3DotProduct_2);
+	ring_vm_funcregister("vector3distance_2",ring_Vector3Distance_2);
+	ring_vm_funcregister("vector3negate_2",ring_Vector3Negate_2);
+	ring_vm_funcregister("vector3divide_2",ring_Vector3Divide_2);
+	ring_vm_funcregister("vector3normalize_2",ring_Vector3Normalize_2);
+	ring_vm_funcregister("vector3orthonormalize_2",ring_Vector3OrthoNormalize_2);
+	ring_vm_funcregister("vector3transform_2",ring_Vector3Transform_2);
+	ring_vm_funcregister("vector3rotatebyquaternion_2",ring_Vector3RotateByQuaternion_2);
+	ring_vm_funcregister("vector3lerp_2",ring_Vector3Lerp_2);
+	ring_vm_funcregister("vector3reflect_2",ring_Vector3Reflect_2);
+	ring_vm_funcregister("vector3min_2",ring_Vector3Min_2);
+	ring_vm_funcregister("vector3max_2",ring_Vector3Max_2);
+	ring_vm_funcregister("vector3barycenter_2",ring_Vector3Barycenter_2);
+	ring_vm_funcregister("vector3tofloatv_2",ring_Vector3ToFloatV_2);
+	ring_vm_funcregister("matrixdeterminant_2",ring_MatrixDeterminant_2);
+	ring_vm_funcregister("matrixtrace_2",ring_MatrixTrace_2);
+	ring_vm_funcregister("matrixtranspose_2",ring_MatrixTranspose_2);
+	ring_vm_funcregister("matrixinvert_2",ring_MatrixInvert_2);
+	ring_vm_funcregister("matrixnormalize_2",ring_MatrixNormalize_2);
+	ring_vm_funcregister("matrixidentity_2",ring_MatrixIdentity_2);
+	ring_vm_funcregister("matrixadd_2",ring_MatrixAdd_2);
+	ring_vm_funcregister("matrixsubtract_2",ring_MatrixSubtract_2);
+	ring_vm_funcregister("matrixtranslate_2",ring_MatrixTranslate_2);
+	ring_vm_funcregister("matrixrotate_2",ring_MatrixRotate_2);
 	ring_vm_funcregister("matrixrotatexyz_2",ring_MatrixRotateXYZ_2);
-	ring_vm_funcregister("matrixrotatex",ring_MatrixRotateX);
-	ring_vm_funcregister("matrixrotatey",ring_MatrixRotateY);
-	ring_vm_funcregister("matrixrotatez",ring_MatrixRotateZ);
-	ring_vm_funcregister("matrixscale",ring_MatrixScale);
-	ring_vm_funcregister("matrixmultiply",ring_MatrixMultiply);
-	ring_vm_funcregister("matrixfrustum",ring_MatrixFrustum);
-	ring_vm_funcregister("matrixperspective",ring_MatrixPerspective);
-	ring_vm_funcregister("matrixortho",ring_MatrixOrtho);
-	ring_vm_funcregister("matrixlookat",ring_MatrixLookAt);
-	ring_vm_funcregister("matrixtofloatv",ring_MatrixToFloatV);
-	ring_vm_funcregister("quaternionadd",ring_QuaternionAdd);
-	ring_vm_funcregister("quaternionaddvalue",ring_QuaternionAddValue);
-	ring_vm_funcregister("quaternionsubtract",ring_QuaternionSubtract);
-	ring_vm_funcregister("quaternionsubtractvalue",ring_QuaternionSubtractValue);
-	ring_vm_funcregister("quaternionidentity",ring_QuaternionIdentity);
-	ring_vm_funcregister("quaternionlength",ring_QuaternionLength);
-	ring_vm_funcregister("quaternionnormalize",ring_QuaternionNormalize);
-	ring_vm_funcregister("quaternioninvert",ring_QuaternionInvert);
-	ring_vm_funcregister("quaternionmultiply",ring_QuaternionMultiply);
-	ring_vm_funcregister("quaternionscale",ring_QuaternionScale);
-	ring_vm_funcregister("quaterniondivide",ring_QuaternionDivide);
-	ring_vm_funcregister("quaternionlerp",ring_QuaternionLerp);
-	ring_vm_funcregister("quaternionnlerp",ring_QuaternionNlerp);
-	ring_vm_funcregister("quaternionslerp",ring_QuaternionSlerp);
-	ring_vm_funcregister("quaternionfromvector3tovector3",ring_QuaternionFromVector3ToVector3);
-	ring_vm_funcregister("quaternionfrommatrix",ring_QuaternionFromMatrix);
-	ring_vm_funcregister("quaterniontomatrix",ring_QuaternionToMatrix);
-	ring_vm_funcregister("quaternionfromaxisangle",ring_QuaternionFromAxisAngle);
-	ring_vm_funcregister("quaterniontoaxisangle",ring_QuaternionToAxisAngle);
-	ring_vm_funcregister("quaternionfromeuler",ring_QuaternionFromEuler);
-	ring_vm_funcregister("quaterniontoeuler",ring_QuaternionToEuler);
-	ring_vm_funcregister("quaterniontransform",ring_QuaternionTransform);
+	ring_vm_funcregister("matrixrotatex_2",ring_MatrixRotateX_2);
+	ring_vm_funcregister("matrixrotatey_2",ring_MatrixRotateY_2);
+	ring_vm_funcregister("matrixrotatez_2",ring_MatrixRotateZ_2);
+	ring_vm_funcregister("matrixscale_2",ring_MatrixScale_2);
+	ring_vm_funcregister("matrixmultiply_2",ring_MatrixMultiply_2);
+	ring_vm_funcregister("matrixfrustum_2",ring_MatrixFrustum_2);
+	ring_vm_funcregister("matrixperspective_2",ring_MatrixPerspective_2);
+	ring_vm_funcregister("matrixortho_2",ring_MatrixOrtho_2);
+	ring_vm_funcregister("matrixlookat_2",ring_MatrixLookAt_2);
+	ring_vm_funcregister("matrixtofloatv_2",ring_MatrixToFloatV_2);
+	ring_vm_funcregister("quaternionadd_2",ring_QuaternionAdd_2);
+	ring_vm_funcregister("quaternionaddvalue_2",ring_QuaternionAddValue_2);
+	ring_vm_funcregister("quaternionsubtract_2",ring_QuaternionSubtract_2);
+	ring_vm_funcregister("quaternionsubtractvalue_2",ring_QuaternionSubtractValue_2);
+	ring_vm_funcregister("quaternionidentity_2",ring_QuaternionIdentity_2);
+	ring_vm_funcregister("quaternionlength_2",ring_QuaternionLength_2);
+	ring_vm_funcregister("quaternionnormalize_2",ring_QuaternionNormalize_2);
+	ring_vm_funcregister("quaternioninvert_2",ring_QuaternionInvert_2);
+	ring_vm_funcregister("quaternionmultiply_2",ring_QuaternionMultiply_2);
+	ring_vm_funcregister("quaternionscale_2",ring_QuaternionScale_2);
+	ring_vm_funcregister("quaterniondivide_2",ring_QuaternionDivide_2);
+	ring_vm_funcregister("quaternionlerp_2",ring_QuaternionLerp_2);
+	ring_vm_funcregister("quaternionnlerp_2",ring_QuaternionNlerp_2);
+	ring_vm_funcregister("quaternionslerp_2",ring_QuaternionSlerp_2);
+	ring_vm_funcregister("quaternionfromvector3tovector3_2",ring_QuaternionFromVector3ToVector3_2);
+	ring_vm_funcregister("quaternionfrommatrix_2",ring_QuaternionFromMatrix_2);
+	ring_vm_funcregister("quaterniontomatrix_2",ring_QuaternionToMatrix_2);
+	ring_vm_funcregister("quaternionfromaxisangle_2",ring_QuaternionFromAxisAngle_2);
+	ring_vm_funcregister("quaterniontoaxisangle_2",ring_QuaternionToAxisAngle_2);
+	ring_vm_funcregister("quaternionfromeuler_2",ring_QuaternionFromEuler_2);
+	ring_vm_funcregister("quaterniontoeuler_2",ring_QuaternionToEuler_2);
+	ring_vm_funcregister("quaterniontransform_2",ring_QuaternionTransform_2);
 	ring_vm_funcregister("setmodelmaterialtexture_2",ring_setmodelmaterialtexture_2);
 	ring_vm_funcregister("getimagepixelr_2",ring_getimagepixelr_2);
 	ring_vm_funcregister("getimagepixelg_2",ring_getimagepixelg_2);
