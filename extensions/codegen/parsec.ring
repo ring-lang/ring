@@ -558,7 +558,7 @@ Func GenFuncCodeCheckParaType aList
 						 C_TABS_2 + "return ;" + nl +
 						 C_TABS_1 + "}" + nl
 				else
-					cCode += C_TABS_1 + "if ( ! RING_API_ISPOINTER("+t+") ) {" + nl +
+					cCode += C_TABS_1 + "if ( ! RING_API_ISCPOINTER("+t+") ) {" + nl +
 						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 						 C_TABS_2 + "return ;" + nl +
 						 C_TABS_1 + "}" + nl
@@ -790,7 +790,7 @@ Func GenStruct	aFunc
 			C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
 			C_TABS_2 + "return ;" + nl +
 			C_TABS_1 + "}" + nl +
-			C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+			C_TABS_1 + "if ( ! RING_API_ISCPOINTER(1) ) { " + nl +
 			C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 			C_TABS_2 + "return ;" + nl + 
 			C_TABS_1 + "}" + nl +
@@ -816,7 +816,7 @@ Func GenStruct	aFunc
 				C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
 				C_TABS_2 + "return ;" + nl +
 				C_TABS_1 + "}" + nl +
-				C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				C_TABS_1 + "if ( ! RING_API_ISCPOINTER(1) ) { " + nl +
 				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 				C_TABS_2 + "return ;" + nl + 
 				C_TABS_1 + "}" + nl +
@@ -834,7 +834,7 @@ Func GenStruct	aFunc
 				C_TABS_2 +"RING_API_ERROR(RING_API_MISS2PARA) ;" + nl +
 				C_TABS_2 + "return ;" + nl +
 				C_TABS_1 + "}" + nl +
-				C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				C_TABS_1 + "if ( ! RING_API_ISCPOINTER(1) ) { " + nl +
 				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 				C_TABS_2 + "return ;" + nl + 
 				C_TABS_1 + "}" + nl +
@@ -861,7 +861,7 @@ Func GenStruct	aFunc
 				C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
 				C_TABS_2 + "return ;" + nl +
 				C_TABS_1 + "}" + nl +
-				C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				C_TABS_1 + "if ( ! RING_API_ISCPOINTER(1) ) { " + nl +
 				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 				C_TABS_2 + "return ;" + nl + 
 				C_TABS_1 + "}" + nl +
@@ -879,11 +879,11 @@ Func GenStruct	aFunc
 				C_TABS_2 +"RING_API_ERROR(RING_API_MISS2PARA) ;" + nl +
 				C_TABS_2 + "return ;" + nl +
 				C_TABS_1 + "}" + nl +
-				C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) { " + nl +
+				C_TABS_1 + "if ( ! RING_API_ISCPOINTER(1) ) { " + nl +
 				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 				C_TABS_2 + "return ;" + nl + 
 				C_TABS_1 + "}" + nl +
-				C_TABS_1 + "if ( ! RING_API_ISPOINTER(2) ) { " + nl +
+				C_TABS_1 + "if ( ! RING_API_ISCPOINTER(2) ) { " + nl +
 				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 				C_TABS_2 + "return ;" + nl + 
 				C_TABS_1 + "}" + nl +
@@ -989,7 +989,7 @@ Func GenMethodCodeCheckParaType aList
 	if GenMethodCodeISStaticMethods()
 		cCode = ""
 	else 
-		cCode = C_TABS_1 + "if ( ! RING_API_ISPOINTER(1) ) {" + nl +
+		cCode = C_TABS_1 + "if ( ! RING_API_ISCPOINTER(1) ) {" + nl +
 				 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 				 C_TABS_2 + "return ;" + nl +
 				 C_TABS_1 + "}" + nl +
@@ -1030,7 +1030,7 @@ Func GenMethodCodeCheckParaType aList
 						 C_TABS_2 + "return ;" + nl +
 						 C_TABS_1 + "}" + nl
 				else
-					cCode += C_TABS_1 + "if ( ! RING_API_ISPOINTER("+t+") ) {" + nl +
+					cCode += C_TABS_1 + "if ( ! RING_API_ISCPOINTER("+t+") ) {" + nl +
 						 C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 						 C_TABS_2 + "return ;" + nl +
 						 C_TABS_1 + "}" + nl
@@ -1228,7 +1228,7 @@ Func GenDeleteFuncForClasses aList
         			C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA);" + nl +
         			C_TABS_2 +"return ;" + nl +
     				C_TABS_1 +"}" + nl +
-    				C_TABS_1 +"if ( RING_API_ISPOINTER(1) )" + nl +
+    				C_TABS_1 +"if ( RING_API_ISCPOINTER(1) )" + nl +
     				C_TABS_1 +"{" + nl +
             			C_TABS_2 +'pObject = ('+cCodeName+' *) RING_API_GETCPOINTER(1,"'+cCodeName+'");' + nl +
             			C_TABS_2 +"delete pObject ;" + nl +
