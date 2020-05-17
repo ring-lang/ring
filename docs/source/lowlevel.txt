@@ -932,7 +932,7 @@ The function ringvm_evalinscope() is similar to the eval() function
 
 Unlike eval() which execute the code in the current scope
 
-Using RingVM_EvalInScope() we can execute the scope in a specific scope.
+Using RingVM_EvalInScope() we can execute the code in a specific scope.
 
 Syntax:
 
