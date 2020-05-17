@@ -1778,7 +1778,7 @@ RING_FUNC(ring_glutBitmapCharacter)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -1796,7 +1796,7 @@ RING_FUNC(ring_glutBitmapWidth)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -1814,7 +1814,7 @@ RING_FUNC(ring_glutStrokeCharacter)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -1832,7 +1832,7 @@ RING_FUNC(ring_glutStrokeWidth)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -1850,7 +1850,7 @@ RING_FUNC(ring_glutStrokeLength)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -1868,7 +1868,7 @@ RING_FUNC(ring_glutStrokeWidthf)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -1886,7 +1886,7 @@ RING_FUNC(ring_glutStrokeLengthf)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -1904,7 +1904,7 @@ RING_FUNC(ring_glutBitmapLength)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
