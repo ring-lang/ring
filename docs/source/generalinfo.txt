@@ -29,13 +29,11 @@ The extensions are just dynamic libraries (DLL, So, Dylib)
 You can update the extensions without the need to update your code.
 
 
-Folder (ring\extensions\libdepwin) ====> C libraries used for building Ring Extensions (written in C) on Windows platform
+Folder (ring/extensions/libdepwin) ====> C libraries used for building Ring Extensions (written in C) on Windows platform
 
-Folder (ring\ringlibs)  ====> Ring libraries written in Ring itself (StdLib, WebLib, GameEngine, etc)
+Folder (ring/ringlibs)  ====> Ring libraries written in Ring itself (StdLib, WebLib, GameEngine, etc)
 
-Folder (ring\rnoteexe)  ====> Just C source file to create executable file that will run rnote.ring
-
-Folder (ring\visualsrc) ====> The Visual Source Code of the Ring Compiler & Ring VM developed using Programming Without Coding Technology (PWCT)
+Folder (ring/visualsrc) ====> The Visual Source Code of the Ring Compiler & Ring VM developed using Programming Without Coding Technology (PWCT)
 
 We use the term Ring Library ---> When the library code is written in Ring
 We use the term Ring Extension ---> When the library code is Written in C or C++
