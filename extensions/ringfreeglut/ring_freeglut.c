@@ -917,23 +917,7 @@ RING_FUNC(ring_glutDisplayFunc)
 	}
 }
 
-void closeFunction(void)
-{
-	ring_vm_callfunction(pRingVMObject,cCloseFunction) ;
-}
 
-RING_FUNC(ring_glutCloseFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cCloseFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutCloseFunc(closeFunction);
-	}
-}
 
 void reshapeFunction(int w, int h)
 {
@@ -2482,6 +2466,23 @@ RING_FUNC(ring_glutMainLoop)
 	glutMainLoop();
 }
 
+void closeFunction(void)
+{
+	ring_vm_callfunction(pRingVMObject,cCloseFunction) ;
+}
+
+RING_FUNC(ring_glutCloseFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cCloseFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutCloseFunc(closeFunction);
+	}
+}
 
 RING_FUNC(ring_glutStrokeString)
 {
@@ -2504,7 +2505,6 @@ RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glutinit",ring_glutInit);
 	ring_vm_funcregister("glutdisplayfunc",ring_glutDisplayFunc);
-	ring_vm_funcregister("glutclosefunc",ring_glutCloseFunc);
 	ring_vm_funcregister("glutreshapefunc",ring_glutReshapeFunc);
 	ring_vm_funcregister("gluteventwidth",ring_glutEventWidth);
 	ring_vm_funcregister("gluteventheight",ring_glutEventHeight);
@@ -2613,6 +2613,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutextensionsupported",ring_glutExtensionSupported);
 	ring_vm_funcregister("glutreporterrors",ring_glutReportErrors);
 	ring_vm_funcregister("glutmainloop",ring_glutMainLoop);
+	ring_vm_funcregister("glutclosefunc",ring_glutCloseFunc);
 	ring_vm_funcregister("glutstrokestring",ring_glutStrokeString);
 	ring_vm_funcregister("get_glut_rgb",ring_get_glut_rgb);
 	ring_vm_funcregister("get_glut_rgba",ring_get_glut_rgba);

@@ -234,7 +234,6 @@ GLUT_BITMAP_HELVETICA_18
 <register>
 void glutInit(void)
 void glutDisplayFunc(const char *)
-void glutCloseFunc(const char *)
 void glutReshapeFunc(const char *)
 int glutEventWidth(void)
 int glutEventHeight(void)
@@ -287,23 +286,7 @@ RING_FUNC(ring_glutDisplayFunc)
 	}
 }
 
-void closeFunction(void)
-{
-	ring_vm_callfunction(pRingVMObject,cCloseFunction) ;
-}
 
-RING_FUNC(ring_glutCloseFunc)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		strcpy(cCloseFunction, RING_API_GETSTRING(1) ) ;
-		pRingVMObject = (VM *) pPointer ;
-		glutCloseFunc(closeFunction);
-	}
-}
 
 void reshapeFunction(int w, int h)
 {
@@ -632,4 +615,32 @@ int glutExtensionSupported(const char * extension)
 void glutReportErrors(void)
 void glutMainLoop(void)
 
+<filter> not ismacosx()
+
+<code>
+void closeFunction(void)
+{
+	ring_vm_callfunction(pRingVMObject,cCloseFunction) ;
+}
+
+RING_FUNC(ring_glutCloseFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cCloseFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutCloseFunc(closeFunction);
+	}
+}
+</code>
+
+<register>
+void glutCloseFunc(const char *)
+</register>
+
 void glutStrokeString(void *font, const char *string )
+
+</filter>
