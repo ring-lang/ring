@@ -332,6 +332,7 @@ More Improvements
 =================
 
 * New Samples
+	* ring/samples/3D/cubeongpu/cubeongpu.ring
 	* ring/samples/other/helloworld/hello.ring
 	* ring/samples/other/helloworld/hello2.ring
 	* ring/samples/other/helloworld/hello3.ring
