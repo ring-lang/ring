@@ -7,7 +7,7 @@
 */
 
 
-#include <GL/glut.h>
+#include <GL/freeglut.h>
 
 
 VM *pRingVMObject ;
@@ -20,6 +20,7 @@ char cSpecialUpFunction[250];
 char cMouseFunction[250];
 char cMotionFunction[250];
 char cMenuStatusFunction[250];
+char cCloseFunction[250];
 int nGLUTEventWidth ;
 int nGLUTEventHeight ;
 int nGLUTEventKey ;
@@ -913,6 +914,24 @@ RING_FUNC(ring_glutDisplayFunc)
 		strcpy(cDisplayFunction, RING_API_GETSTRING(1) ) ;
 		pRingVMObject = (VM *) pPointer ;
 		glutDisplayFunc(displayFunction);
+	}
+}
+
+void closeFunction(void)
+{
+	ring_vm_callfunction(pRingVMObject,cCloseFunction) ;
+}
+
+RING_FUNC(ring_glutCloseFunc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		strcpy(cCloseFunction, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		glutCloseFunc(closeFunction);
 	}
 }
 
@@ -2467,6 +2486,7 @@ RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glutinit",ring_glutInit);
 	ring_vm_funcregister("glutdisplayfunc",ring_glutDisplayFunc);
+	ring_vm_funcregister("glutclosefunc",ring_glutCloseFunc);
 	ring_vm_funcregister("glutreshapefunc",ring_glutReshapeFunc);
 	ring_vm_funcregister("gluteventwidth",ring_glutEventWidth);
 	ring_vm_funcregister("gluteventheight",ring_glutEventHeight);
