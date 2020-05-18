@@ -2623,16 +2623,6 @@ RING_FUNC(ring_get_glut_skip_stale_motion_events)
 	RING_API_RETNUMBER(GLUT_SKIP_STALE_MOTION_EVENTS);
 }
 
-RING_FUNC(ring_get_glut_geometry_visualize_normals)
-{
-	RING_API_RETNUMBER(GLUT_GEOMETRY_VISUALIZE_NORMALS);
-}
-
-RING_FUNC(ring_get_glut_stroke_font_draw_join_dots)
-{
-	RING_API_RETNUMBER(GLUT_STROKE_FONT_DRAW_JOIN_DOTS);
-}
-
 RING_FUNC(ring_get_glut_aux)
 {
 	RING_API_RETNUMBER(GLUT_AUX);
@@ -2696,16 +2686,6 @@ RING_FUNC(ring_get_glut_core_profile)
 RING_FUNC(ring_get_glut_compatibility_profile)
 {
 	RING_API_RETNUMBER(GLUT_COMPATIBILITY_PROFILE);
-}
-
-RING_FUNC(ring_get_glut_appstatus_pause)
-{
-	RING_API_RETNUMBER(GLUT_APPSTATUS_PAUSE);
-}
-
-RING_FUNC(ring_get_glut_appstatus_resume)
-{
-	RING_API_RETNUMBER(GLUT_APPSTATUS_RESUME);
 }
 
 RING_FUNC(ring_get_glut_captionless)
@@ -3549,8 +3529,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_direct_rendering",ring_get_glut_direct_rendering);
 	ring_vm_funcregister("get_glut_full_screen",ring_get_glut_full_screen);
 	ring_vm_funcregister("get_glut_skip_stale_motion_events",ring_get_glut_skip_stale_motion_events);
-	ring_vm_funcregister("get_glut_geometry_visualize_normals",ring_get_glut_geometry_visualize_normals);
-	ring_vm_funcregister("get_glut_stroke_font_draw_join_dots",ring_get_glut_stroke_font_draw_join_dots);
 	ring_vm_funcregister("get_glut_aux",ring_get_glut_aux);
 	ring_vm_funcregister("get_glut_aux1",ring_get_glut_aux1);
 	ring_vm_funcregister("get_glut_aux2",ring_get_glut_aux2);
@@ -3564,8 +3542,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_glut_forward_compatible",ring_get_glut_forward_compatible);
 	ring_vm_funcregister("get_glut_core_profile",ring_get_glut_core_profile);
 	ring_vm_funcregister("get_glut_compatibility_profile",ring_get_glut_compatibility_profile);
-	ring_vm_funcregister("get_glut_appstatus_pause",ring_get_glut_appstatus_pause);
-	ring_vm_funcregister("get_glut_appstatus_resume",ring_get_glut_appstatus_resume);
 	ring_vm_funcregister("get_glut_captionless",ring_get_glut_captionless);
 	ring_vm_funcregister("get_glut_borderless",ring_get_glut_borderless);
 	ring_vm_funcregister("get_glut_srgb",ring_get_glut_srgb);
