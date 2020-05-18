@@ -187,7 +187,7 @@ Compiler Errors
 Runtime Errors
 ==============
 
-* Error (R1)  : Cann't divide by zero !
+* Error (R1)  : Can't divide by zero !
 * Error (R2)  : Array Access (Index out of range) !
 * Error (R3)  : Calling Function without definition !
 * Error (R4)  : Stack Overflow !
