@@ -1,6 +1,3 @@
-# Author  : Gal Zsolt (CalmoSoft)
-# Email   : quiwox@gmail.com
-
 load "raylib.ring"
 
 MAX_COLORS_COUNT = 21          // Number of colors available

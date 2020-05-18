@@ -1,6 +1,3 @@
-# Author  : Gal Zsolt (CalmoSoft)
-# Email   : quiwox@gmail.com
-
 load "raylib.ring"
 
 screenWidth = 800
