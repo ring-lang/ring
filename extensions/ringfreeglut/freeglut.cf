@@ -6,7 +6,7 @@
 */
 
 <filter> ismacosx()
-#include <GLUT/freeglut.h>
+#include <GLUT/glut.h>
 </filter>
 
 <filter> not ismacosx()
