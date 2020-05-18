@@ -2920,11 +2920,11 @@ RING_FUNC(ring_glutBitmapString)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glutBitmapString((void *) RING_API_GETCPOINTER(1,"void"),(unsigned char *) RING_API_GETCPOINTER(2,"unsigned char"));
+	glutBitmapString((void *) RING_API_GETCPOINTER(1,"void"),RING_API_GETSTRING(2));
 }
 
 
@@ -2938,11 +2938,11 @@ RING_FUNC(ring_glutStrokeString)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	glutStrokeString((void *) RING_API_GETCPOINTER(1,"void"),(unsigned char *) RING_API_GETCPOINTER(2,"unsigned char"));
+	glutStrokeString((void *) RING_API_GETCPOINTER(1,"void"),RING_API_GETSTRING(2));
 }
 
 

@@ -39,6 +39,7 @@ List *pMenuFunctions;
 </code>
 
 <runcode>
+aStringTypes + "const unsigned char *"
 aNumberTypes + "GLint"
 aNumberTypes + "unsigned"
 aNumberTypes + "GLboolean"
