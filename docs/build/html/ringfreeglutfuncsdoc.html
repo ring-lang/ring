@@ -294,10 +294,10 @@
 <li>int glutBitmapWidth(void <a href="#id23"><span class="problematic" id="id24">*</span></a>font, int character)</li>
 <li>void glutStrokeCharacter(void <a href="#id25"><span class="problematic" id="id26">*</span></a>font, int character)</li>
 <li>int glutStrokeWidth(void <a href="#id27"><span class="problematic" id="id28">*</span></a>font, int character)</li>
-<li>GLfloat glutStrokeWidthf(void <a href="#id29"><span class="problematic" id="id30">*</span></a>font, int character)</li>
-<li>int glutBitmapLength(void <a href="#id31"><span class="problematic" id="id32">*</span></a>font, char * string)</li>
-<li>int glutStrokeLength(void <a href="#id33"><span class="problematic" id="id34">*</span></a>font, char * string)</li>
-<li>GLfloat glutStrokeLengthf(void <a href="#id35"><span class="problematic" id="id36">*</span></a>font, char <a href="#id37"><span class="problematic" id="id38">*</span></a>string)</li>
+<li>int glutStrokeLength(void <a href="#id29"><span class="problematic" id="id30">*</span></a>font, char * string)</li>
+<li>GLfloat glutStrokeWidthf(void <a href="#id31"><span class="problematic" id="id32">*</span></a>font, int character)</li>
+<li>GLfloat glutStrokeLengthf(void <a href="#id33"><span class="problematic" id="id34">*</span></a>font, char <a href="#id35"><span class="problematic" id="id36">*</span></a>string)</li>
+<li>int glutBitmapLength(void <a href="#id37"><span class="problematic" id="id38">*</span></a>font, char * string)</li>
 <li>void glutWireCube(double size)</li>
 <li>void glutSolidCube(double size)</li>
 <li>void glutWireSphere(double radius, GLint slices, GLint stacks)</li>
@@ -334,6 +334,88 @@
 <li>int glutExtensionSupported(const char * extension)</li>
 <li>void glutReportErrors(void)</li>
 <li>void glutMainLoop(void)</li>
+<li>void glutCloseFunc(const char <a href="#id39"><span class="problematic" id="id40">*</span></a>)</li>
+<li>GLUT_KEY_NUM_LOCK</li>
+<li>GLUT_KEY_BEGIN</li>
+<li>GLUT_KEY_DELETE</li>
+<li>GLUT_KEY_SHIFT_L</li>
+<li>GLUT_KEY_SHIFT_R</li>
+<li>GLUT_KEY_CTRL_L</li>
+<li>GLUT_KEY_CTRL_R</li>
+<li>GLUT_KEY_ALT_L</li>
+<li>GLUT_KEY_ALT_R</li>
+<li>GLUT_ACTION_EXIT</li>
+<li>GLUT_ACTION_GLUTMAINLOOP_RETURNS</li>
+<li>GLUT_ACTION_CONTINUE_EXECUTION</li>
+<li>GLUT_CREATE_NEW_CONTEXT</li>
+<li>GLUT_USE_CURRENT_CONTEXT</li>
+<li>GLUT_FORCE_INDIRECT_CONTEXT</li>
+<li>GLUT_ALLOW_DIRECT_CONTEXT</li>
+<li>GLUT_TRY_DIRECT_CONTEXT</li>
+<li>GLUT_FORCE_DIRECT_CONTEXT</li>
+<li>GLUT_INIT_STATE</li>
+<li>GLUT_ACTION_ON_WINDOW_CLOSE</li>
+<li>GLUT_WINDOW_BORDER_WIDTH</li>
+<li>GLUT_WINDOW_BORDER_HEIGHT</li>
+<li>GLUT_WINDOW_HEADER_HEIGHT</li>
+<li>GLUT_VERSION</li>
+<li>GLUT_RENDERING_CONTEXT</li>
+<li>GLUT_DIRECT_RENDERING</li>
+<li>GLUT_FULL_SCREEN</li>
+<li>GLUT_SKIP_STALE_MOTION_EVENTS</li>
+<li>GLUT_GEOMETRY_VISUALIZE_NORMALS</li>
+<li>GLUT_STROKE_FONT_DRAW_JOIN_DOTS</li>
+<li>GLUT_AUX</li>
+<li>GLUT_AUX1</li>
+<li>GLUT_AUX2</li>
+<li>GLUT_AUX3</li>
+<li>GLUT_AUX4</li>
+<li>GLUT_INIT_MAJOR_VERSION</li>
+<li>GLUT_INIT_MINOR_VERSION</li>
+<li>GLUT_INIT_FLAGS</li>
+<li>GLUT_INIT_PROFILE</li>
+<li>GLUT_DEBUG</li>
+<li>GLUT_FORWARD_COMPATIBLE</li>
+<li>GLUT_CORE_PROFILE</li>
+<li>GLUT_COMPATIBILITY_PROFILE</li>
+<li>GLUT_APPSTATUS_PAUSE</li>
+<li>GLUT_APPSTATUS_RESUME</li>
+<li>GLUT_CAPTIONLESS</li>
+<li>GLUT_BORDERLESS</li>
+<li>GLUT_SRGB</li>
+<li>GLUT_HAS_MULTI</li>
+<li>void glutMainLoopEvent( void )</li>
+<li>void glutLeaveMainLoop( void )</li>
+<li>void glutExit( void )</li>
+<li>void glutFullScreenToggle( void )</li>
+<li>void glutLeaveFullScreen( void )</li>
+<li>void glutSetMenuFont(int menuID, void <a href="#id41"><span class="problematic" id="id42">*</span></a>font)</li>
+<li>void glutSetOption(GLenum option_flag, int value )</li>
+<li>int <a href="#id43"><span class="problematic" id="id44">*</span></a>glutGetModeValues(GLenum mode, int * size)</li>
+<li>void <a href="#id45"><span class="problematic" id="id46">*</span></a>glutGetWindowData( void )</li>
+<li>void glutSetWindowData(void <a href="#id47"><span class="problematic" id="id48">*</span></a>data)</li>
+<li>void <a href="#id49"><span class="problematic" id="id50">*</span></a>glutGetMenuData( void )</li>
+<li>void glutSetMenuData(void <a href="#id51"><span class="problematic" id="id52">*</span></a>data)</li>
+<li>int glutBitmapHeight( void* font )</li>
+<li>GLfloat glutStrokeHeight( void* font )</li>
+<li>void glutBitmapString( void* font, const unsigned char <a href="#id53"><span class="problematic" id="id54">*</span></a>string )</li>
+<li>void glutStrokeString( void* font, const unsigned char <a href="#id55"><span class="problematic" id="id56">*</span></a>string )</li>
+<li>void glutWireRhombicDodecahedron( void )</li>
+<li>void glutSolidRhombicDodecahedron( void )</li>
+<li>void glutWireSierpinskiSponge( int num_levels, double <a href="#id57"><span class="problematic" id="id58">*</span></a>offset, double scale )</li>
+<li>void glutSolidSierpinskiSponge( int num_levels, double <a href="#id59"><span class="problematic" id="id60">*</span></a>offset, double scale )</li>
+<li>void glutWireCylinder( double radius, double height, GLint slices, GLint stacks)</li>
+<li>void glutSolidCylinder( double radius, double height, GLint slices, GLint stacks)</li>
+<li>void glutWireTeacup( double size )</li>
+<li>void glutSolidTeacup( double size )</li>
+<li>void glutWireTeaspoon( double size )</li>
+<li>void glutSolidTeaspoon( double size )</li>
+<li>void glutInitContextVersion( int majorVersion, int minorVersion )</li>
+<li>void glutInitContextFlags( int flags )</li>
+<li>void glutInitContextProfile( int profile )</li>
+<li>void glutSetVertexAttribCoord3(GLint attrib)</li>
+<li>void glutSetVertexAttribNormal(GLint attrib)</li>
+<li>void glutSetVertexAttribTexCoord2(GLint attrib)</li>
 </ul>
 </div>
 
