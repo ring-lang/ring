@@ -2,8 +2,6 @@
 # Date    : 02/10/2019-09:00:00
 # Update  : 03/10/2019-09:21:36
 # Author  : Gal Zsolt & Bert Mariani
-# Company : CalmoSoft 
-# Email   : quiwox@gmail.com 
 
 load "raylib.ring"
 

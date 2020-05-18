@@ -1,5 +1,3 @@
-# Author : Gal Zsolt (CalmoSoft)
-
 load "raylib.ring"
 
 screenWidth  = 800
