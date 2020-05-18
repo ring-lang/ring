@@ -1298,7 +1298,7 @@
 <li>void glGetShaderiv(GLuint shader,GLenum pname,GLint <a href="#id33"><span class="problematic" id="id34">*</span></a>params)</li>
 <li>void glGetShaderInfoLog(GLuint shader,GLsizei maxLength,GLsizei <a href="#id35"><span class="problematic" id="id36">*</span></a>length,GLchar <a href="#id37"><span class="problematic" id="id38">*</span></a>infoLog)</li>
 <li>void glGetShaderSource(GLuint shader,GLsizei bufSize,GLsizei <a href="#id39"><span class="problematic" id="id40">*</span></a>length,GLchar <a href="#id41"><span class="problematic" id="id42">*</span></a>source)</li>
-<li>const GLubyte* glGetString(GLenum name)</li>
+<li>const GLubyte <a href="#id43"><span class="problematic" id="id44">*</span></a>glGetString(GLenum name)</li>
 <li>void glGetTexEnvfv(GLenum target,GLenum pname,GLfloat * params)</li>
 <li>void glGetTexEnviv(GLenum target,GLenum pname,GLint * params)</li>
 <li>void glGetTexGendv(GLenum coord,GLenum pname,GLdouble * params)</li>
@@ -1309,13 +1309,13 @@
 <li>void glGetTexLevelParameteriv(GLenum target,GLint level,GLenum pname,GLint * params)</li>
 <li>void glGetTexParameterfv(GLenum target,GLenum pname,GLfloat * params)</li>
 <li>void glGetTexParameteriv(GLenum target,GLenum pname,GLint * params)</li>
-<li>void glGetUniformfv(GLuint program,GLint location,GLfloat <a href="#id43"><span class="problematic" id="id44">*</span></a>params)</li>
-<li>void glGetUniformiv(GLuint program,GLint location,GLint <a href="#id45"><span class="problematic" id="id46">*</span></a>params)</li>
-<li>GLint glGetUniformLocation(GLuint program,const GLchar <a href="#id47"><span class="problematic" id="id48">*</span></a>name)</li>
-<li>void glGetVertexAttribdv(GLuint index,GLenum pname,GLdouble <a href="#id49"><span class="problematic" id="id50">*</span></a>params)</li>
-<li>void glGetVertexAttribfv(GLuint index,GLenum pname,GLfloat <a href="#id51"><span class="problematic" id="id52">*</span></a>params)</li>
-<li>void glGetVertexAttribiv(GLuint index,GLenum pname,GLint <a href="#id53"><span class="problematic" id="id54">*</span></a>params)</li>
-<li>void glGetVertexAttribPointerv(GLuint index,GLenum pname,GLvoid <a href="#id55"><span class="problematic" id="id56">**</span></a>pointer)</li>
+<li>void glGetUniformfv(GLuint program,GLint location,GLfloat <a href="#id45"><span class="problematic" id="id46">*</span></a>params)</li>
+<li>void glGetUniformiv(GLuint program,GLint location,GLint <a href="#id47"><span class="problematic" id="id48">*</span></a>params)</li>
+<li>GLint glGetUniformLocation(GLuint program,const GLchar <a href="#id49"><span class="problematic" id="id50">*</span></a>name)</li>
+<li>void glGetVertexAttribdv(GLuint index,GLenum pname,GLdouble <a href="#id51"><span class="problematic" id="id52">*</span></a>params)</li>
+<li>void glGetVertexAttribfv(GLuint index,GLenum pname,GLfloat <a href="#id53"><span class="problematic" id="id54">*</span></a>params)</li>
+<li>void glGetVertexAttribiv(GLuint index,GLenum pname,GLint <a href="#id55"><span class="problematic" id="id56">*</span></a>params)</li>
+<li>void glGetVertexAttribPointerv(GLuint index,GLenum pname,GLvoid <a href="#id57"><span class="problematic" id="id58">**</span></a>pointer)</li>
 <li>void glHint(GLenum target,GLenum mode)</li>
 <li>void glHistogram(GLenum target,GLsizei width,GLenum internalformat,GLboolean sink)</li>
 <li>void glIndexs(GLshort c)</li>
@@ -1493,7 +1493,7 @@
 <li>void glSelectBuffer(GLsizei size,GLuint * buffer)</li>
 <li>void glSeparableFilter2D(GLenum target,GLenum internalformat,GLsizei width,GLsizei height,GLenum format,GLenum type,const GLvoid * row,const GLvoid * column)</li>
 <li>void glShadeModel(GLenum mode)</li>
-<li>void glShaderSource(GLuint shader,GLsizei count,const GLchar <a href="#id57"><span class="problematic" id="id58">**</span></a>string,const GLint <a href="#id59"><span class="problematic" id="id60">*</span></a>length)</li>
+<li>void glShaderSource(GLuint shader,GLsizei count,const GLchar <a href="#id59"><span class="problematic" id="id60">**</span></a>string,const GLint <a href="#id61"><span class="problematic" id="id62">*</span></a>length)</li>
 <li>void glStencilFunc(GLenum func,GLint ref,GLuint mask)</li>
 <li>void glStencilFuncSeparate(GLenum face,GLenum func,GLint ref,GLuint mask)</li>
 <li>void glStencilMask(GLuint mask)</li>
@@ -1561,23 +1561,23 @@
 <li>void glUniform2i(GLint location,GLint v0,GLint v1)</li>
 <li>void glUniform3i(GLint location,GLint v0,GLint v1,GLint v2)</li>
 <li>void glUniform4i(GLint location,GLint v0,GLint v1,GLint v2,GLint v3)</li>
-<li>void glUniform1fv(GLint location,GLsizei count,const GLfloat <a href="#id61"><span class="problematic" id="id62">*</span></a>value)</li>
-<li>void glUniform2fv(GLint location,GLsizei count,const GLfloat <a href="#id63"><span class="problematic" id="id64">*</span></a>value)</li>
-<li>void glUniform3fv(GLint location,GLsizei count,const GLfloat <a href="#id65"><span class="problematic" id="id66">*</span></a>value)</li>
-<li>void glUniform4fv(GLint location,GLsizei count,const GLfloat <a href="#id67"><span class="problematic" id="id68">*</span></a>value)</li>
-<li>void glUniform1iv(GLint location,GLsizei count,const GLint <a href="#id69"><span class="problematic" id="id70">*</span></a>value)</li>
-<li>void glUniform2iv(GLint location,GLsizei count,const GLint <a href="#id71"><span class="problematic" id="id72">*</span></a>value)</li>
-<li>void glUniform3iv(GLint location,GLsizei count,const GLint <a href="#id73"><span class="problematic" id="id74">*</span></a>value)</li>
-<li>void glUniform4iv(GLint location,GLsizei count,const GLint <a href="#id75"><span class="problematic" id="id76">*</span></a>value)</li>
-<li>void glUniformMatrix2fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id77"><span class="problematic" id="id78">*</span></a>value)</li>
-<li>void glUniformMatrix3fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id79"><span class="problematic" id="id80">*</span></a>value)</li>
-<li>void glUniformMatrix4fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id81"><span class="problematic" id="id82">*</span></a>value)</li>
-<li>void glUniformMatrix2x3fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id83"><span class="problematic" id="id84">*</span></a>value)</li>
-<li>void glUniformMatrix3x2fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id85"><span class="problematic" id="id86">*</span></a>value)</li>
-<li>void glUniformMatrix2x4fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id87"><span class="problematic" id="id88">*</span></a>value)</li>
-<li>void glUniformMatrix4x2fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id89"><span class="problematic" id="id90">*</span></a>value)</li>
-<li>void glUniformMatrix3x4fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id91"><span class="problematic" id="id92">*</span></a>value)</li>
-<li>void glUniformMatrix4x3fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id93"><span class="problematic" id="id94">*</span></a>value)</li>
+<li>void glUniform1fv(GLint location,GLsizei count,const GLfloat <a href="#id63"><span class="problematic" id="id64">*</span></a>value)</li>
+<li>void glUniform2fv(GLint location,GLsizei count,const GLfloat <a href="#id65"><span class="problematic" id="id66">*</span></a>value)</li>
+<li>void glUniform3fv(GLint location,GLsizei count,const GLfloat <a href="#id67"><span class="problematic" id="id68">*</span></a>value)</li>
+<li>void glUniform4fv(GLint location,GLsizei count,const GLfloat <a href="#id69"><span class="problematic" id="id70">*</span></a>value)</li>
+<li>void glUniform1iv(GLint location,GLsizei count,const GLint <a href="#id71"><span class="problematic" id="id72">*</span></a>value)</li>
+<li>void glUniform2iv(GLint location,GLsizei count,const GLint <a href="#id73"><span class="problematic" id="id74">*</span></a>value)</li>
+<li>void glUniform3iv(GLint location,GLsizei count,const GLint <a href="#id75"><span class="problematic" id="id76">*</span></a>value)</li>
+<li>void glUniform4iv(GLint location,GLsizei count,const GLint <a href="#id77"><span class="problematic" id="id78">*</span></a>value)</li>
+<li>void glUniformMatrix2fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id79"><span class="problematic" id="id80">*</span></a>value)</li>
+<li>void glUniformMatrix3fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id81"><span class="problematic" id="id82">*</span></a>value)</li>
+<li>void glUniformMatrix4fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id83"><span class="problematic" id="id84">*</span></a>value)</li>
+<li>void glUniformMatrix2x3fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id85"><span class="problematic" id="id86">*</span></a>value)</li>
+<li>void glUniformMatrix3x2fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id87"><span class="problematic" id="id88">*</span></a>value)</li>
+<li>void glUniformMatrix2x4fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id89"><span class="problematic" id="id90">*</span></a>value)</li>
+<li>void glUniformMatrix4x2fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id91"><span class="problematic" id="id92">*</span></a>value)</li>
+<li>void glUniformMatrix3x4fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id93"><span class="problematic" id="id94">*</span></a>value)</li>
+<li>void glUniformMatrix4x3fv(GLint location,GLsizei count,GLboolean transpose,const GLfloat <a href="#id95"><span class="problematic" id="id96">*</span></a>value)</li>
 <li>void glUseProgram(GLuint program)</li>
 <li>void glValidateProgram(GLuint program)</li>
 <li>void glVertex2s(GLshort x,GLshort y)</li>
@@ -1617,23 +1617,23 @@
 <li>void glVertexAttrib4s(GLuint index,GLshort v0,GLshort v1,GLshort v2,GLshort v3)</li>
 <li>void glVertexAttrib4d(GLuint index,GLdouble v0,GLdouble v1,GLdouble v2,GLdouble v3)</li>
 <li>void glVertexAttrib4Nub(GLuint index,GLubyte v0,GLubyte v1,GLubyte v2,GLubyte v3)</li>
-<li>void glVertexAttrib1fv(GLuint index,const GLfloat <a href="#id95"><span class="problematic" id="id96">*</span></a>v)</li>
-<li>void glVertexAttrib1sv(GLuint index,const GLshort <a href="#id97"><span class="problematic" id="id98">*</span></a>v)</li>
-<li>void glVertexAttrib1dv(GLuint index,const GLdouble <a href="#id99"><span class="problematic" id="id100">*</span></a>v)</li>
-<li>void glVertexAttrib2fv(GLuint index,const GLfloat <a href="#id101"><span class="problematic" id="id102">*</span></a>v)</li>
-<li>void glVertexAttrib2sv(GLuint index,const GLshort <a href="#id103"><span class="problematic" id="id104">*</span></a>v)</li>
-<li>void glVertexAttrib2dv(GLuint index,const GLdouble <a href="#id105"><span class="problematic" id="id106">*</span></a>v)</li>
-<li>void glVertexAttrib3fv(GLuint index,const GLfloat <a href="#id107"><span class="problematic" id="id108">*</span></a>v)</li>
-<li>void glVertexAttrib3sv(GLuint index,const GLshort <a href="#id109"><span class="problematic" id="id110">*</span></a>v)</li>
-<li>void glVertexAttrib3dv(GLuint index,const GLdouble <a href="#id111"><span class="problematic" id="id112">*</span></a>v)</li>
-<li>void glVertexAttrib4fv(GLuint index,const GLfloat <a href="#id113"><span class="problematic" id="id114">*</span></a>v)</li>
-<li>void glVertexAttrib4sv(GLuint index,const GLshort <a href="#id115"><span class="problematic" id="id116">*</span></a>v)</li>
-<li>void glVertexAttrib4dv(GLuint index,const GLdouble <a href="#id117"><span class="problematic" id="id118">*</span></a>v)</li>
-<li>void glVertexAttrib4iv(GLuint index,const GLint <a href="#id119"><span class="problematic" id="id120">*</span></a>v)</li>
-<li>void glVertexAttrib4bv(GLuint index,const GLbyte <a href="#id121"><span class="problematic" id="id122">*</span></a>v)</li>
-<li>void glVertexAttrib4ubv(GLuint index,const GLubyte <a href="#id123"><span class="problematic" id="id124">*</span></a>v)</li>
-<li>void glVertexAttrib4usv(GLuint index,const GLushort <a href="#id125"><span class="problematic" id="id126">*</span></a>v)</li>
-<li>void glVertexAttrib4uiv(GLuint index,const GLuint <a href="#id127"><span class="problematic" id="id128">*</span></a>v)</li>
+<li>void glVertexAttrib1fv(GLuint index,const GLfloat <a href="#id97"><span class="problematic" id="id98">*</span></a>v)</li>
+<li>void glVertexAttrib1sv(GLuint index,const GLshort <a href="#id99"><span class="problematic" id="id100">*</span></a>v)</li>
+<li>void glVertexAttrib1dv(GLuint index,const GLdouble <a href="#id101"><span class="problematic" id="id102">*</span></a>v)</li>
+<li>void glVertexAttrib2fv(GLuint index,const GLfloat <a href="#id103"><span class="problematic" id="id104">*</span></a>v)</li>
+<li>void glVertexAttrib2sv(GLuint index,const GLshort <a href="#id105"><span class="problematic" id="id106">*</span></a>v)</li>
+<li>void glVertexAttrib2dv(GLuint index,const GLdouble <a href="#id107"><span class="problematic" id="id108">*</span></a>v)</li>
+<li>void glVertexAttrib3fv(GLuint index,const GLfloat <a href="#id109"><span class="problematic" id="id110">*</span></a>v)</li>
+<li>void glVertexAttrib3sv(GLuint index,const GLshort <a href="#id111"><span class="problematic" id="id112">*</span></a>v)</li>
+<li>void glVertexAttrib3dv(GLuint index,const GLdouble <a href="#id113"><span class="problematic" id="id114">*</span></a>v)</li>
+<li>void glVertexAttrib4fv(GLuint index,const GLfloat <a href="#id115"><span class="problematic" id="id116">*</span></a>v)</li>
+<li>void glVertexAttrib4sv(GLuint index,const GLshort <a href="#id117"><span class="problematic" id="id118">*</span></a>v)</li>
+<li>void glVertexAttrib4dv(GLuint index,const GLdouble <a href="#id119"><span class="problematic" id="id120">*</span></a>v)</li>
+<li>void glVertexAttrib4iv(GLuint index,const GLint <a href="#id121"><span class="problematic" id="id122">*</span></a>v)</li>
+<li>void glVertexAttrib4bv(GLuint index,const GLbyte <a href="#id123"><span class="problematic" id="id124">*</span></a>v)</li>
+<li>void glVertexAttrib4ubv(GLuint index,const GLubyte <a href="#id125"><span class="problematic" id="id126">*</span></a>v)</li>
+<li>void glVertexAttrib4usv(GLuint index,const GLushort <a href="#id127"><span class="problematic" id="id128">*</span></a>v)</li>
+<li>void glVertexAttrib4uiv(GLuint index,const GLuint <a href="#id129"><span class="problematic" id="id130">*</span></a>v)</li>
 <li>void glVertexAttribPointer(GLuint index,GLint size,GLenum type,GLboolean normalized,GLsizei stride,const GLvoid * pointer)</li>
 <li>void glVertexPointer(GLint size,GLenum type,GLsizei stride,const GLvoid * pointer)</li>
 <li>void glViewport(GLint x,GLint y,GLsizei width,GLsizei height)</li>
@@ -1672,8 +1672,8 @@
 <li>void gluGetTessProperty(GLUtesselator* tess,GLenum which,GLdouble* data)</li>
 <li>void gluLoadSamplingMatrices(GLUnurbs* nurb,const GLfloat * model,const GLfloat * perspective,const GLint * view)</li>
 <li>void gluLookAt(GLdouble eyeX,GLdouble eyeY,GLdouble eyeZ,GLdouble centerX,GLdouble centerY,GLdouble centerZ,GLdouble upX,GLdouble upY,GLdouble upZ)</li>
-<li>GLUnurbs <a href="#id129"><span class="problematic" id="id130">*</span></a>gluNewNurbsRenderer(void)</li>
-<li>GLUquadric <a href="#id131"><span class="problematic" id="id132">*</span></a>gluNewQuadric(void)</li>
+<li>GLUnurbs <a href="#id131"><span class="problematic" id="id132">*</span></a>gluNewNurbsRenderer(void)</li>
+<li>GLUquadric <a href="#id133"><span class="problematic" id="id134">*</span></a>gluNewQuadric(void)</li>
 <li>GLUtesselator* gluNewTess(void)</li>
 <li>void gluNextContour(GLUtesselator* tess,GLenum type)</li>
 <li>void gluNurbsCurve(GLUnurbs* nurb,GLint knotCount,GLfloat * knots,GLint stride,GLfloat * control,GLint order,GLenum type)</li>
@@ -1700,6 +1700,14 @@
 <li>void gluTessVertex(GLUtesselator* tess,GLdouble * location,GLvoid* data)</li>
 <li>GLint gluUnProject(GLdouble winX,GLdouble winY,GLdouble winZ,const GLdouble * model,const GLdouble * proj,const GLint * view,GLdouble* objX,GLdouble* objY,GLdouble* objZ)</li>
 <li>void glDisable(GLenum cap)</li>
+<li>void glDisableClientState(GLenum array)</li>
+<li>void glBindVertexArray(GLuint array)</li>
+<li>void glGenVertexArrays(GLsizei n,const GLuint * arrays)</li>
+<li>GLenum glewInit(void)</li>
+<li>GLboolean glewIsSupported(const char <a href="#id135"><span class="problematic" id="id136">*</span></a>name)</li>
+<li>GLboolean glewGetExtension(const char <a href="#id137"><span class="problematic" id="id138">*</span></a>name)</li>
+<li>const GLubyte <a href="#id139"><span class="problematic" id="id140">*</span></a>glewGetErrorString(GLenum error)</li>
+<li>const GLubyte <a href="#id141"><span class="problematic" id="id142">*</span></a>glewGetString(GLenum name)</li>
 </ul>
 </div>
 
