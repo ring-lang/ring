@@ -217,6 +217,7 @@ GLUT_GAME_MODE_DISPLAY_CHANGED
 	$nDefaultConstantType = C_CONSTANT_TYPE_POINTER	
 	$cDefaultConstantPointerType = "void"
 </runcode>
+
 <constant>
 GLUT_STROKE_ROMAN  
 GLUT_STROKE_MONO_ROMAN
@@ -631,4 +632,4 @@ int glutExtensionSupported(const char * extension)
 void glutReportErrors(void)
 void glutMainLoop(void)
 
-
+void glutStrokeString(void *font, const char *string )

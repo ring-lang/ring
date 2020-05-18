@@ -2482,6 +2482,24 @@ RING_FUNC(ring_glutMainLoop)
 	glutMainLoop();
 }
 
+
+RING_FUNC(ring_glutStrokeString)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	glutStrokeString((void *) RING_API_GETCPOINTER(1,"void"),RING_API_GETSTRING(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("glutinit",ring_glutInit);
@@ -2595,6 +2613,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("glutextensionsupported",ring_glutExtensionSupported);
 	ring_vm_funcregister("glutreporterrors",ring_glutReportErrors);
 	ring_vm_funcregister("glutmainloop",ring_glutMainLoop);
+	ring_vm_funcregister("glutstrokestring",ring_glutStrokeString);
 	ring_vm_funcregister("get_glut_rgb",ring_get_glut_rgb);
 	ring_vm_funcregister("get_glut_rgba",ring_get_glut_rgba);
 	ring_vm_funcregister("get_glut_index",ring_get_glut_index);
