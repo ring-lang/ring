@@ -371,7 +371,7 @@ More Improvements
 * RingLibSDL - Update LibSDL version from 2.0.10 to 2.0.12
 * RingRayLib - Better Code (Functions will return objects instead of pointers)
 * RingOpenGL - Better Code (Added GLEW functions)
-* RingFreeGLUT - Added glutCloseFunc() function
+* RingFreeGLUT - Better Code (Added many functions)
 * RingPM - Support terminals that pass the executable name using UPPER case
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
 * Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
