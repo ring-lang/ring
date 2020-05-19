@@ -1,6 +1,15 @@
+#--------------------------------------------------------------------------------
+# Original RayLib sample from : www.raylib.com
+# Ported to RingRayLib by Mahmoud Fayed & Bert Mariani
+# 2020, accelerated by Ilir Liburn (iliribur@gmail.com)
+#--------------------------------------------------------------------------------
+
 load "raylib.ring"
+load "stdlibcore.ring"
 
 func main
+
+	SetTraceLogLevel(LOG_NONE)
 
 	screenWidth  = 800
 	screenHeight = 600
@@ -34,11 +43,12 @@ func main
 
 	SetTargetFPS(60)               // Set our game to run at 60 frames-per-second
 
-	aList = []
+	aList = newlist(cubicmap.height, cubicmap.width)
+
 	for y = 0 to cubicmap.height-1
 		for x = 0 to cubicmap.width-1
 			if GetImagePixelR(mapPixels,y,x,cubicmap.width) = 255 
-				aList + [y,x]
+				aList[y+1][x+1] = true
 			ok
 		next
 	next
@@ -51,7 +61,7 @@ func main
 
 		// Check player collision (we simplify to 2D collision detection)
 		playerPos = Vector2( camera.position.x, camera.position.z )
-		playerRadius = 0.1         // Collision radius (player is modelled as a cilinder for collision)
+		playerRadius = 0.1	// Collision radius (player is modelled as a cilinder for collision)
 		playerCellX = (playerPos.x - mapPosition.x + 0.5)
 		playerCellY = (playerPos.y - mapPosition.z + 0.5)
 
@@ -67,22 +77,22 @@ func main
 		but  playerCellY >= cubicmap.height 
 			playerCellY  = cubicmap.height - 1
 		ok
-        
-   	 
-		for aItem in aList
-			y = aItem[1]  x=aItem[2]
-			if CheckCollisionCircleRec( playerPos, playerRadius, Rectangle( mapPosition.x - 0.5 + x , mapPosition.z - 0.5 + y , 1, 1 ))  
-				camera.position = oldCamPos 
-				exit 
-			ok
-		next
+
+		playerCellX += (playerPos.x - oldCamPos.x)*10
+		playerCellY += (playerPos.y - oldCamPos.z)*10
+		playerCellX = floor(playerCellX + 1)
+		playerCellY = floor(playerCellY + 1)
+
+		if aList[playerCellY][playerCellX] = true
+			camera.position = oldCamPos
+		ok
 
 		BeginDrawing()
 
 			ClearBackground(RAYWHITE)
 
 			BeginMode3D(camera)
-				DrawModel(model, mapPosition, 1.0, WHITE)                        // Draw maze map
+				DrawModel(model, mapPosition, 1.0, WHITE)	// Draw maze map
 			EndMode3D()
 
 			DrawTextureEx( cubicmap, Vector2( GetScreenWidth() - cubicmap.width*4 - 20, 20 ), 0.0f, 4.0f, WHITE)
