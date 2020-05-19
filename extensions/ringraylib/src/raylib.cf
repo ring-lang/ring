@@ -1,6 +1,6 @@
 <nodllstartup>
 <code>
-/* Copyright (c) 2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2019-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #define RING_EXTENSION	// Don't call : windows.h (Avoid conflict with raylib.h)
 #include <ring.h>
