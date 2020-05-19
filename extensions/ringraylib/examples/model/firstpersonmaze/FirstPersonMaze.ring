@@ -78,12 +78,12 @@ func main
 			playerCellY  = cubicmap.height - 1
 		ok
 
-		playerCellX += (playerPos.x - oldCamPos.x)*10
-		playerCellY += (playerPos.y - oldCamPos.z)*10
-		playerCellX = floor(playerCellX + 1)
-		playerCellY = floor(playerCellY + 1)
+		playerX = playerCellX + (playerPos.x - oldCamPos.x)*11
+		playerY = playerCellY + (playerPos.y - oldCamPos.z)*11
+		playerX = floor(playerX + 1)
+		playerY = floor(playerY + 1)
 
-		if aList[playerCellY][playerCellX] = true
+		if aList[playerY][playerX] = true
 			camera.position = oldCamPos
 		ok
 
@@ -99,7 +99,7 @@ func main
 			DrawRectangleLines( GetScreenWidth() - cubicmap.width*4 - 20, 20, cubicmap.width*4, cubicmap.height*4, GREEN)
 
 			// Draw player position radar
-			DrawRectangle( GetScreenWidth() - cubicmap.width*4 - 20 + playerCellX*4, 20 + playerCellY*4, 4, 4, RED)
+			DrawRectangle( GetScreenWidth() - cubicmap.width*4 -21.5 + playerCellX*4, 18.5 + playerCellY*4, 4, 4, RED)
 
 			DrawFPS(10, 10)
 
