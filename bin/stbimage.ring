@@ -1,0 +1,1 @@
+load "/../extensions/ringstbimage/stbimage.ring"
