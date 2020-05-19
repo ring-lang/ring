@@ -566,5 +566,9 @@ aPackagesRegistry = [
 	[ :name = "escape",
 	  :description = "Escape game package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "ringstbimage",
+	  :description = "RingStbImage package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
