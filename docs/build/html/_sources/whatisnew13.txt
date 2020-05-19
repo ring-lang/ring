@@ -331,6 +331,7 @@ For more information see the Low Level Functions chapter in the documentation
 More Improvements
 =================
 
+* RingStbImage : New extension support the stb_image library
 * New Samples
 	* ring/samples/3D/cubeongpu/cubeongpu.ring
 	* ring/samples/other/helloworld/hello.ring
