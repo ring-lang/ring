@@ -8,7 +8,7 @@
 <runcode>
 aStringTypes + "char const *"
 aStringTypes + "stbi_uc const *"
-aStringTypes + "stbi_uc"
+aStringTypes + "stbi_uc *"
 </runcode>
 
 stbi_uc *stbi_load_from_memory(stbi_uc const *buffer, int len,int *x, int *y, int *channels_in_file, int desired_channels) 
