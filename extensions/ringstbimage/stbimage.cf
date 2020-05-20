@@ -11,6 +11,14 @@ aStringTypes + "stbi_uc const *"
 aStringTypes + "stbi_uc *"
 </runcode>
 
+<constant>
+STBI_default
+STBI_grey
+STBI_grey_alpha
+STBI_rgb
+STBI_rgb_alpha 
+</constant>
+
 stbi_uc *stbi_load_from_memory(stbi_uc const *buffer, int len,int *x, int *y, int *channels_in_file, int desired_channels) 
 stbi_uc *stbi_load(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels) 
 stbi_uc *stbi_load_from_file(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels) 

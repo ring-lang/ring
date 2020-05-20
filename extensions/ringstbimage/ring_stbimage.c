@@ -4,6 +4,31 @@
 
 #define STB_IMAGE_IMPLEMENTATION
 #include "stb_image.h"
+RING_FUNC(ring_get_stbi_default)
+{
+	RING_API_RETNUMBER(STBI_default);
+}
+
+RING_FUNC(ring_get_stbi_grey)
+{
+	RING_API_RETNUMBER(STBI_grey);
+}
+
+RING_FUNC(ring_get_stbi_grey_alpha)
+{
+	RING_API_RETNUMBER(STBI_grey_alpha);
+}
+
+RING_FUNC(ring_get_stbi_rgb)
+{
+	RING_API_RETNUMBER(STBI_rgb);
+}
+
+RING_FUNC(ring_get_stbi_rgb_alpha)
+{
+	RING_API_RETNUMBER(STBI_rgb_alpha);
+}
+
 
 RING_FUNC(ring_stbi_load_from_memory)
 {
@@ -824,4 +849,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("stbi_zlib_decode_buffer",ring_stbi_zlib_decode_buffer);
 	ring_vm_funcregister("stbi_zlib_decode_noheader_malloc",ring_stbi_zlib_decode_noheader_malloc);
 	ring_vm_funcregister("stbi_zlib_decode_noheader_buffer",ring_stbi_zlib_decode_noheader_buffer);
+	ring_vm_funcregister("get_stbi_default",ring_get_stbi_default);
+	ring_vm_funcregister("get_stbi_grey",ring_get_stbi_grey);
+	ring_vm_funcregister("get_stbi_grey_alpha",ring_get_stbi_grey_alpha);
+	ring_vm_funcregister("get_stbi_rgb",ring_get_stbi_rgb);
+	ring_vm_funcregister("get_stbi_rgb_alpha",ring_get_stbi_rgb_alpha);
 }

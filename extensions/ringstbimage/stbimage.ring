@@ -6,4 +6,5 @@ else
 	LoadLib("libring_stbimage.so")
 ok
 
+load "stbimage.rh"
 

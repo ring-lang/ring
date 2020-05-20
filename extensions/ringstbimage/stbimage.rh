@@ -1,0 +1,5 @@
+STBI_default = get_STBI_default()
+STBI_grey = get_STBI_grey()
+STBI_grey_alpha = get_STBI_grey_alpha()
+STBI_rgb = get_STBI_rgb()
+STBI_rgb_alpha = get_STBI_rgb_alpha()
