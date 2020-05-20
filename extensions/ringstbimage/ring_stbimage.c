@@ -451,20 +451,6 @@ RING_FUNC(ring_stbi_failure_reason)
 }
 
 
-RING_FUNC(ring_stbi_image_free)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	stbi_image_free((void *) RING_API_GETCPOINTER(1,"void"));
-}
-
-
 RING_FUNC(ring_stbi_info_from_memory)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
@@ -832,7 +818,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("stbi_is_hdr",ring_stbi_is_hdr);
 	ring_vm_funcregister("stbi_is_hdr_from_file",ring_stbi_is_hdr_from_file);
 	ring_vm_funcregister("stbi_failure_reason",ring_stbi_failure_reason);
-	ring_vm_funcregister("stbi_image_free",ring_stbi_image_free);
 	ring_vm_funcregister("stbi_info_from_memory",ring_stbi_info_from_memory);
 	ring_vm_funcregister("stbi_is_16_bit_from_memory",ring_stbi_is_16_bit_from_memory);
 	ring_vm_funcregister("stbi_info",ring_stbi_info);

@@ -36,7 +36,9 @@ int stbi_is_hdr_from_memory(stbi_uc const *buffer, int len)
 int stbi_is_hdr(char const *filename) 
 int stbi_is_hdr_from_file(FILE *f) 
 const char *stbi_failure_reason(void) 
+<comment>
 void stbi_image_free(void *retval_from_stbi_load) 
+</comment>
 int stbi_info_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp) 
 int stbi_is_16_bit_from_memory(stbi_uc const *buffer, int len) 
 int stbi_info(char const *filename,int *x,int *y,int *comp) 
