@@ -13,7 +13,7 @@ GPU_FAST = true  // acceleration
 FPS = 60
 
 screenWidth = 1280
-screenHeight = 720
+screenHeight = 650
 
 SetTraceLogLevel(LOG_NONE)
 

@@ -31,6 +31,7 @@ Ring 1.13 comes with the next features!
 * Hassouna Course Samples
 * Ring support in SpaceVim
 * Better RingQt
+* Better RingRayLib
 * More Low Level Functions
 * More Improvements
 
@@ -309,6 +310,29 @@ The application user interface is updated for better productivity!
 .. image:: qtconverter.png
 	:alt: QtConverter
 
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Better RingRayLib
+
+Better RingRayLib
+=================
+
+1- All functions return objects instead of pointers
+
+2- Support RayMath libary functions
+
+3- More Samples are ported from RayLib to RingRayLib
+
+* First Person Maze
+
+.. image:: raylib_firstpersonmaze.png
+	:alt: firstpersonmaze
+
+* Plane Rotations 
+
+.. image:: raylib_planerotations.png
+	:alt: planerotations
+
 .. index:: 
 	pair: What is new in Ring 1.13?; More Low Level Functions
 
@@ -355,7 +379,6 @@ More Improvements
 	* ring/samples/other/varptr/varptr5.ring 
 	* ring/samples/other/UsingQML/sample10 folder (Charts Samples)
 	* ring/samples/other/UsingQML/sample11 folder (Data Visualization Samples)
-	* ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Ring Notepad - View Menu - Source Code (Full Screen)
@@ -371,7 +394,6 @@ More Improvements
 * Type Hints library - Better Code
 * StdLib - IsMainSourceFile() function - Better Code
 * RingLibSDL - Update LibSDL version from 2.0.10 to 2.0.12
-* RingRayLib - Better Code (Functions will return objects instead of pointers)
 * RingOpenGL - Better Code (Added GLEW functions)
 * RingFreeGLUT - Better Code (Added many functions)
 * RingPM - Support terminals that pass the executable name using UPPER case
