@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.30",
+	:version = "1.0.32",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.30",
+			:version = "1.0.32",
 			:branch = "master"
 		]
 	],
@@ -37,6 +37,8 @@ aPackageInfo = [
 		"extensions/ringraylib/examples/core/ex7_inputmultitouch.ring",
 		"extensions/ringraylib/examples/core/ex8_camerafirstperson.ring",
 		"extensions/ringraylib/examples/core/ex9_3dpicking.ring",
+		"extensions/ringraylib/examples/core/ex10_ScissorTest.ring",
+		"extensions/ringraylib/examples/core/ex11_inputgesturesdetection.ring",
 		"extensions/ringraylib/examples/model/cubicmap/cubicmap.png",
 		"extensions/ringraylib/examples/model/cubicmap/CubicMap.ring",
 		"extensions/ringraylib/examples/model/cubicmap/cubicmap_atlas.png",
