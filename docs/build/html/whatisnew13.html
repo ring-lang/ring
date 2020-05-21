@@ -74,6 +74,7 @@
 <li>Ring support in SpaceVim</li>
 <li>Better RingQt</li>
 <li>Better RingRayLib</li>
+<li>RingStbImage Extension</li>
 <li>More Low Level Functions</li>
 <li>More Improvements</li>
 </ul>
@@ -249,8 +250,36 @@
 </ul>
 <img alt="planerotations" src="_images/raylib_planerotations.png" />
 </div>
+<div class="section" id="ringstbimage-extension">
+<span id="index-19"></span><h2>RingStbImage Extension<a class="headerlink" href="#ringstbimage-extension" title="Permalink to this headline">¶</a></h2>
+<p>New extension support the stb_image library</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># Load the library</span>
+        <span class="k">load</span> <span class="s">&quot;stbimage.ring&quot;</span>
+<span class="c"># Image Information</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">0</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span> <span class="n">channels</span><span class="o">=</span><span class="mi">0</span>
+<span class="c"># Ring will Free cData automatically in the end of the program</span>
+        <span class="n">cData</span> <span class="o">=</span> <span class="n">stbi_load</span><span class="p">(</span><span class="s">&quot;ring.jpg&quot;</span><span class="p">,:</span><span class="n">width</span><span class="p">,:</span><span class="n">height</span><span class="p">,:</span><span class="n">channels</span><span class="p">,</span><span class="n">STBI_rgb</span><span class="p">)</span>
+<span class="c"># Display the output</span>
+        <span class="o">?</span> <span class="s">&quot;Size (bytes): &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">cData</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s">&quot;Width : &quot;</span> <span class="o">+</span> <span class="n">width</span>
+        <span class="o">?</span> <span class="s">&quot;Height: &quot;</span> <span class="o">+</span> <span class="n">height</span>
+        <span class="o">?</span> <span class="s">&quot;Channels: &quot;</span> <span class="o">+</span> <span class="n">channels</span>
+<span class="c"># End of program</span>
+        <span class="o">?</span> <span class="p">:</span><span class="k">done</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Size</span> <span class="p">(</span><span class="n">bytes</span><span class="p">):</span> <span class="mi">557371</span>
+<span class="n">Width</span> <span class="p">:</span> <span class="mi">563</span>
+<span class="n">Height</span><span class="p">:</span> <span class="mi">330</span>
+<span class="n">Channels</span><span class="p">:</span> <span class="mi">3</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="more-low-level-functions">
-<span id="index-19"></span><h2>More Low Level Functions<a class="headerlink" href="#more-low-level-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>More Low Level Functions<a class="headerlink" href="#more-low-level-functions" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to the Low Level functions</p>
 <p>For more information see the Low Level Functions chapter in the documentation</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">setpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>
@@ -260,9 +289,8 @@
 </div>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-20"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-21"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>RingStbImage : New extension support the stb_image library</li>
 <li><dl class="first docutils">
 <dt>New Samples</dt>
 <dd><ul class="first last">
@@ -288,6 +316,7 @@
 <li>ring/samples/other/varptr/varptr5.ring</li>
 <li>ring/samples/other/UsingQML/sample10 folder (Charts Samples)</li>
 <li>ring/samples/other/UsingQML/sample11 folder (Data Visualization Samples)</li>
+<li>ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring</li>
 </ul>
 </dd>
 </dl>
@@ -354,6 +383,7 @@
 <li><a class="reference internal" href="#ring-support-in-spacevim">Ring support in SpaceVim</a></li>
 <li><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
 <li><a class="reference internal" href="#better-ringraylib">Better RingRayLib</a></li>
+<li><a class="reference internal" href="#ringstbimage-extension">RingStbImage Extension</a></li>
 <li><a class="reference internal" href="#more-low-level-functions">More Low Level Functions</a></li>
 <li><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>

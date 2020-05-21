@@ -32,6 +32,7 @@ Ring 1.13 comes with the next features!
 * Ring support in SpaceVim
 * Better RingQt
 * Better RingRayLib
+* RingStbImage Extension
 * More Low Level Functions
 * More Improvements
 
@@ -333,6 +334,43 @@ Better RingRayLib
 .. image:: raylib_planerotations.png
 	:alt: planerotations
 
+
+.. index:: 
+	pair: What is new in Ring 1.13?; RingStbImage Extension
+
+RingStbImage Extension
+======================
+
+New extension support the stb_image library
+
+Example:
+
+.. code-block:: ring
+
+	# Load the library
+		load "stbimage.ring"
+	# Image Information
+		width=0	height=0 channels=0
+	# Ring will Free cData automatically in the end of the program
+		cData = stbi_load("ring.jpg",:width,:height,:channels,STBI_rgb)
+	# Display the output
+		? "Size (bytes): " + len(cData)
+		? "Width : " + width
+		? "Height: " + height
+		? "Channels: " + channels
+	# End of program
+		? :done
+
+Output:
+
+.. code-block:: ring
+
+	Size (bytes): 557371
+	Width : 563
+	Height: 330
+	Channels: 3
+	done
+
 .. index:: 
 	pair: What is new in Ring 1.13?; More Low Level Functions
 
@@ -355,7 +393,6 @@ For more information see the Low Level Functions chapter in the documentation
 More Improvements
 =================
 
-* RingStbImage : New extension support the stb_image library
 * New Samples
 	* ring/samples/3D/cubeongpu/cubeongpu.ring
 	* ring/samples/other/helloworld/hello.ring
@@ -379,6 +416,7 @@ More Improvements
 	* ring/samples/other/varptr/varptr5.ring 
 	* ring/samples/other/UsingQML/sample10 folder (Charts Samples)
 	* ring/samples/other/UsingQML/sample11 folder (Data Visualization Samples)
+	* ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Ring Notepad - View Menu - Source Code (Full Screen)
