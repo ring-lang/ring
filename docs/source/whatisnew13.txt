@@ -447,6 +447,7 @@ More Improvements
 * Ring VM - ring_vmexpr.c - Better Code - Avoid magic numbers
 * Ring VM - ring_state_filetokens() - optional parameter for the (Not Case Sensitive) feature.
 * Ring VM - int2bytes(), float2bytes() & double2bytes() uses sizeof() function
+* Ring VM - Extensions API - Support local scope of the caller when getting integer pointer
 * The ring/rnoteexe folder is moved to ring/applications/rnote
 * The ring/android folder is moved to ring/extensions/android
 * The ring/libdepwin folder is moved to ring/extensions/libdepwin
