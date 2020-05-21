@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Support for C Functions */
 
@@ -285,7 +285,7 @@ RING_API void * ring_vm_api_varptr ( void *pPointer,const char  *cStr,const char
 RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
 {
 	VM *pVM  ;
-	List *pList  ;
+	List *pList, *pActiveMem  ;
 	Item *pItem  ;
 	/*
 	**  Usage 
@@ -294,10 +294,17 @@ RING_API void ring_vm_api_intvalue ( void *pPointer,const char  *cStr )
 	**  We need to convert again from int to double, because Ring uses double 
 	*/
 	pVM = (VM *) pPointer ;
+	/* Set the Active Scope */
+	pActiveMem = pVM->pActiveMem ;
+	pVM->pActiveMem = ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)-1);
 	if ( ring_vm_findvar(pVM, cStr ) == 0 ) {
+		/* Restore the Active Scope */
+		pVM->pActiveMem = pActiveMem ;
 		RING_API_ERROR(RING_VM_ERROR_NOTVARIABLE);
 		return ;
 	}
+	/* Restore the Active Scope */
+	pVM->pActiveMem = pActiveMem ;
 	pList = (List *) RING_VM_STACK_READP ;
 	RING_VM_STACK_POP ;
 	if ( ring_list_getint(pList,RING_VAR_TYPE) == RING_VM_NUMBER ) {
