@@ -29,7 +29,6 @@ RING_FUNC(ring_get_stbi_rgb_alpha)
 	RING_API_RETNUMBER(STBI_rgb_alpha);
 }
 
-
 RING_FUNC(ring_stbi_load_from_memory)
 {
 	if ( RING_API_PARACOUNT != 6 ) {
@@ -131,7 +130,6 @@ RING_FUNC(ring_stbi_load_from_file)
 	RING_API_ACCEPTINTVALUE(3) ;
 	RING_API_ACCEPTINTVALUE(4) ;
 }
-
 
 RING_FUNC(ring_stbi_load_16_from_memory)
 {
