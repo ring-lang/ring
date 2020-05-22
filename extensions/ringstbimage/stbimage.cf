@@ -28,6 +28,8 @@ stbi_uc *stbi_load_from_file(FILE *f, int *x, int *y, int *channels_in_file, int
 <code>
 RING_FUNC(ring_stbi_load_from_memory)
 {
+	unsigned char *pData;
+	int *p1, *p2, *p3 ;
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -56,15 +58,24 @@ RING_FUNC(ring_stbi_load_from_memory)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(stbi_load_from_memory(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETINTPOINTER(3),RING_API_GETINTPOINTER(4),RING_API_GETINTPOINTER(5), (int ) RING_API_GETNUMBER(6)));
+	p1 = RING_API_GETINTPOINTER(3);
+	p2 = RING_API_GETINTPOINTER(4);
+	p3 = RING_API_GETINTPOINTER(5);
+	pData = stbi_load_from_memory(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),p1,p2,p3, (int ) RING_API_GETNUMBER(6));
+	if ( pData == NULL ) {
+		RING_API_ERROR("Can't load the image data!") ;
+		return ;
+	}
+	RING_API_RETSTRING2(pData, (*p1) * (*p2) * (*p3));
 	RING_API_ACCEPTINTVALUE(3) ;
 	RING_API_ACCEPTINTVALUE(4) ;
 	RING_API_ACCEPTINTVALUE(5) ;
 }
 
-
 RING_FUNC(ring_stbi_load)
 {
+	unsigned char *pData;
+	int *p1, *p2, *p3 ;
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -89,15 +100,26 @@ RING_FUNC(ring_stbi_load)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(stbi_load(RING_API_GETSTRING(1),RING_API_GETINTPOINTER(2),RING_API_GETINTPOINTER(3),RING_API_GETINTPOINTER(4), (int ) RING_API_GETNUMBER(5)));
+	p1 = RING_API_GETINTPOINTER(2);
+	p2 = RING_API_GETINTPOINTER(3);
+	p3 = RING_API_GETINTPOINTER(4);
+	pData = stbi_load(RING_API_GETSTRING(1),p1,p2,p3, (int ) RING_API_GETNUMBER(5));
+	if ( pData == NULL ) {
+		RING_API_ERROR("Can't load the image file!") ;
+		return ;
+	}
+	RING_API_RETSTRING2(pData, (*p1) * (*p2) * (*p3));
 	RING_API_ACCEPTINTVALUE(2) ;
 	RING_API_ACCEPTINTVALUE(3) ;
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
 
+
 RING_FUNC(ring_stbi_load_from_file)
 {
+	unsigned char *pData;
+	int *p1, *p2, *p3 ;
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -122,7 +144,11 @@ RING_FUNC(ring_stbi_load_from_file)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(stbi_load_from_file((FILE *) RING_API_GETCPOINTER(1,"FILE"),RING_API_GETINTPOINTER(2),RING_API_GETINTPOINTER(3),RING_API_GETINTPOINTER(4), (int ) RING_API_GETNUMBER(5)));
+	p1 = RING_API_GETINTPOINTER(2);
+	p2 = RING_API_GETINTPOINTER(3);
+	p3 = RING_API_GETINTPOINTER(4);
+	pData = stbi_load_from_file((FILE *) RING_API_GETCPOINTER(1,"FILE"),p1,p2,p3, (int ) RING_API_GETNUMBER(5)) ;
+	RING_API_RETSTRING2(pData, (*p1) * (*p2) * (*p3));
 	RING_API_ACCEPTINTVALUE(2) ;
 	RING_API_ACCEPTINTVALUE(3) ;
 	RING_API_ACCEPTINTVALUE(4) ;
