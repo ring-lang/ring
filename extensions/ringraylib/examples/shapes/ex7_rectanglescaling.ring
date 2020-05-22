@@ -1,3 +1,8 @@
+#===================================================================#
+# Based on Original Sample from RayLib (https://www.raylib.com/)
+# Ported to RingRayLib by Ring Team
+#===================================================================#
+
 load "raylib.ring"
 
 MOUSE_SCALE_MARK_SIZE = 12

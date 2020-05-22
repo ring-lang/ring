@@ -1,3 +1,8 @@
+#===================================================================#
+# Based on Original Sample from RayLib (https://www.raylib.com/)
+# Ported to RingRayLib by Ring Team
+#===================================================================#
+
 load "raylib.ring"
 
 MAX_COLORS_COUNT = 21          // Number of colors available

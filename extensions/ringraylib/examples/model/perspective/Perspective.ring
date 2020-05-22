@@ -1,3 +1,8 @@
+#===================================================================#
+# Based on Original Sample from RayLib (https://www.raylib.com/)
+# Ported to RingRayLib by Ring Team
+#===================================================================#
+
 load "raylib.ring"
 
 FOVY_PERSPECTIVE   =  45.0
