@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.33",
+	:version = "1.0.34",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.33",
+			:version = "1.0.34",
 			:branch = "master"
 		]
 	],
@@ -70,6 +70,8 @@ aPackageInfo = [
 		"extensions/ringraylib/examples/shapes/ex5_followingeyes.ring",
 		"extensions/ringraylib/examples/shapes/ex6_colorspalette.ring",
 		"extensions/ringraylib/examples/shapes/ex7_rectanglescaling.ring",
+		"extensions/ringraylib/examples/shapes/ex8_rectanglerounded.ring",
+		"extensions/ringraylib/examples/shapes/ex9_bouncingball.ring",
 		"extensions/ringraylib/examples/sound/musicstream/guitar_noodling.ogg",
 		"extensions/ringraylib/examples/sound/musicstream/MusicPlayingStreaming.ring",
 		"extensions/ringraylib/examples/sound/soundloading/sound.wav",
