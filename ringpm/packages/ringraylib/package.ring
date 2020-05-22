@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.35",
+	:version = "1.0.36",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.35",
+			:version = "1.0.36",
 			:branch = "master"
 		]
 	],
@@ -72,6 +72,7 @@ aPackageInfo = [
 		"extensions/ringraylib/examples/shapes/ex7_rectanglescaling.ring",
 		"extensions/ringraylib/examples/shapes/ex8_rectanglerounded.ring",
 		"extensions/ringraylib/examples/shapes/ex9_bouncingball.ring",
+		"extensions/ringraylib/examples/shapes/ex10_drawcirclesector.ring",
 		"extensions/ringraylib/examples/sound/musicstream/guitar_noodling.ogg",
 		"extensions/ringraylib/examples/sound/musicstream/MusicPlayingStreaming.ring",
 		"extensions/ringraylib/examples/sound/soundloading/sound.wav",
@@ -98,7 +99,7 @@ aPackageInfo = [
 		"extensions/ringraylib/src/raylib.rh",
 		"extensions/ringraylib/src/raylib.ring",
 		"extensions/ringraylib/src/ring_raylib.c",
-		"extensions/ringraylib/src/rewrite.c",
+		"extensions/ringraylib/src/rewrite.ring",
 		"extensions/libdepwin/raylib2.5/bin/raylib.dll",
 		"extensions/libdepwin/raylib2.5/include/raylib.h",
 		"extensions/libdepwin/raylib2.5/lib/cmake/raylib/raylib-config-version.cmake",
