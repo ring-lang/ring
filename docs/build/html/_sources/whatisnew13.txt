@@ -326,6 +326,9 @@ Better RingRayLib
 
 * Scissor Test
 * Input Gestures Detection
+* Bouncing Ball
+* Rectangle Rounded
+* Draw Circle Sector
 * First Person Maze
 
 .. image:: raylib_firstpersonmaze.png
