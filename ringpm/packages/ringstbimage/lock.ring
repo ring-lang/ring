@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "ringstbimage",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.4",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
