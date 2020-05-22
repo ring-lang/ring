@@ -67,6 +67,7 @@ RING_FUNC(ring_stbi_load_from_memory)
 		return ;
 	}
 	RING_API_RETSTRING2(pData, (*p1) * (*p2) * (*p3));
+	stbi_image_free(pData);
 	RING_API_ACCEPTINTVALUE(3) ;
 	RING_API_ACCEPTINTVALUE(4) ;
 	RING_API_ACCEPTINTVALUE(5) ;
@@ -109,6 +110,7 @@ RING_FUNC(ring_stbi_load)
 		return ;
 	}
 	RING_API_RETSTRING2(pData, (*p1) * (*p2) * (*p3));
+	stbi_image_free(pData);
 	RING_API_ACCEPTINTVALUE(2) ;
 	RING_API_ACCEPTINTVALUE(3) ;
 	RING_API_ACCEPTINTVALUE(4) ;
@@ -149,6 +151,7 @@ RING_FUNC(ring_stbi_load_from_file)
 	p3 = RING_API_GETINTPOINTER(4);
 	pData = stbi_load_from_file((FILE *) RING_API_GETCPOINTER(1,"FILE"),p1,p2,p3, (int ) RING_API_GETNUMBER(5)) ;
 	RING_API_RETSTRING2(pData, (*p1) * (*p2) * (*p3));
+	stbi_image_free(pData);
 	RING_API_ACCEPTINTVALUE(2) ;
 	RING_API_ACCEPTINTVALUE(3) ;
 	RING_API_ACCEPTINTVALUE(4) ;
