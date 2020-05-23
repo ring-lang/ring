@@ -98,9 +98,9 @@ func displayString str, x, y, size, color_list
 func lightsOn
 
 	// set up light colors (ambient, diffuse, specular)
-	lightKa = [ 0.3, 0.3, 0.3, 1.0 ]  // ambient light
-	lightKd = [ 0.7, 0.7, 0.7, 1.0 ]  // diffuse light
-	lightKs = [ 1, 1, 1, 1 ]           	// specular light
+	lightKa = [ 0.3, 0.3, 0.3, 1.0 ]	// ambient light
+	lightKd = [ 0.7, 0.7, 0.7, 1.0 ]	// diffuse light
+	lightKs = [ 1, 1, 1, 1 ]			// specular light
 
 	lKa = ""
 	for e in lightKa
@@ -186,7 +186,7 @@ func regularKeys
 
 func leave
 
-	// remove texture, buffers, etc
+	// remove VRAM buffers, texture, etc
 	cube.destroy()
 
 // ----------------------------------------------------------
@@ -213,19 +213,19 @@ func main
 	glutKeyboardFunc(:regularKeys)
 	glutCloseFunc(:leave)
 
-	// initialize glew for externsions
+	// initialize glew for extensions
 	glewInit()
 
 	// set cube size, texture, colors, etc
-	cube.setup(0.5, 0.5, 0.5, "grid512.bmp", [	//set RGB color for each cube corner
-		 [1.0, 1.0, 1.0], // v0 - front right up color
-		 [1.0, 1.0, 0.0], // v1 - front left up color
-		 [1.0, 0.0, 0.0], // v2 - front leftt down color
-		 [1.0, 0.0, 1.0], // v3 - front right down color
-		 [0.0, 0.0, 1.0], // v4 - back right down color
-		 [0.0, 1.0, 1.0], // v5 - back left down color
-		 [0.0, 1.0, 0.0], // v6 - back left up color
-		 [0.0, 0.0, 0.0]	 // v7 - back right up color
+	cube.setup(0.5, 0.5, 0.5, "grid512.bmp", true, [ // RGB color list
+		 [1.0, 1.0, 1.0],	// v0 - front right up color
+		 [1.0, 1.0, 0.0],	// v1 - front left up color
+		 [1.0, 0.0, 0.0],	// v2 - front leftt down color
+		 [1.0, 0.0, 1.0],	// v3 - front right down color
+		 [0.0, 0.0, 1.0],	// v4 - back right down color
+		 [0.0, 1.0, 1.0],	// v5 - back left down color
+		 [0.0, 1.0, 0.0],	// v6 - back left up color
+		 [0.0, 0.0, 0.0]		// v7 - back right up color
 	])
 
 	// activate lights
@@ -242,9 +242,8 @@ class Cube
 	vertices=nullPointer() normals=nullPointer() colors=nullPointer() coords=nullPointer() indices=nullPointer()
 	vboid=nullPointer() iboid=nullPointer() vbo_id=0 ibo_id=0
 	vert_len=0 norm_len=0 col_len=0 coor_len=0 ind_len=0
-	verts="" norms="" colos="" cords="" indis=""
-	wh = 0.0 ht = 0.0 dh = 0.0
-	cube_size = 0 texture = 0
+	verts="" norms="" colos="" cords="" indis="" colrs=""
+	cube_size=0 texture=0 wh=0.0 ht=0.0 dh=0.0
 
 	C_INTSIZE = len(int2bytes(1))
 	txc = space(C_INTSIZE)
@@ -279,11 +278,11 @@ class Cube
 			1.0, 1.0, 1.0,   1.0, 1.0, 1.0,   1.0, 1.0, 1.0,   1.0, 1.0, 1.0 ]	// v4,v7,v6,v5 (back)
 
 		cube_tex_coords = [
-			1.0, 0.0,   0.0, 0.0,   0.0, 1.0,   1.0, 1.0,               // v0,v1,v2,v3 (front)
-			0.0, 0.0,   0.0, 1.0,   1.0, 1.0,   1.0, 0.0,               // v0,v3,v4,v5 (right)
-			1.0, 1.0,   1.0, 0.0,   0.0, 0.0,   0.0, 1.0,               // v0,v5,v6,v1 (top)
-			1.0, 0.0,   0.0, 0.0,   0.0, 1.0,   1.0, 1.0,               // v1,v6,v7,v2 (left)
-			0.0, 1.0,   1.0, 1.0,   1.0, 0.0,   0.0, 0.0,               // v7,v4,v3,v2 (bottom)
+			1.0, 0.0,   0.0, 0.0,   0.0, 1.0,   1.0, 1.0,		// v0,v1,v2,v3 (front)
+			0.0, 0.0,   0.0, 1.0,   1.0, 1.0,   1.0, 0.0,		// v0,v3,v4,v5 (right)
+			1.0, 1.0,   1.0, 0.0,   0.0, 0.0,   0.0, 1.0,		// v0,v5,v6,v1 (top)
+			1.0, 0.0,   0.0, 0.0,   0.0, 1.0,   1.0, 1.0,		// v1,v6,v7,v2 (left)
+			0.0, 1.0,   1.0, 1.0,   1.0, 0.0,   0.0, 0.0,		// v7,v4,v3,v2 (bottom)
 			0.0, 1.0,   1.0, 1.0,   1.0, 0.0,   0.0, 0.0 ]		// v4,v7,v6,v5 (back)
 
 		// A cube has 36 indices = 6 sides * 2 tris * 3 verts
@@ -336,22 +335,24 @@ class Cube
 
 		ind_len = len(indis)
 
-	// image makes a texture, can be null for no texture
-	// takes a color list in form [[R, G, B], ...] for each corner of the cube
-	// color list can be in form [R, G, B]  - single color for each corner of the cube
+
+	// takes a color list in [[R, G, B], ...] form for each corner of the cube
+	// color list can be in [R, G, B] form, single color for each corner of the cube
 	// list argument can be null, making cube entirely white
-	func setup width, height, depth, image, color_list
+	// image makes a texture, can be null for no texture
+	// if lights is true, cube accepts lights, orherwise not
+	// lights argument is having effect only if texure is used
+	func setup width, height, depth, image, lights, color_list
 
 		wh = width
 		ht = height
 		dh = depth
 
-		if image != ""
+		texture = 0
+
+		try
 			data = stbi_load(image, :width, :height, :depth, STBI_default)
-			if len(data) = 0
-				? stbi_failure_reason()
-			ok
-		        txptr = varptr(:txc, "GLuint")
+ 			txptr = varptr(:txc, "GLuint")
 			glGenTextures(1, txptr)
 			texture = bytes2int(txc)
 			glBindTexture(GL_TEXTURE_2D, texture)
@@ -363,14 +364,19 @@ class Cube
 				glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0,
 						GL_RGB, GL_UNSIGNED_BYTE, varptr(:data, "GLvoid"))
 			ok
+			if lights = false				
+				glTexEnvf(GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE, GL_DECAL)
+			ok
 			//scale linearly when image smalled than texture
 			glTexParameteri(GL_TEXTURE_2D,GL_TEXTURE_MIN_FILTER,GL_LINEAR)
 			glEnable(GL_TEXTURE_2D)
-		else
-			texture = 0
-		ok
 
-		colos = ""
+		catch
+			? stbi_failure_reason()
+		done
+
+
+		colrs = ""
 
 		if len(color_list) >= 8
 			for e in color_list
@@ -386,31 +392,31 @@ class Cube
 			c5 = color_list[6][1] + color_list[6][2] + color_list[6][3]
 			c6 = color_list[7][1] + color_list[7][2] + color_list[7][3]
 			c7 = color_list[8][1] + color_list[7][2] + color_list[8][3]
-			colos += c0 + c1 + c2 + c3	// v0,v1,v2,v3 (front)
-			colos += c0 + c3 + c4 + c5	// v0,v3,v4,v5 (right)
-			colos += c0 + c5 + c6 + c1	// v0,v5,v6,v1 (top)
-			colos += c1 + c6 + c7 + c2	// v1,v6,v7,v2 (left)
-			colos += c7 + c4 + c3 + c2	// v7,v4,v3,v2 (bottom)
-			colos += c4 + c7 + c6 + c5	// v4,v7,v6,v5 (back)
+			colrs += c0 + c1 + c2 + c3	// v0,v1,v2,v3 (front)
+			colrs += c0 + c3 + c4 + c5	// v0,v3,v4,v5 (right)
+			colrs += c0 + c5 + c6 + c1	// v0,v5,v6,v1 (top)
+			colrs += c1 + c6 + c7 + c2	// v1,v6,v7,v2 (left)
+			colrs += c7 + c4 + c3 + c2	// v7,v4,v3,v2 (bottom)
+			colrs += c4 + c7 + c6 + c5	// v4,v7,v6,v5 (back)
 		but len(color_list) >= 3
 			color1 =  float2bytes(color_list[1])
 			color2 =  float2bytes(color_list[2])
 			color3 =  float2bytes(color_list[3])
 			for i = 1 to col_len step 9
-				colos + = color1
-				colos + = color2
-				colos + = color3
+				colrs + = color1
+				colrs + = color2
+				colrs + = color3
 			next
 		else
 			color =  float2bytes(1.0)
 			for i = 1 to col_len step 3
-				colos + = color
+				colrs + = color
 			next
 		ok
 
 		vertices = varptr(:verts, "GLvoid")
 		normals = varptr(:norms, "GLvoid")
-		colors = varptr(:colos, "GLvoid")
+		colors = varptr(:colrs, "GLvoid")
 		coords = varptr(:cords, "GLvoid")
 		indices = varptr(:indis, "GLvoid")
 
@@ -452,9 +458,9 @@ class Cube
 		glPushMatrix()
 		glScalef(wh, ht, dh)
 
-		glBindTexture(GL_TEXTURE_2D, texture)
+		if mode and vbo_id > 0 // if we have buffers in VRAM
 
-		if mode	  
+			glBindTexture(GL_TEXTURE_2D, texture)
 			glBindBuffer(GL_ARRAY_BUFFER, vbo_id)
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ibo_id)
 
@@ -482,10 +488,13 @@ class Cube
 			glDisableClientState(GL_COLOR_ARRAY)
 			glDisableClientState(GL_NORMAL_ARRAY)
 
-			glBindBuffer(GL_ARRAY_BUFFER, 0) // unbind
+			glBindTexture(GL_TEXTURE_2D, 0) // unbind
+			glBindBuffer(GL_ARRAY_BUFFER, 0)
 			glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0)
 
-		else
+		else // use buffers in RAM
+			
+			glBindTexture(GL_TEXTURE_2D, texture)
 			glEnableClientState(GL_NORMAL_ARRAY)
 			glEnableClientState(GL_COLOR_ARRAY)
 			glEnableClientState(GL_TEXTURE_COORD_ARRAY)
@@ -506,14 +515,23 @@ class Cube
 			glDisableClientState(GL_TEXTURE_COORD_ARRAY)
 			glDisableClientState(GL_COLOR_ARRAY)
 			glDisableClientState(GL_NORMAL_ARRAY)
+			
+			glBindTexture(GL_TEXTURE_2D, 0) // unbind
 		ok
 
-		glBindTexture(GL_TEXTURE_2D, 0) // unbind
 		glPopMatrix()
 
 
+	// destroy VRAM buffers, reset RAM buffers to default
 	func destroy
 
-		glDeleteTextures(1, txptr) 
 		glDeletebuffers(1, vboid)
 		glDeletebuffers(1, iboid)
+
+		if (texture > 0)
+			glDeleteTextures(1, txptr) 
+		ok
+
+		colors = varptr(:colos, "GLvoid")
+		vbo_id = 0  ibo_id = 0
+		texture = 0 
