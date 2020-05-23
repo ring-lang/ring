@@ -329,6 +329,7 @@ Better RingRayLib
 * Bouncing Ball
 * Rectangle Rounded
 * Draw Circle Sector
+* RayLib Logo Animation
 * First Person Maze
 
 .. image:: raylib_firstpersonmaze.png
@@ -400,6 +401,7 @@ More Improvements
 
 * New Samples
 	* ring/samples/3D/cubeongpu/cubeongpu.ring
+	* ring/samples/3D/cubeongpu2/cubeongpu.ring
 	* ring/samples/other/helloworld/hello.ring
 	* ring/samples/other/helloworld/hello2.ring
 	* ring/samples/other/helloworld/hello3.ring
