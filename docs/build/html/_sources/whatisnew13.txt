@@ -20,8 +20,8 @@ Ring 1.13 comes with the next features!
 * MoneyBoxes Game
 * Matching Game
 * Pairs Game
-* Tetris Game
 * Word Game
+* Tetris Game
 * Escape Game
 * Hassouna Course Samples
 * Ring support in SpaceVim
@@ -38,13 +38,6 @@ Laser Game
 ==========
 
 An implementation for the Laser Game
-
-Simple Level
-
-.. image:: lasergame.png
-	:alt: Laser Game
-
-Advanced Level
 
 .. image:: lasergame2.png
 	:alt: Laser Game
@@ -95,11 +88,16 @@ An implementation for the Pairs Game
 .. image:: pairsgame.png
 	:alt: Pairs Game
 
-Another screen shot
+.. index:: 
+	pair: What is new in Ring 1.13?; Word Game
 
-.. image:: pairsgame2.png
-	:alt: Pairs Game
+Word Game
+=========
 
+An implementation for the Word Game
+
+.. image:: wordgame2.png
+	:alt: Word Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Tetris Game
@@ -118,20 +116,6 @@ Features
 
 .. image:: tetris.png
 	:alt: Tetris Game
-
-.. index:: 
-	pair: What is new in Ring 1.13?; Word Game
-
-Word Game
-=========
-
-An implementation for the Word Game
-
-.. image:: wordgame.png
-	:alt: Word Game
-
-.. image:: wordgame2.png
-	:alt: Word Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Escape Game
