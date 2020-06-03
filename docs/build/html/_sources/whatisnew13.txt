@@ -18,13 +18,8 @@ Ring 1.13 comes with the next features!
 * Laser Game
 * Magic Balls Game
 * MoneyBoxes Game
-* Questions Game
-* MoneyCase Game
-* Rock Paper Scissors Game
 * Matching Game
 * Pairs Game
-* Nim Game
-* Lottery Game
 * Tetris Game
 * Word Game
 * Escape Game
@@ -77,47 +72,6 @@ See if you can collect the required amount of money by opening boxes!
 	:alt: Money Boxes Game
 
 .. index:: 
-	pair: What is new in Ring 1.13?; Questions Game
-
-Questions Game
-==============
-
-An implementation for the Questions Game
-
-A screen shot for the game on Mobile devices like Android
-
-.. image:: questions_mobile.png
-	:width: 550pt
-	:height: 350pt
-	:alt: Questions Game
-
-.. index:: 
-	pair: What is new in Ring 1.13?; MoneyCase Game
-
-Money Case Game
-================
-
-Collect only the required amount of money!
-
-.. image:: moneycase.png
-	:width: 550pt
-	:height: 350pt
-	:alt: Money Case Game
-
-.. index:: 
-	pair: What is new in Ring 1.13?; Rock Paper Scissors Game
-
-Rock Paper Scissors Game
-========================
-
-An implementation for the Rock Paper Scissors Game
-
-.. image:: rockgame.png
-	:width: 550pt
-	:height: 400pt
-	:alt: Rock Game
-
-.. index:: 
 	pair: What is new in Ring 1.13?; Matching Game
 
 Matching Game
@@ -146,29 +100,6 @@ Another screen shot
 .. image:: pairsgame2.png
 	:alt: Pairs Game
 
-.. index:: 
-	pair: What is new in Ring 1.13?; Nim Game
-
-Nim Game
-========
-
-An implementation for the Nim Game
-
-.. image:: nimgame.png
-	:width: 550pt
-	:height: 400pt
-	:alt: Nim Game
-
-.. index:: 
-	pair: What is new in Ring 1.13?; Lottery Game
-
-Lottery Game
-============
-
-An implementation for the Lottery Game
-
-.. image:: lotterygame.png
-	:alt: Lottery Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Tetris Game
@@ -399,7 +330,15 @@ For more information see the Low Level Functions chapter in the documentation
 More Improvements
 =================
 
-* New Samples
+* More Applications
+	* Tours of Hanoi
+	* Questions Game
+	* Money Case Game
+	* Rock Paper Scissors Game
+	* Lottery Game
+	* Nim Game
+
+* More Samples
 	* ring/samples/3D/cubeongpu/cubeongpu.ring
 	* ring/samples/3D/cubeongpu2/cubeongpu.ring
 	* ring/samples/other/helloworld/hello.ring
