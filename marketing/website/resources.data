@@ -250,6 +250,10 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/escape" target="_blank">Escape Game</a>',
 		'<img src="escapegame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/towersofhanoi" target="_blank">Towers of Hanoi</a>',
+		'<img src="towersofhanoi.png" width="100%">'
 	]
 	]
 	 ],
