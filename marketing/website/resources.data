@@ -278,6 +278,19 @@
 				]
 			]
 	     ],
+	     ["Japanese Resources",[
+				[
+					'<a href="http://ring-lang-081.osdn.jp/" target="_blank">Ring Website</a>'
+				],
+				[
+					'<a href="http://ring-lang-081.osdn.jp/docs-1.11/index.html" target="_blank">Ring Documentation</a>'
+				],
+				[
+					'<a href="https://ja.osdn.net/projects/ring-lang-081/" target="_blank">Translation Source</a>'
+				]
+
+			]
+	     ],
 		 ["Posts from the 'Ring Programming For Arab' blog by 'Eng Sara H. Mohammed'",[
 				[
 					'<a href="https://ringprogramming4arab.wordpress.com/2017/02/05/%D8%A3%D9%87%D9%84%D8%A7-%D8%A8%D9%83-%D9%81%D9%89-%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A8%D9%84%D8%BA%D8%A9-%D8%B1%D9%8A%D9%86%D8%AC-welcome-to-ring-programming/" target="_blank">Tutorial: Welcome to Ring Programming!</a>'
