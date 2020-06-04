@@ -265,10 +265,10 @@
 					'<a href="https://www.youtube.com/watch?v=7BqoQldx0Pk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=2" target="_blank">Video Tutorials (Getting Started!)</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=6MquWkCeft8&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=1" target="_blank">Short Movies</a>'
+					'<a href="https://www.youtube.com/watch?v=6MquWkCeft8&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=1" target="_blank">Video Tutorials (Short Movies)</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=3NS_AmVYhjU&list=PLpQiqjcu7CuGUnhKlYJUk1RpNQkVcaCP-&index=1" target="_blank">Answers to some Questions</a>'
+					'<a href="https://www.youtube.com/watch?v=3NS_AmVYhjU&list=PLpQiqjcu7CuGUnhKlYJUk1RpNQkVcaCP-&index=1" target="_blank">Video Tutorials (Answers to some Questions)</a>'
 				],
 				[
 					'<a href="https://ribdev.wordpress.com" target="_blank">Ring Documentation Walkthrough</a>'
@@ -284,11 +284,7 @@
 				],
 				[
 					'<a href="http://ring-lang-081.osdn.jp/docs-1.11/index.html" target="_blank">Ring Documentation</a>'
-				],
-				[
-					'<a href="https://ja.osdn.net/projects/ring-lang-081/" target="_blank">Translation Source</a>'
 				]
-
 			]
 	     ],
 		 ["Posts from the 'Ring Programming For Arab' blog by 'Eng Sara H. Mohammed'",[
