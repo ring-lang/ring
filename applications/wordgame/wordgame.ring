@@ -7,7 +7,7 @@
 # Load the required libraries 
 #===================================================================================#
 
-	load "stdlib.ring"
+	load "stdlibcore.ring"
 	load "guilib.ring"
         load "WordList.ring"
 
@@ -581,7 +581,7 @@ func newGame
 
 func timerMan
 
-	nowTime    = ceil( (clock() - time1) / 1000 )
+	nowTime    = floor( (clock() - time1) / clockspersecond() )
 	nowMinute  = floor( nowTime / 60 )
 	nowSeconds = nowTime % 60
         
