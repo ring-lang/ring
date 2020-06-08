@@ -3,7 +3,7 @@
 # Author : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Email   : <calmosoft@gmail.com>
 
-load "stdlib.ring"
+load "stdlibcore.ring"
 load "guilib.ring"
 
 
@@ -13,14 +13,14 @@ Score = 0
 sumMoveBlack = 0 
 sumMoveWhite = 0
 
-oPicBlack = new QPixmap("black.jpg")
-oPicWhite = new QPixmap("white.jpg")
-oPicEmpty = new QPixmap("empty.jpg")
+oPicBlack = new QPixmap(AppFile("black.jpg"))
+oPicWhite = new QPixmap(AppFile("white.jpg"))
+oPicEmpty = new QPixmap(AppFile("empty.jpg"))
 
-bWidth  = oPicBlack.width()    ### 80 
-bHeight = oPicBlack.height()   ### 80 
+bWidth  = 70 
+bHeight = 70 
 
-C_Spacing = 2 ### was 5
+C_Spacing = 2 
 
 C_ButtonEmptyStyle  = ' background-color: Green; border-radius: 8px; ' ### border-style: outset; border-width: 0px; border-color: Green; '
 ### C_ButtonBlackStyle  = ' background-color: Green; border-radius: 8px; border-style: outset; border-width: 0px; border-color: Green; '
@@ -53,11 +53,10 @@ app = new qApp
 {
     win = new qWidget() {
         setWindowTitle('Othello Game')
-	setWinIcon(self,"white.jpg")
+	setWinIcon(self,AppFile("white.jpg"))
         setStyleSheet('background-color:White')
 
-        move(500,100)
-        reSize(800,800)
+        reSize(800,600)
         winheight = win.height()
         fontSize = 8 + (winheight / 100)
 
@@ -165,7 +164,7 @@ app = new qApp
                for Col = 1 to Size
                     Button[Row][Col] = new QPushButton(win) ### Create PUSH BUTTONS
                     {
-                        ### Button[Row][Col] { setIcon(new qIcon(new qPixMap("empty.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }  
+                        ### Button[Row][Col] { setIcon(new qIcon(new qPixMap(AppFile("empty.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }  
                         ### Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }                      
                         setClickEvent("pPlay(" + string(Row) + "," + string(Col) + ")")   ### CLICK PLAY MOVE >>> pPlay
                         setSizePolicy(1,1)
@@ -218,7 +217,7 @@ SEE nl+ "===== START START ====="+nl+nl
         for Col = 1 to Size
             bArray[Row][Col] = "E"      ### E-Empty cell
 
-            Button[Row][Col] { setIcon(new qIcon(new qPixMap("empty.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+            Button[Row][Col] { setIcon(new qIcon(new qPixMap(AppFile("empty.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }
             Button[Row][Col] { setStyleSheet(C_ButtonEmptyStyle) }      ### Needed to fill Square, image too small
             Button[Row][Col].setenabled(true)
             Button[Row][Col].blockSignals(false)                        ### ??? Goes back to Complement Color ???
@@ -239,10 +238,10 @@ SEE nl+ "===== START START ====="+nl+nl
     PlayScoreWhite.settext("White Score: 2")
 
 
-    Button[4][4] { setIcon(new qIcon(new qPixMap("black.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
-    Button[5][5] { setIcon(new qIcon(new qPixMap("black.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
-    Button[4][5] { setIcon(new qIcon(new qPixMap("white.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
-    Button[5][4] { setIcon(new qIcon(new qPixMap("white.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[4][4] { setIcon(new qIcon(new qPixMap(AppFile("black.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[5][5] { setIcon(new qIcon(new qPixMap(AppFile("black.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[4][5] { setIcon(new qIcon(new qPixMap(AppFile("white.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }
+    Button[5][4] { setIcon(new qIcon(new qPixMap(AppFile("white.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }
 
     Button[4][4].blockSignals(true)   ### Leave True Color
     Button[4][5].blockSignals(true)   ### Leave True Color
@@ -361,13 +360,13 @@ FlagSkipTurn =  0
     
     if curColor = "B"                                   ### Current BLACK   
         bArray[Row][Col] = "B"
-        Button[Row][Col] { setIcon(new qIcon(new qPixMap("black.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }    
+        Button[Row][Col] { setIcon(new qIcon(new qPixMap(AppFile("black.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }    
      
         CheckDiagonals(Row,Col,curColor)                ### >>>> CHECK Diagonals
                             
     elseif  curColor = "W"                              ### Current WHITE  
         bArray[Row][Col] = "W"      
-        Button[Row][Col] { setIcon(new qIcon(new qPixMap("white.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }
+        Button[Row][Col] { setIcon(new qIcon(new qPixMap(AppFile("white.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }
         
         CheckDiagonals(Row,Col,curColor)                ### >>>> CHECK Diagonals                    
     ok
@@ -405,7 +404,7 @@ FlagSkipTurn =  0
                 NextMove.settext("Next Move: White.... ") 
         ok
         
-        Button[Row][Col] {  setIcon(new qIcon(new qPixMap("empty.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }    
+        Button[Row][Col] {  setIcon(new qIcon(new qPixMap(AppFile("empty.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }    
         Button[RowPlayed][ColPlayed].setenabled(true)
         
         return  ### INVALID - NO FLIPS
@@ -428,19 +427,23 @@ FlagSkipTurn =  0
             if bArray[Row][Col] = "W"
                 SEE "W "
                 if oldArray[Row][Col] != bArray[Row][Col]   ### Flip ANIMATION
-                    app.processevents()
-                    sleep(0.2)                         
+		    if ! isMobile()
+	                    app.processevents()
+	                    sleep(0.2)                         
+		    ok
                 ok                
-                Button[Row][Col] {  setIcon(new qIcon(new qPixMap("white.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }            
+                Button[Row][Col] {  setIcon(new qIcon(new qPixMap(AppFile("white.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }            
             ok
 
             if bArray[Row][Col] = "B"
                 SEE "B "
                 if oldArray[Row][Col] != bArray[Row][Col]   ### Flip ANIMATION
-                    app.processevents()
-                    sleep(0.2)                    
+		    if ! isMobile()
+	                    app.processevents()
+	                    sleep(0.2)                    
+		    ok
                 ok               
-                Button[Row][Col] {  setIcon(new qIcon(new qPixMap("black.jpg")))  setIconSize(new qSize(bWidth,bHeight)) }                
+                Button[Row][Col] {  setIcon(new qIcon(new qPixMap(AppFile("black.jpg"))))  setIconSize(new qSize(bWidth,bHeight)) }                
             ok
             
             if bArray[Row][Col] = "E"
