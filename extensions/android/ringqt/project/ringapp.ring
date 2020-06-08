@@ -1,16 +1,17 @@
 Load "guilib.ring"
 
-MyApp = New qApp
+MyApp = New QApp
 {
+    styleFusion()
     win1 = new qWidget()
     {
         resize(400,400)
-        setWindowTitle("Hello, World! from Ring " + Version())
+        setWindowTitle("Hello, World!")
         new qPushButton(win1) {
           move(50,50)
           resize(300,100)
           SetText("Close")
-          setClickEvent("MyApp.Quit()")
+          setClickEvent("win1.close()")
         }
         show()
     }
