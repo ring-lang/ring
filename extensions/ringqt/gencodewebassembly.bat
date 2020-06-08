@@ -17,3 +17,16 @@ ring qtevents.ring
 cd ..
 copy cpp\src\*.cpp ..\..\webassembly\ringqt\project
 copy cpp\include\*.h ..\..\webassembly\ringqt\project
+
+set RINGQT_WEBASSEMBLY=
+set RINGQT_ANDROID=
+set RINGQT_QT512=
+set RINGQT_NOSQL=
+set RINGQT_NOPOSITIONING=
+set RINGQT_NOWEBKITWIDGETS=
+set RINGQT_NOWEBENGINEWIDGETS=
+set RINGQT_NOSERIALPORT=
+set RINGQT_NOAXCONTAINER=
+set RINGQT_NOQT3D=
+set RINGQT_NOWEBKIT=
+set RINGQT_NOBLUETOOTH=
