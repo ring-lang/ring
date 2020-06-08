@@ -12,6 +12,8 @@ build Ring extensions on Microsoft Windows
 
 The Android folder contains Ring extensions for the Android platform
 
+The WebAssembly folder contains Ring extensions for the WebAssembly platform
+
 The RingBeep folder contains a simple example to learn how to create an extension using the Code Generator
 
 The RingMouseEvent folder Another simple example to learn how to create an extension
