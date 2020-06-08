@@ -2246,152 +2246,6 @@ Class QXmlStreamAttribute
 		pTempObj.pObject = QXmlStreamAttribute_value(pObject)
 		return pTempObj
 
-Class QThread from QObject
-
-	pObject
-
-	Func init P1
-		pObject = QThread_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QThread_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func eventDispatcher 
-		return QThread_eventDispatcher(pObject)
-
-	Func exitfromthread P1
-		return QThread_exit(pObject,P1)
-
-	Func isFinished 
-		return QThread_isFinished(pObject)
-
-	Func isInterruptionRequested 
-		return QThread_isInterruptionRequested(pObject)
-
-	Func isRunning 
-		return QThread_isRunning(pObject)
-
-	Func priority 
-		return QThread_priority(pObject)
-
-	Func requestInterruption 
-		return QThread_requestInterruption(pObject)
-
-	Func setEventDispatcher P1
-		return QThread_setEventDispatcher(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setPriority P1
-		return QThread_setPriority(pObject,P1)
-
-	Func setStackSize P1
-		return QThread_setStackSize(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func stackSize 
-		return QThread_stackSize(pObject)
-
-	Func wait P1
-		return QThread_wait(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func quit 
-		return QThread_quit(pObject)
-
-	Func start P1
-		return QThread_start(pObject,P1)
-
-	Func terminate 
-		return QThread_terminate(pObject)
-
-	Func currentThread 
-		pTempObj = new QThread
-		pTempObj.pObject = QThread_currentThread(pObject)
-		return pTempObj
-
-	Func currentThreadId 
-		return QThread_currentThreadId(pObject)
-
-	Func idealThreadCount 
-		return QThread_idealThreadCount(pObject)
-
-	Func msleep P1
-		return QThread_msleep(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func sleep P1
-		return QThread_sleep(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func usleep P1
-		return QThread_usleep(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func yieldCurrentThread 
-		return QThread_yieldCurrentThread(pObject)
-
-	Func setStartedEvent P1
-		return QThread_setStartedEvent(pObject,P1)
-
-	Func setFinishedEvent P1
-		return QThread_setFinishedEvent(pObject,P1)
-
-	Func getStartedEvent 
-		return QThread_getStartedEvent(pObject)
-
-	Func getFinishedEvent 
-		return QThread_getFinishedEvent(pObject)
-
-Class QThreadPool from QObject
-
-	pObject
-
-	Func init 
-		pObject = QThreadPool_new()
-		return self
-
-	Func delete
-		pObject = QThreadPool_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func activeThreadCount 
-		return QThreadPool_activeThreadCount(pObject)
-
-	Func clear 
-		return QThreadPool_clear(pObject)
-
-	Func expiryTimeout 
-		return QThreadPool_expiryTimeout(pObject)
-
-	Func maxThreadCount 
-		return QThreadPool_maxThreadCount(pObject)
-
-	Func releaseThread 
-		return QThreadPool_releaseThread(pObject)
-
-	Func reserveThread 
-		return QThreadPool_reserveThread(pObject)
-
-	Func setExpiryTimeout P1
-		return QThreadPool_setExpiryTimeout(pObject,P1)
-
-	Func setMaxThreadCount P1
-		return QThreadPool_setMaxThreadCount(pObject,P1)
-
-	Func start P1,P2
-		return QThreadPool_start(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func tryStart P1
-		return QThreadPool_tryStart(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func waitForDone P1
-		return QThreadPool_waitForDone(pObject,P1)
-
-	Func globalInstance 
-		pTempObj = new QThreadPool
-		pTempObj.pObject = QThreadPool_globalInstance(pObject)
-		return pTempObj
-
 Class QRegularExpression
 
 	pObject
@@ -3096,154 +2950,6 @@ Class QString2
 	Func fill P1,P2
 		return QString2_fill(pObject,GetObjectPointerFromRingObject(P1),P2)
 
-Class QProcess from QIODevice
-
-	pObject
-
-	Func init P1
-		pObject = QProcess_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QProcess_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func arguments 
-		pTempObj = new QStringList
-		pTempObj.pObject = QProcess_arguments(pObject)
-		return pTempObj
-
-	Func closeReadChannel P1
-		return QProcess_closeReadChannel(pObject,P1)
-
-	Func closeWriteChannel 
-		return QProcess_closeWriteChannel(pObject)
-
-	Func error 
-		return QProcess_error(pObject)
-
-	Func exitCode 
-		return QProcess_exitCode(pObject)
-
-	Func exitStatus 
-		return QProcess_exitStatus(pObject)
-
-	Func inputChannelMode 
-		return QProcess_inputChannelMode(pObject)
-
-	Func processChannelMode 
-		return QProcess_processChannelMode(pObject)
-
-	Func processEnvironment 
-		return QProcess_processEnvironment(pObject)
-
-	Func program 
-		return QProcess_program(pObject)
-
-	Func readAllStandardError 
-		pTempObj = new QByteArray
-		pTempObj.pObject = QProcess_readAllStandardError(pObject)
-		return pTempObj
-
-	Func readAllStandardOutput 
-		pTempObj = new QByteArray
-		pTempObj.pObject = QProcess_readAllStandardOutput(pObject)
-		return pTempObj
-
-	Func readChannel 
-		return QProcess_readChannel(pObject)
-
-	Func setArguments P1
-		return QProcess_setArguments(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setInputChannelMode P1
-		return QProcess_setInputChannelMode(pObject,P1)
-
-	Func setProcessChannelMode P1
-		return QProcess_setProcessChannelMode(pObject,P1)
-
-	Func setProcessEnvironment P1
-		return QProcess_setProcessEnvironment(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setProgram P1
-		return QProcess_setProgram(pObject,P1)
-
-	Func setReadChannel P1
-		return QProcess_setReadChannel(pObject,P1)
-
-	Func setStandardErrorFile P1,P2
-		return QProcess_setStandardErrorFile(pObject,P1,P2)
-
-	Func setStandardInputFile P1
-		return QProcess_setStandardInputFile(pObject,P1)
-
-	Func setStandardOutputFile P1,P2
-		return QProcess_setStandardOutputFile(pObject,P1,P2)
-
-	Func setStandardOutputProcess P1
-		return QProcess_setStandardOutputProcess(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setWorkingDirectory P1
-		return QProcess_setWorkingDirectory(pObject,P1)
-
-	Func start P1,P2,P3
-		return QProcess_start(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
-
-	Func start_2 P1,P2
-		return QProcess_start_2(pObject,P1,P2)
-
-	Func start_3 P1
-		return QProcess_start_3(pObject,P1)
-
-	Func state 
-		return QProcess_state(pObject)
-
-	Func waitForFinished P1
-		return QProcess_waitForFinished(pObject,P1)
-
-	Func waitForStarted P1
-		return QProcess_waitForStarted(pObject,P1)
-
-	Func workingDirectory 
-		return QProcess_workingDirectory(pObject)
-
-	Func kill 
-		return QProcess_kill(pObject)
-
-	Func terminate 
-		return QProcess_terminate(pObject)
-
-	Func setreadyReadStandardErrorEvent P1
-		return QProcess_setreadyReadStandardErrorEvent(pObject,P1)
-
-	Func setreadyReadStandardOutputEvent P1
-		return QProcess_setreadyReadStandardOutputEvent(pObject,P1)
-
-	Func getreadyReadStandardErrorEvent 
-		return QProcess_getreadyReadStandardErrorEvent(pObject)
-
-	Func getreadyReadStandardOutputEvent 
-		return QProcess_getreadyReadStandardOutputEvent(pObject)
-
-Class QUuid
-
-	pObject
-
-	Func init 
-		pObject = QUuid_new()
-		return self
-
-	Func delete
-		pObject = QUuid_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func toString 
-		return QUuid_toString(pObject)
-
 Class QStringRef
 
 	pObject
@@ -3423,54 +3129,6 @@ Class QStringRef
 
 	Func localeAwareCompare_4 P1,P2
 		return QStringRef_localeAwareCompare_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-Class QMutex
-
-	pObject
-
-	Func init P1
-		pObject = QMutex_new(P1)
-		return self
-
-	Func delete
-		pObject = QMutex_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func isRecursive 
-		return QMutex_isRecursive(pObject)
-
-	Func lock 
-		return QMutex_lock(pObject)
-
-	Func unlock 
-		return QMutex_unlock(pObject)
-
-Class QMutexLocker
-
-	pObject
-
-	Func init P1
-		pObject = QMutexLocker_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QMutexLocker_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func mutex 
-		pTempObj = new QMutex
-		pTempObj.pObject = QMutexLocker_mutex(pObject)
-		return pTempObj
-
-	Func relock 
-		return QMutexLocker_relock(pObject)
-
-	Func unlock 
-		return QMutexLocker_unlock(pObject)
 
 Class QBuffer from QIODevice
 
@@ -4400,6 +4058,348 @@ Class QTextStream
 
 	Func string 
 		return QTextStream_string(pObject)
+
+Class QThread from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QThread_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QThread_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func eventDispatcher 
+		return QThread_eventDispatcher(pObject)
+
+	Func exitfromthread P1
+		return QThread_exit(pObject,P1)
+
+	Func isFinished 
+		return QThread_isFinished(pObject)
+
+	Func isInterruptionRequested 
+		return QThread_isInterruptionRequested(pObject)
+
+	Func isRunning 
+		return QThread_isRunning(pObject)
+
+	Func priority 
+		return QThread_priority(pObject)
+
+	Func requestInterruption 
+		return QThread_requestInterruption(pObject)
+
+	Func setEventDispatcher P1
+		return QThread_setEventDispatcher(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setPriority P1
+		return QThread_setPriority(pObject,P1)
+
+	Func setStackSize P1
+		return QThread_setStackSize(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func stackSize 
+		return QThread_stackSize(pObject)
+
+	Func wait P1
+		return QThread_wait(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func quit 
+		return QThread_quit(pObject)
+
+	Func start P1
+		return QThread_start(pObject,P1)
+
+	Func terminate 
+		return QThread_terminate(pObject)
+
+	Func currentThread 
+		pTempObj = new QThread
+		pTempObj.pObject = QThread_currentThread(pObject)
+		return pTempObj
+
+	Func currentThreadId 
+		return QThread_currentThreadId(pObject)
+
+	Func idealThreadCount 
+		return QThread_idealThreadCount(pObject)
+
+	Func msleep P1
+		return QThread_msleep(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func sleep P1
+		return QThread_sleep(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func usleep P1
+		return QThread_usleep(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func yieldCurrentThread 
+		return QThread_yieldCurrentThread(pObject)
+
+	Func setStartedEvent P1
+		return QThread_setStartedEvent(pObject,P1)
+
+	Func setFinishedEvent P1
+		return QThread_setFinishedEvent(pObject,P1)
+
+	Func getStartedEvent 
+		return QThread_getStartedEvent(pObject)
+
+	Func getFinishedEvent 
+		return QThread_getFinishedEvent(pObject)
+
+Class QThreadPool from QObject
+
+	pObject
+
+	Func init 
+		pObject = QThreadPool_new()
+		return self
+
+	Func delete
+		pObject = QThreadPool_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func activeThreadCount 
+		return QThreadPool_activeThreadCount(pObject)
+
+	Func clear 
+		return QThreadPool_clear(pObject)
+
+	Func expiryTimeout 
+		return QThreadPool_expiryTimeout(pObject)
+
+	Func maxThreadCount 
+		return QThreadPool_maxThreadCount(pObject)
+
+	Func releaseThread 
+		return QThreadPool_releaseThread(pObject)
+
+	Func reserveThread 
+		return QThreadPool_reserveThread(pObject)
+
+	Func setExpiryTimeout P1
+		return QThreadPool_setExpiryTimeout(pObject,P1)
+
+	Func setMaxThreadCount P1
+		return QThreadPool_setMaxThreadCount(pObject,P1)
+
+	Func start P1,P2
+		return QThreadPool_start(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func tryStart P1
+		return QThreadPool_tryStart(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func waitForDone P1
+		return QThreadPool_waitForDone(pObject,P1)
+
+	Func globalInstance 
+		pTempObj = new QThreadPool
+		pTempObj.pObject = QThreadPool_globalInstance(pObject)
+		return pTempObj
+
+Class QProcess from QIODevice
+
+	pObject
+
+	Func init P1
+		pObject = QProcess_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QProcess_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func arguments 
+		pTempObj = new QStringList
+		pTempObj.pObject = QProcess_arguments(pObject)
+		return pTempObj
+
+	Func closeReadChannel P1
+		return QProcess_closeReadChannel(pObject,P1)
+
+	Func closeWriteChannel 
+		return QProcess_closeWriteChannel(pObject)
+
+	Func error 
+		return QProcess_error(pObject)
+
+	Func exitCode 
+		return QProcess_exitCode(pObject)
+
+	Func exitStatus 
+		return QProcess_exitStatus(pObject)
+
+	Func inputChannelMode 
+		return QProcess_inputChannelMode(pObject)
+
+	Func processChannelMode 
+		return QProcess_processChannelMode(pObject)
+
+	Func processEnvironment 
+		return QProcess_processEnvironment(pObject)
+
+	Func program 
+		return QProcess_program(pObject)
+
+	Func readAllStandardError 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QProcess_readAllStandardError(pObject)
+		return pTempObj
+
+	Func readAllStandardOutput 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QProcess_readAllStandardOutput(pObject)
+		return pTempObj
+
+	Func readChannel 
+		return QProcess_readChannel(pObject)
+
+	Func setArguments P1
+		return QProcess_setArguments(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setInputChannelMode P1
+		return QProcess_setInputChannelMode(pObject,P1)
+
+	Func setProcessChannelMode P1
+		return QProcess_setProcessChannelMode(pObject,P1)
+
+	Func setProcessEnvironment P1
+		return QProcess_setProcessEnvironment(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setProgram P1
+		return QProcess_setProgram(pObject,P1)
+
+	Func setReadChannel P1
+		return QProcess_setReadChannel(pObject,P1)
+
+	Func setStandardErrorFile P1,P2
+		return QProcess_setStandardErrorFile(pObject,P1,P2)
+
+	Func setStandardInputFile P1
+		return QProcess_setStandardInputFile(pObject,P1)
+
+	Func setStandardOutputFile P1,P2
+		return QProcess_setStandardOutputFile(pObject,P1,P2)
+
+	Func setStandardOutputProcess P1
+		return QProcess_setStandardOutputProcess(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWorkingDirectory P1
+		return QProcess_setWorkingDirectory(pObject,P1)
+
+	Func start P1,P2,P3
+		return QProcess_start(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func start_2 P1,P2
+		return QProcess_start_2(pObject,P1,P2)
+
+	Func start_3 P1
+		return QProcess_start_3(pObject,P1)
+
+	Func state 
+		return QProcess_state(pObject)
+
+	Func waitForFinished P1
+		return QProcess_waitForFinished(pObject,P1)
+
+	Func waitForStarted P1
+		return QProcess_waitForStarted(pObject,P1)
+
+	Func workingDirectory 
+		return QProcess_workingDirectory(pObject)
+
+	Func kill 
+		return QProcess_kill(pObject)
+
+	Func terminate 
+		return QProcess_terminate(pObject)
+
+	Func setreadyReadStandardErrorEvent P1
+		return QProcess_setreadyReadStandardErrorEvent(pObject,P1)
+
+	Func setreadyReadStandardOutputEvent P1
+		return QProcess_setreadyReadStandardOutputEvent(pObject,P1)
+
+	Func getreadyReadStandardErrorEvent 
+		return QProcess_getreadyReadStandardErrorEvent(pObject)
+
+	Func getreadyReadStandardOutputEvent 
+		return QProcess_getreadyReadStandardOutputEvent(pObject)
+
+Class QUuid
+
+	pObject
+
+	Func init 
+		pObject = QUuid_new()
+		return self
+
+	Func delete
+		pObject = QUuid_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func toString 
+		return QUuid_toString(pObject)
+
+Class QMutex
+
+	pObject
+
+	Func init P1
+		pObject = QMutex_new(P1)
+		return self
+
+	Func delete
+		pObject = QMutex_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func isRecursive 
+		return QMutex_isRecursive(pObject)
+
+	Func lock 
+		return QMutex_lock(pObject)
+
+	Func unlock 
+		return QMutex_unlock(pObject)
+
+Class QMutexLocker
+
+	pObject
+
+	Func init P1
+		pObject = QMutexLocker_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QMutexLocker_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func mutex 
+		pTempObj = new QMutex
+		pTempObj.pObject = QMutexLocker_mutex(pObject)
+		return pTempObj
+
+	Func relock 
+		return QMutexLocker_relock(pObject)
+
+	Func unlock 
+		return QMutexLocker_unlock(pObject)
 
 Class QDesktopServices
 	Func openUrl P1
@@ -22172,6 +22172,68 @@ Class QNetworkRequest
 		pTempObj.pObject = QNetworkRequest_url(pObject)
 		return pTempObj
 
+Class QNetworkReply from QIODevice
+
+	pObject
+
+	Func init 
+		pObject = QNetworkReply_new()
+		return self
+
+	Func delete
+		pObject = QNetworkReply_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func attribute P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QNetworkReply_attribute(pObject,P1)
+		return pTempObj
+
+	Func error 
+		return QNetworkReply_error(pObject)
+
+	Func hasRawHeader P1
+		return QNetworkReply_hasRawHeader(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func header P1
+		pTempObj = new QVariant
+		pTempObj.pObject = QNetworkReply_header(pObject,P1)
+		return pTempObj
+
+	Func isFinished 
+		return QNetworkReply_isFinished(pObject)
+
+	Func isRunning 
+		return QNetworkReply_isRunning(pObject)
+
+	Func manager 
+		pTempObj = new QNetworkAccessManager
+		pTempObj.pObject = QNetworkReply_manager(pObject)
+		return pTempObj
+
+	Func operation 
+		return QNetworkReply_operation(pObject)
+
+	Func rawHeader P1
+		pTempObj = new QByteArray
+		pTempObj.pObject = QNetworkReply_rawHeader(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func readBufferSize 
+		return QNetworkReply_readBufferSize(pObject)
+
+	Func request 
+		pTempObj = new QNetworkRequest
+		pTempObj.pObject = QNetworkReply_request(pObject)
+		return pTempObj
+
+	Func url 
+		pTempObj = new QUrl
+		pTempObj.pObject = QNetworkReply_url(pObject)
+		return pTempObj
+
 Class QNetworkAccessManager from QObject
 
 	pObject
@@ -22276,68 +22338,6 @@ Class QNetworkAccessManager from QObject
 
 	Func geteventparameters 
 		return QNetworkAccessManager_geteventparameters(pObject)
-
-Class QNetworkReply from QIODevice
-
-	pObject
-
-	Func init 
-		pObject = QNetworkReply_new()
-		return self
-
-	Func delete
-		pObject = QNetworkReply_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func attribute P1
-		pTempObj = new QVariant
-		pTempObj.pObject = QNetworkReply_attribute(pObject,P1)
-		return pTempObj
-
-	Func error 
-		return QNetworkReply_error(pObject)
-
-	Func hasRawHeader P1
-		return QNetworkReply_hasRawHeader(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func header P1
-		pTempObj = new QVariant
-		pTempObj.pObject = QNetworkReply_header(pObject,P1)
-		return pTempObj
-
-	Func isFinished 
-		return QNetworkReply_isFinished(pObject)
-
-	Func isRunning 
-		return QNetworkReply_isRunning(pObject)
-
-	Func manager 
-		pTempObj = new QNetworkAccessManager
-		pTempObj.pObject = QNetworkReply_manager(pObject)
-		return pTempObj
-
-	Func operation 
-		return QNetworkReply_operation(pObject)
-
-	Func rawHeader P1
-		pTempObj = new QByteArray
-		pTempObj.pObject = QNetworkReply_rawHeader(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func readBufferSize 
-		return QNetworkReply_readBufferSize(pObject)
-
-	Func request 
-		pTempObj = new QNetworkRequest
-		pTempObj.pObject = QNetworkReply_request(pObject)
-		return pTempObj
-
-	Func url 
-		pTempObj = new QUrl
-		pTempObj.pObject = QNetworkReply_url(pObject)
-		return pTempObj
 
 Class QSqlDatabase
 
