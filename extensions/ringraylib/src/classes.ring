@@ -549,16 +549,34 @@ class Mesh from RayLibBase
 		raylib_set_Mesh_vertexCount(oData,vertexCount)	
 		raylib_set_Mesh_triangleCount(oData,triangleCount)	
 		raylib_set_Mesh_vertices(oData,vertices)	
-		raylib_set_Mesh_texcoords(oData,texcoords)	
-		raylib_set_Mesh_texcoords2(oData,texcoords2)	
+		if ! ISNULL(texcoords)
+			raylib_set_Mesh_texcoords(oData,texcoords)
+		ok
+		if ! ISNULL(texcoords2)
+			raylib_set_Mesh_texcoords2(oData,texcoords2)	
+		ok
 		raylib_set_Mesh_normals(oData,normals)	
-		raylib_set_Mesh_tangents(oData,tangents)	
-		raylib_set_Mesh_colors(oData,colors)	
-		raylib_set_Mesh_indices(oData,indices)	
-		raylib_set_Mesh_animVertices(oData,animVertices)	
-		raylib_set_Mesh_animNormals(oData,animNormals)	
-		raylib_set_Mesh_boneIds(oData,boneIds)	
-		raylib_set_Mesh_boneWeights(oData,boneWeights)	
+		if ! ISNULL(tangents)
+			raylib_set_Mesh_tangents(oData,tangents)	
+		ok
+		if ! ISNULL(colors)
+			raylib_set_Mesh_colors(oData,colors)	
+		ok
+		if ! ISNULL(indices)
+			raylib_set_Mesh_indices(oData,indices)	
+		ok
+		if ! ISNULL(animVertices)
+			raylib_set_Mesh_animVertices(oData,animVertices)	
+		ok
+		if ! ISNULL(animNormals)
+			raylib_set_Mesh_animNormals(oData,animNormals)	
+		ok
+		if ! ISNULL(boneIds)
+			raylib_set_Mesh_boneIds(oData,boneIds)	
+		ok
+		if ! ISNULL(boneWeights)
+			raylib_set_Mesh_boneWeights(oData,boneWeights)	
+		ok
 		raylib_set_Mesh_vaoId(oData,vaoId)	
 		return oData
 
