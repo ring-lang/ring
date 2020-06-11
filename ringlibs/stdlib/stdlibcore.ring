@@ -657,40 +657,6 @@ Func Fridays year1, year2
      next
      
 /*
-	Function Name	: Permutation
-	Usage		: Generates all permutations of n different numerals.
-	Parameters	: List of numerals to generate.
-	output		: Permutations of numerals.
-*/     
-
-Func Permutation a
-       elementcount = len(a)
-       if elementcount < 1 then return ok
-       pos = elementcount-1
-       while a[pos] >= a[pos+1] 
-               pos -= 1
-               if pos <= 0 permutationReverse(a, 1, elementcount)
-                  return ok
-       end
-       last = elementcount
-       while a[last] <= a[pos]
-               last -= 1
-       end
-       temp = a[pos]
-       a[pos] = a[last]
-       a[last] = temp
-       permutationReverse(a, pos+1, elementcount)
-
-Func permutationReverse a, first, last
-        while first < last
-                 temp = a[first]
-                 a[first] = a[last]
-                 a[last] = temp
-                 first += 1
-                 last -= 1
-        end
-   
-/*
 	Function Name	: Sleep
 	Usage		: Sleep for the given amount of time.
 	Parameters	: Time for sleep.
@@ -1100,3 +1066,61 @@ func IsBetween x, min, max return (x >= min) AND (x <= max)
 */
 func IsListContainsItems aParent,aChild
      for item in aChild if not find(aParent,item) return false ok next return True
+    
+/*
+	Function Name	: Permutate
+	Usage		: Generates all permutations of n different numerals.
+	Parameters	: List of numerals to generate.
+	output		: Permutations of numerals.
+*/     
+
+func permutate(per,n)
+ind = 0
+perm = list(n)
+
+printem = "true"
+for i = 1 to n
+    perm[i] = i
+next
+count = 0
+last = "false"
+while last = "false"
+      if printem 
+         ind = ind + 1
+         for t = 1 to n
+             per[ind][t] = perm[t]
+             //see perm[t] + " "
+         next
+      ok
+      see nl
+      count = count + 1
+      last = "true"
+      i = n - 1
+      while i > 0
+            if perm[i] <perm[i + 1] 
+               last = "false"
+               exit
+            ok
+            i = i - 1
+      end
+      j = i + 1
+      k = n
+      while j < k
+            t =perm[j]
+            perm[j] = perm[k]
+            perm[k] = t
+            j = j + 1
+            k = k - 1
+      end
+      j = n
+      if i > 0
+         while perm[j] >perm[i]
+               j = j - 1
+         end
+         j = j + 1
+         t =perm[i]
+         perm[i] =perm[j]
+         perm[j] = t
+      ok
+end
+
