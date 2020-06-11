@@ -1286,11 +1286,3 @@ aList = "nice"
       </div>
     </div>  
   </div>
-
-  
- <a id="ringbook" href="https://en.wikibooks.org/wiki/Ring" target="_blank" class="btn btn-default"  style="width:100%">Ring in Wikibooks</a> 
- <a id="ringsamples" href="https://rosettacode.org/wiki/Category:Ring" target="_blank" class="btn btn-default"  style="width:100%">Ring Samples (Rosettacode)</a> 
-
- 
-  
-
