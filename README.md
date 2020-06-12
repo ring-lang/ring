@@ -9,7 +9,7 @@
 |Download |[![Download](http://ring-lang.sourceforge.net/binaryrelease.svg)](http://ring-lang.sf.net/download.html)|**macOS (Compiler: gcc C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
 |Help |[![Help](http://ring-lang.sourceforge.net/documentation.svg)](http://ring-lang.sf.net/doc1.12/index.html)|**Ubuntu Linux (Compiler: gcc C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 |Try |[![Try](http://ring-lang.sourceforge.net/interactive%20ring-use%20online-green.svg)](http://ring-lang.sf.net/cgi-bin/ringlang.cgi)|**macOS (Compiler: clang C)**      |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|   
-|Resources |[![Resources](http://ring-lang.sourceforge.net/resources-yellowgreen.svg)](http://ring-lang.sf.net/resources.html)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
+|Resources |[![Resources](http://ring-lang.sourceforge.net/resources-orange.svg)](http://ring-lang.sf.net/resources.html)|**Ubuntu Linux (Compiler: clang C)** |[![Build Status](https://travis-ci.org/ring-lang/ring.png)](https://travis-ci.org/ring-lang/ring)|                  
 
 # Welcome to Ring
 
