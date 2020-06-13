@@ -337,19 +337,6 @@ the user control what programs should start at Windows booting time.
 	:alt: Windows Startup Manager
 
 .. index:: 
-	pair: Applications developed in little hours; Werdy Application
-
-Werdy Application
-=================
-
-Quran application includes reading suras, searching and bookmarking.
-
-.. image:: ringapps_shot1.png
-	:width: 300pt
-	:height: 300pt
-	:alt: Ring Application
-
-.. index:: 
 	pair: Applications developed in little hours; Fifteen Puzzle Game
 
 Fifteen Puzzle Game

@@ -103,13 +103,8 @@ Contents:
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    Create your first extension <ringbeep>
-   Frequently Asked Questions (FAQ) <faq>
    General Information <generalinfo>
    Language Reference <reference>
-   RingQt Classes and Methods Reference <qtclassesdoc>
-   RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
-   FoxRing Functions Reference <foxringfuncsdoc>
-   BigNumber Functions Reference <bignumber>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>
@@ -117,22 +112,10 @@ Contents:
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
    RingLibuv Functions Reference <ringlibuvfuncsdoc>
    RingFreeGLUT Functions Reference <ringfreeglutfuncsdoc>
-   RingOpenGL (OpenGL 1.1) Functions Reference <ringopengl11funcsdoc>
-   RingOpenGL (OpenGL 1.2) Functions Reference <ringopengl12funcsdoc>
-   RingOpenGL (OpenGL 1.3) Functions Reference <ringopengl13funcsdoc>
-   RingOpenGL (OpenGL 1.4) Functions Reference <ringopengl14funcsdoc>
-   RingOpenGL (OpenGL 1.5) Functions Reference <ringopengl15funcsdoc>
-   RingOpenGL (OpenGL 2.0) Functions Reference <ringopengl20funcsdoc>
-   RingOpenGL (OpenGL 2.1) Functions Reference <ringopengl21funcsdoc>
-   RingOpenGL (OpenGL 3.0) Functions Reference <ringopengl30funcsdoc>
-   RingOpenGL (OpenGL 3.1) Functions Reference <ringopengl31funcsdoc>
    RingOpenGL (OpenGL 3.2) Functions Reference <ringopengl32funcsdoc>
-   RingOpenGL (OpenGL 3.3) Functions Reference <ringopengl33funcsdoc>
-   RingOpenGL (OpenGL 4.0) Functions Reference <ringopengl40funcsdoc>
-   RingOpenGL (OpenGL 4.1) Functions Reference <ringopengl41funcsdoc>
-   RingOpenGL (OpenGL 4.2) Functions Reference <ringopengl42funcsdoc>
-   RingOpenGL (OpenGL 4.3) Functions Reference <ringopengl43funcsdoc>
-   RingOpenGL (OpenGL 4.4) Functions Reference <ringopengl44funcsdoc>
-   RingOpenGL (OpenGL 4.5) Functions Reference <ringopengl45funcsdoc>
-   RingOpenGL (OpenGL 4.6) Functions Reference <ringopengl46funcsdoc>
+   RingQt Classes and Methods Reference <qtclassesdoc>
+   RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
+   FoxRing Functions Reference <foxringfuncsdoc>
+   BigNumber Functions Reference <bignumber>
+   Frequently Asked Questions (FAQ) <faq>
    Resources <resources>
