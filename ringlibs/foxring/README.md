@@ -7,6 +7,5 @@ The goal is to create as many functions as possible with the behavior similar to
 
 Some of these functions are not yet fully completed, such as frTransform() and frAlines(), however I am updating and making it available.
 
-Author : José Rosado
+Author : Josï¿½ Rosado
 
-Topic in Ring Group : https://groups.google.com/forum/#!topic/ring-lang/M5-ZBqoXss4
