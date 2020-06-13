@@ -32,7 +32,6 @@ class RNoteControllerBase from WindowsControllerParent
 		["Local Help", "file:///"+substr(exefolder(),"\","/") + "../docs/build/html/index.html"],
 		["Localhost","http://localhost"],
 		["Ring Website","http://ring-lang.sf.net"],
-		["Ring Group (Google Groups)","https://groups.google.com/forum/#!forum/ring-lang"],
 		["Ring Source Code (GitHub)","https://github.com/ring-lang/ring"],
 		["Ring Samples (Rosetta Code)","https://rosettacode.org/wiki/Category:Ring"],
 		["Ring Resources","http://ring-lang.sourceforge.net/resources.html"],
