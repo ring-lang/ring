@@ -7,5 +7,5 @@ The goal is to create as many functions as possible with the behavior similar to
 
 Some of these functions are not yet fully completed, such as frTransform() and frAlines(), however I am updating and making it available.
 
-Author : Jos� Rosado
+Author : José Rosado
 
