@@ -1,3 +1,13 @@
+/*******************************************************************************************
+*
+*   raylib [core] example - Input Gestures Detection
+*
+*   This example has been created using raylib 1.4 (www.raylib.com)
+*   raylib is licensed under an unmodified zlib/libpng license (View raylib.h for details)
+*
+*   Copyright (c) 2016 Ramon Santamaria (@raysan5)
+*
+********************************************************************************************/
 #===================================================================#
 # Based on Original Sample from RayLib (https://www.raylib.com/)
 # Ported to RingRayLib by Ring Team
