@@ -16,7 +16,7 @@ The supported programming paradigms are Imperative, Procedural, Object-Oriented,
 Meta programming, Declarative programming using nested structures, and Natural programming.
 The language is portable (Windows, Linux, macOS, Android, etc.) and can be used to create
 Console, GUI, Web, Games and Mobile applications. The language is designed to be Simple, Small,
-Flexible and Fast. Its Dynamic Language (Dynamic Typing and Weakly Typed) that compile the source
+Flexible and Fast. Its Dynamic Language that compile the source
 code to byte code then execute it by the Ring Virtual Machine, which is integrated with the Ring
 Compiler in one program.
 
@@ -45,29 +45,9 @@ Instead of using a mix of programming languages, I decided to use one programmin
 for creating the development environment, for components scripting & for creating the applications.
 
 I looked at many programming languages like C, C++, Java, C#, Lua, PHP, Python & Ruby. 
-I avoided using C or C++ directly because I want high-level of productivity more than the level
-provided by these languages, also a language behind visual programming environment for novice programmers
-or professionals must be easy to use & productive.
-
-Java & C# are avoided for some reason too!
-I wanted to use a dynamic programming language and these languages are static typing, Java is multi-platform, 
-also C# through Mono, but the use of huge number of classes and forcing the use of Object-Orientation, using
-a verbose language is not right for me. I need a small language, but fast and productive, also I need
-better control on the Garbage Collector (GC), I need a better one that is designed for fast applications.
-
-Lua is small and fast, but it's avoided because I need more powerful language for large applications.
-
-PHP is a Web programming language and it's syntax is very similar to C, this leads to a language not
-general as I want and not simple as I need to have.
-
-Python & Ruby are more like what I need, but I need something more simple, smaller, faster & productive.
-
-Python and Ruby are Case-Sensitive, the list index start counting from 0, you have to define the function
-before calling it, Ruby usage of Object-Orientation and message passing is more than what I need and 
-decrease performance, Python syntax (indentation, using self, :, pass & _) is not good for my goals.
 
 All of these languages are successful languages, and very good for their domains, but what I need 
-is a different language that comes with new ideas and intelligent implementation (Innovative, Ready, Simple, Small, Flexible and Fast).
+is a different language that comes with new ideas and intelligent implementation.
 
 
 .. index:: 
@@ -92,19 +72,6 @@ Also Ring is influenced by the next programming languages
 * QML
 * xBase
 * Supernova
-
-.. index:: 
-	pair: Introduction; Special Thanks
-
-Special Thanks to Matz
-======================
-
-Special Thanks to Matz (Yukihiro Matsumoto - The Creator of Ruby Programming Language) for spreading
-the word. 
-
-.. image:: matzring.png
-	:alt: Yukihiro Matsumoto tweet about the Ring language
-
 
 .. index:: 
 	pair: Introduction ; History

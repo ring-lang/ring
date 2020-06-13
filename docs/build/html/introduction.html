@@ -60,7 +60,7 @@ The supported programming paradigms are Imperative, Procedural, Object-Oriented,
 Meta programming, Declarative programming using nested structures, and Natural programming.
 The language is portable (Windows, Linux, macOS, Android, etc.) and can be used to create
 Console, GUI, Web, Games and Mobile applications. The language is designed to be Simple, Small,
-Flexible and Fast. Its Dynamic Language (Dynamic Typing and Weakly Typed) that compile the source
+Flexible and Fast. Its Dynamic Language that compile the source
 code to byte code then execute it by the Ring Virtual Machine, which is integrated with the Ring
 Compiler in one program.</p>
 <p>In this chapter we are going to discuss the goals behind the language design and implementation.</p>
@@ -78,24 +78,9 @@ environment, provides multi-platform support, more productivity, better performa
 scripting &amp; can be used for developing different kinds of applications.</p>
 <p>Instead of using a mix of programming languages, I decided to use one programming language
 for creating the development environment, for components scripting &amp; for creating the applications.</p>
-<p>I looked at many programming languages like C, C++, Java, C#, Lua, PHP, Python &amp; Ruby.
-I avoided using C or C++ directly because I want high-level of productivity more than the level
-provided by these languages, also a language behind visual programming environment for novice programmers
-or professionals must be easy to use &amp; productive.</p>
-<p>Java &amp; C# are avoided for some reason too!
-I wanted to use a dynamic programming language and these languages are static typing, Java is multi-platform,
-also C# through Mono, but the use of huge number of classes and forcing the use of Object-Orientation, using
-a verbose language is not right for me. I need a small language, but fast and productive, also I need
-better control on the Garbage Collector (GC), I need a better one that is designed for fast applications.</p>
-<p>Lua is small and fast, but it&#8217;s avoided because I need more powerful language for large applications.</p>
-<p>PHP is a Web programming language and it&#8217;s syntax is very similar to C, this leads to a language not
-general as I want and not simple as I need to have.</p>
-<p>Python &amp; Ruby are more like what I need, but I need something more simple, smaller, faster &amp; productive.</p>
-<p>Python and Ruby are Case-Sensitive, the list index start counting from 0, you have to define the function
-before calling it, Ruby usage of Object-Orientation and message passing is more than what I need and
-decrease performance, Python syntax (indentation, using self, :, pass &amp; _) is not good for my goals.</p>
+<p>I looked at many programming languages like C, C++, Java, C#, Lua, PHP, Python &amp; Ruby.</p>
 <p>All of these languages are successful languages, and very good for their domains, but what I need
-is a different language that comes with new ideas and intelligent implementation (Innovative, Ready, Simple, Small, Flexible and Fast).</p>
+is a different language that comes with new ideas and intelligent implementation.</p>
 </div>
 <div class="section" id="ring-and-other-languages">
 <span id="index-2"></span><h2>Ring and other languages<a class="headerlink" href="#ring-and-other-languages" title="Permalink to this headline">¶</a></h2>
@@ -116,14 +101,8 @@ Object-Oriented Programming and Functional Programming.</p>
 <li>Supernova</li>
 </ul>
 </div>
-<div class="section" id="special-thanks-to-matz">
-<span id="index-3"></span><h2>Special Thanks to Matz<a class="headerlink" href="#special-thanks-to-matz" title="Permalink to this headline">¶</a></h2>
-<p>Special Thanks to Matz (Yukihiro Matsumoto - The Creator of Ruby Programming Language) for spreading
-the word.</p>
-<img alt="Yukihiro Matsumoto tweet about the Ring language" src="_images/matzring.png" />
-</div>
 <div class="section" id="history">
-<span id="index-4"></span><h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
 <p>In Sept. 2013 I started the design and the implementation of the Ring programming language.
 After 21 months of development, In May 2015 the language Compiler &amp; Virtual Machine were ready for use!</p>
 <p>After that I spent three months testing the language again, trying to discover any bug to fix, writing better tests,
@@ -147,7 +126,7 @@ idea after reading a short description, In the same day I got a lot of emails fr
 <p>Ring 1.12 is released on January 25, 2020</p>
 </div>
 <div class="section" id="features">
-<span id="index-5"></span><h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
 <p>The Ring language comes with the next features</p>
 <div class="admonition tip">
 <p class="first admonition-title">Tip</p>
@@ -393,7 +372,6 @@ SOFTWARE.</p>
 <li><a class="reference internal" href="#">Introduction</a><ul>
 <li><a class="reference internal" href="#motivation">Motivation</a></li>
 <li><a class="reference internal" href="#ring-and-other-languages">Ring and other languages</a></li>
-<li><a class="reference internal" href="#special-thanks-to-matz">Special Thanks to Matz</a></li>
 <li><a class="reference internal" href="#history">History</a></li>
 <li><a class="reference internal" href="#features">Features</a></li>
 <li><a class="reference internal" href="#license">License</a></li>

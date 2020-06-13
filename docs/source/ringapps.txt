@@ -6,8 +6,8 @@ Applications developed in little hours
 =================================================
 
 Ring is a new programming language that focuses on the Natural Language Programming and Declarative Programming paradigms 
-and will let you think different about programming and how to solve your problems in a better way. It's just released in 2016.01.25!  
-In little days we got thousands of downloads and many developers started learning and 
+and will let you think different about programming and how to solve your problems in a better way.   
+In little days after the first release we got thousands of downloads and many developers started learning and 
 using the language. Their feedback are the secret behind the language progress and success. 
 They said that Ring is powerful, beautiful and easy to learn, Some of them provided good examples about what can be done using Ring in little hours. 
 They are very happy with the language productivity.
@@ -293,33 +293,10 @@ I saw your examples in 3D I've looked at part of your project, it's really great
 FetchStockData Application
 ==========================
 
-URL : https://groups.google.com/forum/#!topic/ring-lang/-fa1U_SXSjo
-
-Author : Bert Mariani
-
-This App is written in Ring. 
-
 It will fetch stock data from Yahoo and draw various types of charts.
-Any valid stock ticker can be entered, or selected from the drop down list - Select Symbol.
-
-It will not guarantee that you make money in the stock market.
-But it will visualize the history of the stock.
 
 .. image:: getquotesmac.png
 	:alt: GetQuotesHistory on MacOS X
-
-.. index:: 
-	pair: Applications developed in little hours; Fifteen Puzzle Game 2
-
-Fifteen Puzzle Game 2
-=====================
-
-URL : https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle/CalmoSoftFifteenPuzzleGame.ring
-
-Author : Gal Zsolt (CalmoSoft)
-
-.. image:: fifteen2.png
-	:alt: Ring Application
 
 .. index:: 
 	pair: Applications developed in little hours; Google API Shortener Application
@@ -327,72 +304,14 @@ Author : Gal Zsolt (CalmoSoft)
 Google API Shortener Application
 ================================
 
-Author : John Storm (SienSystem)
-
-Hi everyone,
-
-Wanted to (finally) share a first release version of a small but very nice tool 
-to shorten urls using the Google shortener API.   The code is fully documented, 
-maybe too documented, but, provides a good reference as to what is going on. 
-
-You can obtain your own API key, or you can use my key to test and use the tool.  
-
-Hope you enjoy the application.  Please feel free to test at your convenience.  
-
-Ring is FUN!!
+A small but very nice tool 
+to shorten urls using the Google shortener API.
 
 .. image:: urlappmacshot3.png
 	:alt: URLShortener - shot 3
 
-
-
 .. image:: urlappmacshot4.png
 	:alt: URLShortener - shot 4
-
-.. index:: 
-	pair: Applications developed in little hours; Analog Clock
-
-Analog Clock
-============
-
-URL : https://github.com/ring-lang/ring/blob/master/applications/analogclock/AnalogClock-Image.ring
-
-Author : Bert Mariani
-
-.. image:: analogclock.png
-	:alt: Ring Application
-
-.. index:: 
-	pair: Applications developed in little hours; TicTacToe Game
-
-TicTacToe Game
-==============
-
-URL : https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/TecTacToe.ring
-
-Author : Abdelrahman Mohammed
-
-.. image:: tictactoe.jpg
-	:alt: Ring Application
-
-.. index:: 
-	pair: Applications developed in little hours; Squares Puzzle Game
-
-Squares Puzzle Game
-===================
-
-URL : https://github.com/MajdiSobain/RingAllegro_SquaresPuzzle
-
-Author : Majdi Sobain
-
-This project is about (Squares Puzzle) popular game that I have programmed using
-ring language with its RingAllegro Library. The principle of this game is very known to all of us, 
-which is moving squares to get the real full shape of the original picture.
-
-This game could be played using mouse and keyboard as well, showing a message of congratulations at the successful solving.
-
-.. image:: ringapps_shot2.png
-	:alt: Ring Application
 
 .. index:: 
 	pair: Applications developed in little hours; Video-Music-Player Application
@@ -400,29 +319,10 @@ This game could be played using mouse and keyboard as well, showing a message of
 Video-Music-Player Application
 ==============================
 
-Author : Bert Mariani
-
-Screen Shot:
+An application to play multi-media files.
 
 .. image:: videomusicplayer.jpg
 	:alt: Video Music Player
-
-
-.. index:: 
-	pair: Applications developed in little hours; Calculator Application
-
-Calculator Application
-======================
-
-Author : Magdy Ragab
-
-Updated Version by Gal Zsolt and Bert Mariani
-
-Screen Shot:
-
-.. image:: newcalc2.png
-	:alt: Ring Calculator
-
 
 .. index:: 
 	pair:  Applications developed in little hours; Windows StartUp Manager Application
@@ -430,20 +330,8 @@ Screen Shot:
 Windows StartUp Manager Application
 ===================================
 
-URL : https://github.com/ring-lang/WinStartupManager
-
-Author : Majdi Sobain
-
-Windows Startup Manager is an application that has the ability to let 
+An application that has the ability to let 
 the user control what programs should start at Windows booting time. 
-It gives you the ability to show, edit, delete, or even add new programs
-entries to be lunched at Windows booting time.
-
-It is specialized at managing Windows startup entries that are stored in
-Windows Registry only, but provides a quick option to edit programs 
-shortcuts type entries.
-
-Screen Shot:
 
 .. image:: winstartupman.jpg
 	:alt: Windows Startup Manager
@@ -454,19 +342,67 @@ Screen Shot:
 Werdy Application
 =================
 
-URL : https://github.com/ring-lang/werdy
-
-Author : Magdy Ragab
-
 Quran application includes reading suras, searching and bookmarking.
-
-The applcation is provided for Windows, Linux and Android.
 
 .. image:: ringapps_shot1.png
 	:width: 300pt
 	:height: 300pt
 	:alt: Ring Application
 
+.. index:: 
+	pair: Applications developed in little hours; Fifteen Puzzle Game
+
+Fifteen Puzzle Game
+===================
+
+An implementation for the Fifteen Puzzle game.
+
+.. image:: fifteen2.png
+	:alt: Ring Application
+
+.. index:: 
+	pair: Applications developed in little hours; Analog Clock
+
+Analog Clock
+============
+
+Simple implementation for the Analog Clock.
+
+.. image:: analogclock.png
+	:alt: Ring Application
+
+.. index:: 
+	pair: Applications developed in little hours; TicTacToe Game
+
+TicTacToe Game
+==============
+
+An implementation for the popular TicTacToe game.
+
+.. image:: tictactoe.jpg
+	:alt: Ring Application
+
+.. index:: 
+	pair: Applications developed in little hours; Squares Puzzle Game
+
+Squares Puzzle Game
+===================
+
+An implementation for the popular Squares Puzzle game.
+
+.. image:: ringapps_shot2.png
+	:alt: Ring Application
+
+.. index:: 
+	pair: Applications developed in little hours; Calculator Application
+
+Calculator Application
+======================
+
+Simple calculator application 
+
+.. image:: newcalc2.png
+	:alt: Ring Calculator
 
 .. index:: 
 	pair: Applications developed in little hours; Samples in this book

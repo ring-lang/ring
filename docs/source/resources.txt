@@ -17,19 +17,6 @@ For news about the language check the website
 
 	 http://ring-lang.net
 
-	 http://ring-lang.sf.net
-
-.. index:: 
-	pair: Resources; Ring Group
-
-Ring Group
-==========
-
-For questions use the Ring Group (English)
-
-	https://groups.google.com/forum/#!forum/ring-lang
-
-
 .. index:: 
 	pair: Resources; Source Code
 
@@ -41,31 +28,9 @@ Ring is Free-Open Source (MIT License)
 Source Code : https://github.com/ring-lang/ring
 
 .. index:: 
-	pair: Resources; Contact the Authors
+	pair: Resources; Ring Team
 
-.. index:: 
-	pair: Resources; Arabic Resources
+Ring Team
+=========
 
-Arabic Resources
-================
-
-* Arabic Tutorials by Sara Hamdy
-
-URL : https://ringprogramming4arab.wordpress.com/%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D9%88%D9%8A-2/
-
-* Arabic Tutorials by Ahmed Hassouna (YouTube) 
-
-URL : https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT
-
-* Arabic Tutorials by Alaa Mohamed (YouTube)
-
-URL : https://www.youtube.com/watch?v=uSv5rJp6snw&list=PLgc0fyJgivssosIJu4kJGk5avIjaMzYHK
-
-* Arabic Tutorials by Mahmoud Fayed (Facebook (Live) + YouTube)
-
-URL : https://github.com/ring-lang/ring/blob/master/marketing/course/Arabic/README.md
-
-Contact the Authors
-===================
-
-Ring Team  : http://ring-lang.sourceforge.net/team.html
+URL : http://ring-lang.net/team.html
