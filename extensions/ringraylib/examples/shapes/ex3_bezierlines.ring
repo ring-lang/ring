@@ -1,3 +1,13 @@
+/*******************************************************************************************
+*
+*   raylib [shapes] example - Cubic-bezier lines
+*
+*   This example has been created using raylib 1.7 (www.raylib.com)
+*   raylib is licensed under an unmodified zlib/libpng license (View raylib.h for details)
+*
+*   Copyright (c) 2017 Ramon Santamaria (@raysan5)
+*
+********************************************************************************************/
 #===================================================================#
 # Based on Original Sample from RayLib (https://www.raylib.com/)
 # Ported to RingRayLib by Ring Team
