@@ -1,17 +1,5 @@
-/*******************************************************************************************
-*
-*   raylib [core] example - Input multitouch
-*
-*   This example has been created using raylib 2.1 (www.raylib.com)
-*   raylib is licensed under an unmodified zlib/libpng license (View raylib.h for details)
-*
-*   Example contributed by Berni (@Berni8k) and reviewed by Ramon Santamaria (@raysan5)
-*
-*   Copyright (c) 2019 Berni (@Berni8k) and Ramon Santamaria (@raysan5)
-*
-********************************************************************************************/
 #===================================================================#
-# Based on Original Sample from RayLib (https://www.raylib.com/)
+# Copyright (c) 2019 Berni (@Berni8k) and Ramon Santamaria (@raysan5)
 # Ported to RingRayLib by Ring Team
 #===================================================================#
 
