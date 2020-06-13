@@ -1,15 +1,5 @@
-/*******************************************************************************************
-*
-*   raylib [core] examples - Mouse wheel input
-*
-*   This test has been created using raylib 1.1 (www.raylib.com)
-*   raylib is licensed under an unmodified zlib/libpng license (View raylib.h for details)
-*
-*   Copyright (c) 2014 Ramon Santamaria (@raysan5)
-*
-********************************************************************************************/
 #===================================================================#
-# Based on Original Sample from RayLib (https://www.raylib.com/)
+# Copyright (c) 2014 Ramon Santamaria (@raysan5)
 # Ported to RingRayLib by Ring Team
 #===================================================================#
 
