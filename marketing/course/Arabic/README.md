@@ -1,6 +1,6 @@
 ﻿![Ring](http://ring-lang.sf.net/thering.jpg)
 
-<div dir="rtl"> <h1> تعلم لغة البرمجة رينج  </h1> 
+<div dir="rtl"> <h1> تعلم لغة البرمجة رينج عن بعد (انتهت المنحة لكن يمكنك مشاهدة الدروس فى اى وقت) </h1> 
 
 <table>
 	<tr>
