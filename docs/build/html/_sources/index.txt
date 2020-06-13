@@ -31,7 +31,6 @@ Contents:
    Getting Started - Second Style <getting_started2>
    Getting Started - Third Style <getting_started3>
    Using Ring Notepad <ringnotepad>
-   Using Other Code Editors <codeeditors>
    Variables <variables>
    Operators <operators>
    Control Structures - First Style <controlstructures>
@@ -115,6 +114,7 @@ Contents:
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    FoxRing Functions Reference <foxringfuncsdoc>
    BigNumber Functions Reference <bignumber>
+   Using Other Code Editors <codeeditors>
    Building From Source Code <sourcecode>
    How to contribute? <contribute>
    Frequently Asked Questions (FAQ) <faq>
