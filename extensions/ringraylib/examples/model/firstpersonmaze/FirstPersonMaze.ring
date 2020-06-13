@@ -1,15 +1,5 @@
-/*******************************************************************************************
-*
-*   raylib [models] example - first person maze
-*
-*   This example has been created using raylib 2.5 (www.raylib.com)
-*   raylib is licensed under an unmodified zlib/libpng license (View raylib.h for details)
-*
-*   Copyright (c) 2019 Ramon Santamaria (@raysan5)
-*
-********************************************************************************************/
 #--------------------------------------------------------------------------------
-# Original RayLib sample from : www.raylib.com
+# Copyright (c) 2019 Ramon Santamaria (@raysan5)
 # Ported to RingRayLib by Mahmoud Fayed & Bert Mariani
 # 2020, accelerated by Ilir Liburn (iliribur@gmail.com)
 #--------------------------------------------------------------------------------
