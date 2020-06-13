@@ -1,19 +1,7 @@
-/*******************************************************************************************
-*
-*   raylib [shapes] example - rectangle scaling by mouse
-*
-*   This example has been created using raylib 2.5 (www.raylib.com)
-*   raylib is licensed under an unmodified zlib/libpng license (View raylib.h for details)
-*
-*   Example contributed by Vlad Adrian (@demizdor) and reviewed by Ramon Santamaria (@raysan5)
-*
-*   Copyright (c) 2018 Vlad Adrian (@demizdor) and Ramon Santamaria (@raysan5)
-*
-********************************************************************************************/
-#===================================================================#
-# Based on Original Sample from RayLib (https://www.raylib.com/)
+#=============================================================================#
+# Copyright (c) 2018 Vlad Adrian (@demizdor) and Ramon Santamaria (@raysan5)
 # Ported to RingRayLib by Ring Team
-#===================================================================#
+#=============================================================================#
 
 load "raylib.ring"
 
