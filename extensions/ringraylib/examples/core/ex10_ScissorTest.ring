@@ -1,17 +1,5 @@
-/*******************************************************************************************
-*
-*   raylib [core] example - Scissor test
-*
-*   This example has been created using raylib 2.5 (www.raylib.com)
-*   raylib is licensed under an unmodified zlib/libpng license (View raylib.h for details)
-*
-*   Example contributed by Chris Dill (@MysteriousSpace) and reviewed by Ramon Santamaria (@raysan5)
-*
-*   Copyright (c) 2019 Chris Dill (@MysteriousSpace)
-*
-********************************************************************************************/
 #===================================================================#
-# Based on Original Sample from RayLib (https://www.raylib.com/)
+# Copyright (c) 2019 Chris Dill (@MysteriousSpace)
 # Ported to RingRayLib by Ring Team
 #===================================================================#
 
