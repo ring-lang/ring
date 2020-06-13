@@ -1,15 +1,5 @@
-/*******************************************************************************************
-*
-*   raylib [shapes] example - raylib logo animation
-*
-*   This example has been created using raylib 2.3 (www.raylib.com)
-*   raylib is licensed under an unmodified zlib/libpng license (View raylib.h for details)
-*
-*   Copyright (c) 2014 Ramon Santamaria (@raysan5)
-*
-********************************************************************************************/
 #===================================================================#
-# Based on Original Sample from RayLib (https://www.raylib.com/)
+# Copyright (c) 2014 Ramon Santamaria (@raysan5)
 # Ported to RingRayLib by Ring Team
 #===================================================================#
 
