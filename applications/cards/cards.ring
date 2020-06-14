@@ -22,6 +22,12 @@ load "guilib.ring"
 			 QPushButton:hover{font-size: 28px ;color:navy;background-color:lightblue;} 
 			 QPushButton:pressed{font-size: 28px ;color:#aaa;background-color:#33116a; }"
 
+	new QDesktopWidget() {
+		C_WIDTH  = width()
+		C_HEIGHT = height()
+		C_BUTTONHEIGHT = floor( C_HEIGHT * 0.13 )
+	}
+
 func main
 	oApp = new qApp {
 		winMenu = new qWidget() {
@@ -30,24 +36,24 @@ func main
 			oCardsLabel = new qLabel(winMenu) {
 				setText("The Cards Game")
 				setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-				setFixedheight(300)
+				setFixedheight(C_BUTTONHEIGHT)
 				setstylesheet(C_LABEL_STYLE)
 			}
 			oBtnOnePlayer = new qPushbutton(winMenu) {
 				setText("One Player")
-				setFixedheight(300)
+				setFixedheight(C_BUTTONHEIGHT)
 				setstylesheet(C_BUTTON_STYLE)
 				setclickevent("OnePlayer()")
 			}
 			oBtnTwoPlayers = new qPushbutton(winMenu) {
 				setText("Two Players")
-				setFixedheight(300)
+				setFixedheight(C_BUTTONHEIGHT)
 				setstylesheet(C_BUTTON_STYLE)
 				setclickevent("TwoPlayers()")
 			}
 			oBtnExit = new qPushbutton(winMenu) {
 				setText("Exit")
-				setFixedheight(300)
+				setFixedheight(C_BUTTONHEIGHT)
 				setstylesheet(C_BUTTON_STYLE)
 				setClickevent("CloseGame()")
 			}
