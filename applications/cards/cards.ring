@@ -110,12 +110,16 @@ func LoadCardsGame
 class Game
 
 	# Setting properties based on platform
+		C_BTNIMAGEWIDTH  = floor( C_WIDTH * 0.057 )
+		C_BTNIMAGEHEIGHT = floor( C_HEIGHT * 0.16 )
+
+		C_PLAYERTITLEHEIGHT = floor( C_HEIGHT * 0.16 )
+		C_CLOSEBTNHEIGHT    = floor( C_HEIGHT * 0.13 )
+
 	        if ismobile()
 			nCardsCount = 5
-			nScale = 3
 	        else
 			nCardsCount = 10
-			nScale = 1
 	        ok
 	
 	# From the Game State
@@ -163,7 +167,7 @@ class Game
                         setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                         setstylesheet("color: White; background-color: Purple;
                                          font-size:20pt")
-                        setfixedheight(200)
+                        setfixedheight(this.C_PLAYERTITLEHEIGHT)
                 }
 
                 closebtn = new qpushbutton(win1)  {
@@ -178,7 +182,7 @@ class Game
                                         ")
                         setclickevent("oGame.win1.close()")
                         if ismobile()
-                            setfixedheight(100)
+                            setfixedheight(this.C_CLOSEBTNHEIGHT)
                         ok
                 }
 
@@ -191,8 +195,8 @@ class Game
 
                 for x = 1 to nCardsCount
                         aBtns + new qpushbutton(win1)
-                        aBtns[x].setfixedwidth(79*nScale)
-                        aBtns[x].setfixedheight(124*nScale)
+                        aBtns[x].setfixedwidth(this.C_BTNIMAGEWIDTH)
+                        aBtns[x].setfixedheight(this.C_BTNIMAGEHEIGHT)
                         setButtonImage(aBtns[x],oPic2)
                         layout2.addwidget(aBtns[x])
                         aBtns[x].setclickevent("oGame.Player1click("+x+")")
@@ -207,7 +211,7 @@ class Game
                         setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
                         setstylesheet("color: white; background-color: red;
                                          font-size:20pt")
-                        setfixedheight(200)
+                        setfixedheight(this.C_PLAYERTITLEHEIGHT)
                 }
 
                 layout3 = new qhboxlayout()
@@ -215,8 +219,8 @@ class Game
                 aBtns2 = []
                 for x = 1 to nCardsCount
                         aBtns2 + new qpushbutton(win1)
-                        aBtns2[x].setfixedwidth(79*nScale)
-                        aBtns2[x].setfixedheight(124*nScale)
+                        aBtns2[x].setfixedwidth(this.C_BTNIMAGEWIDTH)
+                        aBtns2[x].setfixedheight(this.C_BTNIMAGEHEIGHT)
                         setButtonImage(aBtns2[x],oPic2)
                         layout3.addwidget(aBtns2[x])
                         aBtns2[x].setclickevent("oGame.Player2click("+x+")")
@@ -238,7 +242,10 @@ class Game
 		ok
 
 		win1.showfullscreen()
-		win1.exec()
+
+		if ! isWebAssembly()
+			win1.exec()
+		ok
 
 	func setButtonImage oBtn,oPixmap
 	        oBtn {
