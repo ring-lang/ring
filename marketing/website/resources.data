@@ -287,15 +287,6 @@
 				]
 			]
 	     ],
-	     ["Japanese Resources",[
-				[
-					'<a href="http://ring-lang-081.osdn.jp/" target="_blank">Ring Website</a>'
-				],
-				[
-					'<a href="http://ring-lang-081.osdn.jp/docs-1.11/index.html" target="_blank">Ring Documentation</a>'
-				]
-			]
-	     ],
 	     ["Arabic Resources",[
 				[
 					'<a href="https://ringprogramming4arab.wordpress.com/%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D9%88%D9%8A-2/" target="_blank">Blog: Ring Programming for Arab</a>'
@@ -334,6 +325,14 @@
 					'<a href="http://ring-lang.sourceforge.net/RingBasics_ArabicBook.pdf" target="_blank">Book: Ring Basics (Hassouna Academy)</a>'
 				]
 			]
+	     ],
+	     ["Japanese Resources",[
+				[
+					'<a href="http://ring-lang-081.osdn.jp/" target="_blank">Ring Website</a>'
+				],
+				[
+					'<a href="http://ring-lang-081.osdn.jp/docs-1.11/index.html" target="_blank">Ring Documentation</a>'
+				]
+			]
 	     ]
-
 ]
