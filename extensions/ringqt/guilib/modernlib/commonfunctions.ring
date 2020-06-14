@@ -103,12 +103,12 @@ func AppFile cFile
 	cFile = substr(cFile,"\","/")
 	if find(cfunctions(),"ismobileqt")
 		if isMobileQt()
-			cFile = ":/"+substr(cFile,"\","/")
+			return ":/"+substr(cFile,"\","/")
 		ok
 	ok
 	if find(cfunctions(),"iswebassemblyqt")
 		if isWebAssemblyQt()
-			cFile = ":/"+substr(cFile,"\","/")
+			return ":/"+substr(cFile,"\","/")
 		ok
 	ok
 	return cFile
