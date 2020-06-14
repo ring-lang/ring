@@ -116,7 +116,7 @@ class Game
 		C_PLAYERTITLEHEIGHT = floor( C_HEIGHT * 0.16 )
 		C_CLOSEBTNHEIGHT    = floor( C_HEIGHT * 0.13 )
 
-	        if ismobile()
+	        if isMobile() or isWebAssembly()
 			nCardsCount = 5
 	        else
 			nCardsCount = 10
@@ -181,7 +181,7 @@ class Game
                                          padding: 6px;
                                         ")
                         setclickevent("oGame.win1.close()")
-                        if ismobile()
+                        if isMobile() or isWebAssembly()
                             setfixedheight(this.C_CLOSEBTNHEIGHT)
                         ok
                 }
@@ -254,7 +254,7 @@ class Game
 	        }
 	
 	func setButtonStyle oBtn
-		if ismobile()
+		if isMobile() or isWebAssembly()
 			oBtn.setStyleSheet("
 			border-style: outset;
 			border-width: 2px;
