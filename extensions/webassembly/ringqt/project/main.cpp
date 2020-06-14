@@ -72,8 +72,15 @@ RING_FUNC(ring_loadlib)
 RING_FUNC(ring_ismobileqt)
 {
     // A function used by RingQt (Appfile() function) to access files using resources
+    RING_API_RETNUMBER(0);
+}
+
+RING_FUNC(ring_iswebassemblyqt)
+{
+    // A function used by RingQt (Appfile() function) to access files using resources
     RING_API_RETNUMBER(1);
 }
+
 
 RING_FUNC(ring_qDebug)
 {
@@ -101,6 +108,7 @@ int main(int argc, char *argv[])
     pRingState = ring_state_new();
     ring_vm_funcregister("loadlib",ring_loadlib);
     ring_vm_funcregister("ismobileqt",ring_ismobileqt);
+	ring_vm_funcregister("iswebassemblyqt",ring_iswebassemblyqt);
     ring_vm_funcregister("qdebug",ring_qDebug);
 
     // Set the application folder
