@@ -105,7 +105,8 @@ func AppFile cFile
 		if isMobileQt()
 			cFile = ":/"+substr(cFile,"\","/")
 		ok
-	but find(cfunctions(),"iswebassemblyqt")
+	ok
+	if find(cfunctions(),"iswebassemblyqt")
 		if isWebAssemblyQt()
 			cFile = ":/"+substr(cFile,"\","/")
 		ok
