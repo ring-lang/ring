@@ -54,6 +54,7 @@
 		-dist	    	 : Prepare application for distribution 
 		-allruntime 	 : Include all libraries in distribution
 		-mobileqt	 : Prepare Qt Project to distribute Ring Application for Mobile 
+		-webassemblyqt	 : Prepare Qt Project to distribute Ring Application for Web using WebAssembly 
 		-noqt	    	 : Remove RingQt from distribution
 		-noallegro 	 : Remove RingAllegro from distribution
 		-noopenssl  	 : Remove RingOpenSSL from distribution
@@ -332,6 +333,11 @@ func Distribute cFileName,aOptions
 		if find(aOptions,"-mobileqt")
 			DistributeForMobileQt(cBaseFolder,cFileName,aOptions)
 		ok
+	# Prepare Application for WebAssembly (RingQt)
+		if find(aOptions,"-webassemblyqt")
+			DistributeForWebAssemblyQt(cBaseFolder,cFileName,aOptions)
+		ok
+
 	chdir(cBaseFolder)
 
 func DistributeForWindows cBaseFolder,cFileName,aOptions
@@ -638,13 +644,37 @@ func DistributeForMobileQt cBaseFolder,cFileName,aOptions
 		OSCopyFolder(exefolder() + "../extensions/android/ringqt/project/","android" )
 	ok
 
-
+func DistributeForWebAssemblyQt cBaseFolder,cFileName,aOptions
+	msg("Prepare RingQt project to distribute for Web (WebAssembly)")
+	# Delete Files 
+		OSDeleteFolder(:webassembly)
+	OSCreateOpenFolder(:webassembly)
+	OSCreateOpenFolder(:qtproject)
+	msg("Copy RingQt for WebAssembly project files...")
+	OSCopyFile(exefolder() + "../extensions/webassembly/ringqt/project/*.*" )
+	OSDeleteFile("project.pro.user")
+	msg("Prepare the Ring Object (*.ringo) file...")
+	OSDeleteFile("ringapp.ring")
+	OSDeleteFile("ringapp.ringo")
+	cRINGOFile = cBaseFolder+"/"+cFileName+".ringo"
+	msg("Get the Ring Object File")
+	OSCopyFile(cRINGOFile)
+	write("main.cpp",substr(read("main.cpp"),"ringapp.ringo",cFileName+".ringo"))
+	write("project.qrc",substr(read("project.qrc"),"ringapp.ringo",cFileName+".ringo"))
+	CheckQtResourceFile(cBaseFolder,cFileName,aOptions)
+	cMainFile = cBaseFolder+"/"+"main.cpp"
+	if fexists(cMainFile)
+		msg("We have the Main File : " + cMainFile)
+		msg("Copy the Main file to target/webassembly/qtproject")
+		OSDeleteFile("main.cpp")
+		OSCopyFile(cMainFile)
+	ok
 
 func CheckQtResourceFile cBaseFolder,cFileName,aOptions
 	cResourceFile = cBaseFolder+"/"+"project.qrc"
 	if fexists(cResourceFile)
 		msg("We have Qt Resource File : " + cResourceFile)
-		msg("Copy the resource file to target/mobile/qtproject")
+		msg("Copy the resource file to the Qt project folder")
 		OSDeleteFile("project.qrc")
 		OSCopyFile(cResourceFile)
 		msg("Copy files added to the Resource file")
