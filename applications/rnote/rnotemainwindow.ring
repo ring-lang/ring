@@ -744,6 +744,12 @@ class RNoteMainWindow
 							setclickEvent(Method("Distribute(7)"))
 						}
 						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
+							settext("Ring2EXE (Prepare Qt Project - Distribute for Web Browsers using WebAssembly)")
+							setclickEvent(Method("Distribute(8)"))
+						}
+						addaction(oAction)
 					}
 					subHelp {
 						subHelpLF = addmenu("Language Reference")

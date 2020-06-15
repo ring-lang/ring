@@ -22,8 +22,11 @@ class RNoteDistribute
 				cPara += ",-dist,-qt,-gui"
 			on 6	# ringallegro 
 				cPara += ",-dist,-allegro,-freeglut,-opengl,-gui"
-			on 7	# qt project
+			on 7	# qt project (mobile)
 				cPara += ",-dist,-allruntime,-gui,-mobileqt"
+			on 8	# qt project (WebAssembly)
+				cPara += ",-dist,-allruntime,-gui,-webassemblyqt"
+
 		off
 		oDockOutputWindow { show() raise() }		
 		oProcessEditbox.setplaintext("")
