@@ -382,6 +382,9 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 				ok
 			next 				
 		ok
+	# Delete the executable file (We already copied it to target/windows)
+		OSDeleteFile(cBaseFolder+"\"+cFileName+".exe")
+
 
 func DistributeForLinux cBaseFolder,cFileName,aOptions
 	# Delete Files 
