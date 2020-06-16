@@ -353,6 +353,7 @@ More Improvements
 * Ring Notepad - Keyboard shortcuts for different styles
 * Ring Notepad - Support saving files in folders contains the dot character
 * Ring Notepad - Browser Window - Set colors based on the current style
+* Ring Notepad - Distribute Menu - Distribute for Web Browser using WebAssembly (RingQt)
 * Form Designer - ToolBox - Larger width in Windows style  
 * Form Designer - ToolBar - New icon for the (Select Objects) button
 * Gold Magic 800 - Level Editor - Decrease the window size 
@@ -365,6 +366,9 @@ More Improvements
 * RingOpenGL - Better Code (Added GLEW functions)
 * RingFreeGLUT - Better Code (Added many functions)
 * RingPM - Support terminals that pass the executable name using UPPER case
+* Ring2EXE - Distribute for Web Browser using WebAssembly (RingQt)
+* Ring2EXE - Delete the executable file if we have it in the target folder
+* Ring2EXE - Always copy files listed in the resources file to the target folder
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
 * Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
 * Ring Compiler - ring_parser.c - Better Code
