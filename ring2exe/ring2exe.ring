@@ -384,7 +384,8 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 		ok
 	# Delete the executable file (We already copied it to target/windows)
 		OSDeleteFile(cBaseFolder+"\"+cFileName+".exe")
-
+	# Copy Files (Images, etc) in Resources File
+		CheckQtResourceFile(cBaseFolder,cFileName,aOptions)
 
 func DistributeForLinux cBaseFolder,cFileName,aOptions
 	# Delete Files 
@@ -401,6 +402,8 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 		msg("Copy the executable file to target/linux/bin")
 		OSCopyFile(cBaseFolder+"/"+cFileName)
 		CheckNoCCompiler(cBaseFolder,cFileName)
+	# Copy Files (Images, etc) in Resources File
+		CheckQtResourceFile(cBaseFolder,cFileName,aOptions)
 	chdir(cDir)
 	OSCreateOpenFolder(:lib)
 	cInstallUbuntu = "sudo apt-get install"
@@ -548,6 +551,8 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 		msg("Copy the executable file to target/macosx/bin")
 		OSCopyFile(cBaseFolder+"/"+cFileName)
 		CheckNoCCompiler(cBaseFolder,cFileName)
+	# Copy Files (Images, etc) in Resources File
+		CheckQtResourceFile(cBaseFolder,cFileName,aOptions)
 	chdir(cDir)
 	OSCreateOpenFolder(:lib)
 	cInstallmacosx = "brew install -k"
