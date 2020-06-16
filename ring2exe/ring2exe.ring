@@ -318,26 +318,19 @@ func ClearTempFiles nPara
 func Distribute cFileName,aOptions
 	cBaseFolder = currentdir()
 	OSCreateOpenFolder(:target)
-	cDir = currentdir()
-	if isWindows()
+	if find(aOptions,"-mobileqt")
+		# Prepare Application for Mobile (RingQt)
+		DistributeForMobileQt(cBaseFolder,cFileName,aOptions)
+	but find(aOptions,"-webassemblyqt")
+		# Prepare Application for WebAssembly (RingQt)
+		DistributeForWebAssemblyQt(cBaseFolder,cFileName,aOptions)
+	but isWindows()
 		DistributeForWindows(cBaseFolder,cFileName,aOptions)
 	but isLinux()
 		DistributeForLinux(cBaseFolder,cFileName,aOptions)
 	but isMacOSX()
 		DistributeForMacOSX(cBaseFolder,cFileName,aOptions)
 	ok
-	if currentdir() != cDir
-	 	chdir(cDir)
-	ok
-	# Prepare Application for Mobile (RingQt)
-		if find(aOptions,"-mobileqt")
-			DistributeForMobileQt(cBaseFolder,cFileName,aOptions)
-		ok
-	# Prepare Application for WebAssembly (RingQt)
-		if find(aOptions,"-webassemblyqt")
-			DistributeForWebAssemblyQt(cBaseFolder,cFileName,aOptions)
-		ok
-
 	chdir(cBaseFolder)
 
 func DistributeForWindows cBaseFolder,cFileName,aOptions
