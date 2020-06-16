@@ -331,6 +331,10 @@ func Distribute cFileName,aOptions
 	but isMacOSX()
 		DistributeForMacOSX(cBaseFolder,cFileName,aOptions)
 	ok
+	# Delete the executable file
+		if isWindows()
+			OSDeleteFile(cBaseFolder+"\"+cFileName+".exe")
+		ok
 	chdir(cBaseFolder)
 
 func DistributeForWindows cBaseFolder,cFileName,aOptions
@@ -382,8 +386,6 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 				ok
 			next 				
 		ok
-	# Delete the executable file (We already copied it to target/windows)
-		OSDeleteFile(cBaseFolder+"\"+cFileName+".exe")
 	# Copy Files (Images, etc) in Resources File
 		CheckQtResourceFile(cBaseFolder,cFileName,aOptions)
 
