@@ -17143,6 +17143,28 @@ Class QFontDialog from QDialog
 	Func testOption P1
 		return QFontDialog_testOption(pObject,P1)
 
+	Func getFont_2 P1,P2,P3,P4,P5
+		pTempObj = new QFont
+		pTempObj.pObject = QFontDialog_getFont_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),P4,P5)
+		return pTempObj
+
+	Func getFont_3 P1,P2
+		pTempObj = new QFont
+		pTempObj.pObject = QFontDialog_getFont_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func setcurrentFontChangedEvent P1
+		return QFontDialog_setcurrentFontChangedEvent(pObject,P1)
+
+	Func setfontSelectedEvent P1
+		return QFontDialog_setfontSelectedEvent(pObject,P1)
+
+	Func getcurrentFontChangedEvent 
+		return QFontDialog_getcurrentFontChangedEvent(pObject)
+
+	Func getfontSelectedEvent 
+		return QFontDialog_getfontSelectedEvent(pObject)
+
 	Func getfont 
 		return QFontDialog_getfont(pObject)
 

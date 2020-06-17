@@ -2,17 +2,27 @@
 name: QFontDialog
 para: void
 parent: QDialog
+codename: GFontDialog
+passvmpointer
+passnullbeforevmpointer
 </class>
 
 QFont currentFont(void)
-void open(QObject *receiver, const char *member)
-int options(void)
+void open(QObject * receiver, char * member)
+QFontDialog::FontDialogOptions options(void)
 QFont selectedFont(void)
-void setCurrentFont(QFont)
+void setCurrentFont(QFont font)
 void setOption(QFontDialog::FontDialogOption option, bool on)
-void setOptions(QFontDialog::FontDialogOption options)
+void setOptions(QFontDialog::FontDialogOptions options)
 bool testOption(QFontDialog::FontDialogOption option)
+QFont getFont@2(bool * ok, QFont initial, QWidget * parent, QString title, QFontDialog::FontDialogOptions options)
+QFont getFont@3(bool * ok, QWidget * parent)
 
+void setcurrentFontChangedEvent(const char *)
+void setfontSelectedEvent(const char *)
+
+const char *getcurrentFontChangedEvent(void)
+const char *getfontSelectedEvent(void)
 
 <register>
 int getfont(void)

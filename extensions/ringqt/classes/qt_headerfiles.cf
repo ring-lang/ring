@@ -52,6 +52,7 @@ extern "C" {
 #include "gtabbar.h"
 #include "ggraphicsscene.h"
 #include "gcolordialog.h"
+#include "gfontdialog.h"
 #include <QtWidgets>
 </filter>
 
