@@ -192,8 +192,7 @@ HEADERS  += \
     cpp/include/gvalueaxis.h \
     cpp/include/gxyseries.h \
     cpp/include/ggraphicsscene.h \
-    cpp/include/gmovie.h
-    
+    cpp/include/gmovie.h     
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include

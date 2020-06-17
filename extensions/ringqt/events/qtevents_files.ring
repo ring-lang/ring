@@ -37,6 +37,7 @@ load "widgets/qstackedwidget.ring"
 load "widgets/qcalenderwidget.ring"
 load "widgets/qtabbar.ring"
 load "widgets/qgraphicsscene.ring"
+load "widgets/qfiledialog.ring"
 #-------------------------------------------------------------------------#
 load "printsupport/qprintpreviewwidget.ring"
 load "printsupport/qprintpreviewdialog.ring"

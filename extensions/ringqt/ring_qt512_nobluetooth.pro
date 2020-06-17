@@ -178,13 +178,13 @@ HEADERS  += \
     cpp/include/gvalueaxis.h \
     cpp/include/gxyseries.h \
     cpp/include/ggraphicsscene.h \
-    cpp/include/gmovie.h
+    cpp/include/gmovie.h 
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include
 
 win32 {
-	LIBS +=  ../../lib/ring.lib
+	LIBS += ../../lib/ring.lib
 	QT   += axcontainer quick quickwidgets qml
 	SOURCES += cpp/src/openglwidget.cpp cpp/src/gquickwidget.cpp 
 	HEADERS += cpp/include/openglwidget.h cpp/include/gquickwidget.h 
