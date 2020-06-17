@@ -16979,8 +16979,11 @@ Class QFileDialog from QDialog
 		pTempObj.pObject = QFileDialog_getExistingDirectoryUrl(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4,GetObjectPointerFromRingObject(P5))
 		return pTempObj
 
-	Func getOpenFileName P1,P2,P3,P4,P5,P6
-		return QFileDialog_getOpenFileName(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,GetObjectPointerFromRingObject(P5),P6)
+	Func getOpenFileName P1,P2,P3,P4
+		return QFileDialog_getOpenFileName(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
+
+	Func getOpenFileName_2 P1,P2,P3,P4,P5,P6
+		return QFileDialog_getOpenFileName_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,GetObjectPointerFromRingObject(P5),P6)
 
 	Func getOpenFileNames P1,P2,P3,P4,P5,P6
 		pTempObj = new QStringList
@@ -16995,8 +16998,11 @@ Class QFileDialog from QDialog
 	Func getOpenFileUrls P1,P2,P3,P4,P5,P6,P7
 		return QFileDialog_getOpenFileUrls(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4,GetObjectPointerFromRingObject(P5),P6,GetObjectPointerFromRingObject(P7))
 
-	Func getSaveFileName P1,P2,P3,P4,P5,P6
-		return QFileDialog_getSaveFileName(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,GetObjectPointerFromRingObject(P5),P6)
+	Func getSaveFileName P1,P2,P3,P4
+		return QFileDialog_getSaveFileName(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
+
+	Func getSaveFileName_2 P1,P2,P3,P4,P5,P6
+		return QFileDialog_getSaveFileName_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4,GetObjectPointerFromRingObject(P5),P6)
 
 	Func getSaveFileUrl P1,P2,P3,P4,P5,P6,P7
 		pTempObj = new QUrl
