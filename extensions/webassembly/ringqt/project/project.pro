@@ -98,6 +98,7 @@ SOURCES +=   \
     gxyseries.cpp \
     ggraphicsscene.cpp \
     gmovie.cpp \
+	gcolordialog.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -179,7 +180,8 @@ HEADERS  += \
     gvalueaxis.h \
     gxyseries.h \
     ggraphicsscene.h \
-    gmovie.h
+    gmovie.h \
+	gcolordialog.h
 
 CONFIG += warn_off
 

@@ -46,6 +46,7 @@ extern "C" {
 #include "gcalendarwidget.h"
 #include "gtabbar.h"
 #include "ggraphicsscene.h"
+#include "gcolordialog.h"
 #include <QtWidgets>
 
 
@@ -78037,7 +78038,7 @@ RING_FUNC(ring_QDialog_reject)
 
 RING_FUNC(ring_QColorDialog_currentColor)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -78047,7 +78048,7 @@ RING_FUNC(ring_QColorDialog_currentColor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	{
 		QColor *pValue ; 
 		pValue = new QColor() ;
@@ -78059,9 +78060,9 @@ RING_FUNC(ring_QColorDialog_currentColor)
 
 RING_FUNC(ring_QColorDialog_open)
 {
-	QColorDialog *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
+	GColorDialog *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
@@ -78069,14 +78070,22 @@ RING_FUNC(ring_QColorDialog_open)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
-	pObject->open();
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->open((QObject *) RING_API_GETCPOINTER(2,"QObject"),RING_API_GETSTRING(3));
 }
 
 
 RING_FUNC(ring_QColorDialog_options)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -78086,14 +78095,14 @@ RING_FUNC(ring_QColorDialog_options)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	RING_API_RETNUMBER(pObject->options());
 }
 
 
 RING_FUNC(ring_QColorDialog_selectedColor)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -78103,7 +78112,7 @@ RING_FUNC(ring_QColorDialog_selectedColor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	{
 		QColor *pValue ; 
 		pValue = new QColor() ;
@@ -78115,7 +78124,7 @@ RING_FUNC(ring_QColorDialog_selectedColor)
 
 RING_FUNC(ring_QColorDialog_setCurrentColor)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -78125,8 +78134,8 @@ RING_FUNC(ring_QColorDialog_setCurrentColor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
-	pObject->setCurrentColor(* (QColor *) RING_API_GETCPOINTER(2,"QColor"));
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject->setCurrentColor(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
 }
@@ -78134,7 +78143,7 @@ RING_FUNC(ring_QColorDialog_setCurrentColor)
 
 RING_FUNC(ring_QColorDialog_setOption)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -78144,7 +78153,7 @@ RING_FUNC(ring_QColorDialog_setOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -78159,7 +78168,7 @@ RING_FUNC(ring_QColorDialog_setOption)
 
 RING_FUNC(ring_QColorDialog_setOptions)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -78169,18 +78178,18 @@ RING_FUNC(ring_QColorDialog_setOptions)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOptions( (QColorDialog::ColorDialogOption )  (int) RING_API_GETNUMBER(2));
+	pObject->setOptions( (QColorDialog::ColorDialogOptions )  (int) RING_API_GETNUMBER(2));
 }
 
 
 RING_FUNC(ring_QColorDialog_testOption)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -78190,7 +78199,7 @@ RING_FUNC(ring_QColorDialog_testOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -78201,7 +78210,7 @@ RING_FUNC(ring_QColorDialog_testOption)
 
 RING_FUNC(ring_QColorDialog_customColor)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -78211,7 +78220,7 @@ RING_FUNC(ring_QColorDialog_customColor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -78227,7 +78236,7 @@ RING_FUNC(ring_QColorDialog_customColor)
 
 RING_FUNC(ring_QColorDialog_customCount)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -78237,14 +78246,50 @@ RING_FUNC(ring_QColorDialog_customCount)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	RING_API_RETNUMBER(pObject->customCount());
+}
+
+
+RING_FUNC(ring_QColorDialog_getColor_2)
+{
+	GColorDialog *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QColor *pValue ; 
+		pValue = new QColor() ;
+		*pValue = pObject->getColor(* (QColor  *) RING_API_GETCPOINTER(2,"QColor"),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"),RING_API_GETSTRING(4), (QColorDialog::ColorDialogOptions )  (int) RING_API_GETNUMBER(5));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QColor"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QColor",ring_QColor_freefunc);
+	}
 }
 
 
 RING_FUNC(ring_QColorDialog_setCustomColor)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -78254,22 +78299,20 @@ RING_FUNC(ring_QColorDialog_setCustomColor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject->setCustomColor( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject->setCustomColor( (int ) RING_API_GETNUMBER(2),* (QColor  *) RING_API_GETCPOINTER(3,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QColor"));
 }
 
 
 RING_FUNC(ring_QColorDialog_setStandardColor)
 {
-	QColorDialog *pObject ;
+	GColorDialog *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -78279,16 +78322,116 @@ RING_FUNC(ring_QColorDialog_setStandardColor)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISNUMBER(3) ) {
+	pObject->setStandardColor( (int ) RING_API_GETNUMBER(2),* (QColor  *) RING_API_GETCPOINTER(3,"QColor"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QColor"));
+}
+
+
+RING_FUNC(ring_QColorDialog_standardColor)
+{
+	GColorDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setStandardColor( (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QColor *pValue ; 
+		pValue = new QColor() ;
+		*pValue = pObject->standardColor( (int ) RING_API_GETNUMBER(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QColor",ring_QColor_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QColorDialog_setcolorSelectedEvent)
+{
+	GColorDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcolorSelectedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QColorDialog_setcurrentColorChangedEvent)
+{
+	GColorDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcurrentColorChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QColorDialog_getcolorSelectedEvent)
+{
+	GColorDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	RING_API_RETSTRING(pObject->getcolorSelectedEvent());
+}
+
+
+RING_FUNC(ring_QColorDialog_getcurrentColorChangedEvent)
+{
+	GColorDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+	RING_API_RETSTRING(pObject->getcurrentColorChangedEvent());
 }
 
 
@@ -130160,7 +130303,7 @@ RING_FUNC(ring_QSize_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QSize *pObject = new QSize( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
+	QSize *pObject = new QSize((int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
 	RING_API_RETMANAGEDCPOINTER(pObject,"QSize",ring_QSize_freefunc);
 }
 
@@ -130216,7 +130359,7 @@ RING_FUNC(ring_QEvent_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QEvent *pObject = new QEvent( (QEvent::Type )  (int) RING_API_GETNUMBER(1));
+	QEvent *pObject = new QEvent((QEvent::Type )  (int) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QEvent");
 }
 
@@ -130323,7 +130466,7 @@ RING_FUNC(ring_QVariant2_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QVariant *pObject = new QVariant( (int) RING_API_GETNUMBER(1));
+	QVariant *pObject = new QVariant((int) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QVariant2");
 }
 
@@ -130338,7 +130481,7 @@ RING_FUNC(ring_QVariant3_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QVariant *pObject = new QVariant( (float) RING_API_GETNUMBER(1));
+	QVariant *pObject = new QVariant((float) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QVariant3");
 }
 
@@ -130353,7 +130496,7 @@ RING_FUNC(ring_QVariant4_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QVariant *pObject = new QVariant( (double) RING_API_GETNUMBER(1));
+	QVariant *pObject = new QVariant((double) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QVariant4");
 }
 
@@ -130383,7 +130526,7 @@ RING_FUNC(ring_QVariantInt_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QVariant *pObject = new QVariant( (int) RING_API_GETNUMBER(1));
+	QVariant *pObject = new QVariant((int) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QVariantInt");
 }
 
@@ -130398,7 +130541,7 @@ RING_FUNC(ring_QVariantFloat_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QVariant *pObject = new QVariant( (float) RING_API_GETNUMBER(1));
+	QVariant *pObject = new QVariant((float) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QVariantFloat");
 }
 
@@ -130413,7 +130556,7 @@ RING_FUNC(ring_QVariantDouble_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QVariant *pObject = new QVariant( (double) RING_API_GETNUMBER(1));
+	QVariant *pObject = new QVariant((double) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QVariantDouble");
 }
 
@@ -130726,7 +130869,7 @@ RING_FUNC(ring_QChar_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QChar *pObject = new QChar( (int) RING_API_GETNUMBER(1));
+	QChar *pObject = new QChar((int) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QChar");
 }
 
@@ -130745,7 +130888,7 @@ RING_FUNC(ring_QChildEvent_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QChildEvent *pObject = new QChildEvent( (QEvent::Type)  (int) RING_API_GETNUMBER(1),(QObject *) RING_API_GETCPOINTER(2,"QObject"));
+	QChildEvent *pObject = new QChildEvent((QEvent::Type)  (int) RING_API_GETNUMBER(1),(QObject *) RING_API_GETCPOINTER(2,"QObject"));
 	RING_API_RETCPOINTER(pObject,"QChildEvent");
 }
 
@@ -130873,7 +131016,7 @@ RING_FUNC(ring_QPixmap2_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QPixmap *pObject = new QPixmap( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
+	QPixmap *pObject = new QPixmap((int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
 	RING_API_RETCPOINTER(pObject,"QPixmap2");
 }
 
@@ -131129,7 +131272,7 @@ RING_FUNC(ring_QGuiApplication_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	GGuiApplication *pObject = new GGuiApplication( (int) RING_API_GETNUMBER(1),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (VM *) pPointer);
+	GGuiApplication *pObject = new GGuiApplication((int) RING_API_GETNUMBER(1),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QGuiApplication");
 }
 
@@ -131159,7 +131302,7 @@ RING_FUNC(ring_QVector2D_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QVector2D *pObject = new QVector2D( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2));
+	QVector2D *pObject = new QVector2D((float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2));
 	RING_API_RETCPOINTER(pObject,"QVector2D");
 }
 
@@ -131182,7 +131325,7 @@ RING_FUNC(ring_QVector3D_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QVector3D *pObject = new QVector3D( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3));
+	QVector3D *pObject = new QVector3D((float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3));
 	RING_API_RETCPOINTER(pObject,"QVector3D");
 }
 
@@ -131209,7 +131352,7 @@ RING_FUNC(ring_QVector4D_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QVector4D *pObject = new QVector4D( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
+	QVector4D *pObject = new QVector4D((float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
 	RING_API_RETCPOINTER(pObject,"QVector4D");
 }
 
@@ -131236,7 +131379,7 @@ RING_FUNC(ring_QQuaternion_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QQuaternion *pObject = new QQuaternion( (float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
+	QQuaternion *pObject = new QQuaternion((float) RING_API_GETNUMBER(1), (float) RING_API_GETNUMBER(2), (float) RING_API_GETNUMBER(3), (float) RING_API_GETNUMBER(4));
 	RING_API_RETCPOINTER(pObject,"QQuaternion");
 }
 
@@ -131311,7 +131454,7 @@ RING_FUNC(ring_QMatrix4x4_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QMatrix4x4 *pObject = new QMatrix4x4( (qreal) RING_API_GETNUMBER(1), (qreal) RING_API_GETNUMBER(2), (qreal) RING_API_GETNUMBER(3), (qreal) RING_API_GETNUMBER(4), (qreal) RING_API_GETNUMBER(5), (qreal) RING_API_GETNUMBER(6), (qreal) RING_API_GETNUMBER(7), (qreal) RING_API_GETNUMBER(8), (qreal) RING_API_GETNUMBER(9), (qreal) RING_API_GETNUMBER(10), (qreal) RING_API_GETNUMBER(11), (qreal) RING_API_GETNUMBER(12), (qreal) RING_API_GETNUMBER(13), (qreal) RING_API_GETNUMBER(14), (qreal) RING_API_GETNUMBER(15), (qreal) RING_API_GETNUMBER(16));
+	QMatrix4x4 *pObject = new QMatrix4x4((qreal) RING_API_GETNUMBER(1), (qreal) RING_API_GETNUMBER(2), (qreal) RING_API_GETNUMBER(3), (qreal) RING_API_GETNUMBER(4), (qreal) RING_API_GETNUMBER(5), (qreal) RING_API_GETNUMBER(6), (qreal) RING_API_GETNUMBER(7), (qreal) RING_API_GETNUMBER(8), (qreal) RING_API_GETNUMBER(9), (qreal) RING_API_GETNUMBER(10), (qreal) RING_API_GETNUMBER(11), (qreal) RING_API_GETNUMBER(12), (qreal) RING_API_GETNUMBER(13), (qreal) RING_API_GETNUMBER(14), (qreal) RING_API_GETNUMBER(15), (qreal) RING_API_GETNUMBER(16));
 	RING_API_RETCPOINTER(pObject,"QMatrix4x4");
 }
 
@@ -132069,7 +132212,7 @@ RING_FUNC(ring_QColorDialog_new)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	QColorDialog *pObject = new QColorDialog();
+	GColorDialog *pObject = new GColorDialog(NULL, (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QColorDialog");
 }
 
@@ -132222,7 +132365,7 @@ RING_FUNC(ring_QHeaderView_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	GHeaderView *pObject = new GHeaderView( (Qt::Orientation)  (int) RING_API_GETNUMBER(1),(QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (VM *) pPointer);
+	GHeaderView *pObject = new GHeaderView((Qt::Orientation)  (int) RING_API_GETNUMBER(1),(QWidget *) RING_API_GETCPOINTER(2,"QWidget"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QHeaderView");
 }
 
@@ -132645,7 +132788,7 @@ RING_FUNC(ring_QPrinter_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QPrinter *pObject = new QPrinter( (QPrinter::PrinterMode)  (int) RING_API_GETNUMBER(1));
+	QPrinter *pObject = new QPrinter((QPrinter::PrinterMode)  (int) RING_API_GETNUMBER(1));
 	RING_API_RETCPOINTER(pObject,"QPrinter");
 }
 
@@ -132959,7 +133102,7 @@ RING_FUNC(ring_QCandlestickSet_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	GCandlestickSet *pObject = new GCandlestickSet( (qreal) RING_API_GETNUMBER(1),(QObject *) RING_API_GETCPOINTER(2,"QObject"), (VM *) pPointer);
+	GCandlestickSet *pObject = new GCandlestickSet((qreal) RING_API_GETNUMBER(1),(QObject *) RING_API_GETCPOINTER(2,"QObject"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QCandlestickSet");
 }
 
@@ -135592,7 +135735,7 @@ RING_FUNC(ring_QDialog_delete)
 
 RING_FUNC(ring_QColorDialog_delete)
 {
-	QColorDialog *pObject ; 
+	GColorDialog *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
@@ -135601,7 +135744,7 @@ RING_FUNC(ring_QColorDialog_delete)
 	}
 	if ( RING_API_ISCPOINTER(1) )
 	{
-		pObject = (QColorDialog *) RING_API_GETCPOINTER(1,"QColorDialog");
+		pObject = (GColorDialog *) RING_API_GETCPOINTER(1,"GColorDialog");
 		delete pObject ;
 		RING_API_SETNULLPOINTER(1);
 	}
@@ -138012,8 +138155,8 @@ void ring_QDialog_freefunc(void *pState,void *pPointer)
 
 void ring_QColorDialog_freefunc(void *pState,void *pPointer)
 {
-	QColorDialog *pObject ; 
-	pObject = (QColorDialog *) pPointer;
+	GColorDialog *pObject ; 
+	pObject = (GColorDialog *) pPointer;
 	delete pObject ;
 }
 
@@ -142410,8 +142553,14 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcolordialog_testoption",ring_QColorDialog_testOption);
 	ring_vm_funcregister("qcolordialog_customcolor",ring_QColorDialog_customColor);
 	ring_vm_funcregister("qcolordialog_customcount",ring_QColorDialog_customCount);
+	ring_vm_funcregister("qcolordialog_getcolor_2",ring_QColorDialog_getColor_2);
 	ring_vm_funcregister("qcolordialog_setcustomcolor",ring_QColorDialog_setCustomColor);
 	ring_vm_funcregister("qcolordialog_setstandardcolor",ring_QColorDialog_setStandardColor);
+	ring_vm_funcregister("qcolordialog_standardcolor",ring_QColorDialog_standardColor);
+	ring_vm_funcregister("qcolordialog_setcolorselectedevent",ring_QColorDialog_setcolorSelectedEvent);
+	ring_vm_funcregister("qcolordialog_setcurrentcolorchangedevent",ring_QColorDialog_setcurrentColorChangedEvent);
+	ring_vm_funcregister("qcolordialog_getcolorselectedevent",ring_QColorDialog_getcolorSelectedEvent);
+	ring_vm_funcregister("qcolordialog_getcurrentcolorchangedevent",ring_QColorDialog_getcurrentColorChangedEvent);
 	ring_vm_funcregister("qcolordialog_getcolor",ring_QColorDialog_getcolor);
 	ring_vm_funcregister("qlcdnumber_checkoverflow",ring_QLCDNumber_checkOverflow);
 	ring_vm_funcregister("qlcdnumber_digitcount",ring_QLCDNumber_digitCount);

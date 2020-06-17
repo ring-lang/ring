@@ -12,8 +12,8 @@ GColorDialog::GColorDialog(QWidget *parent,VM *pVM)  : QColorDialog(parent)
 	strcpy(this->ccolorSelectedEvent,"");
 	strcpy(this->ccurrentColorChangedEvent,"");
 
-	QObject::connect(this, SIGNAL(colorSelected(QColor)),this, SLOT(colorSelectedSlot()));
-	QObject::connect(this, SIGNAL(currentColorChanged(QColor)),this, SLOT(currentColorChangedSlot()));
+	QObject::connect(this, SIGNAL(colorSelected(const QColor)),this, SLOT(colorSelectedSlot()));
+	QObject::connect(this, SIGNAL(currentColorChanged(const QColor)),this, SLOT(currentColorChangedSlot()));
 
 }
 
