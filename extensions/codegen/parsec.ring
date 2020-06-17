@@ -107,6 +107,7 @@ C_CLASSESLIST_ABSTRACT 		= 6
 C_CLASSESLIST_NONEW 		= 7
 C_CLASSESLIST_STATICMETHODS	= 8
 C_CLASSESLIST_MANAGED		= 9
+C_CLASSESLIST_PASSNULL		= 10
 
 $lNodllstartup = false	# when used, ring.h will not be included automatically
 $cLibInitFunc = "ringlib_init"
@@ -377,7 +378,7 @@ Func GenCode aList
 			if left(lower(cValue),5) = "name:"
 				cClassName = trim(substr(cValue,6))
 				See "Class Name : " + cClassName + nl
-				$aClassesList + [cClassName,"","","",false,false,false,false,false]
+				$aClassesList + [cClassName,"","","",false,false,false,false,false,false]
 			ok
 		ok
 	next		
@@ -409,7 +410,6 @@ Func GenCode aList
 			if left(lower(cValue),5) = "name:"
 				$cClassName = trim(substr(cValue,6))
 				See "Class Name : " + $cClassName + nl
-				# $aClassesList + [$cClassName,"","","",false,false]
 			but left(lower(cValue),5) = "para:"
 				$cNewPara = trim(substr(cValue,6))
 				See "Parameters : " + $cNewPara + nl
@@ -428,6 +428,9 @@ Func GenCode aList
 			but lower(cValue) = "passvmpointer"
 				nIndex = find($aClassesList,$cClassName,1)
 				$aClassesList[nIndex][C_CLASSESLIST_PASSVMPOINTER] = true
+			but lower(cValue) = "passnullbeforevmpointer"
+				nIndex = find($aClassesList,$cClassName,1)
+				$aClassesList[nIndex][C_CLASSESLIST_PASSNULL] = true
 			but lower(cValue) = "abstract"
 				nIndex = find($aClassesList,$cClassName,1)
 				$aClassesList[nIndex][C_CLASSESLIST_ABSTRACT] = true
@@ -435,7 +438,6 @@ Func GenCode aList
 			but lower(cValue) = "nonew"
 				nIndex = find($aClassesList,$cClassName,1)
 				$aClassesList[nIndex][C_CLASSESLIST_NONEW] = true
-				#del($aClassesList,nIndex)		
 			but lower(cValue) = "staticmethods"
 				nIndex = find($aClassesList,$cClassName,1)
 				$aClassesList[nIndex][C_CLASSESLIST_STATICMETHODS] = true
@@ -1187,10 +1189,18 @@ Func GenNewFuncForClasses aList
 			 	GenFuncCodeCheckParaCount(myList) +
 	 			GenFuncCodeCheckParaType(myList) +
 				C_TABS_1 + cCodeName + " *pObject = " +
-				"new " + cCodeName + "(" + 				
-				GenFuncCodeGetParaValues(myList) 
+				"new " + cCodeName + "("
+				cParaValues = Trim(GenFuncCodeGetParaValues(myList))
+				cCode += cParaValues
 				if aSub[C_CLASSESLIST_PASSVMPOINTER] 
-					cCode += ", (VM *) pPointer"
+					if cParaValues != NULL
+						cCode += ", "
+					else 
+						if aSub[C_CLASSESLIST_PASSNULL] 
+							cCode += "NULL, "
+						ok
+					ok
+					cCode += "(VM *) pPointer"					
 				ok
 				cCode += ");" + nl 
 			if aSub[C_CLASSESLIST_MANAGED]	
