@@ -17209,8 +17209,8 @@ Class QColorDialog from QDialog
 		pTempObj.pObject = QColorDialog_currentColor(pObject)
 		return pTempObj
 
-	Func open 
-		return QColorDialog_open(pObject)
+	Func open P1,P2
+		return QColorDialog_open(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func options 
 		return QColorDialog_options(pObject)
@@ -17240,11 +17240,21 @@ Class QColorDialog from QDialog
 	Func customCount 
 		return QColorDialog_customCount(pObject)
 
+	Func getColor_2 P1,P2,P3,P4
+		pTempObj = new QColor
+		pTempObj.pObject = QColorDialog_getColor_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,P4)
+		return pTempObj
+
 	Func setCustomColor P1,P2
-		return QColorDialog_setCustomColor(pObject,P1,P2)
+		return QColorDialog_setCustomColor(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func setStandardColor P1,P2
-		return QColorDialog_setStandardColor(pObject,P1,P2)
+		return QColorDialog_setStandardColor(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func standardColor P1
+		pTempObj = new QColor
+		pTempObj.pObject = QColorDialog_standardColor(pObject,P1)
+		return pTempObj
 
 	Func getcolor 
 		return QColorDialog_getcolor(pObject)
