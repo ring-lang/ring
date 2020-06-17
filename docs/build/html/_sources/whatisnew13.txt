@@ -369,6 +369,7 @@ More Improvements
 * Ring2EXE - Distribute for Web Browser using WebAssembly (RingQt)
 * Ring2EXE - Delete the executable file if we have it in the target folder
 * Ring2EXE - Always copy files listed in the resources file to the target folder
+* CodeGen - Add Option: PassNullBeforeVMPointer
 * Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
 * Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
 * Ring Compiler - ring_parser.c - Better Code
