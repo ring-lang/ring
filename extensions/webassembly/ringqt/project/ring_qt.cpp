@@ -47,6 +47,7 @@ extern "C" {
 #include "gtabbar.h"
 #include "ggraphicsscene.h"
 #include "gcolordialog.h"
+#include "gfontdialog.h"
 #include <QtWidgets>
 
 
@@ -77661,7 +77662,7 @@ RING_FUNC(ring_QDirModel_refresh)
 
 RING_FUNC(ring_QFontDialog_currentFont)
 {
-	QFontDialog *pObject ;
+	GFontDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -77671,7 +77672,7 @@ RING_FUNC(ring_QFontDialog_currentFont)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
 	{
 		QFont *pValue ; 
 		pValue = new QFont() ;
@@ -77683,7 +77684,7 @@ RING_FUNC(ring_QFontDialog_currentFont)
 
 RING_FUNC(ring_QFontDialog_open)
 {
-	QFontDialog *pObject ;
+	GFontDialog *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -77693,7 +77694,7 @@ RING_FUNC(ring_QFontDialog_open)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -77708,7 +77709,7 @@ RING_FUNC(ring_QFontDialog_open)
 
 RING_FUNC(ring_QFontDialog_options)
 {
-	QFontDialog *pObject ;
+	GFontDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -77718,14 +77719,14 @@ RING_FUNC(ring_QFontDialog_options)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
 	RING_API_RETNUMBER(pObject->options());
 }
 
 
 RING_FUNC(ring_QFontDialog_selectedFont)
 {
-	QFontDialog *pObject ;
+	GFontDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -77735,7 +77736,7 @@ RING_FUNC(ring_QFontDialog_selectedFont)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
 	{
 		QFont *pValue ; 
 		pValue = new QFont() ;
@@ -77747,7 +77748,7 @@ RING_FUNC(ring_QFontDialog_selectedFont)
 
 RING_FUNC(ring_QFontDialog_setCurrentFont)
 {
-	QFontDialog *pObject ;
+	GFontDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -77757,8 +77758,8 @@ RING_FUNC(ring_QFontDialog_setCurrentFont)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
-	pObject->setCurrentFont(* (QFont *) RING_API_GETCPOINTER(2,"QFont"));
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	pObject->setCurrentFont(* (QFont  *) RING_API_GETCPOINTER(2,"QFont"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QFont"));
 }
@@ -77766,7 +77767,7 @@ RING_FUNC(ring_QFontDialog_setCurrentFont)
 
 RING_FUNC(ring_QFontDialog_setOption)
 {
-	QFontDialog *pObject ;
+	GFontDialog *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -77776,7 +77777,7 @@ RING_FUNC(ring_QFontDialog_setOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -77791,7 +77792,7 @@ RING_FUNC(ring_QFontDialog_setOption)
 
 RING_FUNC(ring_QFontDialog_setOptions)
 {
-	QFontDialog *pObject ;
+	GFontDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -77801,18 +77802,18 @@ RING_FUNC(ring_QFontDialog_setOptions)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->setOptions( (QFontDialog::FontDialogOption )  (int) RING_API_GETNUMBER(2));
+	pObject->setOptions( (QFontDialog::FontDialogOptions )  (int) RING_API_GETNUMBER(2));
 }
 
 
 RING_FUNC(ring_QFontDialog_testOption)
 {
-	QFontDialog *pObject ;
+	GFontDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -77822,12 +77823,158 @@ RING_FUNC(ring_QFontDialog_testOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	RING_API_RETNUMBER(pObject->testOption( (QFontDialog::FontDialogOption )  (int) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_QFontDialog_getFont_2)
+{
+	GFontDialog *pObject ;
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QFont *pValue ; 
+		pValue = new QFont() ;
+		*pValue = pObject->getFont((bool *) RING_API_GETCPOINTER(2,"bool"),* (QFont  *) RING_API_GETCPOINTER(3,"QFont"),(QWidget *) RING_API_GETCPOINTER(4,"QWidget"),RING_API_GETSTRING(5), (QFontDialog::FontDialogOptions )  (int) RING_API_GETNUMBER(6));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QFont"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QFont",ring_QFont_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QFontDialog_getFont_3)
+{
+	GFontDialog *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QFont *pValue ; 
+		pValue = new QFont() ;
+		*pValue = pObject->getFont((bool *) RING_API_GETCPOINTER(2,"bool"),(QWidget *) RING_API_GETCPOINTER(3,"QWidget"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QFont",ring_QFont_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QFontDialog_setcurrentFontChangedEvent)
+{
+	GFontDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcurrentFontChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFontDialog_setfontSelectedEvent)
+{
+	GFontDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfontSelectedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFontDialog_getcurrentFontChangedEvent)
+{
+	GFontDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	RING_API_RETSTRING(pObject->getcurrentFontChangedEvent());
+}
+
+
+RING_FUNC(ring_QFontDialog_getfontSelectedEvent)
+{
+	GFontDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+	RING_API_RETSTRING(pObject->getfontSelectedEvent());
 }
 
 
@@ -132186,7 +132333,7 @@ RING_FUNC(ring_QFontDialog_new)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	QFontDialog *pObject = new QFontDialog();
+	GFontDialog *pObject = new GFontDialog(NULL, (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QFontDialog");
 }
 
@@ -135701,7 +135848,7 @@ RING_FUNC(ring_QDirModel_delete)
 
 RING_FUNC(ring_QFontDialog_delete)
 {
-	QFontDialog *pObject ; 
+	GFontDialog *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
@@ -135710,7 +135857,7 @@ RING_FUNC(ring_QFontDialog_delete)
 	}
 	if ( RING_API_ISCPOINTER(1) )
 	{
-		pObject = (QFontDialog *) RING_API_GETCPOINTER(1,"QFontDialog");
+		pObject = (GFontDialog *) RING_API_GETCPOINTER(1,"GFontDialog");
 		delete pObject ;
 		RING_API_SETNULLPOINTER(1);
 	}
@@ -138141,8 +138288,8 @@ void ring_QDirModel_freefunc(void *pState,void *pPointer)
 
 void ring_QFontDialog_freefunc(void *pState,void *pPointer)
 {
-	QFontDialog *pObject ; 
-	pObject = (QFontDialog *) pPointer;
+	GFontDialog *pObject ; 
+	pObject = (GFontDialog *) pPointer;
 	delete pObject ;
 }
 
@@ -142532,6 +142679,12 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qfontdialog_setoption",ring_QFontDialog_setOption);
 	ring_vm_funcregister("qfontdialog_setoptions",ring_QFontDialog_setOptions);
 	ring_vm_funcregister("qfontdialog_testoption",ring_QFontDialog_testOption);
+	ring_vm_funcregister("qfontdialog_getfont_2",ring_QFontDialog_getFont_2);
+	ring_vm_funcregister("qfontdialog_getfont_3",ring_QFontDialog_getFont_3);
+	ring_vm_funcregister("qfontdialog_setcurrentfontchangedevent",ring_QFontDialog_setcurrentFontChangedEvent);
+	ring_vm_funcregister("qfontdialog_setfontselectedevent",ring_QFontDialog_setfontSelectedEvent);
+	ring_vm_funcregister("qfontdialog_getcurrentfontchangedevent",ring_QFontDialog_getcurrentFontChangedEvent);
+	ring_vm_funcregister("qfontdialog_getfontselectedevent",ring_QFontDialog_getfontSelectedEvent);
 	ring_vm_funcregister("qfontdialog_getfont",ring_QFontDialog_getfont);
 	ring_vm_funcregister("qdialog_issizegripenabled",ring_QDialog_isSizeGripEnabled);
 	ring_vm_funcregister("qdialog_result",ring_QDialog_result);
