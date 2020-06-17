@@ -2632,17 +2632,19 @@ Parameters : void
 Parent Class : QDialog
 
 * QColor currentColor(void)
-* void open(void)
-* int options(void)
+* void open(QObject * receiver, char * member)
+* QColorDialog::ColorDialogOptions options(void)
 * QColor selectedColor(void)
-* void setCurrentColor(QColor)
-* void setOption(QColorDialog::ColorDialogOption option, bool on )
-* void setOptions(QColorDialog::ColorDialogOption options)
+* void setCurrentColor(QColor color)
+* void setOption(QColorDialog::ColorDialogOption option, bool on)
+* void setOptions(QColorDialog::ColorDialogOptions options)
 * bool testOption(QColorDialog::ColorDialogOption option)
 * QColor customColor(int index)
 * int customCount(void)
-* void setCustomColor(int index, int color)
-* void setStandardColor(int index, int color)
+* QColor getColor_2(QColor initial, QWidget * parent, QString title, QColorDialog::ColorDialogOptions options)
+* void setCustomColor(int index, QColor color)
+* void setStandardColor(int index, QColor color)
+* QColor standardColor(int index)
 * int getcolor(void)
 
 .. index::

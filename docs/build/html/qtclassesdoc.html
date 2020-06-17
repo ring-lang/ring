@@ -2189,17 +2189,19 @@
 <p>Parent Class : QDialog</p>
 <ul class="simple">
 <li>QColor currentColor(void)</li>
-<li>void open(void)</li>
-<li>int options(void)</li>
+<li>void open(QObject * receiver, char * member)</li>
+<li>QColorDialog::ColorDialogOptions options(void)</li>
 <li>QColor selectedColor(void)</li>
-<li>void setCurrentColor(QColor)</li>
-<li>void setOption(QColorDialog::ColorDialogOption option, bool on )</li>
-<li>void setOptions(QColorDialog::ColorDialogOption options)</li>
+<li>void setCurrentColor(QColor color)</li>
+<li>void setOption(QColorDialog::ColorDialogOption option, bool on)</li>
+<li>void setOptions(QColorDialog::ColorDialogOptions options)</li>
 <li>bool testOption(QColorDialog::ColorDialogOption option)</li>
 <li>QColor customColor(int index)</li>
 <li>int customCount(void)</li>
-<li>void setCustomColor(int index, int color)</li>
-<li>void setStandardColor(int index, int color)</li>
+<li>QColor getColor_2(QColor initial, QWidget * parent, QString title, QColorDialog::ColorDialogOptions options)</li>
+<li>void setCustomColor(int index, QColor color)</li>
+<li>void setStandardColor(int index, QColor color)</li>
+<li>QColor standardColor(int index)</li>
 <li>int getcolor(void)</li>
 </ul>
 </div>
