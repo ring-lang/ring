@@ -17256,6 +17256,18 @@ Class QColorDialog from QDialog
 		pTempObj.pObject = QColorDialog_standardColor(pObject,P1)
 		return pTempObj
 
+	Func setcolorSelectedEvent P1
+		return QColorDialog_setcolorSelectedEvent(pObject,P1)
+
+	Func setcurrentColorChangedEvent P1
+		return QColorDialog_setcurrentColorChangedEvent(pObject,P1)
+
+	Func getcolorSelectedEvent 
+		return QColorDialog_getcolorSelectedEvent(pObject)
+
+	Func getcurrentColorChangedEvent 
+		return QColorDialog_getcurrentColorChangedEvent(pObject)
+
 	Func getcolor 
 		return QColorDialog_getcolor(pObject)
 

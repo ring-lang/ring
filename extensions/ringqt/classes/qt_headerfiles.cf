@@ -51,6 +51,7 @@ extern "C" {
 #include "gcalendarwidget.h"
 #include "gtabbar.h"
 #include "ggraphicsscene.h"
+#include "gcolordialog.h"
 #include <QtWidgets>
 </filter>
 

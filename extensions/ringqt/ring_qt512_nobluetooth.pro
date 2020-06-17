@@ -94,6 +94,7 @@ SOURCES +=   \
     cpp/src/gxyseries.cpp \
     cpp/src/ggraphicsscene.cpp \
     cpp/src/gmovie.cpp \
+    cpp/src/gcolordialog.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -178,7 +179,8 @@ HEADERS  += \
     cpp/include/gvalueaxis.h \
     cpp/include/gxyseries.h \
     cpp/include/ggraphicsscene.h \
-    cpp/include/gmovie.h 
+    cpp/include/gmovie.h \
+    cpp/include/gcolordialog.h
 
 INCLUDEPATH += ../../include
 INCLUDEPATH += cpp/include

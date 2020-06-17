@@ -2,6 +2,9 @@
 name: QColorDialog
 para: void
 parent: QDialog
+codename: GColorDialog
+passvmpointer
+passnullbeforevmpointer
 </class>
 
 QColor currentColor(void)
@@ -19,10 +22,11 @@ void setCustomColor(int index, QColor color)
 void setStandardColor(int index, QColor color)
 QColor standardColor(int index)
 
-<comment>
 void setcolorSelectedEvent(const char *)
 void setcurrentColorChangedEvent(const char *)
-</comment>
+
+const char *getcolorSelectedEvent(void)
+const char *getcurrentColorChangedEvent(void)
 
 <register>
 int getcolor(void)
