@@ -2645,6 +2645,10 @@ Parent Class : QDialog
 * void setCustomColor(int index, QColor color)
 * void setStandardColor(int index, QColor color)
 * QColor standardColor(int index)
+* void setcolorSelectedEvent(const char *)
+* void setcurrentColorChangedEvent(const char *)
+* const char *getcolorSelectedEvent(void)
+* const char *getcurrentColorChangedEvent(void)
 * int getcolor(void)
 
 .. index::
