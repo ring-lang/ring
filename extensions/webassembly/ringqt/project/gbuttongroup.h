@@ -16,9 +16,9 @@ class GButtonGroup : public QButtonGroup
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cbuttonClickedEvent[RINGQT_EVENT_SIZE];
     char cbuttonPressedEvent[RINGQT_EVENT_SIZE];

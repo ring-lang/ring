@@ -16,9 +16,9 @@ class GHPieModelMapper : public QtCharts::QHPieModelMapper
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccolumnCountChangedEvent[RINGQT_EVENT_SIZE];
     char cfirstColumnChangedEvent[RINGQT_EVENT_SIZE];

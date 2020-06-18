@@ -16,9 +16,9 @@ class GXYSeries : public QtCharts::QXYSeries
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cclickedEvent[RINGQT_EVENT_SIZE];
     char ccolorChangedEvent[RINGQT_EVENT_SIZE];

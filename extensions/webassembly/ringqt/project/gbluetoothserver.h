@@ -16,9 +16,9 @@ class GBluetoothServer : public QBluetoothServer
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cerrorEvent[RINGQT_EVENT_SIZE];
     char cnewConnectionEvent[RINGQT_EVENT_SIZE];

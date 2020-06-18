@@ -16,9 +16,9 @@ class GAbstractBarSeries : public QtCharts::QAbstractBarSeries
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cbarsetsAddedEvent[RINGQT_EVENT_SIZE];
     char cbarsetsRemovedEvent[RINGQT_EVENT_SIZE];

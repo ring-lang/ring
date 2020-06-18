@@ -16,9 +16,9 @@ class GProgressBar : public QProgressBar
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cvalueChangedEvent[RINGQT_EVENT_SIZE];
 

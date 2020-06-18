@@ -16,9 +16,9 @@ class GPrintDialog : public QPrintDialog
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cacceptedEvent[RINGQT_EVENT_SIZE];
 

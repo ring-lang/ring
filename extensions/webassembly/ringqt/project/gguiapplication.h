@@ -16,9 +16,9 @@ class GGuiApplication : public QGuiApplication
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char capplicationDisplayNameChangedEvent[RINGQT_EVENT_SIZE];
     char capplicationStateChangedEvent[RINGQT_EVENT_SIZE];

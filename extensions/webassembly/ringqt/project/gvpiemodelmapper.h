@@ -16,9 +16,9 @@ class GVPieModelMapper : public QtCharts::QVPieModelMapper
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cfirstRowChangedEvent[RINGQT_EVENT_SIZE];
     char clabelsColumnChangedEvent[RINGQT_EVENT_SIZE];

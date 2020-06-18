@@ -16,9 +16,9 @@ class GIODevice : public QIODevice
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char caboutToCloseEvent[RINGQT_EVENT_SIZE];
     char cbytesWrittenEvent[RINGQT_EVENT_SIZE];

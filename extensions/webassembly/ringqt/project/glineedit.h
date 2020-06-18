@@ -16,9 +16,9 @@ class GLineEdit : public QLineEdit
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cTextChangedEvent[RINGQT_EVENT_SIZE];
     char ccursorPositionChangedEvent[RINGQT_EVENT_SIZE];

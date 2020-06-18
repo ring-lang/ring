@@ -16,9 +16,9 @@ class GProcess : public QProcess
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char creadyReadStandardErrorEvent[RINGQT_EVENT_SIZE];
     char creadyReadStandardOutputEvent[RINGQT_EVENT_SIZE];

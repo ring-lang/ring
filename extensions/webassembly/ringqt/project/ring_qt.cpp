@@ -48,6 +48,7 @@ extern "C" {
 #include "ggraphicsscene.h"
 #include "gcolordialog.h"
 #include "gfontdialog.h"
+#include "gfiledialog.h"
 #include <QtWidgets>
 
 
@@ -75839,7 +75840,7 @@ RING_FUNC(ring_QMessageBox_warning)
 
 RING_FUNC(ring_QFileDialog_acceptMode)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -75849,14 +75850,14 @@ RING_FUNC(ring_QFileDialog_acceptMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETNUMBER(pObject->acceptMode());
 }
 
 
 RING_FUNC(ring_QFileDialog_defaultSuffix)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -75866,14 +75867,14 @@ RING_FUNC(ring_QFileDialog_defaultSuffix)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETSTRING(pObject->defaultSuffix().toStdString().c_str());
 }
 
 
 RING_FUNC(ring_QFileDialog_directory)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -75883,7 +75884,7 @@ RING_FUNC(ring_QFileDialog_directory)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	{
 		QDir *pValue ; 
 		pValue = new QDir() ;
@@ -75895,7 +75896,7 @@ RING_FUNC(ring_QFileDialog_directory)
 
 RING_FUNC(ring_QFileDialog_directoryUrl)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -75905,7 +75906,7 @@ RING_FUNC(ring_QFileDialog_directoryUrl)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	{
 		QUrl *pValue ; 
 		pValue = new QUrl() ;
@@ -75917,7 +75918,7 @@ RING_FUNC(ring_QFileDialog_directoryUrl)
 
 RING_FUNC(ring_QFileDialog_fileMode)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -75927,14 +75928,14 @@ RING_FUNC(ring_QFileDialog_fileMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETNUMBER(pObject->fileMode());
 }
 
 
 RING_FUNC(ring_QFileDialog_filter)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -75944,14 +75945,14 @@ RING_FUNC(ring_QFileDialog_filter)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETNUMBER(pObject->filter());
 }
 
 
 RING_FUNC(ring_QFileDialog_history)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -75961,7 +75962,7 @@ RING_FUNC(ring_QFileDialog_history)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	{
 		QStringList *pValue ; 
 		pValue = new QStringList() ;
@@ -75973,7 +75974,7 @@ RING_FUNC(ring_QFileDialog_history)
 
 RING_FUNC(ring_QFileDialog_iconProvider)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -75983,14 +75984,14 @@ RING_FUNC(ring_QFileDialog_iconProvider)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETCPOINTER(pObject->iconProvider(),"QFileIconProvider");
 }
 
 
 RING_FUNC(ring_QFileDialog_itemDelegate)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76000,14 +76001,14 @@ RING_FUNC(ring_QFileDialog_itemDelegate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETCPOINTER(pObject->itemDelegate(),"QAbstractItemDelegate");
 }
 
 
 RING_FUNC(ring_QFileDialog_labelText)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76017,7 +76018,7 @@ RING_FUNC(ring_QFileDialog_labelText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76028,7 +76029,7 @@ RING_FUNC(ring_QFileDialog_labelText)
 
 RING_FUNC(ring_QFileDialog_mimeTypeFilters)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76038,7 +76039,7 @@ RING_FUNC(ring_QFileDialog_mimeTypeFilters)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	{
 		QStringList *pValue ; 
 		pValue = new QStringList() ;
@@ -76050,7 +76051,7 @@ RING_FUNC(ring_QFileDialog_mimeTypeFilters)
 
 RING_FUNC(ring_QFileDialog_nameFilters)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76060,7 +76061,7 @@ RING_FUNC(ring_QFileDialog_nameFilters)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	{
 		QStringList *pValue ; 
 		pValue = new QStringList() ;
@@ -76072,7 +76073,7 @@ RING_FUNC(ring_QFileDialog_nameFilters)
 
 RING_FUNC(ring_QFileDialog_open)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -76082,7 +76083,7 @@ RING_FUNC(ring_QFileDialog_open)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76097,7 +76098,7 @@ RING_FUNC(ring_QFileDialog_open)
 
 RING_FUNC(ring_QFileDialog_options)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76107,14 +76108,14 @@ RING_FUNC(ring_QFileDialog_options)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETNUMBER(pObject->options());
 }
 
 
 RING_FUNC(ring_QFileDialog_proxyModel)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76124,14 +76125,14 @@ RING_FUNC(ring_QFileDialog_proxyModel)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETCPOINTER(pObject->proxyModel(),"QAbstractProxyModel");
 }
 
 
 RING_FUNC(ring_QFileDialog_restoreState)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76141,7 +76142,7 @@ RING_FUNC(ring_QFileDialog_restoreState)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETNUMBER(pObject->restoreState(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
@@ -76150,7 +76151,7 @@ RING_FUNC(ring_QFileDialog_restoreState)
 
 RING_FUNC(ring_QFileDialog_saveState)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76160,7 +76161,7 @@ RING_FUNC(ring_QFileDialog_saveState)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	{
 		QByteArray *pValue ; 
 		pValue = new QByteArray() ;
@@ -76172,7 +76173,7 @@ RING_FUNC(ring_QFileDialog_saveState)
 
 RING_FUNC(ring_QFileDialog_selectFile)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76182,7 +76183,7 @@ RING_FUNC(ring_QFileDialog_selectFile)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76193,7 +76194,7 @@ RING_FUNC(ring_QFileDialog_selectFile)
 
 RING_FUNC(ring_QFileDialog_selectMimeTypeFilter)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76203,7 +76204,7 @@ RING_FUNC(ring_QFileDialog_selectMimeTypeFilter)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76214,7 +76215,7 @@ RING_FUNC(ring_QFileDialog_selectMimeTypeFilter)
 
 RING_FUNC(ring_QFileDialog_selectNameFilter)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76224,7 +76225,7 @@ RING_FUNC(ring_QFileDialog_selectNameFilter)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76235,7 +76236,7 @@ RING_FUNC(ring_QFileDialog_selectNameFilter)
 
 RING_FUNC(ring_QFileDialog_selectUrl)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76245,7 +76246,7 @@ RING_FUNC(ring_QFileDialog_selectUrl)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->selectUrl(* (QUrl  *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
@@ -76254,7 +76255,7 @@ RING_FUNC(ring_QFileDialog_selectUrl)
 
 RING_FUNC(ring_QFileDialog_selectedFiles)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76264,7 +76265,7 @@ RING_FUNC(ring_QFileDialog_selectedFiles)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	{
 		QStringList *pValue ; 
 		pValue = new QStringList() ;
@@ -76276,7 +76277,7 @@ RING_FUNC(ring_QFileDialog_selectedFiles)
 
 RING_FUNC(ring_QFileDialog_selectedNameFilter)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76286,14 +76287,14 @@ RING_FUNC(ring_QFileDialog_selectedNameFilter)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETSTRING(pObject->selectedNameFilter().toStdString().c_str());
 }
 
 
 RING_FUNC(ring_QFileDialog_selectedUrls)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76303,7 +76304,7 @@ RING_FUNC(ring_QFileDialog_selectedUrls)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	{
 		QList<QUrl> *pValue ; 
 		pValue = (QList<QUrl> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QUrl>)) ;
@@ -76315,7 +76316,7 @@ RING_FUNC(ring_QFileDialog_selectedUrls)
 
 RING_FUNC(ring_QFileDialog_setAcceptMode)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76325,7 +76326,7 @@ RING_FUNC(ring_QFileDialog_setAcceptMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76336,7 +76337,7 @@ RING_FUNC(ring_QFileDialog_setAcceptMode)
 
 RING_FUNC(ring_QFileDialog_setDefaultSuffix)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76346,7 +76347,7 @@ RING_FUNC(ring_QFileDialog_setDefaultSuffix)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76357,7 +76358,7 @@ RING_FUNC(ring_QFileDialog_setDefaultSuffix)
 
 RING_FUNC(ring_QFileDialog_setDirectory)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76367,7 +76368,7 @@ RING_FUNC(ring_QFileDialog_setDirectory)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76378,7 +76379,7 @@ RING_FUNC(ring_QFileDialog_setDirectory)
 
 RING_FUNC(ring_QFileDialog_setDirectory_2)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76388,7 +76389,7 @@ RING_FUNC(ring_QFileDialog_setDirectory_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->setDirectory(* (QDir  *) RING_API_GETCPOINTER(2,"QDir"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QDir"));
@@ -76397,7 +76398,7 @@ RING_FUNC(ring_QFileDialog_setDirectory_2)
 
 RING_FUNC(ring_QFileDialog_setDirectoryUrl)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76407,7 +76408,7 @@ RING_FUNC(ring_QFileDialog_setDirectoryUrl)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->setDirectoryUrl(* (QUrl  *) RING_API_GETCPOINTER(2,"QUrl"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QUrl"));
@@ -76416,7 +76417,7 @@ RING_FUNC(ring_QFileDialog_setDirectoryUrl)
 
 RING_FUNC(ring_QFileDialog_setFileMode)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76426,7 +76427,7 @@ RING_FUNC(ring_QFileDialog_setFileMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76437,7 +76438,7 @@ RING_FUNC(ring_QFileDialog_setFileMode)
 
 RING_FUNC(ring_QFileDialog_setFilter)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76447,7 +76448,7 @@ RING_FUNC(ring_QFileDialog_setFilter)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76458,7 +76459,7 @@ RING_FUNC(ring_QFileDialog_setFilter)
 
 RING_FUNC(ring_QFileDialog_setHistory)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76468,7 +76469,7 @@ RING_FUNC(ring_QFileDialog_setHistory)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->setHistory(* (QStringList  *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
@@ -76477,7 +76478,7 @@ RING_FUNC(ring_QFileDialog_setHistory)
 
 RING_FUNC(ring_QFileDialog_setIconProvider)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76487,7 +76488,7 @@ RING_FUNC(ring_QFileDialog_setIconProvider)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76498,7 +76499,7 @@ RING_FUNC(ring_QFileDialog_setIconProvider)
 
 RING_FUNC(ring_QFileDialog_setItemDelegate)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76508,7 +76509,7 @@ RING_FUNC(ring_QFileDialog_setItemDelegate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76519,7 +76520,7 @@ RING_FUNC(ring_QFileDialog_setItemDelegate)
 
 RING_FUNC(ring_QFileDialog_setLabelText)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -76529,7 +76530,7 @@ RING_FUNC(ring_QFileDialog_setLabelText)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76544,7 +76545,7 @@ RING_FUNC(ring_QFileDialog_setLabelText)
 
 RING_FUNC(ring_QFileDialog_setMimeTypeFilters)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76554,7 +76555,7 @@ RING_FUNC(ring_QFileDialog_setMimeTypeFilters)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->setMimeTypeFilters(* (QStringList  *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
@@ -76563,7 +76564,7 @@ RING_FUNC(ring_QFileDialog_setMimeTypeFilters)
 
 RING_FUNC(ring_QFileDialog_setNameFilter)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76573,7 +76574,7 @@ RING_FUNC(ring_QFileDialog_setNameFilter)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76584,7 +76585,7 @@ RING_FUNC(ring_QFileDialog_setNameFilter)
 
 RING_FUNC(ring_QFileDialog_setNameFilters)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76594,7 +76595,7 @@ RING_FUNC(ring_QFileDialog_setNameFilters)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->setNameFilters(* (QStringList  *) RING_API_GETCPOINTER(2,"QStringList"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
@@ -76603,7 +76604,7 @@ RING_FUNC(ring_QFileDialog_setNameFilters)
 
 RING_FUNC(ring_QFileDialog_setOption)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -76613,7 +76614,7 @@ RING_FUNC(ring_QFileDialog_setOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76628,7 +76629,7 @@ RING_FUNC(ring_QFileDialog_setOption)
 
 RING_FUNC(ring_QFileDialog_setOptions)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76638,7 +76639,7 @@ RING_FUNC(ring_QFileDialog_setOptions)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76649,7 +76650,7 @@ RING_FUNC(ring_QFileDialog_setOptions)
 
 RING_FUNC(ring_QFileDialog_setProxyModel)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76659,7 +76660,7 @@ RING_FUNC(ring_QFileDialog_setProxyModel)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76670,7 +76671,7 @@ RING_FUNC(ring_QFileDialog_setProxyModel)
 
 RING_FUNC(ring_QFileDialog_setSidebarUrls)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76680,7 +76681,7 @@ RING_FUNC(ring_QFileDialog_setSidebarUrls)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	pObject->setSidebarUrls(* (QList<QUrl>  *) RING_API_GETCPOINTER(2,"QList<QUrl>"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QList<QUrl>"));
@@ -76689,7 +76690,7 @@ RING_FUNC(ring_QFileDialog_setSidebarUrls)
 
 RING_FUNC(ring_QFileDialog_setViewMode)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76699,7 +76700,7 @@ RING_FUNC(ring_QFileDialog_setViewMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76710,7 +76711,7 @@ RING_FUNC(ring_QFileDialog_setViewMode)
 
 RING_FUNC(ring_QFileDialog_sidebarUrls)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76720,7 +76721,7 @@ RING_FUNC(ring_QFileDialog_sidebarUrls)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	{
 		QList<QUrl> *pValue ; 
 		pValue = (QList<QUrl> *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(QList<QUrl>)) ;
@@ -76732,7 +76733,7 @@ RING_FUNC(ring_QFileDialog_sidebarUrls)
 
 RING_FUNC(ring_QFileDialog_testOption)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -76742,7 +76743,7 @@ RING_FUNC(ring_QFileDialog_testOption)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76753,7 +76754,7 @@ RING_FUNC(ring_QFileDialog_testOption)
 
 RING_FUNC(ring_QFileDialog_viewMode)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -76763,14 +76764,14 @@ RING_FUNC(ring_QFileDialog_viewMode)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	RING_API_RETNUMBER(pObject->viewMode());
 }
 
 
 RING_FUNC(ring_QFileDialog_getExistingDirectory)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -76780,7 +76781,7 @@ RING_FUNC(ring_QFileDialog_getExistingDirectory)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76803,7 +76804,7 @@ RING_FUNC(ring_QFileDialog_getExistingDirectory)
 
 RING_FUNC(ring_QFileDialog_getExistingDirectoryUrl)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 6 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -76813,7 +76814,7 @@ RING_FUNC(ring_QFileDialog_getExistingDirectoryUrl)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76841,7 +76842,7 @@ RING_FUNC(ring_QFileDialog_getExistingDirectoryUrl)
 
 RING_FUNC(ring_QFileDialog_getOpenFileName)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -76851,7 +76852,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileName)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76874,7 +76875,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileName)
 
 RING_FUNC(ring_QFileDialog_getOpenFileName_2)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 7 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -76884,7 +76885,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileName_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76915,7 +76916,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileName_2)
 
 RING_FUNC(ring_QFileDialog_getOpenFileNames)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 7 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -76925,7 +76926,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileNames)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -76961,7 +76962,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileNames)
 
 RING_FUNC(ring_QFileDialog_getOpenFileUrl)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 8 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -76971,7 +76972,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileUrl)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -77007,7 +77008,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileUrl)
 
 RING_FUNC(ring_QFileDialog_getOpenFileUrls)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 8 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -77017,7 +77018,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileUrls)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -77053,7 +77054,7 @@ RING_FUNC(ring_QFileDialog_getOpenFileUrls)
 
 RING_FUNC(ring_QFileDialog_getSaveFileName)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -77063,7 +77064,7 @@ RING_FUNC(ring_QFileDialog_getSaveFileName)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -77086,7 +77087,7 @@ RING_FUNC(ring_QFileDialog_getSaveFileName)
 
 RING_FUNC(ring_QFileDialog_getSaveFileName_2)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 7 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -77096,7 +77097,7 @@ RING_FUNC(ring_QFileDialog_getSaveFileName_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -77127,7 +77128,7 @@ RING_FUNC(ring_QFileDialog_getSaveFileName_2)
 
 RING_FUNC(ring_QFileDialog_getSaveFileUrl)
 {
-	QFileDialog *pObject ;
+	GFileDialog *pObject ;
 	if ( RING_API_PARACOUNT != 8 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -77137,7 +77138,7 @@ RING_FUNC(ring_QFileDialog_getSaveFileUrl)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
 	if ( ! RING_API_ISCPOINTER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -77168,6 +77169,348 @@ RING_FUNC(ring_QFileDialog_getSaveFileUrl)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(7,"QStringList"));
 		RING_API_RETMANAGEDCPOINTER(pValue,"QUrl",ring_QUrl_freefunc);
 	}
+}
+
+
+RING_FUNC(ring_QFileDialog_setcurrentChangedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcurrentChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFileDialog_setcurrentUrlChangedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setcurrentUrlChangedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFileDialog_setdirectoryEnteredEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdirectoryEnteredEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFileDialog_setdirectoryUrlEnteredEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setdirectoryUrlEnteredEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFileDialog_setfileSelectedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfileSelectedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFileDialog_setfilesSelectedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfilesSelectedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFileDialog_setfilterSelectedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setfilterSelectedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFileDialog_seturlSelectedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->seturlSelectedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFileDialog_seturlsSelectedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->seturlsSelectedEvent(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_QFileDialog_getcurrentChangedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	RING_API_RETSTRING(pObject->getcurrentChangedEvent());
+}
+
+
+RING_FUNC(ring_QFileDialog_getcurrentUrlChangedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	RING_API_RETSTRING(pObject->getcurrentUrlChangedEvent());
+}
+
+
+RING_FUNC(ring_QFileDialog_getdirectoryEnteredEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	RING_API_RETSTRING(pObject->getdirectoryEnteredEvent());
+}
+
+
+RING_FUNC(ring_QFileDialog_getdirectoryUrlEnteredEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	RING_API_RETSTRING(pObject->getdirectoryUrlEnteredEvent());
+}
+
+
+RING_FUNC(ring_QFileDialog_getfileSelectedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	RING_API_RETSTRING(pObject->getfileSelectedEvent());
+}
+
+
+RING_FUNC(ring_QFileDialog_getfilesSelectedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	RING_API_RETSTRING(pObject->getfilesSelectedEvent());
+}
+
+
+RING_FUNC(ring_QFileDialog_getfilterSelectedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	RING_API_RETSTRING(pObject->getfilterSelectedEvent());
+}
+
+
+RING_FUNC(ring_QFileDialog_geturlSelectedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	RING_API_RETSTRING(pObject->geturlSelectedEvent());
+}
+
+
+RING_FUNC(ring_QFileDialog_geturlsSelectedEvent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	RING_API_RETSTRING(pObject->geturlsSelectedEvent());
 }
 
 
@@ -132311,7 +132654,7 @@ RING_FUNC(ring_QFileDialog_new)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	QFileDialog *pObject = new QFileDialog((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	GFileDialog *pObject = new GFileDialog((QWidget *) RING_API_GETCPOINTER(1,"QWidget"), (VM *) pPointer);
 	RING_API_RETCPOINTER(pObject,"QFileDialog");
 }
 
@@ -135814,7 +136157,7 @@ RING_FUNC(ring_QMessageBox_delete)
 
 RING_FUNC(ring_QFileDialog_delete)
 {
-	QFileDialog *pObject ; 
+	GFileDialog *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
@@ -135823,7 +136166,7 @@ RING_FUNC(ring_QFileDialog_delete)
 	}
 	if ( RING_API_ISCPOINTER(1) )
 	{
-		pObject = (QFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+		pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"GFileDialog");
 		delete pObject ;
 		RING_API_SETNULLPOINTER(1);
 	}
@@ -138274,8 +138617,8 @@ void ring_QMessageBox_freefunc(void *pState,void *pPointer)
 
 void ring_QFileDialog_freefunc(void *pState,void *pPointer)
 {
-	QFileDialog *pObject ; 
-	pObject = (QFileDialog *) pPointer;
+	GFileDialog *pObject ; 
+	pObject = (GFileDialog *) pPointer;
 	delete pObject ;
 }
 
@@ -142647,6 +142990,24 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qfiledialog_getsavefilename",ring_QFileDialog_getSaveFileName);
 	ring_vm_funcregister("qfiledialog_getsavefilename_2",ring_QFileDialog_getSaveFileName_2);
 	ring_vm_funcregister("qfiledialog_getsavefileurl",ring_QFileDialog_getSaveFileUrl);
+	ring_vm_funcregister("qfiledialog_setcurrentchangedevent",ring_QFileDialog_setcurrentChangedEvent);
+	ring_vm_funcregister("qfiledialog_setcurrenturlchangedevent",ring_QFileDialog_setcurrentUrlChangedEvent);
+	ring_vm_funcregister("qfiledialog_setdirectoryenteredevent",ring_QFileDialog_setdirectoryEnteredEvent);
+	ring_vm_funcregister("qfiledialog_setdirectoryurlenteredevent",ring_QFileDialog_setdirectoryUrlEnteredEvent);
+	ring_vm_funcregister("qfiledialog_setfileselectedevent",ring_QFileDialog_setfileSelectedEvent);
+	ring_vm_funcregister("qfiledialog_setfilesselectedevent",ring_QFileDialog_setfilesSelectedEvent);
+	ring_vm_funcregister("qfiledialog_setfilterselectedevent",ring_QFileDialog_setfilterSelectedEvent);
+	ring_vm_funcregister("qfiledialog_seturlselectedevent",ring_QFileDialog_seturlSelectedEvent);
+	ring_vm_funcregister("qfiledialog_seturlsselectedevent",ring_QFileDialog_seturlsSelectedEvent);
+	ring_vm_funcregister("qfiledialog_getcurrentchangedevent",ring_QFileDialog_getcurrentChangedEvent);
+	ring_vm_funcregister("qfiledialog_getcurrenturlchangedevent",ring_QFileDialog_getcurrentUrlChangedEvent);
+	ring_vm_funcregister("qfiledialog_getdirectoryenteredevent",ring_QFileDialog_getdirectoryEnteredEvent);
+	ring_vm_funcregister("qfiledialog_getdirectoryurlenteredevent",ring_QFileDialog_getdirectoryUrlEnteredEvent);
+	ring_vm_funcregister("qfiledialog_getfileselectedevent",ring_QFileDialog_getfileSelectedEvent);
+	ring_vm_funcregister("qfiledialog_getfilesselectedevent",ring_QFileDialog_getfilesSelectedEvent);
+	ring_vm_funcregister("qfiledialog_getfilterselectedevent",ring_QFileDialog_getfilterSelectedEvent);
+	ring_vm_funcregister("qfiledialog_geturlselectedevent",ring_QFileDialog_geturlSelectedEvent);
+	ring_vm_funcregister("qfiledialog_geturlsselectedevent",ring_QFileDialog_geturlsSelectedEvent);
 	ring_vm_funcregister("qdirmodel_fileicon",ring_QDirModel_fileIcon);
 	ring_vm_funcregister("qdirmodel_fileinfo",ring_QDirModel_fileInfo);
 	ring_vm_funcregister("qdirmodel_filename",ring_QDirModel_fileName);

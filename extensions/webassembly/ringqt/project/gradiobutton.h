@@ -16,9 +16,9 @@ class GRadioButton : public QRadioButton
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cclickedEvent[RINGQT_EVENT_SIZE];
     char cpressedEvent[RINGQT_EVENT_SIZE];

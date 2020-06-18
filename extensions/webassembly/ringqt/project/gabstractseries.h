@@ -16,9 +16,9 @@ class GAbstractSeries : public QtCharts::QAbstractSeries
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cnameChangedEvent[RINGQT_EVENT_SIZE];
     char copacityChangedEvent[RINGQT_EVENT_SIZE];

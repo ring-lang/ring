@@ -16,9 +16,9 @@ class GTimer : public QTimer
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ctimeoutEvent[RINGQT_EVENT_SIZE];
 

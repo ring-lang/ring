@@ -16,9 +16,9 @@ class GBarCategoryAxis : public QtCharts::QBarCategoryAxis
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccategoriesChangedEvent[RINGQT_EVENT_SIZE];
     char ccountChangedEvent[RINGQT_EVENT_SIZE];

@@ -16,9 +16,9 @@ class GDial : public QDial
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cactionTriggeredEvent[RINGQT_EVENT_SIZE];
     char crangeChangedEvent[RINGQT_EVENT_SIZE];

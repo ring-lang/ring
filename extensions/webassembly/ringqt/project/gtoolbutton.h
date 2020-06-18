@@ -16,9 +16,9 @@ class GToolButton : public QToolButton
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ctriggeredEvent[RINGQT_EVENT_SIZE];
     char cClickEvent[RINGQT_EVENT_SIZE];

@@ -16,9 +16,9 @@ class GAbstractAxis : public QtCharts::QAbstractAxis
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccolorChangedEvent[RINGQT_EVENT_SIZE];
     char cgridLineColorChangedEvent[RINGQT_EVENT_SIZE];

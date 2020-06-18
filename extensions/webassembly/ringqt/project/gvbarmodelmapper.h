@@ -16,9 +16,9 @@ class GVBarModelMapper : public QtCharts::QVBarModelMapper
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cfirstBarSetColumnChangedEvent[RINGQT_EVENT_SIZE];
     char cfirstRowChangedEvent[RINGQT_EVENT_SIZE];

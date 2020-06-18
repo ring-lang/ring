@@ -16,9 +16,9 @@ class GWebEngineView : public QWebEngineView
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cloadFinishedEvent[RINGQT_EVENT_SIZE];
     char cloadProgressEvent[RINGQT_EVENT_SIZE];

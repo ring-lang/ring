@@ -98,8 +98,9 @@ SOURCES +=   \
     gxyseries.cpp \
     ggraphicsscene.cpp \
     gmovie.cpp \
-	gcolordialog.cpp \
-	gfontdialog.cpp \
+    gcolordialog.cpp \
+    gfontdialog.cpp \
+    gfiledialog.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -182,8 +183,9 @@ HEADERS  += \
     gxyseries.h \
     ggraphicsscene.h \
     gmovie.h \
-	gcolordialog.h \
-	gfontdialog.h
+    gcolordialog.h \
+    gfontdialog.h \
+    gfiledialog.h
 
 CONFIG += warn_off
 

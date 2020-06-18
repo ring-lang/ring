@@ -16,9 +16,9 @@ class GListWidget : public QListWidget
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccurrentItemChangedEvent[RINGQT_EVENT_SIZE];
     char ccurrentRowChangedEvent[RINGQT_EVENT_SIZE];

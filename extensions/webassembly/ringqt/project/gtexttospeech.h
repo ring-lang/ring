@@ -16,9 +16,9 @@ class GTextToSpeech : public QTextToSpeech
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char clocaleChangedEvent[RINGQT_EVENT_SIZE];
     char cpitchChangedEvent[RINGQT_EVENT_SIZE];

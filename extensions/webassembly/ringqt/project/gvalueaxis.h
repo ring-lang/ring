@@ -16,9 +16,9 @@ class GValueAxis : public QtCharts::QValueAxis
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char clabelFormatChangedEvent[RINGQT_EVENT_SIZE];
     char cmaxChangedEvent[RINGQT_EVENT_SIZE];

@@ -16,9 +16,9 @@ class GPieSlice : public QtCharts::QPieSlice
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cangleSpanChangedEvent[RINGQT_EVENT_SIZE];
     char cborderColorChangedEvent[RINGQT_EVENT_SIZE];
