@@ -16,9 +16,9 @@ class GBluetoothTransferManager : public QBluetoothTransferManager
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cfinishedEvent[RINGQT_EVENT_SIZE];
 

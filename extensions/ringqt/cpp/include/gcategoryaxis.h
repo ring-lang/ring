@@ -16,9 +16,9 @@ class GCategoryAxis : public QtCharts::QCategoryAxis
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccategoriesChangedEvent[RINGQT_EVENT_SIZE];
     char clabelsPositionChangedEvent[RINGQT_EVENT_SIZE];

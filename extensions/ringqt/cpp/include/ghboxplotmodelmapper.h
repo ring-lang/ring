@@ -16,9 +16,9 @@ class GHBoxPlotModelMapper : public QtCharts::QHBoxPlotModelMapper
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccolumnCountChangedEvent[RINGQT_EVENT_SIZE];
     char cfirstBoxSetRowChangedEvent[RINGQT_EVENT_SIZE];

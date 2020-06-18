@@ -16,9 +16,9 @@ class GDateTimeAxis : public QtCharts::QDateTimeAxis
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cformatChangedEvent[RINGQT_EVENT_SIZE];
     char cmaxChangedEvent[RINGQT_EVENT_SIZE];

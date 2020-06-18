@@ -16,9 +16,9 @@ class GBarSet : public QtCharts::QBarSet
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cborderColorChangedEvent[RINGQT_EVENT_SIZE];
     char cbrushChangedEvent[RINGQT_EVENT_SIZE];

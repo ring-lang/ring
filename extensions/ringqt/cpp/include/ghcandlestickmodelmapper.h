@@ -16,9 +16,9 @@ class GHCandlestickModelMapper : public QtCharts::QHCandlestickModelMapper
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccloseColumnChangedEvent[RINGQT_EVENT_SIZE];
     char cfirstSetRowChangedEvent[RINGQT_EVENT_SIZE];

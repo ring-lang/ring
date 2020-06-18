@@ -16,9 +16,9 @@ class GWindow : public QWindow
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cactiveChangedEvent[RINGQT_EVENT_SIZE];
     char ccontentOrientationChangedEvent[RINGQT_EVENT_SIZE];

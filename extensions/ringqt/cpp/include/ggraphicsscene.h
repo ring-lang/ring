@@ -16,9 +16,9 @@ class GGraphicsScene : public QGraphicsScene
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cchangedEvent[RINGQT_EVENT_SIZE];
     char cfocusItemChangedEvent[RINGQT_EVENT_SIZE];

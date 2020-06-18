@@ -16,9 +16,9 @@ class GCalendarWidget : public QCalendarWidget
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cactivatedEvent[RINGQT_EVENT_SIZE];
     char cclickedEvent[RINGQT_EVENT_SIZE];

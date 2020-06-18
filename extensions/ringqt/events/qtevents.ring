@@ -55,9 +55,9 @@ class <T_CLASSNAME> : public <T_REALCLASSNAME>
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
 <T_EVENTSATTRIBUTES>
 

@@ -16,9 +16,9 @@ class GBoxPlotSeries : public QtCharts::QBoxPlotSeries
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cboxOutlineVisibilityChangedEvent[RINGQT_EVENT_SIZE];
     char cboxWidthChangedEvent[RINGQT_EVENT_SIZE];

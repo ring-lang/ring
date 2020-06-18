@@ -16,9 +16,9 @@ class GObjectPicker : public Qt3DRender::QObjectPicker
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cclickedEvent[RINGQT_EVENT_SIZE];
     char ccontainsMouseChangedEvent[RINGQT_EVENT_SIZE];

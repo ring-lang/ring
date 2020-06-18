@@ -16,9 +16,9 @@ class GSerialPort : public QSerialPort
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cbaudRateChangedEvent[RINGQT_EVENT_SIZE];
     char cbreakEnabledChangedEvent[RINGQT_EVENT_SIZE];

@@ -16,9 +16,9 @@ class GComboBox : public QComboBox
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cactivatedEvent[RINGQT_EVENT_SIZE];
     char ccurrentIndexChangedEvent[RINGQT_EVENT_SIZE];

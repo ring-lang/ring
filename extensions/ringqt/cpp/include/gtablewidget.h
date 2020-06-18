@@ -16,9 +16,9 @@ class GTableWidget : public QTableWidget
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccellActivatedEvent[RINGQT_EVENT_SIZE];
     char ccellChangedEvent[RINGQT_EVENT_SIZE];

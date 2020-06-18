@@ -16,9 +16,9 @@ class GCandlestickSet : public QtCharts::QCandlestickSet
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cbrushChangedEvent[RINGQT_EVENT_SIZE];
     char cclickedEvent[RINGQT_EVENT_SIZE];

@@ -16,9 +16,9 @@ class GQuickWidget : public QQuickWidget
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char csceneGraphErrorEvent[RINGQT_EVENT_SIZE];
     char cstatusChangedEvent[RINGQT_EVENT_SIZE];

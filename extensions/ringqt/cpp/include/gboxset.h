@@ -16,9 +16,9 @@ class GBoxSet : public QtCharts::QBoxSet
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cbrushChangedEvent[RINGQT_EVENT_SIZE];
     char cclearedEvent[RINGQT_EVENT_SIZE];

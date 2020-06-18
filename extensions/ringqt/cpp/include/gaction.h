@@ -16,9 +16,9 @@ class GAction : public QAction
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cClickEvent[RINGQT_EVENT_SIZE];
 

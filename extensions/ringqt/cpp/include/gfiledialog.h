@@ -16,9 +16,9 @@ class GFileDialog : public QFileDialog
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccurrentChangedEvent[RINGQT_EVENT_SIZE];
     char ccurrentUrlChangedEvent[RINGQT_EVENT_SIZE];

@@ -16,9 +16,9 @@ class GCandlestickSeries : public QtCharts::QCandlestickSeries
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cbodyOutlineVisibilityChangedEvent[RINGQT_EVENT_SIZE];
     char cbodyWidthChangedEvent[RINGQT_EVENT_SIZE];

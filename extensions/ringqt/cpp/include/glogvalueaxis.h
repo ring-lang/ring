@@ -16,9 +16,9 @@ class GLogValueAxis : public QtCharts::QLogValueAxis
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cbaseChangedEvent[RINGQT_EVENT_SIZE];
     char clabelFormatChangedEvent[RINGQT_EVENT_SIZE];

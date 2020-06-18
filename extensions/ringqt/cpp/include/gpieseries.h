@@ -16,9 +16,9 @@ class GPieSeries : public QtCharts::QPieSeries
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char caddedEvent[RINGQT_EVENT_SIZE];
     char cclickedEvent[RINGQT_EVENT_SIZE];

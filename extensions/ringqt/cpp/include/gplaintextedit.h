@@ -16,9 +16,9 @@ class GPlainTextEdit : public QPlainTextEdit
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cblockCountChangedEvent[RINGQT_EVENT_SIZE];
     char ccopyAvailableEvent[RINGQT_EVENT_SIZE];
