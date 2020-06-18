@@ -16,9 +16,9 @@ class GTabWidget : public QTabWidget
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccurrentChangedEvent[RINGQT_EVENT_SIZE];
     char ctabCloseRequestedEvent[RINGQT_EVENT_SIZE];

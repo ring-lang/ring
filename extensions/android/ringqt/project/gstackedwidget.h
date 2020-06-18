@@ -16,9 +16,9 @@ class GStackedWidget : public QStackedWidget
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccurrentChangedEvent[RINGQT_EVENT_SIZE];
     char cwidgetRemovedEvent[RINGQT_EVENT_SIZE];

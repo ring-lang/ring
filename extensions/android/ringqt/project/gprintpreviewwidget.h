@@ -16,9 +16,9 @@ class GPrintPreviewWidget : public QPrintPreviewWidget
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cpaintRequestedEvent[RINGQT_EVENT_SIZE];
     char cpreviewChangedEvent[RINGQT_EVENT_SIZE];

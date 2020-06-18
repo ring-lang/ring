@@ -16,9 +16,9 @@ class GTreeView : public QTreeView
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccollapsedEvent[RINGQT_EVENT_SIZE];
     char cexpandedEvent[RINGQT_EVENT_SIZE];

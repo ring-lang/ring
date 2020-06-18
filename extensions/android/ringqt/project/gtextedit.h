@@ -16,9 +16,9 @@ class GTextEdit : public QTextEdit
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccopyAvailableEvent[RINGQT_EVENT_SIZE];
     char ccurrentCharFormatChangedEvent[RINGQT_EVENT_SIZE];

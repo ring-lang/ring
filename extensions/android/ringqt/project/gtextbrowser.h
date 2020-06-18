@@ -16,9 +16,9 @@ class GTextBrowser : public QTextBrowser
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char canchorClickedEvent[RINGQT_EVENT_SIZE];
     char cbackwardAvailableEvent[RINGQT_EVENT_SIZE];

@@ -16,9 +16,9 @@ class GBluetoothLocalDevice : public QBluetoothLocalDevice
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cdeviceConnectedEvent[RINGQT_EVENT_SIZE];
     char cdeviceDisconnectedEvent[RINGQT_EVENT_SIZE];

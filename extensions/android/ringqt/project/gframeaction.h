@@ -16,9 +16,9 @@ class GFrameAction : public Qt3DLogic::QFrameAction
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ctriggeredEvent[RINGQT_EVENT_SIZE];
 

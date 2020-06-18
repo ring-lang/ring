@@ -16,9 +16,9 @@ class GCandlestickModelMapper : public QtCharts::QCandlestickModelMapper
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cmodelReplacedEvent[RINGQT_EVENT_SIZE];
     char cseriesReplacedEvent[RINGQT_EVENT_SIZE];

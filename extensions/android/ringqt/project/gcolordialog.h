@@ -16,9 +16,9 @@ class GColorDialog : public QColorDialog
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccolorSelectedEvent[RINGQT_EVENT_SIZE];
     char ccurrentColorChangedEvent[RINGQT_EVENT_SIZE];

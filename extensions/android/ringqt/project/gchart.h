@@ -16,9 +16,9 @@ class GChart : public QtCharts::QChart
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cplotAreaChangedEvent[RINGQT_EVENT_SIZE];
 

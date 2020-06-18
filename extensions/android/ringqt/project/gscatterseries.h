@@ -16,9 +16,9 @@ class GScatterSeries : public QtCharts::QScatterSeries
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cborderColorChangedEvent[RINGQT_EVENT_SIZE];
     char ccolorChangedEvent[RINGQT_EVENT_SIZE];

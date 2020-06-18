@@ -16,9 +16,9 @@ class GBluetoothDeviceDiscoveryAgent : public QBluetoothDeviceDiscoveryAgent
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccanceledEvent[RINGQT_EVENT_SIZE];
     char cdeviceDiscoveredEvent[RINGQT_EVENT_SIZE];

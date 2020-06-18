@@ -16,9 +16,9 @@ class GDockWidget : public QDockWidget
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char callowedAreasChangedEvent[RINGQT_EVENT_SIZE];
     char cdockLocationChangedEvent[RINGQT_EVENT_SIZE];

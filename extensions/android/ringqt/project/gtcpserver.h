@@ -16,9 +16,9 @@ class GTcpServer : public QTcpServer
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cacceptErrorEvent[RINGQT_EVENT_SIZE];
     char cnewConnectionEvent[RINGQT_EVENT_SIZE];

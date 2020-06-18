@@ -16,9 +16,9 @@ class GVXYModelMapper : public QtCharts::QVXYModelMapper
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cfirstRowChangedEvent[RINGQT_EVENT_SIZE];
     char cmodelReplacedEvent[RINGQT_EVENT_SIZE];

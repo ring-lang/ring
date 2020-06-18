@@ -16,9 +16,9 @@ class GGeoPositionInfoSource : public QGeoPositionInfoSource
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cerrorEvent[RINGQT_EVENT_SIZE];
     char cpositionUpdatedEvent[RINGQT_EVENT_SIZE];

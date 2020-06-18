@@ -16,9 +16,9 @@ class GMovie : public QMovie
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cerrorEvent[RINGQT_EVENT_SIZE];
     char cfinishedEvent[RINGQT_EVENT_SIZE];

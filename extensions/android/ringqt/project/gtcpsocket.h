@@ -16,9 +16,9 @@ class GTcpSocket : public QTcpSocket
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cconnectedEvent[RINGQT_EVENT_SIZE];
     char cdisconnectedEvent[RINGQT_EVENT_SIZE];

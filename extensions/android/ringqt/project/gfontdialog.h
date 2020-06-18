@@ -16,9 +16,9 @@ class GFontDialog : public QFontDialog
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccurrentFontChangedEvent[RINGQT_EVENT_SIZE];
     char cfontSelectedEvent[RINGQT_EVENT_SIZE];

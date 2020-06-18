@@ -16,9 +16,9 @@ class GThread : public QThread
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cStartedEvent[RINGQT_EVENT_SIZE];
     char cFinishedEvent[RINGQT_EVENT_SIZE];

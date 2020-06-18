@@ -16,9 +16,9 @@ class GVideoWidget : public QVideoWidget
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cbrightnessChangedEvent[RINGQT_EVENT_SIZE];
     char ccontrastChangedEvent[RINGQT_EVENT_SIZE];

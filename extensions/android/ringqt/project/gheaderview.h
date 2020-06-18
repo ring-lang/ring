@@ -16,9 +16,9 @@ class GHeaderView : public QHeaderView
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cgeometriesChangedEvent[RINGQT_EVENT_SIZE];
     char csectionClickedEvent[RINGQT_EVENT_SIZE];

@@ -111,6 +111,7 @@ SOURCES +=   \
     gmovie.cpp \
     gcolordialog.cpp \
     gfontdialog.cpp \
+    gfiledialog.cpp \
     ring_qt.cpp
 
 HEADERS  += \
@@ -205,6 +206,7 @@ HEADERS  += \
     ggraphicsscene.h \
     gcolordialog.h \
     gfontdialog.h \
+    gfiledialog.h \
     gmovie.h
 
 CONFIG += warn_off

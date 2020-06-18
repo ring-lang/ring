@@ -16,9 +16,9 @@ class GHBarModelMapper : public QtCharts::QHBarModelMapper
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char ccolumnCountChangedEvent[RINGQT_EVENT_SIZE];
     char cfirstBarSetRowChangedEvent[RINGQT_EVENT_SIZE];

@@ -16,9 +16,9 @@ class GVBoxPlotModelMapper : public QtCharts::QVBoxPlotModelMapper
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cfirstBoxSetColumnChangedEvent[RINGQT_EVENT_SIZE];
     char cfirstRowChangedEvent[RINGQT_EVENT_SIZE];

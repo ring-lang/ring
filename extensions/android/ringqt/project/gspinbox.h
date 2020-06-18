@@ -16,9 +16,9 @@ class GSpinBox : public QSpinBox
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cvalueChangedEvent[RINGQT_EVENT_SIZE];
 

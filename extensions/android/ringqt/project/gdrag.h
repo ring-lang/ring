@@ -16,9 +16,9 @@ class GDrag : public QDrag
 
   public:
 
-    VM *pVM;
+    struct VM *pVM;
 
-    List *pParaList;
+    struct List *pParaList;
 
     char cactionChangedEvent[RINGQT_EVENT_SIZE];
     char ctargetChangedEvent[RINGQT_EVENT_SIZE];
