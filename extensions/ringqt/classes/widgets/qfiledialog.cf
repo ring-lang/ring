@@ -2,12 +2,9 @@
 name: QFileDialog
 para: QWidget *parent
 parent: QDialog
-</class>
-
-<comment>
 codename: GFileDialog
 passvmpointer
-</comment>
+</class>
 
 QFileDialog::AcceptMode acceptMode(void)
 QString defaultSuffix(void)
@@ -66,8 +63,6 @@ QString getSaveFileName(QWidget * parent, QString caption, QString dir, QString 
 QString getSaveFileName@2(QWidget * parent, QString caption, QString dir, QString filter, QString * selectedFilter, QFileDialog::Options options)
 QUrl getSaveFileUrl(QWidget * parent, QString caption, QUrl dir, QString filter, QString * selectedFilter, QFileDialog::Options options, QStringList supportedSchemes)
 
-<comment>
-
 void setcurrentChangedEvent(const char *)
 void setcurrentUrlChangedEvent(const char *)
 void setdirectoryEnteredEvent(const char *)
@@ -87,5 +82,3 @@ const char *getfilesSelectedEvent(void)
 const char *getfilterSelectedEvent(void)
 const char *geturlSelectedEvent(void)
 const char *geturlsSelectedEvent(void)
-
-</comment>

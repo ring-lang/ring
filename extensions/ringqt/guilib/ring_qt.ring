@@ -17009,6 +17009,60 @@ Class QFileDialog from QDialog
 		pTempObj.pObject = QFileDialog_getSaveFileUrl(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3),P4,GetObjectPointerFromRingObject(P5),P6,GetObjectPointerFromRingObject(P7))
 		return pTempObj
 
+	Func setcurrentChangedEvent P1
+		return QFileDialog_setcurrentChangedEvent(pObject,P1)
+
+	Func setcurrentUrlChangedEvent P1
+		return QFileDialog_setcurrentUrlChangedEvent(pObject,P1)
+
+	Func setdirectoryEnteredEvent P1
+		return QFileDialog_setdirectoryEnteredEvent(pObject,P1)
+
+	Func setdirectoryUrlEnteredEvent P1
+		return QFileDialog_setdirectoryUrlEnteredEvent(pObject,P1)
+
+	Func setfileSelectedEvent P1
+		return QFileDialog_setfileSelectedEvent(pObject,P1)
+
+	Func setfilesSelectedEvent P1
+		return QFileDialog_setfilesSelectedEvent(pObject,P1)
+
+	Func setfilterSelectedEvent P1
+		return QFileDialog_setfilterSelectedEvent(pObject,P1)
+
+	Func seturlSelectedEvent P1
+		return QFileDialog_seturlSelectedEvent(pObject,P1)
+
+	Func seturlsSelectedEvent P1
+		return QFileDialog_seturlsSelectedEvent(pObject,P1)
+
+	Func getcurrentChangedEvent 
+		return QFileDialog_getcurrentChangedEvent(pObject)
+
+	Func getcurrentUrlChangedEvent 
+		return QFileDialog_getcurrentUrlChangedEvent(pObject)
+
+	Func getdirectoryEnteredEvent 
+		return QFileDialog_getdirectoryEnteredEvent(pObject)
+
+	Func getdirectoryUrlEnteredEvent 
+		return QFileDialog_getdirectoryUrlEnteredEvent(pObject)
+
+	Func getfileSelectedEvent 
+		return QFileDialog_getfileSelectedEvent(pObject)
+
+	Func getfilesSelectedEvent 
+		return QFileDialog_getfilesSelectedEvent(pObject)
+
+	Func getfilterSelectedEvent 
+		return QFileDialog_getfilterSelectedEvent(pObject)
+
+	Func geturlSelectedEvent 
+		return QFileDialog_geturlSelectedEvent(pObject)
+
+	Func geturlsSelectedEvent 
+		return QFileDialog_geturlsSelectedEvent(pObject)
+
 Class QDirModel
 
 	pObject

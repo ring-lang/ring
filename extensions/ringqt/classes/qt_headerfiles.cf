@@ -53,6 +53,7 @@ extern "C" {
 #include "ggraphicsscene.h"
 #include "gcolordialog.h"
 #include "gfontdialog.h"
+#include "gfiledialog.h"
 #include <QtWidgets>
 </filter>
 
