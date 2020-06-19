@@ -114,8 +114,8 @@ Contents:
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    FoxRing Functions Reference <foxringfuncsdoc>
    BigNumber Functions Reference <bignumber>
-   Using Other Code Editors <codeeditors>
    Building From Source Code <sourcecode>
+   Using Other Code Editors <codeeditors>
    How to contribute? <contribute>
    Frequently Asked Questions (FAQ) <faq>
    Resources <resources>
