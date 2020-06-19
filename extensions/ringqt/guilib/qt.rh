@@ -325,3 +325,9 @@ QSizePolicy_Ignored		= QSizePolicy_ShrinkFlag | QSizePolicy_GrowFlag | QSizePoli
 
 QTextCursor_MoveAnchor	= 0
 QTextCursor_KeepAnchor  = 1
+
+QFileDialog_LookIn	= 0
+QFileDialog_FileName    = 1
+QFileDialog_FileType    = 2
+QFileDialog_Accept      = 3
+QFileDialog_Reject      = 4
