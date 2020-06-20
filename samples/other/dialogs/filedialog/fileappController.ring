@@ -16,33 +16,38 @@ class fileappController from windowsControllerParent
 
 	oView = new fileappView
 
-	oDialog = new QFileDialog(oView.win) {
-		setFileSelectedevent(Method(:FileSelected))
-	}
-	AddAttribute(oDialog,:Type)
+	oLoadDialog  oSaveDialog  
 
 	func LoadFile 
-		oDialog { 
-			Type = :Load
+		oLoadDialog = new QFileDialog(NULL) {
+			setFileSelectedevent(Method(:LoadFileOperation))
 			setWindowTitle("Open File")
 			setLabelText(QFileDialog_Accept,"Open")
-			Show()
+			setNameFilter("Text files (*.txt)")
+			setDefaultSuffix("txt")
+			setFileMode(QFileDialog_ExistingFile)
+			setViewMode(QFileDialog_List)
+			exec()
 		}
 
 	func SaveFile
-		oDialog { 
-			Type = :Save
+		oSaveDialog = new QFileDialog(NULL) {
+			setFileSelectedevent(Method(:SaveFileOperation))
 			setWindowTitle("Save File")
 			setLabelText(QFileDialog_Accept,"Save")
-			Show()
+			setNameFilter("Text files (*.txt)")
+			setDefaultSuffix("txt")
+			setFileMode(QFileDialog_AnyFile)
+			setViewMode(QFileDialog_List)
+			exec()
 		}
 
-	func FileSelected 
-		cFileName = oDialog.selectedfiles().at(0)
-		switch oDialog.Type
-			on :Load
-				oView.TextEdit1.setText(read(cFileName))
-			on :Save
-				write(cFileName,oView.TextEdit1.toPlainText())
-		off
+	func LoadFileOperation
+		if oLoadDialog.selectedfiles().count() = 0 return ok
+		cFileName = oLoadDialog.selectedfiles().at(0)
+		oView.TextEdit1.setText(read(cFileName))
 
+	func SaveFileOperation
+		if oSaveDialog.selectedfiles().count() = 0 return ok
+		cFileName = oSaveDialog.selectedfiles().at(0)
+		write(cFileName,oView.TextEdit1.toPlainText())
