@@ -77573,26 +77573,32 @@ RING_FUNC(ring_QFileDialog_getOpenFileContent)
 {
 	VM *pVM;
 	pVM = (VM *) pPointer ;
-	const char *cCode;
-	cCode = RING_API_GETSTRING(2);
+	List *pList;
+	const char *cCodeSrc;
+	const char *cType;
+	cType = RING_API_GETSTRING(2);
+	cCodeSrc = RING_API_GETSTRING(3);
+	char *cCode;
+	cCode = (char *) malloc(RINGQT_EVENT_SIZE);
+	strcpy(cCode,cCodeSrc);
 	if (pQFileDialogTempList != NULL) {
 		ring_list_deleteallitems(pQFileDialogTempList);
 	} else {
 		pQFileDialogTempList = ring_list_new(0);
 	}
-	auto fileContentReady = [&pVM,&cCode](const QString &fileName, const QByteArray &fileContent) {
-		if (fileName.isEmpty()) {
-			// No file was selected
-		} else {
+	pList = pQFileDialogTempList;
+	auto fileContentReady = [pVM,cCode,pList](const QString &fileName, const QByteArray &fileContent) {
+		if (! fileName.isEmpty()) {
 			// Use fileName and fileContent
-			ring_list_addstring(pQFileDialogTempList,fileName.toStdString().c_str());
-			ring_list_addstring2(pQFileDialogTempList,fileContent.constData(),fileContent.length());
-			if (strcmp(cCode,"")==0)
-				return ;
+				ring_list_addstring(pList,fileName.toStdString().c_str());
+				ring_list_addstring2(pList,fileContent.constData(),fileContent.length());
+				if (strcmp(cCode,"")==0)
+					return ;
 			ring_vm_runcode(pVM,cCode);
+				free(cCode);
 		}
 	};
-	QFileDialog::getOpenFileContent(RING_API_GETSTRING(1),  fileContentReady);
+	QFileDialog::getOpenFileContent(cType,  fileContentReady);
 }
 
 
