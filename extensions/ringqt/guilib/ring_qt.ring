@@ -656,7 +656,7 @@ Class QByteArray
 
 	Func setRawData P1,P2
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_setRawData(pObject,P1,GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QByteArray_setRawData(pObject,P1,P2)
 		return pTempObj
 
 	Func simplified 
@@ -3235,7 +3235,7 @@ Class QDateTime
 		return QDateTime_setTimeSpec(pObject,P1)
 
 	Func setTime_t P1
-		return QDateTime_setTime_t(pObject,GetObjectPointerFromRingObject(P1))
+		return QDateTime_setTime_t(pObject,P1)
 
 	Func time 
 		pTempObj = new QTime
@@ -3302,7 +3302,7 @@ Class QDateTime
 
 	Func fromTime_t P1
 		pTempObj = new QDateTime
-		pTempObj.pObject = QDateTime_fromTime_t(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QDateTime_fromTime_t(pObject,P1)
 		return pTempObj
 
 Class QCoreApplication from QObject
@@ -3784,25 +3784,25 @@ Class QChar
 		return QChar_unicodeVersion(pObject)
 
 	Func category_2 P1
-		return QChar_category_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_category_2(pObject,P1)
 
 	Func combiningClass_2 P1
-		return QChar_combiningClass_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_combiningClass_2(pObject,P1)
 
 	Func currentUnicodeVersion 
 		return QChar_currentUnicodeVersion(pObject)
 
 	Func decomposition_2 P1
-		return QChar_decomposition_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_decomposition_2(pObject,P1)
 
 	Func decompositionTag_2 P1
-		return QChar_decompositionTag_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_decompositionTag_2(pObject,P1)
 
 	Func digitValue_2 P1
-		return QChar_digitValue_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_digitValue_2(pObject,P1)
 
 	Func direction_2 P1
-		return QChar_direction_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_direction_2(pObject,P1)
 
 	Func fromLatin1 P1
 		pTempObj = new QChar
@@ -3810,70 +3810,70 @@ Class QChar
 		return pTempObj
 
 	Func hasMirrored_2 P1
-		return QChar_hasMirrored_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_hasMirrored_2(pObject,P1)
 
 	Func highSurrogate P1
-		return QChar_highSurrogate(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_highSurrogate(pObject,P1)
 
 	Func isDigit_2 P1
-		return QChar_isDigit_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isDigit_2(pObject,P1)
 
 	Func isHighSurrogate_2 P1
-		return QChar_isHighSurrogate_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isHighSurrogate_2(pObject,P1)
 
 	Func isLetter_2 P1
-		return QChar_isLetter_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isLetter_2(pObject,P1)
 
 	Func isLetterOrNumber_2 P1
-		return QChar_isLetterOrNumber_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isLetterOrNumber_2(pObject,P1)
 
 	Func isLowSurrogate_2 P1
-		return QChar_isLowSurrogate_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isLowSurrogate_2(pObject,P1)
 
 	Func isLower_2 P1
-		return QChar_isLower_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isLower_2(pObject,P1)
 
 	Func isMark_2 P1
-		return QChar_isMark_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isMark_2(pObject,P1)
 
 	Func isNonCharacter_2 P1
-		return QChar_isNonCharacter_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isNonCharacter_2(pObject,P1)
 
 	Func isNumber_2 P1
-		return QChar_isNumber_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isNumber_2(pObject,P1)
 
 	Func isPrint_2 P1
-		return QChar_isPrint_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isPrint_2(pObject,P1)
 
 	Func isPunct_2 P1
-		return QChar_isPunct_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isPunct_2(pObject,P1)
 
 	Func isSpace_2 P1
-		return QChar_isSpace_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isSpace_2(pObject,P1)
 
 	Func isSurrogate_2 P1
-		return QChar_isSurrogate_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isSurrogate_2(pObject,P1)
 
 	Func isSymbol_2 P1
-		return QChar_isSymbol_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isSymbol_2(pObject,P1)
 
 	Func isTitleCase_2 P1
-		return QChar_isTitleCase_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isTitleCase_2(pObject,P1)
 
 	Func isUpper_2 P1
-		return QChar_isUpper_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_isUpper_2(pObject,P1)
 
 	Func lowSurrogate P1
-		return QChar_lowSurrogate(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_lowSurrogate(pObject,P1)
 
 	Func mirroredChar_2 P1
-		return QChar_mirroredChar_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_mirroredChar_2(pObject,P1)
 
 	Func requiresSurrogates P1
-		return QChar_requiresSurrogates(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_requiresSurrogates(pObject,P1)
 
 	Func script_2 P1
-		return QChar_script_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_script_2(pObject,P1)
 
 	Func surrogateToUcs4 P1,P2
 		return QChar_surrogateToUcs4(pObject,P1,P2)
@@ -3882,19 +3882,19 @@ Class QChar
 		return QChar_surrogateToUcs4_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func toCaseFolded_2 P1
-		return QChar_toCaseFolded_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_toCaseFolded_2(pObject,P1)
 
 	Func toLower_2 P1
-		return QChar_toLower_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_toLower_2(pObject,P1)
 
 	Func toTitleCase_2 P1
-		return QChar_toTitleCase_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_toTitleCase_2(pObject,P1)
 
 	Func toUpper_2 P1
-		return QChar_toUpper_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_toUpper_2(pObject,P1)
 
 	Func unicodeVersion_2 P1
-		return QChar_unicodeVersion_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QChar_unicodeVersion_2(pObject,P1)
 
 Class QChildEvent from QEvent
 
@@ -4101,7 +4101,7 @@ Class QThread from QObject
 		return QThread_setPriority(pObject,P1)
 
 	Func setStackSize P1
-		return QThread_setStackSize(pObject,GetObjectPointerFromRingObject(P1))
+		return QThread_setStackSize(pObject,P1)
 
 	Func stackSize 
 		return QThread_stackSize(pObject)
@@ -4538,7 +4538,7 @@ Class QPixmap
 		return QPixmap_isQBitmap(pObject)
 
 	Func loadFromData P1,P2,P3,P4
-		return QPixmap_loadFromData(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3,P4)
+		return QPixmap_loadFromData(pObject,GetObjectPointerFromRingObject(P1),P2,P3,P4)
 
 	Func loadFromData_2 P1,P2,P3
 		return QPixmap_loadFromData_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
@@ -6473,7 +6473,7 @@ Class QImage
 		return QImage_setOffset(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setPixel P1,P2,P3
-		return QImage_setPixel(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return QImage_setPixel(pObject,P1,P2,P3)
 
 	Func setText P1,P2
 		return QImage_setText(pObject,P1,P2)
@@ -6739,7 +6739,7 @@ Class QFontMetrics
 		return QFontMetrics_inFont(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func inFontUcs4 P1
-		return QFontMetrics_inFontUcs4(pObject,GetObjectPointerFromRingObject(P1))
+		return QFontMetrics_inFontUcs4(pObject,P1)
 
 	Func leading 
 		return QFontMetrics_leading(pObject)
@@ -11075,7 +11075,7 @@ Class QOpenGLTexture
 		return QOpenGLTexture_bind(pObject)
 
 	Func bind_2 P1,P2
-		return QOpenGLTexture_bind_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return QOpenGLTexture_bind_2(pObject,P1,P2)
 
 	Func borderColor 
 		pTempObj = new QColor
@@ -11130,7 +11130,7 @@ Class QOpenGLTexture
 		return QOpenGLTexture_isBound(pObject)
 
 	Func isBound_2 P1
-		return QOpenGLTexture_isBound_2(pObject,GetObjectPointerFromRingObject(P1))
+		return QOpenGLTexture_isBound_2(pObject,P1)
 
 	Func isCreated 
 		return QOpenGLTexture_isCreated(pObject)
@@ -11181,7 +11181,7 @@ Class QOpenGLTexture
 		return QOpenGLTexture_release(pObject)
 
 	Func release_2 P1,P2
-		return QOpenGLTexture_release_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return QOpenGLTexture_release_2(pObject,P1,P2)
 
 	Func setAutoMipMapGenerationEnabled P1
 		return QOpenGLTexture_setAutoMipMapGenerationEnabled(pObject,P1)
@@ -11193,7 +11193,7 @@ Class QOpenGLTexture
 		return QOpenGLTexture_setBorderColor_3(pObject,P1,P2,P3,P4)
 
 	Func setBorderColor_4 P1,P2,P3,P4
-		return QOpenGLTexture_setBorderColor_4(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+		return QOpenGLTexture_setBorderColor_4(pObject,P1,P2,P3,P4)
 
 	Func setCompressedData P1,P2,P3,P4,P5,P6
 		return QOpenGLTexture_setCompressedData(pObject,P1,P2,P3,P4,GetObjectPointerFromRingObject(P5),GetObjectPointerFromRingObject(P6))
