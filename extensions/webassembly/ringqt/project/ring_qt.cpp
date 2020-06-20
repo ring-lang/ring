@@ -77514,6 +77514,65 @@ RING_FUNC(ring_QFileDialog_geturlsSelectedEvent)
 }
 
 
+RING_FUNC(ring_QFileDialog_saveFileContent)
+{
+	GFileDialog *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GFileDialog *) RING_API_GETCPOINTER(1,"QFileDialog");
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->saveFileContent(* (QByteArray  *) RING_API_GETCPOINTER(2,"QByteArray"),RING_API_GETSTRING(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QByteArray"));
+}
+
+
+List *pQFileDialogTempList=NULL;
+
+RING_FUNC(ring_QFileDialog_FileContentList)
+{
+	if (pQFileDialogTempList != NULL) {
+		RING_API_RETLIST(pQFileDialogTempList);
+	}
+}
+
+RING_FUNC(ring_QFileDialog_getOpenFileContent)
+{
+	VM *pVM;
+	pVM = (VM *) pPointer ;
+	const char *cCode;
+	cCode = RING_API_GETSTRING(2);
+	if (pQFileDialogTempList != NULL) {
+		ring_list_deleteallitems(pQFileDialogTempList);
+	} else {
+		pQFileDialogTempList = ring_list_new(0);
+	}
+	auto fileContentReady = [&pVM,&cCode](const QString &fileName, const QByteArray &fileContent) {
+		if (fileName.isEmpty()) {
+			// No file was selected
+		} else {
+			// Use fileName and fileContent
+			ring_list_addstring(pQFileDialogTempList,fileName.toStdString().c_str());
+			ring_list_addstring2(pQFileDialogTempList,fileContent.constData(),fileContent.length());
+			if (strcmp(cCode,"")==0)
+				return ;
+			ring_vm_runcode(pVM,cCode);
+		}
+	};
+	QFileDialog::getOpenFileContent(RING_API_GETSTRING(1),  fileContentReady);
+}
+
+
 RING_FUNC(ring_QDirModel_fileIcon)
 {
 	QDirModel *pObject ;
@@ -143008,6 +143067,9 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qfiledialog_getfilterselectedevent",ring_QFileDialog_getfilterSelectedEvent);
 	ring_vm_funcregister("qfiledialog_geturlselectedevent",ring_QFileDialog_geturlSelectedEvent);
 	ring_vm_funcregister("qfiledialog_geturlsselectedevent",ring_QFileDialog_geturlsSelectedEvent);
+	ring_vm_funcregister("qfiledialog_savefilecontent",ring_QFileDialog_saveFileContent);
+	ring_vm_funcregister("qfiledialog_getopenfilecontent",ring_QFileDialog_getOpenFileContent);
+	ring_vm_funcregister("qfiledialog_filecontentlist",ring_QFileDialog_FileContentList);
 	ring_vm_funcregister("qdirmodel_fileicon",ring_QDirModel_fileIcon);
 	ring_vm_funcregister("qdirmodel_fileinfo",ring_QDirModel_fileInfo);
 	ring_vm_funcregister("qdirmodel_filename",ring_QDirModel_fileName);
