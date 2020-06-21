@@ -219,7 +219,7 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType
 				return NULL ;
 			}
 			else {
-				if ( strcmp(ring_list_getstring(pList,2),"NULLPOINTER") == 0 ) {
+				if ( (strcmp(ring_list_getstring(pList,2),"NULLPOINTER") == 0) || (strcmp(ring_list_getstring(pList,2),cType) == 0) ) {
 					return NULL ;
 				}
 			}
