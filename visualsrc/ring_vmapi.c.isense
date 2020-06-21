@@ -90,7 +90,7 @@ ring_vm_api_intvalue
 Type: VM *
 pVM
 Type: List *
-pList
+pList, *pActiveMem
 Type: Item *
 pItem
 ring_list_addcpointer
