@@ -247,7 +247,8 @@ We can check the parameter type using the next functions
 	int RING_API_ISNUMBER(int nParameterNumber);
 	int RING_API_ISSTRING(int nParameterNumber);
 	int RING_API_ISLIST(int nParameterNumber);
-	int RING_API_ISPOINTER(int nParameterNumber);
+	int RING_API_ISCPOINTER(int nParameterNumber);
+	int RING_API_ISPOINTER(int nParameterNumber);  // List or C Pointer
 
 The output of these functions will be 1 (True) or 0 (False).	
 
@@ -383,7 +384,7 @@ The next code represents the fclose() function implementation
 			RING_API_ERROR(RING_API_MISS1PARA);
 			return ;
 		}
-		if ( RING_API_ISPOINTER(1) ) {
+		if ( RING_API_ISCPOINTER(1) ) {
 			fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
 			if ( fp != NULL ) {
 				RING_API_RETNUMBER(fclose(fp));
@@ -398,7 +399,7 @@ From fopen() and fclose() implementation we learned
 
 1 - how to return C pointer using RING_API_RETCPOINTER() function
 
-2 - how to check if the parameter is a pointer using the RING_API_ISPOINTER() function
+2 - how to check if the parameter is a pointer using the RING_API_ISCPOINTER() function
 
 3 - how to get C pointer value using the RING_API_GETCPOINTER() function
 
@@ -541,7 +542,7 @@ This function returns table columns information.
 			RING_API_ERROR(RING_API_MISS1PARA);
 			return ;
 		}
-		if ( RING_API_ISPOINTER(1) ) {
+		if ( RING_API_ISCPOINTER(1) ) {
 			con = (MYSQL *) RING_API_GETCPOINTER(1,RING_VM_POINTER_MYSQL) ;
 			if ( con == NULL ) {
 				return ;
@@ -673,7 +674,7 @@ The next example from ring_qt.cpp - QPixMap Class - Scaled() Method.
 			return ;
 		}
 		RING_API_IGNORECPOINTERTYPE ;
-		if ( ! RING_API_ISPOINTER(1) ) {
+		if ( ! RING_API_ISCPOINTER(1) ) {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 			return ;
 		}

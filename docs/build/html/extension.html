@@ -234,7 +234,8 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 <div class="highlight-C"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">RING_API_ISNUMBER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="kt">int</span> <span class="nf">RING_API_ISSTRING</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="kt">int</span> <span class="nf">RING_API_ISLIST</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
-<span class="kt">int</span> <span class="nf">RING_API_ISPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">RING_API_ISCPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">RING_API_ISPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>  <span class="c1">// List or C Pointer</span>
 </pre></div>
 </div>
 <p>The output of these functions will be 1 (True) or 0 (False).</p>
@@ -330,7 +331,7 @@ The second parameter is the mode as string.</p>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
                 <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_ISPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_ISCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">fp</span> <span class="o">=</span> <span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="p">)</span> <span class="n">RING_API_GETCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">RING_VM_POINTER_FILE</span><span class="p">)</span> <span class="p">;</span>
                 <span class="k">if</span> <span class="p">(</span> <span class="n">fp</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="p">)</span> <span class="p">{</span>
                         <span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">));</span>
@@ -344,7 +345,7 @@ The second parameter is the mode as string.</p>
 </div>
 <p>From fopen() and fclose() implementation we learned</p>
 <p>1 - how to return C pointer using RING_API_RETCPOINTER() function</p>
-<p>2 - how to check if the parameter is a pointer using the RING_API_ISPOINTER() function</p>
+<p>2 - how to check if the parameter is a pointer using the RING_API_ISCPOINTER() function</p>
 <p>3 - how to get C pointer value using the RING_API_GETCPOINTER() function</p>
 <p>4 - how to set the C pointer variable (in RingVM) to NULL using the RING_API_SETNULLPOINTER() function</p>
 </div>
@@ -466,7 +467,7 @@ manipulate the string content.</p>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
                 <span class="k">return</span> <span class="p">;</span>
         <span class="p">}</span>
-        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_ISPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_ISCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">con</span> <span class="o">=</span> <span class="p">(</span><span class="n">MYSQL</span> <span class="o">*</span><span class="p">)</span> <span class="n">RING_API_GETCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">RING_VM_POINTER_MYSQL</span><span class="p">)</span> <span class="p">;</span>
                 <span class="k">if</span> <span class="p">(</span> <span class="n">con</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="p">)</span> <span class="p">{</span>
                         <span class="k">return</span> <span class="p">;</span>
@@ -571,7 +572,7 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
                 return ;
         }
         RING_API_IGNORECPOINTERTYPE ;
-        if ( ! RING_API_ISPOINTER(1) ) {
+        if ( ! RING_API_ISCPOINTER(1) ) {
                 RING_API_ERROR(RING_API_BADPARATYPE);
                 return ;
         }
