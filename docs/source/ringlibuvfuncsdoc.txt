@@ -5,6 +5,15 @@
 RingLibuv Functions Reference
 =============================
 
+
+Introduction
+============
+
+In this chapter we have a list of the supported functions by this extension 
+
+Reference
+=========
+
 * int uv_loop_init(uv_loop_t* loop)
 * int uv_loop_configure(uv_loop_t* loop, uv_loop_option option, int)
 * int uv_loop_close(uv_loop_t* loop)

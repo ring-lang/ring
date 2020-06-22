@@ -52,7 +52,19 @@
             
   <div class="section" id="ringlibcurl-functions-reference">
 <span id="index-0"></span><h1>RingLibCurl Functions Reference<a class="headerlink" href="#ringlibcurl-functions-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this chapter we have a list of the supported functions by this extension</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
+<li>CURL_GLOBAL_ALL</li>
+<li>CURL_GLOBAL_SSL</li>
+<li>CURL_GLOBAL_WIN32</li>
+<li>CURL_GLOBAL_NOTHING</li>
+<li>CURL_GLOBAL_DEFAULT</li>
+<li>CURL_GLOBAL_ACK_EINTR</li>
 <li>CURLOPT_VERBOSE</li>
 <li>CURLOPT_HEADER</li>
 <li>CURLOPT_NOPROGRESS</li>
@@ -303,6 +315,7 @@
 <li>CURLFORM_STREAM</li>
 <li>CURLFORM_ARRAY</li>
 <li>CURLFORM_CONTENTHEADER</li>
+<li>CURLcode curl_global_init(long flags)</li>
 <li>CURL <a href="#id1"><span class="problematic" id="id2">*</span></a>curl_easy_init(void)</li>
 <li>void curl_easy_cleanup(CURL * handle )</li>
 <li>CURLcode curl_easy_setopt_1(CURL <a href="#id3"><span class="problematic" id="id4">*</span></a>handle, CURLoption option, int)</li>
@@ -333,6 +346,7 @@
 <li>char <a href="#id103"><span class="problematic" id="id104">*</span></a>curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )</li>
 </ul>
 </div>
+</div>
 
 
           </div>
@@ -340,6 +354,15 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RingLibCurl Functions Reference</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="ringbeep.html"
                         title="previous chapter">Create your first extension</a></p>

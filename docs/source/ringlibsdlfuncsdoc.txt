@@ -5,6 +5,15 @@
 RingLibSDL Functions Reference
 ==============================
 
+
+Introduction
+============
+
+In this chapter we have a list of the supported functions by this extension 
+
+Reference
+=========
+
 * MIX_DEFAULT_FORMAT
 * SDL_QUIT
 * SDL_BUTTON_LEFT

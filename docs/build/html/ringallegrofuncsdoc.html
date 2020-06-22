@@ -52,6 +52,12 @@
             
   <div class="section" id="ringallegro-functions-reference">
 <span id="index-0"></span><h1>RingAllegro Functions Reference<a class="headerlink" href="#ringallegro-functions-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this chapter we have a list of the supported functions by this extension</p>
+</div>
+<div class="section" id="reference">
+<h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li>void al_exit(void)</li>
 <li>void al_run_main(void)</li>
@@ -682,7 +688,24 @@
 <li>int al_draw_indexed_prim(const void* vtxs, const ALLEGRO_VERTEX_DECL* decl,ALLEGRO_BITMAP* texture, const int* indices, int num_vtx, int type)</li>
 <li>ALLEGRO_VERTEX_DECL* al_create_vertex_decl(const ALLEGRO_VERTEX_ELEMENT* elements, int stride)</li>
 <li>void al_destroy_vertex_decl(ALLEGRO_VERTEX_DECL* decl)</li>
+<li>ALLEGRO_SHADER <a href="#id1509"><span class="problematic" id="id1510">*</span></a>al_create_shader(ALLEGRO_SHADER_PLATFORM platform)</li>
+<li>bool al_attach_shader_source(ALLEGRO_SHADER <a href="#id1511"><span class="problematic" id="id1512">*</span></a>shader, ALLEGRO_SHADER_TYPE type,const char <a href="#id1513"><span class="problematic" id="id1514">*</span></a>source)</li>
+<li>bool al_attach_shader_source_file(ALLEGRO_SHADER <a href="#id1515"><span class="problematic" id="id1516">*</span></a>shader,ALLEGRO_SHADER_TYPE type, const char <a href="#id1517"><span class="problematic" id="id1518">*</span></a>filename)</li>
+<li>bool al_build_shader(ALLEGRO_SHADER <a href="#id1519"><span class="problematic" id="id1520">*</span></a>shader)</li>
+<li>const char <a href="#id1521"><span class="problematic" id="id1522">*</span></a>al_get_shader_log(ALLEGRO_SHADER <a href="#id1523"><span class="problematic" id="id1524">*</span></a>shader)</li>
+<li>ALLEGRO_SHADER_PLATFORM al_get_shader_platform(ALLEGRO_SHADER <a href="#id1525"><span class="problematic" id="id1526">*</span></a>shader)</li>
+<li>bool al_use_shader(ALLEGRO_SHADER <a href="#id1527"><span class="problematic" id="id1528">*</span></a>shader)</li>
+<li>void al_destroy_shader(ALLEGRO_SHADER <a href="#id1529"><span class="problematic" id="id1530">*</span></a>shader)</li>
+<li>bool al_set_shader_sampler(const char <a href="#id1531"><span class="problematic" id="id1532">*</span></a>name,ALLEGRO_BITMAP <a href="#id1533"><span class="problematic" id="id1534">*</span></a>bitmap, int unit)</li>
+<li>bool al_set_shader_matrix(const char <a href="#id1535"><span class="problematic" id="id1536">*</span></a>name,const ALLEGRO_TRANSFORM <a href="#id1537"><span class="problematic" id="id1538">*</span></a>matrix)</li>
+<li>bool al_set_shader_int(const char <a href="#id1539"><span class="problematic" id="id1540">*</span></a>name, int i)</li>
+<li>bool al_set_shader_float(const char <a href="#id1541"><span class="problematic" id="id1542">*</span></a>name, float f)</li>
+<li>bool al_set_shader_bool(const char <a href="#id1543"><span class="problematic" id="id1544">*</span></a>name, bool b)</li>
+<li>bool al_set_shader_int_vector(const char <a href="#id1545"><span class="problematic" id="id1546">*</span></a>name,int num_components, const int <a href="#id1547"><span class="problematic" id="id1548">*</span></a>i, int num_elems)</li>
+<li>bool al_set_shader_float_vector(const char <a href="#id1549"><span class="problematic" id="id1550">*</span></a>name,int num_components, const float <a href="#id1551"><span class="problematic" id="id1552">*</span></a>f, int num_elems)</li>
+<li>char const <a href="#id1553"><span class="problematic" id="id1554">*</span></a>al_get_default_shader_source(ALLEGRO_SHADER_PLATFORM platform,ALLEGRO_SHADER_TYPE type)</li>
 </ul>
+</div>
 </div>
 
 
@@ -691,6 +714,15 @@
       </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">RingAllegro Functions Reference</a><ul>
+<li><a class="reference internal" href="#introduction">Introduction</a></li>
+<li><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+</ul>
+
   <h4>Previous topic</h4>
   <p class="topless"><a href="ringconsolecolorsfuncsdoc.html"
                         title="previous chapter">RingConsoleColors Functions Reference</a></p>

@@ -5,6 +5,15 @@
 RingOpenGL (OpenGL 3.2) Functions Reference
 ===========================================
 
+
+Introduction
+============
+
+In this chapter we have a list of the supported functions by this extension 
+
+Reference
+=========
+
 * GL_ZERO
 * GL_FALSE
 * GL_LOGIC_OP

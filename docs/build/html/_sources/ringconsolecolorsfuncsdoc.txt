@@ -5,6 +5,15 @@
 RingConsoleColors Functions Reference
 =====================================
 
+
+Introduction
+============
+
+In this chapter we have a list of the supported functions by this extension 
+
+Reference
+=========
+
 * CC_FG_NONE
 * CC_FG_BLACK
 * CC_FG_DARK_RED
