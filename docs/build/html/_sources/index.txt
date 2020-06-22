@@ -113,7 +113,6 @@ Contents:
    Release Notes: Version 1.2 <whatisnew2>
    Release Notes: Version 1.1 <whatisnew>
    Language Design <languagedesign>
-   General Information <generalinfo>
    Frequently Asked Questions (FAQ) <faq>
    How to Compile Ring From Source Code? <sourcecode>
    How to contribute? <contribute>
