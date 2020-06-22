@@ -8,7 +8,7 @@
     
     <title>Low Level Functions &mdash; Ring 1.13 documentation</title>
     
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -29,27 +29,24 @@
     <link rel="prev" title="The Ring Package Manager (RingPM)" href="ringpm.html" /> 
   </head>
   <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="debug.html" title="The Trace Library and the Interactive Debugger"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="ringpm.html" title="The Ring Package Manager (RingPM)"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.13 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Ring 1.13 documentation</span></a></h1>
+        <h2 class="heading"><span>Low Level Functions</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="ringpm.html">The Ring Package Manager (RingPM)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="debug.html">The Trace Library and the Interactive Debugger</a>&#160;&#160;»
+        </p>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+      </div>
+      <div class="content">
+        
+        
   <div class="section" id="low-level-functions">
 <span id="index-0"></span><h1>Low Level Functions<a class="headerlink" href="#low-level-functions" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will learn about the low level functions provided by Ring</p>
@@ -1299,95 +1296,19 @@ z: 30.000000
 </div>
 
 
-          </div>
-        </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Low Level Functions</a><ul>
-<li><a class="reference internal" href="#callgc-function">callgc() function</a></li>
-<li><a class="reference internal" href="#varptr-function">varptr() function</a></li>
-<li><a class="reference internal" href="#space-function">space() function</a></li>
-<li><a class="reference internal" href="#nullpointer-function">nullpointer() function</a></li>
-<li><a class="reference internal" href="#object2pointer-function">object2pointer() function</a></li>
-<li><a class="reference internal" href="#pointer2object-function">pointer2object() function</a></li>
-<li><a class="reference internal" href="#ispointer-function">ispointer() function</a></li>
-<li><a class="reference internal" href="#ptrcmp-function">ptrcmp() function</a></li>
-<li><a class="reference internal" href="#setpointer-function">setpointer() function</a></li>
-<li><a class="reference internal" href="#getpointer-function">getpointer() function</a></li>
-<li><a class="reference internal" href="#pointer2string-function">pointer2string() function</a></li>
-<li><a class="reference internal" href="#ringvm-cfunctionslist-function">ringvm_cfunctionslist() function</a></li>
-<li><a class="reference internal" href="#ringvm-functionslist-function">ringvm_functionslist() function</a></li>
-<li><a class="reference internal" href="#ringvm-classeslist-function">ringvm_classeslist() function</a></li>
-<li><a class="reference internal" href="#ringvm-packageslist-function">ringvm_packageslist() function</a></li>
-<li><a class="reference internal" href="#ringvm-memorylist-function">ringvm_memorylist() function</a></li>
-<li><a class="reference internal" href="#ringvm-calllist-function">ringvm_calllist() function</a></li>
-<li><a class="reference internal" href="#ringvm-fileslist-function">ringvm_fileslist() function</a></li>
-<li><a class="reference internal" href="#ringvm-settrace">ringvm_settrace()</a></li>
-<li><a class="reference internal" href="#ringvm-tracedata">ringvm_tracedata()</a></li>
-<li><a class="reference internal" href="#ringvm-traceevent">ringvm_traceevent()</a></li>
-<li><a class="reference internal" href="#ringvm-tracefunc">ringvm_tracefunc()</a></li>
-<li><a class="reference internal" href="#ringvm-scopescount">ringvm_scopescount()</a></li>
-<li><a class="reference internal" href="#ringvm-evalinscope">ringvm_evalinscope()</a></li>
-<li><a class="reference internal" href="#ringvm-passerror">ringvm_passerror()</a></li>
-<li><a class="reference internal" href="#ringvm-hideerrormsg">ringvm_hideerrormsg()</a></li>
-<li><a class="reference internal" href="#ringvm-callfunc">ringvm_callfunc()</a></li>
-<li><a class="reference internal" href="#example-using-the-trace-functions">Example - Using the Trace Functions</a></li>
-<li><a class="reference internal" href="#example-the-trace-library">Example - The Trace Library</a></li>
-<li><a class="reference internal" href="#ringvm-see-function">ringvm_see() function</a></li>
-<li><a class="reference internal" href="#ringvm-give-function">ringvm_give() function</a></li>
-<li><a class="reference internal" href="#ringvm-info-function">ringvm_info() function</a></li>
-</ul>
-</li>
-</ul>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="ringpm.html">The Ring Package Manager (RingPM)</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="debug.html">The Trace Library and the Interactive Debugger</a>&#160;&#160;»
+        </p>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="ringpm.html"
-                        title="previous chapter">The Ring Package Manager (RingPM)</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="debug.html"
-                        title="next chapter">The Trace Library and the Interactive Debugger</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/lowlevel.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="debug.html" title="The Trace Library and the Interactive Debugger"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="ringpm.html" title="The Ring Package Manager (RingPM)"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.13 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
+
     <div class="footer" role="contentinfo">
         &copy; Copyright 2016-2020, Ring Team.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.

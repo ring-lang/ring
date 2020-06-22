@@ -8,7 +8,7 @@
     
     <title>Frequently Asked Questions (FAQ) &mdash; Ring 1.13 documentation</title>
     
-    <link rel="stylesheet" href="_static/classic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
     
     <script type="text/javascript">
@@ -29,27 +29,24 @@
     <link rel="prev" title="Language Design" href="languagedesign.html" /> 
   </head>
   <body role="document">
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="sourcecode.html" title="Building From Source Code"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="languagedesign.html" title="Language Design"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.13 documentation</a> &raquo;</li> 
-      </ul>
-    </div>  
+      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
+          <span>Ring 1.13 documentation</span></a></h1>
+        <h2 class="heading"><span>Frequently Asked Questions (FAQ)</span></h2>
+      </div>
+      <div class="topnav" role="navigation" aria-label="top navigation">
+      
+        <p>
+        «&#160;&#160;<a href="languagedesign.html">Language Design</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="sourcecode.html">Building From Source Code</a>&#160;&#160;»
+        </p>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+      </div>
+      <div class="content">
+        
+        
   <div class="section" id="frequently-asked-questions-faq">
 <span id="index-0"></span><h1>Frequently Asked Questions (FAQ)<a class="headerlink" href="#frequently-asked-questions-faq" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="why-do-we-need-yet-another-programming-language-yapl">
@@ -1837,119 +1834,19 @@ Message from dlfunc
 </div>
 
 
-          </div>
-        </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <h3><a href="index.html">Table Of Contents</a></h3>
-  <ul>
-<li><a class="reference internal" href="#">Frequently Asked Questions (FAQ)</a><ul>
-<li><a class="reference internal" href="#why-do-we-need-yet-another-programming-language-yapl">Why do we need Yet Another Programming Language (YAPL)?</a></li>
-<li><a class="reference internal" href="#what-is-the-ring-architecture">What is the Ring Architecture?</a></li>
-<li><a class="reference internal" href="#what-about-memory-management-in-ring">What about Memory Management in Ring?</a></li>
-<li><a class="reference internal" href="#what-about-data-representation-in-ring">What about Data Representation in Ring?</a></li>
-<li><a class="reference internal" href="#why-is-ring-weakly-typed">Why is Ring weakly typed?</a></li>
-<li><a class="reference internal" href="#what-are-the-advantages-to-using-ring-over-lisp-or-smalltalk">What are the advantages to using Ring over Lisp or Smalltalk?</a></li>
-<li><a class="reference internal" href="#why-is-ring-largely-focussed-on-ui-creation">Why is Ring largely focussed on UI creation?</a></li>
-<li><a class="reference internal" href="#is-ring-some-sort-of-an-improvement-of-php">Is Ring some sort of an improvement of PHP?</a></li>
-<li><a class="reference internal" href="#what-are-the-advantages-of-using-ring-over-native-c-or-c">What are the advantages of using Ring over native C or C++?</a></li>
-<li><a class="reference internal" href="#what-is-the-difference-between-ring-and-python-and-is-ring-open-source">What is the difference between Ring and Python? And is Ring Open Source?</a></li>
-<li><a class="reference internal" href="#what-are-the-advantages-to-using-ring-over-perl-php-python-or-ruby">What are the advantages to using Ring over Perl, PHP, Python or Ruby?</a></li>
-<li><a class="reference internal" href="#what-are-the-advantages-to-using-ring-over-tcl-or-lua">What are the advantages to using Ring over Tcl or Lua?</a></li>
-<li><a class="reference internal" href="#what-are-the-advantages-to-using-ring-over-c-or-java">What are the advantages to using Ring over C# or Java?</a></li>
-<li><a class="reference internal" href="#the-documentation-says-functional-programming-is-supported-but-then-this-happens">The documentation says functional programming is supported, but then this happens?</a></li>
-<li><a class="reference internal" href="#why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like">Why the ability to define your own languages Instead of just handing over the syntax so you can parse it using whatever code you like?</a></li>
-<li><a class="reference internal" href="#why-you-can-specify-the-number-of-loops-you-want-to-break-out-of">Why you can specify the number of loops you want to break out of?</a></li>
-<li><a class="reference internal" href="#why-ring-uses-see-give-but-and-ok-keywords">Why Ring uses &#8216;See&#8217;, &#8216;Give&#8217;, &#8216;But&#8217; and &#8216;Ok&#8217; Keywords?</a></li>
-<li><a class="reference internal" href="#what-is-the-philosophy-behind-data-types-in-ring">What is the philosophy behind data types in Ring?</a></li>
-<li><a class="reference internal" href="#what-about-the-boolean-values-in-ring">What about the Boolean values in Ring?</a></li>
-<li><a class="reference internal" href="#what-is-the-goal-of-including-the-main-function-in-ring">What is the goal of including the &#8220;Main&#8221; function in Ring?</a></li>
-<li><a class="reference internal" href="#why-the-list-index-start-from-1-in-ring">Why the list index start from 1 in Ring?</a></li>
-<li><a class="reference internal" href="#why-ring-is-not-case-sensitive">Why Ring is not case-sensitive?</a></li>
-<li><a class="reference internal" href="#why-the-assignment-operator-uses-deep-copy">Why the Assignment operator uses Deep Copy?</a></li>
-<li><a class="reference internal" href="#is-there-constructor-methods-in-ring">Is there constructor methods in Ring?</a></li>
-<li><a class="reference internal" href="#what-happens-when-we-create-a-new-object">What happens when we create a new object?</a></li>
-<li><a class="reference internal" href="#can-we-use-the-attributes-by-accessing-the-getter-and-setter-methods">Can we use the attributes by accessing the Getter and Setter methods?</a></li>
-<li><a class="reference internal" href="#why-should-a-search-of-global-names-be-made-while-defining-the-class-attributes">Why should a search of global names be made while defining the class attributes?</a></li>
-<li><a class="reference internal" href="#why-ring-doesn-t-avoid-the-conflict-between-global-variables-and-class-attributes-names">Why Ring doesn&#8217;t avoid the conflict between Global Variables and Class Attributes Names?</a></li>
-<li><a class="reference internal" href="#where-can-i-write-a-program-and-execute-it">Where can I write a program and execute it?</a></li>
-<li><a class="reference internal" href="#how-to-get-the-file-size-using-ftell-and-fseek-functions">How to get the file size using ftell() and fseek() functions?</a></li>
-<li><a class="reference internal" href="#how-to-get-the-current-source-file-path">How to get the current source file path?</a></li>
-<li><a class="reference internal" href="#what-about-predefined-parameters-or-optional-parameters-in-functions">What about predefined parameters or optional parameters in functions?</a></li>
-<li><a class="reference internal" href="#how-to-print-keys-or-values-only-in-list-dictionary">How to print keys or values only in List/Dictionary?</a></li>
-<li><a class="reference internal" href="#why-i-get-a-strange-result-when-printing-nl-with-lists">Why I get a strange result when printing nl with lists?</a></li>
-<li><a class="reference internal" href="#could-you-explain-the-output-of-the-strcmp-function">Could you explain the output of the StrCmp() function?</a></li>
-<li><a class="reference internal" href="#how-to-use-many-source-code-files-in-the-project">How to use many source code files in the project?</a></li>
-<li><a class="reference internal" href="#why-this-example-use-the-getchar-twice">Why this example use the GetChar() twice?</a></li>
-<li><a class="reference internal" href="#how-to-use-null-and-isnull-function">How to use NULL and ISNULL() function?</a></li>
-<li><a class="reference internal" href="#how-to-print-lists-that-contains-objects">How to print lists that contains objects?</a></li>
-<li><a class="reference internal" href="#how-to-insert-an-item-to-the-first-position-in-the-list">How to insert an item to the first position in the list?</a></li>
-<li><a class="reference internal" href="#how-to-print-new-lines-and-other-characters">How to print new lines and other characters?</a></li>
-<li><a class="reference internal" href="#why-we-don-t-use-after-the-qapp-class-name">Why we don&#8217;t use () after the qApp class name?</a></li>
-<li><a class="reference internal" href="#why-the-window-title-bar-is-going-outside-the-screen">Why the window title bar is going outside the screen?</a></li>
-<li><a class="reference internal" href="#how-to-create-an-array-of-buttons-in-gui-applications">How to create an array of buttons in GUI applications?</a></li>
-<li><a class="reference internal" href="#how-to-close-a-window-then-displaying-another-one">How to Close a window then displaying another one?</a></li>
-<li><a class="reference internal" href="#how-to-create-a-modal-window">How to create a Modal Window?</a></li>
-<li><a class="reference internal" href="#how-can-i-disable-maximize-button-and-resize-window">How can I disable maximize button and resize window?</a></li>
-<li><a class="reference internal" href="#how-to-use-sqlite-using-odbc">How to use SQLite using ODBC?</a></li>
-<li><a class="reference internal" href="#can-i-connect-to-dbase-harbour-database">Can I connect to dbase/harbour database?</a></li>
-<li><a class="reference internal" href="#why-setclickevent-doesn-t-see-the-object-methods-directly">Why setClickEvent() doesn&#8217;t see the object methods directly?</a></li>
-<li><a class="reference internal" href="#why-i-get-calling-function-without-definition-error">Why I get Calling Function without definition Error?</a></li>
-<li><a class="reference internal" href="#can-ring-work-on-windows-xp">Can Ring work on Windows XP?</a></li>
-<li><a class="reference internal" href="#how-to-extend-ringqt-and-add-more-classes">How to extend RingQt and add more classes?</a></li>
-<li><a class="reference internal" href="#how-to-add-combobox-and-other-elements-to-the-cells-of-a-qtablewidget">How to add Combobox and other elements to the cells of a QTableWidget?</a></li>
-<li><a class="reference internal" href="#how-to-perform-some-manipulations-on-selected-cells-in-qtablewidget">How to perform some manipulations on selected cells in QTableWidget?</a></li>
-<li><a class="reference internal" href="#which-of-3-coding-styles-are-commonly-used-or-recommended-by-the-community">Which of 3 coding styles are commonly used or recommended by the community?</a></li>
-</ul>
-</li>
-</ul>
+      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+      
+        <p>
+        «&#160;&#160;<a href="languagedesign.html">Language Design</a>
+        &#160;&#160;::&#160;&#160;
+        <a class="uplink" href="index.html">Contents</a>
+        &#160;&#160;::&#160;&#160;
+        <a href="sourcecode.html">Building From Source Code</a>&#160;&#160;»
+        </p>
 
-  <h4>Previous topic</h4>
-  <p class="topless"><a href="languagedesign.html"
-                        title="previous chapter">Language Design</a></p>
-  <h4>Next topic</h4>
-  <p class="topless"><a href="sourcecode.html"
-                        title="next chapter">Building From Source Code</a></p>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/faq.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3>Quick search</h3>
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" />
-      <input type="submit" value="Go" />
-      <input type="hidden" name="check_keywords" value="yes" />
-      <input type="hidden" name="area" value="default" />
-    </form>
-    <p class="searchtip" style="font-size: 90%">
-    Enter search terms or a module, class or function name.
-    </p>
-</div>
-<script type="text/javascript">$('#searchbox').show(0);</script>
-        </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="sourcecode.html" title="Building From Source Code"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="languagedesign.html" title="Language Design"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">Ring 1.13 documentation</a> &raquo;</li> 
-      </ul>
-    </div>
+
     <div class="footer" role="contentinfo">
         &copy; Copyright 2016-2020, Ring Team.
       Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.3.1.
