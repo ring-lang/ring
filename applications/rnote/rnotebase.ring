@@ -80,7 +80,7 @@ class RNoteControllerBase from WindowsControllerParent
 		STYLECOLOR_ART3		 		= 13
 		STYLECOLOR_IMAGE	 		= 14
 		STYLECOLOR_IMAGE2	 		= 15
-		nDefaultStyle  				= STYLECOLOR_IMAGE2
+		nDefaultStyle  				= STYLECOLOR_MODERNBLACK
 		lKeywordsBold 				= True
 
 	# Default Mode
