@@ -130,8 +130,165 @@ Since Ring is a new language you have 3 options:</p>
 new paradigm through simple prototypes during the last years and we will integrate it with Ring
 in future releases.</p>
 </div>
+<div class="section" id="what-is-the-ring-architecture">
+<span id="index-2"></span><h2>What is the Ring Architecture?<a class="headerlink" href="#what-is-the-ring-architecture" title="Permalink to this headline">¶</a></h2>
+<p>We have the next architecture</p>
+<ol class="arabic simple">
+<li>Ring Applications (Your Code)  - Written in Ring - See folder : ring/applications</li>
+<li>Ring Libraries (StdLib, WebLib, GameEngine, etc) - Written in Ring - See folder : ring/ringlibs</li>
+<li>Ring Extensions (RingAllegro, RingQt, etc) - Written in C/C++ (may include Ring code) - See folder : ring/extensions</li>
+<li>Ring Virtual Machine (Ring VM) - Written in C language</li>
+<li>Operating System (Current Platform) - (Windows, Linux, macOS, Android, etc)</li>
+</ol>
+<p>The extensions are just dynamic libraries (DLL, So, Dylib)
+You can update the extensions without the need to update your code.</p>
+<p>Folder (ring/extensions/libdepwin) ====&gt; C libraries used for building Ring Extensions (written in C) on Windows platform</p>
+<p>Folder (ring/ringlibs)  ====&gt; Ring libraries written in Ring itself (StdLib, WebLib, GameEngine, etc)</p>
+<p>Folder (ring/visualsrc) ====&gt; The Visual Source Code of the Ring Compiler &amp; Ring VM developed using Programming Without Coding Technology (PWCT)</p>
+<p>We use the term Ring Library &#8212;&gt; When the library code is written in Ring
+We use the term Ring Extension &#8212;&gt; When the library code is Written in C or C++</p>
+</div>
+<div class="section" id="what-about-memory-management-in-ring">
+<span id="index-3"></span><h2>What about Memory Management in Ring?<a class="headerlink" href="#what-about-memory-management-in-ring" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>When we call function, we get a new scope for this function, inside this scope we store variables.</li>
+</ol>
+<p>Also we get Temp. memory for this function. Inside this temp. memory we store temp. lists</p>
+<p>All of this will be deleted directly after the end of the function call (end of scope)</p>
+<ol class="arabic simple" start="2">
+<li>In Ring to delete memory, you have the next options</li>
+</ol>
+<p>2.1 Wait until the end of the function scope</p>
+<p>2.2 Use the Assignment operator</p>
+<p>2.3 Use callgc() function (delete temp. lists only)</p>
+<ol class="arabic simple" start="3">
+<li>Ring Garbage Collector uses Escape Analysis and Reference Counting</li>
+</ol>
+<p>In 90% of cases, the Escape Analysis is used so we don&#8217;t waste time in running the garbage collector
+We directly know what will be deleted and what will remain in the memory.</p>
+<p><a class="reference external" href="https://en.wikipedia.org/wiki/Escape_analysis">https://en.wikipedia.org/wiki/Escape_analysis</a></p>
+<p>In 10% of cases (or less than that) Ring may use Reference Counting.</p>
+<p>For example when we pass a list and sub list to a function
+Ring will pass the lists by reference, but what will happens if we deleted the Parent List?
+In this case, the Sub List will use reference counting, and when deleting the Parent List, it will stay in memory until the end of the function.</p>
+<p>Remember that Ring encourage us to avoid using references, and the
+Assignment Operator will copy lists by value, so Ring usage of reference counting is
+very limited to special cases and in most cases the Escape Analysis is enough which is very fast.</p>
+<p>Starting from Ring 1.9 we extended the Reference Counting support to Ring Extensions and low level C pointers.
+So we don&#8217;t have to care about using fclose() when we use fopen() for example. and the same for
+other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.</p>
+<p>All of the allocated resources will be cleaned by the Garbage Collector when we finish using it (when we lost the last reference).</p>
+</div>
+<div class="section" id="what-about-data-representation-in-ring">
+<span id="index-4"></span><h2>What about Data Representation in Ring?<a class="headerlink" href="#what-about-data-representation-in-ring" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>In Ring, The String is just (Array of bytes)</li>
+</ol>
+<p>Ring is 8-bit clean, Each character in the string is 8 bits (1 byte)</p>
+<p>So these functions (Int2Bytes(), Float2Bytes() and Double2Bytes()) just return a string.</p>
+<p>Also we can store binary data in strings</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myfile.exe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li>Remember this, when you think about variables</li>
+</ol>
+<ul class="simple">
+<li>Value &#8212;&gt; What we have (What we are storing in the computer memory as data) - Low Level Concept</li>
+<li>Type  &#8212;&gt; What we can do with what we have or how we do things with what we have (Just a Logical Concept)</li>
+</ul>
+<p>Computer memory &#8212;-&gt; Just store [Bytes] - Each byte is 8-bit - (Here we avoid the memory word concept)</p>
+<p>These bytes could be grouped together when moved between the memory and the processor registers.
+Here we have (The register size) and things like 32-bit and 64-bit for example.
+Also we have the bytes order.</p>
+<p>Programming Languages &#8212;-&gt; Add Types (Just as a concept) to these bytes so we can determine what to do with them and how operations should be done.</p>
+<p>And programming language could allow (Type Conversion) &#8212;&gt; Because the Type is a logical concept in most cases, What we really have is just data (Bytes, Bytes Count, Bytes Order, etc)</p>
+<p>Ring Stings &#8212;-&gt; You have these bytes (each byte is 8-bit) and Ring know the string size (stored as number in the String structure)</p>
+<p>So we don&#8217;t check the NULL character or add it to the end of the string (Not Required)</p>
+<p>All operations inside Ring VM, will check the Ring size and deal with the string as binary data (each character is 8-bit)</p>
+<p>In the C language &#8212;&gt; The normal case is adding NULL character (0) to the end of each string</p>
+<p>And the string functions check this character, This is not suitable for binary data.</p>
+<p>Signed vs Unsigned &#8212;&gt; Is a logical concept which is important when you do arithmetic operations on the data, but when storing the data, if you will include all of the (8-bits) and will not ignore any of them &#8212;&gt; Then don&#8217;t care.</p>
+<p>In Ring, don&#8217;t think about these details, we are hiding it from you, so you can focus on your application and what you will do.</p>
+<dl class="docutils">
+<dt>Think in C when you write C code which could be (based on need) low level code to have control on everything.</dt>
+<dd>&#8212;-&gt; Good for performance and memory management</dd>
+</dl>
+<p>Think in Ring when you write Ring code which let you ignore a lot of details and concentrate only on the result
+&#8212;&#8211;&gt; Good for productivity and delivering software quickly</p>
+<p>The good news (We can mix between Ring and C in our projects)</p>
+<ol class="arabic simple" start="3">
+<li>The functions Int2Bytes(), Float2Bytes() and Double2Bytes()</li>
+</ol>
+<p>These function take input as (Number) &#8212;&gt; Convert it to group of bytes based on the number type (int|float|double) &#8212;&gt; Then return a Ring string that contains these bytes</p>
+<p>Int2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(int)</p>
+<p>Float2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(float)</p>
+<p>Double2Bytes() &#8212;&gt; Ring string (Group of bytes) and the string size = sizeof(double)</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">int2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">float2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">double2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>4
+4
+8
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li>Storing Numbers</li>
+</ol>
+<p>When we use a number, Ring always use the (Double) data type for representing these numbers in memory.
+This is important to know when we do arithmetic operations on numbers.</p>
+<p>But when we convert the number to a String using &#8220;&#8221; + number  or using string(number) we get a string where each digit is represented in 1 byte (Not good idea for storage, but useful for string processing)</p>
+<p>If you need the number to be represented in specific size (int|float|double) for storage then use bytes2int() , bytes2float() and bytes2double() when writing the data to binary files.</p>
+<p>Ring Number (double) &#8212;-&gt; int2bytes()  - will cast the number from double to int then return the bytes &#8212;-&gt; 4 bytes (Ring String)</p>
+<p>Ring Number (double) &#8212;-&gt; float2bytes()  - will cast the number from double to float then return the bytes &#8212;-&gt; 4 bytes (Ring String)</p>
+<p>Ring Number (double) &#8212;-&gt; double2bytes()  - will use the number (double) to return the bytes &#8212;-&gt; 8 bytes (Ring String)</p>
+<p>The (int) type is used only for internal Ring operations, but Ring applications|code will use only the (double) type for numbers.</p>
+<ol class="arabic simple" start="5">
+<li>The Unsigned() Function</li>
+</ol>
+<p>The function unsigned() expect the first and the second parameters as numbers</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">unsigned</span><span class="p">(</span><span class="n">nNumber1</span><span class="p">,</span><span class="n">nNumber2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>We can use the bytes2int() function to convert the bytes to a number</p>
+<p>Example:</p>
+<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">4</span>
+<span class="p">{</span>
+        <span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">]=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">kk</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">4</span> <span class="p">{</span> <span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">kk</span><span class="o">]=</span> <span class="n">char</span><span class="p">(</span><span class="mi">60</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span><span class="n">kk</span><span class="p">)</span> <span class="p">}</span>
+        <span class="o">?</span> <span class="s">&quot; B&quot;</span> <span class="o">+</span><span class="n">k</span> <span class="o">+</span><span class="s">&quot;: &quot;</span> <span class="o">+</span><span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">]</span>
+<span class="p">}</span>
+
+<span class="n">A12</span><span class="o">=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A12</span><span class="o">=</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">^</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;A12: &quot;</span> <span class="o">+</span><span class="kt">string</span><span class="p">(</span><span class="n">A12</span><span class="p">)</span>
+<span class="n">A34</span><span class="o">=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A34</span><span class="o">=</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">)</span> <span class="p">^</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;A34: &quot;</span> <span class="o">+</span><span class="kt">string</span><span class="p">(</span><span class="n">A34</span><span class="p">)</span>
+<span class="n">A12</span><span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A12</span><span class="o">=</span> <span class="n">Unsigned</span><span class="p">(</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">),</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;unsigned A12: &quot;</span> <span class="o">+</span><span class="n">A12</span>
+<span class="n">A34</span><span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A34</span><span class="o">=</span> <span class="n">Unsigned</span><span class="p">(</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">),</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;unsigned A34: &quot;</span> <span class="o">+</span><span class="n">A34</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>B1: ABCD
+B2: EFGH
+B3: IJKL
+B4: MNOP
+A12: 201589764
+A34: 470025220
+unsigned A12: 201589764
+unsigned A34: 470025220
+</pre></div>
+</div>
+</div>
 <div class="section" id="why-is-ring-weakly-typed">
-<span id="index-2"></span><h2>Why is Ring weakly typed?<a class="headerlink" href="#why-is-ring-weakly-typed" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Why is Ring weakly typed?<a class="headerlink" href="#why-is-ring-weakly-typed" title="Permalink to this headline">¶</a></h2>
 <p>Because it&#8217;s faster and more natural, and this is important for the language&#8217;s goals. One
 of the rules is: the data type at the beginning affects the final result.
 For example, when you type &#8220;Print : &#8221; + 5 , The String comes first, so 5
@@ -143,7 +300,7 @@ these cases you will notice that what you are writing is less code (And can be r
 if you know how to use it correctly.</p>
 </div>
 <div class="section" id="what-are-the-advantages-to-using-ring-over-lisp-or-smalltalk">
-<span id="index-3"></span><h2>What are the advantages to using Ring over Lisp or Smalltalk?<a class="headerlink" href="#what-are-the-advantages-to-using-ring-over-lisp-or-smalltalk" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>What are the advantages to using Ring over Lisp or Smalltalk?<a class="headerlink" href="#what-are-the-advantages-to-using-ring-over-lisp-or-smalltalk" title="Permalink to this headline">¶</a></h2>
 <p>Smalltalk and Lisp are GREAT languages. I like many of the concepts behind them but I&#8217;m sure
 that selecting the right programming language is based on the problem and comes after the problem&#8217;s
 definition. I have a problem that I want to solve and these GREAT languages are not ideal for
@@ -159,20 +316,20 @@ differently about how we can express our ideas.</p>
 to the window. The idea of natural programming is to get many things done like that.</p>
 </div>
 <div class="section" id="why-is-ring-largely-focussed-on-ui-creation">
-<span id="index-4"></span><h2>Why is Ring largely focussed on UI creation?<a class="headerlink" href="#why-is-ring-largely-focussed-on-ui-creation" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>Why is Ring largely focussed on UI creation?<a class="headerlink" href="#why-is-ring-largely-focussed-on-ui-creation" title="Permalink to this headline">¶</a></h2>
 <p>Yes UI creation is one of the important things in the language features because it is designed
 to create a visual programming tool, But the language is a multi-paradigm language where we can
 select the programming paradigm based on the problem.</p>
 </div>
 <div class="section" id="is-ring-some-sort-of-an-improvement-of-php">
-<span id="index-5"></span><h2>Is Ring some sort of an improvement of PHP?<a class="headerlink" href="#is-ring-some-sort-of-an-improvement-of-php" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>Is Ring some sort of an improvement of PHP?<a class="headerlink" href="#is-ring-some-sort-of-an-improvement-of-php" title="Permalink to this headline">¶</a></h2>
 <p>Ring is not designed to replace PHP, Lua or Smalltalk. Ring&#8217;s support for declarative
 programming and natural language programming is very innovative and much better than staying
 with procedural, object-oriented and functional languages. Ring see the future in programming
 without code (using natural languages) and is designed to support that.</p>
 </div>
 <div class="section" id="what-are-the-advantages-of-using-ring-over-native-c-or-c">
-<span id="index-6"></span><h2>What are the advantages of using Ring over native C or C++?<a class="headerlink" href="#what-are-the-advantages-of-using-ring-over-native-c-or-c" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>What are the advantages of using Ring over native C or C++?<a class="headerlink" href="#what-are-the-advantages-of-using-ring-over-native-c-or-c" title="Permalink to this headline">¶</a></h2>
 <p>Ring provides a better way to mix between different programming paradigms in solving problems.</p>
 <p>The different programming paradigms play well together in the same language.</p>
 <ol class="arabic simple">
@@ -189,7 +346,7 @@ without code (using natural languages) and is designed to support that.</p>
 </ol>
 </div>
 <div class="section" id="what-is-the-difference-between-ring-and-python-and-is-ring-open-source">
-<span id="index-7"></span><h2>What is the difference between Ring and Python? And is Ring Open Source?<a class="headerlink" href="#what-is-the-difference-between-ring-and-python-and-is-ring-open-source" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>What is the difference between Ring and Python? And is Ring Open Source?<a class="headerlink" href="#what-is-the-difference-between-ring-and-python-and-is-ring-open-source" title="Permalink to this headline">¶</a></h2>
 <p>Yes the language is Open Source (MIT license)</p>
 <p>In general I like Python and Ruby but I was looking for a language more suitable for creating the next version of
 the Programming Without Coding Technology (PWCT) software so I started the Ring design.</p>
@@ -225,7 +382,7 @@ And the language comes with innovative features added to achieve the language go
 </ul>
 </div>
 <div class="section" id="what-are-the-advantages-to-using-ring-over-perl-php-python-or-ruby">
-<span id="index-8"></span><h2>What are the advantages to using Ring over Perl, PHP, Python or Ruby?<a class="headerlink" href="#what-are-the-advantages-to-using-ring-over-perl-php-python-or-ruby" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>What are the advantages to using Ring over Perl, PHP, Python or Ruby?<a class="headerlink" href="#what-are-the-advantages-to-using-ring-over-perl-php-python-or-ruby" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Ring is New and Innovative. The language will let you think different about programming.</li>
 <li>Ring is Smaller. (Lessons learned from the Lua language)</li>
@@ -236,21 +393,21 @@ And the language comes with innovative features added to achieve the language go
 </ol>
 </div>
 <div class="section" id="what-are-the-advantages-to-using-ring-over-tcl-or-lua">
-<span id="index-9"></span><h2>What are the advantages to using Ring over Tcl or Lua?<a class="headerlink" href="#what-are-the-advantages-to-using-ring-over-tcl-or-lua" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>What are the advantages to using Ring over Tcl or Lua?<a class="headerlink" href="#what-are-the-advantages-to-using-ring-over-tcl-or-lua" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Clean Code (More Natural)</li>
 <li>More Features (A lot of useful programming paradigms)</li>
 </ol>
 </div>
 <div class="section" id="what-are-the-advantages-to-using-ring-over-c-or-java">
-<span id="index-10"></span><h2>What are the advantages to using Ring over C# or Java?<a class="headerlink" href="#what-are-the-advantages-to-using-ring-over-c-or-java" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>What are the advantages to using Ring over C# or Java?<a class="headerlink" href="#what-are-the-advantages-to-using-ring-over-c-or-java" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Compact Code (Clean and Natural), More Productivity and Flexibility.</li>
 <li>Better support for Declarative Programming and Natural Programming</li>
 </ol>
 </div>
 <div class="section" id="the-documentation-says-functional-programming-is-supported-but-then-this-happens">
-<span id="index-11"></span><h2>The documentation says functional programming is supported, but then this happens?<a class="headerlink" href="#the-documentation-says-functional-programming-is-supported-but-then-this-happens" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>The documentation says functional programming is supported, but then this happens?<a class="headerlink" href="#the-documentation-says-functional-programming-is-supported-but-then-this-happens" title="Permalink to this headline">¶</a></h2>
 <p>The question was about this code</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
     <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
@@ -279,7 +436,7 @@ And the language comes with innovative features added to achieve the language go
 </ul>
 </div>
 <div class="section" id="why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like">
-<span id="index-12"></span><h2>Why the ability to define your own languages Instead of just handing over the syntax so you can parse it using whatever code you like?<a class="headerlink" href="#why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Why the ability to define your own languages Instead of just handing over the syntax so you can parse it using whatever code you like?<a class="headerlink" href="#why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like" title="Permalink to this headline">¶</a></h2>
 <p>It&#8217;s innovation - You create natural statements without the need to learn about parsing.
 You just use Classes which is intelligent decision (where later we can mix between classes to
 support more statements based on the context - We can change and translate the defined
@@ -287,7 +444,7 @@ statements and many more!). Also the statements are added in Ring World where yo
 any Ring statement.</p>
 </div>
 <div class="section" id="why-you-can-specify-the-number-of-loops-you-want-to-break-out-of">
-<span id="index-13"></span><h2>Why you can specify the number of loops you want to break out of?<a class="headerlink" href="#why-you-can-specify-the-number-of-loops-you-want-to-break-out-of" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>Why you can specify the number of loops you want to break out of?<a class="headerlink" href="#why-you-can-specify-the-number-of-loops-you-want-to-break-out-of" title="Permalink to this headline">¶</a></h2>
 <p>The language supports programming in the small and programming in the large. The selection
 of what features to use is based on what are you going to do. Any programmer can write
 poorly code in any language if he/she wants to do that. The idea is what must be done in
@@ -300,7 +457,7 @@ loop from sub functions is practical for small programs.</p>
 <p>Anyway these are some of the small new things added by the language (Not the big idea).</p>
 </div>
 <div class="section" id="why-ring-uses-see-give-but-and-ok-keywords">
-<span id="index-14"></span><h2>Why Ring uses &#8216;See&#8217;, &#8216;Give&#8217;, &#8216;But&#8217; and &#8216;Ok&#8217; Keywords?<a class="headerlink" href="#why-ring-uses-see-give-but-and-ok-keywords" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>Why Ring uses &#8216;See&#8217;, &#8216;Give&#8217;, &#8216;But&#8217; and &#8216;Ok&#8217; Keywords?<a class="headerlink" href="#why-ring-uses-see-give-but-and-ok-keywords" title="Permalink to this headline">¶</a></h2>
 <p>See and Give are selected not to be &#8220;opposite actions&#8221; but to reflect what I want to do as a programmer.</p>
 <p>When I want to see something on the screen I use &#8216;See&#8217;.</p>
 <p>When I want to give some input to the program I use &#8216;Give&#8217;.</p>
@@ -314,7 +471,7 @@ loop from sub functions is practical for small programs.</p>
 <p>Also you can define new natural languages too.</p>
 </div>
 <div class="section" id="what-is-the-philosophy-behind-data-types-in-ring">
-<span id="index-15"></span><h2>What is the philosophy behind data types in Ring?<a class="headerlink" href="#what-is-the-philosophy-behind-data-types-in-ring" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>What is the philosophy behind data types in Ring?<a class="headerlink" href="#what-is-the-philosophy-behind-data-types-in-ring" title="Permalink to this headline">¶</a></h2>
 <p>The Ring programming language is designed to be SMALL.
 The language provides the basic constructs that you need to do anything!
 One of the goals is to keep the basic constructs simple and small as possible.</p>
@@ -350,7 +507,7 @@ can define new data types and use them as default types defined by the language<
 </ul>
 </div>
 <div class="section" id="what-about-the-boolean-values-in-ring">
-<span id="index-16"></span><h2>What about the Boolean values in Ring?<a class="headerlink" href="#what-about-the-boolean-values-in-ring" title="Permalink to this headline">¶</a></h2>
+<span id="index-19"></span><h2>What about the Boolean values in Ring?<a class="headerlink" href="#what-about-the-boolean-values-in-ring" title="Permalink to this headline">¶</a></h2>
 <p>You can use true for 1 and false for 0</p>
 <p>when you test the result of Boolean expressions in your code.</p>
 <p>Just when you print the value using the see command you will see 1 for (true) and 0 for (false)</p>
@@ -374,7 +531,7 @@ The programmer/developer can customize the language by creating new classes (and
 And this provide flexibility to convert between high level types that can be represented using the same basic type</p>
 </div>
 <div class="section" id="what-is-the-goal-of-including-the-main-function-in-ring">
-<span id="index-17"></span><h2>What is the goal of including the &#8220;Main&#8221; function in Ring?<a class="headerlink" href="#what-is-the-goal-of-including-the-main-function-in-ring" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>What is the goal of including the &#8220;Main&#8221; function in Ring?<a class="headerlink" href="#what-is-the-goal-of-including-the-main-function-in-ring" title="Permalink to this headline">¶</a></h2>
 <p>The main function is very important, you need it when you want to write statements that uses
 local variables instead of the Global scope.</p>
 <p>Example:</p>
@@ -420,7 +577,7 @@ local variables instead of the Global scope.</p>
 </div>
 </div>
 <div class="section" id="why-the-list-index-start-from-1-in-ring">
-<span id="index-18"></span><h2>Why the list index start from 1 in Ring?<a class="headerlink" href="#why-the-list-index-start-from-1-in-ring" title="Permalink to this headline">¶</a></h2>
+<span id="index-21"></span><h2>Why the list index start from 1 in Ring?<a class="headerlink" href="#why-the-list-index-start-from-1-in-ring" title="Permalink to this headline">¶</a></h2>
 <p>It&#8217;s about how we count in the real world, when we have three apples in our hand</p>
 <p>we say 1 2 3</p>
 <p>We don&#8217;t start from 0</p>
@@ -455,7 +612,7 @@ if the index starts from 0 we will write</p>
 <p>You will use the &lt; operator !</p>
 </div>
 <div class="section" id="why-ring-is-not-case-sensitive">
-<span id="index-19"></span><h2>Why Ring is not case-sensitive?<a class="headerlink" href="#why-ring-is-not-case-sensitive" title="Permalink to this headline">¶</a></h2>
+<span id="index-22"></span><h2>Why Ring is not case-sensitive?<a class="headerlink" href="#why-ring-is-not-case-sensitive" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>To be more human-friendly</li>
 <li>Like Ada, SQL, Pascal, Delphi, Visual Basic, Visual FoxPro, etc.</li>
@@ -484,7 +641,7 @@ if the index starts from 0 we will write</p>
 </div>
 </div>
 <div class="section" id="why-the-assignment-operator-uses-deep-copy">
-<span id="index-20"></span><h2>Why the Assignment operator uses Deep Copy?<a class="headerlink" href="#why-the-assignment-operator-uses-deep-copy" title="Permalink to this headline">¶</a></h2>
+<span id="index-23"></span><h2>Why the Assignment operator uses Deep Copy?<a class="headerlink" href="#why-the-assignment-operator-uses-deep-copy" title="Permalink to this headline">¶</a></h2>
 <p>&#8220;Because it&#8217;s a poor tradeoff to add complexity for dubious performance gains, a good
 approach to deep vs. shallow copies is to prefer deep copies until proven otherwise.&#8221;</p>
 <blockquote>
@@ -529,7 +686,7 @@ But It&#8217;s not the Ring way &#8220;Spirit&#8221; to do things.</dd>
 </ol>
 </div>
 <div class="section" id="is-there-constructor-methods-in-ring">
-<span id="index-21"></span><h2>Is there constructor methods in Ring?<a class="headerlink" href="#is-there-constructor-methods-in-ring" title="Permalink to this headline">¶</a></h2>
+<span id="index-24"></span><h2>Is there constructor methods in Ring?<a class="headerlink" href="#is-there-constructor-methods-in-ring" title="Permalink to this headline">¶</a></h2>
 <p>When you create new object for example</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span>
 </pre></div>
@@ -573,7 +730,7 @@ z: NULL
 </div>
 </div>
 <div class="section" id="what-happens-when-we-create-a-new-object">
-<span id="index-22"></span><h2>What happens when we create a new object?<a class="headerlink" href="#what-happens-when-we-create-a-new-object" title="Permalink to this headline">¶</a></h2>
+<span id="index-25"></span><h2>What happens when we create a new object?<a class="headerlink" href="#what-happens-when-we-create-a-new-object" title="Permalink to this headline">¶</a></h2>
 <p>1- When you create an object, the class region code will be executed and you will have the object attributes based on the code in that region</p>
 <p>2- Ring don&#8217;t care about the object methods until you start calling a method</p>
 <p>3- When you call a method, Ring will check the object class and the class parent (if you are using inheritance) and will collect the methods for you to be used now or later from any object that belong to the same class.</p>
@@ -601,7 +758,7 @@ z: NULL
 </div>
 </div>
 <div class="section" id="can-we-use-the-attributes-by-accessing-the-getter-and-setter-methods">
-<span id="index-23"></span><h2>Can we use the attributes by accessing the Getter and Setter methods?<a class="headerlink" href="#can-we-use-the-attributes-by-accessing-the-getter-and-setter-methods" title="Permalink to this headline">¶</a></h2>
+<span id="index-26"></span><h2>Can we use the attributes by accessing the Getter and Setter methods?<a class="headerlink" href="#can-we-use-the-attributes-by-accessing-the-getter-and-setter-methods" title="Permalink to this headline">¶</a></h2>
 <p>Yes we can, The setter/getter methods are called automatically when you start using the attributes from outside the class
 Also you can call the methods instead of using the attributes. It&#8217;s your choice.</p>
 <p>Example:</p>
@@ -648,7 +805,7 @@ Mr. Marino - Ring Programming Language
 </div>
 </div>
 <div class="section" id="why-should-a-search-of-global-names-be-made-while-defining-the-class-attributes">
-<span id="index-24"></span><h2>Why should a search of global names be made while defining the class attributes?<a class="headerlink" href="#why-should-a-search-of-global-names-be-made-while-defining-the-class-attributes" title="Permalink to this headline">¶</a></h2>
+<span id="index-27"></span><h2>Why should a search of global names be made while defining the class attributes?<a class="headerlink" href="#why-should-a-search-of-global-names-be-made-while-defining-the-class-attributes" title="Permalink to this headline">¶</a></h2>
 <p>The question is why we don&#8217;t avoid conflicts with global variable names when we
 define the class attributes ?</p>
 <p>At first remember that using the optional $ mark in the global variables names solve
@@ -700,7 +857,7 @@ attributes to the object state.</p>
 <p>It&#8217;s flexibility but remember that power comes with great responsibility.</p>
 </div>
 <div class="section" id="why-ring-doesn-t-avoid-the-conflict-between-global-variables-and-class-attributes-names">
-<span id="index-25"></span><h2>Why Ring doesn&#8217;t avoid the conflict between Global Variables and Class Attributes Names?<a class="headerlink" href="#why-ring-doesn-t-avoid-the-conflict-between-global-variables-and-class-attributes-names" title="Permalink to this headline">¶</a></h2>
+<span id="index-28"></span><h2>Why Ring doesn&#8217;t avoid the conflict between Global Variables and Class Attributes Names?<a class="headerlink" href="#why-ring-doesn-t-avoid-the-conflict-between-global-variables-and-class-attributes-names" title="Permalink to this headline">¶</a></h2>
 <p>In this use case we have</p>
 <p>1 - Global Variable defined without a special mark like $</p>
 <p>2 - Class contains Attributes defined using a special syntax (where we type the attribute name directly after the class)</p>
@@ -719,13 +876,13 @@ self.attribute</p>
 For large programs, use classes and objects and small number of global variables or avoid them at all.</p>
 </div>
 <div class="section" id="where-can-i-write-a-program-and-execute-it">
-<span id="index-26"></span><h2>Where can I write a program and execute it?<a class="headerlink" href="#where-can-i-write-a-program-and-execute-it" title="Permalink to this headline">¶</a></h2>
+<span id="index-29"></span><h2>Where can I write a program and execute it?<a class="headerlink" href="#where-can-i-write-a-program-and-execute-it" title="Permalink to this headline">¶</a></h2>
 <p>Run the Ring Notepad where you can write/execute programs.</p>
 <p>If you want to run programs using the command line</p>
 <p>Add Ring/bin folder to the path then</p>
 </div>
 <div class="section" id="how-to-get-the-file-size-using-ftell-and-fseek-functions">
-<span id="index-27"></span><h2>How to get the file size using ftell() and fseek() functions?<a class="headerlink" href="#how-to-get-the-file-size-using-ftell-and-fseek-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-30"></span><h2>How to get the file size using ftell() and fseek() functions?<a class="headerlink" href="#how-to-get-the-file-size-using-ftell-and-fseek-functions" title="Permalink to this headline">¶</a></h2>
 <p>The next function can be used to get the file size without reading the file!</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">getFileSize</span> <span class="n">fp</span>
        <span class="n">C_FILESTART</span> <span class="o">=</span> <span class="mi">0</span>
@@ -751,7 +908,7 @@ For large programs, use classes and objects and small number of global variables
 </div>
 </div>
 <div class="section" id="how-to-get-the-current-source-file-path">
-<span id="index-28"></span><h2>How to get the current source file path?<a class="headerlink" href="#how-to-get-the-current-source-file-path" title="Permalink to this headline">¶</a></h2>
+<span id="index-31"></span><h2>How to get the current source file path?<a class="headerlink" href="#how-to-get-the-current-source-file-path" title="Permalink to this headline">¶</a></h2>
 <p>We can use the next function to get the current source file path
 then we can add the path variable to the file name</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cPath</span> <span class="o">=</span> <span class="n">CurrentPath</span><span class="p">()</span>
@@ -767,7 +924,7 @@ then we can add the path variable to the file name</p>
 </div>
 </div>
 <div class="section" id="what-about-predefined-parameters-or-optional-parameters-in-functions">
-<span id="index-29"></span><h2>What about predefined parameters or optional parameters in functions?<a class="headerlink" href="#what-about-predefined-parameters-or-optional-parameters-in-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-32"></span><h2>What about predefined parameters or optional parameters in functions?<a class="headerlink" href="#what-about-predefined-parameters-or-optional-parameters-in-functions" title="Permalink to this headline">¶</a></h2>
 <p>if you want to use predefined parameters or optional parameters
 Just accept a list that works like hash/dictionary</p>
 <p>Example</p>
@@ -788,7 +945,7 @@ Just accept a list that works like hash/dictionary</p>
 </div>
 </div>
 <div class="section" id="how-to-print-keys-or-values-only-in-list-dictionary">
-<span id="index-30"></span><h2>How to print keys or values only in List/Dictionary?<a class="headerlink" href="#how-to-print-keys-or-values-only-in-list-dictionary" title="Permalink to this headline">¶</a></h2>
+<span id="index-33"></span><h2>How to print keys or values only in List/Dictionary?<a class="headerlink" href="#how-to-print-keys-or-values-only-in-list-dictionary" title="Permalink to this headline">¶</a></h2>
 <p>If you want to print keys only or values only just select the index of the item (one or two).</p>
 <p>Example</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">C_COUNTRY</span> <span class="o">=</span> <span class="mi">1</span>
@@ -816,7 +973,7 @@ Cairo
 </div>
 </div>
 <div class="section" id="why-i-get-a-strange-result-when-printing-nl-with-lists">
-<span id="index-31"></span><h2>Why I get a strange result when printing nl with lists?<a class="headerlink" href="#why-i-get-a-strange-result-when-printing-nl-with-lists" title="Permalink to this headline">¶</a></h2>
+<span id="index-34"></span><h2>Why I get a strange result when printing nl with lists?<a class="headerlink" href="#why-i-get-a-strange-result-when-printing-nl-with-lists" title="Permalink to this headline">¶</a></h2>
 <p>In the next code</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>        <span class="c"># list = [1,2,3,4,5]</span>
 <span class="k">see</span> <span class="kt">list</span> <span class="o">+</span> <span class="n">nl</span>
@@ -845,7 +1002,7 @@ number + string ---&gt; new number
 <p>No need for this with printing lists because after printing the last item we already get a new line.</p>
 </div>
 <div class="section" id="could-you-explain-the-output-of-the-strcmp-function">
-<span id="index-32"></span><h2>Could you explain the output of the StrCmp() function?<a class="headerlink" href="#could-you-explain-the-output-of-the-strcmp-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-35"></span><h2>Could you explain the output of the StrCmp() function?<a class="headerlink" href="#could-you-explain-the-output-of-the-strcmp-function" title="Permalink to this headline">¶</a></h2>
 <p>At first remember that you can check strings using &#8216;=&#8217; operator directly.</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
 <span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">,</span><span class="s">&quot;bcd&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
@@ -869,7 +1026,7 @@ and the first letter in &#8220;bcd&#8221; = &#8220;b&#8221;</p>
 </div>
 </div>
 <div class="section" id="how-to-use-many-source-code-files-in-the-project">
-<span id="index-33"></span><h2>How to use many source code files in the project?<a class="headerlink" href="#how-to-use-many-source-code-files-in-the-project" title="Permalink to this headline">¶</a></h2>
+<span id="index-36"></span><h2>How to use many source code files in the project?<a class="headerlink" href="#how-to-use-many-source-code-files-in-the-project" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
 <p>I have the next folder</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>C:\LRing
@@ -915,7 +1072,7 @@ message from test
 </div>
 </div>
 <div class="section" id="why-this-example-use-the-getchar-twice">
-<span id="index-34"></span><h2>Why this example use the GetChar() twice?<a class="headerlink" href="#why-this-example-use-the-getchar-twice" title="Permalink to this headline">¶</a></h2>
+<span id="index-37"></span><h2>Why this example use the GetChar() twice?<a class="headerlink" href="#why-this-example-use-the-getchar-twice" title="Permalink to this headline">¶</a></h2>
 <p>The GetChar() function accept one character from the keyboard buffer</p>
 <p>In this example</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="kp">True</span>
@@ -957,7 +1114,7 @@ message from test
 <p>Because Windows uses CHAR(13) and CHAR(10) for each new line  ( i.e. CR+LF )</p>
 </div>
 <div class="section" id="how-to-use-null-and-isnull-function">
-<span id="index-35"></span><h2>How to use NULL and ISNULL() function?<a class="headerlink" href="#how-to-use-null-and-isnull-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-38"></span><h2>How to use NULL and ISNULL() function?<a class="headerlink" href="#how-to-use-null-and-isnull-function" title="Permalink to this headline">¶</a></h2>
 <p>when we try to use uninitialized variable in the Ring programming language, we get a clear runtime error message</p>
 <p>Example</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">x</span>
@@ -1013,7 +1170,7 @@ in file tests\seeuninit2.ring
 </div>
 </div>
 <div class="section" id="how-to-print-lists-that-contains-objects">
-<span id="index-36"></span><h2>How to print lists that contains objects?<a class="headerlink" href="#how-to-print-lists-that-contains-objects" title="Permalink to this headline">¶</a></h2>
+<span id="index-39"></span><h2>How to print lists that contains objects?<a class="headerlink" href="#how-to-print-lists-that-contains-objects" title="Permalink to this headline">¶</a></h2>
 <p>In this example we will see how we can print a list contains objects.</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="p">,</span> <span class="k">new</span> <span class="n">point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="k">new</span> <span class="n">point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">]</span>
 <span class="k">see</span> <span class="s">&quot;print the list&quot;</span> <span class="o">+</span> <span class="n">nl</span>
@@ -1043,7 +1200,7 @@ z: 3.000000
 </div>
 </div>
 <div class="section" id="how-to-insert-an-item-to-the-first-position-in-the-list">
-<span id="index-37"></span><h2>How to insert an item to the first position in the list?<a class="headerlink" href="#how-to-insert-an-item-to-the-first-position-in-the-list" title="Permalink to this headline">¶</a></h2>
+<span id="index-40"></span><h2>How to insert an item to the first position in the list?<a class="headerlink" href="#how-to-insert-an-item-to-the-first-position-in-the-list" title="Permalink to this headline">¶</a></h2>
 <p>To insert an item we can use the insert(aList,nIndex,Value) function.</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
 <span class="n">insert</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
@@ -1052,7 +1209,7 @@ z: 3.000000
 </div>
 </div>
 <div class="section" id="how-to-print-new-lines-and-other-characters">
-<span id="index-38"></span><h2>How to print new lines and other characters?<a class="headerlink" href="#how-to-print-new-lines-and-other-characters" title="Permalink to this headline">¶</a></h2>
+<span id="index-41"></span><h2>How to print new lines and other characters?<a class="headerlink" href="#how-to-print-new-lines-and-other-characters" title="Permalink to this headline">¶</a></h2>
 <p>To print new line we can use the nl variable.</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
@@ -1070,7 +1227,7 @@ z: 3.000000
 </div>
 </div>
 <div class="section" id="why-we-don-t-use-after-the-qapp-class-name">
-<span id="index-39"></span><h2>Why we don&#8217;t use () after the qApp class name?<a class="headerlink" href="#why-we-don-t-use-after-the-qapp-class-name" title="Permalink to this headline">¶</a></h2>
+<span id="index-42"></span><h2>Why we don&#8217;t use () after the qApp class name?<a class="headerlink" href="#why-we-don-t-use-after-the-qapp-class-name" title="Permalink to this headline">¶</a></h2>
 <p>When we use RingQt to create GUI application, we uses () after the
 class name when we create new objects for example.</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span> <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span> <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span> <span class="n">show</span><span class="p">()</span> <span class="p">}</span>
@@ -1097,7 +1254,7 @@ be stored in an attribute called pObject, for more information see ring_qt.ring 
 which contains the classes.</p>
 </div>
 <div class="section" id="why-the-window-title-bar-is-going-outside-the-screen">
-<span id="index-40"></span><h2>Why the window title bar is going outside the screen?<a class="headerlink" href="#why-the-window-title-bar-is-going-outside-the-screen" title="Permalink to this headline">¶</a></h2>
+<span id="index-43"></span><h2>Why the window title bar is going outside the screen?<a class="headerlink" href="#why-the-window-title-bar-is-going-outside-the-screen" title="Permalink to this headline">¶</a></h2>
 <p>When we write the next code</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 <span class="n">app</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qApp</span>
@@ -1129,7 +1286,7 @@ result is that the window title bar is going outside the screen.</p>
 </div>
 </div>
 <div class="section" id="how-to-create-an-array-of-buttons-in-gui-applications">
-<span id="index-41"></span><h2>How to create an array of buttons in GUI applications?<a class="headerlink" href="#how-to-create-an-array-of-buttons-in-gui-applications" title="Permalink to this headline">¶</a></h2>
+<span id="index-44"></span><h2>How to create an array of buttons in GUI applications?<a class="headerlink" href="#how-to-create-an-array-of-buttons-in-gui-applications" title="Permalink to this headline">¶</a></h2>
 <p>Check the next example:</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1171,7 +1328,7 @@ result is that the window title bar is going outside the screen.</p>
 </div>
 </div>
 <div class="section" id="how-to-close-a-window-then-displaying-another-one">
-<span id="index-42"></span><h2>How to Close a window then displaying another one?<a class="headerlink" href="#how-to-close-a-window-then-displaying-another-one" title="Permalink to this headline">¶</a></h2>
+<span id="index-45"></span><h2>How to Close a window then displaying another one?<a class="headerlink" href="#how-to-close-a-window-then-displaying-another-one" title="Permalink to this headline">¶</a></h2>
 <p>This example demonstrates how to close a window and show another one</p>
 <div class="highlight-none"><div class="highlight"><pre><span></span>Load &quot;guilib.ring&quot;
 
@@ -1206,7 +1363,7 @@ app=new qApp
 </div>
 </div>
 <div class="section" id="how-to-create-a-modal-window">
-<span id="index-43"></span><h2>How to create a Modal Window?<a class="headerlink" href="#how-to-create-a-modal-window" title="Permalink to this headline">¶</a></h2>
+<span id="index-46"></span><h2>How to create a Modal Window?<a class="headerlink" href="#how-to-create-a-modal-window" title="Permalink to this headline">¶</a></h2>
 <p>This example demonstrates how to create a modal window</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
 <span class="n">app</span><span class="o">=</span><span class="k">new</span> <span class="n">qApp</span>
@@ -1259,7 +1416,7 @@ app=new qApp
 </ul>
 </div>
 <div class="section" id="how-can-i-disable-maximize-button-and-resize-window">
-<span id="index-44"></span><h2>How can I disable maximize button and resize window?<a class="headerlink" href="#how-can-i-disable-maximize-button-and-resize-window" title="Permalink to this headline">¶</a></h2>
+<span id="index-47"></span><h2>How can I disable maximize button and resize window?<a class="headerlink" href="#how-can-i-disable-maximize-button-and-resize-window" title="Permalink to this headline">¶</a></h2>
 <p>Use the method setWindowFlags()</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 <span class="n">app1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qapp</span> <span class="p">{</span>
@@ -1295,7 +1452,7 @@ app=new qApp
 </div>
 </div>
 <div class="section" id="how-to-use-sqlite-using-odbc">
-<span id="index-45"></span><h2>How to use SQLite using ODBC?<a class="headerlink" href="#how-to-use-sqlite-using-odbc" title="Permalink to this headline">¶</a></h2>
+<span id="index-48"></span><h2>How to use SQLite using ODBC?<a class="headerlink" href="#how-to-use-sqlite-using-odbc" title="Permalink to this headline">¶</a></h2>
 <p>In Ring 1.1 and later versions we have native support for SQLite, so you don&#8217;t need to use it through ODBC.</p>
 <p>Also we can access SQLite through RingQt.</p>
 <p>The answer to your question</p>
@@ -1338,7 +1495,7 @@ SQLite ODBC (UTF-8) Driver - UsageCount=1
 <p>And I&#8217;m using &#8220;SQLite3 ODBC Driver&#8221;.</p>
 </div>
 <div class="section" id="can-i-connect-to-dbase-harbour-database">
-<span id="index-46"></span><h2>Can I connect to dbase/harbour database?<a class="headerlink" href="#can-i-connect-to-dbase-harbour-database" title="Permalink to this headline">¶</a></h2>
+<span id="index-49"></span><h2>Can I connect to dbase/harbour database?<a class="headerlink" href="#can-i-connect-to-dbase-harbour-database" title="Permalink to this headline">¶</a></h2>
 <p>You can connect to any database using ODBC</p>
 <p>To connect to xbase files (<a href="#id1"><span class="problematic" id="id2">*</span></a>.DBF)</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Using DBF Files using ODBC&quot;</span> <span class="o">+</span> <span class="n">nl</span>
@@ -1396,7 +1553,7 @@ Mahmoud - Egypt - 123456 - Close database...
 </div>
 </div>
 <div class="section" id="why-setclickevent-doesn-t-see-the-object-methods-directly">
-<span id="index-47"></span><h2>Why setClickEvent() doesn&#8217;t see the object methods directly?<a class="headerlink" href="#why-setclickevent-doesn-t-see-the-object-methods-directly" title="Permalink to this headline">¶</a></h2>
+<span id="index-50"></span><h2>Why setClickEvent() doesn&#8217;t see the object methods directly?<a class="headerlink" href="#why-setclickevent-doesn-t-see-the-object-methods-directly" title="Permalink to this headline">¶</a></h2>
 <p>setClickEvent(cCode) take a string contains code. The code will be executed when the event happens.</p>
 <p>Ring support Many Programming Paradigms like Procedural, OOP, Functional and others.</p>
 <p>But when you support many paradigms at the language level you can&#8217;t know which paradigm will be used so you have two options</p>
@@ -1413,7 +1570,7 @@ Also some other languages uses anonymous functions that may get parameters like 
 add specific solutions that match specific paradigms (OOP, Functional, Declarative and Natural).</p>
 </div>
 <div class="section" id="why-i-get-calling-function-without-definition-error">
-<span id="index-48"></span><h2>Why I get Calling Function without definition Error?<a class="headerlink" href="#why-i-get-calling-function-without-definition-error" title="Permalink to this headline">¶</a></h2>
+<span id="index-51"></span><h2>Why I get Calling Function without definition Error?<a class="headerlink" href="#why-i-get-calling-function-without-definition-error" title="Permalink to this headline">¶</a></h2>
 <p>Each program follow the next order</p>
 <p>1 - Loading Files
 2 - Global Variables and Statements
@@ -1452,7 +1609,7 @@ add specific solutions that match specific paradigms (OOP, Functional, Declarati
 </div>
 </div>
 <div class="section" id="can-ring-work-on-windows-xp">
-<span id="index-49"></span><h2>Can Ring work on Windows XP?<a class="headerlink" href="#can-ring-work-on-windows-xp" title="Permalink to this headline">¶</a></h2>
+<span id="index-52"></span><h2>Can Ring work on Windows XP?<a class="headerlink" href="#can-ring-work-on-windows-xp" title="Permalink to this headline">¶</a></h2>
 <p>Ring can work on Windows XP and load extensions without problems.</p>
 <p>Just be sure that the extension can work on Windows XP and your compiler version support that (modern compilers requires some flags to support XP)</p>
 <p>Check this topic
@@ -1465,7 +1622,7 @@ add specific solutions that match specific paradigms (OOP, Functional, Declarati
 <p>See : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/src/buildvccomplete.bat">https://github.com/ring-lang/ring/blob/master/src/buildvccomplete.bat</a></p>
 </div>
 <div class="section" id="how-to-extend-ringqt-and-add-more-classes">
-<span id="index-50"></span><h2>How to extend RingQt and add more classes?<a class="headerlink" href="#how-to-extend-ringqt-and-add-more-classes" title="Permalink to this headline">¶</a></h2>
+<span id="index-53"></span><h2>How to extend RingQt and add more classes?<a class="headerlink" href="#how-to-extend-ringqt-and-add-more-classes" title="Permalink to this headline">¶</a></h2>
 <p>You have many options</p>
 <p>In general you can extend Ring using C or C++ code</p>
 <p>Ring from Ring code you can call C Functions or use C++ Classes &amp; Methods</p>
@@ -1565,7 +1722,7 @@ Message from dlfunc
 <p>if your work is special (to specific application) just put it in another extension.</p>
 </div>
 <div class="section" id="how-to-add-combobox-and-other-elements-to-the-cells-of-a-qtablewidget">
-<span id="index-51"></span><h2>How to add Combobox and other elements to the cells of a QTableWidget?<a class="headerlink" href="#how-to-add-combobox-and-other-elements-to-the-cells-of-a-qtablewidget" title="Permalink to this headline">¶</a></h2>
+<span id="index-54"></span><h2>How to add Combobox and other elements to the cells of a QTableWidget?<a class="headerlink" href="#how-to-add-combobox-and-other-elements-to-the-cells-of-a-qtablewidget" title="Permalink to this headline">¶</a></h2>
 <p>Check the next code</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 <span class="k">New</span> <span class="n">qApp</span>
@@ -1602,7 +1759,7 @@ Message from dlfunc
 </div>
 </div>
 <div class="section" id="how-to-perform-some-manipulations-on-selected-cells-in-qtablewidget">
-<span id="index-52"></span><h2>How to perform some manipulations on selected cells in QTableWidget?<a class="headerlink" href="#how-to-perform-some-manipulations-on-selected-cells-in-qtablewidget" title="Permalink to this headline">¶</a></h2>
+<span id="index-55"></span><h2>How to perform some manipulations on selected cells in QTableWidget?<a class="headerlink" href="#how-to-perform-some-manipulations-on-selected-cells-in-qtablewidget" title="Permalink to this headline">¶</a></h2>
 <p>Check the next sample</p>
 <div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
@@ -1644,7 +1801,7 @@ Message from dlfunc
 </div>
 </div>
 <div class="section" id="which-of-3-coding-styles-are-commonly-used-or-recommended-by-the-community">
-<span id="index-53"></span><h2>Which of 3 coding styles are commonly used or recommended by the community?<a class="headerlink" href="#which-of-3-coding-styles-are-commonly-used-or-recommended-by-the-community" title="Permalink to this headline">¶</a></h2>
+<span id="index-56"></span><h2>Which of 3 coding styles are commonly used or recommended by the community?<a class="headerlink" href="#which-of-3-coding-styles-are-commonly-used-or-recommended-by-the-community" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><dl class="first docutils">
 <dt>Just select any style of them but don&#8217;t mix between the different styles in the same project</dt>
@@ -1689,6 +1846,9 @@ Message from dlfunc
   <ul>
 <li><a class="reference internal" href="#">Frequently Asked Questions (FAQ)</a><ul>
 <li><a class="reference internal" href="#why-do-we-need-yet-another-programming-language-yapl">Why do we need Yet Another Programming Language (YAPL)?</a></li>
+<li><a class="reference internal" href="#what-is-the-ring-architecture">What is the Ring Architecture?</a></li>
+<li><a class="reference internal" href="#what-about-memory-management-in-ring">What about Memory Management in Ring?</a></li>
+<li><a class="reference internal" href="#what-about-data-representation-in-ring">What about Data Representation in Ring?</a></li>
 <li><a class="reference internal" href="#why-is-ring-weakly-typed">Why is Ring weakly typed?</a></li>
 <li><a class="reference internal" href="#what-are-the-advantages-to-using-ring-over-lisp-or-smalltalk">What are the advantages to using Ring over Lisp or Smalltalk?</a></li>
 <li><a class="reference internal" href="#why-is-ring-largely-focussed-on-ui-creation">Why is Ring largely focussed on UI creation?</a></li>
