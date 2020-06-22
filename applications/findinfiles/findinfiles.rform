@@ -1,7 +1,7 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 3 , : y = 14  , 
+		 :x = 3 , : y = -14  , 
 		 :width =  1060 , :height = 725 , 
 		 :title =  "Find in files" , 
 		 :backcolor =  "" , 
@@ -124,7 +124,7 @@ aObjectsList = [
 	[ :name = "LabelReplace" , :id = 9 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 154 , : y = 217  , 
 		 :width =  89 , :height = 23 , 
-		 :textcolor =  "black" , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
@@ -151,7 +151,7 @@ aObjectsList = [
 	[ :name = "btnReplace" , :id = 11 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 569 , : y = 204  , 
 		 :width =  108 , :height = 41 , 
-		 :textcolor =  "black" , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
@@ -162,8 +162,8 @@ aObjectsList = [
 	],
 	[ :name = "btnReplaceAll" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 699 , : y = 206  , 
-		 :width =  126 , :height = 37 , 
-		 :textcolor =  "black" , 
+		 :width =  126 , :height = 35 , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
