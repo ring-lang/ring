@@ -77,13 +77,12 @@ This operation called `Deep Copy <http://en.wikipedia.org/wiki/Object_copy#Deep_
 	See list2	# print the second list - contains 5 items
 
 .. index:: 
-	pair: Variables; Weakly Typed
+	pair: Variables; Implicit Conversion
 
-Weakly Typed
-============
+Implicit Conversion
+===================
 
-Ring is a `weakly typed language <http://en.wikipedia.org/wiki/Strong_and_weak_typing>`_, this means that the language can automatically
-convert between data types (like string & numbers) when that conversion make sense.
+The language can automatically convert between numbers and strings.
 
 Rules:
 
@@ -106,5 +105,3 @@ Example:
 	sum = x + y		# sum is a number (y will be converted to a number)
 	Msg = "Sum = " + sum 	# Msg is a string (sum will be converted to a string)
 	see Msg + nl
-
-
