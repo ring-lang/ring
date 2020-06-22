@@ -33,16 +33,12 @@ In Nov. 2011, I started to think about creating a new version of the
 
 I was interested in creating multi-platform edition of the software beside adding support for
 Web & Mobile development.
-Most of the PWCT source code was written in VFP and the software comes with a simple scripting language for creating the components called (RPWI). 
-The software contains components that support code generation in programming languages 
-like Harbour, C, Supernova & Python.
 
 What I was looking for is a programming language that can be used to build the development 
 environment, provides multi-platform support, more productivity, better performance, can be used for components 
 scripting & can be used for developing different kinds of applications.
 
-Instead of using a mix of programming languages, I decided to use one programming language 
-for creating the development environment, for components scripting & for creating the applications.
+Instead of using a mix of programming languages, I decided to use one programming language. 
 
 I looked at many programming languages like C, C++, Java, C#, Lua, PHP, Python & Ruby. 
 
@@ -246,7 +242,7 @@ Version 1.13
 
 The MIT License (MIT)
 
-Copyright (c) Mahmoud Fayed
+Copyright (c) Mahmoud Samir Fayed
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
