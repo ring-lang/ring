@@ -57,12 +57,7 @@ Contents:
    Stdlib Classes <stdlibclasses>
    Web Development (CGI Library) <web>
    Deploying Web Applications in the Cloud <deployincloud>
-   Using RingLibCurl <libcurl>
-   Using RingZip <ringzip>
-   Using ZeroLib <zerolib>
    Graphics and 2D Games programming using RingAllegro <allegro>	
-   Using RingLibSDL <libsdl>
-   Using Ringlibuv <libuv>
    Demo Project - Game Engine for 2D Games <gameengine>	
    Building Games For Android <gameengineandorid>
    Using RingOpenGL and RingFreeGLUT for 3D Graphics <usingopengl>
@@ -86,18 +81,23 @@ Contents:
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
    Create your first extension using the Code Generator <ringbeep>
+   ZeroLib Functions Reference<zerolib>
+   BigNumber Functions Reference <bignumber>
+   FoxRing Functions Reference <foxringfuncsdoc>
+   Using RingLibCurl <libcurl>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
+   Using RingZip <ringzip>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
+   Using RingLibSDL <libsdl>
    RingLibSDL Functions Reference <ringlibsdlfuncsdoc>
+   Using Ringlibuv <libuv>
    RingLibuv Functions Reference <ringlibuvfuncsdoc>
    RingFreeGLUT Functions Reference <ringfreeglutfuncsdoc>
    RingOpenGL (OpenGL 3.2) Functions Reference <ringopengl32funcsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
-   BigNumber Functions Reference <bignumber>
-   FoxRing Functions Reference <foxringfuncsdoc>
    Using Other Code Editors <codeeditors>
    Release Notes: Version 1.13 <whatisnew13>
    Release Notes: Version 1.12 <whatisnew12>
