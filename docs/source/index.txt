@@ -55,6 +55,12 @@ Contents:
    Embedding Ring Language in Ring Programs <ringemb>
    Stdlib Functions <stdlib>
    Stdlib Classes <stdlibclasses>
+   Desktop, WebAssembly and Mobile development using RingQt <qt>
+   Building RingQt Applications for Mobile <qtmobile>
+   Objects Library for RingQt Application <ringqtobjects>
+   Using the Form Designer <formdesigner>
+   Multi-language Applications <multilanguage>
+   Using Qt3D <qt3d>
    Web Development (CGI Library) <web>
    Deploying Web Applications in the Cloud <deployincloud>
    Graphics and 2D Games programming using RingAllegro <allegro>	
@@ -64,12 +70,6 @@ Contents:
    Using RingOpenGL and RingFreeGLUT for 3D Graphics <usingopengl>
    Using RingOpenGL and RingAllegro for 3D Graphics <usingopengl2>
    Demo Project - The Gold Magic 800 Game <goldmagic800>
-   Desktop and Mobile development using RingQt <qt>
-   Building RingQt Applications for Mobile <qtmobile>
-   Objects Library for RingQt Application <ringqtobjects>
-   Using the Form Designer <formdesigner>
-   Multi-language Applications <multilanguage>
-   Using Qt3D <qt3d>
    Performance Tips <performancetips>
    Command Line Options	<compiler>
    Distributing Ring Applications (Manual) <distribute>

@@ -1,15 +1,15 @@
 .. index:: 
-	Single: Desktop and Mobile Development;  Introduction
+	Single: Desktop, WebAssembly and Mobile Development;  Introduction
 
 ===========================================
-Desktop and Mobile development using RingQt
+Desktop, WebAssembly and Mobile Development using RingQt
 ===========================================
 
 In this chapter we will learn how to use the Qt framework classes  
-in our Ring applications to create Desktop and Mobile Applications.
+in our Ring applications to create Desktop, WebAssembly and Mobile Applications.
 
 .. index:: 
-	pair: Desktop and Mobile Development; The First GUI Application
+	pair: Desktop, WebAssembly and Mobile Development; The First GUI Application
 
 
 The First GUI Application
@@ -77,7 +77,7 @@ Then we click on the say hello button
 	:alt: Click on the button
 
 .. index:: 
-	pair: Desktop and Mobile Development; The Events Loop
+	pair: Desktop, WebAssembly and Mobile Development; The Events Loop
 
 The Events Loop
 ===============
@@ -119,7 +119,7 @@ It's not recommended to do that, It's just an option.
 		end 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using Layout
+	pair: Desktop, WebAssembly and Mobile Development; Using Layout
 
 Using Layout
 ============
@@ -180,7 +180,7 @@ The application during the runtime!
 	:alt: Vertical Layout
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using the QTextEdit Class
+	pair: Desktop, WebAssembly and Mobile Development; Using the QTextEdit Class
 
 Using the QTextEdit Class
 =========================
@@ -215,7 +215,7 @@ During the runtime we can paste rich text in the qtextedit widget
 	:alt: QTextEdit Class
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Using the QListWidget Class
+	pair: Desktop, WebAssembly and Mobile Development; Using the QListWidget Class
 
 Using the QListWidget Class
 ===========================
@@ -340,7 +340,7 @@ Another Example:
        
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QTreeView and QFileSystemModel
+	pair: Desktop, WebAssembly and Mobile Development; Using QTreeView and QFileSystemModel
 
 Using QTreeView and QFileSystemModel
 ====================================
@@ -378,7 +378,7 @@ The application during the runtime
 	:alt: QTreeView and QFileSystemModel
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Using QTreeWidget and QTreeWidgetItem
+	pair: Desktop, WebAssembly and Mobile Development; Using QTreeWidget and QTreeWidgetItem
 
 Using QTreeWidget and QTreeWidgetItem
 =====================================
@@ -432,7 +432,7 @@ The application during the runtime
 	:alt: QTreeWidget and QTreeWidgetItem
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QComboBox Class
+	pair: Desktop, WebAssembly and Mobile Development; Using QComboBox Class
 
 Using QComboBox Class
 =====================
@@ -470,7 +470,7 @@ The application during the runtime
 
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Creating Menubar
+	pair: Desktop, WebAssembly and Mobile Development; Creating Menubar
 
 Creating Menubar
 ================
@@ -573,7 +573,7 @@ The application during the runtime
 	:alt: QMenuBar
 
 .. index:: 
-	pair: Desktop and Mobile Development; Context Menu
+	pair: Desktop, WebAssembly and Mobile Development; Context Menu
 
 Context Menu
 ============
@@ -628,7 +628,7 @@ Example:
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Creating Toolbar
+	pair: Desktop, WebAssembly and Mobile Development; Creating Toolbar
 	
 Creating Toolbar
 ================
@@ -674,7 +674,7 @@ The application during the runtime
 	:alt: QToolBar
 
 .. index:: 
-	pair: Desktop and Mobile Development; Creating StatusBar
+	pair: Desktop, WebAssembly and Mobile Development; Creating StatusBar
 	
 Creating StatusBar
 ==================
@@ -710,7 +710,7 @@ The application during the runtime
 
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Using QDockWidget
+	pair: Desktop, WebAssembly and Mobile Development; Using QDockWidget
 
 Using QDockWidget
 =================
@@ -762,7 +762,7 @@ The application during the runtime
 	:alt: QDockWidget
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QTabWidget
+	pair: Desktop, WebAssembly and Mobile Development; Using QTabWidget
 
 Using QTabWidget
 =================
@@ -822,7 +822,7 @@ The application during the runtime
 	:alt: QTabWidget
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QTableWidget
+	pair: Desktop, WebAssembly and Mobile Development; Using QTableWidget
 
 Using QTableWidget
 ==================
@@ -870,7 +870,7 @@ The application during the runtime
 	:alt: QTableWidget
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QProgressBar
+	pair: Desktop, WebAssembly and Mobile Development; Using QProgressBar
 	
 Using QProgressBar
 ==================
@@ -905,7 +905,7 @@ The application during the runtime
 	:alt: QProgressBar
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QSpinBox
+	pair: Desktop, WebAssembly and Mobile Development; Using QSpinBox
 
 Using QSpinBox
 ==============
@@ -935,7 +935,7 @@ The application during the runtime
 	:alt: QSpinBox
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Using QSlider
+	pair: Desktop, WebAssembly and Mobile Development; Using QSlider
 
 Using QSlider
 =============
@@ -977,7 +977,7 @@ The application during the runtime
 	:alt: QSlider
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QDateEdit
+	pair: Desktop, WebAssembly and Mobile Development; Using QDateEdit
 
 Using QDateEdit
 ==================
@@ -1006,7 +1006,7 @@ The application during the runtime
 	:alt: QDateEdit
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QDial
+	pair: Desktop, WebAssembly and Mobile Development; Using QDial
 	
 
 Using QDial
@@ -1097,7 +1097,7 @@ Another Example
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QWebView
+	pair: Desktop, WebAssembly and Mobile Development; Using QWebView
 
 Using QWebView
 ==============
@@ -1128,7 +1128,7 @@ The application during the runtime
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QCheckBox
+	pair: Desktop, WebAssembly and Mobile Development; Using QCheckBox
 	
 Using QCheckBox
 ===============
@@ -1191,7 +1191,7 @@ Another Example:
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QRadioButton and QButtonGroup
+	pair: Desktop, WebAssembly and Mobile Development; Using QRadioButton and QButtonGroup
 	
 Using QRadioButton and QButtonGroup
 ====================================
@@ -1248,7 +1248,7 @@ The application during the runtime
 	:alt:  QRadioButton and QButtonGroup classes
 
 .. index:: 
-	pair: Desktop and Mobile Development; Adding Hyperlink to QLabel
+	pair: Desktop, WebAssembly and Mobile Development; Adding Hyperlink to QLabel
 
 Adding Hyperlink to QLabel
 ==========================
@@ -1278,7 +1278,7 @@ The application during the runtime
 	:alt: Hyperlink
 	
 .. index:: 
-	pair: Desktop and Mobile Development; QVideoWidget and QMediaPlayer
+	pair: Desktop, WebAssembly and Mobile Development; QVideoWidget and QMediaPlayer
 
 QVideoWidget and QMediaPlayer
 =============================
@@ -1366,7 +1366,7 @@ The application during the runtime
 
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Using QFrame
+	pair: Desktop, WebAssembly and Mobile Development; Using QFrame
 
 Using QFrame
 ============
@@ -1399,7 +1399,7 @@ The application during the runtime
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Display Image using QLabel
+	pair: Desktop, WebAssembly and Mobile Development; Display Image using QLabel
 	
 Display Image using QLabel
 ==========================
@@ -1430,7 +1430,7 @@ The application during the runtime
 
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Menubar and StyleSheet Example
+	pair: Desktop, WebAssembly and Mobile Development; Menubar and StyleSheet Example
 
 Menubar and StyleSheet Example
 ==============================
@@ -1500,7 +1500,7 @@ The application during the runtime
 	:alt: Menubar
 
 .. index:: 
-	pair: Desktop and Mobile Development; QLineEdit Events and QMessageBox
+	pair: Desktop, WebAssembly and Mobile Development; QLineEdit Events and QMessageBox
 
 QLineEdit Events and QMessageBox
 ================================
@@ -1575,7 +1575,7 @@ The application during the runtime
 	:alt: qLineEdit events and qMessagebox
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Other Widgets Events
+	pair: Desktop, WebAssembly and Mobile Development; Other Widgets Events
 
 Other Widgets Events
 ====================
@@ -1660,7 +1660,7 @@ The application during the runtime
 	:alt: qProgressBar valueChanged event
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using the QTimer Class
+	pair: Desktop, WebAssembly and Mobile Development; Using the QTimer Class
 
 Using the QTimer Class
 ======================
@@ -1702,7 +1702,7 @@ The application during the runtime
 	:alt: QTimer Class
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QProgressBar and Timer
+	pair: Desktop, WebAssembly and Mobile Development; Using QProgressBar and Timer
 
 Using QProgressBar and Timer
 ============================
@@ -1763,7 +1763,7 @@ In this example we will learn about using the "animated" QProgressBar class and 
 	:alt: QProgressBar
 
 .. index:: 
-	pair: Desktop and Mobile Development; Display Scaled Image using QLabel
+	pair: Desktop, WebAssembly and Mobile Development; Display Scaled Image using QLabel
 
 Display Scaled Image using QLabel
 =================================
@@ -1850,7 +1850,7 @@ In this example we will learn about displaying and scaling an image so that it l
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using the QFileDialog Class
+	pair: Desktop, WebAssembly and Mobile Development; Using the QFileDialog Class
 
 Using the QFileDialog Class
 ===========================
@@ -1887,7 +1887,7 @@ The application during the runtime
 	:alt: QFileDialog Class
 
 .. index:: 
-	pair: Desktop and Mobile Development; Drawing using QPainter
+	pair: Desktop, WebAssembly and Mobile Development; Drawing using QPainter
 
 Drawing using QPainter
 ======================
@@ -1940,7 +1940,7 @@ The application during the runtime
 	:alt: QPainter Class
 
 .. index:: 
-	pair: Desktop and Mobile Development; Printing using QPrinter
+	pair: Desktop, WebAssembly and Mobile Development; Printing using QPrinter
 
 Printing using QPrinter
 =======================
@@ -1994,7 +1994,7 @@ In this example we will learn how to print to PDF file using QPrinter
 		system ("test2.pdf")
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QPrintPreviewDialog
+	pair: Desktop, WebAssembly and Mobile Development; Using QPrintPreviewDialog
 
 
 Using QPrintPreviewDialog
@@ -2050,7 +2050,7 @@ Screen Shot:
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Creating more than one window
+	pair: Desktop, WebAssembly and Mobile Development; Creating more than one window
 
 Creating More than one Window
 =============================
@@ -2096,7 +2096,7 @@ The application during the runtime
 	:alt: More than one window
 
 .. index:: 
-	pair: Desktop and Mobile Development; Playing Sound
+	pair: Desktop, WebAssembly and Mobile Development; Playing Sound
 
 Playing Sound
 =============
@@ -2118,7 +2118,7 @@ Example:
 	}
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Using the QColorDialog Class
+	pair: Desktop, WebAssembly and Mobile Development; Using the QColorDialog Class
 
 Using the QColorDialog Class
 ============================
@@ -2166,7 +2166,7 @@ The application during the runtime
 	:alt: QColorDialog Class
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using qLCDNumber
+	pair: Desktop, WebAssembly and Mobile Development; Using qLCDNumber
 
 Using qLCDNumber Class
 ======================
@@ -2210,7 +2210,7 @@ The application during the runtime
 	:alt: QLCDNumber Class
 
 .. index:: 
-	pair: Desktop and Mobile Development; Movable Label Example
+	pair: Desktop, WebAssembly and Mobile Development; Movable Label Example
 
 Movable Label Example
 =====================
@@ -2264,7 +2264,7 @@ The application during the runtime
 	:alt: Movable label
 	
 .. index:: 
-	pair: Desktop and Mobile Development; QMessagebox Example
+	pair: Desktop, WebAssembly and Mobile Development; QMessagebox Example
 
 QMessagebox Example
 ===================
@@ -2318,7 +2318,7 @@ The application during the runtime
 	:alt: QMessageBox output
 
 .. index:: 
-	pair: Desktop and Mobile Development; Using QInputDialog Class
+	pair: Desktop, WebAssembly and Mobile Development; Using QInputDialog Class
 
 Using QInputDialog Class
 ========================
@@ -2368,7 +2368,7 @@ The application during the runtime
 	:alt: QInputDialog
 
 .. index:: 
-	pair: Desktop and Mobile Development; Dialog Functions
+	pair: Desktop, WebAssembly and Mobile Development; Dialog Functions
 
 Dialog Functions
 ================
@@ -2404,7 +2404,7 @@ Example
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; KeyPress and Mouse Move Events
+	pair: Desktop, WebAssembly and Mobile Development; KeyPress and Mouse Move Events
 
 KeyPress and Mouse Move Events
 ==============================
@@ -2459,7 +2459,7 @@ The application during the runtime
 	:alt: KeyPress and Mouse Move Events
 
 .. index:: 
-	pair: Desktop and Mobile Development; Moving Objects using the Mouse
+	pair: Desktop, WebAssembly and Mobile Development; Moving Objects using the Mouse
 
 Moving Objects using the Mouse
 ==============================
@@ -2546,7 +2546,7 @@ The application during the runtime
 	:alt: Moving object using the mouse
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Inheritance from GUI Classes
+	pair: Desktop, WebAssembly and Mobile Development; Inheritance from GUI Classes
 
 Inheritance from GUI Classes
 ============================
@@ -2576,7 +2576,7 @@ The application during the runtime
 	:alt: Inheritance from GUI Classes
 	
 .. index:: 
-	pair: Desktop and Mobile Development; Using QDesktopWidget Class
+	pair: Desktop, WebAssembly and Mobile Development; Using QDesktopWidget Class
 
 Using QDesktopWidget Class
 ==========================
@@ -2617,7 +2617,7 @@ The application during the runtime
 	:alt: Using QDesktopWidget Class
 
 .. index:: 
-	pair: Desktop and Mobile Development; Rotate Text
+	pair: Desktop, WebAssembly and Mobile Development; Rotate Text
 
 Rotate Text
 ===========
@@ -2694,7 +2694,7 @@ The application during the runtime
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Change Focus
+	pair: Desktop, WebAssembly and Mobile Development; Change Focus
 
 Change Focus
 ============
@@ -2745,7 +2745,7 @@ The next example change the focus using the ENTER key.
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Regular Expressions
+	pair: Desktop, WebAssembly and Mobile Development; Regular Expressions
 
 Regular Expressions
 ===================
@@ -2810,7 +2810,7 @@ Output
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Simple Client and Server Example
+	pair: Desktop, WebAssembly and Mobile Development; Simple Client and Server Example
 
 Simple Client and Server Example
 ================================
@@ -2924,7 +2924,7 @@ The application during the runtime
 	:alt: Client and Server Example
 
 .. index:: 
-	pair: Desktop and Mobile Development; Dynamic Objects
+	pair: Desktop, WebAssembly and Mobile Development; Dynamic Objects
 
 Dynamic Objects
 ===============
@@ -2991,7 +2991,7 @@ Example:
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Weight History Application
+	pair: Desktop, WebAssembly and Mobile Development; Weight History Application
 
 Weight History Application
 ==========================
@@ -3182,7 +3182,7 @@ The next screen shot for the application during the runtime
 	:alt: Weight History Application
 
 .. index:: 
-	pair: Desktop and Mobile Development; Notepad Application
+	pair: Desktop, WebAssembly and Mobile Development; Notepad Application
 
 
 Notepad Application
@@ -3993,7 +3993,7 @@ The next screen shot demonstrates the application main window
 	pair: Demo Programs; The Cards Game
 	  
 .. index:: 
-	pair: Desktop and Mobile Development; The Cards Game
+	pair: Desktop, WebAssembly and Mobile Development; The Cards Game
 
 The Cards Game
 ==============
@@ -4269,7 +4269,7 @@ The next screen shot while running the game using a Mobile (Android)
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Classes and their Methods to use the default events
+	pair: Desktop, WebAssembly and Mobile Development; Classes and their Methods to use the default events
 
 
 Classes and their Methods to use the default events
@@ -4420,7 +4420,7 @@ QThread				SetStartedEvent()
 ==============================	===========================================================
 
 .. index:: 
-	pair: Desktop and Mobile Development; Methods to use Events with Events Filter 
+	pair: Desktop, WebAssembly and Mobile Development; Methods to use Events with Events Filter 
 
 Methods to use Events with Events Filter 
 ========================================
@@ -4476,7 +4476,7 @@ setWindowUnblockedEvent(cEvent)
 ===================================================	======================
 
 .. index:: 
-	pair: Desktop and Mobile Development; The Difference between Qt and RingQt
+	pair: Desktop, WebAssembly and Mobile Development; The Difference between Qt and RingQt
 
 The Difference between Qt and RingQt
 ====================================
@@ -4515,7 +4515,7 @@ QCamera					load				loadcamera
 ===============================		======================		===================
 
 .. index:: 
-	pair: Desktop and Mobile Development; RingQt Classes and their Qt Documentation
+	pair: Desktop, WebAssembly and Mobile Development; RingQt Classes and their Qt Documentation
 
 RingQt Classes and their Qt Documentation
 =========================================
@@ -4526,7 +4526,7 @@ See the "RingQt Classes and Methods Reference" chapter for supported classes and
 
 
 .. index:: 
-	pair: Desktop and Mobile Development; New Classes names - Index Start from 1
+	pair: Desktop, WebAssembly and Mobile Development; New Classes names - Index Start from 1
 
 New Classes names - Index Start from 1
 ======================================
@@ -4560,7 +4560,7 @@ Example  (Uses the Form Designer)
 (2) https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/indexstart/indexstartController.ring 
 
 .. index:: 
-	pair: Desktop and Mobile Development; Creating Reports using the WebLib and the GUILib
+	pair: Desktop, WebAssembly and Mobile Development; Creating Reports using the WebLib and the GUILib
 
 
 Creating Reports using the WebLib and the GUILib 
