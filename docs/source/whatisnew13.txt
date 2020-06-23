@@ -42,11 +42,9 @@ Apress: Beginning Ring Programming (From Novice to Professional)
 
 URL: https://www.apress.com/gp/book/9781484258323
 
-Source Code: https://github.com/Apress/beginning-ring-programming
-
 .. image:: ringbookbyapress.png
-	:width: 207pt
-	:height: 295pt
+	:width: 310pt
+	:height: 450pt
 	:alt: Ring Book by Apress
 
 Gain a gentle introduction to the world of Ring programming with clarity as a 
