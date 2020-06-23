@@ -5,14 +5,7 @@
 RingMurmurHash Functions Reference
 =====================================
 
-"   MurmurHash is a non-cryptographic hash function suitable for general hash-based lookup.
-    It was created by Austin Appleby in 2008 and is currently hosted on Github along with its test suite named 'SMHasher'.
-    It also exists in a number of variants,[5] all of which have been released into the public domain.
-    The name comes from two basic operations, multiply (MU) and rotate (R), used in its inner loop.  "
-
 Murmurhash extension is an extension written to implement a full implementation for the MurmurHash library.
-
-Developer: Hassan Ahmed
 
 .. index:: 
      pair: RingMurmurHash Functions Reference; MurmurHash1 functions

@@ -75,19 +75,14 @@ Contents:
    Distributing Ring Applications (Manual) <distribute>
    Distributing Ring Applications using Ring2EXE <distribute_ring2exe>
    The Ring Package Manager (RingPM) <ringpm>
-   Low Level Functions <lowlevel>
-   Tutorial: Ring Extensions in C/C++  <extension_tutorial>
-   Extension using the C/C++ languages <extension>
-   Embedding Ring Language in C/C++ Programs <embedding>
-   Code Generator for wrapping C/C++ Libraries <codegenerator>
-   Create your first extension using the Code Generator <ringbeep>
    ZeroLib Functions Reference<zerolib>
-   BigNumber Functions Reference <bignumber>
    FoxRing Functions Reference <foxringfuncsdoc>
+   BigNumber Functions Reference <bignumber>
    Using RingLibCurl <libcurl>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    Using RingZip <ringzip>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
+   RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>
    RingAllegro Functions Reference <ringallegrofuncsdoc>
    Using RingLibSDL <libsdl>
@@ -97,7 +92,12 @@ Contents:
    RingFreeGLUT Functions Reference <ringfreeglutfuncsdoc>
    RingOpenGL (OpenGL 3.2) Functions Reference <ringopengl32funcsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>
-   RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
+   Low Level Functions <lowlevel>
+   Tutorial: Ring Extensions in C/C++  <extension_tutorial>
+   Extension using the C/C++ languages <extension>
+   Embedding Ring Language in C/C++ Programs <embedding>
+   Code Generator for wrapping C/C++ Libraries <codegenerator>
+   Create your first extension using the Code Generator <ringbeep>
    Using Other Code Editors <codeeditors>
    Release Notes: Version 1.13 <whatisnew13>
    Release Notes: Version 1.12 <whatisnew12>
