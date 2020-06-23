@@ -1,9 +1,9 @@
 .. index:: 
 	Single: Using RingRayLib;  Introduction
 
-================
-Using RingRayLib
-================
+=================================
+Developing Games using RingRayLib
+=================================
 
 In this chapter we will learn how to use the RingRayLib extension.
 

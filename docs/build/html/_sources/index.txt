@@ -60,10 +60,10 @@ Contents:
    Graphics and 2D Games programming using RingAllegro <allegro>	
    Demo Project - Game Engine for 2D Games <gameengine>	
    Building Games For Android <gameengineandorid>
+   Developing Games using RingRayLib <ringraylib>
    Using RingOpenGL and RingFreeGLUT for 3D Graphics <usingopengl>
    Using RingOpenGL and RingAllegro for 3D Graphics <usingopengl2>
    Demo Project - The Gold Magic 800 Game <goldmagic800>
-   Using RingRayLib <ringraylib>
    Desktop and Mobile development using RingQt <qt>
    Building RingQt Applications for Mobile <qtmobile>
    Objects Library for RingQt Application <ringqtobjects>
