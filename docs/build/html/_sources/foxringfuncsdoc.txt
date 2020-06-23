@@ -5,7 +5,7 @@
 FoxRing Functions Reference
 ===========================
 
-A class with some of the functions similar to FoxPro functions.
+A class contains functions similar to FoxPro functions.
 
 .. index:: 
      pair: FoxRing Functions Reference; FoxRing functions

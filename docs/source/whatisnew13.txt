@@ -73,8 +73,6 @@ Matching Game
 An implementation for the Matching Game
 
 .. image:: matchinggame.png
-	:width: 550pt
-	:height: 400pt
 	:alt: Matching Game
 
 .. index:: 
