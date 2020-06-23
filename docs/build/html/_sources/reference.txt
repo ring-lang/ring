@@ -1,9 +1,9 @@
 .. index:: 
-	single: Reference; Introduction
+	single: Language Specification; Introduction
 
-==================
-Language Reference
-==================
+======================
+Language Specification
+======================
 
 In this chapter we will learn about
 
@@ -16,7 +16,7 @@ In this chapter we will learn about
 * Virtual Machine (VM) Instructions
 
 .. index:: 
-	pair: Reference; Language Keywords
+	pair: Language Specification; Language Keywords
 
 Language Keywords
 =================
@@ -74,7 +74,7 @@ Keywords Count : 49
 * endpackage
 
 .. index:: 
-	pair: Reference; Language Functions
+	pair: Language Specification; Language Functions
 
 Language Functions
 ==================
@@ -141,7 +141,7 @@ Functions Count : 210
 	varptr()                    version()                   windowsnl()                 write()
 
 .. index:: 
-	pair: Reference; Compiler Errors
+	pair: Language Specification; Compiler Errors
 
 Compiler Errors
 ===============
@@ -182,7 +182,7 @@ Compiler Errors
 * Warning (W7) : Using the LOOP command outside loop!"
 
 .. index:: 
-	pair: Reference; Runtime Errors
+	pair: Language Specification; Runtime Errors
 
 Runtime Errors
 ==============
@@ -228,7 +228,7 @@ Runtime Errors
 * Error (R39) : Error occurred creating unique filename
 
 .. index:: 
-	pair: Reference; Environment Errors
+	pair: Language Specification; Environment Errors
 
 Environment Errors
 ==================
@@ -243,7 +243,7 @@ Environment Errors
 * Error (E8) : Internal error in using fscanf() function!
 
 .. index:: 
-	pair: Reference; Language Grammar
+	pair: Language Specification; Language Grammar
 
 Language Grammar
 ================
@@ -355,7 +355,7 @@ Mixer ---> '{' {Statement} '}'
 AnonymousFunction ---> 'func'|'def'| [<ParaList>] '{' {Statement} '}'
 
 .. index:: 
-	pair: Reference; Virtual Machine Instructions
+	pair: Language Specification; Virtual Machine Instructions
 
 Virtual Machine (VM) Instructions
 =================================
