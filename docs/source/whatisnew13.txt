@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.13 comes with the next features!
 
+* New Book by Apress
 * Laser Game
 * Magic Balls Game
 * MoneyBoxes Game
@@ -30,6 +31,33 @@ Ring 1.13 comes with the next features!
 * RingStbImage Extension
 * More Low Level Functions
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.13?; New Book by Apress
+
+New Book by Apress
+==================
+
+Apress: Beginning Ring Programming (From Novice to Professional)
+
+URL: https://www.apress.com/gp/book/9781484258323
+
+Source Code: https://github.com/Apress/beginning-ring-programming
+
+.. image:: ringbookbyapress.png
+	:width: 207pt
+	:height: 295pt
+	:alt: Ring Book by Apress
+
+Gain a gentle introduction to the world of Ring programming with clarity as a 
+first concern using a lot of practical examples.
+
+What You Will Learn
+
+* Get started with Ring and master its data types, I/O, functions, and classes
+* Carry out structural, object-oriented, functional, declarative, natural, and meta programming in Ring
+* Use the full power of Ring to refactor program code and develop clean program architectures
+* Quickly design professional-grade video games on top of the Ring game engine
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Laser Game
