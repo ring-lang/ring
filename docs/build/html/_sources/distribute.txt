@@ -1,9 +1,9 @@
 .. index:: 
 	single: Distributing Ring Application; Introduction
 
-==============================
-Distributing Ring Applications
-==============================
+=======================================
+Distributing Ring Applications (Manual)
+=======================================
 
 In this chapter we will learn about distributing Ring applications.
 

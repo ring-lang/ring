@@ -44,11 +44,17 @@ Contents:
    Object Oriented Programming (OOP) <oop>
    Functional Programming (FP) <fp>
    Reflection and Meta-programming <metaprog>
-   Stdlib Functions <stdlib>
-   Stdlib Classes <stdlibclasses>
    Declarative Programming using Nested Structures <declarative>
    Natural language programming	<natural>
    Using the Natural Library <naturallibrary>
+   Scope Rules for Variables and Attributes <scope>
+   Scope Rules for Functions and Methods <scope2>
+   Syntax Flexibility <syntaxflexibility>
+   The Type Hints Library <typehints>
+   The Trace Library and the Interactive Debugger <debug>
+   Embedding Ring Language in Ring Programs <ringemb>
+   Stdlib Functions <stdlib>
+   Stdlib Classes <stdlibclasses>
    Web Development (CGI Library) <web>
    Deploying Web Applications in the Cloud <deployincloud>
    Using RingLibCurl <libcurl>
@@ -69,23 +75,17 @@ Contents:
    Using the Form Designer <formdesigner>
    Multi-language Applications <multilanguage>
    Using Qt3D <qt3d>
-   Scope Rules for Variables and Attributes <scope>
-   Scope Rules for Functions and Methods <scope2>
-   Syntax Flexibility <syntaxflexibility>
-   The Type Hints Library <typehints>
-   Command Line Options	<compiler>
    Performance Tips <performancetips>
-   Distributing Ring Applications <distribute>
+   Command Line Options	<compiler>
+   Distributing Ring Applications (Manual) <distribute>
    Distributing Ring Applications using Ring2EXE <distribute_ring2exe>
    The Ring Package Manager (RingPM) <ringpm>
-   The Trace Library and the Interactive Debugger <debug>
-   Embedding Ring Language in Ring Programs <ringemb>
    Low Level Functions <lowlevel>
    Tutorial: Ring Extensions in C/C++  <extension_tutorial>
    Extension using the C/C++ languages <extension>
    Embedding Ring Language in C/C++ Programs <embedding>
    Code Generator for wrapping C/C++ Libraries <codegenerator>
-   Create your first extension <ringbeep>
+   Create your first extension using the Code Generator <ringbeep>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingConsoleColors Functions Reference <ringconsolecolorsfuncsdoc>
