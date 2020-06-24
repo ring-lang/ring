@@ -23,12 +23,12 @@ class RNoteHelp
 
 	func Lang
 		MsgBox("Programming Language",
-			"This application developed using the Ring programming language" + nl +
+			"This application is developed using the Ring programming language" + nl +
 			"Ring Version : " + version())
 
 	func GUI
 		MsgBox("GUI Library",
-			"This application uses the Qt GUI Library through RingQt")
+			"This application uses the Qt Framework through RingQt")
 
 	func pAbout
 		MsgBox("About",
