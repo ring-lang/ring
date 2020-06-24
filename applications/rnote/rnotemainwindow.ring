@@ -825,6 +825,7 @@ class RNoteMainWindow
 						append("*.js")
 						append("*.xml")
 						append("*.data")
+						append("*.template")
 						append("*.sh")
 						append("*.bat")
 						append("*.md")
