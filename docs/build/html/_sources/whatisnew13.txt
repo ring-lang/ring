@@ -303,8 +303,6 @@ Example:
 		? "Width : " + width
 		? "Height: " + height
 		? "Channels: " + channels
-	# End of program
-		? :done
 
 Output:
 
@@ -314,7 +312,6 @@ Output:
 	Width : 563
 	Height: 330
 	Channels: 3
-	done
 
 .. index:: 
 	pair: What is new in Ring 1.13?; More Low Level Functions
