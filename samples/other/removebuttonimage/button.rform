@@ -21,7 +21,7 @@ aObjectsList = [
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :text =  "Button1",
-		 :BtnImage =  "C:/Users/samir/Desktop/Minesweeper/mine.png",
+		 :BtnImage =  "mine.png",
 		 :setClickEvent =  "test"
 		]
 	]
