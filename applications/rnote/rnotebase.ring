@@ -30,11 +30,10 @@ class RNoteControllerBase from WindowsControllerParent
 
 	aBrowserLinks 		= [
 		["Local Help", "file:///"+substr(exefolder(),"\","/") + "../docs/build/html/index.html"],
-		["Localhost","http://localhost"],
 		["Ring Website","http://ring-lang.sf.net"],
-		["Ring Source Code (GitHub)","https://github.com/ring-lang/ring"],
 		["Ring Samples (Rosetta Code)","https://rosettacode.org/wiki/Category:Ring"],
 		["Ring Resources","http://ring-lang.sourceforge.net/resources.html"],
+		["Ring Source Code (GitHub)","https://github.com/ring-lang/ring"],
 		["Ring Team","http://ring-lang.sourceforge.net/team.html"]
 	]
 
