@@ -1,7 +1,7 @@
-﻿  <%  eval(read("resources.data"))  %>
+  <%  eval(read("resources.data"))  %>
 
   <div id="resources" class="panel-group">
-    <div class="panel panel-default">
+    <div class="panel panel-default" style="opacity: 0.9;">
       <div class="panel-heading"><h4>Resources <span class="badge"><%= len(aResources) %></span></h4></div>
       <div class="panel-body">
 

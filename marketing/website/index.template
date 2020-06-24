@@ -1,11 +1,11 @@
-﻿<%  eval(read("news.data"))  %>
+<%  eval(read("news.data"))  %>
 
 <div class="row">
 
   <div class="col-sm-12 col-md-6">
 
   <div id="introduction" class="panel-group">
-    <div class="panel panel-default">
+    <div class="panel panel-default" style=" opacity: 0.7;">
       <div class="panel-heading"><h4>Introduction</h4></div>
       <div class="panel-body">
 		<p align="justify">
@@ -16,6 +16,25 @@
 
 			The language is designed to be simple, small, flexible and fast.					
 		</p>
+	<div class="row">
+				<br>
+				<div class="col-sm-12 col-md-3">
+					<a href="download.html" class="btn btn-default btn-block" style="">Download</a>
+				</div>
+				
+				<div class="col-sm-12 col-md-3">
+					<a href="doc1.12/index.html" target="_blank" class="btn btn-default btn-block" style="">Documents</a>
+				</div>
+
+				<div class="col-sm-12 col-md-3">
+					<a href="../cgi-bin/ringlang.cgi" class="btn btn-default btn-block" style="">Try Online</a>
+				</div>
+				
+				<div class="col-sm-12 col-md-3">
+					<a href="resources.html" class="btn btn-default btn-block" style="">Resources</a>
+				</div>
+				<br>  
+	</div>
 	</div>
      </div>  
   </div>
@@ -25,7 +44,7 @@
 	  <div class="col-sm-12 col-md-6">
 
   <div id="news" class="panel-group">
-    <div class="panel panel-info">
+    <div class="panel panel-info" style="opacity: 0.7;">
       <div class="panel-heading"><h4>News</h4></div>
       <div class="panel-body">
 
@@ -62,7 +81,7 @@
 
 
 <a href="#innovative" class="btn btn-default" data-toggle="collapse" style="width:100%">Innovative</a>
-  <div id="innovative" class="panel-group collapse in">
+  <div id="innovative" class="panel-group collapse in" style="opacity: 0.9">
     <div class="panel panel-primary">
       <div class="panel-heading"><h4>Innovative</h4></div>
       <div class="panel-body">
@@ -89,7 +108,7 @@
 
 
  <a href="#practical" class="btn btn-default" data-toggle="collapse" style="width:100%">Practical</a>
-  <div id="practical" class="panel-group collapse in">
+  <div id="practical" class="panel-group collapse in" style="opacity: 0.9;">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Practical</h4></div>
       <div class="panel-body">
@@ -251,7 +270,7 @@
  
 
 <a  id="why" href="#whyring" class="btn btn-default" data-toggle="collapse" style="width:100%">Why Ring?</a>
-<div id="whyring" class="panel-group collapse in">
+<div id="whyring" class="panel-group collapse in" style="opacity: 0.9;">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Why Ring?</h4></div>
       <div class="panel-body">
@@ -976,7 +995,7 @@ aList = "nice"
 
   
 <a href="#fastenough" class="btn btn-default" data-toggle="collapse" style="width:100%">Fast</a>
-  <div id="fastenough" class="panel-group collapse in">
+  <div id="fastenough" class="panel-group collapse in" style="opacity: 0.9;">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Fast Enough For Many Applications</h4></div>
       <div class="panel-body">
@@ -1074,7 +1093,7 @@ aList = "nice"
   
 
 <a href="#features" class="btn btn-default" data-toggle="collapse" style="width:100%">Features</a>
-  <div id="features" class="panel-group collapse in">
+  <div id="features" class="panel-group collapse in" style="opacity: 0.9;">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Features</h4></div>
       <div class="panel-body">
@@ -1286,3 +1305,5 @@ aList = "nice"
       </div>
     </div>  
   </div>
+
+<br> <br>  <br>

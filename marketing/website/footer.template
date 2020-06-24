@@ -1,5 +1,7 @@
-﻿</div>
-<div class="container-fluid" style="color:black ; background: transparent linear-gradient(to bottom, rgb(240, 249, 255) 0%, rgb(203, 235, 255) 47%, rgb(161, 219, 255) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+</div>
+<!-- <div class="container-fluid" style="color:black ; background: transparent linear-gradient(to bottom, rgb(240, 249, 255) 0%, rgb(203, 235, 255) 47%, rgb(161, 219, 255) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+-->
+<div class="container-fluid" style="color:white;background-color:black ; margin-bottom: 0%;">
 <div class="container" style=" margin-bottom: 2%;">
 <br> <br>
   <div class="row">
@@ -109,13 +111,13 @@
 </div>
 </div>
 
-<div class="container-fluid" style="text-align:center;color:black; height: 25px; background: transparent linear-gradient(to bottom, rgb(240, 249, 255) 0%, rgb(203, 235, 255) 47%, rgb(161, 219, 255) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+<div class="container-fluid" style="text-align:center;color:black; background-color:#34282C; margin-bottom: 0%;">
               <a href="https://github.com/ring-lang/ring" target="_blank">GitHub</a>
               <a href="resources.html">Resources</a>
               <a href="team.html">Team</a>
 </div>
 
-<div class="container-fluid" style="color:black ; height: 5px; background: transparent linear-gradient(to bottom, rgb(0, 183, 234) 0%, rgb(0, 158, 195) 100%) repeat scroll 0% 0% ; margin-bottom: 0%; text-align:center;">
+<div class="container-fluid" style="color:black ; height: 5px; background-color:#3B3131 ; margin-bottom: 0%; text-align:center;">
  <p>
  
  </p>

@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <title>The Ring Programming Language</title>
@@ -20,11 +20,31 @@
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
   <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+<style>
+	body { 
+background: url(goodback.jpg) no-repeat center center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+background-size: cover;
+}
+  .carousel-inner > .item > img,
+  .carousel-inner > .item > a > img {
+      	width: 80%;
+        margin: auto;
+  	max-height: 480px;
+  	overflow: hidden;
+  }
+}
+
+</style>
+
+
 </head>
 <body>
 
 
-<nav class="navbar navbar-default navbar-fixed-top" >
+<nav class="navbar navbar-inverse navbar-fixed-top" >
   <div class="container-fluid">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -107,48 +127,23 @@
 
 <div class="container">
  <div class="text-center">
-	<br><br><br> 
-	<br><br>
-	<div class="row">		
-			<div class="col-xs-3 hidden-xs">
-			</div>
-			<div class="col-xs-6">
-				<img src="thering.jpg" width="297px" height="154px">
-			</div>
-			<div class="col-xs-3 hidden-xs">
-			</div>
-	</div>
 
-	<div class="row">
-				<br> 
-				<div class="col-xs-2">
+	<br><br><br><br> <br><br> <br>
+	<div class="row" >		
+			<div class="col-xs-3 col-sm-3" style="opacity: 0.4;">
+				<div class="col-xs-12 hidden-xs hidden-sm hidden-md">
+	 				<img src="thering.jpg" width="297px" height="154px">
 				</div>
-				<div class="col-sm-12 col-md-2">
-					<a href="download.html" class="btn btn-default btn-block" style="">Download</a>
-				</div>
-				
-				<div class="col-sm-12 col-md-2">
-					<a href="doc1.12/index.html" target="_blank" class="btn btn-default btn-block" style="">Documents</a>
-				</div>
+			</div>
+			<div class="col-xs-7" style="opacity: 0.9;">
+				<h1 style="color:White;"> The Ring Programming Language</h1>
+				<h1 style="color:Yellow;"> Let's bring fun back to programming! </h1>
+				<br><br><br>
 
-				<div class="col-sm-12 col-md-2">
-					<a href="../cgi-bin/ringlang.cgi" class="btn btn-default btn-block" style="">Try Online</a>
-				</div>
-				
-				<div class="col-sm-12 col-md-2">
-					<a href="resources.html" class="btn btn-default btn-block" style="">Resources</a>
-				</div>
-
-			
-				<div class="col-xs-2">
-				</div>
-				<br>  
-	</div>
-		
-	<h3>Innovative and practical general-purpose multi-paradigm language</h3>
-	
-		
-		
+			</div>
+			<div class="hidden-xs">
+			</div>
+	</div>		
   </div>
 
 <br>
