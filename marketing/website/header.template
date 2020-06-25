@@ -131,7 +131,7 @@ background-size: cover;
 
 	<br><br><br><br> <br><br> <br>
 	<div class="row" >		
-			<div class="col-xs-12 visible-xs" style="opacity: 0.4;">
+			<div class="col-xs-12 visible-xs" style="opacity: 0.8;">
 				<img src="ringlogo.jpg" width="297px" height="154px">
 			</div>
 			<div class="col-xs-3" style="opacity: 0.4;">
