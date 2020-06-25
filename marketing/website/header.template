@@ -131,8 +131,9 @@ background-size: cover;
 
 	<br><br><br><br> <br><br> <br>
 	<div class="row" >		
-			<div class="col-xs-12 visible-xs" style="opacity: 0.8;">
-				<img src="ringlogo.jpg" width="297px" height="154px">
+			<div class="col-xs-12 visible-xs">
+				<h1 style="color:White;"> The Ring Programming Language</h1>
+				<br> <br>
 			</div>
 			<div class="col-xs-3" style="opacity: 0.4;">
 				<div class="hidden-xs hidden-sm hidden-md">
