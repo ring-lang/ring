@@ -1,6 +1,6 @@
-  <% eval(read("team.data"))  %>
+﻿  <% eval(read("team.data"))  %>
   <div id="team" class="panel-group">
-    <div class="panel panel-default" style="opacity: 0.9;">
+    <div class="panel panel-default">
       <div class="panel-heading"><h4>Ring Team <span class="badge"><%= len(aTeam) %></span></h4></div>
       <div class="panel-body">
 
@@ -9,8 +9,7 @@
 				  <tr>
 					<th width="85%">Name</th>
 					<th width="15%"></th>
-				  </tr>
-
+				  </tr>
 				</thead>
 				<tbody>
 				  <% for x in aTeam %>

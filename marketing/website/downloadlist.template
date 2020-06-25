@@ -1,5 +1,5 @@
  <div id="download" class="panel-group">
-    <div class="panel panel-default" style="opacity: 0.9;">
+    <div class="panel panel-default">
       <div class="panel-heading"><h4>Download <span class="badge"><%= len(aDownload) %></span></h4></div>
       <div class="panel-body">
 
