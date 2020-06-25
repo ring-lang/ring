@@ -336,7 +336,7 @@ More Improvements
 =================
 
 * More Applications
-	* Tours of Hanoi
+	* Towers of Hanoi
 	* Questions Game
 	* Money Case Game
 	* Rock Paper Scissors Game
