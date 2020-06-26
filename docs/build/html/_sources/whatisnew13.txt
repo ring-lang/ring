@@ -368,7 +368,7 @@ More Improvements
 	* ring/samples/other/varptr/varptr5.ring 
 	* ring/samples/other/UsingQML/sample10 folder (Charts Samples)
 	* ring/samples/other/UsingQML/sample11 folder (Data Visualization Samples)
-	* ring/samples/other/eightqueen/eightqueensgame.ring
+	* ring/samples/other/eightqueens/eightqueensgame.ring
 	* ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
