@@ -3,8 +3,8 @@ aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
 		 :x = 20 , : y = 20  , 
 		 :width =  400 , :height = 400 , 
-		 :title =  "File Dialog" , 
-		 :backcolor =  "" , 
+		 :title =  "RingQt For WebAssembly - File Dialog" , 
+		 :backcolor =  "#cfff4b" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "Layout2" ,
 		 :WindowIcon =  "" , 
@@ -56,7 +56,7 @@ aObjectsList = [
 	],
 	[ :name = "Layout1" , :id = 5 , :classname = "formdesigner_qlayout" , :data = [
 		 :x = 263 , : y = 12  , 
-		 :width =  97 , :height = 35 , 
+		 :width =  95 , :height = 35 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 

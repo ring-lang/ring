@@ -16,25 +16,26 @@ class fileappController from windowsControllerParent
 
 	oView = new fileappView
 
-	func LoadFile 
-		oLoadDialog = new QFileDialog(NULL) 
-		QFileDialog_getopenFileContent(oLoadDialog.pObject,"Text Files (*.txt)",Method(:FileLoaded))
-
-	func SaveFile
-		cStr 	= oView.TextEdit1.toPlainText()
-		oBytes 	= new QByteArray()
-		oBytes.append(cStr)
-		if isWebAssembly()
-			oSaveDialog = new QFileDialog(NULL) 
-			QFileDialog_SaveFileContent(oSaveDialog.pObject,oBytes.pObject,"output.txt")
-		else 
+	func CheckWebAssembly
+		if ! isWebAssembly()
 			msginfo("Sorry","This example need WebAssembly!")
+			return False
 		ok
+		return True
 
-func FileLoaded
+	func DownloadFile
+		if ! CheckWebAssembly() return ok
+		cStr 	= oView.TextEdit1.toPlainText()
+		WebAssemblyDownload("output.txt",cStr)
 
-	aList = QFileDialog_FileContentList()
-	oView.TextEdit1.setPlainText(
-		"File : " + aList[1] + nl +
-		"Content : " + nl + aList[2]
-	)
+	func UpLoadFile 
+		if ! CheckWebAssembly() return ok
+		WebAssemblyUpload("Text Files (*.txt)",Method(:FileLoaded))
+
+	func FileLoaded
+		oView.TextEdit1.setPlainText(
+			"File : " + WebAssemblyUploadedFileName() + nl +
+			"Content : " + nl + WebAssemblyUploadedFileContent()
+		)
+
+
