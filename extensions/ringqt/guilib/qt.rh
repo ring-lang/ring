@@ -313,7 +313,7 @@ QAbstractItemView_AllEditTriggers 	= 31
 
 QSizePolicy_GrowFlag 		= 1
 QSizePolicy_ExpandFlag 		= 2
-QSizePolicy_ShrinkFlag 		= 3
+QSizePolicy_ShrinkFlag 		= 4
 QSizePolicy_IgnoreFlag 		= 8
 QSizePolicy_Fixed		= 0
 QSizePolicy_Minimum		= QSizePolicy_GrowFlag
