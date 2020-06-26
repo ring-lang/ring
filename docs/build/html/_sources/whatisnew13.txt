@@ -370,6 +370,9 @@ More Improvements
 	* ring/samples/other/UsingQML/sample11 folder (Data Visualization Samples)
 	* ring/samples/other/eightqueens/eightqueensgame.ring
 	* ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring
+	* ring/samples/other/WebAssembly/colordialog folder
+	* ring/samples/other/WebAssembly/filedialog folder 
+	* ring/samples/other/WebAssembly/filecontent folder (Download/Upload Files)
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Ring Notepad - View Menu - Source Code (Full Screen)
