@@ -1,32 +1,23 @@
 load "guilib.ring"
 load "stdlibcore.ring"
 
-QSizePolicy_GrowFlag 		= 1
-
-/*
-QSizePolicy_ExpandFlag 		= 2
-QSizePolicy_ShrinkFlag 		= 4
-QSizePolicy_IgnoreFlag 		= 8
-QSizePolicy_Fixed		= 0
-QSizePolicy_Minimum		= QSizePolicy_GrowFlag
-QSizePolicy_Maximum		= QSizePolicy_ShrinkFlag
-QSizePolicy_Preferred		= QSizePolicy_GrowFlag | QSizePolicy_ShrinkFlag
-QSizePolicy_Expanding		= QSizePolicy_GrowFlag | QSizePolicy_ShrinkFlag | QSizePolicy_ExpandFlag
-QSizePolicy_MinimumExpanding 	= QSizePolicy_GrowFlag | QSizePolicy_ExpandFlag
-QSizePolicy_Ignored		= QSizePolicy_ShrinkFlag | QSizePolicy_GrowFlag | QSizePolicy_IgnoreFlag
-*/
+C_ROWS = 5
+C_COLS = 7
 
 new QApp {
 
+	StyleFusion()
+
 	w = new QWidget() {
 
+		setStyleSheet("background-color:yellow;")
 		setWindowTitle("Using QGridLayout & setSizePolicy")
 
 		g = new QGridLayout() 
 
-		aButtons = newlist(5,5)
-		for t = 1 to 5
-			for t2=1 to 5
+		aButtons = newlist(C_ROWS,C_COLS)
+		for t = 1 to C_ROWS
+			for t2=1 to C_COLS
 				aButtons[t][t2] = new QPushButton(w) {
 					setText(""+t+":"+t2)	
 					setSizePolicy(QSizePolicy_GrowFlag,QSizePolicy_GrowFlag)
