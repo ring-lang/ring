@@ -192,11 +192,12 @@ func Get_Window_Pos nID
 
 /*
 	The next class is the parent class for Windows/Forms Classes
-	When you create a new class, just use from WindowsBase
+	Don't Use this class directly!
+	When you create a new class, just use from WindowsControllerParent
 	When you close the window just use Super.Close()
 */
 
-class ObjectsLibParent
+class ObjectsParent
 
 	RingQt_nID = $RingQt_ObjectID
 

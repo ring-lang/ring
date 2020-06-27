@@ -16,4 +16,4 @@ func CreateObject cClass,oParent
 		$RingQt_objname = cCurrentObject
 	return last_object()
 
-class ObjectControllerParent from ObjectsLibParent
+class ObjectControllerParent from ObjectsParent
