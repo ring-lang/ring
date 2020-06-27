@@ -5,7 +5,7 @@
 **	Author :  Mahmoud Fayed <msfclipper@yahoo.com>
 */
 
-class WindowsControllerParent from WindowsControllerBase
+class WindowsControllerParent from ObjectsLibParent
 
 	func Start		
 		oView.win.Show()
@@ -15,5 +15,6 @@ class WindowsControllerParent from WindowsControllerBase
 		Super.Close()
 
 class WindowsViewParent from ObjectsLibParent
+
 	func Close
 		win.close()
