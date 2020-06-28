@@ -1,52 +1,269 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Performance Tips &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>Performance Tips &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Command Line Options" href="compiler.html" />
     <link rel="prev" title="The Gold Magic 800 Game" href="goldmagic800.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>Performance Tips</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="goldmagic800.html">The Gold Magic 800 Game</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="compiler.html">Command Line Options</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Performance Tips</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-lists">Creating Lists</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#arithmetic-operations">Arithmetic Operations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-len-and-for-loops">Using len() and For Loops</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calling-functions-and-methods">Calling Functions and Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Performance Tips</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="performance-tips">
 <span id="index-0"></span><h1>Performance Tips<a class="headerlink" href="#performance-tips" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will learn more about the Ring performance.</p>
@@ -55,68 +272,68 @@
 <p>Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.</p>
 <p>Ring can do each of the next tasks in around 1 second using normal computers in the market during the last 5 years</p>
 <ol class="arabic simple">
-<li>Compiling 100,000 lines of code</li>
-<li>Executing empty loop that count from 1 to 10,000,000</li>
-<li>Executing 1000 search operation using linear search in a list contains 100,000 items, trying to find the last item (The worst case)</li>
-<li>Creating list contains 1,000,000 items then summing all of the list items</li>
-<li>Adding 20,000 items to the ListWidget in GUI applications</li>
-<li>Adding 5,000 nodes to the TreeWidget in GUI applications</li>
-<li>Printing 10,000 messages to the terminal in Console applications</li>
+<li><p>Compiling 100,000 lines of code</p></li>
+<li><p>Executing empty loop that count from 1 to 10,000,000</p></li>
+<li><p>Executing 1000 search operation using linear search in a list contains 100,000 items, trying to find the last item (The worst case)</p></li>
+<li><p>Creating list contains 1,000,000 items then summing all of the list items</p></li>
+<li><p>Adding 20,000 items to the ListWidget in GUI applications</p></li>
+<li><p>Adding 5,000 nodes to the TreeWidget in GUI applications</p></li>
+<li><p>Printing 10,000 messages to the terminal in Console applications</p></li>
 </ol>
 <p>Also when we need more speed we can use C/C++ extensions!</p>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Create list contains 100,000 items&quot;</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">100000</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;Create list contains 100,000 items&quot;
+aList = 1:100000
 
-<span class="o">?</span> <span class="s">&quot;Do 1000 search operation - Find the last item (Worst Case!)&quot;</span>
-<span class="n">c</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
+? &quot;Do 1000 search operation - Find the last item (Worst Case!)&quot;
+c = clock()
 
-<span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000</span>
-        <span class="n">find</span><span class="p">(</span><span class="n">alist</span><span class="p">,</span><span class="mi">100000</span><span class="p">)</span>
-<span class="k">next</span>
+for t = 1 to 1000
+        find(alist,100000)
+next
 
-<span class="o">?</span> <span class="s">&quot;Time: &quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">c</span> <span class="p">)</span> <span class="o">/</span> <span class="n">clockspersecond</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+? &quot;Time: &quot; + ( clock() - c ) / clockspersecond() + &quot; seconds&quot;
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Create list contains 100,000 items
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Create list contains 100,000 items
 Do 1000 search operation - Find the last item (Worst Case!)
 Time: 0.87 seconds
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;guilib.ring&quot;
 
-<span class="k">func</span> <span class="n">main</span>
+func main
 
-<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
-        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span> <span class="n">resize</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
-                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Many Tree Items - Testing Performance&quot;</span><span class="p">)</span>
-                <span class="kt">tree</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qTreeWidget</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">blocksignals</span><span class="p">(</span><span class="kp">True</span><span class="p">)</span> <span class="n">setUpdatesEnabled</span><span class="p">(</span><span class="kp">False</span><span class="p">)</span>
-                        <span class="n">root</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qTreeWidgetItem</span><span class="p">()</span>
-                        <span class="n">root</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s">&quot;The Root Node&quot;</span><span class="p">)</span>
-                        <span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-                        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5000</span>
-                                <span class="n">oItem</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qTreeWidgetItem</span><span class="p">()</span>
-                                <span class="n">oItem</span><span class="p">.</span><span class="n">settext</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="s">&quot;Item &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">)</span>
-                                <span class="n">root</span><span class="p">.</span><span class="n">addchild</span><span class="p">(</span><span class="n">oItem</span><span class="p">)</span>
-                        <span class="k">next</span>
-                        <span class="n">cTime</span> <span class="o">=</span> <span class="p">(</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">()</span>
-                        <span class="n">setHeaderLabel</span><span class="p">(</span><span class="s">&quot;Creating 5000 nodes in &quot;</span> <span class="o">+</span> <span class="n">cTime</span> <span class="o">+</span> <span class="s">&quot; seconds.&quot;</span><span class="p">)</span>
-                        <span class="n">addTopLevelItem</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-                        <span class="n">expanditem</span><span class="p">(</span><span class="n">root</span><span class="p">)</span>
-                        <span class="n">blocksignals</span><span class="p">(</span><span class="kp">False</span><span class="p">)</span> <span class="n">setUpdatesEnabled</span><span class="p">(</span><span class="kp">True</span><span class="p">)</span>
-                <span class="p">}</span>
-                <span class="n">oLayout</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qVBoxLayout</span><span class="p">()</span> <span class="p">{</span>
-                        <span class="n">addWidget</span><span class="p">(</span><span class="kt">tree</span><span class="p">)</span>
-                <span class="p">}</span>
-                <span class="n">setLayout</span><span class="p">(</span><span class="n">oLayout</span><span class="p">)</span>
-                <span class="n">show</span><span class="p">()</span>
-        <span class="p">}</span>
-        <span class="n">exec</span><span class="p">()</span>
-<span class="p">}</span>
+new qApp {
+        win = new qWidget() {
+                move(100,100) resize(500,500)
+                setWindowTitle(&quot;Many Tree Items - Testing Performance&quot;)
+                tree = new qTreeWidget(win) {
+                        blocksignals(True) setUpdatesEnabled(False)
+                        root = new qTreeWidgetItem()
+                        root.setText(0,&quot;The Root Node&quot;)
+                        t1 = clock()
+                        for t = 1 to 5000
+                                oItem = new qTreeWidgetItem()
+                                oItem.settext(0,&quot;Item &quot; + t)
+                                root.addchild(oItem)
+                        next
+                        cTime = (clock()-t1)/clockspersecond()
+                        setHeaderLabel(&quot;Creating 5000 nodes in &quot; + cTime + &quot; seconds.&quot;)
+                        addTopLevelItem(root)
+                        expanditem(root)
+                        blocksignals(False) setUpdatesEnabled(True)
+                }
+                oLayout = new qVBoxLayout() {
+                        addWidget(tree)
+                }
+                setLayout(oLayout)
+                show()
+        }
+        exec()
+}
 </pre></div>
 </div>
 <p>Output:</p>
@@ -125,30 +342,30 @@ Time: 0.87 seconds
 <div class="section" id="creating-lists">
 <span id="index-2"></span><h2>Creating Lists<a class="headerlink" href="#creating-lists" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Create the list using the Range operator&quot;</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1000000</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;Create the list using the Range operator&quot;
+t1 = clock()
+aList = 1:1000000
+? &quot;Time : &quot; + ((clock()-t1)/clockspersecond()) + &quot; seconds&quot;
 
-<span class="o">?</span> <span class="s">&quot;Create the list using the For loop&quot;</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="o">[]</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000000</span>
-        <span class="n">aList</span> <span class="o">+</span> <span class="n">x</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+? &quot;Create the list using the For loop&quot;
+t1 = clock()
+aList = []
+for x = 1 to 1000000
+        aList + x
+next
+? &quot;Time : &quot; + ((clock()-t1)/clockspersecond()) + &quot; seconds&quot;
 
-<span class="o">?</span> <span class="s">&quot;Create the list using the list() function and the For loop&quot;</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">1000000</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000000</span>
-        <span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">=</span> <span class="n">x</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+? &quot;Create the list using the list() function and the For loop&quot;
+t1 = clock()
+aList = list(1000000)
+for x = 1 to 1000000
+        aList[x] = x
+next
+? &quot;Time : &quot; + ((clock()-t1)/clockspersecond()) + &quot; seconds&quot;
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Create the list using the Range operator
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Create the list using the Range operator
 Time : 0.48 seconds
 Create the list using the For loop
 Time : 0.79 seconds
@@ -157,107 +374,107 @@ Time : 1.56 seconds
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Creating lists using the Range operator is faster than using the For loop or the list() function</p>
+<p class="admonition-title">Note</p>
+<p>Creating lists using the Range operator is faster than using the For loop or the list() function</p>
 </div>
 </div>
 <div class="section" id="arithmetic-operations">
 <span id="index-3"></span><h2>Arithmetic Operations<a class="headerlink" href="#arithmetic-operations" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Using * operator&quot;</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000000</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">x</span> <span class="o">*</span> <span class="mi">2</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;Using * operator&quot;
+t1 = clock()
+for x = 1 to 1000000
+        out = x * 2
+next
+? &quot;Time : &quot; + ((clock()-t1)/clockspersecond()) + &quot; seconds&quot;
 
-<span class="o">?</span> <span class="s">&quot;Using *= operator&quot;</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000000</span>
-        <span class="n">out</span> <span class="o">=</span> <span class="n">x</span>
-        <span class="n">out</span> <span class="o">*=</span> <span class="mi">2</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+? &quot;Using *= operator&quot;
+t1 = clock()
+for x = 1 to 1000000
+        out = x
+        out *= 2
+next
+? &quot;Time : &quot; + ((clock()-t1)/clockspersecond()) + &quot; seconds&quot;
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Using * operator
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Using * operator
 Time : 1.34 seconds
 Using *= operator
 Time : 0.47 seconds
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Using the <a href="#id1"><span class="problematic" id="id2">*</span></a>= operator is faster that using the * operator</p>
+<p class="admonition-title">Note</p>
+<p>Using the <a href="#id1"><span class="problematic" id="id2">*</span></a>= operator is faster that using the * operator</p>
 </div>
 </div>
 <div class="section" id="using-len-and-for-loops">
 <span id="index-4"></span><h2>Using len() and For Loops<a class="headerlink" href="#using-len-and-for-loops" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">1000000</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = 1:1000000
 
-<span class="o">?</span> <span class="s">&quot;Using len() in the For loop&quot;</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+? &quot;Using len() in the For loop&quot;
+t1 = clock()
+for x = 1 to len(aList)
+next
+? &quot;Time : &quot; + ((clock()-t1)/clockspersecond()) + &quot; seconds&quot;
 
-<span class="o">?</span> <span class="s">&quot;Using len() before the For loop&quot;</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="n">nMax</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+? &quot;Using len() before the For loop&quot;
+t1 = clock()
+nMax = len(aList)
+for x = 1 to nMax
+next
+? &quot;Time : &quot; + ((clock()-t1)/clockspersecond()) + &quot; seconds&quot;
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Using len() in the For loop
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Using len() in the For loop
 Time : 5.50 seconds
 Using len() before the For loop
 Time : 0.24 seconds
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Using len() before the For loop is faster than using len() in the For loop.</p>
+<p class="admonition-title">Note</p>
+<p>Using len() before the For loop is faster than using len() in the For loop.</p>
 </div>
 </div>
 <div class="section" id="calling-functions-and-methods">
 <span id="index-5"></span><h2>Calling Functions and Methods<a class="headerlink" href="#calling-functions-and-methods" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;calling 100000 functions&quot;</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
-        <span class="n">test</span><span class="p">()</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;calling 100000 functions&quot;
+t1 = clock()
+for x = 1 to 100000
+        test()
+next
+? &quot;Time : &quot; + ((clock()-t1)/clockspersecond()) + &quot; seconds&quot;
 
-<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">test</span>
+o1 = new test
 
-<span class="o">?</span> <span class="s">&quot;calling 100000 methods using the dot operator&quot;</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
-        <span class="n">o1</span><span class="p">.</span><span class="n">test</span><span class="p">()</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+? &quot;calling 100000 methods using the dot operator&quot;
+t1 = clock()
+for x = 1 to 100000
+        o1.test()
+next
+? &quot;Time : &quot; + ((clock()-t1)/clockspersecond()) + &quot; seconds&quot;
 
-<span class="o">?</span> <span class="s">&quot;calling 100000 methods using braces &quot;</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">100000</span>
-        <span class="n">o1</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
-<span class="k">next</span>
-<span class="o">?</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="p">((</span><span class="n">clock</span><span class="p">()</span><span class="o">-</span><span class="n">t1</span><span class="p">)</span><span class="o">/</span><span class="n">clockspersecond</span><span class="p">())</span> <span class="o">+</span> <span class="s">&quot; seconds&quot;</span>
+? &quot;calling 100000 methods using braces &quot;
+t1 = clock()
+for x = 1 to 100000
+        o1 { test() }
+next
+? &quot;Time : &quot; + ((clock()-t1)/clockspersecond()) + &quot; seconds&quot;
 
 
-<span class="k">func</span> <span class="n">test</span>
+func test
 
-<span class="k">class</span> <span class="n">test</span>
-        <span class="k">func</span> <span class="n">test</span>
+class test
+        func test
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>calling 100000 functions
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>calling 100000 functions
 Time : 0.28 seconds
 calling 100000 methods using the dot operator
 Time : 0.36 seconds
@@ -266,32 +483,62 @@ Time : 1.19 seconds
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Calling functions is faster than calling methods but the difference is very small.</p>
+<p class="admonition-title">Note</p>
+<p>Calling functions is faster than calling methods but the difference is very small.</p>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Using the dot operator to call methods is faster than using braces.</p>
+<p class="admonition-title">Note</p>
+<p>Using the dot operator to call methods is faster than using braces.</p>
 </div>
 </div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="goldmagic800.html">The Gold Magic 800 Game</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="compiler.html">Command Line Options</a>&#160;&#160;»
-        </p>
+        <a href="compiler.html" class="btn btn-neutral float-right" title="Command Line Options" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="goldmagic800.html" class="btn btn-neutral float-left" title="The Gold Magic 800 Game" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

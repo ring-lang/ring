@@ -1,68 +1,283 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Scope Rules for Functions and Methods &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>Scope Rules for Functions and Methods &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Syntax Flexibility" href="syntaxflexibility.html" />
     <link rel="prev" title="Scope Rules for Variables and Attributes" href="scope.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>Scope Rules for Functions and Methods</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="scope.html">Scope Rules for Variables and Attributes</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="syntaxflexibility.html">Syntax Flexibility</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Scope Rules for Functions and Methods</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#how-ring-find-the-functions-and-methods">How Ring find the Functions and Methods?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-about-sharing-names-between-functions-and-methods">Example about Sharing Names between Functions and Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calling-a-function-sharing-the-name-with-a-method-in-the-current-class">Calling a function sharing the name with a method in the current class</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Scope Rules for Functions and Methods</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="scope-rules-for-functions-and-methods">
 <span id="index-0"></span><h1>Scope Rules for Functions and Methods<a class="headerlink" href="#scope-rules-for-functions-and-methods" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will learn about the scope rules for functions and methods.</p>
 <p>You need to know the next information once you started using Ring for large applications.</p>
 <p>These applications may contains and use</p>
 <ul class="simple">
-<li>Many Packages and Classes written in Ring</li>
-<li>Many Functions written in Ring</li>
-<li>Standard Ring Functions (Written in C language)</li>
-<li>Functions and Classes written in C/C++ languages</li>
+<li><p>Many Packages and Classes written in Ring</p></li>
+<li><p>Many Functions written in Ring</p></li>
+<li><p>Standard Ring Functions (Written in C language)</p></li>
+<li><p>Functions and Classes written in C/C++ languages</p></li>
 </ul>
 <div class="section" id="how-ring-find-the-functions-and-methods">
 <span id="index-1"></span><h2>How Ring find the Functions and Methods?<a class="headerlink" href="#how-ring-find-the-functions-and-methods" title="Permalink to this headline">¶</a></h2>
 <p>When you call a method or function, Ring will start a search process to find this function</p>
-<p>If found &#8211;&gt; Call the function and store the function pointer in the cache so Ring can use it again with doing another search.</p>
-<p>If not found &#8212;&gt; Runtime error message (That you can avoid using Try/Catch)</p>
+<p>If found –&gt; Call the function and store the function pointer in the cache so Ring can use it again with doing another search.</p>
+<p>If not found —&gt; Runtime error message (That you can avoid using Try/Catch)</p>
 <p>How the search process is done?</p>
 <p>Search for functions/methods follow the next order</p>
 <p>1 - Search in methods (if we are inside class method or object using braces {})</p>
@@ -73,72 +288,72 @@
 <p>We can replace C/C++ Functions with Ring Functions.</p>
 <p>We can replace Ring Functions with Ring Methods.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">Using self.method() is not necessary in any use case.</p>
+<p class="admonition-title">Note</p>
+<p>Using self.method() is not necessary in any use case.</p>
 </div>
 <div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">We can use this.method() to escape from the current active scope that we access using braces {} and call a method in the class that we are inside.</p>
+<p class="admonition-title">Tip</p>
+<p>We can use this.method() to escape from the current active scope that we access using braces {} and call a method in the class that we are inside.</p>
 </div>
 </div>
 <div class="section" id="example-about-sharing-names-between-functions-and-methods">
 <span id="index-2"></span><h2>Example about Sharing Names between Functions and Methods<a class="headerlink" href="#example-about-sharing-names-between-functions-and-methods" title="Permalink to this headline">¶</a></h2>
 <p>Look at the next example</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
-        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="n">test2</span><span class="p">()</span> <span class="p">}</span>
-        <span class="n">test2</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
+        o1 = new myclass { test() test2() }
+        test2()
 
-<span class="k">func</span> <span class="n">f1</span>
-        <span class="k">see</span> <span class="s">&quot;f1 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f1
+        see &quot;f1 function&quot; + nl
 
-<span class="k">func</span> <span class="n">f2</span>
-        <span class="k">see</span> <span class="s">&quot;f2 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f2
+        see &quot;f2 function&quot; + nl
 
-<span class="k">func</span> <span class="n">f3</span>
-        <span class="k">see</span> <span class="s">&quot;f3 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f3
+        see &quot;f3 function&quot; + nl
 
-<span class="k">func</span> <span class="n">test2</span>
-        <span class="n">myline</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;test2 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span>
-                <span class="n">f1</span><span class="p">()</span>
-                <span class="n">f2</span><span class="p">()</span>
-                <span class="n">f3</span><span class="p">()</span>
-                <span class="n">self</span><span class="p">.</span><span class="n">f3</span><span class="p">()</span>
-        <span class="p">}</span>
-        <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass</span>
-        <span class="n">myobj</span><span class="p">.</span><span class="n">f3</span><span class="p">()</span>
-        <span class="n">myline</span><span class="p">()</span>
+func test2
+        myline()
+        see &quot;test2 function&quot; + nl
+        new myclass {
+                f1()
+                f2()
+                f3()
+                self.f3()
+        }
+        myobj = new myclass
+        myobj.f3()
+        myline()
 
-<span class="k">func</span> <span class="n">myline</span>
-        <span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+func myline
+        see copy(&quot;=&quot;,40) + nl
 
-<span class="k">Class</span> <span class="n">myclass</span>
+Class myclass
 
-        <span class="k">func</span> <span class="n">test</span>
-                <span class="n">myline</span><span class="p">()</span>
-                <span class="k">see</span> <span class="s">&quot;test method&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="n">f1</span><span class="p">()</span>
-                <span class="n">f2</span><span class="p">()</span>
-                <span class="n">f3</span><span class="p">()</span>
-                <span class="n">myline</span><span class="p">()</span>
+        func test
+                myline()
+                see &quot;test method&quot; + nl
+                f1()
+                f2()
+                f3()
+                myline()
 
-        <span class="k">func</span> <span class="n">f3</span>
-                <span class="k">see</span> <span class="s">&quot;f3 method&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        func f3
+                see &quot;f3 method&quot; + nl
 
-        <span class="k">func</span> <span class="n">test2</span>
-                <span class="n">myline</span><span class="p">()</span>
-                <span class="k">see</span> <span class="s">&quot;test2 method&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="n">self</span> <span class="p">{</span>
-                        <span class="n">f1</span><span class="p">()</span>
-                        <span class="n">f2</span><span class="p">()</span>
-                        <span class="n">f3</span><span class="p">()</span>
-                <span class="p">}</span>
-                <span class="n">myline</span><span class="p">()</span>
+        func test2
+                myline()
+                see &quot;test2 method&quot; + nl
+                self {
+                        f1()
+                        f2()
+                        f3()
+                }
+                myline()
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>========================================
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>========================================
 test method
 f1 function
 f2 function
@@ -167,40 +382,40 @@ f3 method
 <p>How we can call the f3() function from the test() method ?</p>
 <p>Solution (1) : Change the current object scope to another object scope</p>
 <p>In this solution we will have an empty class called local that we will use to change the current object scope.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
-        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">test</span><span class="p">()}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
+        o1 = new myclass { test()}
 
-<span class="k">func</span> <span class="n">f1</span>
-        <span class="k">see</span> <span class="s">&quot;f1 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f1
+        see &quot;f1 function&quot; + nl
 
-<span class="k">func</span> <span class="n">f2</span>
-        <span class="k">see</span> <span class="s">&quot;f2 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f2
+        see &quot;f2 function&quot; + nl
 
-<span class="k">func</span> <span class="n">f3</span>
-        <span class="k">see</span> <span class="s">&quot;f3 function&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f3
+        see &quot;f3 function&quot; + nl
 
-<span class="k">func</span> <span class="n">myline</span>
-        <span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+func myline
+        see copy(&quot;=&quot;,40) + nl
 
-<span class="k">Class</span> <span class="n">myclass</span>
+Class myclass
 
-        <span class="k">func</span> <span class="n">test</span>
-                <span class="n">myline</span><span class="p">()</span>
-                <span class="k">see</span> <span class="s">&quot;test method&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="n">f1</span><span class="p">()</span>
-                <span class="n">f2</span><span class="p">()</span>
-                <span class="n">f3</span><span class="p">()</span>               <span class="c"># call f3() method</span>
-                <span class="k">new</span> <span class="n">local</span> <span class="p">{</span> <span class="n">f3</span><span class="p">()</span> <span class="p">}</span> <span class="c"># call f3() function</span>
-                <span class="n">myline</span><span class="p">()</span>
+        func test
+                myline()
+                see &quot;test method&quot; + nl
+                f1()
+                f2()
+                f3()               # call f3() method
+                new local { f3() } # call f3() function
+                myline()
 
-        <span class="k">func</span> <span class="n">f3</span>
-                <span class="k">see</span> <span class="s">&quot;f3 method&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        func f3
+                see &quot;f3 method&quot; + nl
 
-<span class="k">class</span> <span class="n">local</span>
+class local
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>========================================
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>========================================
 test method
 f1 function
 f2 function
@@ -213,21 +428,51 @@ f3 function
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="scope.html">Scope Rules for Variables and Attributes</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="syntaxflexibility.html">Syntax Flexibility</a>&#160;&#160;»
-        </p>
+        <a href="syntaxflexibility.html" class="btn btn-neutral float-right" title="Syntax Flexibility" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="scope.html" class="btn btn-neutral float-left" title="Scope Rules for Variables and Attributes" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

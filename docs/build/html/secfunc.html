@@ -1,95 +1,320 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Security and Internet Functions &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>Security and Internet Functions &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Object Oriented Programming (OOP)" href="oop.html" />
     <link rel="prev" title="PostgreSQL Functions" href="postgresql.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>Security and Internet Functions</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="postgresql.html">PostgreSQL Functions</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="oop.html">Object Oriented Programming (OOP)</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Security and Internet Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#md5-function">MD5() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sha1-function">SHA1() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sha256-function">SHA256() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sha512-function">SHA512() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sha384-function">SHA384() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sha224-function">SHA224() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#encrypt-function">Encrypt() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decrypt-function">Decrypt() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#encryption-and-decryption-example">Encryption and Decryption Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#file-hash">File Hash</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#randbytes-function">Randbytes() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#download-function">Download() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sendemail-function">SendEmail() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Security and Internet Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="security-and-internet-functions">
 <span id="index-0"></span><h1>Security and Internet Functions<a class="headerlink" href="#security-and-internet-functions" title="Permalink to this headline">¶</a></h1>
 <p>This chapter contains the security and internet functions provided by the Ring programming language
 for Hashing, Encryption &amp; Decryption.</p>
 <p>Before using the next function load the openssllib.ring library</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;openssllib.ring&quot;</span>
-<span class="c"># Use OpenSSL functions</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;openssllib.ring&quot;
+# Use OpenSSL functions
 </pre></div>
 </div>
 <ul class="simple">
-<li>MD5()</li>
-<li>SHA1()</li>
-<li>SHA256()</li>
-<li>SHA512()</li>
-<li>SHA384()</li>
-<li>SHA224()</li>
-<li>Encrypt()</li>
-<li>Decrypt()</li>
-<li>Randbytes()</li>
+<li><p>MD5()</p></li>
+<li><p>SHA1()</p></li>
+<li><p>SHA256()</p></li>
+<li><p>SHA512()</p></li>
+<li><p>SHA384()</p></li>
+<li><p>SHA224()</p></li>
+<li><p>Encrypt()</p></li>
+<li><p>Decrypt()</p></li>
+<li><p>Randbytes()</p></li>
 </ul>
 <p>Before using the next function load the internetlib.ring library</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;internetlib.ring&quot;</span>
-<span class="c"># Use the Internet functions</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;internetlib.ring&quot;
+# Use the Internet functions
 </pre></div>
 </div>
 <ul class="simple">
-<li>Download()</li>
-<li>SendEmail()</li>
+<li><p>Download()</p></li>
+<li><p>SendEmail()</p></li>
 </ul>
 <div class="section" id="md5-function">
 <span id="index-1"></span><h2>MD5() Function<a class="headerlink" href="#md5-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the MD5 hash using the MD5() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">MD5</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">MD5</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MD5(cString) ---&gt; String contains the MD5 hash of the string cString
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;md5(&#39;happy&#39;) = &quot;</span> <span class="o">+</span> <span class="n">md5</span><span class="p">(</span><span class="s">&quot;happy&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;md5(&#39;Hello&#39;) = &quot;</span> <span class="o">+</span> <span class="n">md5</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;md5(&#39;happy&#39;) = &quot; + md5(&quot;happy&quot;) + nl +
+    &quot;md5(&#39;Hello&#39;) = &quot; + md5(&quot;Hello&quot;) + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>md5(&#39;happy&#39;) = 56ab24c15b72a457069c5ea42fcfc640
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>md5(&#39;happy&#39;) = 56ab24c15b72a457069c5ea42fcfc640
 md5(&#39;Hello&#39;) = 8b1a9953c4611296a827abf8c47804d7
 </pre></div>
 </div>
@@ -98,17 +323,17 @@ md5(&#39;Hello&#39;) = 8b1a9953c4611296a827abf8c47804d7
 <span id="index-2"></span><h2>SHA1() Function<a class="headerlink" href="#sha1-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the SHA1 hash using the SHA1() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SHA1</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA1</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SHA1(cString) ---&gt; String contains the SHA1 hash of the string cString
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;sha1(&#39;hello&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha1</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha1(&#39;apple&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha1</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;sha1(&#39;hello&#39;) : &quot; + sha1(&quot;hello&quot;) + nl +
+    &quot;sha1(&#39;apple&#39;) : &quot; + sha1(&quot;apple&quot;) + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">sha1</span><span class="p">(</span><span class="sc">&#39;hello&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="n">aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d</span>
-<span class="n">sha1</span><span class="p">(</span><span class="sc">&#39;apple&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="n">d0be2dc421be4fcd0172e5afceea3970e2f3d940</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>sha1(&#39;hello&#39;) : aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
+sha1(&#39;apple&#39;) : d0be2dc421be4fcd0172e5afceea3970e2f3d940
 </pre></div>
 </div>
 </div>
@@ -116,16 +341,16 @@ md5(&#39;Hello&#39;) = 8b1a9953c4611296a827abf8c47804d7
 <span id="index-3"></span><h2>SHA256() Function<a class="headerlink" href="#sha256-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the SHA256 hash using the SHA256() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SHA256</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA256</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SHA256(cString) ---&gt; String contains the SHA256 hash of the string cString
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;sha256(&#39;hello&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha256</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha256(&#39;apple&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha256</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;sha256(&#39;hello&#39;) : &quot; + sha256(&quot;hello&quot;) + nl +
+    &quot;sha256(&#39;apple&#39;) : &quot; + sha256(&quot;apple&quot;) + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>sha256(&#39;hello&#39;) : 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>sha256(&#39;hello&#39;) : 2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824
 sha256(&#39;apple&#39;) : 3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b9942dd4f1b
 </pre></div>
 </div>
@@ -134,17 +359,17 @@ sha256(&#39;apple&#39;) : 3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b
 <span id="index-4"></span><h2>SHA512() Function<a class="headerlink" href="#sha512-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the SHA512 hash using the SHA512() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SHA512</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA512</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SHA512(cString) ---&gt; String contains the SHA512 hash of the string cString
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;sha512(&#39;hello&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha512</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha512(&#39;apple&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha512</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha512(&#39;hello world&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha512</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;sha512(&#39;hello&#39;) : &quot; + sha512(&quot;hello&quot;) + nl +
+    &quot;sha512(&#39;apple&#39;) : &quot; + sha512(&quot;apple&quot;) + nl +
+    &quot;sha512(&#39;hello world&#39;) : &quot; + sha512(&quot;hello world&quot;) + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>sha512(&#39;hello&#39;) : 9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673c
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>sha512(&#39;hello&#39;) : 9b71d224bd62f3785d96d46ad3ea3d73319bfbc2890caadae2dff72519673c
 a72323c3d99ba5c11d7c7acc6e14b8c5da0c4663475c2e5c3adef46f73bcdec043
 sha512(&#39;apple&#39;) : 844d8779103b94c18f4aa4cc0c3b4474058580a991fba85d3ca698a0bc9e52
 c5940feb7a65a3a290e17e6b23ee943ecc4f73e7490327245b4fe5d5efb590feb2
@@ -157,17 +382,17 @@ sha512(&#39;hello world&#39;) : 309ecc489c12d6eb4cc40f50c902f2b4d0ed77ee511a7c7a
 <span id="index-5"></span><h2>SHA384() Function<a class="headerlink" href="#sha384-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the SHA384 hash using the SHA384() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SHA384</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA384</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SHA384(cString) ---&gt; String contains the SHA384 hash of the string cString
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;sha384(&#39;hello&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha384(&#39;apple&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha384(&#39;hello world&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;sha384(&#39;hello&#39;) : &quot; + sha384(&quot;hello&quot;) + nl +
+    &quot;sha384(&#39;apple&#39;) : &quot; + sha384(&quot;apple&quot;) + nl +
+    &quot;sha384(&#39;hello world&#39;) : &quot; + sha384(&quot;hello world&quot;) + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>sha384(&#39;hello&#39;) : 59e1748777448c69de6b800d7a33bbfb9ff1b463e44354c3553bcdb9c666fa
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>sha384(&#39;hello&#39;) : 59e1748777448c69de6b800d7a33bbfb9ff1b463e44354c3553bcdb9c666fa
 90125a3c79f90397bdf5f6a13de828684f
 sha384(&#39;apple&#39;) : 3d8786fcb588c93348756c6429717dc6c374a14f7029362281a3b21dc10250
 ddf0d0578052749822eb08bc0dc1e68b0f
@@ -180,17 +405,17 @@ b83578b3e417cb71ce646efd0819dd8c088de1bd
 <span id="index-6"></span><h2>SHA224() Function<a class="headerlink" href="#sha224-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the SHA224 hash using the SHA224() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SHA224</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA224</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SHA224(cString) ---&gt; String contains the SHA224 hash of the string cString
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;sha224(&#39;hello&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha224</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha224(&#39;apple&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha224</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha224(&#39;hello world&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha224</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;sha224(&#39;hello&#39;) : &quot; + sha224(&quot;hello&quot;) + nl +
+    &quot;sha224(&#39;apple&#39;) : &quot; + sha224(&quot;apple&quot;) + nl +
+    &quot;sha224(&#39;hello world&#39;) : &quot; + sha224(&quot;hello world&quot;) + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>sha224(&#39;hello&#39;) : ea09ae9cc6768c50fcee903ed054556e5bfc8347907f12598aa24193
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>sha224(&#39;hello&#39;) : ea09ae9cc6768c50fcee903ed054556e5bfc8347907f12598aa24193
 sha224(&#39;apple&#39;) : b7bbfdf1a1012999b3c466fdeb906a629caa5e3e022428d1eb702281
 sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522a563582b
 </pre></div>
@@ -200,7 +425,7 @@ sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522
 <span id="index-7"></span><h2>Encrypt() Function<a class="headerlink" href="#encrypt-function" title="Permalink to this headline">¶</a></h2>
 <p>We can use the Encrypt() function to encrypts the data using the Blowfish algorithm.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Encrypt</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Encrypted</span> <span class="kt">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Encrypt(cString, cKey, cIV) ---&gt; Encrypted string
 </pre></div>
 </div>
 </div>
@@ -208,7 +433,7 @@ sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522
 <span id="index-8"></span><h2>Decrypt() Function<a class="headerlink" href="#decrypt-function" title="Permalink to this headline">¶</a></h2>
 <p>We can use the Decrypt() function to decrypt the data encrypted using the Encrypt() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Decrypt</span><span class="p">(</span><span class="n">cCipher</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Decrypted</span> <span class="kt">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Decrypt(cCipher, cKey, cIV) ---&gt; Decrypted string
 </pre></div>
 </div>
 </div>
@@ -216,61 +441,61 @@ sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522
 <span id="index-9"></span><h2>Encryption and Decryption Example<a class="headerlink" href="#encryption-and-decryption-example" title="Permalink to this headline">¶</a></h2>
 <p>The next example demonstrates how to use the Encrypt() and Decrypt() functions.</p>
 <p>These functions use the Blowfish algorithm.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
-<span class="kt">list</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">15</span>  <span class="n">cKey</span><span class="o">=</span><span class="s">&quot;&quot;</span>    <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cKey</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
-<span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">8</span>   <span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>   <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
-<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Enter a string : &quot; give cStr
+list = 0:15  cKey=&quot;&quot;    for x in list cKey += char(x) next
+list = 1:8   cIV = &quot;&quot;   for x in list cIV += char(x) next
+cStr = Encrypt(cStr,cKey,cIV)
+See &quot;Cipher Text    : &quot; + cStr + nl +
+    &quot;Plain Text     : &quot; + Decrypt(cStr,cKey,cIV) + nl
 </pre></div>
 </div>
 <p>We can write the same example using normal for loop</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Enter a string : &quot; give cStr
 
-<span class="n">cKey</span><span class="o">=</span><span class="s">&quot;&quot;</span>                         <span class="c"># 16 bytes</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">15</span>
-        <span class="n">cKey</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="k">next</span>
+cKey=&quot;&quot;                         # 16 bytes
+for x = 0 to 15
+        cKey += char(x)
+next
 
-<span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">8</span>
-        <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="k">next</span>
+cIV = &quot;&quot;
+for x = 1 to 8
+        cIV += char(x)
+next
 
 
-<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+cStr = Encrypt(cStr,cKey,cIV)
+See &quot;Cipher Text    : &quot; + cStr + nl +
+    &quot;Plain Text     : &quot; + Decrypt(cStr,cKey,cIV) + nl
 </pre></div>
 </div>
 <p>Also we can write the password and the IV directly using strings</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Enter a string : &quot; give cStr
 
-<span class="c"># Note: Don&#39;t use simple password in real applications!</span>
-<span class="n">cKey</span> <span class="o">=</span> <span class="s">&quot;1234567890@#$%^&amp;&quot;</span>
-<span class="n">cIV</span>  <span class="o">=</span> <span class="s">&quot;87654321&quot;</span>
+# Note: Don&#39;t use simple password in real applications!
+cKey = &quot;1234567890@#$%^&amp;&quot;
+cIV  = &quot;87654321&quot;
 
-<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+cStr = Encrypt(cStr,cKey,cIV)
+See &quot;Cipher Text    : &quot; + cStr + nl +
+    &quot;Plain Text     : &quot; + Decrypt(cStr,cKey,cIV) + nl
 </pre></div>
 </div>
 </div>
 <div class="section" id="file-hash">
 <span id="index-10"></span><h2>File Hash<a class="headerlink" href="#file-hash" title="Permalink to this headline">¶</a></h2>
 <p>The next example demonstrates how to calculate the hash functions for files</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myapp.exe&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="s">&quot;Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;md5 : &quot;</span> <span class="o">+</span> <span class="n">md5</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha1 : &quot;</span> <span class="o">+</span> <span class="n">sha1</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha256 : &quot;</span> <span class="o">+</span> <span class="n">sha256</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha224 : &quot;</span> <span class="o">+</span> <span class="n">sha224</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha384 : &quot;</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;sha512 : &quot;</span> <span class="o">+</span> <span class="n">sha512</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = read(&quot;myapp.exe&quot;)
+see &quot;Size : &quot; + len(cStr) + nl +
+    &quot;md5 : &quot; + md5(cStr) + nl +
+    &quot;sha1 : &quot; + sha1(cStr) + nl +
+    &quot;sha256 : &quot; + sha256(cStr) + nl +
+    &quot;sha224 : &quot; + sha224(cStr) + nl +
+    &quot;sha384 : &quot; + sha384(cStr) + nl +
+    &quot;sha512 : &quot; + sha512(cStr) + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>Size : 58079876
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Size : 58079876
 md5 : 762eee15d8d2fd73b71ea52538b28667
 sha1 : 9212c0c7258bad89a62bd239e1358a9276a9d070
 sha256 : 7d6724e69b6c553da749ba31b6185dddc965129b64d9e9bf3de88f67df3b1cdc
@@ -286,73 +511,103 @@ cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 <span id="index-11"></span><h2>Randbytes() Function<a class="headerlink" href="#randbytes-function" title="Permalink to this headline">¶</a></h2>
 <p>We can generate a string of pseudo-random bytes using the Randbytes() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Randbytes</span><span class="p">(</span><span class="n">nSize</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">random</span> <span class="n">bytes</span> <span class="p">(</span><span class="n">bytes</span> <span class="n">count</span> <span class="o">=</span> <span class="n">nSize</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Randbytes(nSize) ---&gt; String contains random bytes (bytes count = nSize)
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">salt</span> <span class="o">=</span>  <span class="n">randbytes</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
-<span class="n">password</span> <span class="o">=</span> <span class="s">&quot;SecretPassWord@$%123&quot;</span>
-<span class="k">see</span> <span class="n">salt</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">sha256</span><span class="p">(</span><span class="s">&quot;test&quot;</span> <span class="o">+</span> <span class="n">salt</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>salt =  randbytes(32)
+password = &quot;SecretPassWord@$%123&quot;
+see salt + nl
+see sha256(&quot;test&quot; + salt) + nl
 </pre></div>
 </div>
 </div>
 <div class="section" id="download-function">
 <span id="index-12"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Download</span><span class="p">(</span><span class="n">cURL</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">server</span> <span class="n">response</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Download(cURL) ---&gt; String contains the server response
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cStr</span><span class="o">=</span> <span class="n">download</span><span class="p">(</span><span class="s">&quot;http://doublesvsoop.sourceforge.net/&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">cStr</span>
-<span class="n">write</span><span class="p">(</span><span class="s">&quot;download.txt&quot;</span><span class="p">,</span><span class="n">cStr</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr= download(&quot;http://doublesvsoop.sourceforge.net/&quot;)
+see cStr
+write(&quot;download.txt&quot;,cStr)
 </pre></div>
 </div>
 </div>
 <div class="section" id="sendemail-function">
 <span id="index-13"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SendEmail</span><span class="p">(</span><span class="n">cSMTPServer</span><span class="p">,</span><span class="n">cEmail</span><span class="p">,</span><span class="n">cPassword</span><span class="p">,</span><span class="n">cSender</span><span class="p">,</span><span class="n">cReceiver</span><span class="p">,</span><span class="n">cCC</span><span class="p">,</span><span class="n">cTitle</span><span class="p">,</span><span class="n">cContent</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SendEmail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Send email...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">sendemail</span><span class="p">(</span><span class="s">&quot;smtp://smtp.gmail.com:587&quot;</span><span class="p">,</span>
-        <span class="s">&quot;email@gmail.com&quot;</span><span class="p">,</span>
-        <span class="s">&quot;password&quot;</span><span class="p">,</span>
-        <span class="s">&quot;email@gmail.com&quot;</span><span class="p">,</span>
-        <span class="s">&quot;somebody@yahoo.com&quot;</span><span class="p">,</span>
-        <span class="s">&quot;somebodyelse@yahoo.com&quot;</span><span class="p">,</span>
-        <span class="s">&quot;Sending email from Ring&quot;</span><span class="p">,</span>
-        <span class="s">&quot;Hello</span>
-         <span class="n">How</span> <span class="n">are</span> <span class="n">you</span><span class="o">?</span>
-         <span class="n">Are</span> <span class="n">you</span> <span class="n">fine</span><span class="o">?</span>
-         <span class="n">Thank</span> <span class="n">you</span><span class="o">!</span>
-         <span class="n">Greetings</span><span class="p">,</span>
-         <span class="s">Mahmoud&quot;)</span>
-<span class="k">see</span> <span class="s">&quot;Done..&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Send email...&quot; + nl
+sendemail(&quot;smtp://smtp.gmail.com:587&quot;,
+        &quot;email@gmail.com&quot;,
+        &quot;password&quot;,
+        &quot;email@gmail.com&quot;,
+        &quot;somebody@yahoo.com&quot;,
+        &quot;somebodyelse@yahoo.com&quot;,
+        &quot;Sending email from Ring&quot;,
+        &quot;Hello
+         How are you?
+         Are you fine?
+         Thank you!
+         Greetings,
+         Mahmoud&quot;)
+see &quot;Done..&quot; + nl
 </pre></div>
 </div>
 </div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="postgresql.html">PostgreSQL Functions</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="oop.html">Object Oriented Programming (OOP)</a>&#160;&#160;»
-        </p>
+        <a href="oop.html" class="btn btn-neutral float-right" title="Object Oriented Programming (OOP)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="postgresql.html" class="btn btn-neutral float-left" title="PostgreSQL Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

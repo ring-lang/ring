@@ -1,66 +1,286 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Date and Time &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>Date and Time &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Check Data Type and Conversion" href="checkandconvert.html" />
     <link rel="prev" title="Strings" href="strings.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>Date and Time</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="strings.html">Strings</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="checkandconvert.html">Check Data Type and Conversion</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Date and Time</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#clock-function">Clock() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clockspersecond-function">ClocksPerSecond() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#time-function">Time() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#date-function">Date() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#timelist-function">TimeList() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adddays-function">AddDays() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#diffdays-function">DiffDays() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#epochtime-function">EpochTime() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Date and Time</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="date-and-time">
 <span id="index-0"></span><h1>Date and Time<a class="headerlink" href="#date-and-time" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we are going to learn about the date and time functions.</p>
 <div class="section" id="clock-function">
 <span id="index-1"></span><h2>Clock() Function<a class="headerlink" href="#clock-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Clock</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">clock</span> <span class="n">ticks</span> <span class="k">from</span> <span class="n">program</span> <span class="n">start</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Clock() ---&gt; The number of clock ticks from program start
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Calculate performance&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">t1</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">1000000</span> <span class="k">next</span>
-<span class="k">see</span> <span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t1</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Calculate performance&quot; + nl
+t1 = clock()
+for x = 1 to 1000000 next
+see clock() - t1
 </pre></div>
 </div>
 </div>
@@ -68,13 +288,13 @@
 <span id="index-2"></span><h2>ClocksPerSecond() Function<a class="headerlink" href="#clockspersecond-function" title="Permalink to this headline">¶</a></h2>
 <p>Return how many clocks in one second</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">clockspersecond</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">clocks</span> <span class="k">in</span> <span class="n">one</span> <span class="n">second</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>clockspersecond() ---&gt; Number of clocks in one second
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># Wait 1 second</span>
-<span class="n">t</span> <span class="o">=</span> <span class="n">clock</span><span class="p">()</span>
-<span class="k">while</span> <span class="n">clock</span><span class="p">()</span> <span class="o">-</span> <span class="n">t</span> <span class="o">&lt;=</span> <span class="n">clockspersecond</span><span class="p">()</span> <span class="k">end</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># Wait 1 second
+t = clock()
+while clock() - t &lt;= clockspersecond() end
 </pre></div>
 </div>
 </div>
@@ -82,7 +302,7 @@
 <span id="index-3"></span><h2>Time() Function<a class="headerlink" href="#time-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the system time using the Time() function.</p>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="n">time</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Time : &quot; + time()
 </pre></div>
 </div>
 </div>
@@ -90,11 +310,11 @@
 <span id="index-4"></span><h2>Date() Function<a class="headerlink" href="#date-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the date using the Date() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Date</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">date</span> <span class="s">&quot;dd/mm/yyyy&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Date() ---&gt; String represent the date &quot;dd/mm/yyyy&quot;
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Date : &quot;</span> <span class="o">+</span> <span class="n">date</span><span class="p">()</span>  <span class="c"># Date : 24/05/2015</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Date : &quot; + date()  # Date : 24/05/2015
 </pre></div>
 </div>
 </div>
@@ -102,217 +322,247 @@
 <span id="index-5"></span><h2>TimeList() Function<a class="headerlink" href="#timelist-function" title="Permalink to this headline">¶</a></h2>
 <p>We can print the date and the time information using the TimeList() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">TimeList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">time</span> <span class="ow">and</span> <span class="n">date</span> <span class="n">information</span><span class="p">.</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>TimeList() ---&gt; List contains the time and date information.
 </pre></div>
 </div>
 <p>The next table presents the list items</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="15%" />
-<col width="85%" />
+<col style="width: 15%" />
+<col style="width: 85%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">index</th>
-<th class="head">value</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>index</p></th>
+<th class="head"><p>value</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>1</td>
-<td>abbreviated weekday name</td>
+<tbody>
+<tr class="row-even"><td><p>1</p></td>
+<td><p>abbreviated weekday name</p></td>
 </tr>
-<tr class="row-odd"><td>2</td>
-<td>full weekday name</td>
+<tr class="row-odd"><td><p>2</p></td>
+<td><p>full weekday name</p></td>
 </tr>
-<tr class="row-even"><td>3</td>
-<td>abbreviated month name</td>
+<tr class="row-even"><td><p>3</p></td>
+<td><p>abbreviated month name</p></td>
 </tr>
-<tr class="row-odd"><td>4</td>
-<td>full month name</td>
+<tr class="row-odd"><td><p>4</p></td>
+<td><p>full month name</p></td>
 </tr>
-<tr class="row-even"><td>5</td>
-<td>Date &amp; Time</td>
+<tr class="row-even"><td><p>5</p></td>
+<td><p>Date &amp; Time</p></td>
 </tr>
-<tr class="row-odd"><td>6</td>
-<td>Day of the month</td>
+<tr class="row-odd"><td><p>6</p></td>
+<td><p>Day of the month</p></td>
 </tr>
-<tr class="row-even"><td>7</td>
-<td>Hour (24)</td>
+<tr class="row-even"><td><p>7</p></td>
+<td><p>Hour (24)</p></td>
 </tr>
-<tr class="row-odd"><td>8</td>
-<td>Hour (12)</td>
+<tr class="row-odd"><td><p>8</p></td>
+<td><p>Hour (12)</p></td>
 </tr>
-<tr class="row-even"><td>9</td>
-<td>Day of the year</td>
+<tr class="row-even"><td><p>9</p></td>
+<td><p>Day of the year</p></td>
 </tr>
-<tr class="row-odd"><td>10</td>
-<td>Month of the year</td>
+<tr class="row-odd"><td><p>10</p></td>
+<td><p>Month of the year</p></td>
 </tr>
-<tr class="row-even"><td>11</td>
-<td>Minutes after hour</td>
+<tr class="row-even"><td><p>11</p></td>
+<td><p>Minutes after hour</p></td>
 </tr>
-<tr class="row-odd"><td>12</td>
-<td>AM or PM</td>
+<tr class="row-odd"><td><p>12</p></td>
+<td><p>AM or PM</p></td>
 </tr>
-<tr class="row-even"><td>13</td>
-<td>Seconds after the hour</td>
+<tr class="row-even"><td><p>13</p></td>
+<td><p>Seconds after the hour</p></td>
 </tr>
-<tr class="row-odd"><td>14</td>
-<td>Week of the year (sun-sat)</td>
+<tr class="row-odd"><td><p>14</p></td>
+<td><p>Week of the year (sun-sat)</p></td>
 </tr>
-<tr class="row-even"><td>15</td>
-<td>day of the week</td>
+<tr class="row-even"><td><p>15</p></td>
+<td><p>day of the week</p></td>
 </tr>
-<tr class="row-odd"><td>16</td>
-<td>date</td>
+<tr class="row-odd"><td><p>16</p></td>
+<td><p>date</p></td>
 </tr>
-<tr class="row-even"><td>17</td>
-<td>time</td>
+<tr class="row-even"><td><p>17</p></td>
+<td><p>time</p></td>
 </tr>
-<tr class="row-odd"><td>18</td>
-<td>year of the century</td>
+<tr class="row-odd"><td><p>18</p></td>
+<td><p>year of the century</p></td>
 </tr>
-<tr class="row-even"><td>19</td>
-<td>year</td>
+<tr class="row-even"><td><p>19</p></td>
+<td><p>year</p></td>
 </tr>
-<tr class="row-odd"><td>20</td>
-<td>time zone</td>
+<tr class="row-odd"><td><p>20</p></td>
+<td><p>time zone</p></td>
 </tr>
-<tr class="row-even"><td>21</td>
-<td>percent sign</td>
+<tr class="row-even"><td><p>21</p></td>
+<td><p>percent sign</p></td>
 </tr>
 </tbody>
 </table>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">Output</span><span class="p">:</span>
-<span class="o">**</span> <span class="n">Sun</span>                  <span class="n">abbreviated</span> <span class="n">weekday</span> <span class="n">name</span>
-<span class="o">**</span> <span class="n">Sunday</span>               <span class="n">full</span> <span class="n">weekday</span> <span class="n">name</span>
-<span class="o">**</span> <span class="n">May</span>                  <span class="n">abbreviated</span> <span class="n">month</span> <span class="n">name</span>
-<span class="o">**</span> <span class="n">May</span>                  <span class="n">full</span> <span class="n">month</span> <span class="n">name</span>
-<span class="o">**</span> <span class="mi">05</span><span class="o">/</span><span class="mi">24</span><span class="o">/</span><span class="mi">15</span> <span class="mi">09</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">38</span>    <span class="n">Date</span> <span class="o">&amp;</span> <span class="n">Time</span>
-<span class="o">**</span> <span class="mi">24</span>                   <span class="n">Day</span> <span class="n">of</span> <span class="n">the</span> <span class="n">month</span>
-<span class="o">**</span> <span class="mi">09</span>                   <span class="n">Hour</span> <span class="p">(</span><span class="mi">24</span><span class="p">)</span>
-<span class="o">**</span> <span class="mi">09</span>                   <span class="n">Hour</span> <span class="p">(</span><span class="mi">12</span><span class="p">)</span>
-<span class="o">**</span> <span class="mi">144</span>                  <span class="n">Day</span> <span class="n">of</span> <span class="n">the</span> <span class="n">year</span>
-<span class="o">**</span> <span class="mi">05</span>                   <span class="n">Month</span> <span class="n">of</span> <span class="n">the</span> <span class="n">year</span>
-<span class="o">**</span> <span class="mi">58</span>                   <span class="n">Minutes</span> <span class="n">after</span> <span class="n">hour</span>
-<span class="o">**</span> <span class="n">AM</span>                   <span class="n">AM</span> <span class="ow">or</span> <span class="n">PM</span>
-<span class="o">**</span> <span class="mi">38</span>                   <span class="n">Seconds</span> <span class="n">after</span> <span class="n">the</span> <span class="n">hour</span>
-<span class="o">**</span> <span class="mi">21</span>                   <span class="n">Week</span> <span class="n">of</span> <span class="n">the</span> <span class="n">year</span> <span class="p">(</span><span class="n">sun</span><span class="o">-</span><span class="n">sat</span><span class="p">)</span>
-<span class="o">**</span> <span class="mi">0</span>                    <span class="n">day</span> <span class="n">of</span> <span class="n">the</span> <span class="n">week</span>
-<span class="o">**</span> <span class="mi">05</span><span class="o">/</span><span class="mi">24</span><span class="o">/</span><span class="mi">15</span>             <span class="n">date</span>
-<span class="o">**</span> <span class="mi">09</span><span class="p">:</span><span class="mi">58</span><span class="p">:</span><span class="mi">38</span>             <span class="n">time</span>
-<span class="o">**</span> <span class="mi">15</span>                   <span class="n">year</span> <span class="n">of</span> <span class="n">the</span> <span class="n">century</span>
-<span class="o">**</span> <span class="mi">2015</span>                 <span class="n">year</span>
-<span class="o">**</span> <span class="n">Arab</span> <span class="n">Standard</span> <span class="n">Time</span>   <span class="n">time</span> <span class="n">zone</span>
-<span class="o">**</span> <span class="o">%</span>                    <span class="n">percent</span> <span class="n">sign</span>
-<span class="o">*/</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>/* Output:
+** Sun                  abbreviated weekday name
+** Sunday               full weekday name
+** May                  abbreviated month name
+** May                  full month name
+** 05/24/15 09:58:38    Date &amp; Time
+** 24                   Day of the month
+** 09                   Hour (24)
+** 09                   Hour (12)
+** 144                  Day of the year
+** 05                   Month of the year
+** 58                   Minutes after hour
+** AM                   AM or PM
+** 38                   Seconds after the hour
+** 21                   Week of the year (sun-sat)
+** 0                    day of the week
+** 05/24/15             date
+** 09:58:38             time
+** 15                   year of the century
+** 2015                 year
+** Arab Standard Time   time zone
+** %                    percent sign
+*/
 
-<span class="k">See</span> <span class="n">TimeList</span><span class="p">()</span>
+See TimeList()
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Day Name : &quot;</span> <span class="o">+</span> <span class="n">TimeList</span><span class="p">()</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>       <span class="c"># Sunday</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Day Name : &quot; + TimeList()[2]       # Sunday
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Month Name : &quot;</span> <span class="o">+</span> <span class="n">TimeList</span><span class="p">()</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>     <span class="c"># May</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Month Name : &quot; + TimeList()[4]     # May
 </pre></div>
 </div>
 </div>
 <div class="section" id="adddays-function">
 <span id="index-6"></span><h2>AddDays() Function<a class="headerlink" href="#adddays-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">AddDays</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="n">nDays</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Date</span> <span class="k">from</span> <span class="n">cDate</span> <span class="ow">and</span> <span class="n">after</span> <span class="n">nDays</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>AddDays(cDate,nDays) ---&gt; Date from cDate and after nDays
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cDate</span> <span class="o">=</span> <span class="n">date</span><span class="p">()</span>
-<span class="k">see</span> <span class="n">cDate</span> <span class="o">+</span> <span class="n">nl</span>                  <span class="c"># 24/05/2015</span>
-<span class="n">cDate</span> <span class="o">=</span> <span class="n">adddays</span><span class="p">(</span><span class="n">cDate</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">cDate</span> <span class="o">+</span> <span class="n">nl</span>                  <span class="c"># 03/06/2015</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cDate = date()
+see cDate + nl                  # 24/05/2015
+cDate = adddays(cDate,10)
+see cDate + nl                  # 03/06/2015
 </pre></div>
 </div>
 </div>
 <div class="section" id="diffdays-function">
 <span id="index-7"></span><h2>DiffDays() Function<a class="headerlink" href="#diffdays-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">DiffDays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span> <span class="n">of</span> <span class="n">days</span> <span class="p">(</span><span class="n">Date1</span> <span class="o">-</span> <span class="n">Date2</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>DiffDays(cDate1,cDate2) ---&gt; number of days (Date1 - Date2)
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cDate1</span> <span class="o">=</span> <span class="n">date</span><span class="p">()</span>
-<span class="k">see</span> <span class="n">cDate1</span> <span class="o">+</span> <span class="n">nl</span>                                         <span class="c"># 24/05/2015</span>
-<span class="n">cDate2</span> <span class="o">=</span> <span class="n">adddays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">cDate2</span> <span class="o">+</span> <span class="n">nl</span>                                         <span class="c"># 03/06/2015</span>
-<span class="k">see</span> <span class="s">&quot;DiffDays = &quot;</span> <span class="o">+</span> <span class="n">diffdays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>        <span class="c"># -10</span>
-<span class="k">see</span> <span class="s">&quot;DiffDays = &quot;</span> <span class="o">+</span> <span class="n">diffdays</span><span class="p">(</span><span class="n">cDate2</span><span class="p">,</span><span class="n">cDate1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>        <span class="c"># 10</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cDate1 = date()
+see cDate1 + nl                                         # 24/05/2015
+cDate2 = adddays(cDate1,10)
+see cDate2 + nl                                         # 03/06/2015
+see &quot;DiffDays = &quot; + diffdays(cDate1,cDate2) + nl        # -10
+see &quot;DiffDays = &quot; + diffdays(cDate2,cDate1) + nl        # 10
 </pre></div>
 </div>
 </div>
 <div class="section" id="epochtime-function">
 <span id="index-8"></span><h2>EpochTime() Function<a class="headerlink" href="#epochtime-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">EpochTime</span><span class="p">(</span> <span class="n">cDate</span><span class="p">,</span> <span class="n">cTime</span> <span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Epoch</span> <span class="n">Seconds</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>EpochTime( cDate, cTime ) ---&gt; Epoch Seconds
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="sd">###-------------------------------------------------------------</span>
-<span class="c"># EpochTime()</span>
-<span class="c"># Example ---  EpochSec = EpochTime( Date(), Time() )</span>
-<span class="c"># Call Format: EpochSec = EpochTime( &quot;15/07/2016&quot;, &quot;10:15:30&quot; )</span>
-<span class="c">#              EpochSec = 1468577730</span>
-<span class="c">#---------------------------------------------------------------</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>###-------------------------------------------------------------
+# EpochTime()
+# Example ---  EpochSec = EpochTime( Date(), Time() )
+# Call Format: EpochSec = EpochTime( &quot;15/07/2016&quot;, &quot;10:15:30&quot; )
+#              EpochSec = 1468577730
+#---------------------------------------------------------------
 
-<span class="k">Func</span> <span class="n">EpochTime</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="n">Time</span><span class="p">)</span>
+Func EpochTime(Date, Time)
 
-    <span class="n">arrayDate</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">Date</span><span class="p">,</span> <span class="s">&quot;/&quot;</span><span class="p">)</span>
-    <span class="n">arrayTime</span> <span class="o">=</span> <span class="n">split</span><span class="p">(</span><span class="n">Time</span><span class="p">,</span> <span class="s">&quot;:&quot;</span><span class="p">)</span>
+    arrayDate = split(Date, &quot;/&quot;)
+    arrayTime = split(Time, &quot;:&quot;)
 
-    <span class="n">Year</span> <span class="o">=</span> <span class="n">arrayDate</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="p">;</span> <span class="n">Month</span>  <span class="o">=</span> <span class="n">arrayDate</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="p">;</span> <span class="n">Day</span>    <span class="o">=</span> <span class="n">arrayDate</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
-    <span class="n">Hour</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="p">;</span> <span class="n">Minute</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="p">;</span> <span class="n">Second</span> <span class="o">=</span> <span class="n">arrayTime</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+    Year = arrayDate[3] ; Month  = arrayDate[2] ; Day    = arrayDate[1]
+    Hour = arrayTime[1] ; Minute = arrayTime[2] ; Second = arrayTime[3]
 
-    <span class="n">cDate1</span>    <span class="o">=</span> <span class="n">Day</span> <span class="o">+</span><span class="s">&quot;/&quot;</span><span class="o">+</span> <span class="n">Month</span> <span class="o">+</span><span class="s">&quot;/&quot;</span><span class="o">+</span> <span class="n">Year</span>
-    <span class="n">cDate2</span>    <span class="o">=</span> <span class="s">&quot;01/01/&quot;</span> <span class="o">+</span> <span class="n">Year</span>
-    <span class="n">DayOfYear</span> <span class="o">=</span> <span class="n">DiffDays</span><span class="p">(</span> <span class="n">cDate1</span><span class="p">,</span> <span class="n">cDate2</span><span class="p">)</span>
+    cDate1    = Day +&quot;/&quot;+ Month +&quot;/&quot;+ Year
+    cDate2    = &quot;01/01/&quot; + Year
+    DayOfYear = DiffDays( cDate1, cDate2)
 
-    <span class="sd">### Formula</span>
-    <span class="n">tm_sec</span>  <span class="o">=</span> <span class="n">Second</span>    <span class="o">*</span> <span class="mi">1</span>
-    <span class="n">tm_min</span>  <span class="o">=</span> <span class="n">Minute</span>    <span class="o">*</span> <span class="mi">60</span>
-    <span class="n">tm_hour</span> <span class="o">=</span> <span class="n">Hour</span>      <span class="o">*</span> <span class="mi">3600</span>
-    <span class="n">tm_yday</span> <span class="o">=</span> <span class="n">DayOfYear</span> <span class="o">*</span> <span class="mi">86400</span>
-    <span class="n">tm_year</span> <span class="o">=</span> <span class="n">Year</span>      <span class="o">-</span> <span class="mi">1900</span>
+    ### Formula
+    tm_sec  = Second    * 1
+    tm_min  = Minute    * 60
+    tm_hour = Hour      * 3600
+    tm_yday = DayOfYear * 86400
+    tm_year = Year      - 1900
 
-    <span class="n">tm_year1</span> <span class="o">=</span>         <span class="p">(</span> <span class="n">tm_year</span> <span class="o">-</span>  <span class="mi">70</span><span class="p">)</span>          <span class="o">*</span> <span class="mi">31536000</span>
-    <span class="n">tm_year2</span> <span class="o">=</span> <span class="p">(</span> <span class="n">floor</span><span class="p">((</span> <span class="n">tm_year</span> <span class="o">-</span>  <span class="mi">69</span><span class="p">)</span> <span class="o">/</span>   <span class="mi">4</span> <span class="p">))</span> <span class="o">*</span> <span class="mi">86400</span>
-    <span class="n">tm_year3</span> <span class="o">=</span> <span class="p">(</span> <span class="n">floor</span><span class="p">((</span> <span class="n">tm_year</span> <span class="o">-</span>   <span class="mi">1</span><span class="p">)</span> <span class="o">/</span> <span class="mi">100</span> <span class="p">))</span> <span class="o">*</span> <span class="mi">86400</span>
-    <span class="n">tm_year4</span> <span class="o">=</span> <span class="p">(</span> <span class="n">floor</span><span class="p">((</span> <span class="n">tm_year</span> <span class="o">+</span> <span class="mi">299</span><span class="p">)</span> <span class="o">/</span> <span class="mi">400</span> <span class="p">))</span> <span class="o">*</span> <span class="mi">86400</span>
+    tm_year1 =         ( tm_year -  70)          * 31536000
+    tm_year2 = ( floor(( tm_year -  69) /   4 )) * 86400
+    tm_year3 = ( floor(( tm_year -   1) / 100 )) * 86400
+    tm_year4 = ( floor(( tm_year + 299) / 400 )) * 86400
 
-    <span class="sd">### Result</span>
-    <span class="n">EpochSec</span> <span class="o">=</span> <span class="n">tm_sec</span> <span class="o">+</span> <span class="n">tm_min</span> <span class="o">+</span> <span class="n">tm_hour</span> <span class="o">+</span> <span class="n">tm_yday</span> <span class="o">+</span>
-               <span class="n">tm_year1</span> <span class="o">+</span> <span class="n">tm_year2</span> <span class="o">-</span> <span class="n">tm_year3</span> <span class="o">+</span> <span class="n">tm_year4</span>
+    ### Result
+    EpochSec = tm_sec + tm_min + tm_hour + tm_yday +
+               tm_year1 + tm_year2 - tm_year3 + tm_year4
 
-<span class="k">return</span> <span class="n">EpochSec</span>
+return EpochSec
 </pre></div>
 </div>
 </div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="strings.html">Strings</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="checkandconvert.html">Check Data Type and Conversion</a>&#160;&#160;»
-        </p>
+        <a href="checkandconvert.html" class="btn btn-neutral float-right" title="Check Data Type and Conversion" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="strings.html" class="btn btn-neutral float-left" title="Strings" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

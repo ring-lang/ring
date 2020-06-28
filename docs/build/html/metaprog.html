@@ -1,115 +1,356 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Reflection and Meta-programming &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>Reflection and Meta-programming &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Declarative Programming using Nested Structures" href="declarative.html" />
     <link rel="prev" title="Functional Programming" href="fp.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>Reflection and Meta-programming</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="fp.html">Functional Programming</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="declarative.html">Declarative Programming using Nested Structures</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Reflection and Meta-programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#locals-function">locals() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#globals-function">globals() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions-function">functions() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cfunctions-function">cfunctions() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#islocal-function">islocal() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isglobal-function">isglobal() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isfunction-function">isfunction() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iscfunction-function">iscfunction() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packages-function">packages() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ispackage-function">ispackage() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classes-function">classes() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isclass-function">isclass() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packageclasses-function">packageclasses() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ispackageclass-function">ispackageclass() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#classname-function">classname() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objectid-function">objectid() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isobject-function">isobject() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#attributes-function">attributes() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#methods-function">methods() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isattribute-function">isattribute() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isprivateattribute-function">isprivateattribute() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ismethod-function">ismethod() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isprivatemethod-function">isprivatemethod() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#addattribute-function">addattribute() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#addmethod-function">addmethod() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getattribute-function">getattribute() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setattribute-function">setattribute() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mergemethods-function">mergemethods() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#packagename-function">packagename() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Reflection and Meta-programming</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="reflection-and-meta-programming">
 <span id="index-0"></span><h1>Reflection and Meta-programming<a class="headerlink" href="#reflection-and-meta-programming" title="Permalink to this headline">¶</a></h1>
 <p>Since the Ring programming language is a dynamic language, we can get answers about
 the program code and we can modify our code during the runtime.</p>
 <p>In this chapter we will learn about this and the available functions to use.</p>
 <ul class="simple">
-<li>locals()</li>
-<li>globals()</li>
-<li>functions()</li>
-<li>cfunctions()</li>
-<li>islocal()</li>
-<li>isglobal()</li>
-<li>isfunction()</li>
-<li>iscfunction()</li>
-<li>packages()</li>
-<li>ispackage()</li>
-<li>classes()</li>
-<li>isclass()</li>
-<li>packageclasses()</li>
-<li>ispackageclass()</li>
-<li>classname()</li>
-<li>objectid()</li>
-<li>isobject()</li>
-<li>attributes()</li>
-<li>methods()</li>
-<li>isattribute()</li>
-<li>isprivateattribute()</li>
-<li>ismethod()</li>
-<li>isprivatemethod()</li>
-<li>addattribute()</li>
-<li>addmethod()</li>
-<li>getattribute()</li>
-<li>setattribute()</li>
-<li>mergemethods()</li>
-<li>packagename()</li>
+<li><p>locals()</p></li>
+<li><p>globals()</p></li>
+<li><p>functions()</p></li>
+<li><p>cfunctions()</p></li>
+<li><p>islocal()</p></li>
+<li><p>isglobal()</p></li>
+<li><p>isfunction()</p></li>
+<li><p>iscfunction()</p></li>
+<li><p>packages()</p></li>
+<li><p>ispackage()</p></li>
+<li><p>classes()</p></li>
+<li><p>isclass()</p></li>
+<li><p>packageclasses()</p></li>
+<li><p>ispackageclass()</p></li>
+<li><p>classname()</p></li>
+<li><p>objectid()</p></li>
+<li><p>isobject()</p></li>
+<li><p>attributes()</p></li>
+<li><p>methods()</p></li>
+<li><p>isattribute()</p></li>
+<li><p>isprivateattribute()</p></li>
+<li><p>ismethod()</p></li>
+<li><p>isprivatemethod()</p></li>
+<li><p>addattribute()</p></li>
+<li><p>addmethod()</p></li>
+<li><p>getattribute()</p></li>
+<li><p>setattribute()</p></li>
+<li><p>mergemethods()</p></li>
+<li><p>packagename()</p></li>
 </ul>
 <div class="section" id="locals-function">
 <span id="index-1"></span><h2>locals() Function<a class="headerlink" href="#locals-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of variables names in the current scope using the locals() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">locals</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">variables</span> <span class="n">names</span> <span class="k">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">scope</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>locals() --&gt; a list contains the variables names in the current scope
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>test(&quot;hello&quot;)
 
-<span class="k">func</span> <span class="n">test</span> <span class="n">cMsg</span>
+func test cMsg
 
-        <span class="k">see</span> <span class="n">cMsg</span> <span class="o">+</span> <span class="n">nl</span>
+        see cMsg + nl
 
-        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
-        <span class="n">z</span> <span class="o">=</span> <span class="mi">30</span>
+        x = 10
+        y = 20
+        z = 30
 
-        <span class="k">see</span> <span class="n">locals</span><span class="p">()</span>
+        see locals()
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">hello</span>
-<span class="n">cmsg</span>
-<span class="n">x</span>
-<span class="n">y</span>
-<span class="n">z</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>hello
+cmsg
+x
+y
+z
 </pre></div>
 </div>
 </div>
@@ -117,25 +358,25 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-2"></span><h2>globals() Function<a class="headerlink" href="#globals-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of variables names in the global scope using the globals() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">globals</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">variables</span> <span class="n">names</span> <span class="k">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>globals() --&gt; a list contains variables names in the global scope
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
-<span class="n">test</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x=10 y=20 z=30
+test()
 
-<span class="k">func</span> <span class="n">test</span>
-        <span class="k">see</span> <span class="s">&quot;message from test()&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-            <span class="s">&quot;Global Variables:&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">see</span> <span class="n">globals</span><span class="p">()</span>
+func test
+        see &quot;message from test()&quot; + nl +
+            &quot;Global Variables:&quot; + nl
+        see globals()
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="k">from</span> <span class="n">test</span><span class="p">()</span>
-<span class="n">Global</span> <span class="n">Variables</span><span class="p">:</span>
-<span class="n">x</span>
-<span class="n">y</span>
-<span class="n">z</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>message from test()
+Global Variables:
+x
+y
+z
 </pre></div>
 </div>
 </div>
@@ -143,26 +384,26 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-3"></span><h2>functions() Function<a class="headerlink" href="#functions-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of functions names written in the Ring language using the functions() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">functions</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">functions</span> <span class="n">names</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>functions() --&gt; a list contains functions names
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">functions</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see functions()
 
-<span class="k">func</span> <span class="n">f1</span>
-        <span class="k">see</span> <span class="s">&quot;f1&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f1
+        see &quot;f1&quot; + nl
 
-<span class="k">func</span> <span class="n">f2</span>
-        <span class="k">see</span> <span class="s">&quot;f2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f2
+        see &quot;f2&quot; + nl
 
-<span class="k">func</span> <span class="n">f3</span>
-        <span class="k">see</span> <span class="s">&quot;f3&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f3
+        see &quot;f3&quot; + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">f1</span>
-<span class="n">f2</span>
-<span class="n">f3</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>f1
+f2
+f3
 </pre></div>
 </div>
 </div>
@@ -170,54 +411,54 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-4"></span><h2>cfunctions() Function<a class="headerlink" href="#cfunctions-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of functions names written in the C language using the cfunctions() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cfunctions</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">functions</span> <span class="n">names</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cfunctions() --&gt; a list contains functions names
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span>  <span class="n">cfunctions</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Count : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
-        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">next</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList =  cfunctions()
+See &quot;Count : &quot; + len(aList) + nl
+for x in aList
+        see x + &quot;()&quot; + nl
+next
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Count</span> <span class="p">:</span> <span class="mi">210</span>
-<span class="n">len</span><span class="p">()</span>
-<span class="n">add</span><span class="p">()</span>
-<span class="n">del</span><span class="p">()</span>
-<span class="k">get</span><span class="p">()</span>
-<span class="n">clock</span><span class="p">()</span>
-<span class="p">...</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Count : 210
+len()
+add()
+del()
+get()
+clock()
+...
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The complete list is removed from the previous output.</p>
+<p class="admonition-title">Note</p>
+<p>The complete list is removed from the previous output.</p>
 </div>
 </div>
 <div class="section" id="islocal-function">
 <span id="index-5"></span><h2>islocal() Function<a class="headerlink" href="#islocal-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a variable is defined in the local scope or not using the islocal() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">islocal</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">local</span> <span class="n">scope</span>
-                           <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">local</span> <span class="n">scope</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>islocal(cVariableName) --&gt; returns 1 if the variable is defined in the local scope
+                           returns 0 if the variable is not defined in the local scope
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>test()
 
-<span class="k">func</span> <span class="n">test</span>
-        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
-        <span class="k">see</span> <span class="n">islocal</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-            <span class="n">islocal</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-            <span class="n">islocal</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+func test
+        x=10 y=20
+        see islocal(&quot;x&quot;) + nl +
+            islocal(&quot;y&quot;) + nl +
+            islocal(&quot;z&quot;) + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">1</span>
-<span class="mi">1</span>
-<span class="mi">0</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
+1
+0
 </pre></div>
 </div>
 </div>
@@ -225,25 +466,25 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-6"></span><h2>isglobal() Function<a class="headerlink" href="#isglobal-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a variable is defined in the global scope or not using the isglobal() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">isglobal</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
-                            <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isglobal(cVariableName) --&gt; returns 1 if the variable is defined in the global scope
+                            returns 0 if the variable is not defined in the global scope
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x=10 y=20
 
-<span class="n">test</span><span class="p">()</span>
+test()
 
-<span class="k">func</span> <span class="n">test</span>
-        <span class="k">see</span> <span class="n">isglobal</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-            <span class="n">isglobal</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-            <span class="n">isglobal</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+func test
+        see isglobal(&quot;x&quot;) + nl +
+            isglobal(&quot;y&quot;) + nl +
+            isglobal(&quot;z&quot;) + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">1</span>
-<span class="mi">1</span>
-<span class="mi">0</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
+1
+0
 </pre></div>
 </div>
 </div>
@@ -251,26 +492,26 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-7"></span><h2>isfunction() Function<a class="headerlink" href="#isfunction-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a Ring function is defined or not using the isfunction() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">isfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">function</span> <span class="n">is</span> <span class="n">defined</span>
-                              <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">function</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isfunction(cFunctionName) --&gt; returns 1 if the Ring function is defined
+                              returns 0 if the Ring function is not defined
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isfunction</span><span class="p">(</span><span class="s">&quot;f1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">isfunction</span><span class="p">(</span><span class="s">&quot;f2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">isfunction</span><span class="p">(</span><span class="s">&quot;f3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see isfunction(&quot;f1&quot;) + nl +
+    isfunction(&quot;f2&quot;) + nl +
+    isfunction(&quot;f3&quot;) + nl
 
-<span class="k">func</span> <span class="n">f1</span>
-        <span class="k">see</span> <span class="s">&quot;message from f1()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f1
+        see &quot;message from f1()&quot; + nl
 
-<span class="k">func</span> <span class="n">f2</span>
-        <span class="k">see</span> <span class="s">&quot;message from f2()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func f2
+        see &quot;message from f2()&quot; + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">1</span>
-<span class="mi">1</span>
-<span class="mi">0</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
+1
+0
 </pre></div>
 </div>
 </div>
@@ -278,20 +519,20 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-8"></span><h2>iscfunction() Function<a class="headerlink" href="#iscfunction-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a C function is defined or not using the iscfunction() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">iscfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">C</span> <span class="n">function</span> <span class="n">is</span> <span class="n">defined</span>
-                               <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">C</span> <span class="n">function</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>iscfunction(cFunctionName) --&gt; returns 1 if the C function is defined
+                               returns 0 if the C function is not defined
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">iscfunction</span><span class="p">(</span><span class="s">&quot;len&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">iscfunction</span><span class="p">(</span><span class="s">&quot;add&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">iscfunction</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see iscfunction(&quot;len&quot;) + nl +
+    iscfunction(&quot;add&quot;) + nl +
+    iscfunction(&quot;test&quot;) + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">1</span>
-<span class="mi">1</span>
-<span class="mi">0</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
+1
+0
 </pre></div>
 </div>
 </div>
@@ -299,34 +540,34 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-9"></span><h2>packages() Function<a class="headerlink" href="#packages-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of packages names using the packages() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">packages</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">packages</span> <span class="n">names</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>packages() --&gt; a list contains packages names
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">packages</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See packages()
 
-<span class="n">Package</span> <span class="n">Package1</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
+Package Package1
+        Class class1
+                Func f1
 
-<span class="n">Package</span> <span class="n">Package2</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
+Package Package2
+        Class class1
+                Func f1
 
-<span class="n">Package</span> <span class="n">Package3</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
+Package Package3
+        Class class1
+                Func f1
 
-<span class="n">Package</span> <span class="n">Package4</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
+Package Package4
+        Class class1
+                Func f1
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">package1</span>
-<span class="n">package2</span>
-<span class="n">package3</span>
-<span class="n">package4</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>package1
+package2
+package3
+package4
 </pre></div>
 </div>
 </div>
@@ -334,38 +575,38 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-10"></span><h2>ispackage() Function<a class="headerlink" href="#ispackage-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a package is defined or not using the ispackage() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ispackage</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Package</span> <span class="n">is</span> <span class="n">defined</span>
-                            <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Package</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ispackage(cPackageName) --&gt; returns 1 if the Package is defined
+                            returns 0 if the Package is not defined
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">ispackage</span><span class="p">(</span><span class="s">&quot;package1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">ispackage</span><span class="p">(</span><span class="s">&quot;package4&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">ispackage</span><span class="p">(</span><span class="s">&quot;package5&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">ispackage</span><span class="p">(</span><span class="s">&quot;package3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See ispackage(&quot;package1&quot;) + nl +
+    ispackage(&quot;package4&quot;) + nl +
+    ispackage(&quot;package5&quot;) + nl +
+    ispackage(&quot;package3&quot;) + nl
 
-<span class="n">Package</span> <span class="n">Package1</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
+Package Package1
+        Class class1
+                Func f1
 
-<span class="n">Package</span> <span class="n">Package2</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
+Package Package2
+        Class class1
+                Func f1
 
-<span class="n">Package</span> <span class="n">Package3</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
+Package Package3
+        Class class1
+                Func f1
 
-<span class="n">Package</span> <span class="n">Package4</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
+Package Package4
+        Class class1
+                Func f1
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">1</span>
-<span class="mi">1</span>
-<span class="mi">0</span>
-<span class="mi">1</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
+1
+0
+1
 </pre></div>
 </div>
 </div>
@@ -373,26 +614,26 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-11"></span><h2>classes() Function<a class="headerlink" href="#classes-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of classes names using the classes() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">classes</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">classes</span> <span class="n">names</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>classes() --&gt; a list contains classes names
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">classes</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See classes()
 
-<span class="k">Class</span> <span class="n">class1</span>
-        <span class="k">Func</span> <span class="n">f1</span>
+Class class1
+        Func f1
 
-<span class="k">Class</span> <span class="n">class2</span>
-        <span class="k">Func</span> <span class="n">f1</span>
+Class class2
+        Func f1
 
-<span class="k">Class</span> <span class="n">class3</span>
-        <span class="k">Func</span> <span class="n">f1</span>
+Class class3
+        Func f1
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">class1</span>
-<span class="n">class2</span>
-<span class="n">class3</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class1
+class2
+class3
 </pre></div>
 </div>
 </div>
@@ -400,29 +641,29 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-12"></span><h2>isclass() Function<a class="headerlink" href="#isclass-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a class is defined or not using the isclass() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">isclass</span><span class="p">(</span><span class="n">cClassName</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Class</span> <span class="n">is</span> <span class="n">defined</span>
-                         <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Class</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isclass(cClassName) --&gt;  returns 1 if the Class is defined
+                         returns 0 if the Class is not defined
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isclass</span><span class="p">(</span><span class="s">&quot;class4&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">isclass</span><span class="p">(</span><span class="s">&quot;class3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">isclass</span><span class="p">(</span><span class="s">&quot;class2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see isclass(&quot;class4&quot;) + nl +
+    isclass(&quot;class3&quot;) + nl +
+    isclass(&quot;class2&quot;) + nl
 
-<span class="k">Class</span> <span class="n">class1</span>
-        <span class="k">func</span> <span class="n">f1</span>
+Class class1
+        func f1
 
-<span class="k">class</span> <span class="n">class2</span>
-        <span class="k">func</span> <span class="n">f1</span>
+class class2
+        func f1
 
-<span class="k">class</span> <span class="n">class3</span>
-        <span class="k">func</span> <span class="n">f1</span>
+class class3
+        func f1
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">0</span>
-<span class="mi">1</span>
-<span class="mi">1</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>0
+1
+1
 </pre></div>
 </div>
 </div>
@@ -430,35 +671,35 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-13"></span><h2>packageclasses() Function<a class="headerlink" href="#packageclasses-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of classes names inside a package using the packageclasses() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">packageclasses</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">classes</span> <span class="n">names</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">package</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>packageclasses(cPackageName) --&gt; a list contains classes names inside the package
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;classes in Package1&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">packageclasses</span><span class="p">(</span><span class="s">&quot;Package1&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="s">&quot;classes in Package2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">packageclasses</span><span class="p">(</span><span class="s">&quot;Package2&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;classes in Package1&quot; + nl
+see packageclasses(&quot;Package1&quot;)
+see &quot;classes in Package2&quot; + nl
+see packageclasses(&quot;Package2&quot;)
 
-<span class="n">Package</span> <span class="n">Package1</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
+Package Package1
+        Class class1
+                Func f1
 
-<span class="n">Package</span> <span class="n">Package2</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
-        <span class="k">Class</span> <span class="n">class2</span>
-                <span class="k">Func</span> <span class="n">f1</span>
-        <span class="k">Class</span> <span class="n">class3</span>
-                <span class="k">func</span> <span class="n">f1</span>
+Package Package2
+        Class class1
+                Func f1
+        Class class2
+                Func f1
+        Class class3
+                func f1
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">classes</span> <span class="k">in</span> <span class="n">Package1</span>
-<span class="n">class1</span>
-<span class="n">classes</span> <span class="k">in</span> <span class="n">Package2</span>
-<span class="n">class1</span>
-<span class="n">class2</span>
-<span class="n">class3</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>classes in Package1
+class1
+classes in Package2
+class1
+class2
+class3
 </pre></div>
 </div>
 </div>
@@ -466,34 +707,34 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-14"></span><h2>ispackageclass() Function<a class="headerlink" href="#ispackageclass-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a class is defined inside package or not using the ispackageclass() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ispackageclass</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">,</span><span class="n">cClassName</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Class</span> <span class="n">is</span> <span class="n">defined</span>
-                                             <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Class</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ispackageclass(cPackageName,cClassName) --&gt;  returns 1 if the Class is defined
+                                             returns 0 if the Class is not defined
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">ispackageclass</span><span class="p">(</span><span class="s">&quot;package1&quot;</span><span class="p">,</span><span class="s">&quot;class1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">ispackageclass</span><span class="p">(</span><span class="s">&quot;package1&quot;</span><span class="p">,</span><span class="s">&quot;class2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">ispackageclass</span><span class="p">(</span><span class="s">&quot;package2&quot;</span><span class="p">,</span><span class="s">&quot;class1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">ispackageclass</span><span class="p">(</span><span class="s">&quot;package2&quot;</span><span class="p">,</span><span class="s">&quot;class2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see ispackageclass(&quot;package1&quot;,&quot;class1&quot;) + nl +
+    ispackageclass(&quot;package1&quot;,&quot;class2&quot;) + nl +
+    ispackageclass(&quot;package2&quot;,&quot;class1&quot;) + nl +
+    ispackageclass(&quot;package2&quot;,&quot;class2&quot;) + nl
 
-<span class="n">Package</span> <span class="n">Package1</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
+Package Package1
+        Class class1
+                Func f1
 
-<span class="n">Package</span> <span class="n">Package2</span>
-        <span class="k">Class</span> <span class="n">class1</span>
-                <span class="k">Func</span> <span class="n">f1</span>
-        <span class="k">Class</span> <span class="n">class2</span>
-                <span class="k">Func</span> <span class="n">f1</span>
-        <span class="k">Class</span> <span class="n">class3</span>
-                <span class="k">func</span> <span class="n">f1</span>
+Package Package2
+        Class class1
+                Func f1
+        Class class2
+                Func f1
+        Class class3
+                func f1
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">1</span>
-<span class="mi">0</span>
-<span class="mi">1</span>
-<span class="mi">1</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
+0
+1
+1
 </pre></div>
 </div>
 </div>
@@ -501,18 +742,18 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-15"></span><h2>classname() Function<a class="headerlink" href="#classname-function" title="Permalink to this headline">¶</a></h2>
 <p>We can know the class name of an object using the classname() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">classname</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">object</span> <span class="k">class</span> <span class="n">name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>classname(object) --&gt; Returns the object class name
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
-<span class="n">o2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">rect</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
+o2 = new rect
 
-<span class="k">see</span> <span class="n">classname</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>          <span class="c"># print point</span>
-<span class="k">see</span> <span class="n">classname</span><span class="p">(</span><span class="n">o2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>          <span class="c"># print rect</span>
+see classname(o1) + nl          # print point
+see classname(o2) + nl          # print rect
 
-<span class="k">class</span> <span class="n">point</span>
-<span class="k">class</span> <span class="n">rect</span>
+class point
+class rect
 </pre></div>
 </div>
 </div>
@@ -520,31 +761,31 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-16"></span><h2>objectid() Function<a class="headerlink" href="#objectid-function" title="Permalink to this headline">¶</a></h2>
 <p>We can know the object id using the objectid() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">objectid</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">object</span> <span class="n">id</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>objectid(object) --&gt; Returns the object id
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
-<span class="k">see</span> <span class="n">objectid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">test</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
+see objectid(o1) + nl
+test(o1)
 
-<span class="k">func</span> <span class="n">test</span> <span class="n">v</span>
-        <span class="k">see</span> <span class="n">objectid</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+func test v
+        see objectid(v) + nl
 
-<span class="k">Class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+Class point x y z
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>021B5808
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>021B5808
 021B5808
 </pre></div>
 </div>
 </div>
 <div class="section" id="isobject-function">
 <span id="index-17"></span><h2>isobject() Function<a class="headerlink" href="#isobject-function" title="Permalink to this headline">¶</a></h2>
-<p>We can check the variable to know if it&#8217;s an object or not using the isobject() function</p>
+<p>We can check the variable to know if it’s an object or not using the isobject() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">isobject</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s an object, False if it&#39;</span><span class="n">s</span> <span class="ow">not</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isobject(variable) --&gt; Returns True if it&#39;s an object, False if it&#39;s not
 </pre></div>
 </div>
 </div>
@@ -552,14 +793,14 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-18"></span><h2>attributes() Function<a class="headerlink" href="#attributes-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the object attributes using the attributes() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">attributes</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">object</span> <span class="n">attributes</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>attributes(object) --&gt; Returns a list contains the object attributes
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="n">attributes</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>          <span class="c"># we can use see attributes(o1)</span>
-<span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">aList</span> <span class="k">see</span> <span class="n">t</span> <span class="k">next</span>       <span class="c"># print xyz</span>
-<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
+aList = attributes(o1)          # we can use see attributes(o1)
+for t in aList see t next       # print xyz
+Class Point x y z
 </pre></div>
 </div>
 </div>
@@ -567,34 +808,34 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-19"></span><h2>methods() Function<a class="headerlink" href="#methods-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the object methods using the methods() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">methods</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">object</span> <span class="n">methods</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>methods(object) --&gt; Returns a list contains the object methods
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">test</span>
-<span class="n">aList</span> <span class="o">=</span> <span class="n">methods</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new test
+aList = methods(o1)
 
-<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
-        <span class="n">cCode</span> <span class="o">=</span> <span class="s">&quot;o1.&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;()&quot;</span>
-        <span class="n">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
-<span class="k">next</span>
+for x in aList
+        cCode = &quot;o1.&quot;+x+&quot;()&quot;
+        eval(cCode)
+next
 
-<span class="k">Class</span> <span class="n">Test</span>
-        <span class="k">func</span> <span class="n">f1</span>
-                <span class="k">see</span> <span class="s">&quot;hello from f1&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">func</span> <span class="n">f2</span>
-                <span class="k">see</span> <span class="s">&quot;hello from f2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">func</span> <span class="n">f3</span>
-                <span class="k">see</span> <span class="s">&quot;hello from f3&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">func</span> <span class="n">f4</span>
-                <span class="k">see</span> <span class="s">&quot;hello from f4&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+Class Test
+        func f1
+                see &quot;hello from f1&quot; + nl
+        func f2
+                see &quot;hello from f2&quot; + nl
+        func f3
+                see &quot;hello from f3&quot; + nl
+        func f4
+                see &quot;hello from f4&quot; + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="k">from</span> <span class="n">f1</span>
-<span class="n">hello</span> <span class="k">from</span> <span class="n">f2</span>
-<span class="n">hello</span> <span class="k">from</span> <span class="n">f3</span>
-<span class="n">hello</span> <span class="k">from</span> <span class="n">f4</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>hello from f1
+hello from f2
+hello from f3
+hello from f4
 </pre></div>
 </div>
 </div>
@@ -602,18 +843,18 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-20"></span><h2>isattribute() Function<a class="headerlink" href="#isattribute-function" title="Permalink to this headline">¶</a></h2>
 <p>We can test if the object contains an attribute or not using the isattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">isattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">attribute</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isattribute(object,cAttributeName) --&gt; Returns True if the object contains the attribute
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
 
-<span class="k">see</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 1</span>
-<span class="k">see</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;t&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 0</span>
-<span class="k">see</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 1</span>
-<span class="k">see</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;z&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 1</span>
+see isattribute(o1,&quot;x&quot;) + nl    # print 1
+see isattribute(o1,&quot;t&quot;) + nl    # print 0
+see isattribute(o1,&quot;y&quot;) + nl    # print 1
+see isattribute(o1,&quot;z&quot;) + nl    # print 1
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+class point x y z
 </pre></div>
 </div>
 </div>
@@ -621,31 +862,31 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-21"></span><h2>isprivateattribute() Function<a class="headerlink" href="#isprivateattribute-function" title="Permalink to this headline">¶</a></h2>
 <p>We can test if the object contains a private attribute or not using the isprivateattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">isprivateattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span>
-                                              <span class="n">contains</span> <span class="n">the</span> <span class="n">private</span> <span class="n">attribute</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isprivateattribute(object,cAttributeName) --&gt; Returns True if the object
+                                              contains the private attribute
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new person
 
-<span class="k">see</span> <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;address&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;phone&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;job&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;salary&quot;</span><span class="p">)</span>
+see isprivateattribute(o1,&quot;name&quot;) + nl +
+    isprivateattribute(o1,&quot;address&quot;) + nl +
+    isprivateattribute(o1,&quot;phone&quot;) + nl +
+    isprivateattribute(o1,&quot;job&quot;) + nl +
+    isprivateattribute(o1,&quot;salary&quot;)
 
-<span class="k">Class</span> <span class="n">Person</span>
-        <span class="n">name</span> <span class="n">address</span> <span class="n">phone</span>
-        <span class="n">private</span>
-                <span class="n">job</span> <span class="n">salary</span>
+Class Person
+        name address phone
+        private
+                job salary
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">0</span>
-<span class="mi">0</span>
-<span class="mi">0</span>
-<span class="mi">1</span>
-<span class="mi">1</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>0
+0
+0
+1
+1
 </pre></div>
 </div>
 </div>
@@ -653,22 +894,22 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-22"></span><h2>ismethod() Function<a class="headerlink" href="#ismethod-function" title="Permalink to this headline">¶</a></h2>
 <p>We can test if the object class contains a method or not using the ismethod() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ismethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="k">class</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">method</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ismethod(object,cMethodName) --&gt; Returns True if the object class contains the method
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
 
-<span class="k">see</span> <span class="n">ismethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>           <span class="c"># print 1</span>
+see ismethod(o1,&quot;print&quot;) + nl           # print 1
 
-<span class="n">mylist</span> <span class="o">=</span> <span class="o">[]</span>
-<span class="n">mylist</span> <span class="o">+</span> <span class="k">new</span> <span class="n">point</span>
+mylist = []
+mylist + new point
 
-<span class="k">see</span> <span class="n">ismethod</span><span class="p">(</span><span class="n">mylist</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 1</span>
+see ismethod(mylist[1],&quot;print&quot;) + nl    # print 1
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
-        <span class="k">func</span> <span class="n">print</span>
-                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
+class point x y z
+        func print
+                see x + nl + y + nl + z + nl
 </pre></div>
 </div>
 </div>
@@ -676,27 +917,27 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-23"></span><h2>isprivatemethod() Function<a class="headerlink" href="#isprivatemethod-function" title="Permalink to this headline">¶</a></h2>
 <p>We can test if the object class contains a private method or not using the isprivatemethod() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">isprivatemethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="k">class</span> <span class="n">contains</span>
-                                        <span class="n">the</span> <span class="n">private</span> <span class="n">method</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isprivatemethod(object,cMethodName) --&gt; Returns True if the object class contains
+                                        the private method
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Test</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new Test
 
-<span class="k">see</span> <span class="n">isprivatemethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;f1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">isprivatemethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;f2&quot;</span><span class="p">)</span>
+see isprivatemethod(o1,&quot;f1&quot;) + nl +
+    isprivatemethod(o1,&quot;f2&quot;)
 
-<span class="k">Class</span> <span class="n">Test</span>
-        <span class="k">func</span>  <span class="n">f1</span>
-                <span class="k">see</span> <span class="s">&quot;message from f1()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">private</span>
-                <span class="k">func</span> <span class="n">f2</span>
-                        <span class="k">see</span> <span class="s">&quot;message from f2()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+Class Test
+        func  f1
+                see &quot;message from f1()&quot; + nl
+        private
+                func f2
+                        see &quot;message from f2()&quot; + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">0</span>
-<span class="mi">1</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>0
+1
 </pre></div>
 </div>
 </div>
@@ -705,28 +946,28 @@ the program code and we can modify our code during the runtime.</p>
 <p>We can add an attribute (or a group of attributes) to the object state (not the class) using
 the addattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">AddAttribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="o">|</span><span class="n">aAttributesList</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>AddAttribute(object,cAttributeName|aAttributesList)
 </pre></div>
 </div>
 <p>Example(1):</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
-<span class="k">Class</span> <span class="n">Point</span>
-        <span class="n">AddAttribute</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="o">[</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">,</span><span class="s">&quot;z&quot;</span><span class="o">]</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see new point {x=10 y=20 z=30}
+Class Point
+        AddAttribute(self,[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;])
 </pre></div>
 </div>
 <p>Example(2):</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
-<span class="n">addattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
-<span class="n">addattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">)</span>
-<span class="n">addattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;z&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">o1</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
-<span class="k">class</span> <span class="n">point</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
+addattribute(o1,&quot;x&quot;)
+addattribute(o1,&quot;y&quot;)
+addattribute(o1,&quot;z&quot;)
+see o1 {x=10 y=20 z=30}
+class point
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="mf">10.000000</span>
-<span class="n">y</span><span class="p">:</span> <span class="mf">20.000000</span>
-<span class="n">z</span><span class="p">:</span> <span class="mf">30.000000</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x: 10.000000
+y: 20.000000
+z: 30.000000
 </pre></div>
 </div>
 </div>
@@ -735,82 +976,82 @@ the addattribute() function</p>
 <p>We can add a method to the object class using the addmethod() function
 This method can be used with any object from the same class.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">AddMethod</span><span class="p">(</span><span class="n">Object</span><span class="p">,</span><span class="n">cNewMethodName</span><span class="p">,</span><span class="n">cMethodName</span><span class="o">|</span><span class="n">AnonymousFunction</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>AddMethod(Object,cNewMethodName,cMethodName|AnonymousFunction)
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point { x=10 y=20 z=30 }
 
-<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">,</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span> <span class="p">)</span>
+addmethod(o1,&quot;print&quot;, func { see x + nl + y + nl + z + nl } )
 
-<span class="n">o1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+o1.print()
 
-<span class="k">Class</span> <span class="n">point</span>
-        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+Class point
+        x y z
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">10</span>
-<span class="mi">20</span>
-<span class="mi">30</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
+20
+30
 </pre></div>
 </div>
 <p>Instead of using anonymous function to add new method to the class, we can use the function name</p>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point { x=10 y=20 z=30 }
 
-<span class="n">myfunc</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span>
+myfunc = func { see x + nl + y + nl + z + nl }
 
-<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">,</span> <span class="n">myfunc</span> <span class="p">)</span>
-<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;display&quot;</span><span class="p">,</span> <span class="n">myfunc</span> <span class="p">)</span>
-<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;show&quot;</span><span class="p">,</span> <span class="n">myfunc</span> <span class="p">)</span>
+addmethod(o1,&quot;print&quot;, myfunc )
+addmethod(o1,&quot;display&quot;, myfunc )
+addmethod(o1,&quot;show&quot;, myfunc )
 
-<span class="n">o1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">o1</span><span class="p">.</span><span class="n">display</span><span class="p">()</span>
-<span class="n">o1</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+o1.print()
+o1.display()
+o1.show()
 
-<span class="k">Class</span> <span class="n">point</span>
-        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+Class point
+        x y z
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">10</span>
-<span class="mi">20</span>
-<span class="mi">30</span>
-<span class="mi">10</span>
-<span class="mi">20</span>
-<span class="mi">30</span>
-<span class="mi">10</span>
-<span class="mi">20</span>
-<span class="mi">30</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
+20
+30
+10
+20
+30
+10
+20
+30
 </pre></div>
 </div>
 <p>Since we add the method to the class, any object from that class can use this method</p>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
-<span class="n">o2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span> <span class="p">}</span>
-<span class="n">o3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">50</span> <span class="n">y</span><span class="o">=</span><span class="mi">150</span> <span class="n">z</span><span class="o">=</span><span class="mi">250</span> <span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point { x=10 y=20 z=30 }
+o2 = new point { x=100 y=200 z=300 }
+o3 = new point { x=50 y=150 z=250 }
 
-<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">,</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span> <span class="p">)</span>
+addmethod(o1,&quot;print&quot;, func { see x + nl + y + nl + z + nl } )
 
-<span class="n">o1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">o2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
-<span class="n">o3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+o1.print()
+o2.print()
+o3.print()
 
-<span class="k">Class</span> <span class="n">point</span>
-        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+Class point
+        x y z
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">10</span>
-<span class="mi">20</span>
-<span class="mi">30</span>
-<span class="mi">100</span>
-<span class="mi">200</span>
-<span class="mi">300</span>
-<span class="mi">50</span>
-<span class="mi">150</span>
-<span class="mi">250</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
+20
+30
+100
+200
+300
+50
+150
+250
 </pre></div>
 </div>
 </div>
@@ -818,24 +1059,24 @@ This method can be used with any object from the same class.</p>
 <span id="index-26"></span><h2>getattribute() function<a class="headerlink" href="#getattribute-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the object attribute value using the getattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">GetAttribute</span><span class="p">(</span><span class="n">oObject</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Attribute</span> <span class="n">Value</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>GetAttribute(oObject,cAttributeName) ---&gt; Attribute Value
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
 
-<span class="k">see</span> <span class="n">getattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">getattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">getattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="n">getattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;z&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+see getattribute(o1,&quot;name&quot;) + nl +
+    getattribute(o1,&quot;x&quot;) + nl +
+    getattribute(o1,&quot;y&quot;) + nl +
+    getattribute(o1,&quot;z&quot;) + nl
 
-<span class="k">Class</span> <span class="n">Point</span>
-        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
-        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;3D-Point&quot;</span>
+Class Point
+        x=10 y=20 z=30
+        name = &quot;3D-Point&quot;
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>3D-Point
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>3D-Point
 10
 20
 30
@@ -844,56 +1085,56 @@ This method can be used with any object from the same class.</p>
 <p>Example:</p>
 <p>We can Find a Class List Member using GetAttribute() using a function findclass()
 The Find uses the member name, rather than the column number</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">myList</span> <span class="o">=</span>
-          <span class="o">[</span><span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">3</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Mahmoud&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;MHD&quot;</span><span class="p">},</span>
-           <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">2</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Bert&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;BRT&quot;</span><span class="p">},</span>
-           <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">1</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Ring&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;RNG&quot;</span><span class="p">}</span>
-          <span class="o">]</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>myList =
+          [new Company {position=3 name=&quot;Mahmoud&quot; symbol=&quot;MHD&quot;},
+           new Company {position=2 name=&quot;Bert&quot; symbol=&quot;BRT&quot;},
+           new Company {position=1 name=&quot;Ring&quot; symbol=&quot;RNG&quot;}
+          ]
 
-<span class="k">see</span> <span class="n">myList</span>
-<span class="k">see</span> <span class="n">nl</span> <span class="o">+</span><span class="s">&quot;=====================&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">nl</span>
+see myList
+see nl +&quot;=====================&quot; + nl + nl
 
-<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
-     <span class="k">see</span>  <span class="s">&quot;Pos: &quot;</span><span class="o">+</span> <span class="n">i</span> <span class="o">+</span><span class="s">&quot; | &quot;</span><span class="o">+</span> <span class="n">myList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">position</span> <span class="o">+</span><span class="s">&quot; | &quot;</span><span class="o">+</span> <span class="n">myList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span>
-          <span class="s">&quot; | &quot;</span><span class="o">+</span>  <span class="n">myList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">symbol</span>    <span class="o">+</span><span class="s">&quot; | &quot;</span><span class="o">+</span> <span class="n">nl</span>
-<span class="k">next</span>
+for i = 1 to len(myList)
+     see  &quot;Pos: &quot;+ i +&quot; | &quot;+ myList[i].position +&quot; | &quot;+ myList[i].name +
+          &quot; | &quot;+  myList[i].symbol    +&quot; | &quot;+ nl
+next
 
 
-<span class="k">See</span> <span class="n">findclass</span><span class="p">(</span><span class="n">myList</span><span class="p">,</span> <span class="s">&quot;MHD&quot;</span><span class="p">,</span> <span class="s">&quot;symbol&quot;</span><span class="p">)</span> <span class="o">+</span><span class="n">nl</span>   <span class="sd">### Specify Member class name</span>
+See findclass(myList, &quot;MHD&quot;, &quot;symbol&quot;) +nl   ### Specify Member class name
 
-<span class="sd">###---------------------------------------</span>
+###---------------------------------------
 
-<span class="k">func</span> <span class="n">findclass</span> <span class="n">classList</span><span class="p">,</span> <span class="n">cValue</span><span class="p">,</span> <span class="n">classMember</span>
+func findclass classList, cValue, classMember
 
-       <span class="k">See</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;FindClass: &quot;</span>  <span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">nl</span>
+       See nl + &quot;FindClass: &quot;  +&quot; &quot;+ cValue + nl + nl
 
-       <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">classList</span><span class="p">)</span>
-            <span class="n">result</span> <span class="o">=</span> <span class="n">getattribute</span><span class="p">(</span> <span class="n">classList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span> <span class="n">classMember</span> <span class="p">)</span>
+       for i = 1 to len(classList)
+            result = getattribute( classList[i], classMember )
 
-           <span class="k">See</span> <span class="s">&quot;Result-Attr: &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span>  <span class="n">result</span> <span class="o">+</span><span class="n">nl</span>
-           <span class="k">if</span> <span class="n">result</span> <span class="o">=</span> <span class="n">cValue</span>
-               <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
-            <span class="k">ok</span>
-       <span class="k">next</span>
-<span class="k">return</span> <span class="n">j</span>
+           See &quot;Result-Attr: &quot; + i +&quot; &quot;+  result +nl
+           if result = cValue
+               j = i
+            ok
+       next
+return j
 
-<span class="sd">###--------------------------------------</span>
+###--------------------------------------
 
-<span class="k">class</span> <span class="n">company</span> <span class="n">position</span> <span class="n">name</span> <span class="n">symbol</span>
+class company position name symbol
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Pos</span><span class="p">:</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Mahmoud</span> <span class="o">|</span> <span class="n">MHD</span> <span class="o">|</span>
-<span class="n">Pos</span><span class="p">:</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Bert</span> <span class="o">|</span> <span class="n">BRT</span> <span class="o">|</span>
-<span class="n">Pos</span><span class="p">:</span> <span class="mi">3</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Ring</span> <span class="o">|</span> <span class="n">RNG</span> <span class="o">|</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Pos: 1 | 3 | Mahmoud | MHD |
+Pos: 2 | 2 | Bert | BRT |
+Pos: 3 | 1 | Ring | RNG |
 
-<span class="n">FindClass</span><span class="p">:</span>  <span class="n">MHD</span>
+FindClass:  MHD
 
-<span class="n">Result</span><span class="o">-</span><span class="n">Attr</span><span class="p">:</span> <span class="mi">1</span> <span class="n">MHD</span>
-<span class="n">Result</span><span class="o">-</span><span class="n">Attr</span><span class="p">:</span> <span class="mi">2</span> <span class="n">BRT</span>
-<span class="n">Result</span><span class="o">-</span><span class="n">Attr</span><span class="p">:</span> <span class="mi">3</span> <span class="n">RNG</span>
+Result-Attr: 1 MHD
+Result-Attr: 2 BRT
+Result-Attr: 3 RNG
 
-<span class="mi">1</span>
+1
 </pre></div>
 </div>
 </div>
@@ -901,31 +1142,31 @@ The Find uses the member name, rather than the column number</p>
 <span id="index-27"></span><h2>setattribute() function<a class="headerlink" href="#setattribute-function" title="Permalink to this headline">¶</a></h2>
 <p>We can set the object attribute value using the setattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SetAttribute</span><span class="p">(</span><span class="n">oObject</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">,</span><span class="n">Value</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SetAttribute(oObject,cAttributeName,Value)
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
-<span class="n">setattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;cName&quot;</span><span class="p">,</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">)</span>
-<span class="n">setattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;nSalary&quot;</span><span class="p">,</span><span class="mi">1000000</span><span class="p">)</span>
-<span class="n">setattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;aColors&quot;</span><span class="p">,</span><span class="o">[</span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="s">&quot;yellow&quot;</span><span class="o">]</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new person
+setattribute(o1,&quot;cName&quot;,&quot;Mahmoud&quot;)
+setattribute(o1,&quot;nSalary&quot;,1000000)
+setattribute(o1,&quot;aColors&quot;,[&quot;white&quot;,&quot;blue&quot;,&quot;yellow&quot;])
 
-<span class="k">see</span> <span class="n">o1</span>
-<span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">aColors</span>
+see o1
+see o1.aColors
 
-<span class="k">Class</span> <span class="n">Person</span>
-        <span class="n">cName</span>
-        <span class="n">nSalary</span>
-        <span class="n">aColors</span>
+Class Person
+        cName
+        nSalary
+        aColors
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">cname</span><span class="p">:</span> <span class="n">Mahmoud</span>
-<span class="n">nsalary</span><span class="p">:</span> <span class="mf">1000000.000000</span>
-<span class="n">acolors</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
-<span class="n">white</span>
-<span class="n">blue</span>
-<span class="n">yellow</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cname: Mahmoud
+nsalary: 1000000.000000
+acolors: List...
+white
+blue
+yellow
 </pre></div>
 </div>
 </div>
@@ -934,54 +1175,54 @@ The Find uses the member name, rather than the column number</p>
 <p>We can share methods between classes without inheritance using the MergeMethods() function</p>
 <p>This function merge class methods to another class.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">MergeMethods</span><span class="p">(</span><span class="n">cClassNameDestination</span><span class="p">,</span><span class="n">cClassNameSource</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MergeMethods(cClassNameDestination,cClassNameSource)
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">mergemethods</span><span class="p">(</span><span class="s">&quot;count&quot;</span><span class="p">,</span><span class="s">&quot;share&quot;</span><span class="p">)</span>
-<span class="n">mergemethods</span><span class="p">(</span><span class="s">&quot;count2&quot;</span><span class="p">,</span><span class="s">&quot;share&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>mergemethods(&quot;count&quot;,&quot;share&quot;)
+mergemethods(&quot;count2&quot;,&quot;share&quot;)
 
-<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">count</span>  <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
-<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">count2</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+o1 = new count  { test() }
+o1 = new count2 { test() }
 
-<span class="k">Class</span> <span class="n">Share</span>
-        <span class="k">func</span> <span class="n">one</span>
-                <span class="k">see</span> <span class="s">&quot;one&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">func</span> <span class="n">two</span>
-                <span class="k">see</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">func</span> <span class="n">three</span>
-                <span class="k">see</span> <span class="s">&quot;three&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+Class Share
+        func one
+                see &quot;one&quot; + nl
+        func two
+                see &quot;two&quot; + nl
+        func three
+                see &quot;three&quot; + nl
 
-<span class="k">Class</span> <span class="n">Display</span>
-        <span class="k">Func</span> <span class="n">printline</span>
-                <span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+Class Display
+        Func printline
+                see copy(&quot;*&quot;,20) + nl
 
-<span class="k">Class</span> <span class="n">Count</span> <span class="k">from</span> <span class="n">Display</span>
-        <span class="k">Func</span> <span class="n">test</span>
-                <span class="n">printline</span><span class="p">()</span>
-                <span class="n">one</span><span class="p">()</span>
-                <span class="n">two</span><span class="p">()</span>
-                <span class="n">three</span><span class="p">()</span>
-                <span class="n">printline</span><span class="p">()</span>
+Class Count from Display
+        Func test
+                printline()
+                one()
+                two()
+                three()
+                printline()
 
-<span class="k">Class</span> <span class="n">Count2</span> <span class="k">from</span> <span class="n">Display</span>
-        <span class="k">Func</span> <span class="n">test</span>
-                <span class="n">three</span><span class="p">()</span>
-                <span class="n">two</span><span class="p">()</span>
-                <span class="n">one</span><span class="p">()</span>
-                <span class="n">printline</span><span class="p">()</span>
+Class Count2 from Display
+        Func test
+                three()
+                two()
+                one()
+                printline()
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">********************</span>
-<span class="n">one</span>
-<span class="n">two</span>
-<span class="n">three</span>
-<span class="o">********************</span>
-<span class="n">three</span>
-<span class="n">two</span>
-<span class="n">one</span>
-<span class="o">********************</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>********************
+one
+two
+three
+********************
+three
+two
+one
+********************
 </pre></div>
 </div>
 </div>
@@ -989,34 +1230,64 @@ The Find uses the member name, rather than the column number</p>
 <span id="index-29"></span><h2>packagename() Function<a class="headerlink" href="#packagename-function" title="Permalink to this headline">¶</a></h2>
 <p>We can know the package name of the latest sucessful import command using the packagename() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">packagename</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">package</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">sucessful</span> <span class="k">import</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>packagename() --&gt; Returns the package name of the latest sucessful import
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
-<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">web</span>
-<span class="k">see</span> <span class="n">packagename</span><span class="p">()</span>       <span class="c"># system.web</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;weblib.ring&quot;
+import System.web
+see packagename()       # system.web
 </pre></div>
 </div>
 </div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="fp.html">Functional Programming</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="declarative.html">Declarative Programming using Nested Structures</a>&#160;&#160;»
-        </p>
+        <a href="declarative.html" class="btn btn-neutral float-right" title="Declarative Programming using Nested Structures" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fp.html" class="btn btn-neutral float-left" title="Functional Programming" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

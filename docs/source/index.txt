@@ -9,7 +9,7 @@ Welcome to Ring's documentation!
 Contents:
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    Applications developed in little hours <ringapps>
    Introduction <introduction>

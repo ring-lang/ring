@@ -1,52 +1,281 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Extension using the C/C++ languages &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>Extension using the C/C++ languages &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Embedding Ring Language in C/C++ Programs" href="embedding.html" />
     <link rel="prev" title="Tutorial: Ring Extensions in C/C++" href="extension_tutorial.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>Extension using the C/C++ languages</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="embedding.html">Embedding Ring Language in C/C++ Programs</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extension using the C/C++ languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ring-ext-h">ring_ext.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-ext-c">ring_ext.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-organization">Module Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#function-structure">Function Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-parameters-count">Check Parameters Count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-error-message">Display Error Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-parameters-type">Check Parameters Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-parameters-values">Get Parameters Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#return-value">Return Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#function-prototype">Function Prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sin-function-implementation">Sin() Function Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fopen-and-fclose-functions-implementation">Fopen() and Fclose() Functions Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-api-list-functions">Ring API - List Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-api-string-functions">Ring API - String Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mysql-columns-function-implementation">MySQL_Columns() Function Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-shared-libraries-dll-so-dylib-and-loadlib-function">Dynamic/Shared Libraries (DLL/So/Dylib) and LoadLib() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-ring-api-retmanagedcpointer">Using RING_API_RETMANAGEDCPOINTER()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Extension using the C/C++ languages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="extension-using-the-c-c-languages">
 <span id="index-0"></span><h1>Extension using the C/C++ languages<a class="headerlink" href="#extension-using-the-c-c-languages" title="Permalink to this headline">¶</a></h1>
 <p>We can extend the Ring Virtual Machine (RingVM) by adding new functions written in the C programming language or C++.
@@ -57,7 +286,7 @@ library (DLL/So) file to extend the RingVM without the need to rebuild it.</p>
 <div class="section" id="ring-ext-h">
 <span id="index-1"></span><h2>ring_ext.h<a class="headerlink" href="#ring-ext-h" title="Permalink to this headline">¶</a></h2>
 <p>The file ring_ext.h contains constants that we can change to include/exclude modules during the build process.</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="cp">#ifndef ringext_h</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef ringext_h</span>
 <span class="cp">#define ringext_h</span>
 <span class="cm">/* Constants */</span>
 <span class="cp">#define RING_VM_LISTFUNCS       1</span>
@@ -78,7 +307,7 @@ library (DLL/So) file to extend the RingVM without the need to rebuild it.</p>
 <span id="index-2"></span><h2>ring_ext.c<a class="headerlink" href="#ring-ext-c" title="Permalink to this headline">¶</a></h2>
 <p>The file ring_ext.c check constants defined in ring_ext.h before calling the start-up function in each module.</p>
 <p>Each module contains a function that register the module functions in the RingVM.</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
 
 <span class="kt">void</span> <span class="nf">ring_vm_extension</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span> <span class="p">)</span>
 <span class="p">{</span>
@@ -136,7 +365,7 @@ The registration is done by using ring_vm_funcregister() function.</p>
 that will be used by Ring programs to call the function. The second parameter is the
 function pointer in the C program.</p>
 <p>for example, the ring_vmmath.c module contains the next code to register the module functions</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
 
 <span class="kt">void</span> <span class="nf">ring_vm_math_loadfunctions</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span> <span class="p">)</span>
 <span class="p">{</span>
@@ -165,8 +394,8 @@ function pointer in the C program.</p>
 </pre></div>
 </div>
 <div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">Remember that the function ring_vm_math_loadfunctions() will be called by the
+<p class="admonition-title">Tip</p>
+<p>Remember that the function ring_vm_math_loadfunctions() will be called by the
 ring_vm_extension() function (in the ring_ext.c file).</p>
 </div>
 </div>
@@ -186,13 +415,13 @@ But here we will use the Ring API for the steps 1,2,3 and 5.</p>
 <p>We can check the parameters count using the RING_API_PARACOUNT macro.</p>
 <p>We can compare RING_API_PARACOUNT with any numeric value using == or != operators.</p>
 <p>Example:</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
         <span class="cm">/* code */</span>
 <span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
         <span class="cm">/* code */</span>
 <span class="p">}</span>
 </pre></div>
@@ -203,16 +432,16 @@ But here we will use the Ring API for the steps 1,2,3 and 5.</p>
 <p>We can display error messages using the RING_API_ERROR() function.</p>
 <p>The function will display the error and end the execution of the program.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">the behaviour of this function can be changed by the Ring code
+<p class="admonition-title">Note</p>
+<p>the behaviour of this function can be changed by the Ring code
 using Try/Catch/Done statements, so in your C code, use Return after this function.</p>
 </div>
 <p>Syntax:</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="n">RING_API_ERROR</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cErrorMsg</span><span class="p">);</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">RING_API_ERROR</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cErrorMsg</span><span class="p">);</span>
 </pre></div>
 </div>
 <p>The Ring API comes with some of predefined error messages that we can use</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="cp">#define RING_API_MISS1PARA &quot;Bad parameters count, the function expect one parameter&quot;</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RING_API_MISS1PARA &quot;Bad parameters count, the function expect one parameter&quot;</span>
 <span class="cp">#define RING_API_MISS2PARA &quot;Bad parameters count, the function expect two parameters&quot;</span>
 <span class="cp">#define RING_API_MISS3PARA &quot;Bad parameters count, the function expect three parameters&quot;</span>
 <span class="cp">#define RING_API_MISS4PARA &quot;Bad parameters count, the function expect four parameters&quot;</span>
@@ -228,7 +457,7 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 <div class="section" id="check-parameters-type">
 <span id="index-7"></span><h2>Check Parameters Type<a class="headerlink" href="#check-parameters-type" title="Permalink to this headline">¶</a></h2>
 <p>We can check the parameter type using the next functions</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">RING_API_ISNUMBER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">RING_API_ISNUMBER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="kt">int</span> <span class="nf">RING_API_ISSTRING</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="kt">int</span> <span class="nf">RING_API_ISLIST</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="kt">int</span> <span class="nf">RING_API_ISCPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
@@ -240,7 +469,7 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 <div class="section" id="get-parameters-values">
 <span id="index-8"></span><h2>Get Parameters Values<a class="headerlink" href="#get-parameters-values" title="Permalink to this headline">¶</a></h2>
 <p>We can get paramters values using the next functions</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">RING_API_GETNUMBER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">RING_API_GETNUMBER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">RING_API_GETSTRING</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="kt">int</span> <span class="nf">RING_API_GETSTRINGSIZE</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
 <span class="n">List</span> <span class="o">*</span><span class="nf">RING_API_GETLIST</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
@@ -252,7 +481,7 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 <div class="section" id="return-value">
 <span id="index-9"></span><h2>Return Value<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
 <p>We can return values from our function using the next functions.</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="kt">double</span> <span class="n">nValue</span><span class="p">);</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="kt">double</span> <span class="n">nValue</span><span class="p">);</span>
 <span class="n">RING_API_RETSTRING</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cString</span><span class="p">);</span>
 <span class="n">RING_API_RETSTRING2</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cString</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStringSize</span><span class="p">);</span>
 <span class="n">RING_API_RETLIST</span><span class="p">(</span><span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">);</span>
@@ -265,11 +494,11 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 <div class="section" id="function-prototype">
 <span id="index-10"></span><h2>Function Prototype<a class="headerlink" href="#function-prototype" title="Permalink to this headline">¶</a></h2>
 <p>When we define new function to be used for RingVM extension, we use the next prototype</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">my_function_name</span><span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">);</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">my_function_name</span><span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">);</span>
 </pre></div>
 </div>
 <p>or we can use the RING_FUNC() Macro</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="n">RING_FUNC</span><span class="p">(</span><span class="n">my_function_name</span><span class="p">);</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">RING_FUNC</span><span class="p">(</span><span class="n">my_function_name</span><span class="p">);</span>
 </pre></div>
 </div>
 </div>
@@ -277,7 +506,7 @@ using Try/Catch/Done statements, so in your C code, use Return after this functi
 <span id="index-11"></span><h2>Sin() Function Implementation<a class="headerlink" href="#sin-function-implementation" title="Permalink to this headline">¶</a></h2>
 <p>The next code represents the sin() function implementation using the Ring API and
 the sin() C function.</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_math_sin</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_math_sin</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
 <span class="p">{</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
                 <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
@@ -299,12 +528,12 @@ using the Ring API and the fopen() C Function.</p>
 <p>The function takes two parameters, the first parameter is the file name as string.
 The second parameter is the mode as string.</p>
 <p>In the file ring_vmfile.h we have some constants to use as the pointer type like</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="cp">#define RING_VM_POINTER_FILE    &quot;file&quot;</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RING_VM_POINTER_FILE    &quot;file&quot;</span>
 <span class="cp">#define RING_VM_POINTER_FILEPOS &quot;filepos&quot;</span>
 </pre></div>
 </div>
 <p>The function implementation in ring_vmfile.c</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_file_fopen</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_file_fopen</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
 <span class="p">{</span>
         <span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span>  <span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
@@ -321,7 +550,7 @@ The second parameter is the mode as string.</p>
 </pre></div>
 </div>
 <p>The next code represents the fclose() function implementation</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_file_fclose</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_file_fclose</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
 <span class="p">{</span>
         <span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span>  <span class="p">;</span>
         <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
@@ -350,7 +579,7 @@ The second parameter is the mode as string.</p>
 <span id="index-13"></span><h2>Ring API - List Functions<a class="headerlink" href="#ring-api-list-functions" title="Permalink to this headline">¶</a></h2>
 <p>In this section we will learn about the list functions provided by the Ring API to create new lists and
 manipulate the list items.</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="n">List</span> <span class="o">*</span> <span class="nf">ring_list_new</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">nSize</span> <span class="p">)</span> <span class="p">;</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">List</span> <span class="o">*</span> <span class="nf">ring_list_new</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">nSize</span> <span class="p">)</span> <span class="p">;</span>
 <span class="kt">void</span> <span class="nf">ring_list_newitem</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
 <span class="n">Item</span> <span class="o">*</span> <span class="nf">ring_list_getitem</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
 <span class="n">List</span> <span class="o">*</span> <span class="nf">ring_list_delete</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
@@ -425,7 +654,7 @@ manipulate the list items.</p>
 <span id="index-14"></span><h2>Ring API - String Functions<a class="headerlink" href="#ring-api-string-functions" title="Permalink to this headline">¶</a></h2>
 <p>In this section we will learn about the string functions provided by the Ring API to create new string and
 manipulate the string content.</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="o">*</span> <span class="nf">ring_string_new</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="p">)</span> <span class="p">;</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="o">*</span> <span class="nf">ring_string_new</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="p">)</span> <span class="p">;</span>
 <span class="n">String</span> <span class="o">*</span> <span class="nf">ring_string_new2</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize</span> <span class="p">)</span> <span class="p">;</span>
 <span class="n">String</span> <span class="o">*</span> <span class="nf">ring_string_delete</span> <span class="p">(</span> <span class="n">String</span> <span class="o">*</span><span class="n">pString</span> <span class="p">)</span> <span class="p">;</span>
 <span class="kt">int</span> <span class="nf">ring_string_size</span> <span class="p">(</span> <span class="n">String</span> <span class="o">*</span><span class="n">pString</span> <span class="p">)</span> <span class="p">;</span>
@@ -452,7 +681,7 @@ manipulate the string content.</p>
 <span id="index-15"></span><h2>MySQL_Columns() Function Implementation<a class="headerlink" href="#mysql-columns-function-implementation" title="Permalink to this headline">¶</a></h2>
 <p>The next code presents the MySQL_Columns() function implementation.</p>
 <p>This function returns table columns information.</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_mysql_columns</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_mysql_columns</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
 <span class="p">{</span>
         <span class="n">MYSQL</span> <span class="o">*</span><span class="n">con</span>  <span class="p">;</span>
         <span class="n">MYSQL_RES</span> <span class="o">*</span><span class="n">result</span>  <span class="p">;</span>
@@ -496,18 +725,18 @@ manipulate the string content.</p>
 <p>Lists are of type List, in the previoud function we declared two pointers of type List
 using List <a href="#id1"><span class="problematic" id="id2">*</span></a>pList, <a href="#id3"><span class="problematic" id="id4">*</span></a>pList2;</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The function uses RING_API_NEWLIST to create new list instead of ring_list_new()
+<p class="admonition-title">Note</p>
+<p>The function uses RING_API_NEWLIST to create new list instead of ring_list_new()
 to create the list in Temp. Memory related to the function scope. This way we can
-return the list from the function. Also we don&#8217;t delete the list, if it&#8217;s stored in
+return the list from the function. Also we don’t delete the list, if it’s stored in
 a variable by Ring Code it will be saved, if not it will be automatically deleted by RingVM.</p>
 </div>
 <p>The list can contains sub lists, we used the function ring_list_newlist() to create a sublist.</p>
 <p>The function ring_list_addstring() is used to add string items to the list/sublist.</p>
 <p>The function ring_list_adddouble() is used to add numeric items to the list/sublist.</p>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">All numeric items in lists returned from RingVM extension functions must be of type double
+<p class="admonition-title">Note</p>
+<p>All numeric items in lists returned from RingVM extension functions must be of type double
 and added to the list using ring_list_adddouble() function.</p>
 </div>
 <p>We return the list from the extension function using the RING_API_RETLIST() function.</p>
@@ -517,7 +746,7 @@ and added to the list using ring_list_adddouble() function.</p>
 <p>Instead of rebuilding the RingVM after writing new functions using C/C++ and the Ring API, we can create
 a DLL/So/Dylib file and dynamically use the functions provided by this file in the runtime using the LoadLib() function.</p>
 <p>Dynamic library example in C</p>
-<div class="highlight-C"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
 
 <span class="n">RING_DLL</span> <span class="nf">__declspec</span><span class="p">(</span><span class="n">dllexport</span><span class="p">)</span>
 
@@ -537,14 +766,14 @@ file though the LoadLib() function.</p>
 <p>Inside the ringlib_init() function we can register the module function or call a function that do the registration process
 for all of the module functions.</p>
 <p>The next Ring code demonstrates how to use the DLL library during the runtime.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Dynamic DLL&quot;</span> <span class="o">+</span> <span class="n">NL</span>
-<span class="n">LoadLib</span><span class="p">(</span><span class="s">&quot;ringlib.dll&quot;</span><span class="p">)</span>
-<span class="n">dlfunc</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Dynamic DLL&quot; + NL
+LoadLib(&quot;ringlib.dll&quot;)
+dlfunc()
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Dynamic</span> <span class="n">DLL</span>
-<span class="n">Message</span> <span class="k">from</span> <span class="n">dlfunc</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Dynamic DLL
+Message from dlfunc
 </pre></div>
 </div>
 </div>
@@ -555,13 +784,13 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
 <p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
-                                <span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,
+                                void (* pFreeFunc)(void *,void *))
 </pre></div>
 </div>
 <p>Example:</p>
 <p>The next example from ring_qt.cpp - QPixMap Class - Scaled() Method.</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>RING_FUNC(ring_QPixmap_scaled)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RING_FUNC(ring_QPixmap_scaled)
 {
         QPixmap *pObject ;
         if ( RING_API_PARACOUNT != 5 ) {
@@ -604,7 +833,7 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 </div>
 <p>The function that will free the memory takes two parameters (Ring State and the allocated Memory Pointer)</p>
 <p>Example:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>void ring_QPixmap_freefunc(void *pState,void *pPointer)
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>void ring_QPixmap_freefunc(void *pState,void *pPointer)
 {
         QPixmap *pObject ;
         pObject = (QPixmap *) pPointer;
@@ -616,21 +845,51 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="embedding.html">Embedding Ring Language in C/C++ Programs</a>&#160;&#160;»
-        </p>
+        <a href="embedding.html" class="btn btn-neutral float-right" title="Embedding Ring Language in C/C++ Programs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="extension_tutorial.html" class="btn btn-neutral float-left" title="Tutorial: Ring Extensions in C/C++" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

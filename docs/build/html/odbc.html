@@ -1,82 +1,315 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>ODBC Functions &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>ODBC Functions &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="MySQL Functions" href="mysql.html" />
     <link rel="prev" title="Demo Programs" href="demo.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>ODBC Functions</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="demo.html">Demo Programs</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="mysql.html">MySQL Functions</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ODBC Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-init-function">odbc_init() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-drivers-function">odbc_drivers() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-datasources-function">odbc_datasources() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-close-function">odbc_close() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#print-list-of-odbc-drivers">Print List of ODBC Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#print-list-of-odbc-data-sources">Print List of ODBC Data Sources</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-connect-function">odbc_connect() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-disconnect-function">odbc_disconnect() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#open-and-close-connection">Open and Close Connection</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-execute-function">odbc_execute() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-colcount-function">odbc_colcount() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-fetch-function">odbc_fetch() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-getdata-function">odbc_getdata() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#execute-query-and-print-result">Execute Query and Print Result</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-tables-function">odbc_tables() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-columns-function">odbc_columns() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-autocommit-function">odbc_autocommit() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-commit-function">odbc_commit() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#odbc-rollback-function">odbc_rollback() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#transactions-and-using-commit-and-rollback">Transactions and Using Commit and Rollback</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#save-and-restore-images">Save and Restore images</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>ODBC Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="odbc-functions">
 <span id="index-0"></span><h1>ODBC Functions<a class="headerlink" href="#odbc-functions" title="Permalink to this headline">¶</a></h1>
 <p>This chapter contains the ODBC functions provided by the Ring programming language.</p>
 <ul class="simple">
-<li>odbc_init()</li>
-<li>odbc_drivers()</li>
-<li>odbc_datasources()</li>
-<li>odbc_close()</li>
-<li>odbc_connect()</li>
-<li>odbc_disconnect()</li>
-<li>odbc_execute()</li>
-<li>odbc_colcount()</li>
-<li>odbc_fetch()</li>
-<li>odbc_getdata()</li>
-<li>odbc_tables()</li>
-<li>odbc_columns()</li>
-<li>odbc_autocommit()</li>
-<li>odbc_commit()</li>
-<li>odbc_rollback()</li>
+<li><p>odbc_init()</p></li>
+<li><p>odbc_drivers()</p></li>
+<li><p>odbc_datasources()</p></li>
+<li><p>odbc_close()</p></li>
+<li><p>odbc_connect()</p></li>
+<li><p>odbc_disconnect()</p></li>
+<li><p>odbc_execute()</p></li>
+<li><p>odbc_colcount()</p></li>
+<li><p>odbc_fetch()</p></li>
+<li><p>odbc_getdata()</p></li>
+<li><p>odbc_tables()</p></li>
+<li><p>odbc_columns()</p></li>
+<li><p>odbc_autocommit()</p></li>
+<li><p>odbc_commit()</p></li>
+<li><p>odbc_rollback()</p></li>
 </ul>
 <p>Before using the next function load the odbclib.ring library</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;odbclib.ring&quot;</span>
-<span class="c"># Use ODBC functions</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;odbclib.ring&quot;
+# Use ODBC functions
 </pre></div>
 </div>
 <div class="section" id="odbc-init-function">
 <span id="index-1"></span><h2>odbc_init() Function<a class="headerlink" href="#odbc-init-function" title="Permalink to this headline">¶</a></h2>
 <p>We can create ODBC Handle using the odbc_init() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_init</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">ODBC</span> <span class="n">Handle</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_init() ---&gt; ODBC Handle
 </pre></div>
 </div>
 </div>
@@ -84,7 +317,7 @@
 <span id="index-2"></span><h2>odbc_drivers() Function<a class="headerlink" href="#odbc-drivers-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of ODBC drivers using the odbc_drivers() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_drivers</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">Drivers</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_drivers(ODBC Handle) ---&gt; List of Drivers
 </pre></div>
 </div>
 </div>
@@ -92,7 +325,7 @@
 <span id="index-3"></span><h2>odbc_datasources() Function<a class="headerlink" href="#odbc-datasources-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of ODBC data sources using the odbc_datasources() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_datasources</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">Data</span> <span class="n">sources</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_datasources(ODBC Handle) ---&gt; List of Data sources
 </pre></div>
 </div>
 </div>
@@ -100,92 +333,92 @@
 <span id="index-4"></span><h2>odbc_close() Function<a class="headerlink" href="#odbc-close-function" title="Permalink to this headline">¶</a></h2>
 <p>After the end of using ODBC functions we can free resources using ODBC_Close() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_close</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_close(ODBC Handle)
 </pre></div>
 </div>
 </div>
 <div class="section" id="print-list-of-odbc-drivers">
 <span id="index-5"></span><h2>Print List of ODBC Drivers<a class="headerlink" href="#print-list-of-odbc-drivers" title="Permalink to this headline">¶</a></h2>
 <p>The next example print a list of ODBC drivers.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 1&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">oODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Drivers &quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_drivers</span><span class="p">(</span><span class="n">oODBC</span><span class="p">)</span>
-<span class="n">odbc_close</span><span class="p">(</span><span class="n">oODBC</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;ODBC test 1&quot; + nl
+oODBC = odbc_init()
+See &quot;Drivers &quot; + nl
+see odbc_drivers(oODBC)
+odbc_close(oODBC)
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">test</span> <span class="mi">1</span>
-<span class="n">Drivers</span>
-<span class="n">Microsoft</span> <span class="n">Access</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Driver</span> <span class="k">do</span> <span class="n">Microsoft</span> <span class="n">Paradox</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">db</span> <span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Driver</span> <span class="k">do</span> <span class="n">Microsoft</span> <span class="n">Excel</span><span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">xls</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Text</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">txt</span><span class="p">;</span> <span class="o">*</span><span class="p">.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Driver</span> <span class="n">da</span> <span class="n">Microsoft</span> <span class="n">para</span> <span class="n">arquivos</span> <span class="n">texto</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">txt</span><span class="p">;</span> <span class="o">*</span><span class="p">.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">dBase</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">SQL</span> <span class="n">Server</span> <span class="o">-</span> <span class="n">CPTimeout</span><span class="o">=</span><span class="mi">60</span>
-<span class="n">Microsoft</span> <span class="n">Excel</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">xls</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Driver</span> <span class="k">do</span> <span class="n">Microsoft</span> <span class="n">dBase</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Paradox</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">db</span> <span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">ODBC</span> <span class="k">for</span> <span class="n">Oracle</span> <span class="o">-</span> <span class="n">CPTimeout</span><span class="o">=</span><span class="mi">120</span>
-<span class="n">Microsoft</span> <span class="n">Text</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">txt</span><span class="p">;</span> <span class="o">*</span><span class="p">.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Excel</span><span class="o">-</span><span class="n">Treiber</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">xls</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Driver</span> <span class="k">do</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Paradox</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">db</span> <span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">dBase</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">SQLLevel</span><span class="o">=</span><span class="mi">0</span>
-<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">accdb</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">Microsoft</span> <span class="n">Excel</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">xls</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsm</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsb</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Text</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">txt</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">csv</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">SQL</span> <span class="n">Server</span> <span class="n">Native</span> <span class="n">Client</span> <span class="mf">10.0</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">SQL</span> <span class="n">Server</span> <span class="n">Native</span> <span class="n">Client</span> <span class="mf">11.0</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">dBASE</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">ndx</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">mdx</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Paradox</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">db</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">3</span>
-<span class="n">MySQL</span> <span class="n">ODBC</span> <span class="mf">5.3</span> <span class="n">ANSI</span> <span class="n">Driver</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">MySQL</span> <span class="n">ODBC</span> <span class="mf">5.3</span> <span class="n">Unicode</span> <span class="n">Driver</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">ODBC</span> <span class="n">Driver</span> <span class="mi">11</span> <span class="k">for</span> <span class="n">SQL</span> <span class="n">Server</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">Lianja</span> <span class="n">ODBC</span> <span class="n">Driver</span> <span class="o">-</span> <span class="n">CPTimeout</span><span class="o">=</span><span class="mi">60</span>
-<span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Driver</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span><span class="o">-</span><span class="n">Treiber</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">Driver</span> <span class="n">para</span> <span class="n">o</span> <span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
-<span class="n">Microsoft</span> <span class="n">FoxPro</span> <span class="n">VFP</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">)</span> <span class="o">-</span> <span class="n">UsageCount</span><span class="o">=</span><span class="mi">1</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ODBC test 1
+Drivers
+Microsoft Access-Treiber (*.mdb) - SQLLevel=0
+Driver do Microsoft Paradox (*.db ) - SQLLevel=0
+Driver do Microsoft Excel(*.xls) - SQLLevel=0
+Microsoft Text Driver (*.txt; *.csv) - SQLLevel=0
+Driver da Microsoft para arquivos texto (*.txt; *.csv) - SQLLevel=0
+Microsoft dBase-Treiber (*.dbf) - SQLLevel=0
+SQL Server - CPTimeout=60
+Microsoft Excel Driver (*.xls) - SQLLevel=0
+Driver do Microsoft dBase (*.dbf) - SQLLevel=0
+Microsoft Paradox-Treiber (*.db ) - SQLLevel=0
+Microsoft ODBC for Oracle - CPTimeout=120
+Microsoft Text-Treiber (*.txt; *.csv) - SQLLevel=0
+Microsoft Excel-Treiber (*.xls) - SQLLevel=0
+Microsoft Access Driver (*.mdb) - SQLLevel=0
+Driver do Microsoft Access (*.mdb) - SQLLevel=0
+Microsoft Paradox Driver (*.db ) - SQLLevel=0
+Microsoft dBase Driver (*.dbf) - SQLLevel=0
+Microsoft Access Driver (*.mdb, *.accdb) - UsageCount=3
+Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb) - UsageCount=3
+Microsoft Access Text Driver (*.txt, *.csv) - UsageCount=3
+SQL Server Native Client 10.0 - UsageCount=1
+SQL Server Native Client 11.0 - UsageCount=1
+Microsoft Access dBASE Driver (*.dbf, *.ndx, *.mdx) - UsageCount=3
+Microsoft Access Paradox Driver (*.db) - UsageCount=3
+MySQL ODBC 5.3 ANSI Driver - UsageCount=1
+MySQL ODBC 5.3 Unicode Driver - UsageCount=1
+ODBC Driver 11 for SQL Server - UsageCount=1
+Lianja ODBC Driver - CPTimeout=60
+Microsoft Visual FoxPro Driver - UsageCount=1
+Microsoft Visual FoxPro-Treiber - UsageCount=1
+Driver para o Microsoft Visual FoxPro - UsageCount=1
+Microsoft FoxPro VFP Driver (*.dbf) - UsageCount=1
 </pre></div>
 </div>
 </div>
 <div class="section" id="print-list-of-odbc-data-sources">
 <span id="index-6"></span><h2>Print List of ODBC Data Sources<a class="headerlink" href="#print-list-of-odbc-data-sources" title="Permalink to this headline">¶</a></h2>
 <p>The next example print a list of ODBC data sources.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Data Sources &quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_datasources</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;ODBC test 2&quot; + nl
+pODBC = odbc_init()
+See &quot;Data Sources &quot; + nl
+see odbc_datasources(pODBC)
+odbc_close(pODBC)
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">test</span> <span class="mi">2</span>
-<span class="n">Data</span> <span class="n">Sources</span>
-<span class="n">Excel</span> <span class="n">Files</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Excel</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">xls</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsx</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsm</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">xlsb</span><span class="p">)</span>
-<span class="n">MS</span> <span class="n">Access</span> <span class="n">Database</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">accdb</span><span class="p">)</span>
-<span class="n">Customer</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">IdCardData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">MyProjectData2</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">MyData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">MonprojetData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">dBASE</span> <span class="n">Files</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">dBASE</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">dbf</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">ndx</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">mdx</span><span class="p">)</span>
-<span class="n">myvfpdata</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Driver</span>
-<span class="n">FACTORYDATA</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">TRAININGSYSDATA</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">RVCSYSDATASQLDB</span> <span class="o">-</span> <span class="n">SQL</span> <span class="n">Server</span> <span class="n">Native</span> <span class="n">Client</span> <span class="mf">11.0</span>
-<span class="n">PWCTRVCDATA</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">MyCompany</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">HCS</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">HCS2</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">,</span> <span class="o">*</span><span class="p">.</span><span class="n">accdb</span><span class="p">)</span>
-<span class="n">MyProjectData</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">Xtreme</span> <span class="n">Sample</span> <span class="n">Database</span> <span class="mi">2008</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Access</span> <span class="n">Driver</span> <span class="p">(</span><span class="o">*</span><span class="p">.</span><span class="n">mdb</span><span class="p">)</span>
-<span class="n">Lianja_Southwind</span> <span class="o">-</span> <span class="n">Lianja</span> <span class="n">ODBC</span> <span class="n">Driver</span>
-<span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Database</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Driver</span>
-<span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Tables</span> <span class="o">-</span> <span class="n">Microsoft</span> <span class="n">Visual</span> <span class="n">FoxPro</span> <span class="n">Driver</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ODBC test 2
+Data Sources
+Excel Files - Microsoft Excel Driver (*.xls, *.xlsx, *.xlsm, *.xlsb)
+MS Access Database - Microsoft Access Driver (*.mdb, *.accdb)
+Customer - Microsoft Access Driver (*.mdb)
+IdCardData - Microsoft Access Driver (*.mdb)
+MyProjectData2 - Microsoft Access Driver (*.mdb)
+MyData - Microsoft Access Driver (*.mdb)
+MonprojetData - Microsoft Access Driver (*.mdb)
+dBASE Files - Microsoft Access dBASE Driver (*.dbf, *.ndx, *.mdx)
+myvfpdata - Microsoft Visual FoxPro Driver
+FACTORYDATA - Microsoft Access Driver (*.mdb)
+TRAININGSYSDATA - Microsoft Access Driver (*.mdb)
+RVCSYSDATASQLDB - SQL Server Native Client 11.0
+PWCTRVCDATA - Microsoft Access Driver (*.mdb)
+MyCompany - Microsoft Access Driver (*.mdb)
+HCS - Microsoft Access Driver (*.mdb)
+HCS2 - Microsoft Access Driver (*.mdb, *.accdb)
+MyProjectData - Microsoft Access Driver (*.mdb)
+Xtreme Sample Database 2008 - Microsoft Access Driver (*.mdb)
+Lianja_Southwind - Lianja ODBC Driver
+Visual FoxPro Database - Microsoft Visual FoxPro Driver
+Visual FoxPro Tables - Microsoft Visual FoxPro Driver
 </pre></div>
 </div>
 </div>
@@ -193,7 +426,7 @@
 <span id="index-7"></span><h2>odbc_connect() Function<a class="headerlink" href="#odbc-connect-function" title="Permalink to this headline">¶</a></h2>
 <p>We can connect to the database using the odbc_connect() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_connect</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cConnectionString</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_connect(ODBC Handle, cConnectionString)
 </pre></div>
 </div>
 </div>
@@ -201,29 +434,29 @@
 <span id="index-8"></span><h2>odbc_disconnect() Function<a class="headerlink" href="#odbc-disconnect-function" title="Permalink to this headline">¶</a></h2>
 <p>We can close the connection to the database using the odbc_disconnect() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_disconnect(ODBC Handle)
 </pre></div>
 </div>
 </div>
 <div class="section" id="open-and-close-connection">
 <span id="index-9"></span><h2>Open and Close Connection<a class="headerlink" href="#open-and-close-connection" title="Permalink to this headline">¶</a></h2>
 <p>The next example connect to the database then close the connection</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 3&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;disconnect&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;ODBC test 3&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+see odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+See &quot;disconnect&quot; + nl
+odbc_disconnect(pODBC)
+See &quot;Close database...&quot; + nl
+odbc_close(pODBC)
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">test</span> <span class="mi">3</span>
-<span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
-<span class="mi">1</span>
-<span class="n">disconnect</span>
-<span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ODBC test 3
+Connect to database
+1
+disconnect
+Close database...
 </pre></div>
 </div>
 </div>
@@ -231,7 +464,7 @@
 <span id="index-10"></span><h2>odbc_execute() Function<a class="headerlink" href="#odbc-execute-function" title="Permalink to this headline">¶</a></h2>
 <p>We can execute SQL Statements on the database using the odbc_execute() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_execute</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cSQLStatement</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_execute(ODBC Handle, cSQLStatement)
 </pre></div>
 </div>
 </div>
@@ -239,7 +472,7 @@
 <span id="index-11"></span><h2>odbc_colcount() Function<a class="headerlink" href="#odbc-colcount-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get columns count in the query result using the odbc_colcount() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_colcount</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Columns</span> <span class="n">Count</span> <span class="n">as</span> <span class="n">Number</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_colcount(ODBC Handle) ---&gt; Columns Count as Number
 </pre></div>
 </div>
 </div>
@@ -247,7 +480,7 @@
 <span id="index-12"></span><h2>odbc_fetch() Function<a class="headerlink" href="#odbc-fetch-function" title="Permalink to this headline">¶</a></h2>
 <p>We can fetch a row from the query result using the odbc_fetch() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_fetch</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_fetch(ODBC Handle)
 </pre></div>
 </div>
 </div>
@@ -255,30 +488,30 @@
 <span id="index-13"></span><h2>odbc_getdata() Function<a class="headerlink" href="#odbc-getdata-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get column value from the fetched row using the odbc_getdata() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_getdata</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">nColumnNumber</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Column</span> <span class="n">Value</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_getdata(ODBC Handle, nColumnNumber) ---&gt; Column Value
 </pre></div>
 </div>
 </div>
 <div class="section" id="execute-query-and-print-result">
 <span id="index-14"></span><h2>Execute Query and Print Result<a class="headerlink" href="#execute-query-and-print-result" title="Permalink to this headline">¶</a></h2>
 <p>The next example execute query then print the query result.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 4&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Select data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;select * from person&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-        <span class="k">See</span> <span class="s">&quot;Row data:&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
-                <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span>
-        <span class="k">next</span>
-<span class="k">end</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;ODBC test 4&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+see odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+See &quot;Select data&quot; + nl
+see odbc_execute(pODBC,&quot;select * from person&quot;) + nl
+nMax = odbc_colcount(pODBC)
+See &quot;Columns Count : &quot; + nMax + nl
+while odbc_fetch(pODBC)
+        See &quot;Row data:&quot; + nl
+        for x = 1 to nMax
+                see odbc_getdata(pODBC,x) + &quot; - &quot;
+        next
+end
+See &quot;Close database...&quot; + nl
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
 </pre></div>
 </div>
 </div>
@@ -287,40 +520,40 @@
 <p>We can get a list of tables inside the database using the odbc_tables() function.</p>
 <p>We can access the result of this function as we get any query result.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_tables</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_tables(ODBC Handle)
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test - Get Database Tables&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Select data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_tables</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
-                <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
-                <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">nMax</span> <span class="k">see</span> <span class="s">&quot; - &quot;</span> <span class="k">ok</span>
-        <span class="k">next</span>
-        <span class="k">See</span> <span class="n">nl</span>
-<span class="k">end</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span>
-<span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;ODBC test - Get Database Tables&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+See &quot;Select data&quot; + nl
+odbc_tables(pODBC) + nl
+nMax = odbc_colcount(pODBC)
+See &quot;Columns Count : &quot; + nMax + nl
+while odbc_fetch(pODBC)
+        for x = 1 to nMax
+                see odbc_getdata(pODBC,x)
+                if x != nMax see &quot; - &quot; ok
+        next
+        See nl
+end
+See &quot;Close database...&quot;
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">test</span> <span class="o">-</span> <span class="k">Get</span> <span class="n">Database</span> <span class="n">Tables</span>
-<span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
-<span class="n">Select</span> <span class="n">data</span>
-<span class="n">Columns</span> <span class="n">Count</span> <span class="p">:</span> <span class="mi">5</span>
-<span class="p">.</span><span class="o">\</span><span class="n">test</span> <span class="o">-</span> <span class="kp">NULL</span> <span class="o">-</span> <span class="n">Customer</span> <span class="o">-</span> <span class="n">TABLE</span> <span class="o">-</span> <span class="kp">NULL</span>
-<span class="p">.</span><span class="o">\</span><span class="n">test</span> <span class="o">-</span> <span class="kp">NULL</span> <span class="o">-</span> <span class="n">employee</span> <span class="o">-</span> <span class="n">TABLE</span> <span class="o">-</span> <span class="kp">NULL</span>
-<span class="p">.</span><span class="o">\</span><span class="n">test</span> <span class="o">-</span> <span class="kp">NULL</span> <span class="o">-</span> <span class="n">person</span> <span class="o">-</span> <span class="n">TABLE</span> <span class="o">-</span> <span class="kp">NULL</span>
-<span class="p">.</span><span class="o">\</span><span class="n">test</span> <span class="o">-</span> <span class="kp">NULL</span> <span class="o">-</span> <span class="n">tel</span> <span class="o">-</span> <span class="n">TABLE</span> <span class="o">-</span> <span class="kp">NULL</span>
-<span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ODBC test - Get Database Tables
+Connect to database
+Select data
+Columns Count : 5
+.\test - NULL - Customer - TABLE - NULL
+.\test - NULL - employee - TABLE - NULL
+.\test - NULL - person - TABLE - NULL
+.\test - NULL - tel - TABLE - NULL
+Close database...
 </pre></div>
 </div>
 </div>
@@ -328,40 +561,40 @@
 <span id="index-16"></span><h2>odbc_columns() Function<a class="headerlink" href="#odbc-columns-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of columns inside the table using the odbc_columns() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_columns</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cTableName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_columns(ODBC Handle, cTableName)
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test - Get Table Columns&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Get Columns inside the Person Table&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_columns</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;person&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-        <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">end</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;ODBC test - Get Table Columns&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+See &quot;Get Columns inside the Person Table&quot; + nl
+odbc_columns(pODBC,&quot;person&quot;) + nl
+while odbc_fetch(pODBC)
+        see odbc_getdata(pODBC,4) + nl
+end
+See &quot;Close database...&quot; + nl
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">test</span> <span class="o">-</span> <span class="k">Get</span> <span class="n">Table</span> <span class="n">Columns</span>
-<span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
-<span class="k">Get</span> <span class="n">Columns</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">Person</span> <span class="n">Table</span>
-<span class="n">FIRST</span>
-<span class="n">LAST</span>
-<span class="n">STREET</span>
-<span class="n">CITY</span>
-<span class="n">STATE</span>
-<span class="n">ZIP</span>
-<span class="n">HIREDATE</span>
-<span class="n">MARRIED</span>
-<span class="n">AGE</span>
-<span class="n">SALARY</span>
-<span class="n">NOTES</span>
-<span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ODBC test - Get Table Columns
+Connect to database
+Get Columns inside the Person Table
+FIRST
+LAST
+STREET
+CITY
+STATE
+ZIP
+HIREDATE
+MARRIED
+AGE
+SALARY
+NOTES
+Close database...
 </pre></div>
 </div>
 </div>
@@ -369,7 +602,7 @@
 <span id="index-17"></span><h2>odbc_autocommit() Function<a class="headerlink" href="#odbc-autocommit-function" title="Permalink to this headline">¶</a></h2>
 <p>We can enable or disable the auto commit feature using the odbc_autocommit() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_autocommit</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">lStatus</span><span class="p">)</span>   <span class="c"># lStatus can be True or False</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_autocommit(ODBC Handle, lStatus)   # lStatus can be True or False
 </pre></div>
 </div>
 </div>
@@ -377,7 +610,7 @@
 <span id="index-18"></span><h2>odbc_commit() Function<a class="headerlink" href="#odbc-commit-function" title="Permalink to this headline">¶</a></h2>
 <p>We can commit updates to the database using the odbc_commit() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_commit</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_commit(ODBC Handle)
 </pre></div>
 </div>
 </div>
@@ -385,104 +618,134 @@
 <span id="index-19"></span><h2>odbc_rollback() Function<a class="headerlink" href="#odbc-rollback-function" title="Permalink to this headline">¶</a></h2>
 <p>We can rollback updates to the database using the odbc_rollback() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">odbc_rollback</span><span class="p">(</span><span class="n">ODBC</span> <span class="n">Handle</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>odbc_rollback(ODBC Handle)
 </pre></div>
 </div>
 </div>
 <div class="section" id="transactions-and-using-commit-and-rollback">
 <span id="index-20"></span><h2>Transactions and Using Commit and Rollback<a class="headerlink" href="#transactions-and-using-commit-and-rollback" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC Test - Transactions and using Commit and Rollback&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;insert data...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_autocommit</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10000</span>
-        <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;,&#39;mahmoud&#39;)&quot;</span><span class="p">)</span>
-<span class="k">next</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10001</span> <span class="k">to</span> <span class="mi">15000</span>
-        <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;,&#39;samir&#39;)&quot;</span><span class="p">)</span>
-<span class="k">next</span>
-<span class="n">odbc_commit</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;ODBC Test - Transactions and using Commit and Rollback&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+see odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+see &quot;insert data...&quot; + nl
+odbc_autocommit(pODBC,0)
+for x = 1 to 10000
+        odbc_execute(pODBC,&quot;insert into tel values (&quot; + x + &quot;,&#39;mahmoud&#39;)&quot;)
+next
+for x = 10001 to 15000
+        odbc_execute(pODBC,&quot;insert into tel values (&quot; + x + &quot;,&#39;samir&#39;)&quot;)
+next
+odbc_commit(pODBC)
 
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">15001</span> <span class="k">to</span> <span class="mi">20000</span>
-        <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;,&#39;fayed&#39;)&quot;</span><span class="p">)</span>
-<span class="k">next</span>
+for x = 15001 to 20000
+        odbc_execute(pODBC,&quot;insert into tel values (&quot; + x + &quot;,&#39;fayed&#39;)&quot;)
+next
 
-<span class="n">ODBC_ROLLBACK</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into tel values (&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;,&#39;fayed&#39;)&quot;</span><span class="p">)</span>
-<span class="n">odbc_commit</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+ODBC_ROLLBACK(pODBC)
+odbc_execute(pODBC,&quot;insert into tel values (&quot; + x + &quot;,&#39;fayed&#39;)&quot;)
+odbc_commit(pODBC)
 
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+See &quot;Close database...&quot; + nl
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ODBC</span> <span class="n">Test</span> <span class="o">-</span> <span class="n">Transactions</span> <span class="ow">and</span> <span class="n">using</span> <span class="n">Commit</span> <span class="ow">and</span> <span class="n">Rollback</span>
-<span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
-<span class="mi">1</span>
-<span class="n">insert</span> <span class="n">data</span><span class="p">...</span>
-<span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ODBC Test - Transactions and using Commit and Rollback
+Connect to database
+1
+insert data...
+Close database...
 </pre></div>
 </div>
 </div>
 <div class="section" id="save-and-restore-images">
 <span id="index-21"></span><h2>Save and Restore images<a class="headerlink" href="#save-and-restore-images" title="Permalink to this headline">¶</a></h2>
 <p>The next example save an image inside the database</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test - Save image in the database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Read Image File...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">cFile</span> <span class="o">=</span> <span class="n">str2hex</span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="s">&quot;tests\mahmoud.jpg&quot;</span><span class="p">))</span>
-<span class="k">see</span> <span class="s">&quot;size &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">CFile</span><span class="p">)</span><span class="o">+</span><span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Save image in the database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">stmt</span> <span class="o">=</span> <span class="s">&quot;insert into tel values (20000,&#39;mahmoud&#39;,&#39;&quot;</span> <span class="o">+</span> <span class="n">cFile</span> <span class="o">+</span> <span class="s">&quot;&#39;);&quot;</span>
-<span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">stmt</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;ODBC test - Save image in the database&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+see odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+see &quot;Read Image File...&quot; + nl
+cFile = str2hex(read(&quot;tests\mahmoud.jpg&quot;))
+see &quot;size &quot; + len(CFile)+nl
+see &quot;Save image in the database...&quot; + nl
+stmt = &quot;insert into tel values (20000,&#39;mahmoud&#39;,&#39;&quot; + cFile + &quot;&#39;);&quot;
+odbc_execute(pODBC,stmt)
+See &quot;Close database...&quot; + nl
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
 </pre></div>
 </div>
 <p>The next example restore the image from the database</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC Test - Restore image from the database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
-<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;Select data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;select * from tel where id = 20000&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">if</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-        <span class="k">See</span> <span class="s">&quot;Write image file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">write</span><span class="p">(</span><span class="s">&quot;tests\great.jpg&quot;</span><span class="p">,</span><span class="n">hex2str</span><span class="p">(</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="p">)</span> <span class="p">)</span>
-<span class="k">ok</span>
-<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
-<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;ODBC Test - Restore image from the database&quot; + nl
+pODBC = odbc_init()
+See &quot;Connect to database&quot; + nl
+see odbc_connect(pODBC,&quot;DBQ=test.mdb;Driver={Microsoft Access Driver (*.mdb)}&quot;) + nl
+See &quot;Select data&quot; + nl
+see odbc_execute(pODBC,&quot;select * from tel where id = 20000&quot;) + nl
+nMax = odbc_colcount(pODBC)
+See &quot;Columns Count : &quot; + nMax + nl
+if odbc_fetch(pODBC)
+        See &quot;Write image file&quot; + nl
+        write(&quot;tests\great.jpg&quot;,hex2str( odbc_getdata(pODBC,3) ) )
+ok
+See &quot;Close database...&quot; + nl
+odbc_disconnect(pODBC)
+odbc_close(pODBC)
 </pre></div>
 </div>
 </div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="demo.html">Demo Programs</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="mysql.html">MySQL Functions</a>&#160;&#160;»
-        </p>
+        <a href="mysql.html" class="btn btn-neutral float-right" title="MySQL Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="demo.html" class="btn btn-neutral float-left" title="Demo Programs" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

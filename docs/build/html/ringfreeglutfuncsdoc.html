@@ -1,52 +1,266 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RingFreeGLUT Functions Reference &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>RingFreeGLUT Functions Reference &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="RingOpenGL (OpenGL 3.2) Functions Reference" href="ringopengl32funcsdoc.html" />
     <link rel="prev" title="RingLibuv Functions Reference" href="ringlibuvfuncsdoc.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>RingFreeGLUT Functions Reference</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RingFreeGLUT Functions Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>RingFreeGLUT Functions Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="ringfreeglut-functions-reference">
 <span id="index-0"></span><h1>RingFreeGLUT Functions Reference<a class="headerlink" href="#ringfreeglut-functions-reference" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
@@ -56,385 +270,415 @@
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>GLUT_RGB</li>
-<li>GLUT_RGBA</li>
-<li>GLUT_INDEX</li>
-<li>GLUT_SINGLE</li>
-<li>GLUT_DOUBLE</li>
-<li>GLUT_ACCUM</li>
-<li>GLUT_ALPHA</li>
-<li>GLUT_DEPTH</li>
-<li>GLUT_STENCIL</li>
-<li>GLUT_MULTISAMPLE</li>
-<li>GLUT_STEREO</li>
-<li>GLUT_LUMINANCE</li>
-<li>GLUT_KEY_F1</li>
-<li>GLUT_KEY_F2</li>
-<li>GLUT_KEY_F3</li>
-<li>GLUT_KEY_F4</li>
-<li>GLUT_KEY_F5</li>
-<li>GLUT_KEY_F6</li>
-<li>GLUT_KEY_F7</li>
-<li>GLUT_KEY_F8</li>
-<li>GLUT_KEY_F9</li>
-<li>GLUT_KEY_F10</li>
-<li>GLUT_KEY_F11</li>
-<li>GLUT_KEY_F12</li>
-<li>GLUT_KEY_LEFT</li>
-<li>GLUT_KEY_UP</li>
-<li>GLUT_KEY_RIGHT</li>
-<li>GLUT_KEY_DOWN</li>
-<li>GLUT_KEY_PAGE_UP</li>
-<li>GLUT_KEY_PAGE_DOWN</li>
-<li>GLUT_KEY_HOME</li>
-<li>GLUT_KEY_END</li>
-<li>GLUT_KEY_INSERT</li>
-<li>GLUT_LEFT_BUTTON</li>
-<li>GLUT_MIDDLE_BUTTON</li>
-<li>GLUT_RIGHT_BUTTON</li>
-<li>GLUT_DOWN</li>
-<li>GLUT_UP</li>
-<li>GLUT_LEFT</li>
-<li>GLUT_ENTERED</li>
-<li>GLUT_MENU_NOT_IN_USE</li>
-<li>GLUT_MENU_IN_USE</li>
-<li>GLUT_NOT_VISIBLE</li>
-<li>GLUT_VISIBLE</li>
-<li>GLUT_HIDDEN</li>
-<li>GLUT_FULLY_RETAINED</li>
-<li>GLUT_PARTIALLY_RETAINED</li>
-<li>GLUT_FULLY_COVERED</li>
-<li>GLUT_WINDOW_X</li>
-<li>GLUT_WINDOW_Y</li>
-<li>GLUT_WINDOW_WIDTH</li>
-<li>GLUT_WINDOW_HEIGHT</li>
-<li>GLUT_WINDOW_BUFFER_SIZE</li>
-<li>GLUT_WINDOW_STENCIL_SIZE</li>
-<li>GLUT_WINDOW_DEPTH_SIZE</li>
-<li>GLUT_WINDOW_RED_SIZE</li>
-<li>GLUT_WINDOW_GREEN_SIZE</li>
-<li>GLUT_WINDOW_BLUE_SIZE</li>
-<li>GLUT_WINDOW_ALPHA_SIZE</li>
-<li>GLUT_WINDOW_ACCUM_RED_SIZE</li>
-<li>GLUT_WINDOW_ACCUM_GREEN_SIZE</li>
-<li>GLUT_WINDOW_ACCUM_BLUE_SIZE</li>
-<li>GLUT_WINDOW_ACCUM_ALPHA_SIZE</li>
-<li>GLUT_WINDOW_DOUBLEBUFFER</li>
-<li>GLUT_WINDOW_RGBA</li>
-<li>GLUT_WINDOW_PARENT</li>
-<li>GLUT_WINDOW_NUM_CHILDREN</li>
-<li>GLUT_WINDOW_COLORMAP_SIZE</li>
-<li>GLUT_WINDOW_NUM_SAMPLES</li>
-<li>GLUT_WINDOW_STEREO</li>
-<li>GLUT_WINDOW_CURSOR</li>
-<li>GLUT_SCREEN_WIDTH</li>
-<li>GLUT_SCREEN_HEIGHT</li>
-<li>GLUT_SCREEN_WIDTH_MM</li>
-<li>GLUT_SCREEN_HEIGHT_MM</li>
-<li>GLUT_MENU_NUM_ITEMS</li>
-<li>GLUT_DISPLAY_MODE_POSSIBLE</li>
-<li>GLUT_INIT_WINDOW_X</li>
-<li>GLUT_INIT_WINDOW_Y</li>
-<li>GLUT_INIT_WINDOW_WIDTH</li>
-<li>GLUT_INIT_WINDOW_HEIGHT</li>
-<li>GLUT_INIT_DISPLAY_MODE</li>
-<li>GLUT_ELAPSED_TIME</li>
-<li>GLUT_WINDOW_FORMAT_ID</li>
-<li>GLUT_HAS_KEYBOARD</li>
-<li>GLUT_HAS_MOUSE</li>
-<li>GLUT_HAS_SPACEBALL</li>
-<li>GLUT_HAS_DIAL_AND_BUTTON_BOX</li>
-<li>GLUT_HAS_TABLET</li>
-<li>GLUT_NUM_MOUSE_BUTTONS</li>
-<li>GLUT_NUM_SPACEBALL_BUTTONS</li>
-<li>GLUT_NUM_BUTTON_BOX_BUTTONS</li>
-<li>GLUT_NUM_DIALS</li>
-<li>GLUT_NUM_TABLET_BUTTONS</li>
-<li>GLUT_DEVICE_IGNORE_KEY_REPEAT</li>
-<li>GLUT_DEVICE_KEY_REPEAT</li>
-<li>GLUT_HAS_JOYSTICK</li>
-<li>GLUT_OWNS_JOYSTICK</li>
-<li>GLUT_JOYSTICK_BUTTONS</li>
-<li>GLUT_JOYSTICK_AXES</li>
-<li>GLUT_JOYSTICK_POLL_RATE</li>
-<li>GLUT_OVERLAY_POSSIBLE</li>
-<li>GLUT_LAYER_IN_USE</li>
-<li>GLUT_HAS_OVERLAY</li>
-<li>GLUT_TRANSPARENT_INDEX</li>
-<li>GLUT_NORMAL_DAMAGED</li>
-<li>GLUT_OVERLAY_DAMAGED</li>
-<li>GLUT_VIDEO_RESIZE_POSSIBLE</li>
-<li>GLUT_VIDEO_RESIZE_IN_USE</li>
-<li>GLUT_VIDEO_RESIZE_X_DELTA</li>
-<li>GLUT_VIDEO_RESIZE_Y_DELTA</li>
-<li>GLUT_VIDEO_RESIZE_WIDTH_DELTA</li>
-<li>GLUT_VIDEO_RESIZE_HEIGHT_DELTA</li>
-<li>GLUT_VIDEO_RESIZE_X</li>
-<li>GLUT_VIDEO_RESIZE_Y</li>
-<li>GLUT_VIDEO_RESIZE_WIDTH</li>
-<li>GLUT_VIDEO_RESIZE_HEIGHT</li>
-<li>GLUT_NORMAL</li>
-<li>GLUT_OVERLAY</li>
-<li>GLUT_ACTIVE_SHIFT</li>
-<li>GLUT_ACTIVE_CTRL</li>
-<li>GLUT_ACTIVE_ALT</li>
-<li>GLUT_CURSOR_RIGHT_ARROW</li>
-<li>GLUT_CURSOR_LEFT_ARROW</li>
-<li>GLUT_CURSOR_INFO</li>
-<li>GLUT_CURSOR_DESTROY</li>
-<li>GLUT_CURSOR_HELP</li>
-<li>GLUT_CURSOR_CYCLE</li>
-<li>GLUT_CURSOR_SPRAY</li>
-<li>GLUT_CURSOR_WAIT</li>
-<li>GLUT_CURSOR_TEXT</li>
-<li>GLUT_CURSOR_CROSSHAIR</li>
-<li>GLUT_CURSOR_UP_DOWN</li>
-<li>GLUT_CURSOR_LEFT_RIGHT</li>
-<li>GLUT_CURSOR_TOP_SIDE</li>
-<li>GLUT_CURSOR_BOTTOM_SIDE</li>
-<li>GLUT_CURSOR_LEFT_SIDE</li>
-<li>GLUT_CURSOR_RIGHT_SIDE</li>
-<li>GLUT_CURSOR_TOP_LEFT_CORNER</li>
-<li>GLUT_CURSOR_TOP_RIGHT_CORNER</li>
-<li>GLUT_CURSOR_BOTTOM_RIGHT_CORNER</li>
-<li>GLUT_CURSOR_BOTTOM_LEFT_CORNER</li>
-<li>GLUT_CURSOR_INHERIT</li>
-<li>GLUT_CURSOR_NONE</li>
-<li>GLUT_CURSOR_FULL_CROSSHAIR</li>
-<li>GLUT_RED</li>
-<li>GLUT_GREEN</li>
-<li>GLUT_BLUE</li>
-<li>GLUT_KEY_REPEAT_OFF</li>
-<li>GLUT_KEY_REPEAT_ON</li>
-<li>GLUT_KEY_REPEAT_DEFAULT</li>
-<li>GLUT_JOYSTICK_BUTTON_A</li>
-<li>GLUT_JOYSTICK_BUTTON_B</li>
-<li>GLUT_JOYSTICK_BUTTON_C</li>
-<li>GLUT_JOYSTICK_BUTTON_D</li>
-<li>GLUT_GAME_MODE_ACTIVE</li>
-<li>GLUT_GAME_MODE_POSSIBLE</li>
-<li>GLUT_GAME_MODE_WIDTH</li>
-<li>GLUT_GAME_MODE_HEIGHT</li>
-<li>GLUT_GAME_MODE_PIXEL_DEPTH</li>
-<li>GLUT_GAME_MODE_REFRESH_RATE</li>
-<li>GLUT_GAME_MODE_DISPLAY_CHANGED</li>
-<li>GLUT_STROKE_ROMAN</li>
-<li>GLUT_STROKE_MONO_ROMAN</li>
-<li>GLUT_BITMAP_9_BY_15</li>
-<li>GLUT_BITMAP_8_BY_13</li>
-<li>GLUT_BITMAP_TIMES_ROMAN_10</li>
-<li>GLUT_BITMAP_TIMES_ROMAN_24</li>
-<li>GLUT_BITMAP_HELVETICA_10</li>
-<li>GLUT_BITMAP_HELVETICA_12</li>
-<li>GLUT_BITMAP_HELVETICA_18</li>
-<li>void glutInit(void)</li>
-<li>void glutDisplayFunc(const char <a href="#id1"><span class="problematic" id="id2">*</span></a>)</li>
-<li>void glutReshapeFunc(const char <a href="#id3"><span class="problematic" id="id4">*</span></a>)</li>
-<li>int glutEventWidth(void)</li>
-<li>int glutEventHeight(void)</li>
-<li>void glutIdleFunc(const char <a href="#id5"><span class="problematic" id="id6">*</span></a>)</li>
-<li>void glutKeyboardFunc(const char <a href="#id7"><span class="problematic" id="id8">*</span></a>)</li>
-<li>void glutSpecialFunc(const char <a href="#id9"><span class="problematic" id="id10">*</span></a>)</li>
-<li>void glutSpecialUpFunc(const char <a href="#id11"><span class="problematic" id="id12">*</span></a>)</li>
-<li>void glutMouseFunc(const char <a href="#id13"><span class="problematic" id="id14">*</span></a>)</li>
-<li>void glutMotionFunc(const char <a href="#id15"><span class="problematic" id="id16">*</span></a>)</li>
-<li>int glutCreateMenu(const char <a href="#id17"><span class="problematic" id="id18">*</span></a>)</li>
-<li>void glutMenuStatusFunc(const char <a href="#id19"><span class="problematic" id="id20">*</span></a>)</li>
-<li>int glutEventKey(void)</li>
-<li>int glutEventX(void)</li>
-<li>int glutEventY(void)</li>
-<li>int glutEventButton(void)</li>
-<li>int glutEventState(void)</li>
-<li>int glutEventValue(void)</li>
-<li>int glutEventStatus(void)</li>
-<li>void test_draw(void)</li>
-<li>void glutInitWindowPosition(int x, int y)</li>
-<li>void glutInitWindowSize(int width, int height)</li>
-<li>void glutInitDisplayMode(unsigned displayMode)</li>
-<li>void glutInitDisplayString(const char * displayMode)</li>
-<li>int glutCreateWindow(const char * title)</li>
-<li>int glutCreateSubWindow(int window, int x, int y, int width, int height)</li>
-<li>void glutDestroyWindow(int window)</li>
-<li>void glutSetWindow(int window)</li>
-<li>int glutGetWindow(void)</li>
-<li>void glutSetWindowTitle(const char * title)</li>
-<li>void glutSetIconTitle(const char * title)</li>
-<li>void glutReshapeWindow(int width, int height)</li>
-<li>void glutPositionWindow(int x, int y)</li>
-<li>void glutShowWindow(void)</li>
-<li>void glutHideWindow(void)</li>
-<li>void glutIconifyWindow(void)</li>
-<li>void glutPushWindow(void)</li>
-<li>void glutPopWindow(void)</li>
-<li>void glutFullScreen(void)</li>
-<li>void glutPostWindowRedisplay(int window)</li>
-<li>void glutPostRedisplay(void)</li>
-<li>void glutSwapBuffers(void)</li>
-<li>void glutWarpPointer(int x, int y)</li>
-<li>void glutSetCursor(int cursor)</li>
-<li>void glutEstablishOverlay(void)</li>
-<li>void glutRemoveOverlay(void)</li>
-<li>void glutUseLayer(GLenum layer)</li>
-<li>void glutPostOverlayRedisplay(void)</li>
-<li>void glutPostWindowOverlayRedisplay(int window)</li>
-<li>void glutShowOverlay(void)</li>
-<li>void glutHideOverlay(void)</li>
-<li>void glutDestroyMenu(int menu)</li>
-<li>int glutGetMenu(void)</li>
-<li>void glutSetMenu(int menu)</li>
-<li>void glutAddMenuEntry(const char * label, int value)</li>
-<li>void glutAddSubMenu(const char * label, int subMenu)</li>
-<li>void glutChangeToMenuEntry(int item, const char * label, int value)</li>
-<li>void glutChangeToSubMenu(int item, const char * label, int value)</li>
-<li>void glutRemoveMenuItem(int item)</li>
-<li>void glutAttachMenu(int button)</li>
-<li>void glutDetachMenu(int button)</li>
-<li>int glutGet(GLenum query)</li>
-<li>int glutDeviceGet(GLenum query)</li>
-<li>int glutGetModifiers(void)</li>
-<li>int glutLayerGet(GLenum query)</li>
-<li>void glutBitmapCharacter(void <a href="#id21"><span class="problematic" id="id22">*</span></a>font, int character)</li>
-<li>int glutBitmapWidth(void <a href="#id23"><span class="problematic" id="id24">*</span></a>font, int character)</li>
-<li>void glutStrokeCharacter(void <a href="#id25"><span class="problematic" id="id26">*</span></a>font, int character)</li>
-<li>int glutStrokeWidth(void <a href="#id27"><span class="problematic" id="id28">*</span></a>font, int character)</li>
-<li>int glutStrokeLength(void <a href="#id29"><span class="problematic" id="id30">*</span></a>font, char * string)</li>
-<li>GLfloat glutStrokeWidthf(void <a href="#id31"><span class="problematic" id="id32">*</span></a>font, int character)</li>
-<li>GLfloat glutStrokeLengthf(void <a href="#id33"><span class="problematic" id="id34">*</span></a>font, char <a href="#id35"><span class="problematic" id="id36">*</span></a>string)</li>
-<li>int glutBitmapLength(void <a href="#id37"><span class="problematic" id="id38">*</span></a>font, char * string)</li>
-<li>void glutWireCube(double size)</li>
-<li>void glutSolidCube(double size)</li>
-<li>void glutWireSphere(double radius, GLint slices, GLint stacks)</li>
-<li>void glutSolidSphere(double radius, GLint slices, GLint stacks)</li>
-<li>void glutWireCone(double base, double height, GLint slices, GLint stacks)</li>
-<li>void glutSolidCone(double base, double height, GLint slices, GLint stacks)</li>
-<li>void glutWireTorus(double innerRadius, double outerRadius, GLint sides, GLint rings)</li>
-<li>void glutSolidTorus(double innerRadius, double outerRadius, GLint sides, GLint rings)</li>
-<li>void glutWireDodecahedron(void)</li>
-<li>void glutSolidDodecahedron(void)</li>
-<li>void glutWireOctahedron(void)</li>
-<li>void glutSolidOctahedron(void)</li>
-<li>void glutWireTetrahedron(void)</li>
-<li>void glutSolidTetrahedron(void)</li>
-<li>void glutWireIcosahedron(void)</li>
-<li>void glutSolidIcosahedron(void)</li>
-<li>void glutWireTeapot(double size)</li>
-<li>void glutSolidTeapot(double size)</li>
-<li>void glutGameModeString(const char * string)</li>
-<li>int glutEnterGameMode(void)</li>
-<li>void glutLeaveGameMode(void)</li>
-<li>int glutGameModeGet(GLenum query)</li>
-<li>int glutVideoResizeGet(GLenum query)</li>
-<li>void glutSetupVideoResizing(void)</li>
-<li>void glutStopVideoResizing(void)</li>
-<li>void glutVideoResize(int x, int y, int width, int height)</li>
-<li>void glutVideoPan(int x, int y, int width, int height)</li>
-<li>void glutSetColor(int color, GLfloat red, GLfloat green, GLfloat blue)</li>
-<li>GLfloat glutGetColor(int color, int component)</li>
-<li>void glutCopyColormap(int window)</li>
-<li>void glutIgnoreKeyRepeat(int ignore)</li>
-<li>void glutSetKeyRepeat(int repeatMode)</li>
-<li>void glutForceJoystickFunc(void)</li>
-<li>int glutExtensionSupported(const char * extension)</li>
-<li>void glutReportErrors(void)</li>
-<li>void glutMainLoop(void)</li>
-<li>void glutCloseFunc(const char <a href="#id39"><span class="problematic" id="id40">*</span></a>)</li>
-<li>GLUT_KEY_NUM_LOCK</li>
-<li>GLUT_KEY_BEGIN</li>
-<li>GLUT_KEY_DELETE</li>
-<li>GLUT_KEY_SHIFT_L</li>
-<li>GLUT_KEY_SHIFT_R</li>
-<li>GLUT_KEY_CTRL_L</li>
-<li>GLUT_KEY_CTRL_R</li>
-<li>GLUT_KEY_ALT_L</li>
-<li>GLUT_KEY_ALT_R</li>
-<li>GLUT_ACTION_EXIT</li>
-<li>GLUT_ACTION_GLUTMAINLOOP_RETURNS</li>
-<li>GLUT_ACTION_CONTINUE_EXECUTION</li>
-<li>GLUT_CREATE_NEW_CONTEXT</li>
-<li>GLUT_USE_CURRENT_CONTEXT</li>
-<li>GLUT_FORCE_INDIRECT_CONTEXT</li>
-<li>GLUT_ALLOW_DIRECT_CONTEXT</li>
-<li>GLUT_TRY_DIRECT_CONTEXT</li>
-<li>GLUT_FORCE_DIRECT_CONTEXT</li>
-<li>GLUT_INIT_STATE</li>
-<li>GLUT_ACTION_ON_WINDOW_CLOSE</li>
-<li>GLUT_WINDOW_BORDER_WIDTH</li>
-<li>GLUT_WINDOW_BORDER_HEIGHT</li>
-<li>GLUT_WINDOW_HEADER_HEIGHT</li>
-<li>GLUT_VERSION</li>
-<li>GLUT_RENDERING_CONTEXT</li>
-<li>GLUT_DIRECT_RENDERING</li>
-<li>GLUT_FULL_SCREEN</li>
-<li>GLUT_SKIP_STALE_MOTION_EVENTS</li>
-<li>GLUT_AUX</li>
-<li>GLUT_AUX1</li>
-<li>GLUT_AUX2</li>
-<li>GLUT_AUX3</li>
-<li>GLUT_AUX4</li>
-<li>GLUT_INIT_MAJOR_VERSION</li>
-<li>GLUT_INIT_MINOR_VERSION</li>
-<li>GLUT_INIT_FLAGS</li>
-<li>GLUT_INIT_PROFILE</li>
-<li>GLUT_DEBUG</li>
-<li>GLUT_FORWARD_COMPATIBLE</li>
-<li>GLUT_CORE_PROFILE</li>
-<li>GLUT_COMPATIBILITY_PROFILE</li>
-<li>GLUT_CAPTIONLESS</li>
-<li>GLUT_BORDERLESS</li>
-<li>GLUT_SRGB</li>
-<li>GLUT_HAS_MULTI</li>
-<li>void glutMainLoopEvent( void )</li>
-<li>void glutLeaveMainLoop( void )</li>
-<li>void glutExit( void )</li>
-<li>void glutFullScreenToggle( void )</li>
-<li>void glutLeaveFullScreen( void )</li>
-<li>void glutSetMenuFont(int menuID, void <a href="#id41"><span class="problematic" id="id42">*</span></a>font)</li>
-<li>void glutSetOption(GLenum option_flag, int value )</li>
-<li>int <a href="#id43"><span class="problematic" id="id44">*</span></a>glutGetModeValues(GLenum mode, int * size)</li>
-<li>void <a href="#id45"><span class="problematic" id="id46">*</span></a>glutGetWindowData( void )</li>
-<li>void glutSetWindowData(void <a href="#id47"><span class="problematic" id="id48">*</span></a>data)</li>
-<li>void <a href="#id49"><span class="problematic" id="id50">*</span></a>glutGetMenuData( void )</li>
-<li>void glutSetMenuData(void <a href="#id51"><span class="problematic" id="id52">*</span></a>data)</li>
-<li>int glutBitmapHeight( void* font )</li>
-<li>GLfloat glutStrokeHeight( void* font )</li>
-<li>void glutBitmapString( void* font, char <a href="#id53"><span class="problematic" id="id54">*</span></a>string )</li>
-<li>void glutStrokeString( void* font, char <a href="#id55"><span class="problematic" id="id56">*</span></a>string )</li>
-<li>void glutWireRhombicDodecahedron( void )</li>
-<li>void glutSolidRhombicDodecahedron( void )</li>
-<li>void glutWireSierpinskiSponge( int num_levels, double <a href="#id57"><span class="problematic" id="id58">*</span></a>offset, double scale )</li>
-<li>void glutSolidSierpinskiSponge( int num_levels, double <a href="#id59"><span class="problematic" id="id60">*</span></a>offset, double scale )</li>
-<li>void glutWireCylinder( double radius, double height, GLint slices, GLint stacks)</li>
-<li>void glutSolidCylinder( double radius, double height, GLint slices, GLint stacks)</li>
-<li>void glutWireTeacup( double size )</li>
-<li>void glutSolidTeacup( double size )</li>
-<li>void glutWireTeaspoon( double size )</li>
-<li>void glutSolidTeaspoon( double size )</li>
-<li>void glutInitContextVersion( int majorVersion, int minorVersion )</li>
-<li>void glutInitContextFlags( int flags )</li>
-<li>void glutInitContextProfile( int profile )</li>
-<li>void glutSetVertexAttribCoord3(GLint attrib)</li>
-<li>void glutSetVertexAttribNormal(GLint attrib)</li>
-<li>void glutSetVertexAttribTexCoord2(GLint attrib)</li>
+<li><p>GLUT_RGB</p></li>
+<li><p>GLUT_RGBA</p></li>
+<li><p>GLUT_INDEX</p></li>
+<li><p>GLUT_SINGLE</p></li>
+<li><p>GLUT_DOUBLE</p></li>
+<li><p>GLUT_ACCUM</p></li>
+<li><p>GLUT_ALPHA</p></li>
+<li><p>GLUT_DEPTH</p></li>
+<li><p>GLUT_STENCIL</p></li>
+<li><p>GLUT_MULTISAMPLE</p></li>
+<li><p>GLUT_STEREO</p></li>
+<li><p>GLUT_LUMINANCE</p></li>
+<li><p>GLUT_KEY_F1</p></li>
+<li><p>GLUT_KEY_F2</p></li>
+<li><p>GLUT_KEY_F3</p></li>
+<li><p>GLUT_KEY_F4</p></li>
+<li><p>GLUT_KEY_F5</p></li>
+<li><p>GLUT_KEY_F6</p></li>
+<li><p>GLUT_KEY_F7</p></li>
+<li><p>GLUT_KEY_F8</p></li>
+<li><p>GLUT_KEY_F9</p></li>
+<li><p>GLUT_KEY_F10</p></li>
+<li><p>GLUT_KEY_F11</p></li>
+<li><p>GLUT_KEY_F12</p></li>
+<li><p>GLUT_KEY_LEFT</p></li>
+<li><p>GLUT_KEY_UP</p></li>
+<li><p>GLUT_KEY_RIGHT</p></li>
+<li><p>GLUT_KEY_DOWN</p></li>
+<li><p>GLUT_KEY_PAGE_UP</p></li>
+<li><p>GLUT_KEY_PAGE_DOWN</p></li>
+<li><p>GLUT_KEY_HOME</p></li>
+<li><p>GLUT_KEY_END</p></li>
+<li><p>GLUT_KEY_INSERT</p></li>
+<li><p>GLUT_LEFT_BUTTON</p></li>
+<li><p>GLUT_MIDDLE_BUTTON</p></li>
+<li><p>GLUT_RIGHT_BUTTON</p></li>
+<li><p>GLUT_DOWN</p></li>
+<li><p>GLUT_UP</p></li>
+<li><p>GLUT_LEFT</p></li>
+<li><p>GLUT_ENTERED</p></li>
+<li><p>GLUT_MENU_NOT_IN_USE</p></li>
+<li><p>GLUT_MENU_IN_USE</p></li>
+<li><p>GLUT_NOT_VISIBLE</p></li>
+<li><p>GLUT_VISIBLE</p></li>
+<li><p>GLUT_HIDDEN</p></li>
+<li><p>GLUT_FULLY_RETAINED</p></li>
+<li><p>GLUT_PARTIALLY_RETAINED</p></li>
+<li><p>GLUT_FULLY_COVERED</p></li>
+<li><p>GLUT_WINDOW_X</p></li>
+<li><p>GLUT_WINDOW_Y</p></li>
+<li><p>GLUT_WINDOW_WIDTH</p></li>
+<li><p>GLUT_WINDOW_HEIGHT</p></li>
+<li><p>GLUT_WINDOW_BUFFER_SIZE</p></li>
+<li><p>GLUT_WINDOW_STENCIL_SIZE</p></li>
+<li><p>GLUT_WINDOW_DEPTH_SIZE</p></li>
+<li><p>GLUT_WINDOW_RED_SIZE</p></li>
+<li><p>GLUT_WINDOW_GREEN_SIZE</p></li>
+<li><p>GLUT_WINDOW_BLUE_SIZE</p></li>
+<li><p>GLUT_WINDOW_ALPHA_SIZE</p></li>
+<li><p>GLUT_WINDOW_ACCUM_RED_SIZE</p></li>
+<li><p>GLUT_WINDOW_ACCUM_GREEN_SIZE</p></li>
+<li><p>GLUT_WINDOW_ACCUM_BLUE_SIZE</p></li>
+<li><p>GLUT_WINDOW_ACCUM_ALPHA_SIZE</p></li>
+<li><p>GLUT_WINDOW_DOUBLEBUFFER</p></li>
+<li><p>GLUT_WINDOW_RGBA</p></li>
+<li><p>GLUT_WINDOW_PARENT</p></li>
+<li><p>GLUT_WINDOW_NUM_CHILDREN</p></li>
+<li><p>GLUT_WINDOW_COLORMAP_SIZE</p></li>
+<li><p>GLUT_WINDOW_NUM_SAMPLES</p></li>
+<li><p>GLUT_WINDOW_STEREO</p></li>
+<li><p>GLUT_WINDOW_CURSOR</p></li>
+<li><p>GLUT_SCREEN_WIDTH</p></li>
+<li><p>GLUT_SCREEN_HEIGHT</p></li>
+<li><p>GLUT_SCREEN_WIDTH_MM</p></li>
+<li><p>GLUT_SCREEN_HEIGHT_MM</p></li>
+<li><p>GLUT_MENU_NUM_ITEMS</p></li>
+<li><p>GLUT_DISPLAY_MODE_POSSIBLE</p></li>
+<li><p>GLUT_INIT_WINDOW_X</p></li>
+<li><p>GLUT_INIT_WINDOW_Y</p></li>
+<li><p>GLUT_INIT_WINDOW_WIDTH</p></li>
+<li><p>GLUT_INIT_WINDOW_HEIGHT</p></li>
+<li><p>GLUT_INIT_DISPLAY_MODE</p></li>
+<li><p>GLUT_ELAPSED_TIME</p></li>
+<li><p>GLUT_WINDOW_FORMAT_ID</p></li>
+<li><p>GLUT_HAS_KEYBOARD</p></li>
+<li><p>GLUT_HAS_MOUSE</p></li>
+<li><p>GLUT_HAS_SPACEBALL</p></li>
+<li><p>GLUT_HAS_DIAL_AND_BUTTON_BOX</p></li>
+<li><p>GLUT_HAS_TABLET</p></li>
+<li><p>GLUT_NUM_MOUSE_BUTTONS</p></li>
+<li><p>GLUT_NUM_SPACEBALL_BUTTONS</p></li>
+<li><p>GLUT_NUM_BUTTON_BOX_BUTTONS</p></li>
+<li><p>GLUT_NUM_DIALS</p></li>
+<li><p>GLUT_NUM_TABLET_BUTTONS</p></li>
+<li><p>GLUT_DEVICE_IGNORE_KEY_REPEAT</p></li>
+<li><p>GLUT_DEVICE_KEY_REPEAT</p></li>
+<li><p>GLUT_HAS_JOYSTICK</p></li>
+<li><p>GLUT_OWNS_JOYSTICK</p></li>
+<li><p>GLUT_JOYSTICK_BUTTONS</p></li>
+<li><p>GLUT_JOYSTICK_AXES</p></li>
+<li><p>GLUT_JOYSTICK_POLL_RATE</p></li>
+<li><p>GLUT_OVERLAY_POSSIBLE</p></li>
+<li><p>GLUT_LAYER_IN_USE</p></li>
+<li><p>GLUT_HAS_OVERLAY</p></li>
+<li><p>GLUT_TRANSPARENT_INDEX</p></li>
+<li><p>GLUT_NORMAL_DAMAGED</p></li>
+<li><p>GLUT_OVERLAY_DAMAGED</p></li>
+<li><p>GLUT_VIDEO_RESIZE_POSSIBLE</p></li>
+<li><p>GLUT_VIDEO_RESIZE_IN_USE</p></li>
+<li><p>GLUT_VIDEO_RESIZE_X_DELTA</p></li>
+<li><p>GLUT_VIDEO_RESIZE_Y_DELTA</p></li>
+<li><p>GLUT_VIDEO_RESIZE_WIDTH_DELTA</p></li>
+<li><p>GLUT_VIDEO_RESIZE_HEIGHT_DELTA</p></li>
+<li><p>GLUT_VIDEO_RESIZE_X</p></li>
+<li><p>GLUT_VIDEO_RESIZE_Y</p></li>
+<li><p>GLUT_VIDEO_RESIZE_WIDTH</p></li>
+<li><p>GLUT_VIDEO_RESIZE_HEIGHT</p></li>
+<li><p>GLUT_NORMAL</p></li>
+<li><p>GLUT_OVERLAY</p></li>
+<li><p>GLUT_ACTIVE_SHIFT</p></li>
+<li><p>GLUT_ACTIVE_CTRL</p></li>
+<li><p>GLUT_ACTIVE_ALT</p></li>
+<li><p>GLUT_CURSOR_RIGHT_ARROW</p></li>
+<li><p>GLUT_CURSOR_LEFT_ARROW</p></li>
+<li><p>GLUT_CURSOR_INFO</p></li>
+<li><p>GLUT_CURSOR_DESTROY</p></li>
+<li><p>GLUT_CURSOR_HELP</p></li>
+<li><p>GLUT_CURSOR_CYCLE</p></li>
+<li><p>GLUT_CURSOR_SPRAY</p></li>
+<li><p>GLUT_CURSOR_WAIT</p></li>
+<li><p>GLUT_CURSOR_TEXT</p></li>
+<li><p>GLUT_CURSOR_CROSSHAIR</p></li>
+<li><p>GLUT_CURSOR_UP_DOWN</p></li>
+<li><p>GLUT_CURSOR_LEFT_RIGHT</p></li>
+<li><p>GLUT_CURSOR_TOP_SIDE</p></li>
+<li><p>GLUT_CURSOR_BOTTOM_SIDE</p></li>
+<li><p>GLUT_CURSOR_LEFT_SIDE</p></li>
+<li><p>GLUT_CURSOR_RIGHT_SIDE</p></li>
+<li><p>GLUT_CURSOR_TOP_LEFT_CORNER</p></li>
+<li><p>GLUT_CURSOR_TOP_RIGHT_CORNER</p></li>
+<li><p>GLUT_CURSOR_BOTTOM_RIGHT_CORNER</p></li>
+<li><p>GLUT_CURSOR_BOTTOM_LEFT_CORNER</p></li>
+<li><p>GLUT_CURSOR_INHERIT</p></li>
+<li><p>GLUT_CURSOR_NONE</p></li>
+<li><p>GLUT_CURSOR_FULL_CROSSHAIR</p></li>
+<li><p>GLUT_RED</p></li>
+<li><p>GLUT_GREEN</p></li>
+<li><p>GLUT_BLUE</p></li>
+<li><p>GLUT_KEY_REPEAT_OFF</p></li>
+<li><p>GLUT_KEY_REPEAT_ON</p></li>
+<li><p>GLUT_KEY_REPEAT_DEFAULT</p></li>
+<li><p>GLUT_JOYSTICK_BUTTON_A</p></li>
+<li><p>GLUT_JOYSTICK_BUTTON_B</p></li>
+<li><p>GLUT_JOYSTICK_BUTTON_C</p></li>
+<li><p>GLUT_JOYSTICK_BUTTON_D</p></li>
+<li><p>GLUT_GAME_MODE_ACTIVE</p></li>
+<li><p>GLUT_GAME_MODE_POSSIBLE</p></li>
+<li><p>GLUT_GAME_MODE_WIDTH</p></li>
+<li><p>GLUT_GAME_MODE_HEIGHT</p></li>
+<li><p>GLUT_GAME_MODE_PIXEL_DEPTH</p></li>
+<li><p>GLUT_GAME_MODE_REFRESH_RATE</p></li>
+<li><p>GLUT_GAME_MODE_DISPLAY_CHANGED</p></li>
+<li><p>GLUT_STROKE_ROMAN</p></li>
+<li><p>GLUT_STROKE_MONO_ROMAN</p></li>
+<li><p>GLUT_BITMAP_9_BY_15</p></li>
+<li><p>GLUT_BITMAP_8_BY_13</p></li>
+<li><p>GLUT_BITMAP_TIMES_ROMAN_10</p></li>
+<li><p>GLUT_BITMAP_TIMES_ROMAN_24</p></li>
+<li><p>GLUT_BITMAP_HELVETICA_10</p></li>
+<li><p>GLUT_BITMAP_HELVETICA_12</p></li>
+<li><p>GLUT_BITMAP_HELVETICA_18</p></li>
+<li><p>void glutInit(void)</p></li>
+<li><p>void glutDisplayFunc(const char <a href="#id1"><span class="problematic" id="id2">*</span></a>)</p></li>
+<li><p>void glutReshapeFunc(const char <a href="#id3"><span class="problematic" id="id4">*</span></a>)</p></li>
+<li><p>int glutEventWidth(void)</p></li>
+<li><p>int glutEventHeight(void)</p></li>
+<li><p>void glutIdleFunc(const char <a href="#id5"><span class="problematic" id="id6">*</span></a>)</p></li>
+<li><p>void glutKeyboardFunc(const char <a href="#id7"><span class="problematic" id="id8">*</span></a>)</p></li>
+<li><p>void glutSpecialFunc(const char <a href="#id9"><span class="problematic" id="id10">*</span></a>)</p></li>
+<li><p>void glutSpecialUpFunc(const char <a href="#id11"><span class="problematic" id="id12">*</span></a>)</p></li>
+<li><p>void glutMouseFunc(const char <a href="#id13"><span class="problematic" id="id14">*</span></a>)</p></li>
+<li><p>void glutMotionFunc(const char <a href="#id15"><span class="problematic" id="id16">*</span></a>)</p></li>
+<li><p>int glutCreateMenu(const char <a href="#id17"><span class="problematic" id="id18">*</span></a>)</p></li>
+<li><p>void glutMenuStatusFunc(const char <a href="#id19"><span class="problematic" id="id20">*</span></a>)</p></li>
+<li><p>int glutEventKey(void)</p></li>
+<li><p>int glutEventX(void)</p></li>
+<li><p>int glutEventY(void)</p></li>
+<li><p>int glutEventButton(void)</p></li>
+<li><p>int glutEventState(void)</p></li>
+<li><p>int glutEventValue(void)</p></li>
+<li><p>int glutEventStatus(void)</p></li>
+<li><p>void test_draw(void)</p></li>
+<li><p>void glutInitWindowPosition(int x, int y)</p></li>
+<li><p>void glutInitWindowSize(int width, int height)</p></li>
+<li><p>void glutInitDisplayMode(unsigned displayMode)</p></li>
+<li><p>void glutInitDisplayString(const char * displayMode)</p></li>
+<li><p>int glutCreateWindow(const char * title)</p></li>
+<li><p>int glutCreateSubWindow(int window, int x, int y, int width, int height)</p></li>
+<li><p>void glutDestroyWindow(int window)</p></li>
+<li><p>void glutSetWindow(int window)</p></li>
+<li><p>int glutGetWindow(void)</p></li>
+<li><p>void glutSetWindowTitle(const char * title)</p></li>
+<li><p>void glutSetIconTitle(const char * title)</p></li>
+<li><p>void glutReshapeWindow(int width, int height)</p></li>
+<li><p>void glutPositionWindow(int x, int y)</p></li>
+<li><p>void glutShowWindow(void)</p></li>
+<li><p>void glutHideWindow(void)</p></li>
+<li><p>void glutIconifyWindow(void)</p></li>
+<li><p>void glutPushWindow(void)</p></li>
+<li><p>void glutPopWindow(void)</p></li>
+<li><p>void glutFullScreen(void)</p></li>
+<li><p>void glutPostWindowRedisplay(int window)</p></li>
+<li><p>void glutPostRedisplay(void)</p></li>
+<li><p>void glutSwapBuffers(void)</p></li>
+<li><p>void glutWarpPointer(int x, int y)</p></li>
+<li><p>void glutSetCursor(int cursor)</p></li>
+<li><p>void glutEstablishOverlay(void)</p></li>
+<li><p>void glutRemoveOverlay(void)</p></li>
+<li><p>void glutUseLayer(GLenum layer)</p></li>
+<li><p>void glutPostOverlayRedisplay(void)</p></li>
+<li><p>void glutPostWindowOverlayRedisplay(int window)</p></li>
+<li><p>void glutShowOverlay(void)</p></li>
+<li><p>void glutHideOverlay(void)</p></li>
+<li><p>void glutDestroyMenu(int menu)</p></li>
+<li><p>int glutGetMenu(void)</p></li>
+<li><p>void glutSetMenu(int menu)</p></li>
+<li><p>void glutAddMenuEntry(const char * label, int value)</p></li>
+<li><p>void glutAddSubMenu(const char * label, int subMenu)</p></li>
+<li><p>void glutChangeToMenuEntry(int item, const char * label, int value)</p></li>
+<li><p>void glutChangeToSubMenu(int item, const char * label, int value)</p></li>
+<li><p>void glutRemoveMenuItem(int item)</p></li>
+<li><p>void glutAttachMenu(int button)</p></li>
+<li><p>void glutDetachMenu(int button)</p></li>
+<li><p>int glutGet(GLenum query)</p></li>
+<li><p>int glutDeviceGet(GLenum query)</p></li>
+<li><p>int glutGetModifiers(void)</p></li>
+<li><p>int glutLayerGet(GLenum query)</p></li>
+<li><p>void glutBitmapCharacter(void <a href="#id21"><span class="problematic" id="id22">*</span></a>font, int character)</p></li>
+<li><p>int glutBitmapWidth(void <a href="#id23"><span class="problematic" id="id24">*</span></a>font, int character)</p></li>
+<li><p>void glutStrokeCharacter(void <a href="#id25"><span class="problematic" id="id26">*</span></a>font, int character)</p></li>
+<li><p>int glutStrokeWidth(void <a href="#id27"><span class="problematic" id="id28">*</span></a>font, int character)</p></li>
+<li><p>int glutStrokeLength(void <a href="#id29"><span class="problematic" id="id30">*</span></a>font, char * string)</p></li>
+<li><p>GLfloat glutStrokeWidthf(void <a href="#id31"><span class="problematic" id="id32">*</span></a>font, int character)</p></li>
+<li><p>GLfloat glutStrokeLengthf(void <a href="#id33"><span class="problematic" id="id34">*</span></a>font, char <a href="#id35"><span class="problematic" id="id36">*</span></a>string)</p></li>
+<li><p>int glutBitmapLength(void <a href="#id37"><span class="problematic" id="id38">*</span></a>font, char * string)</p></li>
+<li><p>void glutWireCube(double size)</p></li>
+<li><p>void glutSolidCube(double size)</p></li>
+<li><p>void glutWireSphere(double radius, GLint slices, GLint stacks)</p></li>
+<li><p>void glutSolidSphere(double radius, GLint slices, GLint stacks)</p></li>
+<li><p>void glutWireCone(double base, double height, GLint slices, GLint stacks)</p></li>
+<li><p>void glutSolidCone(double base, double height, GLint slices, GLint stacks)</p></li>
+<li><p>void glutWireTorus(double innerRadius, double outerRadius, GLint sides, GLint rings)</p></li>
+<li><p>void glutSolidTorus(double innerRadius, double outerRadius, GLint sides, GLint rings)</p></li>
+<li><p>void glutWireDodecahedron(void)</p></li>
+<li><p>void glutSolidDodecahedron(void)</p></li>
+<li><p>void glutWireOctahedron(void)</p></li>
+<li><p>void glutSolidOctahedron(void)</p></li>
+<li><p>void glutWireTetrahedron(void)</p></li>
+<li><p>void glutSolidTetrahedron(void)</p></li>
+<li><p>void glutWireIcosahedron(void)</p></li>
+<li><p>void glutSolidIcosahedron(void)</p></li>
+<li><p>void glutWireTeapot(double size)</p></li>
+<li><p>void glutSolidTeapot(double size)</p></li>
+<li><p>void glutGameModeString(const char * string)</p></li>
+<li><p>int glutEnterGameMode(void)</p></li>
+<li><p>void glutLeaveGameMode(void)</p></li>
+<li><p>int glutGameModeGet(GLenum query)</p></li>
+<li><p>int glutVideoResizeGet(GLenum query)</p></li>
+<li><p>void glutSetupVideoResizing(void)</p></li>
+<li><p>void glutStopVideoResizing(void)</p></li>
+<li><p>void glutVideoResize(int x, int y, int width, int height)</p></li>
+<li><p>void glutVideoPan(int x, int y, int width, int height)</p></li>
+<li><p>void glutSetColor(int color, GLfloat red, GLfloat green, GLfloat blue)</p></li>
+<li><p>GLfloat glutGetColor(int color, int component)</p></li>
+<li><p>void glutCopyColormap(int window)</p></li>
+<li><p>void glutIgnoreKeyRepeat(int ignore)</p></li>
+<li><p>void glutSetKeyRepeat(int repeatMode)</p></li>
+<li><p>void glutForceJoystickFunc(void)</p></li>
+<li><p>int glutExtensionSupported(const char * extension)</p></li>
+<li><p>void glutReportErrors(void)</p></li>
+<li><p>void glutMainLoop(void)</p></li>
+<li><p>void glutCloseFunc(const char <a href="#id39"><span class="problematic" id="id40">*</span></a>)</p></li>
+<li><p>GLUT_KEY_NUM_LOCK</p></li>
+<li><p>GLUT_KEY_BEGIN</p></li>
+<li><p>GLUT_KEY_DELETE</p></li>
+<li><p>GLUT_KEY_SHIFT_L</p></li>
+<li><p>GLUT_KEY_SHIFT_R</p></li>
+<li><p>GLUT_KEY_CTRL_L</p></li>
+<li><p>GLUT_KEY_CTRL_R</p></li>
+<li><p>GLUT_KEY_ALT_L</p></li>
+<li><p>GLUT_KEY_ALT_R</p></li>
+<li><p>GLUT_ACTION_EXIT</p></li>
+<li><p>GLUT_ACTION_GLUTMAINLOOP_RETURNS</p></li>
+<li><p>GLUT_ACTION_CONTINUE_EXECUTION</p></li>
+<li><p>GLUT_CREATE_NEW_CONTEXT</p></li>
+<li><p>GLUT_USE_CURRENT_CONTEXT</p></li>
+<li><p>GLUT_FORCE_INDIRECT_CONTEXT</p></li>
+<li><p>GLUT_ALLOW_DIRECT_CONTEXT</p></li>
+<li><p>GLUT_TRY_DIRECT_CONTEXT</p></li>
+<li><p>GLUT_FORCE_DIRECT_CONTEXT</p></li>
+<li><p>GLUT_INIT_STATE</p></li>
+<li><p>GLUT_ACTION_ON_WINDOW_CLOSE</p></li>
+<li><p>GLUT_WINDOW_BORDER_WIDTH</p></li>
+<li><p>GLUT_WINDOW_BORDER_HEIGHT</p></li>
+<li><p>GLUT_WINDOW_HEADER_HEIGHT</p></li>
+<li><p>GLUT_VERSION</p></li>
+<li><p>GLUT_RENDERING_CONTEXT</p></li>
+<li><p>GLUT_DIRECT_RENDERING</p></li>
+<li><p>GLUT_FULL_SCREEN</p></li>
+<li><p>GLUT_SKIP_STALE_MOTION_EVENTS</p></li>
+<li><p>GLUT_AUX</p></li>
+<li><p>GLUT_AUX1</p></li>
+<li><p>GLUT_AUX2</p></li>
+<li><p>GLUT_AUX3</p></li>
+<li><p>GLUT_AUX4</p></li>
+<li><p>GLUT_INIT_MAJOR_VERSION</p></li>
+<li><p>GLUT_INIT_MINOR_VERSION</p></li>
+<li><p>GLUT_INIT_FLAGS</p></li>
+<li><p>GLUT_INIT_PROFILE</p></li>
+<li><p>GLUT_DEBUG</p></li>
+<li><p>GLUT_FORWARD_COMPATIBLE</p></li>
+<li><p>GLUT_CORE_PROFILE</p></li>
+<li><p>GLUT_COMPATIBILITY_PROFILE</p></li>
+<li><p>GLUT_CAPTIONLESS</p></li>
+<li><p>GLUT_BORDERLESS</p></li>
+<li><p>GLUT_SRGB</p></li>
+<li><p>GLUT_HAS_MULTI</p></li>
+<li><p>void glutMainLoopEvent( void )</p></li>
+<li><p>void glutLeaveMainLoop( void )</p></li>
+<li><p>void glutExit( void )</p></li>
+<li><p>void glutFullScreenToggle( void )</p></li>
+<li><p>void glutLeaveFullScreen( void )</p></li>
+<li><p>void glutSetMenuFont(int menuID, void <a href="#id41"><span class="problematic" id="id42">*</span></a>font)</p></li>
+<li><p>void glutSetOption(GLenum option_flag, int value )</p></li>
+<li><p>int <a href="#id43"><span class="problematic" id="id44">*</span></a>glutGetModeValues(GLenum mode, int * size)</p></li>
+<li><p>void <a href="#id45"><span class="problematic" id="id46">*</span></a>glutGetWindowData( void )</p></li>
+<li><p>void glutSetWindowData(void <a href="#id47"><span class="problematic" id="id48">*</span></a>data)</p></li>
+<li><p>void <a href="#id49"><span class="problematic" id="id50">*</span></a>glutGetMenuData( void )</p></li>
+<li><p>void glutSetMenuData(void <a href="#id51"><span class="problematic" id="id52">*</span></a>data)</p></li>
+<li><p>int glutBitmapHeight( void* font )</p></li>
+<li><p>GLfloat glutStrokeHeight( void* font )</p></li>
+<li><p>void glutBitmapString( void* font, char <a href="#id53"><span class="problematic" id="id54">*</span></a>string )</p></li>
+<li><p>void glutStrokeString( void* font, char <a href="#id55"><span class="problematic" id="id56">*</span></a>string )</p></li>
+<li><p>void glutWireRhombicDodecahedron( void )</p></li>
+<li><p>void glutSolidRhombicDodecahedron( void )</p></li>
+<li><p>void glutWireSierpinskiSponge( int num_levels, double <a href="#id57"><span class="problematic" id="id58">*</span></a>offset, double scale )</p></li>
+<li><p>void glutSolidSierpinskiSponge( int num_levels, double <a href="#id59"><span class="problematic" id="id60">*</span></a>offset, double scale )</p></li>
+<li><p>void glutWireCylinder( double radius, double height, GLint slices, GLint stacks)</p></li>
+<li><p>void glutSolidCylinder( double radius, double height, GLint slices, GLint stacks)</p></li>
+<li><p>void glutWireTeacup( double size )</p></li>
+<li><p>void glutSolidTeacup( double size )</p></li>
+<li><p>void glutWireTeaspoon( double size )</p></li>
+<li><p>void glutSolidTeaspoon( double size )</p></li>
+<li><p>void glutInitContextVersion( int majorVersion, int minorVersion )</p></li>
+<li><p>void glutInitContextFlags( int flags )</p></li>
+<li><p>void glutInitContextProfile( int profile )</p></li>
+<li><p>void glutSetVertexAttribCoord3(GLint attrib)</p></li>
+<li><p>void glutSetVertexAttribNormal(GLint attrib)</p></li>
+<li><p>void glutSetVertexAttribTexCoord2(GLint attrib)</p></li>
 </ul>
 </div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a>&#160;&#160;»
-        </p>
+        <a href="ringopengl32funcsdoc.html" class="btn btn-neutral float-right" title="RingOpenGL (OpenGL 3.2) Functions Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ringlibuvfuncsdoc.html" class="btn btn-neutral float-left" title="RingLibuv Functions Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

@@ -1,107 +1,351 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Low Level Functions &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>Low Level Functions &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Tutorial: Ring Extensions in C/C++" href="extension_tutorial.html" />
     <link rel="prev" title="RingQt Classes Reference" href="qtclassesdoc.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>Low Level Functions</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="qtclassesdoc.html">RingQt Classes Reference</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Low Level Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#callgc-function">callgc() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#varptr-function">varptr() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#space-function">space() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#nullpointer-function">nullpointer() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#object2pointer-function">object2pointer() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pointer2object-function">pointer2object() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ispointer-function">ispointer() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ptrcmp-function">ptrcmp() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#setpointer-function">setpointer() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getpointer-function">getpointer() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#pointer2string-function">pointer2string() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-cfunctionslist-function">ringvm_cfunctionslist() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-functionslist-function">ringvm_functionslist() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-classeslist-function">ringvm_classeslist() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-packageslist-function">ringvm_packageslist() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-memorylist-function">ringvm_memorylist() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-calllist-function">ringvm_calllist() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-fileslist-function">ringvm_fileslist() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-settrace">ringvm_settrace()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-tracedata">ringvm_tracedata()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-traceevent">ringvm_traceevent()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-tracefunc">ringvm_tracefunc()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-scopescount">ringvm_scopescount()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-evalinscope">ringvm_evalinscope()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-passerror">ringvm_passerror()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-hideerrormsg">ringvm_hideerrormsg()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-callfunc">ringvm_callfunc()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-using-the-trace-functions">Example - Using the Trace Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example-the-trace-library">Example - The Trace Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-see-function">ringvm_see() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-give-function">ringvm_give() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringvm-info-function">ringvm_info() function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Low Level Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="low-level-functions">
 <span id="index-0"></span><h1>Low Level Functions<a class="headerlink" href="#low-level-functions" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will learn about the low level functions provided by Ring</p>
 <ul class="simple">
-<li>callgc()</li>
-<li>varptr()</li>
-<li>space()</li>
-<li>nullpointer()</li>
-<li>object2pointer()</li>
-<li>pointer2object()</li>
-<li>ispointer()</li>
-<li>ptrcmp()</li>
-<li>setpointer()</li>
-<li>getpointer()</li>
-<li>pointer2string()</li>
-<li>ringvm_cfunctionslist()</li>
-<li>ringvm_functionslist()</li>
-<li>ringvm_classeslist()</li>
-<li>ringvm_packageslist()</li>
-<li>ringvm_memorylist()</li>
-<li>ringvm_calllist()</li>
-<li>ringvm_fileslist()</li>
-<li>ringvm_settrace()</li>
-<li>ringvm_tracedata()</li>
-<li>ringvm_traceevent()</li>
-<li>ringvm_tracefunc()</li>
-<li>ringvm_scopescount()</li>
-<li>ringvm_evalinscope()</li>
-<li>ringvm_passerror()</li>
-<li>ringvm_hideerrorMsg()</li>
-<li>ringvm_callfunc()</li>
-<li>ringvm_see()</li>
-<li>ringvm_give()</li>
-<li>ringvm_info()</li>
+<li><p>callgc()</p></li>
+<li><p>varptr()</p></li>
+<li><p>space()</p></li>
+<li><p>nullpointer()</p></li>
+<li><p>object2pointer()</p></li>
+<li><p>pointer2object()</p></li>
+<li><p>ispointer()</p></li>
+<li><p>ptrcmp()</p></li>
+<li><p>setpointer()</p></li>
+<li><p>getpointer()</p></li>
+<li><p>pointer2string()</p></li>
+<li><p>ringvm_cfunctionslist()</p></li>
+<li><p>ringvm_functionslist()</p></li>
+<li><p>ringvm_classeslist()</p></li>
+<li><p>ringvm_packageslist()</p></li>
+<li><p>ringvm_memorylist()</p></li>
+<li><p>ringvm_calllist()</p></li>
+<li><p>ringvm_fileslist()</p></li>
+<li><p>ringvm_settrace()</p></li>
+<li><p>ringvm_tracedata()</p></li>
+<li><p>ringvm_traceevent()</p></li>
+<li><p>ringvm_tracefunc()</p></li>
+<li><p>ringvm_scopescount()</p></li>
+<li><p>ringvm_evalinscope()</p></li>
+<li><p>ringvm_passerror()</p></li>
+<li><p>ringvm_hideerrorMsg()</p></li>
+<li><p>ringvm_callfunc()</p></li>
+<li><p>ringvm_see()</p></li>
+<li><p>ringvm_give()</p></li>
+<li><p>ringvm_info()</p></li>
 </ul>
 <div class="section" id="callgc-function">
 <span id="index-1"></span><h2>callgc() function<a class="headerlink" href="#callgc-function" title="Permalink to this headline">¶</a></h2>
 <p>Use this function to force calling the garbage collector during function execution when you
-use a loop that create temp. variables that you don&#8217;t free using the assignment operation.</p>
-<p>It&#8217;s very rare to need this function but it&#8217;s useful when you create something like event-loop
+use a loop that create temp. variables that you don’t free using the assignment operation.</p>
+<p>It’s very rare to need this function but it’s useful when you create something like event-loop
 for your game engine and start creating lists on the fly when you call functions.</p>
 <p>Example</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="kp">True</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>While True
 
-        <span class="c"># process events</span>
-        <span class="c"># call functions using temp. lists like myfunc([&quot;temp list&quot;])</span>
+        # process events
+        # call functions using temp. lists like myfunc([&quot;temp list&quot;])
 
-        <span class="c"># call the garbage collector</span>
-        <span class="n">callgc</span><span class="p">()</span>
-<span class="k">End</span>
+        # call the garbage collector
+        callgc()
+End
 </pre></div>
 </div>
 <div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">In Ring the garbage collector works automatically in the end of function execution or
+<p class="admonition-title">Tip</p>
+<p>In Ring the garbage collector works automatically in the end of function execution or
 when you use the assignment statement.</p>
 </div>
 </div>
@@ -110,17 +354,18 @@ when you use the assignment statement.</p>
 <p>Use the varptr() function when you need to pass a pointer to a C/C++ function.</p>
 <p>Syntax:</p>
 <blockquote>
-<div>varptr(cVariableName,cPointerType) &#8212;&gt; Low Level Object (C Pointer)</div></blockquote>
+<div><p>varptr(cVariableName,cPointerType) —&gt; Low Level Object (C Pointer)</p>
+</div></blockquote>
 <p>example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">z</span> <span class="o">=</span> <span class="mi">20</span>
-<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">varptr</span><span class="p">(</span><span class="s">&quot;r&quot;</span><span class="p">,</span><span class="s">&quot;int&quot;</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">varptr</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">,</span><span class="s">&quot;int&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>r = 10
+z = 20
+see r + nl
+see varptr(&quot;r&quot;,&quot;int&quot;)
+see varptr(&quot;z&quot;,&quot;int&quot;)
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>10
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
 00E3C740
 int
 2
@@ -130,27 +375,27 @@ int
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">the low level object is a list contains three items (The Pointer, The Type, The Status)</p>
+<p class="admonition-title">Note</p>
+<p>the low level object is a list contains three items (The Pointer, The Type, The Status)</p>
 </div>
 </div>
 <div class="section" id="space-function">
 <span id="index-3"></span><h2>space() function<a class="headerlink" href="#space-function" title="Permalink to this headline">¶</a></h2>
 <p>Use the space function to allocate a specific number of bytes in Memory.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Space</span><span class="p">(</span><span class="n">nBytesCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Space(nBytesCount) ---&gt; String
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>
-<span class="k">See</span> <span class="s">&quot;String Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">mystring</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;String : &quot;</span> <span class="o">+</span> <span class="n">mystring</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">See</span> <span class="s">&quot;String Pointer : &quot;</span>
-<span class="k">See</span> <span class="n">varptr</span><span class="p">(</span><span class="s">&quot;mystring&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>mystring = space(200)
+See &quot;String Size : &quot; + len(mystring) + nl
+See &quot;String : &quot; + mystring + nl
+See &quot;String Pointer : &quot;
+See varptr(&quot;mystring&quot;,&quot;char *&quot;)
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>String Size : 200
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>String Size : 200
 String :
 String Pointer : 00FF8FE8
 char *
@@ -158,8 +403,8 @@ char *
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">You may need the space() and VarPtr() functions to pass buffers to C functions.</p>
+<p class="admonition-title">Note</p>
+<p>You may need the space() and VarPtr() functions to pass buffers to C functions.</p>
 </div>
 </div>
 <div class="section" id="nullpointer-function">
@@ -170,23 +415,23 @@ and accept NULL pointers for optional parameters.</p>
 <p>The next example uses the SDL_BlitSurface() function from the LibSDL Library through RingSDL
 The function accept SDL_Rect pointers in the second and the last parameter.
 Also the function accept NULL pointers, so we can pass them using the NULLPointer() Function.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">SDL_BlitSurface</span><span class="p">(</span><span class="n">text</span><span class="p">,</span> <span class="n">nullpointer</span><span class="p">(),</span> <span class="n">surface</span><span class="p">,</span> <span class="n">nullpointer</span><span class="p">())</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">The previous code doesn&#8217;t work alone, you need to learn how to use RingSDL first.</p>
+<p class="admonition-title">Note</p>
+<p>The previous code doesn’t work alone, you need to learn how to use RingSDL first.</p>
 </div>
 <div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">We can pass NULL as parameter instead of using NULLPointer()</p>
+<p class="admonition-title">Tip</p>
+<p>We can pass NULL as parameter instead of using NULLPointer()</p>
 </div>
 </div>
 <div class="section" id="object2pointer-function">
 <span id="index-5"></span><h2>object2pointer() function<a class="headerlink" href="#object2pointer-function" title="Permalink to this headline">¶</a></h2>
 <p>Use this function to get a C pointer for Ring lists and objects</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">object2pointer</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>object2pointer(List|Object) --&gt; Low Level Object ( C Pointer )
 </pre></div>
 </div>
 </div>
@@ -194,29 +439,29 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <span id="index-6"></span><h2>pointer2object() function<a class="headerlink" href="#pointer2object-function" title="Permalink to this headline">¶</a></h2>
 <p>Use this function to get the Ring list and/or object from the low level object (C Pointer)</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span><span class="o">|</span><span class="n">Object</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>pointer2object(Low Level Object) ---&gt; List|Object
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="c"># Create the list</span>
-<span class="n">mylist</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># Create the list
+mylist = 1:5
 
-<span class="c"># Create pointer to the list</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">object2pointer</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">x</span>
+# Create pointer to the list
+x = object2pointer(mylist)
+see x
 
-<span class="k">see</span> <span class="n">nl</span>
+see nl
 
-<span class="c"># Add items to the list</span>
-<span class="n">mylist</span> <span class="o">+</span> <span class="s">&quot;welcome&quot;</span>
+# Add items to the list
+mylist + &quot;welcome&quot;
 
-<span class="c"># print the list items</span>
-<span class="n">y</span> <span class="o">=</span> <span class="n">pointer2object</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="k">see</span> <span class="n">y</span>
+# print the list items
+y = pointer2object(x)
+see y
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>0069A5D8
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>0069A5D8
 OBJECTPOINTER
 0
 
@@ -229,13 +474,13 @@ welcome
 </pre></div>
 </div>
 <div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">In Ring the assignment operator copy lists and objects by value, to copy by reference
+<p class="admonition-title">Note</p>
+<p>In Ring the assignment operator copy lists and objects by value, to copy by reference
 Just use the object2pointer() and pointer2object() functions.</p>
 </div>
 <div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
+<p class="admonition-title">Tip</p>
+<p>The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
 to create a reference for the parent node (object) in the child node (another object).</p>
 </div>
 </div>
@@ -243,19 +488,19 @@ to create a reference for the parent node (object) in the child node (another ob
 <span id="index-7"></span><h2>ispointer() function<a class="headerlink" href="#ispointer-function" title="Permalink to this headline">¶</a></h2>
 <p>Check if the parameter is a pointer (C Object) or not.</p>
 <p>Syntax:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>IsPointer(vPara) ---&gt; True|False
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IsPointer(vPara) ---&gt; True|False
 </pre></div>
 </div>
 <p>Example :</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">filename</span><span class="p">(),</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>fp = fopen(filename(),&quot;r&quot;)
 
-<span class="o">?</span> <span class="n">type</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+? type(fp)
 
-<span class="o">?</span> <span class="n">ispointer</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+? ispointer(fp)
 </pre></div>
 </div>
 <p>Output :</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>file
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>file
 1
 </pre></div>
 </div>
@@ -264,25 +509,25 @@ to create a reference for the parent node (object) in the child node (another ob
 <span id="index-8"></span><h2>ptrcmp() function<a class="headerlink" href="#ptrcmp-function" title="Permalink to this headline">¶</a></h2>
 <p>We can compare between two pointers (C Objects) using the ptrcmp() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ptrcmp</span><span class="p">(</span><span class="n">oObject1</span><span class="p">,</span><span class="n">oObject2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">=</span> <span class="n">oObject2</span>
-                               <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">!=</span> <span class="n">oObject2</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ptrcmp(oObject1,oObject2) ---&gt; value = 1 if oObject1 = oObject2
+                               value = 0 if oObject1 != oObject2
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
-<span class="n">fp2</span> <span class="o">=</span> <span class="n">fp</span>
-<span class="n">fp3</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>fp = fopen(&quot;ptrcmp.ring&quot;,&quot;r&quot;)
+fp2 = fp
+fp3 = fopen(&quot;ptrcmp.ring&quot;,&quot;r&quot;)
 
-<span class="k">see</span> <span class="n">ptrcmp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="n">ptrcmp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+see ptrcmp(fp,fp2) + nl
+see ptrcmp(fp,fp3) + nl
 
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
-<span class="n">fclose</span><span class="p">(</span><span class="n">fp3</span><span class="p">)</span>
+fclose(fp)
+fclose(fp3)
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mi">1</span>
-<span class="mi">0</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
+0
 </pre></div>
 </div>
 </div>
@@ -290,7 +535,7 @@ to create a reference for the parent node (object) in the child node (another ob
 <span id="index-9"></span><h2>setpointer() function<a class="headerlink" href="#setpointer-function" title="Permalink to this headline">¶</a></h2>
 <p>Set the pointer address to another address</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">setpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>setpointer(pointer,nNewAddress)
 </pre></div>
 </div>
 </div>
@@ -298,31 +543,31 @@ to create a reference for the parent node (object) in the child node (another ob
 <span id="index-10"></span><h2>getpointer() function<a class="headerlink" href="#getpointer-function" title="Permalink to this headline">¶</a></h2>
 <p>Get the pointer address</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>getpointer(pointer) ---&gt; nAddress
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Sample about using setPointer() and getPointer() functions&quot;</span>
-<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">pointer</span> <span class="o">=</span> <span class="n">NULLPOINTER</span><span class="p">()</span>
-<span class="o">?</span> <span class="n">pointer</span>
-<span class="o">?</span> <span class="s">&quot;Type: &quot;</span> <span class="o">+</span> <span class="n">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Address: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
-<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ring&quot;</span>
-<span class="n">pointer</span> <span class="o">=</span> <span class="n">varptr</span><span class="p">(:</span><span class="n">name</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">pointer</span>
-<span class="o">?</span> <span class="s">&quot;Type: &quot;</span> <span class="o">+</span> <span class="n">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Address: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
-<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
-<span class="n">setpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span> <span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;After Update&quot;</span>
-<span class="o">?</span> <span class="s">&quot;Address: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
-<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;Sample about using setPointer() and getPointer() functions&quot;
+? copy(&quot;=&quot;,50)
+pointer = NULLPOINTER()
+? pointer
+? &quot;Type: &quot; + type(pointer)
+? &quot;Address: &quot; + Upper(hex(getpointer(pointer)))
+? copy(&quot;=&quot;,50)
+name = &quot;ring&quot;
+pointer = varptr(:name,&quot;char *&quot;)
+? pointer
+? &quot;Type: &quot; + type(pointer)
+? &quot;Address: &quot; + Upper(hex(getpointer(pointer)))
+? copy(&quot;=&quot;,50)
+setpointer(pointer, getpointer(pointer) + 1 )
+? &quot;After Update&quot;
+? &quot;Address: &quot; + Upper(hex(getpointer(pointer)))
+? copy(&quot;=&quot;,50)
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>==================================================
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>==================================================
 00000000
 NULLPOINTER
 0
@@ -348,36 +593,36 @@ Address: 26E2BA9
 <p>Convert a pointer to a string of binary data</p>
 <p>If you want to convert the string to a pointer again use VarPtr() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">pointer2string</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>pointer2string(pointer,nStart,nCount) ---&gt; cString
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ring&quot;</span>
-<span class="n">pointer</span> <span class="o">=</span> <span class="n">varptr</span><span class="p">(:</span><span class="n">name</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">pointer</span>
-<span class="o">?</span> <span class="s">&quot;Type: &quot;</span> <span class="o">+</span> <span class="n">type</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Address: &quot;</span> <span class="o">+</span> <span class="n">Upper</span><span class="p">(</span><span class="n">hex</span><span class="p">(</span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)))</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>name = &quot;ring&quot;
+pointer = varptr(:name,&quot;char *&quot;)
+? pointer
+? &quot;Type: &quot; + type(pointer)
+? &quot;Address: &quot; + Upper(hex(getpointer(pointer)))
 
-<span class="o">?</span> <span class="s">&quot;Get 4 bytes starting from the pointer address&quot;</span>
-<span class="n">mystring</span> <span class="o">=</span> <span class="n">Pointer2String</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">mystring</span>
+? &quot;Get 4 bytes starting from the pointer address&quot;
+mystring = Pointer2String(pointer,0,4)
+? mystring
 
-<span class="o">?</span> <span class="s">&quot;Get 2 bytes starting from the pointer address + 1&quot;</span>
-<span class="n">mystring2</span> <span class="o">=</span> <span class="n">Pointer2String</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
-<span class="o">?</span> <span class="n">mystring2</span>
+? &quot;Get 2 bytes starting from the pointer address + 1&quot;
+mystring2 = Pointer2String(pointer,1,2)
+? mystring2
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="mf">01E03380</span>
-<span class="n">char</span> <span class="o">*</span>
-<span class="mi">0</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>01E03380
+char *
+0
 
-<span class="n">Type</span><span class="p">:</span> <span class="n">char</span> <span class="o">*</span>
-<span class="n">Address</span><span class="p">:</span> <span class="mf">1E03380</span>
-<span class="k">Get</span> <span class="mi">4</span> <span class="n">bytes</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">address</span>
-<span class="n">ring</span>
-<span class="k">Get</span> <span class="mi">2</span> <span class="n">bytes</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">pointer</span> <span class="n">address</span> <span class="o">+</span> <span class="mi">1</span>
-<span class="k">in</span>
+Type: char *
+Address: 1E03380
+Get 4 bytes starting from the pointer address
+ring
+Get 2 bytes starting from the pointer address + 1
+in
 </pre></div>
 </div>
 </div>
@@ -385,11 +630,11 @@ Address: 26E2BA9
 <span id="index-12"></span><h2>ringvm_cfunctionslist() function<a class="headerlink" href="#ringvm-cfunctionslist-function" title="Permalink to this headline">¶</a></h2>
 <p>The Function return a list of functions written in C.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_CFunctionsList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_CFunctionsList() ---&gt; List
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">RingVM_CFunctionsList</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See RingVM_CFunctionsList()
 </pre></div>
 </div>
 </div>
@@ -398,27 +643,27 @@ Address: 26E2BA9
 <p>The Function return a list of functions written in Ring.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
-<li>Function Name</li>
-<li>Program Counter (PC) - Function Position in Byte Code.</li>
-<li>Source Code File Name</li>
-<li>Private Flag (For Private Methods in Classes)</li>
+<li><p>Function Name</p></li>
+<li><p>Program Counter (PC) - Function Position in Byte Code.</p></li>
+<li><p>Source Code File Name</p></li>
+<li><p>Private Flag (For Private Methods in Classes)</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_FunctionsList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_FunctionsList() ---&gt; List
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>test()
 
-<span class="k">func</span> <span class="n">test</span>
-        <span class="k">see</span> <span class="n">ringvm_functionslist</span><span class="p">()</span>
+func test
+        see ringvm_functionslist()
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">test</span>
-<span class="mi">8</span>
-<span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">functionslist</span><span class="p">.</span><span class="n">ring</span>
-<span class="mi">0</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>test
+8
+B:/ring/tests/scripts/functionslist.ring
+0
 </pre></div>
 </div>
 </div>
@@ -427,46 +672,46 @@ Address: 26E2BA9
 <p>The Function return a list of Classes.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
-<li>Class Name</li>
-<li>Program Counter (PC) - Class Position in Byte Code.</li>
-<li>Parent Class Name</li>
-<li>Methods List</li>
-<li>Flag (Is parent class information collected)</li>
-<li>Pointer to the package (or NULL if no package is used)</li>
+<li><p>Class Name</p></li>
+<li><p>Program Counter (PC) - Class Position in Byte Code.</p></li>
+<li><p>Parent Class Name</p></li>
+<li><p>Methods List</p></li>
+<li><p>Flag (Is parent class information collected)</p></li>
+<li><p>Pointer to the package (or NULL if no package is used)</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_ClassesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_ClassesList() ---&gt; List
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">ringvm_classeslist</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see ringvm_classeslist()
 
-<span class="k">class</span> <span class="n">class1</span>
-        <span class="k">func</span> <span class="n">f1</span>
-<span class="k">class</span> <span class="n">class2</span> <span class="k">from</span> <span class="n">class1</span>
-<span class="k">class</span> <span class="n">class3</span> <span class="k">from</span> <span class="n">class1</span>
+class class1
+        func f1
+class class2 from class1
+class class3 from class1
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">class1</span>
-<span class="mi">9</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class1
+9
 
-<span class="n">f1</span>
-<span class="mi">13</span>
-<span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">classeslist</span><span class="p">.</span><span class="n">ring</span>
-<span class="mi">0</span>
-<span class="mi">0</span>
-<span class="mi">00000000</span>
-<span class="n">class2</span>
-<span class="mi">16</span>
-<span class="n">class1</span>
-<span class="mi">0</span>
-<span class="mi">00000000</span>
-<span class="n">class3</span>
-<span class="mi">20</span>
-<span class="n">class1</span>
-<span class="mi">0</span>
-<span class="mi">00000000</span>
+f1
+13
+B:/ring/tests/scripts/classeslist.ring
+0
+0
+00000000
+class2
+16
+class1
+0
+00000000
+class3
+20
+class1
+0
+00000000
 </pre></div>
 </div>
 </div>
@@ -475,28 +720,28 @@ Address: 26E2BA9
 <p>The Function return a list of Packages.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
-<li>Package Name</li>
-<li>Classes List</li>
+<li><p>Package Name</p></li>
+<li><p>Classes List</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_PackagesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_PackagesList() ---&gt; List
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">ringvm_packageslist</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see ringvm_packageslist()
 
-<span class="n">package</span> <span class="n">package1</span>
-        <span class="k">class</span> <span class="n">class1</span>
+package package1
+        class class1
 
-<span class="n">package</span> <span class="n">package2</span>
-        <span class="k">class</span> <span class="n">class1</span>
+package package2
+        class class1
 
-<span class="n">package</span> <span class="n">package3</span>
-        <span class="k">class</span> <span class="n">class1</span>
+package package3
+        class class1
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>package1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>package1
 class1
 11
 
@@ -523,26 +768,26 @@ class1
 <p>Each List Member is a list contains variables in a different scope.</p>
 <p>Each Item in the scope list is a list contains the next items</p>
 <ul class="simple">
-<li>Variable Name</li>
-<li>Variable Type</li>
-<li>Variable Value</li>
-<li>Pointer Type (List/Item) if the value is a list</li>
-<li>Private Flag (if the variable is an attribute in a Class)</li>
+<li><p>Variable Name</p></li>
+<li><p>Variable Type</p></li>
+<li><p>Variable Value</p></li>
+<li><p>Pointer Type (List/Item) if the value is a list</p></li>
+<li><p>Private Flag (if the variable is an attribute in a Class)</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_MemoryList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_MemoryList() ---&gt; List
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
-<span class="n">test</span><span class="p">()</span>
-<span class="k">func</span> <span class="n">test</span>
-        <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
-        <span class="k">see</span> <span class="n">ringvm_memorylist</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = 10
+test()
+func test
+        y = 20
+        see ringvm_memorylist()
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>true
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>true
 2
 1
 0
@@ -633,38 +878,38 @@ y
 <p>The Function return a list of the functions call list.</p>
 <p>Each List Member is a list contains the next items</p>
 <ul class="simple">
-<li>Function Type</li>
-<li>Function Name</li>
-<li>Program Counter (PC)</li>
-<li>Stack Pointer (SP)</li>
-<li>Temp. Memory List</li>
-<li>Method or Function Flag</li>
-<li>Caller PC</li>
-<li>FuncExec Flag</li>
-<li>ListStart Flag</li>
-<li>Nested Lists Pointer</li>
-<li>State List</li>
+<li><p>Function Type</p></li>
+<li><p>Function Name</p></li>
+<li><p>Program Counter (PC)</p></li>
+<li><p>Stack Pointer (SP)</p></li>
+<li><p>Temp. Memory List</p></li>
+<li><p>Method or Function Flag</p></li>
+<li><p>Caller PC</p></li>
+<li><p>FuncExec Flag</p></li>
+<li><p>ListStart Flag</p></li>
+<li><p>Nested Lists Pointer</p></li>
+<li><p>State List</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_CallList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_CallList() ---&gt; List
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">hello</span><span class="p">()</span>
-<span class="k">func</span> <span class="n">hello</span>
-        <span class="n">test</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>hello()
+func hello
+        test()
 
-<span class="k">func</span> <span class="n">test</span>
-        <span class="n">mylist</span> <span class="o">=</span> <span class="n">ringvm_calllist</span><span class="p">()</span>
-        <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">mylist</span> <span class="k">see</span> <span class="n">t</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="k">next</span>
+func test
+        mylist = ringvm_calllist()
+        for t in mylist see t[2] + nl next
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">function</span> <span class="n">hello</span><span class="p">()</span> <span class="k">in</span> <span class="n">file</span> <span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">calllist</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">called</span> <span class="k">from</span> <span class="n">line</span> <span class="mi">1</span>
-<span class="n">function</span> <span class="n">test</span><span class="p">()</span> <span class="k">in</span> <span class="n">file</span> <span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">calllist</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">called</span> <span class="k">from</span> <span class="n">line</span> <span class="mi">3</span>
-<span class="n">ringvm_calllist</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>function hello() in file B:/ring/tests/scripts/calllist.ring
+called from line 1
+function test() in file B:/ring/tests/scripts/calllist.ring
+called from line 3
+ringvm_calllist
 </pre></div>
 </div>
 </div>
@@ -672,40 +917,40 @@ y
 <span id="index-18"></span><h2>ringvm_fileslist() function<a class="headerlink" href="#ringvm-fileslist-function" title="Permalink to this headline">¶</a></h2>
 <p>Function return a list of the Ring Files.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_FilesList</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_FilesList() ---&gt; List
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
-<span class="k">see</span> <span class="n">ringvm_fileslist</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+see ringvm_fileslist()
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">B</span><span class="p">:</span><span class="o">/</span><span class="n">ring</span><span class="o">/</span><span class="n">tests</span><span class="o">/</span><span class="n">scripts</span><span class="o">/</span><span class="n">fileslist</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">B</span><span class="p">:</span><span class="o">\</span><span class="n">ring</span><span class="o">\</span><span class="n">bin</span><span class="o">\</span><span class="n">stdlib</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">eval</span>
-<span class="n">stdlib</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdlib</span><span class="p">.</span><span class="n">rh</span>
-<span class="n">stdclasses</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdfunctions</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdbase</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdstring</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdlist</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdstack</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdqueue</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdmath</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stddatetime</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdfile</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdsystem</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stddebug</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stddatatype</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdconversion</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdodbc</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdmysql</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdsecurity</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdinternet</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdhashtable</span><span class="p">.</span><span class="n">ring</span>
-<span class="n">stdtree</span><span class="p">.</span><span class="n">ring</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>B:/ring/tests/scripts/fileslist.ring
+B:\ring\bin\stdlib.ring
+eval
+stdlib.ring
+stdlib.rh
+stdclasses.ring
+stdfunctions.ring
+stdbase.ring
+stdstring.ring
+stdlist.ring
+stdstack.ring
+stdqueue.ring
+stdmath.ring
+stddatetime.ring
+stdfile.ring
+stdsystem.ring
+stddebug.ring
+stddatatype.ring
+stdconversion.ring
+stdodbc.ring
+stdmysql.ring
+stdsecurity.ring
+stdinternet.ring
+stdhashtable.ring
+stdtree.ring
 </pre></div>
 </div>
 </div>
@@ -715,7 +960,7 @@ y
 <p>The trace function is a Ring
 function that will be called for each event</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_SetTrace</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_SetTrace(cCode)
 </pre></div>
 </div>
 </div>
@@ -726,13 +971,13 @@ function that will be called for each event</p>
 data.</p>
 <p>The event data is a list contains the next items</p>
 <ul class="simple">
-<li>The Source Code Line Number</li>
-<li>The Source File Name</li>
-<li>The Function/Method Name</li>
-<li>Method or Function (Bool : True=Method, False=Function/File)</li>
+<li><p>The Source Code Line Number</p></li>
+<li><p>The Source File Name</p></li>
+<li><p>The Function/Method Name</p></li>
+<li><p>Method or Function (Bool : True=Method, False=Function/File)</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_TraceData</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">aDataList</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_TraceData() ---&gt; aDataList
 </pre></div>
 </div>
 </div>
@@ -741,15 +986,15 @@ data.</p>
 <p>Inside the function that we will use for tracing events</p>
 <p>We can use ringvm_traceevent() to know the event type</p>
 <ul class="simple">
-<li>New Line</li>
-<li>Before Function</li>
-<li>After Function</li>
-<li>Runtime Error</li>
-<li>Before C Function</li>
-<li>After C Function</li>
+<li><p>New Line</p></li>
+<li><p>Before Function</p></li>
+<li><p>After Function</p></li>
+<li><p>Runtime Error</p></li>
+<li><p>Before C Function</p></li>
+<li><p>After C Function</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_TraceEvent</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nTraceEvent</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_TraceEvent() ---&gt; nTraceEvent
 </pre></div>
 </div>
 </div>
@@ -758,7 +1003,7 @@ data.</p>
 <p>The function return the name of the function that we
 are using for tracing events.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_TraceEvent</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">cCode</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_TraceEvent() ---&gt; cCode
 </pre></div>
 </div>
 </div>
@@ -770,7 +1015,7 @@ the number of scopes used in the application.</p>
 <p>When we call a function, A new scope is created.</p>
 <p>When the function execution is done, the function scope is deleted.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_ScopesCount</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nScopes</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_ScopesCount() ---&gt; nScopes
 </pre></div>
 </div>
 </div>
@@ -780,7 +1025,7 @@ the number of scopes used in the application.</p>
 <p>Unlike eval() which execute the code in the current scope</p>
 <p>Using RingVM_EvalInScope() we can execute the code in a specific scope.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_EvalInScope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="n">cCode</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_EvalInScope(nScope,cCode)
 </pre></div>
 </div>
 </div>
@@ -791,7 +1036,7 @@ will end the execution of the program.</p>
 <p>Using ringvm_passerror() we can avoid that, and continue the
 execution of our program.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_PassError</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_PassError()
 </pre></div>
 </div>
 </div>
@@ -800,7 +1045,7 @@ execution of our program.</p>
 <p>We can disable/enable displaying the runtime error messages using the
 RingVM_HideErrorMsg() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_HideErrorMsg</span><span class="p">(</span><span class="n">lStatus</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_HideErrorMsg(lStatus)
 </pre></div>
 </div>
 </div>
@@ -809,7 +1054,7 @@ RingVM_HideErrorMsg() function.</p>
 <p>We can call a function from a string without using eval() using
 the ringvm_callfunc()</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">RingVM_CallFunc</span><span class="p">(</span><span class="n">cFuncName</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RingVM_CallFunc(cFuncName)
 </pre></div>
 </div>
 </div>
@@ -818,55 +1063,55 @@ the ringvm_callfunc()</p>
 <p>The next example use the Trace Functions to trace the program Events!</p>
 <p>In practical, We will use the Trace Library instead of
 these low level functions!</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;tracelib.ring&quot;
 
-<span class="n">ringvm_settrace</span><span class="p">(</span><span class="s">&quot;mytrace()&quot;</span><span class="p">)</span>
+ringvm_settrace(&quot;mytrace()&quot;)
 
-<span class="k">see</span> <span class="s">&quot;Hello, world!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;Welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="s">&quot;How are you?&quot;</span> <span class="o">+</span><span class="n">nl</span>
-<span class="n">mytest</span><span class="p">()</span>
-<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">mymethod</span><span class="p">()</span> <span class="p">}</span>
+see &quot;Hello, world!&quot; + nl
+see &quot;Welcome&quot; + nl
+see &quot;How are you?&quot; +nl
+mytest()
+new myclass { mymethod() }
 
-<span class="k">func</span> <span class="n">mytest</span>
-        <span class="k">see</span> <span class="s">&quot;Message from mytest&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+func mytest
+        see &quot;Message from mytest&quot; + nl
 
-<span class="k">func</span> <span class="n">mytrace</span>
-        <span class="k">see</span> <span class="s">&quot;====== The Trace function is Active ======&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Trace Function Name : &quot;</span> <span class="o">+</span> <span class="n">ringvm_TraceFunc</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Trace Event : &quot;</span>
-        <span class="k">switch</span> <span class="n">ringvm_TraceEvent</span><span class="p">()</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_NEWLINE</span>           <span class="k">see</span> <span class="s">&quot;New Line&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_NEWFUNC</span>           <span class="k">see</span> <span class="s">&quot;New Function&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_RETURN</span>            <span class="k">see</span> <span class="s">&quot;Return&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_ERROR</span>             <span class="k">see</span> <span class="s">&quot;Error&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_BEFORECFUNC</span>       <span class="k">see</span> <span class="s">&quot;Before C Function&quot;</span>
-                <span class="k">on</span> <span class="n">TRACEEVENT_AFTERCFUNC</span>        <span class="k">see</span> <span class="s">&quot;After C Function&quot;</span>
-        <span class="k">off</span>
-        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Line Number : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_LINENUMBER</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;File Name   : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FILENAME</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Function Name : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-                <span class="s">&quot;Method or Function : &quot;</span>
-                <span class="k">if</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_METHODORFUNC</span><span class="o">]</span> <span class="o">=</span>
-                                 <span class="n">TRACEDATA_METHODORFUNC_METHOD</span>
-                        <span class="k">see</span> <span class="s">&quot;Method&quot;</span>
-                <span class="k">else</span>
-                        <span class="k">if</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="o">]</span> <span class="o">=</span> <span class="kp">NULL</span>
-                                <span class="k">see</span> <span class="s">&quot;Command&quot;</span>
-                        <span class="k">else</span>
-                                <span class="k">see</span> <span class="s">&quot;Function&quot;</span>
-                        <span class="k">ok</span>
-                <span class="k">ok</span>
-                <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">Copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+func mytrace
+        see &quot;====== The Trace function is Active ======&quot; + nl +
+                &quot;Trace Function Name : &quot; + ringvm_TraceFunc() + nl +
+                &quot;Trace Event : &quot;
+        switch ringvm_TraceEvent()
+                on TRACEEVENT_NEWLINE           see &quot;New Line&quot;
+                on TRACEEVENT_NEWFUNC           see &quot;New Function&quot;
+                on TRACEEVENT_RETURN            see &quot;Return&quot;
+                on TRACEEVENT_ERROR             see &quot;Error&quot;
+                on TRACEEVENT_BEFORECFUNC       see &quot;Before C Function&quot;
+                on TRACEEVENT_AFTERCFUNC        see &quot;After C Function&quot;
+        off
+        see nl +
+                &quot;Line Number : &quot; + ringvm_tracedata()[TRACEDATA_LINENUMBER] + nl +
+                &quot;File Name   : &quot; + ringvm_tracedata()[TRACEDATA_FILENAME] + nl +
+                &quot;Function Name : &quot; + ringvm_tracedata()[TRACEDATA_FUNCNAME] + nl +
+                &quot;Method or Function : &quot;
+                if ringvm_tracedata()[TRACEDATA_METHODORFUNC] =
+                                 TRACEDATA_METHODORFUNC_METHOD
+                        see &quot;Method&quot;
+                else
+                        if ringvm_tracedata()[TRACEDATA_FUNCNAME] = NULL
+                                see &quot;Command&quot;
+                        else
+                                see &quot;Function&quot;
+                        ok
+                ok
+                see nl + Copy(&quot;=&quot;,42) + nl
 
-<span class="k">class</span> <span class="n">myclass</span>
-        <span class="k">func</span> <span class="n">mymethod</span>
-                <span class="k">see</span> <span class="s">&quot;Message from mymethod&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+class myclass
+        func mymethod
+                see &quot;Message from mymethod&quot; + nl
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>====== The Trace function is Active ======
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>====== The Trace function is Active ======
 Trace Function Name : mytrace()
 Trace Event : After C Function
 Line Number : 3
@@ -1048,7 +1293,7 @@ Method or Function : Command
 to create the Trace library.</p>
 <p>Using the Trace library we have nice Tracing
 tools and Interaction debugger too.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span># Trace Events
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># Trace Events
 TRACEEVENT_NEWLINE      = 1
 TRACEEVENT_NEWFUNC      = 2
 TRACEEVENT_RETURN       = 3
@@ -1242,20 +1487,20 @@ func PrintLocalsData nScope
 <p>Using the ringvm_see() function we can redefine the behavior of the See command</p>
 <p>Also we can use ring_see() to have the original behavior</p>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Hello world&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="mi">123</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">see</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>
-<span class="k">see</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;Hello world&quot; + nl
+see 123 + nl
+see [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;]
+see new point {x=10 y=20 z=30}
 
-<span class="k">func</span> <span class="n">ringvm_see</span> <span class="n">t</span>
-        <span class="n">ring_see</span><span class="p">(</span><span class="s">&quot;We want to print: &quot;</span><span class="p">)</span>
-        <span class="n">ring_See</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
+func ringvm_see t
+        ring_see(&quot;We want to print: &quot;)
+        ring_See(t)
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+class point x y z
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>We want to print: Hello world
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>We want to print: Hello world
 We want to print: 123
 We want to print: one
 two
@@ -1270,47 +1515,77 @@ z: 30.000000
 <span id="index-31"></span><h2>ringvm_give() function<a class="headerlink" href="#ringvm-give-function" title="Permalink to this headline">¶</a></h2>
 <p>Using the ringvm_give() function we can redefine the behavior of the Give command</p>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
-<span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;Name: &quot; give name
+see &quot;Hello &quot; + name
 
-<span class="k">func</span> <span class="n">ringvm_give</span>
-        <span class="k">see</span> <span class="s">&quot;Mahmoud&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">return</span> <span class="s">&quot;Mahmoud&quot;</span>
+func ringvm_give
+        see &quot;Mahmoud&quot; + nl
+        return &quot;Mahmoud&quot;
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">Mahmoud</span>
-<span class="n">Hello</span> <span class="n">Mahmoud</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Name: Mahmoud
+Hello Mahmoud
 </pre></div>
 </div>
 </div>
 <div class="section" id="ringvm-info-function">
 <span id="index-32"></span><h2>ringvm_info() function<a class="headerlink" href="#ringvm-info-function" title="Permalink to this headline">¶</a></h2>
 <p>The ringvm_info() is an internal function that return a list of information about the Ring VM structure.</p>
-<p>It&#8217;s used only by the Ring Team in advanced tests to check the VM status.</p>
+<p>It’s used only by the Ring Team in advanced tests to check the VM status.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ringvm_info</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">VM</span> <span class="n">structure</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ringvm_info() ---&gt; List of information about the VM structure
 </pre></div>
 </div>
 </div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="qtclassesdoc.html">RingQt Classes Reference</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a>&#160;&#160;»
-        </p>
+        <a href="extension_tutorial.html" class="btn btn-neutral float-right" title="Tutorial: Ring Extensions in C/C++" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="qtclassesdoc.html" class="btn btn-neutral float-left" title="RingQt Classes Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

@@ -15,7 +15,7 @@
 import sys
 import os
 import shlex
-
+import sphinx_rtd_theme
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
 # documentation root, use os.path.abspath to make it absolute, like shown here.
@@ -36,7 +36,8 @@ extensions = [
     'sphinx.ext.coverage',
     'sphinx.ext.mathjax',
     'sphinx.ext.ifconfig',
-    'sphinx.ext.viewcode'
+    'sphinx.ext.viewcode',
+	"sphinx_rtd_theme"
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -118,7 +119,7 @@ todo_include_todos = True
 # a list of builtin themes.
 #html_theme = 'classic' 
 
-html_theme = "haiku"
+html_theme = "sphinx_rtd_theme"
 html_theme_options = {
     #"rightsidebar": "true",
     #"relbarbgcolor": "black"

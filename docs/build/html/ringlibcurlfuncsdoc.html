@@ -1,52 +1,266 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>RingLibCurl Functions Reference &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>RingLibCurl Functions Reference &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Using RingZip" href="ringzip.html" />
     <link rel="prev" title="Using RingLibCurl" href="libcurl.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>RingLibCurl Functions Reference</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="libcurl.html">Using RingLibCurl</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="ringzip.html">Using RingZip</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RingLibCurl Functions Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>RingLibCurl Functions Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="ringlibcurl-functions-reference">
 <span id="index-0"></span><h1>RingLibCurl Functions Reference<a class="headerlink" href="#ringlibcurl-functions-reference" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="introduction">
@@ -56,311 +270,341 @@
 <div class="section" id="reference">
 <h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>CURL_GLOBAL_ALL</li>
-<li>CURL_GLOBAL_SSL</li>
-<li>CURL_GLOBAL_WIN32</li>
-<li>CURL_GLOBAL_NOTHING</li>
-<li>CURL_GLOBAL_DEFAULT</li>
-<li>CURL_GLOBAL_ACK_EINTR</li>
-<li>CURLOPT_VERBOSE</li>
-<li>CURLOPT_HEADER</li>
-<li>CURLOPT_NOPROGRESS</li>
-<li>CURLOPT_NOSIGNAL</li>
-<li>CURLOPT_WILDCARDMATCH</li>
-<li>CURLOPT_WRITEFUNCTION</li>
-<li>CURLOPT_WRITEDATA</li>
-<li>CURLOPT_READFUNCTION</li>
-<li>CURLOPT_READDATA</li>
-<li>CURLOPT_IOCTLFUNCTION</li>
-<li>CURLOPT_IOCTLDATA</li>
-<li>CURLOPT_SEEKFUNCTION</li>
-<li>CURLOPT_SEEKDATA</li>
-<li>CURLOPT_SOCKOPTFUNCTION</li>
-<li>CURLOPT_SOCKOPTDATA</li>
-<li>CURLOPT_OPENSOCKETFUNCTION</li>
-<li>CURLOPT_OPENSOCKETDATA</li>
-<li>CURLOPT_CLOSESOCKETFUNCTION</li>
-<li>CURLOPT_CLOSESOCKETDATA</li>
-<li>CURLOPT_PROGRESSFUNCTION</li>
-<li>CURLOPT_PROGRESSDATA</li>
-<li>CURLOPT_HEADERFUNCTION</li>
-<li>CURLOPT_HEADERDATA</li>
-<li>CURLOPT_DEBUGFUNCTION</li>
-<li>CURLOPT_DEBUGDATA</li>
-<li>CURLOPT_SSL_CTX_FUNCTION</li>
-<li>CURLOPT_SSL_CTX_DATA</li>
-<li>CURLOPT_CONV_TO_NETWORK_FUNCTION</li>
-<li>CURLOPT_CONV_FROM_NETWORK_FUNCTION</li>
-<li>CURLOPT_CONV_FROM_UTF8_FUNCTION</li>
-<li>CURLOPT_INTERLEAVEFUNCTION</li>
-<li>CURLOPT_INTERLEAVEDATA</li>
-<li>CURLOPT_CHUNK_BGN_FUNCTION</li>
-<li>CURLOPT_CHUNK_END_FUNCTION</li>
-<li>CURLOPT_CHUNK_DATA</li>
-<li>CURLOPT_FNMATCH_FUNCTION</li>
-<li>CURLOPT_FNMATCH_DATA</li>
-<li>CURLOPT_ERRORBUFFER</li>
-<li>CURLOPT_STDERR</li>
-<li>CURLOPT_FAILONERROR</li>
-<li>CURLOPT_URL</li>
-<li>CURLOPT_PROTOCOLS</li>
-<li>CURLOPT_REDIR_PROTOCOLS</li>
-<li>CURLOPT_PROXY</li>
-<li>CURLOPT_PROXYPORT</li>
-<li>CURLOPT_PROXYTYPE</li>
-<li>CURLOPT_NOPROXY</li>
-<li>CURLOPT_HTTPPROXYTUNNEL</li>
-<li>CURLOPT_SOCKS5_GSSAPI_SERVICE</li>
-<li>CURLOPT_SOCKS5_GSSAPI_NEC</li>
-<li>CURLOPT_INTERFACE</li>
-<li>CURLOPT_LOCALPORT</li>
-<li>CURLOPT_LOCALPORTRANGE</li>
-<li>CURLOPT_DNS_CACHE_TIMEOUT</li>
-<li>CURLOPT_DNS_USE_GLOBAL_CACHE</li>
-<li>CURLOPT_BUFFERSIZE</li>
-<li>CURLOPT_PORT</li>
-<li>CURLOPT_TCP_NODELAY</li>
-<li>CURLOPT_ADDRESS_SCOPE</li>
-<li>CURLOPT_NETRC</li>
-<li>CURLOPT_NETRC_FILE</li>
-<li>CURLOPT_USERPWD</li>
-<li>CURLOPT_PROXYUSERPWD</li>
-<li>CURLOPT_USERNAME</li>
-<li>CURLOPT_PASSWORD</li>
-<li>CURLOPT_PROXYUSERNAME</li>
-<li>CURLOPT_PROXYPASSWORD</li>
-<li>CURLOPT_HTTPAUTH</li>
-<li>CURLOPT_TLSAUTH_USERNAME</li>
-<li>CURLOPT_TLSAUTH_PASSWORD</li>
-<li>CURLOPT_TLSAUTH_TYPE</li>
-<li>CURLOPT_PROXYAUTH</li>
-<li>CURLOPT_AUTOREFERER</li>
-<li>CURLOPT_ACCEPT_ENCODING</li>
-<li>CURLOPT_TRANSFER_ENCODING</li>
-<li>CURLOPT_FOLLOWLOCATION</li>
-<li>CURLOPT_UNRESTRICTED_AUTH</li>
-<li>CURLOPT_MAXREDIRS</li>
-<li>CURLOPT_POSTREDIR</li>
-<li>CURLOPT_PUT</li>
-<li>CURLOPT_POST</li>
-<li>CURLOPT_POSTFIELDS</li>
-<li>CURLOPT_POSTFIELDSIZE</li>
-<li>CURLOPT_POSTFIELDSIZE_LARGE</li>
-<li>CURLOPT_COPYPOSTFIELDS</li>
-<li>CURLOPT_HTTPPOST</li>
-<li>CURLOPT_REFERER</li>
-<li>CURLOPT_USERAGENT</li>
-<li>CURLOPT_HTTPHEADER</li>
-<li>CURLOPT_HTTP200ALIASES</li>
-<li>CURLOPT_COOKIE</li>
-<li>CURLOPT_COOKIEFILE</li>
-<li>CURLOPT_COOKIEJAR</li>
-<li>CURLOPT_COOKIESESSION</li>
-<li>CURLOPT_COOKIELIST</li>
-<li>CURLOPT_HTTPGET</li>
-<li>CURLOPT_HTTP_VERSION</li>
-<li>CURLOPT_IGNORE_CONTENT_LENGTH</li>
-<li>CURLOPT_HTTP_CONTENT_DECODING</li>
-<li>CURLOPT_HTTP_TRANSFER_DECODING</li>
-<li>CURLOPT_MAIL_FROM</li>
-<li>CURLOPT_MAIL_RCPT</li>
-<li>CURLOPT_TFTP_BLKSIZE</li>
-<li>CURLOPT_FTPPORT</li>
-<li>CURLOPT_QUOTE</li>
-<li>CURLOPT_POSTQUOTE</li>
-<li>CURLOPT_PREQUOTE</li>
-<li>CURLOPT_APPEND</li>
-<li>CURLOPT_FTP_USE_EPRT</li>
-<li>CURLOPT_FTP_USE_EPSV</li>
-<li>CURLOPT_FTP_USE_PRET</li>
-<li>CURLOPT_FTP_CREATE_MISSING_DIRS</li>
-<li>CURLOPT_FTP_RESPONSE_TIMEOUT</li>
-<li>CURLOPT_FTP_ALTERNATIVE_TO_USER</li>
-<li>CURLOPT_FTP_SKIP_PASV_IP</li>
-<li>CURLOPT_FTPSSLAUTH</li>
-<li>CURLOPT_FTP_SSL_CCC</li>
-<li>CURLOPT_FTP_ACCOUNT</li>
-<li>CURLOPT_FTP_FILEMETHOD</li>
-<li>CURLOPT_RTSP_REQUEST</li>
-<li>CURLOPT_RTSP_SESSION_ID</li>
-<li>CURLOPT_RTSP_STREAM_URI</li>
-<li>CURLOPT_RTSP_TRANSPORT</li>
-<li>CURLOPT_RTSP_CLIENT_CSEQ</li>
-<li>CURLOPT_RTSP_SERVER_CSEQ</li>
-<li>CURLOPT_TRANSFERTEXT</li>
-<li>CURLOPT_PROXY_TRANSFER_MODE</li>
-<li>CURLOPT_CRLF</li>
-<li>CURLOPT_RANGE</li>
-<li>CURLOPT_RESUME_FROM</li>
-<li>CURLOPT_RESUME_FROM_LARGE</li>
-<li>CURLOPT_CUSTOMREQUEST</li>
-<li>CURLOPT_FILETIME</li>
-<li>CURLOPT_DIRLISTONLY</li>
-<li>CURLOPT_NOBODY</li>
-<li>CURLOPT_INFILESIZE</li>
-<li>CURLOPT_INFILESIZE_LARGE</li>
-<li>CURLOPT_UPLOAD</li>
-<li>CURLOPT_MAXFILESIZE</li>
-<li>CURLOPT_MAXFILESIZE_LARGE</li>
-<li>CURLOPT_TIMECONDITION</li>
-<li>CURLOPT_TIMEVALUE</li>
-<li>CURLOPT_TIMEOUT</li>
-<li>CURLOPT_TIMEOUT_MS</li>
-<li>CURLOPT_LOW_SPEED_LIMIT</li>
-<li>CURLOPT_LOW_SPEED_TIME</li>
-<li>CURLOPT_MAX_SEND_SPEED_LARGE</li>
-<li>CURLOPT_MAX_RECV_SPEED_LARGE</li>
-<li>CURLOPT_MAXCONNECTS</li>
-<li>CURLOPT_FRESH_CONNECT</li>
-<li>CURLOPT_FORBID_REUSE</li>
-<li>CURLOPT_CONNECTTIMEOUT</li>
-<li>CURLOPT_CONNECTTIMEOUT_MS</li>
-<li>CURLOPT_IPRESOLVE</li>
-<li>CURLOPT_CONNECT_ONLY</li>
-<li>CURLOPT_USE_SSL</li>
-<li>CURLOPT_RESOLVE</li>
-<li>CURLOPT_SSLCERT</li>
-<li>CURLOPT_SSLCERTTYPE</li>
-<li>CURLOPT_SSLKEY</li>
-<li>CURLOPT_SSLKEYTYPE</li>
-<li>CURLOPT_KEYPASSWD</li>
-<li>CURLOPT_SSLENGINE</li>
-<li>CURLOPT_SSLENGINE_DEFAULT</li>
-<li>CURLOPT_SSLVERSION</li>
-<li>CURLOPT_SSL_VERIFYHOST</li>
-<li>CURLOPT_SSL_VERIFYPEER</li>
-<li>CURLOPT_CAINFO</li>
-<li>CURLOPT_ISSUERCERT</li>
-<li>CURLOPT_CAPATH</li>
-<li>CURLOPT_CRLFILE</li>
-<li>CURLOPT_CERTINFO</li>
-<li>CURLOPT_RANDOM_FILE</li>
-<li>CURLOPT_EGDSOCKET</li>
-<li>CURLOPT_SSL_CIPHER_LIST</li>
-<li>CURLOPT_SSL_SESSIONID_CACHE</li>
-<li>CURLOPT_KRBLEVEL</li>
-<li>CURLOPT_GSSAPI_DELEGATION</li>
-<li>CURLOPT_SSH_AUTH_TYPES</li>
-<li>CURLOPT_SSH_HOST_PUBLIC_KEY_MD5</li>
-<li>CURLOPT_SSH_PUBLIC_KEYFILE</li>
-<li>CURLOPT_SSH_PRIVATE_KEYFILE</li>
-<li>CURLOPT_SSH_KNOWNHOSTS</li>
-<li>CURLOPT_SSH_KEYFUNCTION</li>
-<li>CURLOPT_SSH_KEYDATA</li>
-<li>CURLOPT_PRIVATE</li>
-<li>CURLOPT_SHARE</li>
-<li>CURLOPT_NEW_FILE_PERMS</li>
-<li>CURLOPT_NEW_DIRECTORY_PERMS</li>
-<li>CURLOPT_TELNETOPTIONS</li>
-<li>CURLE_OK</li>
-<li>CURLE_UNKNOWN_OPTION</li>
-<li>CURLE_NOT_BUILT_IN</li>
-<li>CURLINFO_EFFECTIVE_URL</li>
-<li>CURLINFO_RESPONSE_CODE</li>
-<li>CURLINFO_HTTP_CONNECTCODE</li>
-<li>CURLINFO_FILETIME</li>
-<li>CURLINFO_TOTAL_TIME</li>
-<li>CURLINFO_NAMELOOKUP_TIME</li>
-<li>CURLINFO_CONNECT_TIME</li>
-<li>CURLINFO_APPCONNECT_TIME</li>
-<li>CURLINFO_PRETRANSFER_TIME</li>
-<li>CURLINFO_STARTTRANSFER_TIME</li>
-<li>CURLINFO_REDIRECT_TIME</li>
-<li>CURLINFO_REDIRECT_COUNT</li>
-<li>CURLINFO_REDIRECT_URL</li>
-<li>CURLINFO_SIZE_UPLOAD</li>
-<li>CURLINFO_SIZE_DOWNLOAD</li>
-<li>CURLINFO_SPEED_DOWNLOAD</li>
-<li>CURLINFO_SPEED_UPLOAD</li>
-<li>CURLINFO_HEADER_SIZE</li>
-<li>CURLINFO_REQUEST_SIZE</li>
-<li>CURLINFO_SSL_VERIFYRESULT</li>
-<li>CURLINFO_SSL_ENGINES</li>
-<li>CURLINFO_CONTENT_LENGTH_DOWNLOAD</li>
-<li>CURLINFO_CONTENT_LENGTH_UPLOAD</li>
-<li>CURLINFO_CONTENT_TYPE</li>
-<li>CURLINFO_PRIVATE</li>
-<li>CURLINFO_HTTPAUTH_AVAIL</li>
-<li>CURLINFO_PROXYAUTH_AVAIL</li>
-<li>CURLINFO_OS_ERRNO</li>
-<li>CURLINFO_NUM_CONNECTS</li>
-<li>CURLINFO_PRIMARY_IP</li>
-<li>CURLINFO_PRIMARY_PORT</li>
-<li>CURLINFO_LOCAL_IP</li>
-<li>CURLINFO_LOCAL_PORT</li>
-<li>CURLINFO_COOKIELIST</li>
-<li>CURLINFO_LASTSOCKET</li>
-<li>CURLINFO_FTP_ENTRY_PATH</li>
-<li>CURLINFO_CERTINFO</li>
-<li>CURLINFO_CONDITION_UNMET</li>
-<li>CURLINFO_RTSP_SESSION_ID</li>
-<li>CURLINFO_RTSP_CLIENT_CSEQ</li>
-<li>CURLINFO_RTSP_SERVER_CSEQ</li>
-<li>CURLINFO_RTSP_CSEQ_RECV</li>
-<li>CURLFORM_COPYNAME</li>
-<li>CURLFORM_PTRNAME</li>
-<li>CURLFORM_COPYCONTENTS</li>
-<li>CURLFORM_PTRCONTENTS</li>
-<li>CURLFORM_CONTENTSLENGTH</li>
-<li>CURLFORM_FILECONTENT</li>
-<li>CURLFORM_FILE</li>
-<li>CURLFORM_CONTENTTYPE</li>
-<li>CURLFORM_FILENAME</li>
-<li>CURLFORM_BUFFER</li>
-<li>CURLFORM_BUFFERPTR</li>
-<li>CURLFORM_BUFFERLENGTH</li>
-<li>CURLFORM_STREAM</li>
-<li>CURLFORM_ARRAY</li>
-<li>CURLFORM_CONTENTHEADER</li>
-<li>CURLcode curl_global_init(long flags)</li>
-<li>CURL <a href="#id1"><span class="problematic" id="id2">*</span></a>curl_easy_init(void)</li>
-<li>void curl_easy_cleanup(CURL * handle )</li>
-<li>CURLcode curl_easy_setopt_1(CURL <a href="#id3"><span class="problematic" id="id4">*</span></a>handle, CURLoption option, int)</li>
-<li>CURLcode curl_easy_setopt_2(CURL <a href="#id5"><span class="problematic" id="id6">*</span></a>handle, CURLoption option, const char <a href="#id7"><span class="problematic" id="id8">*</span></a>)</li>
-<li>CURLcode curl_easy_setopt_3(CURL <a href="#id9"><span class="problematic" id="id10">*</span></a>handle, CURLoption option, void <a href="#id11"><span class="problematic" id="id12">*</span></a>)</li>
-<li>CURLcode curl_easy_setopt_4(CURL <a href="#id13"><span class="problematic" id="id14">*</span></a>handle, CURLoption option, CURLLIST <a href="#id15"><span class="problematic" id="id16">*</span></a>)</li>
-<li>CURLcode curl_easy_perform(CURL * easy_handle )</li>
-<li>String <a href="#id17"><span class="problematic" id="id18">*</span></a>curl_easy_perform_silent(CURL * easy_handle )</li>
-<li>CURLcode curl_easy_getinfo_1(CURL <a href="#id19"><span class="problematic" id="id20">*</span></a>handle, CURLINFO info, char <a href="#id21"><span class="problematic" id="id22">**</span></a>urlp)</li>
-<li>CURLcode curl_easy_getinfo_2(CURL <a href="#id23"><span class="problematic" id="id24">*</span></a>handle, CURLINFO info, long <a href="#id25"><span class="problematic" id="id26">*</span></a>codep)</li>
-<li>CURLcode curl_easy_getinfo_3(CURL <a href="#id27"><span class="problematic" id="id28">*</span></a>handle, CURLINFO info, double <a href="#id29"><span class="problematic" id="id30">*</span></a>timep)</li>
-<li>CURLcode curl_easy_getinfo_4(CURL <a href="#id31"><span class="problematic" id="id32">*</span></a>handle, CURLINFO info, CURLLIST <a href="#id33"><span class="problematic" id="id34">**</span></a>engine_list)</li>
-<li>CURLcode curl_easy_getinfo_5(CURL <a href="#id35"><span class="problematic" id="id36">*</span></a>handle, CURLINFO info, struct curl_certinfo <a href="#id37"><span class="problematic" id="id38">*</span></a>chainp)</li>
-<li>CURLcode curl_easy_getinfo_6(CURL <a href="#id39"><span class="problematic" id="id40">*</span></a>handle, CURLINFO info, struct curl_tlssessioninfo <a href="#id41"><span class="problematic" id="id42">**</span></a>session)</li>
-<li>char <a href="#id43"><span class="problematic" id="id44">*</span></a>curl_version(void)</li>
-<li>time_t curl_getdate(char * datestring , time_t <a href="#id45"><span class="problematic" id="id46">*</span></a>now )</li>
-<li>CURLFORMcode curl_formadd_1(struct curl_httppost <a href="#id47"><span class="problematic" id="id48">**</span></a>firstitem, struct curl_httppost <a href="#id49"><span class="problematic" id="id50">**</span></a>lastitem, CURLformoption, const char <a href="#id51"><span class="problematic" id="id52">*</span></a>, CURLformoption, const char <a href="#id53"><span class="problematic" id="id54">*</span></a>, CURLformoption)</li>
-<li>CURLFORMcode curl_formadd_2(struct curl_httppost <a href="#id55"><span class="problematic" id="id56">**</span></a>firstitem, struct curl_httppost <a href="#id57"><span class="problematic" id="id58">**</span></a>lastitem, CURLformoption, const char <a href="#id59"><span class="problematic" id="id60">*</span></a>, CURLformoption, const char <a href="#id61"><span class="problematic" id="id62">*</span></a>,CURLformoption, const char <a href="#id63"><span class="problematic" id="id64">*</span></a>, CURLformoption)</li>
-<li>CURLFORMcode curl_formadd_3(struct curl_httppost <a href="#id65"><span class="problematic" id="id66">**</span></a>firstitem, struct curl_httppost <a href="#id67"><span class="problematic" id="id68">**</span></a>lastitem, CURLformoption, const char <a href="#id69"><span class="problematic" id="id70">*</span></a>, CURLformoption, void <a href="#id71"><span class="problematic" id="id72">*</span></a>, CURLformoption)</li>
-<li>CURLFORMcode curl_formadd_4(struct curl_httppost <a href="#id73"><span class="problematic" id="id74">**</span></a>firstitem, struct curl_httppost <a href="#id75"><span class="problematic" id="id76">**</span></a>lastitem, CURLformoption, const char <a href="#id77"><span class="problematic" id="id78">*</span></a>, CURLformoption, void <a href="#id79"><span class="problematic" id="id80">*</span></a>,CURLformoption, long , CURLformoption)</li>
-<li>CURLFORMcode curl_formadd_5(struct curl_httppost <a href="#id81"><span class="problematic" id="id82">**</span></a>firstitem, struct curl_httppost <a href="#id83"><span class="problematic" id="id84">**</span></a>lastitem, CURLformoption, const char <em>, CURLformoption, void *,CURLformoption, long , CURLformoption, const char</em> , CURLformoption)</li>
-<li>CURLFORMcode curl_formadd_6(struct curl_httppost <a href="#id85"><span class="problematic" id="id86">**</span></a>firstitem, struct curl_httppost <a href="#id87"><span class="problematic" id="id88">**</span></a>lastitem, CURLformoption, const char <a href="#id89"><span class="problematic" id="id90">*</span></a>, CURLformoption, const char <a href="#id91"><span class="problematic" id="id92">*</span></a>,CURLformoption, void * , CURLformoption, long , CURLformoption)</li>
-<li>CURLFORMcode curl_formadd_7(struct curl_httppost <a href="#id93"><span class="problematic" id="id94">**</span></a>firstitem, struct curl_httppost <a href="#id95"><span class="problematic" id="id96">**</span></a>lastitem, CURLformoption, const char <a href="#id97"><span class="problematic" id="id98">*</span></a>, CURLformoption,  struct curl_forms [], CURLformoption)</li>
-<li>void curl_formfree(struct curl_httppost * form)</li>
-<li>CURLLIST <a href="#id99"><span class="problematic" id="id100">*</span></a>curl_slist_append(CURLLIST * list, const char * string )</li>
-<li>void curl_slist_free_all(CURLLIST * list)</li>
-<li>char <a href="#id101"><span class="problematic" id="id102">*</span></a>curl_easy_escape( CURL * curl , const char * string , int length )</li>
-<li>char <a href="#id103"><span class="problematic" id="id104">*</span></a>curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )</li>
+<li><p>CURL_GLOBAL_ALL</p></li>
+<li><p>CURL_GLOBAL_SSL</p></li>
+<li><p>CURL_GLOBAL_WIN32</p></li>
+<li><p>CURL_GLOBAL_NOTHING</p></li>
+<li><p>CURL_GLOBAL_DEFAULT</p></li>
+<li><p>CURL_GLOBAL_ACK_EINTR</p></li>
+<li><p>CURLOPT_VERBOSE</p></li>
+<li><p>CURLOPT_HEADER</p></li>
+<li><p>CURLOPT_NOPROGRESS</p></li>
+<li><p>CURLOPT_NOSIGNAL</p></li>
+<li><p>CURLOPT_WILDCARDMATCH</p></li>
+<li><p>CURLOPT_WRITEFUNCTION</p></li>
+<li><p>CURLOPT_WRITEDATA</p></li>
+<li><p>CURLOPT_READFUNCTION</p></li>
+<li><p>CURLOPT_READDATA</p></li>
+<li><p>CURLOPT_IOCTLFUNCTION</p></li>
+<li><p>CURLOPT_IOCTLDATA</p></li>
+<li><p>CURLOPT_SEEKFUNCTION</p></li>
+<li><p>CURLOPT_SEEKDATA</p></li>
+<li><p>CURLOPT_SOCKOPTFUNCTION</p></li>
+<li><p>CURLOPT_SOCKOPTDATA</p></li>
+<li><p>CURLOPT_OPENSOCKETFUNCTION</p></li>
+<li><p>CURLOPT_OPENSOCKETDATA</p></li>
+<li><p>CURLOPT_CLOSESOCKETFUNCTION</p></li>
+<li><p>CURLOPT_CLOSESOCKETDATA</p></li>
+<li><p>CURLOPT_PROGRESSFUNCTION</p></li>
+<li><p>CURLOPT_PROGRESSDATA</p></li>
+<li><p>CURLOPT_HEADERFUNCTION</p></li>
+<li><p>CURLOPT_HEADERDATA</p></li>
+<li><p>CURLOPT_DEBUGFUNCTION</p></li>
+<li><p>CURLOPT_DEBUGDATA</p></li>
+<li><p>CURLOPT_SSL_CTX_FUNCTION</p></li>
+<li><p>CURLOPT_SSL_CTX_DATA</p></li>
+<li><p>CURLOPT_CONV_TO_NETWORK_FUNCTION</p></li>
+<li><p>CURLOPT_CONV_FROM_NETWORK_FUNCTION</p></li>
+<li><p>CURLOPT_CONV_FROM_UTF8_FUNCTION</p></li>
+<li><p>CURLOPT_INTERLEAVEFUNCTION</p></li>
+<li><p>CURLOPT_INTERLEAVEDATA</p></li>
+<li><p>CURLOPT_CHUNK_BGN_FUNCTION</p></li>
+<li><p>CURLOPT_CHUNK_END_FUNCTION</p></li>
+<li><p>CURLOPT_CHUNK_DATA</p></li>
+<li><p>CURLOPT_FNMATCH_FUNCTION</p></li>
+<li><p>CURLOPT_FNMATCH_DATA</p></li>
+<li><p>CURLOPT_ERRORBUFFER</p></li>
+<li><p>CURLOPT_STDERR</p></li>
+<li><p>CURLOPT_FAILONERROR</p></li>
+<li><p>CURLOPT_URL</p></li>
+<li><p>CURLOPT_PROTOCOLS</p></li>
+<li><p>CURLOPT_REDIR_PROTOCOLS</p></li>
+<li><p>CURLOPT_PROXY</p></li>
+<li><p>CURLOPT_PROXYPORT</p></li>
+<li><p>CURLOPT_PROXYTYPE</p></li>
+<li><p>CURLOPT_NOPROXY</p></li>
+<li><p>CURLOPT_HTTPPROXYTUNNEL</p></li>
+<li><p>CURLOPT_SOCKS5_GSSAPI_SERVICE</p></li>
+<li><p>CURLOPT_SOCKS5_GSSAPI_NEC</p></li>
+<li><p>CURLOPT_INTERFACE</p></li>
+<li><p>CURLOPT_LOCALPORT</p></li>
+<li><p>CURLOPT_LOCALPORTRANGE</p></li>
+<li><p>CURLOPT_DNS_CACHE_TIMEOUT</p></li>
+<li><p>CURLOPT_DNS_USE_GLOBAL_CACHE</p></li>
+<li><p>CURLOPT_BUFFERSIZE</p></li>
+<li><p>CURLOPT_PORT</p></li>
+<li><p>CURLOPT_TCP_NODELAY</p></li>
+<li><p>CURLOPT_ADDRESS_SCOPE</p></li>
+<li><p>CURLOPT_NETRC</p></li>
+<li><p>CURLOPT_NETRC_FILE</p></li>
+<li><p>CURLOPT_USERPWD</p></li>
+<li><p>CURLOPT_PROXYUSERPWD</p></li>
+<li><p>CURLOPT_USERNAME</p></li>
+<li><p>CURLOPT_PASSWORD</p></li>
+<li><p>CURLOPT_PROXYUSERNAME</p></li>
+<li><p>CURLOPT_PROXYPASSWORD</p></li>
+<li><p>CURLOPT_HTTPAUTH</p></li>
+<li><p>CURLOPT_TLSAUTH_USERNAME</p></li>
+<li><p>CURLOPT_TLSAUTH_PASSWORD</p></li>
+<li><p>CURLOPT_TLSAUTH_TYPE</p></li>
+<li><p>CURLOPT_PROXYAUTH</p></li>
+<li><p>CURLOPT_AUTOREFERER</p></li>
+<li><p>CURLOPT_ACCEPT_ENCODING</p></li>
+<li><p>CURLOPT_TRANSFER_ENCODING</p></li>
+<li><p>CURLOPT_FOLLOWLOCATION</p></li>
+<li><p>CURLOPT_UNRESTRICTED_AUTH</p></li>
+<li><p>CURLOPT_MAXREDIRS</p></li>
+<li><p>CURLOPT_POSTREDIR</p></li>
+<li><p>CURLOPT_PUT</p></li>
+<li><p>CURLOPT_POST</p></li>
+<li><p>CURLOPT_POSTFIELDS</p></li>
+<li><p>CURLOPT_POSTFIELDSIZE</p></li>
+<li><p>CURLOPT_POSTFIELDSIZE_LARGE</p></li>
+<li><p>CURLOPT_COPYPOSTFIELDS</p></li>
+<li><p>CURLOPT_HTTPPOST</p></li>
+<li><p>CURLOPT_REFERER</p></li>
+<li><p>CURLOPT_USERAGENT</p></li>
+<li><p>CURLOPT_HTTPHEADER</p></li>
+<li><p>CURLOPT_HTTP200ALIASES</p></li>
+<li><p>CURLOPT_COOKIE</p></li>
+<li><p>CURLOPT_COOKIEFILE</p></li>
+<li><p>CURLOPT_COOKIEJAR</p></li>
+<li><p>CURLOPT_COOKIESESSION</p></li>
+<li><p>CURLOPT_COOKIELIST</p></li>
+<li><p>CURLOPT_HTTPGET</p></li>
+<li><p>CURLOPT_HTTP_VERSION</p></li>
+<li><p>CURLOPT_IGNORE_CONTENT_LENGTH</p></li>
+<li><p>CURLOPT_HTTP_CONTENT_DECODING</p></li>
+<li><p>CURLOPT_HTTP_TRANSFER_DECODING</p></li>
+<li><p>CURLOPT_MAIL_FROM</p></li>
+<li><p>CURLOPT_MAIL_RCPT</p></li>
+<li><p>CURLOPT_TFTP_BLKSIZE</p></li>
+<li><p>CURLOPT_FTPPORT</p></li>
+<li><p>CURLOPT_QUOTE</p></li>
+<li><p>CURLOPT_POSTQUOTE</p></li>
+<li><p>CURLOPT_PREQUOTE</p></li>
+<li><p>CURLOPT_APPEND</p></li>
+<li><p>CURLOPT_FTP_USE_EPRT</p></li>
+<li><p>CURLOPT_FTP_USE_EPSV</p></li>
+<li><p>CURLOPT_FTP_USE_PRET</p></li>
+<li><p>CURLOPT_FTP_CREATE_MISSING_DIRS</p></li>
+<li><p>CURLOPT_FTP_RESPONSE_TIMEOUT</p></li>
+<li><p>CURLOPT_FTP_ALTERNATIVE_TO_USER</p></li>
+<li><p>CURLOPT_FTP_SKIP_PASV_IP</p></li>
+<li><p>CURLOPT_FTPSSLAUTH</p></li>
+<li><p>CURLOPT_FTP_SSL_CCC</p></li>
+<li><p>CURLOPT_FTP_ACCOUNT</p></li>
+<li><p>CURLOPT_FTP_FILEMETHOD</p></li>
+<li><p>CURLOPT_RTSP_REQUEST</p></li>
+<li><p>CURLOPT_RTSP_SESSION_ID</p></li>
+<li><p>CURLOPT_RTSP_STREAM_URI</p></li>
+<li><p>CURLOPT_RTSP_TRANSPORT</p></li>
+<li><p>CURLOPT_RTSP_CLIENT_CSEQ</p></li>
+<li><p>CURLOPT_RTSP_SERVER_CSEQ</p></li>
+<li><p>CURLOPT_TRANSFERTEXT</p></li>
+<li><p>CURLOPT_PROXY_TRANSFER_MODE</p></li>
+<li><p>CURLOPT_CRLF</p></li>
+<li><p>CURLOPT_RANGE</p></li>
+<li><p>CURLOPT_RESUME_FROM</p></li>
+<li><p>CURLOPT_RESUME_FROM_LARGE</p></li>
+<li><p>CURLOPT_CUSTOMREQUEST</p></li>
+<li><p>CURLOPT_FILETIME</p></li>
+<li><p>CURLOPT_DIRLISTONLY</p></li>
+<li><p>CURLOPT_NOBODY</p></li>
+<li><p>CURLOPT_INFILESIZE</p></li>
+<li><p>CURLOPT_INFILESIZE_LARGE</p></li>
+<li><p>CURLOPT_UPLOAD</p></li>
+<li><p>CURLOPT_MAXFILESIZE</p></li>
+<li><p>CURLOPT_MAXFILESIZE_LARGE</p></li>
+<li><p>CURLOPT_TIMECONDITION</p></li>
+<li><p>CURLOPT_TIMEVALUE</p></li>
+<li><p>CURLOPT_TIMEOUT</p></li>
+<li><p>CURLOPT_TIMEOUT_MS</p></li>
+<li><p>CURLOPT_LOW_SPEED_LIMIT</p></li>
+<li><p>CURLOPT_LOW_SPEED_TIME</p></li>
+<li><p>CURLOPT_MAX_SEND_SPEED_LARGE</p></li>
+<li><p>CURLOPT_MAX_RECV_SPEED_LARGE</p></li>
+<li><p>CURLOPT_MAXCONNECTS</p></li>
+<li><p>CURLOPT_FRESH_CONNECT</p></li>
+<li><p>CURLOPT_FORBID_REUSE</p></li>
+<li><p>CURLOPT_CONNECTTIMEOUT</p></li>
+<li><p>CURLOPT_CONNECTTIMEOUT_MS</p></li>
+<li><p>CURLOPT_IPRESOLVE</p></li>
+<li><p>CURLOPT_CONNECT_ONLY</p></li>
+<li><p>CURLOPT_USE_SSL</p></li>
+<li><p>CURLOPT_RESOLVE</p></li>
+<li><p>CURLOPT_SSLCERT</p></li>
+<li><p>CURLOPT_SSLCERTTYPE</p></li>
+<li><p>CURLOPT_SSLKEY</p></li>
+<li><p>CURLOPT_SSLKEYTYPE</p></li>
+<li><p>CURLOPT_KEYPASSWD</p></li>
+<li><p>CURLOPT_SSLENGINE</p></li>
+<li><p>CURLOPT_SSLENGINE_DEFAULT</p></li>
+<li><p>CURLOPT_SSLVERSION</p></li>
+<li><p>CURLOPT_SSL_VERIFYHOST</p></li>
+<li><p>CURLOPT_SSL_VERIFYPEER</p></li>
+<li><p>CURLOPT_CAINFO</p></li>
+<li><p>CURLOPT_ISSUERCERT</p></li>
+<li><p>CURLOPT_CAPATH</p></li>
+<li><p>CURLOPT_CRLFILE</p></li>
+<li><p>CURLOPT_CERTINFO</p></li>
+<li><p>CURLOPT_RANDOM_FILE</p></li>
+<li><p>CURLOPT_EGDSOCKET</p></li>
+<li><p>CURLOPT_SSL_CIPHER_LIST</p></li>
+<li><p>CURLOPT_SSL_SESSIONID_CACHE</p></li>
+<li><p>CURLOPT_KRBLEVEL</p></li>
+<li><p>CURLOPT_GSSAPI_DELEGATION</p></li>
+<li><p>CURLOPT_SSH_AUTH_TYPES</p></li>
+<li><p>CURLOPT_SSH_HOST_PUBLIC_KEY_MD5</p></li>
+<li><p>CURLOPT_SSH_PUBLIC_KEYFILE</p></li>
+<li><p>CURLOPT_SSH_PRIVATE_KEYFILE</p></li>
+<li><p>CURLOPT_SSH_KNOWNHOSTS</p></li>
+<li><p>CURLOPT_SSH_KEYFUNCTION</p></li>
+<li><p>CURLOPT_SSH_KEYDATA</p></li>
+<li><p>CURLOPT_PRIVATE</p></li>
+<li><p>CURLOPT_SHARE</p></li>
+<li><p>CURLOPT_NEW_FILE_PERMS</p></li>
+<li><p>CURLOPT_NEW_DIRECTORY_PERMS</p></li>
+<li><p>CURLOPT_TELNETOPTIONS</p></li>
+<li><p>CURLE_OK</p></li>
+<li><p>CURLE_UNKNOWN_OPTION</p></li>
+<li><p>CURLE_NOT_BUILT_IN</p></li>
+<li><p>CURLINFO_EFFECTIVE_URL</p></li>
+<li><p>CURLINFO_RESPONSE_CODE</p></li>
+<li><p>CURLINFO_HTTP_CONNECTCODE</p></li>
+<li><p>CURLINFO_FILETIME</p></li>
+<li><p>CURLINFO_TOTAL_TIME</p></li>
+<li><p>CURLINFO_NAMELOOKUP_TIME</p></li>
+<li><p>CURLINFO_CONNECT_TIME</p></li>
+<li><p>CURLINFO_APPCONNECT_TIME</p></li>
+<li><p>CURLINFO_PRETRANSFER_TIME</p></li>
+<li><p>CURLINFO_STARTTRANSFER_TIME</p></li>
+<li><p>CURLINFO_REDIRECT_TIME</p></li>
+<li><p>CURLINFO_REDIRECT_COUNT</p></li>
+<li><p>CURLINFO_REDIRECT_URL</p></li>
+<li><p>CURLINFO_SIZE_UPLOAD</p></li>
+<li><p>CURLINFO_SIZE_DOWNLOAD</p></li>
+<li><p>CURLINFO_SPEED_DOWNLOAD</p></li>
+<li><p>CURLINFO_SPEED_UPLOAD</p></li>
+<li><p>CURLINFO_HEADER_SIZE</p></li>
+<li><p>CURLINFO_REQUEST_SIZE</p></li>
+<li><p>CURLINFO_SSL_VERIFYRESULT</p></li>
+<li><p>CURLINFO_SSL_ENGINES</p></li>
+<li><p>CURLINFO_CONTENT_LENGTH_DOWNLOAD</p></li>
+<li><p>CURLINFO_CONTENT_LENGTH_UPLOAD</p></li>
+<li><p>CURLINFO_CONTENT_TYPE</p></li>
+<li><p>CURLINFO_PRIVATE</p></li>
+<li><p>CURLINFO_HTTPAUTH_AVAIL</p></li>
+<li><p>CURLINFO_PROXYAUTH_AVAIL</p></li>
+<li><p>CURLINFO_OS_ERRNO</p></li>
+<li><p>CURLINFO_NUM_CONNECTS</p></li>
+<li><p>CURLINFO_PRIMARY_IP</p></li>
+<li><p>CURLINFO_PRIMARY_PORT</p></li>
+<li><p>CURLINFO_LOCAL_IP</p></li>
+<li><p>CURLINFO_LOCAL_PORT</p></li>
+<li><p>CURLINFO_COOKIELIST</p></li>
+<li><p>CURLINFO_LASTSOCKET</p></li>
+<li><p>CURLINFO_FTP_ENTRY_PATH</p></li>
+<li><p>CURLINFO_CERTINFO</p></li>
+<li><p>CURLINFO_CONDITION_UNMET</p></li>
+<li><p>CURLINFO_RTSP_SESSION_ID</p></li>
+<li><p>CURLINFO_RTSP_CLIENT_CSEQ</p></li>
+<li><p>CURLINFO_RTSP_SERVER_CSEQ</p></li>
+<li><p>CURLINFO_RTSP_CSEQ_RECV</p></li>
+<li><p>CURLFORM_COPYNAME</p></li>
+<li><p>CURLFORM_PTRNAME</p></li>
+<li><p>CURLFORM_COPYCONTENTS</p></li>
+<li><p>CURLFORM_PTRCONTENTS</p></li>
+<li><p>CURLFORM_CONTENTSLENGTH</p></li>
+<li><p>CURLFORM_FILECONTENT</p></li>
+<li><p>CURLFORM_FILE</p></li>
+<li><p>CURLFORM_CONTENTTYPE</p></li>
+<li><p>CURLFORM_FILENAME</p></li>
+<li><p>CURLFORM_BUFFER</p></li>
+<li><p>CURLFORM_BUFFERPTR</p></li>
+<li><p>CURLFORM_BUFFERLENGTH</p></li>
+<li><p>CURLFORM_STREAM</p></li>
+<li><p>CURLFORM_ARRAY</p></li>
+<li><p>CURLFORM_CONTENTHEADER</p></li>
+<li><p>CURLcode curl_global_init(long flags)</p></li>
+<li><p>CURL <a href="#id1"><span class="problematic" id="id2">*</span></a>curl_easy_init(void)</p></li>
+<li><p>void curl_easy_cleanup(CURL * handle )</p></li>
+<li><p>CURLcode curl_easy_setopt_1(CURL <a href="#id3"><span class="problematic" id="id4">*</span></a>handle, CURLoption option, int)</p></li>
+<li><p>CURLcode curl_easy_setopt_2(CURL <a href="#id5"><span class="problematic" id="id6">*</span></a>handle, CURLoption option, const char <a href="#id7"><span class="problematic" id="id8">*</span></a>)</p></li>
+<li><p>CURLcode curl_easy_setopt_3(CURL <a href="#id9"><span class="problematic" id="id10">*</span></a>handle, CURLoption option, void <a href="#id11"><span class="problematic" id="id12">*</span></a>)</p></li>
+<li><p>CURLcode curl_easy_setopt_4(CURL <a href="#id13"><span class="problematic" id="id14">*</span></a>handle, CURLoption option, CURLLIST <a href="#id15"><span class="problematic" id="id16">*</span></a>)</p></li>
+<li><p>CURLcode curl_easy_perform(CURL * easy_handle )</p></li>
+<li><p>String <a href="#id17"><span class="problematic" id="id18">*</span></a>curl_easy_perform_silent(CURL * easy_handle )</p></li>
+<li><p>CURLcode curl_easy_getinfo_1(CURL <a href="#id19"><span class="problematic" id="id20">*</span></a>handle, CURLINFO info, char <a href="#id21"><span class="problematic" id="id22">**</span></a>urlp)</p></li>
+<li><p>CURLcode curl_easy_getinfo_2(CURL <a href="#id23"><span class="problematic" id="id24">*</span></a>handle, CURLINFO info, long <a href="#id25"><span class="problematic" id="id26">*</span></a>codep)</p></li>
+<li><p>CURLcode curl_easy_getinfo_3(CURL <a href="#id27"><span class="problematic" id="id28">*</span></a>handle, CURLINFO info, double <a href="#id29"><span class="problematic" id="id30">*</span></a>timep)</p></li>
+<li><p>CURLcode curl_easy_getinfo_4(CURL <a href="#id31"><span class="problematic" id="id32">*</span></a>handle, CURLINFO info, CURLLIST <a href="#id33"><span class="problematic" id="id34">**</span></a>engine_list)</p></li>
+<li><p>CURLcode curl_easy_getinfo_5(CURL <a href="#id35"><span class="problematic" id="id36">*</span></a>handle, CURLINFO info, struct curl_certinfo <a href="#id37"><span class="problematic" id="id38">*</span></a>chainp)</p></li>
+<li><p>CURLcode curl_easy_getinfo_6(CURL <a href="#id39"><span class="problematic" id="id40">*</span></a>handle, CURLINFO info, struct curl_tlssessioninfo <a href="#id41"><span class="problematic" id="id42">**</span></a>session)</p></li>
+<li><p>char <a href="#id43"><span class="problematic" id="id44">*</span></a>curl_version(void)</p></li>
+<li><p>time_t curl_getdate(char * datestring , time_t <a href="#id45"><span class="problematic" id="id46">*</span></a>now )</p></li>
+<li><p>CURLFORMcode curl_formadd_1(struct curl_httppost <a href="#id47"><span class="problematic" id="id48">**</span></a>firstitem, struct curl_httppost <a href="#id49"><span class="problematic" id="id50">**</span></a>lastitem, CURLformoption, const char <a href="#id51"><span class="problematic" id="id52">*</span></a>, CURLformoption, const char <a href="#id53"><span class="problematic" id="id54">*</span></a>, CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_2(struct curl_httppost <a href="#id55"><span class="problematic" id="id56">**</span></a>firstitem, struct curl_httppost <a href="#id57"><span class="problematic" id="id58">**</span></a>lastitem, CURLformoption, const char <a href="#id59"><span class="problematic" id="id60">*</span></a>, CURLformoption, const char <a href="#id61"><span class="problematic" id="id62">*</span></a>,CURLformoption, const char <a href="#id63"><span class="problematic" id="id64">*</span></a>, CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_3(struct curl_httppost <a href="#id65"><span class="problematic" id="id66">**</span></a>firstitem, struct curl_httppost <a href="#id67"><span class="problematic" id="id68">**</span></a>lastitem, CURLformoption, const char <a href="#id69"><span class="problematic" id="id70">*</span></a>, CURLformoption, void <a href="#id71"><span class="problematic" id="id72">*</span></a>, CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_4(struct curl_httppost <a href="#id73"><span class="problematic" id="id74">**</span></a>firstitem, struct curl_httppost <a href="#id75"><span class="problematic" id="id76">**</span></a>lastitem, CURLformoption, const char <a href="#id77"><span class="problematic" id="id78">*</span></a>, CURLformoption, void <a href="#id79"><span class="problematic" id="id80">*</span></a>,CURLformoption, long , CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_5(struct curl_httppost <a href="#id81"><span class="problematic" id="id82">**</span></a>firstitem, struct curl_httppost <a href="#id83"><span class="problematic" id="id84">**</span></a>lastitem, CURLformoption, const char <em>, CURLformoption, void *,CURLformoption, long , CURLformoption, const char</em> , CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_6(struct curl_httppost <a href="#id85"><span class="problematic" id="id86">**</span></a>firstitem, struct curl_httppost <a href="#id87"><span class="problematic" id="id88">**</span></a>lastitem, CURLformoption, const char <a href="#id89"><span class="problematic" id="id90">*</span></a>, CURLformoption, const char <a href="#id91"><span class="problematic" id="id92">*</span></a>,CURLformoption, void * , CURLformoption, long , CURLformoption)</p></li>
+<li><p>CURLFORMcode curl_formadd_7(struct curl_httppost <a href="#id93"><span class="problematic" id="id94">**</span></a>firstitem, struct curl_httppost <a href="#id95"><span class="problematic" id="id96">**</span></a>lastitem, CURLformoption, const char <a href="#id97"><span class="problematic" id="id98">*</span></a>, CURLformoption,  struct curl_forms [], CURLformoption)</p></li>
+<li><p>void curl_formfree(struct curl_httppost * form)</p></li>
+<li><p>CURLLIST <a href="#id99"><span class="problematic" id="id100">*</span></a>curl_slist_append(CURLLIST * list, const char * string )</p></li>
+<li><p>void curl_slist_free_all(CURLLIST * list)</p></li>
+<li><p>char <a href="#id101"><span class="problematic" id="id102">*</span></a>curl_easy_escape( CURL * curl , const char * string , int length )</p></li>
+<li><p>char <a href="#id103"><span class="problematic" id="id104">*</span></a>curl_easy_unescape( CURL * curl , const char * url , int inlength , int * outlength )</p></li>
 </ul>
 </div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="libcurl.html">Using RingLibCurl</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="ringzip.html">Using RingZip</a>&#160;&#160;»
-        </p>
+        <a href="ringzip.html" class="btn btn-neutral float-right" title="Using RingZip" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="libcurl.html" class="btn btn-neutral float-left" title="Using RingLibCurl" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

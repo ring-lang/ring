@@ -1,52 +1,269 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Objects Library for RingQt Application &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>Objects Library for RingQt Application &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Using the Form Designer" href="formdesigner.html" />
     <link rel="prev" title="Building RingQt Applications for Mobile" href="qtmobile.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>Objects Library for RingQt Application</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="qtmobile.html">Building RingQt Applications for Mobile</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="formdesigner.html">Using the Form Designer</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Objects Library for RingQt Application</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#library-usage">Library Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#open-windowandlink-function">Open_WindowAndLink() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#open-windowinpackages-function">Open_WindowInPackages() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objects-library-source-code">Objects Library Source Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Objects Library for RingQt Application</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="objects-library-for-ringqt-application">
 <span id="index-0"></span><h1>Objects Library for RingQt Application<a class="headerlink" href="#objects-library-for-ringqt-application" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will learn about the objects library for RingQt applications.</p>
@@ -61,74 +278,74 @@ quickly use the parent or the caller windows from the child or sub windows.</p>
 <div class="section" id="library-usage">
 <span id="index-1"></span><h2>Library Usage<a class="headerlink" href="#library-usage" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
-<li>Use the Open_Window(cWindowControllerClassName) function to open new Windows</li>
-<li>Create at least Two Classes for each window, The Controller Class and the View Class</li>
-<li>Create each controller class from the WindowsControllerParent Class</li>
-<li>Create each view class from the WindowsViewParent Class</li>
-<li>Use the Last_Window() function to get the object of the last window created (The Controller object).</li>
-<li>When you call a sub window, use the SetParentObject() method and pass the self object.</li>
-<li>In the View Class, To determine the event method use the Method(cMethodName) function.</li>
-<li>The Method(cMethodName) function determine the method in the controller class that will be executed.</li>
-<li>Each controller class contains by default the CloseAction() method that you can call to close the window.</li>
-<li>You don&#8217;t need to call the Show() Method for each window, When you use Open_Window() It will be called.</li>
-<li>In the view class, Define the GUI window object as an attribute called win.</li>
-<li>You can use Open_WindowNoShow() to avoid displaying the window.</li>
-<li>You can use Open_WindowAndLink() to quickly get methods to access the windows.</li>
+<li><p>Use the Open_Window(cWindowControllerClassName) function to open new Windows</p></li>
+<li><p>Create at least Two Classes for each window, The Controller Class and the View Class</p></li>
+<li><p>Create each controller class from the WindowsControllerParent Class</p></li>
+<li><p>Create each view class from the WindowsViewParent Class</p></li>
+<li><p>Use the Last_Window() function to get the object of the last window created (The Controller object).</p></li>
+<li><p>When you call a sub window, use the SetParentObject() method and pass the self object.</p></li>
+<li><p>In the View Class, To determine the event method use the Method(cMethodName) function.</p></li>
+<li><p>The Method(cMethodName) function determine the method in the controller class that will be executed.</p></li>
+<li><p>Each controller class contains by default the CloseAction() method that you can call to close the window.</p></li>
+<li><p>You don’t need to call the Show() Method for each window, When you use Open_Window() It will be called.</p></li>
+<li><p>In the view class, Define the GUI window object as an attribute called win.</p></li>
+<li><p>You can use Open_WindowNoShow() to avoid displaying the window.</p></li>
+<li><p>You can use Open_WindowAndLink() to quickly get methods to access the windows.</p></li>
 </ul>
 </div>
 <div class="section" id="example">
 <span id="index-2"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>In the next example we will create two types of windows.</p>
 <ul class="simple">
-<li>Main Window contains a button. When the user click on the button a sub window will be opened.</li>
-<li>The User Can click on the button many times to open many sub windows.</li>
-<li>Each Sub Window contains Two buttons.</li>
-<li>The first button in the sub window change the Main and the Sub Windows Titles.</li>
-<li>The second button in the sub window close the Sub Window.</li>
+<li><p>Main Window contains a button. When the user click on the button a sub window will be opened.</p></li>
+<li><p>The User Can click on the button many times to open many sub windows.</p></li>
+<li><p>Each Sub Window contains Two buttons.</p></li>
+<li><p>The first button in the sub window change the Main and the Sub Windows Titles.</p></li>
+<li><p>The second button in the sub window close the Sub Window.</p></li>
 </ul>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;guilib.ring&quot;
 
-<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
-        <span class="n">open_window</span><span class="p">(</span> <span class="p">:</span><span class="n">MainWindowController</span> <span class="p">)</span>
-        <span class="n">exec</span><span class="p">()</span>
-<span class="p">}</span>
+new qApp {
+        open_window( :MainWindowController )
+        exec()
+}
 
-<span class="k">class</span> <span class="n">MainWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
-        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MainWindowView</span>
-        <span class="k">func</span> <span class="n">SubWindowAction</span>
-                <span class="n">Open_window</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowController</span> <span class="p">)</span>
-                <span class="n">Last_Window</span><span class="p">().</span><span class="n">SetParentObject</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+class MainWindowController from WindowsControllerParent
+        oView = new MainWindowView
+        func SubWindowAction
+                Open_window( :SubWindowController )
+                Last_Window().SetParentObject(self)
 
-<span class="k">class</span> <span class="n">MainWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
-        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Main Window&quot;</span><span class="p">)</span>
-                <span class="n">btnSub</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowAction</span> <span class="p">)</span> <span class="p">)</span>
-                <span class="p">}</span>
-                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
-        <span class="p">}</span>
+class MainWindowView from WindowsViewParent
+        win = new qWidget() {
+                SetWindowTitle(&quot;Main Window&quot;)
+                btnSub = new qPushButton(win) {
+                        setText(&quot;Sub Window&quot;)
+                        setClickEvent( Method( :SubWindowAction ) )
+                }
+                resize(400,400)
+        }
 
-<span class="k">class</span> <span class="n">SubWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
-        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubWindowView</span>
-        <span class="k">func</span> <span class="n">SetMainWindowTitleAction</span>
-                <span class="n">Parent</span><span class="p">().</span><span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Message from the Sub Window&quot;</span><span class="p">)</span>
-                <span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Click Event Done!&quot;</span><span class="p">)</span>
+class SubWindowController from WindowsControllerParent
+        oView = new SubWindowView
+        func SetMainWindowTitleAction
+                Parent().oView.win.SetWindowTitle(&quot;Message from the Sub Window&quot;)
+                oView.win.SetWindowTitle(&quot;Click Event Done!&quot;)
 
-<span class="k">class</span> <span class="n">SubWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
-        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
-                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
-                <span class="n">btnMsg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Set Main Window Title&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">SetMainWindowTitleAction</span> <span class="p">)</span> <span class="p">)</span>
-                <span class="p">}</span>
-                <span class="n">btnClose</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
-                        <span class="n">Move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
-                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Close&quot;</span><span class="p">)</span>
-                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">CloseAction</span> <span class="p">)</span> <span class="p">)</span>
-                <span class="p">}</span>
-                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
-        <span class="p">}</span>
+class SubWindowView from WindowsViewParent
+        win = new qWidget() {
+                SetWindowTitle(&quot;Sub Window&quot;)
+                btnMsg = new qPushButton(win) {
+                        setText(&quot;Set Main Window Title&quot;)
+                        setClickEvent( Method( :SetMainWindowTitleAction ) )
+                }
+                btnClose = new qPushButton(win) {
+                        Move(200,0)
+                        setText(&quot;Close&quot;)
+                        setClickEvent( Method( :CloseAction ) )
+                }
+                resize(400,400)
+        }
 </pre></div>
 </div>
 <p>The next screen shot after creating three sub windows.</p>
@@ -145,13 +362,13 @@ Caller Class to use the dynamic objects of other windows that we create.</p>
 <p>Example : (Uses the Form Designer)</p>
 <p>First Window</p>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowView.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowView.ring</a></li>
-<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowController.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowController.ring</a></li>
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowView.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowView.ring</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowController.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/firstwindowController.ring</a></p></li>
 </ol>
 <p>Second Window</p>
 <ol class="arabic simple">
-<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowView.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowView.ring</a></li>
-<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowController.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowController.ring</a></li>
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowView.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowView.ring</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowController.ring">https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/twowindowspart5/secondwindowController.ring</a></p></li>
 </ol>
 <p>In the next code for example (from FirstWindowController.ring)</p>
 <p>The Open_WindowAndLink() will create an object from the SecondWindowController Class</p>
@@ -163,20 +380,20 @@ to the SecondWindowController Class</p>
 use the SecondWindow() method to access the object.</p>
 <p>This is more simple than using Last_Window(), Parent() and
 SetParentObject() methods.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">firstwindowController</span> <span class="k">from</span> <span class="n">windowsControllerParent</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class firstwindowController from windowsControllerParent
 
-    <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">firstwindowView</span>
+    oView = new firstwindowView
 
-    <span class="k">func</span> <span class="n">OpenSecondWindow</span>
-        <span class="n">Open_WindowAndLink</span><span class="p">(:</span><span class="n">SecondWindowController</span><span class="p">,</span><span class="n">self</span><span class="p">)</span>
+    func OpenSecondWindow
+        Open_WindowAndLink(:SecondWindowController,self)
 
-    <span class="k">func</span> <span class="n">SendMessage</span>
-        <span class="k">if</span> <span class="n">IsSecondWindow</span><span class="p">()</span>
-            <span class="n">SecondWindow</span><span class="p">().</span><span class="n">setMessage</span><span class="p">(</span><span class="s">&quot;Message from the first window&quot;</span><span class="p">)</span>
-        <span class="k">ok</span>
+    func SendMessage
+        if IsSecondWindow()
+            SecondWindow().setMessage(&quot;Message from the first window&quot;)
+        ok
 
-    <span class="k">func</span> <span class="n">setMessage</span> <span class="n">cMessage</span>
-        <span class="n">oView</span><span class="p">.</span><span class="n">Label1</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">cMessage</span><span class="p">)</span>
+    func setMessage cMessage
+        oView.Label1.setText(cMessage)
 </pre></div>
 </div>
 </div>
@@ -186,18 +403,18 @@ SetParentObject() methods.</p>
 but takes an extra list that determine the packages
 to import before opening the window.</p>
 <p>Syntax:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">Open_WindowInPackages</span><span class="p">(</span><span class="n">cClassName</span><span class="p">,</span><span class="n">aPackagesList</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Open_WindowInPackages(cClassName,aPackagesList)
 </pre></div>
 </div>
 <p>Example:</p>
 <p>The next example from the Form Designer source code, Open the Window Flags window
 using the open_windowInPackages() function.</p>
-<p>We determine the class name &#8220;WindowFlagsController&#8221; and the packages name.</p>
+<p>We determine the class name “WindowFlagsController” and the packages name.</p>
 <p>The Window Flags window uses the FormDesigner and System.GUI packages.</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">open_windowInPackages</span><span class="p">(:</span><span class="n">WindowFlagsController</span><span class="p">,</span><span class="o">[</span>
-        <span class="s">&quot;formdesigner&quot;</span><span class="p">,</span>
-        <span class="s">&quot;System.GUI&quot;</span>
-<span class="o">]</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>open_windowInPackages(:WindowFlagsController,[
+        &quot;formdesigner&quot;,
+        &quot;System.GUI&quot;
+])
 </pre></div>
 </div>
 </div>
@@ -205,29 +422,59 @@ using the open_windowInPackages() function.</p>
 <span id="index-5"></span><h2>Objects Library Source Code<a class="headerlink" href="#objects-library-source-code" title="Permalink to this headline">¶</a></h2>
 <p>The library source code is very simple, You can check the source code files</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objects.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objects.ring</a></li>
-<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/subwindows.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/subwindows.ring</a></li>
-<li><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objectslib.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objectslib.ring</a></li>
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objects.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objects.ring</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/subwindows.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/subwindows.ring</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objectslib.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objectslib.ring</a></p></li>
 </ul>
 <span class="target" id="index-6"></span></div>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="qtmobile.html">Building RingQt Applications for Mobile</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="formdesigner.html">Using the Form Designer</a>&#160;&#160;»
-        </p>
+        <a href="formdesigner.html" class="btn btn-neutral float-right" title="Using the Form Designer" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="qtmobile.html" class="btn btn-neutral float-left" title="Building RingQt Applications for Mobile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

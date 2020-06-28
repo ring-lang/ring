@@ -1,52 +1,282 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What is new in Ring 1.6? &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>What is new in Ring 1.6? &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="What is new in Ring 1.5?" href="whatisnew5.html" />
     <link rel="prev" title="What is new in Ring 1.7?" href="whatisnew7.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>What is new in Ring 1.6?</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="whatisnew7.html">What is new in Ring 1.7?</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="whatisnew5.html">What is new in Ring 1.5?</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.6</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#employee-application">Employee Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-tool-ring2exe">New Tool: Ring2EXE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ring-for-android">Better Ring For Android</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-tool-folder2qrc">New Tool: Folder2qrc</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-scripts-for-building-ring">Better Scripts for building Ring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringconsolecolors-extension">RingConsoleColors Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringmurmurhash-extension">RingMurmurHash Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringvm">Better RingVM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringrepl">Better RingREPL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-tab-instead-of-char-9">Using Tab instead of char(9)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-cr-as-carriage-return">Using CR as Carriage return</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-operator-as-not">Using the ! operator as not</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-and-operators">Using &amp;&amp; and || operators</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-to-print-expression-then-new-line">Using ? to print expression then new line</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>What is new in Ring 1.6?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="what-is-new-in-ring-1-6">
 <span id="index-0"></span><h1>What is new in Ring 1.6?<a class="headerlink" href="#what-is-new-in-ring-1-6" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will learn about the changes and new features in Ring 1.6 release.</p>
@@ -54,23 +284,23 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.6 comes with many new features!</p>
 <ul class="simple">
-<li>Employee Application</li>
-<li>New Tool: Ring2EXE</li>
-<li>Better Ring For Android</li>
-<li>New Tool : Folder2qrc</li>
-<li>Better Scripts for building Ring</li>
-<li>RingConsoleColors Extension</li>
-<li>RingMurmurHash Extension</li>
-<li>Better Ring Notepad</li>
-<li>Better RingQt</li>
-<li>Better StdLib</li>
-<li>Better RingVM</li>
-<li>Better RingREPL</li>
-<li>Using Tab instead of char(9)</li>
-<li>Using CR as Carriage return</li>
-<li>Using the ! operator as not</li>
-<li>Using &amp;&amp; and || operators</li>
-<li>Using ? to print expression then new line</li>
+<li><p>Employee Application</p></li>
+<li><p>New Tool: Ring2EXE</p></li>
+<li><p>Better Ring For Android</p></li>
+<li><p>New Tool : Folder2qrc</p></li>
+<li><p>Better Scripts for building Ring</p></li>
+<li><p>RingConsoleColors Extension</p></li>
+<li><p>RingMurmurHash Extension</p></li>
+<li><p>Better Ring Notepad</p></li>
+<li><p>Better RingQt</p></li>
+<li><p>Better StdLib</p></li>
+<li><p>Better RingVM</p></li>
+<li><p>Better RingREPL</p></li>
+<li><p>Using Tab instead of char(9)</p></li>
+<li><p>Using CR as Carriage return</p></li>
+<li><p>Using the ! operator as not</p></li>
+<li><p>Using &amp;&amp; and || operators</p></li>
+<li><p>Using ? to print expression then new line</p></li>
 </ul>
 </div>
 <div class="section" id="employee-application">
@@ -83,7 +313,7 @@
 <span id="index-3"></span><h2>New Tool: Ring2EXE<a class="headerlink" href="#new-tool-ring2exe" title="Permalink to this headline">¶</a></h2>
 <p>In Ring 1.6 we have a nice tool called Ring2EXE (Written in Ring itself)</p>
 <p>Using Ring2EXE we can distribute applications quickly for Windows, Linux, macOS and Mobile devices</p>
-<p>Read the chapter &#8220;Distributing Ring Applications using Ring2EXE&#8221; for more information!</p>
+<p>Read the chapter “Distributing Ring Applications using Ring2EXE” for more information!</p>
 </div>
 <div class="section" id="better-ring-for-android">
 <span id="index-4"></span><h2>Better Ring For Android<a class="headerlink" href="#better-ring-for-android" title="Permalink to this headline">¶</a></h2>
@@ -95,11 +325,11 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 <img alt="Better Ring for Android" src="_images/cardsqt.png" />
 <p>To prepare Qt project to distribute RingQt application for Mobile use Ring2EXE</p>
 <p>Example</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">cards</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring2exe cards.ring -dist -mobileqt
 </pre></div>
 </div>
 <p>Example (2)</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">formdesigner</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring2exe formdesigner.ring -dist -mobileqt
 </pre></div>
 </div>
 <img alt="Form Designer - Android" src="_images/formdesignerandroid.png" />
@@ -108,17 +338,17 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 <span id="index-5"></span><h2>New Tool: Folder2qrc<a class="headerlink" href="#new-tool-folder2qrc" title="Permalink to this headline">¶</a></h2>
 <p>When we have large RingQt project that contains a lot of images and files, We need to add these files
 to the resource file ( <a href="#id9"><span class="problematic" id="id10">*</span></a>.qrc ) when distributing applications for Mobile devices.</p>
-<p>Instead of adding these files one by one, Ring 1.6 comes with a simple tool that save our time, It&#8217;s
+<p>Instead of adding these files one by one, Ring 1.6 comes with a simple tool that save our time, It’s
 called Folder2qrc.</p>
 <p>Example:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>folder2qrc formdesigner.ring
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>folder2qrc formdesigner.ring
 </pre></div>
 </div>
 <p>We determine the main source file while we are in the application folder, and Folder2qrc will check all
 of the files in the current folder and sub folders, Then add them to the resource file after the
 mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 <p>The output file will be : project.qrc</p>
-<p>You can open it and remove the files that you don&#8217;t need in the resources!</p>
+<p>You can open it and remove the files that you don’t need in the resources!</p>
 </div>
 <div class="section" id="better-scripts-for-building-ring">
 <span id="index-6"></span><h2>Better Scripts for building Ring<a class="headerlink" href="#better-scripts-for-building-ring" title="Permalink to this headline">¶</a></h2>
@@ -137,7 +367,7 @@ mainfile.ringo (In our example this will be formdesigner.ringo)</p>
 <p>Ring 1.6 comes with the RingMurmurHash extension!</p>
 <p>Developer: Hassan Ahmed</p>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>load &quot;murmurhashlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;murmurhashlib.ring&quot;
 
 key = &quot;Ring Language&quot;
 
@@ -151,24 +381,24 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 <span id="index-9"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
 <p>Ring Notepad comes with the next updates</p>
 <ol class="arabic simple">
-<li>Automatic setting for the Main File when we Run the application (using the Main file buttons).</li>
-<li>Main File - Automatic save before running.</li>
-<li>When we run GUI application - don&#8217;t change the focus to the text box used for the input in the Output Window.</li>
-<li>A button and option to run web applications</li>
+<li><p>Automatic setting for the Main File when we Run the application (using the Main file buttons).</p></li>
+<li><p>Main File - Automatic save before running.</p></li>
+<li><p>When we run GUI application - don’t change the focus to the text box used for the input in the Output Window.</p></li>
+<li><p>A button and option to run web applications</p></li>
 </ol>
 <img alt="Ring Notepad - Run Web Application - shot 1" src="_images/runwebapp1.png" />
 <p>For Windows users, Ring 1.6 comes with Apache Web server!</p>
 <p>We can run any web application from any folder directly without doing any configuration.</p>
 <img alt="Ring Notepad - Run Web Application - shot 2" src="_images/runwebapp2.png" />
 <ol class="arabic simple" start="5">
-<li>Tools - Operating System - Terminal (Command Prompt) &amp; Files Manager (Explorer).</li>
+<li><p>Tools - Operating System - Terminal (Command Prompt) &amp; Files Manager (Explorer).</p></li>
 </ol>
 <img alt="Ring Notepad - Tools - Terminal - shot 1" src="_images/rnotetoolsterminal.png" />
 <p>So we can quickly open the Command Prompt or the Explorer at the application folder.</p>
 <img alt="Ring Notepad - Tools - Terminal - shot 2" src="_images/rnotetoolsterminal2.png" />
 <ol class="arabic simple" start="6">
-<li>Support <a href="#id11"><span class="problematic" id="id12">*</span></a>.sh &amp; <a href="#id13"><span class="problematic" id="id14">*</span></a>.bat extensions.</li>
-<li>New Menu: Distribute</li>
+<li><p>Support <a href="#id11"><span class="problematic" id="id12">*</span></a>.sh &amp; <a href="#id13"><span class="problematic" id="id14">*</span></a>.bat extensions.</p></li>
+<li><p>New Menu: Distribute</p></li>
 </ol>
 <img alt="Ring Notepad - Distribute" src="_images/rnotedistribute.png" />
 </div>
@@ -176,82 +406,79 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 <span id="index-10"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
 <p>RingQt comes with the next updates</p>
 <ol class="arabic simple">
-<li>QAllEvents - getkeytext() Method</li>
-<li>QSQLQuery - exec_2() Method</li>
-<li>QDockWidget Events</li>
-<li>AppFile() Function</li>
-<li>IsMobile() Function</li>
-<li>QRegion Class</li>
-<li>QCoreApplication class</li>
+<li><p>QAllEvents - getkeytext() Method</p></li>
+<li><p>QSQLQuery - exec_2() Method</p></li>
+<li><p>QDockWidget Events</p></li>
+<li><p>AppFile() Function</p></li>
+<li><p>IsMobile() Function</p></li>
+<li><p>QRegion Class</p></li>
+<li><p>QCoreApplication class</p></li>
 </ol>
 </div>
 <div class="section" id="better-stdlib">
 <span id="index-11"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this headline">¶</a></h2>
 <p>StdLib comes with the next updates</p>
 <ol class="arabic">
-<li><p class="first">Factors() function is updated (Return the output instead of printing it)</p>
-</li>
-<li><p class="first">Palindrome() function is updated (Return the output instead of printing it)</p>
-</li>
-<li><p class="first">Using stdlibcore.ring we can use the StdLib functions (Without Classes)</p>
+<li><p>Factors() function is updated (Return the output instead of printing it)</p></li>
+<li><p>Palindrome() function is updated (Return the output instead of printing it)</p></li>
+<li><p>Using stdlibcore.ring we can use the StdLib functions (Without Classes)</p>
 <p>Also this is useful when developing standalone console applications</p>
 <p>Because using stdlib.ring (functions &amp; classes) will load libraries like RingLibCurl, RingOpenSSL, etc.</p>
 </li>
-<li><p class="first">New Functions</p>
-</li>
+<li><p>New Functions</p></li>
 </ol>
 <ul class="simple">
-<li>SystemSilent(cCommand) Function : Execute system commands without displaying the output.</li>
-<li>OSCreateOpenFolder(cFolder) : Create folder then change the current folder to this new folder</li>
-<li>OSCopyFolder(cParentFolder,cFolderNameToCopy) : Copy folder to the current directory</li>
-<li>OSDeleteFolder(cFolder) : Delete Folder</li>
-<li>OSCopyFile(cFileName) : Copy File to the current directory</li>
-<li>OSDeleteFile(cFileName) : Delete File</li>
-<li>OSRenameFile(cOldFileName,cNewFileName) : Rename file</li>
+<li><p>SystemSilent(cCommand) Function : Execute system commands without displaying the output.</p></li>
+<li><p>OSCreateOpenFolder(cFolder) : Create folder then change the current folder to this new folder</p></li>
+<li><p>OSCopyFolder(cParentFolder,cFolderNameToCopy) : Copy folder to the current directory</p></li>
+<li><p>OSDeleteFolder(cFolder) : Delete Folder</p></li>
+<li><p>OSCopyFile(cFileName) : Copy File to the current directory</p></li>
+<li><p>OSDeleteFile(cFileName) : Delete File</p></li>
+<li><p>OSRenameFile(cOldFileName,cNewFileName) : Rename file</p></li>
 </ul>
 </div>
 <div class="section" id="better-ringvm">
 <span id="index-12"></span><h2>Better RingVM<a class="headerlink" href="#better-ringvm" title="Permalink to this headline">¶</a></h2>
 <p>RingVM comes with the next updates</p>
 <ol class="arabic simple">
-<li>Support using many getter methods in Expressions</li>
-<li>Support using this &amp; self in setter/getter/normal methods without calling setter/getter methods.</li>
-<li>TempName() function is updated (Better Code)</li>
-<li>ExeFileName() function is updated (Better Code)</li>
-<li>Private Attributes - Support re-usage in the class region (After the keyword private)</li>
-<li>Ring API : ring_scanner_runobjstring()</li>
-<li>ring_state_setvar() function</li>
+<li><p>Support using many getter methods in Expressions</p></li>
+<li><p>Support using this &amp; self in setter/getter/normal methods without calling setter/getter methods.</p></li>
+<li><p>TempName() function is updated (Better Code)</p></li>
+<li><p>ExeFileName() function is updated (Better Code)</p></li>
+<li><p>Private Attributes - Support re-usage in the class region (After the keyword private)</p></li>
+<li><p>Ring API : ring_scanner_runobjstring()</p></li>
+<li><p>ring_state_setvar() function</p></li>
 </ol>
 </div>
 <div class="section" id="better-ringrepl">
 <span id="index-13"></span><h2>Better RingREPL<a class="headerlink" href="#better-ringrepl" title="Permalink to this headline">¶</a></h2>
 <p>RingREPL comes with the next updates</p>
 <ol class="arabic simple">
-<li>RingREPL will get command line parameters to determine the style.</li>
-<li>Setting RingREPL Style based on Ring Notepad Style.</li>
+<li><p>RingREPL will get command line parameters to determine the style.</p></li>
+<li><p>Setting RingREPL Style based on Ring Notepad Style.</p></li>
 </ol>
 </div>
 <div class="section" id="using-tab-instead-of-char-9">
 <span id="index-14"></span><h2>Using Tab instead of char(9)<a class="headerlink" href="#using-tab-instead-of-char-9" title="Permalink to this headline">¶</a></h2>
 <p>The variable Tab is defined to be used instead of char(9)</p>
 <p>Example (1):</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="p">:</span><span class="n">one</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">two</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">three</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see :one + nl + tab + :two + nl + tab + tab + :three
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>one
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>one
         two
                 three
 </pre></div>
 </div>
 <p>You can change the variable to another value</p>
 <p>Example (2):</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="s">&quot;  &quot;</span>
-<span class="k">see</span> <span class="p">:</span><span class="n">one</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">two</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">three</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>tab = &quot;  &quot;
+see :one + nl + tab + :two + nl + tab + tab + :three
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>one
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>one
   two
     three
 </pre></div>
@@ -260,8 +487,8 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 <div class="section" id="using-cr-as-carriage-return">
 <span id="index-15"></span><h2>Using CR as Carriage return<a class="headerlink" href="#using-cr-as-carriage-return" title="Permalink to this headline">¶</a></h2>
 <p>The next example count from 1 to 10 in the same line during 10 seconds</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">see</span> <span class="n">x</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">see</span> <span class="n">cr</span> <span class="k">next</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlibcore.ring&quot;
+for x = 1 to 10 see x sleep(1) see cr next
 </pre></div>
 </div>
 </div>
@@ -271,13 +498,13 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 <p>But for the logical operators we have and, or &amp; not</p>
 <p>Now we can use the ! operator as not</p>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">!</span> <span class="kp">false</span>
-        <span class="k">see</span> <span class="s">&quot;True!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">ok</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>if ! false
+        see &quot;True!&quot; + nl
+ok
 </pre></div>
 </div>
 <p>Output</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>True!
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>True!
 </pre></div>
 </div>
 </div>
@@ -285,48 +512,48 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 <span id="index-17"></span><h2>Using &amp;&amp; and || operators<a class="headerlink" href="#using-and-operators" title="Permalink to this headline">¶</a></h2>
 <p>In Ring we have the next keywords for the logical operations</p>
 <ul class="simple">
-<li>and</li>
-<li>or</li>
-<li>not</li>
+<li><p>and</p></li>
+<li><p>or</p></li>
+<li><p>not</p></li>
 </ul>
 <p>Now we have also the next operators</p>
 <ul class="simple">
-<li>&amp;&amp;</li>
-<li>||</li>
-<li>!</li>
+<li><p>&amp;&amp;</p></li>
+<li><p>||</p></li>
+<li><p>!</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">one</span><span class="p">()</span> <span class="ow">and</span> <span class="n">two</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;Test1 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">else</span>
-        <span class="k">see</span> <span class="s">&quot;Test1 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">ok</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>if one() and two()
+        see &quot;Test1 - Fail&quot; + nl
+else
+        see &quot;Test1 - Pass&quot; + nl
+ok
 
-<span class="k">if</span> <span class="n">two</span><span class="p">()</span> <span class="ow">or</span> <span class="n">one</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;Test2 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">else</span>
-        <span class="k">see</span> <span class="s">&quot;Test2 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">ok</span>
+if two() or one()
+        see &quot;Test2 - Pass&quot; + nl
+else
+        see &quot;Test2 - Fail&quot; + nl
+ok
 
-<span class="k">if</span> <span class="n">one</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">two</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;Test3 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">else</span>
-        <span class="k">see</span> <span class="s">&quot;Test3 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">ok</span>
+if one() &amp;&amp; two()
+        see &quot;Test3 - Fail&quot; + nl
+else
+        see &quot;Test3 - Pass&quot; + nl
+ok
 
-<span class="k">if</span> <span class="n">two</span><span class="p">()</span> <span class="o">||</span> <span class="n">one</span><span class="p">()</span>
-        <span class="k">see</span> <span class="s">&quot;Test4 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">else</span>
-        <span class="k">see</span> <span class="s">&quot;Test4 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-<span class="k">ok</span>
+if two() || one()
+        see &quot;Test4 - Pass&quot; + nl
+else
+        see &quot;Test4 - Fail&quot; + nl
+ok
 
-<span class="k">func</span> <span class="n">one</span> <span class="k">return</span> <span class="kp">True</span>
+func one return True
 
-<span class="k">func</span> <span class="n">two</span> <span class="k">return</span> <span class="kp">False</span>
+func two return False
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Test1 - Pass
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Test1 - Pass
 Test2 - Pass
 Test3 - Pass
 Test4 - Pass
@@ -335,16 +562,16 @@ Test4 - Pass
 </div>
 <div class="section" id="using-to-print-expression-then-new-line">
 <span id="index-18"></span><h2>Using ? to print expression then new line<a class="headerlink" href="#using-to-print-expression-then-new-line" title="Permalink to this headline">¶</a></h2>
-<p>It&#8217;s common to print new line after printing an expression, We can use the ? operator to do that!</p>
+<p>It’s common to print new line after printing an expression, We can use the ? operator to do that!</p>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
-        <span class="o">?</span> <span class="n">x</span>
-<span class="k">next</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;Hello, World!&quot;
+for x = 1 to 10
+        ? x
+next
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-none"><div class="highlight"><pre><span></span>Hello, World!
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Hello, World!
 1
 2
 3
@@ -361,21 +588,51 @@ Test4 - Pass
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="whatisnew7.html">What is new in Ring 1.7?</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="whatisnew5.html">What is new in Ring 1.5?</a>&#160;&#160;»
-        </p>
+        <a href="whatisnew5.html" class="btn btn-neutral float-right" title="What is new in Ring 1.5?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="whatisnew7.html" class="btn btn-neutral float-left" title="What is new in Ring 1.7?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>

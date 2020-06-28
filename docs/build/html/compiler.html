@@ -1,477 +1,699 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 
 
-<html xmlns="http://www.w3.org/1999/xhtml">
-  <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Command Line Options &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
     
-    <title>Command Line Options &mdash; Ring 1.13 documentation</title>
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
     
-    <link rel="stylesheet" href="_static/haiku.css" type="text/css" />
-    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
     
-    <script type="text/javascript">
-      var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    './',
-        VERSION:     '1.13',
-        COLLAPSE_INDEX: false,
-        FILE_SUFFIX: '.html',
-        HAS_SOURCE:  true
-      };
-    </script>
-    <script type="text/javascript" src="_static/jquery.js"></script>
-    <script type="text/javascript" src="_static/underscore.js"></script>
-    <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
-    <link rel="top" title="Ring 1.13 documentation" href="index.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Distributing Ring Applications (Manual)" href="distribute.html" />
     <link rel="prev" title="Performance Tips" href="performancetips.html" /> 
-  </head>
-  <body role="document">
-      <div class="header" role="banner"><h1 class="heading"><a href="index.html">
-          <span>Ring 1.13 documentation</span></a></h1>
-        <h2 class="heading"><span>Command Line Options</span></h2>
-      </div>
-      <div class="topnav" role="navigation" aria-label="top navigation">
-      
-        <p>
-        «&#160;&#160;<a href="performancetips.html">Performance Tips</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="distribute.html">Distributing Ring Applications (Manual)</a>&#160;&#160;»
-        </p>
+</head>
 
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html" class="icon icon-home" alt="Documentation Home"> Ring
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.13
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in little hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Using Qt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Command Line Options</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#printing-tokens">Printing Tokens</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printing-rules">Printing Rules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printing-intermediate-code">Printing Intermediate Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printing-final-intermediate-code">Printing Final Intermediate Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#cgi-support">CGI Support</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#no-run">No Run</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printing-instruction-operation-code">Printing Instruction Operation Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#performance">Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-object-file">Generate Object File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#generate-embedded-object-file">Generate Embedded Object File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
       </div>
-      <div class="content">
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
         
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
         
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Command Line Options</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
   <div class="section" id="command-line-options">
 <span id="index-0"></span><h1>Command Line Options<a class="headerlink" href="#command-line-options" title="Permalink to this headline">¶</a></h1>
 <p>The ring language takes source code file (<em>.ring) or the object file (</em>.ringo) as input to execute,
 also the language provide other options like</p>
-<table border="1" class="docutils">
+<table class="docutils align-default">
 <colgroup>
-<col width="18%" />
-<col width="82%" />
+<col style="width: 18%" />
+<col style="width: 82%" />
 </colgroup>
-<thead valign="bottom">
-<tr class="row-odd"><th class="head">Option</th>
-<th class="head">Description</th>
+<thead>
+<tr class="row-odd"><th class="head"><p>Option</p></th>
+<th class="head"><p>Description</p></th>
 </tr>
 </thead>
-<tbody valign="top">
-<tr class="row-even"><td>-tokens</td>
-<td>Print a list of tokens in the source code file</td>
+<tbody>
+<tr class="row-even"><td><p>-tokens</p></td>
+<td><p>Print a list of tokens in the source code file</p></td>
 </tr>
-<tr class="row-odd"><td>-rules</td>
-<td>Print grammar rules applied on the tokens</td>
+<tr class="row-odd"><td><p>-rules</p></td>
+<td><p>Print grammar rules applied on the tokens</p></td>
 </tr>
-<tr class="row-even"><td>-ic</td>
-<td>Print the intermediate byte code (before execution)</td>
+<tr class="row-even"><td><p>-ic</p></td>
+<td><p>Print the intermediate byte code (before execution)</p></td>
 </tr>
-<tr class="row-odd"><td>-icfinal</td>
-<td>Print the final byte code (after execution)</td>
+<tr class="row-odd"><td><p>-icfinal</p></td>
+<td><p>Print the final byte code (after execution)</p></td>
 </tr>
-<tr class="row-even"><td>-cgi</td>
-<td>Print http response header before error messages</td>
+<tr class="row-even"><td><p>-cgi</p></td>
+<td><p>Print http response header before error messages</p></td>
 </tr>
-<tr class="row-odd"><td>-norun</td>
-<td>Don&#8217;t run the program after compiling</td>
+<tr class="row-odd"><td><p>-norun</p></td>
+<td><p>Don’t run the program after compiling</p></td>
 </tr>
-<tr class="row-even"><td>-ins</td>
-<td>Print instruction operation code before execution</td>
+<tr class="row-even"><td><p>-ins</p></td>
+<td><p>Print instruction operation code before execution</p></td>
 </tr>
-<tr class="row-odd"><td>-performance</td>
-<td>Print clock before and after program execution</td>
+<tr class="row-odd"><td><p>-performance</p></td>
+<td><p>Print clock before and after program execution</p></td>
 </tr>
-<tr class="row-even"><td>-go</td>
-<td>Generate Object File</td>
+<tr class="row-even"><td><p>-go</p></td>
+<td><p>Generate Object File</p></td>
 </tr>
-<tr class="row-odd"><td>-geo</td>
-<td>Generate embedded object file (C source code)</td>
+<tr class="row-odd"><td><p>-geo</p></td>
+<td><p>Generate embedded object file (C source code)</p></td>
 </tr>
-<tr class="row-even"><td>-w</td>
-<td>Display Warnings</td>
+<tr class="row-even"><td><p>-w</p></td>
+<td><p>Display Warnings</p></td>
 </tr>
 </tbody>
 </table>
 <div class="section" id="printing-tokens">
 <span id="index-1"></span><h2>Printing Tokens<a class="headerlink" href="#printing-tokens" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
-        <span class="k">See</span> <span class="s">&quot;Hello World&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
-                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="k">next</span>
-        <span class="n">test</span><span class="p">()</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func Main
+        See &quot;Hello World&quot; + nl
+        for x = 1 to 10
+                see x + nl
+        next
+        test()
 
-<span class="k">func</span> <span class="n">test</span>
-        <span class="k">see</span> <span class="s">&quot;welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
-        <span class="k">see</span> <span class="n">o1</span>
+func test
+        see &quot;welcome&quot; + nl
+        o1 = new point { x=10 y=20 z=30 }
+        see o1
 
-<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+class point x y z
 </pre></div>
 </div>
 <p>Command:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">tokens</span> <span class="o">-</span><span class="n">norun</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ring -tokens -norun
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">===================================================</span>
-<span class="n">Tokens</span> <span class="o">-</span> <span class="n">Generated</span> <span class="n">by</span> <span class="n">the</span> <span class="n">Scanner</span>
-<span class="o">===================================================</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>===================================================
+Tokens - Generated by the Scanner
+===================================================
 
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">FUNC</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">main</span>
-   <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">SEE</span>
-   <span class="n">Literal</span> <span class="p">:</span> <span class="n">Hello</span> <span class="n">World</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">+</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">nl</span>
-   <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">FOR</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">x</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">=</span>
-    <span class="n">Number</span> <span class="p">:</span> <span class="mi">1</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">TO</span>
-    <span class="n">Number</span> <span class="p">:</span> <span class="mi">10</span>
-   <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">SEE</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">x</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">+</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">nl</span>
-   <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">NEXT</span>
-   <span class="n">EndLine</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">test</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="p">(</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="p">)</span>
-   <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">FUNC</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">test</span>
-   <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">SEE</span>
-   <span class="n">Literal</span> <span class="p">:</span> <span class="n">welcome</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">+</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">nl</span>
-   <span class="n">EndLine</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">o1</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">=</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">NEW</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">point</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="p">{</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">x</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">=</span>
-    <span class="n">Number</span> <span class="p">:</span> <span class="mi">10</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">y</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">=</span>
-    <span class="n">Number</span> <span class="p">:</span> <span class="mi">20</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">z</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="o">=</span>
-    <span class="n">Number</span> <span class="p">:</span> <span class="mi">30</span>
-  <span class="n">Operator</span> <span class="p">:</span> <span class="p">}</span>
-   <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">SEE</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">o1</span>
-   <span class="n">EndLine</span>
-   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">CLASS</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">point</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">x</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">y</span>
-<span class="n">Identifier</span> <span class="p">:</span> <span class="n">z</span>
-   <span class="n">EndLine</span>
+   Keyword : FUNC
+Identifier : main
+   EndLine
+   Keyword : SEE
+   Literal : Hello World
+  Operator : +
+Identifier : nl
+   EndLine
+   Keyword : FOR
+Identifier : x
+  Operator : =
+    Number : 1
+   Keyword : TO
+    Number : 10
+   EndLine
+   Keyword : SEE
+Identifier : x
+  Operator : +
+Identifier : nl
+   EndLine
+   Keyword : NEXT
+   EndLine
+Identifier : test
+  Operator : (
+  Operator : )
+   EndLine
+   Keyword : FUNC
+Identifier : test
+   EndLine
+   Keyword : SEE
+   Literal : welcome
+  Operator : +
+Identifier : nl
+   EndLine
+Identifier : o1
+  Operator : =
+   Keyword : NEW
+Identifier : point
+  Operator : {
+Identifier : x
+  Operator : =
+    Number : 10
+Identifier : y
+  Operator : =
+    Number : 20
+Identifier : z
+  Operator : =
+    Number : 30
+  Operator : }
+   EndLine
+   Keyword : SEE
+Identifier : o1
+   EndLine
+   Keyword : CLASS
+Identifier : point
+Identifier : x
+Identifier : y
+Identifier : z
+   EndLine
 
-<span class="o">===================================================</span>
+===================================================
 </pre></div>
 </div>
 </div>
 <div class="section" id="printing-rules">
 <span id="index-2"></span><h2>Printing Rules<a class="headerlink" href="#printing-rules" title="Permalink to this headline">¶</a></h2>
 <p>Command:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">rules</span> <span class="o">-</span><span class="n">norun</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ring -rules -norun
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">===================================================</span>
-<span class="n">Grammar</span> <span class="n">Rules</span> <span class="n">Used</span> <span class="n">by</span> <span class="n">The</span> <span class="n">Parser</span>
-<span class="o">===================================================</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>===================================================
+Grammar Rules Used by The Parser
+===================================================
 
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Program</span> <span class="o">--&gt;</span> <span class="p">{</span><span class="n">Statement</span><span class="p">}</span>
+Rule : Program --&gt; {Statement}
 
-<span class="n">Line</span> <span class="mi">1</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;Func&#39;</span> <span class="n">Identifier</span> <span class="o">[</span><span class="n">ParaList</span><span class="o">]</span>
+Line 1
+Rule : Statement  --&gt; &#39;Func&#39; Identifier [ParaList]
 
-<span class="n">Line</span> <span class="mi">2</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Literal</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span> <span class="o">+</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;See&#39;</span> <span class="n">Expr</span>
+Line 2
+Rule : Factor --&gt; Literal
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : Arithmetic --&gt; Arithmetic + Arithmetic
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; &#39;See&#39; Expr
 
-<span class="n">Line</span> <span class="mi">3</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;For&#39;</span> <span class="n">Identifier</span> <span class="sc">&#39;=&#39;</span> <span class="n">Expr</span> <span class="k">to</span> <span class="n">Expr</span> <span class="o">[</span><span class="sc">&#39;step&#39;</span> <span class="n">Expr</span><span class="o">]</span>
+Line 3
+Rule : Factor --&gt; Number
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Factor --&gt; Number
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; &#39;For&#39; Identifier &#39;=&#39; Expr to Expr [&#39;step&#39; Expr]
 
-<span class="n">Line</span> <span class="mi">4</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span> <span class="o">+</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;See&#39;</span> <span class="n">Expr</span>
+Line 4
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : Arithmetic --&gt; Arithmetic + Arithmetic
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; &#39;See&#39; Expr
 
-<span class="n">Line</span> <span class="mi">5</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="k">Next</span> <span class="o">--&gt;</span> <span class="sc">&#39;Next&#39;</span>
+Line 5
+Rule : Next --&gt; &#39;Next&#39;
 
-<span class="n">Line</span> <span class="mi">6</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Mixer</span> <span class="o">-&gt;</span> <span class="sc">&#39;(&#39;</span> <span class="o">[</span><span class="n">Expr</span> <span class="p">{</span> <span class="sc">&#39;,&#39;</span> <span class="n">Expr</span><span class="p">}</span> <span class="o">]</span> <span class="sc">&#39;)&#39;</span>
+Line 6
+Rule : Mixer -&gt; &#39;(&#39; [Expr { &#39;,&#39; Expr} ] &#39;)&#39;
 
-<span class="n">Line</span> <span class="mi">8</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;Func&#39;</span> <span class="n">Identifier</span> <span class="o">[</span><span class="n">ParaList</span><span class="o">]</span>
+Line 8
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; Expr
+Rule : Statement  --&gt; &#39;Func&#39; Identifier [ParaList]
 
-<span class="n">Line</span> <span class="mi">9</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Literal</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span> <span class="o">+</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;See&#39;</span> <span class="n">Expr</span>
+Line 9
+Rule : Factor --&gt; Literal
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : Arithmetic --&gt; Arithmetic + Arithmetic
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; &#39;See&#39; Expr
 
-<span class="n">Line</span> <span class="mi">10</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="k">New</span> <span class="n">Identifier</span> <span class="p">{</span><span class="sc">&#39;.&#39;</span> <span class="n">Identifier</span> <span class="p">}</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Mixer</span> <span class="o">--&gt;</span> <span class="sc">&#39;{&#39;</span> <span class="p">{</span><span class="n">Statement</span><span class="p">}</span> <span class="n">BraceEnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="sc">&#39;=&#39;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="sc">&#39;=&#39;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Number</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="sc">&#39;=&#39;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BraceEnd</span> <span class="o">--&gt;</span> <span class="sc">&#39;}&#39;</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Assignment</span> <span class="o">-&gt;</span> <span class="sc">&#39;=&#39;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
+Line 10
+Rule : Factor --&gt; New Identifier {&#39;.&#39; Identifier }
+Rule : Mixer --&gt; &#39;{&#39; {Statement} BraceEnd
+Rule : Factor --&gt; Number
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Assignment -&gt; &#39;=&#39; Expr
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; Expr
+Rule : Factor --&gt; Number
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Assignment -&gt; &#39;=&#39; Expr
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; Expr
+Rule : Factor --&gt; Number
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Assignment -&gt; &#39;=&#39; Expr
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; Expr
+Rule : BraceEnd --&gt; &#39;}&#39;
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Assignment -&gt; &#39;=&#39; Expr
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; Expr
 
-<span class="n">Line</span> <span class="mi">11</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;See&#39;</span> <span class="n">Expr</span>
+Line 11
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; &#39;See&#39; Expr
 
-<span class="n">Line</span> <span class="mi">13</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;Class&#39;</span> <span class="n">Identifier</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Identifier</span> <span class="o">[</span> <span class="p">{</span><span class="n">Mixer</span><span class="p">}</span> <span class="o">|</span> <span class="n">Assignment</span> <span class="o">|</span> <span class="n">PlusPlus</span> <span class="o">|</span> <span class="n">MinusMinus</span><span class="o">]</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
-<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="n">Expr</span>
+Line 13
+Rule : Statement  --&gt; &#39;Class&#39; Identifier
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; Expr
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; Expr
+Rule : Factor --&gt; Identifier [ {Mixer} | Assignment | PlusPlus | MinusMinus]
+Rule : Range --&gt; Factor
+Rule : Term --&gt; Range
+Rule : Arithmetic --&gt; Term
+Rule : BitShift --&gt; Arithmetic
+Rule : BitAnd --&gt; BitShift
+Rule : BitOrXOR --&gt;  BitAnd
+Rule : Compare --&gt; BitOrXOR
+Rule : EqualOrNot --&gt; Compare
+Rule : LogicNot -&gt; EqualOrNot
+Rule : Expr --&gt; LogicNot
+Rule : Statement  --&gt; Expr
 
-<span class="o">===================================================</span>
+===================================================
 </pre></div>
 </div>
 </div>
 <div class="section" id="printing-intermediate-code">
 <span id="index-3"></span><h2>Printing Intermediate Code<a class="headerlink" href="#printing-intermediate-code" title="Permalink to this headline">¶</a></h2>
 <p>Command:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">ic</span> <span class="o">-</span><span class="n">norun</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ring -ic -norun
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>===================================================
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>===================================================
 Byte Code - Before Execution by the VM
 ===================================================
 
@@ -590,11 +812,11 @@ Byte Code - Before Execution by the VM
 <div class="section" id="printing-final-intermediate-code">
 <span id="index-4"></span><h2>Printing Final Intermediate Code<a class="headerlink" href="#printing-final-intermediate-code" title="Permalink to this headline">¶</a></h2>
 <p>Command:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">icfinal</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ring -icfinal
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span>Hello World
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Hello World
 1
 2
 3
@@ -835,74 +1057,74 @@ Byte Code - After Execution by the VM
 <div class="section" id="cgi-support">
 <span id="index-5"></span><h2>CGI Support<a class="headerlink" href="#cgi-support" title="Permalink to this headline">¶</a></h2>
 <p>Command:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">cgi</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ring -cgi
 </pre></div>
 </div>
 </div>
 <div class="section" id="no-run">
 <span id="index-6"></span><h2>No Run<a class="headerlink" href="#no-run" title="Permalink to this headline">¶</a></h2>
 <p>Command:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">norun</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ring -norun
 </pre></div>
 </div>
 </div>
 <div class="section" id="printing-instruction-operation-code">
 <span id="index-7"></span><h2>Printing Instruction Operation Code<a class="headerlink" href="#printing-instruction-operation-code" title="Permalink to this headline">¶</a></h2>
 <p>Command:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">ins</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ring -ins
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">===================================================</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>===================================================
 
-<span class="n">Operation</span>  <span class="p">:</span> <span class="n">ReturnNull</span>
-<span class="n">PC</span>         <span class="p">:</span> <span class="mi">1</span>
-<span class="n">Line</span> <span class="n">Number</span>    <span class="p">:</span> <span class="mi">1</span>  <span class="p">,</span> <span class="n">File</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span>
+Operation  : ReturnNull
+PC         : 1
+Line Number    : 1  , File test.ring
 
-<span class="n">SP</span> <span class="p">(</span><span class="n">After</span><span class="p">)</span> <span class="p">:</span> <span class="mi">0</span>  <span class="o">-</span> <span class="n">FuncSP</span> <span class="p">:</span> <span class="mi">0</span>
- <span class="n">LineNumber</span> <span class="mi">1</span>
-<span class="o">===================================================</span>
-<span class="p">.....</span>
-<span class="p">.....</span>
-<span class="p">.....</span>
+SP (After) : 0  - FuncSP : 0
+ LineNumber 1
+===================================================
+.....
+.....
+.....
 </pre></div>
 </div>
 <div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">Output removed from the previous example because it&#8217;s very large!</p>
+<p class="admonition-title">Tip</p>
+<p>Output removed from the previous example because it’s very large!</p>
 </div>
 </div>
 <div class="section" id="performance">
 <span id="index-8"></span><h2>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h2>
 <p>Command:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">performance</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ring -performance
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="o">===================================================</span>
-<span class="n">Date</span>  <span class="p">:</span> <span class="mi">2015</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">15</span> <span class="n">Time</span> <span class="p">:</span> <span class="mi">15</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">17</span>
-<span class="n">Clock</span> <span class="p">:</span> <span class="mi">0</span>
-<span class="o">===================================================</span>
-<span class="n">Hello</span> <span class="n">World</span>
-<span class="mi">1</span>
-<span class="mi">2</span>
-<span class="mi">3</span>
-<span class="mi">4</span>
-<span class="mi">5</span>
-<span class="mi">6</span>
-<span class="mi">7</span>
-<span class="mi">8</span>
-<span class="mi">9</span>
-<span class="mi">10</span>
-<span class="n">welcome</span>
-<span class="n">x</span><span class="p">:</span> <span class="mf">10.000000</span>
-<span class="n">y</span><span class="p">:</span> <span class="mf">20.000000</span>
-<span class="n">z</span><span class="p">:</span> <span class="mf">30.000000</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>===================================================
+Date  : 2015/09/15 Time : 15:56:17
+Clock : 0
+===================================================
+Hello World
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+welcome
+x: 10.000000
+y: 20.000000
+z: 30.000000
 
-<span class="o">===================================================</span>
-<span class="n">Date</span>  <span class="p">:</span> <span class="mi">2015</span><span class="o">/</span><span class="mi">09</span><span class="o">/</span><span class="mi">15</span> <span class="n">Time</span> <span class="p">:</span> <span class="mi">15</span><span class="p">:</span><span class="mi">56</span><span class="p">:</span><span class="mi">17</span>
-<span class="n">Clock</span> <span class="p">:</span> <span class="mi">0</span>
-<span class="o">===================================================</span>
+===================================================
+Date  : 2015/09/15 Time : 15:56:17
+Clock : 0
+===================================================
 </pre></div>
 </div>
 </div>
@@ -911,16 +1133,16 @@ Byte Code - After Execution by the VM
 <p>You can generate object file (<em>.ringo) from your source code file (</em>.ring)
 using -go option</p>
 <div class="admonition tip">
-<p class="first admonition-title">Tip</p>
-<p class="last">You will get one object file to use for distributing/running your application which may contains one or many
+<p class="admonition-title">Tip</p>
+<p>You will get one object file to use for distributing/running your application which may contains one or many
 ring source files that you can keep or distribute based on the application (commercial or open source).</p>
 </div>
 <p>Command:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">go</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ring -go
 </pre></div>
 </div>
 <p>To run the compiled object file</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ringo</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ringo
 </pre></div>
 </div>
 </div>
@@ -929,13 +1151,13 @@ ring source files that you can keep or distribute based on the application (comm
 <p>You can generate embedded object file (C source code) from your source code file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring)
 using -geo option</p>
 <p>Command:</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">test</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">geo</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring test.ring -geo
 </pre></div>
 </div>
 <p>This command will generate at least three files</p>
-<div class="highlight-ring"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">.</span><span class="n">c</span>
-<span class="n">ringappcode</span><span class="p">.</span><span class="n">c</span>
-<span class="n">ringappcode</span><span class="p">.</span><span class="n">h</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>test.c
+ringappcode.c
+ringappcode.h
 </pre></div>
 </div>
 <p>More files could be generated based on the project size</p>
@@ -944,21 +1166,51 @@ using -geo option</p>
 </div>
 
 
-      </div>
-      <div class="bottomnav" role="navigation" aria-label="bottom navigation">
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <p>
-        «&#160;&#160;<a href="performancetips.html">Performance Tips</a>
-        &#160;&#160;::&#160;&#160;
-        <a class="uplink" href="index.html">Contents</a>
-        &#160;&#160;::&#160;&#160;
-        <a href="distribute.html">Distributing Ring Applications (Manual)</a>&#160;&#160;»
-        </p>
+        <a href="distribute.html" class="btn btn-neutral float-right" title="Distributing Ring Applications (Manual)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="performancetips.html" class="btn btn-neutral float-left" title="Performance Tips" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div> 
+
+</footer>
+
+        </div>
       </div>
 
-    <div class="footer" role="contentinfo">
-        &copy; Copyright 2016-2020, Ring Team.
-    </div>
-  </body>
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
 </html>
