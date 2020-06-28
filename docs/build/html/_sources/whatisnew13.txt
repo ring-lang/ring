@@ -368,7 +368,8 @@ More Improvements
 	* ring/samples/other/varptr/varptr5.ring 
 	* ring/samples/other/UsingQML/sample10 folder (Charts Samples)
 	* ring/samples/other/UsingQML/sample11 folder (Data Visualization Samples)
-	* ring/samples/other/eightqueens/eightqueensgame.ring
+	* ring/samples/other/eightqueens folder (Eight Queens Game)
+	* ring/samples/other/righttoleft folder (Set Layout Direction)
 	* ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring
 	* ring/samples/other/WebAssembly/colordialog folder
 	* ring/samples/other/WebAssembly/filedialog folder 
