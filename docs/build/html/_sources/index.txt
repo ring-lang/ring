@@ -11,7 +11,7 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   Applications developed in little hours <ringapps>
+   Applications developed in a few hours <ringapps>
    Introduction <introduction>
    Using Ring Notepad <ringnotepad>
    Getting Started - First Style <getting_started>

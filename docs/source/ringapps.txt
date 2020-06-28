@@ -1,19 +1,19 @@
 .. index:: 
-	single: Applications developed in little hours; Introduction
+	single: Applications developed in a few hours; Introduction
 
 =================================================
-Applications developed in little hours
+Applications developed in a few hours
 =================================================
 
 Ring is a new programming language that focuses on the Natural Language Programming and Declarative Programming paradigms 
 and will let you think different about programming and how to solve your problems in a better way.   
 In little days after the first release we got thousands of downloads and many developers started learning and 
 using the language. Their feedback are the secret behind the language progress and success. 
-They said that Ring is powerful, beautiful and easy to learn, Some of them provided good examples about what can be done using Ring in little hours. 
+They said that Ring is powerful, beautiful and easy to learn, Some of them provided good examples about what can be done using Ring in a few hours. 
 They are very happy with the language productivity.
 
 .. index:: 
-	pair: Applications developed in little hours; Quotes about Ring
+	pair: Applications developed in a few hours; Quotes about Ring
 
 Quotes about Ring
 =================
@@ -288,7 +288,7 @@ I saw your examples in 3D I've looked at part of your project, it's really great
 	, Rochus Keller (PhD From ETH Zurich, Switzerland)
 
 .. index:: 
-	pair: Applications developed in little hours; FetchStockData Application
+	pair: Applications developed in a few hours; FetchStockData Application
 
 FetchStockData Application
 ==========================
@@ -299,7 +299,7 @@ It will fetch stock data from Yahoo and draw various types of charts.
 	:alt: GetQuotesHistory on MacOS X
 
 .. index:: 
-	pair: Applications developed in little hours; Google API Shortener Application
+	pair: Applications developed in a few hours; Google API Shortener Application
 
 Google API Shortener Application
 ================================
@@ -314,7 +314,7 @@ to shorten urls using the Google shortener API.
 	:alt: URLShortener - shot 4
 
 .. index:: 
-	pair: Applications developed in little hours; Video-Music-Player Application
+	pair: Applications developed in a few hours; Video-Music-Player Application
 
 Video-Music-Player Application
 ==============================
@@ -325,7 +325,7 @@ An application to play multi-media files.
 	:alt: Video Music Player
 
 .. index:: 
-	pair:  Applications developed in little hours; Windows StartUp Manager Application
+	pair:  Applications developed in a few hours; Windows StartUp Manager Application
 
 Windows StartUp Manager Application
 ===================================
@@ -337,7 +337,7 @@ the user control what programs should start at Windows booting time.
 	:alt: Windows Startup Manager
 
 .. index:: 
-	pair: Applications developed in little hours; Fifteen Puzzle Game
+	pair: Applications developed in a few hours; Fifteen Puzzle Game
 
 Fifteen Puzzle Game
 ===================
@@ -348,7 +348,7 @@ An implementation for the Fifteen Puzzle game.
 	:alt: Ring Application
 
 .. index:: 
-	pair: Applications developed in little hours; Analog Clock
+	pair: Applications developed in a few hours; Analog Clock
 
 Analog Clock
 ============
@@ -359,7 +359,7 @@ Simple implementation for the Analog Clock.
 	:alt: Ring Application
 
 .. index:: 
-	pair: Applications developed in little hours; TicTacToe Game
+	pair: Applications developed in a few hours; TicTacToe Game
 
 TicTacToe Game
 ==============
@@ -370,7 +370,7 @@ An implementation for the popular TicTacToe game.
 	:alt: Ring Application
 
 .. index:: 
-	pair: Applications developed in little hours; Squares Puzzle Game
+	pair: Applications developed in a few hours; Squares Puzzle Game
 
 Squares Puzzle Game
 ===================
@@ -381,7 +381,7 @@ An implementation for the popular Squares Puzzle game.
 	:alt: Ring Application
 
 .. index:: 
-	pair: Applications developed in little hours; Calculator Application
+	pair: Applications developed in a few hours; Calculator Application
 
 Calculator Application
 ======================
@@ -392,12 +392,12 @@ Simple calculator application
 	:alt: Ring Calculator
 
 .. index:: 
-	pair: Applications developed in little hours; Samples in this book
+	pair: Applications developed in a few hours; Samples in this book
 
 Samples in this book
 ====================
 
-The next samples are developed in little hours and we will introduce them through this book.
+The next samples are developed in a few hours and we will introduce them through this book.
 
 The next screen shot for he Ring Notepad application
 
@@ -458,7 +458,7 @@ The next screen shot for the Gold Magic 800 Game
 
 
 .. index:: 
-	pair: Applications developed in little hours; Innovative
+	pair: Applications developed in a few hours; Innovative
 
 Innovative
 ==========
@@ -492,7 +492,7 @@ https://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language
 	:alt: NLP in Ring
 
 .. index:: 
-	pair: Applications developed in little hours; Practical
+	pair: Applications developed in a few hours; Practical
 
 Practical
 =========
