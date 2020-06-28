@@ -125,18 +125,24 @@ class CommonAttributesMethods
 
 	func CommonDialogButtonAction oDesigner,nRow
 		if nRow = 5 {	# Text Color
-			cColor = oDesigner.oGeneral.SelectColor()
-			setTextColor(cColor)
-			DisplayProperties(oDesigner)
+			oDesigner.oGeneral.cColorOperation = :TextColor
+			oDesigner.oGeneral.SelectColor()
 		elseif nRow = 6 	# Back Color
-			cColor = oDesigner.oGeneral.SelectColor()
-			setBackColor(cColor)
-			DisplayProperties(oDesigner)
+			oDesigner.oGeneral.cColorOperation = :BackColor
+			oDesigner.oGeneral.SelectColor()
 		elseif nRow = 7	# Font
 			cFont = oDesigner.oGeneral.SelectFont()
 			setFontProperty(cFont)
 			DisplayProperties(oDesigner)
 		}
+
+	func ApplyTextColor oDesigner,cColor 
+		setTextColor(cColor)
+		DisplayProperties(oDesigner)
+
+	func ApplyBackColor oDesigner,cColor
+		setBackColor(cColor)
+		DisplayProperties(oDesigner)
 
 	func  ObjectDataAsString oDesigner,nTabsCount
 		return ObjectDataAsString2(oDesigner,nTabsCount)

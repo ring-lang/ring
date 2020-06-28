@@ -1095,7 +1095,10 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSTextColor
+		oGeneral.cColorOperation = :MSTextColor
 		cColor = oGeneral.SelectColor()
+
+	func ApplyMSTextColor cColor 
 		aObjects = oModel.GetSelectedObjects()
 		for item in aObjects {
 			oObject = item[2]
@@ -1103,7 +1106,10 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSBackColor
+		oGeneral.cColorOperation = :MSBackColor
 		cColor = oGeneral.SelectColor()
+
+	func ApplyMSBackColor cColor 
 		aObjects = oModel.GetSelectedObjects()
 		for item in aObjects {
 			oObject = item[2]
