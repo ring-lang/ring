@@ -1,9 +1,9 @@
 .. index:: 
 	Single: Desktop, WebAssembly and Mobile Development;  Introduction
 
-===========================================
+========================================================
 Desktop, WebAssembly and Mobile Development using RingQt
-===========================================
+========================================================
 
 In this chapter we will learn how to use the Qt framework classes  
 in our Ring applications to create Desktop, WebAssembly and Mobile Applications.

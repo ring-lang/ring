@@ -56,11 +56,11 @@ Contents:
    Stdlib Functions <stdlib>
    Stdlib Classes <stdlibclasses>
    Desktop, WebAssembly and Mobile development using RingQt <qt>
-   Building RingQt Applications for Mobile <qtmobile>
-   Objects Library for RingQt Application <ringqtobjects>
    Using the Form Designer <formdesigner>
+   Graphics Programming using RingQt3D <qt3d>
+   Objects Library for RingQt Application <ringqtobjects>
    Multi-language Applications <multilanguage>
-   Using Qt3D <qt3d>
+   Building RingQt Applications for Mobile <qtmobile>
    Web Development (CGI Library) <web>
    Deploying Web Applications in the Cloud <deployincloud>
    Graphics and 2D Games programming using RingAllegro <allegro>	

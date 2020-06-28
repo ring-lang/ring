@@ -1,9 +1,9 @@
 .. index:: 
 	Single: Using Qt3D; Using Qt3D
 
-==========
-Using Qt3D
-==========
+===================================
+Graphics Programming using RingQt3D
+===================================
 
 In this chapter we will learn how to use Qt3D through many samples.
 
