@@ -120,7 +120,11 @@ todo_include_todos = True
 #html_theme = 'classic' 
 
 html_theme = "sphinx_rtd_theme"
+html_logo = "ringdoclogo.jpg"
+
 html_theme_options = {
+	'logo_only': True,
+	'display_version': False,
     #"rightsidebar": "true",
     #"relbarbgcolor": "black"
 }
