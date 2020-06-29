@@ -278,35 +278,35 @@
 copy variables (Lists &amp; Objects) by value to create new variables instead of working on the original data that are passed
 to the function by reference.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func Main
-        aList = [1,2,3,4,5]
-        aList2 = square(aList)
-        see &quot;aList&quot; + nl
-        see aList
-        see &quot;aList2&quot; + nl
-        see aList2
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span>
+        <span class="n">aList2</span> <span class="o">=</span> <span class="n">square</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+        <span class="k">see</span> <span class="s">&quot;aList&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">aList</span>
+        <span class="k">see</span> <span class="s">&quot;aList2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">aList2</span>
 
-Func Square aPara
-        a1 = aPara              # copy the list
-        for x in a1
-                x *= x
-        next
-        return a1               # return new list
+<span class="k">Func</span> <span class="n">Square</span> <span class="n">aPara</span>
+        <span class="n">a1</span> <span class="o">=</span> <span class="n">aPara</span>              <span class="c"># copy the list</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">a1</span>
+                <span class="n">x</span> <span class="o">*=</span> <span class="n">x</span>
+        <span class="k">next</span>
+        <span class="k">return</span> <span class="n">a1</span>               <span class="c"># return new list</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList
-1
-2
-3
-4
-5
-aList2
-1
-4
-9
-16
-25
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="n">aList2</span>
+<span class="mi">1</span>
+<span class="mi">4</span>
+<span class="mi">9</span>
+<span class="mi">16</span>
+<span class="mi">25</span>
 </pre></div>
 </div>
 </div>
@@ -318,31 +318,31 @@ value or store them in variables.</p>
 <p>We can pass/return functions using the variable that contains the function name.</p>
 <p>We can call function from variables contains the function name using the Call command</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Call Variable([Parameters])
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Call</span> <span class="n">Variable</span><span class="p">(</span><span class="o">[</span><span class="n">Parameters</span><span class="o">]</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func Main
-        see &quot;before test2()&quot; + nl
-        f = Test2(:Test)
-        see &quot;after test2()&quot; + nl
-        call f()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
+        <span class="k">see</span> <span class="s">&quot;before test2()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">f</span> <span class="o">=</span> <span class="n">Test2</span><span class="p">(:</span><span class="n">Test</span><span class="p">)</span>
+        <span class="k">see</span> <span class="s">&quot;after test2()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">call</span> <span class="n">f</span><span class="p">()</span>
 
-Func Test
-        see &quot;Message from test!&quot; + nl
+<span class="k">Func</span> <span class="n">Test</span>
+        <span class="k">see</span> <span class="s">&quot;Message from test!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
-Func Test2 f1
-        call f1()
-        See &quot;Message from test2!&quot; + nl
-        return f1
+<span class="k">Func</span> <span class="n">Test2</span> <span class="n">f1</span>
+        <span class="k">call</span> <span class="n">f1</span><span class="p">()</span>
+        <span class="k">See</span> <span class="s">&quot;Message from test2!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">return</span> <span class="n">f1</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>before test2()
-Message from test!
-Message from test2!
-after test2()
-Message from test!
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">before</span> <span class="n">test2</span><span class="p">()</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">test</span><span class="o">!</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">test2</span><span class="o">!</span>
+<span class="n">after</span> <span class="n">test2</span><span class="p">()</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">test</span><span class="o">!</span>
 </pre></div>
 </div>
 </div>
@@ -350,25 +350,25 @@ Message from test!
 <span id="index-3"></span><h2>Higher-order Functions<a class="headerlink" href="#higher-order-functions" title="Permalink to this headline">¶</a></h2>
 <p>Higher-order functions are the functions that takes other functions as parameters.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func Main
-        times(5,:test)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
+        <span class="n">times</span><span class="p">(</span><span class="mi">5</span><span class="p">,:</span><span class="n">test</span><span class="p">)</span>
 
-Func Test
-        see &quot;Message from the test function!&quot; + nl
+<span class="k">Func</span> <span class="n">Test</span>
+        <span class="k">see</span> <span class="s">&quot;Message from the test function!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
-Func Times nCount,F
+<span class="k">Func</span> <span class="n">Times</span> <span class="n">nCount</span><span class="p">,</span><span class="n">F</span>
 
-        for x = 1 to nCount
-                Call F()
-        next
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nCount</span>
+                <span class="k">Call</span> <span class="n">F</span><span class="p">()</span>
+        <span class="k">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Message from the test function!
-Message from the test function!
-Message from the test function!
-Message from the test function!
-Message from the test function!
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Message</span> <span class="k">from</span> <span class="n">the</span> <span class="n">test</span> <span class="n">function</span><span class="o">!</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">the</span> <span class="n">test</span> <span class="n">function</span><span class="o">!</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">the</span> <span class="n">test</span> <span class="n">function</span><span class="o">!</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">the</span> <span class="n">test</span> <span class="n">function</span><span class="o">!</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">the</span> <span class="n">test</span> <span class="n">function</span><span class="o">!</span>
 </pre></div>
 </div>
 </div>
@@ -376,92 +376,92 @@ Message from the test function!
 <span id="index-4"></span><h2>Anonymous and Nested Functions<a class="headerlink" href="#anonymous-and-nested-functions" title="Permalink to this headline">¶</a></h2>
 <p>Anonymous Functions are functions without names that can be passed as parameters to other functions or stored in variables.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func [Parameters] { [statements] }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="o">[</span><span class="n">Parameters</span><span class="o">]</span> <span class="p">{</span> <span class="o">[</span><span class="n">statements</span><span class="o">]</span> <span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>test( func x,y {
-                        see &quot;hello&quot; + nl
-                        see &quot;Sum : &quot; + (x+y) + nl
-               } )
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">(</span> <span class="k">func</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="s">&quot;hello&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="k">see</span> <span class="s">&quot;Sum : &quot;</span> <span class="o">+</span> <span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+               <span class="p">}</span> <span class="p">)</span>
 
-new great { f1() }
+<span class="k">new</span> <span class="n">great</span> <span class="p">{</span> <span class="n">f1</span><span class="p">()</span> <span class="p">}</span>
 
-times(3, func { see &quot;hello world&quot; + nl } )
+<span class="n">times</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s">&quot;hello world&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span> <span class="p">)</span>
 
-func test x
-        call x(3,3)
-        see &quot;wow!&quot; + nl
+<span class="k">func</span> <span class="n">test</span> <span class="n">x</span>
+        <span class="k">call</span> <span class="n">x</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+        <span class="k">see</span> <span class="s">&quot;wow!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
-func times n,x
-        for t=1 to n
-                call x()
-        next
+<span class="k">func</span> <span class="n">times</span> <span class="n">n</span><span class="p">,</span><span class="n">x</span>
+        <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">n</span>
+                <span class="k">call</span> <span class="n">x</span><span class="p">()</span>
+        <span class="k">next</span>
 
-Class great
-        func f1
-                f2( func { see &quot;Message from f1&quot; + nl } )
+<span class="k">Class</span> <span class="n">great</span>
+        <span class="k">func</span> <span class="n">f1</span>
+                <span class="n">f2</span><span class="p">(</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s">&quot;Message from f1&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span> <span class="p">)</span>
 
-        func f2 x
-                call x()
+        <span class="k">func</span> <span class="n">f2</span> <span class="n">x</span>
+                <span class="k">call</span> <span class="n">x</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>hello
-Sum : 6
-wow!
-Message from f1
-hello world
-hello world
-hello world
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span>
+<span class="n">Sum</span> <span class="p">:</span> <span class="mi">6</span>
+<span class="n">wow</span><span class="o">!</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">f1</span>
+<span class="n">hello</span> <span class="n">world</span>
+<span class="n">hello</span> <span class="n">world</span>
+<span class="n">hello</span> <span class="n">world</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func Main
-        aList = [1,2,3,4]
-        Map (aList , func x {
-                                return x*x
-                            } )
-        see aList
-        aList = [4,9,14,25]
-        Map(aList, :myfilter )
-        see aList
-        aList = [11,12,13,14]
-        Map (aList , func x {
-                if x%2=0
-                        return &quot;even&quot;
-                else
-                        return &quot;odd&quot;
-                ok
-        })
-        see aList
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span>
+        <span class="n">Map</span> <span class="p">(</span><span class="n">aList</span> <span class="p">,</span> <span class="k">func</span> <span class="n">x</span> <span class="p">{</span>
+                                <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span>
+                            <span class="p">}</span> <span class="p">)</span>
+        <span class="k">see</span> <span class="n">aList</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="mi">25</span><span class="o">]</span>
+        <span class="n">Map</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span> <span class="p">:</span><span class="n">myfilter</span> <span class="p">)</span>
+        <span class="k">see</span> <span class="n">aList</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">13</span><span class="p">,</span><span class="mi">14</span><span class="o">]</span>
+        <span class="n">Map</span> <span class="p">(</span><span class="n">aList</span> <span class="p">,</span> <span class="k">func</span> <span class="n">x</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="n">x</span><span class="o">%</span><span class="mi">2</span><span class="o">=</span><span class="mi">0</span>
+                        <span class="k">return</span> <span class="s">&quot;even&quot;</span>
+                <span class="k">else</span>
+                        <span class="k">return</span> <span class="s">&quot;odd&quot;</span>
+                <span class="k">ok</span>
+        <span class="p">})</span>
+        <span class="k">see</span> <span class="n">aList</span>
 
-Func myfilter x
-        if x = 9
-                return &quot;True&quot;
-        else
-                return &quot;False&quot;
-        ok
+<span class="k">Func</span> <span class="n">myfilter</span> <span class="n">x</span>
+        <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">9</span>
+                <span class="k">return</span> <span class="s">&quot;True&quot;</span>
+        <span class="k">else</span>
+                <span class="k">return</span> <span class="s">&quot;False&quot;</span>
+        <span class="k">ok</span>
 
-Func Map aList,cFunc
-        for x in aList
-                x = call cFunc(x)
-        next
+<span class="k">Func</span> <span class="n">Map</span> <span class="n">aList</span><span class="p">,</span><span class="n">cFunc</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="k">call</span> <span class="n">cFunc</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+        <span class="k">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
-4
-9
-16
-False
-True
-False
-False
-odd
-even
-odd
-even
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">4</span>
+<span class="mi">9</span>
+<span class="mi">16</span>
+<span class="kp">False</span>
+<span class="kp">True</span>
+<span class="kp">False</span>
+<span class="kp">False</span>
+<span class="n">odd</span>
+<span class="n">even</span>
+<span class="n">odd</span>
+<span class="n">even</span>
 </pre></div>
 </div>
 </div>
@@ -469,28 +469,28 @@ even
 <span id="index-5"></span><h2>Equality of functions<a class="headerlink" href="#equality-of-functions" title="Permalink to this headline">¶</a></h2>
 <p>We can test if function = function or not using the ‘=’ or ‘!=’ operators</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>f1 = func { see &quot;hello&quot; + nl }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s">&quot;hello&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span>
 
-f2 = func { see &quot;how are you?&quot; + nl }
+<span class="n">f2</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s">&quot;how are you?&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span>
 
-f3 = f1
+<span class="n">f3</span> <span class="o">=</span> <span class="n">f1</span>
 
-call f1()
-call f2()
-call f3()
+<span class="k">call</span> <span class="n">f1</span><span class="p">()</span>
+<span class="k">call</span> <span class="n">f2</span><span class="p">()</span>
+<span class="k">call</span> <span class="n">f3</span><span class="p">()</span>
 
-see (f1 = f2) + nl
-see (f2 = f3) + nl
-see (f1 = f3) + nl
+<span class="k">see</span> <span class="p">(</span><span class="n">f1</span> <span class="o">=</span> <span class="n">f2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="p">(</span><span class="n">f2</span> <span class="o">=</span> <span class="n">f3</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="p">(</span><span class="n">f1</span> <span class="o">=</span> <span class="n">f3</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>hello
-how are you?
-hello
-0
-0
-1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span>
+<span class="n">how</span> <span class="n">are</span> <span class="n">you</span><span class="o">?</span>
+<span class="n">hello</span>
+<span class="mi">0</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
 </div>

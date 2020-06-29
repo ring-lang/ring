@@ -269,79 +269,79 @@ provided by the Ring programming language.</p>
 <li><p>If Statement</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>if Expression {
-        Block of statements
-elseif Expression
-        Block of statements
-else
-        Block of statements
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">Expression</span> <span class="p">{</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="k">elseif</span> <span class="n">Expression</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="k">else</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-print(&quot;
-        Main Menu
-        ---------
-        (1) Say Hello
-        (2) About
-        (3) Exit
-    &quot;)
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
+        <span class="n">Main</span> <span class="n">Menu</span>
+        <span class="o">---------</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">About</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">Exit</span>
+    <span class="s">&quot;)</span>
 
-nOption = getnumber()
+<span class="n">nOption</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
 
-if nOption = 1  {
-        print(&quot;Enter your name : &quot;)
-        name = getstring()
-        print(&quot;Hello #{name}\n&quot;)
-elseif nOption = 2
-        print(&quot;Sample : using if statement\n&quot;)
-elseif nOption = 3
-        bye
-else
-        print(&quot;bad option...\n&quot;)
-}
+<span class="k">if</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">1</span>  <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Enter your name : &quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">getstring</span><span class="p">()</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{name}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sample : using if statement</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">elseif</span> <span class="n">nOption</span> <span class="o">=</span> <span class="mi">3</span>
+        <span class="k">bye</span>
+<span class="k">else</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;bad option...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple" id="index-3">
 <li><p>Switch Statement</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>switch Expression {
-case Expression
-        Block of statements
-else
-        Block of statements
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="n">Expression</span> <span class="p">{</span>
+<span class="k">case</span> <span class="n">Expression</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="k">else</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-print(&quot;
-        Main Menu
-        ---------
-        (1) Say Hello
-        (2) About
-        (3) Exit
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
+        <span class="n">Main</span> <span class="n">Menu</span>
+        <span class="o">---------</span>
+        <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+        <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">About</span>
+        <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">Exit</span>
 
-      &quot;)
+      <span class="s">&quot;)</span>
 
-nOption = GetString()
+<span class="n">nOption</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">()</span>
 
-switch nOption {
-case 1
-        print(&quot;Enter your name : &quot;)
-        name = getstring()
-        print(&quot;Hello #{name}\n&quot;)
-case 2
-        print(&quot;Sample : using switch statement\n&quot;)
-case 3
-        Bye
-else
-        print(&quot;bad option...\n&quot;)
-}
+<span class="k">switch</span> <span class="n">nOption</span> <span class="p">{</span>
+<span class="k">case</span> <span class="mi">1</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Enter your name : &quot;</span><span class="p">)</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="n">getstring</span><span class="p">()</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{name}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="mi">2</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sample : using switch statement</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="k">case</span> <span class="mi">3</span>
+        <span class="k">Bye</span>
+<span class="k">else</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;bad option...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -351,143 +351,143 @@ else
 <li><p>While Loop</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>while Expression {
-        Block of statements
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="n">Expression</span> <span class="p">{</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-While True {
+<span class="k">While</span> <span class="kp">True</span> <span class="p">{</span>
 
-        print(&quot;
-                Main Menu
-                ---------
-                (1) Say Hello
-                (2) About
-                (3) Exit
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
+                <span class="n">Main</span> <span class="n">Menu</span>
+                <span class="o">---------</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+                <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">About</span>
+                <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">Exit</span>
 
-                  &quot;)
+                  <span class="s">&quot;)</span>
 
-        nOption = GetString()
+        <span class="n">nOption</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">()</span>
 
-        switch nOption {
-        case 1
-                print(&quot;Enter your name : &quot;)
-                name = getstring()
-                print(&quot;Hello #{name}\n&quot;)
-        case 2
-                print(&quot;Sample : using switch statement\n&quot;)
-        case 3
-                Bye
-        else
-                print(&quot;bad option...\n&quot;)
-        }
+        <span class="k">switch</span> <span class="n">nOption</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Enter your name : &quot;</span><span class="p">)</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">getstring</span><span class="p">()</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{name}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">2</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sample : using switch statement</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">3</span>
+                <span class="k">Bye</span>
+        <span class="k">else</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;bad option...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple" id="index-6">
 <li><p>For Loop</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>for identifier=expression to expression [step expression] {
-        Block of statements
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">identifier</span><span class="o">=</span><span class="n">expression</span> <span class="k">to</span> <span class="n">expression</span> <span class="o">[</span><span class="k">step</span> <span class="n">expression</span><span class="o">]</span> <span class="p">{</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># print numbers from 1 to 10
-load &quot;stdlib.ring&quot;
-for x = 1 to 10  {
-        print(&quot;#{x}\n&quot;)
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># print numbers from 1 to 10</span>
+<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>  <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-# Dynamic loop
-print(&quot;Start : &quot;) nStart = getnumber()
-print(&quot;End   : &quot;) nEnd = getnumber()
-print(&quot;Step  : &quot;) nStep = getnumber()
-for x = nStart to nEnd step nStep {
-        print(&quot;#{x}\n&quot;)
-}
+<span class="c"># Dynamic loop</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Start : &quot;</span><span class="p">)</span> <span class="n">nStart</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;End   : &quot;</span><span class="p">)</span> <span class="n">nEnd</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Step  : &quot;</span><span class="p">)</span> <span class="n">nStep</span> <span class="o">=</span> <span class="n">getnumber</span><span class="p">()</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">nStart</span> <span class="k">to</span> <span class="n">nEnd</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-# print even numbers from 0 to 10
-for x = 0 to 10 step 2 {
-        print(&quot;#{x}\n&quot;)
-}
+<span class="c"># print even numbers from 0 to 10</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">step</span> <span class="mi">2</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-# print even numbers from 10 to 0
-for x = 10 to 0 step -2 {
-        print(&quot;#{x}\n&quot;)
-}
+<span class="c"># print even numbers from 10 to 0</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">to</span> <span class="mi">0</span> <span class="k">step</span> <span class="o">-</span><span class="mi">2</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple" id="index-7">
 <li><p>For in Loop</p></li>
 </ul>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>for identifier in List/String  [step expression] {
-        Block of statements
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">identifier</span> <span class="k">in</span> <span class="kt">List</span><span class="o">/</span><span class="kt">String</span>  <span class="o">[</span><span class="k">step</span> <span class="n">expression</span><span class="o">]</span> <span class="p">{</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-aList = 1:10    # create list contains numbers from 1 to 10
-for x in aList { print(&quot;#{x}\n&quot;) }  # print numbers from 1 to 10
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span> <span class="p">}</span>  <span class="c"># print numbers from 1 to 10</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-aList = 1:10    # create list contains numbers from 1 to 10
-# print odd items inside the list
-for x in aList step 2 {
-        print(&quot;#{x}\n&quot;)
-}
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
+<span class="c"># print odd items inside the list</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="k">step</span> <span class="mi">2</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>When we use (For in) we get items by reference.</p>
 <p>This means that we can read/edit items inside the loop.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-aList = 1:5     # create list contains numbers from 1 to 5
-# replace list numbers with strings
-for x in aList {
-        switch x {
-        case 1  x = &quot;one&quot;
-        case 2  x = &quot;two&quot;
-        case 3  x = &quot;three&quot;
-        case 4  x = &quot;four&quot;
-        case 5  x = &quot;five&quot;
-        }
-}
-print(aList)    # print the list items
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>     <span class="c"># create list contains numbers from 1 to 5</span>
+<span class="c"># replace list numbers with strings</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="p">{</span>
+        <span class="k">switch</span> <span class="n">x</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span>  <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;one&quot;</span>
+        <span class="k">case</span> <span class="mi">2</span>  <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;two&quot;</span>
+        <span class="k">case</span> <span class="mi">3</span>  <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;three&quot;</span>
+        <span class="k">case</span> <span class="mi">4</span>  <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;four&quot;</span>
+        <span class="k">case</span> <span class="mi">5</span>  <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;five&quot;</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+<span class="n">print</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>    <span class="c"># print the list items</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="exceptions">
 <span id="index-8"></span><h2>Exceptions<a class="headerlink" href="#exceptions" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>try {
-        Block of statements
-catch
-        Block of statements
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">try</span> <span class="p">{</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="k">catch</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

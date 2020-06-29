@@ -276,34 +276,34 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
 <li><p>Execute and run Ring code in safe environments that we can trace.</p></li>
 </ol>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>pState = ring_state_init()
-ring_state_runcode(pState,&quot;See &#39;Hello, World!&#39;+nl&quot;)
-ring_state_runcode(pState,&quot;x = 10&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;See &#39;Hello, World!&#39;+nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x = 10&quot;</span><span class="p">)</span>
 
-pState2 = ring_state_init()
-ring_state_runcode(pState2,&quot;See &#39;Hello, World!&#39;+nl&quot;)
-ring_state_runcode(pState2,&quot;x = 20&quot;)
+<span class="n">pState2</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;See &#39;Hello, World!&#39;+nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;x = 20&quot;</span><span class="p">)</span>
 
-ring_state_runcode(pState,&quot;see x +nl&quot;)
-ring_state_runcode(pState2,&quot;see x +nl&quot;)
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;see x +nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;see x +nl&quot;</span><span class="p">)</span>
 
-v1 = ring_state_findvar(pState,&quot;x&quot;)
-v2 = ring_state_findvar(pState2,&quot;x&quot;)
+<span class="n">v1</span> <span class="o">=</span> <span class="n">ring_state_findvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">ring_state_findvar</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
 
-see v1[3] + nl
-see V2[3] + nl
+<span class="k">see</span> <span class="n">v1</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">V2</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
 
-ring_state_delete(pState)
-ring_state_delete(pState2)
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Hello, World!
-Hello, World!
-10
-20
-10
-20
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
 </pre></div>
 </div>
 </div>
@@ -311,10 +311,10 @@ Hello, World!
 <span id="index-2"></span><h2>Serial Execution of Programs<a class="headerlink" href="#serial-execution-of-programs" title="Permalink to this headline">¶</a></h2>
 <p>We can execute application after another application using ring_state_main()</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>chdir(exefolder()+&quot;/../applications/formdesigner&quot;)
-ring_state_main(&#39;formdesigner.ring&#39;)
-chdir(exefolder()+&quot;/../applications/cards&quot;)
-ring_state_main(&#39;cards.ring&#39;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">chdir</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/../applications/formdesigner&quot;</span><span class="p">)</span>
+<span class="n">ring_state_main</span><span class="p">(</span><span class="sc">&#39;formdesigner.ring&#39;</span><span class="p">)</span>
+<span class="n">chdir</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/../applications/cards&quot;</span><span class="p">)</span>
+<span class="n">ring_state_main</span><span class="p">(</span><span class="sc">&#39;cards.ring&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -328,62 +328,62 @@ ring_state_main(&#39;cards.ring&#39;)
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;guilib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
-myapp   = null
-win     = null
+<span class="n">myapp</span>   <span class="o">=</span> <span class="kp">null</span>
+<span class="n">win</span>     <span class="o">=</span> <span class="kp">null</span>
 
-func main
-        myapp = new qApp {
-                win = new qWidget() {
-                        setWindowTitle(&quot;Advanced Example on using ring_state_setvar()&quot;)
-                        move(100,100)
-                        resize(600,400)
-                        new qPushButton(win) {
-                                setText(&quot;Test&quot;)
-                                setClickEvent(&quot;Test()&quot;)
-                        }
-                        # We need this because using load &#39;guilib.ring&#39; in
-                        # the sub environment
-                        # Will create timers by Qt and closing the window
-                        # will not be enough to close the application
-                        oFilter = new qAllEvents(win)
-                        oFilter.setCloseEvent(&quot;myapp.quit()&quot;)
-                        win.installeventfilter(oFilter)
-                        show()
-                }
-                exec()
-        }
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">myapp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Advanced Example on using ring_state_setvar()&quot;</span><span class="p">)</span>
+                        <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="n">resize</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                        <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">)</span>
+                                <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;Test()&quot;</span><span class="p">)</span>
+                        <span class="p">}</span>
+                        <span class="c"># We need this because using load &#39;guilib.ring&#39; in</span>
+                        <span class="c"># the sub environment</span>
+                        <span class="c"># Will create timers by Qt and closing the window</span>
+                        <span class="c"># will not be enough to close the application</span>
+                        <span class="n">oFilter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAllEvents</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                        <span class="n">oFilter</span><span class="p">.</span><span class="n">setCloseEvent</span><span class="p">(</span><span class="s">&quot;myapp.quit()&quot;</span><span class="p">)</span>
+                        <span class="n">win</span><span class="p">.</span><span class="n">installeventfilter</span><span class="p">(</span><span class="n">oFilter</span><span class="p">)</span>
+                        <span class="n">show</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="n">exec</span><span class="p">()</span>
+        <span class="p">}</span>
 
-func test
-        pState = ring_state_init()
-        ring_state_runcode(pstate,&quot;load &#39;guilib.ring&#39;&quot;)
-        ring_state_runcode(pState,&quot;x = NULL&quot;)
-        # Pass String
-                ring_state_setvar(pState,&quot;x&quot;,&quot;hello&quot;)
-                ring_state_runcode(pState,&quot;? x&quot;)
-        # Pass Number
-                ring_state_setvar(pState,&quot;x&quot;,100)
-                ring_state_runcode(pState,&quot;? x&quot;)
-        # Pass List
-                ring_state_setvar(pState,&quot;x&quot;,[&quot;one&quot;,&quot;two&quot;,&quot;three&quot;])
-                ring_state_runcode(pState,&quot;? x&quot;)
-        # Pass Object
-        # We can&#39;t pass the Ring Object (win)
-        # Because Objects store pointers to the Class Information
-        # And the class is related to the Parent Ring Environment
-        # And the sub Ring environment can&#39;t access it
-        # But we can pass C pointers like win.pObject
-                ring_state_setvar(pState,&quot;x&quot;,win.pObject)
-        # Now we create the object again but using the same C pointer
-        # So we have access to the Same window in the parent Ring enviroment
-                ring_state_runcode(pState,&quot;
-                        new qWidget {
-                                pObject = x
-                                setwindowtitle(&#39;Message from the Sub Ring Environment&#39;)
-                        }
-                &quot;)
-        ring_state_delete(pState)
+<span class="k">func</span> <span class="n">test</span>
+        <span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+        <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pstate</span><span class="p">,</span><span class="s">&quot;load &#39;guilib.ring&#39;&quot;</span><span class="p">)</span>
+        <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x = NULL&quot;</span><span class="p">)</span>
+        <span class="c"># Pass String</span>
+                <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+                <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;? x&quot;</span><span class="p">)</span>
+        <span class="c"># Pass Number</span>
+                <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;? x&quot;</span><span class="p">)</span>
+        <span class="c"># Pass List</span>
+                <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span><span class="p">)</span>
+                <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;? x&quot;</span><span class="p">)</span>
+        <span class="c"># Pass Object</span>
+        <span class="c"># We can&#39;t pass the Ring Object (win)</span>
+        <span class="c"># Because Objects store pointers to the Class Information</span>
+        <span class="c"># And the class is related to the Parent Ring Environment</span>
+        <span class="c"># And the sub Ring environment can&#39;t access it</span>
+        <span class="c"># But we can pass C pointers like win.pObject</span>
+                <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="n">win</span><span class="p">.</span><span class="n">pObject</span><span class="p">)</span>
+        <span class="c"># Now we create the object again but using the same C pointer</span>
+        <span class="c"># So we have access to the Same window in the parent Ring enviroment</span>
+                <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;</span>
+                        <span class="k">new</span> <span class="n">qWidget</span> <span class="p">{</span>
+                                <span class="n">pObject</span> <span class="o">=</span> <span class="n">x</span>
+                                <span class="n">setwindowtitle</span><span class="p">(</span><span class="sc">&#39;Message from the Sub Ring Environment&#39;</span><span class="p">)</span>
+                        <span class="p">}</span>
+                <span class="s">&quot;)</span>
+        <span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -398,28 +398,28 @@ func test
 <p>Here deleting the State of the sub programs will lead to a problem when we run the sub program events</p>
 <p>So keeping the state is important for sub GUI programs hosted in GUI programs.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;guilib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
-func main
-        new qApp {
-                win = new qWidget() {
-                        setWindowTitle(&quot;Test ring_state_mainfile()&quot;)
-                        resize(400,400) move(100,100)
-                        btn = new qPushButton(Win) {
-                                settext(&quot;test&quot;)
-                                setclickevent(&quot;mytest()&quot;)
-                        }
-                        show()
-                }
-                exec()
-        }
+<span class="k">func</span> <span class="n">main</span>
+        <span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Test ring_state_mainfile()&quot;</span><span class="p">)</span>
+                        <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span> <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="n">btn</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">Win</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">settext</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+                                <span class="n">setclickevent</span><span class="p">(</span><span class="s">&quot;mytest()&quot;</span><span class="p">)</span>
+                        <span class="p">}</span>
+                        <span class="n">show</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="n">exec</span><span class="p">()</span>
+        <span class="p">}</span>
 
-func mytest
-        pState = ring_state_new()
-        ring_state_mainfile(pState,&quot;runprogram.ring&quot;)
-        # Here we don&#39;t delete the state if we will run GUI application
-        # So we can run the GUI application events
-                // ring_state_delete(pState)
+<span class="k">func</span> <span class="n">mytest</span>
+        <span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_new</span><span class="p">()</span>
+        <span class="n">ring_state_mainfile</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;runprogram.ring&quot;</span><span class="p">)</span>
+        <span class="c"># Here we don&#39;t delete the state if we will run GUI application</span>
+        <span class="c"># So we can run the GUI application events</span>
+                <span class="o">//</span> <span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>If you will use this feature, remember to update the previous example based on your application needs</p>
@@ -430,16 +430,16 @@ func mytest
 <p>Starting from Ring 1.8</p>
 <p>When embedding Ring in Ring, the error in the hosted environment will not close the host</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;Start the test!&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Start the test!&quot;</span>
 
-pState = ring_state_init()
+<span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
 
-ring_state_runcode(pState,&quot; ? &#39;Let us try having an error&#39; ? x&quot;)
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot; ? &#39;Let us try having an error&#39; ? x&quot;</span><span class="p">)</span>
 
-ring_state_delete(pState)
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
 
-? &quot;&quot;
-? &quot;End of test!&quot;
+<span class="o">?</span> <span class="s">&quot;&quot;</span>
+<span class="o">?</span> <span class="s">&quot;End of test!&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -456,58 +456,58 @@ End of test!
 <span id="index-6"></span><h2>ring_state_filetokens() function<a class="headerlink" href="#ring-state-filetokens-function" title="Permalink to this headline">¶</a></h2>
 <p>Starting from Ring 1.12 we have the ring_state_filetokens() function</p>
 <p>Using this function we can get all the tokens in the ring source code file.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>C_FILENAME      = &quot;test_tokens.ring&quot;
-C_WIDTH         = 12
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_FILENAME</span>      <span class="o">=</span> <span class="s">&quot;test_tokens.ring&quot;</span>
+<span class="n">C_WIDTH</span>         <span class="o">=</span> <span class="mi">12</span>
 
-# write the file
-        write(C_FILENAME,&#39;
-                        see &quot;Hello, World!&quot;
-                        ? 3*2+3
-                        Name = &quot;Ring&quot;
-                        ? Name
-&#39;)
+<span class="c"># write the file</span>
+        <span class="n">write</span><span class="p">(</span><span class="n">C_FILENAME</span><span class="p">,</span><span class="sc">&#39;</span>
+                        <span class="k">see</span> <span class="s">&quot;Hello, World!&quot;</span>
+                        <span class="o">?</span> <span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span>
+                        <span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;Ring&quot;</span>
+                        <span class="o">?</span> <span class="n">Name</span>
+<span class="sc">&#39;)</span>
 
-# Token Type
-        C_KEYWORD       = 0
-        C_OPERATOR      = 1
-        C_LITERAL       = 2
-        C_NUMBER        = 3
-        C_IDENTIFIER    = 4
-        C_ENDLINE       = 5
+<span class="c"># Token Type</span>
+        <span class="n">C_KEYWORD</span>       <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">C_OPERATOR</span>      <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">C_LITERAL</span>       <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">C_NUMBER</span>        <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">C_IDENTIFIER</span>    <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">C_ENDLINE</span>       <span class="o">=</span> <span class="mi">5</span>
 
-# Keywords List
-aKEYWORDS = [&quot;IF&quot;,&quot;TO&quot;,&quot;OR&quot;,&quot;AND&quot;,&quot;NOT&quot;,&quot;FOR&quot;,&quot;NEW&quot;,&quot;FUNC&quot;,
-&quot;FROM&quot;,&quot;NEXT&quot;,&quot;LOAD&quot;,&quot;ELSE&quot;,&quot;SEE&quot;,&quot;WHILE&quot;,&quot;OK&quot;,&quot;CLASS&quot;,&quot;RETURN&quot;,&quot;BUT&quot;,
-&quot;END&quot;,&quot;GIVE&quot;,&quot;BYE&quot;,&quot;EXIT&quot;,&quot;TRY&quot;,&quot;CATCH&quot;,&quot;DONE&quot;,&quot;SWITCH&quot;,&quot;ON&quot;,&quot;OTHER&quot;,&quot;OFF&quot;,
-&quot;IN&quot;,&quot;LOOP&quot;,&quot;PACKAGE&quot;,&quot;IMPORT&quot;,&quot;PRIVATE&quot;,&quot;STEP&quot;,&quot;DO&quot;,&quot;AGAIN&quot;,&quot;CALL&quot;,&quot;ELSEIF&quot;,
-&quot;PUT&quot;,&quot;GET&quot;,&quot;CASE&quot;,&quot;DEF&quot;,&quot;ENDFUNC&quot;,&quot;ENDCLASS&quot;,&quot;ENDPACKAGE&quot;,
-&quot;CHANGERINGKEYWORD&quot;,&quot;CHANGERINGOPERATOR&quot;,&quot;LOADSYNTAX&quot;]
+<span class="c"># Keywords List</span>
+<span class="n">aKEYWORDS</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;IF&quot;</span><span class="p">,</span><span class="s">&quot;TO&quot;</span><span class="p">,</span><span class="s">&quot;OR&quot;</span><span class="p">,</span><span class="s">&quot;AND&quot;</span><span class="p">,</span><span class="s">&quot;NOT&quot;</span><span class="p">,</span><span class="s">&quot;FOR&quot;</span><span class="p">,</span><span class="s">&quot;NEW&quot;</span><span class="p">,</span><span class="s">&quot;FUNC&quot;</span><span class="p">,</span>
+<span class="s">&quot;FROM&quot;</span><span class="p">,</span><span class="s">&quot;NEXT&quot;</span><span class="p">,</span><span class="s">&quot;LOAD&quot;</span><span class="p">,</span><span class="s">&quot;ELSE&quot;</span><span class="p">,</span><span class="s">&quot;SEE&quot;</span><span class="p">,</span><span class="s">&quot;WHILE&quot;</span><span class="p">,</span><span class="s">&quot;OK&quot;</span><span class="p">,</span><span class="s">&quot;CLASS&quot;</span><span class="p">,</span><span class="s">&quot;RETURN&quot;</span><span class="p">,</span><span class="s">&quot;BUT&quot;</span><span class="p">,</span>
+<span class="s">&quot;END&quot;</span><span class="p">,</span><span class="s">&quot;GIVE&quot;</span><span class="p">,</span><span class="s">&quot;BYE&quot;</span><span class="p">,</span><span class="s">&quot;EXIT&quot;</span><span class="p">,</span><span class="s">&quot;TRY&quot;</span><span class="p">,</span><span class="s">&quot;CATCH&quot;</span><span class="p">,</span><span class="s">&quot;DONE&quot;</span><span class="p">,</span><span class="s">&quot;SWITCH&quot;</span><span class="p">,</span><span class="s">&quot;ON&quot;</span><span class="p">,</span><span class="s">&quot;OTHER&quot;</span><span class="p">,</span><span class="s">&quot;OFF&quot;</span><span class="p">,</span>
+<span class="s">&quot;IN&quot;</span><span class="p">,</span><span class="s">&quot;LOOP&quot;</span><span class="p">,</span><span class="s">&quot;PACKAGE&quot;</span><span class="p">,</span><span class="s">&quot;IMPORT&quot;</span><span class="p">,</span><span class="s">&quot;PRIVATE&quot;</span><span class="p">,</span><span class="s">&quot;STEP&quot;</span><span class="p">,</span><span class="s">&quot;DO&quot;</span><span class="p">,</span><span class="s">&quot;AGAIN&quot;</span><span class="p">,</span><span class="s">&quot;CALL&quot;</span><span class="p">,</span><span class="s">&quot;ELSEIF&quot;</span><span class="p">,</span>
+<span class="s">&quot;PUT&quot;</span><span class="p">,</span><span class="s">&quot;GET&quot;</span><span class="p">,</span><span class="s">&quot;CASE&quot;</span><span class="p">,</span><span class="s">&quot;DEF&quot;</span><span class="p">,</span><span class="s">&quot;ENDFUNC&quot;</span><span class="p">,</span><span class="s">&quot;ENDCLASS&quot;</span><span class="p">,</span><span class="s">&quot;ENDPACKAGE&quot;</span><span class="p">,</span>
+<span class="s">&quot;CHANGERINGKEYWORD&quot;</span><span class="p">,</span><span class="s">&quot;CHANGERINGOPERATOR&quot;</span><span class="p">,</span><span class="s">&quot;LOADSYNTAX&quot;</span><span class="o">]</span>
 
-pState = ring_state_new()
-aList = ring_state_filetokens(pState,C_FILENAME)
-PrintTokens(aList)
-ring_state_delete(pState)
+<span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_new</span><span class="p">()</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">ring_state_filetokens</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="n">C_FILENAME</span><span class="p">)</span>
+<span class="n">PrintTokens</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
 
-func PrintTokens aList
-        for aToken in aList
-                switch aToken[1]
-                on C_KEYWORD
-                        ? Width(&quot;Keyword&quot;,C_WIDTH) + &quot;: &quot;  + aKeywords[0+aToken[2]]
-                on C_OPERATOR
-                        ? Width(&quot;Operator&quot;,C_WIDTH)  + &quot;: &quot; + aToken[2]
-                on C_LITERAL
-                        ? Width(&quot;Literal&quot;,C_WIDTH)  + &quot;: &quot; + aToken[2]
-                on C_NUMBER
-                        ? Width(&quot;Number&quot;,C_WIDTH)  + &quot;: &quot; + aToken[2]
-                on C_IDENTIFIER
-                        ? Width(&quot;Identifier&quot;,C_WIDTH)  + &quot;: &quot; + aToken[2]
-                on C_ENDLINE
-                        ? &quot;EndLine&quot;
-                off
-        next
+<span class="k">func</span> <span class="n">PrintTokens</span> <span class="n">aList</span>
+        <span class="k">for</span> <span class="n">aToken</span> <span class="k">in</span> <span class="n">aList</span>
+                <span class="k">switch</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+                <span class="k">on</span> <span class="n">C_KEYWORD</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Keyword&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span>  <span class="o">+</span> <span class="n">aKeywords</span><span class="o">[</span><span class="mi">0</span><span class="o">+</span><span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span>
+                <span class="k">on</span> <span class="n">C_OPERATOR</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Operator&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">on</span> <span class="n">C_LITERAL</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Literal&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">on</span> <span class="n">C_NUMBER</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Number&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">on</span> <span class="n">C_IDENTIFIER</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Identifier&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">on</span> <span class="n">C_ENDLINE</span>
+                        <span class="o">?</span> <span class="s">&quot;EndLine&quot;</span>
+                <span class="k">off</span>
+        <span class="k">next</span>
 
-func Width cText,nWidth
-        return cText+copy(&quot; &quot;,nWidth-len(cText))
+<span class="k">func</span> <span class="n">Width</span> <span class="n">cText</span><span class="p">,</span><span class="n">nWidth</span>
+        <span class="k">return</span> <span class="n">cText</span><span class="o">+</span><span class="n">copy</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span><span class="n">nWidth</span><span class="o">-</span><span class="n">len</span><span class="p">(</span><span class="n">cText</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Output:</p>

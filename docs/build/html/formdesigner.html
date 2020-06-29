@@ -332,18 +332,18 @@
 controller class.</p>
 <img alt="Form Designer - Event Code" src="_images/fdeventcode.png" />
 <p>In this example we write</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func CloseWindow
-        oView.win.close()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">CloseWindow</span>
+        <span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Where inside the controller class, We uses the oView object to access the form.</p>
 <p>Another Example :</p>
 <img alt="Form Designer - Say Hello" src="_images/fdsayhello1.png" />
 <p>The Event Code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func SayHello
-        oView {
-                LineEdit2.setText(&quot;Hello &quot;+ LineEdit1.text() )
-        }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">SayHello</span>
+        <span class="n">oView</span> <span class="p">{</span>
+                <span class="n">LineEdit2</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span><span class="o">+</span> <span class="n">LineEdit1</span><span class="p">.</span><span class="n">text</span><span class="p">()</span> <span class="p">)</span>
+        <span class="p">}</span>
 </pre></div>
 </div>
 </div>

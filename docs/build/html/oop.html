@@ -297,24 +297,24 @@ inside the Ring programming language.</p>
 <span id="index-1"></span><h2>Classes and Objects<a class="headerlink" href="#classes-and-objects" title="Permalink to this headline">¶</a></h2>
 <p>We can define new classes using the next syntax</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Class &lt;Class Name&gt; [From|&lt;|: &lt;Parent Class Name&gt;]
-        [Attributes]
-        [Methods]
-        [Private
-          [Attributes]
-          [Methods]
-        ]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="o">&lt;</span><span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;</span> <span class="o">[</span><span class="k">From</span><span class="o">|&lt;|</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Parent</span> <span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;]</span>
+        <span class="o">[</span><span class="n">Attributes</span><span class="o">]</span>
+        <span class="o">[</span><span class="n">Methods</span><span class="o">]</span>
+        <span class="o">[</span><span class="n">Private</span>
+          <span class="o">[</span><span class="n">Attributes</span><span class="o">]</span>
+          <span class="o">[</span><span class="n">Methods</span><span class="o">]</span>
+        <span class="o">]</span>
 </pre></div>
 </div>
 <p>And we can create objects using the next syntax</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New &lt;Object Name&gt; [ (init method parameters) ] |
-                  [ { access object data and methods } ]   ---&gt; Object
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="o">&lt;</span><span class="n">Object</span> <span class="n">Name</span><span class="o">&gt;</span> <span class="o">[</span> <span class="p">(</span><span class="n">init</span> <span class="n">method</span> <span class="n">parameters</span><span class="p">)</span> <span class="o">]</span> <span class="o">|</span>
+                  <span class="o">[</span> <span class="p">{</span> <span class="n">access</span> <span class="n">object</span> <span class="n">data</span> <span class="ow">and</span> <span class="n">methods</span> <span class="p">}</span> <span class="o">]</span>   <span class="o">---&gt;</span> <span class="n">Object</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New point { x=10  y=20  z=30  print() }
-Class Point x y z func print see x + nl + y + nl + z + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span>  <span class="n">y</span><span class="o">=</span><span class="mi">20</span>  <span class="n">z</span><span class="o">=</span><span class="mi">30</span>  <span class="n">print</span><span class="p">()</span> <span class="p">}</span>
+<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="k">func</span> <span class="n">print</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -326,36 +326,36 @@ Class Point x y z func print see x + nl + y + nl + z + nl
 <p>we can declare the class attributes directly after the class name.</p>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
-20
-30
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
 </pre></div>
 </div>
 <p>We can rewrite the same program in another style</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New point                       # create new object using the point class
-{                               # access the new object attributes and methods
-        x = 10                  # set the x attribute to 10
-        y = 20                  # set the y attribute to 20
-        z = 30                  # set the z attribute to 30
-        print()                 # call the print method
-}                               # end of object access
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">point</span>                       <span class="c"># create new object using the point class</span>
+<span class="p">{</span>                               <span class="c"># access the new object attributes and methods</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>                  <span class="c"># set the x attribute to 10</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>                  <span class="c"># set the y attribute to 20</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="mi">30</span>                  <span class="c"># set the z attribute to 30</span>
+        <span class="n">print</span><span class="p">()</span>                 <span class="c"># call the print method</span>
+<span class="p">}</span>                               <span class="c"># end of object access</span>
 
 
-Class Point                     # define the Point class
-        x y z                   # the class contains three attributes x, y &amp; z
-        func print              # define the print method
-                see x + nl +    # print the x attribute
-                    y + nl +    # print the y attribute
-                    z + nl      # print the z attribute
+<span class="k">Class</span> <span class="n">Point</span>                     <span class="c"># define the Point class</span>
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>                   <span class="c"># the class contains three attributes x, y &amp; z</span>
+        <span class="k">func</span> <span class="n">print</span>              <span class="c"># define the print method</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print the x attribute</span>
+                    <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print the y attribute</span>
+                    <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>      <span class="c"># print the z attribute</span>
 </pre></div>
 </div>
 <p>Also we can write the same program in another way</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>P1 = New Point
-P1.x = 10
-P1.y = 20
-P1.z = 30
-P1.Print()
-Class Point x y z func print see x + nl + y + nl + z + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">P1</span> <span class="o">=</span> <span class="k">New</span> <span class="n">Point</span>
+<span class="n">P1</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">P1</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
+<span class="n">P1</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">30</span>
+<span class="n">P1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="k">func</span> <span class="n">print</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -363,10 +363,10 @@ Class Point x y z func print see x + nl + y + nl + z + nl
 <p>we can use the dot operator after the object name to access object members.</p>
 </div>
 <p>Also we can write the same program in another way</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point { print() }
-Class Point
-        x = 10  y = 20  z = 30
-        func print see x + nl + y + nl + z + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">print</span><span class="p">()</span> <span class="p">}</span>
+<span class="k">Class</span> <span class="n">Point</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>  <span class="n">z</span> <span class="o">=</span> <span class="mi">30</span>
+        <span class="k">func</span> <span class="n">print</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -374,11 +374,11 @@ Class Point
 <p>we can set the default values for the class attributes when we declare them.</p>
 </div>
 <p>Also we can write the same program in another way</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point(10,20,30)
-Class Point
-        x y z
-        func init p1,p2,p3 x=p1 y=p2 z=p3 print()
-        func print see x + nl + y + nl + z + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">Class</span> <span class="n">Point</span>
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">init</span> <span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span> <span class="n">x</span><span class="o">=</span><span class="n">p1</span> <span class="n">y</span><span class="o">=</span><span class="n">p2</span> <span class="n">z</span><span class="o">=</span><span class="n">p3</span> <span class="n">print</span><span class="p">()</span>
+        <span class="k">func</span> <span class="n">print</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -386,10 +386,10 @@ Class Point
 <p>we can call the init method directly using () when we create new objects</p>
 </div>
 <p>Also we can write the same program in another way</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point( [ :x = 10 , :y = 20 , :z = 30 ] )
-Class Point x y z
-      func init aPara x = aPara[:x] y = aPara[:y] z = aPara[:z] print()
-      func print see x + nl + y + nl + z + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span><span class="p">(</span> <span class="o">[</span> <span class="p">:</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="p">,</span> <span class="p">:</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span> <span class="p">,</span> <span class="p">:</span><span class="n">z</span> <span class="o">=</span> <span class="mi">30</span> <span class="o">]</span> <span class="p">)</span>
+<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+      <span class="k">func</span> <span class="n">init</span> <span class="n">aPara</span> <span class="n">x</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="p">:</span><span class="n">x</span><span class="o">]</span> <span class="n">y</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="p">:</span><span class="n">y</span><span class="o">]</span> <span class="n">z</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="p">:</span><span class="n">z</span><span class="o">]</span> <span class="n">print</span><span class="p">()</span>
+      <span class="k">func</span> <span class="n">print</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -403,44 +403,44 @@ parameters and change the order of parameters when adding them to the Hash.</p>
 <p>We can access the object at any time using braces { }</p>
 <p>Inside the braces we can use the object attributes and methods directly</p>
 <p>This can be done when we create the object using the New keyword or at any time using the next syntax</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ObjectName { access object data and methods }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ObjectName</span> <span class="p">{</span> <span class="n">access</span> <span class="n">object</span> <span class="n">data</span> <span class="ow">and</span> <span class="n">methods</span> <span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Creating the Object&quot; + nl
-o1 = new Point
-See &quot;Using the Object&quot; + nl
-o1 {
-        x=5
-        y=15
-        z=25
-        print()
-}
-Class Point x y z func print see x + nl + y + nl + z
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Creating the Object&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span>
+<span class="k">See</span> <span class="s">&quot;Using the Object&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">o1</span> <span class="p">{</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">5</span>
+        <span class="n">y</span><span class="o">=</span><span class="mi">15</span>
+        <span class="n">z</span><span class="o">=</span><span class="mi">25</span>
+        <span class="n">print</span><span class="p">()</span>
+<span class="p">}</span>
+<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span> <span class="k">func</span> <span class="n">print</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>We can use braces to access objects when we call functions or methods</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new Point
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span>
 
-print( o1 { x=10 y=20 z=30 } )
+<span class="n">print</span><span class="p">(</span> <span class="n">o1</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span> <span class="p">)</span>
 
-func print object
-        see object.x + nl +
-            object.y + nl +
-            object.z
+<span class="k">func</span> <span class="n">print</span> <span class="n">object</span>
+        <span class="k">see</span> <span class="n">object</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+            <span class="n">object</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+            <span class="n">object</span><span class="p">.</span><span class="n">z</span>
 
-Class Point x y z
+<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>We can mix between using braces and the dot operator to access the object in the same expression.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new Point
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span>
 
-O1 { x=10 y=20 z=30 }.print()
+<span class="n">O1</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}.</span><span class="n">print</span><span class="p">()</span>
 
-Class Point x y z
-        func print see x + nl + y + nl + z
+<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">print</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span>
 </pre></div>
 </div>
 </div>
@@ -449,45 +449,45 @@ Class Point x y z
 <p>The object may contains other objects as attributes.</p>
 <p>Using braces to access objects can be nested.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>R1 = New Rectangle
-{
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">R1</span> <span class="o">=</span> <span class="k">New</span> <span class="n">Rectangle</span>
+<span class="p">{</span>
 
-        Name = &quot;Rectangle 1&quot;
+        <span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;Rectangle 1&quot;</span>
 
-        P1
-        {
-                X = 10
-                Y = 20
-        }
+        <span class="n">P1</span>
+        <span class="p">{</span>
+                <span class="n">X</span> <span class="o">=</span> <span class="mi">10</span>
+                <span class="n">Y</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="p">}</span>
 
-        P2
-        {
-                X = 200
-                Y = 300
-        }
+        <span class="n">P2</span>
+        <span class="p">{</span>
+                <span class="n">X</span> <span class="o">=</span> <span class="mi">200</span>
+                <span class="n">Y</span> <span class="o">=</span> <span class="mi">300</span>
+        <span class="p">}</span>
 
-        Color = &quot;Blue&quot;
+        <span class="n">Color</span> <span class="o">=</span> <span class="s">&quot;Blue&quot;</span>
 
-}
+<span class="p">}</span>
 
-see &quot;Name : &quot; + R1.Name + nl +
-    &quot;Color: &quot; + R1.Color + nl +
-    &quot;P1   : (&quot; + R1.P1.X + &quot;,&quot; + R1.P1.Y + &quot;)&quot; + nl +
-    &quot;P2   : (&quot; + R1.P2.X + &quot;,&quot; + R1.P2.Y + &quot;)&quot;
+<span class="k">see</span> <span class="s">&quot;Name : &quot;</span> <span class="o">+</span> <span class="n">R1</span><span class="p">.</span><span class="n">Name</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;Color: &quot;</span> <span class="o">+</span> <span class="n">R1</span><span class="p">.</span><span class="n">Color</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;P1   : (&quot;</span> <span class="o">+</span> <span class="n">R1</span><span class="p">.</span><span class="n">P1</span><span class="p">.</span><span class="n">X</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">R1</span><span class="p">.</span><span class="n">P1</span><span class="p">.</span><span class="n">Y</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;P2   : (&quot;</span> <span class="o">+</span> <span class="n">R1</span><span class="p">.</span><span class="n">P2</span><span class="p">.</span><span class="n">X</span> <span class="o">+</span> <span class="s">&quot;,&quot;</span> <span class="o">+</span> <span class="n">R1</span><span class="p">.</span><span class="n">P2</span><span class="p">.</span><span class="n">Y</span> <span class="o">+</span> <span class="s">&quot;)&quot;</span>
 
-Class Rectangle
-        name  color
-        p1 = new Point
-        p2 = new Point
+<span class="k">Class</span> <span class="n">Rectangle</span>
+        <span class="n">name</span>  <span class="n">color</span>
+        <span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span>
+        <span class="n">p2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Point</span>
 
-Class Point x y
+<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Name : Rectangle 1
-Color: Blue
-P1   : (10,20)
-P2   : (200,300)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span> <span class="p">:</span> <span class="n">Rectangle</span> <span class="mi">1</span>
+<span class="n">Color</span><span class="p">:</span> <span class="n">Blue</span>
+<span class="n">P1</span>   <span class="p">:</span> <span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">P2</span>   <span class="p">:</span> <span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -495,45 +495,45 @@ P2   : (200,300)
 <span id="index-4"></span><h2>Setter and Getter<a class="headerlink" href="#setter-and-getter" title="Permalink to this headline">¶</a></h2>
 <p>We can define methods to be used when we set and get object attributes.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Class ClassName
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">ClassName</span>
 
-        AttributeName
-        ...
+        <span class="n">AttributeName</span>
+        <span class="p">...</span>
 
-        Func SetAttributeName
-                ...
+        <span class="k">Func</span> <span class="n">SetAttributeName</span>
+                <span class="p">...</span>
 
-        Func GetAttributeName
-                ...
+        <span class="k">Func</span> <span class="n">GetAttributeName</span>
+                <span class="p">...</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new person
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
 
-o1.name = &quot;Mahmoud&quot;  see o1.name + nl
+<span class="n">o1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>  <span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
 
-o1 { name = &quot;Ahmed&quot;  see name }
+<span class="n">o1</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Ahmed&quot;</span>  <span class="k">see</span> <span class="n">name</span> <span class="p">}</span>
 
-Class Person
+<span class="k">Class</span> <span class="n">Person</span>
 
-        name family = &quot;Fayed&quot;
+        <span class="n">name</span> <span class="n">family</span> <span class="o">=</span> <span class="s">&quot;Fayed&quot;</span>
 
-        func setname value
-                see &quot;Message from SetName() Function!&quot; + nl
-                name = value + &quot; &quot; + family
+        <span class="k">func</span> <span class="n">setname</span> <span class="n">value</span>
+                <span class="k">see</span> <span class="s">&quot;Message from SetName() Function!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">value</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">family</span>
 
-        func getname
-                see &quot;Message from GetName() Function!&quot; + nl
-                return &quot;Mr. &quot; + name
+        <span class="k">func</span> <span class="n">getname</span>
+                <span class="k">see</span> <span class="s">&quot;Message from GetName() Function!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">return</span> <span class="s">&quot;Mr. &quot;</span> <span class="o">+</span> <span class="n">name</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Message from SetName() Function!
-Message from GetName() Function!
-Mr. Mahmoud Fayed
-Message from SetName() Function!
-Message from GetName() Function!
-Mr. Ahmed Fayed
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Message</span> <span class="k">from</span> <span class="n">SetName</span><span class="p">()</span> <span class="n">Function</span><span class="o">!</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">GetName</span><span class="p">()</span> <span class="n">Function</span><span class="o">!</span>
+<span class="n">Mr</span><span class="p">.</span> <span class="n">Mahmoud</span> <span class="n">Fayed</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">SetName</span><span class="p">()</span> <span class="n">Function</span><span class="o">!</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">GetName</span><span class="p">()</span> <span class="n">Function</span><span class="o">!</span>
+<span class="n">Mr</span><span class="p">.</span> <span class="n">Ahmed</span> <span class="n">Fayed</span>
 </pre></div>
 </div>
 </div>
@@ -541,50 +541,50 @@ Mr. Ahmed Fayed
 <span id="index-5"></span><h2>Private Attributes and Methods<a class="headerlink" href="#private-attributes-and-methods" title="Permalink to this headline">¶</a></h2>
 <p>We can define private attributes and methods after the keyword private inside the class body</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new person {
-        name = &quot;Test&quot;
-        age = 20
-        print()
-        o1.printsalary()
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span> <span class="p">{</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Test&quot;</span>
+        <span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="n">print</span><span class="p">()</span>
+        <span class="n">o1</span><span class="p">.</span><span class="n">printsalary</span><span class="p">()</span>
+<span class="p">}</span>
 
-try
-        see o1.salary
-catch
-        see cCatchError + nl
-done
+<span class="k">try</span>
+        <span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">salary</span>
+<span class="k">catch</span>
+        <span class="k">see</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
 
-try
-        o1.increasesalary(1000)
-catch
-        see cCatchError + nl
-done
+<span class="k">try</span>
+        <span class="n">o1</span><span class="p">.</span><span class="n">increasesalary</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
+<span class="k">catch</span>
+        <span class="k">see</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
 
-Class Person
+<span class="k">Class</span> <span class="n">Person</span>
 
-        name age
+        <span class="n">name</span> <span class="n">age</span>
 
-        func print
-                see &quot;Name   : &quot; + name + nl +
-                    &quot;Age    : &quot; + age + nl
+        <span class="k">func</span> <span class="n">print</span>
+                <span class="k">see</span> <span class="s">&quot;Name   : &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+                    <span class="s">&quot;Age    : &quot;</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="n">nl</span>
 
-        func printsalary
-                see &quot;Salary : &quot; + salary + nl
+        <span class="k">func</span> <span class="n">printsalary</span>
+                <span class="k">see</span> <span class="s">&quot;Salary : &quot;</span> <span class="o">+</span> <span class="n">salary</span> <span class="o">+</span> <span class="n">nl</span>
 
-        private
+        <span class="n">private</span>
 
-        salary = 15000
+        <span class="n">salary</span> <span class="o">=</span> <span class="mi">15000</span>
 
-        func increasesalary x
-                salary += x
+        <span class="k">func</span> <span class="n">increasesalary</span> <span class="n">x</span>
+                <span class="n">salary</span> <span class="o">+=</span> <span class="n">x</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Name   : Test
-Age    : 20
-Salary : 15000
-Error (R27) : Using private attribute from outside the class : salary
-Error (R26) : Calling private method from outside the class : increasesalary
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span>   <span class="p">:</span> <span class="n">Test</span>
+<span class="n">Age</span>    <span class="p">:</span> <span class="mi">20</span>
+<span class="n">Salary</span> <span class="p">:</span> <span class="mi">15000</span>
+<span class="n">Error</span> <span class="p">(</span><span class="n">R27</span><span class="p">)</span> <span class="p">:</span> <span class="n">Using</span> <span class="n">private</span> <span class="n">attribute</span> <span class="k">from</span> <span class="n">outside</span> <span class="n">the</span> <span class="k">class</span> <span class="p">:</span> <span class="n">salary</span>
+<span class="n">Error</span> <span class="p">(</span><span class="n">R26</span><span class="p">)</span> <span class="p">:</span> <span class="n">Calling</span> <span class="n">private</span> <span class="n">method</span> <span class="k">from</span> <span class="n">outside</span> <span class="n">the</span> <span class="k">class</span> <span class="p">:</span> <span class="n">increasesalary</span>
 </pre></div>
 </div>
 </div>
@@ -592,68 +592,68 @@ Error (R26) : Calling private method from outside the class : increasesalary
 <span id="index-6"></span><h2>Operator Overloading<a class="headerlink" href="#operator-overloading" title="Permalink to this headline">¶</a></h2>
 <p>We can add the operator method to our class to enable using operators with the class objects.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Class ClassName
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">ClassName</span>
 
-        ...
+        <span class="p">...</span>
 
-        Func operator cOperator,Para
+        <span class="k">Func</span> <span class="n">operator</span> <span class="n">cOperator</span><span class="p">,</span><span class="n">Para</span>
 
-                ...
+                <span class="p">...</span>
 </pre></div>
 </div>
 <p>The function operator takes two paramters, the first represent the operator
 and the second represent the second parameter after the operator.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point { x = 10 y = 10 print(&quot;P1    : &quot;) }
-o2 = new point { x = 20 y = 40 print(&quot;P2    : &quot;) }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">10</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;P1    : &quot;</span><span class="p">)</span> <span class="p">}</span>
+<span class="n">o2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">20</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">40</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;P2    : &quot;</span><span class="p">)</span> <span class="p">}</span>
 
-o3 = o1 + o2
-o3.print(&quot;P1+P2 : &quot;)
+<span class="n">o3</span> <span class="o">=</span> <span class="n">o1</span> <span class="o">+</span> <span class="n">o2</span>
+<span class="n">o3</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;P1+P2 : &quot;</span><span class="p">)</span>
 
-class point x y
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span>
 
-        func operator cOperator,Para
-                result = new point
-                switch cOperator
-                on &quot;+&quot;
-                        result.x = x + Para.x
-                        result.y = y + Para.y
-                on &quot;-&quot;
-                        result.x = x - Para.x
-                        result.y = y - Para.y
-                off
-                return result
+        <span class="k">func</span> <span class="n">operator</span> <span class="n">cOperator</span><span class="p">,</span><span class="n">Para</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
+                <span class="k">switch</span> <span class="n">cOperator</span>
+                <span class="k">on</span> <span class="s">&quot;+&quot;</span>
+                        <span class="n">result</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">Para</span><span class="p">.</span><span class="n">x</span>
+                        <span class="n">result</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">+</span> <span class="n">Para</span><span class="p">.</span><span class="n">y</span>
+                <span class="k">on</span> <span class="s">&quot;-&quot;</span>
+                        <span class="n">result</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">x</span> <span class="o">-</span> <span class="n">Para</span><span class="p">.</span><span class="n">x</span>
+                        <span class="n">result</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">y</span> <span class="o">-</span> <span class="n">Para</span><span class="p">.</span><span class="n">y</span>
+                <span class="k">off</span>
+                <span class="k">return</span> <span class="n">result</span>
 
-        func print cPoint
-                see cPoint + &quot;X : &quot; + x + &quot; Y : &quot; + y + nl
+        <span class="k">func</span> <span class="n">print</span> <span class="n">cPoint</span>
+                <span class="k">see</span> <span class="n">cPoint</span> <span class="o">+</span> <span class="s">&quot;X : &quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot; Y : &quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>P1    : X : 10 Y : 10
-P2    : X : 20 Y : 40
-P1+P2 : X : 30 Y : 50
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">P1</span>    <span class="p">:</span> <span class="n">X</span> <span class="p">:</span> <span class="mi">10</span> <span class="n">Y</span> <span class="p">:</span> <span class="mi">10</span>
+<span class="n">P2</span>    <span class="p">:</span> <span class="n">X</span> <span class="p">:</span> <span class="mi">20</span> <span class="n">Y</span> <span class="p">:</span> <span class="mi">40</span>
+<span class="n">P1</span><span class="o">+</span><span class="n">P2</span> <span class="p">:</span> <span class="n">X</span> <span class="p">:</span> <span class="mi">30</span> <span class="n">Y</span> <span class="p">:</span> <span class="mi">50</span>
 </pre></div>
 </div>
 <p>The next example from the List class in the stdlib.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func operator cOperator,Para
-        result = new list
-        switch cOperator
-                on &quot;+&quot;
-                        if isobject(para)
-                                for t in Para.vValue
-                                        vValue + t
-                                next
-                        but islist(para)
-                                for t in Para
-                                        vValue + t
-                                next
-                        ok
-                on &quot;len&quot;
-                        return len( vValue )
-                on &quot;[]&quot;
-                        return &amp;vValue[para]
-        off
-        return result
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">operator</span> <span class="n">cOperator</span><span class="p">,</span><span class="n">Para</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">list</span>
+        <span class="k">switch</span> <span class="n">cOperator</span>
+                <span class="k">on</span> <span class="s">&quot;+&quot;</span>
+                        <span class="k">if</span> <span class="n">isobject</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">Para</span><span class="p">.</span><span class="n">vValue</span>
+                                        <span class="n">vValue</span> <span class="o">+</span> <span class="n">t</span>
+                                <span class="k">next</span>
+                        <span class="k">but</span> <span class="n">islist</span><span class="p">(</span><span class="n">para</span><span class="p">)</span>
+                                <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">Para</span>
+                                        <span class="n">vValue</span> <span class="o">+</span> <span class="n">t</span>
+                                <span class="k">next</span>
+                        <span class="k">ok</span>
+                <span class="k">on</span> <span class="s">&quot;len&quot;</span>
+                        <span class="k">return</span> <span class="n">len</span><span class="p">(</span> <span class="n">vValue</span> <span class="p">)</span>
+                <span class="k">on</span> <span class="s">&quot;[]&quot;</span>
+                        <span class="k">return</span> <span class="o">&amp;</span><span class="n">vValue</span><span class="o">[</span><span class="n">para</span><span class="o">]</span>
+        <span class="k">off</span>
+        <span class="k">return</span> <span class="n">result</span>
 </pre></div>
 </div>
 <p>The “len” operator is used with (for in) control structure.</p>
@@ -661,78 +661,78 @@ P1+P2 : X : 30 Y : 50
 to return the item values like strings an numbers by reference, so we can update it when we access the
 items.</p>
 <p>Another Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
 
-See &quot;----1&quot;+nl
-    a1 = new BigNumber( &quot;123&quot; )
-    a2 = new BigNumber( &quot;456&quot; )
-    a3 = new BigNumber( &quot;789&quot; )
-See nl+&quot;----2&quot;+nl
-        a1.print()
-        a2.print()
-        a3.print()
-See nl+&quot;----3&quot;+nl
-    a2 = a1 + &quot;45&quot;
-See nl+&quot;----4&quot;+nl
-    a2.print()
-See nl+&quot;----5&quot;+nl
-    a3 = a1 + a2
-See nl+&quot;----6&quot;+nl
-    a3.print()
-See nl+&quot;----7&quot;+nl
+<span class="k">See</span> <span class="s">&quot;----1&quot;</span><span class="o">+</span><span class="n">nl</span>
+    <span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span> <span class="s">&quot;123&quot;</span> <span class="p">)</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span> <span class="s">&quot;456&quot;</span> <span class="p">)</span>
+    <span class="n">a3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span> <span class="s">&quot;789&quot;</span> <span class="p">)</span>
+<span class="k">See</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;----2&quot;</span><span class="o">+</span><span class="n">nl</span>
+        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+        <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="k">See</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;----3&quot;</span><span class="o">+</span><span class="n">nl</span>
+    <span class="n">a2</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="s">&quot;45&quot;</span>
+<span class="k">See</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;----4&quot;</span><span class="o">+</span><span class="n">nl</span>
+    <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="k">See</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;----5&quot;</span><span class="o">+</span><span class="n">nl</span>
+    <span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span>
+<span class="k">See</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;----6&quot;</span><span class="o">+</span><span class="n">nl</span>
+    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="k">See</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;----7&quot;</span><span class="o">+</span><span class="n">nl</span>
 
-###==================================
-Func FuncAdd( num1, num2)
-   Sum = 0 + num1 + num2    ### Para.aData isNumber
-   Sum = &quot;&quot; +Sum            ### Para.adata isString
-return Sum                  ### return to Class
-###===================================
+<span class="sd">###==================================</span>
+<span class="k">Func</span> <span class="n">FuncAdd</span><span class="p">(</span> <span class="n">num1</span><span class="p">,</span> <span class="n">num2</span><span class="p">)</span>
+   <span class="n">Sum</span> <span class="o">=</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>    <span class="sd">### Para.aData isNumber</span>
+   <span class="n">Sum</span> <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="o">+</span><span class="n">Sum</span>            <span class="sd">### Para.adata isString</span>
+<span class="k">return</span> <span class="n">Sum</span>                  <span class="sd">### return to Class</span>
+<span class="sd">###===================================</span>
 
-class BigNumber
+<span class="k">class</span> <span class="n">BigNumber</span>
 
-    ### Variables
-    aData = &quot;468&quot;
+    <span class="sd">### Variables</span>
+    <span class="n">aData</span> <span class="o">=</span> <span class="s">&quot;468&quot;</span>
 
-    ### Functions INIT default values
-    func init aPara
-        ? &quot;INIT aPara: &quot; ? aPara
-        if isString(aPara)
-            aData = aPara
-        else
-            aData = &quot;&quot; + aPara
-        ok
+    <span class="sd">### Functions INIT default values</span>
+    <span class="k">func</span> <span class="n">init</span> <span class="n">aPara</span>
+        <span class="o">?</span> <span class="s">&quot;INIT aPara: &quot;</span> <span class="o">?</span> <span class="n">aPara</span>
+        <span class="k">if</span> <span class="n">isString</span><span class="p">(</span><span class="n">aPara</span><span class="p">)</span>
+            <span class="n">aData</span> <span class="o">=</span> <span class="n">aPara</span>
+        <span class="k">else</span>
+            <span class="n">aData</span> <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">aPara</span>
+        <span class="k">ok</span>
 
-    ### Other Functions
-    func operator cOperator, Para
-            whatType = Type(Para)
-            ? nl+&quot;WhatType-PARA: &quot;+ whatType ? Para
-            ? nl+&quot;Operator: &quot; ? cOperator  ? nl+&quot;PARA: &quot; ? Para ? &quot;    ______&quot; ? nl
-                            if whatType = &quot;STRING&quot;
-                               dataInfo = Para
-                               ? &quot;dataInfo String: &quot; ? dataInfo
-                            but whatType = &quot;NUMBER&quot;
-                               datinfo  = &quot;&quot; + Para
-                               ? &quot;dataInfo Number: &quot; ? dataInfo
-                            else whatType = &quot;OBJECT&quot;
-                               dataInfo = &quot;&quot; + para.aData
-                               ? &quot;dataInfo OBJECT: &quot; ? dataInfo
-                            ok
-                          ? &quot;dataInfo USING: &quot; ? dataInfo
-            ### Para.aData does NOT exist on first pass ( Object with member)
-            ### Result isObject when assigned &quot;self&quot;
-            result = self
-            switch cOperator
-                on &quot;+&quot;
-                     answer = FuncAdd( aData, dataInfo )
-                     ? nl+&quot;AnswerString - FunAdd aData, dataInfo: &quot; ? answer
-                     ### result = self, is Object, populate Object with aData member
-                     result.aData = answer
-                off
-            ### Result = Self is Object
-            return result
+    <span class="sd">### Other Functions</span>
+    <span class="k">func</span> <span class="n">operator</span> <span class="n">cOperator</span><span class="p">,</span> <span class="n">Para</span>
+            <span class="n">whatType</span> <span class="o">=</span> <span class="n">Type</span><span class="p">(</span><span class="n">Para</span><span class="p">)</span>
+            <span class="o">?</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;WhatType-PARA: &quot;</span><span class="o">+</span> <span class="n">whatType</span> <span class="o">?</span> <span class="n">Para</span>
+            <span class="o">?</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;Operator: &quot;</span> <span class="o">?</span> <span class="n">cOperator</span>  <span class="o">?</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;PARA: &quot;</span> <span class="o">?</span> <span class="n">Para</span> <span class="o">?</span> <span class="s">&quot;    ______&quot;</span> <span class="o">?</span> <span class="n">nl</span>
+                            <span class="k">if</span> <span class="n">whatType</span> <span class="o">=</span> <span class="s">&quot;STRING&quot;</span>
+                               <span class="n">dataInfo</span> <span class="o">=</span> <span class="n">Para</span>
+                               <span class="o">?</span> <span class="s">&quot;dataInfo String: &quot;</span> <span class="o">?</span> <span class="n">dataInfo</span>
+                            <span class="k">but</span> <span class="n">whatType</span> <span class="o">=</span> <span class="s">&quot;NUMBER&quot;</span>
+                               <span class="n">datinfo</span>  <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">Para</span>
+                               <span class="o">?</span> <span class="s">&quot;dataInfo Number: &quot;</span> <span class="o">?</span> <span class="n">dataInfo</span>
+                            <span class="k">else</span> <span class="n">whatType</span> <span class="o">=</span> <span class="s">&quot;OBJECT&quot;</span>
+                               <span class="n">dataInfo</span> <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">para</span><span class="p">.</span><span class="n">aData</span>
+                               <span class="o">?</span> <span class="s">&quot;dataInfo OBJECT: &quot;</span> <span class="o">?</span> <span class="n">dataInfo</span>
+                            <span class="k">ok</span>
+                          <span class="o">?</span> <span class="s">&quot;dataInfo USING: &quot;</span> <span class="o">?</span> <span class="n">dataInfo</span>
+            <span class="sd">### Para.aData does NOT exist on first pass ( Object with member)</span>
+            <span class="sd">### Result isObject when assigned &quot;self&quot;</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">self</span>
+            <span class="k">switch</span> <span class="n">cOperator</span>
+                <span class="k">on</span> <span class="s">&quot;+&quot;</span>
+                     <span class="n">answer</span> <span class="o">=</span> <span class="n">FuncAdd</span><span class="p">(</span> <span class="n">aData</span><span class="p">,</span> <span class="n">dataInfo</span> <span class="p">)</span>
+                     <span class="o">?</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;AnswerString - FunAdd aData, dataInfo: &quot;</span> <span class="o">?</span> <span class="n">answer</span>
+                     <span class="sd">### result = self, is Object, populate Object with aData member</span>
+                     <span class="n">result</span><span class="p">.</span><span class="n">aData</span> <span class="o">=</span> <span class="n">answer</span>
+                <span class="k">off</span>
+            <span class="sd">### Result = Self is Object</span>
+            <span class="k">return</span> <span class="n">result</span>
 
-    func print
-        ? nl+&quot;ClassPrint aData: &quot; ? aData
+    <span class="k">func</span> <span class="n">print</span>
+        <span class="o">?</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;ClassPrint aData: &quot;</span> <span class="o">?</span> <span class="n">aData</span>
 </pre></div>
 </div>
 </div>
@@ -740,45 +740,45 @@ class BigNumber
 <span id="index-7"></span><h2>Inheritance<a class="headerlink" href="#inheritance" title="Permalink to this headline">¶</a></h2>
 <p>We can create class from another class in the class definition using the keyword from.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Class &lt;Class Name&gt; [From &lt;Parent Class Name&gt;]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="o">&lt;</span><span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;</span> <span class="o">[</span><span class="k">From</span> <span class="o">&lt;</span><span class="n">Parent</span> <span class="k">Class</span> <span class="n">Name</span><span class="o">&gt;]</span>
 </pre></div>
 </div>
 <p>We can call a method in the parent class from the child class using the super object.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func methodname
-        ...
-        super.methodname()
-        ...
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">methodname</span>
+        <span class="p">...</span>
+        <span class="n">super</span><span class="p">.</span><span class="n">methodname</span><span class="p">()</span>
+        <span class="p">...</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func main
-        e1 = new Employee {
-                Name = &quot;test&quot;
-                age = 20
-                job = &quot;programmer&quot;
-                salary = 20000000
-                print()
-        }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">main</span>
+        <span class="n">e1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Employee</span> <span class="p">{</span>
+                <span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+                <span class="n">age</span> <span class="o">=</span> <span class="mi">20</span>
+                <span class="n">job</span> <span class="o">=</span> <span class="s">&quot;programmer&quot;</span>
+                <span class="n">salary</span> <span class="o">=</span> <span class="mi">20000000</span>
+                <span class="n">print</span><span class="p">()</span>
+        <span class="p">}</span>
 
 
-Class Human
-        Name Age
-        func print
-                see &quot;Name : &quot; + name + nl + &quot;Age  : &quot; + age + nl
+<span class="k">Class</span> <span class="n">Human</span>
+        <span class="n">Name</span> <span class="n">Age</span>
+        <span class="k">func</span> <span class="n">print</span>
+                <span class="k">see</span> <span class="s">&quot;Name : &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;Age  : &quot;</span> <span class="o">+</span> <span class="n">age</span> <span class="o">+</span> <span class="n">nl</span>
 
-Class Employee from Human
-        Job Salary
-        func print
-                super.print()
-                see &quot;Job  : &quot; + job + nl + &quot;Salary : &quot; + salary + nl
+<span class="k">Class</span> <span class="n">Employee</span> <span class="k">from</span> <span class="n">Human</span>
+        <span class="n">Job</span> <span class="n">Salary</span>
+        <span class="k">func</span> <span class="n">print</span>
+                <span class="n">super</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+                <span class="k">see</span> <span class="s">&quot;Job  : &quot;</span> <span class="o">+</span> <span class="n">job</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;Salary : &quot;</span> <span class="o">+</span> <span class="n">salary</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Name : test
-Age  : 20
-Job  : programmer
-Salary : 20000000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span> <span class="p">:</span> <span class="n">test</span>
+<span class="n">Age</span>  <span class="p">:</span> <span class="mi">20</span>
+<span class="n">Job</span>  <span class="p">:</span> <span class="n">programmer</span>
+<span class="n">Salary</span> <span class="p">:</span> <span class="mi">20000000</span>
 </pre></div>
 </div>
 </div>
@@ -786,14 +786,14 @@ Salary : 20000000
 <span id="index-8"></span><h2>Dynamic Attributes<a class="headerlink" href="#dynamic-attributes" title="Permalink to this headline">¶</a></h2>
 <p>We can write instructions after the class name to be executed when we create new objects</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new dynamicClass
-see o1.var5 + nl        # output 5
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">dynamicClass</span>
+<span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">var5</span> <span class="o">+</span> <span class="n">nl</span>        <span class="c"># output 5</span>
 
-Class DynamicClass
-        for x = 1 to 10
-                cStr = &quot;var&quot; + x + &quot; = &quot; + x
-                eval(cStr)
-        next
+<span class="k">Class</span> <span class="n">DynamicClass</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;var&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot; = &quot;</span> <span class="o">+</span> <span class="n">x</span>
+                <span class="n">eval</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+        <span class="k">next</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -813,24 +813,24 @@ using eval() we can execute the string to define the classes</p>
 <div class="section" id="packages">
 <span id="index-9"></span><h2>Packages<a class="headerlink" href="#packages" title="Permalink to this headline">¶</a></h2>
 <p>We can create a package (a group of classes under a common name) using the next syntax</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>package PackageName
-        Class Class1
-                ...
-        Class Class2
-                ...
-        Class Class3
-                ...
-        ...
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">package</span> <span class="n">PackageName</span>
+        <span class="k">Class</span> <span class="n">Class1</span>
+                <span class="p">...</span>
+        <span class="k">Class</span> <span class="n">Class2</span>
+                <span class="p">...</span>
+        <span class="k">Class</span> <span class="n">Class3</span>
+                <span class="p">...</span>
+        <span class="p">...</span>
 </pre></div>
 </div>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new System.output.console
-o1.print(&quot;Hello World&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">System</span><span class="p">.</span><span class="n">output</span><span class="p">.</span><span class="n">console</span>
+<span class="n">o1</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
 
-Package System.Output
-        Class Console
-                Func Print cText
-                        see cText + nl
+<span class="n">Package</span> <span class="n">System</span><span class="p">.</span><span class="n">Output</span>
+        <span class="k">Class</span> <span class="n">Console</span>
+                <span class="k">Func</span> <span class="n">Print</span> <span class="n">cText</span>
+                        <span class="k">see</span> <span class="n">cText</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -840,14 +840,14 @@ Package System.Output
 <p>Instead of typing the long name PackageName.ClassName we can use the import command</p>
 <p>When we import a package, we can use any class inside this package directly.</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>import system.output
-o1 = new console {
-        print(&quot;Hello World&quot;)
-}
-Package System.Output
-        Class Console
-                Func Print cText
-                        see cText + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="n">system</span><span class="p">.</span><span class="n">output</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">console</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="n">Package</span> <span class="n">System</span><span class="p">.</span><span class="n">Output</span>
+        <span class="k">Class</span> <span class="n">Console</span>
+                <span class="k">Func</span> <span class="n">Print</span> <span class="n">cText</span>
+                        <span class="k">see</span> <span class="n">cText</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
@@ -855,14 +855,14 @@ Package System.Output
 <span id="index-10"></span><h2>Printing Objects<a class="headerlink" href="#printing-objects" title="Permalink to this headline">¶</a></h2>
 <p>We can print the object state (attributes and values) using the see command.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see new point { x=10 y=20 z=30 }
-class point x y z
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x: 10.000000
-y: 20.000000
-z: 30.000000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="mf">10.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">20.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">30.000000</span>
 </pre></div>
 </div>
 </div>
@@ -870,44 +870,44 @@ z: 30.000000
 <span id="index-11"></span><h2>Find() and List of Objects<a class="headerlink" href="#find-and-list-of-objects" title="Permalink to this headline">¶</a></h2>
 <p>We can use the find() function to search inside a list of objects.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Find(List,ItemValue,nColumn,cAttribute) ---&gt; Item Index
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>myList1 = [new Company {position=3 name=&quot;Mahmoud&quot; symbol=&quot;MHD&quot;},
-           new Company {position=2 name=&quot;Bert&quot; symbol=&quot;BRT&quot;},
-           new Company {position=1 name=&quot;Ring&quot; symbol=&quot;RNG&quot;}
-          ]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myList1</span> <span class="o">=</span> <span class="o">[</span><span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">3</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Mahmoud&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;MHD&quot;</span><span class="p">},</span>
+           <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">2</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Bert&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;BRT&quot;</span><span class="p">},</span>
+           <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">1</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Ring&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;RNG&quot;</span><span class="p">}</span>
+          <span class="o">]</span>
 
-see find(mylist1,&quot;Bert&quot;,1,&quot;name&quot;) + nl
-see find(mylist1,&quot;Ring&quot;,1,&quot;name&quot;) + nl
-see find(mylist1,&quot;Mahmoud&quot;,1,&quot;name&quot;) + nl
-see find(mylist1,&quot;RNG&quot;,1,&quot;symbol&quot;) + nl
-see find(mylist1,&quot;MHD&quot;,1,&quot;symbol&quot;) + nl
-see find(mylist1,&quot;BRT&quot;,1,&quot;symbol&quot;) + nl
-see find(mylist1,3,1,&quot;position&quot;) + nl
-see find(mylist1,1,1,&quot;position&quot;) + nl
-see &quot;Other&quot; + nl
-see find(mylist1,&quot;test&quot;,1,&quot;name&quot;) + nl
-see find(mylist1,&quot;test&quot;,0,&quot;name&quot;) + nl
-see find(mylist1,&quot;test&quot;,5,&quot;name&quot;) + nl
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="s">&quot;Bert&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="s">&quot;Ring&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="s">&quot;RNG&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;symbol&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="s">&quot;MHD&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;symbol&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="s">&quot;BRT&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;symbol&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;position&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;position&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Other&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="s">&quot;test&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="s">&quot;test&quot;</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="s">&quot;test&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-class company position name symbol
+<span class="k">class</span> <span class="n">company</span> <span class="n">position</span> <span class="n">name</span> <span class="n">symbol</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>2
-3
-1
-3
-1
-2
-1
-3
-Other
-0
-0
-0
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">1</span>
+<span class="mi">3</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">1</span>
+<span class="mi">3</span>
+<span class="k">Other</span>
+<span class="mi">0</span>
+<span class="mi">0</span>
+<span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -915,105 +915,105 @@ Other
 <span id="index-12"></span><h2>Sort() and List of Objects<a class="headerlink" href="#sort-and-list-of-objects" title="Permalink to this headline">¶</a></h2>
 <p>We can sort a list of objects based on an object attribute using the Sort() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Sort(List,nColumn,cAttribute) ---&gt; Sorted List based on Object Attribute
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Sort</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">Object</span> <span class="n">Attribute</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>myList1 = [
-                new Company {position=3 name=&quot;Mahmoud&quot; symbol=&quot;MHD&quot;},
-                new Company {position=2 name=&quot;Bert&quot; symbol=&quot;BRT&quot;},
-                new Company {position=8 name=&quot;Charlie&quot; symbol=&quot;CHR&quot;},
-                new Company {position=6 name=&quot;Easy&quot; symbol=&quot;FEAS&quot;},
-                new Company {position=7 name=&quot;Fox&quot; symbol=&quot;EFOX&quot;},
-                new Company {position=5 name=&quot;Dog&quot; symbol=&quot;GDOG&quot;},
-                new Company {position=4 name=&quot;George&quot; symbol=&quot;DGRG&quot;},
-                new Company {position=1 name=&quot;Ring&quot; symbol=&quot;RNG&quot;}
-          ]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myList1</span> <span class="o">=</span> <span class="o">[</span>
+                <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">3</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Mahmoud&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;MHD&quot;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">2</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Bert&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;BRT&quot;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">8</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Charlie&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;CHR&quot;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">6</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Easy&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;FEAS&quot;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">7</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Fox&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;EFOX&quot;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">5</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Dog&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;GDOG&quot;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">4</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;George&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;DGRG&quot;</span><span class="p">},</span>
+                <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">1</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Ring&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;RNG&quot;</span><span class="p">}</span>
+          <span class="o">]</span>
 
-see sort(mylist1,1,&quot;name&quot;)
-see copy(&quot;*&quot;,70) + nl
-see sort(mylist1,1,&quot;symbol&quot;)
-see copy(&quot;*&quot;,70) + nl
-see sort(mylist1,1,&quot;position&quot;)
+<span class="k">see</span> <span class="n">sort</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">70</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">sort</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;symbol&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">70</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">sort</span><span class="p">(</span><span class="n">mylist1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="s">&quot;position&quot;</span><span class="p">)</span>
 
-class company position name symbol
+<span class="k">class</span> <span class="n">company</span> <span class="n">position</span> <span class="n">name</span> <span class="n">symbol</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>position: 2.000000
-name: Bert
-symbol: BRT
-position: 8.000000
-name: Charlie
-symbol: CHR
-position: 5.000000
-name: Dog
-symbol: GDOG
-position: 6.000000
-name: Easy
-symbol: FEAS
-position: 7.000000
-name: Fox
-symbol: EFOX
-position: 4.000000
-name: George
-symbol: DGRG
-position: 3.000000
-name: Mahmoud
-symbol: MHD
-position: 1.000000
-name: Ring
-symbol: RNG
-**********************************************************************
-position: 2.000000
-name: Bert
-symbol: BRT
-position: 8.000000
-name: Charlie
-symbol: CHR
-position: 4.000000
-name: George
-symbol: DGRG
-position: 7.000000
-name: Fox
-symbol: EFOX
-position: 6.000000
-name: Easy
-symbol: FEAS
-position: 5.000000
-name: Dog
-symbol: GDOG
-position: 3.000000
-name: Mahmoud
-symbol: MHD
-position: 1.000000
-name: Ring
-symbol: RNG
-**********************************************************************
-position: 1.000000
-name: Ring
-symbol: RNG
-position: 2.000000
-name: Bert
-symbol: BRT
-position: 3.000000
-name: Mahmoud
-symbol: MHD
-position: 4.000000
-name: George
-symbol: DGRG
-position: 5.000000
-name: Dog
-symbol: GDOG
-position: 6.000000
-name: Easy
-symbol: FEAS
-position: 7.000000
-name: Fox
-symbol: EFOX
-position: 8.000000
-name: Charlie
-symbol: CHR
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">position</span><span class="p">:</span> <span class="mf">2.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Bert</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">BRT</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">8.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Charlie</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">CHR</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">5.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Dog</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">GDOG</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">6.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Easy</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">FEAS</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">7.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Fox</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">EFOX</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">4.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">George</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">DGRG</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">3.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Mahmoud</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">MHD</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">1.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Ring</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">RNG</span>
+<span class="o">**********************************************************************</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">2.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Bert</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">BRT</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">8.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Charlie</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">CHR</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">4.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">George</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">DGRG</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">7.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Fox</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">EFOX</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">6.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Easy</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">FEAS</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">5.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Dog</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">GDOG</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">3.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Mahmoud</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">MHD</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">1.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Ring</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">RNG</span>
+<span class="o">**********************************************************************</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">1.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Ring</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">RNG</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">2.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Bert</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">BRT</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">3.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Mahmoud</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">MHD</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">4.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">George</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">DGRG</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">5.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Dog</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">GDOG</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">6.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Easy</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">FEAS</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">7.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Fox</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">EFOX</span>
+<span class="n">position</span><span class="p">:</span> <span class="mf">8.000000</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">Charlie</span>
+<span class="n">symbol</span><span class="p">:</span> <span class="n">CHR</span>
 </pre></div>
 </div>
 </div>
@@ -1021,12 +1021,12 @@ symbol: CHR
 <span id="index-13"></span><h2>Using Self.Attribute and Self.Method()<a class="headerlink" href="#using-self-attribute-and-self-method" title="Permalink to this headline">¶</a></h2>
 <p>Inside the class region (After the class name and before any method) and the class methods we can
 use self.attribute and self.method()</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Class Point
-        self.x = 10
-        self.y = 20
-        self.z = 30
-        func print
-                see self.x + nl + self.y + nl + self.z + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">Point</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">30</span>
+        <span class="k">func</span> <span class="n">print</span>
+                <span class="k">see</span> <span class="n">self</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">self</span><span class="p">.</span><span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1062,19 +1062,19 @@ object scope will be changed while we are inside the brace.</p>
 <p>How we can get access to our class attributes and methods while we are inside braces?</p>
 <p>This can be done using This.Attribute and This.Method()</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span>
 
-class point
-        x=10 y=20 z=30
-        print()
-        func print
-                new UI {
-                        display(this.x,this.y,this.z)
-                }
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
+        <span class="n">print</span><span class="p">()</span>
+        <span class="k">func</span> <span class="n">print</span>
+                <span class="k">new</span> <span class="n">UI</span> <span class="p">{</span>
+                        <span class="n">display</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">x</span><span class="p">,</span><span class="n">this</span><span class="p">.</span><span class="n">y</span><span class="p">,</span><span class="n">this</span><span class="p">.</span><span class="n">z</span><span class="p">)</span>
+                <span class="p">}</span>
 
-Class UI
-        func display x,y,z
-                see x + nl + y + nl + z + nl
+<span class="k">Class</span> <span class="n">UI</span>
+        <span class="k">func</span> <span class="n">display</span> <span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">z</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
@@ -1083,23 +1083,23 @@ Class UI
 <p>The class region is the region that comes after the class name and before any method.</p>
 <p>We can use This in the class region as Self.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
 
-        o1 = new program {
-                test()
-        }
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">program</span> <span class="p">{</span>
+                <span class="n">test</span><span class="p">()</span>
+        <span class="p">}</span>
 
-        ? o1
+        <span class="o">?</span> <span class="n">o1</span>
 
-class program
+<span class="k">class</span> <span class="n">program</span>
 
-        this.name = &quot;My Application&quot;
-        this.version = &quot;1.0&quot;
-        ? name ? version
+        <span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;My Application&quot;</span>
+        <span class="n">this</span><span class="p">.</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span>
+        <span class="o">?</span> <span class="n">name</span> <span class="o">?</span> <span class="n">version</span>
 
-        func test
-                ? &quot;Name    = &quot; + name
-                ? &quot;Version = &quot; + version
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="o">?</span> <span class="s">&quot;Name    = &quot;</span> <span class="o">+</span> <span class="n">name</span>
+                <span class="o">?</span> <span class="s">&quot;Version = &quot;</span> <span class="o">+</span> <span class="n">version</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1121,11 +1121,11 @@ version: 1.0
 </div>
 <p>Remember that in most cases we don’t need to use This or Self in the class region</p>
 <p>We can write</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class program name version
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">program</span> <span class="n">name</span> <span class="n">version</span>
 </pre></div>
 </div>
 <p>Or</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class program name=&quot;My Application&quot; version=&quot;1.0&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">program</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;My Application&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -1139,19 +1139,19 @@ version: 1.0
 <p>In Ring, the NULL value is just an empty string or a string that contains “NULL”</p>
 <p>We can check for NULL values using the isNULL() function</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>oProgram = new Program
-? oProgram.name
-? oProgram.version
-? isNULL(oProgram.name)
-? isNULL(oProgram.version)
-oProgram { name=&quot;My Application&quot; version=&quot;1.0&quot; }
-? isNULL(oProgram.name)
-? isNULL(oProgram.version)
-? oProgram
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oProgram</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Program</span>
+<span class="o">?</span> <span class="n">oProgram</span><span class="p">.</span><span class="n">name</span>
+<span class="o">?</span> <span class="n">oProgram</span><span class="p">.</span><span class="n">version</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">version</span><span class="p">)</span>
+<span class="n">oProgram</span> <span class="p">{</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;My Application&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span> <span class="p">}</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">version</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">oProgram</span>
 
-class program
-        name
-        version
+<span class="k">class</span> <span class="n">program</span>
+        <span class="n">name</span>
+        <span class="n">version</span>
 </pre></div>
 </div>
 <p>Output:</p>

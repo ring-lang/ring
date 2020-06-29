@@ -291,7 +291,7 @@
 <span id="index-2"></span><h2>Using Many Source Code Files<a class="headerlink" href="#using-many-source-code-files" title="Permalink to this headline">¶</a></h2>
 <p>To include another source file in the project, just use the load command.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load  &quot;filename.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span>  <span class="s">&quot;filename.ring&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -303,17 +303,17 @@
 <p>if you don’t know the file name until the runtime, or you need to use functions to get the file path, just use eval().</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># File : Start.ring
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># File : Start.ring</span>
 
-Load &quot;sub.ring&quot;
+<span class="k">Load</span> <span class="s">&quot;sub.ring&quot;</span>
 
-sayhello(&quot;Mahmoud&quot;)
+<span class="n">sayhello</span><span class="p">(</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># File : sub.ring
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># File : sub.ring</span>
 
-func sayhello cName
-        see &quot;Hello &quot; + cName + nl
+<span class="k">func</span> <span class="n">sayhello</span> <span class="n">cName</span>
+        <span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
@@ -326,23 +326,23 @@ func sayhello cName
 <p>This is very useful to create libraries that avoid conflicts in global variables</p>
 <p>Example:</p>
 <p>File: loadpackage.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = 100
-? &quot;Hello, World!&quot;
-load package &quot;testloadpackage.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+<span class="k">load</span> <span class="n">package</span> <span class="s">&quot;testloadpackage.ring&quot;</span>
 
-? x
-test()
+<span class="o">?</span> <span class="n">x</span>
+<span class="n">test</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>File: testloadpackage.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;Hello from testloadpackage.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello from testloadpackage.ring&quot;</span>
 
-x = 1000
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
 
-test()
+<span class="n">test</span><span class="p">()</span>
 
-func test
-        ? x
+<span class="k">func</span> <span class="n">test</span>
+        <span class="o">?</span> <span class="n">x</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -367,18 +367,18 @@ Hello from testloadpackage.ring
 <p>Because the (Load) command load the same source file only for the first time and ignore next times.</p>
 <p>So we have to use the (Load Again) command.</p>
 <p>Where we can use these files again during the runtime as in the next code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func setLang nLanguage
-        if C_ENV_DEFAULT_LANG = nLanguage
-                return
-        ok
-        C_ENV_DEFAULT_LANG = nLanguage
-        # Change the language
-                switch nLanguage
-                        on C_TRANSLATION_ENGLISH
-                                load again &quot;translation/english.ring&quot;
-                        on C_TRANSLATION_ARABIC
-                                load again &quot;translation/arabic.ring&quot;
-                off
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">setLang</span> <span class="n">nLanguage</span>
+        <span class="k">if</span> <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
+        <span class="n">C_ENV_DEFAULT_LANG</span> <span class="o">=</span> <span class="n">nLanguage</span>
+        <span class="c"># Change the language</span>
+                <span class="k">switch</span> <span class="n">nLanguage</span>
+                        <span class="k">on</span> <span class="n">C_TRANSLATION_ENGLISH</span>
+                                <span class="k">load</span> <span class="k">again</span> <span class="s">&quot;translation/english.ring&quot;</span>
+                        <span class="k">on</span> <span class="n">C_TRANSLATION_ARABIC</span>
+                                <span class="k">load</span> <span class="k">again</span> <span class="s">&quot;translation/arabic.ring&quot;</span>
+                <span class="k">off</span>
 </pre></div>
 </div>
 </div>

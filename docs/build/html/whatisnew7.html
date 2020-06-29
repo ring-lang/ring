@@ -297,23 +297,23 @@
 <p>This is very useful to create libraries that avoid conflicts in global variables</p>
 <p>Example:</p>
 <p>File: loadpackage.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = 100
-? &quot;Hello, World!&quot;
-load package &quot;testloadpackage.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+<span class="k">load</span> <span class="n">package</span> <span class="s">&quot;testloadpackage.ring&quot;</span>
 
-? x
-test()
+<span class="o">?</span> <span class="n">x</span>
+<span class="n">test</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>File: testloadpackage.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;Hello from testloadpackage.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello from testloadpackage.ring&quot;</span>
 
-x = 1000
+<span class="n">x</span> <span class="o">=</span> <span class="mi">1000</span>
 
-test()
+<span class="n">test</span><span class="p">()</span>
 
-func test
-        ? x
+<span class="k">func</span> <span class="n">test</span>
+        <span class="o">?</span> <span class="n">x</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -330,16 +330,16 @@ Hello from testloadpackage.ring
 <p>Using the ringvm_see() function we can redefine the behavior of the See command</p>
 <p>Also we can use ring_see() to have the original behavior</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;Hello world&quot; + nl
-see 123 + nl
-see [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;]
-see new point {x=10 y=20 z=30}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Hello world&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="mi">123</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>
+<span class="k">see</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
 
-func ringvm_see t
-        ring_see(&quot;We want to print: &quot;)
-        ring_See(t)
+<span class="k">func</span> <span class="n">ringvm_see</span> <span class="n">t</span>
+        <span class="n">ring_see</span><span class="p">(</span><span class="s">&quot;We want to print: &quot;</span><span class="p">)</span>
+        <span class="n">ring_See</span><span class="p">(</span><span class="n">t</span><span class="p">)</span>
 
-class point x y z
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -356,17 +356,17 @@ z: 30.000000
 <p>Using the ringvm_give() function we can redefine the behavior of the Give command</p>
 <p>Also we can use ring_give() to have the original behavior</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;Name: &quot; give name
-see &quot;Hello &quot; + name
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Name: &quot;</span> <span class="k">give</span> <span class="n">name</span>
+<span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span>
 
-func ringvm_give
-        see &quot;Mahmoud&quot; + nl
-        return &quot;Mahmoud&quot;
+<span class="k">func</span> <span class="n">ringvm_give</span>
+        <span class="k">see</span> <span class="s">&quot;Mahmoud&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">return</span> <span class="s">&quot;Mahmoud&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Name: Mahmoud
-Hello Mahmoud
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Name</span><span class="p">:</span> <span class="n">Mahmoud</span>
+<span class="n">Hello</span> <span class="n">Mahmoud</span>
 </pre></div>
 </div>
 </div>
@@ -386,23 +386,23 @@ Hello Mahmoud
 <p>The Trace library is updated, In the Debugger at break points we have now the “callstack” command</p>
 <p>This command will print the functions call stack.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;tracelib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
 
-func main
-        ? &quot;Hello from main!&quot;
-        test1()
+<span class="k">func</span> <span class="n">main</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from main!&quot;</span>
+        <span class="n">test1</span><span class="p">()</span>
 
-func test1
-        ? &quot;Hello from test1!&quot;
-        test2()
+<span class="k">func</span> <span class="n">test1</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from test1!&quot;</span>
+        <span class="n">test2</span><span class="p">()</span>
 
-func test2
-        ? &quot;Hello from test2!&quot;
-        test3()
+<span class="k">func</span> <span class="n">test2</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from test2!&quot;</span>
+        <span class="n">test3</span><span class="p">()</span>
 
-func test3
-        ? &quot;Hello from test3!&quot;
-        breakpoint()
+<span class="k">func</span> <span class="n">test3</span>
+        <span class="o">?</span> <span class="s">&quot;Hello from test3!&quot;</span>
+        <span class="n">breakpoint</span><span class="p">()</span>
 </pre></div>
 </div>
 <img alt="Call Stack" src="_images/callstack.png" />
@@ -482,25 +482,25 @@ func test3
 <p>Ring 1.7 comes with the RingLibuv extension</p>
 <p>Libuv is a multi-platform support library with a focus on asynchronous I/O.</p>
 <p>Example (Events Loop):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
-counter = 0
-idler = NULL
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">idler</span> <span class="o">=</span> <span class="kp">NULL</span>
 
-func main
-        idler = new_uv_idle_t()
-        uv_idle_init(uv_default_loop(), idler)
-        uv_idle_start(idler, &quot;wait()&quot;)
-        ? &quot;Idling...&quot;
-        uv_run(uv_default_loop(), UV_RUN_DEFAULT);
-        uv_loop_close(uv_default_loop());
-        destroy_uv_idle_t(idler)
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">idler</span> <span class="o">=</span> <span class="n">new_uv_idle_t</span><span class="p">()</span>
+        <span class="n">uv_idle_init</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span> <span class="n">idler</span><span class="p">)</span>
+        <span class="n">uv_idle_start</span><span class="p">(</span><span class="n">idler</span><span class="p">,</span> <span class="s">&quot;wait()&quot;</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s">&quot;Idling...&quot;</span>
+        <span class="n">uv_run</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">);</span>
+        <span class="n">uv_loop_close</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">());</span>
+        <span class="n">destroy_uv_idle_t</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
 
-func wait
-        counter++
-        if counter &gt;= 100000
-                uv_idle_stop(idler)
-        ok
+<span class="k">func</span> <span class="n">wait</span>
+        <span class="n">counter</span><span class="o">++</span>
+        <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">100000</span>
+                <span class="n">uv_idle_stop</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
+        <span class="k">ok</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -508,72 +508,72 @@ func wait
 </pre></div>
 </div>
 <p>Example (Server):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
-load &quot;objectslib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
 
-? &quot;Testing RingLibuv - Server Side - Using Classes&quot;
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Server Side - Using Classes&quot;</span>
 
-open_object(:MyServer)
+<span class="n">open_object</span><span class="p">(:</span><span class="n">MyServer</span><span class="p">)</span>
 
-class MyServer from ObjectControllerParent
+<span class="k">class</span> <span class="n">MyServer</span> <span class="k">from</span> <span class="n">ObjectControllerParent</span>
 
-        DEFAULT_PORT    = 13370
-        DEFAULT_BACKLOG = 1024
+        <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
+        <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
 
-        addr    = new_sockaddr_in()
-        server  = NULL
-        client  = NULL
-        myloop  = NULL
+        <span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+        <span class="n">server</span>  <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="n">client</span>  <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="n">myloop</span>  <span class="o">=</span> <span class="kp">NULL</span>
 
-        func start
-                myloop = uv_default_loop()
-                server = new_uv_tcp_t()
-                uv_tcp_init(myloop, server)
-                uv_ip4_addr(&quot;127.0.0.1&quot;, DEFAULT_PORT, addr)
-                uv_tcp_bind(server, addr, 0)
-                r = uv_listen(server, DEFAULT_BACKLOG, Method(:newconnection) )
-                if r
-                        ? &quot;Listen error &quot; + uv_strerror(r)
-                        return 1
-                ok
-                uv_run(myloop, UV_RUN_DEFAULT)
-                destroy_uv_tcp_t(server)
-                destroy_uv_sockaddr_in(addr)
+        <span class="k">func</span> <span class="n">start</span>
+                <span class="n">myloop</span> <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
+                <span class="n">server</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+                <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+                <span class="n">uv_tcp_bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">uv_listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">DEFAULT_BACKLOG</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">newconnection</span><span class="p">)</span> <span class="p">)</span>
+                <span class="k">if</span> <span class="n">r</span>
+                        <span class="o">?</span> <span class="s">&quot;Listen error &quot;</span> <span class="o">+</span> <span class="n">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="mi">1</span>
+                <span class="k">ok</span>
+                <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+                <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+                <span class="n">destroy_uv_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
 
-        func newconnection
-                ? &quot;New Connection&quot;
-                aPara   = uv_Eventpara(server,:connect)
-                nStatus = aPara[2]
-                if nStatus &lt; 0
-                        ? &quot;New connection error : &quot; + nStatus
-                        return
-                ok
-                client = new_uv_tcp_t()
-                uv_tcp_init(myloop, client)
-                if uv_accept(server, client) = 0
-                                uv_read_start(client, uv_myalloccallback(),
-                                                        Method(:echo_read))
-                ok
+        <span class="k">func</span> <span class="n">newconnection</span>
+                <span class="o">?</span> <span class="s">&quot;New Connection&quot;</span>
+                <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">server</span><span class="p">,:</span><span class="n">connect</span><span class="p">)</span>
+                <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nStatus</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                        <span class="o">?</span> <span class="s">&quot;New connection error : &quot;</span> <span class="o">+</span> <span class="n">nStatus</span>
+                        <span class="k">return</span>
+                <span class="k">ok</span>
+                <span class="n">client</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">uv_read_start</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span>
+                                                        <span class="n">Method</span><span class="p">(:</span><span class="n">echo_read</span><span class="p">))</span>
+                <span class="k">ok</span>
 
-        func echo_read
-                aPara = uv_Eventpara(client,:read)
-                nRead = aPara[2]
-                buf   = aPara[3]
-                if nRead &gt; 0
-                        req = new_uv_write_t()
-                                wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread)
-                        uv_write(req, client, wrbuf, 1, Method(:echo_write))
-                        ? uv_buf2str(wrbuf)
-                        message = &quot;message from the server to the client&quot;
-                        buf = new_uv_buf_t()
-                        set_uv_buf_t_len(buf,len(message))
-                        set_uv_buf_t_base(buf,varptr(&quot;message&quot;,&quot;char *&quot;))
-                        uv_write(req, client, buf, 1, Method(:echo_write))
-                ok
+        <span class="k">func</span> <span class="n">echo_read</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                        <span class="n">req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+                                <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">)</span>
+                        <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">wrbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_write</span><span class="p">))</span>
+                        <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                        <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;message from the server to the client&quot;</span>
+                        <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+                        <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                        <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">varptr</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">))</span>
+                        <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_write</span><span class="p">))</span>
+                <span class="k">ok</span>
 
-        func echo_write
-                aPara = uv_Eventpara(client,:read)
-                req   = aPara[1]
+        <span class="k">func</span> <span class="n">echo_write</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">req</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -585,30 +585,30 @@ hello from the client
 </pre></div>
 </div>
 <p>Example (Using Threads):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
-load &quot;objectslib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
 
-? &quot;Testing RingLibuv - Threads - Using Classes&quot;
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Threads - Using Classes&quot;</span>
 
-open_object(:MyThreads)
+<span class="n">open_object</span><span class="p">(:</span><span class="n">MyThreads</span><span class="p">)</span>
 
-class MyThreads from ObjectControllerParent
+<span class="k">class</span> <span class="n">MyThreads</span> <span class="k">from</span> <span class="n">ObjectControllerParent</span>
 
-        func Start
-                one_id = new_uv_thread_t()
-                two_id = new_uv_thread_t()
-                uv_thread_create(one_id, Method(:One))
-                uv_thread_create(two_id, Method(:Two))
-                uv_thread_join(one_id)
-                uv_thread_join(two_id)
-                destroy_uv_thread_t(one_id)
-                destroy_uv_thread_t(two_id)
+        <span class="k">func</span> <span class="n">Start</span>
+                <span class="n">one_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+                <span class="n">two_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+                <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">one_id</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">One</span><span class="p">))</span>
+                <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">two_id</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">Two</span><span class="p">))</span>
+                <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+                <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+                <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+                <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
 
-        func one
-                ? &quot;Message from the First Thread!&quot;
+        <span class="k">func</span> <span class="n">one</span>
+                <span class="o">?</span> <span class="s">&quot;Message from the First Thread!&quot;</span>
 
-        func Two
-                ? &quot;Message from the Second Thread!&quot;
+        <span class="k">func</span> <span class="n">Two</span>
+                <span class="o">?</span> <span class="s">&quot;Message from the Second Thread!&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>

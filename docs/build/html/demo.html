@@ -268,174 +268,174 @@
 <div class="section" id="language-shell">
 <span id="index-1"></span><h2>Language Shell<a class="headerlink" href="#language-shell" title="Permalink to this headline">¶</a></h2>
 <p>We can create simple interactive programming environment using the next program</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>while true
-        see nl + &quot;code:&gt; &quot;
-        give cCode
-        try
-                eval(cCode)
-        catch
-                see cCatchError
-        done
-end
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">while</span> <span class="kp">true</span>
+        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;code:&gt; &quot;</span>
+        <span class="k">give</span> <span class="n">cCode</span>
+        <span class="k">try</span>
+                <span class="n">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
+        <span class="k">catch</span>
+                <span class="k">see</span> <span class="n">cCatchError</span>
+        <span class="k">done</span>
+<span class="k">end</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>code:&gt; see &quot;hello world&quot;
-hello world
-code:&gt; for x = 1 to 10 see x + nl next
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">code</span><span class="p">:</span><span class="o">&gt;</span> <span class="k">see</span> <span class="s">&quot;hello world&quot;</span>
+<span class="n">hello</span> <span class="n">world</span>
+<span class="n">code</span><span class="p">:</span><span class="o">&gt;</span> <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="k">next</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+<span class="mi">10</span>
 
-code:&gt; func test see &quot;Hello from test&quot; + nl
+<span class="n">code</span><span class="p">:</span><span class="o">&gt;</span> <span class="k">func</span> <span class="n">test</span> <span class="k">see</span> <span class="s">&quot;Hello from test&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
-code:&gt; test()
-Hello from test
+<span class="n">code</span><span class="p">:</span><span class="o">&gt;</span> <span class="n">test</span><span class="p">()</span>
+<span class="n">Hello</span> <span class="k">from</span> <span class="n">test</span>
 
-code:&gt; bye
+<span class="n">code</span><span class="p">:</span><span class="o">&gt;</span> <span class="k">bye</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="main-menu">
 <span id="index-2"></span><h2>Main Menu<a class="headerlink" href="#main-menu" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># Demo Program
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Demo Program</span>
 
-while true
+<span class="k">while</span> <span class="kp">true</span>
 
-        see &quot;
+        <span class="k">see</span> <span class="s">&quot;</span>
 
-        Main Menu
-        ===========
-        [1] Say Hello
-        [2] Sum two numbers
-        [3] Stars
-        [4] Fact
-        [5] Exit
+        <span class="n">Main</span> <span class="n">Menu</span>
+        <span class="o">===========</span>
+        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
+        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
+        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
+        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
+        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
 
-        &quot; give nMenu see nl
+        <span class="s">&quot; give nMenu see nl</span>
 
-        # we can use Switch-ON-Other-OFF instead of IF-BUT-ELSE-OK
+        <span class="c"># we can use Switch-ON-Other-OFF instead of IF-BUT-ELSE-OK</span>
 
-        Switch nMenu
-        On 1 sayhello()
-        On 2 Sum()
-        On 3 Stars()
-        On 4
-                see &quot;Enter Number : &quot; give x
-                see &quot;Output : &quot;
+        <span class="k">Switch</span> <span class="n">nMenu</span>
+        <span class="k">On</span> <span class="mi">1</span> <span class="n">sayhello</span><span class="p">()</span>
+        <span class="k">On</span> <span class="mi">2</span> <span class="n">Sum</span><span class="p">()</span>
+        <span class="k">On</span> <span class="mi">3</span> <span class="n">Stars</span><span class="p">()</span>
+        <span class="k">On</span> <span class="mi">4</span>
+                <span class="k">see</span> <span class="s">&quot;Enter Number : &quot;</span> <span class="k">give</span> <span class="n">x</span>
+                <span class="k">see</span> <span class="s">&quot;Output : &quot;</span>
 
-                Try
-                        see Fact(number(x))
-                Catch
-                        see &quot;Error in parameters!&quot; + nl
-                Done
+                <span class="k">Try</span>
+                        <span class="k">see</span> <span class="n">Fact</span><span class="p">(</span><span class="n">number</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
+                <span class="k">Catch</span>
+                        <span class="k">see</span> <span class="s">&quot;Error in parameters!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">Done</span>
 
-        On &quot;5&quot; return
-        Other see &quot;bad option&quot; + nl
-        Off
+        <span class="k">On</span> <span class="s">&quot;5&quot;</span> <span class="k">return</span>
+        <span class="k">Other</span> <span class="k">see</span> <span class="s">&quot;bad option&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">Off</span>
 
-end
+<span class="k">end</span>
 
-func sayhello
-        see &quot;Enter your name ? &quot; give fname
-        see &quot;Hello &quot; + fname + nl
+<span class="k">func</span> <span class="n">sayhello</span>
+        <span class="k">see</span> <span class="s">&quot;Enter your name ? &quot;</span> <span class="k">give</span> <span class="n">fname</span>
+        <span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">fname</span> <span class="o">+</span> <span class="n">nl</span>
 
-func sum
-        see &quot;number 1 : &quot; give num1 see &quot;number 2 : &quot; give num2
-        see &quot;Sum : &quot; see 0 + num1 + num2
+<span class="k">func</span> <span class="n">sum</span>
+        <span class="k">see</span> <span class="s">&quot;number 1 : &quot;</span> <span class="k">give</span> <span class="n">num1</span> <span class="k">see</span> <span class="s">&quot;number 2 : &quot;</span> <span class="k">give</span> <span class="n">num2</span>
+        <span class="k">see</span> <span class="s">&quot;Sum : &quot;</span> <span class="k">see</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">num1</span> <span class="o">+</span> <span class="n">num2</span>
 
-func stars
-        for x = 1 to 10
-                see space(8)
-                for y = 1 to x see &quot;*&quot; next see nl
-        next
+<span class="k">func</span> <span class="n">stars</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="k">see</span> <span class="n">space</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">x</span> <span class="k">see</span> <span class="s">&quot;*&quot;</span> <span class="k">next</span> <span class="k">see</span> <span class="n">nl</span>
+        <span class="k">next</span>
 
-func fact x if x = 0 return 1 else return x * fact(x-1) ok
+<span class="k">func</span> <span class="n">fact</span> <span class="n">x</span> <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">return</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">ok</span>
 
-func space x y = &quot;&quot; for t=1 to x y += &quot; &quot; next return y
+<span class="k">func</span> <span class="n">space</span> <span class="n">x</span> <span class="n">y</span> <span class="o">=</span> <span class="s">&quot;&quot;</span> <span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">x</span> <span class="n">y</span> <span class="o">+=</span> <span class="s">&quot; &quot;</span> <span class="k">next</span> <span class="k">return</span> <span class="n">y</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>        Main Menu
-        ===========
-        [1] Say Hello
-        [2] Sum two numbers
-        [3] Stars
-        [4] Fact
-        [5] Exit
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>        <span class="n">Main</span> <span class="n">Menu</span>
+        <span class="o">===========</span>
+        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
+        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
+        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
+        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
+        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
 
-        1
+        <span class="mi">1</span>
 
-Enter your name ? Mahmoud Fayed
-Hello Mahmoud Fayed
-
-
-        Main Menu
-        ===========
-        [1] Say Hello
-        [2] Sum two numbers
-        [3] Stars
-        [4] Fact
-        [5] Exit
-
-        2
-
-number 1 : 3
-number 2 : 4
-Sum : 7
-
-        Main Menu
-        ===========
-        [1] Say Hello
-        [2] Sum two numbers
-        [3] Stars
-        [4] Fact
-        [5] Exit
-
-        3
-
-        *
-        **
-        ***
-        ****
-        *****
-        ******
-        *******
-        ********
-        *********
-        **********
+<span class="n">Enter</span> <span class="n">your</span> <span class="n">name</span> <span class="o">?</span> <span class="n">Mahmoud</span> <span class="n">Fayed</span>
+<span class="n">Hello</span> <span class="n">Mahmoud</span> <span class="n">Fayed</span>
 
 
-        Main Menu
-        ===========
-        [1] Say Hello
-        [2] Sum two numbers
-        [3] Stars
-        [4] Fact
-        [5] Exit
+        <span class="n">Main</span> <span class="n">Menu</span>
+        <span class="o">===========</span>
+        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
+        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
+        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
+        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
+        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
 
-        4
+        <span class="mi">2</span>
 
-Enter Number : 5
-Output : 120
+<span class="n">number</span> <span class="mi">1</span> <span class="p">:</span> <span class="mi">3</span>
+<span class="n">number</span> <span class="mi">2</span> <span class="p">:</span> <span class="mi">4</span>
+<span class="n">Sum</span> <span class="p">:</span> <span class="mi">7</span>
 
-        Main Menu
-        ===========
-        [1] Say Hello
-        [2] Sum two numbers
-        [3] Stars
-        [4] Fact
-        [5] Exit
+        <span class="n">Main</span> <span class="n">Menu</span>
+        <span class="o">===========</span>
+        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
+        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
+        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
+        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
+        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
 
-        5
+        <span class="mi">3</span>
+
+        <span class="o">*</span>
+        <span class="o">**</span>
+        <span class="o">***</span>
+        <span class="o">****</span>
+        <span class="o">*****</span>
+        <span class="o">******</span>
+        <span class="o">*******</span>
+        <span class="o">********</span>
+        <span class="o">*********</span>
+        <span class="o">**********</span>
+
+
+        <span class="n">Main</span> <span class="n">Menu</span>
+        <span class="o">===========</span>
+        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
+        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
+        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
+        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
+        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
+
+        <span class="mi">4</span>
+
+<span class="n">Enter</span> <span class="n">Number</span> <span class="p">:</span> <span class="mi">5</span>
+<span class="n">Output</span> <span class="p">:</span> <span class="mi">120</span>
+
+        <span class="n">Main</span> <span class="n">Menu</span>
+        <span class="o">===========</span>
+        <span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="n">Say</span> <span class="n">Hello</span>
+        <span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="n">Sum</span> <span class="n">two</span> <span class="n">numbers</span>
+        <span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="n">Stars</span>
+        <span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="n">Fact</span>
+        <span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="k">Exit</span>
+
+        <span class="mi">5</span>
 </pre></div>
 </div>
 </div>

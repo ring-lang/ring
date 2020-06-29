@@ -449,7 +449,7 @@ other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.</p>
 <p>Ring is 8-bit clean, Each character in the string is 8 bits (1 byte)</p>
 <p>So these functions (Int2Bytes(), Float2Bytes() and Double2Bytes()) just return a string.</p>
 <p>Also we can store binary data in strings</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>mystring = read(&quot;myfile.exe&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myfile.exe&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -487,9 +487,9 @@ Also we have the bytes order.</p>
 <p>Float2Bytes() —&gt; Ring string (Group of bytes) and the string size = sizeof(float)</p>
 <p>Double2Bytes() —&gt; Ring string (Group of bytes) and the string size = sizeof(double)</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? len( int2bytes(1) )
-? len( float2bytes(1) )
-? len( double2bytes(1) )
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">int2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">float2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">double2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -513,28 +513,28 @@ This is important to know when we do arithmetic operations on numbers.</p>
 <li><p>The Unsigned() Function</p></li>
 </ol>
 <p>The function unsigned() expect the first and the second parameters as numbers</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>unsigned(nNumber1,nNumber2,cOperator)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span><span class="p">(</span><span class="n">nNumber1</span><span class="p">,</span><span class="n">nNumber2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We can use the bytes2int() function to convert the bytes to a number</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>B = list(4)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
-for k=1 to 4
-{
-        B[k]= Space(4)
-        for kk=1 to 4 { B[k][kk]= char(60+4*k +kk) }
-        ? &quot; B&quot; +k +&quot;: &quot; +B[k]
-}
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">4</span>
+<span class="p">{</span>
+        <span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">]=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">kk</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">4</span> <span class="p">{</span> <span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">kk</span><span class="o">]=</span> <span class="n">char</span><span class="p">(</span><span class="mi">60</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span><span class="n">kk</span><span class="p">)</span> <span class="p">}</span>
+        <span class="o">?</span> <span class="s">&quot; B&quot;</span> <span class="o">+</span><span class="n">k</span> <span class="o">+</span><span class="s">&quot;: &quot;</span> <span class="o">+</span><span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">]</span>
+<span class="p">}</span>
 
-A12= Space(4)     A12= bytes2int(B[1]) ^ bytes2int(B[2])
-? &quot;A12: &quot; +string(A12)
-A34= Space(4)     A34= bytes2int(B[3]) ^ bytes2int(B[4])
-? &quot;A34: &quot; +string(A34)
-A12= space(4)     A12= Unsigned(bytes2int(B[1]),bytes2int(B[2]),&quot;^&quot;)
-? &quot;unsigned A12: &quot; +A12
-A34= space(4)     A34= Unsigned(bytes2int(B[3]),bytes2int(B[4]),&quot;^&quot;)
-? &quot;unsigned A34: &quot; +A34
+<span class="n">A12</span><span class="o">=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A12</span><span class="o">=</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">^</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;A12: &quot;</span> <span class="o">+</span><span class="kt">string</span><span class="p">(</span><span class="n">A12</span><span class="p">)</span>
+<span class="n">A34</span><span class="o">=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A34</span><span class="o">=</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">)</span> <span class="p">^</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;A34: &quot;</span> <span class="o">+</span><span class="kt">string</span><span class="p">(</span><span class="n">A34</span><span class="p">)</span>
+<span class="n">A12</span><span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A12</span><span class="o">=</span> <span class="n">Unsigned</span><span class="p">(</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">),</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;unsigned A12: &quot;</span> <span class="o">+</span><span class="n">A12</span>
+<span class="n">A34</span><span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A34</span><span class="o">=</span> <span class="n">Unsigned</span><span class="p">(</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">),</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;unsigned A34: &quot;</span> <span class="o">+</span><span class="n">A34</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -671,13 +671,13 @@ And the language comes with innovative features added to achieve the language go
 <div class="section" id="the-documentation-says-functional-programming-is-supported-but-then-this-happens">
 <span id="index-14"></span><h2>The documentation says functional programming is supported, but then this happens?<a class="headerlink" href="#the-documentation-says-functional-programming-is-supported-but-then-this-happens" title="Permalink to this headline">¶</a></h2>
 <p>The question was about this code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>f = func {
-    a = 42
-    return func { return a }
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">f</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
+    <span class="n">a</span> <span class="o">=</span> <span class="mi">42</span>
+    <span class="k">return</span> <span class="k">func</span> <span class="p">{</span> <span class="k">return</span> <span class="n">a</span> <span class="p">}</span>
+<span class="p">}</span>
 
-innerF = call f()
-call innerF()
+<span class="n">innerF</span> <span class="o">=</span> <span class="k">call</span> <span class="n">f</span><span class="p">()</span>
+<span class="k">call</span> <span class="n">innerF</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -797,44 +797,44 @@ And this provide flexibility to convert between high level types that can be rep
 <p>The main function is very important, you need it when you want to write statements that uses
 local variables instead of the Global scope.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = 10
-myfunc()
-See &quot;X value = &quot; + X  # here I expect that x will be (10)
-                      # but I will get another value (6) because myfunc() uses x !
-Func myfunc
-   for x = 1 to 5
-       See x + nl
-   next
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">myfunc</span><span class="p">()</span>
+<span class="k">See</span> <span class="s">&quot;X value = &quot;</span> <span class="o">+</span> <span class="n">X</span>  <span class="c"># here I expect that x will be (10)</span>
+                      <span class="c"># but I will get another value (6) because myfunc() uses x !</span>
+<span class="k">Func</span> <span class="n">myfunc</span>
+   <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+       <span class="k">See</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+   <span class="k">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
-2
-3
-4
-5
-X value = 6
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="n">X</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">6</span>
 </pre></div>
 </div>
 <p>Now using the Main function</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func Main
-   x = 10
-   myfunc()
-   See &quot;X value = &quot; + X
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
+   <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+   <span class="n">myfunc</span><span class="p">()</span>
+   <span class="k">See</span> <span class="s">&quot;X value = &quot;</span> <span class="o">+</span> <span class="n">X</span>
 
-Func myfunc
-   for x = 1 to 5
-       See x + nl
-   next
+<span class="k">Func</span> <span class="n">myfunc</span>
+   <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+       <span class="k">See</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+   <span class="k">next</span>
 </pre></div>
 </div>
 <p>Output</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
-2
-3
-4
-5
-X value = 10
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="n">X</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">10</span>
 </pre></div>
 </div>
 </div>
@@ -856,19 +856,19 @@ X value = 10
 <p>In Low Level languages or languages near to the machine it's good to be like this</p>
 <p>But for high level language designed for applications it's better to be natural</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>mylist = [1,2,3,4,5]
-for x = 1 to len(mylist)
-        see x + nl
-next
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>In the previous example we start from 1 to the length of the array
 if the index starts from 0 we will write</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>for x = 0 to len(mylist)-1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span>
 </pre></div>
 </div>
 <p>or remember the for loop in other languages</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>for(x=0 ; x&lt;nMax ; x++ )
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">0</span> <span class="p">;</span> <span class="n">x</span><span class="o">&lt;</span><span class="n">nMax</span> <span class="p">;</span> <span class="n">x</span><span class="o">++</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>You will use the &lt; operator !</p>
@@ -881,13 +881,13 @@ if the index starts from 0 we will write</p>
 <li><p>To help in supporting Natural Language Programming.</p></li>
 <li><p>To be able to select your favorite style when writing the language keywords</p></li>
 </ol>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;lower case!&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;lower case!&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SEE &quot;UPPER case!&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">SEE</span> <span class="s">&quot;UPPER case!&quot;</span>
 </pre></div>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;First Letter is UPPER case!&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;First Letter is UPPER case!&quot;</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="5">
@@ -896,9 +896,9 @@ if the index starts from 0 we will write</p>
 <li><p>In Ring, No conflict between Variables, Method Names &amp; Classes Names</p></li>
 </ol>
 <p>We can write person as variable name and Person as class name.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>person = new Person
-class Person
-        name address phone
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">person</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span>
+<span class="k">class</span> <span class="n">Person</span>
+        <span class="n">name</span> <span class="n">address</span> <span class="n">phone</span>
 </pre></div>
 </div>
 </div>
@@ -951,7 +951,7 @@ But It’s not the Ring way “Spirit” to do things.</p>
 <div class="section" id="is-there-constructor-methods-in-ring">
 <span id="index-24"></span><h2>Is there constructor methods in Ring?<a class="headerlink" href="#is-there-constructor-methods-in-ring" title="Permalink to this headline">¶</a></h2>
 <p>When you create new object for example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span>
 </pre></div>
 </div>
 <p>1 - Ring will allocate dynamic memory space to be used for the new object attributes that Ring doesn’t know anything about them.</p>
@@ -982,13 +982,13 @@ z: NULL
 </div>
 <p>You have an option to call init() method directly when you create a new object</p>
 <p>This method can do anything with the object attributes as it will be called after creating the object and executing the class region code.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>p1 = new point3d(100,200,300)
-see p1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">p1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point3d</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">p1</span>
 
-class point3d
-        x y z
-        func init p1,p2,p3
-                x=p1 y=p2 z=p3
+<span class="k">class</span> <span class="n">point3d</span>
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">init</span> <span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span>
+                <span class="n">x</span><span class="o">=</span><span class="n">p1</span> <span class="n">y</span><span class="o">=</span><span class="n">p2</span> <span class="n">z</span><span class="o">=</span><span class="n">p3</span>
 </pre></div>
 </div>
 </div>
@@ -999,15 +999,15 @@ class point3d
 <p>3- When you call a method, Ring will check the object class and the class parent (if you are using inheritance) and will collect the methods for you to be used now or later from any object that belong to the same class.</p>
 <p>4- Since methods are dynamic and each object get the method from the class, you can after creating objects, add new methods and use it with the object or any object created or will be created from the same class.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point {x=10 y=20 z=30}
-o2 = new point {x=100 y=200 z =300}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
+<span class="n">o2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span> <span class="o">=</span><span class="mi">300</span><span class="p">}</span>
 
-addmethod(o1,&quot;print&quot;, func { see x + nl + y + nl + z + nl } )
+<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">,</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span> <span class="p">)</span>
 
-o1.print()
-o2.print()
+<span class="n">o1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">o2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
 
-class point x y z
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -1025,25 +1025,25 @@ class point x y z
 <p>Yes we can, The setter/getter methods are called automatically when you start using the attributes from outside the class
 Also you can call the methods instead of using the attributes. It’s your choice.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new Developer
-o1.name = &quot;Mahmoud&quot;  see o1.name + nl
-o1 { name = &quot;Gal&quot;  see name }
-o1 { name = &quot;Bert&quot;  see name }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Developer</span>
+<span class="n">o1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>  <span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">o1</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Gal&quot;</span>  <span class="k">see</span> <span class="n">name</span> <span class="p">}</span>
+<span class="n">o1</span> <span class="p">{</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Bert&quot;</span>  <span class="k">see</span> <span class="n">name</span> <span class="p">}</span>
 
-o1.setname(&quot;Marino&quot;)
-see o1.getname()
+<span class="n">o1</span><span class="p">.</span><span class="n">setname</span><span class="p">(</span><span class="s">&quot;Marino&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">getname</span><span class="p">()</span>
 
-Class Developer
+<span class="k">Class</span> <span class="n">Developer</span>
 
-                name language = &quot;Ring Programming Language&quot;
+                <span class="n">name</span> <span class="n">language</span> <span class="o">=</span> <span class="s">&quot;Ring Programming Language&quot;</span>
 
-                func setname value
-                                see &quot;Message from SetName() Function!&quot; + nl
-                                name = value + &quot; - &quot; + language
+                <span class="k">func</span> <span class="n">setname</span> <span class="n">value</span>
+                                <span class="k">see</span> <span class="s">&quot;Message from SetName() Function!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                                <span class="n">name</span> <span class="o">=</span> <span class="n">value</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> <span class="n">language</span>
 
-                func getname
-                                see &quot;Message from GetName() Function!&quot; + nl + nl
-                                return &quot;Mr. &quot; + name + nl
+                <span class="k">func</span> <span class="n">getname</span>
+                                <span class="k">see</span> <span class="s">&quot;Message from GetName() Function!&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">nl</span>
+                                <span class="k">return</span> <span class="s">&quot;Mr. &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1078,37 +1078,37 @@ the problem. Also using the Main function and avoiding global variables may help
 <p>We can in the run-time determine the class attributes (Add/Remove)</p>
 <p>We can execute (any code) while defining the class attributes</p>
 <p>Example (1)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>oPerson = new Person
-Class Person
-   See &quot;Welcome to the Ring language&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oPerson</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span>
+<span class="k">Class</span> <span class="n">Person</span>
+   <span class="k">See</span> <span class="s">&quot;Welcome to the Ring language&quot;</span>
 </pre></div>
 </div>
 <p>Example (2)</p>
 <p>Customize attributes based on global variable value</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>$debug = true
-oPerson = new Person
-see oPerson
-Class Person
-    if $debug  date=date()  time=time() ok
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">$</span><span class="n">debug</span> <span class="o">=</span> <span class="kp">true</span>
+<span class="n">oPerson</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span>
+<span class="k">see</span> <span class="n">oPerson</span>
+<span class="k">Class</span> <span class="n">Person</span>
+    <span class="k">if</span> <span class="o">$</span><span class="n">debug</span>  <span class="n">date</span><span class="o">=</span><span class="n">date</span><span class="p">()</span>  <span class="n">time</span><span class="o">=</span><span class="n">time</span><span class="p">()</span> <span class="k">ok</span>
 </pre></div>
 </div>
 <p>In the previous example when we have the $debug flag set to true, we will add the Date and Time
 attributes to the object state.</p>
 <p>Example (3)</p>
 <p>Store the object index based on global variable</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>$ObjectsCount = 0
-oPerson = new Person
-see oPerson
-oPerson2 = new Person
-see oPerson2
-Class Person
-      $ObjectsCount++
-      nIndex = $ObjectsCount
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">$</span><span class="n">ObjectsCount</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">oPerson</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span>
+<span class="k">see</span> <span class="n">oPerson</span>
+<span class="n">oPerson2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span>
+<span class="k">see</span> <span class="n">oPerson2</span>
+<span class="k">Class</span> <span class="n">Person</span>
+      <span class="o">$</span><span class="n">ObjectsCount</span><span class="o">++</span>
+      <span class="n">nIndex</span> <span class="o">=</span> <span class="o">$</span><span class="n">ObjectsCount</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>nindex: 1.000000
-nindex: 2.000000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">nindex</span><span class="p">:</span> <span class="mf">1.000000</span>
+<span class="n">nindex</span><span class="p">:</span> <span class="mf">2.000000</span>
 </pre></div>
 </div>
 <p>Common Example:</p>
@@ -1147,26 +1147,26 @@ For large programs, use classes and objects and small number of global variables
 <div class="section" id="how-to-get-the-file-size-using-ftell-and-fseek-functions">
 <span id="index-30"></span><h2>How to get the file size using ftell() and fseek() functions?<a class="headerlink" href="#how-to-get-the-file-size-using-ftell-and-fseek-functions" title="Permalink to this headline">¶</a></h2>
 <p>The next function can be used to get the file size without reading the file!</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func getFileSize fp
-       C_FILESTART = 0
-       C_FILEEND = 2
-       fseek(fp,0,C_FILEEND)
-       nFileSize = ftell(fp)
-       fseek(fp,0,C_FILESTART)
-       return nFileSize
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">getFileSize</span> <span class="n">fp</span>
+       <span class="n">C_FILESTART</span> <span class="o">=</span> <span class="mi">0</span>
+       <span class="n">C_FILEEND</span> <span class="o">=</span> <span class="mi">2</span>
+       <span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">C_FILEEND</span><span class="p">)</span>
+       <span class="n">nFileSize</span> <span class="o">=</span> <span class="n">ftell</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+       <span class="n">fseek</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">C_FILESTART</span><span class="p">)</span>
+       <span class="k">return</span> <span class="n">nFileSize</span>
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>The previous function take the fp (file pointer) as parameter, We can get the fp from opening the file using fopen() function.</p>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>fp = fopen(&quot;filename&quot;,&quot;r&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
 
-see  &quot;File Size : &quot; + getFileSize(fp) + nl
+<span class="k">see</span>  <span class="s">&quot;File Size : &quot;</span> <span class="o">+</span> <span class="n">getFileSize</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Another solution (Read the file)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see len(read(&quot;filename&quot;))
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">len</span><span class="p">(</span><span class="n">read</span><span class="p">(</span><span class="s">&quot;filename&quot;</span><span class="p">))</span>
 </pre></div>
 </div>
 </div>
@@ -1174,15 +1174,15 @@ see  &quot;File Size : &quot; + getFileSize(fp) + nl
 <span id="index-31"></span><h2>How to get the current source file path?<a class="headerlink" href="#how-to-get-the-current-source-file-path" title="Permalink to this headline">¶</a></h2>
 <p>We can use the next function to get the current source file path
 then we can add the path variable to the file name</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cPath = CurrentPath()
-func currentpath
-        cFileName = filename()
-        for x = len(cFileName) to 1 step -1
-                if cFileName[x] = &quot;/&quot;
-                        return left(cFileName,x-1)
-                ok
-        next
-        return cFileName
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cPath</span> <span class="o">=</span> <span class="n">CurrentPath</span><span class="p">()</span>
+<span class="k">func</span> <span class="n">currentpath</span>
+        <span class="n">cFileName</span> <span class="o">=</span> <span class="n">filename</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="k">to</span> <span class="mi">1</span> <span class="k">step</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">if</span> <span class="n">cFileName</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;/&quot;</span>
+                        <span class="k">return</span> <span class="n">left</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+                <span class="k">ok</span>
+        <span class="k">next</span>
+        <span class="k">return</span> <span class="n">cFileName</span>
 </pre></div>
 </div>
 </div>
@@ -1191,13 +1191,13 @@ func currentpath
 <p>if you want to use predefined parameters or optional parameters
 Just accept a list that works like hash/dictionary</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>sum([ :a = 1, :b = 2])
-sum([ :a = 1 ])
-sum([ :b = 2 ])
-func sum pList
-        if plist[:a] = NULL pList[:a] = 4 ok
-        if plist[:b] = NULL pList[:b] = 5 ok
-        see pList[:a] + pList[:b] + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sum</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="p">:</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+<span class="n">sum</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">a</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">]</span><span class="p">)</span>
+<span class="n">sum</span><span class="p">(</span><span class="o">[</span> <span class="p">:</span><span class="n">b</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">]</span><span class="p">)</span>
+<span class="k">func</span> <span class="n">sum</span> <span class="n">pList</span>
+        <span class="k">if</span> <span class="n">plist</span><span class="o">[</span><span class="p">:</span><span class="n">a</span><span class="o">]</span> <span class="o">=</span> <span class="kp">NULL</span> <span class="n">pList</span><span class="o">[</span><span class="p">:</span><span class="n">a</span><span class="o">]</span> <span class="o">=</span> <span class="mi">4</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">plist</span><span class="o">[</span><span class="p">:</span><span class="n">b</span><span class="o">]</span> <span class="o">=</span> <span class="kp">NULL</span> <span class="n">pList</span><span class="o">[</span><span class="p">:</span><span class="n">b</span><span class="o">]</span> <span class="o">=</span> <span class="mi">5</span> <span class="k">ok</span>
+        <span class="k">see</span> <span class="n">pList</span><span class="o">[</span><span class="p">:</span><span class="n">a</span><span class="o">]</span> <span class="o">+</span> <span class="n">pList</span><span class="o">[</span><span class="p">:</span><span class="n">b</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1211,20 +1211,20 @@ func sum pList
 <span id="index-33"></span><h2>How to print keys or values only in List/Dictionary?<a class="headerlink" href="#how-to-print-keys-or-values-only-in-list-dictionary" title="Permalink to this headline">¶</a></h2>
 <p>If you want to print keys only or values only just select the index of the item (one or two).</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>C_COUNTRY = 1
-C_CITY = 2
-mylist = [
-        :KSA = &quot;Riyadh&quot; ,
-        :Egypt = &quot;Cairo&quot;
-]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_COUNTRY</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">C_CITY</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="p">:</span><span class="n">KSA</span> <span class="o">=</span> <span class="s">&quot;Riyadh&quot;</span> <span class="p">,</span>
+        <span class="p">:</span><span class="n">Egypt</span> <span class="o">=</span> <span class="s">&quot;Cairo&quot;</span>
+<span class="o">]</span>
 
-for x in mylist
-        see x[C_COUNTRY] + nl
-next
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">mylist</span>
+        <span class="k">see</span> <span class="n">x</span><span class="o">[</span><span class="n">C_COUNTRY</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
 
-for x in mylist
-        see x[C_CITY] + nl
-next
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">mylist</span>
+        <span class="k">see</span> <span class="n">x</span><span class="o">[</span><span class="n">C_CITY</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1238,17 +1238,17 @@ Cairo
 <div class="section" id="why-i-get-a-strange-result-when-printing-nl-with-lists">
 <span id="index-34"></span><h2>Why I get a strange result when printing nl with lists?<a class="headerlink" href="#why-i-get-a-strange-result-when-printing-nl-with-lists" title="Permalink to this headline">¶</a></h2>
 <p>In the next code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>list = 1:5        # list = [1,2,3,4,5]
-see list + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>        <span class="c"># list = [1,2,3,4,5]</span>
+<span class="k">see</span> <span class="kt">list</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>New Line will be added to the list then the list will be printed, the default print of the lists
 will print a newline at the end, You added new newline and You have now 2 newlines to be printed.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &lt;Expr&gt;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="o">&lt;</span><span class="n">Expr</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <p>The see command just print the final result of the expression, the expression will be evaluated as it</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>nl = char(13) + char(10) # just a variable that you can change to anything !
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">nl</span> <span class="o">=</span> <span class="n">char</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="n">char</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="c"># just a variable that you can change to anything !</span>
 </pre></div>
 </div>
 <p>The + is an operator</p>
@@ -1267,9 +1267,9 @@ number + string ---&gt; new number
 <div class="section" id="could-you-explain-the-output-of-the-strcmp-function">
 <span id="index-35"></span><h2>Could you explain the output of the StrCmp() function?<a class="headerlink" href="#could-you-explain-the-output-of-the-strcmp-function" title="Permalink to this headline">¶</a></h2>
 <p>At first remember that you can check strings using ‘=’ operator directly.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see strcmp(&quot;hello&quot;,&quot;hello&quot;) + nl +
-strcmp(&quot;abc&quot;,&quot;bcd&quot;) + nl +
-strcmp(&quot;bcd&quot;,&quot;abc&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+<span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">,</span><span class="s">&quot;bcd&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+<span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;bcd&quot;</span><span class="p">,</span><span class="s">&quot;abc&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>if the two strings are the same then it returns 0</p>
@@ -1302,20 +1302,20 @@ C:\LRing\libs\mylib2.ring
 </pre></div>
 </div>
 <p>The file t1.ring contains the next code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;mylib.ring&quot;
-load &quot;libs\mylib2.ring&quot;
-myfunc()
-test()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;mylib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;libs\mylib2.ring&quot;</span>
+<span class="n">myfunc</span><span class="p">()</span>
+<span class="n">test</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>The file mylib.ring contains the next code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func myfunc
-        see &quot;message from myfunc&quot;+nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">myfunc</span>
+        <span class="k">see</span> <span class="s">&quot;message from myfunc&quot;</span><span class="o">+</span><span class="n">nl</span>
 </pre></div>
 </div>
 <p>The file libsmylib2.ring contains the next code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func test
-        see &quot;message from test&quot; + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">test</span>
+        <span class="k">see</span> <span class="s">&quot;message from test&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>from the folder C:LRing</p>
@@ -1338,33 +1338,33 @@ message from test
 <span id="index-37"></span><h2>Why this example use the GetChar() twice?<a class="headerlink" href="#why-this-example-use-the-getchar-twice" title="Permalink to this headline">¶</a></h2>
 <p>The GetChar() function accept one character from the keyboard buffer</p>
 <p>In this example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>While True
-        See &quot;
-                Main Menu
-                (1) Say Hello
-                (2) Exit
-        &quot;
-        Option = GetChar()
-        GetChar() GetChar()  # End of line
-        # the previous two lines can be replaced with the next line
-        # Give Option
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="kp">True</span>
+        <span class="k">See</span> <span class="s">&quot;</span>
+                <span class="n">Main</span> <span class="n">Menu</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+                <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">Exit</span>
+        <span class="s">&quot;</span>
+        <span class="n">Option</span> <span class="o">=</span> <span class="n">GetChar</span><span class="p">()</span>
+        <span class="n">GetChar</span><span class="p">()</span> <span class="n">GetChar</span><span class="p">()</span>  <span class="c"># End of line</span>
+        <span class="c"># the previous two lines can be replaced with the next line</span>
+        <span class="c"># Give Option</span>
 
-        if Option = 1
-                see &quot;Enter your name : &quot; give cName
-                see &quot;Hello &quot; + cName
-        else
-                bye
-        ok
-End
+        <span class="k">if</span> <span class="n">Option</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">see</span> <span class="s">&quot;Enter your name : &quot;</span> <span class="k">give</span> <span class="n">cName</span>
+                <span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
+        <span class="k">else</span>
+                <span class="k">bye</span>
+        <span class="k">ok</span>
+<span class="k">End</span>
 </pre></div>
 </div>
 <p>We uses GetChar() Three times</p>
 <p>The first time we get the user option</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Option = GetChar()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Option</span> <span class="o">=</span> <span class="n">GetChar</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>But in the second and the third times (We accept the new line characters from the buffer)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>GetChar() GetChar()  # End of line
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">GetChar</span><span class="p">()</span> <span class="n">GetChar</span><span class="p">()</span>  <span class="c"># End of line</span>
 </pre></div>
 </div>
 <p>Example : when the user select the option number 1 then press ENTER</p>
@@ -1380,7 +1380,7 @@ End
 <span id="index-38"></span><h2>How to use NULL and ISNULL() function?<a class="headerlink" href="#how-to-use-null-and-isnull-function" title="Permalink to this headline">¶</a></h2>
 <p>when we try to use uninitialized variable in the Ring programming language, we get a clear runtime error message</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See x
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">x</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1390,10 +1390,10 @@ in file tests\seeuninit.ring
 </div>
 <p>The same happens when you try to access uninitialized attributes</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
-see o1
-see o1.x
-class point x y z
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
+<span class="k">see</span> <span class="n">o1</span>
+<span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">x</span>
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1406,11 +1406,11 @@ in file tests\seeuninit2.ring
 </pre></div>
 </div>
 <p>if you want to check for the error, just use Try/Catch/End</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Try
-        see x
-Catch
-        See &quot;Sorry, We can&#39;t use x!&quot; + nl
-Done
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Try</span>
+        <span class="k">see</span> <span class="n">x</span>
+<span class="k">Catch</span>
+        <span class="k">See</span> <span class="s">&quot;Sorry, We can&#39;t use x!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">Done</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1424,24 +1424,24 @@ Done
 <p>ISNULL() is a function that returns true (1) if the input is an empty string or just a string contains “NULL”</p>
 <p>This because we need to test these values (empty strings) and strings contains “NULL” that sometimes come from external resource like DBMS.</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See IsNull(5) + nl +        # print 0
-IsNull(&quot;hello&quot;) + nl +      # print 0
-IsNull([1,3,5]) + nl +      # print 0
-IsNull(&quot;&quot;) + nl +           # print 1
-IsNull(&quot;NULL&quot;)              # print 1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">IsNull</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>        <span class="c"># print 0</span>
+<span class="n">IsNull</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>      <span class="c"># print 0</span>
+<span class="n">IsNull</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>      <span class="c"># print 0</span>
+<span class="n">IsNull</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>           <span class="c"># print 1</span>
+<span class="n">IsNull</span><span class="p">(</span><span class="s">&quot;NULL&quot;</span><span class="p">)</span>              <span class="c"># print 1</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="how-to-print-lists-that-contains-objects">
 <span id="index-39"></span><h2>How to print lists that contains objects?<a class="headerlink" href="#how-to-print-lists-that-contains-objects" title="Permalink to this headline">¶</a></h2>
 <p>In this example we will see how we can print a list contains objects.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [[1,2,3] , new point(1,2,3), new point(1,2,3)]
-see &quot;print the list&quot; + nl
-see alist
-see &quot;print the item (object)&quot; + nl
-see alist[2]
-class point x y z
-        func init p1,p2,p3 x=p1 y=p2 z=p3
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="p">,</span> <span class="k">new</span> <span class="n">point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="k">new</span> <span class="n">point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="o">]</span>
+<span class="k">see</span> <span class="s">&quot;print the list&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">alist</span>
+<span class="k">see</span> <span class="s">&quot;print the item (object)&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">alist</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">init</span> <span class="n">p1</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p3</span> <span class="n">x</span><span class="o">=</span><span class="n">p1</span> <span class="n">y</span><span class="o">=</span><span class="n">p2</span> <span class="n">z</span><span class="o">=</span><span class="n">p3</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1465,27 +1465,27 @@ z: 3.000000
 <div class="section" id="how-to-insert-an-item-to-the-first-position-in-the-list">
 <span id="index-40"></span><h2>How to insert an item to the first position in the list?<a class="headerlink" href="#how-to-insert-an-item-to-the-first-position-in-the-list" title="Permalink to this headline">¶</a></h2>
 <p>To insert an item we can use the insert(aList,nIndex,Value) function.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = 1:5
-insert(aList,0,0)
-See aList # print numbers from 0 to 5
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+<span class="n">insert</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">aList</span> <span class="c"># print numbers from 0 to 5</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="how-to-print-new-lines-and-other-characters">
 <span id="index-41"></span><h2>How to print new lines and other characters?<a class="headerlink" href="#how-to-print-new-lines-and-other-characters" title="Permalink to this headline">¶</a></h2>
 <p>To print new line we can use the nl variable.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Hello&quot; + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>or we can use multi-line literal as in the next example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Hello
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello</span>
 
-&quot;
+<span class="s">&quot;</span>
 </pre></div>
 </div>
 <p>if we want to print other characters we can use the char(nASCII) function</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See char(109) + nl +    # print m
-    char(77)            # print M
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">char</span><span class="p">(</span><span class="mi">109</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print m</span>
+    <span class="n">char</span><span class="p">(</span><span class="mi">77</span><span class="p">)</span>            <span class="c"># print M</span>
 </pre></div>
 </div>
 </div>
@@ -1493,20 +1493,20 @@ See aList # print numbers from 0 to 5
 <span id="index-42"></span><h2>Why we don’t use () after the qApp class name?<a class="headerlink" href="#why-we-don-t-use-after-the-qapp-class-name" title="Permalink to this headline">¶</a></h2>
 <p>When we use RingQt to create GUI application, we uses () after the
 class name when we create new objects for example.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new qWidget() { setWindowTitle(&quot;Hello World&quot;) resize(400,400) show() }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span> <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span> <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span> <span class="n">show</span><span class="p">()</span> <span class="p">}</span>
 </pre></div>
 </div>
 <p>but before doing that we create an object from the qApp class and we don’t use () after that</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;guilib.ring&quot;
-app = new qApp
-{
-    win=new qWidget()
-    {
-        setwindowtitle(:test)
-        show()
-    }
-    exec()
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<span class="n">app</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qApp</span>
+<span class="p">{</span>
+    <span class="n">win</span><span class="o">=</span><span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span>
+    <span class="p">{</span>
+        <span class="n">setwindowtitle</span><span class="p">(:</span><span class="n">test</span><span class="p">)</span>
+        <span class="n">show</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Using () after the class name means calling the init() method in the class and passing parameters to this method.</p>
@@ -1519,74 +1519,74 @@ which contains the classes.</p>
 <div class="section" id="why-the-window-title-bar-is-going-outside-the-screen">
 <span id="index-43"></span><h2>Why the window title bar is going outside the screen?<a class="headerlink" href="#why-the-window-title-bar-is-going-outside-the-screen" title="Permalink to this headline">¶</a></h2>
 <p>When we write the next code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;guilib.ring&quot;
-app = new qApp
-{
-        win=new qWidget()
-        {
-              setwindowtitle(:test)
-              setGeometry(0,0,200,200)
-              show()
-        }
-        exec()
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<span class="n">app</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qApp</span>
+<span class="p">{</span>
+        <span class="n">win</span><span class="o">=</span><span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span>
+        <span class="p">{</span>
+              <span class="n">setwindowtitle</span><span class="p">(:</span><span class="n">test</span><span class="p">)</span>
+              <span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+              <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>I would expect that the window will run at the point (0,0) with (200,200) size but the actual
 result is that the window title bar is going outside the screen.</p>
 <p>This is related to the behavior of Qt framework.</p>
 <p>The next code will avoid the problem</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;guilib.ring&quot;
-new qApp {
-        new qWidget() {
-                move(0,0)
-                resize(200,200)
-                show()
-        }
-        exec()
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">move</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="how-to-create-an-array-of-buttons-in-gui-applications">
 <span id="index-44"></span><h2>How to create an array of buttons in GUI applications?<a class="headerlink" href="#how-to-create-an-array-of-buttons-in-gui-applications" title="Permalink to this headline">¶</a></h2>
 <p>Check the next example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;guilib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
-App1 = new qApp {
+<span class="n">App1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
 
-        win1 = new qWidget() {
-                move(0,0)
-                resize(500,500)
-                new qPushButton(win1)
-                {
-                        settext(&quot;OK&quot;)
-                        setclickevent(&quot;click()&quot;)
-                }
-                btn1 = new qPushButton(win1)
-                {
-                        setgeometry(100,100,100,30)
-                        settext(&quot;Button1&quot;)
-                }
+        <span class="n">win1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">move</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+                <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;OK&quot;</span><span class="p">)</span>
+                        <span class="n">setclickevent</span><span class="p">(</span><span class="s">&quot;click()&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">btn1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;Button1&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
 
-                btn2 = new qPushButton(win1)
-                {
-                        setgeometry(200,100,100,30)
-                        settext(&quot;Button2&quot;)
-                }
+                <span class="n">btn2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;Button2&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
 
-                button = [btn1, btn2]
-                show()
-        }
+                <span class="n">button</span> <span class="o">=</span> <span class="o">[</span><span class="n">btn1</span><span class="p">,</span> <span class="n">btn2</span><span class="o">]</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
 
-        exec()
+        <span class="n">exec</span><span class="p">()</span>
 
-}
+<span class="p">}</span>
 
-func click
+<span class="k">func</span> <span class="n">click</span>
 
-        button[1] { settext (&quot;Button3&quot;) }
-        button[2] { settext (&quot;Button4&quot;) }
+        <span class="n">button</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="p">{</span> <span class="n">settext</span> <span class="p">(</span><span class="s">&quot;Button3&quot;</span><span class="p">)</span> <span class="p">}</span>
+        <span class="n">button</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="p">{</span> <span class="n">settext</span> <span class="p">(</span><span class="s">&quot;Button4&quot;</span><span class="p">)</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -1628,46 +1628,46 @@ app=new qApp
 <div class="section" id="how-to-create-a-modal-window">
 <span id="index-46"></span><h2>How to create a Modal Window?<a class="headerlink" href="#how-to-create-a-modal-window" title="Permalink to this headline">¶</a></h2>
 <p>This example demonstrates how to create a modal window</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;guilib.ring&quot;
-app=new qApp
-{
-        frmStart=new Qwidget()
-        {
-                setWindowTitle(&quot;The First Window&quot;)
-                resize(300,320)
-                move(200,200)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<span class="n">app</span><span class="o">=</span><span class="k">new</span> <span class="n">qApp</span>
+<span class="p">{</span>
+        <span class="n">frmStart</span><span class="o">=</span><span class="k">new</span> <span class="n">Qwidget</span><span class="p">()</span>
+        <span class="p">{</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;The First Window&quot;</span><span class="p">)</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+                <span class="n">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
 
-                button=new qPushButton(frmStart)
-                {
-                        setText(&quot;Show Modal Window&quot;)
-                        resize(200,30)
-                        setClickEvent(&quot;frmModal.show()&quot;)
-                }
+                <span class="n">button</span><span class="o">=</span><span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">frmStart</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Show Modal Window&quot;</span><span class="p">)</span>
+                        <span class="n">resize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;frmModal.show()&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
 
-                new qPushButton(frmStart)
-                {
-                        setText(&quot;Close Window&quot;)
-                        move(0,50)
-                        resize(200,30)
-                        setClickEvent(&quot;frmStart.Close()&quot;)
-                }
+                <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">frmStart</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Close Window&quot;</span><span class="p">)</span>
+                        <span class="n">move</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>
+                        <span class="n">resize</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;frmStart.Close()&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
 
-                show()
-        }
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
 
-        frmModal =new Qwidget()
-        {
-                setWindowTitle(&quot;Modal Window&quot;)
-                resize(300,320)
-                move(200,200)
-                setparent(frmStart)
-                setwindowmodality(true)
-                setwindowflags(Qt_Dialog)
-        }
+        <span class="n">frmModal</span> <span class="o">=</span><span class="k">new</span> <span class="n">Qwidget</span><span class="p">()</span>
+        <span class="p">{</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Modal Window&quot;</span><span class="p">)</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">320</span><span class="p">)</span>
+                <span class="n">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                <span class="n">setparent</span><span class="p">(</span><span class="n">frmStart</span><span class="p">)</span>
+                <span class="n">setwindowmodality</span><span class="p">(</span><span class="kp">true</span><span class="p">)</span>
+                <span class="n">setwindowflags</span><span class="p">(</span><span class="n">Qt_Dialog</span><span class="p">)</span>
+        <span class="p">}</span>
 
-        exec()
+        <span class="n">exec</span><span class="p">()</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Related Documents</p>
@@ -1681,36 +1681,36 @@ app=new qApp
 <div class="section" id="how-can-i-disable-maximize-button-and-resize-window">
 <span id="index-47"></span><h2>How can I disable maximize button and resize window?<a class="headerlink" href="#how-can-i-disable-maximize-button-and-resize-window" title="Permalink to this headline">¶</a></h2>
 <p>Use the method setWindowFlags()</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;guilib.ring&quot;
-app1 = new qapp {
-                win1 = new qwidget() {
-                                setwindowtitle(&quot;First&quot;)
-                                setgeometry(100,100,500,500)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<span class="n">app1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qapp</span> <span class="p">{</span>
+                <span class="n">win1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qwidget</span><span class="p">()</span> <span class="p">{</span>
+                                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;First&quot;</span><span class="p">)</span>
+                                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
 
-                                new qpushbutton(win1) {
-                                                setgeometry(100,100,100,30)
-                                                settext(&quot;close&quot;)
-                                                setclickevent(&quot;app1.quit()&quot;)
-                                }
+                                <span class="k">new</span> <span class="n">qpushbutton</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
+                                                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                                                <span class="n">settext</span><span class="p">(</span><span class="s">&quot;close&quot;</span><span class="p">)</span>
+                                                <span class="n">setclickevent</span><span class="p">(</span><span class="s">&quot;app1.quit()&quot;</span><span class="p">)</span>
+                                <span class="p">}</span>
 
-                                new qpushbutton(win1) {
-                                                setgeometry(250,100,100,30)
-                                                settext(&quot;Second&quot;)
-                                                setclickevent(&quot;second()&quot;)
-                                }
+                                <span class="k">new</span> <span class="n">qpushbutton</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
+                                                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">250</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                                                <span class="n">settext</span><span class="p">(</span><span class="s">&quot;Second&quot;</span><span class="p">)</span>
+                                                <span class="n">setclickevent</span><span class="p">(</span><span class="s">&quot;second()&quot;</span><span class="p">)</span>
+                                <span class="p">}</span>
 
-                                showmaximized()
-                }
-                exec()
-}
+                                <span class="n">showmaximized</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
 
-func second
-                win2 = new qwidget() {
-                                setwindowtitle(&quot;Second&quot;)
-                                setgeometry(100,100,500,500)
-                                setwindowflags(Qt_dialog)
-                                show()
-                }
+<span class="k">func</span> <span class="n">second</span>
+                <span class="n">win2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qwidget</span><span class="p">()</span> <span class="p">{</span>
+                                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Second&quot;</span><span class="p">)</span>
+                                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+                                <span class="n">setwindowflags</span><span class="p">(</span><span class="n">Qt_dialog</span><span class="p">)</span>
+                                <span class="n">show</span><span class="p">()</span>
+                <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -1719,25 +1719,25 @@ func second
 <p>In Ring 1.1 and later versions we have native support for SQLite, so you don’t need to use it through ODBC.</p>
 <p>Also we can access SQLite through RingQt.</p>
 <p>The answer to your question</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>pODBC = odbc_init()
-odbc_connect(pODBC,&quot;DRIVER=SQLite3 ODBC Driver;Database=mydb.db;LongNames=0;&quot;+
-                   &quot;Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;&quot;)
-odbc_execute(pODBC,&quot;create table &#39;tel&#39; (&#39;ID&#39;,&#39;NAME&#39;,&#39;PHONE&#39;);&quot;)
-odbc_execute(pODBC,&quot;insert into &#39;tel&#39; values (&#39;1&#39;,&#39;Mahmoud&#39;,&#39;123456&#39;);&quot;)
-odbc_execute(pODBC,&quot;insert into &#39;tel&#39; values (&#39;2&#39;,&#39;Ahmed&#39;,&#39;123456&#39;);&quot;)
-odbc_execute(pODBC,&quot;insert into &#39;tel&#39; values (&#39;3&#39;,&#39;Ibrahim&#39;,&#39;123456&#39;);&quot;)
-odbc_execute(pODBC,&quot;select * from tel&quot;) + nl
-nMax = odbc_colcount(pODBC)
-See &quot;Columns Count : &quot; + nMax + nl
-while odbc_fetch(pODBC)
-        See nl
-        for x = 1 to nMax
-                see odbc_getdata(pODBC,x)
-                if x != nMax see &quot; - &quot; ok
-        next
-end
-odbc_disconnect(pODBC)
-odbc_close(pODBC)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
+<span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;DRIVER=SQLite3 ODBC Driver;Database=mydb.db;LongNames=0;&quot;</span><span class="o">+</span>
+                   <span class="s">&quot;Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;&quot;</span><span class="p">)</span>
+<span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;create table &#39;tel&#39; (&#39;ID&#39;,&#39;NAME&#39;,&#39;PHONE&#39;);&quot;</span><span class="p">)</span>
+<span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into &#39;tel&#39; values (&#39;1&#39;,&#39;Mahmoud&#39;,&#39;123456&#39;);&quot;</span><span class="p">)</span>
+<span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into &#39;tel&#39; values (&#39;2&#39;,&#39;Ahmed&#39;,&#39;123456&#39;);&quot;</span><span class="p">)</span>
+<span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;insert into &#39;tel&#39; values (&#39;3&#39;,&#39;Ibrahim&#39;,&#39;123456&#39;);&quot;</span><span class="p">)</span>
+<span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;select * from tel&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+        <span class="k">See</span> <span class="n">nl</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
+                <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">!=</span> <span class="n">nMax</span> <span class="k">see</span> <span class="s">&quot; - &quot;</span> <span class="k">ok</span>
+        <span class="k">next</span>
+<span class="k">end</span>
+<span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -1761,24 +1761,24 @@ SQLite ODBC (UTF-8) Driver - UsageCount=1
 <span id="index-49"></span><h2>Can I connect to dbase/harbour database?<a class="headerlink" href="#can-i-connect-to-dbase-harbour-database" title="Permalink to this headline">¶</a></h2>
 <p>You can connect to any database using ODBC</p>
 <p>To connect to xbase files (<a href="#id1"><span class="problematic" id="id2">*</span></a>.DBF)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Using DBF Files using ODBC&quot; + nl
-pODBC = odbc_init()
-See &quot;Connect to database&quot; + nl
-odbc_connect(pODBC,&quot;Driver={Microsoft dBase Driver (*.dbf)};&quot;+
-                   &quot;datasource=dBase Files;DriverID=277&quot;)
-See &quot;Select data&quot; + nl
-odbc_execute(pODBC,&quot;select * from tel.dbf&quot;)
-nMax = odbc_colcount(pODBC)
-See &quot;Columns Count : &quot; + nMax + nl
-while odbc_fetch(pODBC)
-           See &quot;Row data:&quot; + nl
-           for x = 1 to nMax
-                           see odbc_getdata(pODBC,x) + &quot; - &quot;
-           next
-end
-See &quot;Close database...&quot; + nl
-odbc_disconnect(pODBC)
-odbc_close(pODBC)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Using DBF Files using ODBC&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
+<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;Driver={Microsoft dBase Driver (*.dbf)};&quot;</span><span class="o">+</span>
+                   <span class="s">&quot;datasource=dBase Files;DriverID=277&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Select data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;select * from tel.dbf&quot;</span><span class="p">)</span>
+<span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+           <span class="k">See</span> <span class="s">&quot;Row data:&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+           <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
+                           <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span>
+           <span class="k">next</span>
+<span class="k">end</span>
+<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1794,24 +1794,24 @@ Mahmoud - Egypt - 123456 - Close database...
 </pre></div>
 </div>
 <p>Also you can connect to a Visual FoxPro database (requires installing Visual FoxPro driver)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;ODBC test 6&quot; + nl
-pODBC = odbc_init()
-See &quot;Connect to database&quot; + nl
-odbc_connect(pODBC,&quot;Driver={Microsoft Visual FoxPro Driver};&quot;+
-        &quot;SourceType=DBC;SourceDB=C:\PWCT19\ssbuild\PWCTDATA\CH1\Data\mydata.dbc;&quot;)
-See &quot;Select data&quot; + nl
-see odbc_execute(pODBC,&quot;select * from t38&quot;) + nl
-nMax = odbc_colcount(pODBC)
-See &quot;Columns Count : &quot; + nMax + nl
-while odbc_fetch(pODBC)
-        See &quot;Row data:&quot; + nl
-        for x = 1 to nMax
-                see odbc_getdata(pODBC,x) + &quot; - &quot;
-        next
-end
-See &quot;Close database...&quot; + nl
-odbc_disconnect(pODBC)
-odbc_close(pODBC)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;ODBC test 6&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">pODBC</span> <span class="o">=</span> <span class="n">odbc_init</span><span class="p">()</span>
+<span class="k">See</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">odbc_connect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;Driver={Microsoft Visual FoxPro Driver};&quot;</span><span class="o">+</span>
+        <span class="s">&quot;SourceType=DBC;SourceDB=C:\PWCT19\ssbuild\PWCTDATA</span><span class="se">\C</span><span class="s">H1\Data\mydata.dbc;&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Select data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">odbc_execute</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="s">&quot;select * from t38&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">nMax</span> <span class="o">=</span> <span class="n">odbc_colcount</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Columns Count : &quot;</span> <span class="o">+</span> <span class="n">nMax</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">while</span> <span class="n">odbc_fetch</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Row data:&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
+                <span class="k">see</span> <span class="n">odbc_getdata</span><span class="p">(</span><span class="n">pODBC</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span>
+        <span class="k">next</span>
+<span class="k">end</span>
+<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">odbc_disconnect</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
+<span class="n">odbc_close</span><span class="p">(</span><span class="n">pODBC</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -1845,29 +1845,29 @@ add specific solutions that match specific paradigms (OOP, Functional, Declarati
 <li><p><a href="#id9"><span class="problematic" id="id10">**</span></a>** No command is required to end functions/methods/classes/packages <a href="#id11"><span class="problematic" id="id12">**</span></a><a href="#id13"><span class="problematic" id="id14">**</span></a></p></li>
 </ol>
 <p>Look at this example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Hello&quot;
-test()
-func test
-    see &quot;message from the test function!&quot; + nl
-class test
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello&quot;</span>
+<span class="n">test</span><span class="p">()</span>
+<span class="k">func</span> <span class="n">test</span>
+    <span class="k">see</span> <span class="s">&quot;message from the test function!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">class</span> <span class="n">test</span>
 </pre></div>
 </div>
 <p>In the previous example we have a function called test() so we can call it directly using test()</p>
 <p>In the next example, test() will become a method</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See&quot;Hello&quot;
-test()    # runtime error message
-class test
-        func test # Test() now is a method (not a function)
-                see &quot;message from the test method!&quot; + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="s">See&quot;Hello&quot;</span>
+<span class="n">test</span><span class="p">()</span>    <span class="c"># runtime error message</span>
+<span class="k">class</span> <span class="n">test</span>
+        <span class="k">func</span> <span class="n">test</span> <span class="c"># Test() now is a method (not a function)</span>
+                <span class="k">see</span> <span class="s">&quot;message from the test method!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>The errors comes when you define a method then try calling it directly as a function.</p>
 <p>The previous program must be</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See&quot;Hello&quot;
-new test { test() }   # now will call the method
-class test
-        func test # Test() now is a method (not a function)
-                see &quot;message from the test method!&quot; + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="s">See&quot;Hello&quot;</span>
+<span class="k">new</span> <span class="n">test</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>   <span class="c"># now will call the method</span>
+<span class="k">class</span> <span class="n">test</span>
+        <span class="k">func</span> <span class="n">test</span> <span class="c"># Test() now is a method (not a function)</span>
+                <span class="k">see</span> <span class="s">&quot;message from the test method!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
@@ -1906,9 +1906,9 @@ class test
 </pre></div>
 </div>
 <p>Then from Ring you can load the DLL file using LoadLib() function then call the C function that called dlfunc() as any Ring function.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Dynamic DLL&quot; + NL
-LoadLib(&quot;ringlib.dll&quot;)
-dlfunc()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Dynamic DLL&quot;</span> <span class="o">+</span> <span class="n">NL</span>
+<span class="n">LoadLib</span><span class="p">(</span><span class="s">&quot;ringlib.dll&quot;</span><span class="p">)</span>
+<span class="n">dlfunc</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -1987,79 +1987,79 @@ Message from dlfunc
 <div class="section" id="how-to-add-combobox-and-other-elements-to-the-cells-of-a-qtablewidget">
 <span id="index-54"></span><h2>How to add Combobox and other elements to the cells of a QTableWidget?<a class="headerlink" href="#how-to-add-combobox-and-other-elements-to-the-cells-of-a-qtablewidget" title="Permalink to this headline">¶</a></h2>
 <p>Check the next code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;guilib.ring&quot;
-New qApp
-{
-        win1 = new qMainWindow() {
-                setGeometry(100,100,1100,370)
-                setwindowtitle(&quot;Using QTableWidget&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<span class="k">New</span> <span class="n">qApp</span>
+<span class="p">{</span>
+        <span class="n">win1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qMainWindow</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1100</span><span class="p">,</span><span class="mi">370</span><span class="p">)</span>
+                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Using QTableWidget&quot;</span><span class="p">)</span>
 
-                Table1 = new qTableWidget(win1) {
-                        setrowcount(10) setcolumncount(10)
-                        setGeometry(0,0,800,400)
-                        setselectionbehavior(QAbstractItemView_SelectRows)
+                <span class="n">Table1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qTableWidget</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setrowcount</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">setcolumncount</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+                        <span class="n">setGeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                        <span class="n">setselectionbehavior</span><span class="p">(</span><span class="n">QAbstractItemView_SelectRows</span><span class="p">)</span>
 
-                        for x = 1 to 10
-                                for y = 1 to 10
-                                        item1 = new qtablewidgetitem(&quot;R&quot;+X+&quot;C&quot;+Y)
-                                        setitem(x-1,y-1, item1)
-                                next
-                        next
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                                <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                                        <span class="n">item1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qtablewidgetitem</span><span class="p">(</span><span class="s">&quot;R&quot;</span><span class="o">+</span><span class="n">X</span><span class="o">+</span><span class="s">&quot;C&quot;</span><span class="o">+</span><span class="n">Y</span><span class="p">)</span>
+                                        <span class="n">setitem</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">item1</span><span class="p">)</span>
+                                <span class="k">next</span>
+                        <span class="k">next</span>
 
-                        cmb = new QComboBox(Table1) {
-                                alist = [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;]
-                                for x in aList additem(x,0) next
-                        }
-                                setCellWidget(5, 5, cmb)
-                }
+                        <span class="n">cmb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QComboBox</span><span class="p">(</span><span class="n">Table1</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">alist</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="s">&quot;five&quot;</span><span class="o">]</span>
+                                <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span> <span class="n">additem</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span> <span class="k">next</span>
+                        <span class="p">}</span>
+                                <span class="n">setCellWidget</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="n">cmb</span><span class="p">)</span>
+                <span class="p">}</span>
 
-                setcentralwidget(table1)
-                show()
-        }
-        exec()
-}
+                <span class="n">setcentralwidget</span><span class="p">(</span><span class="n">table1</span><span class="p">)</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="how-to-perform-some-manipulations-on-selected-cells-in-qtablewidget">
 <span id="index-55"></span><h2>How to perform some manipulations on selected cells in QTableWidget?<a class="headerlink" href="#how-to-perform-some-manipulations-on-selected-cells-in-qtablewidget" title="Permalink to this headline">¶</a></h2>
 <p>Check the next sample</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;guilib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
-New qApp {
-        win1 = new qMainWindow() {
-                setGeometry(100,100,800,600)
-                setwindowtitle(&quot;Using QTableWidget&quot;)
-                Table1 = new qTableWidget(win1) {
-                        setrowcount(10) setcolumncount(10)
-                        setGeometry(10,10,400,400)
-                        for x = 1 to 10
-                                for y = 1 to 10
-                                        item1 = new qtablewidgetitem(&quot;10&quot;)
-                                        setitem(x-1,y-1,item1)
-                                next
-                        next
-                }
-                btn1 = new qPushButton(win1) {
-                        setText(&quot;Increase&quot;)
-                        setGeometry(510,10,100,30)
-                        setClickEvent(&quot;pClick()&quot;)
-                }
-                show()
-        }
-        exec()
-}
+<span class="k">New</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="n">win1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qMainWindow</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">600</span><span class="p">)</span>
+                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Using QTableWidget&quot;</span><span class="p">)</span>
+                <span class="n">Table1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qTableWidget</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setrowcount</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="n">setcolumncount</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+                        <span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                                <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                                        <span class="n">item1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qtablewidgetitem</span><span class="p">(</span><span class="s">&quot;10&quot;</span><span class="p">)</span>
+                                        <span class="n">setitem</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">y</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">item1</span><span class="p">)</span>
+                                <span class="k">next</span>
+                        <span class="k">next</span>
+                <span class="p">}</span>
+                <span class="n">btn1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Increase&quot;</span><span class="p">)</span>
+                        <span class="n">setGeometry</span><span class="p">(</span><span class="mi">510</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;pClick()&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
 
-func pClick
-        for nRow = 0 to Table1.rowcount() - 1
-                for nCol = 0 to Table1.columncount() - 1
-                        Table1.item(nRow,nCol)  {
-                                if isSelected()
-                                        setText( &quot;&quot; + ( 10 + text()) )
-                                ok
-                        }
-                next
-        next
+<span class="k">func</span> <span class="n">pClick</span>
+        <span class="k">for</span> <span class="n">nRow</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">Table1</span><span class="p">.</span><span class="n">rowcount</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+                <span class="k">for</span> <span class="n">nCol</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">Table1</span><span class="p">.</span><span class="n">columncount</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span>
+                        <span class="n">Table1</span><span class="p">.</span><span class="n">item</span><span class="p">(</span><span class="n">nRow</span><span class="p">,</span><span class="n">nCol</span><span class="p">)</span>  <span class="p">{</span>
+                                <span class="k">if</span> <span class="n">isSelected</span><span class="p">()</span>
+                                        <span class="n">setText</span><span class="p">(</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">10</span> <span class="o">+</span> <span class="n">text</span><span class="p">())</span> <span class="p">)</span>
+                                <span class="k">ok</span>
+                        <span class="p">}</span>
+                <span class="k">next</span>
+        <span class="k">next</span>
 </pre></div>
 </div>
 </div>

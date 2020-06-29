@@ -274,8 +274,8 @@
 <p>This chapter contains the security and internet functions provided by the Ring programming language
 for Hashing, Encryption &amp; Decryption.</p>
 <p>Before using the next function load the openssllib.ring library</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;openssllib.ring&quot;
-# Use OpenSSL functions
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;openssllib.ring&quot;</span>
+<span class="c"># Use OpenSSL functions</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -290,8 +290,8 @@ for Hashing, Encryption &amp; Decryption.</p>
 <li><p>Randbytes()</p></li>
 </ul>
 <p>Before using the next function load the internetlib.ring library</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;internetlib.ring&quot;
-# Use the Internet functions
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;internetlib.ring&quot;</span>
+<span class="c"># Use the Internet functions</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -302,12 +302,12 @@ for Hashing, Encryption &amp; Decryption.</p>
 <span id="index-1"></span><h2>MD5() Function<a class="headerlink" href="#md5-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the MD5 hash using the MD5() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MD5(cString) ---&gt; String contains the MD5 hash of the string cString
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MD5</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">MD5</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;md5(&#39;happy&#39;) = &quot; + md5(&quot;happy&quot;) + nl +
-    &quot;md5(&#39;Hello&#39;) = &quot; + md5(&quot;Hello&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;md5(&#39;happy&#39;) = &quot;</span> <span class="o">+</span> <span class="n">md5</span><span class="p">(</span><span class="s">&quot;happy&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;md5(&#39;Hello&#39;) = &quot;</span> <span class="o">+</span> <span class="n">md5</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -320,17 +320,17 @@ md5(&#39;Hello&#39;) = 8b1a9953c4611296a827abf8c47804d7
 <span id="index-2"></span><h2>SHA1() Function<a class="headerlink" href="#sha1-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the SHA1 hash using the SHA1() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SHA1(cString) ---&gt; String contains the SHA1 hash of the string cString
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SHA1</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA1</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;sha1(&#39;hello&#39;) : &quot; + sha1(&quot;hello&quot;) + nl +
-    &quot;sha1(&#39;apple&#39;) : &quot; + sha1(&quot;apple&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;sha1(&#39;hello&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha1</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha1(&#39;apple&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha1</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>sha1(&#39;hello&#39;) : aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
-sha1(&#39;apple&#39;) : d0be2dc421be4fcd0172e5afceea3970e2f3d940
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sha1</span><span class="p">(</span><span class="sc">&#39;hello&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="n">aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d</span>
+<span class="n">sha1</span><span class="p">(</span><span class="sc">&#39;apple&#39;</span><span class="p">)</span> <span class="p">:</span> <span class="n">d0be2dc421be4fcd0172e5afceea3970e2f3d940</span>
 </pre></div>
 </div>
 </div>
@@ -338,12 +338,12 @@ sha1(&#39;apple&#39;) : d0be2dc421be4fcd0172e5afceea3970e2f3d940
 <span id="index-3"></span><h2>SHA256() Function<a class="headerlink" href="#sha256-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the SHA256 hash using the SHA256() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SHA256(cString) ---&gt; String contains the SHA256 hash of the string cString
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SHA256</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA256</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;sha256(&#39;hello&#39;) : &quot; + sha256(&quot;hello&quot;) + nl +
-    &quot;sha256(&#39;apple&#39;) : &quot; + sha256(&quot;apple&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;sha256(&#39;hello&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha256</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha256(&#39;apple&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha256</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -356,13 +356,13 @@ sha256(&#39;apple&#39;) : 3a7bd3e2360a3d29eea436fcfb7e44c735d117c42d1c1835420b6b
 <span id="index-4"></span><h2>SHA512() Function<a class="headerlink" href="#sha512-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the SHA512 hash using the SHA512() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SHA512(cString) ---&gt; String contains the SHA512 hash of the string cString
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SHA512</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA512</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;sha512(&#39;hello&#39;) : &quot; + sha512(&quot;hello&quot;) + nl +
-    &quot;sha512(&#39;apple&#39;) : &quot; + sha512(&quot;apple&quot;) + nl +
-    &quot;sha512(&#39;hello world&#39;) : &quot; + sha512(&quot;hello world&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;sha512(&#39;hello&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha512</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha512(&#39;apple&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha512</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha512(&#39;hello world&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha512</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -379,13 +379,13 @@ sha512(&#39;hello world&#39;) : 309ecc489c12d6eb4cc40f50c902f2b4d0ed77ee511a7c7a
 <span id="index-5"></span><h2>SHA384() Function<a class="headerlink" href="#sha384-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the SHA384 hash using the SHA384() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SHA384(cString) ---&gt; String contains the SHA384 hash of the string cString
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SHA384</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA384</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;sha384(&#39;hello&#39;) : &quot; + sha384(&quot;hello&quot;) + nl +
-    &quot;sha384(&#39;apple&#39;) : &quot; + sha384(&quot;apple&quot;) + nl +
-    &quot;sha384(&#39;hello world&#39;) : &quot; + sha384(&quot;hello world&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;sha384(&#39;hello&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha384(&#39;apple&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha384(&#39;hello world&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -402,13 +402,13 @@ b83578b3e417cb71ce646efd0819dd8c088de1bd
 <span id="index-6"></span><h2>SHA224() Function<a class="headerlink" href="#sha224-function" title="Permalink to this headline">¶</a></h2>
 <p>We can calculate the SHA224 hash using the SHA224() Function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SHA224(cString) ---&gt; String contains the SHA224 hash of the string cString
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SHA224</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">SHA224</span> <span class="n">hash</span> <span class="n">of</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">cString</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;sha224(&#39;hello&#39;) : &quot; + sha224(&quot;hello&quot;) + nl +
-    &quot;sha224(&#39;apple&#39;) : &quot; + sha224(&quot;apple&quot;) + nl +
-    &quot;sha224(&#39;hello world&#39;) : &quot; + sha224(&quot;hello world&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;sha224(&#39;hello&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha224</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha224(&#39;apple&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha224</span><span class="p">(</span><span class="s">&quot;apple&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha224(&#39;hello world&#39;) : &quot;</span> <span class="o">+</span> <span class="n">sha224</span><span class="p">(</span><span class="s">&quot;hello world&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -422,7 +422,7 @@ sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522
 <span id="index-7"></span><h2>Encrypt() Function<a class="headerlink" href="#encrypt-function" title="Permalink to this headline">¶</a></h2>
 <p>We can use the Encrypt() function to encrypts the data using the Blowfish algorithm.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Encrypt(cString, cKey, cIV) ---&gt; Encrypted string
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Encrypt</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Encrypted</span> <span class="kt">string</span>
 </pre></div>
 </div>
 </div>
@@ -430,7 +430,7 @@ sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522
 <span id="index-8"></span><h2>Decrypt() Function<a class="headerlink" href="#decrypt-function" title="Permalink to this headline">¶</a></h2>
 <p>We can use the Decrypt() function to decrypt the data encrypted using the Encrypt() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Decrypt(cCipher, cKey, cIV) ---&gt; Decrypted string
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decrypt</span><span class="p">(</span><span class="n">cCipher</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Decrypted</span> <span class="kt">string</span>
 </pre></div>
 </div>
 </div>
@@ -438,57 +438,57 @@ sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522
 <span id="index-9"></span><h2>Encryption and Decryption Example<a class="headerlink" href="#encryption-and-decryption-example" title="Permalink to this headline">¶</a></h2>
 <p>The next example demonstrates how to use the Encrypt() and Decrypt() functions.</p>
 <p>These functions use the Blowfish algorithm.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Enter a string : &quot; give cStr
-list = 0:15  cKey=&quot;&quot;    for x in list cKey += char(x) next
-list = 1:8   cIV = &quot;&quot;   for x in list cIV += char(x) next
-cStr = Encrypt(cStr,cKey,cIV)
-See &quot;Cipher Text    : &quot; + cStr + nl +
-    &quot;Plain Text     : &quot; + Decrypt(cStr,cKey,cIV) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
+<span class="kt">list</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">15</span>  <span class="n">cKey</span><span class="o">=</span><span class="s">&quot;&quot;</span>    <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cKey</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
+<span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">8</span>   <span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>   <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>We can write the same example using normal for loop</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Enter a string : &quot; give cStr
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
 
-cKey=&quot;&quot;                         # 16 bytes
-for x = 0 to 15
-        cKey += char(x)
-next
+<span class="n">cKey</span><span class="o">=</span><span class="s">&quot;&quot;</span>                         <span class="c"># 16 bytes</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">15</span>
+        <span class="n">cKey</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">next</span>
 
-cIV = &quot;&quot;
-for x = 1 to 8
-        cIV += char(x)
-next
+<span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">8</span>
+        <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="k">next</span>
 
 
-cStr = Encrypt(cStr,cKey,cIV)
-See &quot;Cipher Text    : &quot; + cStr + nl +
-    &quot;Plain Text     : &quot; + Decrypt(cStr,cKey,cIV) + nl
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Also we can write the password and the IV directly using strings</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Enter a string : &quot; give cStr
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
 
-# Note: Don&#39;t use simple password in real applications!
-cKey = &quot;1234567890@#$%^&amp;&quot;
-cIV  = &quot;87654321&quot;
+<span class="c"># Note: Don&#39;t use simple password in real applications!</span>
+<span class="n">cKey</span> <span class="o">=</span> <span class="s">&quot;1234567890@#$%^&amp;&quot;</span>
+<span class="n">cIV</span>  <span class="o">=</span> <span class="s">&quot;87654321&quot;</span>
 
-cStr = Encrypt(cStr,cKey,cIV)
-See &quot;Cipher Text    : &quot; + cStr + nl +
-    &quot;Plain Text     : &quot; + Decrypt(cStr,cKey,cIV) + nl
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="file-hash">
 <span id="index-10"></span><h2>File Hash<a class="headerlink" href="#file-hash" title="Permalink to this headline">¶</a></h2>
 <p>The next example demonstrates how to calculate the hash functions for files</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = read(&quot;myapp.exe&quot;)
-see &quot;Size : &quot; + len(cStr) + nl +
-    &quot;md5 : &quot; + md5(cStr) + nl +
-    &quot;sha1 : &quot; + sha1(cStr) + nl +
-    &quot;sha256 : &quot; + sha256(cStr) + nl +
-    &quot;sha224 : &quot; + sha224(cStr) + nl +
-    &quot;sha384 : &quot; + sha384(cStr) + nl +
-    &quot;sha512 : &quot; + sha512(cStr) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myapp.exe&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;md5 : &quot;</span> <span class="o">+</span> <span class="n">md5</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha1 : &quot;</span> <span class="o">+</span> <span class="n">sha1</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha256 : &quot;</span> <span class="o">+</span> <span class="n">sha256</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha224 : &quot;</span> <span class="o">+</span> <span class="n">sha224</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha384 : &quot;</span> <span class="o">+</span> <span class="n">sha384</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;sha512 : &quot;</span> <span class="o">+</span> <span class="n">sha512</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -508,52 +508,52 @@ cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 <span id="index-11"></span><h2>Randbytes() Function<a class="headerlink" href="#randbytes-function" title="Permalink to this headline">¶</a></h2>
 <p>We can generate a string of pseudo-random bytes using the Randbytes() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Randbytes(nSize) ---&gt; String contains random bytes (bytes count = nSize)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Randbytes</span><span class="p">(</span><span class="n">nSize</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">random</span> <span class="n">bytes</span> <span class="p">(</span><span class="n">bytes</span> <span class="n">count</span> <span class="o">=</span> <span class="n">nSize</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>salt =  randbytes(32)
-password = &quot;SecretPassWord@$%123&quot;
-see salt + nl
-see sha256(&quot;test&quot; + salt) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">salt</span> <span class="o">=</span>  <span class="n">randbytes</span><span class="p">(</span><span class="mi">32</span><span class="p">)</span>
+<span class="n">password</span> <span class="o">=</span> <span class="s">&quot;SecretPassWord@$%123&quot;</span>
+<span class="k">see</span> <span class="n">salt</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">sha256</span><span class="p">(</span><span class="s">&quot;test&quot;</span> <span class="o">+</span> <span class="n">salt</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="download-function">
 <span id="index-12"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Download(cURL) ---&gt; String contains the server response
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Download</span><span class="p">(</span><span class="n">cURL</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">server</span> <span class="n">response</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr= download(&quot;http://doublesvsoop.sourceforge.net/&quot;)
-see cStr
-write(&quot;download.txt&quot;,cStr)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span><span class="o">=</span> <span class="n">download</span><span class="p">(</span><span class="s">&quot;http://doublesvsoop.sourceforge.net/&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">cStr</span>
+<span class="n">write</span><span class="p">(</span><span class="s">&quot;download.txt&quot;</span><span class="p">,</span><span class="n">cStr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="sendemail-function">
 <span id="index-13"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SendEmail(cSMTPServer,cEmail,cPassword,cSender,cReceiver,cCC,cTitle,cContent)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SendEmail</span><span class="p">(</span><span class="n">cSMTPServer</span><span class="p">,</span><span class="n">cEmail</span><span class="p">,</span><span class="n">cPassword</span><span class="p">,</span><span class="n">cSender</span><span class="p">,</span><span class="n">cReceiver</span><span class="p">,</span><span class="n">cCC</span><span class="p">,</span><span class="n">cTitle</span><span class="p">,</span><span class="n">cContent</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Send email...&quot; + nl
-sendemail(&quot;smtp://smtp.gmail.com:587&quot;,
-        &quot;email@gmail.com&quot;,
-        &quot;password&quot;,
-        &quot;email@gmail.com&quot;,
-        &quot;somebody@yahoo.com&quot;,
-        &quot;somebodyelse@yahoo.com&quot;,
-        &quot;Sending email from Ring&quot;,
-        &quot;Hello
-         How are you?
-         Are you fine?
-         Thank you!
-         Greetings,
-         Mahmoud&quot;)
-see &quot;Done..&quot; + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Send email...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">sendemail</span><span class="p">(</span><span class="s">&quot;smtp://smtp.gmail.com:587&quot;</span><span class="p">,</span>
+        <span class="s">&quot;email@gmail.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;password&quot;</span><span class="p">,</span>
+        <span class="s">&quot;email@gmail.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;somebody@yahoo.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;somebodyelse@yahoo.com&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Sending email from Ring&quot;</span><span class="p">,</span>
+        <span class="s">&quot;Hello</span>
+         <span class="n">How</span> <span class="n">are</span> <span class="n">you</span><span class="o">?</span>
+         <span class="n">Are</span> <span class="n">you</span> <span class="n">fine</span><span class="o">?</span>
+         <span class="n">Thank</span> <span class="n">you</span><span class="o">!</span>
+         <span class="n">Greetings</span><span class="p">,</span>
+         <span class="s">Mahmoud&quot;)</span>
+<span class="k">see</span> <span class="s">&quot;Done..&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>

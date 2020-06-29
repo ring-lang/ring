@@ -296,36 +296,36 @@
 and it’s ability to create declarative and natural domain specific languages in a fraction of time.</p>
 <p>This release add support for calling methods when an expression is evaluated</p>
 <p>check this example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># Natural Code
-new program {
-        Accept 2 numbers then print the sum
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Natural Code</span>
+<span class="k">new</span> <span class="n">program</span> <span class="p">{</span>
+        <span class="n">Accept</span> <span class="mi">2</span> <span class="n">numbers</span> <span class="n">then</span> <span class="n">print</span> <span class="n">the</span> <span class="n">sum</span>
+<span class="p">}</span>
 
-# Natural Code Implementation
-class program
-        # Keywords
-                Accept=0 numbers=0 then=0 print=0 the=0 sum=0
+<span class="c"># Natural Code Implementation</span>
+<span class="k">class</span> <span class="n">program</span>
+        <span class="c"># Keywords</span>
+                <span class="n">Accept</span><span class="o">=</span><span class="mi">0</span> <span class="n">numbers</span><span class="o">=</span><span class="mi">0</span> <span class="n">then</span><span class="o">=</span><span class="mi">0</span> <span class="n">print</span><span class="o">=</span><span class="mi">0</span> <span class="n">the</span><span class="o">=</span><span class="mi">0</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span>
 
-        # Execution
-        func braceexpreval x
-                value = x
-        func getnumbers
-                for x=1 to value
-                        see &quot;Enter Number (&quot;+x+&quot;) :&quot; give nNumber
-                        aNumbers + nNumber
-                next
-        func getsum
-                nSUm = 0
-                for x in aNumbers nSum+= x next
-                see &quot;The Sum : &quot; + nSum
-        private
-                value=0 aNumbers=[]
+        <span class="c"># Execution</span>
+        <span class="k">func</span> <span class="n">braceexpreval</span> <span class="n">x</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">func</span> <span class="n">getnumbers</span>
+                <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">value</span>
+                        <span class="k">see</span> <span class="s">&quot;Enter Number (&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;) :&quot;</span> <span class="k">give</span> <span class="n">nNumber</span>
+                        <span class="n">aNumbers</span> <span class="o">+</span> <span class="n">nNumber</span>
+                <span class="k">next</span>
+        <span class="k">func</span> <span class="n">getsum</span>
+                <span class="n">nSUm</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aNumbers</span> <span class="n">nSum</span><span class="o">+=</span> <span class="n">x</span> <span class="k">next</span>
+                <span class="k">see</span> <span class="s">&quot;The Sum : &quot;</span> <span class="o">+</span> <span class="n">nSum</span>
+        <span class="n">private</span>
+                <span class="n">value</span><span class="o">=</span><span class="mi">0</span> <span class="n">aNumbers</span><span class="o">=[]</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Enter Number (1) :3
-Enter Number (2) :4
-The Sum : 7
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">Number</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span><span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">Number</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span><span class="mi">4</span>
+<span class="n">The</span> <span class="n">Sum</span> <span class="p">:</span> <span class="mi">7</span>
 </pre></div>
 </div>
 <p>for more information see the “Natural Language Programming” chapter.</p>
@@ -348,88 +348,88 @@ more options.</p>
 <p>Also some of these features are very necessary for Natural Language Programming.</p>
 <p>Example :</p>
 <p>We have two commands to change language keywords and operators.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ChangeRingOperator + plus
-ChangeRingKeyword see print
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">ChangeRingOperator</span> <span class="o">+</span> <span class="n">plus</span>
+<span class="k">ChangeRingKeyword</span> <span class="k">see</span> <span class="n">print</span>
 
-Print 5 plus 5
+<span class="n">Print</span> <span class="mi">5</span> <span class="n">plus</span> <span class="mi">5</span>
 
-ChangeRingOperator plus +
-ChangeRingKeyword print see
+<span class="k">ChangeRingOperator</span> <span class="n">plus</span> <span class="o">+</span>
+<span class="k">ChangeRingKeyword</span> <span class="n">print</span> <span class="k">see</span>
 </pre></div>
 </div>
 <p>We have new styles (Optional) for Input/Output.</p>
 <p>Example :</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Put &quot;What is your name? &quot;
-Get cName
-Put &quot;Hello &quot; + cName
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Put</span> <span class="s">&quot;What is your name? &quot;</span>
+<span class="k">Get</span> <span class="n">cName</span>
+<span class="k">Put</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
 </pre></div>
 </div>
 <p>Example :</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-Print(&quot;What is your name? &quot;)    # print message on screen
-cName=GetString()               # get input from the user
-print(&quot;Hello #{cName}&quot;)         # say hello!
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;What is your name? &quot;</span><span class="p">)</span>    <span class="c"># print message on screen</span>
+<span class="n">cName</span><span class="o">=</span><span class="n">GetString</span><span class="p">()</span>               <span class="c"># get input from the user</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{cName}&quot;</span><span class="p">)</span>         <span class="c"># say hello!</span>
 </pre></div>
 </div>
 <p>We have new styles (optional) for control structures.</p>
 <p>Example :</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>While True
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="kp">True</span>
 
-        Put &quot;
-                Main Menu
-                ---------
-                (1) Say Hello
-                (2) About
-                (3) Exit
+        <span class="k">Put</span> <span class="s">&quot;</span>
+                <span class="n">Main</span> <span class="n">Menu</span>
+                <span class="o">---------</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+                <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">About</span>
+                <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">Exit</span>
 
-            &quot; Get nOption
+            <span class="s">&quot; Get nOption</span>
 
-        Switch nOption
-        Case 1
-                Put &quot;Enter your name : &quot;
-                Get name
-                Put &quot;Hello &quot; + name + nl
-        Case 2
-                Put &quot;Sample : using while loop&quot; + nl
-        Case 3
-                Bye
-        Else
-                Put &quot;bad option...&quot; + nl
-        End
-End
+        <span class="k">Switch</span> <span class="n">nOption</span>
+        <span class="k">Case</span> <span class="mi">1</span>
+                <span class="k">Put</span> <span class="s">&quot;Enter your name : &quot;</span>
+                <span class="k">Get</span> <span class="n">name</span>
+                <span class="k">Put</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">Case</span> <span class="mi">2</span>
+                <span class="k">Put</span> <span class="s">&quot;Sample : using while loop&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">Case</span> <span class="mi">3</span>
+                <span class="k">Bye</span>
+        <span class="k">Else</span>
+                <span class="k">Put</span> <span class="s">&quot;bad option...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">End</span>
+<span class="k">End</span>
 </pre></div>
 </div>
 <p>Example :</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-While True {
+<span class="k">While</span> <span class="kp">True</span> <span class="p">{</span>
 
-        print(&quot;
-                Main Menu
-                ---------
-                (1) Say Hello
-                (2) About
-                (3) Exit
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;</span>
+                <span class="n">Main</span> <span class="n">Menu</span>
+                <span class="o">---------</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+                <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="n">About</span>
+                <span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="k">Exit</span>
 
-                  &quot;)
+                  <span class="s">&quot;)</span>
 
-        nOption = GetString()
+        <span class="n">nOption</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">()</span>
 
-        switch nOption {
-        case 1
-                print(&quot;Enter your name : &quot;)
-                name = getstring()
-                print(&quot;Hello #{name}\n&quot;)
-        case 2
-                print(&quot;Sample : using switch statement\n&quot;)
-        case 3
-                Bye
-        else
-                print(&quot;bad option...\n&quot;)
-        }
+        <span class="k">switch</span> <span class="n">nOption</span> <span class="p">{</span>
+        <span class="k">case</span> <span class="mi">1</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Enter your name : &quot;</span><span class="p">)</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">getstring</span><span class="p">()</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{name}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">2</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;Sample : using switch statement</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="k">case</span> <span class="mi">3</span>
+                <span class="k">Bye</span>
+        <span class="k">else</span>
+                <span class="n">print</span><span class="p">(</span><span class="s">&quot;bad option...</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
 
-}
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Check the next chapters:-</p>
@@ -478,112 +478,112 @@ While True {
 <p>Ring 1.1 comes with a library called StdLib, it’s written in Ring by the help of Ring Team</p>
 <p>The library provide a useful group of new functions and classes</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-Puts(&quot;Test Times()&quot;)
-Times ( 3 , func { see &quot;Hello, World!&quot; + nl } )
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Times()&quot;</span><span class="p">)</span>
+<span class="n">Times</span> <span class="p">(</span> <span class="mi">3</span> <span class="p">,</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="s">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-Puts(&quot;Test Map()&quot;)
-See Map( 1:10, func x { return x*x } )
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Map()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">Map</span><span class="p">(</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="k">func</span> <span class="n">x</span> <span class="p">{</span> <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">x</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-Puts(&quot;Test Filter()&quot;)
-See Filter( 1:10 , func x { if x &lt;= 5 return true else return false ok } )
+<span class="n">Puts</span><span class="p">(</span><span class="s">&quot;Test Filter()&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="n">Filter</span><span class="p">(</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span> <span class="p">,</span> <span class="k">func</span> <span class="n">x</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">5</span> <span class="k">return</span> <span class="kp">true</span> <span class="k">else</span> <span class="k">return</span> <span class="kp">false</span> <span class="k">ok</span> <span class="p">}</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-See &quot;Testing the String Class&quot; + nl
-oString = new string(&quot;Hello, World!&quot;)
-oString.println()
-oString.upper().println()
-oString.lower().println()
-oString.left(5).println()
-oString.right(6).println()
+<span class="k">See</span> <span class="s">&quot;Testing the String Class&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">oString</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">string</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="n">oString</span><span class="p">.</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="p">.</span><span class="n">upper</span><span class="p">().</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="p">.</span><span class="n">lower</span><span class="p">().</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="p">.</span><span class="n">left</span><span class="p">(</span><span class="mi">5</span><span class="p">).</span><span class="n">println</span><span class="p">()</span>
+<span class="n">oString</span><span class="p">.</span><span class="n">right</span><span class="p">(</span><span class="mi">6</span><span class="p">).</span><span class="n">println</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-oList = new list ( [1,2,3] )
-oList.Add(4)
-oList.print()
+<span class="n">oList</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">list</span> <span class="p">(</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="p">)</span>
+<span class="n">oList</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="n">oList</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-oStack = new Stack
-oStack.push(1)
-oStack.push(2)
-oStack.push(3)
-see oStack.pop() + nl
+<span class="n">oStack</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">Stack</span>
+<span class="n">oStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">oStack</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">oStack</span><span class="p">.</span><span class="n">pop</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-oQueue = new Queue
-oQueue.add(1)
-oQueue.add(2)
-oQueue.add(3)
-see oQueue.remove() + nl
+<span class="n">oQueue</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">Queue</span>
+<span class="n">oQueue</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">oQueue</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">oQueue</span><span class="p">.</span><span class="n">add</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">oQueue</span><span class="p">.</span><span class="n">remove</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-ohashtable = new hashtable
-See &quot;Test the hashtable Class Methods&quot; + nl
-ohashtable {
-        Add(&quot;Egypt&quot;,&quot;Cairo&quot;)
-        Add(&quot;KSA&quot;,&quot;Riyadh&quot;)
-        see self[&quot;Egypt&quot;] + nl
-        see self[&quot;KSA&quot;] + nl
-        see contains(&quot;Egypt&quot;) + nl
-        see contains(&quot;USA&quot;) + nl
-        see index(&quot;KSA&quot;)  + NL
-        print()
-        delete(index(&quot;KSA&quot;))
-        see copy(&quot;*&quot;,60) + nl
-        print()
-}
+<span class="n">ohashtable</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">hashtable</span>
+<span class="k">See</span> <span class="s">&quot;Test the hashtable Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">ohashtable</span> <span class="p">{</span>
+        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span><span class="p">,</span><span class="s">&quot;Cairo&quot;</span><span class="p">)</span>
+        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;KSA&quot;</span><span class="p">,</span><span class="s">&quot;Riyadh&quot;</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">self</span><span class="o">[</span><span class="s">&quot;Egypt&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">self</span><span class="o">[</span><span class="s">&quot;KSA&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">contains</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">contains</span><span class="p">(</span><span class="s">&quot;USA&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">index</span><span class="p">(</span><span class="s">&quot;KSA&quot;</span><span class="p">)</span>  <span class="o">+</span> <span class="n">NL</span>
+        <span class="n">print</span><span class="p">()</span>
+        <span class="n">delete</span><span class="p">(</span><span class="n">index</span><span class="p">(</span><span class="s">&quot;KSA&quot;</span><span class="p">))</span>
+        <span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">print</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-otree = new tree
-See &quot;Test the tree Class Methods&quot; + nl
-otree {
-        set(&quot;The first step&quot;)   # set the root node value
-        see value() + nl
-        Add(&quot;one&quot;)
-        Add(&quot;two&quot;)
-        Add(&quot;three&quot;) {
-                Add(&quot;3.1&quot;)
-                Add(&quot;3.2&quot;)
-                Add(&quot;3.3&quot;)
-                see children
-        }
-        see children
-        oTree.children[2] {
-                Add(&quot;2.1&quot;) Add(&quot;2.2&quot;) Add(&quot;2.3&quot;) {
-                        Add(&quot;2.3.1&quot;) Add(&quot;2.3.2&quot;) Add(&quot;test&quot;)
-                }
-        }
-        oTree.children[2].children[3].children[3].set(&quot;2.3.3&quot;)
-}
-see copy(&quot;*&quot;,60) + nl
-oTree.print()
+<span class="n">otree</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">tree</span>
+<span class="k">See</span> <span class="s">&quot;Test the tree Class Methods&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">otree</span> <span class="p">{</span>
+        <span class="n">set</span><span class="p">(</span><span class="s">&quot;The first step&quot;</span><span class="p">)</span>   <span class="c"># set the root node value</span>
+        <span class="k">see</span> <span class="n">value</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">)</span>
+        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">)</span>
+        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;three&quot;</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;3.1&quot;</span><span class="p">)</span>
+                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;3.2&quot;</span><span class="p">)</span>
+                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;3.3&quot;</span><span class="p">)</span>
+                <span class="k">see</span> <span class="n">children</span>
+        <span class="p">}</span>
+        <span class="k">see</span> <span class="n">children</span>
+        <span class="n">oTree</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="p">{</span>
+                <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.1&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.2&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.3&quot;</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.3.1&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;2.3.2&quot;</span><span class="p">)</span> <span class="n">Add</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">oTree</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">.</span><span class="n">children</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">.</span><span class="n">set</span><span class="p">(</span><span class="s">&quot;2.3.3&quot;</span><span class="p">)</span>
+<span class="p">}</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">oTree</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Check the next chapters:</p>
@@ -597,13 +597,13 @@ oTree.print()
 <p>Ring 1.0 provided RingAllegro to be able to create games using the Allegro game programming library</p>
 <p>Now Ring 1.1 provide RingLibSDL also so we can have the choice between Allegro or LibSDL</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;libsdl.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;libsdl.ring&quot;</span>
 
-SDL_Init(SDL_INIT_EVERYTHING)
-win = SDL_CreateWindow(&quot;Hello World!&quot;, 100, 100, 640, 480, SDL_WINDOW_SHOWN)
-SDL_Delay(2000)
-SDL_DestroyWindow(win)
-SDL_Quit()
+<span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+<span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">480</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="p">)</span>
+<span class="n">SDL_Delay</span><span class="p">(</span><span class="mi">2000</span><span class="p">)</span>
+<span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+<span class="n">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>See the RingLibSDL Chapter.</p>
@@ -618,38 +618,38 @@ using Object Oriented Programming (OOP) then access the power that we have using
 using nested structures or using natural programming.</p>
 <p>In this project we selected the first way (declarative programming using nested structures)</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;gameengine.ring&quot;  # Give Control to the Game Engine
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;gameengine.ring&quot;</span>  <span class="c"># Give Control to the Game Engine</span>
 
-func main               # Called by the Game Engine
+<span class="k">func</span> <span class="n">main</span>               <span class="c"># Called by the Game Engine</span>
 
-        oGame = New Game        # Create the Game Object
-        {
-                title = &quot;My First Game&quot;
-                text {
-                        x = 10  y=50
-                        animate = false
-                        size = 20
-                        file = &quot;fonts/pirulen.ttf&quot;
-                        text = &quot;game development using ring is very fun!&quot;
-                        color = rgb(0,0,0)      # Color = black
-                }
-                text {
-                        x = 10  y=150
-                        # Animation Part ======================================
-                        animate = true                          # Use Animation
-                        direction = GE_DIRECTION_INCVERTICAL    # Increase y
-                        point = 400             # Continue until y=400
-                        nStep = 3               # Each time y+= 3
-                        #======================================================
-                        size = 20
-                        file = &quot;fonts/pirulen.ttf&quot;
-                        text = &quot;welcome to the real world!&quot;
-                        color = rgb(0,0,255)    # Color = Blue
-                }
-                Sound {                                 # Play Sound
-                        file = &quot;sound/music1.wav&quot;       # Sound File Name
-                }
-        }                                       # Start the Events Loop
+        <span class="n">oGame</span> <span class="o">=</span> <span class="k">New</span> <span class="n">Game</span>        <span class="c"># Create the Game Object</span>
+        <span class="p">{</span>
+                <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;My First Game&quot;</span>
+                <span class="n">text</span> <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="n">y</span><span class="o">=</span><span class="mi">50</span>
+                        <span class="n">animate</span> <span class="o">=</span> <span class="kp">false</span>
+                        <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span>
+                        <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;fonts/pirulen.ttf&quot;</span>
+                        <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;game development using ring is very fun!&quot;</span>
+                        <span class="n">color</span> <span class="o">=</span> <span class="n">rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>      <span class="c"># Color = black</span>
+                <span class="p">}</span>
+                <span class="n">text</span> <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>  <span class="n">y</span><span class="o">=</span><span class="mi">150</span>
+                        <span class="c"># Animation Part ======================================</span>
+                        <span class="n">animate</span> <span class="o">=</span> <span class="kp">true</span>                          <span class="c"># Use Animation</span>
+                        <span class="n">direction</span> <span class="o">=</span> <span class="n">GE_DIRECTION_INCVERTICAL</span>    <span class="c"># Increase y</span>
+                        <span class="n">point</span> <span class="o">=</span> <span class="mi">400</span>             <span class="c"># Continue until y=400</span>
+                        <span class="n">nStep</span> <span class="o">=</span> <span class="mi">3</span>               <span class="c"># Each time y+= 3</span>
+                        <span class="c">#======================================================</span>
+                        <span class="n">size</span> <span class="o">=</span> <span class="mi">20</span>
+                        <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;fonts/pirulen.ttf&quot;</span>
+                        <span class="n">text</span> <span class="o">=</span> <span class="s">&quot;welcome to the real world!&quot;</span>
+                        <span class="n">color</span> <span class="o">=</span> <span class="n">rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>    <span class="c"># Color = Blue</span>
+                <span class="p">}</span>
+                <span class="n">Sound</span> <span class="p">{</span>                                 <span class="c"># Play Sound</span>
+                        <span class="n">file</span> <span class="o">=</span> <span class="s">&quot;sound/music1.wav&quot;</span>       <span class="c"># Sound File Name</span>
+                <span class="p">}</span>
+        <span class="p">}</span>                                       <span class="c"># Start the Events Loop</span>
 </pre></div>
 </div>
 <p>See the “Demo Project - Game Engine for 2D Games” chapter.</p>
@@ -659,41 +659,41 @@ func main               # Called by the Game Engine
 <p>Ring 1.0 provided support for ODBC to use any database and provided native support for MySQL.</p>
 <p>Now Ring 1.1 provide native support for SQLite database too.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>oSQLite = sqlite_init()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oSQLite</span> <span class="o">=</span> <span class="n">sqlite_init</span><span class="p">()</span>
 
-sqlite_open(oSQLite,&quot;mytest.db&quot;)
+<span class="n">sqlite_open</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s">&quot;mytest.db&quot;</span><span class="p">)</span>
 
-sql = &quot;CREATE TABLE COMPANY(&quot;  +
-         &quot;ID INT PRIMARY KEY     NOT NULL,&quot; +
-         &quot;NAME           TEXT    NOT NULL,&quot; +
-         &quot;AGE            INT     NOT NULL,&quot; +
-         &quot;ADDRESS        CHAR(50),&quot; +
-         &quot;SALARY         REAL );&quot;
+<span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;CREATE TABLE COMPANY(&quot;</span>  <span class="o">+</span>
+         <span class="s">&quot;ID INT PRIMARY KEY     NOT NULL,&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;NAME           TEXT    NOT NULL,&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;AGE            INT     NOT NULL,&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;ADDRESS        CHAR(50),&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;SALARY         REAL );&quot;</span>
 
-sqlite_execute(oSQLite,sql)
+<span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
 
-sql = &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;  +
-         &quot;VALUES (1, &#39;Mahmoud&#39;, 29, &#39;Jeddah&#39;, 20000.00 ); &quot; +
-         &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;  +
-         &quot;VALUES (2, &#39;Ahmed&#39;, 27, &#39;Jeddah&#39;, 15000.00 ); &quot;     +
-         &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot; +
-         &quot;VALUES (3, &#39;Mohammed&#39;, 31, &#39;Egypt&#39;, 20000.00 );&quot; +
-         &quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot; +
-         &quot;VALUES (4, &#39;Ibrahim&#39;, 24, &#39;Egypt &#39;, 65000.00 );&quot;
+<span class="n">sql</span> <span class="o">=</span> <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
+         <span class="s">&quot;VALUES (1, &#39;Mahmoud&#39;, 29, &#39;Jeddah&#39;, 20000.00 ); &quot;</span> <span class="o">+</span>
+         <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY) &quot;</span>  <span class="o">+</span>
+         <span class="s">&quot;VALUES (2, &#39;Ahmed&#39;, 27, &#39;Jeddah&#39;, 15000.00 ); &quot;</span>     <span class="o">+</span>
+         <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;VALUES (3, &#39;Mohammed&#39;, 31, &#39;Egypt&#39;, 20000.00 );&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)&quot;</span> <span class="o">+</span>
+         <span class="s">&quot;VALUES (4, &#39;Ibrahim&#39;, 24, &#39;Egypt &#39;, 65000.00 );&quot;</span>
 
-sqlite_execute(oSQLite,sql)
+<span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="n">sql</span><span class="p">)</span>
 
-aResult =  sqlite_execute(oSQLite,&quot;select * from COMPANY&quot;)
-for x in aResult
-        for t in x
-                see t[2] + nl
-        next
-next
-see copy(&quot;*&quot;,50)  + nl
-for x in aResult
-        see x[&quot;name&quot;] + nl
-next
-sqlite_close(oSQLite)
+<span class="n">aResult</span> <span class="o">=</span>  <span class="n">sqlite_execute</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">,</span><span class="s">&quot;select * from COMPANY&quot;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">x</span>
+                <span class="k">see</span> <span class="n">t</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">next</span>
+<span class="k">next</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span>  <span class="o">+</span> <span class="n">nl</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aResult</span>
+        <span class="k">see</span> <span class="n">x</span><span class="o">[</span><span class="s">&quot;name&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
+<span class="n">sqlite_close</span><span class="p">(</span><span class="n">oSQLite</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -714,15 +714,15 @@ sqlite_close(oSQLite)
 <span id="index-11"></span><h2>Using Self.Attribute in the Class Region to define new attributes<a class="headerlink" href="#using-self-attribute-in-the-class-region-to-define-new-attributes" title="Permalink to this headline">¶</a></h2>
 <p>We can use Self.Attribute in the Class Region (after the class name and before any methods)
 to define new attributes.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class Person
-        name            # Define name as attribute if it&#39;s not a global variable
-        address
-        phone
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Person</span>
+        <span class="n">name</span>            <span class="c"># Define name as attribute if it&#39;s not a global variable</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
 
-class person2
-        self.name       # Must Define the attribute
-        self.address
-        self.phone
+<span class="k">class</span> <span class="n">person2</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">name</span>       <span class="c"># Must Define the attribute</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">address</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">phone</span>
 </pre></div>
 </div>
 </div>

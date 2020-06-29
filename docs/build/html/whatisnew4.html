@@ -391,17 +391,17 @@ I will count Again!
 <p>To execute the natural code, We have start.ring</p>
 <p>In start.ring we define the language and the commands.</p>
 <p>File: start.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
-load &quot;naturallib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;naturallib.ring&quot;</span>
 
-New NaturalLanguage {
-        SetLanguageName(:MyLanguage)
-        SetCommandsPath(CurrentDir()+&quot;/../command&quot;)
-        SetPackageName(&quot;MyLanguage.Natural&quot;)
-        UseCommand(:Hello)
-        UseCommand(:Count)
-        RunFile(&quot;program.txt&quot;)
-}
+<span class="k">New</span> <span class="n">NaturalLanguage</span> <span class="p">{</span>
+        <span class="n">SetLanguageName</span><span class="p">(:</span><span class="n">MyLanguage</span><span class="p">)</span>
+        <span class="n">SetCommandsPath</span><span class="p">(</span><span class="n">CurrentDir</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/../command&quot;</span><span class="p">)</span>
+        <span class="n">SetPackageName</span><span class="p">(</span><span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">)</span>
+        <span class="n">UseCommand</span><span class="p">(:</span><span class="n">Hello</span><span class="p">)</span>
+        <span class="n">UseCommand</span><span class="p">(:</span><span class="n">Count</span><span class="p">)</span>
+        <span class="n">RunFile</span><span class="p">(</span><span class="s">&quot;program.txt&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>We defined a language called MyLanguage, We have folder for the language commands.</p>
@@ -409,41 +409,41 @@ New NaturalLanguage {
 <p>We will define two commands, Hello and Count.</p>
 <p>So we must have two files for defining the commands in the CurrentDir()+”/../command” folder</p>
 <p>File: hello.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>DefineNaturalCommand.SyntaxIsKeyword([
-        :Package = &quot;MyLanguage.Natural&quot;,
-        :Keyword = :hello,
-        :Function = func {
-                See  &quot;Hello, Sir!&quot; + nl + nl
-        }
-])
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsKeyword</span><span class="p">(</span><span class="o">[</span>
+        <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">Keyword</span> <span class="o">=</span> <span class="p">:</span><span class="n">hello</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
+                <span class="k">See</span>  <span class="s">&quot;Hello, Sir!&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="p">}</span>
+<span class="o">]</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>File: count.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>DefineNaturalCommand.SyntaxIsKeywordNumberNumber([
-        :Package = &quot;MyLanguage.Natural&quot;,
-        :Keyword = :count,
-        :Function = func {
-                if not isattribute(self,:count_times) {
-                        AddAttribute(self,:count_times)
-                        Count_Times = 0
-                }
-                if Expr(1) &gt; Expr(2) {
-                        nStep = -1
-                else
-                        nStep = 1
-                }
-                if Count_Times = 0 {
-                        see nl+&quot;The Numbers!&quot; + nl
-                        Count_Times++
-                else
-                        see nl + &quot;I will count Again!&quot; +nl
-                }
-                for x = Expr(1) to Expr(2) step nStep {
-                        see nl+x+nl
-                }
-                CommandReturn(fabs(Expr(1)-Expr(2))+1)
-        }
-])
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">DefineNaturalCommand</span><span class="p">.</span><span class="n">SyntaxIsKeywordNumberNumber</span><span class="p">(</span><span class="o">[</span>
+        <span class="p">:</span><span class="n">Package</span> <span class="o">=</span> <span class="s">&quot;MyLanguage.Natural&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">Keyword</span> <span class="o">=</span> <span class="p">:</span><span class="n">count</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">Function</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">self</span><span class="p">,:</span><span class="n">count_times</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">AddAttribute</span><span class="p">(</span><span class="n">self</span><span class="p">,:</span><span class="n">count_times</span><span class="p">)</span>
+                        <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">nStep</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="k">else</span>
+                        <span class="n">nStep</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="p">}</span>
+                <span class="k">if</span> <span class="n">Count_Times</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;The Numbers!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="n">Count_Times</span><span class="o">++</span>
+                <span class="k">else</span>
+                        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;I will count Again!&quot;</span> <span class="o">+</span><span class="n">nl</span>
+                <span class="p">}</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">to</span> <span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">step</span> <span class="n">nStep</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="n">nl</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="n">nl</span>
+                <span class="p">}</span>
+                <span class="n">CommandReturn</span><span class="p">(</span><span class="n">fabs</span><span class="p">(</span><span class="n">Expr</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">Expr</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+        <span class="p">}</span>
+<span class="o">]</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -472,22 +472,22 @@ New NaturalLanguage {
 <li><p>Bytes2Double()</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;Test Int2Bytes() and Bytes2Int() - Value : 77&quot; + nl
-r = Int2Bytes(77)
-see &quot;Int Size : &quot; + len(r) + nl
-see r + nl
-see Bytes2Int(r) + nl
-see &quot;Test Float2Bytes() and Bytes2Float() - Value 77.12&quot; + nl
-r = Float2Bytes(77.12)
-see &quot;Float Size : &quot; + len(r) + nl
-see r + nl
-see Bytes2Float(r) + nl
-see &quot;Test Double2Bytes() and Bytes2Double() - Value 9999977.12345&quot; + nl
-r = Double2Bytes(9999977.12345)
-see &quot;Double Size : &quot; + len(r) + nl
-see r + nl
-decimals(5)
-see Bytes2Double(r) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Test Int2Bytes() and Bytes2Int() - Value : 77&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">Int2Bytes</span><span class="p">(</span><span class="mi">77</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Int Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">Bytes2Int</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Test Float2Bytes() and Bytes2Float() - Value 77.12&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">Float2Bytes</span><span class="p">(</span><span class="mf">77.12</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Float Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">Bytes2Float</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Test Double2Bytes() and Bytes2Double() - Value 9999977.12345&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">r</span> <span class="o">=</span> <span class="n">Double2Bytes</span><span class="p">(</span><span class="mf">9999977.12345</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Double Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">r</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">decimals</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">Bytes2Double</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
@@ -498,13 +498,13 @@ see Bytes2Double(r) + nl
 <li><p>FSize()</p></li>
 </ul>
 <p>The print() function is updated to accept local variables.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-func main
-        print(&quot;Enter your name : &quot;)     ;
-        Name = getString()              ;
-        print( &quot;Hello : #{Name} &quot;)      ;
-        return                          ;
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Enter your name : &quot;</span><span class="p">)</span>     <span class="p">;</span>
+        <span class="n">Name</span> <span class="o">=</span> <span class="n">getString</span><span class="p">()</span>              <span class="p">;</span>
+        <span class="n">print</span><span class="p">(</span> <span class="s">&quot;Hello : #{Name} &quot;</span><span class="p">)</span>      <span class="p">;</span>
+        <span class="k">return</span>                          <span class="p">;</span>
 </pre></div>
 </div>
 </div>
@@ -521,81 +521,81 @@ func main
 <ul class="simple">
 <li><p>Better Template() function - can accept NULL instead of object as the second paramter.</p></li>
 </ul>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>html(template(&quot;main.rhtml&quot;,NULL))
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s">&quot;main.rhtml&quot;</span><span class="p">,</span><span class="kp">NULL</span><span class="p">))</span>
 </pre></div>
 </div>
 <ul class="simple">
 <li><p>The Form Class is updated to support the “target” attribute.</p></li>
 </ul>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>BootStrapWebPage()
-{
-        Title = &quot;The Ring Programming Language&quot;
-        html(template(&quot;main.rhtml&quot;,NULL))
-        div {
-                classname = :container
-                div
-                {
-                        id = &quot;div3&quot;
-                        color = &quot;black&quot;
-                        backgroundcolor = &quot;white&quot;
-                        width = &quot;100%&quot;
-                        form
-                        {
-                                method = &quot;POST&quot;
-                                Action = website
-                                Target = &quot;codeoutput&quot;
-                                input { type=&quot;hidden&quot; name=&quot;page&quot; value=1 }
-                                Table
-                                {
-                                        style = stylewidth(&quot;100%&quot;) +
-                                                stylegradient(3)
-                                        TR
-                                        {
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">BootStrapWebPage</span><span class="p">()</span>
+<span class="p">{</span>
+        <span class="n">Title</span> <span class="o">=</span> <span class="s">&quot;The Ring Programming Language&quot;</span>
+        <span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s">&quot;main.rhtml&quot;</span><span class="p">,</span><span class="kp">NULL</span><span class="p">))</span>
+        <span class="n">div</span> <span class="p">{</span>
+                <span class="n">classname</span> <span class="o">=</span> <span class="p">:</span><span class="n">container</span>
+                <span class="n">div</span>
+                <span class="p">{</span>
+                        <span class="n">id</span> <span class="o">=</span> <span class="s">&quot;div3&quot;</span>
+                        <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;black&quot;</span>
+                        <span class="n">backgroundcolor</span> <span class="o">=</span> <span class="s">&quot;white&quot;</span>
+                        <span class="n">width</span> <span class="o">=</span> <span class="s">&quot;100%&quot;</span>
+                        <span class="n">form</span>
+                        <span class="p">{</span>
+                                <span class="n">method</span> <span class="o">=</span> <span class="s">&quot;POST&quot;</span>
+                                <span class="n">Action</span> <span class="o">=</span> <span class="n">website</span>
+                                <span class="n">Target</span> <span class="o">=</span> <span class="s">&quot;codeoutput&quot;</span>
+                                <span class="n">input</span> <span class="p">{</span> <span class="n">type</span><span class="o">=</span><span class="s">&quot;hidden&quot;</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;page&quot;</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span> <span class="p">}</span>
+                                <span class="n">Table</span>
+                                <span class="p">{</span>
+                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                                <span class="n">stylegradient</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+                                        <span class="n">TR</span>
+                                        <span class="p">{</span>
 
-                                                TD { align=&quot;center&quot;
-                                                        WIDTH=&quot;10%&quot;
-                                                         text(&quot;Code :&quot;)
-                                                }
-                                                TD {
-                                                        html(`
-                                                        &lt;textarea name = &quot;cCode&quot;
-                                                        rows=&quot;5&quot;
-                                                        style=&quot;width : 100%; &quot;&gt;
-                                                        See &quot;Hello, World!&quot; + nl
-                                                        &lt;/textarea&gt;`)
-                                                }
-                                        }
-                                }
-                                Input { type = &quot;submit&quot;
-                                        classname=&quot;btn btn-primary btn-block&quot;
-                                                value = &quot;Execute&quot; }
-                                Table
-                                {
-                                        style = stylewidth(&quot;100%&quot;) +
-                                                stylegradient(34)
-                                        TR
-                                        {
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">align</span><span class="o">=</span><span class="s">&quot;center&quot;</span>
+                                                        <span class="n">WIDTH</span><span class="o">=</span><span class="s">&quot;10%&quot;</span>
+                                                         <span class="n">text</span><span class="p">(</span><span class="s">&quot;Code :&quot;</span><span class="p">)</span>
+                                                <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span>
+                                                        <span class="n">html</span><span class="p">(`</span>
+                                                        <span class="o">&lt;</span><span class="n">textarea</span> <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;cCode&quot;</span>
+                                                        <span class="n">rows</span><span class="o">=</span><span class="s">&quot;5&quot;</span>
+                                                        <span class="n">style</span><span class="o">=</span><span class="s">&quot;width : 100%; &quot;</span><span class="o">&gt;</span>
+                                                        <span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                                                        <span class="o">&lt;/</span><span class="n">textarea</span><span class="o">&gt;</span><span class="p">`)</span>
+                                                <span class="p">}</span>
+                                        <span class="p">}</span>
+                                <span class="p">}</span>
+                                <span class="n">Input</span> <span class="p">{</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;submit&quot;</span>
+                                        <span class="n">classname</span><span class="o">=</span><span class="s">&quot;btn btn-primary btn-block&quot;</span>
+                                                <span class="n">value</span> <span class="o">=</span> <span class="s">&quot;Execute&quot;</span> <span class="p">}</span>
+                                <span class="n">Table</span>
+                                <span class="p">{</span>
+                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                                <span class="n">stylegradient</span><span class="p">(</span><span class="mi">34</span><span class="p">)</span>
+                                        <span class="n">TR</span>
+                                        <span class="p">{</span>
 
-                                                TD { align=&quot;center&quot;
-                                                        WIDTH=&quot;10%&quot;
-                                                        text(&quot;Output :&quot;)
-                                                }
-                                                TD {
-                                                html(`
-                                                &lt;iframe name=&quot;codeoutput&quot;
-                                                width=&quot;100%&quot;
-                                                style=&quot;background-color:white;&quot;&gt;
-                                                &lt;/iframe&gt;`)
-                                                }
-                                        }
-                                }
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">align</span><span class="o">=</span><span class="s">&quot;center&quot;</span>
+                                                        <span class="n">WIDTH</span><span class="o">=</span><span class="s">&quot;10%&quot;</span>
+                                                        <span class="n">text</span><span class="p">(</span><span class="s">&quot;Output :&quot;</span><span class="p">)</span>
+                                                <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span>
+                                                <span class="n">html</span><span class="p">(`</span>
+                                                <span class="o">&lt;</span><span class="n">iframe</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;codeoutput&quot;</span>
+                                                <span class="n">width</span><span class="o">=</span><span class="s">&quot;100%&quot;</span>
+                                                <span class="n">style</span><span class="o">=</span><span class="s">&quot;background-color:white;&quot;</span><span class="o">&gt;</span>
+                                                <span class="o">&lt;/</span><span class="n">iframe</span><span class="o">&gt;</span><span class="p">`)</span>
+                                                <span class="p">}</span>
+                                        <span class="p">}</span>
+                                <span class="p">}</span>
 
-                        }
-                }
+                        <span class="p">}</span>
+                <span class="p">}</span>
 
-        }
-        html(template(&quot;footer.rhtml&quot;,NULL))
-}
+        <span class="p">}</span>
+        <span class="n">html</span><span class="p">(</span><span class="n">template</span><span class="p">(</span><span class="s">&quot;footer.rhtml&quot;</span><span class="p">,</span><span class="kp">NULL</span><span class="p">))</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

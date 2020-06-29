@@ -265,7 +265,7 @@
 The value will determine the variable type and you can change the value to
 switch between the types using the same variable name.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>&lt;Variable Name&gt; = &lt;Value&gt;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">Variable</span> <span class="n">Name</span><span class="o">&gt;</span> <span class="o">=</span> <span class="o">&lt;</span><span class="n">Value</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -282,22 +282,22 @@ be removed from memory (even if the variable contains a list or object).</p>
 <div class="section" id="dynamic-typing">
 <span id="index-1"></span><h2>Dynamic Typing<a class="headerlink" href="#dynamic-typing" title="Permalink to this headline">¶</a></h2>
 <p>Ring is a dynamic programming language that uses <a class="reference external" href="http://en.wikipedia.org/wiki/Type_system">Dynamic Typing</a>.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = &quot;Hello&quot;             # x is a string
-see x + nl
-x = 5                   # x is a number (int)
-see x + nl
-x = 1.2                 # x is a number (double)
-see x + nl
-x = [1,2,3,4]           # x is a list
-see x                   # print list items
-x = date()              # x is a string contains date
-see x + nl
-x = time()              # x is a string contains time
-see x + nl
-x = true                # x is a number (logical value = 1)
-see x + nl
-x = false               # x is a number (logical value = 0)
-see x + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Hello&quot;</span>             <span class="c"># x is a string</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mi">5</span>                   <span class="c"># x is a number (int)</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="mf">1.2</span>                 <span class="c"># x is a number (double)</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span>           <span class="c"># x is a list</span>
+<span class="k">see</span> <span class="n">x</span>                   <span class="c"># print list items</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">date</span><span class="p">()</span>              <span class="c"># x is a string contains date</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">time</span><span class="p">()</span>              <span class="c"># x is a string contains time</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="kp">true</span>                <span class="c"># x is a number (logical value = 1)</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">x</span> <span class="o">=</span> <span class="kp">false</span>               <span class="c"># x is a number (logical value = 0)</span>
+<span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
@@ -308,12 +308,12 @@ We can do that to copy values like strings &amp; numbers.
 Also, we can copy complete lists &amp; objects.
 The assignment operator will do a complete duplication for us.
 This operation called <a class="reference external" href="http://en.wikipedia.org/wiki/Object_copy#Deep_copy">Deep Copy</a></p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>list = [1,2,3,&quot;four&quot;,&quot;five&quot;]
-list2 = list
-list = []
-See list        # print the first list - no items to print
-See &quot;********&quot; + nl
-See list2       # print the second list - contains 5 items
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kt">list</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="s">&quot;five&quot;</span><span class="o">]</span>
+<span class="n">list2</span> <span class="o">=</span> <span class="kt">list</span>
+<span class="kt">list</span> <span class="o">=</span> <span class="o">[]</span>
+<span class="k">See</span> <span class="kt">list</span>        <span class="c"># print the first list - no items to print</span>
+<span class="k">See</span> <span class="s">&quot;********&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="n">list2</span>       <span class="c"># print the second list - contains 5 items</span>
 </pre></div>
 </div>
 </div>
@@ -321,8 +321,8 @@ See list2       # print the second list - contains 5 items
 <span id="index-3"></span><h2>Implicit Conversion<a class="headerlink" href="#implicit-conversion" title="Permalink to this headline">¶</a></h2>
 <p>The language can automatically convert between numbers and strings.</p>
 <p>Rules:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>&lt;NUMBER&gt; + &lt;STRING&gt; --&gt; &lt;NUMBER&gt;
-&lt;STRING&gt; + &lt;NUMBER&gt; --&gt; &lt;STRING&gt;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">NUMBER</span><span class="o">&gt;</span> <span class="o">+</span> <span class="o">&lt;</span><span class="kt">STRING</span><span class="o">&gt;</span> <span class="o">--&gt;</span> <span class="o">&lt;</span><span class="n">NUMBER</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="kt">STRING</span><span class="o">&gt;</span> <span class="o">+</span> <span class="o">&lt;</span><span class="n">NUMBER</span><span class="o">&gt;</span> <span class="o">--&gt;</span> <span class="o">&lt;</span><span class="kt">STRING</span><span class="o">&gt;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -331,11 +331,11 @@ See list2       # print the second list - contains 5 items
 or for string concatenation.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = 10                  # x is a number
-y = &quot;20&quot;                # y is a string
-sum = x + y             # sum is a number (y will be converted to a number)
-Msg = &quot;Sum = &quot; + sum    # Msg is a string (sum will be converted to a string)
-see Msg + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>                  <span class="c"># x is a number</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s">&quot;20&quot;</span>                <span class="c"># y is a string</span>
+<span class="n">sum</span> <span class="o">=</span> <span class="n">x</span> <span class="o">+</span> <span class="n">y</span>             <span class="c"># sum is a number (y will be converted to a number)</span>
+<span class="n">Msg</span> <span class="o">=</span> <span class="s">&quot;Sum = &quot;</span> <span class="o">+</span> <span class="n">sum</span>    <span class="c"># Msg is a string (sum will be converted to a string)</span>
+<span class="k">see</span> <span class="n">Msg</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>

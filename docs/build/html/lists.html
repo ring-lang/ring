@@ -284,27 +284,27 @@
 <span id="index-1"></span><h2>Create Lists<a class="headerlink" href="#create-lists" title="Permalink to this headline">¶</a></h2>
 <p>We can create new lists by defining the list items inside square bracts.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [1,2,3,4,5]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>Also we can create new lists using the : operator</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = 1:5
-aList2 = &quot;a&quot;:&quot;z&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="s">&quot;a&quot;</span><span class="p">:</span><span class="s">&quot;z&quot;</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = 5:1
-aList2 = &quot;z&quot;:&quot;a&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">5</span><span class="p">:</span><span class="mi">1</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="s">&quot;z&quot;</span><span class="p">:</span><span class="s">&quot;a&quot;</span>
 </pre></div>
 </div>
 <p>Also we can create lists using the list() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>list = list(size)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kt">list</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = list(10)        # aList contains 10 items
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>        <span class="c"># aList contains 10 items</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -316,24 +316,24 @@ aList2 = &quot;z&quot;:&quot;a&quot;
 <span id="index-2"></span><h2>Add Items<a class="headerlink" href="#add-items" title="Permalink to this headline">¶</a></h2>
 <p>To add new items to the list, we can use the Add() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Add(List,Item)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Add</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">Item</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [&quot;one&quot;,&quot;two&quot;]
-add(aList,&quot;three&quot;)
-see aList
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="o">]</span>
+<span class="n">add</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">aList</span>
 </pre></div>
 </div>
 <p>Also we can do that using the + operator.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>List + item
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kt">List</span> <span class="o">+</span> <span class="n">item</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = 1:10    # create list contains numbers from 1 to 10
-aList + 11      # add number 11 to the list
-see aList       # print the list
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>    <span class="c"># create list contains numbers from 1 to 10</span>
+<span class="n">aList</span> <span class="o">+</span> <span class="mi">11</span>      <span class="c"># add number 11 to the list</span>
+<span class="k">see</span> <span class="n">aList</span>       <span class="c"># print the list</span>
 </pre></div>
 </div>
 </div>
@@ -341,11 +341,11 @@ see aList       # print the list
 <span id="index-3"></span><h2>Get List Size<a class="headerlink" href="#get-list-size" title="Permalink to this headline">¶</a></h2>
 <p>We can get the list size using the len() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Len(List)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Len</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = 1:20  see len(aList)  # print 20
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">20</span>  <span class="k">see</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>  <span class="c"># print 20</span>
 </pre></div>
 </div>
 </div>
@@ -353,39 +353,39 @@ see aList       # print the list
 <span id="index-4"></span><h2>Delete Item From List<a class="headerlink" href="#delete-item-from-list" title="Permalink to this headline">¶</a></h2>
 <p>To delete an item from the list, we can use the del() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>del(list,index)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">del</span><span class="p">(</span><span class="kt">list</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [&quot;one&quot;,&quot;two&quot;,&quot;other&quot;,&quot;three&quot;]
-Del(aList,3)    # delete item number three
-see aList       # print one two three
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;other&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>
+<span class="n">Del</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>    <span class="c"># delete item number three</span>
+<span class="k">see</span> <span class="n">aList</span>       <span class="c"># print one two three</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="get-list-item">
 <span id="index-5"></span><h2>Get List Item<a class="headerlink" href="#get-list-item" title="Permalink to this headline">¶</a></h2>
 <p>To get an item from the list, we uses the next syntax</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>List[Index]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kt">List</span><span class="o">[</span><span class="n">Index</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [&quot;Cairo&quot;,&quot;Riyadh&quot;]
-see &quot;Egypt : &quot; + aList[1] + nl +
-    &quot;KSA   : &quot; + aList[2] + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;Cairo&quot;</span><span class="p">,</span><span class="s">&quot;Riyadh&quot;</span><span class="o">]</span>
+<span class="k">see</span> <span class="s">&quot;Egypt : &quot;</span> <span class="o">+</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;KSA   : &quot;</span> <span class="o">+</span> <span class="n">aList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="set-list-item">
 <span id="index-6"></span><h2>Set List Item<a class="headerlink" href="#set-list-item" title="Permalink to this headline">¶</a></h2>
 <p>To set the value of an item inside the list, we can use the next syntax</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>List[Index] = Expression
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kt">List</span><span class="o">[</span><span class="n">Index</span><span class="o">]</span> <span class="o">=</span> <span class="n">Expression</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = list(3) # create list contains three items
-aList[1] = &quot;one&quot; aList[2] = &quot;two&quot; aList[3] = &quot;three&quot;
-see aList
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="c"># create list contains three items</span>
+<span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;one&quot;</span> <span class="n">aList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;two&quot;</span> <span class="n">aList</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;three&quot;</span>
+<span class="k">see</span> <span class="n">aList</span>
 </pre></div>
 </div>
 </div>
@@ -393,44 +393,44 @@ see aList
 <span id="index-7"></span><h2>Search<a class="headerlink" href="#search" title="Permalink to this headline">¶</a></h2>
 <p>To find an item inside the list we can use the find() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Find(List,ItemValue) ---&gt; Item Index
-Find(List,ItemValue,nColumn) ---&gt; Search in nColumn, returns the Item Index
-Find(List,ItemValue,nColumn,cAttribute) ---&gt; Item Index
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
+<span class="n">Find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
+<span class="n">Find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;]
-see find(aList,&quot;three&quot;)         # print 3
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="s">&quot;five&quot;</span><span class="o">]</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">)</span>         <span class="c"># print 3</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>mylist = [[&quot;one&quot;,1],
-          [&quot;two&quot;,2],
-          [&quot;three&quot;,3]]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="o">[[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span>
+          <span class="o">[</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span><span class="p">,</span>
+          <span class="o">[</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="mi">3</span><span class="o">]]</span>
 
-see find(mylist,&quot;two&quot;,1) + nl           # print 2
-see find(mylist,2,2) + nl               # print 2
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>           <span class="c"># print 2</span>
+<span class="k">see</span> <span class="n">find</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>               <span class="c"># print 2</span>
 </pre></div>
 </div>
 <p>Also we can use the binarysearch() function to search in sorted list.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>BinarySearch(List,ItemValue) ---&gt; Item Index
-BinarySearch(List,ItemValue,nColumn) ---&gt; Search in nColumn, returns the Item Index
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">BinarySearch</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
+<span class="n">BinarySearch</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;,&quot;four&quot;,&quot;five&quot;]
-aList = sort(aList)
-see binarysearch(aList,&quot;three&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="p">,</span><span class="s">&quot;five&quot;</span><span class="o">]</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">binarysearch</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>five
-four
-one
-three
-two
-4
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">five</span>
+<span class="n">four</span>
+<span class="n">one</span>
+<span class="n">three</span>
+<span class="n">two</span>
+<span class="mi">4</span>
 </pre></div>
 </div>
 </div>
@@ -438,48 +438,48 @@ two
 <span id="index-8"></span><h2>Sort<a class="headerlink" href="#sort" title="Permalink to this headline">¶</a></h2>
 <p>We can sort the list using the sort() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Sort(List) ---&gt; Sorted List
-Sort(List,nColumn) ---&gt; Sorted List based on nColumn
-Sort(List,nColumn,cAttribute) ---&gt; Sorted List based on Object Attribute
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Sort</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span>
+<span class="n">Sort</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">nColumn</span>
+<span class="n">Sort</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">Object</span> <span class="n">Attribute</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [10,12,3,5,31,15]
-aList = sort(aList) see aList # print 3 5 10 12 15 31
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">31</span><span class="p">,</span><span class="mi">15</span><span class="o">]</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="k">see</span> <span class="n">aList</span> <span class="c"># print 3 5 10 12 15 31</span>
 </pre></div>
 </div>
 <p>We can sort list of strings</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>mylist = [&quot;mahmoud&quot;,&quot;samir&quot;,&quot;ahmed&quot;,&quot;ibrahim&quot;,&quot;mohammed&quot;]
-see mylist                # print list before sorting
-mylist = sort(mylist)     # sort list
-see &quot;list after sort&quot;+nl
-see mylist                # print ahmed ibrahim mahmoud mohammed samir
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;mahmoud&quot;</span><span class="p">,</span><span class="s">&quot;samir&quot;</span><span class="p">,</span><span class="s">&quot;ahmed&quot;</span><span class="p">,</span><span class="s">&quot;ibrahim&quot;</span><span class="p">,</span><span class="s">&quot;mohammed&quot;</span><span class="o">]</span>
+<span class="k">see</span> <span class="n">mylist</span>                <span class="c"># print list before sorting</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>     <span class="c"># sort list</span>
+<span class="k">see</span> <span class="s">&quot;list after sort&quot;</span><span class="o">+</span><span class="n">nl</span>
+<span class="k">see</span> <span class="n">mylist</span>                <span class="c"># print ahmed ibrahim mahmoud mohammed samir</span>
 </pre></div>
 </div>
 <p>We can sort a list based on a specific column.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [ [&quot;mahmoud&quot;,15000] ,
-          [&quot;ahmed&quot;, 14000 ] ,
-          [&quot;samir&quot;, 16000 ] ,
-          [&quot;mohammed&quot;, 12000 ] ,
-          [&quot;ibrahim&quot;,11000 ] ]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="s">&quot;mahmoud&quot;</span><span class="p">,</span><span class="mi">15000</span><span class="o">]</span> <span class="p">,</span>
+          <span class="o">[</span><span class="s">&quot;ahmed&quot;</span><span class="p">,</span> <span class="mi">14000</span> <span class="o">]</span> <span class="p">,</span>
+          <span class="o">[</span><span class="s">&quot;samir&quot;</span><span class="p">,</span> <span class="mi">16000</span> <span class="o">]</span> <span class="p">,</span>
+          <span class="o">[</span><span class="s">&quot;mohammed&quot;</span><span class="p">,</span> <span class="mi">12000</span> <span class="o">]</span> <span class="p">,</span>
+          <span class="o">[</span><span class="s">&quot;ibrahim&quot;</span><span class="p">,</span><span class="mi">11000</span> <span class="o">]</span> <span class="o">]</span>
 
-aList2 = sort(aList,1)
-see aList2
+<span class="n">aList2</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">aList2</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ahmed
-14000
-ibrahim
-11000
-mahmoud
-15000
-mohammed
-12000
-samir
-16000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ahmed</span>
+<span class="mi">14000</span>
+<span class="n">ibrahim</span>
+<span class="mi">11000</span>
+<span class="n">mahmoud</span>
+<span class="mi">15000</span>
+<span class="n">mohammed</span>
+<span class="mi">12000</span>
+<span class="n">samir</span>
+<span class="mi">16000</span>
 </pre></div>
 </div>
 </div>
@@ -487,13 +487,13 @@ samir
 <span id="index-9"></span><h2>Reverse<a class="headerlink" href="#reverse" title="Permalink to this headline">¶</a></h2>
 <p>We can reverse a list using the reverse() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Reverse(List) ---&gt; Reversed List
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Reverse</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Reversed</span> <span class="kt">List</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [10,20,30,40,50]
-aList = reverse(aList)
-see aList       # print 50 40 30 20 10
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="o">]</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">reverse</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">aList</span>       <span class="c"># print 50 40 30 20 10</span>
 </pre></div>
 </div>
 </div>
@@ -501,14 +501,14 @@ see aList       # print 50 40 30 20 10
 <span id="index-10"></span><h2>Insert Items<a class="headerlink" href="#insert-items" title="Permalink to this headline">¶</a></h2>
 <p>To insert an item in the list we can use the insert() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Insert(List,Index,Item)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Insert</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">Index</span><span class="p">,</span><span class="n">Item</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The inserted item will be AFTER the Index</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [&quot;A&quot;,&quot;B&quot;,&quot;D&quot;,&quot;E&quot;]
-insert(aList,2,&quot;C&quot;)    # Inserts AFTER Index 2, &quot;C&quot; into Position 3
-see aList              # print A B C D E
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;A&quot;</span><span class="p">,</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="s">&quot;D&quot;</span><span class="p">,</span><span class="s">&quot;E&quot;</span><span class="o">]</span>
+<span class="n">insert</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="s">&quot;C&quot;</span><span class="p">)</span>    <span class="c"># Inserts AFTER Index 2, &quot;C&quot; into Position 3</span>
+<span class="k">see</span> <span class="n">aList</span>              <span class="c"># print A B C D E</span>
 </pre></div>
 </div>
 </div>
@@ -516,20 +516,20 @@ see aList              # print A B C D E
 <span id="index-11"></span><h2>Nested Lists<a class="headerlink" href="#nested-lists" title="Permalink to this headline">¶</a></h2>
 <p>The list may contain other lists</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [ 1 , [10,20,30] , 5 , [100,1000,5000] ]
-aList2 = [
-&quot;one&quot;,&quot;two&quot;,
-[3,4],
-[20,30], [&quot;three&quot;,
-          &quot;four&quot;,
-          &quot;five&quot;,[100,200,300]
-         ]
-]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">1</span> <span class="p">,</span> <span class="o">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="o">]</span> <span class="p">,</span> <span class="mi">5</span> <span class="p">,</span> <span class="o">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">5000</span><span class="o">]</span> <span class="o">]</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="o">[</span>
+<span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span>
+<span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span>
+<span class="o">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s">&quot;three&quot;</span><span class="p">,</span>
+          <span class="s">&quot;four&quot;</span><span class="p">,</span>
+          <span class="s">&quot;five&quot;</span><span class="p">,</span><span class="o">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="o">]</span>
+         <span class="o">]</span>
+<span class="o">]</span>
 
-see aList[2]            # print 10 20 30
-see aList[4][3] + nl    # print 5000
-see aList2[5][2] + nl   # print four
-see aList2[5][4][3]     # print 300
+<span class="k">see</span> <span class="n">aList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>            <span class="c"># print 10 20 30</span>
+<span class="k">see</span> <span class="n">aList</span><span class="o">[</span><span class="mi">4</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 5000</span>
+<span class="k">see</span> <span class="n">aList2</span><span class="o">[</span><span class="mi">5</span><span class="o">][</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>   <span class="c"># print four</span>
+<span class="k">see</span> <span class="n">aList2</span><span class="o">[</span><span class="mi">5</span><span class="o">][</span><span class="mi">4</span><span class="o">][</span><span class="mi">3</span><span class="o">]</span>     <span class="c"># print 300</span>
 </pre></div>
 </div>
 </div>
@@ -537,19 +537,19 @@ see aList2[5][4][3]     # print 300
 <span id="index-12"></span><h2>Copy Lists<a class="headerlink" href="#copy-lists" title="Permalink to this headline">¶</a></h2>
 <p>We can copy lists (including nested lists) using the Assignment operator.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [
-&quot;one&quot;,&quot;two&quot;,
-[3,4],
-[20,30], [&quot;three&quot;,
-          &quot;four&quot;,
-          &quot;five&quot;,[100,200,300]
-         ]
-]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
+<span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span>
+<span class="o">[</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span><span class="p">,</span>
+<span class="o">[</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="o">]</span><span class="p">,</span> <span class="o">[</span><span class="s">&quot;three&quot;</span><span class="p">,</span>
+          <span class="s">&quot;four&quot;</span><span class="p">,</span>
+          <span class="s">&quot;five&quot;</span><span class="p">,</span><span class="o">[</span><span class="mi">100</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">300</span><span class="o">]</span>
+         <span class="o">]</span>
+<span class="o">]</span>
 
-aList2 = aList          # Copy aList to aList2
-aList2[5] = &quot;other&quot;     # modify item number five
-see aList2[5] + nl      # print other
-see aList[5]            # print three four five 100 200 300
+<span class="n">aList2</span> <span class="o">=</span> <span class="n">aList</span>          <span class="c"># Copy aList to aList2</span>
+<span class="n">aList2</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;other&quot;</span>     <span class="c"># modify item number five</span>
+<span class="k">see</span> <span class="n">aList2</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>      <span class="c"># print other</span>
+<span class="k">see</span> <span class="n">aList</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span>            <span class="c"># print three four five 100 200 300</span>
 </pre></div>
 </div>
 </div>
@@ -558,19 +558,19 @@ see aList[5]            # print three four five 100 200 300
 <p>Lists are <a class="reference external" href="http://en.wikipedia.org/wiki/First-class_citizen">first-class citizens</a> where we can store
 lists in variables, pass lists to functions, and return lists from functions.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = duplicate( [1,2,3,4,5] )
-see aList[10] + nl                # print 5
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">duplicate</span><span class="p">(</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span> <span class="p">)</span>
+<span class="k">see</span> <span class="n">aList</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>                <span class="c"># print 5</span>
 
-see mylist()                      # print 10 20 30 40 50
+<span class="k">see</span> <span class="n">mylist</span><span class="p">()</span>                      <span class="c"># print 10 20 30 40 50</span>
 
-func duplicate list
-        nMax = len(list)
-        for x = 1 to nMax
-                list + list[x]
-        next
-        return list
+<span class="k">func</span> <span class="n">duplicate</span> <span class="kt">list</span>
+        <span class="n">nMax</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nMax</span>
+                <span class="kt">list</span> <span class="o">+</span> <span class="kt">list</span><span class="o">[</span><span class="n">x</span><span class="o">]</span>
+        <span class="k">next</span>
+        <span class="k">return</span> <span class="kt">list</span>
 
-func mylist return [10,20,30,40,50]
+<span class="k">func</span> <span class="n">mylist</span> <span class="k">return</span> <span class="o">[</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">50</span><span class="o">]</span>
 </pre></div>
 </div>
 </div>
@@ -578,8 +578,8 @@ func mylist return [10,20,30,40,50]
 <span id="index-14"></span><h2>Using Lists during definition<a class="headerlink" href="#using-lists-during-definition" title="Permalink to this headline">¶</a></h2>
 <p>We can use the list items while we are defining the list for the first time.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
-see aList       # print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span> <span class="p">,</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="p">,</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">]</span>
+<span class="k">see</span> <span class="n">aList</span>       <span class="c"># print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5</span>
 </pre></div>
 </div>
 </div>
@@ -588,13 +588,13 @@ see aList       # print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
 <p>Lists are passed to functions by reference, This means that the called
 function will work on the same list and can modify it.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
-        aList = [1,2,3,4,5]     # create list, local in function main
-        myfunc(aList)           # call function, pass list by reference
-        see aList               # print 1 2 3 4 5 6 7 8 9 10
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span>     <span class="c"># create list, local in function main</span>
+        <span class="n">myfunc</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>           <span class="c"># call function, pass list by reference</span>
+        <span class="k">see</span> <span class="n">aList</span>               <span class="c"># print 1 2 3 4 5 6 7 8 9 10</span>
 
-func myfunc list
-        list + [6,7,8,9,10]
+<span class="k">func</span> <span class="n">myfunc</span> <span class="kt">list</span>
+        <span class="kt">list</span> <span class="o">+</span> <span class="o">[</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="o">]</span>
 </pre></div>
 </div>
 </div>
@@ -604,19 +604,19 @@ func myfunc list
 We can access items using string index if the item is a list contains two items and
 the first item is a string.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [ [&quot;one&quot;,1] , [&quot;two&quot;,2] , [&quot;three&quot;,3] ]
-see aList[&quot;one&quot;] + nl +
-    aList[&quot;two&quot;] + nl +
-    aList[&quot;three&quot;]      # print 1 2 3
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span> <span class="p">,</span> <span class="o">[</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="mi">2</span><span class="o">]</span> <span class="p">,</span> <span class="o">[</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="o">]</span>
+<span class="k">see</span> <span class="n">aList</span><span class="o">[</span><span class="s">&quot;one&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">aList</span><span class="o">[</span><span class="s">&quot;two&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">aList</span><span class="o">[</span><span class="s">&quot;three&quot;</span><span class="o">]</span>      <span class="c"># print 1 2 3</span>
 </pre></div>
 </div>
 <p>This type of lists can be defined in a better syntax using the : and = operators.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [ :one = 1 , :two = 2 , :three = 3 ]
-see aList[&quot;one&quot;] + nl +
-    aList[&quot;two&quot;] + nl +
-    aList[&quot;three&quot;] + nl # print 1 2 3
-see aList[1]            # print one 1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="p">:</span><span class="n">one</span> <span class="o">=</span> <span class="mi">1</span> <span class="p">,</span> <span class="p">:</span><span class="n">two</span> <span class="o">=</span> <span class="mi">2</span> <span class="p">,</span> <span class="p">:</span><span class="n">three</span> <span class="o">=</span> <span class="mi">3</span> <span class="o">]</span>
+<span class="k">see</span> <span class="n">aList</span><span class="o">[</span><span class="s">&quot;one&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">aList</span><span class="o">[</span><span class="s">&quot;two&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">aList</span><span class="o">[</span><span class="s">&quot;three&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># print 1 2 3</span>
+<span class="k">see</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>            <span class="c"># print one 1</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -630,11 +630,11 @@ the first item is the left side and the second item is the right side.</p>
 </div>
 <p>We can add new items to the list using the string index</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = []
-aList[&quot;Egypt&quot;] = &quot;Cairo&quot;
-aList[&quot;KSA&quot;] = &quot;Riyadh&quot;
-see aList[&quot;Egypt&quot;] + nl +       # print Cairo
-    aList[&quot;KSA&quot;] + nl           # print Riyadh
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[]</span>
+<span class="n">aList</span><span class="o">[</span><span class="s">&quot;Egypt&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;Cairo&quot;</span>
+<span class="n">aList</span><span class="o">[</span><span class="s">&quot;KSA&quot;</span><span class="o">]</span> <span class="o">=</span> <span class="s">&quot;Riyadh&quot;</span>
+<span class="k">see</span> <span class="n">aList</span><span class="o">[</span><span class="s">&quot;Egypt&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>       <span class="c"># print Cairo</span>
+    <span class="n">aList</span><span class="o">[</span><span class="s">&quot;KSA&quot;</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>           <span class="c"># print Riyadh</span>
 </pre></div>
 </div>
 </div>
@@ -644,16 +644,16 @@ see aList[&quot;Egypt&quot;] + nl +       # print Cairo
 Where the order of parameters will not be important (we can change the order).</p>
 <p>Also some parameters maybe optional.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>myconnect (  [ :server = &quot;myserver.com&quot; , :port = 80 ,
-               :username = &quot;mahmoud&quot; , :password = &quot;password&quot; ] )
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myconnect</span> <span class="p">(</span>  <span class="o">[</span> <span class="p">:</span><span class="n">server</span> <span class="o">=</span> <span class="s">&quot;myserver.com&quot;</span> <span class="p">,</span> <span class="p">:</span><span class="n">port</span> <span class="o">=</span> <span class="mi">80</span> <span class="p">,</span>
+               <span class="p">:</span><span class="n">username</span> <span class="o">=</span> <span class="s">&quot;mahmoud&quot;</span> <span class="p">,</span> <span class="p">:</span><span class="n">password</span> <span class="o">=</span> <span class="s">&quot;password&quot;</span> <span class="o">]</span> <span class="p">)</span>
 
-func myconnect mypara
+<span class="k">func</span> <span class="n">myconnect</span> <span class="n">mypara</span>
 
-        # print connection details
-        see &quot;User Name : &quot; + mypara[:username] + nl +
-            &quot;Password  : &quot; + mypara[:password] + nl +
-            &quot;Server    : &quot; + mypara[:server] + nl +
-            &quot;Port      : &quot; + mypara[:port]
+        <span class="c"># print connection details</span>
+        <span class="k">see</span> <span class="s">&quot;User Name : &quot;</span> <span class="o">+</span> <span class="n">mypara</span><span class="o">[</span><span class="p">:</span><span class="n">username</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+            <span class="s">&quot;Password  : &quot;</span> <span class="o">+</span> <span class="n">mypara</span><span class="o">[</span><span class="p">:</span><span class="n">password</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+            <span class="s">&quot;Server    : &quot;</span> <span class="o">+</span> <span class="n">mypara</span><span class="o">[</span><span class="p">:</span><span class="n">server</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+            <span class="s">&quot;Port      : &quot;</span> <span class="o">+</span> <span class="n">mypara</span><span class="o">[</span><span class="p">:</span><span class="n">port</span><span class="o">]</span>
 </pre></div>
 </div>
 </div>
@@ -661,19 +661,19 @@ func myconnect mypara
 <span id="index-18"></span><h2>Passing Parameters or Argumnents Using List Array<a class="headerlink" href="#passing-parameters-or-argumnents-using-list-array" title="Permalink to this headline">¶</a></h2>
 <p>Passing Arguments or Parmameters to a Function in an array format</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>myList = [5,7,3,9]    ### list with args or parms in  an array
-result = sum(myList)
-See &quot;Sum result: &quot;+ result +n
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="o">]</span>    <span class="sd">### list with args or parms in  an array</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Sum result: &quot;</span><span class="o">+</span> <span class="n">result</span> <span class="o">+</span><span class="n">n</span>
 
-func sum(aList)
-  acc = 0
-  sizeList = len(aList)
+<span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+  <span class="n">acc</span> <span class="o">=</span> <span class="mi">0</span>
+  <span class="n">sizeList</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 
-  for i = 1 to sizeList
-     See aList[i] +nl
-     acc = acc + aList[i]
-  next
-return acc
+  <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">sizeList</span>
+     <span class="k">See</span> <span class="n">aList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="o">+</span><span class="n">nl</span>
+     <span class="n">acc</span> <span class="o">=</span> <span class="n">acc</span> <span class="o">+</span> <span class="n">aList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span>
+  <span class="k">next</span>
+<span class="k">return</span> <span class="n">acc</span>
 </pre></div>
 </div>
 </div>
@@ -681,53 +681,53 @@ return acc
 <span id="index-19"></span><h2>Return Parameters as List or Hash Table<a class="headerlink" href="#return-parameters-as-list-or-hash-table" title="Permalink to this headline">¶</a></h2>
 <p>Return Parameters from a Function in an Array or Hash Format</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>sudoku = [  [2,9,0],
-            [0,0,1],
-            [0,0,0] ]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">sudoku</span> <span class="o">=</span> <span class="o">[</span>  <span class="o">[</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span><span class="p">,</span>
+            <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span>
+            <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="o">]</span> <span class="o">]</span>
 
-aOutput = myFunctionArray(sudoku)
-        See &quot;Return Array: T/F: &quot;+ aOutput[1] +&quot; Row: &quot;+ aOutput[2] +&quot; Col: &quot;+ aOutput[3] +nl
+<span class="n">aOutput</span> <span class="o">=</span> <span class="n">myFunctionArray</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Return Array: T/F: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span><span class="s">&quot; Row: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span><span class="s">&quot; Col: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span><span class="n">nl</span>
 
-aOutput = myFunctionHash(sudoku)
-        See &quot;Return Hash.: T/F: &quot;+ aOutput[:lValue] +&quot; Row: &quot;+ aOutput[:nRow] +&quot; Col: &quot;+ aOutput[:nCol] +nl
+<span class="n">aOutput</span> <span class="o">=</span> <span class="n">myFunctionHash</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Return Hash.: T/F: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="p">:</span><span class="n">lValue</span><span class="o">]</span> <span class="o">+</span><span class="s">&quot; Row: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="p">:</span><span class="n">nRow</span><span class="o">]</span> <span class="o">+</span><span class="s">&quot; Col: &quot;</span><span class="o">+</span> <span class="n">aOutput</span><span class="o">[</span><span class="p">:</span><span class="n">nCol</span><span class="o">]</span> <span class="o">+</span><span class="n">nl</span>
 
-###----------------------------------
-### isSolvedSoduku - Return ARRAY
+<span class="sd">###----------------------------------</span>
+<span class="sd">### isSolvedSoduku - Return ARRAY</span>
 
-Func myFunctionArray(sudoku)
-    for Row = 1 to 9
-        for Col = 1 to 9
-            if sudoku[Row][Col] = 0
+<span class="k">Func</span> <span class="n">myFunctionArray</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">Row</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">9</span>
+        <span class="k">for</span> <span class="n">Col</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">9</span>
+            <span class="k">if</span> <span class="n">sudoku</span><span class="o">[</span><span class="n">Row</span><span class="o">][</span><span class="n">Col</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span>
 
-                //----------------------------
-                // Return Array with 3 fields
-                return [False, Row, Col]
-            ok
-        next
-    next
-return [True, Row, Col]
+                <span class="o">//----------------------------</span>
+                <span class="o">//</span> <span class="k">Return</span> <span class="n">Array</span> <span class="n">with</span> <span class="mi">3</span> <span class="n">fields</span>
+                <span class="k">return</span> <span class="o">[</span><span class="kp">False</span><span class="p">,</span> <span class="n">Row</span><span class="p">,</span> <span class="n">Col</span><span class="o">]</span>
+            <span class="k">ok</span>
+        <span class="k">next</span>
+    <span class="k">next</span>
+<span class="k">return</span> <span class="o">[</span><span class="kp">True</span><span class="p">,</span> <span class="n">Row</span><span class="p">,</span> <span class="n">Col</span><span class="o">]</span>
 
-###----------------------------------
-### isSolvedSoduku - Return HASH
+<span class="sd">###----------------------------------</span>
+<span class="sd">### isSolvedSoduku - Return HASH</span>
 
-Func myFunctionHash(sudoku)
-    for Row = 1 to 3
-        for Col = 1 to 3
-            if sudoku[Row][Col] = 0
+<span class="k">Func</span> <span class="n">myFunctionHash</span><span class="p">(</span><span class="n">sudoku</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">Row</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+        <span class="k">for</span> <span class="n">Col</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+            <span class="k">if</span> <span class="n">sudoku</span><span class="o">[</span><span class="n">Row</span><span class="o">][</span><span class="n">Col</span><span class="o">]</span> <span class="o">=</span> <span class="mi">0</span>
 
-                //---------------------------------
-                // Return Hash Table with 3 fields
-                return  [   :lValue = False,
-                            :nRow   = Row,
-                            :nCol   = Col
-                        ]
-            ok
-        next
-    next
+                <span class="o">//---------------------------------</span>
+                <span class="o">//</span> <span class="k">Return</span> <span class="n">Hash</span> <span class="n">Table</span> <span class="n">with</span> <span class="mi">3</span> <span class="n">fields</span>
+                <span class="k">return</span>  <span class="o">[</span>   <span class="p">:</span><span class="n">lValue</span> <span class="o">=</span> <span class="kp">False</span><span class="p">,</span>
+                            <span class="p">:</span><span class="n">nRow</span>   <span class="o">=</span> <span class="n">Row</span><span class="p">,</span>
+                            <span class="p">:</span><span class="n">nCol</span>   <span class="o">=</span> <span class="n">Col</span>
+                        <span class="o">]</span>
+            <span class="k">ok</span>
+        <span class="k">next</span>
+    <span class="k">next</span>
 
-return  [ :lValue = False, :nRow = Row, :nCol = Col ]
+<span class="k">return</span>  <span class="o">[</span> <span class="p">:</span><span class="n">lValue</span> <span class="o">=</span> <span class="kp">False</span><span class="p">,</span> <span class="p">:</span><span class="n">nRow</span> <span class="o">=</span> <span class="n">Row</span><span class="p">,</span> <span class="p">:</span><span class="n">nCol</span> <span class="o">=</span> <span class="n">Col</span> <span class="o">]</span>
 
-###-----------------------------
+<span class="sd">###-----------------------------</span>
 </pre></div>
 </div>
 </div>
@@ -735,71 +735,71 @@ return  [ :lValue = False, :nRow = Row, :nCol = Col ]
 <span id="index-20"></span><h2>Creating a Multi-Dimensional Array using  List<a class="headerlink" href="#creating-a-multi-dimensional-array-using-list" title="Permalink to this headline">¶</a></h2>
 <p>A Multi-Dimensional Array of any size can be built using recursion in a  Function</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>###---------------------------------------------------------
-### Create Array -- Dimensions Any Size:  3D, 4D, 5D etc
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="sd">###---------------------------------------------------------</span>
+<span class="sd">### Create Array -- Dimensions Any Size:  3D, 4D, 5D etc</span>
 
-dimList = [4,3,4]
-bList   = createDimList(dimList)
+<span class="n">dimList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="o">]</span>
+<span class="n">bList</span>   <span class="o">=</span> <span class="n">createDimList</span><span class="p">(</span><span class="n">dimList</span><span class="p">)</span>
 
-###---------------------------------------------------------
-### Populate the arrays using a counter 1 ,  4x4x4 = 256 , 2x3x4x5x6 = 720
+<span class="sd">###---------------------------------------------------------</span>
+<span class="sd">### Populate the arrays using a counter 1 ,  4x4x4 = 256 , 2x3x4x5x6 = 720</span>
 
-Counter = 1
+<span class="n">Counter</span> <span class="o">=</span> <span class="mi">1</span>
 
-for Col=1 to dimList[1]
-  for Row=1 to dimList[2]
-    for Dep=1 to dimList[3]
-            blist[Col][Row][Dep] = Counter
-            Counter++
-    next
-  next
-next
+<span class="k">for</span> <span class="n">Col</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+  <span class="k">for</span> <span class="n">Row</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+    <span class="k">for</span> <span class="n">Dep</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+            <span class="n">blist</span><span class="o">[</span><span class="n">Col</span><span class="o">][</span><span class="n">Row</span><span class="o">][</span><span class="n">Dep</span><span class="o">]</span> <span class="o">=</span> <span class="n">Counter</span>
+            <span class="n">Counter</span><span class="o">++</span>
+    <span class="k">next</span>
+  <span class="k">next</span>
+<span class="k">next</span>
 
-###-----------------------------------------------
-### Print the array elements in block format
+<span class="sd">###-----------------------------------------------</span>
+<span class="sd">### Print the array elements in block format</span>
 
-for Col=1 to dimList[1]
-  for Row=1 to dimList[2]
-    for Dep=1 to dimList[3]
-            See bList[Col][Row][Dep] See &quot; &quot;
-    next
-    See nl
-  next
-    See nl
-next
+<span class="k">for</span> <span class="n">Col</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+  <span class="k">for</span> <span class="n">Row</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+    <span class="k">for</span> <span class="n">Dep</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">dimList</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+            <span class="k">See</span> <span class="n">bList</span><span class="o">[</span><span class="n">Col</span><span class="o">][</span><span class="n">Row</span><span class="o">][</span><span class="n">Dep</span><span class="o">]</span> <span class="k">See</span> <span class="s">&quot; &quot;</span>
+    <span class="k">next</span>
+    <span class="k">See</span> <span class="n">nl</span>
+  <span class="k">next</span>
+    <span class="k">See</span> <span class="n">nl</span>
+<span class="k">next</span>
 
-###===========================
-### FUNCTIONS
+<span class="sd">###===========================</span>
+<span class="sd">### FUNCTIONS</span>
 
-###-----------------------------------------------------------------------
-### Recursive Create a Dimension Array
-### Call by passing an array of dimesions: dimList = [2,3,4,5]
-### Drop the first entry every iteration call, making newParms
-###
-### Example:
-###    dimList = [4,2,3,2]                &lt;&lt;&lt; Number and size of dimensions in array format
-###    bList   = createDimList(dimList)   &lt;&lt;&lt; Call using the array as input
+<span class="sd">###-----------------------------------------------------------------------</span>
+<span class="sd">### Recursive Create a Dimension Array</span>
+<span class="sd">### Call by passing an array of dimesions: dimList = [2,3,4,5]</span>
+<span class="sd">### Drop the first entry every iteration call, making newParms</span>
+<span class="sd">###</span>
+<span class="sd">### Example:</span>
+<span class="sd">###    dimList = [4,2,3,2]                &lt;&lt;&lt; Number and size of dimensions in array format</span>
+<span class="sd">###    bList   = createDimList(dimList)   &lt;&lt;&lt; Call using the array as input</span>
 
-func createDimList(dimArray)
+<span class="k">func</span> <span class="n">createDimList</span><span class="p">(</span><span class="n">dimArray</span><span class="p">)</span>
 
-     sizeList = len(dimArray)
+     <span class="n">sizeList</span> <span class="o">=</span> <span class="n">len</span><span class="p">(</span><span class="n">dimArray</span><span class="p">)</span>
 
-     newParms = []
-     for i = 2 to sizeList
-        Add(newParms, dimArray[i])
-     next
+     <span class="n">newParms</span> <span class="o">=</span> <span class="o">[]</span>
+     <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">2</span> <span class="k">to</span> <span class="n">sizeList</span>
+        <span class="n">Add</span><span class="p">(</span><span class="n">newParms</span><span class="p">,</span> <span class="n">dimArray</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">)</span>
+     <span class="k">next</span>
 
-     alist = list(dimArray[1])
+     <span class="n">alist</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="n">dimArray</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span>
 
-     if sizeList = 1
-        return aList
-     ok
+     <span class="k">if</span> <span class="n">sizeList</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">return</span> <span class="n">aList</span>
+     <span class="k">ok</span>
 
-     for t in alist
-         t = createDimList(newParms)
-     next
+     <span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">alist</span>
+         <span class="n">t</span> <span class="o">=</span> <span class="n">createDimList</span><span class="p">(</span><span class="n">newParms</span><span class="p">)</span>
+     <span class="k">next</span>
 
-return alist
+<span class="k">return</span> <span class="n">alist</span>
 </pre></div>
 </div>
 </div>
@@ -807,23 +807,23 @@ return alist
 <span id="index-21"></span><h2>Swap Items<a class="headerlink" href="#swap-items" title="Permalink to this headline">¶</a></h2>
 <p>We can swap the list items using the Swap() function.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [:one,:two,:four,:three]
-see aList
-see copy(&quot;*&quot;,50) + nl
-swap(aList,3,4)
-see aList
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="p">:</span><span class="n">one</span><span class="p">,:</span><span class="n">two</span><span class="p">,:</span><span class="n">four</span><span class="p">,:</span><span class="n">three</span><span class="o">]</span>
+<span class="k">see</span> <span class="n">aList</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">aList</span>
 </pre></div>
 </div>
 <p>Output</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>one
-two
-four
-three
-**************************************************
-one
-two
-three
-four
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">one</span>
+<span class="n">two</span>
+<span class="n">four</span>
+<span class="n">three</span>
+<span class="o">**************************************************</span>
+<span class="n">one</span>
+<span class="n">two</span>
+<span class="n">three</span>
+<span class="n">four</span>
 </pre></div>
 </div>
 </div>

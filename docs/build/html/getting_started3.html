@@ -269,9 +269,9 @@
 <div class="section" id="hello-world">
 <span id="index-1"></span><h2>Hello World<a class="headerlink" href="#hello-world" title="Permalink to this headline">¶</a></h2>
 <p>The next program prints the Hello World message on the screen (std-out).</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-print(&quot;Hello World&quot;)
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -279,14 +279,14 @@ print(&quot;Hello World&quot;)
 <span id="index-2"></span><h2>Run the program<a class="headerlink" href="#run-the-program" title="Permalink to this headline">¶</a></h2>
 <p>to run the program, save the code in a file, for example : hello.ring
 then from the command line or terminal, run it using Ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring hello.ring
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="create-executable-file">
 <span id="index-3"></span><h2>Create Executable File<a class="headerlink" href="#create-executable-file" title="Permalink to this headline">¶</a></h2>
 <p>Using Ring2EXE we can create executable file for our application</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring2exe hello.ring -static
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">static</span>
 </pre></div>
 </div>
 <p>The -static option will avoid the need to ring.dll|ring.so|ring.dylib</p>
@@ -294,14 +294,14 @@ then from the command line or terminal, run it using Ring</p>
 <p>You will need these libraries!</p>
 <p>To avoid the need to these libraries (If you don’t need stdlib classes)</p>
 <p>Use stdlibcore.ring instead of stdlib.ring as in the next example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlibcore.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
 
-print(&quot;Hello World&quot;)
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Using stdlibcore.ring You can access the stdlib functions but not the stdlib classes.</p>
 <p>if you want to use stdlib.ring and distribute your application</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring2exe hello.ring -dist -allruntime -noqt -noallegro
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">hello</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">allruntime</span> <span class="o">-</span><span class="n">noqt</span> <span class="o">-</span><span class="n">noallegro</span>
 </pre></div>
 </div>
 </div>
@@ -313,41 +313,41 @@ be written in different styles</p>
 <p class="admonition-title">Tip</p>
 <p>It’s better to select one style and use it in all of the program source code</p>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>LOAD &quot;stdlib.ring&quot;
-PRINT(&quot;Hello World&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">LOAD</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">PRINT</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
-Print(&quot;Hello World&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="multi-line-literals">
 <span id="index-5"></span><h2>Multi-Line literals<a class="headerlink" href="#multi-line-literals" title="Permalink to this headline">¶</a></h2>
 <p>Using Ring we can write multi-line literal, see the next example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
-Print(&quot;
-        Hello
-        Welcome to the Ring programming language
-        How are you?
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;</span>
+        <span class="n">Hello</span>
+        <span class="n">Welcome</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">programming</span> <span class="n">language</span>
+        <span class="n">How</span> <span class="n">are</span> <span class="n">you</span><span class="o">?</span>
 
-    &quot;)
+    <span class="s">&quot;)</span>
 </pre></div>
 </div>
 <p>Also you can use the \n to insert new line
 and you can use #{variable_name} to insert variables values.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
-Print( &quot;Hello\nWelcome to the Ring programming language\nHow are you?&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">Print</span><span class="p">(</span> <span class="s">&quot;Hello</span><span class="se">\n</span><span class="s">Welcome to the Ring programming language</span><span class="se">\n</span><span class="s">How are you?&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="getting-input">
 <span id="index-6"></span><h2>Getting Input<a class="headerlink" href="#getting-input" title="Permalink to this headline">¶</a></h2>
 <p>You can get the input from the user using the getstring() function</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
-Print(&quot;What is your name? &quot;)
-cName = GetString()
-Print(&quot;Hello #{cName}&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;What is your name? &quot;</span><span class="p">)</span>
+<span class="n">cName</span> <span class="o">=</span> <span class="n">GetString</span><span class="p">()</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;Hello #{cName}&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -355,8 +355,8 @@ Print(&quot;Hello #{cName}&quot;)
 <span id="index-7"></span><h2>No Explicit End For Statements<a class="headerlink" href="#no-explicit-end-for-statements" title="Permalink to this headline">¶</a></h2>
 <p>You don’t need to use ‘;’ or press ENTER to separate statements.
 The previous program can be written in one line.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;stdlib.ring&quot;
-Print(&quot;What is your name? &quot;) cName=getstring() print(&quot;Hello #{cName}&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;What is your name? &quot;</span><span class="p">)</span> <span class="n">cName</span><span class="o">=</span><span class="n">getstring</span><span class="p">()</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{cName}&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -365,19 +365,19 @@ Print(&quot;What is your name? &quot;) cName=getstring() print(&quot;Hello #{cNa
 <p>We can write one line comments and multi-line comments</p>
 <p>The comment starts with # or //</p>
 <p>Multi-lines comments are written between /* and <a href="#id1"><span class="problematic" id="id2">*</span></a>/</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>/*
-        Program Name : My first program using Ring
-        Date         : 2016.09.09
-        Author       : Mahmoud Fayed
-*/
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>
+        <span class="n">Program</span> <span class="n">Name</span> <span class="p">:</span> <span class="n">My</span> <span class="n">first</span> <span class="n">program</span> <span class="n">using</span> <span class="n">Ring</span>
+        <span class="n">Date</span>         <span class="p">:</span> <span class="mf">2016.09.09</span>
+        <span class="n">Author</span>       <span class="p">:</span> <span class="n">Mahmoud</span> <span class="n">Fayed</span>
+<span class="o">*/</span>
 
-Load &quot;stdlib.ring&quot;
+<span class="k">Load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-Print(&quot;What is your name? &quot;)    # print message on screen
-cName=GetString()               # get input from the user
-print(&quot;Hello #{cName}&quot;)         # say hello!
+<span class="n">Print</span><span class="p">(</span><span class="s">&quot;What is your name? &quot;</span><span class="p">)</span>    <span class="c"># print message on screen</span>
+<span class="n">cName</span><span class="o">=</span><span class="n">GetString</span><span class="p">()</span>               <span class="c"># get input from the user</span>
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello #{cName}&quot;</span><span class="p">)</span>         <span class="c"># say hello!</span>
 
-// print(&quot;Bye!&quot;)
+<span class="o">//</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;Bye!&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <div class="admonition note">

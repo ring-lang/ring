@@ -377,14 +377,14 @@ it will search in the Local Scope first so it will find self in the class that w
 <div class="section" id="conflict-between-global-variables-and-class-attributes">
 <h2>Conflict between Global Variables and Class Attributes<a class="headerlink" href="#conflict-between-global-variables-and-class-attributes" title="Permalink to this headline">¶</a></h2>
 <p>Look at this example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>name = &quot;test&quot;
-o1 = new person
-see o1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+<span class="k">see</span> <span class="n">o1</span>
 
-class person
-        name
-        address
-        phone
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
 </pre></div>
 </div>
 <p>In the previous example we have a global variable called ‘name’
@@ -396,48 +396,48 @@ will try to find it.</p>
 <p>But the variable name is a global variable, so it will be found and used!</p>
 <p>We will not have the attribute name! added to the object.</p>
 <p>Solution (1) - Use the Main Function</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
-        name = &quot;test&quot;
-        o1 = new person
-        see o1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+        <span class="k">see</span> <span class="n">o1</span>
 
-class person
-        name
-        address
-        phone
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
 </pre></div>
 </div>
 <p>Solution (2) - Use special mark for global variable names like $</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>$name = &quot;test&quot;
-o1 = new person
-see o1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">$</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+<span class="k">see</span> <span class="n">o1</span>
 
-class person
-        name
-        address
-        phone
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
 </pre></div>
 </div>
 <p>Solution (3) - Use the AddAttribute() Method</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>name = &quot;test&quot;
-o1 = new person
-see o1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+<span class="k">see</span> <span class="n">o1</span>
 
-class person
-        AddAttribute(self,&quot;name&quot;)
-        address
-        phone
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">AddAttribute</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
 </pre></div>
 </div>
 <p>Solution (4) - Use self before the attribute name</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>name = &quot;test&quot;
-o1 = new person
-see o1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+<span class="k">see</span> <span class="n">o1</span>
 
-class person
-        self.name
-        address
-        phone
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">self</span><span class="p">.</span><span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
 </pre></div>
 </div>
 <p>So what is the best solution to this conflict?</p>
@@ -453,56 +453,56 @@ class person
 <span id="index-7"></span><h2>Conflict between Class Attributes and Local Variables<a class="headerlink" href="#conflict-between-class-attributes-and-local-variables" title="Permalink to this headline">¶</a></h2>
 <p>This conflict may happen when we access the object using braces</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
-        name = &quot;nice&quot;
-        o1 = new person {name=&quot;mahmoud&quot; address=&quot;Egypt&quot;  phone = 000 }
-        see o1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;nice&quot;</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;mahmoud&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s">&quot;Egypt&quot;</span>  <span class="n">phone</span> <span class="o">=</span> <span class="mi">000</span> <span class="p">}</span>
+        <span class="k">see</span> <span class="n">o1</span>
 
-class person
-        name
-        address
-        phone
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
 </pre></div>
 </div>
 <p>In the previous example we have the local variable name.</p>
 <p>The value of this variable will be set to “mahmoud” instead of the object attribute.</p>
 <p>Solution (1) : Just use Self</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
-        name = &quot;nice&quot;
-        o1 = new person {self.name=&quot;mahmoud&quot; address=&quot;Egypt&quot;  phone = 000 }
-        see o1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;nice&quot;</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span> <span class="p">{</span><span class="n">self</span><span class="p">.</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;mahmoud&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s">&quot;Egypt&quot;</span>  <span class="n">phone</span> <span class="o">=</span> <span class="mi">000</span> <span class="p">}</span>
+        <span class="k">see</span> <span class="n">o1</span>
 
-class person
-        name
-        address
-        phone
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
 </pre></div>
 </div>
 <p>Solution (2) : Change the Local variable name</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
-        cName = &quot;nice&quot;
-        o1 = new person {name=&quot;mahmoud&quot; address=&quot;Egypt&quot;  phone = 000 }
-        see o1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">cName</span> <span class="o">=</span> <span class="s">&quot;nice&quot;</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span> <span class="p">{</span><span class="n">name</span><span class="o">=</span><span class="s">&quot;mahmoud&quot;</span> <span class="n">address</span><span class="o">=</span><span class="s">&quot;Egypt&quot;</span>  <span class="n">phone</span> <span class="o">=</span> <span class="mi">000</span> <span class="p">}</span>
+        <span class="k">see</span> <span class="n">o1</span>
 
-class person
-        name
-        address
-        phone
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
 </pre></div>
 </div>
 <p>Solution (3) : Change Braces and use the Dot operator</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
-        name = &quot;nice&quot;
-        o1 = new person
-        o1.name =&quot;mahmoud&quot;
-        o1.address =&quot;Egypt&quot;
-        o1.phone = 000
-        see o1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;nice&quot;</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+        <span class="n">o1</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span><span class="s">&quot;mahmoud&quot;</span>
+        <span class="n">o1</span><span class="p">.</span><span class="n">address</span> <span class="o">=</span><span class="s">&quot;Egypt&quot;</span>
+        <span class="n">o1</span><span class="p">.</span><span class="n">phone</span> <span class="o">=</span> <span class="mi">000</span>
+        <span class="k">see</span> <span class="n">o1</span>
 
-class person
-        name
-        address
-        phone
+<span class="k">class</span> <span class="n">person</span>
+        <span class="n">name</span>
+        <span class="n">address</span>
+        <span class="n">phone</span>
 </pre></div>
 </div>
 </div>
@@ -512,19 +512,19 @@ class person
 are inside a class method, we expect that we have access to the object attributes and methods and
 this is true until we use braces to access another object attributes and methods because in this case
 our object scope will be switched to another object.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point { test() }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
 
-class point
-        x=10 y=20
-        func test
-                see x + nl + y + nl # works fine
-                myobj = new otherclass {
-                        see name + nl
-                        see x + nl + y + nl # error !
-                }
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># works fine</span>
+                <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">otherclass</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># error !</span>
+                <span class="p">}</span>
 
-class otherclass
-        name = &quot;test&quot;
+<span class="k">class</span> <span class="n">otherclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -539,20 +539,20 @@ called from line 5  in file methodbraceerror.ring
 </div>
 <p>Now what we will do to solve the previous problem?</p>
 <p>Solution (1) : Write the code that access the class attributes outside braces.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point { test() }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
 
-class point
-        x=10 y=20
-        func test
-                see x + nl + y + nl # works fine
-                myobj = new otherclass {
-                        see name + nl
-                }
-                see x + nl + y + nl # Outside braces - works fine
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># works fine</span>
+                <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">otherclass</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="p">}</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># Outside braces - works fine</span>
 
 
-class otherclass
-        name = &quot;test&quot;
+<span class="k">class</span> <span class="n">otherclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -564,36 +564,36 @@ test
 </pre></div>
 </div>
 <p>Solution (2) : Don’t Use Braces</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point { test() }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
 
-class point
-        x=10 y=20
-        func test
-                see x + nl + y + nl
-                myobj = new otherclass
-                see myobj.name
-                see x + nl + y + nl
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">otherclass</span>
+                <span class="k">see</span> <span class="n">myobj</span><span class="p">.</span><span class="n">name</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
 
-class otherclass
-        name = &quot;test&quot;
+<span class="k">class</span> <span class="n">otherclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
 </pre></div>
 </div>
 <p>Solution (3) : Copy the self object</p>
 <p>We may use this solution if we want to use braces and get access to the class attributes (Just Reading).</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point { test() }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
 
-class point
-        x=10 y=20
-        func test
-                oSelf = self
-                see x + nl + y + nl
-                myobj = new otherclass {
-                        see name + nl
-                        see oself.x + nl + oself.y + nl
-                }
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="n">oSelf</span> <span class="o">=</span> <span class="n">self</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">otherclass</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="k">see</span> <span class="n">oself</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">oself</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="p">}</span>
 
-class otherclass
-        name = &quot;test&quot;
+<span class="k">class</span> <span class="n">otherclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -605,7 +605,7 @@ test
 </pre></div>
 </div>
 <p>Now look at this line</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>oself = self
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oself</span> <span class="o">=</span> <span class="n">self</span>
 </pre></div>
 </div>
 <p>The problem with the previous line is that we will have a new copy from the object
@@ -616,22 +616,22 @@ Because in Ring the assignment operator copy lists and objects by value (not by 
 <p class="admonition-title">Note</p>
 <p>We can use braces again with the copy</p>
 </div>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point { test() }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
 
-class point
-        x=10 y=20
-        func test
-                oSelf = self
-                see x + nl + y + nl
-                myobj = new otherclass {
-                        see name + nl
-                        oSelf {
-                                see x + nl + y + nl
-                        }
-                }
+<span class="k">class</span> <span class="n">point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="n">oSelf</span> <span class="o">=</span> <span class="n">self</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="n">myobj</span> <span class="o">=</span> <span class="k">new</span> <span class="n">otherclass</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="n">oSelf</span> <span class="p">{</span>
+                                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
 
-class otherclass
-        name = &quot;test&quot;
+<span class="k">class</span> <span class="n">otherclass</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;test&quot;</span>
 </pre></div>
 </div>
 <p>In a GUI application, we may create a class contains the window objects as attributes to be able
@@ -650,22 +650,22 @@ the Self reference will be changed to the object that we access using Braces.</p
 if you want to modify an attribute you have to the copy from local variable to the object attribute after using
 Braces.</p>
 <p>This case happens when you want to read/modify attribute insead braces.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Class MyApp
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">MyApp</span>
 
-        oCon   # Attribute
+        <span class="n">oCon</span>   <span class="c"># Attribute</span>
 
-        # some code here
+        <span class="c"># some code here</span>
 
-        Func OpenDatabase
-                # some code here
-                new QSqlDatabase() {
-                        oCon = addDatabase(&quot;QSQLITE&quot;) {
-                                setDatabaseName(&quot;weighthistory.db&quot;)
-                                open()
-                        }
-                }
-                self.oCon = oCon
-                # some code here
+        <span class="k">Func</span> <span class="n">OpenDatabase</span>
+                <span class="c"># some code here</span>
+                <span class="k">new</span> <span class="n">QSqlDatabase</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="n">oCon</span> <span class="o">=</span> <span class="n">addDatabase</span><span class="p">(</span><span class="s">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">setDatabaseName</span><span class="p">(</span><span class="s">&quot;weighthistory.db&quot;</span><span class="p">)</span>
+                                <span class="n">open</span><span class="p">()</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">oCon</span> <span class="o">=</span> <span class="n">oCon</span>
+                <span class="c"># some code here</span>
 </pre></div>
 </div>
 <p>In the previous example we want to create the connection object and save it inside the oCon attribute.</p>
@@ -675,38 +675,38 @@ the Self reference here will be to the object that we access using Braces.</p>
 <p>We solved the problem in the previous example by creating a local variable called oCon then after Braces
 we copied that variable to the oCon attribute.</p>
 <p>The next code is another solution.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Class MyApp
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">MyApp</span>
 
-        oCon   # Attribute
+        <span class="n">oCon</span>   <span class="c"># Attribute</span>
 
-        # some code here
+        <span class="c"># some code here</span>
 
-        Func OpenDatabase
-                # some code here
-                oCon = new QSqlDatabase()
-                oCon = oCon.addDatabase(&quot;QSQLITE&quot;) {
-                        setDatabaseName(&quot;weighthistory.db&quot;)
-                        Open()
-                }
-                # some code here
+        <span class="k">Func</span> <span class="n">OpenDatabase</span>
+                <span class="c"># some code here</span>
+                <span class="n">oCon</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QSqlDatabase</span><span class="p">()</span>
+                <span class="n">oCon</span> <span class="o">=</span> <span class="n">oCon</span><span class="p">.</span><span class="n">addDatabase</span><span class="p">(</span><span class="s">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setDatabaseName</span><span class="p">(</span><span class="s">&quot;weighthistory.db&quot;</span><span class="p">)</span>
+                        <span class="n">Open</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="c"># some code here</span>
 </pre></div>
 </div>
 <p>The next code is a better solution.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Class MyApp
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">MyApp</span>
 
-        oCon   # Attribute
+        <span class="n">oCon</span>   <span class="c"># Attribute</span>
 
-        # some code here
+        <span class="c"># some code here</span>
 
-        Func OpenDatabase
-                # some code here
-                new QSqlDatabase() {
-                        this.oCon = addDatabase(&quot;QSQLITE&quot;) {
-                                setDatabaseName(&quot;weighthistory.db&quot;)
-                                Open()
-                        }
-                }
-                # some code here
+        <span class="k">Func</span> <span class="n">OpenDatabase</span>
+                <span class="c"># some code here</span>
+                <span class="k">new</span> <span class="n">QSqlDatabase</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="n">this</span><span class="p">.</span><span class="n">oCon</span> <span class="o">=</span> <span class="n">addDatabase</span><span class="p">(</span><span class="s">&quot;QSQLITE&quot;</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">setDatabaseName</span><span class="p">(</span><span class="s">&quot;weighthistory.db&quot;</span><span class="p">)</span>
+                                <span class="n">Open</span><span class="p">()</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="c"># some code here</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -720,67 +720,67 @@ we copied that variable to the oCon attribute.</p>
 <p>In this area you can use nested braces without problems to define the window and the controls, and
 they will be attributes that you can access from methods.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;guilib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
-new qApp
-{
-        $ObjectName = &quot;oFirstWindow&quot;
-        oFirstWindow = new FirstWindow
+<span class="k">new</span> <span class="n">qApp</span>
+<span class="p">{</span>
+        <span class="o">$</span><span class="n">ObjectName</span> <span class="o">=</span> <span class="s">&quot;oFirstWindow&quot;</span>
+        <span class="n">oFirstWindow</span> <span class="o">=</span> <span class="k">new</span> <span class="n">FirstWindow</span>
 
-        $ObjectName = &quot;oSecondWindow&quot;
-        oSecondWindow = new SecondWindow
+        <span class="o">$</span><span class="n">ObjectName</span> <span class="o">=</span> <span class="s">&quot;oSecondWindow&quot;</span>
+        <span class="n">oSecondWindow</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SecondWindow</span>
 
-        exec()
-}
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
 
-Class FirstWindow
+<span class="k">Class</span> <span class="n">FirstWindow</span>
 
-        win = new qWidget() {
-                setgeometry(0,50,300,200)
-                setWindowTitle(&quot;First Window&quot;)
-                label1 = new qLabel(win)
-                {
-                        setgeometry(10,10,300,30)
-                        setText(&quot;0&quot;)
-                }
-                btn1 = new qPushButton(win)
-                {
-                        move(100,100)
-                        setText(&quot;Increment&quot;)
-                        setClickEvent($ObjectName+&quot;.increment()&quot;)
-                }
-                show()
-        }
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;First Window&quot;</span><span class="p">)</span>
+                <span class="n">label1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qLabel</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">btn1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Increment&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="o">$</span><span class="n">ObjectName</span><span class="o">+</span><span class="s">&quot;.increment()&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
 
-        Func Increment
-                label1 {
-                        setText( &quot;&quot; + ( 0 + text() + 1 ) )
-                }
+        <span class="k">Func</span> <span class="n">Increment</span>
+                <span class="n">label1</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">text</span><span class="p">()</span> <span class="o">+</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
 
 
-Class SecondWindow
+<span class="k">Class</span> <span class="n">SecondWindow</span>
 
-        win = new qWidget() {
-                setgeometry(400,50,300,200)
-                setWindowTitle(&quot;Second Window&quot;)
-                label1 = new qLabel(win)
-                {
-                        setgeometry(10,10,300,30)
-                        setText(&quot;0&quot;)
-                }
-                btn1 = new qPushButton(win)
-                {
-                        move(100,100)
-                        setText(&quot;Decrement&quot;)
-                        setClickEvent($ObjectName+&quot;.decrement()&quot;)
-                }
-                show()
-        }
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Second Window&quot;</span><span class="p">)</span>
+                <span class="n">label1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qLabel</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">300</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;0&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">btn1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Decrement&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span><span class="o">$</span><span class="n">ObjectName</span><span class="o">+</span><span class="s">&quot;.decrement()&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
 
-        Func Decrement
-                label1 {
-                        setText( &quot;&quot; + ( 0 + text() - 1 ) )
-                }
+        <span class="k">Func</span> <span class="n">Decrement</span>
+                <span class="n">label1</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">text</span><span class="p">()</span> <span class="o">-</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -795,22 +795,22 @@ Class SecondWindow
 <li><p>Local Scope  —&gt; Object Scope</p></li>
 </ul>
 <p>Look at this example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New Account {
-        see aFriends
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
 
-Class Account
-        name = &quot;Mahmoud&quot;
-        aFriends = []
-        aFriends + new Friend {
-                name = &quot;Gal&quot;
-        }
-        aFriends + new Friend {
-                name = &quot;Bert&quot;
-        }
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Gal&quot;</span>
+        <span class="p">}</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Bert&quot;</span>
+        <span class="p">}</span>
 
-Class Friend
-        name
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -821,22 +821,22 @@ name: NULL
 <p>The problem in the previous example is that the Class account contains an attribute called “name”
 and the Friend class contains an attribue called “name” also.</p>
 <p>If you tried using self.name inside braces you will get the same result!</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New Account {
-        see aFriends
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
 
-Class Account
-        name = &quot;Mahmoud&quot;
-        aFriends = []
-        aFriends + new Friend {
-                self.name = &quot;Gal&quot;
-        }
-        aFriends + new Friend {
-                self.name = &quot;Bert&quot;
-        }
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Gal&quot;</span>
+        <span class="p">}</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">self</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Bert&quot;</span>
+        <span class="p">}</span>
 
-Class Friend
-        name
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
 </pre></div>
 </div>
 <p>So why using self.name inside braces doesn’t solve this conflict?</p>
@@ -855,89 +855,89 @@ Class Friend
 <p>Ring search in the local scope first, so using self.name will use the Account class.</p>
 <p>There are many solution</p>
 <p>Solution (1) : Access the object through the list</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New Account {
-        see aFriends
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
 
-Class Account
-        name = &quot;Mahmoud&quot;
-        aFriends = []
-        aFriends + new Friend
-        aFriends[len(aFriends)] {
-                aFriends[len(aFriends)].name = &quot;Gal&quot;
-        }
-        aFriends + new Friend
-        aFriends[len(aFriends)] {
-                aFriends[len(aFriends)].name = &quot;Bert&quot;
-        }
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span>
+        <span class="n">aFriends</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)</span><span class="o">]</span> <span class="p">{</span>
+                <span class="n">aFriends</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)</span><span class="o">]</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Gal&quot;</span>
+        <span class="p">}</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span>
+        <span class="n">aFriends</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)</span><span class="o">]</span> <span class="p">{</span>
+                <span class="n">aFriends</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)</span><span class="o">]</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Bert&quot;</span>
+        <span class="p">}</span>
 
-Class Friend
-        name
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
 </pre></div>
 </div>
 <p>Solution (2) : Create Method in the friend class to set the name attribute.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New Account {
-        see aFriends
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
 
-Class Account
-        name = &quot;Mahmoud&quot;
-        aFriends = []
-        aFriends + new Friend {
-                setname(&quot;Gal&quot;)
-        }
-        aFriends + new Friend {
-                setname(&quot;Bert&quot;)
-        }
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">setname</span><span class="p">(</span><span class="s">&quot;Gal&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+        <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                <span class="n">setname</span><span class="p">(</span><span class="s">&quot;Bert&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
 
-Class Friend
-        name
-        func setname cName
-                name = cName
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
+        <span class="k">func</span> <span class="n">setname</span> <span class="n">cName</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="n">cName</span>
 </pre></div>
 </div>
 <p>Solution (3) : Create a method in the account class to set the attribute</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New Account {
-        see aFriends
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
 
-Class Account
-        name = &quot;Mahmoud&quot;
-        aFriends = []
-        friend(&quot;Gal&quot;)
-        friend(&quot;Bert&quot;)
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Mahmoud&quot;</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">friend</span><span class="p">(</span><span class="s">&quot;Gal&quot;</span><span class="p">)</span>
+        <span class="n">friend</span><span class="p">(</span><span class="s">&quot;Bert&quot;</span><span class="p">)</span>
 
-        func friend cName
-                aFriends + new Friend {
-                        name = cName
-                }
+        <span class="k">func</span> <span class="n">friend</span> <span class="n">cName</span>
+                <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span> <span class="p">{</span>
+                        <span class="n">name</span> <span class="o">=</span> <span class="n">cName</span>
+                <span class="p">}</span>
 
-Class Friend
-        name
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
 </pre></div>
 </div>
 <p>Solution (4) : Declarative Programming</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New Account {
-        name = &quot;mahmoud&quot;
-        friend {
-                name = &quot;Gal&quot;
-        }
-        friend {
-                name = &quot;Bert&quot;
-        }
-        see aFriends
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Account</span> <span class="p">{</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;mahmoud&quot;</span>
+        <span class="n">friend</span> <span class="p">{</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Gal&quot;</span>
+        <span class="p">}</span>
+        <span class="n">friend</span> <span class="p">{</span>
+                <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Bert&quot;</span>
+        <span class="p">}</span>
+        <span class="k">see</span> <span class="n">aFriends</span>
+<span class="p">}</span>
 
-Class Account
-        name
-        aFriends = []
-        friend
-        func getfriend
-                aFriends + new Friend
-                return aFriends[len(aFriends)]
+<span class="k">Class</span> <span class="n">Account</span>
+        <span class="n">name</span>
+        <span class="n">aFriends</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">friend</span>
+        <span class="k">func</span> <span class="n">getfriend</span>
+                <span class="n">aFriends</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Friend</span>
+                <span class="k">return</span> <span class="n">aFriends</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aFriends</span><span class="p">)</span><span class="o">]</span>
 
-Class Friend
-        name
+<span class="k">Class</span> <span class="n">Friend</span>
+        <span class="n">name</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -950,29 +950,29 @@ name: Bert
 <span id="index-12"></span><h2>Using braces to escape from the current object scope<a class="headerlink" href="#using-braces-to-escape-from-the-current-object-scope" title="Permalink to this headline">¶</a></h2>
 <p>Since braces change the current object scope to another object. we can use it to do some work without
 modifying the class attributes and using the same variable names.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new point {x=10 y=20 z=30 start() }
-class point x y z
-        func start
-                see self # print the x y z values (10,20,30)
-                new Local {
-                        x = 100
-                        y = 200
-                        z = 300
-                }
-                see self # print the x y z values (10,20,30)
-                see x + nl # will print 100
-                see y + nl # will print 200
-                see z + nl # will print 300
-                Self {  # NO Advantage - Search is done in local scope first
-                        see x + nl # will print 100
-                        see y + nl # will print 200
-                        see z + nl # will print 300
-                }
-                see self.x + nl # will print 10
-                see self.y + nl # will print 20
-                see self.z + nl # will print 30
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="n">start</span><span class="p">()</span> <span class="p">}</span>
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">start</span>
+                <span class="k">see</span> <span class="n">self</span> <span class="c"># print the x y z values (10,20,30)</span>
+                <span class="k">new</span> <span class="n">Local</span> <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+                        <span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
+                        <span class="n">z</span> <span class="o">=</span> <span class="mi">300</span>
+                <span class="p">}</span>
+                <span class="k">see</span> <span class="n">self</span> <span class="c"># print the x y z values (10,20,30)</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 100</span>
+                <span class="k">see</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 200</span>
+                <span class="k">see</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 300</span>
+                <span class="n">Self</span> <span class="p">{</span>  <span class="c"># NO Advantage - Search is done in local scope first</span>
+                        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 100</span>
+                        <span class="k">see</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 200</span>
+                        <span class="k">see</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 300</span>
+                <span class="p">}</span>
+                <span class="k">see</span> <span class="n">self</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 10</span>
+                <span class="k">see</span> <span class="n">self</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 20</span>
+                <span class="k">see</span> <span class="n">self</span><span class="p">.</span><span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="c"># will print 30</span>
 
-class Local
+<span class="k">class</span> <span class="n">Local</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -998,31 +998,31 @@ z: 30.000000
 <span id="index-13"></span><h2>The For Loops uses the local scope<a class="headerlink" href="#the-for-loops-uses-the-local-scope" title="Permalink to this headline">¶</a></h2>
 <p>Starting from Ring 1.8, when the For Loop defines new identifier (variable) it will define it in the local scope.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = 10
-? x             # Print 10
-test1()
-? x             # Print 10
-test2()
-? x             # Print 10
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
+<span class="n">test1</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
+<span class="n">test2</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
 
-func test1
-        for x = 1 to 5
-        next
-        ? x     # Print 6
+<span class="k">func</span> <span class="n">test1</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="n">x</span>     <span class="c"># Print 6</span>
 
-func test2
-        list = 1:5
-        for x in list
-        next
-        ? x     # Print NULL (The &quot;For In&quot; loop will kill the reference after the loop)
+<span class="k">func</span> <span class="n">test2</span>
+        <span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="n">x</span>     <span class="c"># Print NULL (The &quot;For In&quot; loop will kill the reference after the loop)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
-6
-10
-NULL
-10
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">6</span>
+<span class="mi">10</span>
+<span class="kp">NULL</span>
+<span class="mi">10</span>
 </pre></div>
 </div>
 </div>

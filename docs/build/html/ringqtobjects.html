@@ -300,49 +300,49 @@ quickly use the parent or the caller windows from the child or sub windows.</p>
 <li><p>The first button in the sub window change the Main and the Sub Windows Titles.</p></li>
 <li><p>The second button in the sub window close the Sub Window.</p></li>
 </ul>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;guilib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
-new qApp {
-        open_window( :MainWindowController )
-        exec()
-}
+<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="n">open_window</span><span class="p">(</span> <span class="p">:</span><span class="n">MainWindowController</span> <span class="p">)</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
 
-class MainWindowController from WindowsControllerParent
-        oView = new MainWindowView
-        func SubWindowAction
-                Open_window( :SubWindowController )
-                Last_Window().SetParentObject(self)
+<span class="k">class</span> <span class="n">MainWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MainWindowView</span>
+        <span class="k">func</span> <span class="n">SubWindowAction</span>
+                <span class="n">Open_window</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowController</span> <span class="p">)</span>
+                <span class="n">Last_Window</span><span class="p">().</span><span class="n">SetParentObject</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
 
-class MainWindowView from WindowsViewParent
-        win = new qWidget() {
-                SetWindowTitle(&quot;Main Window&quot;)
-                btnSub = new qPushButton(win) {
-                        setText(&quot;Sub Window&quot;)
-                        setClickEvent( Method( :SubWindowAction ) )
-                }
-                resize(400,400)
-        }
+<span class="k">class</span> <span class="n">MainWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Main Window&quot;</span><span class="p">)</span>
+                <span class="n">btnSub</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="p">}</span>
 
-class SubWindowController from WindowsControllerParent
-        oView = new SubWindowView
-        func SetMainWindowTitleAction
-                Parent().oView.win.SetWindowTitle(&quot;Message from the Sub Window&quot;)
-                oView.win.SetWindowTitle(&quot;Click Event Done!&quot;)
+<span class="k">class</span> <span class="n">SubWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubWindowView</span>
+        <span class="k">func</span> <span class="n">SetMainWindowTitleAction</span>
+                <span class="n">Parent</span><span class="p">().</span><span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Message from the Sub Window&quot;</span><span class="p">)</span>
+                <span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Click Event Done!&quot;</span><span class="p">)</span>
 
-class SubWindowView from WindowsViewParent
-        win = new qWidget() {
-                SetWindowTitle(&quot;Sub Window&quot;)
-                btnMsg = new qPushButton(win) {
-                        setText(&quot;Set Main Window Title&quot;)
-                        setClickEvent( Method( :SetMainWindowTitleAction ) )
-                }
-                btnClose = new qPushButton(win) {
-                        Move(200,0)
-                        setText(&quot;Close&quot;)
-                        setClickEvent( Method( :CloseAction ) )
-                }
-                resize(400,400)
-        }
+<span class="k">class</span> <span class="n">SubWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
+                <span class="n">btnMsg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Set Main Window Title&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">SetMainWindowTitleAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">btnClose</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">Move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Close&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">CloseAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="p">}</span>
 </pre></div>
 </div>
 <p>The next screen shot after creating three sub windows.</p>
@@ -377,20 +377,20 @@ to the SecondWindowController Class</p>
 use the SecondWindow() method to access the object.</p>
 <p>This is more simple than using Last_Window(), Parent() and
 SetParentObject() methods.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class firstwindowController from windowsControllerParent
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">firstwindowController</span> <span class="k">from</span> <span class="n">windowsControllerParent</span>
 
-    oView = new firstwindowView
+    <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">firstwindowView</span>
 
-    func OpenSecondWindow
-        Open_WindowAndLink(:SecondWindowController,self)
+    <span class="k">func</span> <span class="n">OpenSecondWindow</span>
+        <span class="n">Open_WindowAndLink</span><span class="p">(:</span><span class="n">SecondWindowController</span><span class="p">,</span><span class="n">self</span><span class="p">)</span>
 
-    func SendMessage
-        if IsSecondWindow()
-            SecondWindow().setMessage(&quot;Message from the first window&quot;)
-        ok
+    <span class="k">func</span> <span class="n">SendMessage</span>
+        <span class="k">if</span> <span class="n">IsSecondWindow</span><span class="p">()</span>
+            <span class="n">SecondWindow</span><span class="p">().</span><span class="n">setMessage</span><span class="p">(</span><span class="s">&quot;Message from the first window&quot;</span><span class="p">)</span>
+        <span class="k">ok</span>
 
-    func setMessage cMessage
-        oView.Label1.setText(cMessage)
+    <span class="k">func</span> <span class="n">setMessage</span> <span class="n">cMessage</span>
+        <span class="n">oView</span><span class="p">.</span><span class="n">Label1</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">cMessage</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -400,7 +400,7 @@ SetParentObject() methods.</p>
 but takes an extra list that determine the packages
 to import before opening the window.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Open_WindowInPackages(cClassName,aPackagesList)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Open_WindowInPackages</span><span class="p">(</span><span class="n">cClassName</span><span class="p">,</span><span class="n">aPackagesList</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -408,10 +408,10 @@ to import before opening the window.</p>
 using the open_windowInPackages() function.</p>
 <p>We determine the class name “WindowFlagsController” and the packages name.</p>
 <p>The Window Flags window uses the FormDesigner and System.GUI packages.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>open_windowInPackages(:WindowFlagsController,[
-        &quot;formdesigner&quot;,
-        &quot;System.GUI&quot;
-])
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">open_windowInPackages</span><span class="p">(:</span><span class="n">WindowFlagsController</span><span class="p">,</span><span class="o">[</span>
+        <span class="s">&quot;formdesigner&quot;</span><span class="p">,</span>
+        <span class="s">&quot;System.GUI&quot;</span>
+<span class="o">]</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

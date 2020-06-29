@@ -284,28 +284,28 @@
 </ul>
 <p>You can check these files to get an idea about constants definition.</p>
 <p>The next section from the English.ring file</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>T_LANGUAGE = &quot;english&quot;
-T_LAYOUTDIRECTION = 0                   # Left to Right
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">T_LANGUAGE</span> <span class="o">=</span> <span class="s">&quot;english&quot;</span>
+<span class="n">T_LAYOUTDIRECTION</span> <span class="o">=</span> <span class="mi">0</span>                   <span class="c"># Left to Right</span>
 
-T_FORMDESIGNER_FORMDESIGNER             = &quot;Form Designer&quot;
-T_FORMDESIGNER_FORMTITLE                = &quot;Form1&quot;
+<span class="n">T_FORMDESIGNER_FORMDESIGNER</span>             <span class="o">=</span> <span class="s">&quot;Form Designer&quot;</span>
+<span class="n">T_FORMDESIGNER_FORMTITLE</span>                <span class="o">=</span> <span class="s">&quot;Form1&quot;</span>
 
-T_FORMDESIGNER_FILE                     = &quot;File&quot;
-T_FORMDESIGNER_NEW                      = &quot;New&quot;
-T_FORMDESIGNER_OPEN                     = &quot;Open&quot;
-T_FORMDESIGNER_SAVE                     = &quot;Save&quot;
-T_FORMDESIGNER_SAVEAS                   = &quot;Save As&quot;
-T_FORMDESIGNER_CLOSE                    = &quot;Close&quot;
+<span class="n">T_FORMDESIGNER_FILE</span>                     <span class="o">=</span> <span class="s">&quot;File&quot;</span>
+<span class="n">T_FORMDESIGNER_NEW</span>                      <span class="o">=</span> <span class="s">&quot;New&quot;</span>
+<span class="n">T_FORMDESIGNER_OPEN</span>                     <span class="o">=</span> <span class="s">&quot;Open&quot;</span>
+<span class="n">T_FORMDESIGNER_SAVE</span>                     <span class="o">=</span> <span class="s">&quot;Save&quot;</span>
+<span class="n">T_FORMDESIGNER_SAVEAS</span>                   <span class="o">=</span> <span class="s">&quot;Save As&quot;</span>
+<span class="n">T_FORMDESIGNER_CLOSE</span>                    <span class="o">=</span> <span class="s">&quot;Close&quot;</span>
 </pre></div>
 </div>
 <p>The form designer source code files will use these constants instead of typing the string literals</p>
 <p>the next section from the formdesigner/mainwindow/formdesignerview.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># Create the Main Window and use the Mdi Area
-        win = new qMainwindow() {
-                setWindowTitle(T_FORMDESIGNER_FORMDESIGNER) # &quot;Form Designer&quot;
-                setcentralWidget(this.oArea)
-                setLayoutDirection(T_LAYOUTDIRECTION)
-        }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Create the Main Window and use the Mdi Area</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qMainwindow</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="n">T_FORMDESIGNER_FORMDESIGNER</span><span class="p">)</span> <span class="c"># &quot;Form Designer&quot;</span>
+                <span class="n">setcentralWidget</span><span class="p">(</span><span class="n">this</span><span class="p">.</span><span class="n">oArea</span><span class="p">)</span>
+                <span class="n">setLayoutDirection</span><span class="p">(</span><span class="n">T_LAYOUTDIRECTION</span><span class="p">)</span>
+        <span class="p">}</span>
 </pre></div>
 </div>
 <ul class="simple">
@@ -322,18 +322,18 @@ T_FORMDESIGNER_CLOSE                    = &quot;Close&quot;
 <img alt="Form Translation" src="_images/formtranslation1.png" />
 <p>And we add the translation through the Controller class using the next code</p>
 <p>And we define the constants in English.ring and Arabic.ring</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class selobjectsController from windowsControllerParent
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">selobjectsController</span> <span class="k">from</span> <span class="n">windowsControllerParent</span>
 
-        oView = new selobjectsView  {
-                ListObjects.setselectionmode(QAbstractItemView_MultiSelection)
-                win.setwindowmodality(2)
-                # Translation
-                        win.setWindowTitle(T_FORMDESIGNER_SELOBJECTS_TITLE)
-                        win.setLayoutDirection(T_LAYOUTDIRECTION)
-                        labelobjects.setText(T_FORMDESIGNER_SELOBJECTS_OBJECTS)
-                        btnSelect.setText(T_FORMDESIGNER_SELOBJECTS_SELECT)
-                        btnClose.setText(T_FORMDESIGNER_SELOBJECTS_CLOSE)
-        }
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">selobjectsView</span>  <span class="p">{</span>
+                <span class="n">ListObjects</span><span class="p">.</span><span class="n">setselectionmode</span><span class="p">(</span><span class="n">QAbstractItemView_MultiSelection</span><span class="p">)</span>
+                <span class="n">win</span><span class="p">.</span><span class="n">setwindowmodality</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+                <span class="c"># Translation</span>
+                        <span class="n">win</span><span class="p">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_TITLE</span><span class="p">)</span>
+                        <span class="n">win</span><span class="p">.</span><span class="n">setLayoutDirection</span><span class="p">(</span><span class="n">T_LAYOUTDIRECTION</span><span class="p">)</span>
+                        <span class="n">labelobjects</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_OBJECTS</span><span class="p">)</span>
+                        <span class="n">btnSelect</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_SELECT</span><span class="p">)</span>
+                        <span class="n">btnClose</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">T_FORMDESIGNER_SELOBJECTS_CLOSE</span><span class="p">)</span>
+        <span class="p">}</span>
 </pre></div>
 </div>
 </div>

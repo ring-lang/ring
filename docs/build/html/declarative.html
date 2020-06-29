@@ -277,40 +277,40 @@ of object oriented.</p>
 <p>We can create objects inside lists during list definition.
 Also we can add objects to the list at any time using the Add() function or the + operator.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>alist = [new point, new point, new point]       # create list contains three objects
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">alist</span> <span class="o">=</span> <span class="o">[</span><span class="k">new</span> <span class="n">point</span><span class="p">,</span> <span class="k">new</span> <span class="n">point</span><span class="p">,</span> <span class="k">new</span> <span class="n">point</span><span class="o">]</span>       <span class="c"># create list contains three objects</span>
 
-alist + [1,2,3]                                 # add another item to the list
+<span class="n">alist</span> <span class="o">+</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>                                 <span class="c"># add another item to the list</span>
 
-see &quot;Item 4 is a list contains 3 items&quot; + nl
-see alist[4]
+<span class="k">see</span> <span class="s">&quot;Item 4 is a list contains 3 items&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">alist</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
 
-add(alist , new point)
-alist + new point
+<span class="n">add</span><span class="p">(</span><span class="n">alist</span> <span class="p">,</span> <span class="k">new</span> <span class="n">point</span><span class="p">)</span>
+<span class="n">alist</span> <span class="o">+</span> <span class="k">new</span> <span class="n">point</span>
 
-alist[5] { x = 100 y = 200 z = 300 }
-alist[6] { x = 50 y = 150 z = 250 }
+<span class="n">alist</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">200</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">300</span> <span class="p">}</span>
+<span class="n">alist</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span> <span class="p">{</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">150</span> <span class="n">z</span> <span class="o">=</span> <span class="mi">250</span> <span class="p">}</span>
 
-see &quot;Object inside item 5&quot; + nl
-see alist[5]
-see &quot;Object inside item 6&quot; + nl
-see alist[6]
+<span class="k">see</span> <span class="s">&quot;Object inside item 5&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">alist</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span>
+<span class="k">see</span> <span class="s">&quot;Object inside item 6&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">alist</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span>
 
-class point x y z
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Item 4 is a list contains 3 items
-1
-2
-3
-Object inside item 5
-x: 100.000000
-y: 200.000000
-z: 300.000000
-Object inside item 6
-x: 50.000000
-y: 150.000000
-z: 250.000000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Item</span> <span class="mi">4</span> <span class="n">is</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="mi">3</span> <span class="n">items</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="n">Object</span> <span class="n">inside</span> <span class="n">item</span> <span class="mi">5</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">100.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">200.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">300.000000</span>
+<span class="n">Object</span> <span class="n">inside</span> <span class="n">item</span> <span class="mi">6</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">50.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">150.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">250.000000</span>
 </pre></div>
 </div>
 </div>
@@ -327,106 +327,106 @@ when you return them from functions they are returned by value except if it’s 
 will be done.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new Container
-myobj = o1.addobj()     # the assignment will create another copy
-myobj.x = 100
-myobj.y = 200
-myobj.z = 300
-see o1.aobjs[1]         # print the object inside the container
-see myobj               # print the copy
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Container</span>
+<span class="n">myobj</span> <span class="o">=</span> <span class="n">o1</span><span class="p">.</span><span class="n">addobj</span><span class="p">()</span>     <span class="c"># the assignment will create another copy</span>
+<span class="n">myobj</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+<span class="n">myobj</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
+<span class="n">myobj</span><span class="p">.</span><span class="n">z</span> <span class="o">=</span> <span class="mi">300</span>
+<span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">aobjs</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>         <span class="c"># print the object inside the container</span>
+<span class="k">see</span> <span class="n">myobj</span>               <span class="c"># print the copy</span>
 
-Class Container
-        aObjs = []
-        func addobj
-                aobjs + new point
-                return aobjs[len(aobjs)]        # return object by reference
+<span class="k">Class</span> <span class="n">Container</span>
+        <span class="n">aObjs</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="k">func</span> <span class="n">addobj</span>
+                <span class="n">aobjs</span> <span class="o">+</span> <span class="k">new</span> <span class="n">point</span>
+                <span class="k">return</span> <span class="n">aobjs</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aobjs</span><span class="p">)</span><span class="o">]</span>        <span class="c"># return object by reference</span>
 
-Class point
-        x  = 10
-        y  = 20
-        z  = 30
+<span class="k">Class</span> <span class="n">point</span>
+        <span class="n">x</span>  <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">y</span>  <span class="o">=</span> <span class="mi">20</span>
+        <span class="n">z</span>  <span class="o">=</span> <span class="mi">30</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x: 10.000000
-y: 20.000000
-z: 30.000000
-x: 100.000000
-y: 200.000000
-z: 300.000000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="mf">10.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">20.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">30.000000</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">100.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">200.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">300.000000</span>
 </pre></div>
 </div>
 <p>Example(2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
-        o1 = new screen  {
-                content[point()] {
-                        x = 100
-                        y = 200
-                        z = 300
-                }
-                content[point()] {
-                        x = 50
-                        y = 150
-                        z = 250
-                }
-        }
-        see o1.content[1]
-        see o1.content[2]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">screen</span>  <span class="p">{</span>
+                <span class="n">content</span><span class="o">[</span><span class="n">point</span><span class="p">()</span><span class="o">]</span> <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+                        <span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
+                        <span class="n">z</span> <span class="o">=</span> <span class="mi">300</span>
+                <span class="p">}</span>
+                <span class="n">content</span><span class="o">[</span><span class="n">point</span><span class="p">()</span><span class="o">]</span> <span class="p">{</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
+                        <span class="n">y</span> <span class="o">=</span> <span class="mi">150</span>
+                        <span class="n">z</span> <span class="o">=</span> <span class="mi">250</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">content</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+        <span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">content</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
 
-Class Screen
-        content = []
-        func point
-                content + new point
-                return len(content)
+<span class="k">Class</span> <span class="n">Screen</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="k">func</span> <span class="n">point</span>
+                <span class="n">content</span> <span class="o">+</span> <span class="k">new</span> <span class="n">point</span>
+                <span class="k">return</span> <span class="n">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span>
 
-Class point
-        x  = 10
-        y  = 20
-        z  = 30
+<span class="k">Class</span> <span class="n">point</span>
+        <span class="n">x</span>  <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">y</span>  <span class="o">=</span> <span class="mi">20</span>
+        <span class="n">z</span>  <span class="o">=</span> <span class="mi">30</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x: 100.000000
-y: 200.000000
-z: 300.000000
-x: 50.000000
-y: 150.000000
-z: 250.000000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="mf">100.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">200.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">300.000000</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">50.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">150.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">250.000000</span>
 </pre></div>
 </div>
 <p>Example(3):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
-        o1 = New Screen  {
-                point() {               # access the object using reference
-                        x = 100
-                        y = 200
-                        z = 300
-                }
-                point() {               # access the object using reference
-                        x = 50
-                        y = 150
-                        z = 250
-                }
-        }
-        see o1.content[1]
-        see o1.content[2]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">New</span> <span class="n">Screen</span>  <span class="p">{</span>
+                <span class="n">point</span><span class="p">()</span> <span class="p">{</span>               <span class="c"># access the object using reference</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+                        <span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
+                        <span class="n">z</span> <span class="o">=</span> <span class="mi">300</span>
+                <span class="p">}</span>
+                <span class="n">point</span><span class="p">()</span> <span class="p">{</span>               <span class="c"># access the object using reference</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
+                        <span class="n">y</span> <span class="o">=</span> <span class="mi">150</span>
+                        <span class="n">z</span> <span class="o">=</span> <span class="mi">250</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">content</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+        <span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">content</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
 
-Class Screen
-        content = []
-        func point
-                content + new point
-                return content[len(content)]    # return the object by reference
+<span class="k">Class</span> <span class="n">Screen</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="k">func</span> <span class="n">point</span>
+                <span class="n">content</span> <span class="o">+</span> <span class="k">new</span> <span class="n">point</span>
+                <span class="k">return</span> <span class="n">content</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="o">]</span>    <span class="c"># return the object by reference</span>
 
-Class point x=10 y=20 z=30
+<span class="k">Class</span> <span class="n">point</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x: 100.000000
-y: 200.000000
-z: 300.000000
-x: 50.000000
-y: 150.000000
-z: 250.000000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="mf">100.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">200.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">300.000000</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">50.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">150.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">250.000000</span>
 </pre></div>
 </div>
 </div>
@@ -435,16 +435,16 @@ z: 250.000000
 <p>We can access an object using { } to use object attributes and methods.</p>
 <p>if the object contains a method called BraceEnd(), it will be executed before the end of the object access.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New Point { See &quot;How are you?&quot; + nl }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Point</span> <span class="p">{</span> <span class="k">See</span> <span class="s">&quot;How are you?&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span>
 
-Class Point x y z
-        func braceend
-                see &quot;I&#39;m fine, Thank you!&quot; + nl
+<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">braceend</span>
+                <span class="k">see</span> <span class="s">&quot;I&#39;m fine, Thank you!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>How are you?
-I&#39;m fine, Thank you!
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">How</span> <span class="n">are</span> <span class="n">you</span><span class="o">?</span>
+<span class="n">I</span><span class="sc">&#39;m fine, Thank you!</span>
 </pre></div>
 </div>
 </div>
@@ -458,57 +458,57 @@ I&#39;m fine, Thank you!
 <li><p>Setter/Getter Methods (optional)</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># Declartive Programming (Nested Structures)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Declartive Programming (Nested Structures)</span>
 
-Screen()
-{
+<span class="n">Screen</span><span class="p">()</span>
+<span class="p">{</span>
 
-        point()
-        {
-                x = 100
-                y = 200
-                z = 300
-        }
+        <span class="n">point</span><span class="p">()</span>
+        <span class="p">{</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="mi">100</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="mi">200</span>
+                <span class="n">z</span> <span class="o">=</span> <span class="mi">300</span>
+        <span class="p">}</span>
 
-        point()
-        {
-                x = 50
-                y = 150
-                z = 250
-        }
-}
+        <span class="n">point</span><span class="p">()</span>
+        <span class="p">{</span>
+                <span class="n">x</span> <span class="o">=</span> <span class="mi">50</span>
+                <span class="n">y</span> <span class="o">=</span> <span class="mi">150</span>
+                <span class="n">z</span> <span class="o">=</span> <span class="mi">250</span>
+        <span class="p">}</span>
+<span class="p">}</span>
 
-# Functions and Classes
+<span class="c"># Functions and Classes</span>
 
-Func screen return new screen
+<span class="k">Func</span> <span class="n">screen</span> <span class="k">return</span> <span class="k">new</span> <span class="n">screen</span>
 
-Class Screen
+<span class="k">Class</span> <span class="n">Screen</span>
 
-        content = []
+        <span class="n">content</span> <span class="o">=</span> <span class="o">[]</span>
 
-        func point
-                content + new point
-                return content[len(content)]
+        <span class="k">func</span> <span class="n">point</span>
+                <span class="n">content</span> <span class="o">+</span> <span class="k">new</span> <span class="n">point</span>
+                <span class="k">return</span> <span class="n">content</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span><span class="o">]</span>
 
-        func braceend
-                see &quot;I have &quot; + len(content) + &quot; points!&quot;
+        <span class="k">func</span> <span class="n">braceend</span>
+                <span class="k">see</span> <span class="s">&quot;I have &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">content</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; points!&quot;</span>
 
-Class point
+<span class="k">Class</span> <span class="n">point</span>
 
-        x=10 y=20 z=30
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
 
-        func braceend
-                see self
+        <span class="k">func</span> <span class="n">braceend</span>
+                <span class="k">see</span> <span class="n">self</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x: 100.000000
-y: 200.000000
-z: 300.000000
-x: 50.000000
-y: 150.000000
-z: 250.000000
-I have 2 points!
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="mf">100.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">200.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">300.000000</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">50.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">150.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">250.000000</span>
+<span class="n">I</span> <span class="n">have</span> <span class="mi">2</span> <span class="n">points</span><span class="o">!</span>
 </pre></div>
 </div>
 </div>
@@ -523,26 +523,26 @@ the getpoint() method that will be executed once you try to get the value of the
 since we write the variable name direcly without () we can write point instead of point() and the method getpoint()
 will create the object and return the object reference for us.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>new Container
-{
-        Point
-        {
-                x=10
-                y=20
-                z=30
-        }
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">Container</span>
+<span class="p">{</span>
+        <span class="n">Point</span>
+        <span class="p">{</span>
+                <span class="n">x</span><span class="o">=</span><span class="mi">10</span>
+                <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+                <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
+        <span class="p">}</span>
+<span class="p">}</span>
 
-Class Container
-        aObjs = []
-        point
-        func getpoint
-                aObjs + new Point
-                return aObjs[len(aObjs)]
+<span class="k">Class</span> <span class="n">Container</span>
+        <span class="n">aObjs</span> <span class="o">=</span> <span class="o">[]</span>
+        <span class="n">point</span>
+        <span class="k">func</span> <span class="n">getpoint</span>
+                <span class="n">aObjs</span> <span class="o">+</span> <span class="k">new</span> <span class="n">Point</span>
+                <span class="k">return</span> <span class="n">aObjs</span><span class="o">[</span><span class="n">len</span><span class="p">(</span><span class="n">aObjs</span><span class="p">)</span><span class="o">]</span>
 
-Class Point x y z
-        func braceend
-                see &quot;3D Point&quot; + nl + x + nl + y + nl + z + nl
+<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">braceend</span>
+                <span class="k">see</span> <span class="s">&quot;3D Point&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output</p>

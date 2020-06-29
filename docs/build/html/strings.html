@@ -279,10 +279,10 @@
 <div class="section" id="string-literals">
 <span id="index-1"></span><h2>String Literals<a class="headerlink" href="#string-literals" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = &quot;This is a string&quot;
-cStr2 = &#39;Another string&#39;
-cStr3 = :JustAnotherString
-cStr4 = `Yet &quot;another&quot; &#39;string&#39; ! `
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;This is a string&quot;</span>
+<span class="n">cStr2</span> <span class="o">=</span> <span class="sc">&#39;Another string&#39;</span>
+<span class="n">cStr3</span> <span class="o">=</span> <span class="p">:</span><span class="n">JustAnotherString</span>
+<span class="n">cStr4</span> <span class="o">=</span> <span class="p">`</span><span class="n">Yet</span> <span class="s">&quot;another&quot;</span> <span class="sc">&#39;string&#39;</span> <span class="o">!</span> <span class="p">`</span>
 </pre></div>
 </div>
 </div>
@@ -290,26 +290,26 @@ cStr4 = `Yet &quot;another&quot; &#39;string&#39; ! `
 <span id="index-2"></span><h2>Get String Length<a class="headerlink" href="#get-string-length" title="Permalink to this headline">¶</a></h2>
 <p>We can get the string length (letters count inside a string) using the len() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>len(string) ---&gt; string length
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">len</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">length</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = &quot;How are you?&quot;
-see cStr + nl
-see &quot;String size : &quot; + len(cStr) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;How are you?&quot;</span>
+<span class="k">see</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;String size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="convert-letters-case">
 <span id="index-3"></span><h2>Convert Letters Case<a class="headerlink" href="#convert-letters-case" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>lower(string) ---&gt; convert string letters to lower case
-upper(string) ---&gt; convert string letters to UPPER case
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">lower</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">convert</span> <span class="kt">string</span> <span class="n">letters</span> <span class="k">to</span> <span class="n">lower</span> <span class="k">case</span>
+<span class="n">upper</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">convert</span> <span class="kt">string</span> <span class="n">letters</span> <span class="k">to</span> <span class="n">UPPER</span> <span class="k">case</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = &quot;Welcome To The Ring Programming Language&quot;
-see cStr + nl + upper(cStr) + nl + lower(cStr)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome To The Ring Programming Language&quot;</span>
+<span class="k">see</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">upper</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">lower</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -317,36 +317,36 @@ see cStr + nl + upper(cStr) + nl + lower(cStr)
 <span id="index-4"></span><h2>Access String Letters<a class="headerlink" href="#access-string-letters" title="Permalink to this headline">¶</a></h2>
 <p>We can access a letter inside a string by the letter index</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>string[index] ---&gt; get string letter
-string[index] = letter  # set string letter
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kt">string</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">---&gt;</span> <span class="k">get</span> <span class="kt">string</span> <span class="n">letter</span>
+<span class="kt">string</span><span class="o">[</span><span class="n">index</span><span class="o">]</span> <span class="o">=</span> <span class="n">letter</span>  <span class="c"># set string letter</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># print user name letter by letter (each letter in new line)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># print user name letter by letter (each letter in new line)</span>
 
-See &quot;Hello, Enter your name : &quot; give cName
-for x = 1 to len(cName)
-        see nl + cName[x]
-next
+<span class="k">See</span> <span class="s">&quot;Hello, Enter your name : &quot;</span> <span class="k">give</span> <span class="n">cName</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">cName</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">cName</span><span class="o">[</span><span class="n">x</span><span class="o">]</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>We can use for in to get string letters.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># print user name letter by letter (each letter in new line)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># print user name letter by letter (each letter in new line)</span>
 
-See &quot;Hello, Enter your name : &quot; give cName
-for x in cName
-        see nl + x
-next
+<span class="k">See</span> <span class="s">&quot;Hello, Enter your name : &quot;</span> <span class="k">give</span> <span class="n">cName</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">cName</span>
+        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">x</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>We can modify the string letters</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># convert the first letter to UPPER case
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># convert the first letter to UPPER case</span>
 
-See &quot;Enter your name : &quot; give cName
-cName[1] = upper(cName[1])
-see &quot;Hello &quot; + cName
+<span class="k">See</span> <span class="s">&quot;Enter your name : &quot;</span> <span class="k">give</span> <span class="n">cName</span>
+<span class="n">cName</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">upper</span><span class="p">(</span><span class="n">cName</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
 </pre></div>
 </div>
 </div>
@@ -355,11 +355,11 @@ see &quot;Hello &quot; + cName
 <p>We can get a specified number of characters from a string using the Left() function.</p>
 <p>The starting position is 1.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Left(string,count)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Left</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">count</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see left(&quot;Hello World!&quot;,5) # print Hello
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">left</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="c"># print Hello</span>
 </pre></div>
 </div>
 </div>
@@ -368,11 +368,11 @@ see &quot;Hello &quot; + cName
 <p>We can get a specified number of characters from a string using the Right() function.</p>
 <p>The starting position is the last character on the right.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Right(string,count)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Right</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">count</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see Right(&quot;Hello World!&quot;,6) # print World!
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">Right</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span> <span class="c"># print World!</span>
 </pre></div>
 </div>
 </div>
@@ -380,12 +380,12 @@ see &quot;Hello &quot; + cName
 <span id="index-7"></span><h2>Trim() Function<a class="headerlink" href="#trim-function" title="Permalink to this headline">¶</a></h2>
 <p>We can remove all leading and trailing spaces from a string using the Trim() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>trim(string)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">trim</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cMsg = &quot;     Welcome      &quot;
-see trim(cMsg)                  # print Welcome
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cMsg</span> <span class="o">=</span> <span class="s">&quot;     Welcome      &quot;</span>
+<span class="k">see</span> <span class="n">trim</span><span class="p">(</span><span class="n">cMsg</span><span class="p">)</span>                  <span class="c"># print Welcome</span>
 </pre></div>
 </div>
 </div>
@@ -393,11 +393,11 @@ see trim(cMsg)                  # print Welcome
 <span id="index-8"></span><h2>Copy() Function<a class="headerlink" href="#copy-function" title="Permalink to this headline">¶</a></h2>
 <p>We can duplicate a string more than one time using the copy() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>copy(string,nCount) ---&gt; string replicated nCount times
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">copy</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">replicated</span> <span class="n">nCount</span> <span class="n">times</span>
 </pre></div>
 </div>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see copy(&quot;***hello***&quot;,3) # print ***hello******hello******hello***
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;***hello***&quot;</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="c"># print ***hello******hello******hello***</span>
 </pre></div>
 </div>
 </div>
@@ -405,14 +405,14 @@ see trim(cMsg)                  # print Welcome
 <span id="index-9"></span><h2>Lines() Function<a class="headerlink" href="#lines-function" title="Permalink to this headline">¶</a></h2>
 <p>We can count the number of lines inside a string using the Lines() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>lines(string) ---&gt; Number of lines inside the string
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">lines</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">lines</span> <span class="n">inside</span> <span class="n">the</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = &quot;Hello
-How are you?
-are you fine?&quot;
-see lines(cStr)         # print 3
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Hello</span>
+<span class="n">How</span> <span class="n">are</span> <span class="n">you</span><span class="o">?</span>
+<span class="n">are</span> <span class="n">you</span> <span class="n">fine</span><span class="o">?</span><span class="s">&quot;</span>
+<span class="k">see</span> <span class="n">lines</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>         <span class="c"># print 3</span>
 </pre></div>
 </div>
 </div>
@@ -430,52 +430,52 @@ Using Substr() we can</p>
 <div class="section" id="find-substring">
 <span id="index-11"></span><h2>Find substring<a class="headerlink" href="#find-substring" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>substr(string,substring)  ---&gt; the starting position of substring in string
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">substring</span><span class="p">)</span>  <span class="o">---&gt;</span> <span class="n">the</span> <span class="n">starting</span> <span class="n">position</span> <span class="n">of</span> <span class="n">substring</span> <span class="k">in</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = &quot;Welcome to the Ring programming language&quot;
-see substr(cStr,&quot;Ring&quot;)         # print 16
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome to the Ring programming language&quot;</span>
+<span class="k">see</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="s">&quot;Ring&quot;</span><span class="p">)</span>         <span class="c"># print 16</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="get-substring-from-position-to-end">
 <span id="index-12"></span><h2>Get substring from position to end<a class="headerlink" href="#get-substring-from-position-to-end" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>substr(string,position)  ---&gt; Get substring starting from position to end
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">position</span><span class="p">)</span>  <span class="o">---&gt;</span> <span class="k">Get</span> <span class="n">substring</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">position</span> <span class="k">to</span> <span class="k">end</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = &quot;Welcome to the Ring programming language&quot;
-nPos = substr(cStr,&quot;Ring&quot;)      # nPos = 16
-see substr(cStr,nPos)           # print Ring programming language
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome to the Ring programming language&quot;</span>
+<span class="n">nPos</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="s">&quot;Ring&quot;</span><span class="p">)</span>      <span class="c"># nPos = 16</span>
+<span class="k">see</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">nPos</span><span class="p">)</span>           <span class="c"># print Ring programming language</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="get-number-of-characters-from-position">
 <span id="index-13"></span><h2>Get Number of Characters From Position<a class="headerlink" href="#get-number-of-characters-from-position" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>substr(string,position,count)  ---&gt; Get characters starting from position
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">position</span><span class="p">,</span><span class="n">count</span><span class="p">)</span>  <span class="o">---&gt;</span> <span class="k">Get</span> <span class="n">characters</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">position</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = &quot;Welcome to the Ring programming language&quot;
-nPos = substr(cStr,&quot;Ring&quot;)      # nPos = 16
-see substr(cStr,nPos,4)         # print Ring
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome to the Ring programming language&quot;</span>
+<span class="n">nPos</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="s">&quot;Ring&quot;</span><span class="p">)</span>      <span class="c"># nPos = 16</span>
+<span class="k">see</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">nPos</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>         <span class="c"># print Ring</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="transform-substring-to-another-substring">
 <span id="index-14"></span><h2>Transform Substring To Another Substring<a class="headerlink" href="#transform-substring-to-another-substring" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>substr(string,substring,newsubstring)  ---&gt; Transformed string (Match case)
-substr(string,substring,newsubstring,1)  ---&gt; Transformed string (Ignore case)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">substring</span><span class="p">,</span><span class="n">newsubstring</span><span class="p">)</span>  <span class="o">---&gt;</span> <span class="n">Transformed</span> <span class="kt">string</span> <span class="p">(</span><span class="n">Match</span> <span class="k">case</span><span class="p">)</span>
+<span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">substring</span><span class="p">,</span><span class="n">newsubstring</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>  <span class="o">---&gt;</span> <span class="n">Transformed</span> <span class="kt">string</span> <span class="p">(</span><span class="n">Ignore</span> <span class="k">case</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = &quot;Welcome to the New programming language&quot;
-see substr(cStr,&quot;New&quot;,&quot;Ring&quot;) + nl  # print Welcome to the Ring programming language
-see substr(cStr,&quot;new&quot;,&quot;Ring&quot;,1)+ nl # print Welcome to the Ring programming language
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome to the New programming language&quot;</span>
+<span class="k">see</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="s">&quot;New&quot;</span><span class="p">,</span><span class="s">&quot;Ring&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>  <span class="c"># print Welcome to the Ring programming language</span>
+<span class="k">see</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="s">&quot;new&quot;</span><span class="p">,</span><span class="s">&quot;Ring&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span> <span class="n">nl</span> <span class="c"># print Welcome to the Ring programming language</span>
 </pre></div>
 </div>
 </div>
@@ -483,21 +483,21 @@ see substr(cStr,&quot;new&quot;,&quot;Ring&quot;,1)+ nl # print Welcome to the R
 <span id="index-15"></span><h2>strcmp() Function<a class="headerlink" href="#strcmp-function" title="Permalink to this headline">¶</a></h2>
 <p>We can compare between two strings using the strcmp() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>strcmp(cString1,cString2) ---&gt; value = 0 if cString1 = cString2
-                               value &lt; 0 if cString1 &lt; cString2
-                               value &gt; 0 if cString1 &gt; cString2
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">strcmp</span><span class="p">(</span><span class="n">cString1</span><span class="p">,</span><span class="n">cString2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">cString1</span> <span class="o">=</span> <span class="n">cString2</span>
+                               <span class="n">value</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">cString1</span> <span class="o">&lt;</span> <span class="n">cString2</span>
+                               <span class="n">value</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">cString1</span> <span class="o">&gt;</span> <span class="n">cString2</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see strcmp(&quot;hello&quot;,&quot;hello&quot;) + nl +
-    strcmp(&quot;abc&quot;,&quot;bcd&quot;) + nl +
-    strcmp(&quot;bcd&quot;,&quot;abc&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;abc&quot;</span><span class="p">,</span><span class="s">&quot;bcd&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">strcmp</span><span class="p">(</span><span class="s">&quot;bcd&quot;</span><span class="p">,</span><span class="s">&quot;abc&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>0
--1
-1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="o">-</span><span class="mi">1</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -506,44 +506,44 @@ see substr(cStr,&quot;new&quot;,&quot;Ring&quot;,1)+ nl # print Welcome to the R
 <p>We can convert string lines to list items using the str2list() function.
 Also we can convert the list to a string using list2str() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>str2list(string) ---&gt; list contains the string lines
-list2str(list)   ---&gt; string contains the list items
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">str2list</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">lines</span>
+<span class="n">list2str</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span>   <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">the</span> <span class="kt">list</span> <span class="n">items</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>/* output:
-** Items : 4
-** Item : Hello
-** Item : How are you ?
-** Item : are you fine ?
-** Item : ok
-** list2Str result = Hello
-** How are you ?
-** are you fine ?
-** ok
-** Done
-*/
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">output</span><span class="p">:</span>
+<span class="o">**</span> <span class="n">Items</span> <span class="p">:</span> <span class="mi">4</span>
+<span class="o">**</span> <span class="n">Item</span> <span class="p">:</span> <span class="n">Hello</span>
+<span class="o">**</span> <span class="n">Item</span> <span class="p">:</span> <span class="n">How</span> <span class="n">are</span> <span class="n">you</span> <span class="o">?</span>
+<span class="o">**</span> <span class="n">Item</span> <span class="p">:</span> <span class="n">are</span> <span class="n">you</span> <span class="n">fine</span> <span class="o">?</span>
+<span class="o">**</span> <span class="n">Item</span> <span class="p">:</span> <span class="k">ok</span>
+<span class="o">**</span> <span class="n">list2Str</span> <span class="n">result</span> <span class="o">=</span> <span class="n">Hello</span>
+<span class="o">**</span> <span class="n">How</span> <span class="n">are</span> <span class="n">you</span> <span class="o">?</span>
+<span class="o">**</span> <span class="n">are</span> <span class="n">you</span> <span class="n">fine</span> <span class="o">?</span>
+<span class="o">**</span> <span class="k">ok</span>
+<span class="o">**</span> <span class="k">Done</span>
+<span class="o">*/</span>
 
-mystr = &quot;Hello
-How are you ?
-are you fine ?
-ok&quot;
+<span class="n">mystr</span> <span class="o">=</span> <span class="s">&quot;Hello</span>
+<span class="n">How</span> <span class="n">are</span> <span class="n">you</span> <span class="o">?</span>
+<span class="n">are</span> <span class="n">you</span> <span class="n">fine</span> <span class="o">?</span>
+<span class="s">ok&quot;</span>
 
-mylist = str2list(mystr)
-see &quot;Items : &quot; + len(mylist) + nl
+<span class="n">mylist</span> <span class="o">=</span> <span class="n">str2list</span><span class="p">(</span><span class="n">mystr</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Items : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-for x in mylist
-        see &quot;Item : &quot; + x + nl
-next
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">mylist</span>
+        <span class="k">see</span> <span class="s">&quot;Item : &quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
 
-newstr = list2str(mylist)
-see &quot;list2Str result = &quot; + newstr
+<span class="n">newstr</span> <span class="o">=</span> <span class="n">list2str</span><span class="p">(</span><span class="n">mylist</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;list2Str result = &quot;</span> <span class="o">+</span> <span class="n">newstr</span>
 
-if mystr = newstr
-        see nl + &quot;Done&quot;
-else
-        see nl + &quot;Error!&quot;
-ok
+<span class="k">if</span> <span class="n">mystr</span> <span class="o">=</span> <span class="n">newstr</span>
+        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;Done&quot;</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;Error!&quot;</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 </div>
@@ -553,36 +553,36 @@ ok
 <p>Starting from Ring 1.8, we can get individual characters from these strings and merge them together using
 the ‘+’ operator.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = &quot;Welcome&quot;
-? cstr[1] + cstr[2] + cStr[5]
-v = cstr[1] + cstr[2] + cStr[5]
-? v
-? len(v)
-c1 = cStr[1]
-? c1
-aList = [1,2,3]
-cStr = &quot;&quot;
-for item in aList
-        cStr += int2bytes(item)
-next
-? &quot;All String&quot;
-? len(cStr)
-? &quot;First Part&quot;
-n1 = cStr[1] + cStr[2] + cStr[3] + cStr[4]
-? len(n1)
-? &quot;Second Part&quot;
-n2 = cStr[5] + cStr[6] + cStr[7] + cStr[8]
-? len(n2)
-? &quot;Third Part&quot;
-n3 = cStr[9] + cStr[10] + cStr[11] + cStr[12]
-? len(n3)
-? &quot;All String&quot;
-cString = cStr[1] + cStr[2] + cStr[3] + cStr[4] +
-          cStr[5] + cStr[6] + cStr[7] + cStr[8] +
-          cStr[9] + cStr[10] + cStr[11] + cStr[12]
-? len(cString)
-? ascii(cStr[1])
-? len(cStr[2])
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome&quot;</span>
+<span class="o">?</span> <span class="n">cstr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">cstr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">cstr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">cstr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">v</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">c1</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">aList</span>
+        <span class="n">cStr</span> <span class="o">+=</span> <span class="n">int2bytes</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="k">next</span>
+<span class="o">?</span> <span class="s">&quot;All String&quot;</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;First Part&quot;</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Second Part&quot;</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">7</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">n2</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Third Part&quot;</span>
+<span class="n">n3</span> <span class="o">=</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">9</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">11</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">12</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">n3</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;All String&quot;</span>
+<span class="n">cString</span> <span class="o">=</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">+</span>
+          <span class="n">cStr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">7</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span> <span class="o">+</span>
+          <span class="n">cStr</span><span class="o">[</span><span class="mi">9</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">11</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">12</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">ascii</span><span class="p">(</span><span class="n">cStr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>

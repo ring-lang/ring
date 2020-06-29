@@ -305,12 +305,12 @@
 <span id="index-1"></span><h2>System() Function<a class="headerlink" href="#system-function" title="Permalink to this headline">¶</a></h2>
 <p>We can execute system commands using the system() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>System(cCommand)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>System(&quot;myapp.exe&quot;)     # Run myapp.exe
-System(&quot;ls&quot;)            # print list of files
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">(</span><span class="s">&quot;myapp.exe&quot;</span><span class="p">)</span>     <span class="c"># Run myapp.exe</span>
+<span class="n">System</span><span class="p">(</span><span class="s">&quot;ls&quot;</span><span class="p">)</span>            <span class="c"># print list of files</span>
 </pre></div>
 </div>
 </div>
@@ -318,11 +318,11 @@ System(&quot;ls&quot;)            # print list of files
 <span id="index-2"></span><h2>SysGet() Function<a class="headerlink" href="#sysget-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get environment variables using the Get() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SysGet(cVariable)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SysGet</span><span class="p">(</span><span class="n">cVariable</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see sysget(&quot;path&quot;)              # print system path information
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">sysget</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">)</span>              <span class="c"># print system path information</span>
 </pre></div>
 </div>
 </div>
@@ -330,7 +330,7 @@ System(&quot;ls&quot;)            # print list of files
 <span id="index-3"></span><h2>IsMSDOS() Function<a class="headerlink" href="#ismsdos-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is MSDOS or not using the IsMSDOS() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>IsMSDOS() ---&gt; Returns 1 if the operating system is MS-DOS, Returns 0 if it&#39;s not
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsMSDOS</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">MS</span><span class="o">-</span><span class="n">DOS</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 </pre></div>
 </div>
 </div>
@@ -338,7 +338,7 @@ System(&quot;ls&quot;)            # print list of files
 <span id="index-4"></span><h2>IsWindows() Function<a class="headerlink" href="#iswindows-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is Windows or not using the IsWindows() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>IsWindows() ---&gt; Returns 1 if the operating system is Windows, Returns 0 if it&#39;s not
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsWindows</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Windows</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 </pre></div>
 </div>
 </div>
@@ -346,7 +346,7 @@ System(&quot;ls&quot;)            # print list of files
 <span id="index-5"></span><h2>IsWindows64() Function<a class="headerlink" href="#iswindows64-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is Windows 64bit or not using the IsWindows64() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>IsWindows64() ---&gt; Returns 1 if the operating system is Windows64, Returns 0 if it&#39;s not
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsWindows64</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Windows64</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 </pre></div>
 </div>
 </div>
@@ -354,7 +354,7 @@ System(&quot;ls&quot;)            # print list of files
 <span id="index-6"></span><h2>IsUnix() Function<a class="headerlink" href="#isunix-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is Unix or not using the IsUnix() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>IsUnix() ---&gt; Returns 1 if the operating system is Unix, Returns 0 if it&#39;s not
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsUnix</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Unix</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 </pre></div>
 </div>
 </div>
@@ -362,7 +362,7 @@ System(&quot;ls&quot;)            # print list of files
 <span id="index-7"></span><h2>IsMacOSX() Function<a class="headerlink" href="#ismacosx-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is macOS or not using the IsMacOSX() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>IsMacOSX() ---&gt; Returns 1 if the operating system is Mac OS X, Returns 0 if it&#39;s not
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsMacOSX</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Mac</span> <span class="n">OS</span> <span class="n">X</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 </pre></div>
 </div>
 </div>
@@ -370,7 +370,7 @@ System(&quot;ls&quot;)            # print list of files
 <span id="index-8"></span><h2>IsLinux() Function<a class="headerlink" href="#islinux-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is Linux or not using the IsLinux() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>IsLinux() ---&gt; Returns 1 if the operating system is Linux, Returns 0 if it&#39;s not
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsLinux</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Linux</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 </pre></div>
 </div>
 </div>
@@ -378,7 +378,7 @@ System(&quot;ls&quot;)            # print list of files
 <span id="index-9"></span><h2>IsFreeBSD() Function<a class="headerlink" href="#isfreebsd-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is FreeBSD or not using the IsFreeBSD() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>IsFreeBSD() ---&gt; Returns 1 if the operating system is FreeBSD, Returns 0 if it&#39;s not
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsFreeBSD</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">FreeBSD</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 </pre></div>
 </div>
 </div>
@@ -386,31 +386,31 @@ System(&quot;ls&quot;)            # print list of files
 <span id="index-10"></span><h2>IsAndroid() Function<a class="headerlink" href="#isandroid-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is Android or not using the IsAndroid() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>IsAndroid() ---&gt; Returns 1 if the operating system is Android, Returns 0 if it&#39;s not
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsAndroid</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Android</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="example">
 <span id="index-11"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;IsMSDOS()     --&gt; &quot; + ismsdos()     + nl
-see &quot;IsWindows()   --&gt; &quot; + iswindows()   + nl
-see &quot;IsWindows64() --&gt; &quot; + iswindows64() + nl
-see &quot;IsUnix()      --&gt; &quot; + isunix()      + nl
-see &quot;IsMacOSX()    --&gt; &quot; + ismacosx()    + nl
-see &quot;IsLinux()     --&gt; &quot; + islinux()     + nl
-see &quot;IsFreeBSD()   --&gt; &quot; + isfreebsd()   + nl
-see &quot;IsAndroid()   --&gt; &quot; + isandroid()   + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;IsMSDOS()     --&gt; &quot;</span> <span class="o">+</span> <span class="n">ismsdos</span><span class="p">()</span>     <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsWindows()   --&gt; &quot;</span> <span class="o">+</span> <span class="n">iswindows</span><span class="p">()</span>   <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsWindows64() --&gt; &quot;</span> <span class="o">+</span> <span class="n">iswindows64</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsUnix()      --&gt; &quot;</span> <span class="o">+</span> <span class="n">isunix</span><span class="p">()</span>      <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsMacOSX()    --&gt; &quot;</span> <span class="o">+</span> <span class="n">ismacosx</span><span class="p">()</span>    <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsLinux()     --&gt; &quot;</span> <span class="o">+</span> <span class="n">islinux</span><span class="p">()</span>     <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsFreeBSD()   --&gt; &quot;</span> <span class="o">+</span> <span class="n">isfreebsd</span><span class="p">()</span>   <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsAndroid()   --&gt; &quot;</span> <span class="o">+</span> <span class="n">isandroid</span><span class="p">()</span>   <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>IsMSDOS()     --&gt; 0
-IsWindows()   --&gt; 1
-IsWindows64() --&gt; 0
-IsUnix()      --&gt; 0
-IsMacOSX()    --&gt; 0
-IsLinux()     --&gt; 0
-IsFreeBSD()   --&gt; 0
-IsAndroid()   --&gt; 0
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsMSDOS</span><span class="p">()</span>     <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsWindows</span><span class="p">()</span>   <span class="o">--&gt;</span> <span class="mi">1</span>
+<span class="n">IsWindows64</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsUnix</span><span class="p">()</span>      <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsMacOSX</span><span class="p">()</span>    <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsLinux</span><span class="p">()</span>     <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsFreeBSD</span><span class="p">()</span>   <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsAndroid</span><span class="p">()</span>   <span class="o">--&gt;</span> <span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -418,25 +418,25 @@ IsAndroid()   --&gt; 0
 <span id="index-12"></span><h2>Windowsnl() Function<a class="headerlink" href="#windowsnl-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the windows new line string using the Windowsnl() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>WindowsNL() ---&gt; Returns a string contains CR+LF = CHAR(13) + CHAR(10)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">WindowsNL</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">CR</span><span class="o">+</span><span class="n">LF</span> <span class="o">=</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = read(&quot;input.txt&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">)</span>
 
-if iswindows()
-        cStr = substr(cStr,windowsnl(),nl)
-ok
+<span class="k">if</span> <span class="n">iswindows</span><span class="p">()</span>
+        <span class="n">cStr</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">windowsnl</span><span class="p">(),</span><span class="n">nl</span><span class="p">)</span>
+<span class="k">ok</span>
 
-aList = str2list(cStr)
-# to do - list items processing using &quot;for in&quot;
-cStr = list2str(aList)
+<span class="n">aList</span> <span class="o">=</span> <span class="n">str2list</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="c"># to do - list items processing using &quot;for in&quot;</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">list2str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
 
-if iswindows()
-        cStr = substr(cStr,nl,windowsnl())
-ok
+<span class="k">if</span> <span class="n">iswindows</span><span class="p">()</span>
+        <span class="n">cStr</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">nl</span><span class="p">,</span><span class="n">windowsnl</span><span class="p">())</span>
+<span class="k">ok</span>
 
-write(&quot;ouput.txt&quot;,cStr)
+<span class="n">write</span><span class="p">(</span><span class="s">&quot;ouput.txt&quot;</span><span class="p">,</span><span class="n">cStr</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -445,39 +445,39 @@ write(&quot;ouput.txt&quot;,cStr)
 <p>We can get the command line arguments passed to the ring script using the sysargv variable.</p>
 <p>The sysargv variable is a list contains the command line parameters.</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see copy(&quot;=&quot;,30) + nl
-see &quot;Command Line Parameters&quot; + nl
-see &quot;Size : &quot; + len(sysargv) + nl
-see sysargv
-see copy(&quot;=&quot;,30) + nl
-if len(sysargv) &lt; 4 return ok
-nStart = sysargv[3]
-nEnd = sysargv[4]
-for x = nStart to nEnd
-        see x + nl
-next
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Command Line Parameters&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">sysargv</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">sysargv</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">sysargv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="k">return</span> <span class="k">ok</span>
+<span class="n">nStart</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="n">nEnd</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">nStart</span> <span class="k">to</span> <span class="n">nEnd</span>
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Output</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>b:\mahmoud\apps\ring&gt;ring tests\syspara.ring 1 10
-==============================
-Command Line Parameters
-Size : 4
-ring
-tests\syspara.ring
-1
-10
-==============================
-1
-2
-3
-4
-5
-6
-7
-8
-9
-10
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">:</span><span class="o">\</span><span class="n">mahmoud</span><span class="o">\</span><span class="n">apps</span><span class="o">\</span><span class="n">ring</span><span class="o">&gt;</span><span class="n">ring</span> <span class="n">tests</span><span class="o">\</span><span class="n">syspara</span><span class="p">.</span><span class="n">ring</span> <span class="mi">1</span> <span class="mi">10</span>
+<span class="o">==============================</span>
+<span class="n">Command</span> <span class="n">Line</span> <span class="n">Parameters</span>
+<span class="n">Size</span> <span class="p">:</span> <span class="mi">4</span>
+<span class="n">ring</span>
+<span class="n">tests</span><span class="o">\</span><span class="n">syspara</span><span class="p">.</span><span class="n">ring</span>
+<span class="mi">1</span>
+<span class="mi">10</span>
+<span class="o">==============================</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+<span class="mi">10</span>
 </pre></div>
 </div>
 </div>
@@ -485,24 +485,24 @@ tests\syspara.ring
 <span id="index-14"></span><h2>Get Active Source File Name<a class="headerlink" href="#get-active-source-file-name" title="Permalink to this headline">¶</a></h2>
 <p>We can get the active source file name (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring) using the filename() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>filename() ---&gt; String contains the active source file name.
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">active</span> <span class="n">source</span> <span class="n">file</span> <span class="n">name</span><span class="p">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;Active Source File Name : &quot; + filename() + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Active Source File Name : &quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Active Source File Name : tests\filename.ring
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Active</span> <span class="n">Source</span> <span class="n">File</span> <span class="n">Name</span> <span class="p">:</span> <span class="n">tests</span><span class="o">\</span><span class="n">filename</span><span class="p">.</span><span class="n">ring</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>if sysargv[2] = filename()
-        see &quot;I&#39;m the main program file!&quot; + nl
-        # we can run tests here!
-else
-        see &quot;I&#39;m a sub file in a program&quot; + nl
-ok
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="n">filename</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;I&#39;m the main program file!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="c"># we can run tests here!</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;I&#39;m a sub file in a program&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 </div>
@@ -512,17 +512,17 @@ ok
 <p>The previous file would be the file of the caller function, Or the file of the function
 that we called before calling PrevFileName().</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>prevfilename() ---&gt; String contains the previous source file name.
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">prevfilename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">source</span> <span class="n">file</span> <span class="n">name</span><span class="p">.</span>
 </pre></div>
 </div>
 <p>Example:</p>
 <p>The next function in stdlib.ring uses the PrevFileName() to know if the file of the
 caller function is the main source file of the program or not.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func IsMainSourceFile
-        if PrevFileName() = sysargv[2]
-                return true
-        ok
-        return false
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">IsMainSourceFile</span>
+        <span class="k">if</span> <span class="n">PrevFileName</span><span class="p">()</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">return</span> <span class="kp">true</span>
+        <span class="k">ok</span>
+        <span class="k">return</span> <span class="kp">false</span>
 </pre></div>
 </div>
 </div>
@@ -530,7 +530,7 @@ caller function is the main source file of the program or not.</p>
 <span id="index-16"></span><h2>CurrentDir() Function<a class="headerlink" href="#currentdir-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the path of the current directory</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>CurrenDir() ---&gt; String contains the path of the currect directory
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">CurrenDir</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">path</span> <span class="n">of</span> <span class="n">the</span> <span class="n">currect</span> <span class="n">directory</span>
 </pre></div>
 </div>
 </div>
@@ -538,7 +538,7 @@ caller function is the main source file of the program or not.</p>
 <span id="index-17"></span><h2>ExeFileName() Function<a class="headerlink" href="#exefilename-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the Ring executable file name</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>exefilename() ---&gt; String contains the Ring executable file name
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">exefilename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span> <span class="n">file</span> <span class="n">name</span>
 </pre></div>
 </div>
 </div>
@@ -546,7 +546,7 @@ caller function is the main source file of the program or not.</p>
 <span id="index-18"></span><h2>ChDir() Function<a class="headerlink" href="#chdir-function" title="Permalink to this headline">¶</a></h2>
 <p>Change the current directory</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ChDir(cNewPath)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ChDir</span><span class="p">(</span><span class="n">cNewPath</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -554,7 +554,7 @@ caller function is the main source file of the program or not.</p>
 <span id="index-19"></span><h2>ExeFolder() Function<a class="headerlink" href="#exefolder-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the Ring executable file path</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>exefolder() ---&gt; String contains the Ring executable path
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">exefolder</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span> <span class="n">path</span>
 </pre></div>
 </div>
 </div>
@@ -562,11 +562,11 @@ caller function is the main source file of the program or not.</p>
 <span id="index-20"></span><h2>Version() Function<a class="headerlink" href="#version-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the Ring version</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>version() ---&gt; String contains the Ring version
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">version</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1.13
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mf">1.13</span>
 </pre></div>
 </div>
 </div>
@@ -574,7 +574,7 @@ caller function is the main source file of the program or not.</p>
 <span id="index-21"></span><h2>Shutdown() Function<a class="headerlink" href="#shutdown-function" title="Permalink to this headline">¶</a></h2>
 <p>Close the application</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>shutdown(nStatus) ---&gt; Close the application
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">shutdown</span><span class="p">(</span><span class="n">nStatus</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Close</span> <span class="n">the</span> <span class="n">application</span>
 </pre></div>
 </div>
 </div>

@@ -325,29 +325,29 @@ the program code and we can modify our code during the runtime.</p>
 <span id="index-1"></span><h2>locals() Function<a class="headerlink" href="#locals-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of variables names in the current scope using the locals() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>locals() --&gt; a list contains the variables names in the current scope
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">locals</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">variables</span> <span class="n">names</span> <span class="k">in</span> <span class="n">the</span> <span class="n">current</span> <span class="n">scope</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>test(&quot;hello&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
 
-func test cMsg
+<span class="k">func</span> <span class="n">test</span> <span class="n">cMsg</span>
 
-        see cMsg + nl
+        <span class="k">see</span> <span class="n">cMsg</span> <span class="o">+</span> <span class="n">nl</span>
 
-        x = 10
-        y = 20
-        z = 30
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="n">z</span> <span class="o">=</span> <span class="mi">30</span>
 
-        see locals()
+        <span class="k">see</span> <span class="n">locals</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>hello
-cmsg
-x
-y
-z
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span>
+<span class="n">cmsg</span>
+<span class="n">x</span>
+<span class="n">y</span>
+<span class="n">z</span>
 </pre></div>
 </div>
 </div>
@@ -355,25 +355,25 @@ z
 <span id="index-2"></span><h2>globals() Function<a class="headerlink" href="#globals-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of variables names in the global scope using the globals() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>globals() --&gt; a list contains variables names in the global scope
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">globals</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">variables</span> <span class="n">names</span> <span class="k">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x=10 y=20 z=30
-test()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
+<span class="n">test</span><span class="p">()</span>
 
-func test
-        see &quot;message from test()&quot; + nl +
-            &quot;Global Variables:&quot; + nl
-        see globals()
+<span class="k">func</span> <span class="n">test</span>
+        <span class="k">see</span> <span class="s">&quot;message from test()&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+            <span class="s">&quot;Global Variables:&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="n">globals</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>message from test()
-Global Variables:
-x
-y
-z
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">message</span> <span class="k">from</span> <span class="n">test</span><span class="p">()</span>
+<span class="n">Global</span> <span class="n">Variables</span><span class="p">:</span>
+<span class="n">x</span>
+<span class="n">y</span>
+<span class="n">z</span>
 </pre></div>
 </div>
 </div>
@@ -381,26 +381,26 @@ z
 <span id="index-3"></span><h2>functions() Function<a class="headerlink" href="#functions-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of functions names written in the Ring language using the functions() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>functions() --&gt; a list contains functions names
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">functions</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">functions</span> <span class="n">names</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see functions()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">functions</span><span class="p">()</span>
 
-func f1
-        see &quot;f1&quot; + nl
+<span class="k">func</span> <span class="n">f1</span>
+        <span class="k">see</span> <span class="s">&quot;f1&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
-func f2
-        see &quot;f2&quot; + nl
+<span class="k">func</span> <span class="n">f2</span>
+        <span class="k">see</span> <span class="s">&quot;f2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
-func f3
-        see &quot;f3&quot; + nl
+<span class="k">func</span> <span class="n">f3</span>
+        <span class="k">see</span> <span class="s">&quot;f3&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>f1
-f2
-f3
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">f1</span>
+<span class="n">f2</span>
+<span class="n">f3</span>
 </pre></div>
 </div>
 </div>
@@ -408,25 +408,25 @@ f3
 <span id="index-4"></span><h2>cfunctions() Function<a class="headerlink" href="#cfunctions-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of functions names written in the C language using the cfunctions() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cfunctions() --&gt; a list contains functions names
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cfunctions</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">functions</span> <span class="n">names</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList =  cfunctions()
-See &quot;Count : &quot; + len(aList) + nl
-for x in aList
-        see x + &quot;()&quot; + nl
-next
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span>  <span class="n">cfunctions</span><span class="p">()</span>
+<span class="k">See</span> <span class="s">&quot;Count : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot;()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Count : 210
-len()
-add()
-del()
-get()
-clock()
-...
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Count</span> <span class="p">:</span> <span class="mi">210</span>
+<span class="n">len</span><span class="p">()</span>
+<span class="n">add</span><span class="p">()</span>
+<span class="n">del</span><span class="p">()</span>
+<span class="k">get</span><span class="p">()</span>
+<span class="n">clock</span><span class="p">()</span>
+<span class="p">...</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -438,24 +438,24 @@ clock()
 <span id="index-5"></span><h2>islocal() Function<a class="headerlink" href="#islocal-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a variable is defined in the local scope or not using the islocal() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>islocal(cVariableName) --&gt; returns 1 if the variable is defined in the local scope
-                           returns 0 if the variable is not defined in the local scope
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">islocal</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">local</span> <span class="n">scope</span>
+                           <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">local</span> <span class="n">scope</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>test()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">test</span><span class="p">()</span>
 
-func test
-        x=10 y=20
-        see islocal(&quot;x&quot;) + nl +
-            islocal(&quot;y&quot;) + nl +
-            islocal(&quot;z&quot;) + nl
+<span class="k">func</span> <span class="n">test</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
+        <span class="k">see</span> <span class="n">islocal</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+            <span class="n">islocal</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+            <span class="n">islocal</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
-1
-0
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">1</span>
+<span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -463,25 +463,25 @@ func test
 <span id="index-6"></span><h2>isglobal() Function<a class="headerlink" href="#isglobal-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a variable is defined in the global scope or not using the isglobal() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isglobal(cVariableName) --&gt; returns 1 if the variable is defined in the global scope
-                            returns 0 if the variable is not defined in the global scope
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isglobal</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
+                            <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">variable</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span> <span class="k">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x=10 y=20
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span>
 
-test()
+<span class="n">test</span><span class="p">()</span>
 
-func test
-        see isglobal(&quot;x&quot;) + nl +
-            isglobal(&quot;y&quot;) + nl +
-            isglobal(&quot;z&quot;) + nl
+<span class="k">func</span> <span class="n">test</span>
+        <span class="k">see</span> <span class="n">isglobal</span><span class="p">(</span><span class="s">&quot;x&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+            <span class="n">isglobal</span><span class="p">(</span><span class="s">&quot;y&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+            <span class="n">isglobal</span><span class="p">(</span><span class="s">&quot;z&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
-1
-0
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">1</span>
+<span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -489,26 +489,26 @@ func test
 <span id="index-7"></span><h2>isfunction() Function<a class="headerlink" href="#isfunction-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a Ring function is defined or not using the isfunction() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isfunction(cFunctionName) --&gt; returns 1 if the Ring function is defined
-                              returns 0 if the Ring function is not defined
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">function</span> <span class="n">is</span> <span class="n">defined</span>
+                              <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">function</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see isfunction(&quot;f1&quot;) + nl +
-    isfunction(&quot;f2&quot;) + nl +
-    isfunction(&quot;f3&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isfunction</span><span class="p">(</span><span class="s">&quot;f1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">isfunction</span><span class="p">(</span><span class="s">&quot;f2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">isfunction</span><span class="p">(</span><span class="s">&quot;f3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-func f1
-        see &quot;message from f1()&quot; + nl
+<span class="k">func</span> <span class="n">f1</span>
+        <span class="k">see</span> <span class="s">&quot;message from f1()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
-func f2
-        see &quot;message from f2()&quot; + nl
+<span class="k">func</span> <span class="n">f2</span>
+        <span class="k">see</span> <span class="s">&quot;message from f2()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
-1
-0
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">1</span>
+<span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -516,20 +516,20 @@ func f2
 <span id="index-8"></span><h2>iscfunction() Function<a class="headerlink" href="#iscfunction-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a C function is defined or not using the iscfunction() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>iscfunction(cFunctionName) --&gt; returns 1 if the C function is defined
-                               returns 0 if the C function is not defined
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">iscfunction</span><span class="p">(</span><span class="n">cFunctionName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">C</span> <span class="n">function</span> <span class="n">is</span> <span class="n">defined</span>
+                               <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">C</span> <span class="n">function</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see iscfunction(&quot;len&quot;) + nl +
-    iscfunction(&quot;add&quot;) + nl +
-    iscfunction(&quot;test&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">iscfunction</span><span class="p">(</span><span class="s">&quot;len&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">iscfunction</span><span class="p">(</span><span class="s">&quot;add&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">iscfunction</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
-1
-0
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">1</span>
+<span class="mi">0</span>
 </pre></div>
 </div>
 </div>
@@ -537,34 +537,34 @@ func f2
 <span id="index-9"></span><h2>packages() Function<a class="headerlink" href="#packages-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of packages names using the packages() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>packages() --&gt; a list contains packages names
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">packages</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">packages</span> <span class="n">names</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See packages()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">packages</span><span class="p">()</span>
 
-Package Package1
-        Class class1
-                Func f1
+<span class="n">Package</span> <span class="n">Package1</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
 
-Package Package2
-        Class class1
-                Func f1
+<span class="n">Package</span> <span class="n">Package2</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
 
-Package Package3
-        Class class1
-                Func f1
+<span class="n">Package</span> <span class="n">Package3</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
 
-Package Package4
-        Class class1
-                Func f1
+<span class="n">Package</span> <span class="n">Package4</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>package1
-package2
-package3
-package4
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">package1</span>
+<span class="n">package2</span>
+<span class="n">package3</span>
+<span class="n">package4</span>
 </pre></div>
 </div>
 </div>
@@ -572,38 +572,38 @@ package4
 <span id="index-10"></span><h2>ispackage() Function<a class="headerlink" href="#ispackage-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a package is defined or not using the ispackage() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ispackage(cPackageName) --&gt; returns 1 if the Package is defined
-                            returns 0 if the Package is not defined
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ispackage</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Package</span> <span class="n">is</span> <span class="n">defined</span>
+                            <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Package</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See ispackage(&quot;package1&quot;) + nl +
-    ispackage(&quot;package4&quot;) + nl +
-    ispackage(&quot;package5&quot;) + nl +
-    ispackage(&quot;package3&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">ispackage</span><span class="p">(</span><span class="s">&quot;package1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">ispackage</span><span class="p">(</span><span class="s">&quot;package4&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">ispackage</span><span class="p">(</span><span class="s">&quot;package5&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">ispackage</span><span class="p">(</span><span class="s">&quot;package3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-Package Package1
-        Class class1
-                Func f1
+<span class="n">Package</span> <span class="n">Package1</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
 
-Package Package2
-        Class class1
-                Func f1
+<span class="n">Package</span> <span class="n">Package2</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
 
-Package Package3
-        Class class1
-                Func f1
+<span class="n">Package</span> <span class="n">Package3</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
 
-Package Package4
-        Class class1
-                Func f1
+<span class="n">Package</span> <span class="n">Package4</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
-1
-0
-1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">1</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -611,26 +611,26 @@ Package Package4
 <span id="index-11"></span><h2>classes() Function<a class="headerlink" href="#classes-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of classes names using the classes() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>classes() --&gt; a list contains classes names
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">classes</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">classes</span> <span class="n">names</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See classes()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">classes</span><span class="p">()</span>
 
-Class class1
-        Func f1
+<span class="k">Class</span> <span class="n">class1</span>
+        <span class="k">Func</span> <span class="n">f1</span>
 
-Class class2
-        Func f1
+<span class="k">Class</span> <span class="n">class2</span>
+        <span class="k">Func</span> <span class="n">f1</span>
 
-Class class3
-        Func f1
+<span class="k">Class</span> <span class="n">class3</span>
+        <span class="k">Func</span> <span class="n">f1</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class1
-class2
-class3
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">class1</span>
+<span class="n">class2</span>
+<span class="n">class3</span>
 </pre></div>
 </div>
 </div>
@@ -638,29 +638,29 @@ class3
 <span id="index-12"></span><h2>isclass() Function<a class="headerlink" href="#isclass-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a class is defined or not using the isclass() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isclass(cClassName) --&gt;  returns 1 if the Class is defined
-                         returns 0 if the Class is not defined
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isclass</span><span class="p">(</span><span class="n">cClassName</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Class</span> <span class="n">is</span> <span class="n">defined</span>
+                         <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Class</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see isclass(&quot;class4&quot;) + nl +
-    isclass(&quot;class3&quot;) + nl +
-    isclass(&quot;class2&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isclass</span><span class="p">(</span><span class="s">&quot;class4&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">isclass</span><span class="p">(</span><span class="s">&quot;class3&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">isclass</span><span class="p">(</span><span class="s">&quot;class2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-Class class1
-        func f1
+<span class="k">Class</span> <span class="n">class1</span>
+        <span class="k">func</span> <span class="n">f1</span>
 
-class class2
-        func f1
+<span class="k">class</span> <span class="n">class2</span>
+        <span class="k">func</span> <span class="n">f1</span>
 
-class class3
-        func f1
+<span class="k">class</span> <span class="n">class3</span>
+        <span class="k">func</span> <span class="n">f1</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>0
-1
-1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -668,35 +668,35 @@ class class3
 <span id="index-13"></span><h2>packageclasses() Function<a class="headerlink" href="#packageclasses-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of classes names inside a package using the packageclasses() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>packageclasses(cPackageName) --&gt; a list contains classes names inside the package
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">packageclasses</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">classes</span> <span class="n">names</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">package</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;classes in Package1&quot; + nl
-see packageclasses(&quot;Package1&quot;)
-see &quot;classes in Package2&quot; + nl
-see packageclasses(&quot;Package2&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;classes in Package1&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">packageclasses</span><span class="p">(</span><span class="s">&quot;Package1&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;classes in Package2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">packageclasses</span><span class="p">(</span><span class="s">&quot;Package2&quot;</span><span class="p">)</span>
 
-Package Package1
-        Class class1
-                Func f1
+<span class="n">Package</span> <span class="n">Package1</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
 
-Package Package2
-        Class class1
-                Func f1
-        Class class2
-                Func f1
-        Class class3
-                func f1
+<span class="n">Package</span> <span class="n">Package2</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
+        <span class="k">Class</span> <span class="n">class2</span>
+                <span class="k">Func</span> <span class="n">f1</span>
+        <span class="k">Class</span> <span class="n">class3</span>
+                <span class="k">func</span> <span class="n">f1</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>classes in Package1
-class1
-classes in Package2
-class1
-class2
-class3
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">classes</span> <span class="k">in</span> <span class="n">Package1</span>
+<span class="n">class1</span>
+<span class="n">classes</span> <span class="k">in</span> <span class="n">Package2</span>
+<span class="n">class1</span>
+<span class="n">class2</span>
+<span class="n">class3</span>
 </pre></div>
 </div>
 </div>
@@ -704,34 +704,34 @@ class3
 <span id="index-14"></span><h2>ispackageclass() Function<a class="headerlink" href="#ispackageclass-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if a class is defined inside package or not using the ispackageclass() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ispackageclass(cPackageName,cClassName) --&gt;  returns 1 if the Class is defined
-                                             returns 0 if the Class is not defined
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ispackageclass</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">,</span><span class="n">cClassName</span><span class="p">)</span> <span class="o">--&gt;</span>  <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Class</span> <span class="n">is</span> <span class="n">defined</span>
+                                             <span class="n">returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Class</span> <span class="n">is</span> <span class="ow">not</span> <span class="n">defined</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see ispackageclass(&quot;package1&quot;,&quot;class1&quot;) + nl +
-    ispackageclass(&quot;package1&quot;,&quot;class2&quot;) + nl +
-    ispackageclass(&quot;package2&quot;,&quot;class1&quot;) + nl +
-    ispackageclass(&quot;package2&quot;,&quot;class2&quot;) + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">ispackageclass</span><span class="p">(</span><span class="s">&quot;package1&quot;</span><span class="p">,</span><span class="s">&quot;class1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">ispackageclass</span><span class="p">(</span><span class="s">&quot;package1&quot;</span><span class="p">,</span><span class="s">&quot;class2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">ispackageclass</span><span class="p">(</span><span class="s">&quot;package2&quot;</span><span class="p">,</span><span class="s">&quot;class1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">ispackageclass</span><span class="p">(</span><span class="s">&quot;package2&quot;</span><span class="p">,</span><span class="s">&quot;class2&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-Package Package1
-        Class class1
-                Func f1
+<span class="n">Package</span> <span class="n">Package1</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
 
-Package Package2
-        Class class1
-                Func f1
-        Class class2
-                Func f1
-        Class class3
-                func f1
+<span class="n">Package</span> <span class="n">Package2</span>
+        <span class="k">Class</span> <span class="n">class1</span>
+                <span class="k">Func</span> <span class="n">f1</span>
+        <span class="k">Class</span> <span class="n">class2</span>
+                <span class="k">Func</span> <span class="n">f1</span>
+        <span class="k">Class</span> <span class="n">class3</span>
+                <span class="k">func</span> <span class="n">f1</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>1
-0
-1
-1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -739,18 +739,18 @@ Package Package2
 <span id="index-15"></span><h2>classname() Function<a class="headerlink" href="#classname-function" title="Permalink to this headline">¶</a></h2>
 <p>We can know the class name of an object using the classname() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>classname(object) --&gt; Returns the object class name
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">classname</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">object</span> <span class="k">class</span> <span class="n">name</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
-o2 = new rect
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
+<span class="n">o2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">rect</span>
 
-see classname(o1) + nl          # print point
-see classname(o2) + nl          # print rect
+<span class="k">see</span> <span class="n">classname</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>          <span class="c"># print point</span>
+<span class="k">see</span> <span class="n">classname</span><span class="p">(</span><span class="n">o2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>          <span class="c"># print rect</span>
 
-class point
-class rect
+<span class="k">class</span> <span class="n">point</span>
+<span class="k">class</span> <span class="n">rect</span>
 </pre></div>
 </div>
 </div>
@@ -758,18 +758,18 @@ class rect
 <span id="index-16"></span><h2>objectid() Function<a class="headerlink" href="#objectid-function" title="Permalink to this headline">¶</a></h2>
 <p>We can know the object id using the objectid() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>objectid(object) --&gt; Returns the object id
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">objectid</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">object</span> <span class="n">id</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
-see objectid(o1) + nl
-test(o1)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
+<span class="k">see</span> <span class="n">objectid</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">test</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
 
-func test v
-        see objectid(v) + nl
+<span class="k">func</span> <span class="n">test</span> <span class="n">v</span>
+        <span class="k">see</span> <span class="n">objectid</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-Class point x y z
+<span class="k">Class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -782,7 +782,7 @@ Class point x y z
 <span id="index-17"></span><h2>isobject() Function<a class="headerlink" href="#isobject-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check the variable to know if it’s an object or not using the isobject() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isobject(variable) --&gt; Returns True if it&#39;s an object, False if it&#39;s not
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isobject</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s an object, False if it&#39;</span><span class="n">s</span> <span class="ow">not</span>
 </pre></div>
 </div>
 </div>
@@ -790,14 +790,14 @@ Class point x y z
 <span id="index-18"></span><h2>attributes() Function<a class="headerlink" href="#attributes-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the object attributes using the attributes() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>attributes(object) --&gt; Returns a list contains the object attributes
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">attributes</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">object</span> <span class="n">attributes</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
-aList = attributes(o1)          # we can use see attributes(o1)
-for t in aList see t next       # print xyz
-Class Point x y z
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">attributes</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>          <span class="c"># we can use see attributes(o1)</span>
+<span class="k">for</span> <span class="n">t</span> <span class="k">in</span> <span class="n">aList</span> <span class="k">see</span> <span class="n">t</span> <span class="k">next</span>       <span class="c"># print xyz</span>
+<span class="k">Class</span> <span class="n">Point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 </div>
@@ -805,34 +805,34 @@ Class Point x y z
 <span id="index-19"></span><h2>methods() Function<a class="headerlink" href="#methods-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the object methods using the methods() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>methods(object) --&gt; Returns a list contains the object methods
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">methods</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">object</span> <span class="n">methods</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new test
-aList = methods(o1)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">test</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">methods</span><span class="p">(</span><span class="n">o1</span><span class="p">)</span>
 
-for x in aList
-        cCode = &quot;o1.&quot;+x+&quot;()&quot;
-        eval(cCode)
-next
+<span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
+        <span class="n">cCode</span> <span class="o">=</span> <span class="s">&quot;o1.&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;()&quot;</span>
+        <span class="n">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
+<span class="k">next</span>
 
-Class Test
-        func f1
-                see &quot;hello from f1&quot; + nl
-        func f2
-                see &quot;hello from f2&quot; + nl
-        func f3
-                see &quot;hello from f3&quot; + nl
-        func f4
-                see &quot;hello from f4&quot; + nl
+<span class="k">Class</span> <span class="n">Test</span>
+        <span class="k">func</span> <span class="n">f1</span>
+                <span class="k">see</span> <span class="s">&quot;hello from f1&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">func</span> <span class="n">f2</span>
+                <span class="k">see</span> <span class="s">&quot;hello from f2&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">func</span> <span class="n">f3</span>
+                <span class="k">see</span> <span class="s">&quot;hello from f3&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">func</span> <span class="n">f4</span>
+                <span class="k">see</span> <span class="s">&quot;hello from f4&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>hello from f1
-hello from f2
-hello from f3
-hello from f4
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">hello</span> <span class="k">from</span> <span class="n">f1</span>
+<span class="n">hello</span> <span class="k">from</span> <span class="n">f2</span>
+<span class="n">hello</span> <span class="k">from</span> <span class="n">f3</span>
+<span class="n">hello</span> <span class="k">from</span> <span class="n">f4</span>
 </pre></div>
 </div>
 </div>
@@ -840,18 +840,18 @@ hello from f4
 <span id="index-20"></span><h2>isattribute() Function<a class="headerlink" href="#isattribute-function" title="Permalink to this headline">¶</a></h2>
 <p>We can test if the object contains an attribute or not using the isattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isattribute(object,cAttributeName) --&gt; Returns True if the object contains the attribute
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">attribute</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
 
-see isattribute(o1,&quot;x&quot;) + nl    # print 1
-see isattribute(o1,&quot;t&quot;) + nl    # print 0
-see isattribute(o1,&quot;y&quot;) + nl    # print 1
-see isattribute(o1,&quot;z&quot;) + nl    # print 1
+<span class="k">see</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 1</span>
+<span class="k">see</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;t&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 0</span>
+<span class="k">see</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 1</span>
+<span class="k">see</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;z&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 1</span>
 
-class point x y z
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 </div>
@@ -859,31 +859,31 @@ class point x y z
 <span id="index-21"></span><h2>isprivateattribute() Function<a class="headerlink" href="#isprivateattribute-function" title="Permalink to this headline">¶</a></h2>
 <p>We can test if the object contains a private attribute or not using the isprivateattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isprivateattribute(object,cAttributeName) --&gt; Returns True if the object
-                                              contains the private attribute
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isprivateattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span>
+                                              <span class="n">contains</span> <span class="n">the</span> <span class="n">private</span> <span class="n">attribute</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new person
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
 
-see isprivateattribute(o1,&quot;name&quot;) + nl +
-    isprivateattribute(o1,&quot;address&quot;) + nl +
-    isprivateattribute(o1,&quot;phone&quot;) + nl +
-    isprivateattribute(o1,&quot;job&quot;) + nl +
-    isprivateattribute(o1,&quot;salary&quot;)
+<span class="k">see</span> <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;address&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;phone&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;job&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;salary&quot;</span><span class="p">)</span>
 
-Class Person
-        name address phone
-        private
-                job salary
+<span class="k">Class</span> <span class="n">Person</span>
+        <span class="n">name</span> <span class="n">address</span> <span class="n">phone</span>
+        <span class="n">private</span>
+                <span class="n">job</span> <span class="n">salary</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>0
-0
-0
-1
-1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">0</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -891,22 +891,22 @@ Class Person
 <span id="index-22"></span><h2>ismethod() Function<a class="headerlink" href="#ismethod-function" title="Permalink to this headline">¶</a></h2>
 <p>We can test if the object class contains a method or not using the ismethod() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ismethod(object,cMethodName) --&gt; Returns True if the object class contains the method
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ismethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="k">class</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">method</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
 
-see ismethod(o1,&quot;print&quot;) + nl           # print 1
+<span class="k">see</span> <span class="n">ismethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>           <span class="c"># print 1</span>
 
-mylist = []
-mylist + new point
+<span class="n">mylist</span> <span class="o">=</span> <span class="o">[]</span>
+<span class="n">mylist</span> <span class="o">+</span> <span class="k">new</span> <span class="n">point</span>
 
-see ismethod(mylist[1],&quot;print&quot;) + nl    # print 1
+<span class="k">see</span> <span class="n">ismethod</span><span class="p">(</span><span class="n">mylist</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>    <span class="c"># print 1</span>
 
-class point x y z
-        func print
-                see x + nl + y + nl + z + nl
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">print</span>
+                <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
@@ -914,27 +914,27 @@ class point x y z
 <span id="index-23"></span><h2>isprivatemethod() Function<a class="headerlink" href="#isprivatemethod-function" title="Permalink to this headline">¶</a></h2>
 <p>We can test if the object class contains a private method or not using the isprivatemethod() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>isprivatemethod(object,cMethodName) --&gt; Returns True if the object class contains
-                                        the private method
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">isprivatemethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">the</span> <span class="n">object</span> <span class="k">class</span> <span class="n">contains</span>
+                                        <span class="n">the</span> <span class="n">private</span> <span class="n">method</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new Test
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Test</span>
 
-see isprivatemethod(o1,&quot;f1&quot;) + nl +
-    isprivatemethod(o1,&quot;f2&quot;)
+<span class="k">see</span> <span class="n">isprivatemethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;f1&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">isprivatemethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;f2&quot;</span><span class="p">)</span>
 
-Class Test
-        func  f1
-                see &quot;message from f1()&quot; + nl
-        private
-                func f2
-                        see &quot;message from f2()&quot; + nl
+<span class="k">Class</span> <span class="n">Test</span>
+        <span class="k">func</span>  <span class="n">f1</span>
+                <span class="k">see</span> <span class="s">&quot;message from f1()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">private</span>
+                <span class="k">func</span> <span class="n">f2</span>
+                        <span class="k">see</span> <span class="s">&quot;message from f2()&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>0
-1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -943,28 +943,28 @@ Class Test
 <p>We can add an attribute (or a group of attributes) to the object state (not the class) using
 the addattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>AddAttribute(object,cAttributeName|aAttributesList)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">AddAttribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="o">|</span><span class="n">aAttributesList</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example(1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see new point {x=10 y=20 z=30}
-Class Point
-        AddAttribute(self,[&quot;x&quot;,&quot;y&quot;,&quot;z&quot;])
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
+<span class="k">Class</span> <span class="n">Point</span>
+        <span class="n">AddAttribute</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="o">[</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">,</span><span class="s">&quot;z&quot;</span><span class="o">]</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example(2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
-addattribute(o1,&quot;x&quot;)
-addattribute(o1,&quot;y&quot;)
-addattribute(o1,&quot;z&quot;)
-see o1 {x=10 y=20 z=30}
-class point
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
+<span class="n">addattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">addattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">)</span>
+<span class="n">addattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;z&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">o1</span> <span class="p">{</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span><span class="p">}</span>
+<span class="k">class</span> <span class="n">point</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x: 10.000000
-y: 20.000000
-z: 30.000000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="mf">10.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">20.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">30.000000</span>
 </pre></div>
 </div>
 </div>
@@ -973,82 +973,82 @@ z: 30.000000
 <p>We can add a method to the object class using the addmethod() function
 This method can be used with any object from the same class.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>AddMethod(Object,cNewMethodName,cMethodName|AnonymousFunction)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">AddMethod</span><span class="p">(</span><span class="n">Object</span><span class="p">,</span><span class="n">cNewMethodName</span><span class="p">,</span><span class="n">cMethodName</span><span class="o">|</span><span class="n">AnonymousFunction</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point { x=10 y=20 z=30 }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
 
-addmethod(o1,&quot;print&quot;, func { see x + nl + y + nl + z + nl } )
+<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">,</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span> <span class="p">)</span>
 
-o1.print()
+<span class="n">o1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
 
-Class point
-        x y z
+<span class="k">Class</span> <span class="n">point</span>
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
-20
-30
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
 </pre></div>
 </div>
 <p>Instead of using anonymous function to add new method to the class, we can use the function name</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point { x=10 y=20 z=30 }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
 
-myfunc = func { see x + nl + y + nl + z + nl }
+<span class="n">myfunc</span> <span class="o">=</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span>
 
-addmethod(o1,&quot;print&quot;, myfunc )
-addmethod(o1,&quot;display&quot;, myfunc )
-addmethod(o1,&quot;show&quot;, myfunc )
+<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">,</span> <span class="n">myfunc</span> <span class="p">)</span>
+<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;display&quot;</span><span class="p">,</span> <span class="n">myfunc</span> <span class="p">)</span>
+<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;show&quot;</span><span class="p">,</span> <span class="n">myfunc</span> <span class="p">)</span>
 
-o1.print()
-o1.display()
-o1.show()
+<span class="n">o1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">o1</span><span class="p">.</span><span class="n">display</span><span class="p">()</span>
+<span class="n">o1</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
 
-Class point
-        x y z
+<span class="k">Class</span> <span class="n">point</span>
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
-20
-30
-10
-20
-30
-10
-20
-30
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
 </pre></div>
 </div>
 <p>Since we add the method to the class, any object from that class can use this method</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point { x=10 y=20 z=30 }
-o2 = new point { x=100 y=200 z=300 }
-o3 = new point { x=50 y=150 z=250 }
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span>
+<span class="n">o2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span> <span class="n">y</span><span class="o">=</span><span class="mi">200</span> <span class="n">z</span><span class="o">=</span><span class="mi">300</span> <span class="p">}</span>
+<span class="n">o3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">50</span> <span class="n">y</span><span class="o">=</span><span class="mi">150</span> <span class="n">z</span><span class="o">=</span><span class="mi">250</span> <span class="p">}</span>
 
-addmethod(o1,&quot;print&quot;, func { see x + nl + y + nl + z + nl } )
+<span class="n">addmethod</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;print&quot;</span><span class="p">,</span> <span class="k">func</span> <span class="p">{</span> <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">z</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">}</span> <span class="p">)</span>
 
-o1.print()
-o2.print()
-o3.print()
+<span class="n">o1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">o2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">o3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
 
-Class point
-        x y z
+<span class="k">Class</span> <span class="n">point</span>
+        <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
-20
-30
-100
-200
-300
-50
-150
-250
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">30</span>
+<span class="mi">100</span>
+<span class="mi">200</span>
+<span class="mi">300</span>
+<span class="mi">50</span>
+<span class="mi">150</span>
+<span class="mi">250</span>
 </pre></div>
 </div>
 </div>
@@ -1056,20 +1056,20 @@ Class point
 <span id="index-26"></span><h2>getattribute() function<a class="headerlink" href="#getattribute-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the object attribute value using the getattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>GetAttribute(oObject,cAttributeName) ---&gt; Attribute Value
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">GetAttribute</span><span class="p">(</span><span class="n">oObject</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Attribute</span> <span class="n">Value</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new point
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span>
 
-see getattribute(o1,&quot;name&quot;) + nl +
-    getattribute(o1,&quot;x&quot;) + nl +
-    getattribute(o1,&quot;y&quot;) + nl +
-    getattribute(o1,&quot;z&quot;) + nl
+<span class="k">see</span> <span class="n">getattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;name&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">getattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">getattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;y&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="n">getattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;z&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-Class Point
-        x=10 y=20 z=30
-        name = &quot;3D-Point&quot;
+<span class="k">Class</span> <span class="n">Point</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
+        <span class="n">name</span> <span class="o">=</span> <span class="s">&quot;3D-Point&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -1082,56 +1082,56 @@ Class Point
 <p>Example:</p>
 <p>We can Find a Class List Member using GetAttribute() using a function findclass()
 The Find uses the member name, rather than the column number</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>myList =
-          [new Company {position=3 name=&quot;Mahmoud&quot; symbol=&quot;MHD&quot;},
-           new Company {position=2 name=&quot;Bert&quot; symbol=&quot;BRT&quot;},
-           new Company {position=1 name=&quot;Ring&quot; symbol=&quot;RNG&quot;}
-          ]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">myList</span> <span class="o">=</span>
+          <span class="o">[</span><span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">3</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Mahmoud&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;MHD&quot;</span><span class="p">},</span>
+           <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">2</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Bert&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;BRT&quot;</span><span class="p">},</span>
+           <span class="k">new</span> <span class="n">Company</span> <span class="p">{</span><span class="n">position</span><span class="o">=</span><span class="mi">1</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;Ring&quot;</span> <span class="n">symbol</span><span class="o">=</span><span class="s">&quot;RNG&quot;</span><span class="p">}</span>
+          <span class="o">]</span>
 
-see myList
-see nl +&quot;=====================&quot; + nl + nl
+<span class="k">see</span> <span class="n">myList</span>
+<span class="k">see</span> <span class="n">nl</span> <span class="o">+</span><span class="s">&quot;=====================&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">nl</span>
 
-for i = 1 to len(myList)
-     see  &quot;Pos: &quot;+ i +&quot; | &quot;+ myList[i].position +&quot; | &quot;+ myList[i].name +
-          &quot; | &quot;+  myList[i].symbol    +&quot; | &quot;+ nl
-next
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">myList</span><span class="p">)</span>
+     <span class="k">see</span>  <span class="s">&quot;Pos: &quot;</span><span class="o">+</span> <span class="n">i</span> <span class="o">+</span><span class="s">&quot; | &quot;</span><span class="o">+</span> <span class="n">myList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">position</span> <span class="o">+</span><span class="s">&quot; | &quot;</span><span class="o">+</span> <span class="n">myList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">name</span> <span class="o">+</span>
+          <span class="s">&quot; | &quot;</span><span class="o">+</span>  <span class="n">myList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">.</span><span class="n">symbol</span>    <span class="o">+</span><span class="s">&quot; | &quot;</span><span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
 
 
-See findclass(myList, &quot;MHD&quot;, &quot;symbol&quot;) +nl   ### Specify Member class name
+<span class="k">See</span> <span class="n">findclass</span><span class="p">(</span><span class="n">myList</span><span class="p">,</span> <span class="s">&quot;MHD&quot;</span><span class="p">,</span> <span class="s">&quot;symbol&quot;</span><span class="p">)</span> <span class="o">+</span><span class="n">nl</span>   <span class="sd">### Specify Member class name</span>
 
-###---------------------------------------
+<span class="sd">###---------------------------------------</span>
 
-func findclass classList, cValue, classMember
+<span class="k">func</span> <span class="n">findclass</span> <span class="n">classList</span><span class="p">,</span> <span class="n">cValue</span><span class="p">,</span> <span class="n">classMember</span>
 
-       See nl + &quot;FindClass: &quot;  +&quot; &quot;+ cValue + nl + nl
+       <span class="k">See</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot;FindClass: &quot;</span>  <span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">nl</span>
 
-       for i = 1 to len(classList)
-            result = getattribute( classList[i], classMember )
+       <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">len</span><span class="p">(</span><span class="n">classList</span><span class="p">)</span>
+            <span class="n">result</span> <span class="o">=</span> <span class="n">getattribute</span><span class="p">(</span> <span class="n">classList</span><span class="o">[</span><span class="n">i</span><span class="o">]</span><span class="p">,</span> <span class="n">classMember</span> <span class="p">)</span>
 
-           See &quot;Result-Attr: &quot; + i +&quot; &quot;+  result +nl
-           if result = cValue
-               j = i
-            ok
-       next
-return j
+           <span class="k">See</span> <span class="s">&quot;Result-Attr: &quot;</span> <span class="o">+</span> <span class="n">i</span> <span class="o">+</span><span class="s">&quot; &quot;</span><span class="o">+</span>  <span class="n">result</span> <span class="o">+</span><span class="n">nl</span>
+           <span class="k">if</span> <span class="n">result</span> <span class="o">=</span> <span class="n">cValue</span>
+               <span class="n">j</span> <span class="o">=</span> <span class="n">i</span>
+            <span class="k">ok</span>
+       <span class="k">next</span>
+<span class="k">return</span> <span class="n">j</span>
 
-###--------------------------------------
+<span class="sd">###--------------------------------------</span>
 
-class company position name symbol
+<span class="k">class</span> <span class="n">company</span> <span class="n">position</span> <span class="n">name</span> <span class="n">symbol</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Pos: 1 | 3 | Mahmoud | MHD |
-Pos: 2 | 2 | Bert | BRT |
-Pos: 3 | 1 | Ring | RNG |
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Pos</span><span class="p">:</span> <span class="mi">1</span> <span class="o">|</span> <span class="mi">3</span> <span class="o">|</span> <span class="n">Mahmoud</span> <span class="o">|</span> <span class="n">MHD</span> <span class="o">|</span>
+<span class="n">Pos</span><span class="p">:</span> <span class="mi">2</span> <span class="o">|</span> <span class="mi">2</span> <span class="o">|</span> <span class="n">Bert</span> <span class="o">|</span> <span class="n">BRT</span> <span class="o">|</span>
+<span class="n">Pos</span><span class="p">:</span> <span class="mi">3</span> <span class="o">|</span> <span class="mi">1</span> <span class="o">|</span> <span class="n">Ring</span> <span class="o">|</span> <span class="n">RNG</span> <span class="o">|</span>
 
-FindClass:  MHD
+<span class="n">FindClass</span><span class="p">:</span>  <span class="n">MHD</span>
 
-Result-Attr: 1 MHD
-Result-Attr: 2 BRT
-Result-Attr: 3 RNG
+<span class="n">Result</span><span class="o">-</span><span class="n">Attr</span><span class="p">:</span> <span class="mi">1</span> <span class="n">MHD</span>
+<span class="n">Result</span><span class="o">-</span><span class="n">Attr</span><span class="p">:</span> <span class="mi">2</span> <span class="n">BRT</span>
+<span class="n">Result</span><span class="o">-</span><span class="n">Attr</span><span class="p">:</span> <span class="mi">3</span> <span class="n">RNG</span>
 
-1
+<span class="mi">1</span>
 </pre></div>
 </div>
 </div>
@@ -1139,31 +1139,31 @@ Result-Attr: 3 RNG
 <span id="index-27"></span><h2>setattribute() function<a class="headerlink" href="#setattribute-function" title="Permalink to this headline">¶</a></h2>
 <p>We can set the object attribute value using the setattribute() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>SetAttribute(oObject,cAttributeName,Value)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SetAttribute</span><span class="p">(</span><span class="n">oObject</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">,</span><span class="n">Value</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = new person
-setattribute(o1,&quot;cName&quot;,&quot;Mahmoud&quot;)
-setattribute(o1,&quot;nSalary&quot;,1000000)
-setattribute(o1,&quot;aColors&quot;,[&quot;white&quot;,&quot;blue&quot;,&quot;yellow&quot;])
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">person</span>
+<span class="n">setattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;cName&quot;</span><span class="p">,</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">)</span>
+<span class="n">setattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;nSalary&quot;</span><span class="p">,</span><span class="mi">1000000</span><span class="p">)</span>
+<span class="n">setattribute</span><span class="p">(</span><span class="n">o1</span><span class="p">,</span><span class="s">&quot;aColors&quot;</span><span class="p">,</span><span class="o">[</span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="s">&quot;blue&quot;</span><span class="p">,</span><span class="s">&quot;yellow&quot;</span><span class="o">]</span><span class="p">)</span>
 
-see o1
-see o1.aColors
+<span class="k">see</span> <span class="n">o1</span>
+<span class="k">see</span> <span class="n">o1</span><span class="p">.</span><span class="n">aColors</span>
 
-Class Person
-        cName
-        nSalary
-        aColors
+<span class="k">Class</span> <span class="n">Person</span>
+        <span class="n">cName</span>
+        <span class="n">nSalary</span>
+        <span class="n">aColors</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cname: Mahmoud
-nsalary: 1000000.000000
-acolors: List...
-white
-blue
-yellow
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cname</span><span class="p">:</span> <span class="n">Mahmoud</span>
+<span class="n">nsalary</span><span class="p">:</span> <span class="mf">1000000.000000</span>
+<span class="n">acolors</span><span class="p">:</span> <span class="kt">List</span><span class="p">...</span>
+<span class="n">white</span>
+<span class="n">blue</span>
+<span class="n">yellow</span>
 </pre></div>
 </div>
 </div>
@@ -1172,54 +1172,54 @@ yellow
 <p>We can share methods between classes without inheritance using the MergeMethods() function</p>
 <p>This function merge class methods to another class.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MergeMethods(cClassNameDestination,cClassNameSource)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MergeMethods</span><span class="p">(</span><span class="n">cClassNameDestination</span><span class="p">,</span><span class="n">cClassNameSource</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>mergemethods(&quot;count&quot;,&quot;share&quot;)
-mergemethods(&quot;count2&quot;,&quot;share&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mergemethods</span><span class="p">(</span><span class="s">&quot;count&quot;</span><span class="p">,</span><span class="s">&quot;share&quot;</span><span class="p">)</span>
+<span class="n">mergemethods</span><span class="p">(</span><span class="s">&quot;count2&quot;</span><span class="p">,</span><span class="s">&quot;share&quot;</span><span class="p">)</span>
 
-o1 = new count  { test() }
-o1 = new count2 { test() }
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">count</span>  <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
+<span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">count2</span> <span class="p">{</span> <span class="n">test</span><span class="p">()</span> <span class="p">}</span>
 
-Class Share
-        func one
-                see &quot;one&quot; + nl
-        func two
-                see &quot;two&quot; + nl
-        func three
-                see &quot;three&quot; + nl
+<span class="k">Class</span> <span class="n">Share</span>
+        <span class="k">func</span> <span class="n">one</span>
+                <span class="k">see</span> <span class="s">&quot;one&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">func</span> <span class="n">two</span>
+                <span class="k">see</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">func</span> <span class="n">three</span>
+                <span class="k">see</span> <span class="s">&quot;three&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
-Class Display
-        Func printline
-                see copy(&quot;*&quot;,20) + nl
+<span class="k">Class</span> <span class="n">Display</span>
+        <span class="k">Func</span> <span class="n">printline</span>
+                <span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">20</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 
-Class Count from Display
-        Func test
-                printline()
-                one()
-                two()
-                three()
-                printline()
+<span class="k">Class</span> <span class="n">Count</span> <span class="k">from</span> <span class="n">Display</span>
+        <span class="k">Func</span> <span class="n">test</span>
+                <span class="n">printline</span><span class="p">()</span>
+                <span class="n">one</span><span class="p">()</span>
+                <span class="n">two</span><span class="p">()</span>
+                <span class="n">three</span><span class="p">()</span>
+                <span class="n">printline</span><span class="p">()</span>
 
-Class Count2 from Display
-        Func test
-                three()
-                two()
-                one()
-                printline()
+<span class="k">Class</span> <span class="n">Count2</span> <span class="k">from</span> <span class="n">Display</span>
+        <span class="k">Func</span> <span class="n">test</span>
+                <span class="n">three</span><span class="p">()</span>
+                <span class="n">two</span><span class="p">()</span>
+                <span class="n">one</span><span class="p">()</span>
+                <span class="n">printline</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>********************
-one
-two
-three
-********************
-three
-two
-one
-********************
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">********************</span>
+<span class="n">one</span>
+<span class="n">two</span>
+<span class="n">three</span>
+<span class="o">********************</span>
+<span class="n">three</span>
+<span class="n">two</span>
+<span class="n">one</span>
+<span class="o">********************</span>
 </pre></div>
 </div>
 </div>
@@ -1227,13 +1227,13 @@ one
 <span id="index-29"></span><h2>packagename() Function<a class="headerlink" href="#packagename-function" title="Permalink to this headline">¶</a></h2>
 <p>We can know the package name of the latest sucessful import command using the packagename() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>packagename() --&gt; Returns the package name of the latest sucessful import
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">packagename</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">package</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">sucessful</span> <span class="k">import</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;weblib.ring&quot;
-import System.web
-see packagename()       # system.web
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
+<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">web</span>
+<span class="k">see</span> <span class="n">packagename</span><span class="p">()</span>       <span class="c"># system.web</span>
 </pre></div>
 </div>
 </div>

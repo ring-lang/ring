@@ -293,23 +293,23 @@
 </div>
 <div class="section" id="basic-window">
 <span id="index-2"></span><h2>Basic Window<a class="headerlink" href="#basic-window" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth     = 800
-screenHeight    = 450
+<span class="n">screenWidth</span>     <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span>    <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [core] example - basic window&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - basic window&quot;</span><span class="p">)</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
-        BeginDrawing()
-        ClearBackground(RED)
-        DrawText(&quot;Congrats! You created your first window!&quot;, 190, 200, 20, WHITE)
-        EndDrawing()
-end
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RED</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Congrats! You created your first window!&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+        <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -317,28 +317,28 @@ CloseWindow()
 </div>
 <div class="section" id="input-keys">
 <span id="index-3"></span><h2>Input Keys<a class="headerlink" href="#input-keys" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth  = 800
-screenHeight = 450
+<span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [core] example - keyboard input&quot;)
-ballPosition = Vector2(screenWidth/2, screenHeight/2)
-SetTargetFPS(60)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - keyboard input&quot;</span><span class="p">)</span>
+<span class="n">ballPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
-                if IsKeyDown(KEY_RIGHT) ballPosition.x += 2 ok
-                if IsKeyDown(KEY_LEFT)  ballPosition.x -= 2 ok
-                if IsKeyDown(KEY_UP)    ballPosition.y -= 2 ok
-                if IsKeyDown(KEY_DOWN)  ballPosition.y += 2 ok
-                BeginDrawing()
-                ClearBackground(RAYWHITE)
-                DrawText(&quot;move the ball with arrow keys&quot;, 10, 10, 20, DARKGRAY)
-                DrawCircleV(ballPosition, 50, MAROON)
-                EndDrawing()
-end
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_RIGHT</span><span class="p">)</span> <span class="n">ballPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="mi">2</span> <span class="k">ok</span>
+                <span class="k">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_LEFT</span><span class="p">)</span>  <span class="n">ballPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">-=</span> <span class="mi">2</span> <span class="k">ok</span>
+                <span class="k">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_UP</span><span class="p">)</span>    <span class="n">ballPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">-=</span> <span class="mi">2</span> <span class="k">ok</span>
+                <span class="k">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="n">KEY_DOWN</span><span class="p">)</span>  <span class="n">ballPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">+=</span> <span class="mi">2</span> <span class="k">ok</span>
+                <span class="n">BeginDrawing</span><span class="p">()</span>
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;move the ball with arrow keys&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">ballPosition</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
+                <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -346,40 +346,40 @@ CloseWindow()
 </div>
 <div class="section" id="input-mouse">
 <span id="index-4"></span><h2>Input Mouse<a class="headerlink" href="#input-mouse" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth  = 800
-screenHeight = 450
+<span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [core] example - mouse input&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - mouse input&quot;</span><span class="p">)</span>
 
-ballPosition    = Vector2(100, 100)
-ballColor       = DARKBLUE
+<span class="n">ballPosition</span>    <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">)</span>
+<span class="n">ballColor</span>       <span class="o">=</span> <span class="n">DARKBLUE</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while ! WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span> <span class="n">WindowShouldClose</span><span class="p">()</span>
 
-                ballPosition = GetMousePosition()
+                <span class="n">ballPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
 
-                if IsMouseButtonPressed(MOUSE_LEFT_BUTTON)
-                        ballColor = MAROON
-                but IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON)
-                        ballColor = LIME
-                but IsMouseButtonPressed(MOUSE_RIGHT_BUTTON)
-                        ballColor = DARKBLUE
-                ok
+                <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span>
+                        <span class="n">ballColor</span> <span class="o">=</span> <span class="n">MAROON</span>
+                <span class="k">but</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_MIDDLE_BUTTON</span><span class="p">)</span>
+                        <span class="n">ballColor</span> <span class="o">=</span> <span class="n">LIME</span>
+                <span class="k">but</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">)</span>
+                        <span class="n">ballColor</span> <span class="o">=</span> <span class="n">DARKBLUE</span>
+                <span class="k">ok</span>
 
-                BeginDrawing()
-                ClearBackground(BLACK)
-                DrawCircleV(ballPosition, 40, ballColor)
-                DrawText(&quot;move ball with mouse and click mouse button to change color&quot;,
-                         10, 10, 20, YELLOW)
-                EndDrawing()
+                <span class="n">BeginDrawing</span><span class="p">()</span>
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">BLACK</span><span class="p">)</span>
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">ballPosition</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">ballColor</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;move ball with mouse and click mouse button to change color&quot;</span><span class="p">,</span>
+                         <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">YELLOW</span><span class="p">)</span>
+                <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -387,48 +387,48 @@ CloseWindow()
 </div>
 <div class="section" id="d-camera">
 <span id="index-5"></span><h2>3D Camera<a class="headerlink" href="#d-camera" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [core] example - 3d camera mode&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - 3d camera mode&quot;</span><span class="p">)</span>
 
-camera = Camera3D(
-        0, 10, 10,              // Camera position
-        0, 0, 0 ,               // Camera looking at point
-        0, 1, 0,                // Camera up vector (rotation towards target)
-        45,                     // Camera field-of-view Y
-        CAMERA_PERSPECTIVE)     // Camera mode type
+<span class="n">camera</span> <span class="o">=</span> <span class="n">Camera3D</span><span class="p">(</span>
+        <span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>              <span class="o">//</span> <span class="n">Camera</span> <span class="n">position</span>
+        <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span>               <span class="o">//</span> <span class="n">Camera</span> <span class="n">looking</span> <span class="n">at</span> <span class="n">point</span>
+        <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>                <span class="o">//</span> <span class="n">Camera</span> <span class="n">up</span> <span class="n">vector</span> <span class="p">(</span><span class="n">rotation</span> <span class="n">towards</span> <span class="n">target</span><span class="p">)</span>
+        <span class="mi">45</span><span class="p">,</span>                     <span class="o">//</span> <span class="n">Camera</span> <span class="n">field</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">view</span> <span class="n">Y</span>
+        <span class="n">CAMERA_PERSPECTIVE</span><span class="p">)</span>     <span class="o">//</span> <span class="n">Camera</span> <span class="n">mode</span> <span class="n">type</span>
 
-cubePosition = Vector3(0, 0, 0)
+<span class="n">cubePosition</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-                BeginDrawing()
+                <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                ClearBackground(RAYWHITE)
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                BeginMode3D(camera)
+                <span class="n">BeginMode3D</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
 
-                DrawCube(cubePosition, 2, 2, 2, RED)
-                DrawCubeWires(cubePosition, 2, 2, 2, MAROON)
+                <span class="n">DrawCube</span><span class="p">(</span><span class="n">cubePosition</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+                <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
 
-                DrawGrid(10, 1)
+                <span class="n">DrawGrid</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-                EndMode3D()
+                <span class="n">EndMode3D</span><span class="p">()</span>
 
-                DrawText(&quot;Welcome to the third dimension!&quot;, 10, 40, 20, DARKGRAY)
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Welcome to the third dimension!&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-                DrawFPS(10, 10)
+                <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-                EndDrawing()
+                <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -436,60 +436,60 @@ CloseWindow()
 </div>
 <div class="section" id="d-camera-free">
 <span id="index-6"></span><h2>3D Camera Free<a class="headerlink" href="#d-camera-free" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [core] example - 3d camera free&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - 3d camera free&quot;</span><span class="p">)</span>
 
-camera = Camera3D(
-        10, 10, 10,             // Camera position
-        0, 0, 0 ,               // Camera looking at point
-        0, 1, 0,                // Camera up vector (rotation towards target)
-        45,                     // Camera field-of-view Y
-        CAMERA_PERSPECTIVE)     // Camera mode type
+<span class="n">camera</span> <span class="o">=</span> <span class="n">Camera3D</span><span class="p">(</span>
+        <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>             <span class="o">//</span> <span class="n">Camera</span> <span class="n">position</span>
+        <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">,</span>               <span class="o">//</span> <span class="n">Camera</span> <span class="n">looking</span> <span class="n">at</span> <span class="n">point</span>
+        <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span>                <span class="o">//</span> <span class="n">Camera</span> <span class="n">up</span> <span class="n">vector</span> <span class="p">(</span><span class="n">rotation</span> <span class="n">towards</span> <span class="n">target</span><span class="p">)</span>
+        <span class="mi">45</span><span class="p">,</span>                     <span class="o">//</span> <span class="n">Camera</span> <span class="n">field</span><span class="o">-</span><span class="n">of</span><span class="o">-</span><span class="n">view</span> <span class="n">Y</span>
+        <span class="n">CAMERA_PERSPECTIVE</span><span class="p">)</span>     <span class="o">//</span> <span class="n">Camera</span> <span class="n">mode</span> <span class="n">type</span>
 
-cubePosition = Vector3(0, 0, 0)
+<span class="n">cubePosition</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
 
-SetCameraMode(camera, CAMERA_FREE)              // Set a free camera mode
+<span class="n">SetCameraMode</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">CAMERA_FREE</span><span class="p">)</span>              <span class="o">//</span> <span class="n">Set</span> <span class="n">a</span> <span class="n">free</span> <span class="n">camera</span> <span class="n">mode</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-                UpdateCamera(camera)
+                <span class="n">UpdateCamera</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
 
-                if IsKeyDown(&quot;Z&quot;) camera.target = Vector3( 0, 0, 0) ok
+                <span class="k">if</span> <span class="n">IsKeyDown</span><span class="p">(</span><span class="s">&quot;Z&quot;</span><span class="p">)</span> <span class="n">camera</span><span class="p">.</span><span class="n">target</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span> <span class="k">ok</span>
 
-                BeginDrawing()
+                <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                ClearBackground(RAYWHITE)
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                BeginMode3D(camera)
+                <span class="n">BeginMode3D</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
 
-                DrawCube(cubePosition, 2, 2, 2, RED)
-                DrawCubeWires(cubePosition, 2, 2, 2, MAROON)
+                <span class="n">DrawCube</span><span class="p">(</span><span class="n">cubePosition</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+                <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">cubePosition</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
 
-                DrawGrid(10, 1)
+                <span class="n">DrawGrid</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 
-                EndMode3D()
+                <span class="n">EndMode3D</span><span class="p">()</span>
 
-                DrawRectangle( 10, 10, 320, 133, Fade(SKYBLUE, 0.5))
-                DrawRectangleLines( 10, 10, 320, 133, BLUE)
+                <span class="n">DrawRectangle</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">133</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">SKYBLUE</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+                <span class="n">DrawRectangleLines</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">133</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
 
-                DrawText(&quot;Free camera default controls:&quot;, 20, 20, 10, BLACK)
-                DrawText(&quot;- Mouse Wheel to Zoom in-out&quot;, 40, 40, 10, DARKGRAY)
-                DrawText(&quot;- Mouse Wheel Pressed to Pan&quot;, 40, 60, 10, DARKGRAY)
-                DrawText(&quot;- Alt + Mouse Wheel Pressed to Rotate&quot;, 40, 80, 10, DARKGRAY)
-                DrawText(&quot;- Alt + Ctrl + Mouse Wheel Pressed for Smooth Zoom&quot;,
-                         40, 100, 10, DARKGRAY)
-                DrawText(&quot;- Z to zoom to (0, 0, 0)&quot;, 40, 120, 10, DARKGRAY)
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Free camera default controls:&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Mouse Wheel to Zoom in-out&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Mouse Wheel Pressed to Pan&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Alt + Mouse Wheel Pressed to Rotate&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Alt + Ctrl + Mouse Wheel Pressed for Smooth Zoom&quot;</span><span class="p">,</span>
+                         <span class="mi">40</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;- Z to zoom to (0, 0, 0)&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-                EndDrawing()
-end
+                <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -497,34 +497,34 @@ CloseWindow()
 </div>
 <div class="section" id="mouse-wheel">
 <span id="index-7"></span><h2>Mouse Wheel<a class="headerlink" href="#mouse-wheel" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [core] example - input mouse wheel&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - input mouse wheel&quot;</span><span class="p">)</span>
 
-boxPositionY = screenHeight/2 - 40
-scrollSpeed = 4
+<span class="n">boxPositionY</span> <span class="o">=</span> <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span>
+<span class="n">scrollSpeed</span> <span class="o">=</span> <span class="mi">4</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
-        boxPositionY -= (GetMouseWheelMove()*scrollSpeed)
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+        <span class="n">boxPositionY</span> <span class="o">-=</span> <span class="p">(</span><span class="n">GetMouseWheelMove</span><span class="p">()</span><span class="o">*</span><span class="n">scrollSpeed</span><span class="p">)</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-        ClearBackground(RAYWHITE)
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-        DrawRectangle(screenWidth/2 - 40, boxPositionY, 80, 80, MAROON)
+        <span class="n">DrawRectangle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="n">boxPositionY</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
 
-        DrawText(&quot;Use mouse wheel to move the cube up and down!&quot;, 10, 10, 20, GRAY)
-        DrawText(&quot;Box position Y: &quot;+boxPositionY, 10, 40, 20, LIGHTGRAY)
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Use mouse wheel to move the cube up and down!&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Box position Y: &quot;</span><span class="o">+</span><span class="n">boxPositionY</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
 
-        EndDrawing()
-end
+        <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -532,65 +532,65 @@ CloseWindow()
 </div>
 <div class="section" id="input-multi-touch">
 <span id="index-8"></span><h2>Input Multi-touch<a class="headerlink" href="#input-multi-touch" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [core] example - input multitouch&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - input multitouch&quot;</span><span class="p">)</span>
 
-ballPosition = Vector2(-100, -100)
-ballColor = BEIGE
+<span class="n">ballPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span><span class="o">-</span><span class="mi">100</span><span class="p">,</span> <span class="o">-</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">ballColor</span> <span class="o">=</span> <span class="n">BEIGE</span>
 
-touchCounter = 0
-touchPosition = vector2(0,0)
+<span class="n">touchCounter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">touchPosition</span> <span class="o">=</span> <span class="n">vector2</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 
-MAX_TOUCH_POINTS = 5
+<span class="n">MAX_TOUCH_POINTS</span> <span class="o">=</span> <span class="mi">5</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        ballPosition = GetMousePosition()
+        <span class="n">ballPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
 
-        ballColor = BEIGE
+        <span class="n">ballColor</span> <span class="o">=</span> <span class="n">BEIGE</span>
 
-        if IsMouseButtonDown(MOUSE_LEFT_BUTTON) ballColor = MAROON ok
-        if IsMouseButtonDown(MOUSE_MIDDLE_BUTTON) ballColor = LIME ok
-        if IsMouseButtonDown(MOUSE_RIGHT_BUTTON) ballColor = DARKBLUE ok
+        <span class="k">if</span> <span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span> <span class="n">ballColor</span> <span class="o">=</span> <span class="n">MAROON</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_MIDDLE_BUTTON</span><span class="p">)</span> <span class="n">ballColor</span> <span class="o">=</span> <span class="n">LIME</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">)</span> <span class="n">ballColor</span> <span class="o">=</span> <span class="n">DARKBLUE</span> <span class="k">ok</span>
 
-        if IsMouseButtonPressed(MOUSE_LEFT_BUTTON) touchCounter = 10 ok
-        if IsMouseButtonPressed(MOUSE_MIDDLE_BUTTON) touchCounter = 10 ok
-        if IsMouseButtonPressed(MOUSE_RIGHT_BUTTON) touchCounter = 10 ok
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span> <span class="n">touchCounter</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_MIDDLE_BUTTON</span><span class="p">)</span> <span class="n">touchCounter</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">)</span> <span class="n">touchCounter</span> <span class="o">=</span> <span class="mi">10</span> <span class="k">ok</span>
 
-        if touchCounter &gt; 0 touchCounter-- ok
+        <span class="k">if</span> <span class="n">touchCounter</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="n">touchCounter</span><span class="o">--</span> <span class="k">ok</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-        ClearBackground(RAYWHITE)
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-        for i = 0 to MAX_TOUCH_POINTS-1
-                touchPosition = GetTouchPosition(i)
+        <span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="n">MAX_TOUCH_POINTS</span><span class="o">-</span><span class="mi">1</span>
+                <span class="n">touchPosition</span> <span class="o">=</span> <span class="n">GetTouchPosition</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
 
-                if touchPosition.x &gt;= 0 &amp;&amp; touchPosition.y &gt;= 0
-                        DrawCircleV(touchPosition, 34, ORANGE)
-                        DrawText(&quot;&quot;+ i, touchPosition.x - 10,
-                                touchPosition.y - 70, 40, BLACK)
-                ok
-        next
+                <span class="k">if</span> <span class="n">touchPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="o">&amp;&amp;</span> <span class="n">touchPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">&gt;=</span> <span class="mi">0</span>
+                        <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">touchPosition</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="n">ORANGE</span><span class="p">)</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="o">+</span> <span class="n">i</span><span class="p">,</span> <span class="n">touchPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span>
+                                <span class="n">touchPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+                <span class="k">ok</span>
+        <span class="k">next</span>
 
-        DrawCircleV(ballPosition, 30 + (touchCounter*3), ballColor)
+        <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">ballPosition</span><span class="p">,</span> <span class="mi">30</span> <span class="o">+</span> <span class="p">(</span><span class="n">touchCounter</span><span class="o">*</span><span class="mi">3</span><span class="p">),</span> <span class="n">ballColor</span><span class="p">)</span>
 
-        DrawText(&quot;move ball with mouse and click mouse button to change color&quot;,
-                         10, 10, 20, DARKGRAY)
-        DrawText(&quot;touch the screen at multiple locations to get multiple balls&quot;,
-                         10, 30, 20, DARKGRAY)
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;move ball with mouse and click mouse button to change color&quot;</span><span class="p">,</span>
+                         <span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;touch the screen at multiple locations to get multiple balls&quot;</span><span class="p">,</span>
+                         <span class="mi">10</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-        EndDrawing()
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -755,27 +755,27 @@ CloseWindow()
 </div>
 <div class="section" id="full-screen">
 <span id="index-11"></span><h2>Full Screen<a class="headerlink" href="#full-screen" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth     = 1024
-screenHeight    = 768
+<span class="n">screenWidth</span>     <span class="o">=</span> <span class="mi">1024</span>
+<span class="n">screenHeight</span>    <span class="o">=</span> <span class="mi">768</span>
 
-InitWindow(screenWidth, screenHeight, &quot;Full Screen&quot;)
-ToggleFullScreen()
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;Full Screen&quot;</span><span class="p">)</span>
+<span class="n">ToggleFullScreen</span><span class="p">()</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
-        BeginDrawing()
-                ClearBackground(DARKBLUE)
-                DrawText(&quot;Count from 1 to 10&quot;, 190, 200, 20, Yellow)
-                for t = 1 to 10
-                        DrawText(&quot;Number: &quot; + t, 190, 200+(30*t), 20, WHITE)
-                next
-        EndDrawing()
-end
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">DARKBLUE</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Count from 1 to 10&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">Yellow</span><span class="p">)</span>
+                <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Number: &quot;</span> <span class="o">+</span> <span class="n">t</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="o">+</span><span class="p">(</span><span class="mi">30</span><span class="o">*</span><span class="n">t</span><span class="p">),</span> <span class="mi">20</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+                <span class="k">next</span>
+        <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -913,47 +913,47 @@ CloseWindow()
 </div>
 <div class="section" id="basic-shapes">
 <span id="index-13"></span><h2>Basic Shapes<a class="headerlink" href="#basic-shapes" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [shapes] example - basic shapes drawing&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - basic shapes drawing&quot;</span><span class="p">)</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-        ClearBackground(RAYWHITE)
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-        DrawText(&quot;some basic shapes available on raylib&quot;, 20, 20, 20, DARKGRAY)
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;some basic shapes available on raylib&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-        DrawCircle(screenWidth/4, 120, 35, DARKBLUE)
+        <span class="n">DrawCircle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
 
-        DrawRectangle(screenWidth/4*2 - 60, 100, 120, 60, RED)
-        DrawRectangleLines(screenWidth/4*2 - 40, 320, 80, 60, ORANGE)
-        DrawRectangleGradientH(screenWidth/4*2 - 90, 170, 180, 130, MAROON, GOLD)
+        <span class="n">DrawRectangle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+        <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">ORANGE</span><span class="p">)</span>
+        <span class="n">DrawRectangleGradientH</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
 
-        DrawTriangle(Vector2(screenWidth/4*3, 80),
-                                 Vector2(screenWidth/4*3 - 60, 150),
-                                 Vector2(screenWidth/4*3 + 60, 150), VIOLET)
+        <span class="n">DrawTriangle</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+                                 <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                                 <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="n">VIOLET</span><span class="p">)</span>
 
-        DrawPoly(Vector2(screenWidth/4*3, 320), 6, 80, 0, BROWN)
+        <span class="n">DrawPoly</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">320</span><span class="p">),</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
 
-        DrawCircleGradient(screenWidth/4, 220, 60, GREEN, SKYBLUE)
+        <span class="n">DrawCircleGradient</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">SKYBLUE</span><span class="p">)</span>
 
-        DrawLine(18, 42, screenWidth - 18, 42, BLACK)
-        DrawCircleLines(screenWidth/4, 340, 80, DARKBLUE)
-        DrawTriangleLines(Vector2(screenWidth/4*3, 160),
-                        Vector2(screenWidth/4*3 - 20, 230),
-                        Vector2(screenWidth/4*3 + 20, 230), DARKBLUE)
-        EndDrawing()
+        <span class="n">DrawLine</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+        <span class="n">DrawCircleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+        <span class="n">DrawTriangleLines</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span>
+                        <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span>
+                        <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -961,70 +961,70 @@ CloseWindow()
 </div>
 <div class="section" id="draw-ring">
 <span id="index-14"></span><h2>Draw Ring<a class="headerlink" href="#draw-ring" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800       screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>       <span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [shapes] example - draw ring&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - draw ring&quot;</span><span class="p">)</span>
 
-center = Vector2((GetScreenWidth() - 300)/2, GetScreenHeight()/2 )
+<span class="n">center</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">((</span><span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">300</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
 
-innerRadius = 80        outerRadius = 190
-startAngle = 0          endAngle = 360          segments = 0
-drawRing = true         drawRingLines = false   drawCircleLines = false
+<span class="n">innerRadius</span> <span class="o">=</span> <span class="mi">80</span>        <span class="n">outerRadius</span> <span class="o">=</span> <span class="mi">190</span>
+<span class="n">startAngle</span> <span class="o">=</span> <span class="mi">0</span>          <span class="n">endAngle</span> <span class="o">=</span> <span class="mi">360</span>          <span class="n">segments</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">drawRing</span> <span class="o">=</span> <span class="kp">true</span>         <span class="n">drawRingLines</span> <span class="o">=</span> <span class="kp">false</span>   <span class="n">drawCircleLines</span> <span class="o">=</span> <span class="kp">false</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-        ClearBackground(RAYWHITE)
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-        DrawLine(500, 0, 500, GetScreenHeight(), Fade(LIGHTGRAY, 0.6))
-        DrawRectangle(500, 0, GetScreenWidth() - 500,
-                         GetScreenHeight(), Fade(LIGHTGRAY, 0.3))
+        <span class="n">DrawLine</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">(),</span> <span class="n">Fade</span><span class="p">(</span><span class="n">LIGHTGRAY</span><span class="p">,</span> <span class="mf">0.6</span><span class="p">))</span>
+        <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="mi">500</span><span class="p">,</span>
+                         <span class="n">GetScreenHeight</span><span class="p">(),</span> <span class="n">Fade</span><span class="p">(</span><span class="n">LIGHTGRAY</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span>
 
-        if drawRing DrawRing(center, innerRadius, outerRadius,
-                startAngle, endAngle, segments, Fade(MAROON, 0.3)) ok
-        if drawRingLines DrawRingLines(center, innerRadius,
-                outerRadius, startAngle, endAngle,
-                 segments, Fade(BLACK, 0.4)) ok
-        if drawCircleLines DrawCircleSectorLines(center, outerRadius,
-                startAngle, endAngle, segments, Fade(BLACK, 0.4)) ok
+        <span class="k">if</span> <span class="n">drawRing</span> <span class="n">DrawRing</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">innerRadius</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span>
+                <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">MAROON</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">))</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">drawRingLines</span> <span class="n">DrawRingLines</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">innerRadius</span><span class="p">,</span>
+                <span class="n">outerRadius</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span>
+                 <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span> <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">drawCircleLines</span> <span class="n">DrawCircleSectorLines</span><span class="p">(</span><span class="n">center</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span>
+                <span class="n">startAngle</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">BLACK</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">))</span> <span class="k">ok</span>
 
-        startAngle = GuiSliderBar(Rectangle( 600, 40, 120, 20 ),
-                        &quot;StartAngle&quot;, startAngle, -450, 450, true)
-        endAngle = GuiSliderBar(Rectangle( 600, 70, 120, 20 ),
-                        &quot;EndAngle&quot;, endAngle, -450, 450, true)
+        <span class="n">startAngle</span> <span class="o">=</span> <span class="n">GuiSliderBar</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                        <span class="s">&quot;StartAngle&quot;</span><span class="p">,</span> <span class="n">startAngle</span><span class="p">,</span> <span class="o">-</span><span class="mi">450</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
+        <span class="n">endAngle</span> <span class="o">=</span> <span class="n">GuiSliderBar</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                        <span class="s">&quot;EndAngle&quot;</span><span class="p">,</span> <span class="n">endAngle</span><span class="p">,</span> <span class="o">-</span><span class="mi">450</span><span class="p">,</span> <span class="mi">450</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
 
-        innerRadius = GuiSliderBar(Rectangle( 600, 140, 120, 20 ),
-                        &quot;InnerRadius&quot;, innerRadius, 0, 100, true)
-        outerRadius = GuiSliderBar(Rectangle( 600, 170, 120, 20 ),
-                        &quot;OuterRadius&quot;, outerRadius, 0, 200, true)
+        <span class="n">innerRadius</span> <span class="o">=</span> <span class="n">GuiSliderBar</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                        <span class="s">&quot;InnerRadius&quot;</span><span class="p">,</span> <span class="n">innerRadius</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
+        <span class="n">outerRadius</span> <span class="o">=</span> <span class="n">GuiSliderBar</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                        <span class="s">&quot;OuterRadius&quot;</span><span class="p">,</span> <span class="n">outerRadius</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
 
-        segments = GuiSliderBar(Rectangle( 600, 240, 120, 20 ),
-                        &quot;Segments&quot;, segments, 0, 100, true)
+        <span class="n">segments</span> <span class="o">=</span> <span class="n">GuiSliderBar</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                        <span class="s">&quot;Segments&quot;</span><span class="p">,</span> <span class="n">segments</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="kp">true</span><span class="p">)</span>
 
-        drawRing = GuiCheckBox(Rectangle( 600, 320, 20, 20 ),
-                        &quot;Draw Ring&quot;, drawRing)
-        drawRingLines = GuiCheckBox(Rectangle( 600, 350, 20, 20 ),
-                        &quot;Draw RingLines&quot;, drawRingLines)
-        drawCircleLines = GuiCheckBox(Rectangle( 600, 380, 20, 20 ),
-                        &quot;Draw CircleLines&quot;, drawCircleLines)
+        <span class="n">drawRing</span> <span class="o">=</span> <span class="n">GuiCheckBox</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                        <span class="s">&quot;Draw Ring&quot;</span><span class="p">,</span> <span class="n">drawRing</span><span class="p">)</span>
+        <span class="n">drawRingLines</span> <span class="o">=</span> <span class="n">GuiCheckBox</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                        <span class="s">&quot;Draw RingLines&quot;</span><span class="p">,</span> <span class="n">drawRingLines</span><span class="p">)</span>
+        <span class="n">drawCircleLines</span> <span class="o">=</span> <span class="n">GuiCheckBox</span><span class="p">(</span><span class="n">Rectangle</span><span class="p">(</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">380</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                        <span class="s">&quot;Draw CircleLines&quot;</span><span class="p">,</span> <span class="n">drawCircleLines</span><span class="p">)</span>
 
-        if segments &gt;= 4
-                DrawText(&quot;MODE: MANUAL&quot;, 600, 270, 10, MAROON)
-        else
-                DrawText(&quot;MODE: AUTO&quot;, 600, 270, 10, DARKGRAY)
-        ok
+        <span class="k">if</span> <span class="n">segments</span> <span class="o">&gt;=</span> <span class="mi">4</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MODE: MANUAL&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
+        <span class="k">else</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MODE: AUTO&quot;</span><span class="p">,</span> <span class="mi">600</span><span class="p">,</span> <span class="mi">270</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="k">ok</span>
 
-        DrawFPS(10, 10)
+        <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-        EndDrawing()
-end
+        <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1034,40 +1034,40 @@ CloseWindow()
 </div>
 <div class="section" id="bezier-lines">
 <span id="index-15"></span><h2>Bezier Lines<a class="headerlink" href="#bezier-lines" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-SetConfigFlags(FLAG_MSAA_4X_HINT)
-InitWindow(screenWidth, screenHeight, &quot;raylib [shapes] example - cubic-bezier lines&quot;)
+<span class="n">SetConfigFlags</span><span class="p">(</span><span class="n">FLAG_MSAA_4X_HINT</span><span class="p">)</span>
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - cubic-bezier lines&quot;</span><span class="p">)</span>
 
-start = Vector2(0,0)
-endvec = Vector2(screenWidth,screenHeight)
+<span class="n">start</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">endvec</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span><span class="n">screenHeight</span><span class="p">)</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while (!WindowShouldClose())
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">())</span>
 
-        if (IsMouseButtonDown(MOUSE_LEFT_BUTTON))
-                start = GetMousePosition()
-        else (IsMouseButtonDown(MOUSE_RIGHT_BUTTON))
-                  endvec = GetMousePosition()
-        ok
+        <span class="k">if</span> <span class="p">(</span><span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">))</span>
+                <span class="n">start</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">IsMouseButtonDown</span><span class="p">(</span><span class="n">MOUSE_RIGHT_BUTTON</span><span class="p">))</span>
+                  <span class="n">endvec</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
+        <span class="k">ok</span>
 
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-        ClearBackground(RAYWHITE)
-        DrawText(&quot;USE MOUSE LEFT-RIGHT CLICK to DEFINE LINE START and END POINTS&quot;,
-                         15, 20, 20, GRAY)
-        DrawLineBezier(start, endvec, 2.0, RED)
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;USE MOUSE LEFT-RIGHT CLICK to DEFINE LINE START and END POINTS&quot;</span><span class="p">,</span>
+                         <span class="mi">15</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+        <span class="n">DrawLineBezier</span><span class="p">(</span><span class="n">start</span><span class="p">,</span> <span class="n">endvec</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
 
-        EndDrawing()
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1075,105 +1075,105 @@ CloseWindow()
 </div>
 <div class="section" id="collision-area">
 <span id="index-16"></span><h2>Collision Area<a class="headerlink" href="#collision-area" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [shapes] example - collision area&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - collision area&quot;</span><span class="p">)</span>
 
-// Box A: Moving box
-boxA = Rectangle( 10, GetScreenHeight()/2 - 50, 200, 100 )
-boxASpeedX = 4
+<span class="o">//</span> <span class="n">Box</span> <span class="n">A</span><span class="p">:</span> <span class="n">Moving</span> <span class="n">box</span>
+<span class="n">boxA</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">100</span> <span class="p">)</span>
+<span class="n">boxASpeedX</span> <span class="o">=</span> <span class="mi">4</span>
 
-// Box B: Mouse moved box
-boxB = Rectangle( GetScreenWidth()/2 - 30, GetScreenHeight()/2 - 30, 60, 60 )
+<span class="o">//</span> <span class="n">Box</span> <span class="n">B</span><span class="p">:</span> <span class="n">Mouse</span> <span class="n">moved</span> <span class="n">box</span>
+<span class="n">boxB</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">60</span> <span class="p">)</span>
 
-boxCollision = GetCollisionRec(boxA, boxB)
+<span class="n">boxCollision</span> <span class="o">=</span> <span class="n">GetCollisionRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span>
 
-boxCollision = Rectangle( 0,0,0,0 ) // Collision rectangle
+<span class="n">boxCollision</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span> <span class="p">)</span> <span class="o">//</span> <span class="n">Collision</span> <span class="n">rectangle</span>
 
-screenUpperLimit = 40      // Top menu limits
+<span class="n">screenUpperLimit</span> <span class="o">=</span> <span class="mi">40</span>      <span class="o">//</span> <span class="n">Top</span> <span class="n">menu</span> <span class="n">limits</span>
 
-pause = false             // Movement pause
-collision = false         // Collision detection
+<span class="n">pause</span> <span class="o">=</span> <span class="kp">false</span>             <span class="o">//</span> <span class="n">Movement</span> <span class="n">pause</span>
+<span class="n">collision</span> <span class="o">=</span> <span class="kp">false</span>         <span class="o">//</span> <span class="n">Collision</span> <span class="n">detection</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        // Move box if not paused
-        if (not pause) boxA.x += boxASpeedX ok
+        <span class="o">//</span> <span class="n">Move</span> <span class="n">box</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">paused</span>
+        <span class="k">if</span> <span class="p">(</span><span class="ow">not</span> <span class="n">pause</span><span class="p">)</span> <span class="n">boxA</span><span class="p">.</span><span class="n">x</span> <span class="o">+=</span> <span class="n">boxASpeedX</span> <span class="k">ok</span>
 
-        // Bounce box on x screen limits
-        if (((boxA.x + boxA.width) &gt;= GetScreenWidth()) or (boxA.x &lt;= 0))
-                boxASpeedX = boxASpeedX*(-1) ok
+        <span class="o">//</span> <span class="n">Bounce</span> <span class="n">box</span> <span class="k">on</span> <span class="n">x</span> <span class="n">screen</span> <span class="n">limits</span>
+        <span class="k">if</span> <span class="p">(((</span><span class="n">boxA</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">boxA</span><span class="p">.</span><span class="n">width</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenWidth</span><span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="n">boxA</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">))</span>
+                <span class="n">boxASpeedX</span> <span class="o">=</span> <span class="n">boxASpeedX</span><span class="o">*</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="k">ok</span>
 
-        // Update player-controlled-box (box02)
-        boxB.x = GetMouseX() - boxB.width/2
-        boxB.y = GetMouseY() - boxB.height/2
+        <span class="o">//</span> <span class="n">Update</span> <span class="n">player</span><span class="o">-</span><span class="n">controlled</span><span class="o">-</span><span class="n">box</span> <span class="p">(</span><span class="n">box02</span><span class="p">)</span>
+        <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetMouseX</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span>
+        <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetMouseY</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span>
 
-        // Make sure Box B does not go out of move area limits
-        if ((boxB.x + boxB.width) &gt;= GetScreenWidth())
-                boxB.x = GetScreenWidth() - boxB.width
-        else (boxB.x &lt;= 0) boxB.x = 0 ok
+        <span class="o">//</span> <span class="n">Make</span> <span class="n">sure</span> <span class="n">Box</span> <span class="n">B</span> <span class="n">does</span> <span class="ow">not</span> <span class="n">go</span> <span class="n">out</span> <span class="n">of</span> <span class="n">move</span> <span class="n">area</span> <span class="n">limits</span>
+        <span class="k">if</span> <span class="p">((</span><span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenWidth</span><span class="p">())</span>
+                <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetScreenWidth</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">&lt;=</span> <span class="mi">0</span><span class="p">)</span> <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">ok</span>
 
-        if ((boxB.y + boxB.height) &gt;= GetScreenHeight())
-                boxB.y = GetScreenHeight() - boxB.height
-        else (boxB.y &lt;= screenUpperLimit) boxB.y = screenUpperLimit ok
+        <span class="k">if</span> <span class="p">((</span><span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span><span class="p">)</span> <span class="o">&gt;=</span> <span class="n">GetScreenHeight</span><span class="p">())</span>
+                <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span>
+        <span class="k">else</span> <span class="p">(</span><span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">&lt;=</span> <span class="n">screenUpperLimit</span><span class="p">)</span> <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">screenUpperLimit</span> <span class="k">ok</span>
 
-        // Check boxes collision
-        collision = CheckCollisionRecs(boxA, boxB)
+        <span class="o">//</span> <span class="n">Check</span> <span class="n">boxes</span> <span class="n">collision</span>
+        <span class="n">collision</span> <span class="o">=</span> <span class="n">CheckCollisionRecs</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span>
 
-        // Get collision rectangle (only on collision)
-        if (collision) boxCollision = GetCollisionRec(boxA, boxB) ok
+        <span class="o">//</span> <span class="k">Get</span> <span class="n">collision</span> <span class="n">rectangle</span> <span class="p">(</span><span class="n">only</span> <span class="k">on</span> <span class="n">collision</span><span class="p">)</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">)</span> <span class="n">boxCollision</span> <span class="o">=</span> <span class="n">GetCollisionRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span> <span class="k">ok</span>
 
-        // Pause Box A movement
-        if (IsKeyPressed(KEY_SPACE)) pause = not pause ok
+        <span class="o">//</span> <span class="n">Pause</span> <span class="n">Box</span> <span class="n">A</span> <span class="n">movement</span>
+        <span class="k">if</span> <span class="p">(</span><span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">))</span> <span class="n">pause</span> <span class="o">=</span> <span class="ow">not</span> <span class="n">pause</span> <span class="k">ok</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                ClearBackground(RAYWHITE)
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                if collision = true
-                   color = RED
-                else
-                   color = BLACK
-                ok
-                DrawRectangle(0, 0, screenWidth, screenUpperLimit, color)
-                DrawRectangleRec(boxA, GOLD)
+                <span class="k">if</span> <span class="n">collision</span> <span class="o">=</span> <span class="kp">true</span>
+                   <span class="n">color</span> <span class="o">=</span> <span class="n">RED</span>
+                <span class="k">else</span>
+                   <span class="n">color</span> <span class="o">=</span> <span class="n">BLACK</span>
+                <span class="k">ok</span>
+                <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenUpperLimit</span><span class="p">,</span> <span class="n">color</span><span class="p">)</span>
+                <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
 
-                boxB.x = GetMouseX() - boxB.width/2
-                boxB.y = GetMouseY() - boxB.height/2
-                collision = CheckCollisionRecs(boxA, boxB)
-                DrawRectangleRec(boxB, BLUE)
-                boxCollision = GetCollisionRec(boxA, boxB)
+                <span class="n">boxB</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">GetMouseX</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span>
+                <span class="n">boxB</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">GetMouseY</span><span class="p">()</span> <span class="o">-</span> <span class="n">boxB</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span>
+                <span class="n">collision</span> <span class="o">=</span> <span class="n">CheckCollisionRecs</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span>
+                <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">boxB</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
+                <span class="n">boxCollision</span> <span class="o">=</span> <span class="n">GetCollisionRec</span><span class="p">(</span><span class="n">boxA</span><span class="p">,</span> <span class="n">boxB</span><span class="p">)</span>
 
-                if (collision) = true
+                <span class="k">if</span> <span class="p">(</span><span class="n">collision</span><span class="p">)</span> <span class="o">=</span> <span class="kp">true</span>
 
-                        // Draw collision area
-                        DrawRectangleRec(boxCollision, LIME)
+                        <span class="o">//</span> <span class="n">Draw</span> <span class="n">collision</span> <span class="n">area</span>
+                        <span class="n">DrawRectangleRec</span><span class="p">(</span><span class="n">boxCollision</span><span class="p">,</span> <span class="n">LIME</span><span class="p">)</span>
 
-                        // Draw collision message
-                        DrawText(&quot;COLLISION!&quot;, GetScreenWidth()/2 -
-                                         MeasureText(&quot;COLLISION!&quot;, 20)/2,
-                                        screenUpperLimit/2 - 10, 20, BLACK)
+                        <span class="o">//</span> <span class="n">Draw</span> <span class="n">collision</span> <span class="n">message</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;COLLISION!&quot;</span><span class="p">,</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span>
+                                         <span class="n">MeasureText</span><span class="p">(</span><span class="s">&quot;COLLISION!&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                                        <span class="n">screenUpperLimit</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
 
-                        // Draw collision area
-                        DrawText(&quot;Collision Area: &quot; +
-                                string(boxCollision.width*boxCollision.height),
-                                GetScreenWidth()/2 - 100,
-                                screenUpperLimit + 10, 20, BLACK)
+                        <span class="o">//</span> <span class="n">Draw</span> <span class="n">collision</span> <span class="n">area</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Collision Area: &quot;</span> <span class="o">+</span>
+                                <span class="kt">string</span><span class="p">(</span><span class="n">boxCollision</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="n">boxCollision</span><span class="p">.</span><span class="n">height</span><span class="p">),</span>
+                                <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span>
+                                <span class="n">screenUpperLimit</span> <span class="o">+</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
 
-                ok
+                <span class="k">ok</span>
 
-                DrawFPS(10, 10)
+                <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-        EndDrawing()
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1181,80 +1181,80 @@ CloseWindow()
 </div>
 <div class="section" id="following-eyes">
 <span id="index-17"></span><h2>Following Eyes<a class="headerlink" href="#following-eyes" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight, &quot;raylib [shapes] example - following eyes&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - following eyes&quot;</span><span class="p">)</span>
 
-scleraLeftPosition = Vector2( GetScreenWidth()/2 - 100, GetScreenHeight()/2 )
-scleraRightPosition = Vector2( GetScreenWidth()/2 + 100, GetScreenHeight()/2 )
-scleraRadius = 80
+<span class="n">scleraLeftPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">scleraRightPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">scleraRadius</span> <span class="o">=</span> <span class="mi">80</span>
 
-irisLeftPosition = Vector2( GetScreenWidth()/2 - 100, GetScreenHeight()/2 )
-irisRightPosition = Vector2( GetScreenWidth()/2 + 100, GetScreenHeight()/2 )
-irisRadius = 24
+<span class="n">irisLeftPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">100</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">irisRightPosition</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">GetScreenWidth</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="o">+</span> <span class="mi">100</span><span class="p">,</span> <span class="n">GetScreenHeight</span><span class="p">()</span><span class="o">/</span><span class="mi">2</span> <span class="p">)</span>
+<span class="n">irisRadius</span> <span class="o">=</span> <span class="mi">24</span>
 
-angle = 0.0
-dx = 0.0 dy = 0.0 dxx = 0.0 dyy = 0.0
+<span class="n">angle</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">dx</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="n">dy</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="n">dxx</span> <span class="o">=</span> <span class="mf">0.0</span> <span class="n">dyy</span> <span class="o">=</span> <span class="mf">0.0</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        irisLeftPosition = GetMousePosition()
-        irisRightPosition = GetMousePosition()
+        <span class="n">irisLeftPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
+        <span class="n">irisRightPosition</span> <span class="o">=</span> <span class="n">GetMousePosition</span><span class="p">()</span>
 
-        // Check not inside the left eye sclera
-        if !CheckCollisionPointCircle(irisLeftPosition,
-                scleraLeftPosition, scleraRadius - 20)
-                dx = irisLeftPosition.x - scleraLeftPosition.x
-                dy = irisLeftPosition.y - scleraLeftPosition.y
+        <span class="o">//</span> <span class="n">Check</span> <span class="ow">not</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">left</span> <span class="n">eye</span> <span class="n">sclera</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisLeftPosition</span><span class="p">,</span>
+                <span class="n">scleraLeftPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
+                <span class="n">dx</span> <span class="o">=</span> <span class="n">irisLeftPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">scleraLeftPosition</span><span class="p">.</span><span class="n">x</span>
+                <span class="n">dy</span> <span class="o">=</span> <span class="n">irisLeftPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">scleraLeftPosition</span><span class="p">.</span><span class="n">y</span>
 
-                angle = atan2(dy, dx)
+                <span class="n">angle</span> <span class="o">=</span> <span class="n">atan2</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
 
-                dxx = (scleraRadius - irisRadius)*cos(angle)
-                dyy = (scleraRadius - irisRadius)*sin(angle)
+                <span class="n">dxx</span> <span class="o">=</span> <span class="p">(</span><span class="n">scleraRadius</span> <span class="o">-</span> <span class="n">irisRadius</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+                <span class="n">dyy</span> <span class="o">=</span> <span class="p">(</span><span class="n">scleraRadius</span> <span class="o">-</span> <span class="n">irisRadius</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
 
-                irisLeftPosition.x = scleraLeftPosition.x + dxx
-                irisLeftPosition.y = scleraLeftPosition.y + dyy
-        ok
+                <span class="n">irisLeftPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">scleraLeftPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">dxx</span>
+                <span class="n">irisLeftPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">scleraLeftPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">dyy</span>
+        <span class="k">ok</span>
 
-        // Check not inside the right eye sclera
-        if !CheckCollisionPointCircle(irisRightPosition,
-                 scleraRightPosition, scleraRadius - 20)
-                dx = irisRightPosition.x - scleraRightPosition.x
-                dy = irisRightPosition.y - scleraRightPosition.y
+        <span class="o">//</span> <span class="n">Check</span> <span class="ow">not</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">right</span> <span class="n">eye</span> <span class="n">sclera</span>
+        <span class="k">if</span> <span class="o">!</span><span class="n">CheckCollisionPointCircle</span><span class="p">(</span><span class="n">irisRightPosition</span><span class="p">,</span>
+                 <span class="n">scleraRightPosition</span><span class="p">,</span> <span class="n">scleraRadius</span> <span class="o">-</span> <span class="mi">20</span><span class="p">)</span>
+                <span class="n">dx</span> <span class="o">=</span> <span class="n">irisRightPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">-</span> <span class="n">scleraRightPosition</span><span class="p">.</span><span class="n">x</span>
+                <span class="n">dy</span> <span class="o">=</span> <span class="n">irisRightPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">-</span> <span class="n">scleraRightPosition</span><span class="p">.</span><span class="n">y</span>
 
-                angle = atan2(dy, dx)
+                <span class="n">angle</span> <span class="o">=</span> <span class="n">atan2</span><span class="p">(</span><span class="n">dy</span><span class="p">,</span> <span class="n">dx</span><span class="p">)</span>
 
-                dxx = (scleraRadius - irisRadius)*cos(angle)
-                dyy = (scleraRadius - irisRadius)*sin(angle)
+                <span class="n">dxx</span> <span class="o">=</span> <span class="p">(</span><span class="n">scleraRadius</span> <span class="o">-</span> <span class="n">irisRadius</span><span class="p">)</span><span class="o">*</span><span class="n">cos</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
+                <span class="n">dyy</span> <span class="o">=</span> <span class="p">(</span><span class="n">scleraRadius</span> <span class="o">-</span> <span class="n">irisRadius</span><span class="p">)</span><span class="o">*</span><span class="n">sin</span><span class="p">(</span><span class="n">angle</span><span class="p">)</span>
 
-                irisRightPosition.x = scleraRightPosition.x + dxx
-                irisRightPosition.y = scleraRightPosition.y + dyy
-        ok
+                <span class="n">irisRightPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">=</span> <span class="n">scleraRightPosition</span><span class="p">.</span><span class="n">x</span> <span class="o">+</span> <span class="n">dxx</span>
+                <span class="n">irisRightPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">=</span> <span class="n">scleraRightPosition</span><span class="p">.</span><span class="n">y</span> <span class="o">+</span> <span class="n">dyy</span>
+        <span class="k">ok</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                ClearBackground(RAYWHITE)
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                DrawCircleV(scleraLeftPosition, scleraRadius, LIGHTGRAY)
-                DrawCircleV(irisLeftPosition, irisRadius, BROWN)
-                DrawCircleV(irisLeftPosition, 10, BLACK)
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">scleraLeftPosition</span><span class="p">,</span> <span class="n">scleraRadius</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">irisLeftPosition</span><span class="p">,</span> <span class="n">irisRadius</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">irisLeftPosition</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
 
-                DrawCircleV(scleraRightPosition, scleraRadius, LIGHTGRAY)
-                DrawCircleV(irisRightPosition, irisRadius, DARKGREEN)
-                DrawCircleV(irisRightPosition, 10, BLACK)
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">scleraRightPosition</span><span class="p">,</span> <span class="n">scleraRadius</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">irisRightPosition</span><span class="p">,</span> <span class="n">irisRadius</span><span class="p">,</span> <span class="n">DARKGREEN</span><span class="p">)</span>
+                <span class="n">DrawCircleV</span><span class="p">(</span><span class="n">irisRightPosition</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
 
-                DrawFPS(10, 10)
+                <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-        EndDrawing()
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1440,73 +1440,73 @@ CloseWindow()
 </div>
 <div class="section" id="music-playing">
 <span id="index-20"></span><h2>Music Playing<a class="headerlink" href="#music-playing" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight,
-         &quot;raylib [audio] example - music playing (streaming)&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+         <span class="s">&quot;raylib [audio] example - music playing (streaming)&quot;</span><span class="p">)</span>
 
-InitAudioDevice()
+<span class="n">InitAudioDevice</span><span class="p">()</span>
 
-music = LoadMusicStream(&quot;guitar_noodling.ogg&quot;)
+<span class="n">music</span> <span class="o">=</span> <span class="n">LoadMusicStream</span><span class="p">(</span><span class="s">&quot;guitar_noodling.ogg&quot;</span><span class="p">)</span>
 
-PlayMusicStream(music)
+<span class="n">PlayMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
 
-timePlayed = 0.0
-pause = false
+<span class="n">timePlayed</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">pause</span> <span class="o">=</span> <span class="kp">false</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        UpdateMusicStream(music)
+        <span class="n">UpdateMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
 
-        if IsKeyPressed(KEY_SPACE)
-                StopMusicStream(music)
-                PlayMusicStream(music)
-        ok
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span>
+                <span class="n">StopMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+                <span class="n">PlayMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+        <span class="k">ok</span>
 
-        if IsKeyPressed(KEY_P)
-                pause = !pause
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_P</span><span class="p">)</span>
+                <span class="n">pause</span> <span class="o">=</span> <span class="o">!</span><span class="n">pause</span>
 
-                if pause
-                        PauseMusicStream(music)
-                else
-                        ResumeMusicStream(music)
-                ok
-        ok
+                <span class="k">if</span> <span class="n">pause</span>
+                        <span class="n">PauseMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+                <span class="k">else</span>
+                        <span class="n">ResumeMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+                <span class="k">ok</span>
+        <span class="k">ok</span>
 
-        timePlayed = GetMusicTimePlayed(music) / GetMusicTimeLength(music) *400
+        <span class="n">timePlayed</span> <span class="o">=</span> <span class="n">GetMusicTimePlayed</span><span class="p">(</span><span class="n">music</span><span class="p">)</span> <span class="o">/</span> <span class="n">GetMusicTimeLength</span><span class="p">(</span><span class="n">music</span><span class="p">)</span> <span class="o">*</span><span class="mi">400</span>
 
-        if timePlayed &gt; 400
-                StopMusicStream(music)
-        ok
+        <span class="k">if</span> <span class="n">timePlayed</span> <span class="o">&gt;</span> <span class="mi">400</span>
+                <span class="n">StopMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
+        <span class="k">ok</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                ClearBackground(RAYWHITE)
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                DrawText(&quot;MUSIC SHOULD BE PLAYING!&quot;, 255, 150, 20, LIGHTGRAY)
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MUSIC SHOULD BE PLAYING!&quot;</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
 
-                         DrawRectangle(200, 200, 400, 12, LIGHTGRAY)
-                         DrawRectangle(200, 200, timePlayed, 12, MAROON)
-                DrawRectangleLines(200, 200, 400, 12, GRAY)
+                         <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                         <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="n">timePlayed</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
+                <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
 
-                DrawText(&quot;PRESS SPACE  TO RESTART MUSIC&quot;, 215, 250, 20, LIGHTGRAY)
-                DrawText(&quot;PRESS P TO PAUSE/RESUME MUSIC&quot;, 208, 280, 20, LIGHTGRAY)
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;PRESS SPACE  TO RESTART MUSIC&quot;</span><span class="p">,</span> <span class="mi">215</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;PRESS P TO PAUSE/RESUME MUSIC&quot;</span><span class="p">,</span> <span class="mi">208</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
 
-        EndDrawing()
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-UnloadMusicStream(music)
+<span class="n">UnloadMusicStream</span><span class="p">(</span><span class="n">music</span><span class="p">)</span>
 
-CloseAudioDevice()
+<span class="n">CloseAudioDevice</span><span class="p">()</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1514,44 +1514,44 @@ CloseWindow()
 </div>
 <div class="section" id="sound-loading">
 <span id="index-21"></span><h2>Sound Loading<a class="headerlink" href="#sound-loading" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 450
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight,
-                &quot;raylib [audio] example - sound loading and playing&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+                <span class="s">&quot;raylib [audio] example - sound loading and playing&quot;</span><span class="p">)</span>
 
-InitAudioDevice()
+<span class="n">InitAudioDevice</span><span class="p">()</span>
 
-fxWav = LoadSound(&quot;sound.wav&quot;)
-fxOgg = LoadSound(&quot;tanatana.ogg&quot;)
+<span class="n">fxWav</span> <span class="o">=</span> <span class="n">LoadSound</span><span class="p">(</span><span class="s">&quot;sound.wav&quot;</span><span class="p">)</span>
+<span class="n">fxOgg</span> <span class="o">=</span> <span class="n">LoadSound</span><span class="p">(</span><span class="s">&quot;tanatana.ogg&quot;</span><span class="p">)</span>
 
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        if IsKeyPressed(KEY_SPACE) PlaySound(fxWav)  ok
-        if IsKeyPressed(KEY_ENTER) PlaySound(fxOgg)  ok
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">fxWav</span><span class="p">)</span>  <span class="k">ok</span>
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_ENTER</span><span class="p">)</span> <span class="n">PlaySound</span><span class="p">(</span><span class="n">fxOgg</span><span class="p">)</span>  <span class="k">ok</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                ClearBackground(RAYWHITE)
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                DrawText(&quot;Press SPACE to PLAY the WAV sound!&quot;, 200, 180, 20, LIGHTGRAY)
-                DrawText(&quot;Press ENTER to PLAY the OGG sound!&quot;, 200, 220, 20, LIGHTGRAY)
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Press SPACE to PLAY the WAV sound!&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Press ENTER to PLAY the OGG sound!&quot;</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
 
-        EndDrawing()
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-UnloadSound(fxWav)
-UnloadSound(fxOgg)
+<span class="n">UnloadSound</span><span class="p">(</span><span class="n">fxWav</span><span class="p">)</span>
+<span class="n">UnloadSound</span><span class="p">(</span><span class="n">fxOgg</span><span class="p">)</span>
 
-CloseAudioDevice()
+<span class="n">CloseAudioDevice</span><span class="p">()</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1559,63 +1559,63 @@ CloseWindow()
 </div>
 <div class="section" id="image-drawing">
 <span id="index-22"></span><h2>Image Drawing<a class="headerlink" href="#image-drawing" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth  = 800
-screenHeight = 450
+<span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight,
-                 &quot;raylib [textures] example - image drawing&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+                 <span class="s">&quot;raylib [textures] example - image drawing&quot;</span><span class="p">)</span>
 
-cat = LoadImage(&quot;cat.png&quot;)
+<span class="n">cat</span> <span class="o">=</span> <span class="n">LoadImage</span><span class="p">(</span><span class="s">&quot;cat.png&quot;</span><span class="p">)</span>
 
-ImageCrop( cat,  Rectangle( 100, 10, 280, 380 ))
-ImageFlipHorizontal( cat)
-ImageResize( cat, 150, 200)
+<span class="n">ImageCrop</span><span class="p">(</span> <span class="n">cat</span><span class="p">,</span>  <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">280</span><span class="p">,</span> <span class="mi">380</span> <span class="p">))</span>
+<span class="n">ImageFlipHorizontal</span><span class="p">(</span> <span class="n">cat</span><span class="p">)</span>
+<span class="n">ImageResize</span><span class="p">(</span> <span class="n">cat</span><span class="p">,</span> <span class="mi">150</span><span class="p">,</span> <span class="mi">200</span><span class="p">)</span>
 
-parrots = LoadImage(&quot;parrots.png&quot;)
+<span class="n">parrots</span> <span class="o">=</span> <span class="n">LoadImage</span><span class="p">(</span><span class="s">&quot;parrots.png&quot;</span><span class="p">)</span>
 
-ImageDraw( parrots, cat, Rectangle( 0, 0, cat.width, cat.height ),
-                        Rectangle( 30, 40, cat.width*1.5, cat.height*1.5 ))
-ImageCrop( parrots, Rectangle( 0, 50, parrots.width, parrots.height - 100 ))
+<span class="n">ImageDraw</span><span class="p">(</span> <span class="n">parrots</span><span class="p">,</span> <span class="n">cat</span><span class="p">,</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">cat</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">cat</span><span class="p">.</span><span class="n">height</span> <span class="p">),</span>
+                        <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">cat</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mf">1.5</span><span class="p">,</span> <span class="n">cat</span><span class="p">.</span><span class="n">height</span><span class="o">*</span><span class="mf">1.5</span> <span class="p">))</span>
+<span class="n">ImageCrop</span><span class="p">(</span> <span class="n">parrots</span><span class="p">,</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="n">parrots</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">parrots</span><span class="p">.</span><span class="n">height</span> <span class="o">-</span> <span class="mi">100</span> <span class="p">))</span>
 
-UnloadImage(cat)
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">cat</span><span class="p">)</span>
 
-font = LoadFont(&quot;custom_jupiter_crash.png&quot;)
+<span class="n">font</span> <span class="o">=</span> <span class="n">LoadFont</span><span class="p">(</span><span class="s">&quot;custom_jupiter_crash.png&quot;</span><span class="p">)</span>
 
-ImageDrawTextEx(parrots, Vector2( 300, 230 ), font,
-                 &quot;PARROTS &amp; CAT&quot;, font.baseSize, -2, WHITE)
-UnloadFont(font);
+<span class="n">ImageDrawTextEx</span><span class="p">(</span><span class="n">parrots</span><span class="p">,</span> <span class="n">Vector2</span><span class="p">(</span> <span class="mi">300</span><span class="p">,</span> <span class="mi">230</span> <span class="p">),</span> <span class="n">font</span><span class="p">,</span>
+                 <span class="s">&quot;PARROTS &amp; CAT&quot;</span><span class="p">,</span> <span class="n">font</span><span class="p">.</span><span class="n">baseSize</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+<span class="n">UnloadFont</span><span class="p">(</span><span class="n">font</span><span class="p">);</span>
 
-texture = LoadTextureFromImage(parrots)
+<span class="n">texture</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">parrots</span><span class="p">)</span>
 
-UnloadImage(parrots)
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">parrots</span><span class="p">)</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
-        BeginDrawing()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-        ClearBackground(RAYWHITE)
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-        DrawTexture(texture, screenWidth/2 - texture.width/2,
-                screenHeight/2 - texture.height/2 - 40, WHITE)
-        DrawRectangleLines(screenWidth/2 - texture.width/2,
-                screenHeight/2 - texture.height/2 - 40,
-                 texture.width, texture.height, DARKGRAY)
+        <span class="n">DrawTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">,</span> <span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+        <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span>
+                <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="o">/</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span>
+                 <span class="n">texture</span><span class="p">.</span><span class="n">width</span><span class="p">,</span> <span class="n">texture</span><span class="p">.</span><span class="n">height</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-        DrawText(&quot;We are drawing only one texture from various images composed!&quot;,
-                                240, 350, 10, DARKGRAY)
-        DrawText(&quot;Source images have been cropped, scaled,&quot;+
-                        &quot; flipped and copied one over the other.&quot;,
-                                190, 370, 10, DARKGRAY)
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;We are drawing only one texture from various images composed!&quot;</span><span class="p">,</span>
+                                <span class="mi">240</span><span class="p">,</span> <span class="mi">350</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Source images have been cropped, scaled,&quot;</span><span class="o">+</span>
+                        <span class="s">&quot; flipped and copied one over the other.&quot;</span><span class="p">,</span>
+                                <span class="mi">190</span><span class="p">,</span> <span class="mi">370</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-        EndDrawing()
-end
+        <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
 
-UnloadTexture(texture)
+<span class="n">UnloadTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">)</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1623,86 +1623,86 @@ CloseWindow()
 </div>
 <div class="section" id="image-generation">
 <span id="index-23"></span><h2>Image Generation<a class="headerlink" href="#image-generation" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-NUM_TEXTURES = 7
-textures     = list(7)
+<span class="n">NUM_TEXTURES</span> <span class="o">=</span> <span class="mi">7</span>
+<span class="n">textures</span>     <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span>
 
-screenWidth  = 800
-screenHeight = 450
+<span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight,
-         &quot;raylib [textures] example - procedural images generation&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+         <span class="s">&quot;raylib [textures] example - procedural images generation&quot;</span><span class="p">)</span>
 
-verticalGradient   = GenImageGradientV(screenWidth, screenHeight, RED, BLUE)
-horizontalGradient = GenImageGradientH(screenWidth, screenHeight, RED, BLUE)
-radialGradient     = GenImageGradientRadial(screenWidth,
-                         screenHeight, 0.0, WHITE, BLACK)
-checked            = GenImageChecked(screenWidth, screenHeight,
-                         32, 32, RED, BLUE)
-whiteNoise         = GenImageWhiteNoise(screenWidth, screenHeight, 0.5)
-perlinNoise        = GenImagePerlinNoise(screenWidth, screenHeight, 50, 50, 4.0)
-cellular           = GenImageCellular(screenWidth, screenHeight, 32)
+<span class="n">verticalGradient</span>   <span class="o">=</span> <span class="n">GenImageGradientV</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
+<span class="n">horizontalGradient</span> <span class="o">=</span> <span class="n">GenImageGradientH</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
+<span class="n">radialGradient</span>     <span class="o">=</span> <span class="n">GenImageGradientRadial</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span>
+                         <span class="n">screenHeight</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+<span class="n">checked</span>            <span class="o">=</span> <span class="n">GenImageChecked</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+                         <span class="mi">32</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="n">RED</span><span class="p">,</span> <span class="n">BLUE</span><span class="p">)</span>
+<span class="n">whiteNoise</span>         <span class="o">=</span> <span class="n">GenImageWhiteNoise</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+<span class="n">perlinNoise</span>        <span class="o">=</span> <span class="n">GenImagePerlinNoise</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span>
+<span class="n">cellular</span>           <span class="o">=</span> <span class="n">GenImageCellular</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="mi">32</span><span class="p">)</span>
 
-textures[NUM_TEXTURES] =  0
+<span class="n">textures</span><span class="o">[</span><span class="n">NUM_TEXTURES</span><span class="o">]</span> <span class="o">=</span>  <span class="mi">0</span>
 
-textures[1] = LoadTextureFromImage(verticalGradient)
-textures[2] = LoadTextureFromImage(horizontalGradient)
-textures[3] = LoadTextureFromImage(radialGradient)
-textures[4] = LoadTextureFromImage(checked)
-textures[5] = LoadTextureFromImage(whiteNoise)
-textures[6] = LoadTextureFromImage(perlinNoise)
-textures[7] = LoadTextureFromImage(cellular)
+<span class="n">textures</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">verticalGradient</span><span class="p">)</span>
+<span class="n">textures</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">horizontalGradient</span><span class="p">)</span>
+<span class="n">textures</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">radialGradient</span><span class="p">)</span>
+<span class="n">textures</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">checked</span><span class="p">)</span>
+<span class="n">textures</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">whiteNoise</span><span class="p">)</span>
+<span class="n">textures</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">perlinNoise</span><span class="p">)</span>
+<span class="n">textures</span><span class="o">[</span><span class="mi">7</span><span class="o">]</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">cellular</span><span class="p">)</span>
 
-UnloadImage(verticalGradient)
-UnloadImage(horizontalGradient)
-UnloadImage(radialGradient)
-UnloadImage(checked)
-UnloadImage(whiteNoise)
-UnloadImage(perlinNoise)
-UnloadImage(cellular)
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">verticalGradient</span><span class="p">)</span>
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">horizontalGradient</span><span class="p">)</span>
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">radialGradient</span><span class="p">)</span>
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">checked</span><span class="p">)</span>
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">whiteNoise</span><span class="p">)</span>
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">perlinNoise</span><span class="p">)</span>
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">cellular</span><span class="p">)</span>
 
-currentTexture = 1
+<span class="n">currentTexture</span> <span class="o">=</span> <span class="mi">1</span>
 
-SetTargetFPS(10)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        if IsMouseButtonPressed(MOUSE_LEFT_BUTTON) || IsKeyPressed(KEY_RIGHT)
-                currentTexture++
-                if currentTexture &gt; NUM_TEXTURES  currentTexture = 1 ok
-        ok
+        <span class="k">if</span> <span class="n">IsMouseButtonPressed</span><span class="p">(</span><span class="n">MOUSE_LEFT_BUTTON</span><span class="p">)</span> <span class="o">||</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_RIGHT</span><span class="p">)</span>
+                <span class="n">currentTexture</span><span class="o">++</span>
+                <span class="k">if</span> <span class="n">currentTexture</span> <span class="o">&gt;</span> <span class="n">NUM_TEXTURES</span>  <span class="n">currentTexture</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">ok</span>
+        <span class="k">ok</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                ClearBackground(RAYWHITE)
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                DrawTexture(textures[currentTexture], 0, 0, WHITE)
+                <span class="n">DrawTexture</span><span class="p">(</span><span class="n">textures</span><span class="o">[</span><span class="n">currentTexture</span><span class="o">]</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
 
-                DrawRectangle(30, 400, 325, 30, Fade(SKYBLUE, 0.5))
-                DrawRectangleLines(30, 400, 325, 30, Fade(WHITE, 0.5))
-                DrawText(&quot;MOUSE LEFT BUTTON to CYCLE PROCEDURAL TEXTURES&quot;,
-                         40, 410, 10, WHITE)
+                <span class="n">DrawRectangle</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">325</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">SKYBLUE</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+                <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="mi">30</span><span class="p">,</span> <span class="mi">400</span><span class="p">,</span> <span class="mi">325</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="n">Fade</span><span class="p">(</span><span class="n">WHITE</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">))</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;MOUSE LEFT BUTTON to CYCLE PROCEDURAL TEXTURES&quot;</span><span class="p">,</span>
+                         <span class="mi">40</span><span class="p">,</span> <span class="mi">410</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
 
-                switch(currentTexture)
-                        on 1  DrawText(&quot;VERTICAL GRADIENT&quot;, 560, 10, 20, RAYWHITE)
-                        on 2  DrawText(&quot;HORIZONTAL GRADIENT&quot;, 540, 10, 20, RAYWHITE)
-                        on 3  DrawText(&quot;RADIAL GRADIENT&quot;, 580, 10, 20, LIGHTGRAY)
-                        on 4  DrawText(&quot;CHECKED&quot;, 680, 10, 20, RAYWHITE)
-                        on 5  DrawText(&quot;WHITE NOISE&quot;, 640, 10, 20, RED)
-                        on 6  DrawText(&quot;PERLIN NOISE&quot;, 630, 10, 20, RAYWHITE)
-                        on 7  DrawText(&quot;CELLULAR&quot;, 670, 10, 20, RAYWHITE)
-                off
+                <span class="k">switch</span><span class="p">(</span><span class="n">currentTexture</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">1</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;VERTICAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">560</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">2</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;HORIZONTAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">540</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">3</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;RADIAL GRADIENT&quot;</span><span class="p">,</span> <span class="mi">580</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">LIGHTGRAY</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">4</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;CHECKED&quot;</span><span class="p">,</span> <span class="mi">680</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">5</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;WHITE NOISE&quot;</span><span class="p">,</span> <span class="mi">640</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">6</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;PERLIN NOISE&quot;</span><span class="p">,</span> <span class="mi">630</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="mi">7</span>  <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;CELLULAR&quot;</span><span class="p">,</span> <span class="mi">670</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">RAYWHITE</span><span class="p">)</span>
+                <span class="k">off</span>
 
-        EndDrawing()
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-for i = 1 to  NUM_TEXTURES
-        UnloadTexture( textures[i] )
-next
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span>  <span class="n">NUM_TEXTURES</span>
+        <span class="n">UnloadTexture</span><span class="p">(</span> <span class="n">textures</span><span class="o">[</span><span class="n">i</span><span class="o">]</span> <span class="p">)</span>
+<span class="k">next</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1710,60 +1710,60 @@ CloseWindow()
 </div>
 <div class="section" id="texture-source">
 <span id="index-24"></span><h2>Texture Source<a class="headerlink" href="#texture-source" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth = 800
-screenHeight = 800
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">800</span>
 
-InitWindow(screenWidth, screenHeight,
-        &quot;raylib [textures] examples - texture source and destination rectangles&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+        <span class="s">&quot;raylib [textures] examples - texture source and destination rectangles&quot;</span><span class="p">)</span>
 
-// NOTE: Textures MUST be loaded after Window initialization
-// (OpenGL context is required)
+<span class="o">//</span> <span class="n">NOTE</span><span class="p">:</span> <span class="n">Textures</span> <span class="n">MUST</span> <span class="n">be</span> <span class="n">loaded</span> <span class="n">after</span> <span class="n">Window</span> <span class="n">initialization</span>
+<span class="o">//</span> <span class="p">(</span><span class="n">OpenGL</span> <span class="n">context</span> <span class="n">is</span> <span class="n">required</span><span class="p">)</span>
 
-scarfy = LoadTexture(&quot;RingLogo.png&quot;)        // Texture loading
+<span class="n">scarfy</span> <span class="o">=</span> <span class="n">LoadTexture</span><span class="p">(</span><span class="s">&quot;RingLogo.png&quot;</span><span class="p">)</span>        <span class="o">//</span> <span class="n">Texture</span> <span class="n">loading</span>
 
-frameWidth = scarfy.width
-frameHeight = scarfy.height
+<span class="n">frameWidth</span> <span class="o">=</span> <span class="n">scarfy</span><span class="p">.</span><span class="n">width</span>
+<span class="n">frameHeight</span> <span class="o">=</span> <span class="n">scarfy</span><span class="p">.</span><span class="n">height</span>
 
-// Source rectangle (part of the texture to use for drawing)
-sourceRec = Rectangle( 0.0, 0.0, frameWidth, frameHeight )
+<span class="o">//</span> <span class="n">Source</span> <span class="n">rectangle</span> <span class="p">(</span><span class="n">part</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="k">to</span> <span class="n">use</span> <span class="k">for</span> <span class="n">drawing</span><span class="p">)</span>
+<span class="n">sourceRec</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="n">frameWidth</span><span class="p">,</span> <span class="n">frameHeight</span> <span class="p">)</span>
 
-// Destination rectangle (screen rectangle where drawing part of texture)
-destRec = Rectangle( screenWidth/2, screenHeight/2, frameWidth*2, frameHeight*2 )
+<span class="o">//</span> <span class="n">Destination</span> <span class="n">rectangle</span> <span class="p">(</span><span class="n">screen</span> <span class="n">rectangle</span> <span class="n">where</span> <span class="n">drawing</span> <span class="n">part</span> <span class="n">of</span> <span class="n">texture</span><span class="p">)</span>
+<span class="n">destRec</span> <span class="o">=</span> <span class="n">Rectangle</span><span class="p">(</span> <span class="n">screenWidth</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">screenHeight</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="n">frameWidth</span><span class="o">*</span><span class="mi">2</span><span class="p">,</span> <span class="n">frameHeight</span><span class="o">*</span><span class="mi">2</span> <span class="p">)</span>
 
-// Origin of the texture (rotation/scale point)
-// it&#39;s relative to destination rectangle size
-origin = Vector2( frameWidth, frameHeight )
+<span class="o">//</span> <span class="n">Origin</span> <span class="n">of</span> <span class="n">the</span> <span class="n">texture</span> <span class="p">(</span><span class="n">rotation</span><span class="o">/</span><span class="n">scale</span> <span class="n">point</span><span class="p">)</span>
+<span class="o">//</span> <span class="n">it</span><span class="sc">&#39;s relative to destination rectangle size</span>
+<span class="n">origin</span> <span class="o">=</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">frameWidth</span><span class="p">,</span> <span class="n">frameHeight</span> <span class="p">)</span>
 
-rotation = 0
+<span class="n">rotation</span> <span class="o">=</span> <span class="mi">0</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        rotation = rotation+1
+        <span class="n">rotation</span> <span class="o">=</span> <span class="n">rotation</span><span class="o">+</span><span class="mi">1</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                ClearBackground(RAYWHITE)
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-                DrawTexturePro(scarfy, sourceRec, destRec,
-                                 origin, rotation, WHITE)
+                <span class="n">DrawTexturePro</span><span class="p">(</span><span class="n">scarfy</span><span class="p">,</span> <span class="n">sourceRec</span><span class="p">,</span> <span class="n">destRec</span><span class="p">,</span>
+                                 <span class="n">origin</span><span class="p">,</span> <span class="n">rotation</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
 
-                DrawLine(destRec.x, 0, destRec.x, screenHeight, GRAY)
-                DrawLine(0, destRec.y, screenWidth, destRec.y, GRAY)
+                <span class="n">DrawLine</span><span class="p">(</span><span class="n">destRec</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">destRec</span><span class="p">.</span><span class="n">x</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+                <span class="n">DrawLine</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">destRec</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">screenWidth</span><span class="p">,</span> <span class="n">destRec</span><span class="p">.</span><span class="n">y</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
 
-                DrawText(&quot;(c) Scarfy sprite by Eiden Marsal&quot;,
-                         screenWidth - 200, screenHeight - 20, 10, GRAY)
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;(c) Scarfy sprite by Eiden Marsal&quot;</span><span class="p">,</span>
+                         <span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">200</span><span class="p">,</span> <span class="n">screenHeight</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
 
-        EndDrawing()
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-UnloadTexture(scarfy)        // Texture unloading
+<span class="n">UnloadTexture</span><span class="p">(</span><span class="n">scarfy</span><span class="p">)</span>        <span class="o">//</span> <span class="n">Texture</span> <span class="n">unloading</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1771,83 +1771,83 @@ CloseWindow()
 </div>
 <div class="section" id="geometric-shapes">
 <span id="index-25"></span><h2>Geometric Shapes<a class="headerlink" href="#geometric-shapes" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-FOVY_PERSPECTIVE   =  45.0
-WIDTH_ORTHOGRAPHIC =  10.0
+<span class="n">FOVY_PERSPECTIVE</span>   <span class="o">=</span>  <span class="mf">45.0</span>
+<span class="n">WIDTH_ORTHOGRAPHIC</span> <span class="o">=</span>  <span class="mf">10.0</span>
 
-screenWidth  = 800
-screenHeight = 450
+<span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight,
-         &quot;raylib [models] example - geometric shapes&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+         <span class="s">&quot;raylib [models] example - geometric shapes&quot;</span><span class="p">)</span>
 
-camera = Camera3D(  0.0, 10.0, 10.0,
-                                0.0, 0.0, 0.0,
-                                0.0, 1.0, 0.0,
-                                FOVY_PERSPECTIVE, CAMERA_PERSPECTIVE
-                        )
+<span class="n">camera</span> <span class="o">=</span> <span class="n">Camera3D</span><span class="p">(</span>  <span class="mf">0.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">,</span>
+                                <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                                <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                                <span class="n">FOVY_PERSPECTIVE</span><span class="p">,</span> <span class="n">CAMERA_PERSPECTIVE</span>
+                        <span class="p">)</span>
 
-SetTargetFPS(60)
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        if IsKeyPressed(KEY_SPACE)
+        <span class="k">if</span> <span class="n">IsKeyPressed</span><span class="p">(</span><span class="n">KEY_SPACE</span><span class="p">)</span>
 
-                if camera.type = CAMERA_PERSPECTIVE
+                <span class="k">if</span> <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
 
-                        camera.fovy = WIDTH_ORTHOGRAPHIC
-                        camera.type = CAMERA_ORTHOGRAPHIC
+                        <span class="n">camera</span><span class="p">.</span><span class="n">fovy</span> <span class="o">=</span> <span class="n">WIDTH_ORTHOGRAPHIC</span>
+                        <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_ORTHOGRAPHIC</span>
 
-                else
+                <span class="k">else</span>
 
-                        camera.fovy = FOVY_PERSPECTIVE
-                        camera.type = CAMERA_PERSPECTIVE
-                ok
-        ok
+                        <span class="n">camera</span><span class="p">.</span><span class="n">fovy</span> <span class="o">=</span> <span class="n">FOVY_PERSPECTIVE</span>
+                        <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
+                <span class="k">ok</span>
+        <span class="k">ok</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-        ClearBackground(RAYWHITE)
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
 
-        BeginMode3D(camera)
+        <span class="n">BeginMode3D</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
 
-        DrawCube(Vector3(-4.0, 0.0,  2.0), 2.0, 5.0, 2.0, RED)
-        DrawCubeWires(Vector3(-4.0, 0.0,  2.0), 2.0, 5.0, 2.0, GOLD)
-        DrawCubeWires(Vector3(-4.0, 0.0, -2.0), 3.0, 6.0, 2.0, MAROON)
+        <span class="n">DrawCube</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+        <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
+        <span class="n">DrawCubeWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">)</span>
 
-        DrawSphere(Vector3(-1.0, 0.0, -2.0), 1.0, GREEN)
-        DrawSphereWires(Vector3( 1.0, 0.0,  2.0), 2.0, 16, 16, LIME)
+        <span class="n">DrawSphere</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
+        <span class="n">DrawSphereWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">2.0</span><span class="p">),</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="n">LIME</span><span class="p">)</span>
 
-        DrawCylinder(Vector3(4.0, 0.0, -2.0), 1.0, 2.0, 3.0, 4, SKYBLUE)
-        DrawCylinderWires(Vector3(4.0, 0.0, -2.0), 1.0, 2.0, 3.0, 4, DARKBLUE)
-        DrawCylinderWires(Vector3(4.5, -1.0, 2.0), 1.0, 1.0, 2.0, 6, BROWN)
+        <span class="n">DrawCylinder</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">SKYBLUE</span><span class="p">)</span>
+        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">4.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
 
-        DrawCylinder(Vector3(1.0, 0.0, -4.0), 0.0, 1.5, 3.0, 8, GOLD)
-        DrawCylinderWires(Vector3(1.0, 0.0, -4.0), 0.0, 1.5, 3.0, 8, PINK)
+        <span class="n">DrawCylinder</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
+        <span class="n">DrawCylinderWires</span><span class="p">(</span><span class="n">Vector3</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.0</span><span class="p">),</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="n">PINK</span><span class="p">)</span>
 
-        DrawGrid(10, 1.0)
+        <span class="n">DrawGrid</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
 
-        EndMode3D()
+        <span class="n">EndMode3D</span><span class="p">()</span>
 
-        DrawText(&quot;Press Spacebar to switch camera type&quot;, 10,
-                         GetScreenHeight() - 30, 20, DARKGRAY)
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Press Spacebar to switch camera type&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span>
+                         <span class="n">GetScreenHeight</span><span class="p">()</span> <span class="o">-</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
 
-        if camera.type = CAMERA_ORTHOGRAPHIC
-                DrawText(&quot;ORTHOGRAPHIC&quot;, 10, 40, 20, BLACK)
-        else
-                if camera.type = CAMERA_PERSPECTIVE
-                        DrawText(&quot;PERSPECTIVE&quot;, 10, 40, 20, BLACK)
-                ok
-        ok
+        <span class="k">if</span> <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_ORTHOGRAPHIC</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;ORTHOGRAPHIC&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+        <span class="k">else</span>
+                <span class="k">if</span> <span class="n">camera</span><span class="p">.</span><span class="n">type</span> <span class="o">=</span> <span class="n">CAMERA_PERSPECTIVE</span>
+                        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;PERSPECTIVE&quot;</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+                <span class="k">ok</span>
+        <span class="k">ok</span>
 
-        DrawFPS(10, 10)
+        <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-        EndDrawing()
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -1855,66 +1855,66 @@ CloseWindow()
 </div>
 <div class="section" id="cubic-map">
 <span id="index-26"></span><h2>Cubic Map<a class="headerlink" href="#cubic-map" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;raylib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
 
-screenWidth  = 800
-screenHeight = 450
+<span class="n">screenWidth</span>  <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
 
-InitWindow(screenWidth, screenHeight,
-         &quot;raylib [models] example - cubesmap loading and drawing&quot;)
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span>
+         <span class="s">&quot;raylib [models] example - cubesmap loading and drawing&quot;</span><span class="p">)</span>
 
-camera = Camera3D( 16.0, 14.0, 16.0,
-                                 0.0, 0.0, 0.0,
-                                 0.0, 1.0, 0.0,
-                                 45.0, 0 )
+<span class="n">camera</span> <span class="o">=</span> <span class="n">Camera3D</span><span class="p">(</span> <span class="mf">16.0</span><span class="p">,</span> <span class="mf">14.0</span><span class="p">,</span> <span class="mf">16.0</span><span class="p">,</span>
+                                 <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                                 <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span>
+                                 <span class="mf">45.0</span><span class="p">,</span> <span class="mi">0</span> <span class="p">)</span>
 
-image    = LoadImage(&quot;cubicmap.png&quot;)
-cubicmap = LoadTextureFromImage(image)
+<span class="n">image</span>    <span class="o">=</span> <span class="n">LoadImage</span><span class="p">(</span><span class="s">&quot;cubicmap.png&quot;</span><span class="p">)</span>
+<span class="n">cubicmap</span> <span class="o">=</span> <span class="n">LoadTextureFromImage</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
 
-mesh     = GenMeshCubicmap(image, Vector3( 1.0, 1.0, 1.0 ))
-model    = LoadModelFromMesh(mesh)
+<span class="n">mesh</span>     <span class="o">=</span> <span class="n">GenMeshCubicmap</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">Vector3</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">))</span>
+<span class="n">model</span>    <span class="o">=</span> <span class="n">LoadModelFromMesh</span><span class="p">(</span><span class="n">mesh</span><span class="p">)</span>
 
-texture  = LoadTexture(&quot;cubicmap_atlas.png&quot;)
+<span class="n">texture</span>  <span class="o">=</span> <span class="n">LoadTexture</span><span class="p">(</span><span class="s">&quot;cubicmap_atlas.png&quot;</span><span class="p">)</span>
 
-setmodelmaterialtexture(model,0,MAP_DIFFUSE,texture)
+<span class="n">setmodelmaterialtexture</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="n">MAP_DIFFUSE</span><span class="p">,</span><span class="n">texture</span><span class="p">)</span>
 
-mapPosition = Vector3( -16.0, 0.0, -8.0 )
+<span class="n">mapPosition</span> <span class="o">=</span> <span class="n">Vector3</span><span class="p">(</span> <span class="o">-</span><span class="mf">16.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">8.0</span> <span class="p">)</span>
 
-UnloadImage(image)
-SetCameraMode(camera, CAMERA_ORBITAL)
-SetTargetFPS(60)
+<span class="n">UnloadImage</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+<span class="n">SetCameraMode</span><span class="p">(</span><span class="n">camera</span><span class="p">,</span> <span class="n">CAMERA_ORBITAL</span><span class="p">)</span>
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
 
-while !WindowShouldClose()
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
 
-        UpdateCamera(camera)
+        <span class="n">UpdateCamera</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
 
-        BeginDrawing()
+        <span class="n">BeginDrawing</span><span class="p">()</span>
 
-                ClearBackground(RAYWHITE)
-                BeginMode3D(camera)
-                        DrawModel(model, mapPosition, 1.0, WHITE)
-                EndMode3D()
+                <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+                <span class="n">BeginMode3D</span><span class="p">(</span><span class="n">camera</span><span class="p">)</span>
+                        <span class="n">DrawModel</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">mapPosition</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+                <span class="n">EndMode3D</span><span class="p">()</span>
 
-                DrawTextureEx(cubicmap, Vector2( screenWidth -
-                                 cubicmap.width*4 - 20, 20 ),
-                                                0.0, 4.0, WHITE)
-                DrawRectangleLines(screenWidth - cubicmap.width*4 -
-                                 20, 20, cubicmap.width*4,
-                                cubicmap.height*4, GREEN)
+                <span class="n">DrawTextureEx</span><span class="p">(</span><span class="n">cubicmap</span><span class="p">,</span> <span class="n">Vector2</span><span class="p">(</span> <span class="n">screenWidth</span> <span class="o">-</span>
+                                 <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span> <span class="p">),</span>
+                                                <span class="mf">0.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+                <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span> <span class="o">-</span> <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span> <span class="o">-</span>
+                                 <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">cubicmap</span><span class="p">.</span><span class="n">width</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span>
+                                <span class="n">cubicmap</span><span class="p">.</span><span class="n">height</span><span class="o">*</span><span class="mi">4</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">)</span>
 
-                DrawText(&quot;cubicmap image used to&quot;, 658,  90, 10, GRAY)
-                DrawText(&quot;generate map 3d model&quot;,  658, 104, 10, GRAY)
-                DrawFPS(10, 10)
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;cubicmap image used to&quot;</span><span class="p">,</span> <span class="mi">658</span><span class="p">,</span>  <span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+                <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;generate map 3d model&quot;</span><span class="p">,</span>  <span class="mi">658</span><span class="p">,</span> <span class="mi">104</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">GRAY</span><span class="p">)</span>
+                <span class="n">DrawFPS</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
 
-        EndDrawing()
+        <span class="n">EndDrawing</span><span class="p">()</span>
 
-end
+<span class="k">end</span>
 
-UnloadTexture(cubicmap)
-UnloadTexture(texture)
-UnloadModel(model)
+<span class="n">UnloadTexture</span><span class="p">(</span><span class="n">cubicmap</span><span class="p">)</span>
+<span class="n">UnloadTexture</span><span class="p">(</span><span class="n">texture</span><span class="p">)</span>
+<span class="n">UnloadModel</span><span class="p">(</span><span class="n">model</span><span class="p">)</span>
 
-CloseWindow()
+<span class="n">CloseWindow</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>

@@ -293,41 +293,41 @@
 <p>(1) Another version of QPixMap class is added (QPixMap2) which takes (int width,int height)
 during object init.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;guilib.ring&quot;
-New qapp
-{
-        win1 =  new qwidget()
-        {
-                setwindowtitle(&quot;Drawing using QPixMap&quot;)
-                setgeometry(100,100,500,500)
-                label1 = new qlabel(win1)
-                {
-                        setgeometry(10,10,400,400)
-                        settext(&quot;&quot;)
-                }
-                imageStock = new qlabel(win1)
-                {
-                        image = new qPixMap2(200,200)
-                        color = new qcolor() {
-                                setrgb(255,255,255,255)
-                        }
-                        pen = new qpen() {
-                                setcolor(color)
-                                setwidth(10)
-                        }
-                        new qpainter() {
-                                begin(image)
-                                        setpen(pen)
-                                        drawline(0,0,200,200)
-                                        drawline(200,0,0,200)
-                                endpaint()
-                        }
-                        setpixmap(image)
-                }
-                show()
-        }
-        exec()
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<span class="k">New</span> <span class="n">qapp</span>
+<span class="p">{</span>
+        <span class="n">win1</span> <span class="o">=</span>  <span class="k">new</span> <span class="n">qwidget</span><span class="p">()</span>
+        <span class="p">{</span>
+                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Drawing using QPixMap&quot;</span><span class="p">)</span>
+                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+                <span class="n">label1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qlabel</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">imageStock</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qlabel</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
+                <span class="p">{</span>
+                        <span class="n">image</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPixMap2</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                        <span class="n">color</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qcolor</span><span class="p">()</span> <span class="p">{</span>
+                                <span class="n">setrgb</span><span class="p">(</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+                        <span class="p">}</span>
+                        <span class="n">pen</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qpen</span><span class="p">()</span> <span class="p">{</span>
+                                <span class="n">setcolor</span><span class="p">(</span><span class="n">color</span><span class="p">)</span>
+                                <span class="n">setwidth</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+                        <span class="p">}</span>
+                        <span class="k">new</span> <span class="n">qpainter</span><span class="p">()</span> <span class="p">{</span>
+                                <span class="n">begin</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+                                        <span class="n">setpen</span><span class="p">(</span><span class="n">pen</span><span class="p">)</span>
+                                        <span class="n">drawline</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                                        <span class="n">drawline</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                                <span class="n">endpaint</span><span class="p">()</span>
+                        <span class="p">}</span>
+                        <span class="n">setpixmap</span><span class="p">(</span><span class="n">image</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Screen Shot:</p>
@@ -347,20 +347,20 @@ SecondWindow() to the FirstWindowController Class
 Also will add the Method FirstWindow() to the SecondWindowController Class</p>
 <p>So the SendMessage() method in FirstWindowController class can use the
 SecondWindow() method to access the object.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class firstwindowController from windowsControllerParent
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">firstwindowController</span> <span class="k">from</span> <span class="n">windowsControllerParent</span>
 
-    oView = new firstwindowView
+    <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">firstwindowView</span>
 
-    func OpenSecondWindow
-        Open_WindowAndLink(:SecondWindowController,self)
+    <span class="k">func</span> <span class="n">OpenSecondWindow</span>
+        <span class="n">Open_WindowAndLink</span><span class="p">(:</span><span class="n">SecondWindowController</span><span class="p">,</span><span class="n">self</span><span class="p">)</span>
 
-    func SendMessage
-        if IsSecondWindow()
-            SecondWindow().setMessage(&quot;Message from the first window&quot;)
-        ok
+    <span class="k">func</span> <span class="n">SendMessage</span>
+        <span class="k">if</span> <span class="n">IsSecondWindow</span><span class="p">()</span>
+            <span class="n">SecondWindow</span><span class="p">().</span><span class="n">setMessage</span><span class="p">(</span><span class="s">&quot;Message from the first window&quot;</span><span class="p">)</span>
+        <span class="k">ok</span>
 
-    func setMessage cMessage
-        oView.Label1.setText(cMessage)
+    <span class="k">func</span> <span class="n">setMessage</span> <span class="n">cMessage</span>
+        <span class="n">oView</span><span class="p">.</span><span class="n">Label1</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="n">cMessage</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="3">
@@ -394,9 +394,9 @@ Also updated methods so the index start from 1 when we deal with the GUI control
 </ul>
 <p>These classes are inside guilib.ring under the package name : System.GUI</p>
 <p>To use it</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;guilib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
 
-import System.GUI
+<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">GUI</span>
 </pre></div>
 </div>
 <p>This doesn’t have any effect on our previous code, It’s just another choice for better code that is consistent with Ring rules.</p>
@@ -455,24 +455,24 @@ import System.GUI
 <span id="index-6"></span><h2>Better Loop|Exit Command<a class="headerlink" href="#better-loop-exit-command" title="Permalink to this headline">¶</a></h2>
 <p>The Loop|Exit command is updated to accept Expressions after the command (not only numbers).</p>
 <p>The syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Loop|Exit [Number]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Loop</span><span class="o">|</span><span class="k">Exit</span> <span class="o">[</span><span class="n">Number</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>Changed to</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Loop|Exit [Expression]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Loop</span><span class="o">|</span><span class="k">Exit</span> <span class="o">[</span><span class="n">Expression</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>XLoop = 2       # The outer loop
-YLoop = 1       # The first inner loop
-for x = 1 to 10
-        for y = 1 to 10
-                see &quot;x=&quot; + x + &quot; y=&quot; + y + nl
-                if x = 3 and y = 5
-                        exit XLoop
-                ok
-        next
-next
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">XLoop</span> <span class="o">=</span> <span class="mi">2</span>       <span class="c"># The outer loop</span>
+<span class="n">YLoop</span> <span class="o">=</span> <span class="mi">1</span>       <span class="c"># The first inner loop</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="k">see</span> <span class="s">&quot;x=&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot; y=&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+                        <span class="k">exit</span> <span class="n">XLoop</span>
+                <span class="k">ok</span>
+        <span class="k">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 </div>
@@ -483,23 +483,23 @@ next
 <li><p>Swap() function</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [:one,:two,:four,:three]
-see aList
-see copy(&quot;*&quot;,50) + nl
-swap(aList,3,4)
-see aList
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="p">:</span><span class="n">one</span><span class="p">,:</span><span class="n">two</span><span class="p">,:</span><span class="n">four</span><span class="p">,:</span><span class="n">three</span><span class="o">]</span>
+<span class="k">see</span> <span class="n">aList</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">swap</span><span class="p">(</span><span class="n">aList</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">aList</span>
 </pre></div>
 </div>
 <p>Output</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>one
-two
-four
-three
-**************************************************
-one
-two
-three
-four
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">one</span>
+<span class="n">two</span>
+<span class="n">four</span>
+<span class="n">three</span>
+<span class="o">**************************************************</span>
+<span class="n">one</span>
+<span class="n">two</span>
+<span class="n">three</span>
+<span class="n">four</span>
 </pre></div>
 </div>
 </div>
@@ -507,24 +507,24 @@ four
 <span id="index-8"></span><h2>Return Self by Reference<a class="headerlink" href="#return-self-by-reference" title="Permalink to this headline">¶</a></h2>
 <p>In this release, using Return Self in class methods will return the object by reference.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>mylist = [new mytest() {
-        see self
-        x = 20
-        see self
-}]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mylist</span> <span class="o">=</span> <span class="o">[</span><span class="k">new</span> <span class="n">mytest</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="n">self</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">20</span>
+        <span class="k">see</span> <span class="n">self</span>
+<span class="p">}</span><span class="o">]</span>
 
-see mylist
+<span class="k">see</span> <span class="n">mylist</span>
 
-class mytest
-        x = 15
-        func init
-                return self     # Return by reference
+<span class="k">class</span> <span class="n">mytest</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">15</span>
+        <span class="k">func</span> <span class="n">init</span>
+                <span class="k">return</span> <span class="n">self</span>     <span class="c"># Return by reference</span>
 </pre></div>
 </div>
 <p>Output</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x: 15.000000
-x: 20.000000
-x: 20.000000
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span><span class="p">:</span> <span class="mf">15.000000</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">20.000000</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">20.000000</span>
 </pre></div>
 </div>
 </div>
@@ -532,15 +532,15 @@ x: 20.000000
 <span id="index-9"></span><h2>Using ‘&lt;’ and ‘:’ operators as ‘from’ keyword<a class="headerlink" href="#using-and-operators-as-from-keyword" title="Permalink to this headline">¶</a></h2>
 <p>In this release of the Ring language we can use the ‘&lt;’ and ‘:’ operators as the ‘from’ keyword</p>
 <p>Syntax (1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class Cat from Animal
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Cat</span> <span class="k">from</span> <span class="n">Animal</span>
 </pre></div>
 </div>
 <p>Syntax (2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class Cat &lt; Animal
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Cat</span> <span class="o">&lt;</span> <span class="n">Animal</span>
 </pre></div>
 </div>
 <p>Syntax (3):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class Cat : Animal
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">Cat</span> <span class="p">:</span> <span class="n">Animal</span>
 </pre></div>
 </div>
 </div>
@@ -555,34 +555,34 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
 <li><p>Execute and run Ring code in safe environments that we can trace.</p></li>
 </ol>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>pState = ring_state_init()
-ring_state_runcode(pState,&quot;See &#39;Hello, World!&#39;+nl&quot;)
-ring_state_runcode(pState,&quot;x = 10&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;See &#39;Hello, World!&#39;+nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x = 10&quot;</span><span class="p">)</span>
 
-pState2 = ring_state_init()
-ring_state_runcode(pState2,&quot;See &#39;Hello, World!&#39;+nl&quot;)
-ring_state_runcode(pState2,&quot;x = 20&quot;)
+<span class="n">pState2</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;See &#39;Hello, World!&#39;+nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;x = 20&quot;</span><span class="p">)</span>
 
-ring_state_runcode(pState,&quot;see x +nl&quot;)
-ring_state_runcode(pState2,&quot;see x +nl&quot;)
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;see x +nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;see x +nl&quot;</span><span class="p">)</span>
 
-v1 = ring_state_findvar(pState,&quot;x&quot;)
-v2 = ring_state_findvar(pState2,&quot;x&quot;)
+<span class="n">v1</span> <span class="o">=</span> <span class="n">ring_state_findvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">ring_state_findvar</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
 
-see v1[3] + nl
-see V2[3] + nl
+<span class="k">see</span> <span class="n">v1</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">V2</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
 
-ring_state_delete(pState)
-ring_state_delete(pState2)
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState2</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Hello, World!
-Hello, World!
-10
-20
-10
-20
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
 </pre></div>
 </div>
 </div>
@@ -590,41 +590,41 @@ Hello, World!
 <span id="index-11"></span><h2>RingZip Library<a class="headerlink" href="#ringzip-library" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.3 comes with the RingZip library for creating, modifying and extracting <a href="#id1"><span class="problematic" id="id2">*</span></a>.zip files.</p>
 <p>Example (1):  Create myfile.zip contains 4 files</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;ziplib.ring&quot;
-oZip = zip_openfile(&quot;myfile.zip&quot;,&#39;w&#39;)
-zip_addfile(oZip,&quot;test.c&quot;)
-zip_addfile(oZip,&quot;zip.c&quot;)
-zip_addfile(oZip,&quot;zip.h&quot;)
-zip_addfile(oZip,&quot;miniz.h&quot;)
-zip_close(oZip)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+<span class="n">oZip</span> <span class="o">=</span> <span class="n">zip_openfile</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="sc">&#39;w&#39;</span><span class="p">)</span>
+<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s">&quot;test.c&quot;</span><span class="p">)</span>
+<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s">&quot;zip.c&quot;</span><span class="p">)</span>
+<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s">&quot;zip.h&quot;</span><span class="p">)</span>
+<span class="n">zip_addfile</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="s">&quot;miniz.h&quot;</span><span class="p">)</span>
+<span class="n">zip_close</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example (2): Extract myfile.zip to myfolder folder.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;ziplib.ring&quot;
-zip_extract_allfiles(&quot;myfile.zip&quot;,&quot;myfolder&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+<span class="n">zip_extract_allfiles</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="s">&quot;myfolder&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example (3): Print file names in the myfile.zip</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;ziplib.ring&quot;
-oZip = zip_openfile(&quot;myfile.zip&quot;,&#39;r&#39;)
-for x=1 to zip_filescount(oZip)
-       see zip_getfilenamebyindex(oZip,x) + nl
-next
-zip_close(oZip)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
+<span class="n">oZip</span> <span class="o">=</span> <span class="n">zip_openfile</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">,</span><span class="sc">&#39;r&#39;</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">zip_filescount</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
+       <span class="k">see</span> <span class="n">zip_getfilenamebyindex</span><span class="p">(</span><span class="n">oZip</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
+<span class="n">zip_close</span><span class="p">(</span><span class="n">oZip</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example (4) : Using Classes instead of Functions</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;ziplib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;ziplib.ring&quot;</span>
 
-new Zip {
-        SetFileName(&quot;myfile.zip&quot;)
-        Open(&quot;w&quot;)
-        AddFile(&quot;test.c&quot;)
-        AddFile(&quot;zip.c&quot;)
-        AddFile(&quot;zip.h&quot;)
-        AddFile(&quot;miniz.h&quot;)
-        Close()
-}
+<span class="k">new</span> <span class="n">Zip</span> <span class="p">{</span>
+        <span class="n">SetFileName</span><span class="p">(</span><span class="s">&quot;myfile.zip&quot;</span><span class="p">)</span>
+        <span class="n">Open</span><span class="p">(</span><span class="s">&quot;w&quot;</span><span class="p">)</span>
+        <span class="n">AddFile</span><span class="p">(</span><span class="s">&quot;test.c&quot;</span><span class="p">)</span>
+        <span class="n">AddFile</span><span class="p">(</span><span class="s">&quot;zip.c&quot;</span><span class="p">)</span>
+        <span class="n">AddFile</span><span class="p">(</span><span class="s">&quot;zip.h&quot;</span><span class="p">)</span>
+        <span class="n">AddFile</span><span class="p">(</span><span class="s">&quot;miniz.h&quot;</span><span class="p">)</span>
+        <span class="n">Close</span><span class="p">()</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>

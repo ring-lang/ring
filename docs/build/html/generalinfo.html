@@ -317,7 +317,7 @@ other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.</p>
 <p>Ring is 8-bit clean, Each character in the string is 8 bits (1 byte)</p>
 <p>So these functions (Int2Bytes(), Float2Bytes() and Double2Bytes()) just return a string.</p>
 <p>Also we can store binary data in strings</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>mystring = read(&quot;myfile.exe&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myfile.exe&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <ol class="arabic simple" start="2">
@@ -355,9 +355,9 @@ Also we have the bytes order.</p>
 <p>Float2Bytes() —&gt; Ring string (Group of bytes) and the string size = sizeof(float)</p>
 <p>Double2Bytes() —&gt; Ring string (Group of bytes) and the string size = sizeof(double)</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? len( int2bytes(1) )
-? len( float2bytes(1) )
-? len( double2bytes(1) )
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">int2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">float2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span> <span class="n">double2bytes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -381,28 +381,28 @@ This is important to know when we do arithmetic operations on numbers.</p>
 <li><p>The Unsigned() Function</p></li>
 </ol>
 <p>The function unsigned() expect the first and the second parameters as numbers</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>unsigned(nNumber1,nNumber2,cOperator)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">unsigned</span><span class="p">(</span><span class="n">nNumber1</span><span class="p">,</span><span class="n">nNumber2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>We can use the bytes2int() function to convert the bytes to a number</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>B = list(4)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">B</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 
-for k=1 to 4
-{
-        B[k]= Space(4)
-        for kk=1 to 4 { B[k][kk]= char(60+4*k +kk) }
-        ? &quot; B&quot; +k +&quot;: &quot; +B[k]
-}
+<span class="k">for</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">4</span>
+<span class="p">{</span>
+        <span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">]=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">kk</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">4</span> <span class="p">{</span> <span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">][</span><span class="n">kk</span><span class="o">]=</span> <span class="n">char</span><span class="p">(</span><span class="mi">60</span><span class="o">+</span><span class="mi">4</span><span class="o">*</span><span class="n">k</span> <span class="o">+</span><span class="n">kk</span><span class="p">)</span> <span class="p">}</span>
+        <span class="o">?</span> <span class="s">&quot; B&quot;</span> <span class="o">+</span><span class="n">k</span> <span class="o">+</span><span class="s">&quot;: &quot;</span> <span class="o">+</span><span class="n">B</span><span class="o">[</span><span class="n">k</span><span class="o">]</span>
+<span class="p">}</span>
 
-A12= Space(4)     A12= bytes2int(B[1]) ^ bytes2int(B[2])
-? &quot;A12: &quot; +string(A12)
-A34= Space(4)     A34= bytes2int(B[3]) ^ bytes2int(B[4])
-? &quot;A34: &quot; +string(A34)
-A12= space(4)     A12= Unsigned(bytes2int(B[1]),bytes2int(B[2]),&quot;^&quot;)
-? &quot;unsigned A12: &quot; +A12
-A34= space(4)     A34= Unsigned(bytes2int(B[3]),bytes2int(B[4]),&quot;^&quot;)
-? &quot;unsigned A34: &quot; +A34
+<span class="n">A12</span><span class="o">=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A12</span><span class="o">=</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span> <span class="p">^</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;A12: &quot;</span> <span class="o">+</span><span class="kt">string</span><span class="p">(</span><span class="n">A12</span><span class="p">)</span>
+<span class="n">A34</span><span class="o">=</span> <span class="n">Space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A34</span><span class="o">=</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">)</span> <span class="p">^</span> <span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;A34: &quot;</span> <span class="o">+</span><span class="kt">string</span><span class="p">(</span><span class="n">A34</span><span class="p">)</span>
+<span class="n">A12</span><span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A12</span><span class="o">=</span> <span class="n">Unsigned</span><span class="p">(</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">),</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;unsigned A12: &quot;</span> <span class="o">+</span><span class="n">A12</span>
+<span class="n">A34</span><span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>     <span class="n">A34</span><span class="o">=</span> <span class="n">Unsigned</span><span class="p">(</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span><span class="p">),</span><span class="n">bytes2int</span><span class="p">(</span><span class="n">B</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;unsigned A34: &quot;</span> <span class="o">+</span><span class="n">A34</span>
 </pre></div>
 </div>
 <p>Output:</p>

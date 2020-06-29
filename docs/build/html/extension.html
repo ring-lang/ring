@@ -763,14 +763,14 @@ file though the LoadLib() function.</p>
 <p>Inside the ringlib_init() function we can register the module function or call a function that do the registration process
 for all of the module functions.</p>
 <p>The next Ring code demonstrates how to use the DLL library during the runtime.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Dynamic DLL&quot; + NL
-LoadLib(&quot;ringlib.dll&quot;)
-dlfunc()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Dynamic DLL&quot;</span> <span class="o">+</span> <span class="n">NL</span>
+<span class="n">LoadLib</span><span class="p">(</span><span class="s">&quot;ringlib.dll&quot;</span><span class="p">)</span>
+<span class="n">dlfunc</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Dynamic DLL
-Message from dlfunc
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Dynamic</span> <span class="n">DLL</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">dlfunc</span>
 </pre></div>
 </div>
 </div>
@@ -781,8 +781,8 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 <p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
 <p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>RING_API_RETMANAGEDCPOINTER(void *pValue,const char *cPointerType,
-                                void (* pFreeFunc)(void *,void *))
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
+                                <span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
 </pre></div>
 </div>
 <p>Example:</p>

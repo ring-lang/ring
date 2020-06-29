@@ -349,23 +349,23 @@
 <p>The class region is the region that comes after the class name and before any method.</p>
 <p>Now we can use This in the class region as Self.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
 
-        o1 = new program {
-                test()
-        }
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">program</span> <span class="p">{</span>
+                <span class="n">test</span><span class="p">()</span>
+        <span class="p">}</span>
 
-        ? o1
+        <span class="o">?</span> <span class="n">o1</span>
 
-class program
+<span class="k">class</span> <span class="n">program</span>
 
-        this.name = &quot;My Application&quot;
-        this.version = &quot;1.0&quot;
-        ? name ? version
+        <span class="n">this</span><span class="p">.</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;My Application&quot;</span>
+        <span class="n">this</span><span class="p">.</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span>
+        <span class="o">?</span> <span class="n">name</span> <span class="o">?</span> <span class="n">version</span>
 
-        func test
-                ? &quot;Name    = &quot; + name
-                ? &quot;Version = &quot; + version
+        <span class="k">func</span> <span class="n">test</span>
+                <span class="o">?</span> <span class="s">&quot;Name    = &quot;</span> <span class="o">+</span> <span class="n">name</span>
+                <span class="o">?</span> <span class="s">&quot;Version = &quot;</span> <span class="o">+</span> <span class="n">version</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -387,11 +387,11 @@ version: 1.0
 </div>
 <p>Remember that in most cases we don’t need to use This or Self in the class region</p>
 <p>We can write</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class program name version
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">program</span> <span class="n">name</span> <span class="n">version</span>
 </pre></div>
 </div>
 <p>Or</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class program name=&quot;My Application&quot; version=&quot;1.0&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">program</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;My Application&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -405,19 +405,19 @@ version: 1.0
 <p>In Ring, the NULL value is just an empty string or a string that contains “NULL”</p>
 <p>We can check for NULL values using the isNULL() function</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>oProgram = new Program
-? oProgram.name
-? oProgram.version
-? isNULL(oProgram.name)
-? isNULL(oProgram.version)
-oProgram { name=&quot;My Application&quot; version=&quot;1.0&quot; }
-? isNULL(oProgram.name)
-? isNULL(oProgram.version)
-? oProgram
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oProgram</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Program</span>
+<span class="o">?</span> <span class="n">oProgram</span><span class="p">.</span><span class="n">name</span>
+<span class="o">?</span> <span class="n">oProgram</span><span class="p">.</span><span class="n">version</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">version</span><span class="p">)</span>
+<span class="n">oProgram</span> <span class="p">{</span> <span class="n">name</span><span class="o">=</span><span class="s">&quot;My Application&quot;</span> <span class="n">version</span><span class="o">=</span><span class="s">&quot;1.0&quot;</span> <span class="p">}</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">name</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">isNULL</span><span class="p">(</span><span class="n">oProgram</span><span class="p">.</span><span class="n">version</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">oProgram</span>
 
-class program
-        name
-        version
+<span class="k">class</span> <span class="n">program</span>
+        <span class="n">name</span>
+        <span class="n">version</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -440,31 +440,31 @@ version: 1.0
 <span id="index-10"></span><h2>The For Loops uses the local scope<a class="headerlink" href="#the-for-loops-uses-the-local-scope" title="Permalink to this headline">¶</a></h2>
 <p>In Ring 1.8, when the For Loop defines new identifier (variable) it will define it in the local scope.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = 10
-? x             # Print 10
-test1()
-? x             # Print 10
-test2()
-? x             # Print 10
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
+<span class="n">test1</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
+<span class="n">test2</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># Print 10</span>
 
-func test1
-        for x = 1 to 5
-        next
-        ? x     # Print 6
+<span class="k">func</span> <span class="n">test1</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">5</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="n">x</span>     <span class="c"># Print 6</span>
 
-func test2
-        list = 1:5
-        for x in list
-        next
-        ? x     # Print NULL (The &quot;For In&quot; loop will kill the reference after the loop)
+<span class="k">func</span> <span class="n">test2</span>
+        <span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">5</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span>
+        <span class="k">next</span>
+        <span class="o">?</span> <span class="n">x</span>     <span class="c"># Print NULL (The &quot;For In&quot; loop will kill the reference after the loop)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>10
-6
-10
-NULL
-10
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">10</span>
+<span class="mi">6</span>
+<span class="mi">10</span>
+<span class="kp">NULL</span>
+<span class="mi">10</span>
 </pre></div>
 </div>
 </div>
@@ -474,36 +474,36 @@ NULL
 <p>Now in Ring 1.8, we can get individual characters from these strings and merge them together using
 the ‘+’ operator.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cStr = &quot;Welcome&quot;
-? cstr[1] + cstr[2] + cStr[5]
-v = cstr[1] + cstr[2] + cStr[5]
-? v
-? len(v)
-c1 = cStr[1]
-? c1
-aList = [1,2,3]
-cStr = &quot;&quot;
-for item in aList
-        cStr += int2bytes(item)
-next
-? &quot;All String&quot;
-? len(cStr)
-? &quot;First Part&quot;
-n1 = cStr[1] + cStr[2] + cStr[3] + cStr[4]
-? len(n1)
-? &quot;Second Part&quot;
-n2 = cStr[5] + cStr[6] + cStr[7] + cStr[8]
-? len(n2)
-? &quot;Third Part&quot;
-n3 = cStr[9] + cStr[10] + cStr[11] + cStr[12]
-? len(n3)
-? &quot;All String&quot;
-cString = cStr[1] + cStr[2] + cStr[3] + cStr[4] +
-          cStr[5] + cStr[6] + cStr[7] + cStr[8] +
-          cStr[9] + cStr[10] + cStr[11] + cStr[12]
-? len(cString)
-? ascii(cStr[1])
-? len(cStr[2])
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;Welcome&quot;</span>
+<span class="o">?</span> <span class="n">cstr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">cstr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span>
+<span class="n">v</span> <span class="o">=</span> <span class="n">cstr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">cstr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">v</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+<span class="n">c1</span> <span class="o">=</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">c1</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="k">for</span> <span class="n">item</span> <span class="k">in</span> <span class="n">aList</span>
+        <span class="n">cStr</span> <span class="o">+=</span> <span class="n">int2bytes</span><span class="p">(</span><span class="n">item</span><span class="p">)</span>
+<span class="k">next</span>
+<span class="o">?</span> <span class="s">&quot;All String&quot;</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;First Part&quot;</span>
+<span class="n">n1</span> <span class="o">=</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">n1</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Second Part&quot;</span>
+<span class="n">n2</span> <span class="o">=</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">7</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">n2</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Third Part&quot;</span>
+<span class="n">n3</span> <span class="o">=</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">9</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">11</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">12</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">n3</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;All String&quot;</span>
+<span class="n">cString</span> <span class="o">=</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span> <span class="o">+</span>
+          <span class="n">cStr</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">7</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">8</span><span class="o">]</span> <span class="o">+</span>
+          <span class="n">cStr</span><span class="o">[</span><span class="mi">9</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">10</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">11</span><span class="o">]</span> <span class="o">+</span> <span class="n">cStr</span><span class="o">[</span><span class="mi">12</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">ascii</span><span class="p">(</span><span class="n">cStr</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -531,24 +531,24 @@ All String
 <p>Developer: Jose Rosado</p>
 <p>A class with some of the functions I used in FoxPro</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;foxring.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;foxring.ring&quot;</span>
 
-mf = new frFunctions
-? mf.frAbs(-45)
-? mf.frAbs(10-30)
-? mf.frAbs(30-10)
+<span class="n">mf</span> <span class="o">=</span> <span class="k">new</span> <span class="n">frFunctions</span>
+<span class="o">?</span> <span class="n">mf</span><span class="p">.</span><span class="n">frAbs</span><span class="p">(</span><span class="o">-</span><span class="mi">45</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">mf</span><span class="p">.</span><span class="n">frAbs</span><span class="p">(</span><span class="mi">10</span><span class="o">-</span><span class="mi">30</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">mf</span><span class="p">.</span><span class="n">frAbs</span><span class="p">(</span><span class="mi">30</span><span class="o">-</span><span class="mi">10</span><span class="p">)</span>
 
-? mf.frTransform(&quot;    Ring is a good language    &quot;,
-                 &quot;@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;)
-? mf.frAllTrim(&quot;    Ring is a good language    &quot;, Null)
+<span class="o">?</span> <span class="n">mf</span><span class="p">.</span><span class="n">frTransform</span><span class="p">(</span><span class="s">&quot;    Ring is a good language    &quot;</span><span class="p">,</span>
+                 <span class="s">&quot;@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">mf</span><span class="p">.</span><span class="n">frAllTrim</span><span class="p">(</span><span class="s">&quot;    Ring is a good language    &quot;</span><span class="p">,</span> <span class="kp">Null</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>45
-20
-20
-    RING IS A GOOD LANGUAGE
-Ring is a good language
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">45</span>
+<span class="mi">20</span>
+<span class="mi">20</span>
+    <span class="n">RING</span> <span class="n">IS</span> <span class="n">A</span> <span class="n">GOOD</span> <span class="n">LANGUAGE</span>
+<span class="n">Ring</span> <span class="n">is</span> <span class="n">a</span> <span class="n">good</span> <span class="n">language</span>
 </pre></div>
 </div>
 </div>
@@ -630,16 +630,16 @@ QString findExecutable(QString executableName, QStringList paths))
 <li><p>When embedding Ring in Ring, the error in the hosted environment will not close the host</p></li>
 </ol>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;Start the test!&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Start the test!&quot;</span>
 
-pState = ring_state_init()
+<span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
 
-ring_state_runcode(pState,&quot; ? &#39;Let us try having an error&#39; ? x&quot;)
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot; ? &#39;Let us try having an error&#39; ? x&quot;</span><span class="p">)</span>
 
-ring_state_delete(pState)
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
 
-? &quot;&quot;
-? &quot;End of test!&quot;
+<span class="o">?</span> <span class="s">&quot;&quot;</span>
+<span class="o">?</span> <span class="s">&quot;End of test!&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -655,23 +655,23 @@ End of test!
 <li><p>The compiler will ignore new lines after keywords that expect tokens after it</p></li>
 </ol>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see
-&quot;
-        Hello, World!
-&quot;
-test()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span>
+<span class="s">&quot;</span>
+        <span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="s">&quot;</span>
+<span class="n">test</span><span class="p">()</span>
 
-func
-#======================#
-        Test
-#======================#
+<span class="k">func</span>
+<span class="c">#======================#</span>
+        <span class="n">Test</span>
+<span class="c">#======================#</span>
 
-        ?
-        &quot;
+        <span class="o">?</span>
+        <span class="s">&quot;</span>
 
-        Hello from the Test function
+        <span class="n">Hello</span> <span class="k">from</span> <span class="n">the</span> <span class="n">Test</span> <span class="n">function</span>
 
-        &quot;
+        <span class="s">&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>

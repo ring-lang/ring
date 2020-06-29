@@ -267,8 +267,8 @@
 <div class="section" id="loading-the-library">
 <span id="index-1"></span><h2>Loading the library<a class="headerlink" href="#loading-the-library" title="Permalink to this headline">¶</a></h2>
 <p>Before using the next function load the bignumber.ring library</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;bignumber.ring&quot;
-# Use Big Number library functions
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;bignumber.ring&quot;</span>
+<span class="c"># Use Big Number library functions</span>
 </pre></div>
 </div>
 </div>
@@ -276,43 +276,43 @@
 <span id="index-2"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
 <p>Using the BigNumber library we can do arithmetic operations on huge numbers.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;bignumber.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;bignumber.ring&quot;</span>
 
-num1 = &quot;62345678901234567891678345123456789&quot;    ### Big
-num2 =  &quot;1237894567890123419871236545&quot;          ### Small
-num3 =     &quot;64&quot;                                 ### Divide Small
-num4 = &quot;765432&quot;
-num5 =      &quot;3&quot;                                 ### Power
+<span class="n">num1</span> <span class="o">=</span> <span class="s">&quot;62345678901234567891678345123456789&quot;</span>    <span class="sd">### Big</span>
+<span class="n">num2</span> <span class="o">=</span>  <span class="s">&quot;1237894567890123419871236545&quot;</span>          <span class="sd">### Small</span>
+<span class="n">num3</span> <span class="o">=</span>     <span class="s">&quot;64&quot;</span>                                 <span class="sd">### Divide Small</span>
+<span class="n">num4</span> <span class="o">=</span> <span class="s">&quot;765432&quot;</span>
+<span class="n">num5</span> <span class="o">=</span>      <span class="s">&quot;3&quot;</span>                                 <span class="sd">### Power</span>
 
-? &quot;Add big numbers:&quot;
-a1 = new BigNumber(num1)        a1.Print()
-a2 = new BigNumber(num2)        a2.Print()
-a3 = a1 + a2                    a3.Print() ? nl
+<span class="o">?</span> <span class="s">&quot;Add big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
 
-? &quot;Substract big numbers:&quot;
-a1 = new BigNumber(num1)        a1.Print()
-a2 = new BigNumber(num2)        a2.Print()
-a3 = a1 - a2                    a3.Print() ? nl
+<span class="o">?</span> <span class="s">&quot;Substract big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">-</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
 
-? &quot;Multiply big numbers:&quot;
-a1 = new BigNumber(num1)        a1.print()
-a2 = new BigNumber(num2)        a2.print()
-a3 = a1 * a2                    a3.print() ? nl
+<span class="o">?</span> <span class="s">&quot;Multiply big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
 
-? &quot;Divide big numbers:&quot;
-a1 = new BigNumber(num1)        a1.print()
-a2 = new BigNumber(num2)        a2.print()
-a3 = a1 / a2                    a3.print() ? nl
+<span class="o">?</span> <span class="s">&quot;Divide big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
 
-? &quot;Divide big numbers: by very small number&quot;
-a1 = new BigNumber(num1)        a1.print()
-a2 = new BigNumber(num3)        a2.print()
-a3 = a1 / a2                    a3.print() ? nl
+<span class="o">?</span> <span class="s">&quot;Divide big numbers: by very small number&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num3</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
 
-? &quot;Power of big number:&quot;
-a1 = new BigNumber(num1)        a1.print()
-a2 = new BigNumber(num5)        a2.print()
-a3 = a1 ^ a2                    a3.print() ? nl
+<span class="o">?</span> <span class="s">&quot;Power of big number:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num5</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="p">^</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -374,11 +374,11 @@ printDecimalDigits(decList)
 <div class="section" id="bignumber-class">
 <span id="index-4"></span><h2>BigNumber Class<a class="headerlink" href="#bignumber-class" title="Permalink to this headline">¶</a></h2>
 <p>The library contains the next class</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>class BigNumber
-        func init aPara
-        func operator cOperator, Para
-        func print
-        func value
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">BigNumber</span>
+        <span class="k">func</span> <span class="n">init</span> <span class="n">aPara</span>
+        <span class="k">func</span> <span class="n">operator</span> <span class="n">cOperator</span><span class="p">,</span> <span class="n">Para</span>
+        <span class="k">func</span> <span class="n">print</span>
+        <span class="k">func</span> <span class="n">value</span>
 </pre></div>
 </div>
 </div>

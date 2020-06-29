@@ -270,19 +270,19 @@
 <div class="section" id="give-command">
 <span id="index-1"></span><h2>Give Command<a class="headerlink" href="#give-command" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Give VariableName
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Give</span> <span class="n">VariableName</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Enter the first number : &quot; Give nNum1
-See &quot;Enter the second number : &quot; Give nNum2
-See &quot;Sum : &quot; + ( 0 + nNum1 + nNum2 )
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter the first number : &quot;</span> <span class="k">Give</span> <span class="n">nNum1</span>
+<span class="k">See</span> <span class="s">&quot;Enter the second number : &quot;</span> <span class="k">Give</span> <span class="n">nNum2</span>
+<span class="k">See</span> <span class="s">&quot;Sum : &quot;</span> <span class="o">+</span> <span class="p">(</span> <span class="mi">0</span> <span class="o">+</span> <span class="n">nNum1</span> <span class="o">+</span> <span class="n">nNum2</span> <span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Enter the first number : 3
-Enter the second number : 4
-Sum : 7
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">the</span> <span class="n">first</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">the</span> <span class="n">second</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">4</span>
+<span class="n">Sum</span> <span class="p">:</span> <span class="mi">7</span>
 </pre></div>
 </div>
 </div>
@@ -290,29 +290,29 @@ Sum : 7
 <span id="index-2"></span><h2>GetChar() Function<a class="headerlink" href="#getchar-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get one character from the standard input using the GetChar() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>GetChar() ---&gt; Character
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">GetChar</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Character</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>While True
-        See &quot;
-                Main Menu
-                (1) Say Hello
-                (2) Exit
-            &quot;
-        Option = GetChar()
-        GetChar() GetChar()  # End of line
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">While</span> <span class="kp">True</span>
+        <span class="k">See</span> <span class="s">&quot;</span>
+                <span class="n">Main</span> <span class="n">Menu</span>
+                <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="n">Say</span> <span class="n">Hello</span>
+                <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">Exit</span>
+            <span class="s">&quot;</span>
+        <span class="n">Option</span> <span class="o">=</span> <span class="n">GetChar</span><span class="p">()</span>
+        <span class="n">GetChar</span><span class="p">()</span> <span class="n">GetChar</span><span class="p">()</span>  <span class="c"># End of line</span>
 
-        # the previous two lines can be replaced with the next line
-        # Give Option
+        <span class="c"># the previous two lines can be replaced with the next line</span>
+        <span class="c"># Give Option</span>
 
-        if Option = 1
-                see &quot;Enter your name : &quot; give cName
-                see &quot;Hello &quot; + cName
-        else
-                bye
-        ok
-End
+        <span class="k">if</span> <span class="n">Option</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="k">see</span> <span class="s">&quot;Enter your name : &quot;</span> <span class="k">give</span> <span class="n">cName</span>
+                <span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>
+        <span class="k">else</span>
+                <span class="k">bye</span>
+        <span class="k">ok</span>
+<span class="k">End</span>
 </pre></div>
 </div>
 </div>
@@ -320,13 +320,13 @@ End
 <span id="index-3"></span><h2>Input() Function<a class="headerlink" href="#input-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get input from the keyboard using the Input() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Input(nCount) ---&gt; string
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Input</span><span class="p">(</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
 </pre></div>
 </div>
 <p>The function will wait until nCount characters (at least) are read</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Enter message (30 characters) : &quot; cMsg = input(30)
-See &quot;Message : &quot; + cMsg
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter message (30 characters) : &quot;</span> <span class="n">cMsg</span> <span class="o">=</span> <span class="n">input</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Message : &quot;</span> <span class="o">+</span> <span class="n">cMsg</span>
 </pre></div>
 </div>
 </div>

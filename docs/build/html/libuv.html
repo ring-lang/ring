@@ -291,16 +291,16 @@
 <div class="section" id="first-application-using-ringlibuv">
 <span id="index-1"></span><h2>First Application using RingLibuv<a class="headerlink" href="#first-application-using-ringlibuv" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
-func main
+<span class="k">func</span> <span class="n">main</span>
 
-        myloop = new_uv_loop_t()
-        uv_loop_init(myloop)
-        ? &quot;Now quitting&quot;
-        uv_run(myloop, UV_RUN_DEFAULT)
-        uv_loop_close(myloop)
-        destroy_uv_loop_t(myloop)
+        <span class="n">myloop</span> <span class="o">=</span> <span class="n">new_uv_loop_t</span><span class="p">()</span>
+        <span class="n">uv_loop_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s">&quot;Now quitting&quot;</span>
+        <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+        <span class="n">uv_loop_close</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
+        <span class="n">destroy_uv_loop_t</span><span class="p">(</span><span class="n">myloop</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -311,25 +311,25 @@ func main
 <div class="section" id="the-events-loop">
 <span id="index-2"></span><h2>The Events Loop<a class="headerlink" href="#the-events-loop" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
-counter = 0
-idler = NULL
+<span class="n">counter</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">idler</span> <span class="o">=</span> <span class="kp">NULL</span>
 
-func main
-        idler = new_uv_idle_t()
-        uv_idle_init(uv_default_loop(), idler)
-        uv_idle_start(idler, &quot;wait()&quot;)
-        ? &quot;Idling...&quot;
-        uv_run(uv_default_loop(), UV_RUN_DEFAULT);
-        uv_loop_close(uv_default_loop());
-        destroy_uv_idle_t(idler)
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">idler</span> <span class="o">=</span> <span class="n">new_uv_idle_t</span><span class="p">()</span>
+        <span class="n">uv_idle_init</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span> <span class="n">idler</span><span class="p">)</span>
+        <span class="n">uv_idle_start</span><span class="p">(</span><span class="n">idler</span><span class="p">,</span> <span class="s">&quot;wait()&quot;</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s">&quot;Idling...&quot;</span>
+        <span class="n">uv_run</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">(),</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">);</span>
+        <span class="n">uv_loop_close</span><span class="p">(</span><span class="n">uv_default_loop</span><span class="p">());</span>
+        <span class="n">destroy_uv_idle_t</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
 
-func wait
-        counter++
-        if counter &gt;= 100000
-                uv_idle_stop(idler)
-        ok
+<span class="k">func</span> <span class="n">wait</span>
+        <span class="n">counter</span><span class="o">++</span>
+        <span class="k">if</span> <span class="n">counter</span> <span class="o">&gt;=</span> <span class="mi">100000</span>
+                <span class="n">uv_idle_stop</span><span class="p">(</span><span class="n">idler</span><span class="p">)</span>
+        <span class="k">ok</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -340,66 +340,66 @@ func wait
 <div class="section" id="server-example">
 <span id="index-3"></span><h2>Server Example<a class="headerlink" href="#server-example" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
-? &quot;Testing RingLibuv - Server Side&quot;
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Server Side&quot;</span>
 
-DEFAULT_PORT    = 13370
-DEFAULT_BACKLOG = 1024
+<span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
+<span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
 
-addr    = new_sockaddr_in()
-server  = NULL
-client  = NULL
-myloop  = NULL
+<span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+<span class="n">server</span>  <span class="o">=</span> <span class="kp">NULL</span>
+<span class="n">client</span>  <span class="o">=</span> <span class="kp">NULL</span>
+<span class="n">myloop</span>  <span class="o">=</span> <span class="kp">NULL</span>
 
-func main
-        myloop = uv_default_loop()
-        server = new_uv_tcp_t()
-        uv_tcp_init(myloop, server)
-        uv_ip4_addr(&quot;127.0.0.1&quot;, DEFAULT_PORT, addr)
-        uv_tcp_bind(server, addr, 0)
-        r = uv_listen(server, DEFAULT_BACKLOG, &quot;newconnection()&quot;)
-        if r
-                ? &quot;Listen error &quot; + uv_strerror(r)
-                return 1
-        ok
-        uv_run(myloop, UV_RUN_DEFAULT)
-        destroy_uv_tcp_t(server)
-        destroy_uv_sockaddr_in(addr)
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">myloop</span> <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
+        <span class="n">server</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+        <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+        <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+        <span class="n">uv_tcp_bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">r</span> <span class="o">=</span> <span class="n">uv_listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">DEFAULT_BACKLOG</span><span class="p">,</span> <span class="s">&quot;newconnection()&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">r</span>
+                <span class="o">?</span> <span class="s">&quot;Listen error &quot;</span> <span class="o">+</span> <span class="n">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+                <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">ok</span>
+        <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+        <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+        <span class="n">destroy_uv_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
 
-func newconnection
-        ? &quot;New Connection&quot;
-        aPara   = uv_Eventpara(server,:connect)
-        nStatus = aPara[2]
-        if nStatus &lt; 0
-                ? &quot;New connection error : &quot; + nStatus
-                return
-        ok
-        client = new_uv_tcp_t()
-        uv_tcp_init(myloop, client)
-        if uv_accept(server, client) = 0
-                        uv_read_start(client, uv_myalloccallback(), &quot;echo_read()&quot;)
-        ok
+<span class="k">func</span> <span class="n">newconnection</span>
+        <span class="o">?</span> <span class="s">&quot;New Connection&quot;</span>
+        <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">server</span><span class="p">,:</span><span class="n">connect</span><span class="p">)</span>
+        <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+        <span class="k">if</span> <span class="n">nStatus</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                <span class="o">?</span> <span class="s">&quot;New connection error : &quot;</span> <span class="o">+</span> <span class="n">nStatus</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
+        <span class="n">client</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+        <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="n">uv_read_start</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span> <span class="s">&quot;echo_read()&quot;</span><span class="p">)</span>
+        <span class="k">ok</span>
 
-func echo_read
-        aPara = uv_Eventpara(client,:read)
-        nRead = aPara[2]
-        buf   = aPara[3]
-        if nRead &gt; 0
-                req = new_uv_write_t()
-                        wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread)
-                uv_write(req, client, wrbuf, 1, &quot;echo_write()&quot;)
-                ? uv_buf2str(wrbuf)
-                message = &quot;message from the server to the client&quot;
-                buf = new_uv_buf_t()
-                set_uv_buf_t_len(buf,len(message))
-                set_uv_buf_t_base(buf,varptr(&quot;message&quot;,&quot;char *&quot;))
-                uv_write(req, client, buf, 1, &quot;echo_write()&quot;)
-        ok
+<span class="k">func</span> <span class="n">echo_read</span>
+        <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+        <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+        <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+        <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                <span class="n">req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+                        <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">)</span>
+                <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">wrbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;echo_write()&quot;</span><span class="p">)</span>
+                <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;message from the server to the client&quot;</span>
+                <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+                <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">varptr</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">))</span>
+                <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="s">&quot;echo_write()&quot;</span><span class="p">)</span>
+        <span class="k">ok</span>
 
-func echo_write
-        aPara = uv_Eventpara(client,:read)
-        req   = aPara[1]
+<span class="k">func</span> <span class="n">echo_write</span>
+        <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+        <span class="n">req</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -414,58 +414,58 @@ hello from the client
 <div class="section" id="client-example">
 <span id="index-4"></span><h2>Client Example<a class="headerlink" href="#client-example" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
-? &quot;Testing RingLibuv - Client Side&quot;
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Client Side&quot;</span>
 
-DEFAULT_PORT    = 13370
-DEFAULT_BACKLOG = 1024
+<span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
+<span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
 
-addr    = new_sockaddr_in()
-connect = NULL
-buffer  = null
-socket  = null
+<span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+<span class="n">connect</span> <span class="o">=</span> <span class="kp">NULL</span>
+<span class="n">buffer</span>  <span class="o">=</span> <span class="kp">null</span>
+<span class="n">socket</span>  <span class="o">=</span> <span class="kp">null</span>
 
-func main
-        myloop  = uv_default_loop()
-        Socket  = new_uv_tcp_t()
-        connect = new_uv_connect_t()
-        uv_tcp_init(myloop, Socket)
-        uv_ip4_addr(&quot;127.0.0.1&quot;, DEFAULT_PORT, addr)
-        uv_tcp_connect(connect,Socket, addr, &quot;connect()&quot;)
-        uv_run(myloop, UV_RUN_DEFAULT)
-        destroy_uv_tcp_t(socket)
-        destroy_uv_connect_t(connect)
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">myloop</span>  <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
+        <span class="n">Socket</span>  <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+        <span class="n">connect</span> <span class="o">=</span> <span class="n">new_uv_connect_t</span><span class="p">()</span>
+        <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">Socket</span><span class="p">)</span>
+        <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+        <span class="n">uv_tcp_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="n">Socket</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="s">&quot;connect()&quot;</span><span class="p">)</span>
+        <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+        <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+        <span class="n">destroy_uv_connect_t</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
 
-func connect
-        ? &quot;Client: Start Connection&quot;
-        aPara   = uv_Eventpara(connect,:connect)
-        req     = aPara[1]
-        nStatus = aPara[2]
-        if nStatus = -1
-                ? &quot;Error : on_write_end &quot;
-                return
-        ok
-        buf = new_uv_buf_t()
-        message = &quot;hello from the client&quot;
-        set_uv_buf_t_len(buf,len(message))
-        set_uv_buf_t_base(buf,varptr(&quot;message&quot;,&quot;char *&quot;))
-        tcp       = get_uv_connect_t_handle(req)
-        write_req = new_uv_write_t()
-        buf_count = 1
-        uv_write(write_req, tcp, buf, buf_count, &quot;on_write_end()&quot;)
+<span class="k">func</span> <span class="n">connect</span>
+        <span class="o">?</span> <span class="s">&quot;Client: Start Connection&quot;</span>
+        <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">connect</span><span class="p">,:</span><span class="n">connect</span><span class="p">)</span>
+        <span class="n">req</span>     <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+        <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+        <span class="k">if</span> <span class="n">nStatus</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                <span class="o">?</span> <span class="s">&quot;Error : on_write_end &quot;</span>
+                <span class="k">return</span>
+        <span class="k">ok</span>
+        <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+        <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;hello from the client&quot;</span>
+        <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+        <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">varptr</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">))</span>
+        <span class="n">tcp</span>       <span class="o">=</span> <span class="n">get_uv_connect_t_handle</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+        <span class="n">write_req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+        <span class="n">buf_count</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">uv_write</span><span class="p">(</span><span class="n">write_req</span><span class="p">,</span> <span class="n">tcp</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">buf_count</span><span class="p">,</span> <span class="s">&quot;on_write_end()&quot;</span><span class="p">)</span>
 
-func on_write_end
-                uv_read_start(socket, uv_myalloccallback(), &quot;echo_read()&quot;)
+<span class="k">func</span> <span class="n">on_write_end</span>
+                <span class="n">uv_read_start</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span> <span class="s">&quot;echo_read()&quot;</span><span class="p">)</span>
 
-func echo_read
-        aPara = uv_Eventpara(socket,:read)
-        nRead = aPara[2]
-        buf   = aPara[3]
-        if nRead &gt; 0
-                        wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread);
-                ? uv_buf2str(wrbuf)
-        ok
+<span class="k">func</span> <span class="n">echo_read</span>
+        <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">socket</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+        <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+        <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+        <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                        <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">);</span>
+                <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+        <span class="k">ok</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -480,72 +480,72 @@ message from the server to the client
 <div class="section" id="server-example-using-classes">
 <span id="index-5"></span><h2>Server Example Using Classes<a class="headerlink" href="#server-example-using-classes" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
-load &quot;objectslib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
 
-? &quot;Testing RingLibuv - Server Side - Using Classes&quot;
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Server Side - Using Classes&quot;</span>
 
-open_object(:MyServer)
+<span class="n">open_object</span><span class="p">(:</span><span class="n">MyServer</span><span class="p">)</span>
 
-class MyServer from ObjectControllerParent
+<span class="k">class</span> <span class="n">MyServer</span> <span class="k">from</span> <span class="n">ObjectControllerParent</span>
 
-        DEFAULT_PORT    = 13370
-        DEFAULT_BACKLOG = 1024
+        <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
+        <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
 
-        addr    = new_sockaddr_in()
-        server  = NULL
-        client  = NULL
-        myloop  = NULL
+        <span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+        <span class="n">server</span>  <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="n">client</span>  <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="n">myloop</span>  <span class="o">=</span> <span class="kp">NULL</span>
 
-        func start
-                myloop = uv_default_loop()
-                server = new_uv_tcp_t()
-                uv_tcp_init(myloop, server)
-                uv_ip4_addr(&quot;127.0.0.1&quot;, DEFAULT_PORT, addr)
-                uv_tcp_bind(server, addr, 0)
-                r = uv_listen(server, DEFAULT_BACKLOG, Method(:newconnection) )
-                if r
-                        ? &quot;Listen error &quot; + uv_strerror(r)
-                        return 1
-                ok
-                uv_run(myloop, UV_RUN_DEFAULT)
-                destroy_uv_tcp_t(server)
-                destroy_uv_sockaddr_in(addr)
+        <span class="k">func</span> <span class="n">start</span>
+                <span class="n">myloop</span> <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
+                <span class="n">server</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">server</span><span class="p">)</span>
+                <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+                <span class="n">uv_tcp_bind</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">uv_listen</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">DEFAULT_BACKLOG</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">newconnection</span><span class="p">)</span> <span class="p">)</span>
+                <span class="k">if</span> <span class="n">r</span>
+                        <span class="o">?</span> <span class="s">&quot;Listen error &quot;</span> <span class="o">+</span> <span class="n">uv_strerror</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+                        <span class="k">return</span> <span class="mi">1</span>
+                <span class="k">ok</span>
+                <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+                <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">server</span><span class="p">)</span>
+                <span class="n">destroy_uv_sockaddr_in</span><span class="p">(</span><span class="n">addr</span><span class="p">)</span>
 
-        func newconnection
-                ? &quot;New Connection&quot;
-                aPara   = uv_Eventpara(server,:connect)
-                nStatus = aPara[2]
-                if nStatus &lt; 0
-                        ? &quot;New connection error : &quot; + nStatus
-                        return
-                ok
-                client = new_uv_tcp_t()
-                uv_tcp_init(myloop, client)
-                if uv_accept(server, client) = 0
-                                uv_read_start(client, uv_myalloccallback(),
-                                                        Method(:echo_read))
-                ok
+        <span class="k">func</span> <span class="n">newconnection</span>
+                <span class="o">?</span> <span class="s">&quot;New Connection&quot;</span>
+                <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">server</span><span class="p">,:</span><span class="n">connect</span><span class="p">)</span>
+                <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nStatus</span> <span class="o">&lt;</span> <span class="mi">0</span>
+                        <span class="o">?</span> <span class="s">&quot;New connection error : &quot;</span> <span class="o">+</span> <span class="n">nStatus</span>
+                        <span class="k">return</span>
+                <span class="k">ok</span>
+                <span class="n">client</span> <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">uv_accept</span><span class="p">(</span><span class="n">server</span><span class="p">,</span> <span class="n">client</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">uv_read_start</span><span class="p">(</span><span class="n">client</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span>
+                                                        <span class="n">Method</span><span class="p">(:</span><span class="n">echo_read</span><span class="p">))</span>
+                <span class="k">ok</span>
 
-        func echo_read
-                aPara = uv_Eventpara(client,:read)
-                nRead = aPara[2]
-                buf   = aPara[3]
-                if nRead &gt; 0
-                        req = new_uv_write_t()
-                                wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread)
-                        uv_write(req, client, wrbuf, 1, Method(:echo_write))
-                        ? uv_buf2str(wrbuf)
-                        message = &quot;message from the server to the client&quot;
-                        buf = new_uv_buf_t()
-                        set_uv_buf_t_len(buf,len(message))
-                        set_uv_buf_t_base(buf,varptr(&quot;message&quot;,&quot;char *&quot;))
-                        uv_write(req, client, buf, 1, Method(:echo_write))
-                ok
+        <span class="k">func</span> <span class="n">echo_read</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                        <span class="n">req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+                                <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">)</span>
+                        <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">wrbuf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_write</span><span class="p">))</span>
+                        <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                        <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;message from the server to the client&quot;</span>
+                        <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+                        <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                        <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">varptr</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">))</span>
+                        <span class="n">uv_write</span><span class="p">(</span><span class="n">req</span><span class="p">,</span> <span class="n">client</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_write</span><span class="p">))</span>
+                <span class="k">ok</span>
 
-        func echo_write
-                aPara = uv_Eventpara(client,:read)
-                req   = aPara[1]
+        <span class="k">func</span> <span class="n">echo_write</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">client</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">req</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -560,63 +560,63 @@ hello from the client
 <div class="section" id="client-example-using-classes">
 <span id="index-6"></span><h2>Client Example Using Classes<a class="headerlink" href="#client-example-using-classes" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
-load &quot;objectslib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
 
-? &quot;Testing RingLibuv - Client Side - Using Classes&quot;
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Client Side - Using Classes&quot;</span>
 
-open_object(:MyClient)
+<span class="n">open_object</span><span class="p">(:</span><span class="n">MyClient</span><span class="p">)</span>
 
-Class MyClient from ObjectControllerParent
+<span class="k">Class</span> <span class="n">MyClient</span> <span class="k">from</span> <span class="n">ObjectControllerParent</span>
 
-        DEFAULT_PORT    = 13370
-        DEFAULT_BACKLOG = 1024
+        <span class="n">DEFAULT_PORT</span>    <span class="o">=</span> <span class="mi">13370</span>
+        <span class="n">DEFAULT_BACKLOG</span> <span class="o">=</span> <span class="mi">1024</span>
 
-        addr    = new_sockaddr_in()
-        connect = NULL
-        buffer  = null
-        socket  = null
+        <span class="n">addr</span>    <span class="o">=</span> <span class="n">new_sockaddr_in</span><span class="p">()</span>
+        <span class="n">connect</span> <span class="o">=</span> <span class="kp">NULL</span>
+        <span class="n">buffer</span>  <span class="o">=</span> <span class="kp">null</span>
+        <span class="n">socket</span>  <span class="o">=</span> <span class="kp">null</span>
 
-        func start
-                myloop  = uv_default_loop()
-                Socket  = new_uv_tcp_t()
-                connect = new_uv_connect_t()
-                uv_tcp_init(myloop, Socket)
-                uv_ip4_addr(&quot;127.0.0.1&quot;, DEFAULT_PORT, addr)
-                uv_tcp_connect(connect,Socket, addr, Method(:connect))
-                uv_run(myloop, UV_RUN_DEFAULT)
-                destroy_uv_tcp_t(socket)
-                destroy_uv_connect_t(connect)
+        <span class="k">func</span> <span class="n">start</span>
+                <span class="n">myloop</span>  <span class="o">=</span> <span class="n">uv_default_loop</span><span class="p">()</span>
+                <span class="n">Socket</span>  <span class="o">=</span> <span class="n">new_uv_tcp_t</span><span class="p">()</span>
+                <span class="n">connect</span> <span class="o">=</span> <span class="n">new_uv_connect_t</span><span class="p">()</span>
+                <span class="n">uv_tcp_init</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">Socket</span><span class="p">)</span>
+                <span class="n">uv_ip4_addr</span><span class="p">(</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="n">DEFAULT_PORT</span><span class="p">,</span> <span class="n">addr</span><span class="p">)</span>
+                <span class="n">uv_tcp_connect</span><span class="p">(</span><span class="n">connect</span><span class="p">,</span><span class="n">Socket</span><span class="p">,</span> <span class="n">addr</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">connect</span><span class="p">))</span>
+                <span class="n">uv_run</span><span class="p">(</span><span class="n">myloop</span><span class="p">,</span> <span class="n">UV_RUN_DEFAULT</span><span class="p">)</span>
+                <span class="n">destroy_uv_tcp_t</span><span class="p">(</span><span class="n">socket</span><span class="p">)</span>
+                <span class="n">destroy_uv_connect_t</span><span class="p">(</span><span class="n">connect</span><span class="p">)</span>
 
-        func connect
-                ? &quot;Client: Start Connection&quot;
-                aPara   = uv_Eventpara(connect,:connect)
-                req     = aPara[1]
-                nStatus = aPara[2]
-                if nStatus = -1
-                        ? &quot;Error : on_write_end &quot;
-                        return
-                ok
-                buf = new_uv_buf_t()
-                message = &quot;hello from the client&quot;
-                set_uv_buf_t_len(buf,len(message))
-                set_uv_buf_t_base(buf,varptr(&quot;message&quot;,&quot;char *&quot;))
-                tcp       = get_uv_connect_t_handle(req)
-                write_req = new_uv_write_t()
-                buf_count = 1
-                uv_write(write_req, tcp, buf, buf_count, Method(:on_write_end))
+        <span class="k">func</span> <span class="n">connect</span>
+                <span class="o">?</span> <span class="s">&quot;Client: Start Connection&quot;</span>
+                <span class="n">aPara</span>   <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">connect</span><span class="p">,:</span><span class="n">connect</span><span class="p">)</span>
+                <span class="n">req</span>     <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+                <span class="n">nStatus</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nStatus</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+                        <span class="o">?</span> <span class="s">&quot;Error : on_write_end &quot;</span>
+                        <span class="k">return</span>
+                <span class="k">ok</span>
+                <span class="n">buf</span> <span class="o">=</span> <span class="n">new_uv_buf_t</span><span class="p">()</span>
+                <span class="n">message</span> <span class="o">=</span> <span class="s">&quot;hello from the client&quot;</span>
+                <span class="n">set_uv_buf_t_len</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">len</span><span class="p">(</span><span class="n">message</span><span class="p">))</span>
+                <span class="n">set_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">,</span><span class="n">varptr</span><span class="p">(</span><span class="s">&quot;message&quot;</span><span class="p">,</span><span class="s">&quot;char *&quot;</span><span class="p">))</span>
+                <span class="n">tcp</span>       <span class="o">=</span> <span class="n">get_uv_connect_t_handle</span><span class="p">(</span><span class="n">req</span><span class="p">)</span>
+                <span class="n">write_req</span> <span class="o">=</span> <span class="n">new_uv_write_t</span><span class="p">()</span>
+                <span class="n">buf_count</span> <span class="o">=</span> <span class="mi">1</span>
+                <span class="n">uv_write</span><span class="p">(</span><span class="n">write_req</span><span class="p">,</span> <span class="n">tcp</span><span class="p">,</span> <span class="n">buf</span><span class="p">,</span> <span class="n">buf_count</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">on_write_end</span><span class="p">))</span>
 
-        func on_write_end
-                        uv_read_start(socket, uv_myalloccallback(), Method(:echo_read))
+        <span class="k">func</span> <span class="n">on_write_end</span>
+                        <span class="n">uv_read_start</span><span class="p">(</span><span class="n">socket</span><span class="p">,</span> <span class="n">uv_myalloccallback</span><span class="p">(),</span> <span class="n">Method</span><span class="p">(:</span><span class="n">echo_read</span><span class="p">))</span>
 
-        func echo_read
-                aPara = uv_Eventpara(socket,:read)
-                nRead = aPara[2]
-                buf   = aPara[3]
-                if nRead &gt; 0
-                                wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread);
-                        ? uv_buf2str(wrbuf)
-                ok
+        <span class="k">func</span> <span class="n">echo_read</span>
+                <span class="n">aPara</span> <span class="o">=</span> <span class="n">uv_Eventpara</span><span class="p">(</span><span class="n">socket</span><span class="p">,:</span><span class="n">read</span><span class="p">)</span>
+                <span class="n">nRead</span> <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="n">buf</span>   <span class="o">=</span> <span class="n">aPara</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+                <span class="k">if</span> <span class="n">nRead</span> <span class="o">&gt;</span> <span class="mi">0</span>
+                                <span class="n">wrbuf</span> <span class="o">=</span> <span class="n">uv_buf_init</span><span class="p">(</span><span class="n">get_uv_buf_t_base</span><span class="p">(</span><span class="n">buf</span><span class="p">),</span> <span class="n">nread</span><span class="p">);</span>
+                        <span class="o">?</span> <span class="n">uv_buf2str</span><span class="p">(</span><span class="n">wrbuf</span><span class="p">)</span>
+                <span class="k">ok</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -631,25 +631,25 @@ message from the server to the client
 <div class="section" id="threads-example">
 <span id="index-7"></span><h2>Threads Example<a class="headerlink" href="#threads-example" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
 
-? &quot;Testing RingLibuv - Threads&quot;
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Threads&quot;</span>
 
-func main
-        one_id = new_uv_thread_t()
-        two_id = new_uv_thread_t()
-        uv_thread_create(one_id, &quot;one()&quot;)
-        uv_thread_create(two_id, &quot;two()&quot;)
-        uv_thread_join(one_id)
-        uv_thread_join(two_id)
-        destroy_uv_thread_t(one_id)
-        destroy_uv_thread_t(two_id)
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">one_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+        <span class="n">two_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+        <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">one_id</span><span class="p">,</span> <span class="s">&quot;one()&quot;</span><span class="p">)</span>
+        <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">two_id</span><span class="p">,</span> <span class="s">&quot;two()&quot;</span><span class="p">)</span>
+        <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+        <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+        <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+        <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
 
-func one
-        ? &quot;Message from the First Thread!&quot;
+<span class="k">func</span> <span class="n">one</span>
+        <span class="o">?</span> <span class="s">&quot;Message from the First Thread!&quot;</span>
 
-func two
-        ? &quot;Message from the Second Thread!&quot;
+<span class="k">func</span> <span class="n">two</span>
+        <span class="o">?</span> <span class="s">&quot;Message from the Second Thread!&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -662,30 +662,30 @@ Message from the Second Thread!
 <div class="section" id="threads-example-using-classes">
 <span id="index-8"></span><h2>Threads Example - Using Classes<a class="headerlink" href="#threads-example-using-classes" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;libuv.ring&quot;
-load &quot;objectslib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libuv.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
 
-? &quot;Testing RingLibuv - Threads - Using Classes&quot;
+<span class="o">?</span> <span class="s">&quot;Testing RingLibuv - Threads - Using Classes&quot;</span>
 
-open_object(:MyThreads)
+<span class="n">open_object</span><span class="p">(:</span><span class="n">MyThreads</span><span class="p">)</span>
 
-class MyThreads from ObjectControllerParent
+<span class="k">class</span> <span class="n">MyThreads</span> <span class="k">from</span> <span class="n">ObjectControllerParent</span>
 
-        func Start
-                one_id = new_uv_thread_t()
-                two_id = new_uv_thread_t()
-                uv_thread_create(one_id, Method(:One))
-                uv_thread_create(two_id, Method(:Two))
-                uv_thread_join(one_id)
-                uv_thread_join(two_id)
-                destroy_uv_thread_t(one_id)
-                destroy_uv_thread_t(two_id)
+        <span class="k">func</span> <span class="n">Start</span>
+                <span class="n">one_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+                <span class="n">two_id</span> <span class="o">=</span> <span class="n">new_uv_thread_t</span><span class="p">()</span>
+                <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">one_id</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">One</span><span class="p">))</span>
+                <span class="n">uv_thread_create</span><span class="p">(</span><span class="n">two_id</span><span class="p">,</span> <span class="n">Method</span><span class="p">(:</span><span class="n">Two</span><span class="p">))</span>
+                <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+                <span class="n">uv_thread_join</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
+                <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">one_id</span><span class="p">)</span>
+                <span class="n">destroy_uv_thread_t</span><span class="p">(</span><span class="n">two_id</span><span class="p">)</span>
 
-        func one
-                ? &quot;Message from the First Thread!&quot;
+        <span class="k">func</span> <span class="n">one</span>
+                <span class="o">?</span> <span class="s">&quot;Message from the First Thread!&quot;</span>
 
-        func Two
-                ? &quot;Message from the Second Thread!&quot;
+        <span class="k">func</span> <span class="n">Two</span>
+                <span class="o">?</span> <span class="s">&quot;Message from the Second Thread!&quot;</span>
 </pre></div>
 </div>
 <p>Output:</p>

@@ -298,23 +298,23 @@
 <li><p>MySQL_Rollback()</p></li>
 </ul>
 <p>Before using the next function load the mysqllib.ring library</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;mysqllib.ring&quot;
-# Use MySQL functions
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;mysqllib.ring&quot;</span>
+<span class="c"># Use MySQL functions</span>
 </pre></div>
 </div>
 <div class="section" id="mysql-info-function">
 <span id="index-1"></span><h2>MySQL_Info() Function<a class="headerlink" href="#mysql-info-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the MySQL Client version using the MySQL_Info() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Info() ---&gt; string contains the MySQL Client version
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Info</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">MySQL</span> <span class="n">Client</span> <span class="n">version</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see &quot;MySQL Client Version : &quot; + mysql_info()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;MySQL Client Version : &quot;</span> <span class="o">+</span> <span class="n">mysql_info</span><span class="p">()</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL Client Version : 6.1.5
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL</span> <span class="n">Client</span> <span class="n">Version</span> <span class="p">:</span> <span class="mf">6.1.5</span>
 </pre></div>
 </div>
 </div>
@@ -322,7 +322,7 @@
 <span id="index-2"></span><h2>MySQL_Init() Function<a class="headerlink" href="#mysql-init-function" title="Permalink to this headline">¶</a></h2>
 <p>We can start using MySQL Client through the MySQL_Init() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Init() ---&gt; MySQL Handle
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Init</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">MySQL</span> <span class="n">Handle</span>
 </pre></div>
 </div>
 </div>
@@ -330,7 +330,7 @@
 <span id="index-3"></span><h2>MySQL_Error() Function<a class="headerlink" href="#mysql-error-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the error message from the MySQL Client using the MySQL_Error() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Error(MySQL Handle) ---&gt; Error message as string
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Error</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Error</span> <span class="n">message</span> <span class="n">as</span> <span class="kt">string</span>
 </pre></div>
 </div>
 </div>
@@ -338,7 +338,7 @@
 <span id="index-4"></span><h2>MySQL_Connect() Function<a class="headerlink" href="#mysql-connect-function" title="Permalink to this headline">¶</a></h2>
 <p>We can connect to the MySQL database server using the MySQL_Connect() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Connect(MySQL Handle, cServer, cUserName, cPassword) ---&gt; lStatus
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Connect</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cServer</span><span class="p">,</span> <span class="n">cUserName</span><span class="p">,</span> <span class="n">cPassword</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">lStatus</span>
 </pre></div>
 </div>
 </div>
@@ -346,7 +346,7 @@
 <span id="index-5"></span><h2>MySQL_Close() Function<a class="headerlink" href="#mysql-close-function" title="Permalink to this headline">¶</a></h2>
 <p>We can close the connection to the MySQL database using the MySQL_Close() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Close(MySQL Handle)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Close</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -354,82 +354,82 @@
 <span id="index-6"></span><h2>MySQL_Query() Function<a class="headerlink" href="#mysql-query-function" title="Permalink to this headline">¶</a></h2>
 <p>We can execute SQL queries using the MySQL_Query() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Query(MySQL Handle, cSQLQuery)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Query</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cSQLQuery</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="create-database">
 <span id="index-7"></span><h2>Create Database<a class="headerlink" href="#create-database" title="Permalink to this headline">¶</a></h2>
 <p>The next example connect to MySQL Server then create new database.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;MySQL Test - Create Database&quot; + nl
-con = mysql_init()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;MySQL Test - Create Database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
 
-See &quot;Connect&quot; + nl
-if mysql_connect(con,&quot;localhost&quot;,&quot;root&quot;,&quot;root&quot;) = 0
-        see &quot;Cann&#39;t connect&quot; + nl
-        see &quot;Error : &quot; + mysql_error(con) + nl
-        mysql_close(con)
-        bye
-ok
+<span class="k">See</span> <span class="s">&quot;Connect&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">if</span> <span class="n">mysql_connect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="s">&quot;localhost&quot;</span><span class="p">,</span><span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;root&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">see</span> <span class="s">&quot;Cann&#39;t connect&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="s">&quot;Error : &quot;</span> <span class="o">+</span> <span class="n">mysql_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+        <span class="k">bye</span>
+<span class="k">ok</span>
 
-See &quot;Create Database...&quot; + nl
-mysql_query(con,&quot;CREATE DATABASE mahdb&quot;)
+<span class="k">See</span> <span class="s">&quot;Create Database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="s">&quot;CREATE DATABASE mahdb&quot;</span><span class="p">)</span>
 
-See &quot;Close Connection&quot; + nl
-mysql_close(con)
+<span class="k">See</span> <span class="s">&quot;Close Connection&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL Test - Create Database
-Connect
-Create Database...
-Close Connection
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL</span> <span class="n">Test</span> <span class="o">-</span> <span class="n">Create</span> <span class="n">Database</span>
+<span class="n">Connect</span>
+<span class="n">Create</span> <span class="n">Database</span><span class="p">...</span>
+<span class="n">Close</span> <span class="n">Connection</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="create-table-and-insert-data">
 <span id="index-8"></span><h2>Create Table and Insert Data<a class="headerlink" href="#create-table-and-insert-data" title="Permalink to this headline">¶</a></h2>
 <p>The next example create new table and insert records</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
-        see &quot;Create Table and Insert Records&quot; + nl
-        con = mysql_init()
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="k">see</span> <span class="s">&quot;Create Table and Insert Records&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
 
-        see &quot;Connect&quot; + nl
-        if mysql_connect(con, &quot;localhost&quot;, &quot;root&quot;, &quot;root&quot;,&quot;mahdb&quot;) = 0
-                system_error(con)
-        ok
+        <span class="k">see</span> <span class="s">&quot;Connect&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">if</span> <span class="n">mysql_connect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;mahdb&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+        <span class="k">ok</span>
 
-        see &quot;Drop table&quot; + nl
-        if mysql_query(con, &quot;DROP TABLE IF EXISTS Employee&quot;)  system_error(con) ok
+        <span class="k">see</span> <span class="s">&quot;Drop table&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">if</span> <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;DROP TABLE IF EXISTS Employee&quot;</span><span class="p">)</span>  <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        see &quot;Create table&quot; + nl
-        if mysql_query(con, &quot;CREATE TABLE Employee(Id INT, Name TEXT, Salary INT)&quot;)
-           system_error(con) ok
+        <span class="k">see</span> <span class="s">&quot;Create table&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">if</span> <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;CREATE TABLE Employee(Id INT, Name TEXT, Salary INT)&quot;</span><span class="p">)</span>
+           <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        see &quot;Insert data&quot; + nl
-        if mysql_query(con, &quot;INSERT INTO Employee VALUES(1,&#39;Mahmoud&#39;,15000)&quot;)
-           system_error(con) ok
+        <span class="k">see</span> <span class="s">&quot;Insert data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">if</span> <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Employee VALUES(1,&#39;Mahmoud&#39;,15000)&quot;</span><span class="p">)</span>
+           <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        if mysql_query(con, &quot;INSERT INTO Employee VALUES(2,&#39;Samir&#39;,16000)&quot;)
-           system_error(con) ok
+        <span class="k">if</span> <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Employee VALUES(2,&#39;Samir&#39;,16000)&quot;</span><span class="p">)</span>
+           <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        if mysql_query(con, &quot;INSERT INTO Employee VALUES(3,&#39;Fayed&#39;,17000)&quot;)
-           system_error(con) ok
+        <span class="k">if</span> <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Employee VALUES(3,&#39;Fayed&#39;,17000)&quot;</span><span class="p">)</span>
+           <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        see &quot;Close connection&quot; + nl
-        mysql_close(con)
+        <span class="k">see</span> <span class="s">&quot;Close connection&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 
-func system_error con
-        see mysql_error(con)  mysql_close(con)  bye
+<span class="k">func</span> <span class="n">system_error</span> <span class="n">con</span>
+        <span class="k">see</span> <span class="n">mysql_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>  <span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>  <span class="k">bye</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Create Table and Insert Records
-Connect
-Drop table
-Create table
-Insert data
-Close connection
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Create</span> <span class="n">Table</span> <span class="ow">and</span> <span class="n">Insert</span> <span class="n">Records</span>
+<span class="n">Connect</span>
+<span class="n">Drop</span> <span class="n">table</span>
+<span class="n">Create</span> <span class="n">table</span>
+<span class="n">Insert</span> <span class="n">data</span>
+<span class="n">Close</span> <span class="n">connection</span>
 </pre></div>
 </div>
 </div>
@@ -437,41 +437,41 @@ Close connection
 <span id="index-9"></span><h2>MySQL_Insert_ID() Function<a class="headerlink" href="#mysql-insert-id-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the inserted row id using the MySQL_Insert_ID() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Insert_ID() ---&gt; Inserted row id as number
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Insert_ID</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Inserted</span> <span class="n">row</span> <span class="n">id</span> <span class="n">as</span> <span class="n">number</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>con = mysql_init()
-see &quot;connect to database&quot; + nl
-mysql_connect(con,&quot;localhost&quot;,&quot;root&quot;,&quot;root&quot;,&quot;mahdb&quot;)
-see &quot;drop table&quot; + nl
-mysql_query(con, &quot;DROP TABLE IF EXISTS Customers&quot;)
-see &quot;create table&quot; + nl
-mysql_query(con, &quot;CREATE TABLE Customers(Id INT PRIMARY KEY AUTO_INCREMENT, Name TEXT)&quot;)
-see &quot;insert record&quot; + nl
-mysql_query(con, &quot;INSERT INTO Customers(Name) VALUES(&#39;Mahmoud&#39;)&quot;)
-see &quot;insert record&quot; + nl
-mysql_query(con, &quot;INSERT INTO Customers(Name) VALUES(&#39;Samir&#39;)&quot;)
-see &quot;insert record&quot; + nl
-mysql_query(con, &quot;INSERT INTO Customers(Name) VALUES(&#39;Fayed&#39;)&quot;)
-see &quot;insert record&quot; + nl
-mysql_query(con, &quot;INSERT INTO Customers(Name) VALUES(&#39;Test 2015&#39;)&quot;)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
+<span class="k">see</span> <span class="s">&quot;connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_connect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="s">&quot;localhost&quot;</span><span class="p">,</span><span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;mahdb&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;drop table&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;DROP TABLE IF EXISTS Customers&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;create table&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;CREATE TABLE Customers(Id INT PRIMARY KEY AUTO_INCREMENT, Name TEXT)&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;insert record&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Customers(Name) VALUES(&#39;Mahmoud&#39;)&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;insert record&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Customers(Name) VALUES(&#39;Samir&#39;)&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;insert record&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Customers(Name) VALUES(&#39;Fayed&#39;)&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;insert record&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Customers(Name) VALUES(&#39;Test 2015&#39;)&quot;</span><span class="p">)</span>
 
-see &quot;inserted row id : &quot; + mysql_insert_id(con) + nl
-see &quot;close database&quot; + nl
-mysql_close(con)
+<span class="k">see</span> <span class="s">&quot;inserted row id : &quot;</span> <span class="o">+</span> <span class="n">mysql_insert_id</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;close database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>connect to database
-drop table
-create table
-insert record
-insert record
-insert record
-insert record
-inserted row id : 4
-close database
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">connect</span> <span class="k">to</span> <span class="n">database</span>
+<span class="n">drop</span> <span class="n">table</span>
+<span class="n">create</span> <span class="n">table</span>
+<span class="n">insert</span> <span class="n">record</span>
+<span class="n">insert</span> <span class="n">record</span>
+<span class="n">insert</span> <span class="n">record</span>
+<span class="n">insert</span> <span class="n">record</span>
+<span class="n">inserted</span> <span class="n">row</span> <span class="n">id</span> <span class="p">:</span> <span class="mi">4</span>
+<span class="n">close</span> <span class="n">database</span>
 </pre></div>
 </div>
 </div>
@@ -479,7 +479,7 @@ close database
 <span id="index-10"></span><h2>MySQL_Result() Function<a class="headerlink" href="#mysql-result-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the query result (data without column names) using the MySQL_Result() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Result(MySQL Handle) ---&gt; List contains the query result
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Result</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">query</span> <span class="n">result</span>
 </pre></div>
 </div>
 </div>
@@ -488,34 +488,34 @@ close database
 <p>We can move to the next query result using the MySQL_Next_Result() function.
 We use this function when we have multiple SQL statements in the same query.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Next_Result(MySQL Handle)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Next_Result</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="print-query-result">
 <span id="index-12"></span><h2>Print Query Result<a class="headerlink" href="#print-query-result" title="Permalink to this headline">¶</a></h2>
 <p>The next example execute a query on the database then print the result.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>con = mysql_init()
-see &quot;Connect to database&quot; + nl
-mysql_connect(con, &quot;localhost&quot;, &quot;root&quot;, &quot;root&quot;,&quot;mahdb&quot;)
-see &quot;Execute Query&quot; + nl
-mysql_query(con, &quot;SELECT Name FROM Employee WHERE Id=1;&quot;+
-                 &quot;SELECT Name FROM Employee WHERE Id=3&quot;)
-see &quot;Print Result&quot; + nl
-see mysql_result(con)
-mysql_next_result(con)
-see mysql_result(con)
-see &quot;close database&quot; + nl
-mysql_close(con)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
+<span class="k">see</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_connect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;mahdb&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Execute Query&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;SELECT Name FROM Employee WHERE Id=1;&quot;</span><span class="o">+</span>
+                 <span class="s">&quot;SELECT Name FROM Employee WHERE Id=3&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Print Result&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">mysql_result</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+<span class="n">mysql_next_result</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">mysql_result</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;close database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Connect to database
-Execute Query
-Print Result
-Mahmoud
-Fayed
-close database
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
+<span class="n">Execute</span> <span class="n">Query</span>
+<span class="n">Print</span> <span class="n">Result</span>
+<span class="n">Mahmoud</span>
+<span class="n">Fayed</span>
+<span class="n">close</span> <span class="n">database</span>
 </pre></div>
 </div>
 </div>
@@ -523,38 +523,38 @@ close database
 <span id="index-13"></span><h2>MySQL_Columns() Function<a class="headerlink" href="#mysql-columns-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get a list of columns names using the MySQL_Columns() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Columns(MySQL Handle) ---&gt; List contains columns information
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Columns</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">columns</span> <span class="n">information</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>con = mysql_init()
-see &quot;Connect to database&quot; + nl
-mysql_connect(con, &quot;localhost&quot;, &quot;root&quot;, &quot;root&quot;,&quot;mahdb&quot;)
-see &quot;Execute Query&quot; + nl
-mysql_query(con, &quot;SELECT * FROM Employee&quot;)
-see &quot;Result&quot; + nl
-see mysql_columns(con)
-see &quot;Close database&quot; + nl
-mysql_close(con)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
+<span class="k">see</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_connect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;mahdb&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Execute Query&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;SELECT * FROM Employee&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Result&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">mysql_columns</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Close database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Connect to database
-Execute Query
-Result
-Id
-11
-3
-32768
-Name
-65535
-252
-16
-Salary
-11
-3
-32768
-Close database
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
+<span class="n">Execute</span> <span class="n">Query</span>
+<span class="n">Result</span>
+<span class="n">Id</span>
+<span class="mi">11</span>
+<span class="mi">3</span>
+<span class="mi">32768</span>
+<span class="n">Name</span>
+<span class="mi">65535</span>
+<span class="mi">252</span>
+<span class="mi">16</span>
+<span class="n">Salary</span>
+<span class="mi">11</span>
+<span class="mi">3</span>
+<span class="mi">32768</span>
+<span class="n">Close</span> <span class="n">database</span>
 </pre></div>
 </div>
 </div>
@@ -563,38 +563,38 @@ Close database
 <p>Instead of using MySQL_Result() to get the result data without columns names, we can use the MySQL_Result2() to get all of the
 column names then the query result in one list.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Result2(MySQL Handle) ---&gt; List (query result starts with columns names)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Result2</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="p">(</span><span class="n">query</span> <span class="n">result</span> <span class="n">starts</span> <span class="n">with</span> <span class="n">columns</span> <span class="n">names</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>con = mysql_init()
-see &quot;Connect to database&quot; + nl
-mysql_connect(con, &quot;localhost&quot;, &quot;root&quot;, &quot;root&quot;,&quot;mahdb&quot;)
-see &quot;Execute Query&quot; + nl
-mysql_query(con, &quot;SELECT * FROM Employee&quot;)
-see &quot;Print Result&quot; + nl
-see mysql_result2(con)
-see &quot;Close database&quot; + nl
-mysql_close(con)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
+<span class="k">see</span> <span class="s">&quot;Connect to database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_connect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;mahdb&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Execute Query&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;SELECT * FROM Employee&quot;</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Print Result&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">mysql_result2</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+<span class="k">see</span> <span class="s">&quot;Close database&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Connect to database
-Execute Query
-Print Result
-Id
-Name
-Salary
-1
-Mahmoud
-15000
-2
-Samir
-16000
-3
-Fayed
-17000
-Close database
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span>
+<span class="n">Execute</span> <span class="n">Query</span>
+<span class="n">Print</span> <span class="n">Result</span>
+<span class="n">Id</span>
+<span class="n">Name</span>
+<span class="n">Salary</span>
+<span class="mi">1</span>
+<span class="n">Mahmoud</span>
+<span class="mi">15000</span>
+<span class="mi">2</span>
+<span class="n">Samir</span>
+<span class="mi">16000</span>
+<span class="mi">3</span>
+<span class="n">Fayed</span>
+<span class="mi">17000</span>
+<span class="n">Close</span> <span class="n">database</span>
 </pre></div>
 </div>
 </div>
@@ -603,56 +603,56 @@ Close database
 <p>We can store binary data and special characters in the database after
 processing using MySQL_Escape_String() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Escape_String(MySQL Handle, cString) ---&gt; String after processing
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Escape_String</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">cString</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">after</span> <span class="n">processing</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="save-image-inside-the-database">
 <span id="index-16"></span><h2>Save Image inside the database<a class="headerlink" href="#save-image-inside-the-database" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Read file&quot; + nl
-cFile = read(&quot;tests\mahmoud.jpg&quot;)
-con = mysql_init()
-See &quot;Connect to database...&quot; + nl
-mysql_connect(con, &quot;localhost&quot;, &quot;root&quot;, &quot;root&quot;,&quot;mahdb&quot;)
-See &quot;Escape string...&quot; + nl
-cFile = mysql_escape_string(con,cFile)
-stmt = &quot;INSERT INTO photo(id, data) VALUES(1, &#39;&quot; + cFile + &quot;&#39;)&quot;
-See &quot;Insert data...&quot; + nl
-mysql_query(con,stmt)
-See &quot;Close database...&quot; + nl
-mysql_close(con)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Read file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">cFile</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;tests\mahmoud.jpg&quot;</span><span class="p">)</span>
+<span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
+<span class="k">See</span> <span class="s">&quot;Connect to database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_connect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;mahdb&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Escape string...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">cFile</span> <span class="o">=</span> <span class="n">mysql_escape_string</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="n">cFile</span><span class="p">)</span>
+<span class="n">stmt</span> <span class="o">=</span> <span class="s">&quot;INSERT INTO photo(id, data) VALUES(1, &#39;&quot;</span> <span class="o">+</span> <span class="n">cFile</span> <span class="o">+</span> <span class="s">&quot;&#39;)&quot;</span>
+<span class="k">See</span> <span class="s">&quot;Insert data...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="n">stmt</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Read file
-Connect to database...
-Escape string...
-Insert data...
-Close database...
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Read</span> <span class="n">file</span>
+<span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span><span class="p">...</span>
+<span class="n">Escape</span> <span class="kt">string</span><span class="p">...</span>
+<span class="n">Insert</span> <span class="n">data</span><span class="p">...</span>
+<span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="restore-image-from-the-database">
 <span id="index-17"></span><h2>Restore Image From The Database<a class="headerlink" href="#restore-image-from-the-database" title="Permalink to this headline">¶</a></h2>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>con = mysql_init()
-See &quot;Connect to database...&quot; + nl
-mysql_connect(con, &quot;localhost&quot;, &quot;root&quot;, &quot;root&quot;,&quot;mahdb&quot;)
-See &quot;Read data from database...&quot; + nl
-mysql_query(con,&quot;SELECT data FROM photo WHERE id=1&quot;)
-See &quot;Write new file&quot; + nl
-result = mysql_result(con)
-write(&quot;tests\mahmoud2.jpg&quot;,result[1][1])
-See &quot;Close database...&quot; + nl
-mysql_close(con)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
+<span class="k">See</span> <span class="s">&quot;Connect to database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_connect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;mahdb&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Read data from database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="s">&quot;SELECT data FROM photo WHERE id=1&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Write new file&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">mysql_result</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+<span class="n">write</span><span class="p">(</span><span class="s">&quot;tests\mahmoud2.jpg&quot;</span><span class="p">,</span><span class="n">result</span><span class="o">[</span><span class="mi">1</span><span class="o">][</span><span class="mi">1</span><span class="o">]</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Close database...&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Connect to database...
-Read data from database...
-Write new file
-Close database...
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Connect</span> <span class="k">to</span> <span class="n">database</span><span class="p">...</span>
+<span class="n">Read</span> <span class="n">data</span> <span class="k">from</span> <span class="n">database</span><span class="p">...</span>
+<span class="n">Write</span> <span class="k">new</span> <span class="n">file</span>
+<span class="n">Close</span> <span class="n">database</span><span class="p">...</span>
 </pre></div>
 </div>
 </div>
@@ -660,7 +660,7 @@ Close database...
 <span id="index-18"></span><h2>MySQL_AutoCommit() Function<a class="headerlink" href="#mysql-autocommit-function" title="Permalink to this headline">¶</a></h2>
 <p>We can enable or disable the auto commit feature using the MySQL_AutoCommit() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_AutoCommit(MySQL Handle, lStatus)  # lstatus can be True/False
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_AutoCommit</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">,</span> <span class="n">lStatus</span><span class="p">)</span>  <span class="c"># lstatus can be True/False</span>
 </pre></div>
 </div>
 </div>
@@ -668,7 +668,7 @@ Close database...
 <span id="index-19"></span><h2>MySQL_Commit() Function<a class="headerlink" href="#mysql-commit-function" title="Permalink to this headline">¶</a></h2>
 <p>We can commit updates to the database using the MySQL_Commit() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Commit(MySQL Handle)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Commit</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -676,7 +676,7 @@ Close database...
 <span id="index-20"></span><h2>MySQL_Rollback() Function<a class="headerlink" href="#mysql-rollback-function" title="Permalink to this headline">¶</a></h2>
 <p>We can rollback updates to the database using the MySQL_Rollback() function.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>MySQL_Rollback(MySQL Handle)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">MySQL_Rollback</span><span class="p">(</span><span class="n">MySQL</span> <span class="n">Handle</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -685,60 +685,60 @@ Close database...
 <p>The next example presents the usage of MySQL_Autocommit(), MySQL_Commit()
 &amp; MySQL_RollBack() functions.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func main
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
 
-        con = mysql_init()
+        <span class="n">con</span> <span class="o">=</span> <span class="n">mysql_init</span><span class="p">()</span>
 
-        see &quot;Connect&quot; + nl
-        if mysql_connect(con, &quot;localhost&quot;, &quot;root&quot;, &quot;root&quot;,&quot;mahdb&quot;) = 0
-                system_error(con) ok
+        <span class="k">see</span> <span class="s">&quot;Connect&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">if</span> <span class="n">mysql_connect</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;localhost&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span> <span class="s">&quot;root&quot;</span><span class="p">,</span><span class="s">&quot;mahdb&quot;</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        see &quot;Drop table&quot; + nl
-        if mysql_query(con, &quot;DROP TABLE IF EXISTS Employee2&quot;)
-                system_error(con) ok
+        <span class="k">see</span> <span class="s">&quot;Drop table&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">if</span> <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;DROP TABLE IF EXISTS Employee2&quot;</span><span class="p">)</span>
+                <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        see &quot;Create table&quot; + nl
-        if mysql_query(con, &quot;CREATE TABLE Employee2(Id INT, Name TEXT, Salary INT)&quot;)
-                system_error(con) ok
+        <span class="k">see</span> <span class="s">&quot;Create table&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">if</span> <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;CREATE TABLE Employee2(Id INT, Name TEXT, Salary INT)&quot;</span><span class="p">)</span>
+                <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        see &quot;Insert data&quot; + nl
-        if mysql_query(con, &quot;INSERT INTO Employee2 VALUES(1,&#39;Mahmoud&#39;,15000)&quot;)
-                system_error(con) ok
+        <span class="k">see</span> <span class="s">&quot;Insert data&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">if</span> <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Employee2 VALUES(1,&#39;Mahmoud&#39;,15000)&quot;</span><span class="p">)</span>
+                <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        if mysql_query(con, &quot;INSERT INTO Employee2 VALUES(2,&#39;Samir&#39;,16000)&quot;)
-                system_error(con) ok
+        <span class="k">if</span> <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Employee2 VALUES(2,&#39;Samir&#39;,16000)&quot;</span><span class="p">)</span>
+                <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        if mysql_query(con, &quot;INSERT INTO Employee2 VALUES(3,&#39;Fayed&#39;,17000)&quot;)
-                system_error(con) ok
+        <span class="k">if</span> <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Employee2 VALUES(3,&#39;Fayed&#39;,17000)&quot;</span><span class="p">)</span>
+                <span class="n">system_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span> <span class="k">ok</span>
 
-        mysql_autocommit(con,False)
-        mysql_query(con, &quot;INSERT INTO Employee2 VALUES(4,&#39;Ahmed&#39;,5000)&quot;)
-        mysql_query(con, &quot;INSERT INTO Employee2 VALUES(5,&#39;Ibrahim&#39;,50000)&quot;)
-        mysql_query(con, &quot;INSERT INTO Employee2 VALUES(6,&#39;Mohammed&#39;,50000)&quot;)
-        See &quot;Save transaction (y/n) &quot; give nChoice
-        if upper(nChoice) = &quot;Y&quot;
-                mysql_commit(con)
-        else
-                mysql_rollback(con)
-        ok
+        <span class="n">mysql_autocommit</span><span class="p">(</span><span class="n">con</span><span class="p">,</span><span class="kp">False</span><span class="p">)</span>
+        <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Employee2 VALUES(4,&#39;Ahmed&#39;,5000)&quot;</span><span class="p">)</span>
+        <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Employee2 VALUES(5,&#39;Ibrahim&#39;,50000)&quot;</span><span class="p">)</span>
+        <span class="n">mysql_query</span><span class="p">(</span><span class="n">con</span><span class="p">,</span> <span class="s">&quot;INSERT INTO Employee2 VALUES(6,&#39;Mohammed&#39;,50000)&quot;</span><span class="p">)</span>
+        <span class="k">See</span> <span class="s">&quot;Save transaction (y/n) &quot;</span> <span class="k">give</span> <span class="n">nChoice</span>
+        <span class="k">if</span> <span class="n">upper</span><span class="p">(</span><span class="n">nChoice</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;Y&quot;</span>
+                <span class="n">mysql_commit</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+        <span class="k">else</span>
+                <span class="n">mysql_rollback</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+        <span class="k">ok</span>
 
-        see &quot;Close connection&quot; + nl
-        mysql_close(con)
+        <span class="k">see</span> <span class="s">&quot;Close connection&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
 
-func system_error con
+<span class="k">func</span> <span class="n">system_error</span> <span class="n">con</span>
 
-        see mysql_error(con)
-        mysql_close(con)
-        bye
+        <span class="k">see</span> <span class="n">mysql_error</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+        <span class="n">mysql_close</span><span class="p">(</span><span class="n">con</span><span class="p">)</span>
+        <span class="k">bye</span>
 </pre></div>
 </div>
 <p>Output:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Connect
-Drop table
-Create table
-Insert data
-Save transaction (y/n) y
-Close connection
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Connect</span>
+<span class="n">Drop</span> <span class="n">table</span>
+<span class="n">Create</span> <span class="n">table</span>
+<span class="n">Insert</span> <span class="n">data</span>
+<span class="n">Save</span> <span class="n">transaction</span> <span class="p">(</span><span class="n">y</span><span class="o">/</span><span class="n">n</span><span class="p">)</span> <span class="n">y</span>
+<span class="n">Close</span> <span class="n">connection</span>
 </pre></div>
 </div>
 </div>

@@ -322,11 +322,11 @@ many source code files ( <a href="#id3"><span class="problematic" id="id4">*</sp
 <img alt="Better Ring for Android" src="_images/cardsqt.png" />
 <p>To prepare Qt project to distribute RingQt application for Mobile use Ring2EXE</p>
 <p>Example</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring2exe cards.ring -dist -mobileqt
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">cards</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
 </pre></div>
 </div>
 <p>Example (2)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ring2exe formdesigner.ring -dist -mobileqt
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ring2exe</span> <span class="n">formdesigner</span><span class="p">.</span><span class="n">ring</span> <span class="o">-</span><span class="n">dist</span> <span class="o">-</span><span class="n">mobileqt</span>
 </pre></div>
 </div>
 <img alt="Form Designer - Android" src="_images/formdesignerandroid.png" />
@@ -459,7 +459,7 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 <span id="index-14"></span><h2>Using Tab instead of char(9)<a class="headerlink" href="#using-tab-instead-of-char-9" title="Permalink to this headline">¶</a></h2>
 <p>The variable Tab is defined to be used instead of char(9)</p>
 <p>Example (1):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>see :one + nl + tab + :two + nl + tab + tab + :three
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="p">:</span><span class="n">one</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">two</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">three</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -470,8 +470,8 @@ see murmurhash3_x86_32(key, 0, 1) + nl // Output: 70eaef35
 </div>
 <p>You can change the variable to another value</p>
 <p>Example (2):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>tab = &quot;  &quot;
-see :one + nl + tab + :two + nl + tab + tab + :three
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">tab</span> <span class="o">=</span> <span class="s">&quot;  &quot;</span>
+<span class="k">see</span> <span class="p">:</span><span class="n">one</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">two</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="n">tab</span> <span class="o">+</span> <span class="p">:</span><span class="n">three</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -484,8 +484,8 @@ see :one + nl + tab + :two + nl + tab + tab + :three
 <div class="section" id="using-cr-as-carriage-return">
 <span id="index-15"></span><h2>Using CR as Carriage return<a class="headerlink" href="#using-cr-as-carriage-return" title="Permalink to this headline">¶</a></h2>
 <p>The next example count from 1 to 10 in the same line during 10 seconds</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlibcore.ring&quot;
-for x = 1 to 10 see x sleep(1) see cr next
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="k">see</span> <span class="n">x</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="k">see</span> <span class="n">cr</span> <span class="k">next</span>
 </pre></div>
 </div>
 </div>
@@ -495,9 +495,9 @@ for x = 1 to 10 see x sleep(1) see cr next
 <p>But for the logical operators we have and, or &amp; not</p>
 <p>Now we can use the ! operator as not</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>if ! false
-        see &quot;True!&quot; + nl
-ok
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="o">!</span> <span class="kp">false</span>
+        <span class="k">see</span> <span class="s">&quot;True!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
 </pre></div>
 </div>
 <p>Output</p>
@@ -520,33 +520,33 @@ ok
 <li><p>!</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>if one() and two()
-        see &quot;Test1 - Fail&quot; + nl
-else
-        see &quot;Test1 - Pass&quot; + nl
-ok
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">one</span><span class="p">()</span> <span class="ow">and</span> <span class="n">two</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;Test1 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;Test1 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
 
-if two() or one()
-        see &quot;Test2 - Pass&quot; + nl
-else
-        see &quot;Test2 - Fail&quot; + nl
-ok
+<span class="k">if</span> <span class="n">two</span><span class="p">()</span> <span class="ow">or</span> <span class="n">one</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;Test2 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;Test2 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
 
-if one() &amp;&amp; two()
-        see &quot;Test3 - Fail&quot; + nl
-else
-        see &quot;Test3 - Pass&quot; + nl
-ok
+<span class="k">if</span> <span class="n">one</span><span class="p">()</span> <span class="o">&amp;&amp;</span> <span class="n">two</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;Test3 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;Test3 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
 
-if two() || one()
-        see &quot;Test4 - Pass&quot; + nl
-else
-        see &quot;Test4 - Fail&quot; + nl
-ok
+<span class="k">if</span> <span class="n">two</span><span class="p">()</span> <span class="o">||</span> <span class="n">one</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;Test4 - Pass&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;Test4 - Fail&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
 
-func one return True
+<span class="k">func</span> <span class="n">one</span> <span class="k">return</span> <span class="kp">True</span>
 
-func two return False
+<span class="k">func</span> <span class="n">two</span> <span class="k">return</span> <span class="kp">False</span>
 </pre></div>
 </div>
 <p>Output:</p>
@@ -561,10 +561,10 @@ Test4 - Pass
 <span id="index-18"></span><h2>Using ? to print expression then new line<a class="headerlink" href="#using-to-print-expression-then-new-line" title="Permalink to this headline">¶</a></h2>
 <p>It’s common to print new line after printing an expression, We can use the ? operator to do that!</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>? &quot;Hello, World!&quot;
-for x = 1 to 10
-        ? x
-next
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="o">?</span> <span class="n">x</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 <p>Output:</p>

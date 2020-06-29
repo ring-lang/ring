@@ -281,16 +281,16 @@
 <span id="index-1"></span><h2>Define Functions<a class="headerlink" href="#define-functions" title="Permalink to this headline">¶</a></h2>
 <p>To define new function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func &lt;function_name&gt; [parameters] [&#39;{&#39;]
-        Block of statements
-[&#39;}&#39;]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="o">&lt;</span><span class="n">function_name</span><span class="o">&gt;</span> <span class="o">[</span><span class="n">parameters</span><span class="o">]</span> <span class="o">[</span><span class="sc">&#39;{&#39;</span><span class="o">]</span>
+        <span class="n">Block</span> <span class="n">of</span> <span class="n">statements</span>
+<span class="o">[</span><span class="sc">&#39;}&#39;</span><span class="o">]</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
-func hello {
-        print(&quot;Hello from function \n&quot;)
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">func</span> <span class="n">hello</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello from function </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -302,23 +302,23 @@ func hello {
 <p>We can call the function before the function definition and the function code.</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-hello()
+<span class="n">hello</span><span class="p">()</span>
 
-func hello {
-        print(&quot;Hello from function \n&quot;)
-}
+<span class="k">func</span> <span class="n">hello</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello from function </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-first()  second()
+<span class="n">first</span><span class="p">()</span>  <span class="n">second</span><span class="p">()</span>
 
-func first {  print(&quot;message from the first function \n&quot;)  }
+<span class="k">func</span> <span class="n">first</span> <span class="p">{</span>  <span class="n">print</span><span class="p">(</span><span class="s">&quot;message from the first function </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>  <span class="p">}</span>
 
-func second { print(&quot;message from the second function \n&quot;) }
+<span class="k">func</span> <span class="n">second</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="s">&quot;message from the second function </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -327,11 +327,11 @@ func second { print(&quot;message from the second function \n&quot;) }
 <p>To declare the function parameters, after the function name type the list of parameters as a group
 of identifiers separated by comma.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-func sum(x,y) {
-        print(x+y)
-}
+<span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -339,20 +339,20 @@ func sum(x,y) {
 <span id="index-4"></span><h2>Send Parameters<a class="headerlink" href="#send-parameters" title="Permalink to this headline">¶</a></h2>
 <p>To send parameters to function, type the parameters inside () after the function name</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>funcname(parameters)
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">funcname</span><span class="p">(</span><span class="n">parameters</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>/* output
-** 8
-** 3000
-*/
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">output</span>
+<span class="o">**</span> <span class="mi">8</span>
+<span class="o">**</span> <span class="mi">3000</span>
+<span class="o">*/</span>
 
-load &quot;stdlib.ring&quot;
+<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-sum(3,5) sum(1000,2000)
+<span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span> <span class="n">sum</span><span class="p">(</span><span class="mi">1000</span><span class="p">,</span><span class="mi">2000</span><span class="p">)</span>
 
-func sum(x,y) { print(x+y) }
+<span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="p">{</span> <span class="n">print</span><span class="p">(</span><span class="n">x</span><span class="o">+</span><span class="n">y</span><span class="p">)</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -362,15 +362,15 @@ func sum(x,y) { print(x+y) }
 when it’s defined, it will be executed after the end of other statements.</p>
 <p>if no other statements comes alone, the main function will be the first <a class="reference external" href="http://en.wikipedia.org/wiki/Entry_point">entry point</a></p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># this program will print the hello world message first then execute the main function
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># this program will print the hello world message first then execute the main function</span>
 
-load &quot;stdlib.ring&quot;
+<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-print(&quot;Hello, World! \n&quot;)
+<span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, World! </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
 
-func main {
-        print(&quot;Message from the main function \n&quot;)
-}
+<span class="k">func</span> <span class="n">main</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Message from the main function </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -382,22 +382,22 @@ determine the scope of a variable.</p>
 Variables defined outside functions (before any function) are global variables.</p>
 <p>Inside any function we can access the variables defined inside this function beside the global variables.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span># the program will print numbers from 10 to 1
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># the program will print numbers from 10 to 1</span>
 
-load &quot;stdlib.ring&quot;
+<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-x = 10                          # x is a global variable.
+<span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>                          <span class="c"># x is a global variable.</span>
 
-func main {
-        for t = 1 to 10 {       # t is a local variable
-                mycounter()     # call function
-        }
-}
+<span class="k">func</span> <span class="n">main</span> <span class="p">{</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span> <span class="p">{</span>       <span class="c"># t is a local variable</span>
+                <span class="n">mycounter</span><span class="p">()</span>     <span class="c"># call function</span>
+        <span class="p">}</span>
+<span class="p">}</span>
 
-func mycounter {
-        print(&quot;#{x}\n&quot;)         # print the global variable value
-        x--                     # decrement
-}
+<span class="k">func</span> <span class="n">mycounter</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;#{x}</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>         <span class="c"># print the global variable value</span>
+        <span class="n">x</span><span class="o">--</span>                     <span class="c"># decrement</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -411,7 +411,7 @@ of the new variables to local.</p>
 <span id="index-7"></span><h2>Return Value<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
 <p>The function can return a value using the Return command.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Return [Expression]
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Return</span> <span class="o">[</span><span class="n">Expression</span><span class="o">]</span>
 </pre></div>
 </div>
 <div class="admonition tip">
@@ -424,13 +424,13 @@ to end the function execution without returning any value.</p>
 <p>if the function doesn’t return explicit value, it will return NULL (empty string = “” ).</p>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-if novalue() = NULL {
-        print(&quot;the function doesn&#39;t return a value\n&quot;)
-}
+<span class="k">if</span> <span class="n">novalue</span><span class="p">()</span> <span class="o">=</span> <span class="kp">NULL</span> <span class="p">{</span>
+        <span class="n">print</span><span class="p">(</span><span class="s">&quot;the function doesn&#39;t return a value</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 
-func novalue { }
+<span class="k">func</span> <span class="n">novalue</span> <span class="p">{</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -439,11 +439,11 @@ func novalue { }
 <p>The Ring programming language support <a class="reference external" href="http://en.wikipedia.org/wiki/Recursion_%28computer_science%29">Recursion</a>
 and the function can call itself using different parameters.</p>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;stdlib.ring&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
 
-print( fact(5) )        # output = 120
+<span class="n">print</span><span class="p">(</span> <span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="p">)</span>        <span class="c"># output = 120</span>
 
-func fact(x) { if x = 0 { return 1 else return x * fact(x-1) } }
+<span class="k">func</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">{</span> <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">0</span> <span class="p">{</span> <span class="k">return</span> <span class="mi">1</span> <span class="k">else</span> <span class="k">return</span> <span class="n">x</span> <span class="o">*</span> <span class="n">fact</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="p">}</span> <span class="p">}</span>
 </pre></div>
 </div>
 </div>

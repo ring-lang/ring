@@ -350,20 +350,20 @@ git commit -m &quot;Update file permission&quot;
 <span id="index-4"></span><h2>Hello World program<a class="headerlink" href="#hello-world-program" title="Permalink to this headline">¶</a></h2>
 <p>file : ringapp/helloworld.ring</p>
 <p>To run it : <a class="reference external" href="http://testring.herokuapp.com/ringapp/helloworld.ring">http://testring.herokuapp.com/ringapp/helloworld.ring</a></p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>#!/app/runring.sh -cgi
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!/app/runring.sh -cgi</span>
 
-see &quot;content-type: text/html&quot; +nl+nl
-see &quot;Hello, World!&quot; + nl
+<span class="k">see</span> <span class="s">&quot;content-type: text/html&quot;</span> <span class="o">+</span><span class="n">nl</span><span class="o">+</span><span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Hello, World!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>file : ringapp/helloworld2.ring</p>
 <p>To run it : <a class="reference external" href="http://testring.herokuapp.com/ringapp/helloworld2.ring">http://testring.herokuapp.com/ringapp/helloworld2.ring</a></p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>#!/app/runring.sh -cgi
-load &quot;weblib.ring&quot;
-import System.Web
-new page {
-        text(&quot;Hello, World!&quot;)
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!/app/runring.sh -cgi</span>
+<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
+<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<span class="k">new</span> <span class="n">page</span> <span class="p">{</span>
+        <span class="n">text</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">)</span>
+<span class="p">}</span>
 </pre></div>
 </div>
 </div>
@@ -396,7 +396,7 @@ heroku open
 <span id="index-7"></span><h2>Local Tests<a class="headerlink" href="#local-tests" title="Permalink to this headline">¶</a></h2>
 <p>Local tests using Ring Notepad on Windows (Using local Apache Web Server)</p>
 <p>Replace the first line in the file : ringapp/index.ring with</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>#!ring -cgi
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 </pre></div>
 </div>
 <p>Then run it from Ring Notepad (Ctrl+F6)</p>

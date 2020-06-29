@@ -297,87 +297,87 @@ high quality solutions that can scale.</p>
 <div class="section" id="simple">
 <span id="index-3"></span><h2>Simple<a class="headerlink" href="#simple" title="Permalink to this headline">¶</a></h2>
 <p>Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Hello, World!&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span>
 </pre></div>
 </div>
 <p>The Main function is optional and will be executed after the statements, and is useful for using the local scope.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func Main
-        See &quot;Hello, World!&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
+        <span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span>
 </pre></div>
 </div>
 <p>Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name!
 You can use the ‘+’ operator for string concatenation and the language is weakly typed and will convert automatically between numbers and strings based on the context.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>nCount = 10     # Global variable
-Func Main
-        nID = 1 # Local variable
-        See &quot;Count = &quot; + nCount + nl + &quot; ID = &quot; + nID
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">nCount</span> <span class="o">=</span> <span class="mi">10</span>     <span class="c"># Global variable</span>
+<span class="k">Func</span> <span class="n">Main</span>
+        <span class="n">nID</span> <span class="o">=</span> <span class="mi">1</span> <span class="c"># Local variable</span>
+        <span class="k">See</span> <span class="s">&quot;Count = &quot;</span> <span class="o">+</span> <span class="n">nCount</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="s">&quot; ID = &quot;</span> <span class="o">+</span> <span class="n">nID</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="trying-to-be-natural">
 <span id="index-4"></span><h2>Trying to be natural<a class="headerlink" href="#trying-to-be-natural" title="Permalink to this headline">¶</a></h2>
 <p>Ring is not case-sensitive</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Enter your name ? &quot;
-Give name
-See &quot;Hello &quot; + Name     # Name is the same as name
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter your name ? &quot;</span>
+<span class="k">Give</span> <span class="n">name</span>
+<span class="k">See</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">Name</span>     <span class="c"># Name is the same as name</span>
 </pre></div>
 </div>
 <p>The list index starts from 1</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;]
-See aList[1]    # print one
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>
+<span class="k">See</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>    <span class="c"># print one</span>
 </pre></div>
 </div>
 <p>Call functions before definition</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>one()
-two()
-three()
-Func one
-        See &quot;One&quot; + nl
-Func two
-        See &quot;two&quot; + nl
-Func three
-        See &quot;three&quot; + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">one</span><span class="p">()</span>
+<span class="n">two</span><span class="p">()</span>
+<span class="n">three</span><span class="p">()</span>
+<span class="k">Func</span> <span class="n">one</span>
+        <span class="k">See</span> <span class="s">&quot;One&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">Func</span> <span class="n">two</span>
+        <span class="k">See</span> <span class="s">&quot;two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">Func</span> <span class="n">three</span>
+        <span class="k">See</span> <span class="s">&quot;three&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>The assignment operator uses Deep copy (no references in this operation)</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [&quot;one&quot;,&quot;two&quot;,&quot;three&quot;]
-aList2 = aList
-aList[1] = 1
-see alist[1]    # print 1
-see aList2[1]   # print one
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="n">aList</span>
+<span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="k">see</span> <span class="n">alist</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>    <span class="c"># print 1</span>
+<span class="k">see</span> <span class="n">aList2</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>   <span class="c"># print one</span>
 </pre></div>
 </div>
 <p>Pass numbers and strings by value, but pass lists and objects by reference.
 The for in loop can update the list items.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Func Main
-        aList = [1,2,3]
-        update(aList)
-        see aList       # print one two three
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">Main</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span>
+        <span class="n">update</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">aList</span>       <span class="c"># print one two three</span>
 
-Func update aList
-        for x in aList
-                switch x
-                on 1 x = &quot;one&quot;
-                on 2 x = &quot;two&quot;
-                on 3 x = &quot;three&quot;
-                off
-        next
+<span class="k">Func</span> <span class="n">update</span> <span class="n">aList</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aList</span>
+                <span class="k">switch</span> <span class="n">x</span>
+                <span class="k">on</span> <span class="mi">1</span> <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;one&quot;</span>
+                <span class="k">on</span> <span class="mi">2</span> <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;two&quot;</span>
+                <span class="k">on</span> <span class="mi">3</span> <span class="n">x</span> <span class="o">=</span> <span class="s">&quot;three&quot;</span>
+                <span class="k">off</span>
+        <span class="k">next</span>
 </pre></div>
 </div>
 <p>Using Lists during definition</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
-see aList       # print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span> <span class="p">,</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="p">,</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">]</span>
+<span class="k">see</span> <span class="n">aList</span>       <span class="c"># print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5</span>
 </pre></div>
 </div>
 <p>Exit from more than one loop</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>for x = 1 to 10
-                for y = 1 to 10
-                                see &quot;x=&quot; + x + &quot; y=&quot; + y + nl
-                                if x = 3 and y = 5
-                                                exit 2     # exit from 2 loops
-                                ok
-                next
-next
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="k">for</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                                <span class="k">see</span> <span class="s">&quot;x=&quot;</span> <span class="o">+</span> <span class="n">x</span> <span class="o">+</span> <span class="s">&quot; y=&quot;</span> <span class="o">+</span> <span class="n">y</span> <span class="o">+</span> <span class="n">nl</span>
+                                <span class="k">if</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">3</span> <span class="ow">and</span> <span class="n">y</span> <span class="o">=</span> <span class="mi">5</span>
+                                                <span class="k">exit</span> <span class="mi">2</span>     <span class="c"># exit from 2 loops</span>
+                                <span class="k">ok</span>
+                <span class="k">next</span>
+<span class="k">next</span>
 </pre></div>
 </div>
 </div>
@@ -395,154 +395,154 @@ next
 <p>We can write one line comments and multi-line comments
 The comment starts with # or //
 Multi-line comments are written between /* and <a href="#id1"><span class="problematic" id="id2">*</span></a>/</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>/*
-        Program Name : My first program using Ring
-        Date         : 2015.05.08
-*/
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>
+        <span class="n">Program</span> <span class="n">Name</span> <span class="p">:</span> <span class="n">My</span> <span class="n">first</span> <span class="n">program</span> <span class="n">using</span> <span class="n">Ring</span>
+        <span class="n">Date</span>         <span class="p">:</span> <span class="mf">2015.05.08</span>
+<span class="o">*/</span>
 
-See &quot;What is your name? &quot;       # print message on screen
-give cName                      # get input from the user
-see &quot;Hello &quot; + cName            # say hello!
+<span class="k">See</span> <span class="s">&quot;What is your name? &quot;</span>       <span class="c"># print message on screen</span>
+<span class="k">give</span> <span class="n">cName</span>                      <span class="c"># get input from the user</span>
+<span class="k">see</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">cName</span>            <span class="c"># say hello!</span>
 
-// See &quot;Bye!&quot;
+<span class="o">//</span> <span class="k">See</span> <span class="s">&quot;Bye!&quot;</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="compact-syntax">
 <span id="index-6"></span><h2>Compact Syntax<a class="headerlink" href="#compact-syntax" title="Permalink to this headline">¶</a></h2>
 <p>The language is not line sensitive, you don’t need to write ; after statements, also you don’t need to press ENTER or TAB, so we can write the next code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;The First Message&quot; See &quot; Another message in the same line! &quot; + nl
-See &quot;Enter your name?&quot; Give Name See &quot;Hello &quot; + Name
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;The First Message&quot;</span> <span class="k">See</span> <span class="s">&quot; Another message in the same line! &quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Enter your name?&quot;</span> <span class="k">Give</span> <span class="n">Name</span> <span class="k">See</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">Name</span>
 </pre></div>
 </div>
 <p>The next code create a class called Point contains three attributes X,Y and Z. No keywords is used to end the package/class/function definition. Also, we can write the attributes names directly below the class name.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Class Point X Y Z
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">Point</span> <span class="n">X</span> <span class="n">Y</span> <span class="n">Z</span>
 </pre></div>
 </div>
 <p>We can use classes and functions before their definition, In this example we will create new object, set the object attributes then print the object values.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = New point  o1.x=10    o1.y=20   o1.z=30    See O1  Class Point X Y Z
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">New</span> <span class="n">point</span>  <span class="n">o1</span><span class="p">.</span><span class="n">x</span><span class="o">=</span><span class="mi">10</span>    <span class="n">o1</span><span class="p">.</span><span class="n">y</span><span class="o">=</span><span class="mi">20</span>   <span class="n">o1</span><span class="p">.</span><span class="n">z</span><span class="o">=</span><span class="mi">30</span>    <span class="k">See</span> <span class="n">O1</span>  <span class="k">Class</span> <span class="n">Point</span> <span class="n">X</span> <span class="n">Y</span> <span class="n">Z</span>
 </pre></div>
 </div>
 <p>Instead of using the dot ‘.’ operator to access the object attributes and methods we can use braces { } to access the object, then we can use the object attributes and methods.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>o1 = New point { x=10 y=20 z=30 } See O1  Class Point X Y Z
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">New</span> <span class="n">point</span> <span class="p">{</span> <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span> <span class="p">}</span> <span class="k">See</span> <span class="n">O1</span>  <span class="k">Class</span> <span class="n">Point</span> <span class="n">X</span> <span class="n">Y</span> <span class="n">Z</span>
 </pre></div>
 </div>
 <p>Now we will call a method after accessing the object using { }</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>oPerson = new Person
-{
-        Name = &quot;Somebody&quot;
-        Address = &quot;Somewhere&quot;
-        Phone = &quot;0000000&quot;
-        Print()                 # here we call the Print() method
-}
-Class Person Name Address Phone
-        Func Print
-                See &quot;Name :&quot; + name + nl +
-                        &quot;Address :&quot; + Address + nl +
-                        &quot;Phone : &quot; + phone + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">oPerson</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Person</span>
+<span class="p">{</span>
+        <span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;Somebody&quot;</span>
+        <span class="n">Address</span> <span class="o">=</span> <span class="s">&quot;Somewhere&quot;</span>
+        <span class="n">Phone</span> <span class="o">=</span> <span class="s">&quot;0000000&quot;</span>
+        <span class="n">Print</span><span class="p">()</span>                 <span class="c"># here we call the Print() method</span>
+<span class="p">}</span>
+<span class="k">Class</span> <span class="n">Person</span> <span class="n">Name</span> <span class="n">Address</span> <span class="n">Phone</span>
+        <span class="k">Func</span> <span class="n">Print</span>
+                <span class="k">See</span> <span class="s">&quot;Name :&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+                        <span class="s">&quot;Address :&quot;</span> <span class="o">+</span> <span class="n">Address</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+                        <span class="s">&quot;Phone : &quot;</span> <span class="o">+</span> <span class="n">phone</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>When we use { } to access the object then write any attribute name, the language will check the class for any setter/getter methods that will be called automatically.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New Number {
-                See one         # Execute GetOne()
-                See two         # Execute GetTwo()
-                See three       # Execute GetThree()
-}
-Class Number one two three
-        Func GetOne
-                See &quot;Number : One&quot; + nl
-                return 1
-        Func GetTwo
-                See &quot;Number : Two&quot; + nl
-                return 2
-        Func GetThree
-                See &quot;Number : Three&quot; + nl
-                return 3
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">Number</span> <span class="p">{</span>
+                <span class="k">See</span> <span class="n">one</span>         <span class="c"># Execute GetOne()</span>
+                <span class="k">See</span> <span class="n">two</span>         <span class="c"># Execute GetTwo()</span>
+                <span class="k">See</span> <span class="n">three</span>       <span class="c"># Execute GetThree()</span>
+<span class="p">}</span>
+<span class="k">Class</span> <span class="n">Number</span> <span class="n">one</span> <span class="n">two</span> <span class="n">three</span>
+        <span class="k">Func</span> <span class="n">GetOne</span>
+                <span class="k">See</span> <span class="s">&quot;Number : One&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">return</span> <span class="mi">1</span>
+        <span class="k">Func</span> <span class="n">GetTwo</span>
+                <span class="k">See</span> <span class="s">&quot;Number : Two&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">return</span> <span class="mi">2</span>
+        <span class="k">Func</span> <span class="n">GetThree</span>
+                <span class="k">See</span> <span class="s">&quot;Number : Three&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">return</span> <span class="mi">3</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="define-natural-statements">
 <span id="index-7"></span><h2>Define Natural Statements<a class="headerlink" href="#define-natural-statements" title="Permalink to this headline">¶</a></h2>
 <p>After the object access using { } if the class contains a method called BraceEnd() it will be executed!</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>TimeForFun = new journey
-# The first surprise!
-TimeForFun {
-        Hello it is me          # What a beatiful programming world!
-}
-# Our Class
-Class journey
-        hello=0 it=0 is=0 me=0
-        func GetHello
-                See &quot;Hello&quot; + nl
-        func braceEnd
-                See &quot;Goodbye!&quot; + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TimeForFun</span> <span class="o">=</span> <span class="k">new</span> <span class="n">journey</span>
+<span class="c"># The first surprise!</span>
+<span class="n">TimeForFun</span> <span class="p">{</span>
+        <span class="n">Hello</span> <span class="n">it</span> <span class="n">is</span> <span class="n">me</span>          <span class="c"># What a beatiful programming world!</span>
+<span class="p">}</span>
+<span class="c"># Our Class</span>
+<span class="k">Class</span> <span class="n">journey</span>
+        <span class="n">hello</span><span class="o">=</span><span class="mi">0</span> <span class="n">it</span><span class="o">=</span><span class="mi">0</span> <span class="n">is</span><span class="o">=</span><span class="mi">0</span> <span class="n">me</span><span class="o">=</span><span class="mi">0</span>
+        <span class="k">func</span> <span class="n">GetHello</span>
+                <span class="k">See</span> <span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">func</span> <span class="n">braceEnd</span>
+                <span class="k">See</span> <span class="s">&quot;Goodbye!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>We can execute code written in strings using the Eval() function</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>cCode = &quot;See &#39;Code that will be executed later!&#39; &quot;
-Eval(cCode)     # execute the code to print the message
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cCode</span> <span class="o">=</span> <span class="s">&quot;See &#39;Code that will be executed later!&#39; &quot;</span>
+<span class="n">Eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>     <span class="c"># execute the code to print the message</span>
 </pre></div>
 </div>
 <p>We can create a list then execute code generated from that list</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aWords = [&quot;hello&quot;,&quot;it&quot;,&quot;is&quot;,&quot;me&quot;]
-for word in aWords cCode=word+&quot;=0&quot; eval(cCode) next
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aWords</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;hello&quot;</span><span class="p">,</span><span class="s">&quot;it&quot;</span><span class="p">,</span><span class="s">&quot;is&quot;</span><span class="p">,</span><span class="s">&quot;me&quot;</span><span class="o">]</span>
+<span class="k">for</span> <span class="n">word</span> <span class="k">in</span> <span class="n">aWords</span> <span class="n">cCode</span><span class="o">=</span><span class="n">word</span><span class="o">+</span><span class="s">&quot;=0&quot;</span> <span class="n">eval</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span> <span class="k">next</span>
 </pre></div>
 </div>
 <p>We can read text files using the Read(cFileName) function and we can write files using the Write(cFileName,cString) function.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Enter File Name:&quot; Give cFileName See Read(cFileName) # Print the file content
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter File Name:&quot;</span> <span class="k">Give</span> <span class="n">cFileName</span> <span class="k">See</span> <span class="n">Read</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="c"># Print the file content</span>
 </pre></div>
 </div>
 <p>The next example presents how to create a class that defines two instructions
 The first instruction is : I want window
 The second instruction is : Window title = Expression
 Also keywords that can be ignored like the ‘the’ keyword</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>New App
-{
-        I want window
-        The window title = &quot;hello world&quot;
-}
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">App</span>
+<span class="p">{</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+        <span class="n">The</span> <span class="n">window</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;hello world&quot;</span>
+<span class="p">}</span>
 
-Class App
+<span class="k">Class</span> <span class="n">App</span>
 
-        # Attributes for the instruction I want window
-                i want window
-                nIwantwindow = 0
-        # Attributes for the instruction Window title
-        # Here we don&#39;t define the window attribute again
-                title
-                nWindowTitle = 0
-        # Keywords to ignore, just give them any value
-                the=0
+        <span class="c"># Attributes for the instruction I want window</span>
+                <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
+                <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c"># Attributes for the instruction Window title</span>
+        <span class="c"># Here we don&#39;t define the window attribute again</span>
+                <span class="n">title</span>
+                <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c"># Keywords to ignore, just give them any value</span>
+                <span class="n">the</span><span class="o">=</span><span class="mi">0</span>
 
-        func geti
-                        if nIwantwindow = 0
-                                nIwantwindow++
-                        ok
+        <span class="k">func</span> <span class="n">geti</span>
+                        <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">nIwantwindow</span><span class="o">++</span>
+                        <span class="k">ok</span>
 
-        func getwant
-                        if nIwantwindow = 1
-                                nIwantwindow++
-                        ok
+        <span class="k">func</span> <span class="n">getwant</span>
+                        <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="n">nIwantwindow</span><span class="o">++</span>
+                        <span class="k">ok</span>
 
-        func getwindow
-                        if nIwantwindow = 2
-                                nIwantwindow= 0
-                                see &quot;Instruction : I want window&quot; + nl
-                        ok
-                        if nWindowTitle = 0
-                                nWindowTitle++
-                        ok
+        <span class="k">func</span> <span class="n">getwindow</span>
+                        <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">2</span>
+                                <span class="n">nIwantwindow</span><span class="o">=</span> <span class="mi">0</span>
+                                <span class="k">see</span> <span class="s">&quot;Instruction : I want window&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="k">ok</span>
+                        <span class="k">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                                <span class="n">nWindowTitle</span><span class="o">++</span>
+                        <span class="k">ok</span>
 
-        func settitle cValue
-                        if nWindowTitle = 1
-                                nWindowTitle=0
-                                see &quot;Instruction : Window Title = &quot; + cValue + nl
-                        ok
+        <span class="k">func</span> <span class="n">settitle</span> <span class="n">cValue</span>
+                        <span class="k">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">1</span>
+                                <span class="n">nWindowTitle</span><span class="o">=</span><span class="mi">0</span>
+                                <span class="k">see</span> <span class="s">&quot;Instruction : Window Title = &quot;</span> <span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="k">ok</span>
 </pre></div>
 </div>
 <p>To complete the previous example, use read() to get the content of a file that contains</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>I want window
-The window title = &quot;hello world&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+<span class="n">The</span> <span class="n">window</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;hello world&quot;</span>
 </pre></div>
 </div>
 <p>Then use eval() to execute the content of that file!.
@@ -553,110 +553,110 @@ Also, you can update the methods GetWindow() and SetTitle() to create Real windo
 <p>We learned how to use Natural statements to execute our code and using the same features we can use nested structures to execute our code.</p>
 <p>The next example from the Web library, generate HTML document using the Bootstrap library. No HTML code is written directly in this example, we created a similar language (just as example) Then using this declarative language that uses nested structures, we generated the HTML Document..
 The idea in this example is that the GetDiv() and GetH1() methods return an object that we can access using {} and after each object access the method BraceEnd() will be executed to send the generated HTML to the parent object until we reach to the root where BraceEnd() will print the output.</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;weblib.ring&quot;
-Import System.Web
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
+<span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
 
-Func Main
+<span class="k">Func</span> <span class="n">Main</span>
 
-  BootStrapWebPage()
-  {
-        div
-        {
-          classname = :container
-          div
-          {
-                classname = :jumbotron
-                H1 {   text(&quot;Bootstrap Page&quot;)   }
-          }
-          div
-          {
-                classname = :row
-                for x = 1 to 3
-                  div
-                  {
-                    classname = &quot;col-sm-4&quot;
-                    H3 { html(&quot;Welcome to the Ring programming language&quot;) }
-                    P  { html(&quot;Using a scripting language is very fun!&quot;) }
-                  }
-                next
-          }
-        }
-  }
+  <span class="n">BootStrapWebPage</span><span class="p">()</span>
+  <span class="p">{</span>
+        <span class="n">div</span>
+        <span class="p">{</span>
+          <span class="n">classname</span> <span class="o">=</span> <span class="p">:</span><span class="n">container</span>
+          <span class="n">div</span>
+          <span class="p">{</span>
+                <span class="n">classname</span> <span class="o">=</span> <span class="p">:</span><span class="n">jumbotron</span>
+                <span class="n">H1</span> <span class="p">{</span>   <span class="n">text</span><span class="p">(</span><span class="s">&quot;Bootstrap Page&quot;</span><span class="p">)</span>   <span class="p">}</span>
+          <span class="p">}</span>
+          <span class="n">div</span>
+          <span class="p">{</span>
+                <span class="n">classname</span> <span class="o">=</span> <span class="p">:</span><span class="n">row</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">3</span>
+                  <span class="n">div</span>
+                  <span class="p">{</span>
+                    <span class="n">classname</span> <span class="o">=</span> <span class="s">&quot;col-sm-4&quot;</span>
+                    <span class="n">H3</span> <span class="p">{</span> <span class="n">html</span><span class="p">(</span><span class="s">&quot;Welcome to the Ring programming language&quot;</span><span class="p">)</span> <span class="p">}</span>
+                    <span class="n">P</span>  <span class="p">{</span> <span class="n">html</span><span class="p">(</span><span class="s">&quot;Using a scripting language is very fun!&quot;</span><span class="p">)</span> <span class="p">}</span>
+                  <span class="p">}</span>
+                <span class="k">next</span>
+          <span class="p">}</span>
+        <span class="p">}</span>
+  <span class="p">}</span>
 </pre></div>
 </div>
 <p>The classes that power the declarative interface looks like this</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Class Link from ObjsBase
-        title  link
-        Func braceend
-                cOutput = nl+GetTabs() + &quot;&lt;a href=&#39;&quot; +
-                          Link + &quot;&#39;&gt; &quot;+ Title + &quot; &lt;/a&gt; &quot; + nl
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Class</span> <span class="n">Link</span> <span class="k">from</span> <span class="n">ObjsBase</span>
+        <span class="n">title</span>  <span class="n">link</span>
+        <span class="k">Func</span> <span class="n">braceend</span>
+                <span class="n">cOutput</span> <span class="o">=</span> <span class="n">nl</span><span class="o">+</span><span class="n">GetTabs</span><span class="p">()</span> <span class="o">+</span> <span class="s">&quot;&lt;a href=&#39;&quot;</span> <span class="o">+</span>
+                          <span class="n">Link</span> <span class="o">+</span> <span class="s">&quot;&#39;&gt; &quot;</span><span class="o">+</span> <span class="n">Title</span> <span class="o">+</span> <span class="s">&quot; &lt;/a&gt; &quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
-Class Div from ObjsBase
-        Func braceend
-                cOutput += nl+&#39;&lt;div&#39;
-                addattributes()
-                AddStyle()
-                getobjsdata()
-                cOutput += nl+&quot;&lt;/div&gt;&quot; + nl
-                cOutput = TabMLString(cOutput)
+<span class="k">Class</span> <span class="n">Div</span> <span class="k">from</span> <span class="n">ObjsBase</span>
+        <span class="k">Func</span> <span class="n">braceend</span>
+                <span class="n">cOutput</span> <span class="o">+=</span> <span class="n">nl</span><span class="o">+</span><span class="sc">&#39;&lt;div&#39;</span>
+                <span class="n">addattributes</span><span class="p">()</span>
+                <span class="n">AddStyle</span><span class="p">()</span>
+                <span class="n">getobjsdata</span><span class="p">()</span>
+                <span class="n">cOutput</span> <span class="o">+=</span> <span class="n">nl</span><span class="o">+</span><span class="s">&quot;&lt;/div&gt;&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="n">cOutput</span> <span class="o">=</span> <span class="n">TabMLString</span><span class="p">(</span><span class="n">cOutput</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="transparent-implementation">
 <span id="index-9"></span><h2>Transparent Implementation<a class="headerlink" href="#transparent-implementation" title="Permalink to this headline">¶</a></h2>
 <p>Ring comes with transparent implementation. We can know what is happening in each compiler stage and what is going on during the run-time by the Virtual Machine Example : ring helloworld.ring -tokens -rules -ic</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>See &quot;Hello, World!&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span>
 </pre></div>
 </div>
 <p>Output</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>==================================================================
-Tokens - Generated by the Scanner
-==================================================================
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">==================================================================</span>
+<span class="n">Tokens</span> <span class="o">-</span> <span class="n">Generated</span> <span class="n">by</span> <span class="n">the</span> <span class="n">Scanner</span>
+<span class="o">==================================================================</span>
 
-   Keyword : SEE
-   Literal : Hello, World!
-   EndLine
+   <span class="n">Keyword</span> <span class="p">:</span> <span class="k">SEE</span>
+   <span class="n">Literal</span> <span class="p">:</span> <span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+   <span class="n">EndLine</span>
 
-==================================================================
+<span class="o">==================================================================</span>
 
-==================================================================
-Grammar Rules Used by The Parser
-==================================================================
+<span class="o">==================================================================</span>
+<span class="n">Grammar</span> <span class="n">Rules</span> <span class="n">Used</span> <span class="n">by</span> <span class="n">The</span> <span class="n">Parser</span>
+<span class="o">==================================================================</span>
 
-Rule : Program --&gt; {Statement}
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">Program</span> <span class="o">--&gt;</span> <span class="p">{</span><span class="n">Statement</span><span class="p">}</span>
 
-Line 1
-Rule : Factor --&gt; Literal
-Rule : Range --&gt; Factor
-Rule : Term --&gt; Range
-Rule : Arithmetic --&gt; Term
-Rule : BitShift --&gt; Arithmetic
-Rule : BitAnd --&gt; BitShift
-Rule : BitOrXOR --&gt;  BitAnd
-Rule : Compare --&gt; BitOrXOR
-Rule : EqualOrNot --&gt; Compare
-Rule : LogicNot -&gt; EqualOrNot
-Rule : Expr --&gt; LogicNot
-Rule : Statement  --&gt; &#39;See&#39; Expr
+<span class="n">Line</span> <span class="mi">1</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">Factor</span> <span class="o">--&gt;</span> <span class="n">Literal</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">Range</span> <span class="o">--&gt;</span> <span class="n">Factor</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">Term</span> <span class="o">--&gt;</span> <span class="n">Range</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">Arithmetic</span> <span class="o">--&gt;</span> <span class="n">Term</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitShift</span> <span class="o">--&gt;</span> <span class="n">Arithmetic</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitAnd</span> <span class="o">--&gt;</span> <span class="n">BitShift</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">BitOrXOR</span> <span class="o">--&gt;</span>  <span class="n">BitAnd</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">Compare</span> <span class="o">--&gt;</span> <span class="n">BitOrXOR</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">EqualOrNot</span> <span class="o">--&gt;</span> <span class="n">Compare</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">LogicNot</span> <span class="o">-&gt;</span> <span class="n">EqualOrNot</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">Expr</span> <span class="o">--&gt;</span> <span class="n">LogicNot</span>
+<span class="n">Rule</span> <span class="p">:</span> <span class="n">Statement</span>  <span class="o">--&gt;</span> <span class="sc">&#39;See&#39;</span> <span class="n">Expr</span>
 
-==================================================================
+<span class="o">==================================================================</span>
 
 
 
-==================================================================
-Byte Code - Before Execution by the VM
-==================================================================
+<span class="o">==================================================================</span>
+<span class="n">Byte</span> <span class="n">Code</span> <span class="o">-</span> <span class="n">Before</span> <span class="n">Execution</span> <span class="n">by</span> <span class="n">the</span> <span class="n">VM</span>
+<span class="o">==================================================================</span>
 
-         PC      OPCode        Data
+         <span class="n">PC</span>      <span class="n">OPCode</span>        <span class="n">Data</span>
 
-          1     FuncExE
-          2       PushC   Hello, World!
-          3       Print
-          4  ReturnNull
+          <span class="mi">1</span>     <span class="n">FuncExE</span>
+          <span class="mi">2</span>       <span class="n">PushC</span>   <span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+          <span class="mi">3</span>       <span class="n">Print</span>
+          <span class="mi">4</span>  <span class="n">ReturnNull</span>
 
-==================================================================
+<span class="o">==================================================================</span>
 
-Hello, World!
+<span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
 </pre></div>
 </div>
 </div>
@@ -687,8 +687,8 @@ the include folder.</p>
 <li><p>The programmer have full control on when to delete the variable from the memory using the Assignment statement.</p></li>
 </ul>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>aList = [1,2,3,4,5]
-aList = &quot;nice&quot;
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="s">&quot;nice&quot;</span>
 </pre></div>
 </div>
 <p>After the second line directly, The list [1,2,3,4,5] will be deleted from the memory and we will have a string “nice”</p>
