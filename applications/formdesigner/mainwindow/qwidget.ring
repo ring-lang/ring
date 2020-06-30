@@ -169,9 +169,8 @@ class FormDesigner_QWidget from QWidget
 	func DialogButtonAction oDesigner,nRow
 		switch nRow {
 			case 5 	# Back Color
-				cColor = oDesigner.oGeneral.SelectColor()
-				setBackColor(cColor)
-				DisplayProperties(oDesigner)
+				oDesigner.oGeneral.cColorOperation = :BackColor
+				oDesigner.oGeneral.SelectColor()
 			case 6	# Window Flags
 				open_windowInPackages(:WindowFlagsController,[
 					"System.GUI"
@@ -197,6 +196,10 @@ class FormDesigner_QWidget from QWidget
 				Last_Window().setParentObject(oDesigner)
 				Last_Window().setMenubar(MenubarValue())
 		}
+
+	func ApplyBackColor oDesigner,cColor
+		setBackColor(cColor)
+		DisplayProperties(oDesigner)
 
 	func MousePressAction oDesigner
 		# 8, 6 to start drawing from the center of the Mouse Cursor
