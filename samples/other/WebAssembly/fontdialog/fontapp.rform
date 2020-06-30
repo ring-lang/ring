@@ -1,0 +1,51 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 42 , : y = 60  , 
+		 :width =  400 , :height = 400 , 
+		 :title =  "RingQt for WebAssembly - Select Font" , 
+		 :backcolor =  "#b7ff43" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout1" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 116 , : y = 174  , 
+		 :width =  137 , :height = 49 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial,14,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Select Font",
+		 :BtnImage =  "",
+		 :setClickEvent =  "selectfont"
+		]
+	],
+	[ :name = "Label1" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 76 , : y = 52  , 
+		 :width =  235 , :height = 54 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,22,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Hello, World!",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Layout1" , :id = 4 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 69 , : y = 270  , 
+		 :width =  168 , :height = 23 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Label1,Button1"
+		]
+	]
+]
+# End Form Designer File
