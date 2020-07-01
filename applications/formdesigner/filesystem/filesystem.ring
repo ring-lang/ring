@@ -7,10 +7,62 @@
 
 package formdesigner
 
-class FormDesignerFileSystem
+class FormDesignerFileSystem from ObjectsParent 
 
 	cFileName = "noname.rform"
 	oGenerator = new FormDesignerCodeGenerator
+
+	oNewFileDialog = new QFileDialog(NULL) {
+		setFileSelectedevent(Method("oFile.NewFileDialogOperation()"))
+		setWindowTitle("New Form")
+		setLabelText(QFileDialog_Accept,"Save")
+		setNameFilter("Form files (*.rform)")
+		setDefaultSuffix("rform")
+		setFileMode(QFileDialog_AnyFile)
+		setViewMode(QFileDialog_List)
+	}
+
+	oOpenFileDialog = new QFileDialog(NULL) {
+		setFileSelectedevent(Method("oFile.OpenFileDialogOperation()"))
+		setWindowTitle("Open Form")
+		setLabelText(QFileDialog_Accept,"Open")
+		setNameFilter("Form files (*.rform)")
+		setDefaultSuffix("rform")
+		setFileMode(QFileDialog_ExistingFile)
+		setViewMode(QFileDialog_List)
+	}
+
+	oSaveFileDialog = new QFileDialog(NULL) {
+		setFileSelectedevent(Method("oFile.SaveFileDialogOperation()"))
+		setWindowTitle("Save Form")
+		setLabelText(QFileDialog_Accept,"Save")
+		setNameFilter("Form files (*.rform)")
+		setDefaultSuffix("rform")
+		setFileMode(QFileDialog_AnyFile)
+		setViewMode(QFileDialog_List)
+	}
+
+	cInputFileName
+
+	func FormDesigner 
+		return Me()
+
+	func GetFileNameFromDialog oDialog 
+		cInputFileName = ""
+		if oDialog.selectedfiles().count() = 0 return ok
+		cInputFileName = oDialog.selectedfiles().at(0)
+
+	func NewFileDialogOperation
+		GetFileNameFromDialog(oNewFileDialog)
+		NewFileDialogSaveAction(FormDesigner())
+
+	func OpenFileDialogOperation
+		GetFileNameFromDialog(oOpenFileDialog)
+		OpenFileDialogOpenAction(FormDesigner())
+
+	func SaveFileDialogOperation
+		GetFileNameFromDialog(oSaveFileDialog)
+		SaveFileDialogSaveAction(FormDesigner())
 
 	func SetFileName cFile 
 		cFileName = cFile 
@@ -30,13 +82,13 @@ class FormDesignerFileSystem
 	func NewAction oDesigner
 		# Set the file Name
 			cDir = ActiveDir(oDesigner)
-			oFileDialog = new qfiledialog(oDesigner.oView.win) {
-				cInputFileName = getsavefilename(oDesigner.oView.win,"New Form",cDir,"*.rform")
-			}
-			oFileDialog.delete()
-			if cInputFileName = NULL { return }
-			cInputFileName = AddExtensionToName(cInputFileName)
-			cFileName = cInputFileName
+			oNewFileDialog.setDirectory(cDir) 
+			oNewFileDialog.show()
+
+	func NewFileDialogSaveAction oDesigner
+		if cInputFileName = NULL { return }
+		cInputFileName = AddExtensionToName(cInputFileName)
+		cFileName = cInputFileName
 		# Delete Objects
 			DeleteAllObjects(oDesigner)
 		# Set Default Form Properties
@@ -107,10 +159,10 @@ class FormDesignerFileSystem
 	func OpenAction oDesigner
 		# Get the file Name
 			cDir = ActiveDir(oDesigner)
-			oFileDialog = new qfiledialog(oDesigner.oView.win) {
-				cInputFileName = getopenfilename(oDesigner.oView.win,"Open Form",cDir,"*.rform")
-			}
-			oFileDialog.close()
+			oOpenFileDialog.setDirectory(cDir) 
+			oOpenFileDialog.show()
+
+	func OpenFileDialogOpenAction oDesigner
 			if cInputFileName = NULL { return }
 			cFileName = cInputFileName
 			LoadFormFromFile(oDesigner)
@@ -130,7 +182,6 @@ class FormDesignerFileSystem
 			if cFileName != "noname.rform" {
 				SaveFormToFile(oDesigner)
 			}
-		
 
 	func SaveAsAction oDesigner
 		SaveFile(oDesigner)
@@ -138,10 +189,10 @@ class FormDesignerFileSystem
 	func SaveFile oDesigner
 		# Set the file Name
 			cDir = ActiveDir(oDesigner)
-			oFileDialog = new qfiledialog(oDesigner.oView.win) {
-				cInputFileName = getsavefilename(oDesigner.oView.win,"Save Form",cDir,"*.rform")
-			}
-			oFileDialog.delete()
+			oSaveFileDialog.setDirectory(cDir)
+			oSaveFileDialog.show()
+
+	func SaveFileDialogSaveAction oDesigner
 			if cInputFileName = NULL { return }
 			cInputFileName = AddExtensionToName(cInputFileName)
 			cFileName = cInputFileName
