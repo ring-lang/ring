@@ -200,7 +200,7 @@ class FormDesignerFileSystem from ObjectsParent
 		# Open controller class in Ring Notepad 
 			OpenControllerClassInParent(oDesigner)
 
-	func SaveFormToFile oDesigner
+	func FormFileContent oDesigner
 		cHeader = "# Start Form Designer File" + nl
 		cEnd = "# End Form Designer File"
 		# Save the Objects Data
@@ -208,7 +208,10 @@ class FormDesignerFileSystem from ObjectsParent
 		# Write the Form File
 			cFileContent = cHeader+cContent+cEnd
 			cFileContent = substr(cFileContent,nl,windowsnl())
-			write(cFileName,cFileContent)
+		return cFileContent 
+
+	func SaveFormToFile oDesigner
+			write(cFileName,FormFileContent(oDesigner))
 		# Generate Code
 			oGenerator.Generate(oDesigner,cFileName)
 

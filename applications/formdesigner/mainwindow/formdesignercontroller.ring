@@ -1370,3 +1370,26 @@ class FormDesignerController from WindowsControllerParent
 		Open_WindowAndLink(:selObjectsController,self)
 		SelObjects().loadobjects()
 
+	func DownloadAction
+		# Avoid _ in the start of the file name (Added by Qt!)
+			cDownloadedFileName = oFile.cFileName
+			if len(cDownloadedFileName) > 1 {
+				if ! isalnum(cDownloadedFileName[1]) {
+					cDownloadedFileName = substr(cDownloadedFileName,2)
+				}
+			}
+		WebAssemblyDownload(cDownloadedFileName,oFile.FormFileContent(self))
+
+	func UploadAction 
+		WebAssemblyUpload("Form Files (*.rform)",Method(:FileLoaded))
+
+	func FileLoaded
+		if fexists( WebAssemblyUploadedFileName() ) {
+			remove( WebAssemblyUploadedFileName() )
+		}
+		Write(   WebAssemblyUploadedFileName() ,
+			 WebAssemblyUploadedFileContent()
+		)
+		OpenFile( WebAssemblyUploadedFileName() )
+
+

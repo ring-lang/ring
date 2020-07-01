@@ -156,6 +156,23 @@ Class FormDesignerView from WindowsViewParent
 					setclickevent(Method(:CloseAction))
 				}
 				addaction(oAction)
+
+				addseparator()
+				oAction = new qaction(this.win) {
+					settext(T_FORMDESIGNER_UPLOAD) # "Upload"
+					setstatustip("Upload File")
+					setclickevent(Method(:UploadAction))
+					setVisible(isWebAssembly())
+				}
+				addaction(oAction)
+				oAction = new qaction(this.win) {
+					settext(T_FORMDESIGNER_Download) # "Download"
+					setstatustip("Download File")
+					setclickevent(Method(:DownloadAction))
+					setVisible(isWebAssembly())
+				}
+				addaction(oAction)
+
 				addseparator()
 				oAction = new qaction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+q"))
