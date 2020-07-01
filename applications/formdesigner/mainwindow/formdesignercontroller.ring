@@ -1117,7 +1117,10 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSFont
-		cFont = oGeneral.SelectFont()
+		oGeneral.cFontOperation = :MSFont 
+		oGeneral.SelectFont()
+
+	func ApplyMSFont cFont
 		aObjects = oModel.GetSelectedObjects()
 		for item in aObjects {
 			oObject = item[2]

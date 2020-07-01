@@ -131,9 +131,8 @@ class CommonAttributesMethods
 			oDesigner.oGeneral.cColorOperation = :BackColor
 			oDesigner.oGeneral.SelectColor()
 		elseif nRow = 7	# Font
-			cFont = oDesigner.oGeneral.SelectFont()
-			setFontProperty(cFont)
-			DisplayProperties(oDesigner)
+			oDesigner.oGeneral.cFontOperation = :Font
+			oDesigner.oGeneral.SelectFont()
 		}
 
 	func ApplyTextColor oDesigner,cColor 
@@ -143,6 +142,11 @@ class CommonAttributesMethods
 	func ApplyBackColor oDesigner,cColor
 		setBackColor(cColor)
 		DisplayProperties(oDesigner)
+
+	func ApplyFont oDesigner,cFont 
+		setFontProperty(cFont)
+		DisplayProperties(oDesigner)
+
 
 	func  ObjectDataAsString oDesigner,nTabsCount
 		return ObjectDataAsString2(oDesigner,nTabsCount)

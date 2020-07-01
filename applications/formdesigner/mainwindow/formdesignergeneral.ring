@@ -14,8 +14,12 @@ Class FormDesignerGeneral from ObjectsParent
 	oColor = new QColorDialog() {
 		SetColorSelectedEvent(Method("oGeneral.NewColor"))
 	}	
-
 	cColorOperation = :None
+
+	oFont = new QFontDialog() {
+			setFontSelectedEvent(Method("oGeneral.NewFont"))
+	}
+	cFontOperation = :None
 
 	func FormDesigner 
 		return Me()
@@ -65,16 +69,17 @@ Class FormDesignerGeneral from ObjectsParent
 	func SelectColor		
 		oColor.Show()
 
+	func NewFont
+		cFont = oFont.selectedfont().tostring()
+		switch cFontOperation {
+			case :font 
+				FormDesigner().oModel.ActiveObject().ApplyFont(FormDesigner(),cFont)
+			case :MSFont 
+				FormDesigner().ApplyMSFont(cFont)
+		}
+
 	func SelectFont
-		cFont = ""
-		oFontDialog = new qfontdialog() {
-			aFont = getfont()
-		}
-		oFontDialog.delete()
-		if aFont[1] != NULL {
-			cFont = aFont[1]
-		}
-		return cFont
+		oFont.show()
 
 	func SelectFile oDesigner
 		oFileDialog = new qfiledialog(oDesigner.oView.win) {
