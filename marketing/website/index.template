@@ -1,4 +1,4 @@
-﻿<%  eval(read("news.data"))  %>
+﻿<%  eval(read("history.data"))  %>
 
 <div class="row">
 
