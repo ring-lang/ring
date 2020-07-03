@@ -1,5 +1,13 @@
 load "objects.ring"
 
+# Better API without _ in function names 
+
+	func OpenObject cObject
+		return open_object( cObject )
+
+	func LastObject
+		return last_object()
+
 func open_object cObject
 	open_window(cObject)
 	return last_object()

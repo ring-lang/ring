@@ -19,6 +19,29 @@
 	C_RINGQT_OBJECTSLIST_ID 	= 1
 	C_RINGQT_OBJECTSLIST_OBJECT 	= 2
 
+# Better API without _ in function names
+
+	func OpenWindow cClass
+		return Open_Window( cClass )
+	
+	func OpenWindowInPackages cClass,aPackages
+		return Open_WindowInPackages( cClass,aPackages )
+	
+	func OpenWindowNoShow cClass
+		return Open_WindowNoShow( cClass )
+	
+	func OpenWindowAndLink cClass,oParent 
+		return Open_WindowAndLink( cClass,oParent )
+	
+	func LastWindow 
+		return Last_Window() 
+	
+	func LastWindowID 
+		return Last_WindowID() 
+	
+	func GetWindowPos nID
+		return Get_Window_Pos( nID )
+	
 /*
 	The next function create new object, add the object to the $RingQt_ObjectsList
 	Then set $RingQt_ObjName to the object in the $RingQt_ObjectsList
