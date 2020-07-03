@@ -125,6 +125,7 @@ html_logo = "ringdoclogo.jpg"
 html_theme_options = {
 	'logo_only': True,
 	'display_version': False,
+	'sticky_navigation': False,
     #"rightsidebar": "true",
     #"relbarbgcolor": "black"
 }
