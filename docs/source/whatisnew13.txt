@@ -389,6 +389,7 @@ More Improvements
 * Set the window icon for many games developed using the Ring game engine
 * Type Hints library - Better Code
 * StdLib - IsMainSourceFile() function - Better Code
+* Objects Library - Better API
 * RingLibSDL - Update LibSDL version from 2.0.10 to 2.0.12
 * RingOpenGL - Better Code (Added GLEW functions)
 * RingFreeGLUT - Better Code (Added many functions)
