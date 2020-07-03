@@ -36,13 +36,11 @@ Web & Mobile development.
 
 What I was looking for is a programming language that can be used to build the development 
 environment, provides multi-platform support, more productivity, better performance, can be used for components 
-scripting & can be used for developing different kinds of applications.
+scripting and developing different kinds of applications.
 
 Instead of using a mix of programming languages, I decided to use one programming language. 
 
-I looked at many programming languages like C, C++, Java, C#, Lua, PHP, Python & Ruby. 
-
-All of these languages are successful languages, and very good for their domains, but what I need 
+I looked at many programming languages, but what I need 
 is a different language that comes with new ideas and intelligent implementation.
 
 
