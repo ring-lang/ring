@@ -5,7 +5,7 @@ load "treewidgetView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:treewidgetController)
+		openWindow(:treewidgetController)
 		exec()
 	}
 }

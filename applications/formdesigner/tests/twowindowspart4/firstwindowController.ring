@@ -7,7 +7,7 @@ load "secondwindowController.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:firstwindowController)
+		openWindow(:firstwindowController)
 		exec()
 	}
 }
@@ -19,8 +19,8 @@ class firstwindowController from windowsControllerParent
 	nSecondWindowID=0
 
 	func OpenSecondWindow
-		open_window(:SecondWindowController)
-		nSecondWindowID = last_windowID()
+		openWindow(:SecondWindowController)
+		nSecondWindowID = lastWindowID()
 		SecondWindow().setFirstWindowID(ObjectID())
 
 	func IsSecondWindow

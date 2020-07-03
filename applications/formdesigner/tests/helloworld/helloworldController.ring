@@ -5,7 +5,7 @@ load "helloworldView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:helloworldController)
+		openWindow(:helloworldController)
 		exec()
 	}
 }

@@ -5,7 +5,7 @@ load "comboboxView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:comboboxController)
+		openWindow(:comboboxController)
 		exec()
 	}
 }

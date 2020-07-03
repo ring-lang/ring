@@ -5,7 +5,7 @@ load "statusbarView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:statusbarController)
+		openWindow(:statusbarController)
 		exec()
 	}
 }

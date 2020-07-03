@@ -5,7 +5,7 @@ load "alleventsView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:alleventsController)
+		openWindow(:alleventsController)
 		exec()
 	}
 }

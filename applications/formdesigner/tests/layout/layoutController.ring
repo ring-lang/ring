@@ -5,7 +5,7 @@ load "layoutView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:layoutController)
+		openWindow(:layoutController)
 		exec()
 	}
 }

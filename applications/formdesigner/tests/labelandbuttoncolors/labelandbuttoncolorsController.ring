@@ -5,7 +5,7 @@ load "labelandbuttoncolorsView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:labelandbuttoncolorsController)
+		openWindow(:labelandbuttoncolorsController)
 		exec()
 	}
 }

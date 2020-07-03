@@ -5,7 +5,7 @@ load "radiobuttonView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:radiobuttonController)
+		openWindow(:radiobuttonController)
 		exec()
 	}
 }

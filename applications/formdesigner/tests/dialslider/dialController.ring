@@ -5,7 +5,7 @@ load "dialView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:dialController)
+		openWindow(:dialController)
 		exec()
 	}
 }

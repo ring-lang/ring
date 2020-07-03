@@ -5,7 +5,7 @@ load "sumtwonumbersView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:sumtwonumbersController)
+		openWindow(:sumtwonumbersController)
 		exec()
 	}
 }

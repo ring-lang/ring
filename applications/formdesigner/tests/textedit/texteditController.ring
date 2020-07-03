@@ -5,7 +5,7 @@ load "texteditView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:texteditController)
+		openWindow(:texteditController)
 		exec()
 	}
 }

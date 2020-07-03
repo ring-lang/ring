@@ -70,7 +70,7 @@ load "#{f1}View.ring"
 if IsMainSourceFile() {
 	new #{f5} {
 		StyleFusion()
-		open_window(:#{f2})
+		openWindow(:#{f2})
 		exec()
 	}
 }

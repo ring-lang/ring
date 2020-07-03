@@ -172,29 +172,29 @@ class FormDesigner_QWidget from QWidget
 				oDesigner.oGeneral.cColorOperation = :BackColor
 				oDesigner.oGeneral.SelectColor()
 			case 6	# Window Flags
-				open_windowInPackages(:WindowFlagsController,[
+				openWindowInPackages(:WindowFlagsController,[
 					"System.GUI"
 				])
-				Last_Window().setParentObject(oDesigner)
-				Last_Window().LoadSelectedItems()
+				lastWindow().setParentObject(oDesigner)
+				lastWindow().LoadSelectedItems()
 			case 7  # Window Layout 
-				open_window(:WindowObjectsController)
-				Last_Window().setParentObject(oDesigner)
-				Last_Window().setPropertyIndex(7)
-				Last_Window().setMethodName("setMainLayoutValue")
+				openWindow(:WindowObjectsController)
+				lastWindow().setParentObject(oDesigner)
+				lastWindow().setPropertyIndex(7)
+				lastWindow().setMethodName("setMainLayoutValue")
 				aList = oDesigner.oModel.GetLayoutsNames()
-				Last_Window().LoadObjectsData(aList)
-				Last_Window().LoadSelectedItems()
+				lastWindow().LoadObjectsData(aList)
+				lastWindow().LoadSelectedItems()
 			case 8	# Window Icon
 				cFile = oDesigner.oGeneral.SelectFile(oDesigner)
 				setWindowIconValue(cFile)
 				DisplayProperties(oDesigner)
 			case 9	# Menubar
-				open_windowInPackages(:MenubarDesignerController,[
+				openWindowInPackages(:MenubarDesignerController,[
 					"System.GUI"
 				])
-				Last_Window().setParentObject(oDesigner)
-				Last_Window().setMenubar(MenubarValue())
+				lastWindow().setParentObject(oDesigner)
+				lastWindow().setMenubar(MenubarValue())
 		}
 
 	func ApplyBackColor oDesigner,cColor

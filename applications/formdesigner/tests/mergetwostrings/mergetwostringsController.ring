@@ -5,7 +5,7 @@ load "mergetwostringsView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:mergetwostringsController)
+		openWindow(:mergetwostringsController)
 		exec()
 	}
 }

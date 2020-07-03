@@ -5,7 +5,7 @@ load "toolbarView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:toolbarController)
+		openWindow(:toolbarController)
 		exec()
 	}
 }

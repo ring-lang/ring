@@ -5,7 +5,7 @@ load "videowidgetView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:videowidgetController)
+		openWindow(:videowidgetController)
 		exec()
 	}
 }

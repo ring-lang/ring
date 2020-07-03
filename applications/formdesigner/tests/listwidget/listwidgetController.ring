@@ -5,7 +5,7 @@ load "listwidgetView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:listwidgetController)
+		openWindow(:listwidgetController)
 		exec()
 	}
 }

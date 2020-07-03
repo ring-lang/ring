@@ -5,7 +5,7 @@ load "lcdnumberView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:lcdnumberController)
+		openWindow(:lcdnumberController)
 		exec()
 	}
 }

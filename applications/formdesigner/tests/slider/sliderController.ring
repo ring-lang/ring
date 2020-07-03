@@ -5,7 +5,7 @@ load "sliderView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:sliderController)
+		openWindow(:sliderController)
 		exec()
 	}
 }

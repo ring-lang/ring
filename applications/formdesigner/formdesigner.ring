@@ -131,7 +131,7 @@
 		if IsMainSourceFile() {	# Because oFDApp is used in other classes 
 			$FDSubApp = False
 			StyleFusion()
-			Open_Window(:FormDesignerController)
+			openWindow(:FormDesignerController)
 			exec()
 		else 
 			$FDSubApp = True

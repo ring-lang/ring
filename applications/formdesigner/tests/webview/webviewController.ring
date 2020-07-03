@@ -5,7 +5,7 @@ load "webviewView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:webviewController)
+		openWindow(:webviewController)
 		exec()
 	}
 }

@@ -5,7 +5,7 @@ load "hyperlinkView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:hyperlinkController)
+		openWindow(:hyperlinkController)
 		exec()
 	}
 }

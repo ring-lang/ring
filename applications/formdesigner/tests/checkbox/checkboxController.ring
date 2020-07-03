@@ -5,7 +5,7 @@ load "checkboxView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:checkboxController)
+		openWindow(:checkboxController)
 		exec()
 	}
 }

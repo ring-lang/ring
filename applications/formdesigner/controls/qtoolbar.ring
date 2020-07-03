@@ -59,17 +59,17 @@ class FormDesigner_QToolBar from QLabel
 		CommonDialogButtonAction(oDesigner,nRow)
 		switch nRow {
 			case C_AFTERCOMMON+1  	# Toolbar Objects
-				open_window(:WindowObjectsController)
-				Last_Window().setParentObject(oDesigner)
-				Last_Window().setPropertyIndex(C_AFTERCOMMON+1)
-				Last_Window().setMethodName("setToolbarObjectsValue")
+				openWindow(:WindowObjectsController)
+				lastWindow().setParentObject(oDesigner)
+				lastWindow().setPropertyIndex(C_AFTERCOMMON+1)
+				lastWindow().setMethodName("setToolbarObjectsValue")
 				aList = oDesigner.oModel.GetObjectsNames()
 				# Remove the window Object name
 					del(aList,1)
 				# Remove the current layout object name
 					del(aList,std_find(aList,oDesigner.oModel.GetObjectName(self)))
-				Last_Window().LoadObjectsData(aList)
-				Last_Window().LoadSelectedItems()
+				lastWindow().LoadObjectsData(aList)
+				lastWindow().LoadSelectedItems()
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount

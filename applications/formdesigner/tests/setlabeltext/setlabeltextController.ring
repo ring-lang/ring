@@ -5,7 +5,7 @@ load "setlabeltextView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:setlabeltextController)
+		openWindow(:setlabeltextController)
 		exec()
 	}
 }

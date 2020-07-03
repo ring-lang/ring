@@ -5,7 +5,7 @@ load "menubarView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:menubarController)
+		openWindow(:menubarController)
 		exec()
 	}
 }

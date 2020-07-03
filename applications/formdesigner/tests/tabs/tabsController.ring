@@ -5,7 +5,7 @@ load "tabsView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:tabsController)
+		openWindow(:tabsController)
 		exec()
 	}
 }

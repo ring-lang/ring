@@ -562,7 +562,7 @@ class FormDesignerController from WindowsControllerParent
 				  the Method() Method define the event for the current object (This instance)
 				  While Method() function define the event for the current active object 
 				  The current active object maybe changed by using 
-				  open_window() or open_windownoshow() functions.
+				  openWindow() or openWindownoshow() functions.
 				  This happened when we merged the Form Designer with Ring Notepad.
 				  So to avoid defining the events for other objects, We uses This.Method() to
 				  be sure that the event will be defined for the correct object that will be
@@ -1363,11 +1363,11 @@ class FormDesignerController from WindowsControllerParent
 		oFile.SaveIfOnlyFileIsOpened(self)
 
 	func ObjectsOrderAction
-		Open_WindowAndLink(:ObjectsOrderController,self)
+		openWindowAndLink(:ObjectsOrderController,self)
 		ObjectsOrder().loadobjects()
 
 	func SelectObjectsWindow 
-		Open_WindowAndLink(:selObjectsController,self)
+		openWindowAndLink(:selObjectsController,self)
 		SelObjects().loadobjects()
 
 	func DownloadAction

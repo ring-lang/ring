@@ -5,7 +5,7 @@ load "sayhelloView.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:sayhelloController)
+		openWindow(:sayhelloController)
 		exec()
 	}
 }

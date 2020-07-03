@@ -11,7 +11,7 @@ if IsMainSourceFile() {
 
 	new qApp {
 		StyleFusion()
-		open_window(:menubardesignerController)
+		openWindow(:menubardesignerController)
 		exec()
 	}
 }

@@ -10,7 +10,7 @@ load "windowflagsView.ring"
 if IsMainSourceFile() { 
 	new qApp {
 		StyleFusion()
-		open_window(:windowflagsController)
+		openWindow(:windowflagsController)
 		exec()
 	}
 }

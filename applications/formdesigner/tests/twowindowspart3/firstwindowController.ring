@@ -7,7 +7,7 @@ load "secondwindowController.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:firstwindowController)
+		openWindow(:firstwindowController)
 		exec()
 	}
 }
@@ -17,9 +17,9 @@ class firstwindowController from windowsControllerParent
 	oView = new firstwindowView
 
 	func OpenSecondWindow
-		open_window(:SecondWindowController)
-		last_window().setMessage("Message from the first window")
-		last_window().setParentObject(self)
+		openWindow(:SecondWindowController)
+		lastWindow().setMessage("Message from the first window")
+		lastWindow().setParentObject(self)
 
 	func setMessage cMessage 
 		oView.Label1.setText(cMessage)

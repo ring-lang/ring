@@ -7,7 +7,7 @@ load "secondwindowController.ring"
 if IsMainSourceFile() {
 	new qApp {
 		StyleFusion()
-		open_window(:firstwindowController)
+		openWindow(:firstwindowController)
 		exec()
 	}
 }
@@ -17,7 +17,7 @@ class firstwindowController from windowsControllerParent
 	oView = new firstwindowView
 
 	func OpenSecondWindow
-		Open_WindowAndLink(:SecondWindowController,self)
+		openWindowAndLink(:SecondWindowController,self)
 
 	func SendMessage
 		if isMethod(self,:IsSecondWindow) {
