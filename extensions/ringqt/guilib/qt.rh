@@ -353,3 +353,20 @@ QFileDialog_DontUseCustomDirectoryIcons	=	dec("00000080")
 
 QFileDialog_Detail	= 0
 QFileDialog_List	= 1
+
+QDir_Dirs		=	dec("001")
+QDir_AllDirs		=	dec("400")
+QDir_Files		=	dec("002")
+QDir_Drives		=	dec("004")
+QDir_NoSymLinks		=	dec("008")
+QDir_NoDot		=	dec("2000")
+QDir_NoDotDot		=	dec("4000")
+QDir_NoDotAndDotDot	=	QDir_NoDot | QDir_NoDotDot
+QDir_AllEntries		=	QDir_Dirs | QDir_Files | QDir_Drives	
+QDir_Readable		=	dec("010")	
+QDir_Writable		=	dec("020")	
+QDir_Executable		=	dec("040")
+QDir_Modified		=	dec("080")
+QDir_Hidden		=	dec("100")
+QDir_System		=	dec("200")
+QDir_CaseSensitive	=	dec("800")
