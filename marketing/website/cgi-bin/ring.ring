@@ -46,7 +46,7 @@ Func MainPage
 					
 							TD { align="center" WIDTH="10%" text("Code :") }
 							TD {
-								html(`<textarea name  = "cCode" rows="5" style="width : 100%; ">See "Hello, World!" + nl</textarea>`)
+								html(`<textarea name  = "cCode" rows="5" style="width : 100%; ">? "Hello, World!"</textarea>`)
 							}
 						}
 					}
