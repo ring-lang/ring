@@ -4,9 +4,9 @@ load "thedateView.ring"
 
 import System.GUI
 
-if IsMainSourceFile() {
+if isMainSourceFile() {
 	new App {
-		StyleFusion()
+		styleFusion()
 		openWindow(:thedateController)
 		exec()
 	}
@@ -15,5 +15,13 @@ if IsMainSourceFile() {
 class thedateController from windowsControllerParent
 
 	oView = new thedateView
-	oview.dt.SetCalendarpopup(true)
-	oView.dt.Setdisplayformat("dd-MM-yyyy")
+	oview.dt.setCalendarPopup(true)
+	oView.dt.setDisplayFormat("dd-MM-yyyy")
+	oView.dt.setDate( todayDate() )
+
+	func TodayDate
+                y = number( timelist()[19] )
+                m = number( timelist()[10] )
+                d = number( timelist()[6] )
+                return new QDate() { setDate(y,m,d) }
+
