@@ -219,7 +219,7 @@ RING_API void * ring_vm_api_getcpointer ( void *pPointer,int x,const char *cType
 				return NULL ;
 			}
 			else {
-				if ( strcmp(ring_list_getstring(pList,2),"NULLPOINTER") == 0 ) {
+				if ( (strcmp(ring_list_getstring(pList,2),"NULLPOINTER") == 0) || (strcmp(ring_list_getstring(pList,2),cType) == 0) ) {
 					return NULL ;
 				}
 			}
@@ -375,21 +375,21 @@ RING_API int ring_vm_api_ispointer ( void *pPointer,int x )
 	}
 	else if ( ring_list_isstring(pList,RING_VAR_VALUE) ) {
 		/* Treat NULL Strings as NULL Pointers - so we can use NULL instead of NULLPOINTER() */
-		if ( strcmp(ring_list_getstring(pList,RING_VAR_VALUE),"") == 0 ) {
+		if ( (strcmp(ring_list_getstring(pList,RING_VAR_VALUE),"") == 0) || (strcmp(ring_list_getstring(pList,RING_VAR_VALUE),"NULL") == 0) ) {
 			/* Create the list for the NULL Pointer */
-			ring_list_setint_gc(((VM *) pPointer)->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
+			ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_TYPE,RING_VM_POINTER);
 			pList2 = RING_API_NEWLIST ;
 			pItem = ring_list_getitem(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem));
 			/* Increase the References count for the item */
 			ring_vm_gc_newitemreference(pItem);
-			ring_list_setpointer_gc(((VM *) pPointer)->pRingState,pList,RING_VAR_VALUE,pItem);
-			ring_list_setint_gc(((VM *) pPointer)->pRingState,pList,RING_VAR_PVALUETYPE,RING_OBJTYPE_LISTITEM);
+			ring_list_setpointer_gc(pVM->pRingState,pList,RING_VAR_VALUE,pItem);
+			ring_list_setint_gc(pVM->pRingState,pList,RING_VAR_PVALUETYPE,RING_OBJTYPE_LISTITEM);
 			/* The variable value will be a list contains the pointer */
-			ring_list_addpointer_gc(((VM *) pPointer)->pRingState,pList2,NULL);
+			ring_list_addpointer_gc(pVM->pRingState,pList2,NULL);
 			/* Add the pointer type */
-			ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,"NULLPOINTER");
+			ring_list_addstring_gc(pVM->pRingState,pList2,"NULLPOINTER");
 			/* Add the status number ( 0 = Not Copied ,1 = Copied  2 = Not Assigned yet) */
-			ring_list_addint_gc(((VM *) pPointer)->pRingState,pList2,2);
+			ring_list_addint_gc(pVM->pRingState,pList2,RING_CPOINTERSTATUS_NOTASSIGNED);
 			return 1 ;
 		}
 	}
