@@ -325,18 +325,6 @@ An application to play multi-media files.
 	:alt: Video Music Player
 
 .. index:: 
-	pair:  Applications developed in a few hours; Windows StartUp Manager Application
-
-Windows StartUp Manager Application
-===================================
-
-An application that has the ability to let 
-the user control what programs should start at Windows booting time. 
-
-.. image:: winstartupman.jpg
-	:alt: Windows Startup Manager
-
-.. index:: 
 	pair: Applications developed in a few hours; Fifteen Puzzle Game
 
 Fifteen Puzzle Game
@@ -359,17 +347,6 @@ Simple implementation for the Analog Clock.
 	:alt: Ring Application
 
 .. index:: 
-	pair: Applications developed in a few hours; TicTacToe Game
-
-TicTacToe Game
-==============
-
-An implementation for the popular TicTacToe game.
-
-.. image:: tictactoe.jpg
-	:alt: Ring Application
-
-.. index:: 
 	pair: Applications developed in a few hours; Squares Puzzle Game
 
 Squares Puzzle Game
@@ -379,17 +356,6 @@ An implementation for the popular Squares Puzzle game.
 
 .. image:: ringapps_shot2.png
 	:alt: Ring Application
-
-.. index:: 
-	pair: Applications developed in a few hours; Calculator Application
-
-Calculator Application
-======================
-
-Simple calculator application 
-
-.. image:: newcalc2.png
-	:alt: Ring Calculator
 
 .. index:: 
 	pair: Applications developed in a few hours; Samples in this book
