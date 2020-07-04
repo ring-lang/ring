@@ -400,16 +400,17 @@ More Improvements
 * Ring2EXE - Always copy files listed in the resources file to the target folder
 * CodeGen - Add Option: PassNullBeforeVMPointer (For C++ Classes)
 * CodeGen - Using RING_API_ISCPOINTER() instead of RING_API_ISPOINTER()
-* Ring Compiler - ChangeRingKeyword - support comments and many commands in the same line
-* Ring Compiler - ChangeRingOperator - support comments and many commands in the same line
+* Ring Compiler - ChangeRingKeyword - Support comments and many commands in the same line
+* Ring Compiler - ChangeRingOperator - Support comments and many commands in the same line
 * Ring Compiler - ring_parser.c - Better Code
 * Ring Compiler - ring_stmt.c - Better Code
 * Ring Compiler - ring_expr.c - Better Code
 * Ring Compiler - ring_state.c - Flag for the (Not Case Sensitive) feature
 * Ring VM - Object File - Save/Restore the files list 
 * Ring VM - ring_vmexpr.c - Better Code - Avoid magic numbers
-* Ring VM - ring_state_filetokens() - optional parameter for the (Not Case Sensitive) feature.
+* Ring VM - ring_state_filetokens() - Optional parameter for the (Not Case Sensitive) feature.
 * Ring VM - int2bytes(), float2bytes() & double2bytes() uses sizeof() function
+* Ring VM - fclose() function - Display error message if the FILE pointer is NULL
 * Ring VM - Extensions API - Support local scope of the caller when getting integer pointer
 * The ring/rnoteexe folder is moved to ring/applications/rnote
 * The ring/android folder is moved to ring/extensions/android
