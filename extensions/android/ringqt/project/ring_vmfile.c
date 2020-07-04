@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 #include <sys/types.h>
 #ifdef _WIN32
@@ -76,6 +76,9 @@ void ring_vm_file_fclose ( void *pPointer )
 		if ( fp != NULL ) {
 			RING_API_RETNUMBER(fclose(fp));
 			RING_API_SETNULLPOINTER(1);
+		}
+		else {
+			RING_API_ERROR(RING_API_NULLPOINTER);
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
