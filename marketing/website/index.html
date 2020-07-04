@@ -508,7 +508,7 @@ nCount = 10	<font color="green"># Global variable</font>
 			</pre>
 		</p>
 
-		The list index starts from 1 (Or from 0 using the ZeroLib classes)
+		The list index starts from 1
 		
 		<p>
 			<pre>
@@ -955,7 +955,7 @@ aWords = ["hello","it","is","me"]
 		Ring comes with transparent implementation. We can know what is happening in each compiler stage and
 		what is going on during the run-time by the Virtual Machine
 
-		Example : ring helloworld.ring -tokens -rules -ic
+		Example : ring helloworld.ring -tokens -rules -ic -norun
 
 		<p>
 			<pre>
@@ -999,22 +999,17 @@ Rule : Statement  --> 'See' Expr
 
 ==================================================================
 
-
-
 ==================================================================
 Byte Code - Before Execution by the VM
 ==================================================================
 
      PC      OPCode        Data
-
       1     FuncExE
       2       PushC   Hello, World!
       3       Print
       4  ReturnNull
 
 ==================================================================
-
-Hello, World!
 			</pre>
 		</p>
 
@@ -1026,11 +1021,6 @@ Hello, World!
 	      <div class="panel-body">
 		  
 		  The Ring programming language is designed using the <a href="http://doublesvsoop.sourceforge.net" >PWCT visual programming tool </a>
-		  and you will find the visual source of the language in the folder
-		  "visualsrc" - *.ssf files and the generated source code (In the C Language) in the		  
-		  src folder and the include folder. <a href="http://github.com/ring-lang/ring"  >Fork me on GitHub</a>
-			<br><br>
-		  The next screen shots for the ring_vm.ssf (Generate ring_vm.c and ring_vm.h) and ring_list.ssf (Generate ring_list.c and ring_list.h) files.
 		  <br><br>
 		  
 	<div class="col-xs-12">
