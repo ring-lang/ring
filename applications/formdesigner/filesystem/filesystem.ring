@@ -13,33 +13,39 @@ class FormDesignerFileSystem from ObjectsParent
 	oGenerator = new FormDesignerCodeGenerator
 
 	oNewFileDialog = new QFileDialog(NULL) {
+		setFilter(QDir_AllEntries|QDir_Hidden|QDir_System)
 		setFileSelectedevent(Method("oFile.NewFileDialogOperation()"))
 		setWindowTitle("New Form")
 		setLabelText(QFileDialog_Accept,"Save")
-		setNameFilter("Form files (*.rform)")
+		setNameFilter("Form files (*.rform *)")
 		setDefaultSuffix("rform")
 		setFileMode(QFileDialog_AnyFile)
 		setViewMode(QFileDialog_List)
+		setOption(QFileDialog_ShowDirsOnly,False)
 	}
 
 	oOpenFileDialog = new QFileDialog(NULL) {
+		setFilter(QDir_AllEntries|QDir_Hidden|QDir_System)
 		setFileSelectedevent(Method("oFile.OpenFileDialogOperation()"))
 		setWindowTitle("Open Form")
 		setLabelText(QFileDialog_Accept,"Open")
-		setNameFilter("Form files (*.rform)")
+		setNameFilter("Form files (*.rform *)")
 		setDefaultSuffix("rform")
 		setFileMode(QFileDialog_ExistingFile)
 		setViewMode(QFileDialog_List)
+		setOption(QFileDialog_ShowDirsOnly,False)
 	}
 
 	oSaveFileDialog = new QFileDialog(NULL) {
+		setFilter(QDir_AllEntries|QDir_Hidden|QDir_System)
 		setFileSelectedevent(Method("oFile.SaveFileDialogOperation()"))
 		setWindowTitle("Save Form")
 		setLabelText(QFileDialog_Accept,"Save")
-		setNameFilter("Form files (*.rform)")
+		setNameFilter("Form files (*.rform *)")
 		setDefaultSuffix("rform")
 		setFileMode(QFileDialog_AnyFile)
 		setViewMode(QFileDialog_List)
+		setOption(QFileDialog_ShowDirsOnly,False)
 	}
 
 	cInputFileName
