@@ -335,22 +335,16 @@ The next screen shots for simple 2D Games that we will present in the Game Engin
 Stars Fighter Game
 
 .. image:: starsfighter.png
-	:width: 450pt
-	:height: 350pt
 	:alt: Ring Application
 
 Flappy Bird 3000 Game
 
 .. image:: flappybird.png
-	:width: 450pt
-	:height: 350pt
 	:alt: Ring Application
 
 Super Man 2016 Game
 
 .. image:: superman.png
-	:width: 450pt
-	:height: 350pt
 	:alt: Ring Application
 
 The next screen shot for the TicTacToe 3D Game
@@ -358,8 +352,6 @@ The next screen shot for the TicTacToe 3D Game
 Screen Shot:
 
 .. image:: tictactoe3d.png
-	:width: 450pt
-	:height: 350pt
 	:alt: TicTacToe 3D Game
 
 The next screen shot for the Gold Magic 800 Game
