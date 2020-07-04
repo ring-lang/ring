@@ -2,6 +2,12 @@
 max-width: 1200px !important;
 }
 /* 
+
+.wy-side-scroll {
+  width: auto;
+  overflow-y: auto;
+}
+
 .wy-side-nav-search { 
 	background-color: DarkBlue;
 }
