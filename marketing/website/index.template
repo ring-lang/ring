@@ -263,7 +263,8 @@
 		The language is designed for productivity and developing high quality solutions that can scale.
 		
 		</p>
-		<br> <br>
+		
+		<br> 
 
         <div class="panel panel-primary" id="productivityscal">
 	      <div class="panel-heading"><h4> Designed for a Clear Goal</h4></div>
@@ -559,6 +560,24 @@ oPerson = <font color="purple">new</font> Person
 		</div>
 		</div>
 
+		
+				 <div class="panel panel-primary" id="designgoals_syntaxflexibility">
+	      <div class="panel-heading"><h4> Syntax Flexibility</h4></div>
+	      <div class="panel-body">
+
+		<p>
+			Ring comes with many styles for writing your source code! <br> <br>
+
+			Also you can change the language keywords and operators and create your custom style! <br>
+
+		</p>
+
+		<br> 
+		
+		  </div>
+		</div>
+		
+		
 	    <div class="panel panel-primary" id="libs">
 	      <div class="panel-heading"><h4> Define Natural Statements based on Object-Oriented </h4></div>
 	      <div class="panel-body">
@@ -764,24 +783,6 @@ aWords = ["hello","it","is","me"]
 		</div>
 		</div>
 		
-		<br> <br>
-		
-		 <div class="panel panel-primary" id="designgoals_syntaxflexibility">
-	      <div class="panel-heading"><h4> Syntax Flexibility</h4></div>
-	      <div class="panel-body">
-
-		<p>
-			Ring comes with many styles for writing your source code! <br> <br>
-
-			Also you can change the language keywords and operators and create your custom style! <br>
-
-		</p>
-
-		  </div>
-		</div>
-		
-		<br> <br>
-
 	 
 	 </div>  
   </div>
@@ -792,6 +793,13 @@ aWords = ["hello","it","is","me"]
 <a href="#implementationfeatures" class="btn btn-default" data-toggle="collapse" style="width:100%">Implementation</a>
 
 <div id="implementationfeatures" class="panel-group collapse in">
+
+<div class="panel panel-default">
+      <div class="panel-heading"><h4>Implementation</h4></div>
+      <div class="panel-body">
+
+
+
 
 <a name="education"></a>
 		        <div class="panel panel-primary" id="transparentimplementation">
@@ -955,7 +963,6 @@ aList = "nice"
 	</div>
 	</div>
 
-			<br> <br>
 		
 		 <div class="panel panel-primary" id="designgoals_nogil">
 	      <div class="panel-heading"><h4> No Global Interpreter (VM) Lock - No GIL</h4></div>
@@ -974,10 +981,8 @@ aList = "nice"
 		</div>
 	
 
-
-
   <div id="fastenough" class="panel-group collapse in">
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
       <div class="panel-heading"><h4>Fast Enough For Many Applications</h4></div>
       <div class="panel-body">
 
@@ -1071,6 +1076,8 @@ aList = "nice"
 	 </div>
    </div>
 
+</div>
+</div>
 </div>
    
 
