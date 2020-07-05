@@ -359,6 +359,10 @@ The next screen shot for the Gold Magic 800 Game
 .. image:: gmshot3.png
 	:alt: Gold Magic 800 
 
+The next screen shot from the RingQt3D chapter
+
+.. image:: qt3d_ex18.png
+	:alt: Using RingQt3D
 
 .. index:: 
 	pair: Applications developed in a few hours; Innovative
@@ -414,3 +418,8 @@ We can run the Form Designer as Android application!
 
 .. image:: formdesignerandroid.png
 	:alt: Form Designer - Android
+
+Also we can run it in the Web Browser as a web application using WebAssembly
+
+.. image:: formdesignerwasm.png
+	:alt: Form Designer - Web
