@@ -119,18 +119,19 @@ todo_include_todos = True
 # a list of builtin themes.
 # html_theme = 'classic' 
 
+#html_theme = "classic"
 html_theme = "sphinx_rtd_theme"
+
 html_logo = "ringdoclogo.jpg"
 
 html_theme_options = {
 	'logo_only': True,
 	'display_version': False,
 	'sticky_navigation': False,
+	'body_max_width': "none"
     #"rightsidebar": "true",
     #"relbarbgcolor": "black"
 }
-
-#html_theme = "sphinx_rtd_theme"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
