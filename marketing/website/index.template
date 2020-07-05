@@ -960,7 +960,7 @@ aList = "nice"
 </div>
 
   
-<a href="#fastenough" class="btn btn-default" data-toggle="collapse" style="width:100%">Fast</a>
+<a href="#fastenough" class="btn btn-default" data-toggle="collapse" style="width:100%">Implementation</a>
   <div id="fastenough" class="panel-group collapse in">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Fast Enough For Many Applications</h4></div>
