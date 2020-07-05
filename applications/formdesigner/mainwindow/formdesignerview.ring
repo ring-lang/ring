@@ -68,7 +68,7 @@ Class FormDesignerView from WindowsViewParent
 				setcentralWidget(this.oArea)
 				setLayoutDirection(T_LAYOUTDIRECTION)
 			}
-			setwinicon(win,$cCurrentDir + "/image/formdesigner.png")
+			setwinicon(win,"image/formdesigner.png")
 
 		# Create the ToolBox
 			CreateToolBox()
@@ -102,7 +102,11 @@ Class FormDesignerView from WindowsViewParent
 			}
 
 		# Show the Window
-			win.showmaximized()
+			if isWebAssembly() { 
+				win.show()
+			else 
+				win.showmaximized()
+			}
 
 	func WindowMoveResizeEvents
 		oFilter = new qAllEvents(oSub) {
