@@ -73,12 +73,12 @@ Press Enter to continue and return to the Ring Notepad.
 	:alt: Using Ring Notepad
 
 .. index:: 
-	pair: Ring Notepad; Ring Notepad - Creating and running your first GUI application 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first GUI/WebAssembly/Mobile application 
 
-Creating and running your first GUI/Mobile/WebAssembly Application 
+Creating and running your first GUI/WebAssembly/Mobile Application 
 ==================================================================
 
-To learn how to create GUI applications using Ring check the "Desktop, Mobile and WebAssembly development using RingQt" chapter.
+To learn how to create GUI applications using Ring check the "Desktop, WebAssembly and Mobile development using RingQt" chapter.
 
 Source Code:
 
@@ -117,7 +117,7 @@ the "Web Development (CGI Library)" chapter.
 
 .. note:: You need to support the Ring language in your web server to be able to run the next example.
 
-.. tip:: For Windows users, Ring comes with Apache Web server! We can run any web application from any folder directly without doing any configuration.
+.. tip:: For Windows users, Ring comes with Apache Web server! Using Ring Notepad we can run any web application from any folder directly without doing any configuration.
 
 
 Source Code:
