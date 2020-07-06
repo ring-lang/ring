@@ -1,1 +1,1 @@
-load "/../extensions/ringqt/guilib/guilib.ring"
+load "/../ringlibs/guilib/guilib.ring"
