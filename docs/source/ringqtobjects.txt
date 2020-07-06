@@ -5,10 +5,9 @@
 Objects Library for RingQt Application
 ======================================
 
-In this chapter we will learn about the objects library for RingQt applications.
+In this chapter we will learn about the objects library and using it in GUI applications.
 
-Ring comes with the Objects library for RingQt applications. Instead of using global
-variables for windows objects and connecting events to objects using the object name, the
+Instead of using global variables for windows objects and connecting events to objects using the object name, the
 Objects Library will manage a list of the GUI objects and will provide a more natural API to quickly
 create one or many windows from the same class.
 
@@ -21,13 +20,23 @@ The Objects Library is designed to be used with the MVC Design Pattern.
 The Objects Library uses reflection and meta-programming to add new methods to Controller classes to provide
 an easy way for communication between these classes.
 
-The Objects Library is merged in RingQt so you can use it directly when you use RingQt
+The Objects Library is called automatically by the GUILib
+
+Also we can call it alone by using the next command
+
+.. code-block:: ring
+
+	load "objectslib.ring"
+
+The ObjectsLib provide functions like openObject(), lastObject() and a class called ObjectsParent
+
+The GUILib provide a new specific API for GUI applications like openWindow(), lastWindow(), etc.
 
 .. index:: 
-	pair: Objects Library for RingQt Application; Library Usage
+	pair: Objects Library for RingQt Application; Library Usage with GUI Applications
 
-Library Usage
-=============
+Library Usage with GUI Applications
+===================================
 
 * Use the openWindow(cWindowControllerClassName) function to open new Windows
 * Create at least Two Classes for each window, The Controller Class and the View Class
@@ -213,9 +222,15 @@ Objects Library Source Code
 
 The library source code is very simple, You can check the source code files 
 
-* https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objects.ring
-* https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objectslib.ring
-* https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/subwindows.ring
+The source code for the Objects Library (can be used without GUILib)
+
+* https://github.com/ring-lang/ring/blob/master/ringlibs/objectslib/objects.ring
+* https://github.com/ring-lang/ring/blob/master/ringlibs/objectslib/objectslib.ring
+
+The source code for the MVC classes in GUILib
+
+* https://github.com/ring-lang/ring/blob/master/ringlibs/guilib/mvc/controllerparent.ring
+* https://github.com/ring-lang/ring/blob/master/ringlibs/guilib/mvc/viewparent.ring
 
 .. index:: 
 	pair: Objects Library for RingQt Application; openWindowAndLink() Function

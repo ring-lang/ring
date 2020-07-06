@@ -132,7 +132,7 @@
 <li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Objects Library for RingQt Application</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#library-usage">Library Usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#library-usage-with-gui-applications">Library Usage with GUI Applications</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#openwindowandlink-function">openWindowAndLink() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#openwindowinpackages-function">openWindowInPackages() Function</a></li>
@@ -263,9 +263,8 @@
             
   <div class="section" id="objects-library-for-ringqt-application">
 <span id="index-0"></span><h1>Objects Library for RingQt Application<a class="headerlink" href="#objects-library-for-ringqt-application" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter we will learn about the objects library for RingQt applications.</p>
-<p>Ring comes with the Objects library for RingQt applications. Instead of using global
-variables for windows objects and connecting events to objects using the object name, the
+<p>In this chapter we will learn about the objects library and using it in GUI applications.</p>
+<p>Instead of using global variables for windows objects and connecting events to objects using the object name, the
 Objects Library will manage a list of the GUI objects and will provide a more natural API to quickly
 create one or many windows from the same class.</p>
 <p>Also the Objects Library provide a way to quickly set methods
@@ -274,9 +273,15 @@ quickly use the parent or the caller windows from the child or sub windows and t
 <p>The Objects Library is designed to be used with the MVC Design Pattern.</p>
 <p>The Objects Library uses reflection and meta-programming to add new methods to Controller classes to provide
 an easy way for communication between these classes.</p>
-<p>The Objects Library is merged in RingQt so you can use it directly when you use RingQt</p>
-<div class="section" id="library-usage">
-<span id="index-1"></span><h2>Library Usage<a class="headerlink" href="#library-usage" title="Permalink to this headline">¶</a></h2>
+<p>The Objects Library is called automatically by the GUILib</p>
+<p>Also we can call it alone by using the next command</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;objectslib.ring&quot;</span>
+</pre></div>
+</div>
+<p>The ObjectsLib provide functions like openObject(), lastObject() and a class called ObjectsParent</p>
+<p>The GUILib provide a new specific API for GUI applications like openWindow(), lastWindow(), etc.</p>
+<div class="section" id="library-usage-with-gui-applications">
+<span id="index-1"></span><h2>Library Usage with GUI Applications<a class="headerlink" href="#library-usage-with-gui-applications" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Use the openWindow(cWindowControllerClassName) function to open new Windows</p></li>
 <li><p>Create at least Two Classes for each window, The Controller Class and the View Class</p></li>
@@ -421,10 +426,15 @@ using the openWindowInPackages() function.</p>
 <div class="section" id="objects-library-source-code">
 <span id="index-5"></span><h2>Objects Library Source Code<a class="headerlink" href="#objects-library-source-code" title="Permalink to this headline">¶</a></h2>
 <p>The library source code is very simple, You can check the source code files</p>
+<p>The source code for the Objects Library (can be used without GUILib)</p>
 <ul class="simple">
-<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objects.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objects.ring</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objectslib.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/objectslib.ring</a></p></li>
-<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/subwindows.ring">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/guilib/objectslib/subwindows.ring</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/ringlibs/objectslib/objects.ring">https://github.com/ring-lang/ring/blob/master/ringlibs/objectslib/objects.ring</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/ringlibs/objectslib/objectslib.ring">https://github.com/ring-lang/ring/blob/master/ringlibs/objectslib/objectslib.ring</a></p></li>
+</ul>
+<p>The source code for the MVC classes in GUILib</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/ringlibs/guilib/mvc/controllerparent.ring">https://github.com/ring-lang/ring/blob/master/ringlibs/guilib/mvc/controllerparent.ring</a></p></li>
+<li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/ringlibs/guilib/mvc/viewparent.ring">https://github.com/ring-lang/ring/blob/master/ringlibs/guilib/mvc/viewparent.ring</a></p></li>
 </ul>
 <span class="target" id="index-6"></span></div>
 </div>
