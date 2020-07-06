@@ -130,7 +130,11 @@
 	oFDApp = new qApp {
 		if IsMainSourceFile() {	# Because oFDApp is used in other classes 
 			$FDSubApp = False
-			StyleFusion()
+			if isWebAssembly() {
+				StyleFusionBlack()
+			else 
+				StyleFusion()
+			}
 			openWindow(:FormDesignerController)
 			exec()
 		else 
