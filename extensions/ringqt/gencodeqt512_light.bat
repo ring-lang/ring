@@ -24,7 +24,7 @@ set RINGQT_NOWEBKIT=1
 set RINGQT_NOBLUETOOTH=1
 set RINGQT_NOCHARTS=1
 
-ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt.cpp ..\..\ringlibs\guilib\ring_qt.ring
+ring ..\codegen\parsec.ring classes\qt.cf cpp\src\ring_qt.cpp ..\..\ringlibs\guilib\classes\ring_qt.ring
 cd events
 ring qtevents.ring
 cd ..
