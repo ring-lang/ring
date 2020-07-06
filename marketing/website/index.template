@@ -1091,18 +1091,19 @@ aList = "nice"
 	  <div class="col-sm-12 col-md-4">
 
 	    <div class="panel panel-primary">
-	      <div class="panel-heading">Free and Innovative</div>
+	      <div class="panel-heading">Innovative</div>
 	      <div class="panel-body">
 			<ul>
-				<li>Free Open Source (MIT License)</li>			
-				<li>Declarative programming on the top of Object-Oriented programming</li>
-				<li>No explicit end for statements (No ; or ENTER is required)</li>
-				<li>For in get item by reference not value, you can read/edit the item</li>
+				<li>Compact Syntax</li>
+				<li>Three Styles for writing the source code</li>
+				<li>Syntax Flexibility support customization, translation and porting old code</li>
+				<li>Declarative Programming </li>
+				<li>Natural Language Programming</li>
+				<li>Clear program structure (Statements then functions then packages &amp; classes)</li>				
+				<li>using { } to access objects and use attributes/methods as variables/functions</li>				
+				<li>No explicit end for statements (No ; or ENTER is required)</li>				
 				<li>Use exit to go outside from more than one loop</li>
 				<li>No keyword to end Functions, Classes and Packages</li>
-				<li>using { } to access objects and use attributes/methods as variables/functions</li>
-				<li>Clear program structure (Statements then functions then packages &amp; classes)</li>
-				<li>Optional Printing for Tokens/Grammar/Byte-Code during execution</li>		
 			</ul>
 	      </div>	      
             </div>
@@ -1114,12 +1115,16 @@ aList = "nice"
 	      <div class="panel-body">
 
 		<ul>
+		<li>Free Open Source (MIT License)</li>			
 		<li>Hybrid Implementation (Compiler+VM)</li>
 		<li>The compiler + The Virtual Machine are 20,000 lines of C code</li>
 		<li>The other 500,000 lines of code are related to libraries!</li>
+		<li>Transparent Implementation provides optional printing for Tokens/Grammar/Byte-Code during execution</li>		
 		<li>Written in ANSI C (The code is generated)</li>
 		<li>Developed using Visual Programming (PWCT)</li>
-		<li>Portable (Windows, Linux &amp; macOS, Android, etc.)</li>
+		<li>Smart Garbage Collector suitable for Games (Automatic Memory Management using Escape Analysis and Reference Counting)</li>
+		<li>No Global Interpreter Lock (No GIL)</li>
+		<li>Portable (Windows, Linux, macOS, Android, WebAssembly, etc.)</li>
 		</ul>
 	       </div>
            </div>
@@ -1133,19 +1138,18 @@ aList = "nice"
 
 		<ul>
 		<li>Comments (One line &amp; Multi-line)</li>
+		<li>Multi-line literals</li>
 		<li>Not Case-Sensitive</li>
-		<li>Structure Programming</li>
+		<li>The list index start from 1</li>
 		<li>Rich control structures &amp; Operators</li>
-		<li>Procedures/Functions</li>
+		<li>Range operator ex: 1:10</li>
 		<li>Main Function (optional)</li>
 		<li>Call Function before the definition</li>
-		<li>Recursion</li>
-		<li>Multi-line literals</li>
-		<li>Access (read/write) string letter by index</li>
-		<li>The list index start from 1</li>
-		<li>Range operator ex: 1:10</li>
+		<li>Recursion</li>		
+		<li>Access (read/write) string letter by index</li>		
+		<li>For in get item by reference not value</li>
 		<li>First Class Variables, Lists, Objects and Functions</li>
-		<li>Store/Copy Lists/Objects by value (Deep Copy)</li>
+		<li>Store/Copy Lists/Objects by value (Deep Copy)</li>		
 		<li>Pass Lists/Objects by reference</li>
 		<li>8-bit clean, work on binary data directly</li>
 		</ul>
@@ -1170,7 +1174,7 @@ aList = "nice"
 		<li>Lexical Scoping (Global, Local &amp; Object State)</li>
 		<li>Default scope for variables inside functions (Local)</li>
 		<li>Default scope for variables outside functions (global)</li>
-		<li>Garbage Collector - Automatic Memory Management (Escape Analysis and Reference Counting)</li>
+		<li>Optional loading for modules in separate global scope</li>
 		<li>Exception Handling</li>
 		<li>Eval() to execute code during run-time</li>
 		</ul>
@@ -1182,7 +1186,7 @@ aList = "nice"
 	<div class="col-sm-12 col-md-4">
 
 	    <div class="panel panel-primary">
-	      <div class="panel-heading"> Native Object-Oriented Support</div>
+	      <div class="panel-heading"> Object-Oriented Programming (OOP)</div>
 	      <div class="panel-body">
 
 		<ul>
@@ -1209,13 +1213,18 @@ aList = "nice"
 	      <div class="panel-body">
 
 		<ul>
-		<li>I/O commands</li><li>Math functions</li>
+		<li>I/O commands</li>
+		<li>Math functions</li>
 		<li>String functions</li>
 		<li>List functions</li>
 		<li>File processing functions</li>
-		<li>Database support (ODBC &amp; MySQL)</li>
+		<li>System functions</li>
+		<li>Database support (ODBC, MySQL, PostgreSQL and SQLite)</li>
 		<li>Security Functions (OpenSSL)</li>
 		<li>Internet Functions (LibCurl)</li>
+		<li>Powerful GUI Framework (Qt)</li>
+		<li>Web Development Library</li>
+		<li>Many Game Programming Libraries</li>
 		</ul>
 	      
 	      </div>
@@ -1231,21 +1240,22 @@ aList = "nice"
     <div class="col-sm-12 col-md-4">
 
 	    <div class="panel panel-primary">
-	      <div class="panel-heading"> CGI Library (Written in Ring)  </div>
+	      <div class="panel-heading"> Web Development  </div>
 	      <div class="panel-body">
 
 		<ul>
-		<li>CGI LIbrary - HTTP Get</li>
-		<li>CGI LIbrary - HTTP Post</li>
-		<li>CGI LIbrary - File upload</li>
-		<li>CGI LIbrary - Cookies</li>
-		<li>CGI LIbrary - URL Encode</li>
-		<li>CGI LIbrary - Templates</li>
-		<li>CGI LIbrary - HTML Special Characters</li>
-		<li>CGI LIbrary - HTML Generation using Functions</li>
-		<li>CGI LIbrary - HTML Generation using Classes</li>
-		<li>CGI LIbrary - CRUD Example (using MVC)</li>
-		<li>CGI Library - Users Example (Register, Login and Check)</li>
+		<li>HTTP Get</li>
+		<li>HTTP Post</li>
+		<li>File upload</li>
+		<li>Cookies</li>
+		<li>URL Encode</li>
+		<li>Templates</li>
+		<li>HTML Special Characters</li>
+		<li>HTML Generation using Functions</li>
+		<li>HTML Generation using Classes</li>
+		<li>CRUD Example (using MVC)</li>
+		<li>Users Example (Register, Login and Check)</li>
+		<li>Deploy web applications in the Cloud</li>
 		</ul>
 
 	      
@@ -1256,15 +1266,17 @@ aList = "nice"
     <div class="col-sm-12 col-md-4">
 
 	    <div class="panel panel-primary">
-	      <div class="panel-heading"> Extension  </div>
+	      <div class="panel-heading"> Extensions  </div>
 	      <div class="panel-body">
 
 		<ul>
 		<li>Extension using C/C++ (Simple API)</li>
-		<li>Embedding the language in C/C++ programs</li>
-		<li>Comes with code generator (Written in Ring) to quickly wrap C/C++ Libraries</li>
-		<li>Create 2D Games (Using the Allegro Library)</li>
-		<li>Create GUI Applications for Desktop and Mobile (Using the Qt Framework)</li>
+		<li>Embedding in C/C++ projects</li>
+		<li>Comes with binding generator to quickly wrap C/C++ Libraries</li>
+		<li>Network Programming (SDLNet, Libuv, etc.)
+		<li>Create 2D Games (Allegro &amp; LibSDL)</li>
+		<li>Create 3D Games (OpenGL, FreeGLUT, RayLib, Qt3D, etc.)</li>
+		<li>Create GUI Applications for Desktop, WebAssembly and Mobile platforms (Using the Qt Framework)</li>		
 		</ul>
 	      
 	      </div>
@@ -1280,6 +1292,11 @@ aList = "nice"
 		<li>Very Stable</li>
 		<li>Good Performance</li>
 		<li>Complete Documentation</li>
+		<li>Many Libraries (Batteries Included)</li>
+		<li>Many Samples (Easy to Learn)</li>
+		<li>Many Applications</li>
+		<li>Hundreds of YouTube Videos</li>
+		<li>Powerful RAD tools (Code Editor, Form Designer, REPL, Debugger, Ring2EXE, Package Manager, etc.)</li>
 		</ul>
 	      
 	      </div>
