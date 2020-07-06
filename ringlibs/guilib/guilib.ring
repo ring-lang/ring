@@ -7,8 +7,8 @@
 		LoadLib("libringqt.so")
 	ok
 # Load the main library 
-	load "qt.rh"
-	load "ring_qt.ring"
+	load "constants/qt.rh"
+	load "classes/ring_qt.ring"
 # Load the General Objects Library 
 	load "objectslib.ring"
 	# Load the Objects Library - Custom classes for the GUILib 
