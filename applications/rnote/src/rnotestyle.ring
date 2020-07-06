@@ -77,29 +77,29 @@ class RNoteStyle
 			aCustomStyleColors = [
 				:LineNumbersAreaColor 		= colorWhite ,
 				:LineNumbersAreaBackColor 	= colordarkBlue,
-				:ActiveLineBackColor 		= colordarkBlue,
+				:ActiveLineBackColor 		= colorDarkBlue2,
 				:SyntaxKeywordsColor		= colorWhite,
-				:SyntaxClassNamesColor 		= ColorWhite,
-				:SyntaxCommentsColor 		= ColorSilver,
-				:SyntaxLiteralsColor 		= ColorCyan,
-				:SyntaxFunctionCallsColor 	= ColorGreen
+				:SyntaxClassNamesColor 		= colorWhite,
+				:SyntaxCommentsColor 		= colorWhite,
+				:SyntaxLiteralsColor 		= colorWhite,
+				:SyntaxFunctionCallsColor 	= colorWhite
 			]
 			aStyleColors = aCustomStyleColors
 			aTextColor = [255,255,255]
-			aBackColor = [0,0,135]
+			aBackColor = [0,0,132]
 			oApp.StylefusionCustom(
-				new qColor() { setrgb(0,0,128,255) },
+				new qColor() { setrgb(0,0,132,255) },
 				new qColor() { setrgb(255,255,255,255) },
-				new qColor() { setrgb(0,0,128,255) },
-				new qColor() { setrgb(0,0,128,255) },
+				new qColor() { setrgb(0,0,132,255) },
+				new qColor() { setrgb(0,0,132,255) },
 				new qColor() { setrgb(255,255,255,255) },
 				new qColor() { setrgb(255,255,255,255) },
 				new qColor() { setrgb(255,255,255,255) },
-				new qColor() { setrgb(0,0,128,255) },
+				new qColor() { setrgb(0,0,132,255) },
 				new qColor() { setrgb(255,255,255,255) },
 				new qColor() { setrgb(255,0,0,255) },
-				new qColor() { setrgb(142,45,197,255) },
-				new qColor() { setrgb(0,0,128,255)}
+				new qColor() { setrgb(0,0,100,255) },
+				new qColor() { setrgb(255,255,255,255)}
 			)
 
 	func StyleBlack()
@@ -330,7 +330,7 @@ class RNoteStyle
 			]
 			aStyleColors = aCustomStyleColors
 			aTextColor = [255,255,255]
-			aBackColor = [11,11,11]
+			aBackColor = [17,36,53]
 
 	func StyleImage()
 			nDefaultStyle  = STYLECOLOR_IMAGE

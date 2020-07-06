@@ -49,6 +49,7 @@ class RNoteControllerBase from WindowsControllerParent
 		colorBlack  		= new qColor() { setrgb(0,0,0,255) }
 		colorSilver 		= new qColor() { setrgb(128,128,128,255) }
 		colorPurple 		= new qColor() { setrgb(128,0,128,255) }
+		colordarkBlue2   	= new qcolor() { setrgb(0,0,100,255) }
 
 	# Default Editor Style Colors
 		aStyleColors = [
