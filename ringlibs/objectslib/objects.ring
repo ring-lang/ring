@@ -1,6 +1,6 @@
 /*
-**	Project : RingQt - Objects Library
-**	File Purpose :  Objects Functions
+**	Project : Objects Library
+**	File Purpose :  Functions to manage a group of objects 
 **	Date : 2016.11.22
 **	Author :  Mahmoud Fayed <msfclipper@yahoo.com>
 */
