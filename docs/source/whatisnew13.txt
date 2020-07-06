@@ -415,4 +415,6 @@ More Improvements
 * The ring/rnoteexe folder is moved to ring/applications/rnote
 * The ring/android folder is moved to ring/extensions/android
 * The ring/libdepwin folder is moved to ring/extensions/libdepwin
-* The ring/samples/tools/QtClassConverter is moved to ring/extensions/ringqt/converter
+* The ring/samples/tools/QtClassConverter folder is moved to ring/extensions/ringqt/converter
+* The ring/extensions/ringqt/guilib/objectslib folder is moved to ring/ringlibs/objectslib
+* The ring/extensions/ringqt/guilib folder is moved to ring/ringlibs/guilib
