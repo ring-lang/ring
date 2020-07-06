@@ -4,6 +4,8 @@ Ring Libraries in Ring
 This folder contains libraries for Ring written in the Ring programming language.
 
 * Standard Library : General Classes and functions.
+* GUI Library : GUI Classes for RingQt.
+* Objects Library : Function to manage group of objects.
 * Web Library : Simple framework for developing web applications using the MVC design pattern.
 * Game Engine : Support developing 2D Games for Desktop and Mobile using Declarative Programming based on Allegro and LibSDL
 * Natural Library : General-Purpose Natural Language Programming Library.
