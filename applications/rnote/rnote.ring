@@ -7,7 +7,7 @@
 	load "openssllib.ring"
 
 # Load Ring Notepad Files 
-	load "rnotefiles.ring"
+	load "src/rnotefiles.ring"
 
 # Load the Form Designer 
 	load "../formdesigner/formdesigner.ring"
