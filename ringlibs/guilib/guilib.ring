@@ -14,3 +14,5 @@
 		load "mvc/viewparent.ring"
 # Load the modern library (Better functions and classes)	
 	load "modernlib/modernlib.ring"
+# Load the Web Assembly library 
+	load "webassembly/webassembly.ring"
