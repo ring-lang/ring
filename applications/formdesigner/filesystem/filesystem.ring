@@ -99,8 +99,13 @@ class FormDesignerFileSystem from ObjectsParent
 			cFileName = cInputFileName	
 			startNewForm(oDesigner)		
 		else 
-			oNewFileDialog.setDirectory(cDir) 
-			oNewFileDialog.show()
+			if oDesigner.oView.lUseWebAssemblyMEMFS {
+				oNewFileDialog.setDirectory(cDir) 
+				oNewFileDialog.show()
+			else 
+				cFileName = "noname.rform"
+				startNewForm(oDesigner)
+			}
 		}
 
 	func NewFileDialogSaveAction oDesigner
