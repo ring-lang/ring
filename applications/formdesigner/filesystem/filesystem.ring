@@ -180,8 +180,19 @@ class FormDesignerFileSystem from ObjectsParent
 	func OpenAction oDesigner
 		# Get the file Name
 			cDir = ActiveDir(oDesigner)
+		if lUseFileDialogStaticMethods {
+			oFileDialog = new qfiledialog(oDesigner.oView.win) {
+				cInputFileName = getopenfilename(oDesigner.oView.win,"Open Form",cDir,"*.rform")
+			}
+			if cInputFileName = NULL { return }
+			cFileName = cInputFileName
+			LoadFormFromFile(oDesigner)
+			# Open controller class in Ring Notepad 
+				OpenControllerClassInParent(oDesigner)
+		else
 			oOpenFileDialog.setDirectory(cDir) 
 			oOpenFileDialog.show()
+		}
 
 	func OpenFileDialogOpenAction oDesigner
 			if cInputFileName = NULL { return }
