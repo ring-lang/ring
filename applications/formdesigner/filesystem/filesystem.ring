@@ -12,6 +12,8 @@ class FormDesignerFileSystem from ObjectsParent
 	cFileName = "noname.rform"
 	oGenerator = new FormDesignerCodeGenerator
 
+	lUseFileDialogStaticMethods = ! isWebAssembly()
+
 	oNewFileDialog = new QFileDialog(NULL) {
 		setFilter(QDir_AllEntries|QDir_Hidden|QDir_System)
 		setFileSelectedevent(Method("oFile.NewFileDialogOperation()"))
@@ -88,13 +90,26 @@ class FormDesignerFileSystem from ObjectsParent
 	func NewAction oDesigner
 		# Set the file Name
 			cDir = ActiveDir(oDesigner)
+		if lUseFileDialogStaticMethods {
+			oFileDialog = new qfiledialog(oDesigner.oView.win) {
+				cInputFileName = getsavefilename(oDesigner.oView.win,"New Form",cDir,"*.rform")
+			}
+			if cInputFileName = NULL { return }
+			cInputFileName = AddExtensionToName(cInputFileName)
+			cFileName = cInputFileName	
+			startNewForm(oDesigner)		
+		else 
 			oNewFileDialog.setDirectory(cDir) 
 			oNewFileDialog.show()
+		}
 
 	func NewFileDialogSaveAction oDesigner
 		if cInputFileName = NULL { return }
 		cInputFileName = AddExtensionToName(cInputFileName)
 		cFileName = cInputFileName
+		startNewForm(oDesigner)
+
+	func startNewForm oDesigner
 		# Delete Objects
 			DeleteAllObjects(oDesigner)
 		# Set Default Form Properties
