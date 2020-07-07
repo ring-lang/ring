@@ -221,8 +221,20 @@ class FormDesignerFileSystem from ObjectsParent
 	func SaveFile oDesigner
 		# Set the file Name
 			cDir = ActiveDir(oDesigner)
+		if lUseFileDialogStaticMethods {
+			oFileDialog = new qfiledialog(oDesigner.oView.win) {
+				cInputFileName = getsavefilename(oDesigner.oView.win,"Save Form",cDir,"*.rform")
+			}
+			if cInputFileName = NULL { return }
+			cInputFileName = AddExtensionToName(cInputFileName)
+			cFileName = cInputFileName
+			SaveFormToFile(oDesigner)
+			# Open controller class in Ring Notepad 
+				OpenControllerClassInParent(oDesigner)
+		else 
 			oSaveFileDialog.setDirectory(cDir)
 			oSaveFileDialog.show()
+		}
 
 	func SaveFileDialogSaveAction oDesigner
 			if cInputFileName = NULL { return }
