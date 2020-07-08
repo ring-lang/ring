@@ -202,10 +202,18 @@ class FormDesigner_QWidget from QWidget
 		DisplayProperties(oDesigner)
 
 	func MousePressAction oDesigner
-		# 8, 6 to start drawing from the center of the Mouse Cursor
-			nX = oDesigner.oView.oFilter.getglobalx() - 8
-			ny = oDesigner.oView.oFilter.getglobaly() - 6
+		if isWebAssembly() {
+			nFixX = 0
+			nFixY = 0
+		else 
+			nFixX = -1
+			nFixY = -6
+		}
+		# Start drawing from the center of the Mouse Cursor
+			nX = oDesigner.oView.oFilter.getglobalx() + nFixX
+			ny = oDesigner.oView.oFilter.getglobaly() + nFixY
 		oDesigner.oView.oLabelSelect.raise()
+		oDesigner.oView.oLabelSelect.move(nX,nY)
 		oDesigner.oView.oLabelSelect.resize(1,1)
 		oDesigner.oView.oLabelSelect.show()
 
@@ -236,7 +244,11 @@ class FormDesigner_QWidget from QWidget
 		return False
 
 	func GetRectDim oDesigner
-		C_TOPMARGIN = 25
+		if isWebAssembly() {
+			C_TOPMARGIN = 0
+		else 
+			C_TOPMARGIN = 25
+		}
 		nX2 = oDesigner.oView.oFilter.getglobalx()
 		ny2 = oDesigner.oView.oFilter.getglobaly()
 		top = min(nY2,nY) - oDesigner.oView.oArea.y() - oSubWindow.y() - y() - C_TOPMARGIN - oDesigner.oView.win.y()
