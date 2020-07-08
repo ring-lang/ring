@@ -70,7 +70,7 @@ Class FormDesignerView from WindowsViewParent
 				setcentralWidget(this.oArea)
 				setLayoutDirection(T_LAYOUTDIRECTION)
 			}
-			setwinicon(win,"image/formdesigner.png")
+			setwinicon(win,AppFile("image/formdesigner.png"))
 
 		# Create the ToolBox
 			CreateToolBox()
@@ -127,14 +127,14 @@ Class FormDesignerView from WindowsViewParent
 			subFile {
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+n"))
-					setbtnimage(self,"image/new.png")
+					setbtnimage(self,AppFile("image/new.png"))
 					settext(T_FORMDESIGNER_NEW) # "New"
 					setclickevent(Method(:NewAction))
 				}
 				addaction(oAction)
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+o"))
-					setbtnimage(self,"image/open.png")
+					setbtnimage(self,AppFile("image/open.png"))
 					settext(T_FORMDESIGNER_OPEN) # "Open"
 					if this.lUseWebAssemblyMEMFS {
 						setclickevent(Method(:OpenAction))
@@ -146,7 +146,7 @@ Class FormDesignerView from WindowsViewParent
 				addseparator()
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+s"))
-					setbtnimage(self,"image/save.png")
+					setbtnimage(self,AppFile("image/save.png"))
 					settext(T_FORMDESIGNER_SAVE) # "Save"
 					if this.lUseWebAssemblyMEMFS {
 						setclickevent(Method(:SaveAction))
@@ -158,7 +158,7 @@ Class FormDesignerView from WindowsViewParent
 				addseparator()
 				oAction = new qAction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+e"))
-					setbtnimage(self,"image/saveas.png")
+					setbtnimage(self,AppFile("image/saveas.png"))
 					settext(T_FORMDESIGNER_SAVEAS) # "Save As"
 					if this.lUseWebAssemblyMEMFS {
 						setclickevent(Method(:SaveAsAction))
@@ -194,7 +194,7 @@ Class FormDesignerView from WindowsViewParent
 				addseparator()
 				oAction = new qaction(this.win) {
 					setShortcut(new QKeySequence("Ctrl+shift+q"))
-					setbtnimage(self,"image/close.png")
+					setbtnimage(self,AppFile("image/close.png"))
 					settext(T_FORMDESIGNER_EXIT) # "Exit"
 					setstatustip("Exit")
 					setclickevent(Method(:ExitAction))
