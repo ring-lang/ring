@@ -51,7 +51,11 @@ class CommonAttributesMethods
 		cCurrentParentName = cValue
 
 	func updatestylesheets
-		setstylesheet("color:"+cTextColor+";background-color:"+cBackColor+";")
+		if cTextColor != NULL {
+			setstylesheet("color:"+cTextColor+";background-color:"+cBackColor+";")
+		else 
+			setstylesheet("background-color:"+cBackColor+";")
+		}
 
 	func AddObjectProperties  oDesigner
 		AddObjectCommonProperties(oDesigner)
