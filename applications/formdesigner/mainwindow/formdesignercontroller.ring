@@ -1264,6 +1264,7 @@ class FormDesignerController from WindowsControllerParent
 	func ShowMsg cTitle,cText,cText2
 		new QMessageBox(oView.win)
 		{
+			setWindowFlags(Qt_Popup | Qt_WindowTitleHint | Qt_CustomizeWindowHint)
 			setwindowtitle(cTitle)
 			settext(cText+nl+cText2)
 			show()
@@ -1318,6 +1319,7 @@ class FormDesignerController from WindowsControllerParent
 
 	Func MsgBox cTitle,cMessage
 		new QMessagebox(oView.win) {
+			setWindowFlags(Qt_Popup | Qt_WindowTitleHint | Qt_CustomizeWindowHint)
 			setwindowtitle(cTitle)
 			setText(cMessage)
 			show()
@@ -1325,7 +1327,7 @@ class FormDesignerController from WindowsControllerParent
 
 	func LangAction
 		MsgBox("Programming Language",
-			"This application developed using the Ring programming language")
+			"This application is developed using the Ring programming language")
 
 	func GUIAction
 		MsgBox("GUI Library",
