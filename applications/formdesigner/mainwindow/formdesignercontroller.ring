@@ -1262,13 +1262,11 @@ class FormDesignerController from WindowsControllerParent
 				}
 
 	func ShowMsg cTitle,cText,cText2
-		new qmessagebox(oView.win)
+		new QMessageBox(oView.win)
 		{
 			setwindowtitle(cTitle)
-			settext(cText)
-			setInformativeText(cText2)
-			setstandardbuttons(QMessageBox_Ok)
-			exec()
+			settext(cText+nl+cText2)
+			show()
 		}
 
 	func BringToFront
@@ -1319,7 +1317,7 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	Func MsgBox cTitle,cMessage
-		new qMessagebox(NULL) {
+		new qMessagebox(oView.win) {
 			setwindowtitle(cTitle)
 			setText(cMessage)
 			show()
