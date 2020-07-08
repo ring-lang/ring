@@ -127,13 +127,13 @@
 	$cCurrentDir = CurrentDir() + "/"
 
 # Start the Application
-	oFDApp = new qApp {
-		if IsMainSourceFile() {	# Because oFDApp is used in other classes 
+	oFDApp = new QApp {
+		if isMainSourceFile() {	# Because oFDApp is used in other classes 
 			$FDSubApp = False
 			if isWebAssembly() {
-				StyleFusionBlack()
+				styleFusionBlack()
 			else 
-				StyleFusion()
+				styleFusion()
 			}
 			openWindow(:FormDesignerController)
 			exec()
