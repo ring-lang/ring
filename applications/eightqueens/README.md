@@ -9,4 +9,4 @@ Author : Gal Zsolt
 
 # Screen Shot
 
-![matchinggame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/eightqueensgame/eightqueensgame.png)
+![eightqueensgame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/eightqueens/eightqueensgame.png)
