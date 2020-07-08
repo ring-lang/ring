@@ -33,10 +33,10 @@ TitleMoves = null
 LayoutButtonRow = list(size)
 LayoutButtonMain = null
 
-WQueen = "WQueen.png"
-oPic = new QPixmap("WQueen.png")
-oPicGray = new QPixmap("Gray.png")
-oPicGreen = new QPixmap("Green.png")
+WQueen = "images/WQueen.png"
+oPic = new QPixmap("images/WQueen.png")
+oPicGray = new QPixmap("images/Gray.png")
+oPicGreen = new QPixmap("images/Green.png")
 
 nMoves = 0 
 
