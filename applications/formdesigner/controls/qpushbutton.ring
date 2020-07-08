@@ -72,6 +72,10 @@ class FormDesigner_QPushButton from QPushButton
 				DisplayProperties(oDesigner)
 		}
 
+	func ApplyOpenImageFile oDesigner,cFile
+		setBtnImageValue(cFile)
+		DisplayProperties(oDesigner)
+
 	func ObjectDataAsString oDesigner,nTabsCount
 		cOutput = ObjectDataAsString2(oDesigner,nTabsCount)
 		cTabs = std_copy(char(9),nTabsCount)

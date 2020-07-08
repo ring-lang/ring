@@ -89,3 +89,6 @@ class FormDesigner_QImage from QLabel
 			DisplayProperties(oDesigner)
 		}
 
+	func ApplyOpenImageFile oDesigner,cFile
+		setImageFile(cFile)
+		DisplayProperties(oDesigner)

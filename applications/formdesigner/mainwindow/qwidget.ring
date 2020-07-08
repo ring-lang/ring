@@ -197,6 +197,10 @@ class FormDesigner_QWidget from QWidget
 				lastWindow().setMenubar(MenubarValue())
 		}
 
+	func ApplyOpenImageFile oDesigner,cFile
+		setWindowIconValue(cFile)
+		DisplayProperties(oDesigner)
+
 	func ApplyBackColor oDesigner,cColor
 		setBackColor(cColor)
 		DisplayProperties(oDesigner)

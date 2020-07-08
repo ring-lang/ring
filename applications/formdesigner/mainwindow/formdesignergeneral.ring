@@ -82,9 +82,21 @@ Class FormDesignerGeneral from ObjectsParent
 		oFont.show()
 
 	func SelectFile oDesigner
-		oFileDialog = new qfiledialog(oDesigner.oView.win) {
-			cInputFileName = getopenfilename(oDesigner.oView.win,"Open File",currentdir(),"*.*")
+		if ! isWebAssembly() {
+			oFileDialog = new qfiledialog(oDesigner.oView.win) {
+				cInputFileName = getopenfilename(oDesigner.oView.win,"Open File",currentdir(),"*.*")
+			}
+			return cInputFileName
+		else 
+			WebAssemblyUpload("Image Files (*)",Method("oGeneral.NewImageFile"))
 		}
-		oFileDialog.delete()
-		return cInputFileName
 
+	func NewImageFile 
+		cInputFileName = WebAssemblyUploadedFileName()
+		if fexists( cInputFileName ) {
+			remove( cInputFileName )
+		}
+		Write(   cInputFileName ,
+			 WebAssemblyUploadedFileContent()
+		)
+		FormDesigner().oModel.ActiveObject().ApplyOpenImageFile(FormDesigner(),cInputFileName)

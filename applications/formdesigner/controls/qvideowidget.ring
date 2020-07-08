@@ -77,3 +77,6 @@ class FormDesigner_QVideoWidget from QLineEdit
 			DisplayProperties(oDesigner)
 		}
 
+	func ApplyOpenImageFile oDesigner,cFile
+		setVideoFile(cFile)
+		DisplayProperties(oDesigner)
