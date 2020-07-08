@@ -187,8 +187,9 @@ class FormDesigner_QWidget from QWidget
 				lastWindow().LoadSelectedItems()
 			case 8	# Window Icon
 				cFile = oDesigner.oGeneral.SelectFile(oDesigner)
-				setWindowIconValue(cFile)
-				DisplayProperties(oDesigner)
+				if ! isWebAssembly() {
+					ApplyOpenImageFile(oDesigner,cFile)
+				}
 			case 9	# Menubar
 				openWindowInPackages(:MenubarDesignerController,[
 					"System.GUI"
