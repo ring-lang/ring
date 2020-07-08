@@ -1317,7 +1317,7 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	Func MsgBox cTitle,cMessage
-		new qMessagebox(oView.win) {
+		new QMessagebox(oView.win) {
 			setwindowtitle(cTitle)
 			setText(cMessage)
 			show()
