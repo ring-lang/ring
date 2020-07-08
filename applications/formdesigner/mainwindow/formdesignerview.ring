@@ -257,20 +257,22 @@ Class FormDesignerView from WindowsViewParent
 			}
 			subHelp = addmenu(T_FORMDESIGNER_HELP) # "Help"
 			subHelp {
-				subHelpLF = addmenu(T_FORMDESIGNER_LANGUAGEREFERENCE) # "Language Reference"
-				subHelpLF {
-					oAction = new qAction(this.win) {
-						settext(T_FORMDESIGNER_CHMFILE) # "CHM File"
-						setclickevent(Method(:OpenCHMAction))
+				if ! isWebAssembly() {
+					subHelpLF = addmenu(T_FORMDESIGNER_LANGUAGEREFERENCE) # "Language Reference"
+					subHelpLF {
+						oAction = new qAction(this.win) {
+							settext(T_FORMDESIGNER_CHMFILE) # "CHM File"
+							setclickevent(Method(:OpenCHMAction))
+						}
+						addaction(oAction)
+						oAction = new qAction(this.win) {
+							settext(T_FORMDESIGNER_PDFFILE) # "PDF File"
+							setclickevent(Method(:OpenPDFAction))
+						}
+						addaction(oAction)
 					}
-					addaction(oAction)
-					oAction = new qAction(this.win) {
-						settext(T_FORMDESIGNER_PDFFILE) # "PDF File"
-						setclickevent(Method(:OpenPDFAction))
-					}
-					addaction(oAction)
+					addseparator()
 				}
-				addseparator()
 				subHelpTools = addmenu(T_FORMDESIGNER_DEVELOPMENTTOOLS) # "Development Tools"
 				subHelpTools {
 					oAction = new qAction(this.win) {
