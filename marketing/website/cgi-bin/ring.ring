@@ -23,7 +23,7 @@ Func MainPage
 	BootStrapWebPage() 
 	{
 		Title = "The Ring Programming Language"
-		html(template("main.rhtml",NULL))
+		html(template("header.rhtml",NULL))
 		div {
 			classname = :container
 			div

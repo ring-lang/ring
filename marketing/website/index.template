@@ -10,13 +10,21 @@
       <div class="panel-body">
 		<p align="justify">
 			The Ring is an innovative and practical general-purpose multi-paradigm language.
-
 			The supported programming paradigms are imperative, procedural, object-oriented, declarative using nested structures, functional, meta programming and natural programming.
 			The language is portable (Windows, Linux, macOS, Android, etc.) and can be used to create Console, GUI, Web, Games and Mobile applications.
-
 			The language is designed to be simple, small, flexible and fast.					
 		</p>
-	</div>
+
+				
+				<div class="col-sm-12">
+					<a href="../cgi-bin/ringlang.cgi" class="btn btn-link btn-block">Try Ring (Open in Playground)</a>
+				</div>
+				
+			
+		
+       </div>
+	
+	
      </div>  
   </div>
 
@@ -32,8 +40,8 @@
 			<table class="table table-striped">
 				<thead>
 				  <tr>
-					<th width="40%">Date</th>
-					<th>Description</th>
+					<th width="40%"></th>
+					<th></th>
 				  </tr>
 				</thead>
 				<tbody>
