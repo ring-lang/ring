@@ -40,8 +40,8 @@ scripting and developing different kinds of applications.
 
 Instead of using a mix of programming languages, I decided to use one programming language. 
 
-I looked at many programming languages, but what I need 
-is a different language that comes with new ideas and intelligent implementation.
+I looked at many programming languages, but I discovered that I need 
+a different language that comes with new ideas and intelligent implementation.
 
 
 .. index:: 

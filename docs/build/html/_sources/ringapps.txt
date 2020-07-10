@@ -1,9 +1,9 @@
 .. index:: 
 	single: Applications developed in a few hours; Introduction
 
-=================================================
+=====================================
 Applications developed in a few hours
-=================================================
+=====================================
 
 Ring is a new programming language that focuses on the Natural Language Programming and Declarative Programming paradigms 
 and will let you think different about programming and how to solve your problems in a better way.   
