@@ -342,10 +342,13 @@ More Improvements
 	* Rock Paper Scissors Game
 	* Lottery Game
 	* Nim Game
+	* Eight Queens Game
 
 * More Samples
 	* ring/samples/3D/cubeongpu/cubeongpu.ring
 	* ring/samples/3D/cubeongpu2/cubeongpu.ring
+	* ring/samples/rosettacode/uniquecharacters.ring
+	* ring/samples/rosettacode/similarcharacters.ring
 	* ring/samples/other/helloworld/hello.ring
 	* ring/samples/other/helloworld/hello2.ring
 	* ring/samples/other/helloworld/hello3.ring
@@ -368,7 +371,6 @@ More Improvements
 	* ring/samples/other/varptr/varptr5.ring 
 	* ring/samples/other/UsingQML/sample10 folder (Charts Samples)
 	* ring/samples/other/UsingQML/sample11 folder (Data Visualization Samples)
-	* ring/samples/other/eightqueens folder (Eight Queens Game)
 	* ring/samples/other/righttoleft folder (Set Layout Direction)
 	* ring/samples/other/datetimeeditformat folder (Date Picker Control)
 	* ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring
