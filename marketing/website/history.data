@@ -1,4 +1,5 @@
 aNews = [
+  ["July 10, 2020",'<a href="https://www.youtube.com/watch?v=rGmGHrBgpwI" target="_blank"> Movie: Progress Report </a>'],
   ["July 9, 2020",'<a href="web/formdesigner/project.html" target="_blank"> Online Form Designer (WebAssembly) </a>'],
   ["July 8, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/applications/eightqueens" target="_blank"> The Eight Queens Game </a>'],
   ["July 2, 2020",'<a href="https://rosettacode.org/wiki/Category:Ring" target="_blank"> Over 600 samples in RosettaCode </a>'],
