@@ -438,6 +438,7 @@ Type: List *
 pList
 Type: int
 lCase
+ring_vmlib_checkoverflow
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
