@@ -208,6 +208,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->pCLibraries = ring_list_new_gc(pVM->pRingState,0);
 	/* No Setter Method (used by ring_vm_oop_setget() function) */
 	pVM->lNoSetterMethod = 0 ;
+	/* Check OverFlow after arithmetic operations */
+	pVM->lCheckOverFlow = 1 ;
 	ring_state_log(pRingState,"function: ring_vm_new - end");
 	return pVM ;
 }

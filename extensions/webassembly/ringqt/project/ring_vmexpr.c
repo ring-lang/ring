@@ -1158,9 +1158,12 @@ int ring_vm_checkoverflow ( VM *pVM,double nNum1,double nNum2 )
 {
 	char cStr1[100]  ;
 	char cStr2[100]  ;
-	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr1)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) ) {
-		ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
-		return 1 ;
+	if ( pVM->lCheckOverFlow ) {
+		/* We check the lCheckOverFlow flag first because the next operations decrease performance when we deal with millions of numbers */
+		if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr1)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) ) {
+			ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
+			return 1 ;
+		}
 	}
 	return 0 ;
 }
