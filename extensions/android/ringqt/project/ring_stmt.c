@@ -256,7 +256,7 @@ int ring_parser_stmt ( Parser *pParser )
 		else if ( ring_parser_iskeyword(pParser,K_AGAIN) ) {
 			ring_parser_nexttoken(pParser);
 			nLoadAgain = 1 ;
-			pParser->pRingState->lLoadAgain++ ;
+			pParser->pRingState->nLoadAgain++ ;
 		}
 		if ( ring_parser_isliteral(pParser) ) {
 			/* Check File in the Ring/bin folder */
@@ -339,7 +339,7 @@ int ring_parser_stmt ( Parser *pParser )
 			ring_chdir(cCurrentDir);
 			/* Restore Load Again status */
 			if ( nLoadAgain ) {
-				pParser->pRingState->lLoadAgain-- ;
+				pParser->pRingState->nLoadAgain-- ;
 			}
 			/*
 			**  Generate Code 

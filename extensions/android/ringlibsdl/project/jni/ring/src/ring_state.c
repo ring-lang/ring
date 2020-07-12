@@ -68,7 +68,7 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->aCustomGlobalScopeStack = ring_list_new(0) ;
 	pRingState->lStartPoolManager = 0 ;
 	pRingState->lRunFromThread = 1 ;
-	pRingState->lLoadAgain = 0 ;
+	pRingState->nLoadAgain = 0 ;
 	ring_list_addint(pRingState->aCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
 	/* Log File */
 	#if RING_LOGFILE
