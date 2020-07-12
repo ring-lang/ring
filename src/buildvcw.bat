@@ -3,7 +3,7 @@ call locatevc.bat
 
 cls
 rem  /DEBUG /Z7  
-cl /c /Ox ringw.c  ^
+cl /c /O2 ringw.c  ^
 ring_string.c ring_list.c ring_item.c ring_items.c ring_hashtable.c ring_state.c ring_scanner.c ring_parser.c ring_hashlib.c ring_vmgc.c ^
 ring_stmt.c ring_expr.c ring_codegen.c ring_vm.c ring_vmexpr.c ring_vmvars.c ^
 ring_vmlists.c ring_vmfuncs.c ring_api.c ring_vmoop.c ring_vmcui.c ^
@@ -21,7 +21,7 @@ ring_ext.obj ring_vmdll.obj ring_objfile.obj
 
 copy ..\lib\ring.dll ..\bin\
 rem  /DEBUG /Z7  
-cl ringw.c ..\lib\ring.lib -I"..\include"  advapi32.lib shell32.lib /link /SUBSYSTEM:WINDOWS,"5.01" /OUT:..\bin\ringw.exe
+cl /O2 ringw.c ..\lib\ring.lib -I"..\include"  advapi32.lib shell32.lib /link /SUBSYSTEM:WINDOWS,"5.01" /OUT:..\bin\ringw.exe
 
 del *.obj
 
