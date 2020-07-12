@@ -13,11 +13,11 @@ typedef struct RingState {
 	List *pRingPackagesMap  ;
 	/* First use by ring_vm_new */
 	List *pRingCFunctions  ;
-	/* ISCGI is 1 if we are using the language as for CGI development */
+	/* ISCGI is 1 if we are using the language for CGI development */
 	unsigned int nISCGI : 1  ;
-	/* RUN is 0 if we need to compile only */
+	/* set to 0 if we need to compile only */
 	unsigned int nRun : 1  ;
-	/* PRINTIC is 1 if we need to print byte code before execution */
+	/* set to 1 if we need to print byte code before execution */
 	unsigned int nPrintIC : 1  ;
 	/* set to 1 if we need to print the final byte code after execution */
 	unsigned int nPrintICFinal : 1  ;
@@ -45,23 +45,23 @@ typedef struct RingState {
 	/* Virtual Machine */
 	struct VM *pVM  ;
 	/* Startup File */
-	char lStartup  ;
+	unsigned int lStartup : 1  ;
 	/* Pool Manager */
 	PoolManager vPoolManager  ;
-	char lStartPoolManager  ;
+	unsigned int lStartPoolManager : 1  ;
 	/* Avoid line number ( when we use eval() from VM ) */
-	char lNoLineNumber  ;
+	unsigned int lNoLineNumber : 1  ;
 	/* Custom Global Scope */
 	int nCustomGlobalScopeCounter  ;
 	List *aCustomGlobalScopeStack  ;
 	/* Flag to know if we are running from thread (Useful for the Pool Manager) */
-	char lRunFromThread  ;
-	/* Flag to know if we are using (Load Again) command */
-	int lLoadAgain  ;
+	unsigned int lRunFromThread : 1  ;
+	/* Counter to know if we are using (Load Again) command */
+	int nLoadAgain  ;
 	/* Log File */
 	FILE *pLogFile;
 	/* Flag (Not Case Sensitive) */
-	int lNotCaseSensitive  ;
+	unsigned int lNotCaseSensitive : 1  ;
 } RingState ;
 /* Functions */
 

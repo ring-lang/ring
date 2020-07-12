@@ -48,25 +48,25 @@ Type: char  **
 argv
 Type: struct VM *
 pVM
-Type: char
-lStartup
+Type: unsigned int
+lStartup : 1
 Type: PoolManager
 vPoolManager
 Type: char
 lStartPoolManager
-Type: char
-lNoLineNumber
+Type: unsigned int
+lNoLineNumber : 1
 Type: int
 nCustomGlobalScopeCounter
 Type: List *
 aCustomGlobalScopeStack
-Type: char
-lRunFromThread
+Type: unsigned int
+lRunFromThread : 1
 Type: int
-lLoadAgain
+nLoadAgain
 pLogFile
-Type: int
-lNotCaseSensitive
+Type: unsigned int
+lNotCaseSensitive : 1
 END:
 Type: RingState
 struct RingState
