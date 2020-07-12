@@ -238,6 +238,9 @@ void ring_vmlib_state_filetokens ( void *pPointer ) ;
 void ring_vmlib_see ( void *pPointer ) ;
 
 void ring_vmlib_give ( void *pPointer ) ;
+/* Performance */
+
+void ring_vmlib_checkoverflow ( void *pPointer ) ;
 /* API For C Functions */
 #define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
 #define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)

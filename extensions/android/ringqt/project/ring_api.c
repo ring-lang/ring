@@ -120,6 +120,8 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_give",ring_vmlib_give);
 	ring_vm_funcregister("ring_see",ring_vmlib_see);
 	ring_vm_funcregister("ring_give",ring_vmlib_give);
+	/* Performance */
+	ring_vm_funcregister("checkoverflow",ring_vmlib_checkoverflow);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -2257,4 +2259,23 @@ void ring_vmlib_state_filetokens ( void *pPointer )
 	ring_list_copy_tohighlevel_gc(((VM *) pPointer)->pRingState,pList,pState->pRingFileTokens);
 	RING_API_RETLIST(pList);
 	pState->pRingFileTokens = ring_list_delete_gc(pState,pState->pRingFileTokens);
+}
+/* Performance */
+
+void ring_vmlib_checkoverflow ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISNUMBER(1) ) {
+		if ( RING_API_GETNUMBER(1) == 1 ) {
+			((VM *) pPointer)->lCheckOverFlow = 1 ;
+		}
+		else {
+			((VM *) pPointer)->lCheckOverFlow = 0 ;
+		}
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
 }

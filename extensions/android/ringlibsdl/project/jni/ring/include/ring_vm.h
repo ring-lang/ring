@@ -110,6 +110,7 @@ typedef struct VM {
 	char lInsideEval  ;
 	List *pCLibraries  ;
 	char lNoSetterMethod  ;
+	char lCheckOverFlow  ;
 } VM ;
 typedef struct VMState {
 	int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;
