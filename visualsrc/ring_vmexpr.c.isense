@@ -15,28 +15,16 @@ Type: double
 nNum1=0,nNum2=0
 Type: String *
 cStr1
-Type: char
-cStr2[100]
-Type: char
-cStr3[100]
 ring_vm_div
 Type: double
 nNum1=0,nNum2=0
 Type: String *
 cStr1
-Type: char
-cStr2[100]
-Type: char
-cStr3[100]
 ring_vm_mod
 Type: double
 nNum1=0,nNum2=0
 Type: String *
 cStr1
-Type: char
-cStr2[100]
-Type: char
-cStr3[100]
 ring_vm_neg
 Type: double
 nNum1
@@ -145,3 +133,8 @@ pItem
 ring_vm_addlisttolist
 Type: List *
 pList3, *pList4
+ring_vm_checkoverflow
+Type: char
+cStr1[100]
+Type: char
+cStr2[100]
