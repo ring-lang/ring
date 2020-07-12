@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Remember, When we read from the stack LIFO 
 **  If we have two parameters, we read the second parameter first 
 */
@@ -122,8 +122,6 @@ void ring_vm_mul ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
-	char cStr2[100]  ;
-	char cStr3[100]  ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -162,10 +160,7 @@ void ring_vm_mul ( VM *pVM )
 		return ;
 	}
 	/* Check Overflow */
-	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr3)) >= RING_VM_MAXDIGITSINNUMBER ) ) {
-		ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
-		return ;
-	}
+	if ( ring_vm_checkoverflow(pVM,nNum1,nNum2)  ) return ;
 	RING_VM_STACK_SETNVALUE(nNum1*nNum2);
 }
 
@@ -173,8 +168,6 @@ void ring_vm_div ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
-	char cStr2[100]  ;
-	char cStr3[100]  ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -217,10 +210,7 @@ void ring_vm_div ( VM *pVM )
 		return ;
 	}
 	/* Check Overflow */
-	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr3)) >= RING_VM_MAXDIGITSINNUMBER ) ) {
-		ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
-		return ;
-	}
+	if ( ring_vm_checkoverflow(pVM,nNum1,nNum2)  ) return ;
 	RING_VM_STACK_SETNVALUE(nNum2/nNum1);
 }
 
@@ -228,8 +218,6 @@ void ring_vm_mod ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
-	char cStr2[100]  ;
-	char cStr3[100]  ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -272,10 +260,7 @@ void ring_vm_mod ( VM *pVM )
 		return ;
 	}
 	/* Check Overflow */
-	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr3)) >= RING_VM_MAXDIGITSINNUMBER ) ) {
-		ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
-		return ;
-	}
+	if ( ring_vm_checkoverflow(pVM,nNum1,nNum2)  ) return ;
 	RING_VM_STACK_SETNVALUE(fmod(nNum2 , nNum1));
 }
 
@@ -1166,4 +1151,16 @@ void ring_vm_addlisttolist ( VM *pVM,List *pList,List *pList2 )
 		*/
 		ring_vm_oop_updateselfpointer(pVM,pList3,RING_OBJTYPE_LISTITEM,ring_list_getitem(pList2,ring_list_getsize(pList2)));
 	}
+}
+/* Check OverFlow */
+
+int ring_vm_checkoverflow ( VM *pVM,double nNum1,double nNum2 )
+{
+	char cStr1[100]  ;
+	char cStr2[100]  ;
+	if ( ( strlen(ring_vm_numtostring(pVM,nNum1,cStr1)) >= RING_VM_MAXDIGITSINNUMBER ) || (strlen(ring_vm_numtostring(pVM,nNum2,cStr2)) >= RING_VM_MAXDIGITSINNUMBER ) ) {
+		ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
+		return 1 ;
+	}
+	return 0 ;
 }
