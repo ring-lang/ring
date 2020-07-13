@@ -337,6 +337,8 @@
 
 		<p>
 			Using Ring we can quickly develop web applications using the MVC design pattern.
+			We can easily use HTML templates with embedded Ring code. 
+			Also, we can generate HTML code from Ring programs using Declarative Programming.
 		</p>
 		<br>
 
