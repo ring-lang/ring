@@ -188,11 +188,11 @@
 		
 
     <div class="panel panel-primary">
-      <div class="panel-heading"><h4>GUI Applications And RAD Tools</h4></div>
+      <div class="panel-heading"><h4>GUI Applications Development And RAD Tools</h4></div>
       <div class="panel-body">		
 
 		<p>
-			Using Ring we can develop many GUI applications in a few hours. Also Ring comes with Rapid Application Development (RAD) tools
+			Using Ring we can develop many GUI applications in a few hours. Also, Ring comes with Rapid Application Development (RAD) tools
 			that we can use.
 		</p>
 		<p>
@@ -257,9 +257,9 @@
 
 		<p>
 			Ring comes with many game programming libraries in the standard library. 
-			we believe in Games as a nice way to encourage people to learn programming.
+			We believe in Games as a nice way to encourage people to learn programming.
 			Ring provides native support for Allegro, LibSDL, RayLib, OpenGL and Qt3D libraries.
-			Also Ring comes with simple game engine for 2D games development using Declarative Programming. 
+			Also, Ring comes with simple game engine for 2D games development using Declarative Programming. 
 		</p>
 		<p>
 			
