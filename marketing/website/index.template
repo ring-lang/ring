@@ -274,12 +274,22 @@
 					  <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
 					  <li data-target="#myCarousel3" data-slide-to="1"></li>
 					  <li data-target="#myCarousel3" data-slide-to="2"></li>
+					  <li data-target="#myCarousel3" data-slide-to="3"></li>
 					</ol>
 
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 
 					  <div class="item active">
+						<img src="ringdemo13.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>		
+					
+					
+					  <div class="item">
 						<img src="newringdemo3.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
@@ -294,7 +304,7 @@
 						  <p></p>
 						</div>
 					  </div>
-					  
+
 					  
 					  <div class="item">
 						<img src="newringdemo4.png" alt="" width="1366" height="729">
