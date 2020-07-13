@@ -118,11 +118,10 @@
       <div class="panel-body">		
 
 		<p>
-			Using Ring the language is yours! A lot of modern programming paradigms are ready
-			for use in production. For example, using the Natural Language Programming you can quickly integrate
-			natural interfaces to your program. Also, you can change the way that you use to
-			develop your software where you can start with writing natural descriptions, then
-			writing an implementation later.
+			Using Ring you will feel that the language is yours! A lot of modern programming paradigms
+			are ready for use in production and using the Natural Language Programming you can quickly
+			integrate natural interfaces to your programs. Also, you can start software development
+			with writing natural descriptions, then adding the implementation later.
 		</p>
 		<p>
 			
@@ -184,8 +183,9 @@
       <div class="panel-body">		
 
 		<p>
-			Using Ring we can develop many GUI applications in a few hours. Also, Ring comes with Rapid Application Development (RAD) tools
-			that we can use.
+			Many developers reported that using Ring we can develop many GUI applications in a few hours. Ring comes with Rapid Application Development (RAD) tools
+			that we can use to quickly develop GUI applications using the MVC design pattern.
+			Also, using the same source code we can distribute our applications for Desktop, Web and Mobile platforms.
 		</p>
 		<p>
 			
@@ -247,9 +247,9 @@
       <div class="panel-heading"><h4>First Class Support For Game Development</h4></div>
       <div class="panel-body">		
 
-		<p>
-			Ring comes with many game programming libraries in the standard library. 
+		<p>			 
 			We believe in Games as a nice way to encourage people to learn programming.
+			Ring comes with many game programming libraries in the standard library.
 			Ring provides native support for Allegro, LibSDL, RayLib, OpenGL and Qt3D libraries.
 			Also, Ring comes with simple game engine for 2D games development using Declarative Programming. 
 		</p>
@@ -336,7 +336,7 @@
       <div class="panel-body">		
 
 		<p>
-			Using Ring we can quickly develop web applications.
+			Using Ring we can quickly develop web applications using the MVC design pattern.
 		</p>
 		<br>
 
