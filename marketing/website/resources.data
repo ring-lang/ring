@@ -254,7 +254,12 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/towersofhanoi" target="_blank">Towers of Hanoi</a>',
 		'<img src="towersofhanoi.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/eightqueens" target="_blank">Eight Queens Game</a>',
+		'<img src="eightqueensgame.png" width="100%">'
 	]
+
 	]
 	 ],
 	     ["English Resources",[
