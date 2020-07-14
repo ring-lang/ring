@@ -17,22 +17,8 @@ RING_TRACKALLOCATIONS
 RING_POOLMANAGER_ITEMSINBLOCK
 RING_POOLMANAGER_ITEMSIZE
 Parent: PoolData
-Parent: PoolDataTypes
-Type: String
-vString
-Type: Item
-vItem
-Type: Items
-vItems
-Type: List
-vList
-Type: HashTable
-vHashTable
-Type: HashItem
-vHashItem
 Type: char
-vChar[RING_POOLMANAGER_ITEMSIZE]
-END:
+cChar[RING_POOLMANAGER_ITEMSIZE]
 Type: struct PoolData *
 pNext
 END:
