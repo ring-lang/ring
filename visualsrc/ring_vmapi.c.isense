@@ -439,6 +439,8 @@ pList
 Type: int
 lCase
 ring_vmlib_checkoverflow
+ring_vmlib_addsublistsbymove
+ring_vmlib_addsublistsbyfastcopy
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA

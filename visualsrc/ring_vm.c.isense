@@ -202,6 +202,10 @@ Type: char
 lNoSetterMethod
 Type: char
 lCheckOverFlow
+Type: char
+lAddSubListsByMove
+Type: char
+lSubListsFastCopy
 END:
 Type: VM
 struct VM

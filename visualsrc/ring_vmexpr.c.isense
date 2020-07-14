@@ -133,6 +133,8 @@ pItem
 ring_vm_addlisttolist
 Type: List *
 pList3, *pList4
+Type: List
+TempList
 ring_vm_checkoverflow
 Type: char
 cStr1[100]

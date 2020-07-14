@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /*
 **  Functions 
@@ -1259,29 +1259,11 @@ RING_API void ring_list_swaptwolists ( List *pList1, List *pList2 )
 {
 	List TempList  ;
 	/* Get data from pList1 to TempList */
-	TempList.pFirst = pList1->pFirst ;
-	TempList.pLast = pList1->pLast ;
-	TempList.nSize = pList1->nSize ;
-	TempList.nNextItemAfterLastAccess = pList1->nNextItemAfterLastAccess ;
-	TempList.pLastItemLastAccess = pList1->pLastItemLastAccess ;
-	TempList.pHashTable = pList1->pHashTable ;
-	TempList.pItemsArray = pList1->pItemsArray ;
+	memcpy(&TempList,pList1,sizeof(List));
 	/* Get data from pList2 to pList1 */
-	pList1->pFirst = pList2->pFirst ;
-	pList1->pLast = pList2->pLast ;
-	pList1->nSize = pList2->nSize ;
-	pList1->nNextItemAfterLastAccess = pList2->nNextItemAfterLastAccess ;
-	pList1->pLastItemLastAccess = pList2->pLastItemLastAccess ;
-	pList1->pHashTable = pList2->pHashTable ;
-	pList1->pItemsArray = pList2->pItemsArray ;
+	memcpy(pList1,pList2,sizeof(List));
 	/* Get data from TempList to pList2 */
-	pList2->pFirst = TempList.pFirst ;
-	pList2->pLast = TempList.pLast ;
-	pList2->nSize = TempList.nSize ;
-	pList2->nNextItemAfterLastAccess = TempList.nNextItemAfterLastAccess ;
-	pList2->pLastItemLastAccess = TempList.pLastItemLastAccess ;
-	pList2->pHashTable = TempList.pHashTable ;
-	pList2->pItemsArray = TempList.pItemsArray ;
+	memcpy(pList2,&TempList,sizeof(List));
 }
 /* Test */
 
