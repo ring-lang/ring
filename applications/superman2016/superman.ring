@@ -342,13 +342,9 @@ func playstart oGame
 	}
 
 
-func inlist nValue,aList
-	for x in aList
-		if x = nValue
-			return true
-		ok
-	next
-	return false
+func inlist nValue,aList 
+	if find(aList,nValue) return True ok 
+	return False
 
 func checkwall oGame,oself,diffx,diffy
 	alist = [1,2,3]
