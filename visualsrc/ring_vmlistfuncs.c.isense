@@ -2,9 +2,9 @@ ring_vmlistfuncs_h
 ring_vm_listfuncs_loadfunctions
 ring_vmlib_list
 Type: List *
-pList
+pList, *pList2
 Type: int
-x,nSize
+x,nSize,nSize2
 ring_vmlib_find
 Type: int
 nNum1,nColumn
