@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_pooldata
 #define ring_pooldata
 /*
@@ -11,15 +11,7 @@
 #define RING_POOLMANAGER_ITEMSIZE 64
 /* Data */
 typedef struct PoolData {
-	union PoolDataTypes {
-		String vString  ;
-		Item vItem  ;
-		Items vItems  ;
-		List vList  ;
-		HashTable vHashTable  ;
-		HashItem vHashItem  ;
-		char vChar[RING_POOLMANAGER_ITEMSIZE]  ;
-	} PoolDataTypes ;
+	char cChar[RING_POOLMANAGER_ITEMSIZE]  ;
 	struct PoolData *pNext  ;
 } PoolData ;
 typedef struct PoolManager {

@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_list_h
 #define ring_list_h
 /* Data */
@@ -33,8 +33,6 @@ RING_API void ring_list_deleteitem_gc ( void *pState,List *pList,int index ) ;
 RING_API void ring_list_print ( List *pList ) ;
 
 RING_API int ring_list_gettype ( List *pList, int index ) ;
-
-RING_API void ring_list_swaptwolists_gc ( void *pState,List *pList1, List *pList2 ) ;
 /* int */
 
 RING_API void ring_list_setint_gc ( void *pState,List *pList, int index ,int number ) ;

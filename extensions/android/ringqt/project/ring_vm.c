@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /*
 **  Functions 
@@ -210,6 +210,10 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lNoSetterMethod = 0 ;
 	/* Check OverFlow after arithmetic operations */
 	pVM->lCheckOverFlow = 1 ;
+	/* Add Sub Lists to Lists by Move (Very Fast) */
+	pVM->lAddSubListsByMove = 0 ;
+	/* Add Sub Lists to Lists by Fast Copy */
+	pVM->lAddSubListsByFastCopy = 0 ;
 	ring_state_log(pRingState,"function: ring_vm_new - end");
 	return pVM ;
 }

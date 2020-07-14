@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_vm_h
 #define ring_vm_h
 /*
@@ -111,6 +111,8 @@ typedef struct VM {
 	List *pCLibraries  ;
 	char lNoSetterMethod  ;
 	char lCheckOverFlow  ;
+	char lAddSubListsByMove  ;
+	char lAddSubListsByFastCopy  ;
 } VM ;
 typedef struct VMState {
 	int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;

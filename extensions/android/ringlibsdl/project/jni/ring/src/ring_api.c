@@ -122,6 +122,8 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_give",ring_vmlib_give);
 	/* Performance */
 	ring_vm_funcregister("checkoverflow",ring_vmlib_checkoverflow);
+	ring_vm_funcregister("addsublistsbymove",ring_vmlib_addsublistsbymove);
+	ring_vm_funcregister("addsublistsbyfastcopy",ring_vmlib_addsublistsbyfastcopy);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
@@ -2274,6 +2276,42 @@ void ring_vmlib_checkoverflow ( void *pPointer )
 		}
 		else {
 			((VM *) pPointer)->lCheckOverFlow = 0 ;
+		}
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vmlib_addsublistsbymove ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISNUMBER(1) ) {
+		if ( RING_API_GETNUMBER(1) == 1 ) {
+			((VM *) pPointer)->lAddSubListsByMove = 1 ;
+		}
+		else {
+			((VM *) pPointer)->lAddSubListsByMove = 0 ;
+		}
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vmlib_addsublistsbyfastcopy ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISNUMBER(1) ) {
+		if ( RING_API_GETNUMBER(1) == 1 ) {
+			((VM *) pPointer)->lAddSubListsByFastCopy = 1 ;
+		}
+		else {
+			((VM *) pPointer)->lAddSubListsByFastCopy = 0 ;
 		}
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
