@@ -21,23 +21,40 @@ void ring_vm_listfuncs_loadfunctions ( RingState *pRingState )
 
 void ring_vmlib_list ( void *pPointer )
 {
-	List *pList  ;
-	int x,nSize  ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
+	List *pList, *pList2  ;
+	int x,y,nSize,nSize2  ;
+	if ( RING_API_PARACOUNT == 1 ) {
+		if ( RING_API_ISNUMBER(1) ) {
+			nSize = RING_API_GETNUMBER(1) ;
+			if ( nSize > 0 ) {
+				pList = RING_API_NEWLIST ;
+				for ( x = 1 ; x <=nSize ; x++ ) {
+					ring_list_adddouble(pList,0.0);
+				}
+				RING_API_RETLISTBYREF(pList);
+			}
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
+		}
 	}
-	if ( RING_API_ISNUMBER(1) ) {
-		nSize = RING_API_GETNUMBER(1) ;
-		if ( nSize > 0 ) {
+	else if ( RING_API_PARACOUNT == 2 ) {
+		if ( RING_API_ISNUMBER(1) &&  RING_API_ISNUMBER(2) ) {
+			nSize = RING_API_GETNUMBER(1) ;
+			nSize2 = RING_API_GETNUMBER(2) ;
 			pList = RING_API_NEWLIST ;
 			for ( x = 1 ; x <=nSize ; x++ ) {
-				ring_list_adddouble(pList,0.0);
+				pList2 = ring_list_newlist(pList);
+				for ( y = 1 ; y <=nSize2 ; y++ ) {
+					ring_list_adddouble(pList2,0.0);
+				}
 			}
-			RING_API_RETLIST(pList);
+			RING_API_RETLISTBYREF(pList);
+		} else {
+			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
 	}
 }
 /*

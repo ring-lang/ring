@@ -159,18 +159,7 @@ RING_API List * ring_vm_api_getlist ( void *pPointer,int x )
 
 RING_API void ring_vm_api_retlist ( void *pPointer,List *pList )
 {
-	List *pList2,*pList3  ;
-	VM *pVM  ;
-	pVM = (VM *) pPointer ;
-	pList2 = ring_vm_prevtempmem(pVM);
-	pList3 = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pList2);
-	ring_list_setint_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_TYPE,RING_VM_LIST);
-	ring_list_setlist_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_VALUE);
-	pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
-	/* Copy the list */
-	ring_vm_list_copy((VM *) pPointer,pList2,pList);
-	RING_API_PUSHPVALUE(pList3);
-	RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
+	ring_vm_api_retlist2(pPointer,pList,0);
 }
 
 RING_API List * ring_vm_api_newlist ( VM *pVM )
@@ -453,6 +442,27 @@ RING_API void ring_list_addcpointer_gc ( void *pState,List *pList,void *pGeneral
 RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char *cType )
 {
 	ring_vm_api_retcpointer2(pPointer,pGeneral,cType,NULL);
+}
+
+RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
+{
+	List *pList2,*pList3  ;
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	pList2 = ring_vm_prevtempmem(pVM);
+	pList3 = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pList2);
+	ring_list_setint_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_TYPE,RING_VM_LIST);
+	ring_list_setlist_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_VALUE);
+	pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
+	/* Copy the list */
+	if ( lRef == 0 ) {
+		ring_vm_list_copy((VM *) pPointer,pList2,pList);
+	}
+	else {
+		ring_list_swaptwolists(pList,pList2);
+	}
+	RING_API_PUSHPVALUE(pList3);
+	RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 }
 /*
 **  Library 
