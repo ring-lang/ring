@@ -197,6 +197,16 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size )
 	return ring_realloc(ptr,size) ;
 }
 
+RING_API void ring_state_registerblock ( void *pState,void *pStart, void *pEnd )
+{
+	List *pList  ;
+	RingState *pRingState  ;
+	pRingState = (RingState *) pState ;
+	pList = ring_list_newlist_gc(pRingState,pRingState->vPoolManager.aBlocks);
+	ring_list_addpointer_gc(pRingState,pList,pStart);
+	ring_list_addpointer_gc(pRingState,pList,pEnd);
+}
+
 void ring_vm_gc_deleteitem ( Item *pItem )
 {
 	ring_vm_gc_deleteitem_gc(NULL,pItem);

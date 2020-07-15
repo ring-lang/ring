@@ -25,6 +25,8 @@ void ring_vmlib_list ( void *pPointer )
 	int x,y,nSize,nSize2  ;
 	Items *pItems  ;
 	Item *pItem  ;
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT == 1 ) {
 		if ( RING_API_ISNUMBER(1) ) {
 			nSize = RING_API_GETNUMBER(1) ;
@@ -50,11 +52,13 @@ void ring_vmlib_list ( void *pPointer )
 				printf( RING_OOM ) ;
 				exit(0);
 			}
+			ring_state_registerblock(pVM->pRingState,pItems,pItems+((nSize*nSize2)-1));
 			pItem = (Item *) ring_calloc(nSize*nSize2,sizeof(Item));
 			if ( pItem == NULL ) {
 				printf( RING_OOM ) ;
 				exit(0);
 			}
+			ring_state_registerblock(pVM->pRingState,pItem,pItem+((nSize*nSize2)-1));
 			for ( x = 1 ; x <=nSize ; x++ ) {
 				pList2 = ring_list_newlist(pList);
 				for ( y = 1 ; y <=nSize2 ; y++ ) {

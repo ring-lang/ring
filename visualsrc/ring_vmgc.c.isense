@@ -88,6 +88,11 @@ ring_state_malloc
 ring_state_free
 ring_state_calloc
 ring_state_realloc
+ring_state_registerblock
+Type: List *
+pList
+Type: RingState *
+pRingState
 ring_vm_gc_deleteitem
 ring_poolmanager_new
 ring_poolmanager_newblock
