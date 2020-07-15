@@ -231,6 +231,21 @@ RING_API void ring_state_registerblock ( void *pState,void *pStart, void *pEnd )
 	ring_list_addpointer_gc(pRingState,pList,pEnd);
 }
 
+RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
+{
+	int x  ;
+	List *pList  ;
+	RingState *pRingState  ;
+	pRingState = (RingState *) pState ;
+	for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.aBlocks) ; x++ ) {
+		pList = ring_list_getlist(pRingState->vPoolManager.aBlocks,x);
+		if ( ring_list_getpointer(pList,1) == pStart ) {
+			ring_list_deleteitem(pRingState->vPoolManager.aBlocks,x);
+			return ;
+		}
+	}
+}
+
 void ring_vm_gc_deleteitem ( Item *pItem )
 {
 	ring_vm_gc_deleteitem_gc(NULL,pItem);

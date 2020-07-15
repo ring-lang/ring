@@ -103,6 +103,13 @@ Type: List *
 pList
 Type: RingState *
 pRingState
+ring_state_unregisterblock
+Type: int
+x
+Type: List *
+pList
+Type: RingState *
+pRingState
 ring_vm_gc_deleteitem
 ring_poolmanager_new
 ring_poolmanager_newblock

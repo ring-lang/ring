@@ -13,6 +13,10 @@ Type: struct Item **
 pItemsArray
 Type: struct HashTable *
 pHashTable
+Type: struct Item *
+pItemBlock
+Type: struct Items *
+pItemsBlock
 END:
 Type: List
 struct List

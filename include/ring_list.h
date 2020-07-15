@@ -10,6 +10,8 @@ typedef struct List {
 	struct Items *pLastItemLastAccess  ;
 	struct Item **pItemsArray  ;
 	struct HashTable *pHashTable  ;
+	struct Item *pItemBlock  ;
+	struct Items *pItemsBlock  ;
 } List ;
 /*
 **  Functions 
