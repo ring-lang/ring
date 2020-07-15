@@ -44,6 +44,8 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
 	pList->pLastItemLastAccess = NULL ;
 	pList->pItemsArray = NULL ;
 	pList->pHashTable = NULL ;
+	pList->pItemBlock = NULL ;
+	pList->pItemsBlock = NULL ;
 	return pList ;
 }
 
@@ -51,6 +53,15 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 {
 	/* Delete All Items */
 	ring_list_deleteallitems_gc(pState,pList);
+	/* Delete Blocks (if we have allocated large block of memory) */
+	if ( pList->pItemBlock != NULL ) {
+		ring_state_unregisterblock(pState,pList->pItemBlock);
+		ring_state_free(pState,pList->pItemBlock);
+	}
+	if ( pList->pItemsBlock != NULL ) {
+		ring_state_unregisterblock(pState,pList->pItemsBlock);
+		ring_state_free(pState,pList->pItemsBlock);
+	}
 	ring_state_free(pState,pList);
 	pList = NULL ;
 	return pList ;

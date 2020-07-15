@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_gc_h
 #define ring_gc_h
 /*
@@ -45,6 +45,10 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size ) ;
 RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size ) ;
 
 void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem ) ;
+
+RING_API void ring_state_registerblock ( void *pState,void *pStart, void *pEnd ) ;
+
+RING_API void ring_state_unregisterblock ( void *pState,void *pStart ) ;
 /* Macro */
 #define GCLog 0
 /* Pool Manager Functions */
@@ -53,7 +57,9 @@ void ring_poolmanager_newblock ( RingState *pRingState ) ;
 
 void * ring_poolmanager_allocate ( RingState *pRingState,size_t size ) ;
 
-void ring_poolmanager_free ( RingState *pRingState,void *pMemory ) ;
+int ring_poolmanager_free ( RingState *pRingState,void *pMemory ) ;
+
+void ring_poolmanager_new ( RingState *pRingState ) ;
 
 void ring_poolmanager_delete ( RingState *pRingState ) ;
 #endif

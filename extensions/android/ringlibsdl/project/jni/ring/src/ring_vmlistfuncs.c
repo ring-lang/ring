@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #include "ring.h"
@@ -23,35 +23,124 @@ void ring_vmlib_list ( void *pPointer )
 {
 	List *pList, *pList2  ;
 	int x,y,nSize,nSize2  ;
+	Items *pItems  ;
+	Item *pItem  ;
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT == 1 ) {
 		if ( RING_API_ISNUMBER(1) ) {
 			nSize = RING_API_GETNUMBER(1) ;
 			if ( nSize > 0 ) {
 				pList = RING_API_NEWLIST ;
-				for ( x = 1 ; x <=nSize ; x++ ) {
-					ring_list_adddouble(pList,0.0);
+				/* Allocate Memory */
+				pItems = (Items *) ring_calloc(nSize,sizeof(Items));
+				if ( pItems == NULL ) {
+					printf( RING_OOM ) ;
+					exit(0);
 				}
+				pList->pItemsBlock = pItems ;
+				ring_state_registerblock(pVM->pRingState,pItems,pItems+nSize-1);
+				pItem = (Item *) ring_calloc(nSize,sizeof(Item));
+				if ( pItem == NULL ) {
+					printf( RING_OOM ) ;
+					exit(0);
+				}
+				pList->pItemBlock = pItem ;
+				ring_state_registerblock(pVM->pRingState,pItem,pItem+nSize-1);
+				for ( x = 1 ; x <=nSize ; x++ ) {
+					/*
+					**  Add the Items 
+					**  Prepare the Item pointer 
+					*/
+					if ( ! ( x==1) ) {
+						pItems++ ;
+						pItem++ ;
+					}
+					/* Add Item */
+					if ( x > 1 ) {
+						pList->pLast->pNext = pItems ;
+						pItems->pPrev = pList->pLast ;
+						pList->pLast = pItems ;
+					}
+					else {
+						pList->pFirst = pItems ;
+						pList->pLast = pItems ;
+					}
+					/* Add Item Value */
+					pItems->pValue = pItem ;
+					pItem->nType = ITEMTYPE_NUMBER ;
+					pItem->data.dNumber = 0 ;
+					pItem->data.iNumber = 0 ;
+					pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
+				}
+				/* Set the List Data */
+				pList->nSize = nSize ;
 				RING_API_RETLISTBYREF(pList);
+				return ;
 			}
-		} else {
-			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
+		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 	else if ( RING_API_PARACOUNT == 2 ) {
 		if ( RING_API_ISNUMBER(1) &&  RING_API_ISNUMBER(2) ) {
 			nSize = RING_API_GETNUMBER(1) ;
 			nSize2 = RING_API_GETNUMBER(2) ;
-			pList = RING_API_NEWLIST ;
-			for ( x = 1 ; x <=nSize ; x++ ) {
-				pList2 = ring_list_newlist(pList);
-				for ( y = 1 ; y <=nSize2 ; y++ ) {
-					ring_list_adddouble(pList2,0.0);
+			if ( (nSize > 0) && (nSize2 > 0) ) {
+				pList = RING_API_NEWLIST ;
+				/* Allocate Memory */
+				pItems = (Items *) ring_calloc(nSize*nSize2,sizeof(Items));
+				if ( pItems == NULL ) {
+					printf( RING_OOM ) ;
+					exit(0);
 				}
+				pList->pItemsBlock = pItems ;
+				ring_state_registerblock(pVM->pRingState,pItems,pItems+((nSize*nSize2)-1));
+				pItem = (Item *) ring_calloc(nSize*nSize2,sizeof(Item));
+				if ( pItem == NULL ) {
+					printf( RING_OOM ) ;
+					exit(0);
+				}
+				pList->pItemBlock = pItem ;
+				ring_state_registerblock(pVM->pRingState,pItem,pItem+((nSize*nSize2)-1));
+				for ( x = 1 ; x <=nSize ; x++ ) {
+					pList2 = ring_list_newlist(pList);
+					for ( y = 1 ; y <=nSize2 ; y++ ) {
+						/*
+						**  Add the Items 
+						**  Prepare the Item pointer 
+						*/
+						if ( ! ( (x==1) && (y==1) ) ) {
+							pItems++ ;
+							pItem++ ;
+						}
+						/* Add Item */
+						if ( y > 1 ) {
+							pList2->pLast->pNext = pItems ;
+							pItems->pPrev = pList2->pLast ;
+							pList2->pLast = pItems ;
+						}
+						else {
+							pList2->pFirst = pItems ;
+							pList2->pLast = pItems ;
+						}
+						/* Add Item Value */
+						pItems->pValue = pItem ;
+						pItem->nType = ITEMTYPE_NUMBER ;
+						pItem->data.dNumber = 0 ;
+						pItem->data.iNumber = 0 ;
+						pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
+					}
+					/* Set the Sub List Data */
+					pList2->nSize = nSize2 ;
+				}
+				/* Set the List Data */
+				pList->nNextItemAfterLastAccess = 0 ;
+				pList->pLastItemLastAccess = NULL ;
+				RING_API_RETLISTBYREF(pList);
+				return ;
 			}
-			RING_API_RETLISTBYREF(pList);
-		} else {
-			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
+		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 	else {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
