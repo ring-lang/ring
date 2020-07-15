@@ -23,6 +23,8 @@ void ring_vmlib_list ( void *pPointer )
 {
 	List *pList, *pList2  ;
 	int x,y,nSize,nSize2  ;
+	Items *pItems  ;
+	Item *pItem  ;
 	if ( RING_API_PARACOUNT == 1 ) {
 		if ( RING_API_ISNUMBER(1) ) {
 			nSize = RING_API_GETNUMBER(1) ;
@@ -42,12 +44,48 @@ void ring_vmlib_list ( void *pPointer )
 			nSize = RING_API_GETNUMBER(1) ;
 			nSize2 = RING_API_GETNUMBER(2) ;
 			pList = RING_API_NEWLIST ;
+			/* Allocate Memory */
+			pItems = (Items *) ring_calloc(nSize*nSize2,sizeof(Items));
+			if ( pItems == NULL ) {
+				printf( RING_OOM ) ;
+				exit(0);
+			}
+			pItem = (Item *) ring_calloc(nSize*nSize2,sizeof(Item));
+			if ( pItem == NULL ) {
+				printf( RING_OOM ) ;
+				exit(0);
+			}
 			for ( x = 1 ; x <=nSize ; x++ ) {
 				pList2 = ring_list_newlist(pList);
 				for ( y = 1 ; y <=nSize2 ; y++ ) {
-					ring_list_adddouble(pList2,0.0);
+					/* Prepare Items */
+					if ( ! ( (x==1) && (y==1) ) ) {
+						pItems++ ;
+						pItem++ ;
+					}
+					/* Add Item */
+					if ( y > 1 ) {
+						pList2->pLast->pNext = pItems ;
+						pItems->pPrev = pList2->pLast ;
+						pList2->pLast = pItems ;
+					}
+					else {
+						pList2->pFirst = pItems ;
+						pList2->pLast = pItems ;
+					}
+					/* Add Item Value */
+					pItems->pValue = pItem ;
+					pItem->nType = ITEMTYPE_NUMBER ;
+					pItem->data.dNumber = 0 ;
+					pItem->data.iNumber = 0 ;
+					pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
 				}
+				/* Set the Sub List Data */
+				pList2->nSize = nSize2 ;
 			}
+			/* Set the List Data */
+			pList->nNextItemAfterLastAccess = 0 ;
+			pList->pLastItemLastAccess = NULL ;
 			RING_API_RETLISTBYREF(pList);
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
