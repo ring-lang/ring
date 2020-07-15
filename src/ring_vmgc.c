@@ -173,8 +173,9 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 		#if RING_TRACKALLOCATIONS
 		((RingState *) pState)->vPoolManager.nFreeCount++ ;
 		#endif
-		ring_poolmanager_free(((RingState *) pState),pMemory);
-		return ;
+		if ( ring_poolmanager_free(((RingState *) pState),pMemory) ) {
+			return ;
+		}
 	}
 	#endif
 	ring_free(pMemory);
@@ -280,7 +281,7 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
 	return pMemory ;
 }
 
-void ring_poolmanager_free ( RingState *pRingState,void *pMemory )
+int ring_poolmanager_free ( RingState *pRingState,void *pMemory )
 {
 	PoolData *pPoolData  ;
 	if ( pRingState != NULL ) {
@@ -292,11 +293,12 @@ void ring_poolmanager_free ( RingState *pRingState,void *pMemory )
 				#if RING_TRACKALLOCATIONS
 				pRingState->vPoolManager.nSmallFreeCount++ ;
 				#endif
-				return ;
+				return 1 ;
 			}
 		}
 	}
-	ring_free(pMemory);
+	/* Reaching this point means that the Pool Manager doesn't own this memory to free it! */
+	return 0 ;
 }
 
 void ring_poolmanager_delete ( RingState *pRingState )
