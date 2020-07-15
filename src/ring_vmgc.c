@@ -203,6 +203,14 @@ void ring_vm_gc_deleteitem ( Item *pItem )
 }
 /* Pool Manager Functions */
 
+void ring_poolmanager_new ( RingState *pRingState )
+{
+	pRingState->vPoolManager.pCurrentItem = NULL ;
+	pRingState->vPoolManager.pBlockStart = NULL ;
+	pRingState->vPoolManager.pBlockEnd = NULL ;
+	pRingState->vPoolManager.aBlocks = ring_list_new(0) ;
+}
+
 void ring_poolmanager_newblock ( RingState *pRingState )
 {
 	PoolData *pMemory  ;
@@ -289,6 +297,7 @@ void ring_poolmanager_delete ( RingState *pRingState )
 			pRingState->vPoolManager.pBlockStart = NULL ;
 			pRingState->vPoolManager.pBlockEnd = NULL ;
 			pRingState->vPoolManager.pCurrentItem = NULL ;
+			pRingState->vPoolManager.aBlocks = ring_list_delete(pRingState->vPoolManager.aBlocks) ;
 		}
 	}
 }
