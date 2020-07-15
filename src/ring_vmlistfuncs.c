@@ -32,9 +32,47 @@ void ring_vmlib_list ( void *pPointer )
 			nSize = RING_API_GETNUMBER(1) ;
 			if ( nSize > 0 ) {
 				pList = RING_API_NEWLIST ;
-				for ( x = 1 ; x <=nSize ; x++ ) {
-					ring_list_adddouble(pList,0.0);
+				/* Allocate Memory */
+				pItems = (Items *) ring_calloc(nSize,sizeof(Items));
+				if ( pItems == NULL ) {
+					printf( RING_OOM ) ;
+					exit(0);
 				}
+				ring_state_registerblock(pVM->pRingState,pItems,pItems+nSize-1);
+				pItem = (Item *) ring_calloc(nSize,sizeof(Item));
+				if ( pItem == NULL ) {
+					printf( RING_OOM ) ;
+					exit(0);
+				}
+				ring_state_registerblock(pVM->pRingState,pItem,pItem+nSize-1);
+				for ( x = 1 ; x <=nSize ; x++ ) {
+					/*
+					**  Add the Items 
+					**  Prepare the Item pointer 
+					*/
+					if ( ! ( x==1) ) {
+						pItems++ ;
+						pItem++ ;
+					}
+					/* Add Item */
+					if ( x > 1 ) {
+						pList->pLast->pNext = pItems ;
+						pItems->pPrev = pList->pLast ;
+						pList->pLast = pItems ;
+					}
+					else {
+						pList->pFirst = pItems ;
+						pList->pLast = pItems ;
+					}
+					/* Add Item Value */
+					pItems->pValue = pItem ;
+					pItem->nType = ITEMTYPE_NUMBER ;
+					pItem->data.dNumber = 0 ;
+					pItem->data.iNumber = 0 ;
+					pItem->NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
+				}
+				/* Set the List Data */
+				pList->nSize = nSize ;
 				RING_API_RETLISTBYREF(pList);
 			}
 		} else {
@@ -62,7 +100,10 @@ void ring_vmlib_list ( void *pPointer )
 			for ( x = 1 ; x <=nSize ; x++ ) {
 				pList2 = ring_list_newlist(pList);
 				for ( y = 1 ; y <=nSize2 ; y++ ) {
-					/* Prepare Items */
+					/*
+					**  Add the Items 
+					**  Prepare the Item pointer 
+					*/
 					if ( ! ( (x==1) && (y==1) ) ) {
 						pItems++ ;
 						pItem++ ;

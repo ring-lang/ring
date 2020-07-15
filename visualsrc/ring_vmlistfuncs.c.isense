@@ -10,7 +10,7 @@ pItems
 Type: Item *
 pItem
 Type: VM *
-pPV
+pVM
 ring_vmlib_find
 Type: int
 nNum1,nColumn
