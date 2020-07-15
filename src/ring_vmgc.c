@@ -167,6 +167,12 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
 
 RING_API void ring_state_free ( void *pState,void *pMemory )
 {
+	void *pBlockStart  ;
+	void *pBlockEnd  ;
+	List *pBlocks, *pBlock  ;
+	int x  ;
+	RingState *pRingState  ;
+	pRingState = (RingState *) pState ;
 	#if RING_USEPOOLMANAGER
 	/* Use Pool Manager */
 	if ( pState != NULL ) {
@@ -178,6 +184,21 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 		}
 	}
 	#endif
+	/* Check sections inside Memory Blocks */
+	if ( pRingState != NULL ) {
+		pBlocks = pRingState->vPoolManager.aBlocks ;
+		if ( ring_list_getsize(pBlocks) > 0 ) {
+			for ( x = 1 ; x <= ring_list_getsize(pBlocks) ; x++ ) {
+				pBlock = ring_list_getlist(pBlocks,x) ;
+				pBlockStart = ring_list_getpointer(pBlock,1);
+				pBlockEnd = ring_list_getpointer(pBlock,2);
+				if ( (pMemory >= pBlockStart) && (pMemory <= pBlockEnd) ) {
+					/* We have the memory inside a block, so we will not delete it! */
+					return ;
+				}
+			}
+		}
+	}
 	ring_free(pMemory);
 }
 
