@@ -38,12 +38,14 @@ void ring_vmlib_list ( void *pPointer )
 					printf( RING_OOM ) ;
 					exit(0);
 				}
+				pList->pItemsBlock = pItems ;
 				ring_state_registerblock(pVM->pRingState,pItems,pItems+nSize-1);
 				pItem = (Item *) ring_calloc(nSize,sizeof(Item));
 				if ( pItem == NULL ) {
 					printf( RING_OOM ) ;
 					exit(0);
 				}
+				pList->pItemBlock = pItem ;
 				ring_state_registerblock(pVM->pRingState,pItem,pItem+nSize-1);
 				for ( x = 1 ; x <=nSize ; x++ ) {
 					/*
@@ -91,12 +93,14 @@ void ring_vmlib_list ( void *pPointer )
 					printf( RING_OOM ) ;
 					exit(0);
 				}
+				pList->pItemsBlock = pItems ;
 				ring_state_registerblock(pVM->pRingState,pItems,pItems+((nSize*nSize2)-1));
 				pItem = (Item *) ring_calloc(nSize*nSize2,sizeof(Item));
 				if ( pItem == NULL ) {
 					printf( RING_OOM ) ;
 					exit(0);
 				}
+				pList->pItemBlock = pItem ;
 				ring_state_registerblock(pVM->pRingState,pItem,pItem+((nSize*nSize2)-1));
 				for ( x = 1 ; x <=nSize ; x++ ) {
 					pList2 = ring_list_newlist(pList);

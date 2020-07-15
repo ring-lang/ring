@@ -240,7 +240,7 @@ RING_API void ring_state_unregisterblock ( void *pState,void *pStart )
 	for ( x = 1 ; x <= ring_list_getsize(pRingState->vPoolManager.aBlocks) ; x++ ) {
 		pList = ring_list_getlist(pRingState->vPoolManager.aBlocks,x);
 		if ( ring_list_getpointer(pList,1) == pStart ) {
-			ring_list_deleteitem(pRingState->vPoolManager.aBlocks,x);
+			ring_list_deleteitem_gc(pRingState,pRingState->vPoolManager.aBlocks,x);
 			return ;
 		}
 	}
