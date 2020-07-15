@@ -187,14 +187,16 @@ RING_API void ring_state_free ( void *pState,void *pMemory )
 	/* Check sections inside Memory Blocks */
 	if ( pRingState != NULL ) {
 		pBlocks = pRingState->vPoolManager.aBlocks ;
-		if ( ring_list_getsize(pBlocks) > 0 ) {
-			for ( x = 1 ; x <= ring_list_getsize(pBlocks) ; x++ ) {
-				pBlock = ring_list_getlist(pBlocks,x) ;
-				pBlockStart = ring_list_getpointer(pBlock,1);
-				pBlockEnd = ring_list_getpointer(pBlock,2);
-				if ( (pMemory >= pBlockStart) && (pMemory <= pBlockEnd) ) {
-					/* We have the memory inside a block, so we will not delete it! */
-					return ;
+		if ( pBlocks != NULL ) {
+			if ( ring_list_getsize(pBlocks) > 0 ) {
+				for ( x = 1 ; x <= ring_list_getsize(pBlocks) ; x++ ) {
+					pBlock = ring_list_getlist(pBlocks,x) ;
+					pBlockStart = ring_list_getpointer(pBlock,1);
+					pBlockEnd = ring_list_getpointer(pBlock,2);
+					if ( (pMemory >= pBlockStart) && (pMemory <= pBlockEnd) ) {
+						/* We have the memory inside a block, so we will not delete it! */
+						return ;
+					}
 				}
 			}
 		}
@@ -240,7 +242,7 @@ void ring_poolmanager_new ( RingState *pRingState )
 	pRingState->vPoolManager.pCurrentItem = NULL ;
 	pRingState->vPoolManager.pBlockStart = NULL ;
 	pRingState->vPoolManager.pBlockEnd = NULL ;
-	pRingState->vPoolManager.aBlocks = ring_list_new(0) ;
+	pRingState->vPoolManager.aBlocks = ring_list_new_gc(pRingState,0) ;
 }
 
 void ring_poolmanager_newblock ( RingState *pRingState )
@@ -326,11 +328,11 @@ void ring_poolmanager_delete ( RingState *pRingState )
 {
 	if ( pRingState != NULL ) {
 		if ( pRingState->vPoolManager.pBlockStart != NULL ) {
+			pRingState->vPoolManager.aBlocks = ring_list_delete_gc(pRingState,pRingState->vPoolManager.aBlocks) ;
 			free( pRingState->vPoolManager.pBlockStart ) ;
 			pRingState->vPoolManager.pBlockStart = NULL ;
 			pRingState->vPoolManager.pBlockEnd = NULL ;
 			pRingState->vPoolManager.pCurrentItem = NULL ;
-			pRingState->vPoolManager.aBlocks = ring_list_delete(pRingState->vPoolManager.aBlocks) ;
 		}
 	}
 }
