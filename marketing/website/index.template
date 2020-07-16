@@ -499,17 +499,21 @@
 	  
 				<div class="col-xs-12">
 				  <div id="myCarousel7" class="carousel slide" >
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-					  <li data-target="#myCarousel7" data-slide-to="0" class="active"></li>
-
-					</ol>
 
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
 
-					  <div class="item active">
+					<div class="item active">
 						<img src="androiddemo1.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+					
+					  <div class="item active">
+						<img src="androiddemo3.png" alt="" width="1366" height="729">
 						<div class="carousel-caption">
 						  <h3></h3>
 						  <p></p>
@@ -547,10 +551,6 @@
 	  
 				<div class="col-xs-12">
 				  <div id="myCarousel6" class="carousel slide" >
-					<!-- Indicators -->
-					<ol class="carousel-indicators">
-					  <li data-target="#myCarousel6" data-slide-to="0" class="active"></li>
-					</ol>
 
 					<!-- Wrapper for slides -->
 					<div class="carousel-inner" role="listbox">
@@ -562,11 +562,9 @@
 						  <p></p>
 						</div>
 					  </div>
-
 	
 
 					</div>
-
 					
 				  </div>
 				</div>
