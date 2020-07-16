@@ -1121,9 +1121,9 @@ aWords = ["hello","it","is","me"]
 </div>
 
   
-<a href="#implementationfeatures" class="btn btn-default" data-toggle="collapse" style="width:100%">Implementation</a>
+<a href="#implementation" class="btn btn-default" data-toggle="collapse" style="width:100%">Implementation</a>
 
-<div id="implementationfeatures" class="panel-group collapse in">
+<div id="implementation" class="panel-group collapse in">
 
 <div class="panel panel-default">
       <div class="panel-heading"><h4>Implementation</h4></div>
@@ -1211,11 +1211,11 @@ Byte Code - Before Execution by the VM
 		  <br><br>
 		  
 	<div class="col-xs-12">
-  <div id="myCarousel3" class="carousel slide" data-ride="carousel">
+  <div id="myCarouselPWCT" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel3" data-slide-to="1"></li>
+      <li data-target="#myCarouselPWCT" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarouselPWCT" data-slide-to="1"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -1240,11 +1240,11 @@ Byte Code - Before Execution by the VM
     </div>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel3" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#myCarouselPWCT" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myCarousel3" role="button" data-slide="next">
+    <a class="right carousel-control" href="#myCarouselPWCT" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
       <span class="sr-only">Next</span>
     </a>		  
@@ -1339,13 +1339,13 @@ aList = "nice"
 		<br>	
 
 		<div class="col-xs-12">
-  <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+  <div id="myCarouselPerformance" class="carousel slide" data-ride="carousel">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel2" data-slide-to="1"></li>
-      <li data-target="#myCarousel2" data-slide-to="2"></li>
-      <li data-target="#myCarousel2" data-slide-to="3"></li> 
+      <li data-target="#myCarouselPerformance" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarouselPerformance" data-slide-to="1"></li>
+      <li data-target="#myCarouselPerformance" data-slide-to="2"></li>
+      <li data-target="#myCarouselPerformance" data-slide-to="3"></li> 
     </ol>
 
     <!-- Wrapper for slides -->
@@ -1388,11 +1388,11 @@ aList = "nice"
     </div>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#myCarouselPerformance" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myCarousel2" role="button" data-slide="next">
+    <a class="right carousel-control" href="#myCarouselPerformance" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
       <span class="sr-only">Next</span>
     </a>
