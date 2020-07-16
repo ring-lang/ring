@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Lists */
 
@@ -338,10 +338,16 @@ void ring_vm_listassignment ( VM *pVM )
 		ring_item_settype_gc(pVM->pRingState,pItem,ITEMTYPE_LIST);
 		pList = ring_item_getlist(pItem);
 		ring_list_deleteallitems_gc(pVM->pRingState,pList);
-		ring_vm_list_copy(pVM,pList,pVar);
-		/* Update self object Pointer */
-		if ( ring_vm_oop_isobject(pList) ) {
-			ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
+		if ( pVar->lCopyByRef ) {
+			pVar->lCopyByRef = 0 ;
+			ring_list_swaptwolists(pList,pVar);
+		}
+		else {
+			ring_vm_list_copy(pVM,pList,pVar);
+			/* Update self object Pointer */
+			if ( ring_vm_oop_isobject(pList) ) {
+				ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
+			}
 		}
 	} else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);

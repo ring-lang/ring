@@ -153,20 +153,33 @@ void ring_vm_assignment ( VM *pVM )
 					pItem = (Item *) RING_VM_STACK_READP ;
 					pVar = ring_item_getlist(pItem);
 				}
-				pList = ring_list_new_gc(pVM->pRingState,0);
-				ring_vm_list_copy(pVM,pList,pVar);
-				/* We use (Temp) List - to avoid problems when coping from parent list to child list */
+				if ( pVar->lCopyByRef ) {
+					pList = pVar ;
+				}
+				else {
+					/* We use (Temp) List - to avoid problems when coping from parent list to child list */
+					pList = ring_list_new_gc(pVM->pRingState,0);
+					ring_vm_list_copy(pVM,pList,pVar);
+				}
 				RING_VM_STACK_POP ;
 				pVar = (List *) RING_VM_STACK_READP ;
 				RING_VM_STACK_POP ;
 				ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
 				ring_list_setlist_gc(pVM->pRingState,pVar,RING_VAR_VALUE);
-				ring_vm_list_copy(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),pList);
-				/* Update self object pointer */
-				if ( ring_vm_oop_isobject(ring_list_getlist(pVar,RING_VAR_VALUE)) ) {
-					ring_vm_oop_updateselfpointer(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
+				/* Copy The List */
+				if ( pList->lCopyByRef ) {
+					pList->lCopyByRef = 0 ;
+					pVar = ring_list_getlist(pVar,RING_VAR_VALUE) ;
+					ring_list_swaptwolists(pList,pVar);
 				}
-				ring_list_delete_gc(pVM->pRingState,pList);
+				else {
+					ring_vm_list_copy(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),pList);
+					/* Update self object pointer */
+					if ( ring_vm_oop_isobject(ring_list_getlist(pVar,RING_VAR_VALUE)) ) {
+						ring_vm_oop_updateselfpointer(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),RING_OBJTYPE_VARIABLE,pVar);
+					}
+					ring_list_delete_gc(pVM->pRingState,pList);
+				}
 			}
 		} else {
 			ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);

@@ -46,6 +46,7 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
 	pList->pHashTable = NULL ;
 	pList->pItemBlock = NULL ;
 	pList->pItemsBlock = NULL ;
+	pList->lCopyByRef = 0 ;
 	return pList ;
 }
 

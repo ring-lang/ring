@@ -12,6 +12,7 @@ typedef struct List {
 	struct HashTable *pHashTable  ;
 	struct Item *pItemBlock  ;
 	struct Items *pItemsBlock  ;
+	char lCopyByRef  ;
 } List ;
 /*
 **  Functions 

@@ -460,6 +460,7 @@ RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
 	}
 	else {
 		ring_list_swaptwolists(pList,pList2);
+		pList2->lCopyByRef = 1 ;
 	}
 	RING_API_PUSHPVALUE(pList3);
 	RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
