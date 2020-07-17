@@ -205,7 +205,7 @@ lCheckOverFlow
 Type: char
 lAddSubListsByMove
 Type: char
-lSubListsFastCopy
+lAddSubListsByFastCopy
 END:
 Type: VM
 struct VM

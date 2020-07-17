@@ -209,7 +209,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* No Setter Method (used by ring_vm_oop_setget() function) */
 	pVM->lNoSetterMethod = 0 ;
 	/* Check OverFlow after arithmetic operations */
-	pVM->lCheckOverFlow = 1 ;
+	pVM->lCheckOverFlow = 0 ;
 	/* Add Sub Lists to Lists by Move (Very Fast) */
 	pVM->lAddSubListsByMove = 0 ;
 	/* Add Sub Lists to Lists by Fast Copy */
