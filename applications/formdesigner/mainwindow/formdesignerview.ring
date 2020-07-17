@@ -26,7 +26,7 @@ Class FormDesignerView from WindowsViewParent
 
 	oDesktop = new QDesktopWidget()
 
-	lUseWebAssemblyMEMFS = False 
+	lUseWebAssemblyMEMFS = ! isWebAssembly()
 
 	func CreateMainWindow oModel
 
