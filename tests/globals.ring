@@ -15,3 +15,5 @@ nTestMode		= C_MODE_TESTING
 
 cOutputFolder 		= "../" 
 
+nPassCount		= 0
+nFailCount		= 0

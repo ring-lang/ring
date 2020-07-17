@@ -51,7 +51,19 @@ func RunTests()
 		RunTest(x,aTest)
 		ShowTestResult(x,aTest)		
 	next
+	if nFailCount = 0
+		ReportColor = :BlackYellow
+	else
+		ReportColor = :WhiteBlue
+	ok
 	? nl line()	
+	style(Width(" The Report Summary ",90), :BlackWhite)  			? ""
+	line()	
+	style(Width(" Tests Count : " + nMax,90)		, ReportColor)  ? ""
+	style(Width(" PASS        : " + nPassCount,90)	, ReportColor)  ? ""
+	style(Width(" FAIL        : " + nFailCount,90)	, ReportColor)  ? ""
+	line()
+
 
 func SetTestingMode
 	switch nTestMode 
@@ -83,9 +95,11 @@ func ShowTestResult  nIndex,aTest
 		see " --- " 
 		if substr(read(cFileNameCorrect),windowsnl(),nl) = substr(read(cFileNameCurrent),windowsnl(),nl)
 			style("PASS",:YellowBlack)
+			nPassCount++
 		else 
 			style("FAIL",:WhiteBlue)
 			DisplayFileName(aTest)
+			nFailCount++
 		ok
 	ok
 

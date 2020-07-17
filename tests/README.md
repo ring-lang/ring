@@ -19,4 +19,8 @@ In this folder we will store the tests that test the Ring programming language.
 
 	test
 
-![Tests](https://github.com/ring-lang/ring/blob/master/tests/screen_shot.png)
+![Tests](https://github.com/ring-lang/ring/blob/master/tests/images/shot1.png)
+
+Report Summary
+
+![Tests](https://github.com/ring-lang/ring/blob/master/tests/images/shot2.png)
