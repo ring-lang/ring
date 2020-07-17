@@ -1,23 +1,37 @@
 Ring Programming Language Tests
 ===============================
 
-In this folder we will store the tests that test the Ring programming language.
+In this folder we have the tests that test the Ring programming language.
 
-# To Build 
+# To Build (For Windows)
 
-	ring2exe test.ring
+	build
+
+# To Build (For macOS or Linux)
+
+	./build.sh
 
 # Add new tests 
 
 	Add it to tests.ring
 
-# Update Tests  
+# Update Tests (For Windows)
 
 	test update 
 
-# Run Tests 
+# Update Tests (For macOS or Linux)
+
+	./test update
+
+# Run Tests (For Windows)
 
 	test
+
+# Run Tests (For macOS or Linux)
+
+	./test
+
+# Screen Shots
 
 ![Tests](https://github.com/ring-lang/ring/blob/master/tests/images/shot1.png)
 
