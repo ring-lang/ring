@@ -51,7 +51,7 @@ func echo_read
 		message = "message from the server to the client"
 		buf = new_uv_buf_t()
 		set_uv_buf_t_len(buf,len(message))
-		set_uv_buf_t_base(buf,varptr("message","char *"))
+		set_uv_buf_t_base(buf,varptr("message",:char))
 		uv_write(req, client, buf, 1, "echo_write()")
 	ok
 

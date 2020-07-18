@@ -6,7 +6,7 @@ pointer = NULLPOINTER()
 ? "Address: " + Upper(hex(getpointer(pointer)))
 ? copy("=",50)
 name = "ring"
-pointer = varptr(:name,"char *")
+pointer = varptr(:name,:char)
 ? pointer
 ? "Type: " + type(pointer)
 ? "Address: " + Upper(hex(getpointer(pointer)))

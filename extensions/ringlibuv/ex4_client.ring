@@ -33,7 +33,7 @@ func connect
 	buf = new_uv_buf_t()
 	message = "hello from the client"
 	set_uv_buf_t_len(buf,len(message))
-	set_uv_buf_t_base(buf,varptr("message","char *"))
+	set_uv_buf_t_base(buf,varptr("message",:char))
 	tcp       = get_uv_connect_t_handle(req)
 	write_req = new_uv_write_t()
 	buf_count = 1
