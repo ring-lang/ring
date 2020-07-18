@@ -229,7 +229,9 @@ void ring_vm_newvar ( VM *pVM,const char *cStr )
 		pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 	}
 	/* Add Scope to aLoadAddressScope */
-	ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,pVM->nVarScope);
+	if ( pVM->nLoadAddressScope  == RING_VARSCOPE_NOTHING ) {
+		pVM->nLoadAddressScope = pVM->nVarScope ;
+	}
 }
 
 List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )

@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Functions */
 
@@ -242,7 +242,7 @@ void ring_vm_call2 ( VM *pVM )
 			ring_list_addpointer_gc(pVM->pRingState,pList,NULL);
 		}
 		/* Clear aLoadAddressScope */
-		ring_list_deleteallitems_gc(pVM->pRingState,pVM->aLoadAddressScope);
+		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 	}
 	else if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_C ) {
 		/* Trace */
@@ -550,20 +550,21 @@ void ring_vm_createtemplist ( VM *pVM )
 	/* Create the variable */
 	ring_vm_newtempvar(pVM,RING_TEMP_VARIABLE,pList);
 	/* Set the Address scope as local */
-	ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_LOCAL);
+	if ( pVM->nLoadAddressScope == RING_VARSCOPE_NOTHING ) {
+		pVM->nLoadAddressScope = RING_VARSCOPE_LOCAL ;
+	}
 }
 
 void ring_vm_saveloadaddressscope ( VM *pVM )
 {
-	ring_list_addpointer_gc(pVM->pRingState,pVM->pLoadAddressScope,pVM->aLoadAddressScope);
-	pVM->aLoadAddressScope = ring_list_new_gc(pVM->pRingState,0);
+	ring_list_addint_gc(pVM->pRingState,pVM->aAddressScope,pVM->nLoadAddressScope);
+	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 }
 
 void ring_vm_restoreloadaddressscope ( VM *pVM )
 {
-	ring_list_delete_gc(pVM->pRingState,pVM->aLoadAddressScope);
-	pVM->aLoadAddressScope = (List *) ring_list_getpointer(pVM->pLoadAddressScope,ring_list_getsize(pVM->pLoadAddressScope));
-	ring_list_deleteitem_gc(pVM->pRingState,pVM->pLoadAddressScope,ring_list_getsize(pVM->pLoadAddressScope));
+	pVM->nLoadAddressScope = ring_list_getint(pVM->aAddressScope,ring_list_getsize(pVM->aAddressScope));
+	ring_list_deleteitem_gc(pVM->pRingState,pVM->aAddressScope,ring_list_getsize(pVM->aAddressScope));
 }
 
 void ring_vm_anonymous ( VM *pVM )
@@ -583,8 +584,8 @@ int ring_vm_isstackpointertoobjstate ( VM *pVM )
 {
 	int nScope  ;
 	/* if the variable belong to the object state, return 1 */
-	if ( ring_list_getsize(pVM->aLoadAddressScope)  >= 1 ) {
-		nScope = ring_list_getint(pVM->aLoadAddressScope,1) ;
+	if ( pVM->nLoadAddressScope != RING_VARSCOPE_NOTHING ) {
+		nScope = pVM->nLoadAddressScope ;
 		if ( (nScope == RING_VARSCOPE_OBJSTATE) || (nScope ==RING_VARSCOPE_GLOBAL) ) {
 			return 1 ;
 		}

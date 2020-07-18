@@ -206,6 +206,10 @@ Type: char
 lAddSubListsByMove
 Type: char
 lAddSubListsByFastCopy
+Type: char
+nLoadAddressScope
+Type: List *
+aAddressScope
 END:
 Type: VM
 struct VM

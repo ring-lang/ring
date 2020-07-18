@@ -113,6 +113,8 @@ typedef struct VM {
 	char lCheckOverFlow  ;
 	char lAddSubListsByMove  ;
 	char lAddSubListsByFastCopy  ;
+	int nLoadAddressScope  ;
+	List *aAddressScope  ;
 } VM ;
 typedef struct VMState {
 	int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;

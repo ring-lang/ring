@@ -51,7 +51,6 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aNumbers[26] = pVM->nNOAssignment ;
 	pVMState->aNumbers[27] = pVM->nFuncExecute2 ;
 	pVMState->aNumbers[28] = pVM->nCallClassInit ;
-	pVMState->aNumbers[29] = ring_list_getsize(pVM->pLoadAddressScope) ;
 	pVMState->aNumbers[30] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
 	pVMState->aNumbers[31] = pVM->nCurrentGlobalScope ;
 	pVMState->aNumbers[32] = pVM->lNoSetterMethod ;
@@ -62,8 +61,9 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aPointers[4] = pVM->aPCBlockFlag ;
 	pVMState->aPointers[5] = pVM->pGetSetObject ;
 	pVMState->aPointers[6] = pVM->pAssignment ;
-	pVMState->aPointers[7] = pVM->aLoadAddressScope ;
 	pVMState->aPointers[8] = ring_list_getpointer(pThis,RING_VAR_VALUE) ;
+	pVMState->aNumbers[33] = pVM->nLoadAddressScope ;
+	pVMState->aNumbers[34] = ring_list_getsize(pVM->aAddressScope) ;
 }
 
 void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
@@ -139,8 +139,6 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->nNOAssignment = pVMState->aNumbers[26] ;
 	pVM->nFuncExecute2 = pVMState->aNumbers[27] ;
 	pVM->nCallClassInit = pVMState->aNumbers[28] ;
-	pVM->aLoadAddressScope = (List *) pVMState->aPointers[7] ;
-	ring_vm_backstate(pVM,pVMState->aNumbers[29],pVM->pLoadAddressScope);
 	/* We restore the global scope befor the This variable, because This use global scope */
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[31] ;
 	pVM->lNoSetterMethod = pVMState->aNumbers[32] ;
@@ -148,6 +146,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,pVMState->aPointers[8]);
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[30]);
+	ring_vm_backstate(pVM,pVMState->aNumbers[34],pVM->aAddressScope);
 }
 /* Save/Restore State 2 - Used by Function Call & Return */
 
@@ -192,7 +191,6 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 	pVMState->aNumbers[18] = pVM->nNOAssignment ;
 	pVMState->aNumbers[19] = pVM->nGetSetProperty ;
 	pVMState->aNumbers[20] = pVM->nGetSetObjType ;
-	pVMState->aNumbers[21] = ring_list_getsize(pVM->pLoadAddressScope) ;
 	pVMState->aNumbers[22] = ring_list_getint(pThis,RING_VAR_PVALUETYPE) ;
 	pVMState->aNumbers[23] = pVM->nCurrentGlobalScope ;
 	pVMState->aNumbers[24] = pVM->lNoSetterMethod ;
@@ -201,8 +199,9 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 	pVMState->aPointers[2] = pVM->aPCBlockFlag ;
 	pVMState->aPointers[3] = pVM->pAssignment ;
 	pVMState->aPointers[4] = pVM->pGetSetObject ;
-	pVMState->aPointers[5] = pVM->aLoadAddressScope ;
 	pVMState->aPointers[6] = ring_list_getpointer(pThis,RING_VAR_VALUE) ;
+	pVMState->aNumbers[25] = pVM->nLoadAddressScope ;
+	pVMState->aNumbers[26] = ring_list_getsize(pVM->aAddressScope) ;
 	/* Save State */
 	pVM->nInsideBraceFlag = 0 ;
 	/* Save BlockFlag */
@@ -263,8 +262,6 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	pVM->nGetSetProperty = pVMState->aNumbers[19] ;
 	pVM->nGetSetObjType = pVMState->aNumbers[20] ;
 	pVM->pGetSetObject = (void *) pVMState->aPointers[4] ;
-	pVM->aLoadAddressScope = (List *) pVMState->aPointers[5] ;
-	ring_vm_backstate(pVM,pVMState->aNumbers[21],pVM->pLoadAddressScope);
 	/* Restore global scope, Must be before this because this depend on it */
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[23] ;
 	pVM->lNoSetterMethod = pVMState->aNumbers[24] ;
@@ -272,6 +269,7 @@ void ring_vm_restorestate2 ( VM *pVM,List *pList,int x )
 	pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
 	ring_list_setpointer_gc(pVM->pRingState,pThis,RING_VAR_VALUE,pVMState->aPointers[6]);
 	ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,pVMState->aNumbers[22]);
+	ring_vm_backstate(pVM,pVMState->aNumbers[26],pVM->aAddressScope);
 }
 /* Return to a Specific position in the array, delete all items after that position */
 
