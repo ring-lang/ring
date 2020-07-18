@@ -398,6 +398,7 @@ More Improvements
 * RingLibSDL - Update LibSDL version from 2.0.10 to 2.0.12
 * RingOpenGL - Better Code (Added GLEW functions)
 * RingFreeGLUT - Better Code (Added many functions)
+* RingLibUV - Better Code - Samples that uses the VarPtr() function
 * RingPM - Support terminals that pass the executable name using UPPER case
 * Ring2EXE - Distribute for Web Browser using WebAssembly (RingQt)
 * Ring2EXE - Delete the executable file if we have it in the target folder

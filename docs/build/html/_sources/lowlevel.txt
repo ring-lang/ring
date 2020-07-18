@@ -125,7 +125,7 @@ Example:
 	See "String Size : " + len(mystring) + nl
 	See "String : " + mystring + nl
 	See "String Pointer : " 
-	See varptr("mystring","char *")
+	See varptr("mystring",:char)
 
 Output:
 
@@ -134,7 +134,7 @@ Output:
 	String Size : 200
 	String :                                                                                                                                                        
 	String Pointer : 00FF8FE8
-	char *
+	char
 	2
 
 .. note:: You may need the space() and VarPtr() functions to pass buffers to C functions.
@@ -340,7 +340,7 @@ Example:
 	? "Address: " + Upper(hex(getpointer(pointer)))
 	? copy("=",50)
 	name = "ring"
-	pointer = varptr(:name,"char *")
+	pointer = varptr(:name,:char)
 	? pointer
 	? "Type: " + type(pointer)
 	? "Address: " + Upper(hex(getpointer(pointer)))
@@ -364,10 +364,10 @@ Output:
 	Address: 0
 	==================================================
 	026E2BA8
-	char *
+	char
 	0
 
-	Type: char *
+	Type: char
 	Address: 26E2BA8
 	==================================================
 	After Update
@@ -396,7 +396,7 @@ Example:
 .. code-block:: ring
 
 	name = "ring"
-	pointer = varptr(:name,"char *")
+	pointer = varptr(:name,:char)
 	? pointer
 	? "Type: " + type(pointer)
 	? "Address: " + Upper(hex(getpointer(pointer)))
@@ -414,10 +414,10 @@ Output:
 .. code-block:: ring
 
 	01E03380
-	char *
+	char
 	0
 
-	Type: char *
+	Type: char
 	Address: 1E03380
 	Get 4 bytes starting from the pointer address
 	ring
