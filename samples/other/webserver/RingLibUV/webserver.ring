@@ -90,7 +90,7 @@ class NewClient from ObjectControllerParent
         	        req = new_uv_write_t()			
 			buf = new_uv_buf_t()
         	        set_uv_buf_t_len(buf,len(cResponse))
-                	set_uv_buf_t_base(buf,varptr(:cResponse,"char *"))
+                	set_uv_buf_t_base(buf,varptr(:cResponse,:char))
 	                uv_write(req, client, buf, 1, Method(:Finish))
 	        ok
 
