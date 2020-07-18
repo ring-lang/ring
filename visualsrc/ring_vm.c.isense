@@ -131,7 +131,7 @@ aLoadAddressScope
 Type: List *
 aBeforeObjState
 Type: List *
-pLoadAddressScope
+aAddressScope
 Type: int
 nFuncExecute2
 Type: List *
@@ -206,10 +206,6 @@ Type: char
 lAddSubListsByMove
 Type: char
 lAddSubListsByFastCopy
-Type: char
-nLoadAddressScope
-Type: List *
-aAddressScope
 END:
 Type: VM
 struct VM

@@ -62,7 +62,6 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aPointers[5] = pVM->pGetSetObject ;
 	pVMState->aPointers[6] = pVM->pAssignment ;
 	pVMState->aPointers[8] = ring_list_getpointer(pThis,RING_VAR_VALUE) ;
-	pVMState->aNumbers[33] = pVM->nLoadAddressScope ;
 	pVMState->aNumbers[34] = ring_list_getsize(pVM->aAddressScope) ;
 }
 
@@ -200,7 +199,6 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
 	pVMState->aPointers[3] = pVM->pAssignment ;
 	pVMState->aPointers[4] = pVM->pGetSetObject ;
 	pVMState->aPointers[6] = ring_list_getpointer(pThis,RING_VAR_VALUE) ;
-	pVMState->aNumbers[25] = pVM->nLoadAddressScope ;
 	pVMState->aNumbers[26] = ring_list_getsize(pVM->aAddressScope) ;
 	/* Save State */
 	pVM->nInsideBraceFlag = 0 ;

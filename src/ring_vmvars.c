@@ -228,7 +228,7 @@ void ring_vm_newvar ( VM *pVM,const char *cStr )
 	} else {
 		pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 	}
-	/* Add Scope to aLoadAddressScope */
+	/* Save Scope Information */
 	if ( pVM->nLoadAddressScope  == RING_VARSCOPE_NOTHING ) {
 		pVM->nLoadAddressScope = pVM->nVarScope ;
 	}

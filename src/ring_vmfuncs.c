@@ -115,7 +115,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 				ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(5),ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
 				ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(6),ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
 			}
-			/* Add aLoadAddressScope pointer to pLoadAddressScope */
+			/* Add nLoadAddressScope to aAddressScope */
 			ring_vm_saveloadaddressscope(pVM);
 			return 1 ;
 		}
@@ -151,7 +151,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		ring_list_addint_gc(pVM->pRingState,pList2,0);
 		/* Line Number */
 		ring_list_addint_gc(pVM->pRingState,pList2,pVM->nLineNumber);
-		/* Add aLoadAddressScope pointer to pLoadAddressScope */
+		/* Add nLoadAddressScope to aAddressScope */
 		ring_vm_saveloadaddressscope(pVM);
 		return 1 ;
 	}
@@ -208,7 +208,7 @@ void ring_vm_call2 ( VM *pVM )
 		pVM->nFuncExecute-- ;
 		pVM->nFuncExecute2-- ;
 	}
-	/* Restore aLoadAddressScope from pLoadAddressScope */
+	/* Restore nLoadAddressScope from aAddressScope */
 	ring_vm_restoreloadaddressscope(pVM);
 	pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 	/* Calling Method from brace */
@@ -241,7 +241,7 @@ void ring_vm_call2 ( VM *pVM )
 			ring_list_addpointer_gc(pVM->pRingState,pList,NULL);
 			ring_list_addpointer_gc(pVM->pRingState,pList,NULL);
 		}
-		/* Clear aLoadAddressScope */
+		/* Clear nLoadAddressScope */
 		pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 	}
 	else if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_C ) {
@@ -582,11 +582,9 @@ void ring_vm_anonymous ( VM *pVM )
 
 int ring_vm_isstackpointertoobjstate ( VM *pVM )
 {
-	int nScope  ;
 	/* if the variable belong to the object state, return 1 */
 	if ( pVM->nLoadAddressScope != RING_VARSCOPE_NOTHING ) {
-		nScope = pVM->nLoadAddressScope ;
-		if ( (nScope == RING_VARSCOPE_OBJSTATE) || (nScope ==RING_VARSCOPE_GLOBAL) ) {
+		if ( (pVM->nLoadAddressScope == RING_VARSCOPE_OBJSTATE) || (pVM->nLoadAddressScope ==RING_VARSCOPE_GLOBAL) ) {
 			return 1 ;
 		}
 	}

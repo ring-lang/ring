@@ -82,7 +82,7 @@ void ring_vm_loadaddress ( VM *pVM )
 			#endif
 		}
 	}
-	/* Add Result Scope to aLoadAddressScope Array */
+	/* Save Scope in nLoadAddressScope */
 	if ( pVM->nLoadAddressScope == RING_VARSCOPE_NOTHING ) {
 		pVM->nLoadAddressScope = pVM->nVarScope ;
 	}
@@ -243,7 +243,7 @@ void ring_vm_freestack ( VM *pVM )
 	List *pList  ;
 	/* Clear Assignment Pointer */
 	pVM->pAssignment = NULL ;
-	/* Clear Load Address Result Scope Array */
+	/* Clear Load Address Scope Information */
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 	/* In the class region */
 	if ( pVM->nInClassRegion ) {
@@ -578,6 +578,6 @@ void ring_vm_assignmentpointer ( VM *pVM )
 
 void ring_vm_freeloadaddressscope ( VM *pVM )
 {
-	/* Clear Load Address Result Scope Array */
+	/* Clear Load Address Scope Information */
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 }

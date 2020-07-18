@@ -6,7 +6,7 @@ void ring_vm_pushp ( VM *pVM )
 {
 	RING_VM_STACK_PUSHP ;
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
-	/* Update Scope List */
+	/* Update Scope Information */
 	if ( pVM->nLoadAddressScope  == RING_VARSCOPE_NOTHING ) {
 		pVM->nLoadAddressScope = RING_VARSCOPE_GLOBAL ;
 	}
@@ -30,7 +30,7 @@ void ring_vm_pushplocal ( VM *pVM )
 	}
 	RING_VM_STACK_PUSHPVALUE(RING_VM_IR_READPVALUE(3)) ;
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
-	/* Update Scope List */
+	/* Update Scope Information */
 	if ( pVM->nLoadAddressScope  == RING_VARSCOPE_NOTHING ) {
 		pVM->nLoadAddressScope = RING_VARSCOPE_LOCAL ;
 	}

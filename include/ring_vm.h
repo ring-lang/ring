@@ -70,9 +70,9 @@ typedef struct VM {
 	char nBeforeEqual  ;
 	char nNOAssignment  ;
 	RingState *pRingState  ;
-	List *aLoadAddressScope  ;
+	int nLoadAddressScope  ;
 	List *aBeforeObjState  ;
-	List *pLoadAddressScope  ;
+	List *aAddressScope  ;
 	int nFuncExecute2  ;
 	List *aNewByteCodeItems  ;
 	char nEvalCalledFromRingCode  ;
@@ -113,8 +113,6 @@ typedef struct VM {
 	char lCheckOverFlow  ;
 	char lAddSubListsByMove  ;
 	char lAddSubListsByFastCopy  ;
-	int nLoadAddressScope  ;
-	List *aAddressScope  ;
 } VM ;
 typedef struct VMState {
 	int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;
