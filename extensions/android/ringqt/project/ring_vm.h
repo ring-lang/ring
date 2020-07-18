@@ -70,9 +70,9 @@ typedef struct VM {
 	char nBeforeEqual  ;
 	char nNOAssignment  ;
 	RingState *pRingState  ;
-	List *aLoadAddressScope  ;
+	int nLoadAddressScope  ;
 	List *aBeforeObjState  ;
-	List *pLoadAddressScope  ;
+	List *aAddressScope  ;
 	int nFuncExecute2  ;
 	List *aNewByteCodeItems  ;
 	char nEvalCalledFromRingCode  ;

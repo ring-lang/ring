@@ -115,11 +115,10 @@ VM * ring_vm_new ( RingState *pRingState )
 	*/
 	pVM->nNOAssignment = 0 ;
 	/* List contains the scope of the result of Load Address */
-	pVM->aLoadAddressScope = ring_list_new_gc(pVM->pRingState,0);
+	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
+	pVM->aAddressScope = ring_list_new_gc(pVM->pRingState,0);
 	/* List contains what to add  later to pObjState, prepare by loadmethod, add before call */
 	pVM->aBeforeObjState = ring_list_new_gc(pVM->pRingState,0) ;
-	/* Saving pointers to aLoadAddressScope before func. para. to restore after them */
-	pVM->pLoadAddressScope = ring_list_new_gc(pVM->pRingState,0);
 	/* Another flag like nFuncExec but not used by see command or return command */
 	pVM->nFuncExecute2 = 0 ;
 	/* Create List for Temp Items (added to ByteCode) inside TempMem */
@@ -209,7 +208,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* No Setter Method (used by ring_vm_oop_setget() function) */
 	pVM->lNoSetterMethod = 0 ;
 	/* Check OverFlow after arithmetic operations */
-	pVM->lCheckOverFlow = 1 ;
+	pVM->lCheckOverFlow = 0 ;
 	/* Add Sub Lists to Lists by Move (Very Fast) */
 	pVM->lAddSubListsByMove = 0 ;
 	/* Add Sub Lists to Lists by Fast Copy */
@@ -239,9 +238,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->aActivePackage = ring_list_delete_gc(pVM->pRingState,pVM->aActivePackage);
 	pVM->aSetProperty = ring_list_delete_gc(pVM->pRingState,pVM->aSetProperty);
 	pVM->aForStep = ring_list_delete_gc(pVM->pRingState,pVM->aForStep);
-	pVM->aLoadAddressScope = ring_list_delete_gc(pVM->pRingState,pVM->aLoadAddressScope);
 	pVM->aBeforeObjState = ring_list_delete_gc(pVM->pRingState,pVM->aBeforeObjState);
-	pVM->pLoadAddressScope = ring_list_delete_gc(pVM->pRingState,pVM->pLoadAddressScope);
 	pVM->aNewByteCodeItems = ring_list_delete_gc(pVM->pRingState,pVM->aNewByteCodeItems);
 	/* Free Stack */
 	for ( x = 0 ; x < RING_VM_STACK_SIZE ; x++ ) {
@@ -261,6 +258,7 @@ VM * ring_vm_delete ( VM *pVM )
 	ring_vm_dll_closealllibs(pVM);
 	#endif
 	pVM->pCLibraries = ring_list_delete_gc(pVM->pRingState,pVM->pCLibraries);
+	pVM->aAddressScope = ring_list_delete_gc(pVM->pRingState,pVM->aAddressScope);
 	pVM->pRingState->pVM = NULL ;
 	ring_state_free(pVM->pRingState,pVM);
 	pVM = NULL ;
@@ -1063,7 +1061,7 @@ void ring_vm_retitemref ( VM *pVM )
 {
 	List *pList  ;
 	pVM->nRetItemRef++ ;
-	/* We free the stack to avoid effects on aLoadAddressScope which is used by isstackpointertoobjstate */
+	/* We free the stack to avoid effects on nLoadAddressScope which is used by isstackpointertoobjstate */
 	ring_vm_freestack(pVM);
 	/*
 	**  Check if we are in the operator method to increment the counter again 

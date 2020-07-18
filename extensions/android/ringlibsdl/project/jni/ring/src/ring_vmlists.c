@@ -43,7 +43,9 @@ void ring_vm_liststart ( VM *pVM )
 			if ( RING_VM_STACK_ISPOINTER == 0 ) {
 				/* Create the List in the Temp Memory. */
 				ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,ring_vm_prevtempmem(pVM));
-				ring_list_addint_gc(pVM->pRingState,pVM->aLoadAddressScope,RING_VARSCOPE_LOCAL);
+				if ( pVM->nLoadAddressScope == RING_VARSCOPE_NOTHING ) {
+					pVM->nLoadAddressScope = RING_VARSCOPE_LOCAL ;
+				}
 			}
 			nType = RING_VM_STACK_OBJTYPE ;
 			if ( nType == RING_OBJTYPE_LISTITEM ) {
