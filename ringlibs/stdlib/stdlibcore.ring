@@ -290,11 +290,7 @@ Func SplitMany cString,cCharacters
 Func NewList x, y
      if isstring(x) x=0+x ok
      if isstring(y) y=0+y ok
-     alist = list(x)
-     for t in alist
-         t = list(y)
-     next
-     return alist	
+     return list(x,y)
 
 /*
 	Function Name	: capitalized
