@@ -39,16 +39,18 @@ void ring_vm_varpushv ( VM *pVM )
 		}
 	}
 	/* We don't use POP, because PUSHCVAR and PUSHNVAR don't do SP++ */
-	if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-		RING_VM_STACK_PUSHNVAR ;
-	}
-	else if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
-		RING_VM_STACK_PUSHCVAR ;
-	}
-	else if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
-		/* Support using { } to access object after object name */
-		pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
-		ring_vm_oop_setbraceobj(pVM,pList);
+	switch ( ring_list_gettype(pVar,RING_VAR_VALUE) ) {
+		case ITEMTYPE_NUMBER :
+			RING_VM_STACK_PUSHNVAR ;
+			break ;
+		case ITEMTYPE_STRING :
+			RING_VM_STACK_PUSHCVAR ;
+			break ;
+		case ITEMTYPE_LIST :
+			/* Support using { } to access object after object name */
+			pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
+			ring_vm_oop_setbraceobj(pVM,pList);
+			break ;
 	}
 }
 
