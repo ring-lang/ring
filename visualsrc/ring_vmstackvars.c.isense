@@ -1,8 +1,9 @@
 ring_vm_pushv
 Type: List *
-pVar
-Type: List *
 pList
+ring_vm_varpushv
+Type: List *
+pVar, *pList
 ring_vm_loadaddress
 ring_vm_assignment
 Type: List *
