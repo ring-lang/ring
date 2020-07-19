@@ -109,6 +109,10 @@ Also, we can generate HTML code from Ring programs using Declarative Programming
 
 Using Ring we can distribute our applications for Mobile platforms (Android, iOS, etc.)
 
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/android_demo1.png)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/android_demo3.png)
+
 ## Building Tools (Command Line)
 
 Using Ring we can whip up a CLI tool quickly and distribute it with ease. 
