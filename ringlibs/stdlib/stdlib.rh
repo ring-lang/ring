@@ -25,6 +25,7 @@
 	        :date = 16,
 	        :day_long = 2,
 	        :day_short= 1,
+			:day = 6,
 	        :month = 4,
 	        :year = 19
 	]
