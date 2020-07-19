@@ -59,6 +59,10 @@ Many developers reported that using Ring we can develop many GUI applications in
 Ring comes with Rapid Application Development (RAD) tools that we can use to quickly develop GUI applications using the MVC design pattern. 
 Also, using the same source code we can distribute our applications for Desktop, Web and Mobile platforms. 
 
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo6.png)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo5.png)
+
 ## First Class Support For Game Development
 
 We believe in Games as a nice way to encourage people to learn programming.
