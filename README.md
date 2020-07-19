@@ -23,8 +23,21 @@ The language is designed to be Simple, Small, Flexible and Fast.
 # Innovative
 
 The language comes with better support for Natural Language Programming and Declarative Programming. 
+
 The innovation comes in supporting these paradigms with new practical techniques on the top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). 
+
 You get the language constructs ready for use to create domain-specific languages in a fraction of time. 
+
+* [Ring Article](https://www.codeproject.com/Articles/1089887/The-Ring-Programming-Language)
+
+* [Syntax Flexibility](https://www.codeproject.com/Articles/1137388/Syntax-Flexibility-in-the-Ring-Programming-Languag)
+
+* [The Declarative Approach](https://www.codeproject.com/Articles/1222105/The-declarative-approach-of-the-Ring-programming-l)
+
+* [Natural Language Programming](https://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi)
+
+* [Natural Language Programming Library](https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP)
+
 
 
 # Building from source code
