@@ -233,7 +233,7 @@ void ring_vm_loadapushv ( VM *pVM )
 		RING_VM_IR_OPCODE = ICO_PUSHPV ;
 		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
 	}
-	ring_vm_pushv(pVM);
+	ring_vm_varpushv(pVM);
 }
 
 void ring_vm_newline ( VM *pVM )
