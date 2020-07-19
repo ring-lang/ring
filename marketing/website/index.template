@@ -133,7 +133,7 @@
 
 	  
 				<div class="col-xs-12">
-				  <div id="myCarousel" class="carousel slide">
+				  <div id="myCarousel" class="carousel slide" data-interval="false">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
 					  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -197,7 +197,7 @@
 
 	  
 				<div class="col-xs-12">
-				  <div id="myCarousel2" class="carousel slide" >
+				  <div id="myCarousel2" class="carousel slide" data-interval="false" >
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
 					  <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
@@ -263,7 +263,7 @@
 
 	  
 				<div class="col-xs-12">
-				  <div id="myCarousel3" class="carousel slide" >
+				  <div id="myCarousel3" class="carousel slide" data-interval="false">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
 					  <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
@@ -353,7 +353,7 @@
 
 	  
 				<div class="col-xs-12">
-				  <div id="myCarousel5" class="carousel slide" >
+				  <div id="myCarousel5" class="carousel slide" data-interval="false">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
 					  <li data-target="#myCarousel5" data-slide-to="0" class="active"></li>
@@ -444,7 +444,7 @@
 
 	  
 				<div class="col-xs-12">
-				  <div id="myCarousel4" class="carousel slide" >
+				  <div id="myCarousel4" class="carousel slide" data-interval="false">
 					<!-- Indicators -->
 					<ol class="carousel-indicators">
 					  <li data-target="#myCarousel4" data-slide-to="0" class="active"></li>
@@ -501,7 +501,7 @@
 
 	  
 				<div class="col-xs-12">
-				  <div id="myCarousel7" class="carousel slide" >
+				  <div id="myCarousel7" class="carousel slide" data-interval="false" >
 
 				  
 				 	<!-- Indicators -->
@@ -568,7 +568,7 @@
 
 	  
 				<div class="col-xs-12">
-				  <div id="myCarousel6" class="carousel slide" >
+				  <div id="myCarousel6" class="carousel slide" data-interval="false">
 
 				  <!-- Indicators -->
 					<ol class="carousel-indicators">
@@ -1258,7 +1258,7 @@ Byte Code - Before Execution by the VM
 		  <br><br>
 		  
 	<div class="col-xs-12">
-  <div id="myCarouselPWCT" class="carousel slide" data-ride="carousel">
+  <div id="myCarouselPWCT" class="carousel slide" data-interval="false">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarouselPWCT" data-slide-to="0" class="active"></li>
@@ -1386,7 +1386,7 @@ aList = "nice"
 		<br>	
 
 		<div class="col-xs-12">
-  <div id="myCarouselPerformance" class="carousel slide" data-ride="carousel">
+  <div id="myCarouselPerformance" class="carousel slide" data-interval="false">
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarouselPerformance" data-slide-to="0" class="active"></li>
