@@ -29,11 +29,11 @@ void ring_vm_pushv ( VM *pVM )
 			}
 		}
 		/* We don't use POP, because PUSHCVAR and PUSHNVAR don't do SP++ */
-		if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
-			RING_VM_STACK_PUSHCVAR ;
-		}
-		else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
+		if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
 			RING_VM_STACK_PUSHNVAR ;
+		}
+		else if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
+			RING_VM_STACK_PUSHCVAR ;
 		}
 		else if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
 			/* Support using { } to access object after object name */
