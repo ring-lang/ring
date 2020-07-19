@@ -111,8 +111,6 @@ Using Ring we can distribute our applications for Mobile platforms (Android, iOS
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/android_demo1.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/android_demo3.png)
-
 ## Building Tools (Command Line)
 
 Using Ring we can whip up a CLI tool quickly and distribute it with ease. 
@@ -120,8 +118,6 @@ The Ring Package Manager is an example about a powerful tool that we developed u
 We recorded the development time (21 hours of development includes explaining each step) 
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/cmddemo2.png)
-
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/cmddemo3.png)
 
 # Building from source code
 
