@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* For Better Performance */
 
@@ -46,15 +46,8 @@ void ring_vm_incp ( VM *pVM )
 
 void ring_vm_pushpv ( VM *pVM )
 {
-	List *pVar  ;
-	pVar = (List *) RING_VM_IR_READP ;
-	pVM->nSP++ ;
-	if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
-		RING_VM_STACK_PUSHCVAR ;
-	}
-	else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-		RING_VM_STACK_PUSHNVAR ;
-	}
+	ring_vm_pushp(pVM);
+	ring_vm_pushv(pVM);
 }
 
 void ring_vm_incjump ( VM *pVM )
