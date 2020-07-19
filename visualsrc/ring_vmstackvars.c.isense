@@ -17,8 +17,6 @@ ring_vm_inc
 Type: List *
 pVar
 ring_vm_loadapushv
-Type: List *
-pVar
 ring_vm_newline
 ring_vm_freestack
 Type: int

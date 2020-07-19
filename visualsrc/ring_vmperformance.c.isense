@@ -4,8 +4,6 @@ ring_vm_incp
 Type: List *
 pVar
 ring_vm_pushpv
-Type: List *
-pVar
 ring_vm_incjump
 Type: List *
 pVar
