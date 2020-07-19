@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Stack and Variables */
 
@@ -213,22 +213,15 @@ void ring_vm_inc ( VM *pVM )
 
 void ring_vm_loadapushv ( VM *pVM )
 {
-	List *pVar  ;
 	if ( ring_vm_findvar(pVM, RING_VM_IR_READC  ) == 0 ) {
 		ring_vm_newvar(pVM, RING_VM_IR_READC);
 	}
-	if ( ( ring_list_getsize(pVM->pMem) == 1 )  && (pVM->pActiveMem == ring_vm_getglobalscope(pVM)) ) {
+	if ( pVM->nVarScope == RING_VARSCOPE_GLOBAL ) {
 		/* Replace LoadAPushV with PUSHPV for better performance */
 		RING_VM_IR_OPCODE = ICO_PUSHPV ;
 		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
 	}
-	pVar = (List *) RING_VM_STACK_READP ;
-	if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
-		RING_VM_STACK_PUSHCVAR ;
-	}
-	else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-		RING_VM_STACK_PUSHNVAR ;
-	}
+	ring_vm_pushv(pVM);
 }
 
 void ring_vm_newline ( VM *pVM )
