@@ -4,7 +4,6 @@
 
 void ring_vm_pushv ( VM *pVM )
 {
-	List *pVar  ;
 	List *pList  ;
 	if ( pVM->nSP <= pVM->nFuncSP ) {
 		/* Happens after using EVAL() in this case we avoid PUSHV */
@@ -12,31 +11,7 @@ void ring_vm_pushv ( VM *pVM )
 	}
 	switch ( RING_VM_STACK_OBJTYPE ) {
 		case RING_OBJTYPE_VARIABLE :
-			pVar = (List *) RING_VM_STACK_READP ;
-			/* Check NULL Value */
-			if ( (pVM->nInClassRegion == 0) && (ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL) && ( ring_list_isstring(pVar,RING_VAR_VALUE) ) ) {
-				if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),"NULL") == 0 ) {
-					ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
-					if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
-						/* Delete the Item from the HashTable */
-						ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
-						ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
-					}
-					return ;
-				}
-			}
-			/* We don't use POP, because PUSHCVAR and PUSHNVAR don't do SP++ */
-			if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
-				RING_VM_STACK_PUSHNVAR ;
-			}
-			else if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
-				RING_VM_STACK_PUSHCVAR ;
-			}
-			else if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
-				/* Support using { } to access object after object name */
-				pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
-				ring_vm_oop_setbraceobj(pVM,pList);
-			}
+			ring_vm_varpushv(pVM);
 			break ;
 		case RING_OBJTYPE_LISTITEM :
 			ring_vm_listpushv(pVM);
@@ -44,6 +19,36 @@ void ring_vm_pushv ( VM *pVM )
 		case RING_OBJTYPE_SUBSTRING :
 			ring_vm_string_pushv(pVM);
 			break ;
+	}
+}
+
+void ring_vm_varpushv ( VM *pVM )
+{
+	List *pVar, *pList  ;
+	pVar = (List *) RING_VM_STACK_READP ;
+	/* Check NULL Value */
+	if ( (pVM->nInClassRegion == 0) && (ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL) && ( ring_list_isstring(pVar,RING_VAR_VALUE) ) ) {
+		if ( strcmp(ring_list_getstring(pVar,RING_VAR_VALUE),"NULL") == 0 ) {
+			ring_vm_error2(pVM,RING_VM_ERROR_USINGNULLVARIABLE,ring_list_getstring(pVar,RING_VAR_NAME));
+			if ( ring_list_getlist(pVM->pActiveMem,ring_list_getsize(pVM->pActiveMem)) == pVar ) {
+				/* Delete the Item from the HashTable */
+				ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
+				ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
+			}
+			return ;
+		}
+	}
+	/* We don't use POP, because PUSHCVAR and PUSHNVAR don't do SP++ */
+	if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
+		RING_VM_STACK_PUSHNVAR ;
+	}
+	else if ( ring_list_isstring(pVar,RING_VAR_VALUE) ) {
+		RING_VM_STACK_PUSHCVAR ;
+	}
+	else if ( ring_list_islist(pVar,RING_VAR_VALUE) ) {
+		/* Support using { } to access object after object name */
+		pList = ring_list_getlist(pVar,RING_VAR_VALUE) ;
+		ring_vm_oop_setbraceobj(pVM,pList);
 	}
 }
 

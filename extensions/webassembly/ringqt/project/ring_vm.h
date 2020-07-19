@@ -195,6 +195,8 @@ void ring_vm_setfilename ( VM *pVM ) ;
 void ring_vm_loadaddressfirst ( VM *pVM ) ;
 
 void ring_vm_endfuncexec ( VM *pVM ) ;
+
+void ring_vm_varpushv ( VM *pVM ) ;
 /* Compare */
 
 void ring_vm_equal ( VM *pVM ) ;
