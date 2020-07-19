@@ -20,9 +20,12 @@ The language is portable (Windows, Linux, macOS, Android, etc.) and can be used 
 Console, GUI, Web, Games and Mobile applications. 
 The language is designed to be Simple, Small, Flexible and Fast. 
 
-# Screen Shots
+# Innovative
 
-![Ring](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/graphics/newringshots.gif)
+The language comes with better support for Natural Language Programming and Declarative Programming. 
+The innovation comes in supporting these paradigms with new practical techniques on the top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). 
+You get the language constructs ready for use to create domain-specific languages in a fraction of time. 
+
 
 # Building from source code
 
