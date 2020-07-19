@@ -232,6 +232,9 @@ Quotes about Ring
 "Looks like a big project and an impressive piece of work"
 	, Rochus Keller (PhD From ETH Zurich, Switzerland)
 
+"I see Ring a very useful and easy in PROGRAMMING IN REGIONAL LANGUAGE. I tried to program in my mother language Hindi ( India) using UNICODE It is working. No other language give me such an easy platform."
+	, Negi Manoj (India)
+
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
 
