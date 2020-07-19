@@ -47,7 +47,7 @@ void ring_vm_incp ( VM *pVM )
 void ring_vm_pushpv ( VM *pVM )
 {
 	ring_vm_pushp(pVM);
-	ring_vm_pushv(pVM);
+	ring_vm_varpushv(pVM);
 }
 
 void ring_vm_incjump ( VM *pVM )
