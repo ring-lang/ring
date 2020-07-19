@@ -38,6 +38,48 @@ You get the language constructs ready for use to create domain-specific language
 
 * [Natural Language Programming Library](https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP)
 
+# Practical
+
+Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.) and the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language itself. Ring is ready for use in production and increase the developers productivity. 
+
+## Custom Styles And Modern Programming Paradigms
+
+Using Ring you will feel that the language is yours! A lot of modern programming paradigms are ready for use in production and using the Natural Language Programming you can quickly integrate natural interfaces to your programs. 
+
+Also, you can start your software development with writing natural descriptions, then adding the implementation later. 
+
+## GUI Applications Development And RAD Tools
+
+Many developers reported that using Ring we can develop many GUI applications in a few hours. 
+Ring comes with Rapid Application Development (RAD) tools that we can use to quickly develop GUI applications using the MVC design pattern. 
+Also, using the same source code we can distribute our applications for Desktop, Web and Mobile platforms. 
+
+## First Class Support For Game Development
+
+We believe in Games as a nice way to encourage people to learn programming.
+Ring comes with many game programming libraries in the standard library.
+Ring provides native support for Allegro, LibSDL, RayLib, OpenGL and Qt3D libraries.
+Also, Ring comes with simple game engine for 2D games development using Declarative Programming.
+
+## WebAssembly (Front-End Web Development)
+
+Using Ring we can quickly develop web applications using WebAssembly (Binary format that allows sand-boxed executable code in web pages. This format is nearly as fast as native machine code, and is now supported by all major web browsers) 
+
+## Back-End Web Development
+
+Using Ring we can quickly develop web applications using the MVC design pattern. 
+We can easily use HTML templates with embedded Ring code. 
+Also, we can generate HTML code from Ring programs using Declarative Programming.
+
+## Mobile Development
+
+Using Ring we can distribute our applications for Mobile platforms (Android, iOS, etc.)
+
+## Building Tools (Command Line)
+
+Using Ring we can whip up a CLI tool quickly and distribute it with ease. 
+The Ring Package Manager is an example about a powerful tool that we developed using Ring in a few hours. 
+We recorded the development time (21 hours of development includes explaining each step) 
 
 
 # Building from source code
