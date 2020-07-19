@@ -74,7 +74,7 @@ Also, Ring comes with simple game engine for 2D games development using Declarat
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/goldmagic800.png)
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo3.png)
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo3.png)
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/snakegamecode.png)
 
