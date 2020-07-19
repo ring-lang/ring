@@ -11,7 +11,9 @@ void ring_vm_pushv ( VM *pVM )
 	}
 	switch ( RING_VM_STACK_OBJTYPE ) {
 		case RING_OBJTYPE_VARIABLE :
-			ring_vm_varpushv(pVM);
+			if ( ! ring_vm_checknull(pVM) ) {
+				ring_vm_varpushv(pVM);
+			}
 			break ;
 		case RING_OBJTYPE_LISTITEM :
 			ring_vm_listpushv(pVM);
@@ -22,9 +24,9 @@ void ring_vm_pushv ( VM *pVM )
 	}
 }
 
-void ring_vm_varpushv ( VM *pVM )
+int ring_vm_checknull ( VM *pVM )
 {
-	List *pVar, *pList  ;
+	List *pVar  ;
 	pVar = (List *) RING_VM_STACK_READP ;
 	/* Check NULL Value */
 	if ( (pVM->nInClassRegion == 0) && (ring_list_getint(pVar,RING_VAR_TYPE) == RING_VM_NULL) && ( ring_list_isstring(pVar,RING_VAR_VALUE) ) ) {
@@ -35,9 +37,16 @@ void ring_vm_varpushv ( VM *pVM )
 				ring_hashtable_deleteitem_gc(pVM->pRingState,pVM->pActiveMem->pHashTable,ring_list_getstring(pVar,RING_VAR_NAME));
 				ring_list_deletelastitem_gc(pVM->pRingState,pVM->pActiveMem);
 			}
-			return ;
+			return 1 ;
 		}
 	}
+	return 0 ;
+}
+
+void ring_vm_varpushv ( VM *pVM )
+{
+	List *pVar, *pList  ;
+	pVar = (List *) RING_VM_STACK_READP ;
 	/* We don't use POP, because PUSHCVAR and PUSHNVAR don't do SP++ */
 	switch ( ring_list_gettype(pVar,RING_VAR_VALUE) ) {
 		case ITEMTYPE_NUMBER :

@@ -1,6 +1,9 @@
 ring_vm_pushv
 Type: List *
 pList
+ring_vm_checknull
+Type: List *
+pVar
 ring_vm_varpushv
 Type: List *
 pVar, *pList
