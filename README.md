@@ -70,7 +70,7 @@ Ring comes with many game programming libraries in the standard library.
 Ring provides native support for Allegro, LibSDL, RayLib, OpenGL and Qt3D libraries.
 Also, Ring comes with simple game engine for 2D games development using Declarative Programming.
 
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newdemo13.png)
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo13.png)
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/goldmagic800.png)
 
