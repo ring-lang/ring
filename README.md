@@ -101,6 +101,10 @@ Using Ring we can quickly develop web applications using the MVC design pattern.
 We can easily use HTML templates with embedded Ring code. 
 Also, we can generate HTML code from Ring programs using Declarative Programming.
 
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo9.png)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo12.png)
+
 ## Mobile Development
 
 Using Ring we can distribute our applications for Mobile platforms (Android, iOS, etc.)
