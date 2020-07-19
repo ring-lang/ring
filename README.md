@@ -48,6 +48,11 @@ Using Ring you will feel that the language is yours! A lot of modern programming
 
 Also, you can start your software development with writing natural descriptions, then adding the implementation later. 
 
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo1.png)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo2.png)
+
+
 ## GUI Applications Development And RAD Tools
 
 Many developers reported that using Ring we can develop many GUI applications in a few hours. 
