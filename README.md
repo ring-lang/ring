@@ -683,6 +683,23 @@ Also when we need more speed we can use C/C++ extensions!
 
 * 8-bit clean, work on binary data directly
 
+### Dynamic
+
+* Dynamic Typing
+
+* Lexical Scoping (Global, Local & Object State)
+
+* Default scope for variables inside functions (Local)
+
+* Default scope for variables outside functions (global)
+
+* Optional loading for modules in separate global scope
+
+* Exception Handling
+
+* Eval() to execute code during run-time
+
+
 
 
 
