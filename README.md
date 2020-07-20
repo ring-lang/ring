@@ -721,6 +721,32 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Reflection and Meta-programming
 
+### Standard Library 
+
+* I/O commands
+
+* Math functions
+
+* String functions
+
+* List functions
+
+* File processing functions
+
+* System functions
+
+* Database support (ODBC, MySQL, PostgreSQL and SQLite)
+
+* Security Functions (OpenSSL)
+
+* Internet Functions (LibCurl)
+
+* Powerful GUI Framework (Qt)
+
+* Web Development Library
+
+* Many Game Programming Libraries
+
 
 
 
