@@ -699,6 +699,28 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Eval() to execute code during run-time
 
+### Object-Oriented Programming (OOP)
+
+* Encapsulation
+
+* Setter/Getter (optional)
+
+* private state (optional)
+
+* Instantiation
+
+* Polymorphism
+
+* Composition
+
+* Inheritance (Single Inheritance)
+
+* Operator Overloading
+
+* Packages
+
+* Reflection and Meta-programming
+
 
 
 
