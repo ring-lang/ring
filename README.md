@@ -251,7 +251,9 @@ Each source file follow the next structure
 This enable us to use Packages, Classes and Functions without the need to use a keyword to end these components.
 
 We can write one line comments and multi-line comments
+
 The comment starts with # or //
+
 Multi-line comments are written between /* and */
 
 	/* 
@@ -265,6 +267,60 @@ Multi-line comments are written between /* and */
 
 	// See "End of Program!"
 			
+## Compact Syntax 
+
+The language is not line sensitive, you don't need to write ; after statements, also you don't need to press ENTER or TAB, so we can write the next code
+
+	see "The First Message"	see " Another message in the same line! " + nl
+	see "Enter your name?" give Name see "Hello " + Name
+			
+
+The next code create a class called Point contains three attributes X,Y and Z. No keywords is used to end the package/class/function definition. Also, we can write the attributes names directly below the class name.
+
+	class Point X Y Z
+			
+
+We can use classes and functions before their definition, In this example we will create new object, set the object attributes then print the object values.
+
+	o1 = new point	o1.x=10    o1.y=20   o1.z=30	see O1	class Point X Y Z
+			
+
+Instead of using the dot '.' operator to access the object attributes and methods we can use braces { } to access the object, then we can use the object attributes and methods.
+ 
+	o1 = new point { x=10 y=20 z=30 } see O1  class Point X Y Z
+
+Now we will call a method after accessing the object using { }
+ 
+	oPerson = new Person
+	{
+		Name = "Somebody"
+		Address = "Somewhere"
+		Phone = "0000000"
+		Print()			# here we call the Print() method
+	}
+	class Person Name Address Phone
+		func Print
+			see "Name :" + name + nl +
+				"Address :" + Address + nl +
+				"Phone : " + phone + nl
+
+When we use { } to access the object then write any attribute name, the language will check the class for any setter/getter methods that will be called automatically.
+
+	new Number {
+			see one		# Execute GetOne()
+			see two		# Execute GetTwo()
+			see three	# Execute GetThree()
+	}
+	class Number one two three
+		func GetOne
+			see "Number : One" + nl
+			return 1
+		func GetTwo
+			see "Number : Two" + nl
+			return 2
+		func GetThree
+			see "Number : Three" + nl
+			return 3	
 
 			
 			
