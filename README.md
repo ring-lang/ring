@@ -806,14 +806,7 @@ Also when we need more speed we can use C/C++ extensions!
 * Hundreds of YouTube Videos
 
 * Powerful RAD tools (Code Editor, Form Designer, REPL, Debugger, Ring2EXE, Package Manager, etc.)
-
-
-
-
-
-
-
-				
+			
 # Building from source code
 
 We provide instructions for building on the next platforms :-
@@ -828,5 +821,4 @@ We provide instructions for building on the next platforms :-
 
 # License 
 
-The  Ring  programming  language  is  distributed  under  the  MIT  License.
-
+The Ring programming language is distributed under the MIT License.
