@@ -419,7 +419,61 @@ To complete the previous example, use read() to get the content of a file that c
 Then use eval() to execute the content of that file!.
 Also, you can update the methods GetWindow() and SetTitle() to create Real windows using the GUI Library
 			
-			
+## Define Declarative Languages using Nested Structures based on Object-Oriented 
+
+We learned how to use Natural statements to execute our code and using the same features we can use nested structures to execute our code.
+
+The next example from the Web library, generate HTML document using the Bootstrap library. No HTML code is written directly in this example, we created a similar language (just as example) Then using this declarative language that uses nested structures, we generated the HTML Document..
+
+The idea in this example is that the GetDiv() and GetH1() methods return an object that we can access using {} and after each object access the method BraceEnd() will be executed to send the generated HTML to the parent object until we reach to the root where BraceEnd() will print the output.
+
+	load "weblib.ring"
+	import System.Web
+
+	func Main
+
+	  BootStrapWebPage()
+	  {
+			div
+			{
+			  classname = :container
+			  div
+			  {
+					classname = :jumbotron
+					H1 {   text("Bootstrap Page")   }
+			  }
+			  div
+			  {
+					classname = :row
+					for x = 1 to 3
+					  div
+					  {
+							classname = "col-sm-4"
+							H3 { html("Welcome to the Ring programming language") }
+							P  { html("Using a scripting language is very fun!") }
+					  }
+					next
+			  }
+			}
+	  }
+
+The classes that power the declarative interface looks like this
+
+	class Link from ObjsBase
+		title  link
+		func braceend			
+			cOutput = nl+GetTabs() + "<a href='" + 
+				  Link + "'> "+ Title + " </a> " + nl			
+
+	class Div from ObjsBase 
+		func braceend
+			cOutput += nl+'<div'
+			addattributes()
+			AddStyle()
+			getobjsdata()
+			cOutput += nl+"</div>" + nl
+			cOutput = TabMLString(cOutput)
+	 			
 # Building from source code
 
 We provide instructions for building on the next platforms :-
