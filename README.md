@@ -119,6 +119,53 @@ We recorded the development time (21 hours of development includes explaining ea
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/cmddemo2.png)
 
+# Why Ring?
+
+The language is simple, trying to be natural, encourage organization and comes with transparent and visual implementation. 
+It comes with compact syntax and a group of features that enable the programmer to create natural interfaces and declarative domain-specific languages in a fraction of time. 
+It is very small, fast and comes with smart garbage collector that puts the memory under the programmer control. 
+It supports many programming paradigms, comes with useful and practical libraries. 
+The language is designed for productivity and developing high quality solutions that can scale.
+
+## Designed for a Clear Goal
+
+
+* Applications programming language.
+
+* Productivity and developing high quality solutions that can scale.
+
+* Small and fast language that can be embedded in C/C++ projects.
+
+* Simple language that can be used in education and introducing Compiler/VM concepts.
+
+* General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
+
+* Practical language designed for creating the next version of the Programming Without Coding Technology software.
+
+## Simple 
+
+Ring is a very simple language, and has a very straightforward syntax. 
+It encourages programmers to program without boilerplate code.
+To print something using the standard output, We can use the 'See' command.
+
+	see "Hello, World!" 
+			
+
+The Main function is optional and will be executed after the statements, and is useful for using the local scope.
+
+	func main
+		see "Hello, World!" 
+			
+
+Uses Dynamic Typing and Lexical scoping.
+Also we can use the '+' operator for string concatenation.
+
+	nCount = 10	# Global variable
+	func main
+		nID = 1	# Local variable
+		see "Count = " + nCount + nl + " ID = " + nID
+			
+
 # Building from source code
 
 We provide instructions for building on the next platforms :-
