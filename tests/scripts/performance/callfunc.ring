@@ -21,6 +21,16 @@ for x = 1 to 100000
 next
 ? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
 
+? "calling 100000 methods using braces outside the loop"
+t1 = clock()
+o1 {
+	for x = 1 to 100000
+		 test() 
+	next
+}
+? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+
 
 func test
 
