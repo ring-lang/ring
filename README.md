@@ -651,6 +651,38 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Portable (Windows, Linux, macOS, Android, WebAssembly, etc.)
 
+### Simple
+
+* Comments (One line & Multi-line)
+
+* Multi-line literals
+
+* Not Case-Sensitive
+
+* The list index start from 1
+
+* Rich control structures & Operators
+
+* Range operator ex: 1:10
+
+* Main Function (optional)
+
+* Call Function before the definition
+
+* Recursion
+
+* Access (read/write) string letter by index
+
+* For in get item by reference not value
+
+* First Class Variables, Lists, Objects and Functions
+
+* Store/Copy Lists/Objects by value (Deep Copy)
+
+* Pass Lists/Objects by reference
+
+* 8-bit clean, work on binary data directly
+
 
 
 
