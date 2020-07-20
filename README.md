@@ -747,7 +747,31 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Many Game Programming Libraries
 
+### Web Development 
 
+* HTTP Get
+
+* HTTP Post
+
+* File upload
+
+* Cookies
+
+* URL Encode
+
+* Templates
+
+* HTML Special Characters
+
+* HTML Generation using Functions
+
+* HTML Generation using Classes
+
+* CRUD Example (using MVC)
+
+* Users Example (Register, Login and Check)
+
+* Deploy web applications in the Cloud
 
 
 
