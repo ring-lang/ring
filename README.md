@@ -773,6 +773,24 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Deploy web applications in the Cloud
 
+### Extensions
+
+* Extension using C/C++ (Simple API)
+
+* Embedding in C/C++ projects
+
+* Comes with binding generator to quickly wrap C/C++ Libraries
+
+* Network Programming (SDLNet, Libuv, etc.)
+
+* Create 2D Games (Allegro & LibSDL)
+
+* Create 3D Games (OpenGL, FreeGLUT, RayLib, Qt3D, etc.)
+
+* Create GUI Applications for Desktop, WebAssembly and Mobile platforms (Using the Qt Framework)
+
+
+
 
 
 				
