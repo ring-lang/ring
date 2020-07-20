@@ -148,9 +148,9 @@ Ring is a very simple language, and has a very straightforward syntax.
 It encourages programmers to program without boilerplate code.
 To print something using the standard output, We can use the 'See' command.
 
-	``` ring
+``` ring
 	see "Hello, World!" 
-	```		
+```		
 
 The Main function is optional and will be executed after the statements, and is useful for using the local scope.
 
