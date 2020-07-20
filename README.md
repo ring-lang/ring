@@ -789,6 +789,26 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Create GUI Applications for Desktop, WebAssembly and Mobile platforms (Using the Qt Framework)
 
+### More 
+
+* Very Stable
+
+* Good Performance
+
+* Complete Documentation
+
+* Many Libraries (Batteries Included)
+
+* Many Samples (Easy to Learn)
+
+* Many Applications
+
+* Hundreds of YouTube Videos
+
+* Powerful RAD tools (Code Editor, Form Designer, REPL, Debugger, Ring2EXE, Package Manager, etc.)
+
+
+
 
 
 
