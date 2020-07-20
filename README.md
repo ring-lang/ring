@@ -164,6 +164,79 @@ Also we can use the '+' operator for string concatenation.
 	func main
 		nID = 1	# Local variable
 		see "Count = " + nCount + nl + " ID = " + nID
+
+## Trying to be natural 
+
+Ring is not case-sensitive
+
+	see "Enter your name ? " 
+	give name
+	see "Hello " + Name	# Name is the same as name 
+			
+
+The list index starts from 1
+
+	aList = ["one","two","three"]
+	see aList[1]	# print one
+			
+
+Call functions before definition
+
+	one() 
+	two() 
+	three()
+	func one 
+		see "One" 
+	func two 
+		see "two" 
+	func three 
+		see "three" 
+			
+
+The assignment operator uses Deep copy (no references in this operation)
+
+	aList = ["one","two","three"]
+	aList2 = aList
+	aList[1] = 1
+	see alist[1]	# print 1
+	see aList2[1]	# print one
+			
+
+Pass numbers and strings by value, but pass lists and objects by reference.
+The for in loop can update the list items.
+
+	func main
+		aList = [1,2,3]
+		update(aList)
+		see aList	# print one two three
+
+	func update aList
+		for x in aList
+			switch x
+			on 1 x = "one"
+			on 2 x = "two"
+			on 3 x = "three"
+			off
+		next
+			
+
+Using Lists during definition
+
+	aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
+	see aList       # print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+			
+
+Exit from more than one loop
+
+	for x = 1 to 10
+			for y = 1 to 10
+					see "x=" + x + " y=" + y + nl
+					if x = 3 and y = 5
+							exit 2     # exit from 2 loops
+					ok
+			next
+	next
+			
 			
 
 # Building from source code
