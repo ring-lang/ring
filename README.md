@@ -564,7 +564,43 @@ The programmer can call the function callgc() to force running the garbage colle
 
 If we have a reference to a variable (when we pass objects and lists to functions), then deleting variables will be based on reference counting, if no references everything will be deleted, but if we have a reference, the data will stay in memory.
 
+## No Global Interpreter (VM) Lock - No GIL
 
+When we use threads in Ring applications, We don’t have global interpreter (VM) lock (No GIL)
+
+So threads can work in parallel and execute Ring instructions at the same time
+
+This is better for threads and concurrency (More Faster!) 
+
+## Fast Enough For Many Applications
+
+Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.
+
+Ring can do each of the next tasks in around 1 second using normal computers in the market during the last 5 years
+
+(1) Compiling 100,000 lines of code
+
+(2) Executing empty loop that count from 1 to 10,000,000
+
+(3) Executing 1000 search operation using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
+
+(4) Creating list contains 1,000,000 items then summing all of the list items
+
+(5) Adding 20,000 items to the ListWidget in GUI applications
+
+(6) Adding 5,000 nodes to the TreeWidget in GUI applications
+
+(7) Printing 10,000 messages to the terminal in Console applications
+
+Also when we need more speed we can use C/C++ extensions! 
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo1_speed.png)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo2_speed.png)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo3_speed.png)
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo4_speed.png)
 				
 # Building from source code
 
