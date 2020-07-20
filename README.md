@@ -322,6 +322,102 @@ When we use { } to access the object then write any attribute name, the language
 			see "Number : Three" + nl
 			return 3	
 
+## Syntax Flexibility
+
+Ring comes with many styles for writing your source code!
+
+Also you can change the language keywords and operators and create your custom style!
+
+## Define Natural Statements based on Object-Oriented 
+
+After the object access using { } if the class contains a method called BraceEnd() it will be executed!
+
+	TimeForFun = new journey
+	# The first surprise!
+	TimeForFun {
+		Hello it is me		# What a beautiful programming world!
+	}
+	# Our Class
+	class journey
+		hello=0 it=0 is=0 me=0
+		func GetHello
+			See "Hello" + nl
+		func braceEnd
+			See "Goodbye!" + nl	
+
+We can execute code written in strings using the Eval() function
+
+	cCode = "See 'Code that will be executed later!' "
+	Eval(cCode)	# execute the code to print the message
+
+We can create a list then execute code generated from that list
+
+	aWords = ["hello","it","is","me"]
+	for word in aWords cCode=word+"=0" eval(cCode) next
+
+We can read text files using the Read(cFileName) function and we can write files using the Write(cFileName,cString) function.
+
+	see "Enter File Name:" give cFileName see read(cFileName) # Print the file content
+
+The next example presents how to create a class that defines two instructions
+
+The first instruction is : I want window
+
+The second instruction is : Window title = Expression
+
+Also keywords that can be ignored like the ‘the’ keyword
+
+	new App
+	{
+			I want window
+			The window title = "hello world"
+	}
+
+	class App
+
+		# Attributes for the instruction I want window
+				i want window
+				nIwantwindow = 0
+		# Attributes for the instruction Window title
+		# Here we don't define the window attribute again
+				title
+				nWindowTitle = 0
+		# Keywords to ignore, just give them any value
+				the=0
+
+			func geti
+					if nIwantwindow = 0
+							nIwantwindow++
+					ok
+
+			func getwant
+					if nIwantwindow = 1
+							nIwantwindow++
+					ok
+
+			func getwindow
+					if nIwantwindow = 2
+							nIwantwindow= 0
+							see "Instruction : I want window" + nl
+					ok
+					if nWindowTitle = 0
+							nWindowTitle++
+					ok
+
+			func settitle cValue
+					if nWindowTitle = 1
+							nWindowTitle=0
+							see "Instruction : Window Title = " + cValue + nl
+					ok
+      
+
+To complete the previous example, use read() to get the content of a file that contains
+
+        I want window
+        The window title = "hello world"
+
+Then use eval() to execute the content of that file!.
+Also, you can update the methods GetWindow() and SetTitle() to create Real windows using the GUI Library
 			
 			
 # Building from source code
