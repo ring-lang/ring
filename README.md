@@ -548,9 +548,11 @@ Avoid memory problems :-
 
 Rules :-
 
-    Global variables always stay in the memory, until you delete these variables using the assignment statement.
-    Local variables always deleted after the end of the function.
-    The programmer have full control on when to delete the variable from the memory using the Assignment statement.
+* Global variables always stay in the memory, until you delete these variables using the assignment statement.
+
+* Local variables always deleted after the end of the function.
+
+* The programmer have full control on when to delete the variable from the memory using the Assignment statement.
 
 Example:
 
@@ -601,6 +603,57 @@ Also when we need more speed we can use C/C++ extensions!
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo3_speed.png)
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo4_speed.png)
+
+## Features
+
+
+### Innovative
+
+* Compact Syntax
+
+* Three Styles for writing the source code
+
+* Syntax Flexibility support customization, translation and porting old code
+
+* Declarative Programming
+
+* Natural Language Programming
+
+* Clear program structure (Statements then functions then packages & classes)
+
+* using { } to access objects and use attributes/methods as variables/functions
+
+* No explicit end for statements (No ; or ENTER is required)
+
+* Use exit to go outside from more than one loop
+
+* No keyword to end Functions, Classes and Packages
+
+### Powerful Implementation
+
+* Free Open Source (MIT License)
+
+* Hybrid Implementation (Compiler+VM)
+
+* The compiler + The Virtual Machine are 20,000 lines of C code
+
+* The other 500,000 lines of code are related to libraries!
+
+* Transparent Implementation provides optional printing for Tokens/Grammar/Byte-Code during execution
+
+* Written in ANSI C (The code is generated)
+
+* Developed using Visual Programming (PWCT)
+
+* Smart Garbage Collector suitable for Games (Automatic Memory Management using Escape Analysis and Reference Counting)
+
+* No Global Interpreter Lock (No GIL)
+
+* Portable (Windows, Linux, macOS, Android, WebAssembly, etc.)
+
+
+
+
 				
 # Building from source code
 
