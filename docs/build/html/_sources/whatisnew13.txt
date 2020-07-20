@@ -375,10 +375,11 @@ More Improvements
 	* ring/samples/other/UsingQML/sample11 folder (Data Visualization Samples)
 	* ring/samples/other/righttoleft folder (Set Layout Direction)
 	* ring/samples/other/datetimeeditformat folder (Date Picker Control)
-	* ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring
+	* ring/samples/other/ringtokens folder (Ring Compiler - Scanner Output)
 	* ring/samples/other/WebAssembly/colordialog folder
 	* ring/samples/other/WebAssembly/filedialog folder 
 	* ring/samples/other/WebAssembly/filecontent folder (Download/Upload Files)
+	* ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Ring Notepad - View Menu - Source Code (Full Screen)
