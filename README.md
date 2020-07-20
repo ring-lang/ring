@@ -237,8 +237,37 @@ Exit from more than one loop
 			next
 	next
 			
+## Encourage Organization 			
+
+The language encourage organization, Forget bad days using languages where the programmer start with function then class then function and a strange mix between things!
+
+Each source file follow the next structure
+
+    Load Files
+    Statements and Global Variables
+    Functions
+    Packages and Classes
+
+This enable us to use Packages, Classes and Functions without the need to use a keyword to end these components.
+
+We can write one line comments and multi-line comments
+The comment starts with # or //
+Multi-line comments are written between /* and */
+
+	/* 
+		Program Name : My first program using Ring
+		Author       : Ring Team 
+	*/
+
+	see "What is your name? " 	# print message on screen
+	give cName 			# get input from the user
+	see "Hello " + cName		# say hello!
+
+	// See "End of Program!"
 			
 
+			
+			
 # Building from source code
 
 We provide instructions for building on the next platforms :-
