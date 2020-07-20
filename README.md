@@ -154,35 +154,41 @@ To print something using the standard output, We can use the 'See' command.
 
 The Main function is optional and will be executed after the statements, and is useful for using the local scope.
 
+``` ring
 	func main
 		see "Hello, World!" 
-			
+```					
 
 Uses Dynamic Typing and Lexical scoping.
 Also we can use the '+' operator for string concatenation.
 
+``` ring
 	nCount = 10	# Global variable
 	func main
 		nID = 1	# Local variable
 		see "Count = " + nCount + nl + " ID = " + nID
+```
 
 ## Trying to be natural 
 
 Ring is not case-sensitive
 
+``` ring
 	see "Enter your name ? " 
 	give name
 	see "Hello " + Name	# Name is the same as name 
-			
+```			
 
 The list index starts from 1
 
+``` ring
 	aList = ["one","two","three"]
 	see aList[1]	# print one
-			
+```			
 
 Call functions before definition
 
+``` ring
 	one() 
 	two() 
 	three()
@@ -192,20 +198,22 @@ Call functions before definition
 		see "two" 
 	func three 
 		see "three" 
-			
+```			
 
 The assignment operator uses Deep copy (no references in this operation)
 
+``` ring
 	aList = ["one","two","three"]
 	aList2 = aList
 	aList[1] = 1
 	see alist[1]	# print 1
 	see aList2[1]	# print one
-			
+```			
 
 Pass numbers and strings by value, but pass lists and objects by reference.
 The for in loop can update the list items.
 
+``` ring
 	func main
 		aList = [1,2,3]
 		update(aList)
@@ -219,16 +227,18 @@ The for in loop can update the list items.
 			on 3 x = "three"
 			off
 		next
-			
+```			
 
 Using Lists during definition
 
+``` ring
 	aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 	see aList       # print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
-			
+```			
 
 Exit from more than one loop
 
+``` ring
 	for x = 1 to 10
 			for y = 1 to 10
 					see "x=" + x + " y=" + y + nl
@@ -237,6 +247,7 @@ Exit from more than one loop
 					ok
 			next
 	next
+```
 			
 ## Encourage Organization 			
 
@@ -257,6 +268,7 @@ The comment starts with # or //
 
 Multi-line comments are written between /* and */
 
+``` ring
 	/* 
 		Program Name : My first program using Ring
 		Author       : Ring Team 
@@ -267,31 +279,38 @@ Multi-line comments are written between /* and */
 	see "Hello " + cName		# say hello!
 
 	// See "End of Program!"
+```
 			
 ## Compact Syntax 
 
 The language is not line sensitive, you don't need to write ; after statements, also you don't need to press ENTER or TAB, so we can write the next code
 
+``` ring
 	see "The First Message"	see " Another message in the same line! " + nl
 	see "Enter your name?" give Name see "Hello " + Name
-			
+```			
 
 The next code create a class called Point contains three attributes X,Y and Z. No keywords is used to end the package/class/function definition. Also, we can write the attributes names directly below the class name.
 
+``` ring
 	class Point X Y Z
-			
+```			
 
 We can use classes and functions before their definition, In this example we will create new object, set the object attributes then print the object values.
 
+``` ring
 	o1 = new point	o1.x=10    o1.y=20   o1.z=30	see O1	class Point X Y Z
-			
+```			
 
 Instead of using the dot '.' operator to access the object attributes and methods we can use braces { } to access the object, then we can use the object attributes and methods.
  
+``` ring
 	o1 = new point { x=10 y=20 z=30 } see O1  class Point X Y Z
+```
 
 Now we will call a method after accessing the object using { }
  
+``` ring
 	oPerson = new Person
 	{
 		Name = "Somebody"
@@ -304,9 +323,11 @@ Now we will call a method after accessing the object using { }
 			see "Name :" + name + nl +
 				"Address :" + Address + nl +
 				"Phone : " + phone + nl
+```
 
 When we use { } to access the object then write any attribute name, the language will check the class for any setter/getter methods that will be called automatically.
 
+``` ring
 	new Number {
 			see one		# Execute GetOne()
 			see two		# Execute GetTwo()
@@ -322,6 +343,7 @@ When we use { } to access the object then write any attribute name, the language
 		func GetThree
 			see "Number : Three" + nl
 			return 3	
+```
 
 ## Syntax Flexibility
 
@@ -333,6 +355,7 @@ Also you can change the language keywords and operators and create your custom s
 
 After the object access using { } if the class contains a method called BraceEnd() it will be executed!
 
+``` ring
 	TimeForFun = new journey
 	# The first surprise!
 	TimeForFun {
@@ -345,20 +368,27 @@ After the object access using { } if the class contains a method called BraceEnd
 			See "Hello" + nl
 		func braceEnd
 			See "Goodbye!" + nl	
+```
 
 We can execute code written in strings using the Eval() function
 
+``` ring
 	cCode = "See 'Code that will be executed later!' "
 	Eval(cCode)	# execute the code to print the message
+```
 
 We can create a list then execute code generated from that list
 
+``` ring
 	aWords = ["hello","it","is","me"]
 	for word in aWords cCode=word+"=0" eval(cCode) next
+```
 
 We can read text files using the Read(cFileName) function and we can write files using the Write(cFileName,cString) function.
 
+``` ring
 	see "Enter File Name:" give cFileName see read(cFileName) # Print the file content
+```
 
 The next example presents how to create a class that defines two instructions
 
@@ -368,6 +398,7 @@ The second instruction is : Window title = Expression
 
 Also keywords that can be ignored like the ‘the’ keyword
 
+``` ring
 	new App
 	{
 			I want window
@@ -411,11 +442,14 @@ Also keywords that can be ignored like the ‘the’ keyword
 							see "Instruction : Window Title = " + cValue + nl
 					ok
       
+```
 
 To complete the previous example, use read() to get the content of a file that contains
 
+``` ring
         I want window
         The window title = "hello world"
+```
 
 Then use eval() to execute the content of that file!.
 Also, you can update the methods GetWindow() and SetTitle() to create Real windows using the GUI Library
@@ -428,6 +462,7 @@ The next example from the Web library, generate HTML document using the Bootstra
 
 The idea in this example is that the GetDiv() and GetH1() methods return an object that we can access using {} and after each object access the method BraceEnd() will be executed to send the generated HTML to the parent object until we reach to the root where BraceEnd() will print the output.
 
+``` ring
 	load "weblib.ring"
 	import System.Web
 
@@ -457,9 +492,11 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 		  }
 		}
 	}
+```
 
 The classes that power the declarative interface looks like this
 
+``` ring
 	class Link from ObjsBase
 		title  link
 		func braceend			
@@ -474,6 +511,7 @@ The classes that power the declarative interface looks like this
 			getobjsdata()
 			cOutput += nl+"</div>" + nl
 			cOutput = TabMLString(cOutput)
+```
 
 # Implementation
 
@@ -481,8 +519,9 @@ The classes that power the declarative interface looks like this
 
 Ring comes with transparent implementation. We can know what is happening in each compiler stage and what is going on during the run-time by the Virtual Machine Example : ring helloworld.ring -tokens -rules -ic -norun
 
+``` ring
 	see "Hello, World!" 
-			
+```			
 
 Output
 
@@ -557,9 +596,10 @@ Rules :-
 
 Example:
 
+``` ring
     aList = [1,2,3,4,5]
     aList = "nice"
-    			
+```    			
 
 After the second line directly, The list [1,2,3,4,5] will be deleted from the memory and we will have a string "nice"
 
