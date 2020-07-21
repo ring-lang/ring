@@ -1,6 +1,6 @@
 echo off
 
-call ../../src/locatevc.bat
+call ../../language/src/locatevc.bat
 
 cl /c /DEBUG ring_winapi.c -I"..\..\include"
 

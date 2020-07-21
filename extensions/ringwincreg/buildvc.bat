@@ -1,6 +1,6 @@
 echo off
 
-call ../../src/locatevc.bat
+call ../../language/src/locatevc.bat
 
 cl /c /DEBUG /EHsc creg_registry.cpp ring_wincreg.cpp -I"..\..\include"
 
