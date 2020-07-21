@@ -676,6 +676,14 @@ func DistributeForWebAssemblyQt cBaseFolder,cFileName,aOptions
 		OSDeleteFile("main.cpp")
 		OSCopyFile(cMainFile)
 	ok
+	msg("Copy Ring and RingQt folders...")
+	if isWindows()
+		OSCopyFolder(exefolder() + "..\extensions\webassembly\ringqt\project\","ring" )
+		OSCopyFolder(exefolder() + "..\extensions\webassembly\ringqt\project\","ringqt" )
+	else
+		OSCopyFolder(exefolder() + "../extensions/webassembly/ringqt/project/","ring" )
+		OSCopyFolder(exefolder() + "../extensions/webassembly/ringqt/project/","ringqt" )
+	ok
 
 func CheckQtResourceFile cBaseFolder,cFileName,aOptions
 	cResourceFile = cBaseFolder+"/"+"project.qrc"
