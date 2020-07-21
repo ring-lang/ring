@@ -369,6 +369,7 @@ More Improvements
 	* ring/samples/other/endian.ring
 	* ring/samples/other/qgridlayout.ring 
 	* ring/samples/other/inputmask.ring 
+	* ring/samples/other/newmethod.ring 
 	* ring/samples/other/varptr/varptr4.ring 
 	* ring/samples/other/varptr/varptr5.ring 
 	* ring/samples/other/UsingQML/sample10 folder (Charts Samples)
