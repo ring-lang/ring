@@ -33,8 +33,8 @@ In this folder we have the tests that test the Ring programming language.
 
 # Screen Shots
 
-![Tests](https://github.com/ring-lang/ring/blob/master/tests/images/shot1.png)
+![Tests](https://github.com/ring-lang/ring/blob/master/language/tests/images/shot1.png)
 
 Report Summary
 
-![Tests](https://github.com/ring-lang/ring/blob/master/tests/images/shot2.png)
+![Tests](https://github.com/ring-lang/ring/blob/master/language/tests/images/shot2.png)
