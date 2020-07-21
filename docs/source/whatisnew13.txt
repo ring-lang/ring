@@ -433,3 +433,7 @@ More Improvements
 * The ring/samples/tools/QtClassConverter folder is moved to ring/extensions/ringqt/converter
 * The ring/extensions/ringqt/guilib/objectslib folder is moved to ring/ringlibs/objectslib
 * The ring/extensions/ringqt/guilib folder is moved to ring/ringlibs/guilib
+* The ring/visualsrc folder is moved to ring/language/visualsrc
+* The ring/src folder is moved to ring/language/src
+* The ring/include folder is moved to ring/language/include
+* The ring/tests folder is moved to ring/language/tests
