@@ -250,6 +250,7 @@ The application user interface is updated for better productivity!
 .. image:: qtconverter.png
 	:alt: QtConverter
 
+(3) RingQt for Android - Qt Project - Special folders for Ring and RingQt
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Better RingRayLib
@@ -407,6 +408,7 @@ More Improvements
 * Ring2EXE - Distribute for Web Browser using WebAssembly (RingQt)
 * Ring2EXE - Delete the executable file if we have it in the target folder
 * Ring2EXE - Always copy files listed in the resources file to the target folder
+* Ring2EXE - Distribute for Android - Copy Ring and RingQt folders
 * Ring Tests - Display report summary after running all of the tests
 * CodeGen - Add Option: PassNullBeforeVMPointer (For C++ Classes)
 * CodeGen - Using RING_API_ISCPOINTER() instead of RING_API_ISPOINTER()
