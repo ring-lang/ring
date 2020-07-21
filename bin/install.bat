@@ -18,14 +18,7 @@ copy extensions\libdepwin\mysql\lib\*.dll bin
 copy extensions\libdepwin\openssl\bin\*.dll bin
 copy extensions\libdepwin\pgsql\lib\*.dll bin
 copy extensions\libdepwin\raylib2.5\bin\*.dll bin
-copy C:\Qt\5.15.0\msvc2019\bin\*.dll bin
-copy C:\Qt\5.15.0\msvc2019\bin\QtWebEngineProcess.exe bin
 cd bin
-xcopy C:\Qt\5.15.0\msvc2019\plugins . /E /H /C /R /Q /Y
-md qml
-xcopy C:\Qt\5.15.0\msvc2019\qml qml /E /H /C /R /Q /Y
-md translations
-xcopy C:\Qt\5.15.0\msvc2019\translations translations /E /H /C /R /Q /Y
-xcopy C:\Qt\5.15.0\msvc2019\resources . /E /H /C /R /Q /Y
 rem Delete Allegro Dlls (Debug Version)
 del allegro*debug-5.2.dll 
+call installqt515.bat
