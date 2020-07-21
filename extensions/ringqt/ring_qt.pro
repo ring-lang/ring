@@ -123,7 +123,7 @@ HEADERS  += \
     cpp/include/gprintdialog.h
     
 
-INCLUDEPATH += ../../include
+INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include
 
 win32 {

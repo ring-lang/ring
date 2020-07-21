@@ -186,7 +186,7 @@ HEADERS  += \
     cpp/include/gfontdialog.h \
     cpp/include/gfiledialog.h
 
-INCLUDEPATH += ../../include
+INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include
 
 win32 {

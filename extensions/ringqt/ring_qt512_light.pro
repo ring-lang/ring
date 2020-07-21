@@ -90,7 +90,7 @@ HEADERS  += \
     cpp/include/ggraphicsscene.h \
     cpp/include/gmovie.h 
 
-INCLUDEPATH += ../../include
+INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include
 
 win32 {
