@@ -20,5 +20,11 @@ copy extensions\libdepwin\pgsql\lib\*.dll bin
 copy extensions\libdepwin\raylib2.5\bin\*.dll bin
 copy C:\Qt\Qt5.12.6\5.12.6\msvc2017\bin\*.dll bin
 cd bin
+xcopy C:\Qt\Qt5.12.6\5.12.6\msvc2017\plugins . /E /H /C /R /Q /Y
+md qml
+xcopy C:\Qt\Qt5.12.6\5.12.6\msvc2017\qml qml /E /H /C /R /Q /Y
+md translations
+xcopy C:\Qt\Qt5.12.6\5.12.6\msvc2017\translations translations /E /H /C /R /Q /Y
+xcopy C:\Qt\Qt5.12.6\5.12.6\msvc2017\resources . /E /H /C /R /Q /Y
 rem Delete Allegro Dlls (Debug Version)
 del allegro*debug-5.2.dll 
