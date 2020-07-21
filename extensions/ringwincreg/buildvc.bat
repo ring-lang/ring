@@ -2,7 +2,7 @@ echo off
 
 call ../../language/src/locatevc.bat
 
-cl /c /DEBUG /EHsc creg_registry.cpp ring_wincreg.cpp -I"..\..\include"
+cl /c /DEBUG /EHsc creg_registry.cpp ring_wincreg.cpp -I"..\..\language\include"
 
 link /DEBUG creg_registry.obj advapi32.lib shlwapi.lib ring_wincreg.obj  ..\..\lib\ring.lib  /DLL /OUT:ring_wincreg.dll /SUBSYSTEM:CONSOLE,"5.01" 
 
