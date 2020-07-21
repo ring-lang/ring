@@ -12,7 +12,7 @@
 	
 ### Install Libraries 
 	
-	cd ring/src
+	cd ring/language/src
 	./installdepmac.sh 
 	
 ### Build Ring (Compiler/VM)
@@ -21,7 +21,7 @@
 
 ### Build Ring2EXE 
 
-	cd ../ring2exe
+	cd ../../ring2exe
 	sudo ./buildring2exe.sh	
 
 ### Generate RingConsoleColors Source Code and Build 

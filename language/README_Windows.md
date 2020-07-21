@@ -10,13 +10,13 @@
 	
 ### Build Ring (Compiler/VM)
 	
-	cd ring/src
+	cd ring/language/src
 	buildvc.bat
 	buildvcw.bat
 
 ### Build Ring2EXE 
 
-	cd ../ring2exe
+	cd ../../ring2exe
 	buildring2exe.bat 
 
 ### Generate RingConsoleColors Source Code and Build 
