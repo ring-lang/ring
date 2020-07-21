@@ -27,7 +27,7 @@ Build Ring (Compiler/VM)
 
 .. code-block:: ring
 
-	cd ring/src
+	cd ring/language/src
 	buildvc.bat
 	buildvcw.bat
 
@@ -35,7 +35,7 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../ring2exe
+	cd ../../ring2exe
 	buildring2exe.bat
 
 Generate RingConsoleColors Source Code and Build
@@ -216,7 +216,7 @@ Install Libraries
 
 .. code-block:: ring
 
-	cd ring/src
+	cd ring/language/src
 	./installdep.sh 
 
 Build Ring (Compiler/VM)
@@ -229,7 +229,7 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../ring2exe
+	cd ../../ring2exe
 	sudo ./buildring2exe.sh
 
 Generate RingConsoleColors Source Code and Build
@@ -409,7 +409,7 @@ Install Libraries
 
 .. code-block:: ring
 
-	cd ring/src
+	cd ring/language/src
 	./installdepfedora.sh 
 
 Build Ring (Compiler/VM)
@@ -422,7 +422,7 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../ring2exe
+	cd ../../ring2exe
 	sudo ./buildring2exe.sh
 
 Generate RingConsoleColors Source Code and Build
@@ -605,7 +605,7 @@ Install Libraries
 
 .. code-block:: ring
 
-	cd ring/src
+	cd ring/language/src
 	./installdepmac.sh 
 
 Build Ring (Compiler/VM)
@@ -618,7 +618,7 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../ring2exe
+	cd ../../ring2exe
 	sudo ./buildring2exe.sh
 
 Generate RingConsoleColors Source Code and Build
