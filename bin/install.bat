@@ -22,5 +22,3 @@ copy C:\Qt\Qt5.12.6\5.12.6\msvc2017\bin\*.dll bin
 cd bin
 rem Delete Allegro Dlls (Debug Version)
 del allegro*debug-5.2.dll 
-rem Delete Qt 5 Dlls (Debug Version)
-del qt5*d.dll
