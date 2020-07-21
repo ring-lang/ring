@@ -255,7 +255,7 @@ func GenerateBatchGeneral aPara,aOptions
 	# Generate Windows Batch (Visual C/C++)
 		cCode = "call "+exefolder()+"../language/src/locatevc.bat" + nl +
 			"#{f3}" + nl +
-			'cl #{f1}.c #{f2} #{f4} -I"#{f6}..\include" -I"#{f6}../language/src/" /link #{f5} /OUT:#{f1}.exe' 
+			'cl #{f1}.c #{f2} #{f4} -I"#{f6}..\language\include" -I"#{f6}../language/src/" /link #{f5} /OUT:#{f1}.exe' 
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:windows])
 		# Resource File 
@@ -277,14 +277,14 @@ func GenerateBatchGeneral aPara,aOptions
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
 	# Generate Linux Script (GNU C/C++)
-		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I #{f3}/../include  '
+		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I #{f3}/../language/include  '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:linux])
 		cCode = substr(cCode,"#{f3}",exefolder())
 		cLinuxBatch = cFile+"_buildgcc.sh"
 		write(cLinuxBatch,cCode)
 	# Generate MacOS X Script (CLang C/C++)
-		cCode = 'clang #{f1}.c #{f2} -o #{f1} -lm -ldl  -I #{f3}/../include  '
+		cCode = 'clang #{f1}.c #{f2} -o #{f1} -lm -ldl  -I #{f3}/../language/include  '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:macosx])
 		cCode = substr(cCode,"#{f3}",exefolder())
