@@ -11,7 +11,3 @@ We provide instructions for building on the next platforms :-
 (3) [Fedora Linux](README_FedoraLinux.md)
 
 (4) [macOS](README_macOS.md)
-
-# License 
-
-The Ring programming language is distributed under the MIT License.
