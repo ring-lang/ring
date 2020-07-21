@@ -1,7 +1,7 @@
 rem	Simple Batch file to update Ring in the Android-LibSDL Version 
 rem	Author : Mahmoud Fayed <msfclipper@yahoo.com>
 
-copy ..\..\..\..\src\*.c ..\project\jni\ring\src\
+copy ..\..\..\..\language\src\*.c ..\project\jni\ring\src\
 copy ..\..\..\ringsdl\ring_libsdl.c ..\project\jni\ring\src\
 copy ring_ext.c ..\project\jni\ring\src\
 copy ..\..\..\..\language\include\*.h ..\project\jni\ring\include\
