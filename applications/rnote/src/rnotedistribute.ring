@@ -6,7 +6,7 @@ class RNoteDistribute
 	func Distribute nOption
 		if cActiveFileName = Null return Nofileopened() ok
 		Save()
-		cAppToRun = exefolder()+"/ring2exe"
+		cAppToRun = exefolder()+"/tools/ring2exe"
 		cPara = cActiveFileName
 		switch nOption
 			on 1	# ringo
