@@ -34,7 +34,7 @@
 	aCommand	   	= []
 
 # Folders
-	cMainPackagesFolder 	= exefolder()+"../ringpm/packages"
+	cMainPackagesFolder 	= exefolder()+"../tools/ringpm/packages"
 
 # Version 
 	C_VERSIONSECTIONSIZE	= 3
@@ -56,7 +56,7 @@
 	lCheckUpdates 		= True 
 
 # Registry File 
-	C_REGISTRYFILE 		= exefolder()+"../ringpm/registry/registry.ring"
+	C_REGISTRYFILE 		= exefolder()+"../tools/ringpm/registry/registry.ring"
 
 # GitHub User Content 
 	C_GITHUBUSERCONTENT 	= "https://raw.githubusercontent.com/"

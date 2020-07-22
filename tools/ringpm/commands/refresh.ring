@@ -5,14 +5,14 @@
 */
 
 func UpdateTheRegistry
-	eval(read(exefolder()+"../ringpm/registry/version.ring"))
+	eval(read(exefolder()+"../tools/ringpm/registry/version.ring"))
 	aLocalRegistryData =  [
 		:nRegistryRev  		= nRegistryRev,
 		:cRegistryLastUpdate 	= cRegistryLastUpdate,
 		:nPackagesCount 	= nPackagesCount		
 	]
 	cRemoteVersionFile = download(AddTimeStamp(C_GITHUBUSERCONTENT+
-				"ring-lang/ring/master/ringpm/registry/version.ring"))
+				"ring-lang/ring/master/tools/ringpm/registry/version.ring"))
 	if cRemoteVersionFile = "" or
 		substr(cRemoteVersionFile,"404") 
 		? C_ERROR_CANTDOWNLOADTHEVERSIONFILE
@@ -32,7 +32,7 @@ func UpdateTheRegistry
 		return 
 	ok
 	cRegistryFile = download(AddTimeStamp(C_GITHUBUSERCONTENT+
-				"ring-lang/ring/master/ringpm/registry/registry.ring"))
+				"ring-lang/ring/master/tools/ringpm/registry/registry.ring"))
 	if cRegistryFile = "" or
 		substr(cRegistryFile,"404") 
 		? C_ERROR_CANTDOWNLOADTHEREGISTRYFILE
@@ -42,8 +42,8 @@ func UpdateTheRegistry
 		cRegistryFile 		= substr(cRegistryFile,nl,WindowsNL())
 		cRemoteVersionFile	= substr(cRemoteVersionFile,nl,WindowsNL())
 	ok
-	write(exefolder()+"../ringpm/registry/registry.ring",cRegistryFile)
-	write(exefolder()+"../ringpm/registry/version.ring",cRemoteVersionFile)
+	write(exefolder()+"../tools/ringpm/registry/registry.ring",cRegistryFile)
+	write(exefolder()+"../tools/ringpm/registry/version.ring",cRemoteVersionFile)
 	? "The Registry is updated from revision " + aLocalRegistryData[:nRegistryRev] + " (" +
 		aLocalRegistryData[:cRegistryLastUpdate] + ") " + 
 		"to revision " + aRemoteRegistryData[:nRegistryRev] + " (" +

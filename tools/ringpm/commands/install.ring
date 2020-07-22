@@ -13,7 +13,7 @@ class InstallCommand
 
 	# Where we have our pacakge 
 		lLocalPackages	   = True 
-		cPackagesLocations = exefolder()+"../ringpm/local"
+		cPackagesLocations = exefolder()+"../tools/ringpm/local"
 	
 	cProviderUserName = ""
 	cProviderWebsite  = "github.com"
