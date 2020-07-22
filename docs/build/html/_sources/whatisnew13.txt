@@ -441,3 +441,5 @@ More Improvements
 * The ring/editor folder is moved to ring/tools/editors folder
 * The ring/samples/tools/help2wiki folder is moved to ring/tools/help2wiki folder
 * The ring/samples/tools/string2constant folder is moved to ring/tools/string2constant folder
+* The ring/ring2exe folder is moved to ring/tools/ring2exe folder
+* The ring/ringpm folder is moved to ring/tools/ringpm folder
