@@ -1,5 +1,5 @@
-Ring programming language - Editor folder
-=========================================
+Ring programming language - Editors folder
+==========================================
 
 In this folder we have extensions for different code editors
 
