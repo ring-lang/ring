@@ -1,5 +1,5 @@
-Folder To Qrc (Add folder files to Qt resource file)
-====================================================
+Folder To Qrc (Add folder files to RingQt resource file)
+========================================================
 
 Usage
 =====
