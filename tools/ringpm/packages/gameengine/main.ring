@@ -4,5 +4,5 @@ func main
 	? "GameEngine Package"
 	? copy("=",C_LINESIZE)
 	? "GameEngine package for the Ring programming language"
-	? "See the folder : ring/ringlibs/gameengine"
+	? "See the folder : ring/libraries/gameengine"
 	? copy("=",C_LINESIZE)

@@ -26,7 +26,7 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/bignumber.ring",
-		"ringlibs/bignumber/bignumber.ring"
+		"libraries/bignumber/bignumber.ring"
 	],
 	:windowsfiles = 	[
 

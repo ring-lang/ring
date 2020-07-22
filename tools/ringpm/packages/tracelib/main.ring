@@ -4,5 +4,5 @@ func main
 	? "TraceLib Package"
 	? copy("=",C_LINESIZE)
 	? "TraceLib package for the Ring programming language"
-	? "See the folder : ring/ringlibs/tracelib"
+	? "See the folder : ring/libraries/tracelib"
 	? copy("=",C_LINESIZE)

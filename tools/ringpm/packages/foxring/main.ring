@@ -4,5 +4,5 @@ func main
 	? "FoxRing Package"
 	? copy("=",C_LINESIZE)
 	? "FoxRing package for the Ring programming language"
-	? "See the folder : ring/ringlibs/foxring"
+	? "See the folder : ring/libraries/foxring"
 	? copy("=",C_LINESIZE)

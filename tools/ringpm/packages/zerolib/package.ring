@@ -25,9 +25,9 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/zerolib.ring",
-		"ringlibs/zerolib/README.md",
-		"ringlibs/zerolib/test.ring",
-		"ringlibs/zerolib/zerolib.ring"
+		"libraries/zerolib/README.md",
+		"libraries/zerolib/test.ring",
+		"libraries/zerolib/zerolib.ring"
 	],
 	:windowsfiles = 	[
 

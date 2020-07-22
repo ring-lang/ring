@@ -4,5 +4,5 @@ func main
 	? "NaturalLib Package"
 	? copy("=",C_LINESIZE)
 	? "NaturalLib package for the Ring programming language"
-	? "See the folder : ring/ringlibs/naturallib"
+	? "See the folder : ring/libraries/naturallib"
 	? copy("=",C_LINESIZE)

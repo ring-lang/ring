@@ -4,5 +4,5 @@ func main
 	? "TypeHints Package"
 	? copy("=",C_LINESIZE)
 	? "TypeHints package for the Ring programming language"
-	? "See the folder : ring/ringlibs/typehints"
+	? "See the folder : ring/libraries/typehints"
 	? copy("=",C_LINESIZE)

@@ -26,11 +26,11 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/foxring.ring",
-		"ringlibs/foxring/ChangeLog.txt",
-		"ringlibs/foxring/foxring.ring",
-		"ringlibs/foxring/README.md",
-		"ringlibs/foxring/sample.ring",
-		"ringlibs/foxring/test.ring"
+		"libraries/foxring/ChangeLog.txt",
+		"libraries/foxring/foxring.ring",
+		"libraries/foxring/README.md",
+		"libraries/foxring/sample.ring",
+		"libraries/foxring/test.ring"
 	],
 	:windowsfiles = 	[
 

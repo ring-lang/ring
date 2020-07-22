@@ -26,12 +26,12 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/typehints.ring",
-		"ringlibs/typehints/tests/test1.ring",
-		"ringlibs/typehints/tests/test2.ring",
-		"ringlibs/typehints/tests/test3.ring",
-		"ringlibs/typehints/tests/test4.ring",
-		"ringlibs/typehints/tests/test5.ring",
-		"ringlibs/typehints/typehints.ring"
+		"libraries/typehints/tests/test1.ring",
+		"libraries/typehints/tests/test2.ring",
+		"libraries/typehints/tests/test3.ring",
+		"libraries/typehints/tests/test4.ring",
+		"libraries/typehints/tests/test5.ring",
+		"libraries/typehints/typehints.ring"
 	],
 	:windowsfiles = 	[
 

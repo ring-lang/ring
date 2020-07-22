@@ -37,7 +37,7 @@ aPackageInfo = [
 
 	],
 	:windowsringfolderfiles = 	[
-		"ringlibs/weblib/ringapp/wkhtmltopdf.exe"
+		"libraries/weblib/ringapp/wkhtmltopdf.exe"
 	],
 	:linuxringfolderfiles = 	[
 
