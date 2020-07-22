@@ -29,8 +29,7 @@ Using Ring Game Engine for 2D Games
 
 To quickly install and run the game using the Ring Package Manager
 
-	ringpm refresh
-	ringpm install tetris
+	ringpm install tetris from ringpackages
 	ringpm run tetris
 
 # Screen Shot
