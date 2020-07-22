@@ -5,12 +5,12 @@ class RNoteHelp
 
 	func OpenCHM
 		new QDesktopServices {
-			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.chm") )
+			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../documents/ring.chm") )
 		}
 
 	func OpenPDF
 		new QDesktopServices {
-			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.pdf") )
+			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../documents/ring.pdf") )
 		}
 
 	func MsgBox cTitle,cMessage

@@ -847,7 +847,7 @@ class RNoteMainWindow
 				header().hide()
 				chdir(exefolder())
 				if not ismacosx()
-					this.cWebsite = "file:///"+oDir.CurrentPath() + "/../docs/build/html/index.html"
+					this.cWebsite = "file:///"+oDir.CurrentPath() + "/../documents/build/html/index.html"
 				ok
 			}
 			this.oDockProjectFiles = new qdockwidget(this.win1,0) {

@@ -29,7 +29,7 @@ class RNoteControllerBase from WindowsControllerParent
 	nTabSpaces 		= 8
 
 	aBrowserLinks 		= [
-		["Local Help", "file:///"+substr(exefolder(),"\","/") + "../docs/build/html/index.html"],
+		["Local Help", "file:///"+substr(exefolder(),"\","/") + "../documents/build/html/index.html"],
 		["Ring Website","http://ring-lang.sf.net"],
 		["Ring Samples (Rosetta Code)","https://rosettacode.org/wiki/Category:Ring"],
 		["Ring Resources","http://ring-lang.sourceforge.net/resources.html"],
