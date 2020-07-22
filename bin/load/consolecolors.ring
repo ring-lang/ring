@@ -1,1 +1,1 @@
-load "/../extensions/ringconsolecolors/consolecolors.ring"
+load "/../../extensions/ringconsolecolors/consolecolors.ring"

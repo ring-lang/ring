@@ -1,1 +1,1 @@
-load "/../ringlibs/zerolib/zerolib.ring"
+load "/../../ringlibs/zerolib/zerolib.ring"

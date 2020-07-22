@@ -1,1 +1,1 @@
-load "/../extensions/ringinternet/internetlib.ring"
+load "/../../extensions/ringinternet/internetlib.ring"

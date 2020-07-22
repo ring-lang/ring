@@ -1,1 +1,1 @@
-load "/../extensions/ringpostgresql/postgresqllib.ring"
+load "/../../extensions/ringpostgresql/postgresqllib.ring"

@@ -1,1 +1,1 @@
-load "/../extensions/ringsdl/libsdl.ring"
+load "/../../extensions/ringsdl/libsdl.ring"

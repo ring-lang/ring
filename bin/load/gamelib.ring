@@ -1,1 +1,1 @@
-load "/../extensions/ringallegro/gamelib.ring"
+load "/../../extensions/ringallegro/gamelib.ring"

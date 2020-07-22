@@ -1,1 +1,1 @@
-load "/../extensions/ringopengl/opengl12/opengl12lib.ring"
+load "/../../extensions/ringopengl/opengl12/opengl12lib.ring"

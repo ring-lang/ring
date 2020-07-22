@@ -1,1 +1,1 @@
-load "/../extensions/ringfreeglut/freeglut.ring"
+load "/../../extensions/ringfreeglut/freeglut.ring"

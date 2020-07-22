@@ -1,1 +1,1 @@
-load "/../extensions/ringmysql/mysqllib.ring"
+load "/../../extensions/ringmysql/mysqllib.ring"

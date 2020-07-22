@@ -1,1 +1,1 @@
-load "/../extensions/ringodbc/odbclib.ring"
+load "/../../extensions/ringodbc/odbclib.ring"

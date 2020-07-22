@@ -1,1 +1,1 @@
-load "/../extensions/ringcurl/libcurl.ring"
+load "/../../extensions/ringcurl/libcurl.ring"

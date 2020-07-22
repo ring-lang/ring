@@ -1,1 +1,1 @@
-load "/../extensions/ringmurmurhash/murmurhashlib.ring"
+load "/../../extensions/ringmurmurhash/murmurhashlib.ring"

@@ -1,1 +1,1 @@
-load "/../extensions/ringstbimage/stbimage.ring"
+load "/../../extensions/ringstbimage/stbimage.ring"
