@@ -445,3 +445,4 @@ More Improvements
 * The ring/ringpm folder is moved to ring/tools/ringpm folder
 * The ring/ringlibs folder is renamed to ring/libraries folder
 * The ring/docs folder is renames to ring/documents folder
+* New folder for the Folder2Qrc tool in ring/tools/folder2qrc folder
