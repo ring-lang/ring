@@ -1,1 +1,1 @@
-load "/../../ringlibs/typehints/typehints.ring"
+load "/../../libraries/typehints/typehints.ring"

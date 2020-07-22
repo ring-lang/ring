@@ -1,1 +1,1 @@
-load "/../../ringlibs/bignumber/bignumber.ring"
+load "/../../libraries/bignumber/bignumber.ring"

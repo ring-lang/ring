@@ -1,1 +1,1 @@
-load "/../../ringlibs/foxring/foxring.ring"
+load "/../../libraries/foxring/foxring.ring"

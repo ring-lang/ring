@@ -1,1 +1,1 @@
-load "/../../ringlibs/tracelib/tracelib.ring"
+load "/../../libraries/tracelib/tracelib.ring"

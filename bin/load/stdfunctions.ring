@@ -1,1 +1,1 @@
-load "../../ringlibs/stdlib/stdfunctions.ring"
+load "../../libraries/stdlib/stdfunctions.ring"

@@ -1,1 +1,1 @@
-load "/../../ringlibs/gameengine/gameengine.ring"
+load "/../../libraries/gameengine/gameengine.ring"

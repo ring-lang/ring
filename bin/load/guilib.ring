@@ -1,1 +1,1 @@
-load "/../../ringlibs/guilib/guilib.ring"
+load "/../../libraries/guilib/guilib.ring"

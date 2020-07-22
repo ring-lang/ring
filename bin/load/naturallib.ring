@@ -1,1 +1,1 @@
-load "/../../ringlibs/naturallib/naturallib.ring"
+load "/../../libraries/naturallib/naturallib.ring"
