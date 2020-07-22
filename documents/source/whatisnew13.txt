@@ -444,5 +444,9 @@ More Improvements
 * The ring/ring2exe folder is moved to ring/tools/ring2exe folder
 * The ring/ringpm folder is moved to ring/tools/ringpm folder
 * The ring/ringlibs folder is renamed to ring/libraries folder
-* The ring/docs folder is renames to ring/documents folder
+* The ring/docs folder is renamed to ring/documents folder
 * New folder for the Folder2Qrc tool in ring/tools/folder2qrc folder
+* The ring/applications/rnote folder is moved to ring/tools/ringnotepad folder
+* The ring/applications/formdesigner folder is moved to ring/tools/formdesigner folder
+* The ring/applications/findinfiles folder is moved to ring/tools/findinfiles folder
+* The ring/applications/ringrepl folder is moved to ring/tools/ringrepl folder
