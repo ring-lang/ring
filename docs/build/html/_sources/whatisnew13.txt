@@ -443,3 +443,4 @@ More Improvements
 * The ring/samples/tools/string2constant folder is moved to ring/tools/string2constant folder
 * The ring/ring2exe folder is moved to ring/tools/ring2exe folder
 * The ring/ringpm folder is moved to ring/tools/ringpm folder
+* The ring/ringlibs folder is renamed to ring/libraries folder
