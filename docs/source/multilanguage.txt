@@ -17,7 +17,7 @@ Using String2Constant
 
 Starting from Ring 1.8 we have the String2Constant application
 
-You will find this tool in the ring/samples/tools/string2constant folder
+You will find this tool in the ring/tools/string2constant folder
 
 Using this tool we can convert the source code to be based on constants instead of string literals
 
