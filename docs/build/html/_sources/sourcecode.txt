@@ -35,7 +35,7 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../../ring2exe
+	cd ../../tools/ring2exe
 	buildring2exe.bat
 
 Generate RingConsoleColors Source Code and Build
@@ -74,7 +74,7 @@ Build RingPM
 
 .. code-block:: none
 
-	cd ../ringpm
+	cd ../tools/ringpm
 	buildringpm.bat
 
 Build RingODBC
@@ -229,7 +229,7 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../../ring2exe
+	cd ../../tools/ring2exe
 	sudo ./buildring2exe.sh
 
 Generate RingConsoleColors Source Code and Build
@@ -267,7 +267,7 @@ Build RingPM
 
 .. code-block:: none
 
-	cd ../ringpm
+	cd ../tools/ringpm
 	sudo ./buildringpm.sh
 
 Build RingODBC
@@ -422,7 +422,7 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../../ring2exe
+	cd ../../tools/ring2exe
 	sudo ./buildring2exe.sh
 
 Generate RingConsoleColors Source Code and Build
@@ -460,7 +460,7 @@ Build RingPM
 
 .. code-block:: none
 
-	cd ../ringpm
+	cd ../tools/ringpm
 	sudo ./buildringpm.sh
 
 Build RingODBC
@@ -618,7 +618,7 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../../ring2exe
+	cd ../../tools/ring2exe
 	sudo ./buildring2exe.sh
 
 Generate RingConsoleColors Source Code and Build
@@ -656,7 +656,7 @@ Build RingPM
 
 .. code-block:: none
 
-	cd ../ringpm
+	cd ../tools/ringpm
 	sudo ./buildringpm.sh
 
 Build RingODBC
