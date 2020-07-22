@@ -42,7 +42,7 @@ Documentation
 =============
 
 You can modify anything in the documentation, by updating the text files (*.txt)
-in this folder : https://github.com/ring-lang/ring/tree/master/docs/source
+in this folder : https://github.com/ring-lang/ring/tree/master/documents/source
 
 The documentation is created using Sphinx : http://www.sphinx-doc.org/en/stable/
 
