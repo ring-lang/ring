@@ -93,7 +93,7 @@ load "stdlibcore.ring"
 	LoadLibrariesInfo()
 
 func LoadLibrariesInfo
-	aLibsFiles = ListAllFiles(exefolder()+"/../ring2exe/libs","ring")
+	aLibsFiles = ListAllFiles(exefolder()+"/../tools/ring2exe/libs","ring")
 	for cLibFile in aLibsFiles 
 		eval(read(cLibFile))
 		aLibsInfo + aLibrary 
@@ -309,9 +309,9 @@ func ClearTempFiles nPara
 		cTempFile += "2"
 	ok
 	if isWindows()
-		systemSilent(exefolder()+"/../ring2exe/"+cTempFile+".bat")
+		systemSilent(exefolder()+"/../tools/ring2exe/"+cTempFile+".bat")
 	else
-		systemSilent(exefolder()+"/../ring2exe/"+cTempFile+".sh")
+		systemSilent(exefolder()+"/../tools/ring2exe/"+cTempFile+".sh")
 	ok
 
 

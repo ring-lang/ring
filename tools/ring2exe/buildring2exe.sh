@@ -2,8 +2,8 @@ ring ring2exe.ring ring2exe.ring
 ring ring2exe.ring folder2qrc.ring 
 ./cleartemp.sh
 
-cp ring2exe $PWD/../bin/ring2exe 
-cp folder2qrc $PWD/../bin/folder2qrc 
+cp ring2exe $PWD/../../bin/ring2exe 
+cp folder2qrc $PWD/../../bin/folder2qrc 
 
 if [ -f ../lib/libring.dylib ];
 then
