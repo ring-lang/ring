@@ -155,7 +155,7 @@ The library contains the next class
 Library Source Code
 ===================
 
-You can see the library source code in : ring/ringlibs/bignumber folder
+You can see the library source code in : ring/libraries/bignumber folder
 
-Source Code : https://github.com/ring-lang/ring/blob/master/ringlibs/bignumber/bignumber.ring
+Source Code : https://github.com/ring-lang/ring/blob/master/libraries/bignumber/bignumber.ring
 

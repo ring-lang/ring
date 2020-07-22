@@ -224,13 +224,13 @@ The library source code is very simple, You can check the source code files
 
 The source code for the Objects Library (can be used without GUILib)
 
-* https://github.com/ring-lang/ring/blob/master/ringlibs/objectslib/objects.ring
-* https://github.com/ring-lang/ring/blob/master/ringlibs/objectslib/objectslib.ring
+* https://github.com/ring-lang/ring/blob/master/libraries/objectslib/objects.ring
+* https://github.com/ring-lang/ring/blob/master/libraries/objectslib/objectslib.ring
 
 The source code for the MVC classes in GUILib
 
-* https://github.com/ring-lang/ring/blob/master/ringlibs/guilib/mvc/controllerparent.ring
-* https://github.com/ring-lang/ring/blob/master/ringlibs/guilib/mvc/viewparent.ring
+* https://github.com/ring-lang/ring/blob/master/libraries/guilib/mvc/controllerparent.ring
+* https://github.com/ring-lang/ring/blob/master/libraries/guilib/mvc/viewparent.ring
 
 .. index:: 
 	pair: Objects Library for RingQt Application; openWindowAndLink() Function

@@ -75,8 +75,8 @@ Ring 1.1 comes with support for LibSDL so we can quickly create games for Mobile
 
 .. note:: We can use just one library for Desktop and Mobile development.
 
-* gl_allegro.ring source code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gl_allegro.ring
-* gl_libsdl.ring source code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gl_libsdl.ring
+* gl_allegro.ring source code : https://github.com/ring-lang/ring/blob/master/libraries/gameengine/gl_allegro.ring
+* gl_libsdl.ring source code : https://github.com/ring-lang/ring/blob/master/libraries/gameengine/gl_libsdl.ring
 
 .. index:: 
 	pair: Game Engine for 2D Games; Game Engine Classes
@@ -96,7 +96,7 @@ The Engine comes with the next classes
 * Sound class
 * Map class
 
-* Source Code : https://github.com/ring-lang/ring/blob/master/ringlibs/gameengine/gameengine.ring
+* Source Code : https://github.com/ring-lang/ring/blob/master/libraries/gameengine/gameengine.ring
 
 .. index:: 
 	pair: Game Engine for 2D Games; Games Layer

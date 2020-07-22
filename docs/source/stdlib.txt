@@ -1299,7 +1299,7 @@ Example:
 
 .. code-block:: ring
 
-	see listallfiles("b:/ring/ringlibs/weblib","") # All Files
+	see listallfiles("b:/ring/libraries/weblib","") # All Files
 
 .. index:: 
 	pair: Stdlib Functions; SystemSilent() Function

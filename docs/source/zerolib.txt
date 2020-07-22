@@ -162,7 +162,7 @@ Source Code
 
 We can find the library source code in this folder 
 
-URL : https://github.com/ring-lang/ring/tree/master/ringlibs/zerolib
+URL : https://github.com/ring-lang/ring/tree/master/libraries/zerolib
 
 
 
