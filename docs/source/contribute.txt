@@ -116,8 +116,8 @@ https://github.com/ring-lang/ring/tree/master/extensions
 Compiler and Virtual Machine (VM)
 =================================
 
-* Source Code (C Language) : https://github.com/ring-lang/ring/tree/master/src
-* Visual Source (PWCT) : https://github.com/ring-lang/ring/tree/master/visualsrc
+* Source Code (C Language) : https://github.com/ring-lang/ring/tree/master/language/src
+* Visual Source (PWCT) : https://github.com/ring-lang/ring/tree/master/language/visualsrc
 
 .. index:: 
 	pair: How to contribute?; Ideas and suggestions

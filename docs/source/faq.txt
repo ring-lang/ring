@@ -123,7 +123,7 @@ Folder (ring/extensions/libdepwin) ====> C libraries used for building Ring Exte
 
 Folder (ring/ringlibs)  ====> Ring libraries written in Ring itself (StdLib, WebLib, GameEngine, etc)
 
-Folder (ring/visualsrc) ====> The Visual Source Code of the Ring Compiler & Ring VM developed using Programming Without Coding Technology (PWCT)
+Folder (ring/language/visualsrc) ====> The Visual Source Code of the Ring Compiler & Ring VM developed using Programming Without Coding Technology (PWCT)
 
 We use the term Ring Library ---> When the library code is written in Ring
 We use the term Ring Extension ---> When the library code is Written in C or C++
