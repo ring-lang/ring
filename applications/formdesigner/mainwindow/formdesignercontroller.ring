@@ -1309,12 +1309,12 @@ class FormDesignerController from WindowsControllerParent
 
 	Func OpenCHMAction
 		new QDesktopServices {
-			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.chm") )
+			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../documents/ring.chm") )
 		}
 
 	Func OpenPDFAction
 		new QDesktopServices {
-			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../docs/ring.pdf") )
+			OpenURL(new qURL("file:///"+substr(exefolder(),"\","/")+"../documents/ring.pdf") )
 		}
 
 	Func MsgBox cTitle,cMessage
