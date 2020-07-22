@@ -265,7 +265,13 @@ int ring_parser_stmt ( Parser *pParser )
 				ring_exefolder(cFileName);
 				strcat(cFileName,pParser->TokenText);
 				if ( ring_fexists(cFileName) == 0 ) {
-					strcpy(cFileName,pParser->TokenText);
+					/* Try ring/bin/load folder */
+					ring_exefolder(cFileName);
+					strcat(cFileName,"load/");
+					strcat(cFileName,pParser->TokenText);
+					if ( ring_fexists(cFileName) == 0 ) {
+						strcpy(cFileName,pParser->TokenText);
+					}
 				}
 			}
 			else {
