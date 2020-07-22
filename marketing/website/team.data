@@ -71,6 +71,18 @@ aTeam2 = [
 					'Mohammed Fayed',
 					'Domain'								
 				  ],
+					[
+						'Sara Hamdy Mohamed',
+						'Tutorials'
+					],
+					[
+						'Alaa Mohammed Elockle',
+						'Tutorials'
+					],
+					[
+						'Amr Essam',
+						'Tutorials'
+					],
 				  [
 					'Mohammed Ali Haggag',
 					'Graphic Designer'
@@ -839,29 +851,9 @@ aTeam2 = [
 		  [
                     'Ilir Liburn',
                     'Tester'                    
-                  ]
-]
-
-aThanks = [
-		[
-                	'Matthias Schuster'
-		],
-		[
-			'Hany Salah'
-		],
-		[
-                	'Roshan Ali'
-                ],
-		[
-			'Omar Selim'
-		],
-		[
-			'Sara Hamdy Mohamed'
-		],
-		[
-			'Alaa Mohammed Elockle'
-		],
-		[
-			'Amr Essam'
-		]
+                  ],
+		  [
+                	'Matthias Schuster',
+			'Tester'
+		  ]
 ]
