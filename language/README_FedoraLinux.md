@@ -134,5 +134,5 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	
 ### Run Ring Notepad
 	
-	cd applications/rnote
+	cd tools/ringnotepad
 	sudo ring rnote.ring
