@@ -25,8 +25,7 @@ Using Ring Game Engine for 2D Games
 
 To quickly install and run the game using the Ring Package Manager
 
-	ringpm refresh
-	ringpm install escape
+	ringpm install escape from ringpackages
 	ringpm run escape
 
 # Screen Shot
