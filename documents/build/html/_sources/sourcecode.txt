@@ -197,7 +197,7 @@ Run Ring Notepad
 
 .. code-block:: ring
 
-	cd applications/rnote
+	cd tools/ringnotepad
 	ring rnote.ring
 
 .. index:: 
@@ -390,7 +390,7 @@ Run Ring Notepad
 
 .. code-block:: ring
 
-	cd applications/rnote
+	cd tools/ringnotepad
 	ring rnote.ring
 
 .. index:: 
@@ -583,7 +583,7 @@ Run Ring Notepad
 
 .. code-block:: ring
 
-	cd applications/rnote
+	cd tools/ringnotepad
 	ring rnote.ring
 
 
@@ -764,7 +764,7 @@ Run Ring Notepad
 
 .. code-block:: ring
 
-	cd applications/rnote
+	cd tools/ringnotepad
 	sudo ring rnote.ring
 
 .. index:: 
