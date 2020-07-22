@@ -438,3 +438,4 @@ More Improvements
 * The ring/src folder is moved to ring/language/src
 * The ring/include folder is moved to ring/language/include
 * The ring/tests folder is moved to ring/language/tests
+* The ring/editor folder is moved to ring/tools/editors folder
