@@ -5,7 +5,7 @@ class NaturalLanguage
 
 	cLanguageName = ""
 	setLanguageName(:Natural)
-	cCommandsPath = "../ringlibs/naturallib/command"
+	cCommandsPath = "../libraries/naturallib/command"
 	cPackageName = ""
 	cOperators = ""
 
@@ -76,4 +76,4 @@ class NaturalLanguage
 
 	private 
 
-		cLibraryPath = "../ringlibs/naturallib"		
+		cLibraryPath = "../libraries/naturallib"		

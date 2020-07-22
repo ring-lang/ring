@@ -900,12 +900,12 @@ return cStr
 			 (2) if the extension is empty, all files will be included
 
 	Examples
-			aList = ListAllFiles("b:/ring/ringlibs","ring") # *.ring only
+			aList = ListAllFiles("b:/ring/libraries","ring") # *.ring only
 			aList = sort(aList)
 			see aList
 	Example 
 			load "stdlib.ring"
-			see listallfiles("b:/ring/ringlibs/weblib","") # All Files
+			see listallfiles("b:/ring/libraries/weblib","") # All Files
 */
 
 func ListAllFiles cPath,cExt

@@ -3,6 +3,6 @@
 
 changeringkeyword talk _new
 
-loadsyntax "../ringlibs/naturallib/syntax/enableringsyntax.ring"
+loadsyntax "../libraries/naturallib/syntax/enableringsyntax.ring"
 
 
