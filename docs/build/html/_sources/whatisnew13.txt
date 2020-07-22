@@ -439,3 +439,5 @@ More Improvements
 * The ring/include folder is moved to ring/language/include
 * The ring/tests folder is moved to ring/language/tests
 * The ring/editor folder is moved to ring/tools/editors folder
+* The ring/samples/tools/help2wiki folder is moved to ring/tools/help2wiki folder
+* The ring/samples/tools/string2constant folder is moved to ring/tools/string2constant folder
