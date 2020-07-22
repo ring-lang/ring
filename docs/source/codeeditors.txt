@@ -5,7 +5,7 @@
 Using Other Code Editors
 ========================
 
-In the Ring/Editor folder you will find extensions for the next editors
+In the Ring/Tools/Editors folder you will find extensions for the next editors
 
 * Notepad++
 * Geany
@@ -23,7 +23,7 @@ In the Ring/Editor folder you will find extensions for the next editors
 Using Notepad++
 ===============
 
-Folder : ring/editor/notepad_plus_plus
+Folder : ring/tools/editors/notepad_plus_plus
 
 * Open Notepad++
 * Open the "Language" menu
@@ -42,7 +42,7 @@ Folder : ring/editor/notepad_plus_plus
 Using Geany
 ===========
 
-Folder : ring/editor/geany
+Folder : ring/tools/editors/geany
 
 * Run Geany editor
 * Click on "Tools -> configuration files -> filetypes_extensions.conf"  menu
@@ -60,7 +60,7 @@ Folder : ring/editor/geany
 Using Atom
 ==========
 
-Folder : ring/editor/atom
+Folder : ring/tools/editors/atom
 
 Just Copy the folder atom-language-ring to the next path
 
@@ -77,7 +77,7 @@ Just Copy the folder atom-language-ring to the next path
 Using Sublime Text 2
 ====================
 
-Folder : ring/editor/sublime text 2
+Folder : ring/tools/editors/sublime text 2
 
 In the folder Sublime_Text_2 you will find the next three files
 
@@ -112,7 +112,7 @@ You can modify it according to the ring.exe path in your machine
 Using Visual Studio IDE
 =======================
 
-Folder : ring/editor/visualstudio
+Folder : ring/tools/editors/visualstudio
 
 Check the ReadMe file for installation instructions.	
 
@@ -125,7 +125,7 @@ Check the ReadMe file for installation instructions.
 Using Emacs Editor
 ==================
 
-Folder : ring/editor/emacs
+Folder : ring/tools/editors/emacs
 
 Check the ReadMe file for installation instructions.	
 
@@ -141,7 +141,7 @@ Screen Shot:
 Visual Studio Code
 ==================
 
-Folder : ring/vscode
+Folder : ring/tools/editors/vscode
 
 Check the ReadMe file for installation instructions.	
 

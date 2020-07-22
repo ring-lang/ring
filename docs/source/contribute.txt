@@ -90,7 +90,7 @@ You can help in supporting Ring in different code editors
 
 Check the next folder
 
-https://github.com/ring-lang/ring/tree/master/editor
+https://github.com/ring-lang/ring/tree/master/tools/editors
 
 Libraries in Ring
 =================
