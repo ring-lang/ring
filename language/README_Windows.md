@@ -16,7 +16,7 @@
 
 ### Build Ring2EXE 
 
-	cd ../../ring2exe
+	cd ../../tools/ring2exe
 	buildring2exe.bat 
 
 ### Generate RingConsoleColors Source Code and Build 
@@ -44,7 +44,7 @@
 
 ### Build RingPM
 
-	cd ../ringpm
+	cd ../tools/ringpm
 	buildringpm.bat 
 	
 ### Build RingODBC
