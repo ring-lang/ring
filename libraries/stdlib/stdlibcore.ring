@@ -919,11 +919,13 @@ func ListAllFiles_Process cPath,aList,cExt
 	aOutput = []
 	for aSub in aList 
 		# Workaround a bug in Linux, when aSub[2] = True for files (not folders)
-			if aSub[1] = "." or aSub[1] = ".."
-				loop
-			ok
-			if aSub[2] and substr(aSub[1],".")
-				aSub[2] = 0
+			if ! isWindows()
+				if aSub[1] = "." or aSub[1] = ".."
+					loop
+				ok
+				if aSub[2] and substr(aSub[1],".")
+					aSub[2] = 0
+				ok
 			ok
 		if aSub[2] # Directory
 			cNewPath = cPath + "/" + aSub[1]
