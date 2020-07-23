@@ -2,13 +2,15 @@
 
 # Ring Programming Language
 
+Contents:
+
 - [Welcome to Ring](#welcome-to-ring)
 - [Innovative](#innovative)
 - [Practical](#practical)
   * [Custom Styles And Modern Programming Paradigms](#custom-styles-and-modern-programming-paradigms)
   * [GUI Applications Development And RAD Tools](#gui-applications-development-and-rad-tools)
   * [First Class Support For Game Development](#first-class-support-for-game-development)
-  * [WebAssembly (Front-End Web Development)](#webassembly--front-end-web-development-)
+  * [WebAssembly (Front-End Web Development)](#webassembly-front-end-web-development)
   * [Back-End Web Development](#back-end-web-development)
   * [Mobile Development](#mobile-development)
   * [Building Tools (Command Line)](#building-tools--command-line-)
