@@ -186,9 +186,7 @@ Screen Shot:
 Better RingQt
 =============
 
-(1) Qt version is updated to Qt 5.15.0
-
-(2) The next classes are added to RingQt 
+(1) The next classes are added to RingQt 
 
 * QAbstractAxis
 * QAbstractBarSeries
@@ -241,7 +239,7 @@ Better RingQt
 * QGraphicsScene
 * QMovie
 
-(3) Better QtConverter application
+(2) Better QtConverter application
 
 This application is used for preparing Qt classes for the Ring Code Generator 
 
@@ -252,7 +250,10 @@ The application user interface is updated for better productivity!
 .. image:: qtconverter.png
 	:alt: QtConverter
 
-(4) RingQt for Android - Qt Project - Special folders for Ring and RingQt
+(3) RingQt for Android - Qt Project - Special folders for Ring and RingQt
+
+(4) Tested with Qt 5.12.6 and Qt 5.15.0
+
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Better RingRayLib
