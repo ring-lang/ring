@@ -38,16 +38,16 @@
   * [Smart Garbage Collector](#smart-garbage-collector)
   * [No Global Interpreter (VM) Lock - No GIL](#no-global-interpreter-vm-lock---no-gil)
   * [Fast Enough For Many Applications](#fast-enough-for-many-applications)
-  * [Features](#features)
-    + [Innovative](#innovative-1)
-    + [Powerful Implementation](#powerful-implementation)
-    + [Simple](#simple-1)
-    + [Dynamic](#dynamic)
-    + [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
-    + [Standard Library](#standard-library)
-    + [Web Development](#web-development)
-    + [Extensions](#extensions)
-    + [More](#more)
+- [Features](#features)
+  * [Innovative](#innovative-1)
+  * [Powerful Implementation](#powerful-implementation)
+  * [Simple](#simple-1)
+  * [Dynamic](#dynamic)
+  * [Object-Oriented Programming (OOP)](#object-oriented-programming-oop)
+  * [Standard Library](#standard-library)
+  * [Web Development](#web-development)
+  * [Extensions](#extensions)
+  * [More](#more)
 - [Building from source code](#building-from-source-code)
 - [License](#license)
 
@@ -688,10 +688,10 @@ Also when we need more speed we can use C/C++ extensions!
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo4_speed.png)
 
-## Features
+# Features
 
 
-### Innovative
+## Innovative
 
 * Compact Syntax
 
@@ -713,7 +713,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * No keyword to end Functions, Classes and Packages
 
-### Powerful Implementation
+## Powerful Implementation
 
 * Free Open Source (MIT License)
 
@@ -735,7 +735,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Portable (Windows, Linux, macOS, Android, WebAssembly, etc.)
 
-### Simple
+## Simple
 
 * Comments (One line & Multi-line)
 
@@ -767,7 +767,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * 8-bit clean, work on binary data directly
 
-### Dynamic
+## Dynamic
 
 * Dynamic Typing
 
@@ -783,7 +783,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Eval() to execute code during run-time
 
-### Object-Oriented Programming (OOP)
+## Object-Oriented Programming (OOP)
 
 * Encapsulation
 
@@ -805,7 +805,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Reflection and Meta-programming
 
-### Standard Library 
+## Standard Library 
 
 * I/O commands
 
@@ -831,7 +831,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Many Game Programming Libraries
 
-### Web Development 
+## Web Development 
 
 * HTTP Get
 
@@ -857,7 +857,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Deploy web applications in the Cloud
 
-### Extensions
+## Extensions
 
 * Extension using C/C++ (Simple API)
 
@@ -873,7 +873,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Create GUI Applications for Desktop, WebAssembly and Mobile platforms (Using the Qt Framework)
 
-### More 
+## More 
 
 * Very Stable
 
