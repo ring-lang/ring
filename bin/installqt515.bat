@@ -3,9 +3,11 @@ Rem 2020, Mahmoud Fayed <msfclipper@yahoo.com>
 
 copy C:\Qt\5.15.0\msvc2019\bin\*.dll .
 copy C:\Qt\5.15.0\msvc2019\bin\QtWebEngineProcess.exe .
-xcopy C:\Qt\5.15.0\msvc2019\plugins . /E /H /C /R /Q /Y
+md plugins
+xcopy C:\Qt\5.15.0\msvc2019\plugins plugins /E /H /C /R /Q /Y
 md qml
 xcopy C:\Qt\5.15.0\msvc2019\qml qml /E /H /C /R /Q /Y
 md translations
 xcopy C:\Qt\5.15.0\msvc2019\translations translations /E /H /C /R /Q /Y
-xcopy C:\Qt\5.15.0\msvc2019\resources . /E /H /C /R /Q /Y
+md resources
+xcopy C:\Qt\5.15.0\msvc2019\resources resources /E /H /C /R /Q /Y
