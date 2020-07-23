@@ -402,6 +402,8 @@ More Improvements
 * Type Hints library - Better Code
 * StdLib - IsMainSourceFile() function - Better Code
 * StdLib - TimeInfo() function - Support TimeInfor(:Day)
+* StdLib - Map() & Filter() functions - Support accessing the global scope
+* WebLib - Template() function - Support accessing the global scope
 * Objects Library - Better API
 * RingLibSDL - Update LibSDL version from 2.0.10 to 2.0.12
 * RingOpenGL - Better Code (Added GLEW functions)
