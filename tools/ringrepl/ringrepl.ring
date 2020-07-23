@@ -1,13 +1,24 @@
 # Application  : Read-Eval-Print-Loop (REPL) - Console Application
 # Author       : Mahmoud Fayed <msfclipper@yahoo.com>
 
-See "The Ring programming language version " + version() + nl
-See "REPL (Read-Eval-Print-Loop)" + nl
+? "The Ring programming language version " + version() 
+? "REPL (Read-Eval-Print-Loop)" 
 while true
         see nl + "ring:> "
-        give cCode
+        give cRingCode
+	switch lower(trim(cRingCode)) {
+		case "exit"
+			shutdown()
+		case "clear"
+			if isWindows()
+				system("cls")
+			else 
+				system("clear")
+			ok
+			loop
+	}
         try
-                eval(cCode)
+                eval(cRingCode)
         catch
                 see cCatchError
         done
