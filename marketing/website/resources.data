@@ -1,14 +1,14 @@
 ﻿aResources = [ ["Applications",[
 	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/rnote" target="_blank">Ring Notepad</a>',
+		'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" target="_blank">Ring Notepad</a>',
 		'<img src="ringnotepad.png" width="100%">'
 	],
 	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/formdesigner" target="_blank">Ring Form Designer</a>',
+		'<a href="https://github.com/ring-lang/ring/tree/master/tools/formdesigner" target="_blank">Ring Form Designer</a>',
 		'<img src="ringformdesigner.png" width="100%">'
 	],
 	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/findinfiles" target="_blank">Find in files</a>',
+		'<a href="https://github.com/ring-lang/ring/tree/master/tools/findinfiles" target="_blank">Find in files</a>',
 		'<img src="findinfiles.png" width="100%">'
 	],
 	[
@@ -72,7 +72,7 @@
 		'<img src="newcalc2.png" width="100%">'
 	],
 	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/ringrepl" target="_blank">Ring REPL</a>',
+		'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringrepl" target="_blank">Ring REPL</a>',
 		'<img src="ringrepl.png" width="100%">'
 	],
 	[
