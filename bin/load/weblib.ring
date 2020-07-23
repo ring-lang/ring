@@ -1,5 +1,5 @@
-# Load the library in custom global scope 
-	load package "/../../libraries/weblib/weblib.ring"
+# Load the library (It will be loaded in custom global scope by weblib/weblib.ring)
+	load "/../../libraries/weblib/weblib.ring"
 
 # Get a copy from the required global variables
 	aPageVars 		= GetaPageVars()

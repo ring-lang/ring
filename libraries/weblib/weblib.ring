@@ -1,1 +1,2 @@
-load "lib/weblib.ring"
+load "lib/template.ring"
+load package "lib/weblib.ring"
