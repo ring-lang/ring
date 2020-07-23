@@ -21,4 +21,3 @@ copy extensions\libdepwin\raylib2.5\bin\*.dll bin
 cd bin
 rem Delete Allegro Dlls (Debug Version)
 del allegro*debug-5.2.dll 
-call installqt515.bat
