@@ -8,4 +8,5 @@ md qml
 xcopy C:\Qt\Qt5.12.6\5.12.6\msvc2017\qml qml /E /H /C /R /Q /Y
 md translations
 xcopy C:\Qt\Qt5.12.6\5.12.6\msvc2017\translations translations /E /H /C /R /Q /Y
-xcopy C:\Qt\Qt5.12.6\5.12.6\msvc2017\resources . /E /H /C /R /Q /Y
+md resources
+xcopy C:\Qt\Qt5.12.6\5.12.6\msvc2017\resources resources /E /H /C /R /Q /Y
