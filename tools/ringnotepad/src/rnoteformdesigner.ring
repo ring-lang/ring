@@ -5,7 +5,7 @@ class RNoteFormDesigner
 
 	func FormDesignerDock
 		cDir = CurrentDir()
-		chdir(exefolder() + "/../applications/formdesigner")
+		chdir(exefolder() + "/../tools/formdesigner")
 		# Import Classes 
 			import formdesigner 
 		open_windowAndLink(:FormDesignerController,self)
