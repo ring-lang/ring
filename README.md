@@ -156,7 +156,7 @@ The Main function is optional and will be executed after the statements, and is 
 
 ``` ring
 func main
-	see "Hello, World!" 
+  see "Hello, World!" 
 ```					
 
 Uses Dynamic Typing and Lexical scoping.
@@ -165,8 +165,8 @@ Also we can use the '+' operator for string concatenation.
 ``` ring
 nCount = 10	# Global variable
 func main
-	nID = 1	# Local variable
-	see "Count = " + nCount + nl + " ID = " + nID
+  nID = 1	# Local variable
+  see "Count = " + nCount + nl + " ID = " + nID
 ```
 
 ## Trying to be natural 
@@ -193,11 +193,11 @@ one()
 two() 
 three()
 func one 
-	see "One" 
+  see "One" 
 func two 
-	see "two" 
+  see "two" 
 func three 
-	see "three" 
+  see "three" 
 ```			
 
 The assignment operator uses Deep copy (no references in this operation)
@@ -215,18 +215,18 @@ The for in loop can update the list items.
 
 ``` ring
 func main
-	aList = [1,2,3]
-	update(aList)
-	see aList	# print one two three
+  aList = [1,2,3]
+  update(aList)
+  see aList	# print one two three
 
 func update aList
-	for x in aList
-		switch x
-		on 1 x = "one"
-		on 2 x = "two"
-		on 3 x = "three"
-		off
-	next
+  for x in aList
+    switch x
+    on 1 x = "one"
+    on 2 x = "two"
+    on 3 x = "three"
+    off
+  next
 ```			
 
 Using Lists during definition
@@ -240,12 +240,12 @@ Exit from more than one loop
 
 ``` ring
 for x = 1 to 10
-		for y = 1 to 10
-				see "x=" + x + " y=" + y + nl
-				if x = 3 and y = 5
-						exit 2     # exit from 2 loops
-				ok
-		next
+  for y = 1 to 10
+    see "x=" + x + " y=" + y + nl
+    if x = 3 and y = 5
+      exit 2     # exit from 2 loops
+    ok
+  next
 next
 ```
 			
@@ -313,36 +313,36 @@ Now we will call a method after accessing the object using { }
 ``` ring
 oPerson = new Person
 {
-	Name = "Somebody"
-	Address = "Somewhere"
-	Phone = "0000000"
-	Print()			# here we call the Print() method
+  Name = "Somebody"
+  Address = "Somewhere"
+  Phone = "0000000"
+  Print()			# here we call the Print() method
 }
 class Person Name Address Phone
-	func Print
-		see "Name :" + name + nl +
-			"Address :" + Address + nl +
-			"Phone : " + phone + nl
+  func Print
+    see "Name :" + name + nl +
+        "Address :" + Address + nl +
+        "Phone : " + phone + nl
 ```
 
 When we use { } to access the object then write any attribute name, the language will check the class for any setter/getter methods that will be called automatically.
 
 ``` ring
 new Number {
-		see one		# Execute GetOne()
-		see two		# Execute GetTwo()
-		see three	# Execute GetThree()
+  see one    # Execute GetOne()
+  see two    # Execute GetTwo()
+  see three  # Execute GetThree()
 }
 class Number one two three
-	func GetOne
-		see "Number : One" + nl
-		return 1
-	func GetTwo
-		see "Number : Two" + nl
-		return 2
-	func GetThree
-		see "Number : Three" + nl
-		return 3	
+  func GetOne
+    see "Number : One" + nl
+    return 1
+  func GetTwo
+    see "Number : Two" + nl
+    return 2
+  func GetThree
+    see "Number : Three" + nl
+    return 3	
 ```
 
 ## Syntax Flexibility
@@ -359,15 +359,15 @@ After the object access using { } if the class contains a method called BraceEnd
 TimeForFun = new journey
 # The first surprise!
 TimeForFun {
-	Hello it is me		# What a beautiful programming world!
+  Hello it is me  # What a beautiful programming world!
 }
 # Our Class
 class journey
-	hello=0 it=0 is=0 me=0
-	func GetHello
-		See "Hello" + nl
-	func braceEnd
-		See "Goodbye!" + nl	
+  hello=0 it=0 is=0 me=0
+  func GetHello
+    See "Hello" + nl
+  func braceEnd
+    See "Goodbye!" + nl	
 ```
 
 We can execute code written in strings using the Eval() function
@@ -401,46 +401,46 @@ Also keywords that can be ignored like the ‘the’ keyword
 ``` ring
 new App
 {
-		I want window
-		The window title = "hello world"
+  I want window
+  The window title = "hello world"
 }
 
 class App
 
-	# Attributes for the instruction I want window
-			i want window
-			nIwantwindow = 0
-	# Attributes for the instruction Window title
-	# Here we don't define the window attribute again
-			title
-			nWindowTitle = 0
-	# Keywords to ignore, just give them any value
-			the=0
+  # Attributes for the instruction I want window
+    i want window
+    nIwantwindow = 0
+  # Attributes for the instruction Window title
+  # Here we don't define the window attribute again
+    title
+    nWindowTitle = 0
+  # Keywords to ignore, just give them any value
+    the=0
 
-		func geti
-				if nIwantwindow = 0
-						nIwantwindow++
-				ok
+  func geti
+    if nIwantwindow = 0
+      nIwantwindow++
+    ok
 
-		func getwant
-				if nIwantwindow = 1
-						nIwantwindow++
-				ok
+  func getwant
+    if nIwantwindow = 1
+      nIwantwindow++
+    ok
 
-		func getwindow
-				if nIwantwindow = 2
-						nIwantwindow= 0
-						see "Instruction : I want window" + nl
-				ok
-				if nWindowTitle = 0
-						nWindowTitle++
-				ok
+  func getwindow
+    if nIwantwindow = 2
+      nIwantwindow= 0
+      see "Instruction : I want window" + nl
+    ok
+    if nWindowTitle = 0
+      nWindowTitle++
+    ok
 
-		func settitle cValue
-				if nWindowTitle = 1
-						nWindowTitle=0
-						see "Instruction : Window Title = " + cValue + nl
-				ok
+  func settitle cValue
+    if nWindowTitle = 1
+      nWindowTitle=0
+      see "Instruction : Window Title = " + cValue + nl
+    ok
   
 ```
 
@@ -470,27 +470,27 @@ func Main
 
 BootStrapWebPage()
 {
-	div
-	{
-	  classname = :container
-	  div
-	  {
-			classname = :jumbotron
-			H1 {   text("Bootstrap Page")   }
-	  }
-	  div
-	  {
-			classname = :row
-			for x = 1 to 3
-			  div
-			  {
-					classname = "col-sm-4"
-					H3 { html("Welcome to the Ring programming language") }
-					P  { html("Using a scripting language is very fun!") }
-			  }
-			next
-	  }
-	}
+  div
+  {
+    classname = :container
+    div
+    {
+      classname = :jumbotron
+      H1 {   text("Bootstrap Page")   }
+    }
+    div
+    {
+      classname = :row
+        for x = 1 to 3
+          div
+          {
+            classname = "col-sm-4"
+            H3 { html("Welcome to the Ring programming language") }
+            P  { html("Using a scripting language is very fun!") }
+          }
+        next
+    }
+  }
 }
 ```
 
@@ -498,19 +498,19 @@ The classes that power the declarative interface looks like this
 
 ``` ring
 class Link from ObjsBase
-	title  link
-	func braceend			
-		cOutput = nl+GetTabs() + "<a href='" + 
-			  Link + "'> "+ Title + " </a> " + nl			
+  title  link
+  func braceend			
+    cOutput = nl+GetTabs() + "<a href='" + 
+              Link + "'> "+ Title + " </a> " + nl			
 
 class Div from ObjsBase 
-	func braceend
-		cOutput += nl+'<div'
-		addattributes()
-		AddStyle()
-		getobjsdata()
-		cOutput += nl+"</div>" + nl
-		cOutput = TabMLString(cOutput)
+  func braceend
+    cOutput += nl+'<div'
+    addAttributes()
+    addStyle()
+    getObjsData()
+    cOutput += nl+"</div>" + nl
+    cOutput = TabMLString(cOutput)
 ```
 
 # Implementation
@@ -525,50 +525,52 @@ see "Hello, World!"
 
 Output
 
-	==================================================================
-	Tokens - Generated by the Scanner
-	==================================================================
+```
+==================================================================
+Tokens - Generated by the Scanner
+==================================================================
 
-	   Keyword : SEE
-	   Literal : Hello, World!
-	   EndLine
+Keyword : SEE
+Literal : Hello, World!
+EndLine
 
-	==================================================================
+==================================================================
 
-	==================================================================
-	Grammar Rules Used by The Parser
-	==================================================================
+==================================================================
+Grammar Rules Used by The Parser
+==================================================================
 
-	Rule : Program --> {Statement}
+Rule : Program --> {Statement}
 
-	Line 1
-	Rule : Factor --> Literal
-	Rule : Range --> Factor
-	Rule : Term --> Range
-	Rule : Arithmetic --> Term
-	Rule : BitShift --> Arithmetic
-	Rule : BitAnd --> BitShift
-	Rule : BitOrXOR -->  BitAnd
-	Rule : Compare --> BitOrXOR
-	Rule : EqualOrNot --> Compare
-	Rule : LogicNot -> EqualOrNot
-	Rule : Expr --> LogicNot
-	Rule : Statement  --> 'See' Expr
+Line 1
+Rule : Factor --> Literal
+Rule : Range --> Factor
+Rule : Term --> Range
+Rule : Arithmetic --> Term
+Rule : BitShift --> Arithmetic
+Rule : BitAnd --> BitShift
+Rule : BitOrXOR -->  BitAnd
+Rule : Compare --> BitOrXOR
+Rule : EqualOrNot --> Compare
+Rule : LogicNot -> EqualOrNot
+Rule : Expr --> LogicNot
+Rule : Statement  --> 'See' Expr
 
-	==================================================================
+==================================================================
 
-	==================================================================
-	Byte Code - Before Execution by the VM
-	==================================================================
+==================================================================
+Byte Code - Before Execution by the VM
+==================================================================
 
-		 PC      OPCode        Data
-		  1     FuncExE
-		  2       PushC   Hello, World!
-		  3       Print
-		  4  ReturnNull
+PC     OPCode   Data
+1     FuncExE
+2       PushC   Hello, World!
+3       Print
+4  ReturnNull
 
-	==================================================================
-				
+==================================================================
+```			
+
 ## Visual Implementation
 
 The Ring programming language is designed using the PWCT visual programming tool 
