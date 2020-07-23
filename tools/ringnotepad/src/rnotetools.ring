@@ -23,11 +23,11 @@ class RNoteTools
 		RunTool(cFormFileName)
 
 	func REPLConsole
-		cAppFileName = cCurrentDir + "../ringrepl/repl.ring"
+		cAppFileName = cCurrentDir + "../ringrepl/ringrepl.ring"
 		RunToolConsole(cAppFileName)
 
 	func REPLGUI
-		cAppFileName = cCurrentDir + "../ringrepl/replw.ring"
+		cAppFileName = cCurrentDir + "../ringrepl/ringreplw.ring"
 		# RunTool will split parameters using "," as separator 
 		if nDefaultStyle <= 3 or nDefaultStyle = STYLECOLOR_IMAGE2
 			cAppFileName += ",1"	# Style Fusion White
