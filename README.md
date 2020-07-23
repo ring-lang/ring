@@ -36,7 +36,7 @@
   * [Transparent Implementation](#transparent-implementation)
   * [Visual Implementation](#visual-implementation)
   * [Smart Garbage Collector](#smart-garbage-collector)
-  * [No Global Interpreter (VM) Lock - No GIL](#no-global-interpreter-vm-lock-no-gil---)
+  * [No Global Interpreter (VM) Lock - No GIL](#no-global-interpreter-vm-lock---no-gil)
   * [Fast Enough For Many Applications](#fast-enough-for-many-applications)
   * [Features](#features)
     + [Innovative](#innovative-1)
