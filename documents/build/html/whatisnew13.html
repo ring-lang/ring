@@ -201,6 +201,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#better-ringraylib">Better RingRayLib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringstbimage-extension">RingStbImage Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-low-level-functions">More Low Level Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-organization">Better Organization</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -295,6 +296,7 @@
 <li><p>Better RingRayLib</p></li>
 <li><p>RingStbImage Extension</p></li>
 <li><p>More Low Level Functions</p></li>
+<li><p>Better Organization</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </div>
@@ -439,7 +441,7 @@ first concern using a lot of practical examples.</p>
 <img alt="QtConverter" src="_images/qtconverter.png" />
 <ol class="arabic simple" start="3">
 <li><p>RingQt for Android - Qt Project - Special folders for Ring and RingQt</p></li>
-<li><p>Tested with Qt 5.12.6 and Qt 5.15.0</p></li>
+<li><p>Using Qt 5.15.0</p></li>
 </ol>
 </div>
 <div class="section" id="better-ringraylib">
@@ -497,8 +499,35 @@ first concern using a lot of practical examples.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="better-organization">
+<span id="index-17"></span><h2>Better Organization<a class="headerlink" href="#better-organization" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>The ring/rnoteexe folder is moved to ring/applications/rnote</p></li>
+<li><p>The ring/android folder is moved to ring/extensions/android</p></li>
+<li><p>The ring/libdepwin folder is moved to ring/extensions/libdepwin</p></li>
+<li><p>The ring/samples/tools/QtClassConverter folder is moved to ring/extensions/ringqt/converter</p></li>
+<li><p>The ring/extensions/ringqt/guilib/objectslib folder is moved to ring/ringlibs/objectslib</p></li>
+<li><p>The ring/extensions/ringqt/guilib folder is moved to ring/ringlibs/guilib</p></li>
+<li><p>The ring/visualsrc folder is moved to ring/language/visualsrc</p></li>
+<li><p>The ring/src folder is moved to ring/language/src</p></li>
+<li><p>The ring/include folder is moved to ring/language/include</p></li>
+<li><p>The ring/tests folder is moved to ring/language/tests</p></li>
+<li><p>The ring/editor folder is moved to ring/tools/editors folder</p></li>
+<li><p>The ring/samples/tools/help2wiki folder is moved to ring/tools/help2wiki folder</p></li>
+<li><p>The ring/samples/tools/string2constant folder is moved to ring/tools/string2constant folder</p></li>
+<li><p>The ring/ring2exe folder is moved to ring/tools/ring2exe folder</p></li>
+<li><p>The ring/ringpm folder is moved to ring/tools/ringpm folder</p></li>
+<li><p>The ring/ringlibs folder is renamed to ring/libraries folder</p></li>
+<li><p>The ring/docs folder is renamed to ring/documents folder</p></li>
+<li><p>New folder for the Folder2Qrc tool in ring/tools/folder2qrc folder</p></li>
+<li><p>The ring/applications/rnote folder is moved to ring/tools/ringnotepad folder</p></li>
+<li><p>The ring/applications/formdesigner folder is moved to ring/tools/formdesigner folder</p></li>
+<li><p>The ring/applications/findinfiles folder is moved to ring/tools/findinfiles folder</p></li>
+<li><p>The ring/applications/ringrepl folder is moved to ring/tools/ringrepl folder</p></li>
+</ul>
+</div>
 <div class="section" id="more-improvements">
-<span id="index-17"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><dl class="simple">
 <dt>More Applications</dt><dd><ul>
@@ -600,28 +629,6 @@ first concern using a lot of practical examples.</p>
 <li><p>Ring VM - int2bytes(), float2bytes() &amp; double2bytes() uses sizeof() function</p></li>
 <li><p>Ring VM - fclose() function - Display error message if the FILE pointer is NULL</p></li>
 <li><p>Ring VM - Extensions API - Support local scope of the caller when getting integer pointer</p></li>
-<li><p>The ring/rnoteexe folder is moved to ring/applications/rnote</p></li>
-<li><p>The ring/android folder is moved to ring/extensions/android</p></li>
-<li><p>The ring/libdepwin folder is moved to ring/extensions/libdepwin</p></li>
-<li><p>The ring/samples/tools/QtClassConverter folder is moved to ring/extensions/ringqt/converter</p></li>
-<li><p>The ring/extensions/ringqt/guilib/objectslib folder is moved to ring/ringlibs/objectslib</p></li>
-<li><p>The ring/extensions/ringqt/guilib folder is moved to ring/ringlibs/guilib</p></li>
-<li><p>The ring/visualsrc folder is moved to ring/language/visualsrc</p></li>
-<li><p>The ring/src folder is moved to ring/language/src</p></li>
-<li><p>The ring/include folder is moved to ring/language/include</p></li>
-<li><p>The ring/tests folder is moved to ring/language/tests</p></li>
-<li><p>The ring/editor folder is moved to ring/tools/editors folder</p></li>
-<li><p>The ring/samples/tools/help2wiki folder is moved to ring/tools/help2wiki folder</p></li>
-<li><p>The ring/samples/tools/string2constant folder is moved to ring/tools/string2constant folder</p></li>
-<li><p>The ring/ring2exe folder is moved to ring/tools/ring2exe folder</p></li>
-<li><p>The ring/ringpm folder is moved to ring/tools/ringpm folder</p></li>
-<li><p>The ring/ringlibs folder is renamed to ring/libraries folder</p></li>
-<li><p>The ring/docs folder is renamed to ring/documents folder</p></li>
-<li><p>New folder for the Folder2Qrc tool in ring/tools/folder2qrc folder</p></li>
-<li><p>The ring/applications/rnote folder is moved to ring/tools/ringnotepad folder</p></li>
-<li><p>The ring/applications/formdesigner folder is moved to ring/tools/formdesigner folder</p></li>
-<li><p>The ring/applications/findinfiles folder is moved to ring/tools/findinfiles folder</p></li>
-<li><p>The ring/applications/ringrepl folder is moved to ring/tools/ringrepl folder</p></li>
 </ul>
 </div>
 </div>
