@@ -76,7 +76,7 @@ class CustomersReportView
         	        setgeometry(100,100,500,500)
                 	web = new webview(win) {
                         	setgeometry(100,100,1000,500)
-	                        loadpage(new qurl("file:///"+currentdir()+"/report.html"))
+	                        loadpage(new qurl("file:///"+substr(currentdir(),"\","/")+"/report.html"))
         	        }
                 	new pushbutton(win) {
                         	setGeometry(100,20,100,30)
