@@ -3,7 +3,7 @@
 
 load "naturallib.ring"
 load "mylanguage.ring"
-loadsyntax "../syntax/naturalsyntaxon.ring"
+loadsyntax "naturalsyntaxon.ring"
 
 Talk MyLanguage {
 
