@@ -39,7 +39,7 @@ myapp = New qApp
                         }
 
 		setContextMenu(myMenu)
-		setIcon( new QIcon(new QPixMap("images/notepad.png") ) )
+		setIcon( new QIcon(new QPixMap("notepad.png") ) )
 		show()
 
 		}
