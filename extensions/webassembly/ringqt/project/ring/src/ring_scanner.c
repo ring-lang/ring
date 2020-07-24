@@ -1030,7 +1030,7 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 	/* Must be signed char to work fine on Android, because it uses -1 as NULL instead of Zero */
 	signed char c  ;
 	int nSize  ;
-	char cFileName2[200]  ;
+	char cFileName2[RING_PATHSIZE]  ;
 	unsigned int x  ;
 	cFileName = ring_string_get(pScanner->ActiveToken) ;
 	/* Remove Spaces and " " from file name */
@@ -1049,7 +1049,13 @@ void ring_scanner_loadsyntax ( Scanner *pScanner )
 		ring_exefolder(cFileName2);
 		strcat(cFileName2,cFileName);
 		if ( ring_fexists(cFileName2) == 0 ) {
-			strcpy(cFileName,cFileName2);
+			/* Support ring/bin/load folder */
+			ring_exefolder(cFileName2);
+			strcat(cFileName2,"load/");
+			strcat(cFileName2,cFileName);
+			if ( ring_fexists(cFileName2) == 0 ) {
+				strcpy(cFileName,cFileName2);
+			}
 		}
 	}
 	fp = RING_OPENFILE(cFileName2 , "r");
