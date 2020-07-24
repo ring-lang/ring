@@ -2,7 +2,7 @@ load "guilib.ring"
 
 new qApp {
 	win = new qWidget() { 
-		move(800,500)
+		move(200,200)
 		resize(400,400)
 		setWindowTitle("Form1")
 		setstylesheet("background-color:purple;") 
