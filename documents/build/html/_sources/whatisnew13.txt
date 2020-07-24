@@ -431,7 +431,7 @@ More Improvements
 * Set the window icon for many games developed using the Ring game engine
 * Type Hints library - Better Code
 * StdLib - IsMainSourceFile() function - Better Code
-* StdLib - TimeInfo() function - Support TimeInfor(:Day)
+* StdLib - TimeInfo() function - All TimeList() information are now available
 * StdLib - Map() & Filter() functions - Support accessing the global scope
 * WebLib - Template() function - Support accessing the global scope
 * Objects Library - Better API
