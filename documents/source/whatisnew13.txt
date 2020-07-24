@@ -456,6 +456,7 @@ More Improvements
 * Ring Compiler - ring_expr.c - Better Code
 * Ring Compiler - ring_state.c - Flag for the (Not Case Sensitive) feature
 * Ring Compiler - Load Command - Support loading libraries from ring/bin/load folder
+* Ring Compiler - LoadSyntax Command - Support loading libraries from ring/bin/load folder
 * Ring VM - List() Function - Support List(nRow,nCols) to create 2D lists
 * Ring VM - Object File - Save/Restore the files list 
 * Ring VM - ring_vmexpr.c - Better Code - Avoid magic numbers
