@@ -142,6 +142,7 @@ class NaturalCommand
 				if ! isAttribute(self,"aMethods_#{f1}") {
 					AddAttribute(self,"aMethods_#{f1}")
 					aMethods_#{f1} = []
+					aClassMethods = methods(self)	
 					for cMethod in aClassMethods {
 						if right(cMethod,len("getkeyword_#{f1}")) = "getkeyword_#{f1}" {
 							aMethods_#{f1} + cMethod
