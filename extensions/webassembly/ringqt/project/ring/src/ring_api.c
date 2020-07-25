@@ -2177,30 +2177,37 @@ void ring_vmlib_state_setvar ( void *pPointer )
 	List *pList, *pList2, *pList3  ;
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
+	RingState *pRingSubState  ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
-	pList = ring_state_findvar((RingState *) RING_API_GETCPOINTER(1,"RINGSTATE"),RING_API_GETSTRING(2));
+	/*
+	**  It's very important to use pRingSubState instead of pRingState when using the Garbage Collector functions (*_gc()) 
+	**  Because the Sub Ring State will own the memory values and will try to delete it in the end of the program 
+	**  So we must create it with the Garbage Collector of this sub state 
+	*/
+	pRingSubState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	pList = ring_state_findvar(pRingSubState,RING_API_GETSTRING(2));
 	/* Check Variable before usage */
 	if ( pList==NULL ) {
 		RING_API_ERROR("Variable doesn't exist!");
 		return ;
 	}
 	if ( RING_API_ISSTRING(3) ) {
-		ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
-		ring_list_setstring2_gc(pVM->pRingState,pList, RING_VAR_VALUE , RING_API_GETSTRING(3),RING_API_GETSTRINGSIZE(3));
+		ring_list_setint_gc(pRingSubState,pList, RING_VAR_TYPE ,RING_VM_STRING);
+		ring_list_setstring2_gc(pRingSubState,pList, RING_VAR_VALUE , RING_API_GETSTRING(3),RING_API_GETSTRINGSIZE(3));
 	}
 	else if ( RING_API_ISNUMBER(3) ) {
-		ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_NUMBER);
-		ring_list_setdouble_gc(pVM->pRingState,pList, RING_VAR_VALUE ,RING_API_GETNUMBER(3));
+		ring_list_setint_gc(pRingSubState,pList, RING_VAR_TYPE ,RING_VM_NUMBER);
+		ring_list_setdouble_gc(pRingSubState,pList, RING_VAR_VALUE ,RING_API_GETNUMBER(3));
 	}
 	else if ( RING_API_ISLIST(3) ) {
 		pList2 = RING_API_GETLIST(3) ;
-		ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_LIST);
-		ring_list_setlist_gc(pVM->pRingState,pList, RING_VAR_VALUE);
+		ring_list_setint_gc(pRingSubState,pList, RING_VAR_TYPE ,RING_VM_LIST);
+		ring_list_setlist_gc(pRingSubState,pList, RING_VAR_VALUE);
 		pList3 = ring_list_getlist(pList,RING_VAR_VALUE);
-		ring_vm_list_copy((VM *) pPointer,pList3,pList2);
+		ring_vm_list_copy(pRingSubState->pVM,pList3,pList2);
 	}
 }
 
