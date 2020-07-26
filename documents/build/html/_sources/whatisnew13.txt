@@ -379,8 +379,8 @@ More Improvements
 	* Eight Queens Game
 
 * More Samples
-	* ring/samples/3DUsingOpenGL/cubeongpu/cubeongpu.ring
-	* ring/samples/3DUsingOpenGL/cubeongpu2/cubeongpu.ring
+	* ring/samples/UsingOpenGL/cubeongpu/cubeongpu.ring
+	* ring/samples/UsingOpenGL/cubeongpu2/cubeongpu.ring
 	* ring/samples/rosettacode/uniquecharacters.ring
 	* ring/samples/rosettacode/similarcharacters.ring
 	* ring/samples/helloworld/hello.ring
