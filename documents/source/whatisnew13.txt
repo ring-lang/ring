@@ -437,6 +437,7 @@ More Improvements
 * StdLib - Map() & Filter() functions - Support accessing the global scope
 * WebLib - Template() function - Support accessing the global scope
 * Objects Library - Better API
+* Natural Library - Better Code
 * RingLibSDL - Update LibSDL version from 2.0.10 to 2.0.12
 * RingOpenGL - Better Code (Added GLEW functions)
 * RingFreeGLUT - Better Code (Added many functions)
@@ -461,6 +462,7 @@ More Improvements
 * Ring VM - Object File - Save/Restore the files list 
 * Ring VM - ring_vmexpr.c - Better Code - Avoid magic numbers
 * Ring VM - ring_state_filetokens() - Optional parameter for the (Not Case Sensitive) feature.
+* Ring VM - ring_state_setvar() - Better Code
 * Ring VM - int2bytes(), float2bytes() & double2bytes() uses sizeof() function
 * Ring VM - fclose() function - Display error message if the FILE pointer is NULL
 * Ring VM - Extensions API - Support local scope of the caller when getting integer pointer
