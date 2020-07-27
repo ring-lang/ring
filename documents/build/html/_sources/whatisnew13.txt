@@ -340,28 +340,18 @@ For more information see the Low Level Functions chapter in the documentation
 Better Organization
 ===================
 
-* The ring/rnoteexe folder is moved to ring/applications/rnote
-* The ring/android folder is moved to ring/extensions/android
-* The ring/libdepwin folder is moved to ring/extensions/libdepwin
-* The ring/samples/tools/QtClassConverter folder is moved to ring/extensions/ringqt/converter
-* The ring/extensions/ringqt/guilib/objectslib folder is moved to ring/ringlibs/objectslib
-* The ring/extensions/ringqt/guilib folder is moved to ring/ringlibs/guilib
-* The ring/visualsrc folder is moved to ring/language/visualsrc
-* The ring/src folder is moved to ring/language/src
-* The ring/include folder is moved to ring/language/include
-* The ring/tests folder is moved to ring/language/tests
-* The ring/editor folder is moved to ring/tools/editors folder
-* The ring/samples/tools/help2wiki folder is moved to ring/tools/help2wiki folder
-* The ring/samples/tools/string2constant folder is moved to ring/tools/string2constant folder
-* The ring/ring2exe folder is moved to ring/tools/ring2exe folder
-* The ring/ringpm folder is moved to ring/tools/ringpm folder
-* The ring/ringlibs folder is renamed to ring/libraries folder
-* The ring/docs folder is renamed to ring/documents folder
-* New folder for the Folder2Qrc tool in ring/tools/folder2qrc folder
-* The ring/applications/rnote folder is moved to ring/tools/ringnotepad folder
-* The ring/applications/formdesigner folder is moved to ring/tools/formdesigner folder
-* The ring/applications/findinfiles folder is moved to ring/tools/findinfiles folder
-* The ring/applications/ringrepl folder is moved to ring/tools/ringrepl folder
+We have better organization for the project folders and source code files
+
+(1) A folder called (Language) contains the source code and the visual source of the Compiler and the Virtual Machine
+
+(2) The (Extensions) folder (Bindings for C/C++ libraries) - contains also the (libdepwin, android & webassembly folders)
+
+(3) The (Libraries) folder - contains Ring libraries written in Ring itself, contains now (GuiLib & ObjectsLib) too
+
+(4) The (Tools) folder - contains development tools - contains now (Editors, RingNotepad, FormDesigner, etc) 
+
+(5) The (Samples) folder - contains Ring samples - a lot of organization is done in this folder
+
 
 .. index:: 
 	pair: What is new in Ring 1.13?; More Improvements

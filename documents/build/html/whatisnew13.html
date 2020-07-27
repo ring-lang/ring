@@ -501,30 +501,14 @@ first concern using a lot of practical examples.</p>
 </div>
 <div class="section" id="better-organization">
 <span id="index-17"></span><h2>Better Organization<a class="headerlink" href="#better-organization" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>The ring/rnoteexe folder is moved to ring/applications/rnote</p></li>
-<li><p>The ring/android folder is moved to ring/extensions/android</p></li>
-<li><p>The ring/libdepwin folder is moved to ring/extensions/libdepwin</p></li>
-<li><p>The ring/samples/tools/QtClassConverter folder is moved to ring/extensions/ringqt/converter</p></li>
-<li><p>The ring/extensions/ringqt/guilib/objectslib folder is moved to ring/ringlibs/objectslib</p></li>
-<li><p>The ring/extensions/ringqt/guilib folder is moved to ring/ringlibs/guilib</p></li>
-<li><p>The ring/visualsrc folder is moved to ring/language/visualsrc</p></li>
-<li><p>The ring/src folder is moved to ring/language/src</p></li>
-<li><p>The ring/include folder is moved to ring/language/include</p></li>
-<li><p>The ring/tests folder is moved to ring/language/tests</p></li>
-<li><p>The ring/editor folder is moved to ring/tools/editors folder</p></li>
-<li><p>The ring/samples/tools/help2wiki folder is moved to ring/tools/help2wiki folder</p></li>
-<li><p>The ring/samples/tools/string2constant folder is moved to ring/tools/string2constant folder</p></li>
-<li><p>The ring/ring2exe folder is moved to ring/tools/ring2exe folder</p></li>
-<li><p>The ring/ringpm folder is moved to ring/tools/ringpm folder</p></li>
-<li><p>The ring/ringlibs folder is renamed to ring/libraries folder</p></li>
-<li><p>The ring/docs folder is renamed to ring/documents folder</p></li>
-<li><p>New folder for the Folder2Qrc tool in ring/tools/folder2qrc folder</p></li>
-<li><p>The ring/applications/rnote folder is moved to ring/tools/ringnotepad folder</p></li>
-<li><p>The ring/applications/formdesigner folder is moved to ring/tools/formdesigner folder</p></li>
-<li><p>The ring/applications/findinfiles folder is moved to ring/tools/findinfiles folder</p></li>
-<li><p>The ring/applications/ringrepl folder is moved to ring/tools/ringrepl folder</p></li>
-</ul>
+<p>We have better organization for the project folders and source code files</p>
+<ol class="arabic simple">
+<li><p>A folder called (Language) contains the source code and the visual source of the Compiler and the Virtual Machine</p></li>
+<li><p>The (Extensions) folder (Bindings for C/C++ libraries) - contains also the (libdepwin, android &amp; webassembly folders)</p></li>
+<li><p>The (Libraries) folder - contains Ring libraries written in Ring itself, contains now (GuiLib &amp; ObjectsLib) too</p></li>
+<li><p>The (Tools) folder - contains development tools - contains now (Editors, RingNotepad, FormDesigner, etc)</p></li>
+<li><p>The (Samples) folder - contains Ring samples - a lot of organization is done in this folder</p></li>
+</ol>
 </div>
 <div class="section" id="more-improvements">
 <span id="index-18"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
