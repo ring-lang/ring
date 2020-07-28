@@ -2,7 +2,7 @@
 # Then sum the list items!
 
 t1 = clock()
-aList = 1:1000000
+aList = list(1000000)
 
 nSum = 0
 nMax = len(aList)
