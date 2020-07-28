@@ -279,19 +279,6 @@ Func SplitMany cString,cCharacters
 	next 
 	return str2list(cString)
 
-
-/*
-	Function Name	: newlist
-	Usage		: create a two dimensional list
-	Parameters	: number of dimensions
-	output		: two dimensional list 
-*/
-
-Func NewList x, y
-     if isstring(x) x=0+x ok
-     if isstring(y) y=0+y ok
-     return list(x,y)
-
 /*
 	Function Name	: capitalized
 	Usage		: return a copy with the first letter capitalized
