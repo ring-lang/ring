@@ -390,6 +390,7 @@ More Improvements
 	* ring/samples/UsingQt/InputMask folder
 	* ring/samples/UsingQt/PlayGif folder
 	* ring/samples/UsingQt/TableWidget folder
+	* ring/samples/UsingQt/ButtonSizeInLayout folder
 	* ring/samples/UsingQt/DateTimeEditFormat folder (Date Picker Control)
 	* ring/samples/UsingQML/sample10 folder (Charts Samples)
 	* ring/samples/UsingQML/sample11 folder (Data Visualization Samples)
