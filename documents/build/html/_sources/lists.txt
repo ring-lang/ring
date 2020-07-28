@@ -46,11 +46,24 @@ Syntax:
 
 	list = list(size)
 
-Example
+To create 2D list
+
+.. code-block:: ring
+
+	list = list(nRows,nCols)
+
+Example (1)
 
 .. code-block:: ring
 
 	aList = list(10)	# aList contains 10 items
+
+Example (2)
+
+.. code-block:: ring
+
+	aList = list(5,4)	# Create 2D List contains 5 rows and 4 columns
+
 
 .. note:: the list index start from 1 
 

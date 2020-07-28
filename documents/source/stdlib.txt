@@ -346,38 +346,6 @@ Example:
 	Puts("Test SplitMany()")
 	See SplitMany("one,two,three,four and five"," ,")
 
-
-.. index:: 
-	pair: Stdlib Functions; newlist()
-
-NewList() function
-==================
-
-Create a two dimensional list
-
-
-Syntax:
-
-.. code-block:: ring
-
-	NewList(nRows,nColumns) ---> new list 
-
-Example:
-
-.. code-block:: ring
-
-	Load "stdlib.ring"
-
-	Puts("Test Newlist()")
-	a1 = 3
-	a2 = 5
-	chrArray = newlist(a1,a2)
-	numArray = newlist(a1,a2)
-	chrArray[1][1] = "Hello"
-	numArray[1][1]  = 987.2
-	See chrArray[1][1] + nl
-	See numArray[1][1] + nl
-
 .. index:: 
 	pair: Stdlib Functions; capitalized()
 
