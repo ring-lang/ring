@@ -419,6 +419,7 @@ More Improvements
 * StdLib - IsMainSourceFile() function - Better Code
 * StdLib - TimeInfo() function - All TimeList() information are now available
 * StdLib - Map() & Filter() functions - Support accessing the global scope
+* StdLib - NewList() function is no longer required - Use the List() function
 * WebLib - Template() function - Support accessing the global scope
 * Objects Library - Better API
 * Natural Library - Better Code
