@@ -369,44 +369,37 @@ More Improvements
 	* Eight Queens Game
 
 * More Samples
-	* ring/samples/UsingOpenGL/cubeongpu/cubeongpu.ring
-	* ring/samples/UsingOpenGL/cubeongpu2/cubeongpu.ring
-	* ring/samples/rosettacode/uniquecharacters.ring
-	* ring/samples/rosettacode/similarcharacters.ring
-	* ring/samples/helloworld/hello.ring
-	* ring/samples/helloworld/hello2.ring
-	* ring/samples/helloworld/hello3.ring
-	* ring/samples/other/customsee.ring 
-	* ring/samples/other/changeisnull.ring
-	* ring/samples/other/MultipleArrayItemsFind.ring
-	* ring/samples/other/MultipleArrayItemsInsert.ring
-	* ring/samples/other/fib.ring
-	* ring/samples/other/randomlist.ring
-	* ring/samples/other/debuginfo.ring
-	* ring/samples/other/customtablewidget.ring
-	* ring/samples/other/customtablewidget2.ring
-	* ring/samples/other/qgridlayout.ring 
-	* ring/samples/other/inputmask.ring 
-	* ring/samples/other/newmethod.ring 
-	* ring/samples/ArrayPathDest/solveArrayPathDest.ring
-	* ring/samples/PegSolitaire/peg-soli.ring
-	* ring/samples/evalinscope/swap.ring
-	* ring/samples/evalinscope/global.ring
-	* ring/samples/evalinscope/enum.ring
-	* ring/samples/endian/endian.ring
-	* ring/samples/VariablePointer/varptr4.ring 
-	* ring/samples/VariablePointer/varptr5.ring 
-	* ring/samples/PlayGif folder
+	* ring/samples/Language/HelloWorld folder
+	* ring/samples/Language/ChangeIsNULL folder
+	* ring/samples/Language/Console/customsee.ring 
+	* ring/samples/Language/EvalInScope/swap.ring
+	* ring/samples/Language/EvalInScope/global.ring
+	* ring/samples/Language/EvalInScope/enum.ring
+	* ring/samples/Language/Endian/endian.ring
+	* ring/samples/Language/VariablePointer/varptr4.ring 
+	* ring/samples/Language/VariablePointer/varptr5.ring 
+	* ring/samples/Language/DebugCode folder
+	* ring/samples/Language/ClassMethods folder
+	* ring/samples/Language/RingFileTokens folder (Ring Compiler - Scanner Output)
+	* ring/samples/ProblemSolving/Fib folder
+	* ring/samples/ProblemSolving/ArrayPathDest/solveArrayPathDest.ring
+	* ring/samples/ProblemSolving/PegSolitaire/peg-soli.ring
+	* ring/samples/General/RosettaCode/uniquecharacters.ring
+	* ring/samples/General/RosettaCode/similarcharacters.ring
+	* ring/samples/UsingArabic/RightToLeft folder (Set Layout Direction)
+	* ring/samples/UsingQt/InputMask folder
+	* ring/samples/UsingQt/PlayGif folder
+	* ring/samples/UsingQt/TableWidget folder
+	* ring/samples/UsingQt/DateTimeEditFormat folder (Date Picker Control)
 	* ring/samples/UsingQML/sample10 folder (Charts Samples)
 	* ring/samples/UsingQML/sample11 folder (Data Visualization Samples)
-	* ring/samples/righttoleft folder (Set Layout Direction)
-	* ring/samples/datetimeeditformat folder (Date Picker Control)
-	* ring/samples/ringfiletokens folder (Ring Compiler - Scanner Output)
-	* ring/samples/QtWebAssembly/colordialog folder
-	* ring/samples/QtWebAssembly/fontdialog folder 
-	* ring/samples/QtWebAssembly/filedialog folder 
-	* ring/samples/QtWebAssembly/filecontent folder (Download/Upload Files)
-	* ring/extensions/ringraylib/examples/more/ex4_levelsofcubes.ring
+	* ring/samples/UsingQtWASM/colordialog folder
+	* ring/samples/UsingQtWASM/fontdialog folder 
+	* ring/samples/UsingQtWASM/filedialog folder 
+	* ring/samples/UsingQtWASM/filecontent folder (Download/Upload Files)
+	* ring/samples/UsingRayLib/more/ex4_levelsofcubes.ring
+	* ring/samples/UsingOpenGL/cubeongpu/cubeongpu.ring
+	* ring/samples/UsingOpenGL/cubeongpu2/cubeongpu.ring
 
 * Ring Notepad - Output Window - set the buffer size to 1 MB
 * Ring Notepad - View Menu - Source Code (Full Screen)
