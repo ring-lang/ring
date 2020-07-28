@@ -161,7 +161,7 @@ Hassouna Course Samples
 
 URL (YouTube): https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT
 
-The course samples are added to ring/samples/other/HassounaCourse folder
+The course samples are added to ring/samples/UsingArabic/HassounaCourse folder
 
 The Rockets sample
 
