@@ -16,6 +16,8 @@ void ring_vm_listfuncs_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("sort",ring_vmlib_sort);
 	ring_vm_funcregister("reverse",ring_vmlib_reverse);
 	ring_vm_funcregister("binarysearch",ring_vmlib_binarysearch);
+	/* Instead of NewList() function from StdLib (Just to support Old Code until converting it to List() ) */
+	ring_vm_funcregister("newlist",ring_vmlib_list);
 }
 /* Functions */
 
