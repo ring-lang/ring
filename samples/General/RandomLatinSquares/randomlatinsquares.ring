@@ -1,5 +1,5 @@
 # Project : Random Latin Squares 
-# Date    : 29/07/2020-01:01:21
+# Date    : 29/07/2020-23:20:56
 # Author  : Gal Zsolt (CalmoSoft)
 # Email   : calmosoft@gmail.com
 
@@ -61,7 +61,7 @@ MyApp = New qApp {
 			setMinimumHeight(desktop.Height() * 0.05)
 			settext(" Start ")
 			setstylesheet(C_ButtonOrangeStyle)
-			 setclickevent("gameSolution()")
+			setclickevent("gameSolution()")
 		}
 
 		sizeBtn = new QPushButton(win) 
@@ -331,10 +331,9 @@ func gameSolution()
 				Button[nRow][nCol].settext(string(val))
 			ok
 			if checkRC = 0
-				Button[nRow][nCol].settext("@")
 				nCol = 0
 				for y = 1 to size
-					Button[nRow][y].settext("x")
+					Button[nRow][y].settext("-")
 				next
 			ok
 		next
