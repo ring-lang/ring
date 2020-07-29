@@ -94,6 +94,9 @@ RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
 		else if ( ring_list_ispointer(pList,x) ) {
 			ring_list_addpointer_gc(pState,pNewList,ring_list_getpointer(pList,x));
 		}
+		else if ( ring_list_isfuncpointer(pList,x) ) {
+			ring_list_addfuncpointer_gc(pState,pNewList,ring_list_getfuncpointer(pList,x));
+		}
 		else if ( ring_list_islist(pList,x) ) {
 			pNewList2 = ring_list_newlist_gc(pState,pNewList);
 			ring_list_copy_gc(pState,pNewList2,ring_list_getlist(pList,x));
@@ -145,6 +148,9 @@ RING_API void ring_list_print ( List *pList )
 		}
 		else if ( ring_list_ispointer(pList,x) ) {
 			printf( "%p\n",ring_list_getpointer(pList,x) ) ;
+		}
+		else if ( ring_list_isfuncpointer(pList,x) ) {
+			printf( "%p\n",ring_list_getfuncpointer(pList,x) ) ;
 		}
 	}
 }
