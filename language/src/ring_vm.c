@@ -1348,6 +1348,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	RingState *pState  ;
 	List *pList,*pList2,*pList3,*pList4,*pList5  ;
 	Item *pItem  ;
+	unsigned int nMemoryBlocksCount, x  ;
 	/* Create the RingState */
 	pState = ring_state_init();
 	/*
@@ -1372,6 +1373,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pMem->pFirst->pValue = pVM->pMem->pFirst->pValue ;
 	/* Share Memory Blocks (Could be used for Lists in Global Scope) */
 	ring_list_copy(pState->vPoolManager.aBlocks,pVM->pRingState->vPoolManager.aBlocks);
+	nMemoryBlocksCount = ring_list_getsize(pState->vPoolManager.aBlocks) ;
 	/* Save the state */
 	pList = pState->pVM->pCode ;
 	pList2 = pState->pVM->pFunctionsMap ;
@@ -1416,6 +1418,12 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pFuncMutexDestroy = NULL ;
 	pState->pVM->pFuncMutexLock = NULL ;
 	pState->pVM->pFuncMutexUnlock = NULL ;
+	/* Avoid deleting the Shared Memory Blocks */
+	if ( nMemoryBlocksCount > 0 ) {
+		for ( x = 1 ; x <=nMemoryBlocksCount ; x++ ) {
+			ring_list_deleteitem(pState->vPoolManager.aBlocks,1);
+		}
+	}
 	/* Delete the RingState */
 	ring_state_delete(pState);
 }

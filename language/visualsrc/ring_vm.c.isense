@@ -503,6 +503,8 @@ Type: List *
 pList,*pList2,*pList3,*pList4,*pList5
 Type: Item *
 pItem
+Type: unsigned int
+nMemoryBlocksCount, x
 ring_vm_callfunction
 ring_vm_traceevent
 Type: List *
