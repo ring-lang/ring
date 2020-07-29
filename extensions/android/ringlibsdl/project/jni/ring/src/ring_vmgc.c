@@ -258,6 +258,7 @@ void ring_poolmanager_new ( RingState *pRingState )
 	pRingState->vPoolManager.pBlockStart = NULL ;
 	pRingState->vPoolManager.pBlockEnd = NULL ;
 	pRingState->vPoolManager.aBlocks = ring_list_new(0) ;
+	pRingState->vPoolManager.nItemsInBlock = RING_POOLMANAGER_ITEMSINBLOCK ;
 }
 
 void ring_poolmanager_newblock ( RingState *pRingState )
@@ -265,17 +266,17 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 	PoolData *pMemory  ;
 	int x  ;
 	/* Get Block Memory */
-	pMemory = (PoolData *) ring_calloc(RING_POOLMANAGER_ITEMSINBLOCK,sizeof(PoolData));
+	pMemory = (PoolData *) ring_calloc(pRingState->vPoolManager.nItemsInBlock,sizeof(PoolData));
 	/* Check Memory */
 	if ( pMemory == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
 	}
 	/* Set Linked Lists (pNext values) */
-	for ( x = 0 ; x < RING_POOLMANAGER_ITEMSINBLOCK - 1 ; x++ ) {
+	for ( x = 0 ; x < pRingState->vPoolManager.nItemsInBlock - 1 ; x++ ) {
 		pMemory[x].pNext = pMemory+x+1 ;
 	}
-	pMemory[RING_POOLMANAGER_ITEMSINBLOCK-1].pNext = NULL ;
+	pMemory[pRingState->vPoolManager.nItemsInBlock-1].pNext = NULL ;
 	/*
 	**  Set Values in Ring State 
 	**  Set First Item in Ring State 
@@ -283,7 +284,7 @@ void ring_poolmanager_newblock ( RingState *pRingState )
 	pRingState->vPoolManager.pCurrentItem = pMemory ;
 	/* Set Block Start and End */
 	pRingState->vPoolManager.pBlockStart = (void *) pMemory ;
-	pRingState->vPoolManager.pBlockEnd = (void *) (pMemory + RING_POOLMANAGER_ITEMSINBLOCK - 1) ;
+	pRingState->vPoolManager.pBlockEnd = (void *) (pMemory + pRingState->vPoolManager.nItemsInBlock - 1) ;
 	/* Set Values For Tracking Allocations */
 	pRingState->vPoolManager.nAllocCount = 0 ;
 	pRingState->vPoolManager.nFreeCount = 0 ;
