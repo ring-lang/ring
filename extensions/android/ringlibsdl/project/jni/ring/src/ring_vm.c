@@ -1368,6 +1368,8 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Share the global scope between threads */
 	pItem = pState->pVM->pMem->pFirst->pValue ;
 	pState->pVM->pMem->pFirst->pValue = pVM->pMem->pFirst->pValue ;
+	/* Share Memory Blocks (Could be used for Lists in Global Scope) */
+	ring_list_copy(pState->vPoolManager.aBlocks,pVM->pRingState->vPoolManager.aBlocks);
 	/* Save the state */
 	pList = pState->pVM->pCode ;
 	pList2 = pState->pVM->pFunctionsMap ;
