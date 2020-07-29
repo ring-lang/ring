@@ -1380,15 +1380,21 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pList3 = pState->pVM->pClassesMap ;
 	pList4 = pState->pVM->pPackagesMap ;
 	pList5 = pState->pVM->pCFunctionsList ;
-	/* Share the code between the VMs */
-	pState->pVM->pFunctionsMap = pVM->pRingState->pRingFunctionsMap ;
-	pState->pVM->pClassesMap = pVM->pRingState->pRingClassesMap ;
-	pState->pVM->pPackagesMap = pVM->pRingState->pRingPackagesMap ;
-	pState->pVM->pCFunctionsList = pVM->pCFunctionsList ;
-	pState->pRingFunctionsMap = pVM->pRingState->pRingFunctionsMap ;
-	pState->pRingClassesMap = pVM->pRingState->pRingClassesMap ;
-	pState->pRingPackagesMap = pVM->pRingState->pRingPackagesMap ;
-	pState->pRingCFunctions = pVM->pRingState->pRingCFunctions ;
+	/*
+	**  Share the code between the VMs 
+	**  Copy Functions/Classes/Packages lists 
+	*/
+	pState->pVM->pFunctionsMap = ring_list_new(0) ;
+	pState->pVM->pClassesMap = ring_list_new(0) ;
+	pState->pVM->pPackagesMap = ring_list_new(0) ;
+	ring_list_copy(pState->pVM->pFunctionsMap,pVM->pRingState->pRingFunctionsMap);
+	ring_list_copy(pState->pVM->pClassesMap,pVM->pRingState->pRingClassesMap);
+	ring_list_copy(pState->pVM->pPackagesMap,pVM->pRingState->pRingPackagesMap);
+	pState->pVM->pCFunctionsList = pVM->pRingState->pRingCFunctions ;
+	pState->pRingFunctionsMap = pState->pVM->pFunctionsMap ;
+	pState->pRingClassesMap = pState->pVM->pClassesMap ;
+	pState->pRingPackagesMap = pState->pVM->pPackagesMap ;
+	pState->pRingCFunctions = pState->pVM->pCFunctionsList ;
 	/* Get a copy from the byte code List */
 	pState->pVM->nScopeID = pVM->nScopeID + 10000 ;
 	pState->pVM->pCode = ring_list_new_gc(pState,0) ;
@@ -1400,10 +1406,14 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_vm_mutexunlock(pVM);
 	/* Run the code */
 	ring_state_runcode(pState,cStr);
+	/* Delete Code List */
 	ring_list_delete_gc(pState,pState->pVM->pCode);
+	ring_list_delete_gc(pState,pState->pVM->pFunctionsMap);
+	ring_list_delete_gc(pState,pState->pVM->pClassesMap);
+	ring_list_delete_gc(pState,pState->pVM->pPackagesMap);
 	/* Restore the first scope - global scope */
 	pState->pVM->pMem->pFirst->pValue = pItem ;
-	/* Avoid deleteing the shared code and the Mutex */
+	/* Avoid deleteing the shared lists and the Mutex */
 	pState->pVM->pCode = pList ;
 	pState->pVM->pFunctionsMap = pList2 ;
 	pState->pVM->pClassesMap = pList3 ;
