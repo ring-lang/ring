@@ -45,6 +45,8 @@ Type: unsigned int
 nSmallAllocCount
 Type: unsigned int
 nSmallFreeCount
+Type: unsigned int
+nItemsInBlock
 Type: List *
 aBlocks
 END:

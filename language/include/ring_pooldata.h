@@ -22,6 +22,7 @@ typedef struct PoolManager {
 	unsigned int nFreeCount  ;
 	unsigned int nSmallAllocCount  ;
 	unsigned int nSmallFreeCount  ;
+	unsigned int nItemsInBlock  ;
 	List *aBlocks  ;
 } PoolManager ;
 #endif
