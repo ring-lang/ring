@@ -71,6 +71,7 @@ MyApp = New qApp {
 			setMinimumHeight(desktop.Height() * 0.05)
 			setStyleSheet("background-color:rgb(255,255,204)")  
 			setText(" Enter size: ")
+			setClickEvent("newBoardSize()")
 		}	
 
 		lineSize = new qLineEdit(win) 
