@@ -134,7 +134,7 @@ MyApp = New qApp {
 func newBoardSize()
 
 	nrSize = number(lineSize.text())
-	if nrSize > nrCells
+	if nrSize > nrCells or nrSize < 2
 		? "Enter a number in range: 2-6"
 		return
 	ok
