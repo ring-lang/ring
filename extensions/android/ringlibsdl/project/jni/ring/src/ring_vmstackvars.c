@@ -338,6 +338,9 @@ void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 		else if ( ring_list_ispointer(pList,x) ) {
 			ring_list_addpointer_gc(pVM->pRingState,pNewList,ring_list_getpointer(pList,x));
 		}
+		else if ( ring_list_isfuncpointer(pList,x) ) {
+			ring_list_addfuncpointer_gc(pVM->pRingState,pNewList,ring_list_getfuncpointer(pList,x));
+		}
 		else if ( ring_list_islist(pList,x) ) {
 			pNewList2 = ring_list_newlist_gc(pVM->pRingState,pNewList);
 			ring_vm_list_copy(pVM,pNewList2,ring_list_getlist(pList,x));
