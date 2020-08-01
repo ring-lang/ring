@@ -1401,7 +1401,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Get a copy from the byte code List */
 	pState->pVM->nScopeID = pVM->nScopeID + 10000 ;
 	pState->pVM->pCode = ring_list_new_gc(pState,0) ;
-	ring_list_copy_gc(pState,pState->pVM->pCode,pVM->pRingState->pRingGenCode);
+	ring_list_copy(pState->pVM->pCode,pVM->pRingState->pRingGenCode);
 	pState->pRingGenCode = pState->pVM->pCode ;
 	ring_vm_loadcode(pState->pVM);
 	/* Avoid the call to the main function */
