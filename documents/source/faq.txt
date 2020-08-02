@@ -1178,6 +1178,7 @@ If you want to run programs using the command line
 Add Ring/bin folder to the path then
 
 .. code-block:: none
+
 	ring <filename.ring>|<filename.ringo>
 
 .. index:: 
@@ -1676,9 +1677,9 @@ if we want to print other characters we can use the char(nASCII) function
 	    char(77)            # print M
 
 .. index:: 
-	pair: Frequently Asked Questions; Why we don't use () after the qApp class name?
+	pair: Frequently Asked Questions; Why we don't use () after the QApp class name?
 
-Why we don't use () after the qApp class name?
+Why we don't use () after the QApp class name?
 ==============================================
 
 When we use RingQt to create GUI application, we uses () after the 
