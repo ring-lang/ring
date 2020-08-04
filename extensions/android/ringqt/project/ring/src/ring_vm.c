@@ -1233,6 +1233,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 {
 	List *pList  ;
 	int x  ;
+	pVM->nLoadAddressScope = RING_VARSCOPE_GLOBAL ;
 	ring_state_log(pVM->pRingState,"function: ring_vm_addglobalvariables() start");
 	/*
 	**  Add Variables 
@@ -1268,6 +1269,7 @@ void ring_vm_addglobalvariables ( VM *pVM )
 	}
 	ring_state_log(pVM->pRingState,"function: ring_vm_addglobalvariables() after adding arguments");
 	ring_state_log(pVM->pRingState,"function: ring_vm_addglobalvariables() end");
+	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
 }
 
 void ring_vm_mainloopforeval ( VM *pVM )
