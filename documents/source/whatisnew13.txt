@@ -105,7 +105,7 @@ An implementation for the Matching Game
 .. index:: 
 	pair: What is new in Ring 1.13?; Pairs Game
 
-Paris Game
+Pairs Game
 ==========
 
 An implementation for the Pairs Game
