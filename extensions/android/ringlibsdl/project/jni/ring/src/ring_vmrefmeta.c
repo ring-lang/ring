@@ -660,12 +660,7 @@ void ring_vm_refmeta_addmethod ( void *pPointer )
 					/* Set the Function Name */
 					ring_list_setstring_gc(((VM *) pPointer)->pRingState,pList3,RING_FUNCMAP_NAME,ring_string_lower(RING_API_GETSTRING(2)));
 					/* Refresh the HashTable */
-					if ( pVM->pRingState->lRunFromThread ) {
-						ring_list_genhashtable2(pList);
-					}
-					else {
-						ring_list_genhashtable2_gc(pVM->pRingState,pList);
-					}
+					ring_list_genhashtable2(pList);
 					RING_API_RETNUMBER(1);
 					return ;
 				}

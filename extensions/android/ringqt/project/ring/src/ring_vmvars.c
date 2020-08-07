@@ -80,12 +80,7 @@ int ring_vm_findvar ( VM *pVM,const char *cStr )
 			else {
 				/* Search Using the HashTable */
 				if ( pList->pHashTable == NULL ) {
-					if ( pVM->pRingState->lRunFromThread ) {
-						ring_list_genhashtable2(pList);
-					}
-					else {
-						ring_list_genhashtable2_gc(pVM->pRingState,pList);
-					}
+					ring_list_genhashtable2(pList);
 				}
 				pList2 = (List *) ring_hashtable_findpointer(pList->pHashTable,cStr);
 				if ( pList2 != NULL ) {

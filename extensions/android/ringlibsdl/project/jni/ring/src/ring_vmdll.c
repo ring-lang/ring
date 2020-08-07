@@ -39,14 +39,8 @@ void ring_vm_dll_loadlib ( void *pPointer )
 		ring_list_deletearray_gc(pRingState,pRingState->pRingCFunctions);
 		(*pFunc)(pRingState) ;
 		/* Generate Hash Table */
-		if ( pRingState->lRunFromThread ) {
-			ring_list_genarray(pRingState->pRingCFunctions);
-			ring_list_genhashtable2(pRingState->pRingCFunctions);
-		}
-		else {
-			ring_list_genarray_gc(pRingState,pRingState->pRingCFunctions);
-			ring_list_genhashtable2_gc(pRingState,pRingState->pRingCFunctions);
-		}
+		ring_list_genarray(pRingState->pRingCFunctions);
+		ring_list_genhashtable2(pRingState->pRingCFunctions);
 		ring_list_addpointer_gc(pRingState,pVM->pCLibraries,handle);
 		RING_API_RETCPOINTER(handle,"DLL");
 	} else {
