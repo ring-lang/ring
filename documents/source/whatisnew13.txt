@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.13 comes with the next features!
 
 * New Book by Apress
+* Ring For WebAssembly
 * Laser Game
 * Magic Balls Game
 * MoneyBoxes Game
@@ -57,6 +58,24 @@ What You Will Learn
 * Carry out structural, object-oriented, functional, declarative, natural, and meta programming in Ring
 * Use the full power of Ring to refactor program code and develop clean program architectures
 * Quickly design professional-grade video games on top of the Ring game engine
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Ring for WebAssembly
+
+Ring for WebAssembly
+====================
+
+Ring support distributing applications for WebAssembly (Using Qt for WebAssembly)
+
+* Hello World : https://ring-lang.github.io/web/helloworld/project.html
+* Matching Game : https://ring-lang.github.io/web/matching/project.html
+* Pairs Game : https://ring-lang.github.io/web/pairs/project.html
+* Othello Game : https://ring-lang.github.io/web/othello/project.html
+* Game of Life : https://ring-lang.github.io/web/gameoflife/project.html
+* Online Form Designer : https://ring-lang.github.io/web/formdesigner/project.html
+
+.. image:: othelloweb.png
+	:alt: Othello Game
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Laser Game
