@@ -64,4 +64,6 @@ void ring_poolmanager_new ( RingState *pRingState ) ;
 void ring_poolmanager_delete ( RingState *pRingState ) ;
 
 void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCount,RingState *pMainRingState ) ;
+
+void ring_poolmanager_deleteblockfromsubthread ( RingState *pSubRingState,RingState *pMainRingState ) ;
 #endif
