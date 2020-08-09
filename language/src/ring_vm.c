@@ -1352,7 +1352,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->lRunFromThread = 1 ;
 	pState->nPrintInstruction = pVM->pRingState->nPrintInstruction ;
 	/* Items in Memory Block */
-	pState->vPoolManager.nItemsInBlock = 100000 ;
+	ring_poolmanager_newblockfromsubthread(pState,100000,pVM->pRingState);
 	/* Share the same Mutex between VMs */
 	ring_vm_mutexlock(pVM);
 	pState->pVM->pMutex = pVM->pMutex ;
