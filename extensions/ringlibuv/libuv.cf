@@ -279,13 +279,15 @@ void uv_thread_callback(void *obj)
 	List *pList, *pPara;
 	x = uv_checkevent_callback(obj,"thread");
 	if (x == 0) return ;
+	ring_vm_mutexfunctions(pVMLibUV,uv_new_mutex,
+                uv_mutex_lock,uv_mutex_unlock,uv_mutex_destroy);
+	ring_vm_mutexlock(pVMLibUV);
 	pList = ring_list_getlist(aCallBack,x) ;
 	// Add the Event Parameters
 		pPara = ring_list_getlist(pList,RINGLIBUV_EVENTPARA);
 		ring_list_deleteallitems_gc(pVMLibUV->pRingState,pPara);
 		ring_list_addcpointer_gc(pVMLibUV->pRingState,pPara,obj,"void");
-	ring_vm_mutexfunctions(pVMLibUV,uv_new_mutex,
-                uv_mutex_lock,uv_mutex_unlock,uv_mutex_destroy);
+	ring_vm_mutexunlock(pVMLibUV);
 	ring_vm_runcodefromthread(pVMLibUV,ring_list_getstring(pList,3));
 }
 
