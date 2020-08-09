@@ -389,3 +389,15 @@ void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCoun
 	pMemory->pNext = NULL ;
 	pSubRingState->vPoolManager.nItemsInBlock = nCount ;
 }
+
+void ring_poolmanager_deleteblockfromsubthread ( RingState *pSubRingState,RingState *pMainRingState )
+{
+	PoolData *pMemory  ;
+	pMemory = pSubRingState->vPoolManager.pCurrentItem ;
+	while ( pMemory != NULL ) {
+		pSubRingState->vPoolManager.pCurrentItem = pMemory->pNext ;
+		/* Return Memory Back To The Main Thread */
+		ring_state_free(pMainRingState,pMemory);
+		pMemory = pSubRingState->vPoolManager.pCurrentItem ;
+	}
+}
