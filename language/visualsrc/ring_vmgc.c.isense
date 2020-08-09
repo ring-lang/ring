@@ -49,6 +49,8 @@ Type: unsigned int
 nItemsInBlock
 Type: List *
 aBlocks
+Type: unsigned int
+lDeleteMemory
 END:
 Type: PoolManager
 struct PoolManager
@@ -126,3 +128,8 @@ ring_poolmanager_free
 Type: PoolData *
 pPoolData
 ring_poolmanager_delete
+ring_poolmanager_newblockfromsubthread
+Type: int
+x
+Type: PoolData *
+pMemory
