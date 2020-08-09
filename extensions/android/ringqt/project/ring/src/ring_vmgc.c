@@ -159,9 +159,7 @@ RING_API void * ring_state_malloc ( void *pState,size_t size )
 		#endif
 		if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
 			if ( ((RingState *) pState)->pVM != NULL ) {
-				if ( ((RingState *) pState)->pVM->nLoadAddressScope != RING_VARSCOPE_GLOBAL ) {
-					return ring_poolmanager_allocate((RingState *) pState,size) ;
-				}
+				return ring_poolmanager_allocate((RingState *) pState,size) ;
 			}
 		}
 	}
