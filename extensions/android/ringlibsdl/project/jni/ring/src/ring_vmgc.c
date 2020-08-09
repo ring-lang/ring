@@ -263,6 +263,7 @@ void ring_poolmanager_new ( RingState *pRingState )
 	pRingState->vPoolManager.pBlockEnd = NULL ;
 	pRingState->vPoolManager.aBlocks = ring_list_new(0) ;
 	pRingState->vPoolManager.nItemsInBlock = RING_POOLMANAGER_ITEMSINBLOCK ;
+	pRingState->vPoolManager.lDeleteMemory = 1 ;
 }
 
 void ring_poolmanager_newblock ( RingState *pRingState )
@@ -347,12 +348,46 @@ int ring_poolmanager_free ( RingState *pRingState,void *pMemory )
 void ring_poolmanager_delete ( RingState *pRingState )
 {
 	if ( pRingState != NULL ) {
-		if ( pRingState->vPoolManager.pBlockStart != NULL ) {
-			pRingState->vPoolManager.aBlocks = ring_list_delete(pRingState->vPoolManager.aBlocks) ;
-			free( pRingState->vPoolManager.pBlockStart ) ;
-			pRingState->vPoolManager.pBlockStart = NULL ;
-			pRingState->vPoolManager.pBlockEnd = NULL ;
-			pRingState->vPoolManager.pCurrentItem = NULL ;
+		if ( pRingState->vPoolManager.lDeleteMemory ) {
+			if ( pRingState->vPoolManager.pBlockStart != NULL ) {
+				pRingState->vPoolManager.aBlocks = ring_list_delete(pRingState->vPoolManager.aBlocks) ;
+				free( pRingState->vPoolManager.pBlockStart ) ;
+				pRingState->vPoolManager.pBlockStart = NULL ;
+				pRingState->vPoolManager.pBlockEnd = NULL ;
+				pRingState->vPoolManager.pCurrentItem = NULL ;
+			}
 		}
 	}
+}
+
+void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCount,RingState *pMainRingState )
+{
+	int x  ;
+	PoolData *pMemory  ;
+	/*
+	**  When we create a new thread - we share the memory pool information 
+	**  So we create the memory pool items in the sub thread using memory pool items from the main thread 
+	**  This avoid problems when memory pool items from different threads are used in shared global lists 
+	**  Set Values in Ring State 
+	**  Set First Item in Ring State 
+	*/
+	pSubRingState->vPoolManager.pCurrentItem = ring_state_calloc(pMainRingState,1,sizeof(PoolData)) ;
+	/* Set Block Start and End */
+	pSubRingState->vPoolManager.pBlockStart = pMainRingState->vPoolManager.pBlockStart ;
+	pSubRingState->vPoolManager.pBlockEnd = pMainRingState->vPoolManager.pBlockEnd ;
+	/* Set Values For Tracking Allocations */
+	pSubRingState->vPoolManager.nAllocCount = 0 ;
+	pSubRingState->vPoolManager.nFreeCount = 0 ;
+	pSubRingState->vPoolManager.nSmallAllocCount = 0 ;
+	pSubRingState->vPoolManager.nSmallFreeCount = 0 ;
+	/* Don't delete the memory because it's owned by the Main Thread */
+	pSubRingState->vPoolManager.lDeleteMemory = 0 ;
+	/* Create the Items */
+	pMemory = pSubRingState->vPoolManager.pCurrentItem ;
+	for ( x = 1 ; x <= nCount-1 ; x++ ) {
+		pMemory->pNext = ring_state_calloc(pMainRingState,1,sizeof(PoolData)) ;
+		pMemory = pMemory->pNext ;
+	}
+	pMemory->pNext = NULL ;
+	pSubRingState->vPoolManager.nItemsInBlock = nCount ;
 }
