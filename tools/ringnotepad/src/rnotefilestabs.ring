@@ -19,7 +19,7 @@ class RNoteFilesTabs
 		filestabs.blocksignals(False)
 
 	func ChangeFileTab
-		CheckSaveBeforeChange()	# To ask to saving a file
+		CheckSaveBeforeChange()	# To ask about saving a file
 		nIndex = filestabs.currentindex() + 1
 		cFile = aFilesLines[nIndex][1]
 		nRow = aFilesLines[nIndex][2]		
