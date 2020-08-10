@@ -391,6 +391,7 @@ More Improvements
 	* ring/samples/Language/HelloWorld folder
 	* ring/samples/Language/ChangeIsNULL folder
 	* ring/samples/Language/Console/customsee.ring 
+	* ring/samples/Language/Numbers/decimalscount.ring
 	* ring/samples/Language/EvalInScope/swap.ring
 	* ring/samples/Language/EvalInScope/global.ring
 	* ring/samples/Language/EvalInScope/enum.ring
