@@ -49,6 +49,8 @@ class RNoteFileMenu
 			cActiveFileName = cName
 			this.aFilesLines[this.cActiveFileName] = 1
 			SetActiveFileName()
+			lAsktoSave = False
+			cTextHash  = sha256(textedit1.toplaintext())
 		catch 
 			msginfo("Sorry","Can't open the file : " + cName)
 		done
