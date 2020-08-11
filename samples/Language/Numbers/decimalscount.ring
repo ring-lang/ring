@@ -1,17 +1,25 @@
-num = 12.203456
+#==============================================================================#
+# Sample: Decimals Count
+# Author: Gal Zsolt & Mansour Ayouni 
+#==============================================================================#
 
-nod = DecimalsCount(num) 
-? "number of decimals = " + nod 
+# Testing the function
+	decimals(2)		# Unsensitive to the default setting of decimals
+	n = 5.1945
+	? NbrOfDecimals(n)	# Gives 4
 
-func DecimalsCount(num)
-	nr  = 1
-	dec = 0
-	while true 
-		nr = nr * 10
-		dec++
-		newNum = num*nr - ceil(num*nr)
-		if newNum = 0
-			return dec 
-			exit
+func NbrOfDecimals(n)
+	nTemp = 1
+	nNbrOfDecimals = 0      
+	while True
+		if nNbrOfDecimals < 9
+			nNbrOfDecimals++
+			nTemp *= 10
+			nTemp1 = n * nTemp - ceil( n * nTemp )
+			if nTemp1 = 0
+				return nNbrOfDecimals
+			ok
+		else
+			raise("Acceeding the maximum number of 9 decimals!")
 		ok
 	end
