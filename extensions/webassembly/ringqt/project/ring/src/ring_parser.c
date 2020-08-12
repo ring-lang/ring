@@ -189,7 +189,7 @@ void ring_parser_error ( Parser *pParser,const char *cStr )
 		if ( strcmp(cStr,"") != 0 ) {
 			printf( "%s",cStr ) ;
 		} else {
-			printf( "Syntax error" ) ;
+			printf( RING_PARSER_ERROR_SYNTAXERROR ) ;
 		}
 		return ;
 	} else if ( strcmp(cStr,"") != 0 ) {
