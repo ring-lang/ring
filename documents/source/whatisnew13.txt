@@ -429,6 +429,7 @@ More Improvements
 * Ring Notepad - Keyboard shortcuts for different styles
 * Ring Notepad - Support saving files in folders contains the dot character
 * Ring Notepad - Browser Window - Set colors based on the current style
+* Ring Notepad - Functions List - Display functions defined using "def" 
 * Ring Notepad - Distribute Menu - Distribute for Web Browser using WebAssembly (RingQt)
 * Form Designer - ToolBox - Larger width in Windows style  
 * Form Designer - ToolBar - New icon for the (Select Objects) button
