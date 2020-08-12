@@ -3,7 +3,14 @@
 # Author: Gal Zsolt & Mansour Ayouni 
 #==============================================================================#
 
-# Testing the function
+# Alert: Somtimes this method will not return the correct output
+#	 This happens because of the environment 
+#	 And is limited by the limits of computer representation of
+#	 floating point numbers
+#	 Example: n = 3.1234567 # *** should be: 7  but delivers: 8
+
+func main
+	# Testing the function
 	decimals(2)		# Unsensitive to the default setting of decimals
 	n = 5.1945
 	? NbrOfDecimals(n)	# Gives 4
