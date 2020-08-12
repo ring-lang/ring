@@ -419,13 +419,17 @@ int ring_parser_stmt ( Parser *pParser )
 		ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 		#else
 		/*
-		**  Generate Code using the See comman instructions 
+		**  Generate Code using the See common instructions 
 		**  Generate Code 
 		*/
 		ring_parser_icg_newoperation(pParser,ICO_FUNCEXE);
 		pParser->nAssignmentFlag = 0 ;
 		x = ring_parser_expr(pParser);
 		pParser->nAssignmentFlag = 1 ;
+		if ( x == 0 ) {
+			ring_parser_error(pParser,RING_PARSER_ERROR_EXPRESSIONISEXPECTED);
+			return 0 ;
+		}
 		/* Generate Code */
 		ring_parser_icg_newoperation(pParser,ICO_PRINT);
 		/* Print New Line */
@@ -1529,6 +1533,10 @@ int ring_parser_gencallringvmsee ( Parser *pParser )
 	pParser->nAssignmentFlag = 0 ;
 	x = ring_parser_expr(pParser);
 	pParser->nAssignmentFlag = nFlag ;
+	if ( x == 0 ) {
+		ring_parser_error(pParser,RING_PARSER_ERROR_EXPRESSIONISEXPECTED);
+		return 0 ;
+	}
 	ring_parser_icg_newoperation(pParser,ICO_CALL);
 	ring_parser_icg_newoperandint(pParser,0);
 	ring_parser_icg_newoperation(pParser,ICO_NOOP);
