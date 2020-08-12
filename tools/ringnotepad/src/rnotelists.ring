@@ -25,7 +25,7 @@ class RNoteLists
 		for cLine in aFileContent
 			nLineNumber++
 			cLine = lower(trim(cLine))
-			if substr(cLine,"func ") > 0
+			if ( substr(cLine,"func ") > 0 ) or ( substr(cLine,"def ") > 0 )
 				cLine = substr(cLine,"("," (")
 				aList = Split(cLine," ")
 				if len(aList) >= 2
@@ -34,7 +34,8 @@ class RNoteLists
 					for cChar in ["_","@","$"]
 						cFuncNameWithoutSymbols = substr(cFuncNameWithoutSymbols,cChar,"")
 					next 
-					if isalnum(cFuncNameWithoutSymbols) and lower(trim(aList[1])) = "func"
+					if isalnum(cFuncNameWithoutSymbols) and 
+						( lower(trim(aList[1])) = "func" or lower(trim(aList[1])) = "def" )
 						aFunctionsPos + [cFuncName+"()" , nLineNumber]
 					ok
 				ok
