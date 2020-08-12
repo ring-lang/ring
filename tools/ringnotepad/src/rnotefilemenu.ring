@@ -52,6 +52,7 @@ class RNoteFileMenu
 			SetActiveFileName()
 			lAsktoSave = False
 			cTextHash  = sha256(textedit1.toplaintext())
+			DisplayFunctionsAndClasses()
 		catch 
 			msginfo("Sorry","Can't open the file : " + cName)
 		done

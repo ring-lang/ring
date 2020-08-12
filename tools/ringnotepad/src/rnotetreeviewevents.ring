@@ -54,10 +54,7 @@ class RNoteTreeViewEvents
 		AutoComplete()
 		lAsktoSave = False
 		cTextHash  = sha256(textedit1.toplaintext())
-		oDockFunctionsList.setWindowTitle("Functions (Loading...)")
-		oDockClassesList.setWindowTitle("Classes (Loading...)")
-		DisplayFunctionsList()
-		DisplayClassesList()
+		DisplayFunctionsAndClasses()
 		if lActivateFormDesigner
 			oDockFormDesigner.raise()
 		else 
@@ -65,3 +62,9 @@ class RNoteTreeViewEvents
 			tree1.setFocus(0)
 		ok
 		StatusMessage("Ready!")
+
+	func DisplayFunctionsAndClasses
+		oDockFunctionsList.setWindowTitle("Functions (Loading...)")
+		oDockClassesList.setWindowTitle("Classes (Loading...)")
+		DisplayFunctionsList()
+		DisplayClassesList()
