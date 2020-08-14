@@ -30,15 +30,16 @@ uv_mutex_lock,uv_mutex_unlock,uv_mutex_destroy);
 int uv_checkevent_callback(void *pObject,const char *cEvent)
 {
 	List *pList;
-	int x;
+	int x,t;
 	x=0;
 	ring_vm_mutexlock(pVMLibUV);
-	for(x = 1 ; x <= ring_list_getsize(aCallBack) ; x++)
+	for(t = 1 ; t <= ring_list_getsize(aCallBack) ; t++)
 	{
-		pList = ring_list_getlist(aCallBack,x) ;
+		pList = ring_list_getlist(aCallBack,t) ;
 		if ( ( ring_list_getpointer(pList,1) == pObject ) &&
 		     ( strcmp(ring_list_getstring(pList,2) , cEvent) == 0 ) )
 		{
+			x=t;
 			break;
 		}
 	}
