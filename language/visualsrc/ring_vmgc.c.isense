@@ -19,6 +19,8 @@ RING_POOLMANAGER_ITEMSIZE
 Parent: PoolData
 Type: char
 cChar[RING_POOLMANAGER_ITEMSIZE]
+Parent: PoolDataTypes
+END:
 Type: struct PoolData *
 pNext
 END:
