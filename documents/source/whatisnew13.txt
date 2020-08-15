@@ -469,6 +469,7 @@ More Improvements
 * Ring Compiler - Command: ? <expr> - Clear error message when the expression is missing
 * Ring Compiler - Better Error Messages
 * Ring VM - List() Function - Support List(nRow,nCols) to create 2D lists
+* Ring VM - List() Function - Better Performance 
 * Ring VM - Object File - Save/Restore the files list 
 * Ring VM - ring_vmexpr.c - Better Code - Avoid magic numbers
 * Ring VM - ring_state_filetokens() - Optional parameter for the (Not Case Sensitive) feature.
