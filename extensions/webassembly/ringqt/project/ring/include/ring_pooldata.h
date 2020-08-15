@@ -11,7 +11,15 @@
 #define RING_POOLMANAGER_ITEMSIZE 64
 /* Data */
 typedef struct PoolData {
-	char cChar[RING_POOLMANAGER_ITEMSIZE]  ;
+	union PoolDataTypes {
+		String vString  ;
+		Item vItem  ;
+		Items vItems  ;
+		List vList  ;
+		HashTable vHashTable  ;
+		HashItem vHashItem  ;
+		char cChar[RING_POOLMANAGER_ITEMSIZE]  ;
+	} PoolDataTypes ;
 	struct PoolData *pNext  ;
 } PoolData ;
 typedef struct PoolManager {
