@@ -17,6 +17,7 @@ Ring 1.13 comes with the next features!
 
 * New Book by Apress
 * Ring For WebAssembly
+* Better Threads Support
 * Laser Game
 * Magic Balls Game
 * MoneyBoxes Game
@@ -76,6 +77,19 @@ Ring support distributing applications for WebAssembly (Using Qt for WebAssembly
 
 .. image:: othelloweb.png
 	:alt: Othello Game
+
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Better Threads Support
+
+Better Threads Support
+======================
+
+Ring 1.13 provides better support for threads
+
+(1) Ring VM is updated to use a memory pool for each thread (Faster)
+(2) More tests for RingAllegro threads functions
+(3) RingLibUV is updated to be thread safe when using callback functions
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Laser Game
@@ -281,11 +295,11 @@ The application user interface is updated for better productivity!
 Better RingRayLib
 =================
 
-1- All functions return objects instead of pointers
+(1) All functions return objects instead of pointers
 
-2- Support RayMath libary functions
+(2) Support RayMath libary functions
 
-3- More Samples are ported from RayLib to RingRayLib
+(3) More Samples are ported from RayLib to RingRayLib
 
 * Scissor Test
 * Input Gestures Detection
