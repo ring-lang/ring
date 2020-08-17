@@ -89,8 +89,12 @@ class StackArray
 	func contains item
 		if size() > 0
 			for i = 1 to tail
-			if array[i] = item
-				return True ok next
+				if type(array[i]) = type(item)
+					if isString(array[i]) or isNumber(array[i])
+						if array[i] = item return True ok 
+					ok
+				ok
+			next
 		ok
 		return false
 	# Function to check if the stack is empty
