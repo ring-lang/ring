@@ -11,12 +11,13 @@ if IsMainSourceFile()
 	}
 
 	? queue.print()
-
+	? "Queue size:	" + queue.size()		# get the queue size (number of elements)
 	? "Remove:	" + queue.dequeue()		# remove element from the queue (front)
 	
 	? "First:	" + queue.first()		# get the first element in the queue
 	? "Last: 	" + queue.last()		# get the last element in the queue
-
+	? "Queue size:	" + queue.size()		# get the queue size (number of elements)
+	? "Delete all elements"
 	size = queue.size()
 	for i = 1 to size				# remove all elements from the queue
 		queue.dequeue() next
