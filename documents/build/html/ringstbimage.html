@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; Ring 1.13 documentation</title>
+  <title>RingStbImage Functions Reference &mdash; Ring 1.13 documentation</title>
   
 
   
@@ -21,7 +21,6 @@
   
 
   
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -36,9 +35,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <script type="text/javascript" src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RingOpenGL (OpenGL 3.2) Functions Reference" href="ringopengl32funcsdoc.html" />
+    <link rel="prev" title="RingFreeGLUT Functions Reference" href="ringfreeglutfuncsdoc.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -65,7 +65,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -83,7 +83,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
@@ -163,7 +163,12 @@
 <li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">RingStbImage Functions Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
@@ -238,7 +243,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Search</li>
+      <li>RingStbImage Functions Reference</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -255,23 +260,97 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="ringstbimage-functions-reference">
+<span id="index-0"></span><h1>RingStbImage Functions Reference<a class="headerlink" href="#ringstbimage-functions-reference" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="introduction">
+<h2>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h2>
+<p>In this chapter we have a list of the supported functions by this extension</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Load the library</span>
+        <span class="k">load</span> <span class="s">&quot;stbimage.ring&quot;</span>
+<span class="c"># Image Information</span>
+        <span class="n">width</span><span class="o">=</span><span class="mi">0</span> <span class="n">height</span><span class="o">=</span><span class="mi">0</span> <span class="n">channels</span><span class="o">=</span><span class="mi">0</span>
+<span class="c"># Ring will Free cData automatically in the end of the program</span>
+        <span class="n">cData</span> <span class="o">=</span> <span class="n">stbi_load</span><span class="p">(</span><span class="s">&quot;ring.jpg&quot;</span><span class="p">,:</span><span class="n">width</span><span class="p">,:</span><span class="n">height</span><span class="p">,:</span><span class="n">channels</span><span class="p">,</span><span class="n">STBI_rgb</span><span class="p">)</span>
+<span class="c"># Display the output</span>
+        <span class="o">?</span> <span class="s">&quot;Size (bytes): &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">cData</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s">&quot;Width : &quot;</span> <span class="o">+</span> <span class="n">width</span>
+        <span class="o">?</span> <span class="s">&quot;Height: &quot;</span> <span class="o">+</span> <span class="n">height</span>
+        <span class="o">?</span> <span class="s">&quot;Channels: &quot;</span> <span class="o">+</span> <span class="n">channels</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Size</span> <span class="p">(</span><span class="n">bytes</span><span class="p">):</span> <span class="mi">557371</span>
+<span class="n">Width</span> <span class="p">:</span> <span class="mi">563</span>
+<span class="n">Height</span><span class="p">:</span> <span class="mi">330</span>
+<span class="n">Channels</span><span class="p">:</span> <span class="mi">3</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="constants">
+<h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>STBI_default</p></li>
+<li><p>STBI_grey</p></li>
+<li><p>STBI_grey_alpha</p></li>
+<li><p>STBI_rgb</p></li>
+<li><p>STBI_rgb_alpha</p></li>
+</ul>
+</div>
+<div class="section" id="functions">
+<h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>stbi_uc <a href="#id1"><span class="problematic" id="id2">*</span></a>stbi_load_from_memory(stbi_uc const <a href="#id3"><span class="problematic" id="id4">*</span></a>buffer, int len,int <a href="#id5"><span class="problematic" id="id6">*</span></a>x, int <a href="#id7"><span class="problematic" id="id8">*</span></a>y, int <a href="#id9"><span class="problematic" id="id10">*</span></a>channels_in_file, int desired_channels)</p></li>
+<li><p>stbi_uc <a href="#id11"><span class="problematic" id="id12">*</span></a>stbi_load(char const <a href="#id13"><span class="problematic" id="id14">*</span></a>filename, int <a href="#id15"><span class="problematic" id="id16">*</span></a>x, int <a href="#id17"><span class="problematic" id="id18">*</span></a>y, int <a href="#id19"><span class="problematic" id="id20">*</span></a>channels_in_file, int desired_channels)</p></li>
+<li><p>stbi_uc <a href="#id21"><span class="problematic" id="id22">*</span></a>stbi_load_from_file(FILE <a href="#id23"><span class="problematic" id="id24">*</span></a>f, int <a href="#id25"><span class="problematic" id="id26">*</span></a>x, int <a href="#id27"><span class="problematic" id="id28">*</span></a>y, int <a href="#id29"><span class="problematic" id="id30">*</span></a>channels_in_file, int desired_channels)</p></li>
+<li><p>stbi_us <a href="#id31"><span class="problematic" id="id32">*</span></a>stbi_load_16_from_memory(stbi_uc const <a href="#id33"><span class="problematic" id="id34">*</span></a>buffer, int len, int <a href="#id35"><span class="problematic" id="id36">*</span></a>x, int <a href="#id37"><span class="problematic" id="id38">*</span></a>y, int <a href="#id39"><span class="problematic" id="id40">*</span></a>channels_in_file, int desired_channels)</p></li>
+<li><p>stbi_us <a href="#id41"><span class="problematic" id="id42">*</span></a>stbi_load_16(char const <a href="#id43"><span class="problematic" id="id44">*</span></a>filename, int <a href="#id45"><span class="problematic" id="id46">*</span></a>x, int <a href="#id47"><span class="problematic" id="id48">*</span></a>y, int <a href="#id49"><span class="problematic" id="id50">*</span></a>channels_in_file, int desired_channels)</p></li>
+<li><p>stbi_us <a href="#id51"><span class="problematic" id="id52">*</span></a>stbi_load_from_file_16(FILE <a href="#id53"><span class="problematic" id="id54">*</span></a>f, int <a href="#id55"><span class="problematic" id="id56">*</span></a>x, int <a href="#id57"><span class="problematic" id="id58">*</span></a>y, int <a href="#id59"><span class="problematic" id="id60">*</span></a>channels_in_file, int desired_channels)</p></li>
+<li><p>float <a href="#id61"><span class="problematic" id="id62">*</span></a>stbi_loadf_from_memory(stbi_uc const <a href="#id63"><span class="problematic" id="id64">*</span></a>buffer, int len, int <a href="#id65"><span class="problematic" id="id66">*</span></a>x, int <a href="#id67"><span class="problematic" id="id68">*</span></a>y, int <a href="#id69"><span class="problematic" id="id70">*</span></a>channels_in_file, int desired_channels)</p></li>
+<li><p>float <a href="#id71"><span class="problematic" id="id72">*</span></a>stbi_loadf(char const <a href="#id73"><span class="problematic" id="id74">*</span></a>filename, int <a href="#id75"><span class="problematic" id="id76">*</span></a>x, int <a href="#id77"><span class="problematic" id="id78">*</span></a>y, int <a href="#id79"><span class="problematic" id="id80">*</span></a>channels_in_file, int desired_channels)</p></li>
+<li><p>float <a href="#id81"><span class="problematic" id="id82">*</span></a>stbi_loadf_from_file(FILE <a href="#id83"><span class="problematic" id="id84">*</span></a>f, int <a href="#id85"><span class="problematic" id="id86">*</span></a>x, int <a href="#id87"><span class="problematic" id="id88">*</span></a>y, int <a href="#id89"><span class="problematic" id="id90">*</span></a>channels_in_file, int desired_channels)</p></li>
+<li><p>void stbi_hdr_to_ldr_gamma(float gamma)</p></li>
+<li><p>void stbi_hdr_to_ldr_scale(float scale)</p></li>
+<li><p>void stbi_ldr_to_hdr_gamma(float gamma)</p></li>
+<li><p>void stbi_ldr_to_hdr_scale(float scale)</p></li>
+<li><p>int stbi_is_hdr_from_memory(stbi_uc const <a href="#id91"><span class="problematic" id="id92">*</span></a>buffer, int len)</p></li>
+<li><p>int stbi_is_hdr(char const <a href="#id93"><span class="problematic" id="id94">*</span></a>filename)</p></li>
+<li><p>int stbi_is_hdr_from_file(FILE <a href="#id95"><span class="problematic" id="id96">*</span></a>f)</p></li>
+<li><p>const char <a href="#id97"><span class="problematic" id="id98">*</span></a>stbi_failure_reason(void)</p></li>
+<li><p>int stbi_info_from_memory(stbi_uc const <a href="#id99"><span class="problematic" id="id100">*</span></a>buffer, int len, int <a href="#id101"><span class="problematic" id="id102">*</span></a>x, int <a href="#id103"><span class="problematic" id="id104">*</span></a>y, int <a href="#id105"><span class="problematic" id="id106">*</span></a>comp)</p></li>
+<li><p>int stbi_is_16_bit_from_memory(stbi_uc const <a href="#id107"><span class="problematic" id="id108">*</span></a>buffer, int len)</p></li>
+<li><p>int stbi_info(char const <a href="#id109"><span class="problematic" id="id110">*</span></a>filename,int <a href="#id111"><span class="problematic" id="id112">*</span></a>x,int <a href="#id113"><span class="problematic" id="id114">*</span></a>y,int <a href="#id115"><span class="problematic" id="id116">*</span></a>comp)</p></li>
+<li><p>int stbi_info_from_file(FILE <a href="#id117"><span class="problematic" id="id118">*</span></a>f,int <a href="#id119"><span class="problematic" id="id120">*</span></a>x,int <a href="#id121"><span class="problematic" id="id122">*</span></a>y,int <a href="#id123"><span class="problematic" id="id124">*</span></a>comp)</p></li>
+<li><p>int stbi_is_16_bit(char const <a href="#id125"><span class="problematic" id="id126">*</span></a>filename)</p></li>
+<li><p>int stbi_is_16_bit_from_file(FILE <a href="#id127"><span class="problematic" id="id128">*</span></a>f)</p></li>
+<li><p>void stbi_set_unpremultiply_on_load(int flag_true_if_should_unpremultiply)</p></li>
+<li><p>void stbi_convert_iphone_png_to_rgb(int flag_true_if_should_convert)</p></li>
+<li><p>void stbi_set_flip_vertically_on_load(int flag_true_if_should_flip)</p></li>
+<li><p>void stbi_set_flip_vertically_on_load_thread(int flag_true_if_should_flip)</p></li>
+<li><p>char <a href="#id129"><span class="problematic" id="id130">*</span></a>stbi_zlib_decode_malloc_guesssize(const char <a href="#id131"><span class="problematic" id="id132">*</span></a>buffer, int len, int initial_size, int <a href="#id133"><span class="problematic" id="id134">*</span></a>outlen)</p></li>
+<li><p>char <a href="#id135"><span class="problematic" id="id136">*</span></a>stbi_zlib_decode_malloc_guesssize_headerflag(const char <a href="#id137"><span class="problematic" id="id138">*</span></a>buffer, int len, int initial_size, int <a href="#id139"><span class="problematic" id="id140">*</span></a>outlen, int parse_header)</p></li>
+<li><p>char <a href="#id141"><span class="problematic" id="id142">*</span></a>stbi_zlib_decode_malloc(const char <a href="#id143"><span class="problematic" id="id144">*</span></a>buffer, int len, int <a href="#id145"><span class="problematic" id="id146">*</span></a>outlen)</p></li>
+<li><p>int stbi_zlib_decode_buffer(char <a href="#id147"><span class="problematic" id="id148">*</span></a>obuffer,int olen, const char <a href="#id149"><span class="problematic" id="id150">*</span></a>ibuffer, int ilen)</p></li>
+<li><p>char <a href="#id151"><span class="problematic" id="id152">*</span></a>stbi_zlib_decode_noheader_malloc(const char <a href="#id153"><span class="problematic" id="id154">*</span></a>buffer, int len, int <a href="#id155"><span class="problematic" id="id156">*</span></a>outlen)</p></li>
+<li><p>int stbi_zlib_decode_noheader_buffer(char <a href="#id157"><span class="problematic" id="id158">*</span></a>obuffer, int olen, const char <a href="#id159"><span class="problematic" id="id160">*</span></a>ibuffer, int ilen)</p></li>
+</ul>
+</div>
+</div>
 
-  
-  <div id="search-results">
-  
-  </div>
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="ringopengl32funcsdoc.html" class="btn btn-neutral float-right" title="RingOpenGL (OpenGL 3.2) Functions Reference" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="ringfreeglutfuncsdoc.html" class="btn btn-neutral float-left" title="RingFreeGLUT Functions Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -311,14 +390,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

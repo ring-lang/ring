@@ -1,0 +1,84 @@
+.. index:: 
+     single: RingStbImage Functions Reference; Introduction
+
+================================
+RingStbImage Functions Reference
+================================
+
+Introduction
+============
+
+In this chapter we have a list of the supported functions by this extension 
+
+Example:
+
+.. code-block:: ring
+
+	# Load the library
+		load "stbimage.ring"
+	# Image Information
+		width=0	height=0 channels=0
+	# Ring will Free cData automatically in the end of the program
+		cData = stbi_load("ring.jpg",:width,:height,:channels,STBI_rgb)
+	# Display the output
+		? "Size (bytes): " + len(cData)
+		? "Width : " + width
+		? "Height: " + height
+		? "Channels: " + channels
+
+Output:
+
+.. code-block:: ring
+
+	Size (bytes): 557371
+	Width : 563
+	Height: 330
+	Channels: 3
+
+
+Constants
+=========
+
+* STBI_default
+* STBI_grey
+* STBI_grey_alpha
+* STBI_rgb
+* STBI_rgb_alpha 
+
+Functions
+=========
+
+* stbi_uc *stbi_load_from_memory(stbi_uc const *buffer, int len,int *x, int *y, int *channels_in_file, int desired_channels) 
+* stbi_uc *stbi_load(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels) 
+* stbi_uc *stbi_load_from_file(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels) 
+* stbi_us *stbi_load_16_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *channels_in_file, int desired_channels) 
+* stbi_us *stbi_load_16(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels) 
+* stbi_us *stbi_load_from_file_16(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels) 
+* float *stbi_loadf_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *channels_in_file, int desired_channels) 
+* float *stbi_loadf(char const *filename, int *x, int *y, int *channels_in_file, int desired_channels) 
+* float *stbi_loadf_from_file(FILE *f, int *x, int *y, int *channels_in_file, int desired_channels) 
+* void stbi_hdr_to_ldr_gamma(float gamma) 
+* void stbi_hdr_to_ldr_scale(float scale) 
+* void stbi_ldr_to_hdr_gamma(float gamma) 
+* void stbi_ldr_to_hdr_scale(float scale) 
+* int stbi_is_hdr_from_memory(stbi_uc const *buffer, int len) 
+* int stbi_is_hdr(char const *filename) 
+* int stbi_is_hdr_from_file(FILE *f) 
+* const char *stbi_failure_reason(void) 
+* int stbi_info_from_memory(stbi_uc const *buffer, int len, int *x, int *y, int *comp) 
+* int stbi_is_16_bit_from_memory(stbi_uc const *buffer, int len) 
+* int stbi_info(char const *filename,int *x,int *y,int *comp) 
+* int stbi_info_from_file(FILE *f,int *x,int *y,int *comp) 
+* int stbi_is_16_bit(char const *filename) 
+* int stbi_is_16_bit_from_file(FILE *f) 
+* void stbi_set_unpremultiply_on_load(int flag_true_if_should_unpremultiply) 
+* void stbi_convert_iphone_png_to_rgb(int flag_true_if_should_convert) 
+* void stbi_set_flip_vertically_on_load(int flag_true_if_should_flip) 
+* void stbi_set_flip_vertically_on_load_thread(int flag_true_if_should_flip) 
+* char *stbi_zlib_decode_malloc_guesssize(const char *buffer, int len, int initial_size, int *outlen) 
+* char *stbi_zlib_decode_malloc_guesssize_headerflag(const char *buffer, int len, int initial_size, int *outlen, int parse_header) 
+* char *stbi_zlib_decode_malloc(const char *buffer, int len, int *outlen) 
+* int stbi_zlib_decode_buffer(char *obuffer,int olen, const char *ibuffer, int ilen) 
+* char *stbi_zlib_decode_noheader_malloc(const char *buffer, int len, int *outlen) 
+* int stbi_zlib_decode_noheader_buffer(char *obuffer, int olen, const char *ibuffer, int ilen)
+

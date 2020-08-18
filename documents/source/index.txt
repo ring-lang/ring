@@ -90,6 +90,7 @@ Contents:
    Using Ringlibuv <libuv>
    RingLibuv Functions Reference <ringlibuvfuncsdoc>
    RingFreeGLUT Functions Reference <ringfreeglutfuncsdoc>
+   RingStbImage Functions Reference <ringstbimage>	
    RingOpenGL (OpenGL 3.2) Functions Reference <ringopengl32funcsdoc>
    RingQt Classes and Methods Reference <qtclassesdoc>
    Low Level Functions <lowlevel>
