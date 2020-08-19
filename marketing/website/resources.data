@@ -261,8 +261,14 @@
 	]
 
 	]
-	 ],
-	     ["English Resources",[
+	],
+	["Online Applications (WebAssembly)",[
+				[
+					'<a href="web/formdesigner/project.html" target="_blank">Form Designer</a>'
+				]
+	]
+	],
+	["English Resources",[
 				[
 					'<a href="https://www.apress.com/gp/book/9781484258323" target="_blank">Apress: Beginning Ring Programming</a>'
 				],
