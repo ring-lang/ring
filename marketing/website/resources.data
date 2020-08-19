@@ -264,8 +264,12 @@
 	],
 	["Online Applications (WebAssembly)",[
 				[
-					'<a href="web/formdesigner/project.html" target="_blank">Form Designer</a>'
+					'<a href="web/formdesigner/project.html" target="_blank">The Form Designer</a>'
+				],
+				[
+					'<a href="web/matching/project.html" target="_blank">The Matching Game</a>'
 				]
+
 	]
 	],
 	["English Resources",[
