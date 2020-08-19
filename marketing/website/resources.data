@@ -271,7 +271,11 @@
 				],
 				[
 					'<a href="web/pairs/project.html" target="_blank">The Pairs Game</a>'
+				],
+				[
+					'<a href="web/gameoflife/project.html" target="_blank">Game of Life</a>'
 				]
+
 
 
 	]
