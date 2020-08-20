@@ -414,6 +414,7 @@ More Improvements
 	* ring/samples/Language/VariablePointer/varptr5.ring 
 	* ring/samples/Language/DebugCode folder
 	* ring/samples/Language/ClassMethods folder
+	* ring/samples/Language/Lists/CheckHashTableAttribute.ring
 	* ring/samples/Language/RingFileTokens folder (Ring Compiler - Scanner Output)
 	* ring/samples/ProblemSolving/Fib folder
 	* ring/samples/ProblemSolving/ArrayPathDest/solveArrayPathDest.ring
