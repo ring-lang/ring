@@ -5,9 +5,10 @@
       <div class="panel-heading"><h4>Resources <span class="badge"><%= len(aResources) %></span></h4></div>
       <div class="panel-body">
 
+	    <% nIDNumber = 0 %>
 		<% for aGroup in aResources %>
-
-		<div class="panel panel-primary" id="samples">
+		<% nIDNumber++ %>
+	    <%= '<div class="panel panel-primary" id="section'+nIDNumber+'">'%>
 		      <div class="panel-heading"><%= aGroup[1] %> <span class="badge"><%= len(aGroup[2]) %></span></div>
 		      <div class="panel-body">
 
