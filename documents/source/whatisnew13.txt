@@ -400,6 +400,7 @@ More Improvements
 	* Lottery Game
 	* Nim Game
 	* Eight Queens Game
+	* Typing Quiz
 
 * More Samples
 	* ring/samples/Language/HelloWorld folder
