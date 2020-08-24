@@ -213,6 +213,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lAddSubListsByMove = 0 ;
 	/* Add Sub Lists to Lists by Fast Copy */
 	pVM->lAddSubListsByFastCopy = 0 ;
+	/* A flag to stop/continue the execution of this thread (Stop/Continue the VM instructions exection) */
+	pVM->lStopThisThread = 0 ;
 	ring_state_log(pRingState,"function: ring_vm_new - end");
 	return pVM ;
 }
@@ -314,6 +316,7 @@ void ring_vm_mainloop ( VM *pVM )
 	if ( pVM->pRingState->nPrintInstruction ) {
 		do {
 			ring_vm_fetch2(pVM);
+			while(pVM->lStopThisThread) ; ;
 		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	}
 	else {
@@ -324,6 +327,7 @@ void ring_vm_mainloop ( VM *pVM )
 	#else
 	do {
 		ring_vm_fetch(pVM);
+		while(pVM->lStopThisThread) ; ;
 	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	#endif
 }
