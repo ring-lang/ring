@@ -206,6 +206,8 @@ Type: char
 lAddSubListsByMove
 Type: char
 lAddSubListsByFastCopy
+Type: char
+lStopThisThread
 END:
 Type: VM
 struct VM
