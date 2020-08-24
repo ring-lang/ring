@@ -1361,6 +1361,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pFuncMutexDestroy = pVM->pFuncMutexDestroy ;
 	pState->pVM->pFuncMutexLock = pVM->pFuncMutexLock ;
 	pState->pVM->pFuncMutexUnlock = pVM->pFuncMutexUnlock ;
+	pVM->lStopThisThread = 1 ;
 	/* Share the global scope between threads */
 	pItem = pState->pVM->pMem->pFirst->pValue ;
 	pState->pVM->pMem->pFirst->pValue = pVM->pMem->pFirst->pValue ;
@@ -1401,12 +1402,15 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_vm_loadcode(pState->pVM);
 	/* Avoid the call to the main function */
 	pState->pVM->nCallMainFunction = 1 ;
+	pVM->lStopThisThread = 0 ;
 	ring_vm_mutexunlock(pVM);
 	/* Run the code */
 	ring_state_runcode(pState,cStr);
 	/* Return Memory Pool Items to the Main Thread */
 	ring_vm_mutexlock(pVM);
+	pVM->lStopThisThread = 1 ;
 	ring_poolmanager_deleteblockfromsubthread(pState,pVM->pRingState);
+	pVM->lStopThisThread = 0 ;
 	ring_vm_mutexunlock(pVM);
 	/* Delete Code List */
 	ring_list_delete_gc(pState,pState->pVM->pCode);
