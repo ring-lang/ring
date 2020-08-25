@@ -276,10 +276,10 @@
 					'<a href="web/othello/project.html" target="_blank">The Othello Game</a>'
 				],
 				[
-					'<a href="web/gameoflife/project.html" target="_blank">Game of Life</a>'
+					'<a href="web/word/project.html" target="_blank">The Word Game</a>'
 				],
 				[
-					'<a href="web/word/project.html" target="_blank">The Word Game</a>'
+					'<a href="web/gameoflife/project.html" target="_blank">The Game of Life</a>'
 				]
 	]
 	],
