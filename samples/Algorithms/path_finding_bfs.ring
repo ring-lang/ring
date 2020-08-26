@@ -5,8 +5,7 @@
 
 Load "stdlib.ring"
 
-# Please download this file from ring data structures samples
-load "queue_array.ring"
+load "../DataStructure/queue_array.ring"
 load "raylib.ring"
 
 # Raylib window properties
