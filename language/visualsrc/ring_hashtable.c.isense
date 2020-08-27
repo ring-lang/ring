@@ -48,6 +48,9 @@ pHashTable
 ring_hashtable_hashkey
 Type: unsigned int
 nIndex
+ring_hashtable_hashkey
+Type: unsigned int
+nIndex
 ring_hashtable_newitem_gc
 Type: unsigned int
 nIndex
