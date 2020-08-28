@@ -1444,6 +1444,16 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Delete the RingState */
 	ring_state_delete(pState);
 }
+
+RING_API void ring_vm_beforestartingnewthread ( VM *pVM )
+{
+	pVM->lStopThisThread = 1 ;
+}
+
+RING_API void ring_vm_afterstartingnewthread ( VM *pVM )
+{
+	while(pVM->lStopThisThread) ; ;
+}
 /* Fast Function Call for Extensions (Without Eval) */
 
 RING_API void ring_vm_callfunction ( VM *pVM,char *cFuncName )
