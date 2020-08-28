@@ -1505,8 +1505,57 @@ uv_cond_t
 uv_barrier_t
 </struct>
 
+<register>
 int uv_thread_create(uv_thread_t* tid, uv_thread_cb entry, void* arg)
 int uv_thread_create@2(uv_thread_t* tid, uv_thread_cb entry, void* arg)
+</register>
+<code>
+RING_FUNC(ring_uv_thread_create)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ring_vm_beforestartingnewthread(((VM *) pPointer));
+	RING_API_RETNUMBER(uv_thread_create((uv_thread_t *) RING_API_GETCPOINTER(1,"uv_thread_t"),RING_API_GETCPOINTER(2,"uv_thread_cb"),(void *) RING_API_GETCPOINTER(3,"void")));
+	ring_vm_afterstartingnewthread(((VM *) pPointer));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uv_thread_cb"));
+}
+
+
+RING_FUNC(ring_uv_thread_create_2)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	ring_vm_beforestartingnewthread(((VM *) pPointer));
+	RING_API_RETNUMBER(uv_thread_create((uv_thread_t *) RING_API_GETCPOINTER(1,"uv_thread_t"),RING_API_GETCPOINTER(2,"uv_thread_cb"),(void *) RING_API_GETCPOINTER(3,"void")));
+	ring_vm_afterstartingnewthread(((VM *) pPointer));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uv_thread_cb"));
+}
+</code>
+
 uv_thread_t uv_thread_self(void)
 int uv_thread_join(uv_thread_t *tid)
 int uv_thread_equal(const uv_thread_t* t1, const uv_thread_t* t2)
