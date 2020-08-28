@@ -507,6 +507,8 @@ Type: Item *
 pItem
 Type: unsigned int
 nMemoryBlocksCount, x
+ring_vm_beforestartingnewthread
+ring_vm_afterstartingnewthread
 ring_vm_callfunction
 ring_vm_traceevent
 Type: List *
