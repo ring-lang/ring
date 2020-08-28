@@ -536,10 +536,6 @@ RING_API void ring_vm_mutexunlock ( VM *pVM ) ;
 RING_API void ring_vm_mutexdestroy ( VM *pVM ) ;
 
 RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr ) ;
-
-RING_API void ring_vm_beforestartingnewthread ( VM *pVM ) ;
-
-RING_API void ring_vm_afterstartingnewthread ( VM *pVM ) ;
 /* Trace */
 
 void ring_vm_traceevent ( VM *pVM,char nEvent ) ;
