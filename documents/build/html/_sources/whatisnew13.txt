@@ -401,6 +401,7 @@ More Improvements
 	* Nim Game
 	* Eight Queens Game
 	* Typing Quiz
+	* Pong 2 Game
 
 * More Samples
 	* ring/samples/Language/HelloWorld folder
