@@ -322,6 +322,7 @@ void ring_vm_mainloop ( VM *pVM )
 	else {
 		do {
 			ring_vm_fetch(pVM);
+			while(pVM->lStopThisThread) ; ;
 		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	}
 	#else
