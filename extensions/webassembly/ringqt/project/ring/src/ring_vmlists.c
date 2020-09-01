@@ -77,7 +77,7 @@ void ring_vm_listitem ( VM *pVM )
 {
 	String *cStr1  ;
 	double nNum1  ;
-	List *pList,*pList2,*pList3  ;
+	List *pList,*pList2,*pList3,*pList4  ;
 	Item *pItem  ;
 	pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
 	if ( RING_VM_STACK_ISSTRING ) {
@@ -92,20 +92,25 @@ void ring_vm_listitem ( VM *pVM )
 		ring_list_adddouble_gc(pVM->pRingState,pList, nNum1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
+		/* We use a Temp. list (pList4) to support adding the list to itself by value */
+		pList4 = ring_list_new_gc(pVM->pRingState,0);
 		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 			pList2 = (List *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
 			pList2 = ring_list_getlist(pList2,RING_VAR_VALUE);
 			pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
-			ring_vm_list_copy(pVM,pList3,pList2);
+			ring_vm_list_copy(pVM,pList4,pList2);
+			ring_vm_list_copy(pVM,pList3,pList4);
 		}
 		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
 			pList2 = ring_item_getlist(pItem);
 			pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
-			ring_vm_list_copy(pVM,pList3,pList2);
+			ring_vm_list_copy(pVM,pList4,pList2);
+			ring_vm_list_copy(pVM,pList3,pList4);
 		}
+		ring_list_delete_gc(pVM->pRingState,pList4);
 	}
 }
 
