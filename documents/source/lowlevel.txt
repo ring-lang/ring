@@ -433,6 +433,11 @@ Syntax:
 
 	pointer2string(pointer,nStart,nCount) ---> cString
 
+
+.. note:: pointer2String() return another copy of the data 
+
+.. note:: if nStart is Zero, this means starting from the first character 
+
 Example:
 
 .. code-block:: ring
