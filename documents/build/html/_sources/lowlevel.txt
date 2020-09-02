@@ -189,6 +189,9 @@ Syntax:
 
 	object2pointer(List|Object) --> Low Level Object ( C Pointer )
 
+.. note:: You have to be sure that the Pointer still valid (Doesn't point to deallocated memory)
+
+
 .. index:: 
 	pair: Low Level Functions; pointer2object()
 
@@ -202,6 +205,9 @@ Syntax:
 .. code-block:: ring
 
 	pointer2object(Low Level Object) ---> List|Object
+
+
+.. note:: You have to be sure that the Pointer still valid (Doesn't point to deallocated memory)
 
 
 Example:
@@ -245,6 +251,26 @@ Output:
 .. tip:: The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
          to create a reference for the parent node (object) in the child node (another object).
 
+
+The functions Object2Pointer() and Pointer2Object() are low level functions 
+
+We have to be careful when using them to avoid memory problems
+
+If we created a Pointer to a (Local Variable) 
+
+This local variable will be deleted from the memory after the end of the function/method execution
+
+This means that the pointer created with Object2Pointer() will becomes a dangling pointer 
+
+i.e. A pointer that points to the memory location of the deallocated memory
+
+Using this invalid pointer could lead to (CRASH or Memory Corruption).
+
+If you will use pointers (Using Object2Pointer() or Pointer2Object) then never use pointers that point to the memory that are deallocated.
+
+In simple words, Keep the memory (Don't delete it if you still need it)
+
+i.e. instead of using (Local Variables) that will be deleted, You can use Class Attributes or Global Variables.
 
 .. index:: 
 	pair: Low Level Functions; ispointer()

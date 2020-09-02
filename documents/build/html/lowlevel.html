@@ -447,6 +447,10 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">object2pointer</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You have to be sure that the Pointer still valid (Doesn’t point to deallocated memory)</p>
+</div>
 </div>
 <div class="section" id="pointer2object-function">
 <span id="index-6"></span><h2>pointer2object() function<a class="headerlink" href="#pointer2object-function" title="Permalink to this headline">¶</a></h2>
@@ -454,6 +458,10 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span><span class="o">|</span><span class="n">Object</span>
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>You have to be sure that the Pointer still valid (Doesn’t point to deallocated memory)</p>
 </div>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Create the list</span>
@@ -496,6 +504,16 @@ Just use the object2pointer() and pointer2object() functions.</p>
 <p>The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
 to create a reference for the parent node (object) in the child node (another object).</p>
 </div>
+<p>The functions Object2Pointer() and Pointer2Object() are low level functions</p>
+<p>We have to be careful when using them to avoid memory problems</p>
+<p>If we created a Pointer to a (Local Variable)</p>
+<p>This local variable will be deleted from the memory after the end of the function/method execution</p>
+<p>This means that the pointer created with Object2Pointer() will becomes a dangling pointer</p>
+<p>i.e. A pointer that points to the memory location of the deallocated memory</p>
+<p>Using this invalid pointer could lead to (CRASH or Memory Corruption).</p>
+<p>If you will use pointers (Using Object2Pointer() or Pointer2Object) then never use pointers that point to the memory that are deallocated.</p>
+<p>In simple words, Keep the memory (Don’t delete it if you still need it)</p>
+<p>i.e. instead of using (Local Variables) that will be deleted, You can use Class Attributes or Global Variables.</p>
 </div>
 <div class="section" id="ispointer-function">
 <span id="index-7"></span><h2>ispointer() function<a class="headerlink" href="#ispointer-function" title="Permalink to this headline">¶</a></h2>
