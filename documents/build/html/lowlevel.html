@@ -163,6 +163,7 @@
 <li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Low Level Functions</a><ul>
@@ -402,6 +403,18 @@ char
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>You may need the space() and VarPtr() functions to pass buffers to C functions.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>To free the memory allocated using the space() function, use the Assignment operator</p>
+</div>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mystring</span> <span class="o">=</span> <span class="n">space</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>  <span class="c"># Allocate memory (1000 bytes)</span>
+<span class="n">mystring</span> <span class="o">=</span> <span class="kp">NULL</span>         <span class="c"># Free memory stored in mystring</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We don’t need to free the memory if it’s a local variable that will be deleted after the function execution.</p>
 </div>
 </div>
 <div class="section" id="nullpointer-function">

@@ -139,6 +139,15 @@ Output:
 
 .. note:: You may need the space() and VarPtr() functions to pass buffers to C functions.
 
+.. tip:: To free the memory allocated using the space() function, use the Assignment operator
+
+.. code-block:: ring
+
+	mystring = space(1000)	# Allocate memory (1000 bytes)
+	mystring = NULL 	# Free memory stored in mystring
+
+.. note:: We don't need to free the memory if it's a local variable that will be deleted after the function execution.
+
 .. index:: 
 	pair: Low Level Functions; nullpointer()
 
