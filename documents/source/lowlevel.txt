@@ -353,6 +353,9 @@ Syntax:
 
 	setpointer(pointer,nNewAddress)
 
+.. note:: Using setPointer() and getPointer() functions we can change the Memory Address 
+
+
 .. index:: 
 	pair: Low Level Functions; getpointer()
 
