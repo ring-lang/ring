@@ -18,6 +18,7 @@ In this chapter we will learn about the low level functions provided by Ring
 * setpointer()
 * getpointer()
 * pointer2string()
+* memcpy()
 * ringvm_cfunctionslist() 
 * ringvm_functionslist() 
 * ringvm_classeslist() 
@@ -470,6 +471,41 @@ Output:
 	ring
 	Get 2 bytes starting from the pointer address + 1
 	in
+
+.. index:: 
+	pair: Low Level Functions; memcpy()
+
+memcpy() function
+=================
+
+Syntax:
+
+.. code-block:: ring
+
+	memcpy(pDestinationPointer,cSourceString,nSize)
+
+Example:
+
+.. code-block:: ring
+
+	str = space(9)
+	pointer = varptr(:str,"char")
+	memcpy(pointer,"one",3)
+	? str
+	setPointer(pointer,getPointer(pointer)+3)
+	memcpy(pointer,"one",3)
+	? str
+	setPointer(pointer,getPointer(pointer)+3)
+	memcpy(pointer,"one",3)
+	? str
+
+Output:
+
+.. code-block:: ring
+
+	one
+	oneone
+	oneoneone
 
 .. index:: 
 	pair: Low Level Functions; RingVM_CFunctionsList()
