@@ -366,7 +366,7 @@ For more information see the Low Level Functions chapter in the documentation
 	setpointer(pointer,nNewAddress)
 	getpointer(pointer) ---> nAddress
 	pointer2string(pointer,nStart,nCount) ---> cString
-	memcpy(cDestination,cSource,nSize)
+	memcpy(pDestinationPointer,cSourceString,nSize)
 
 .. index:: 
 	pair: What is new in Ring 1.13?; Better Organization
