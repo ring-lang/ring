@@ -396,6 +396,15 @@ pList
 ring_vmlib_getpointer
 Type: List *
 pList
+ring_vmlib_memcpy
+Type: void *
+dest
+Type: const void *
+src
+Type: size_t
+num
+Type: List *
+pList
 ring_vmlib_state_init
 Type: RingState *
 pState
