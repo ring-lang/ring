@@ -210,6 +210,8 @@ void ring_vmlib_pointer2string ( void *pPointer ) ;
 void ring_vmlib_setpointer ( void *pPointer ) ;
 
 void ring_vmlib_getpointer ( void *pPointer ) ;
+
+void ring_vmlib_memcpy ( void *pPointer ) ;
 /* Ring State */
 
 void ring_vmlib_state_init ( void *pPointer ) ;

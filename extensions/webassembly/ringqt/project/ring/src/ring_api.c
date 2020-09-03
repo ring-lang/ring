@@ -98,6 +98,7 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("pointer2string",ring_vmlib_pointer2string);
 	ring_vm_funcregister("setpointer",ring_vmlib_setpointer);
 	ring_vm_funcregister("getpointer",ring_vmlib_getpointer);
+	ring_vm_funcregister("memcpy",ring_vmlib_memcpy);
 	/* Ring State */
 	ring_vm_funcregister("ring_state_init",ring_vmlib_state_init);
 	ring_vm_funcregister("ring_state_runcode",ring_vmlib_state_runcode);
@@ -2087,6 +2088,41 @@ void ring_vmlib_getpointer ( void *pPointer )
 	}
 	pList = RING_API_GETLIST(1) ;
 	RING_API_RETNUMBER((size_t) ring_list_getpointer(pList,RING_CPOINTER_POINTER));
+}
+
+void ring_vmlib_memcpy ( void *pPointer )
+{
+	void *dest  ;
+	const void *src  ;
+	size_t num  ;
+	List *pList  ;
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ( ! ( RING_API_ISCPOINTER(1) || RING_API_ISSTRING(1)) ) || ( ! ( RING_API_ISCPOINTER(2) || RING_API_ISSTRING(2)) ) || ( ! RING_API_ISNUMBER(3)) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	/* Get Parameters */
+	if ( RING_API_ISSTRING(1) ) {
+		dest = (void *) RING_API_GETSTRING(1) ;
+	}
+	if ( RING_API_ISCPOINTER(1) ) {
+		pList = RING_API_GETLIST(1) ;
+		dest = (void *) ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
+	}
+	if ( RING_API_ISSTRING(2) ) {
+		src = (const void *) RING_API_GETSTRING(2) ;
+	}
+	if ( RING_API_ISCPOINTER(2) ) {
+		pList = RING_API_GETLIST(2) ;
+		src = (const void *) ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
+	}
+	num = (size_t) RING_API_GETNUMBER(3) ;
+	/* Call Function */
+	memcpy(dest,src,num);
 }
 /* Ring State */
 
