@@ -79,7 +79,7 @@ Keywords Count : 49
 Language Functions
 ==================
 
-Functions Count : 218
+Functions Count : 228
 
 .. code-block:: ring
 
@@ -100,6 +100,7 @@ Functions Count : 218
 	bytes2double()
 	bytes2float()
 	bytes2int()
+	callgarbagecollector()
 	callgc()
 	ceil()
 	cfunctions()
@@ -153,6 +154,7 @@ Functions Count : 218
 	getattribute()
 	getchar()
 	getpointer()
+	getptr()
 	globals()
 	hex()
 	hex2str()
@@ -208,13 +210,16 @@ Functions Count : 218
 	lower()
 	max()
 	memcpy()
+	memorycopy()
 	mergemethods()
 	methods()
 	min()
 	murmur3hash()
 	newlist()
 	nullpointer()
+	nullptr()
 	number()
+	obj2ptr()
 	object2pointer()
 	objectid()
 	packageclasses()
@@ -223,8 +228,11 @@ Functions Count : 218
 	perror()
 	pointer2object()
 	pointer2string()
+	pointercompare()
 	pow()
 	prevfilename()
+	ptr2obj()
+	ptr2str()
 	ptrcmp()
 	raise()
 	random()
@@ -270,6 +278,7 @@ Functions Count : 218
 	ringvm_tracefunc()
 	setattribute()
 	setpointer()
+	setptr()
 	shutdown()
 	sin()
 	sinh()
@@ -297,11 +306,12 @@ Functions Count : 218
 	ungetc()
 	unsigned()
 	upper()
+	variablepointer()
 	varptr()
 	version()
 	windowsnl()
 	write()
-
+	
 .. index:: 
 	pair: Language Specification; Compiler Errors
 
