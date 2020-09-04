@@ -628,5 +628,5 @@ Each package is defined using a list that determine
 
 We can register new packages by updating the registry file then sending a Pull Request
 
-URL : https://github.com/ring-lang/ring/blob/master/ringpm/registry/registry.ring
+URL : https://github.com/ring-lang/ring/blob/master/tools/ringpm/registry/registry.ring
 
