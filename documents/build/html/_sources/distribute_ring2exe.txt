@@ -598,10 +598,10 @@ So Ring2EXE can use the updated version if you tried the previous command again!
 
 * Ring2EXE is written in Ring, and you can read the source code from
 
-	https://github.com/ring-lang/ring/blob/master/ring2exe/ring2exe.ring
+	https://github.com/ring-lang/ring/blob/master/tools/ring2exe/ring2exe.ring
 
 * The libraries information are stored in a separated files, So these files can be updated in the future
 automatically to support new libraries
 
-	https://github.com/ring-lang/ring/blob/master/ring2exe/libs
+	https://github.com/ring-lang/ring/blob/master/tools/ring2exe/libs
 
