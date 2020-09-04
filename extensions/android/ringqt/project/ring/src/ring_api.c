@@ -99,6 +99,16 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("setpointer",ring_vmlib_setpointer);
 	ring_vm_funcregister("getpointer",ring_vmlib_getpointer);
 	ring_vm_funcregister("memcpy",ring_vmlib_memcpy);
+	ring_vm_funcregister("callgarbagecollector",ring_vmlib_callgc);
+	ring_vm_funcregister("variablepointer",ring_vmlib_varptr);
+	ring_vm_funcregister("obj2ptr",ring_vmlib_object2pointer);
+	ring_vm_funcregister("ptr2obj",ring_vmlib_pointer2object);
+	ring_vm_funcregister("nullptr",ring_vmlib_nullpointer);
+	ring_vm_funcregister("pointercompare",ring_vmlib_ptrcmp);
+	ring_vm_funcregister("ptr2str",ring_vmlib_pointer2string);
+	ring_vm_funcregister("setptr",ring_vmlib_setpointer);
+	ring_vm_funcregister("getptr",ring_vmlib_getpointer);
+	ring_vm_funcregister("memorycopy",ring_vmlib_memcpy);
 	/* Ring State */
 	ring_vm_funcregister("ring_state_init",ring_vmlib_state_init);
 	ring_vm_funcregister("ring_state_runcode",ring_vmlib_state_runcode);
