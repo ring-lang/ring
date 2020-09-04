@@ -412,7 +412,7 @@ the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring languag
 itself. Ring is ready for use in production and increase the developers productivity. 
 
 Check the Form Designer source code : 
-https://github.com/ring-lang/ring/tree/master/applications/formdesigner
+https://github.com/ring-lang/ring/tree/master/tools/formdesigner
 
 .. image:: ringformdesigner.png
 	:alt: Ring Form Designer
