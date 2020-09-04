@@ -158,9 +158,9 @@ Also the form designer is updated to provide us the choice between using classes
 
 Example  (Uses the Form Designer)
 
-(1) https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/indexstart/indexstartView.ring
+(1) https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartView.ring
 
-(2) https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/indexstart/indexstartController.ring 
+(2) https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartController.ring 
 
 
 .. index:: 

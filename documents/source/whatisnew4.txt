@@ -436,9 +436,9 @@ Qt Class Convertor
 
 Ring 1.4 comes with a simple tool that help in porting Qt classes to RingQt.
 
-You will find it in ring/samples/tools/QtClassConverter
+You will find it in ring/extensions/ringqt/converter
 
-Online : https://github.com/ring-lang/ring/tree/master/samples/tools/QtClassConverter
+Online : https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter
 
 Screen Shot: 
 
