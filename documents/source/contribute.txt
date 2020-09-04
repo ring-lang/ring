@@ -54,7 +54,7 @@ Testing
 
 You can write new tests in this folder 
 
-https://github.com/ring-lang/ring/tree/master/tests/scripts
+https://github.com/ring-lang/ring/tree/master/language/tests/scripts
 
 
 .. index:: 
@@ -65,7 +65,7 @@ Samples
 
 You can add new samples to this folder
 
-https://github.com/ring-lang/ring/tree/master/samples/other
+https://github.com/ring-lang/ring/tree/master/samples
 
 .. index:: 
 	pair: How to contribute?; Applications
@@ -97,7 +97,7 @@ Libraries in Ring
 
 You can update and add libraries to this folder
 
-https://github.com/ring-lang/ring/tree/master/ringlibs
+https://github.com/ring-lang/ring/tree/master/libraries
 
 .. index:: 
 	pair: How to contribute?; Extensions in C/C++
