@@ -2176,7 +2176,7 @@ For example, We added
 
 To the batch file to support Windows XP
 
-See : https://github.com/ring-lang/ring/blob/master/src/buildvccomplete.bat
+See : https://github.com/ring-lang/ring/blob/master/language/src/buildvc.bat
 
 
 .. index:: 
@@ -2460,4 +2460,4 @@ Which of 3 coding styles are commonly used or recommended by the community?
 
 (4) The Third style is better(IMHO) for large applications and mainstream programmers
 
-	Example (Form Designer) : https://github.com/ring-lang/ring/tree/master/applications/formdesigner
+	Example (Form Designer) : https://github.com/ring-lang/ring/tree/master/tools/formdesigner
