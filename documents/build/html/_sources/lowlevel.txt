@@ -7,43 +7,52 @@ Low Level Functions
 
 In this chapter we will learn about the low level functions provided by Ring
 
-* callgc()
-* varptr()
-* space()
-* nullpointer()
-* object2pointer()
-* pointer2object()
-* ispointer()
-* ptrcmp()
-* setpointer()
-* getpointer()
-* pointer2string()
-* memcpy()
-* ringvm_cfunctionslist() 
-* ringvm_functionslist() 
-* ringvm_classeslist() 
-* ringvm_packageslist() 
-* ringvm_memorylist() 
-* ringvm_calllist() 
-* ringvm_fileslist()
-* ringvm_settrace()
-* ringvm_tracedata()
-* ringvm_traceevent()
-* ringvm_tracefunc()
-* ringvm_scopescount()
-* ringvm_evalinscope() 
-* ringvm_passerror()
-* ringvm_hideerrorMsg()
-* ringvm_callfunc()
-* ringvm_see()
-* ringvm_give()
-* ringvm_info()
+.. code-block:: none
+
+	* callgarbagecollector()| callgc()
+	* variablepointer()	| varptr()
+	* space()
+	* nullpointer()		| nullptr()
+	* object2pointer()	| obj2ptr()
+	* pointer2object()	| ptr2obj()
+	* ispointer()		| isptr()
+	* pointercompare()	| ptrcmp()
+	* setpointer()		| setptr()
+	* getpointer()		| getptr()
+	* pointer2string()	| ptr2str()
+	* memorycopy()		| memcpy()
+	* ringvm_cfunctionslist() 
+	* ringvm_functionslist() 
+	* ringvm_classeslist() 
+	* ringvm_packageslist() 
+	* ringvm_memorylist() 
+	* ringvm_calllist() 
+	* ringvm_fileslist()
+	* ringvm_settrace()
+	* ringvm_tracedata()
+	* ringvm_traceevent()
+	* ringvm_tracefunc()
+	* ringvm_scopescount()
+	* ringvm_evalinscope() 
+	* ringvm_passerror()
+	* ringvm_hideerrorMsg()
+	* ringvm_callfunc()
+	* ringvm_see()
+	* ringvm_give()
+	* ringvm_info()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
 
 callgc() function
 =================
+
+Syntax:
+
+.. code-block:: ring
+
+	callgc()			# Short name
+	callgarbagecollector()		# Long name
 
 Use this function to force calling the garbage collector during function execution when you
 use a loop that create temp. variables that you don't free using the assignment operation.
@@ -77,7 +86,11 @@ Use the varptr() function when you need to pass a pointer to a C/C++ function.
 
 Syntax:
 
+.. code-block:: ring
+
 	varptr(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
+	variablepointer(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
+
 
 example:
 
@@ -155,6 +168,13 @@ Output:
 nullpointer() function
 ======================
 
+Syntax:
+
+.. code-block:: ring
+
+	nullptr()		# Short name
+	nullpointer()		# Long name
+
 You may need to pass the NULL pointer to a C function that may expect a pointer as parameter
 and accept NULL pointers for optional parameters.
 
@@ -188,7 +208,8 @@ Syntax:
 
 .. code-block:: ring
 
-	object2pointer(List|Object) --> Low Level Object ( C Pointer )
+	obj2ptr(List|Object) --> Low Level Object ( C Pointer )		# Short name
+	object2pointer(List|Object) --> Low Level Object ( C Pointer )	# Long name
 
 .. note:: You have to be sure that the Pointer still valid (Doesn't point to deallocated memory)
 
@@ -205,7 +226,8 @@ Syntax:
 
 .. code-block:: ring
 
-	pointer2object(Low Level Object) ---> List|Object
+	ptr2obj(Low Level Object) ---> List|Object		# Short name
+	pointer2object(Low Level Object) ---> List|Object	# Long name	
 
 
 .. note:: You have to be sure that the Pointer still valid (Doesn't point to deallocated memory)
@@ -285,7 +307,8 @@ Syntax:
 
 .. code-block:: none
 
-	IsPointer(vPara) ---> True|False
+	IsPtr(vPara) ---> True|False		# Short name
+	IsPointer(vPara) ---> True|False	# Long name	
 
 Example :
 
@@ -318,6 +341,9 @@ Syntax:
 
 	ptrcmp(oObject1,oObject2) ---> value = 1 if oObject1 = oObject2
 				       value = 0 if oObject1 != oObject2
+	pointercompare(oObject1,oObject2) ---> value = 1 if oObject1 = oObject2
+					       value = 0 if oObject1 != oObject2
+
 
 Example:
 
@@ -352,7 +378,8 @@ Syntax:
 
 .. code-block:: ring
 
-	setpointer(pointer,nNewAddress)
+	setptr(pointer,nNewAddress)		# Short name
+	setpointer(pointer,nNewAddress)		# Long name
 
 .. note:: Using setPointer() and getPointer() functions we can change the Memory Address 
 
@@ -369,7 +396,8 @@ Syntax:
 
 .. code-block:: ring
 
-	getpointer(pointer) ---> nAddress
+	getptr(pointer) ---> nAddress		# Short name
+	getpointer(pointer) ---> nAddress	# Long name
 
 Example:
 
@@ -432,7 +460,8 @@ Syntax:
 
 .. code-block:: ring
 
-	pointer2string(pointer,nStart,nCount) ---> cString
+	ptr2str(pointer,nStart,nCount) ---> cString		# Short name
+	pointer2string(pointer,nStart,nCount) ---> cString	# Long name	
 
 
 .. note:: pointer2String() return another copy of the data 
@@ -482,7 +511,8 @@ Syntax:
 
 .. code-block:: ring
 
-	memcpy(pDestinationPointer,cSourceString,nSize)
+	memcpy(pDestinationPointer,cSourceString,nSize)		# Short name
+	memorycopy(pDestinationPointer,cSourceString,nSize)	# Long name
 
 Example:
 

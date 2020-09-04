@@ -293,41 +293,46 @@
   <div class="section" id="low-level-functions">
 <span id="index-0"></span><h1>Low Level Functions<a class="headerlink" href="#low-level-functions" title="Permalink to this headline">¶</a></h1>
 <p>In this chapter we will learn about the low level functions provided by Ring</p>
-<ul class="simple">
-<li><p>callgc()</p></li>
-<li><p>varptr()</p></li>
-<li><p>space()</p></li>
-<li><p>nullpointer()</p></li>
-<li><p>object2pointer()</p></li>
-<li><p>pointer2object()</p></li>
-<li><p>ispointer()</p></li>
-<li><p>ptrcmp()</p></li>
-<li><p>setpointer()</p></li>
-<li><p>getpointer()</p></li>
-<li><p>pointer2string()</p></li>
-<li><p>memcpy()</p></li>
-<li><p>ringvm_cfunctionslist()</p></li>
-<li><p>ringvm_functionslist()</p></li>
-<li><p>ringvm_classeslist()</p></li>
-<li><p>ringvm_packageslist()</p></li>
-<li><p>ringvm_memorylist()</p></li>
-<li><p>ringvm_calllist()</p></li>
-<li><p>ringvm_fileslist()</p></li>
-<li><p>ringvm_settrace()</p></li>
-<li><p>ringvm_tracedata()</p></li>
-<li><p>ringvm_traceevent()</p></li>
-<li><p>ringvm_tracefunc()</p></li>
-<li><p>ringvm_scopescount()</p></li>
-<li><p>ringvm_evalinscope()</p></li>
-<li><p>ringvm_passerror()</p></li>
-<li><p>ringvm_hideerrorMsg()</p></li>
-<li><p>ringvm_callfunc()</p></li>
-<li><p>ringvm_see()</p></li>
-<li><p>ringvm_give()</p></li>
-<li><p>ringvm_info()</p></li>
-</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* callgarbagecollector()| callgc()
+* variablepointer()     | varptr()
+* space()
+* nullpointer()         | nullptr()
+* object2pointer()      | obj2ptr()
+* pointer2object()      | ptr2obj()
+* ispointer()           | isptr()
+* pointercompare()      | ptrcmp()
+* setpointer()          | setptr()
+* getpointer()          | getptr()
+* pointer2string()      | ptr2str()
+* memorycopy()          | memcpy()
+* ringvm_cfunctionslist()
+* ringvm_functionslist()
+* ringvm_classeslist()
+* ringvm_packageslist()
+* ringvm_memorylist()
+* ringvm_calllist()
+* ringvm_fileslist()
+* ringvm_settrace()
+* ringvm_tracedata()
+* ringvm_traceevent()
+* ringvm_tracefunc()
+* ringvm_scopescount()
+* ringvm_evalinscope()
+* ringvm_passerror()
+* ringvm_hideerrorMsg()
+* ringvm_callfunc()
+* ringvm_see()
+* ringvm_give()
+* ringvm_info()
+</pre></div>
+</div>
 <div class="section" id="callgc-function">
 <span id="index-1"></span><h2>callgc() function<a class="headerlink" href="#callgc-function" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">callgc</span><span class="p">()</span>                        <span class="c"># Short name</span>
+<span class="n">callgarbagecollector</span><span class="p">()</span>          <span class="c"># Long name</span>
+</pre></div>
+</div>
 <p>Use this function to force calling the garbage collector during function execution when you
 use a loop that create temp. variables that you don’t free using the assignment operation.</p>
 <p>It’s very rare to need this function but it’s useful when you create something like event-loop
@@ -353,9 +358,10 @@ when you use the assignment statement.</p>
 <span id="index-2"></span><h2>varptr() function<a class="headerlink" href="#varptr-function" title="Permalink to this headline">¶</a></h2>
 <p>Use the varptr() function when you need to pass a pointer to a C/C++ function.</p>
 <p>Syntax:</p>
-<blockquote>
-<div><p>varptr(cVariableName,cPointerType) —&gt; Low Level Object (C Pointer)</p>
-</div></blockquote>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">varptr</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
+<span class="n">variablepointer</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
+</pre></div>
+</div>
 <p>example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">r</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="n">z</span> <span class="o">=</span> <span class="mi">20</span>
@@ -421,6 +427,11 @@ char
 </div>
 <div class="section" id="nullpointer-function">
 <span id="index-4"></span><h2>nullpointer() function<a class="headerlink" href="#nullpointer-function" title="Permalink to this headline">¶</a></h2>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">nullptr</span><span class="p">()</span>               <span class="c"># Short name</span>
+<span class="n">nullpointer</span><span class="p">()</span>           <span class="c"># Long name</span>
+</pre></div>
+</div>
 <p>You may need to pass the NULL pointer to a C function that may expect a pointer as parameter
 and accept NULL pointers for optional parameters.</p>
 <p>Example:</p>
@@ -446,7 +457,8 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <span id="index-5"></span><h2>object2pointer() function<a class="headerlink" href="#object2pointer-function" title="Permalink to this headline">¶</a></h2>
 <p>Use this function to get a C pointer for Ring lists and objects</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">object2pointer</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">obj2ptr</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>         <span class="c"># Short name</span>
+<span class="n">object2pointer</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>  <span class="c"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -458,7 +470,8 @@ Also the function accept NULL pointers, so we can pass them using the NULLPointe
 <span id="index-6"></span><h2>pointer2object() function<a class="headerlink" href="#pointer2object-function" title="Permalink to this headline">¶</a></h2>
 <p>Use this function to get the Ring list and/or object from the low level object (C Pointer)</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span><span class="o">|</span><span class="n">Object</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptr2obj</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span><span class="o">|</span><span class="n">Object</span>              <span class="c"># Short name</span>
+<span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span><span class="o">|</span><span class="n">Object</span>       <span class="c"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -521,7 +534,8 @@ to create a reference for the parent node (object) in the child node (another ob
 <span id="index-7"></span><h2>ispointer() function<a class="headerlink" href="#ispointer-function" title="Permalink to this headline">¶</a></h2>
 <p>Check if the parameter is a pointer (C Object) or not.</p>
 <p>Syntax:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IsPointer(vPara) ---&gt; True|False
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>IsPtr(vPara) ---&gt; True|False            # Short name
+IsPointer(vPara) ---&gt; True|False        # Long name
 </pre></div>
 </div>
 <p>Example :</p>
@@ -544,6 +558,8 @@ to create a reference for the parent node (object) in the child node (another ob
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptrcmp</span><span class="p">(</span><span class="n">oObject1</span><span class="p">,</span><span class="n">oObject2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">=</span> <span class="n">oObject2</span>
                                <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">!=</span> <span class="n">oObject2</span>
+<span class="n">pointercompare</span><span class="p">(</span><span class="n">oObject1</span><span class="p">,</span><span class="n">oObject2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">=</span> <span class="n">oObject2</span>
+                                       <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">oObject1</span> <span class="o">!=</span> <span class="n">oObject2</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -568,7 +584,8 @@ to create a reference for the parent node (object) in the child node (another ob
 <span id="index-9"></span><h2>setpointer() function<a class="headerlink" href="#setpointer-function" title="Permalink to this headline">¶</a></h2>
 <p>Set the pointer address to another address</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">setpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">setptr</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>             <span class="c"># Short name</span>
+<span class="n">setpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>         <span class="c"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -580,7 +597,8 @@ to create a reference for the parent node (object) in the child node (another ob
 <span id="index-10"></span><h2>getpointer() function<a class="headerlink" href="#getpointer-function" title="Permalink to this headline">¶</a></h2>
 <p>Get the pointer address</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">getptr</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>           <span class="c"># Short name</span>
+<span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>       <span class="c"># Long name</span>
 </pre></div>
 </div>
 <p>Example:</p>
@@ -630,7 +648,8 @@ Address: 26E2BA9
 <p>Convert a pointer to a string of binary data</p>
 <p>If you want to convert the string to a pointer again use VarPtr() function</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">pointer2string</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ptr2str</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>             <span class="c"># Short name</span>
+<span class="n">pointer2string</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>      <span class="c"># Long name</span>
 </pre></div>
 </div>
 <div class="admonition note">
@@ -674,7 +693,8 @@ Address: 26E2BA9
 <div class="section" id="memcpy-function">
 <span id="index-12"></span><h2>memcpy() function<a class="headerlink" href="#memcpy-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">memcpy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">memcpy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>         <span class="c"># Short name</span>
+<span class="n">memorycopy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>     <span class="c"># Long name</span>
 </pre></div>
 </div>
 <p>Example:</p>
