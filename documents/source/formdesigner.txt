@@ -197,8 +197,8 @@ Using Layouts
 More Samples and Tests
 ======================
 
-Check the folder : ring/applications/formdesigner/tests
+Check the folder : ring/samples/UsingFormDesigner
 
-Online : https://github.com/ring-lang/ring/tree/master/applications/formdesigner/tests
+Online : https://github.com/ring-lang/ring/tree/master/samples/UsingFormDesigner
 
 
