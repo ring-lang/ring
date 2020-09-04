@@ -1525,16 +1525,27 @@ The cInformation value could be
 
 .. code-block:: ring
 
-	:time 
 	:hour_24
 	:hour_12
 	:minutes
 	:seconds
-	:date 
-	:day_long
+	:time
 	:day_short
-	:month
+	:day_long
+	:month_short
+	:month_long
+	:date_time
+	:day
+	:day_year
+	:month_year
+	:am_pm
+	:week_year
+	:day_week
+	:date
+	:year_century
 	:year
+	:time_zone
+	:percent_sign
 
 Example:
 
