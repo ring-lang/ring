@@ -4555,9 +4555,9 @@ Also the form designer is updated to provide us the choice between using classes
 
 Example  (Uses the Form Designer)
 
-(1) https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/indexstart/indexstartView.ring
+(1) https://github.com/ring-lang/ring/blob/master/tools/formdesigner/tests/indexstart/indexstartView.ring
 
-(2) https://github.com/ring-lang/ring/blob/master/applications/formdesigner/tests/indexstart/indexstartController.ring 
+(2) https://github.com/ring-lang/ring/blob/master/tools/formdesigner/tests/indexstart/indexstartController.ring 
 
 .. index:: 
 	pair: Desktop, WebAssembly and Mobile Development; Creating Reports using the WebLib and the GUILib
