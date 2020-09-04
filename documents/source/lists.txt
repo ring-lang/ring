@@ -451,7 +451,7 @@ Example:
 Using Lists during definition
 =============================
 
-We can use the list items while we are defining the list for the first time.
+We can use the list and the list items while we are defining the list for the first time.
 
 Example:
 
@@ -459,7 +459,33 @@ Example:
 
 	aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 	see aList	# print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
-	
+
+Example:
+
+.. code-block:: ring
+
+	x = [ 1, 2, x ]
+	? x		# print 1 2 1 2
+	? len(x)	# print 3
+	? x[1]		# print 1
+	? x[2]		# print 2
+	? x[3]		# print 1 2
+
+Output:
+
+.. code-block:: ring
+
+	1
+	2
+	1
+	2
+
+	3
+	1
+	2
+	1
+	2
+
 	
 .. index:: 
 	pair: Lists; Passing Lists to Functions

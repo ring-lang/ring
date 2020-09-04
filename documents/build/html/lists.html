@@ -186,6 +186,7 @@
 <li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
@@ -584,10 +585,32 @@ lists in variables, pass lists to functions, and return lists from functions.</p
 </div>
 <div class="section" id="using-lists-during-definition">
 <span id="index-14"></span><h2>Using Lists during definition<a class="headerlink" href="#using-lists-during-definition" title="Permalink to this headline">¶</a></h2>
-<p>We can use the list items while we are defining the list for the first time.</p>
+<p>We can use the list and the list items while we are defining the list for the first time.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span> <span class="p">,</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="p">,</span> <span class="n">aList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">]</span>
 <span class="k">see</span> <span class="n">aList</span>       <span class="c"># print 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">x</span> <span class="o">]</span>
+<span class="o">?</span> <span class="n">x</span>             <span class="c"># print 1 2 1 2</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>        <span class="c"># print 3</span>
+<span class="o">?</span> <span class="n">x</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>          <span class="c"># print 1</span>
+<span class="o">?</span> <span class="n">x</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>          <span class="c"># print 2</span>
+<span class="o">?</span> <span class="n">x</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>          <span class="c"># print 1 2</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+
+<span class="mi">3</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
 </pre></div>
 </div>
 </div>
