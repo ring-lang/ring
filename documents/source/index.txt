@@ -61,6 +61,7 @@ Contents:
    Objects Library for RingQt Application <ringqtobjects>
    Multi-language Applications <multilanguage>
    Building RingQt Applications for Mobile <qtmobile>
+   Building RingQt Applications for WebAssembly <qtwebassembly>
    Web Development (CGI Library) <web>
    Deploying Web Applications in the Cloud <deployincloud>
    Graphics and 2D Games programming using RingAllegro <allegro>	
