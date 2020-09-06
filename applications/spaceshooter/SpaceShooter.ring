@@ -1,4 +1,3 @@
-load "stdlib.ring"
 load "stdlibcore.ring"
 load "raylib.ring"
 load "Fire.ring"
