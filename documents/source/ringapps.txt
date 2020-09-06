@@ -18,221 +18,221 @@ They are very happy with the language productivity.
 Quotes about Ring
 =================
 
-	**"I like Smalltalk very much but now I like Ring better!"**
-	, Gal Zsolt (Hungary)
+|	**"I like Smalltalk very much but now I like Ring better!"**
+|		, Gal Zsolt (Hungary)
 
-	**"I find the language and its syntax very natural and easy to follow."**
-	, Bhudda (United States)
+|	**"I find the language and its syntax very natural and easy to follow."**
+|		, Bhudda (United States)
 
-	**"Very nice approach for a new language."**
-	, Matth Moestl (Austria)
+|	**"Very nice approach for a new language."**
+|		, Matth Moestl (Austria)
 
-	**"Very interesting! I will keep an eye on it.!"**
-	, Eslipak (Argentina)
+|	**"Very interesting! I will keep an eye on it.!"**
+|		, Eslipak (Argentina)
 
-	**"I'd like to see some benchmarks. Otherwise, at first glance, it looks really promising."**
-	, Alex Deva (Sweden)
+|	**"I'd like to see some benchmarks. Otherwise, at first glance, it looks really promising."**
+|		, Alex Deva (Sweden)
 
-	**"Excellent"**
-	, Liju Sankar (United States)
+|	**"Excellent"**
+|		, Liju Sankar (United States)
 
-	**"I wish you the best with this project."**
-	, David O'Neil (United States)
+|	**"I wish you the best with this project."**
+|		, David O'Neil (United States)
 
-	**"Just fantastic."**
-	, Jose Antonio (Mexico)
+|	**"Just fantastic."**
+|		, Jose Antonio (Mexico)
 
-	**"This looks like it was developed by some very competent people."**
-	, Jim Clack (United States)
+|	**"This looks like it was developed by some very competent people."**
+|		, Jim Clack (United States)
 
-	**"The Ring programming language seems pretty interesting so far."**
-	, Eric Johnson (United States)
+|	**"The Ring programming language seems pretty interesting so far."**
+|		, Eric Johnson (United States)
 
-	**"Thank you for this awesome language and wonderful ready to use Qt binding."**
-	, Martial FAESSEL
+|	**"Thank you for this awesome language and wonderful ready to use Qt binding."**
+|		, Martial FAESSEL
 
-	**"I think it's great what he does for the community of developers and novice programming."**
-	, Marino Esteban 
+|	**"I think it's great what he does for the community of developers and novice programming."**
+|		, Marino Esteban 
 
-	**"Ring is just awesome. The language is so cool and fluent. I am sure it's going to be BIG."**
-	, Ahmed Zain
+|	**"Ring is just awesome. The language is so cool and fluent. I am sure it's going to be BIG."**
+|		, Ahmed Zain
 
-	**"What a proud, really wish you Eng. Mahmoud Samir and Your Team  moving forward  ^_^ and from now , considered me a big  fan of the Ring programming language."**
-	, Zainab Mahmoud
+|	**"What a proud, really wish you Eng. Mahmoud Samir and Your Team  moving forward  ^_^ and from now , considered me a big  fan of the Ring programming language."**
+|		, Zainab Mahmoud
 
-	**"Well guys I love this language and it appears that you have created perfect language."**
-	, Moemen Ghulmi
+|	**"Well guys I love this language and it appears that you have created perfect language."**
+|		, Moemen Ghulmi
 
-	**"Good work Mahmoud, I've installed ring pl, and it's very perfect language."**
-	, Ahmed Omar (Egypt)
+|	**"Good work Mahmoud, I've installed ring pl, and it's very perfect language."**
+|		, Ahmed Omar (Egypt)
 
-	**"Thanks for this great startup programming language. I wish you best of luck."**
-	, Elkhouaja Khalid
+|	**"Thanks for this great startup programming language. I wish you best of luck."**
+|		, Elkhouaja Khalid
 
-	**"Congratulations! I am very happy and I wish you Success and good luck."**
-	, Abobasmla Hassan
+|	**"Congratulations! I am very happy and I wish you Success and good luck."**
+|		, Abobasmla Hassan
 
-	**"Good Features of multi-use language on the Web, Mobile and Desktop."**
-	, Abdelrhman Haider
+|	**"Good Features of multi-use language on the Web, Mobile and Desktop."**
+|		, Abdelrhman Haider
 
-	**"Very interesting effort."**
-	, Giannakakis Kostas (Greece)
+|	**"Very interesting effort."**
+|		, Giannakakis Kostas (Greece)
 
-	**"I am too lazy to open comment window and write message. But in your case I must say (Perfect) Really, create new remarkable language like your Ring is really perfect job. Even create editor for your language in your language with only few rows... Even noticed in rosettacode.org ! I read your previous articles and I tried these examples a few days ago and I will continue. I love Ring. P.S.: Anders Hejlsberg, Niklaus Wirth, Bjarne Stroustrup, Ada Lovelace Hall of fame is waiting...."**
-	, Martin Nedopil (Czech Republic )
+|	**"I am too lazy to open comment window and write message. But in your case I must say (Perfect) Really, create new remarkable language like your Ring is really perfect job. Even create editor for your language in your language with only few rows... Even noticed in rosettacode.org ! I read your previous articles and I tried these examples a few days ago and I will continue. I love Ring. P.S.: Anders Hejlsberg, Niklaus Wirth, Bjarne Stroustrup, Ada Lovelace Hall of fame is waiting...."**
+|		, Martin Nedopil (Czech Republic )
 
-	**"Ring seems very attractive to me through its very easy design and the Qt bindings. I like its declarative approach and the generous documentation."**
-	, Shalok Shalom (Austria)
+|	**"Ring seems very attractive to me through its very easy design and the Qt bindings. I like its declarative approach and the generous documentation."**
+|		, Shalok Shalom (Austria)
 
-	**"Ring (and plenty of extension library + Qt) is wonderful."**
-	, Kovacs Attila (Hungary)
+|	**"Ring (and plenty of extension library + Qt) is wonderful."**
+|		, Kovacs Attila (Hungary)
 
-	**"Since two days I'm trying Ring and I'm really impressed, in add to power commands and easy use, it's really very efficient and very fast. Each day I hope to find the couple of the year PWCT+RING ... Maybe for my Christmas gift!!!!  HO HO HO HO Continue your fantastic job and congratulations."**
-	, Jose Le Roux (France)
+|	**"Since two days I'm trying Ring and I'm really impressed, in add to power commands and easy use, it's really very efficient and very fast. Each day I hope to find the couple of the year PWCT+RING ... Maybe for my Christmas gift!!!!  HO HO HO HO Continue your fantastic job and congratulations."**
+|		, Jose Le Roux (France)
 
-	**"There are 3 different styles, it looks like Python and C"**
-	, 64remy
+|	**"There are 3 different styles, it looks like Python and C"**
+|		, 64remy
 
-	**"I was taking a tour around Rosettacode and have found Ring. I like the syntax a lot. It's clean and easy to understand. It looks like a very clean BASIC dialect without sigils. I can say that this is the easiest and the most BASIC-like language I've ever tried."**
-	, Tomaaz 
+|	**"I was taking a tour around Rosettacode and have found Ring. I like the syntax a lot. It's clean and easy to understand. It looks like a very clean BASIC dialect without sigils. I can say that this is the easiest and the most BASIC-like language I've ever tried."**
+|		, Tomaaz 
 
-	**"Thanks for your effort. I took a quick look and found it interesting. You are trying to follow more or less like Clipper with simple command and no rigid declaration rules. Good."**
-	, Anand Gupta 
+|	**"Thanks for your effort. I took a quick look and found it interesting. You are trying to follow more or less like Clipper with simple command and no rigid declaration rules. Good."**
+|		, Anand Gupta 
 
-	**"Thanks for this wonderful language"**
-	, Vinod kc (India)
+|	**"Thanks for this wonderful language"**
+|		, Vinod kc (India)
 
-	**"Very enlightening. good job!"**
-	, Southmountain (United States)
+|	**"Very enlightening. good job!"**
+|		, Southmountain (United States)
 
-	**"The thing I liked was the loop exiting"**
-	, Leon de boer (Australia)
+|	**"The thing I liked was the loop exiting"**
+|		, Leon de boer (Australia)
 
-	**"An outstanding and easy language to program with."**
-	, Kenneth Burgo (Philippines)
+|	**"An outstanding and easy language to program with."**
+|		, Kenneth Burgo (Philippines)
 
-	**"I chose your language as I feel I can understand it better than other languages"**
-	, Harry Singh
+|	**"I chose your language as I feel I can understand it better than other languages"**
+|		, Harry Singh
 
-	**"I like the totality of the language, far more features than expected and the freedom of expressiveness is unique."**
-	, Evikone
+|	**"I like the totality of the language, far more features than expected and the freedom of expressiveness is unique."**
+|		, Evikone
 
-	**"Thank you very much Mahmoud! I am using ring for many experiments and so far I love it. I really want to continue using ring and contribute what I can."**
-	, John (SienSystem)
+|	**"Thank you very much Mahmoud! I am using ring for many experiments and so far I love it. I really want to continue using ring and contribute what I can."**
+|		, John (SienSystem)
 
-	**"Sir, Very Good"**
-	, Kamlesh Patel
+|	**"Sir, Very Good"**
+|		, Kamlesh Patel
 
-	**"That's more than a "cool" syntax, the example of writing free-form text between curly-brackets such that each word calls a function. Which could be interesting (A syntax like that would be nice for declaring text styles)"**
-	, LaurieCheers
+|	**"That's more than a "cool" syntax, the example of writing free-form text between curly-brackets such that each word calls a function. Which could be interesting (A syntax like that would be nice for declaring text styles)"**
+|		, LaurieCheers
 
-	**"If you browse around you see they have listed 160 contributors. This year they have entered Top 100 in the TIOBE index. Lot of effort seem to have been made to make this language pop out and catch the attention of masses."**
-	, Htuhola
+|	**"If you browse around you see they have listed 160 contributors. This year they have entered Top 100 in the TIOBE index. Lot of effort seem to have been made to make this language pop out and catch the attention of masses."**
+|		, Htuhola
 
-	**"I like the idea of The Ring being in ANSI C it's an impressive creation, and a lot of skill went into it"**
-	, Garry Taylor
+|	**"I like the idea of The Ring being in ANSI C it's an impressive creation, and a lot of skill went into it"**
+|		, Garry Taylor
 
-	**"Very innovative language! Syntactically clean"**
-	, CodeProject Member
+|	**"Very innovative language! Syntactically clean"**
+|		, CodeProject Member
 
-	**"The author must be commended for the readily-obvious hard work and effort that has gone into creating a rich ecosystem for his language. It seems that the language is quite extensive as well. I would find it useful to see a BNF grammar and concise coverage of its semantics."**
-	, Xx-Leninist-1917-Xx (Reddit)
+|	**"The author must be commended for the readily-obvious hard work and effort that has gone into creating a rich ecosystem for his language. It seems that the language is quite extensive as well. I would find it useful to see a BNF grammar and concise coverage of its semantics."**
+|		, Xx-Leninist-1917-Xx (Reddit)
 
-	**"I can see the AI of the future using this technology to solve computational problems for..... the humans."**
-	, Cryptonite (United States)
+|	**"I can see the AI of the future using this technology to solve computational problems for..... the humans."**
+|		, Cryptonite (United States)
 
-	**"I like your programming language, I like you are going to develop mobile app using RingQt and also I appreciate your web library."**
-	, Domenico D'Oria (Italy)	
+|	**"I like your programming language, I like you are going to develop mobile app using RingQt and also I appreciate your web library."**
+|		, Domenico D'Oria (Italy)	
 
-	**"Congratulations for the great work with this new programming language."**
-	, Kenny Silva (Venezuela)
+|	**"Congratulations for the great work with this new programming language."**
+|		, Kenny Silva (Venezuela)
 
-	**"Ring is an amazingly full-featured language and so well documented (the bane of most newer languages out there!)"**
-	, Alex McCullie
+|	**"Ring is an amazingly full-featured language and so well documented (the bane of most newer languages out there!)"**
+|		, Alex McCullie
 
-	**" I found the language yesterday, and liked the Qt bindings, as they give a declarative way to create a QtWidgets GUI."**
-	, Cochise Cesar
+|	**" I found the language yesterday, and liked the Qt bindings, as they give a declarative way to create a QtWidgets GUI."**
+|		, Cochise Cesar
 
-	**"Ring does look intriguing, and I'll be reading more of the documentation soon"**
-	, Jamie Cooper
+|	**"Ring does look intriguing, and I'll be reading more of the documentation soon"**
+|		, Jamie Cooper
 
-	**"I was recently considering designing my own dynamically-typed, prototypical language and then developing a means to compile it into C/C++. However, last night I was surfing the web and noticed a little-known language called "Ring" which you've recently created. I began reading the Motivation section in Wikibooks to see why the language was designed and implemented, and I was shocked to see that someone else had created a language with the same intention and need as myself. I mean, it's mind-blowing that someone would have addressed every issue I have with the currently accepted languages. It's crazy to think it's only been around for a year and yet, it's already, practically a batteries-included language."**
-	, Gedalya (YouTube)
+|	**"I was recently considering designing my own dynamically-typed, prototypical language and then developing a means to compile it into C/C++. However, last night I was surfing the web and noticed a little-known language called "Ring" which you've recently created. I began reading the Motivation section in Wikibooks to see why the language was designed and implemented, and I was shocked to see that someone else had created a language with the same intention and need as myself. I mean, it's mind-blowing that someone would have addressed every issue I have with the currently accepted languages. It's crazy to think it's only been around for a year and yet, it's already, practically a batteries-included language."**
+|		, Gedalya (YouTube)
 
-	**"Thank you Mr. Mahmoud for all the wonderful work, whenever I dive in the Source code I see the great effort, further development more excellence, God will reward you with what you wish"**
-	, Azzedine Ramal
+|	**"Thank you Mr. Mahmoud for all the wonderful work, whenever I dive in the Source code I see the great effort, further development more excellence, God will reward you with what you wish"**
+|		, Azzedine Ramal
 
-	**"What a great joy to find this surprisingly genius language !!!. It was a total joy to go through the documentation and look at the samples in Rosetta code. Marvelous work. I would even leave my fortune to the development of this language. Keep the good work going and wishing this language will go viral. ps: Thanks for keeping array index to start with 1. It means a lot."**
-	, Nehemiah Jacob (Sydney, Australia)
+|	**"What a great joy to find this surprisingly genius language !!!. It was a total joy to go through the documentation and look at the samples in Rosetta code. Marvelous work. I would even leave my fortune to the development of this language. Keep the good work going and wishing this language will go viral. ps: Thanks for keeping array index to start with 1. It means a lot."**
+|		, Nehemiah Jacob (Sydney, Australia)
 
-	**"I find it very interesting. Especially the fact that it is cross platform makes it something to keep an eye on."**
-	, Boudewijn Lutgerink 
+|	**"I find it very interesting. Especially the fact that it is cross platform makes it something to keep an eye on."**
+|		, Boudewijn Lutgerink 
 
-	**"The language I like the most. Efficient, simple, easy, flexible and wonderful language."**
-	, Roshan Ali
+|	**"The language I like the most. Efficient, simple, easy, flexible and wonderful language."**
+|		, Roshan Ali
 
-	**"I like variety. The richer the toolbox, the more appropriate the tool."**
-	, Jonathan Day (Quora)
+|	**"I like variety. The richer the toolbox, the more appropriate the tool."**
+|		, Jonathan Day (Quora)
 
-	**"I greatly appreciated your work and congratulations on what has been achieved."**
-	, Umberto Meglio (Italy)
+|	**"I greatly appreciated your work and congratulations on what has been achieved."**
+|		, Umberto Meglio (Italy)
 
-	**"Thanks a lot I just found Ring two days ago and I decided to learn it, it is amazing, the samples are helping a lot."**
-	, Zaraki Ken
+|	**"Thanks a lot I just found Ring two days ago and I decided to learn it, it is amazing, the samples are helping a lot."**
+|		, Zaraki Ken
 
-	**"Extraordinary. well done sir"**
-	, RugbyLeague (CodeProject Member - United Kingdom)
+|	**"Extraordinary. well done sir"**
+|		, RugbyLeague (CodeProject Member - United Kingdom)
 
-	**"The Ring language is pleasant. You get ahead very quickly."**
-	, Neskuk (CodeProject Member - Switzerland)
+|	**"The Ring language is pleasant. You get ahead very quickly."**
+|		, Neskuk (CodeProject Member - Switzerland)
 
-	**"I'm happy to use your language."**
-	, Akhil Reddy
+|	**"I'm happy to use your language."**
+|		, Akhil Reddy
 
-	**"I am enjoying using the Ring Programming language."**
-	, Gabriel Wendt
+|	**"I am enjoying using the Ring Programming language."**
+|		, Gabriel Wendt
 
-	**"I'm loving this language!"**
-	, Pablo Prieto
+|	**"I'm loving this language!"**
+|		, Pablo Prieto
 
-	**"Ring Notepad is a an example of the power of Ring. It is like NotePad++ with built in form design capability, drag and drop, object attributes etc. It is a marvelous application"**
-	,  Bert Mariani (Italy)
+|	**"Ring Notepad is a an example of the power of Ring. It is like NotePad++ with built in form design capability, drag and drop, object attributes etc. It is a marvelous application"**
+|		,  Bert Mariani (Italy)
 
-	**"Ring is the language that offers the greatest potential for converting programmers frustrated with the amount of time it takes to develop apps in C/C++, C#  and other OOP-based languages. Considering the extent to which Ring has evolved since the first release in 2016, the Ring team has proven itself worthy of a very high achievement award in the world of programming languages. The extent to which Ring has simplified the development database apps, web apps and GUI apps is a great credit to the Ring team. Ring's implementation of OOP and GUI based apps is far superior to C++ and C#. Another major achievement of the Ring team is the ease at which programmers can get on-line access to Ring documentation, compared to on-line C++ and C# documentation. The Ring Game Engine is truly elegant and it's designer (s)  deserve lots of credit for such an impressive bit of software."**
-	, L Godioleskky
+|	**"Ring is the language that offers the greatest potential for converting programmers frustrated with the amount of time it takes to develop apps in C/C++, C#  and other OOP-based languages. Considering the extent to which Ring has evolved since the first release in 2016, the Ring team has proven itself worthy of a very high achievement award in the world of programming languages. The extent to which Ring has simplified the development database apps, web apps and GUI apps is a great credit to the Ring team. Ring's implementation of OOP and GUI based apps is far superior to C++ and C#. Another major achievement of the Ring team is the ease at which programmers can get on-line access to Ring documentation, compared to on-line C++ and C# documentation. The Ring Game Engine is truly elegant and it's designer (s)  deserve lots of credit for such an impressive bit of software."**
+|		, L Godioleskky
 
-	**"Strongly speaking, it is a strong and new game programming language."**
-	, IsVowel (Japan)
+|	**"Strongly speaking, it is a strong and new game programming language."**
+|	, IsVowel (Japan)
 
-	**"The language seems to have some interesting features, specially the use of braces to access object fields and methods."**
-	, Nuaua (Reddit)
+|	**"The language seems to have some interesting features, specially the use of braces to access object fields and methods."**
+|		, Nuaua (Reddit)
 
-	**"The code that implements the Ring VM actually looks quite nice. There is a bunch of test code -- great!"**
-	, Peterfirefly (Reddit)
+|	**"The code that implements the Ring VM actually looks quite nice. There is a bunch of test code -- great!"**
+|		, Peterfirefly (Reddit)
 
-	**"Ring seems promising. It first appeared in 2016 although it's concept is older. It is meant to be portable and can be embedded in C/C++ projects"**
-	, Wim ten Brink (Quora - Top Writer (2018))
+|	**"Ring seems promising. It first appeared in 2016 although it's concept is older. It is meant to be portable and can be embedded in C/C++ projects"**
+|		, Wim ten Brink (Quora - Top Writer (2018))
 
-	**"Interesting alternative to Lua."**
-	, djxtc (Sourceforge)
+|	**"Interesting alternative to Lua."**
+|		, djxtc (Sourceforge)
 
-	**"Ring is a serious thing in the programming language landscape. One shoud understand its foundation before she can shape an opinion worth considering. There are several innovations outthere with a clear commitment from its designer to simplicity, flexibility and learnability. Natural language as its imagined by Ring opens a window for an unlimited set of applications otherwise impossible to think about. One can built an interactive chatbot based on a rich domain specific language in a matter of hours not months. Combined with a smart yet effective implementation of a declarative programming paradigm, Ring empowers the creation of any kind of programming language on top of it, with any set of syntax. Even the language keywords can be overwritten to serve one's own keywords in any human language not only english. Ring is a disruption, a big intellectual step forward but also a beautiful reincarnation of several legacy ideas and best practices from other old languages like Basic, Lisp and others. Those ideas ar	e a humanity heritage that new visionaries like Mahmoud S. Fayed, the Ring designer, but also Rick Hickey, the Clojure designer, are trying to callback in today's world of complex programmability. An other dimension of Ring, which formed one of its basic motivations, relates to visual programming. Software is a fluid and evolutionary creature and textual code is not accessible to the most of common humans. The promise of visual programming is to empower people, enhance understandability and invite business users to the arena of software development more intuitively. Ring was made by design with an objective of having a programming language capable of better supporting the visual paradigm. Gamification is a first-class citizen in the language. This is a tremendous advantage compared to other general-purpose programming languages. Ring supports a large number of gaming libraries and open a large window of capabilities to use, not only in gaming but also in business and education applications. The best way to a	ssesing the power of Ring is to looking into it and reflecting about the number of problems it is capable to solve."**
-	, Mansour Ayouni (Tunisia)
+|	**"Ring is a serious thing in the programming language landscape. One shoud understand its foundation before she can shape an opinion worth considering. There are several innovations outthere with a clear commitment from its designer to simplicity, flexibility and learnability. Natural language as its imagined by Ring opens a window for an unlimited set of applications otherwise impossible to think about. One can built an interactive chatbot based on a rich domain specific language in a matter of hours not months. Combined with a smart yet effective implementation of a declarative programming paradigm, Ring empowers the creation of any kind of programming language on top of it, with any set of syntax. Even the language keywords can be overwritten to serve one's own keywords in any human language not only english. Ring is a disruption, a big intellectual step forward but also a beautiful reincarnation of several legacy ideas and best practices from other old languages like Basic, Lisp and others. Those ideas ar	e a humanity heritage that new visionaries like Mahmoud S. Fayed, the Ring designer, but also Rick Hickey, the Clojure designer, are trying to callback in today's world of complex programmability. An other dimension of Ring, which formed one of its basic motivations, relates to visual programming. Software is a fluid and evolutionary creature and textual code is not accessible to the most of common humans. The promise of visual programming is to empower people, enhance understandability and invite business users to the arena of software development more intuitively. Ring was made by design with an objective of having a programming language capable of better supporting the visual paradigm. Gamification is a first-class citizen in the language. This is a tremendous advantage compared to other general-purpose programming languages. Ring supports a large number of gaming libraries and open a large window of capabilities to use, not only in gaming but also in business and education applications. The best way to a	ssesing the power of Ring is to looking into it and reflecting about the number of problems it is capable to solve."**
+|		, Mansour Ayouni (Tunisia)
 
-	**"I have only known ring-lang for few weeks, really love features and visions of ring: bracket access, class region, declarative and natural programming. It's simple and beautiful the way ring deal with these paradigms. I think it's really great work what you're done, and doing. I want to develop ethereum client in ring language, not only but it's style. It'll have natural and declarative code on it's main part. Furthermore, It will be fantastic if there is "natural language -> evm bytecode" compiler, maybe ring have the solution"**
-	, Asta 
+|	**"I have only known ring-lang for few weeks, really love features and visions of ring: bracket access, class region, declarative and natural programming. It's simple and beautiful the way ring deal with these paradigms. I think it's really great work what you're done, and doing. I want to develop ethereum client in ring language, not only but it's style. It'll have natural and declarative code on it's main part. Furthermore, It will be fantastic if there is "natural language -> evm bytecode" compiler, maybe ring have the solution"**
+|		, Asta 
 
-	**"The language looks great!"**
-	, Eric Hawk
+|	**"The language looks great!"**
+|		, Eric Hawk
 
-	**"You put a lot of work in the Ring and you're a great programmer. I saw your examples in 3D I've looked at part of your project, it's really great"**
-	, Rafal Jopek
+|	**"You put a lot of work in the Ring and you're a great programmer. I saw your examples in 3D I've looked at part of your project, it's really great"**
+|		, Rafal Jopek
 
-	**"Looks like a big project and an impressive piece of work"**
-	, Rochus Keller (PhD From ETH Zurich, Switzerland)
+|	**"Looks like a big project and an impressive piece of work"**
+|		, Rochus Keller (PhD From ETH Zurich, Switzerland)
 
-	**"I see Ring a very useful and easy in PROGRAMMING IN REGIONAL LANGUAGE. I tried to program in my mother language Hindi ( India) using UNICODE It is working. No other language give me such an easy platform."**
-	, Negi Manoj (India)
+|	**"I see Ring a very useful and easy in PROGRAMMING IN REGIONAL LANGUAGE. I tried to program in my mother language Hindi ( India) using UNICODE It is working. No other language give me such an easy platform."**
+|		, Negi Manoj (India)
 
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
