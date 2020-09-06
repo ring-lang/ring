@@ -41,6 +41,8 @@ class MainMenuScene from Scene
 		startButton.draw(this)
 		exitButton.draw(this)
 
+		DrawText("GAME ASSETS ARE FROM kenney.nl", screenWidth / 2 - 180, screenHeight * 0.9, 20, GRAY)
+
 	func startGame
 		isDone = True
 
