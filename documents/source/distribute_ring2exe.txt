@@ -462,7 +462,7 @@ So Use Ring2EXE to generate these files, Then copy them to your application fold
 Building the Form Designer for Mobile using RingQt
 ==================================================
 
-To build the Form Designer application (ring/applications/formdesigner) for Mobile
+To build the Form Designer application (ring/tools/formdesigner) for Mobile
 
 (1) Run the next command
 
@@ -525,7 +525,7 @@ It will be used automatically by Ring2EXE
 As we did in the Cards game, The Form Designer will use the AppFile() function to determine the
 name of the Image files.
 
-The next code from ring/applications/formdesigner/mainwindow/formdesignerview.ring
+The next code from ring/tools/formdesigner/mainwindow/formdesignerview.ring
 
 .. code-block:: ring
 
