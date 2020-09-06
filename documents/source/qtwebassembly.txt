@@ -26,7 +26,7 @@ Tested using
 	emsdk install sdk-fastcomp-1.39.7-64bit
 	emsdk activate sdk-fastcomp-1.39.7-64bit
 
-Test installation
+Check Emscripten installation
 
 .. code-block:: ring
 
