@@ -190,3 +190,20 @@ Folders:
 * FontDialog
 * FileDialog
 * FileContent
+
+.. index:: 
+	pair: Building RingQt Applications for WebAssembly; Online Applications
+
+Online Applications
+===================
+
+
+* Hello World   : https://ring-lang.github.io/web/helloworld/project.html
+* Matching Game : https://ring-lang.github.io/web/matching/project.html
+* Pairs Game    : https://ring-lang.github.io/web/pairs/project.html
+* Othello Game  : https://ring-lang.github.io/web/othello/project.html
+* Game of Life  : https://ring-lang.github.io/web/gameoflife/project.html
+* Form Designer : https://ring-lang.github.io/web/formdesigner/project.html
+
+.. image:: othelloweb.png
+	:alt: Othello Game
