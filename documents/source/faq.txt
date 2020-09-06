@@ -110,7 +110,7 @@ What is the Ring Architecture?
 We have the next architecture
 
 (1) Ring Applications (Your Code)  - Written in Ring - See folder : ring/applications
-(2) Ring Libraries (StdLib, WebLib, GameEngine, etc) - Written in Ring - See folder : ring/ringlibs
+(2) Ring Libraries (StdLib, WebLib, GameEngine, etc) - Written in Ring - See folder : ring/libraries
 (3) Ring Extensions (RingAllegro, RingQt, etc) - Written in C/C++ (may include Ring code) - See folder : ring/extensions
 (4) Ring Virtual Machine (Ring VM) - Written in C language
 (5) Operating System (Current Platform) - (Windows, Linux, macOS, Android, etc)
@@ -121,7 +121,7 @@ You can update the extensions without the need to update your code.
 
 Folder (ring/extensions/libdepwin) ====> C libraries used for building Ring Extensions (written in C) on Windows platform
 
-Folder (ring/ringlibs)  ====> Ring libraries written in Ring itself (StdLib, WebLib, GameEngine, etc)
+Folder (ring/libraries)  ====> Ring libraries written in Ring itself (StdLib, WebLib, GameEngine, etc)
 
 Folder (ring/language/visualsrc) ====> The Visual Source Code of the Ring Compiler & Ring VM developed using Programming Without Coding Technology (PWCT)
 
