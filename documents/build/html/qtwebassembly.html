@@ -139,6 +139,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#using-ring2exe">Using Ring2EXE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-qt-project-for-your-ring-application">The Qt project for your Ring application</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#comments-about-developing-for-webassembly-using-ringqt">Comments about developing for WebAssembly using RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dialogs">Dialogs</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
@@ -361,7 +362,7 @@ PARTICULAR PURPOSE.
 add them (create projects with many files).</p>
 </div></blockquote>
 </li>
-<li><p>use if isWebAssembly() when you want to modify the code just for android</p></li>
+<li><p>use if isWebAssembly() when you want to modify the code just for WebAssembly</p></li>
 </ol>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
@@ -398,6 +399,25 @@ add them (create projects with many files).</p>
 <p>Then when you use Ring2EXE or Ring Notepad (Distribute - Prepare Qt project for WebAssembly) the
 resource file will be used</p>
 <p>See ring/applications/cards game as an example.</p>
+<ol class="arabic simple" start="6">
+<li><p>Use stdlibcore.ring instead of stdlib.ring when using StdLib functions</p></li>
+<li><p>Use ClocksPerSecond() function instead of typing the value (1000)</p></li>
+<li><p>Nested events loops are not supported, use events for dialogs instead of calling the exec() method</p></li>
+<li><p>Using Sleep() or ProcessEvents() doesn’t provide the expected results, use Qt Timers.</p></li>
+<li><p>We don’t have a direct access to the File System because the applications are executed in a secure environment</p></li>
+</ol>
+<p>We can use special functions for Uploading/Downloading files (See FileContent sample)</p>
+</div>
+<div class="section" id="dialogs">
+<span id="index-5"></span><h2>Dialogs<a class="headerlink" href="#dialogs" title="Permalink to this headline">¶</a></h2>
+<p>See the folder: ring/samples/UsingQtWASM</p>
+<p>Folders:</p>
+<ul class="simple">
+<li><p>ColorDialog</p></li>
+<li><p>FontDialog</p></li>
+<li><p>FileDialog</p></li>
+<li><p>FileContent</p></li>
+</ul>
 </div>
 </div>
 

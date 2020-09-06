@@ -118,7 +118,7 @@ Comments about developing for WebAssembly using RingQt
 	Through main.cpp you can extract more files from the resources to temp. folder once you
 	add them (create projects with many files).
 
-(2) use if isWebAssembly() when you want to modify the code just for android
+(2) use if isWebAssembly() when you want to modify the code just for WebAssembly
 
 Example:
 
@@ -163,3 +163,30 @@ Then when you use Ring2EXE or Ring Notepad (Distribute - Prepare Qt project for 
 resource file will be used 
 
 See ring/applications/cards game as an example.
+
+(6) Use stdlibcore.ring instead of stdlib.ring when using StdLib functions
+
+(7) Use ClocksPerSecond() function instead of typing the value (1000)
+
+(8) Nested events loops are not supported, use events for dialogs instead of calling the exec() method
+
+(9) Using Sleep() or ProcessEvents() doesn't provide the expected results, use Qt Timers.
+
+(10) We don't have a direct access to the File System because the applications are executed in a secure environment
+
+We can use special functions for Uploading/Downloading files (See FileContent sample) 
+
+.. index:: 
+	pair: Building RingQt Applications for WebAssembly; Dialogs
+
+Dialogs
+=======
+
+See the folder: ring/samples/UsingQtWASM
+
+Folders: 
+
+* ColorDialog
+* FontDialog
+* FileDialog
+* FileContent
