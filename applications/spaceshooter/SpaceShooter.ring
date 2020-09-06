@@ -6,7 +6,6 @@ load "Ship.ring"
 load "PlayerShip.ring"
 load "EnemyShip.ring"
 load "Collider.ring"
-load "consts.ring"
 load "Waves.ring"
 load "Scene.ring"
 load "MainMenuScene.ring"
@@ -19,7 +18,7 @@ screenHeight 	= 600
 score		=  0
 gameObjects	= []
 waves		= []
-timeBetweenWave	= 3
+timeBetweenWave	= 0.1
 WaveTimer	= timeBetweenWave
 currentWave	= 1
 currentShipsRow	= 1
@@ -212,7 +211,7 @@ func checkCollisionWithEnemies playerFire, index
 func generateEnemy index, type
 	if type = 0 return ok
 	gameObjects + new EnemyShip(getShipType()) {
-		setPosition(0 + 40  * 2.6 * index , -100)
+		setPosition(0 + 40  * 2.4 * index , -100)
 		setSpeed(1)
 		setTimeBetweenShots(1)
 		scale = -1
@@ -224,6 +223,7 @@ func getShipType
 	elseif currentWave >= 5 return 2
 	elseif currentWave >= 1 return 1
 	ok
+
 func generatePower
 	randx = random(screenWidth - 180) + 70
 	randy = random(screenHeight - 150) + 100
@@ -301,16 +301,16 @@ func generateWave
 	waves + new Waves {
 	timeBetweenRow = 3
 		shipsRow = [
-			[0,0,1,0,1,0],
+			[1,0,1,0,1,0],
 			[0,1,0,1,0,1],
-			[0,0,1,0,1,0]
+			[1,0,1,0,1,0]
 		]
 	}
 
 	waves + new Waves {
 	timeBetweenRow = 3
 		shipsRow = [
-			[0,0,1,1,0,0],
+			[1,0,1,1,0,1],
 			[1,1,0,0,1,1]
 		]
 	}
