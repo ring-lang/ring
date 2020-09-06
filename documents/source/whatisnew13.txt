@@ -403,6 +403,7 @@ More Improvements
 	* Eight Queens Game
 	* Typing Quiz
 	* Pong 2 Game
+	* Space Shooter Game
 
 * More Samples
 	* ring/samples/Language/HelloWorld folder
