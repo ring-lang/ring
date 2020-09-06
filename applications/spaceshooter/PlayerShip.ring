@@ -16,7 +16,7 @@ class PlayerShip from Ship
 			position.x -= speed
 		ok
 
-		if IsKeyDown(KEY_RIGHT) and position.x + w + 60 <= screenWidth
+		if IsKeyDown(KEY_RIGHT) and position.x + w + 80 <= screenWidth
 			position.x += speed
 		ok
 
