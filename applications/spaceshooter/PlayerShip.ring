@@ -12,11 +12,11 @@ class PlayerShip from Ship
 		timer += getFrameTime()
 		if powerShotActive or powerShieldActive updatePowerTimer() ok
 
-		if IsKeyDown(KEY_LEFT) and position.x >= 55
+		if IsKeyDown(KEY_LEFT) and position.x >= 60
 			position.x -= speed
 		ok
 
-		if IsKeyDown(KEY_RIGHT) and position.x + w + 55 <= screenWidth
+		if IsKeyDown(KEY_RIGHT) and position.x + w + 60 <= screenWidth
 			position.x += speed
 		ok
 
@@ -53,7 +53,7 @@ class PlayerShip from Ship
 		timer = 0
 
 	func initTimer
-		timeBetweenShots = 0.1
+		timeBetweenShots = 0.15
 		timer = timeBetweenShots		
 
 	func incrementHealth amount
