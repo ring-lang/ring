@@ -24,7 +24,7 @@ aObjectsList = [
 		 :textalign =  1
 		]
 	],
-	[ :name = "numEdit" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+	[ :name = "numEdit" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
 		 :x = 51 , : y = 68  , 
 		 :width =  297 , :height = 47 , 
 		 :textcolor =  "black" , 
@@ -40,7 +40,7 @@ aObjectsList = [
 		 :settextEditedEvent =  ""
 		]
 	],
-	[ :name = "btnCalc" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+	[ :name = "btnCalc" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 104 , : y = 166  , 
 		 :width =  177 , :height = 57 , 
 		 :textcolor =  "black" , 
@@ -52,7 +52,7 @@ aObjectsList = [
 		 :setClickEvent =  "factorial"
 		]
 	],
-	[ :name = "lblRes" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
+	[ :name = "lblRes" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
 		 :x = 118 , : y = 257  , 
 		 :width =  144 , :height = 63 , 
 		 :textcolor =  "black" , 

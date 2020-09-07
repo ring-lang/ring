@@ -13,11 +13,12 @@
 load "guilib.ring"
 
 facApp = new qApp {
+
 	window = new qWidget() {
+
 		setWindowTitle("Factorial")
         	setFixedSize(400,400)
 		setWinIcon(self, "facImg.png")
-		
 
 		//Label for header 
 		lblHeader = new qLabel(window) {
@@ -32,7 +33,6 @@ facApp = new qApp {
 			setTextChangedEvent("calcFac(numEdit.text())")
 		}
 		
-
 		//Button Calculating
 		btnCalc = new qPushbutton(window) {
 			setGeometry(104,166,177,57)
@@ -41,7 +41,6 @@ facApp = new qApp {
 
 		}
 		
-
 		//Label to show the result 
 		lblRes = new qLabel(window) {
 			setText("Result")
@@ -52,12 +51,17 @@ facApp = new qApp {
 		show()
 		
 	}
+
 	exec()
+
 }
+
 func calcFac n
+
 	lblRes.setText(String(fact(n)))
 
 func fact x 
-if x = 0 return 1 
-else return x * fact(x-1) 
-ok
+
+	if x = 0 return 1 
+	else return x * fact(x-1) 
+	ok
