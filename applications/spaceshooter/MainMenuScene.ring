@@ -36,7 +36,7 @@ class MainMenuScene from Scene
 	func draw
 		DrawText(name, screenWidth / 2 - 200,
 		 screenHeight * 0.1, 46, White)
-		DrawText("SPACE <-  ->", screenWidth / 2 - 100,
+		DrawText("Controls: Space And Arrow keys", screenWidth / 2 - 300,
 		 screenHeight * 0.25, 36, White)
 		startButton.draw(this)
 		exitButton.draw(this)
