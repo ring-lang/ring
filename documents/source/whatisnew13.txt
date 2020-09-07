@@ -426,6 +426,7 @@ More Improvements
 	* ring/samples/General/RosettaCode/uniquecharacters.ring
 	* ring/samples/General/RosettaCode/similarcharacters.ring
 	* ring/samples/General/RandomLatinSquares folder
+	* ring/samples/General/FactorialRecursion folder
 	* ring/samples/UsingArabic/RightToLeft folder (Set Layout Direction)
 	* ring/samples/UsingWebLib/Unicode folder
 	* ring/samples/UsingQt/InputMask folder
