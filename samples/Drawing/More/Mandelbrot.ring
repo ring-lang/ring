@@ -1,9 +1,7 @@
 ### Project : CalmoSoft Mandelbrot Set
 ### Date    : 2019/02/25-04:00:00
 ### Update  : 2019/02/25-04:21:08
-### Author  : Gal Zsolt & Cathlyn Cosca
-### Company : CalmoSoft Ltd.
-### Email   : qui...@gmail.com
+### Author  : Gal Zsolt 
 
 ###  Madelbrot - Colorized and Animated
 ###  2019-02-25  Bert Mariani

@@ -1,7 +1,6 @@
 # Project : CalmoSoft Fifteen Puzzle Game 
-# Date      : 2018/12/01
-# Update    : 2018/12/01
-# Author  : Gal Zsolt (CalmoSoft Game Develop Ltd.), Bert Mariani
+# Date    : 2018/12/01
+# Author  : Gal Zsolt (CalmoSoft), Bert Mariani
 # Email   : calmosoft@gmail.com
 
 load "guilib.ring"
