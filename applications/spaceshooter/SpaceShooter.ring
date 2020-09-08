@@ -1,4 +1,3 @@
-load "stdlib.ring"
 load "stdlibcore.ring"
 load "raylib.ring"
 load "Fire.ring"
@@ -26,11 +25,11 @@ timeBetweenPower = 10
 powerTimer	= 0
 isFinished 	= False
 
+# RingRayLib window inti
 InitWindow(screenWidth, screenHeight, "Space Shooter")
 SetTargetFPS(60)
 	
 # Create the main ship (The player)
-
 player 		=  new PlayerShip(0)
 gameObjects + player
 
@@ -60,13 +59,12 @@ mainMenuScene = new MainMenuScene() {
 		name = "SPACE SHOOTER"		
 	}
 
-
-
 while !WindowShouldClose()
 
         BeginDrawing()
 	DrawTexture(backgroundTex, 0, 0, WHITE)
 
+	# Load the main scene until the user click the play button
 	while not mainMenuScene.isDone
 		DrawTexture(backgroundTex, 0, 0, WHITE)
 		mainMenuScene.draw()
@@ -74,19 +72,21 @@ while !WindowShouldClose()
 
 	end
 
+	# Game play scene
 	UpdateMusicStream(mainMusic)
 
 	# If the current wave has been finished, wait before start the next wave
 	WaveTimer += getFrameTime()
-
+	# Update time between power
 	powerTimer += getFrameTime()
 
+	# Generate a new power
 	if powerTimer >= timeBetweenPower and not isFinished
 		generatePower()
 		powerTimer = 0
 	ok
 
-	# Player dead
+	# Check if the player dead or not
 	if gameObjects[1].checkHealth()
 		DrawText("GAME OVER", screenWidth / 2 - 220, screenHeight * 0.4, 72, RED)		
 		EndDrawing()		
@@ -95,11 +95,12 @@ while !WindowShouldClose()
 
 	# Wave generator
 	if currentWave <= len(waves) and WaveTimer >= timeBetweenWave
+		# Timer between wave's row
 		waves[currentWave].timer += getFrameTime()
-		
+		# Generate the next wave row
 		if waves[currentWave].timer >= waves[currentWave].timeBetweenRow
 	 		waves[currentWave].timer = 0
-			# Enemy ship generator
+			# Current wave's row generator
 			if currentShipsRow <= len(waves[currentWave].shipsRow)
 				for i = 1 to len(waves[currentWave].shipsRow[currentShipsRow])
 					generateEnemy(i, waves[currentWave].shipsRow[currentShipsRow][i])
@@ -111,20 +112,21 @@ while !WindowShouldClose()
 				WaveTimer = 0
 			ok
 		ok
+
 	# Game ends
 	elseif currentWave > len(waves)
 		isFinished = True
 		DrawText("YOU WIN", screenWidth / 2 - 130, screenHeight * 0.4, 72, BLUE)	
 	ok
 
-	// Waves
+	# Number of waves
 	DrawText("WAVE " + currentWave + " / " + len(waves), screenWidth * 0.05, screenHeight * 0.05, 20, GRAY)
 
 	# Render all gameObjects
 	for i = len(gameobjects) to 1 step -1
-
+		
 		gameObjects[i].draw()
-
+		# if the current object damageable check its health
 		if ismethod(gameObjects[i], "checkHealth") and gameObjects[i].checkHealth()
 			if i > 1 del(gameObjects, i)
 				# Update the score
@@ -132,7 +134,7 @@ while !WindowShouldClose()
 			ok
 			loop
 		ok
-
+		# if the current object has timer to dead try to destroy it
 		if isattribute(gameObjects[i], :deathTimer)
 			if gameObjects[i].tryToDestroy()
 				gameObjects[i] = null
@@ -140,53 +142,37 @@ while !WindowShouldClose()
 				loop
 			ok
 		ok
-
+		# if the current object is enemy fire
 		if classname(gameObjects[i]) = "enemyfire"
 			firePos = gameObjects[i].position
+			# Check if the main ship collides with the enemy fire
 			if isattribute(gameObjects[1], :collider) and gameObjects[1].collider.intersectWithPoint(
 				firePos.x, firePos.y)
-					if gameObjects[1].collider.intersectWithPoint(
-						firePos.x, firePos.y)
-						if not gameObjects[1].powerShieldActive gameObjects[1].health -= gameObjects[i].damageAmount ok
+					# Check if the player has a shield
+					if not gameObjects[1].powerShieldActive gameObjects[1].health -= gameObjects[i].damageAmount ok
 						del(gameObjects, i)
-						loop
-					ok
+					loop
 			ok
 		ok
-
+		# Check if the main ship collides with a power
 		if classname(gameObjects[i]) = "healthpower"
-		
+		or classname(gameObjects[i]) = "shotpower"
+		or classname(gameObjects[i]) = "shieldpower"
 			if gameObjects[1].collider.intersectWithPoint( gameObjects[i].position.x, gameObjects[i].position.y)
-				gameObjects[i].activate(gameObjects[1])	
-				del(gameObjects, i)
-				loop	
-			ok
+					gameObjects[i].activate(gameObjects[1])	
+					del(gameObjects, i)
+					loop	
+				ok
 		ok
 
-		if classname(gameObjects[i]) = "shotpower"
-		
-			if gameObjects[1].collider.intersectWithPoint( gameObjects[i].position.x, gameObjects[i].position.y)
-				gameObjects[i].activate(gameObjects[1])	
-				del(gameObjects, i)
-				loop	
-			ok
-		ok
-
-		if classname(gameObjects[i]) = "shieldpower"
-		
-			if gameObjects[1].collider.intersectWithPoint( gameObjects[i].position.x, gameObjects[i].position.y)
-				gameObjects[i].activate(gameObjects[1])	
-				del(gameObjects, i)
-				loop	
-			ok
-		ok
-
+		# Check if the main ship fire collides with an enemy
 		if classname(gameObjects[i]) = "playerfire"
 			checkCollisionWithEnemies(gameObjects[i], i)
 			loop
 		ok
 	next
 
+	# Draw player health and score
 	showPlayerHealth()
 	showPlayerScore()
 
@@ -195,6 +181,7 @@ end
 
 CloseWindow()
 
+# Function to check if main ship fire collides with an enemy
 func checkCollisionWithEnemies playerFire, index
 	for i = 2 to len(gameObjects)
 		if classname(gameObjects[i]) = "enemyship"
@@ -207,7 +194,7 @@ func checkCollisionWithEnemies playerFire, index
 		ok
 	next
 	return False
-
+# Function to generate enemy
 func generateEnemy index, type
 	if type = 0 return ok
 	gameObjects + new EnemyShip(getShipType()) {
@@ -216,14 +203,14 @@ func generateEnemy index, type
 		setTimeBetweenShots(1)
 		scale = -1
 	}
-
+# Function to return ship type using the curent wave state
 func getShipType
 	if currentWave >= 15 return 4
 	elseif currentWave >= 10 return 3
 	elseif currentWave >= 5 return 2
 	elseif currentWave >= 1 return 1
 	ok
-
+# Function to generate random power in random position
 func generatePower
 	randx = random(screenWidth - 180) + 70
 	randy = random(screenHeight - 150) + 100
@@ -235,15 +222,15 @@ func generatePower
 		on 2 gameObjects + new ShotPower(5, randType, randPos)
 		on 3 gameObjects + new ShieldPower(5, randType, randPos)
 	off
-
+# Function to draw player health
 func showPlayerHealth
 	DrawText("SHIP HEALTH: " + gameObjects[1].health,
  	screenWidth * 0.05, screenHeight * 0.9, 20, GRAY)
-
+# Function to draw player score
 func showPlayerScore
 	DrawText("SCORE: " + score,
  	screenWidth * 0.05, screenHeight * 0.94, 20, GRAY)
-
+# # Function to generate the game waves using Ring list
 func generateWave
 
 	# Easy
@@ -440,5 +427,3 @@ func generateWave
 			[1,0,1,1,0,1]
 		]
 	}
-
-
