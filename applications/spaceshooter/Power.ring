@@ -25,13 +25,13 @@ class Power
 	func draw
 		DrawTexture(imageTex, position.x, position.y, WHITE)
 		deathTimer += getFrameTime()
-
+	# Function to destroy the power after time amount
 	func tryToDestroy
 		if deathTimer >= 5 return True ok
 		return False
 
 	func activate
-	
+	# Function to set power image using a type
 	func setPowerImage
 		path = ""
 		switch type
@@ -44,5 +44,3 @@ class Power
 		w = image.width * 2
 		h = image.height * 2
 		imageTex = LoadTextureFromImage(image)
-
-

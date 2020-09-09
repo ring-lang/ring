@@ -91,7 +91,7 @@ class PlayerShip from Ship
 
 	func activeTheShield
 		powerShieldActive = True
-
+	# Function to draw a shield
 	func drawShield
 		if powerShieldActive
 			image = LoadImage("Assets/shield1.png")

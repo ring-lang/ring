@@ -15,7 +15,6 @@ class Ship
 		initTimer()
 
 		# Load and set the ship image
-
 		shipImage = loadShipImage()
 		if scale = -1
 			ImageFlipVertical(shipImage)
@@ -24,9 +23,11 @@ class Ship
 		h = shipImage.height
 		shipTex = LoadTextureFromImage(shipImage)
 		UnloadImage(shipImage)
+
 		# Position the ship
 		position = new Vector2(screenWidth / 2, screenHeight * 0.8)
 	
+		# Collider init
 		collider = new Collider {
 			x = this.position.x
 			y = this.position.y
@@ -44,14 +45,12 @@ class Ship
 		move()
 		updateCollider()
 		loadTex()
-		# DrawRectangle(collider.x, collider.y, collider.w,
-		# collider.h, GREEN)
 
 	func drawShield
 		
 	func loadTex
 		DrawTextureEx(shipTex, position, rotation, 1, WHITE)
-	
+	# Function to update collider position when moving the ship
 	func updateCollider
 		collider {
 			x = this.position.x	
@@ -69,12 +68,12 @@ class Ship
 
 	func setTimeBetweenShots time
 		this.timeBetweenShots = time
-	
+	# Function to check if the ship is dead
 	func checkHealth
 		if health <= 0 return True ok
 		return False
 
-
+	# Function to load ship image using a type
 	func loadShipImage
 		switch type
 			on 0 return LoadImage("Assets/Ship1.png")

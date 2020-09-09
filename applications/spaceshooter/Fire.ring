@@ -41,7 +41,7 @@ class Fire
 	func playFireSound sound
 		playSound(sound)
 
-
+	# Function to set ship damage amount using ship type
 	func setFireAmount enemyType
 		if enemyType <= 0 return ok
 		switch enemyType

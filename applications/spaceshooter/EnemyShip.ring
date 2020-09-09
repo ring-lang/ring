@@ -27,6 +27,7 @@ class EnemyShip from Ship
 				rotation = 180
 			}			
 		ok
+	# Function to check if the enemy ship is outside the screen
 	func checkOutSide
 		if position.y > screenHeight return True ok
 		return False
