@@ -7,5 +7,5 @@ func main
 	? copy("=",C_LINESIZE)
 	? "Ring programming language source code (Compiler+Virtual Machine)"+
 		nl+"In the C language."
-	? "See the folders : ring/src and ring/include"
+	? "See the folders : ring/language/src and ring/language/include"
 	? copy("=",C_LINESIZE)
