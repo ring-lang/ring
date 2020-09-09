@@ -5,6 +5,7 @@ class MainMenuScene from Scene
 	exitButton
 
 	func init
+		# Start button in the scene
 		startButton = new Button("Assets/buttonRed.png",
 					 "Assets/buttonBlue.png") {
 			text = "Start"
@@ -17,7 +18,7 @@ class MainMenuScene from Scene
 			function = :startGame
 			parentScene = object2pointer(this)	
 		}
-
+		# Exit button in the scene
 		exitButton = new Button("Assets/buttonRed.png",
 					 "Assets/buttonBlue.png") {
 			text = "Exit"
@@ -38,6 +39,7 @@ class MainMenuScene from Scene
 		 screenHeight * 0.1, 46, White)
 		DrawText("Controls: Space And Arrow keys", screenWidth / 2 - 300,
 		 screenHeight * 0.25, 36, White)
+
 		startButton.draw(this)
 		exitButton.draw(this)
 
