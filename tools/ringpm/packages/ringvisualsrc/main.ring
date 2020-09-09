@@ -5,5 +5,5 @@ func main
 	? copy("=",C_LINESIZE)
 	? "The Visual Source of the Ring programming language"
 	? "Using Programming Without Coding Technology - PWCT"
-	? "See the folder : ring/visualsrc"
+	? "See the folder : ring/language/visualsrc"
 	? copy("=",C_LINESIZE)
