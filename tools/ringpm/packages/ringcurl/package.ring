@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -37,11 +37,7 @@ aPackageInfo = [
 		"extensions/ringcurl/libcurl.cf",
 		"extensions/ringcurl/libcurl.ring",
 		"extensions/ringcurl/ring_libcurl.c",
-		"extensions/ringcurl/ring_libcurl.rh",
-		"extensions/ringcurl/t1.ring",
-		"extensions/ringcurl/t2.ring",
-		"extensions/ringcurl/t3.ring",
-		"extensions/ringcurl/t4.ring"
+		"extensions/ringcurl/ring_libcurl.rh"
 	],
 	:windowsfiles = 	[
 
