@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "YourName",
 	:email = "YourEmail",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -25,7 +25,7 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"bin/odbclib.ring",
+		"bin/load/odbclib.ring",
 		"extensions/ringodbc/buildclang.sh",
 		"extensions/ringodbc/buildgcc.sh",
 		"extensions/ringodbc/buildvc.bat",
