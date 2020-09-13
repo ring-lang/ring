@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -25,7 +25,7 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"bin/sqlitelib.ring",
+		"bin/load/sqlitelib.ring",
 		"extensions/ringsqlite/buildclang.sh",
 		"extensions/ringsqlite/buildgcc.sh",
 		"extensions/ringsqlite/buildvc.bat",
