@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -25,19 +25,11 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"bin/libuv.ring",
+		"bin/load/libuv.ring",
 		"extensions/ringlibuv/buildclang.sh",
 		"extensions/ringlibuv/buildgcc.sh",
 		"extensions/ringlibuv/buildvc.bat",
 		"extensions/ringlibuv/document.bat",
-		"extensions/ringlibuv/ex1.ring",
-		"extensions/ringlibuv/ex2.ring",
-		"extensions/ringlibuv/ex3_server.ring",
-		"extensions/ringlibuv/ex4_client.ring",
-		"extensions/ringlibuv/ex5_server.ring",
-		"extensions/ringlibuv/ex6_client.ring",
-		"extensions/ringlibuv/ex7_thread.ring",
-		"extensions/ringlibuv/ex8_thread.ring",
 		"extensions/ringlibuv/gencode.bat",
 		"extensions/ringlibuv/gencode.sh",
 		"extensions/ringlibuv/gendoc.ring",
