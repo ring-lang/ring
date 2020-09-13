@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.6",
-	:ringversion = "1.10",
+	:version = "1.0.8",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.6",
+			:version = "1.0.8",
 			:branch = "master"
 		]
 	],
@@ -25,7 +25,7 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"bin/freeglut.ring",
+		"bin/load/freeglut.ring",
 		"extensions/ringfreeglut/buildclang.sh",
 		"extensions/ringfreeglut/buildgcc.sh",
 		"extensions/ringfreeglut/buildvc.bat",
@@ -37,23 +37,6 @@ aPackageInfo = [
 		"extensions/ringfreeglut/gendoc.ring",
 		"extensions/ringfreeglut/ring_freeglut.c",
 		"extensions/ringfreeglut/ring_freeglut.rh",
-		"extensions/ringfreeglut/tests/cube.ring",
-		"extensions/ringfreeglut/tests/test.ring",
-		"extensions/ringfreeglut/tests/test10.ring",
-		"extensions/ringfreeglut/tests/test11.ring",
-		"extensions/ringfreeglut/tests/test12.ring",
-		"extensions/ringfreeglut/tests/test13.ring",
-		"extensions/ringfreeglut/tests/test14.ring",
-		"extensions/ringfreeglut/tests/test15.ring",
-		"extensions/ringfreeglut/tests/test16.ring",
-		"extensions/ringfreeglut/tests/test2.ring",
-		"extensions/ringfreeglut/tests/test3.ring",
-		"extensions/ringfreeglut/tests/test4.ring",
-		"extensions/ringfreeglut/tests/test5.ring",
-		"extensions/ringfreeglut/tests/test6.ring",
-		"extensions/ringfreeglut/tests/test7.ring",
-		"extensions/ringfreeglut/tests/test8.ring",
-		"extensions/ringfreeglut/tests/test9.ring",
 		"ring2exe/libs/freeglut.ring"
 	],
 	:windowsfiles = 	[
