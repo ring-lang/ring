@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -25,7 +25,7 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"bin/opengl11lib.ring",
+		"bin/load/opengl11lib.ring",
 		"extensions/ringopengl/opengl11/buildclang.sh",
 		"extensions/ringopengl/opengl11/buildgcc.sh",
 		"extensions/ringopengl/opengl11/buildvc.bat",
