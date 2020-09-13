@@ -3,10 +3,10 @@
 # Author	: Tawfik Yasser Tawfik        #
 # Date		: 13-09-2020                  #
 #---------------------------------------------# 
-changeringkeyword see prinT
+changeringkeyword see print
 num = 0  
 ? "Enter the number: " give num
 str = ""+num
-for x = len(str) to x >= 0 step -1
-prinT str[x]
+for x = len(str) to 1 step -1
+	print str[x]
 next
