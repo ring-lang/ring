@@ -33,7 +33,8 @@ aAllPackagesInfo = [
 		"libdepwin_libsdl",
 		"libdepwin_mysql",
 		"libdepwin_openssl",
-		"libdepwin_pgsql"
+		"libdepwin_pgsql",
+		"qt515runtime"
 	],
 	:ringopenssl = 	[
 		"stdlib"
@@ -228,5 +229,8 @@ aAllPackagesInfo = [
 	],
 	:escape = 	[
 
+	],
+	:qt515runtime = 	[
+		"ringqtruntime"
 	]
 ]
