@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "YourName",
 	:email = "YourEmail",
 	:license = "MIT License",
-	:version = "1.0.2",
+	:version = "1.0.3",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -32,7 +32,7 @@ aPackageInfo = [
 		"extensions/ringodbc/odbclib.ring",
 		"extensions/ringodbc/ring_vmodbc.c",
 		"extensions/ringodbc/ring_vmodbc.h",
-		"ring2exe/libs/odbc.ring"
+		"tools/ring2exe/libs/odbc.ring"
 	],
 	:windowsringfolderfiles = 	[
 		"bin/ring_odbc.dll"
