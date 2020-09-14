@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.2",
-	:ringversion = "1.10",
+	:version = "1.0.3",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -25,7 +25,7 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"ring2exe/libs/cruntime.ring"
+		"tools/ring2exe/libs/cruntime.ring"
 	],
 	:windowsfiles = 	[
 
@@ -44,7 +44,13 @@ aPackageInfo = [
 		"bin/msvcr100.dll",
 		"bin/msvcr120.dll",
 		"bin/msvcr120d.dll",
-		"bin/msvcr120_clr0400.dll"
+		"bin/msvcr120_clr0400.dll",
+		"bin/msvcp140.dll",
+		"bin/vccorelib140.dll",
+		"bin/vcruntime140.dll",
+		"bin/concrt140.dll",
+		"bin/api-ms-win-core-winrt-l1-1-0.dll",
+		"bin/api-ms-win-core-winrt-string-l1-1-0.dll"
 	],
 	:linuxringfolderfiles = 	[
 
