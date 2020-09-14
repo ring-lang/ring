@@ -1,7 +1,7 @@
 func main
 	? "Removing Folder : MySQL"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../libdepwin")
+	chdir(exefolder()+"../extensions/libdepwin")
 	OSDeleteFolder("MySQL")
 	chdir(cDir)
 

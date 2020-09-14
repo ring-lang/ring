@@ -4,5 +4,5 @@ func main
 	? "LibDepWin_MySQL Package"
 	? copy("=",C_LINESIZE)
 	? "LibDepWin_MySQL package for the Ring programming language"
-	? "See the folder : ring/libdepwin/MySQL"
+	? "See the folder : ring/extensions/libdepwin/MySQL"
 	? copy("=",C_LINESIZE)
