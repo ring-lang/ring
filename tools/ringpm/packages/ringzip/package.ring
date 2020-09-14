@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -53,7 +53,7 @@ aPackageInfo = [
 		"extensions/ringzip/zip.c",
 		"extensions/ringzip/zip.h",
 		"extensions/ringzip/ziplib.ring",
-		"ring2exe/libs/libzip.ring"
+		"tools/ring2exe/libs/libzip.ring"
 	],
 	:windowsfiles = 	[
 
