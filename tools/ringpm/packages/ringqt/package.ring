@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.13",
-	:ringversion = "1.10",
+	:version = "1.0.14",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.13",
+			:version = "1.0.14",
 			:branch = "master"
 		]
 	],
@@ -25,12 +25,12 @@ aPackageInfo = [
 			:providerusername = ""
 		],
 		[
-			:name = "qt512runtime",
+			:name = "qt515runtime",
 			:version = "1.0",
 			:providerusername = ""
 		],
 		[
-			:name = "qt512qmlruntime",
+			:name = "qt515qmlruntime",
 			:version = "1.0",
 			:providerusername = ""
 		]
@@ -42,8 +42,8 @@ aPackageInfo = [
 		"uninstall.ring"
 	],
 	:ringfolderfiles = 	[
-		"bin/guilib.ring",
-		"ring2exe/libs/qt.ring",
+		"bin/load/guilib.ring",
+		"tools/ring2exe/libs/qt.ring",
 		"extensions/ringqt.zip"
 	],
 	:windowsfiles = 	[
