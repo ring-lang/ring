@@ -1,7 +1,7 @@
 func main
-	? "Removing Folder : ring/android/ringlibsdl"
+	? "Removing Folder : ring/extensions/android/ringlibsdl"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../android")
+	chdir(exefolder()+"../extensions/android")
 	OSDeleteFolder("ringlibsdl")
 	chdir(cDir)
 
