@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.2",
+	:version = "1.0.3",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -26,7 +26,7 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/load/libcurl.ring",
-		"ring2exe/libs/libcurl.ring",
+		"tools/ring2exe/libs/libcurl.ring",
 		"extensions/ringcurl/buildclang.sh",
 		"extensions/ringcurl/buildgcc.sh",
 		"extensions/ringcurl/buildvc.bat",
