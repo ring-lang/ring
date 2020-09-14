@@ -1,7 +1,7 @@
 func main
 	? "Removing Folder : Apache2.2"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../libdepwin")
+	chdir(exefolder()+"../extensions/libdepwin")
 	OSDeleteFolder("Apache2.2")
 	chdir(cDir)
 

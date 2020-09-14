@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.2",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -27,7 +27,7 @@ aPackageInfo = [
 		"uninstall.ring"
 	],
 	:ringfolderfiles = 	[
-		"libdepwin/Apache2.2.zip"
+		"extensions/libdepwin/Apache2.2.zip"
 	],
 	:windowsfiles = 	[
 

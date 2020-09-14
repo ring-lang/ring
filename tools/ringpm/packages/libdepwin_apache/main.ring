@@ -4,5 +4,5 @@ func main
 	? "LibDepWin_Apache Package"
 	? copy("=",C_LINESIZE)
 	? "Apache Web Server for the Ring programming language"
-	? "See the folder : ring/libdepwin/apache2.2"
+	? "See the folder : ring/extensions/libdepwin/apache2.2"
 	? copy("=",C_LINESIZE)
