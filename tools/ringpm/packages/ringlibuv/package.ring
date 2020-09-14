@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.3",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -2208,7 +2208,7 @@ aPackageInfo = [
 		"extensions/ringlibuv/ringlibuvfuncsdoc.txt",
 		"extensions/ringlibuv/ring_libuv.c",
 		"extensions/ringlibuv/ring_libuv.rh",
-		"ring2exe/libs/libuv.ring"
+		"tools/ring2exe/libs/libuv.ring"
 	],
 	:windowsfiles = 	[
 
