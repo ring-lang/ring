@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -25,16 +25,16 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"libdepwin/freeglut/bin/freeglut.dll",
-		"libdepwin/freeglut/bin/x64/freeglut.dll",
-		"libdepwin/freeglut/Copying.txt",
-		"libdepwin/freeglut/include/GL/freeglut.h",
-		"libdepwin/freeglut/include/GL/freeglut_ext.h",
-		"libdepwin/freeglut/include/GL/freeglut_std.h",
-		"libdepwin/freeglut/include/GL/glut.h",
-		"libdepwin/freeglut/lib/freeglut.lib",
-		"libdepwin/freeglut/lib/x64/freeglut.lib",
-		"libdepwin/freeglut/Readme.txt"
+		"extensions/libdepwin/freeglut/bin/freeglut.dll",
+		"extensions/libdepwin/freeglut/bin/x64/freeglut.dll",
+		"extensions/libdepwin/freeglut/Copying.txt",
+		"extensions/libdepwin/freeglut/include/GL/freeglut.h",
+		"extensions/libdepwin/freeglut/include/GL/freeglut_ext.h",
+		"extensions/libdepwin/freeglut/include/GL/freeglut_std.h",
+		"extensions/libdepwin/freeglut/include/GL/glut.h",
+		"extensions/libdepwin/freeglut/lib/freeglut.lib",
+		"extensions/libdepwin/freeglut/lib/x64/freeglut.lib",
+		"extensions/libdepwin/freeglut/Readme.txt"
 	],
 	:windowsfiles = 	[
 
