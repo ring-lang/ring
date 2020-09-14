@@ -4,5 +4,5 @@ func main
 	? "LibDepWin_LibSDL Package"
 	? copy("=",C_LINESIZE)
 	? "LibDepWin_LibSDL package for the Ring programming language"
-	? "See the folder : ring/libdepwin/libsdl"
+	? "See the folder : ring/extensions/libdepwin/libsdl"
 	? copy("=",C_LINESIZE)

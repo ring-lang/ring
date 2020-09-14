@@ -1,7 +1,7 @@
 func main
 	? "Removing Folder : libsdl"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../libdepwin")
+	chdir(exefolder()+"../extensions/libdepwin")
 	OSDeleteFolder("libsdl")
 	chdir(cDir)
 
