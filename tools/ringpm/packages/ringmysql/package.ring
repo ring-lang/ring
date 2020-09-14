@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.2",
+	:version = "1.0.3",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -33,7 +33,7 @@ aPackageInfo = [
 		"extensions/ringmysql/mysqllib.ring",
 		"extensions/ringmysql/ring_vmmysql.c",
 		"extensions/ringmysql/ring_vmmysql.h",
-		"ring2exe/libs/mysql.ring"
+		"tools/ring2exe/libs/mysql.ring"
 	],
 	:windowsfiles = 	[
 
