@@ -1,7 +1,7 @@
 func main
 	? "Removing Folder : html"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../docs/build")
+	chdir(exefolder()+"../documents/build")
 	OSDeleteFolder("html")
 	chdir(cDir)
 

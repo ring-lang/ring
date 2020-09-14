@@ -4,9 +4,9 @@ func main
 	? "RingHelpHTML Package"
 	? copy("=",C_LINESIZE)
 	? "RingHelpHTML package for the Ring programming language"
-	? "See the folder : ring/docs/build/html"
+	? "See the folder : ring/documents/build/html"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../docs/build/html")
+	chdir(exefolder()+"/../documents/build/html")
 	system("index.html")
 	chdir(cDir)
