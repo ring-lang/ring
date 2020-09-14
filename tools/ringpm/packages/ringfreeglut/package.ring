@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.8",
+	:version = "1.0.9",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.8",
+			:version = "1.0.9",
 			:branch = "master"
 		]
 	],
@@ -37,7 +37,7 @@ aPackageInfo = [
 		"extensions/ringfreeglut/gendoc.ring",
 		"extensions/ringfreeglut/ring_freeglut.c",
 		"extensions/ringfreeglut/ring_freeglut.rh",
-		"ring2exe/libs/freeglut.ring"
+		"tools/ring2exe/libs/freeglut.ring"
 	],
 	:windowsfiles = 	[
 
