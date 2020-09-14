@@ -1,7 +1,7 @@
 func main
 	? "Removing Folder : pgsql"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../libdepwin")
+	chdir(exefolder()+"../extensions/libdepwin")
 	OSDeleteFolder("pgsql")
 	chdir(cDir)
 
