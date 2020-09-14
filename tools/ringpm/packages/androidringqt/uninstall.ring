@@ -1,7 +1,7 @@
 func main
-	? "Removing Folder : ring/android/ringqt"
+	? "Removing Folder : ring/extensions/android/ringqt"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../android")
+	chdir(exefolder()+"../extensions/android")
 	OSDeleteFolder("ringqt")
 	chdir(cDir)
 
