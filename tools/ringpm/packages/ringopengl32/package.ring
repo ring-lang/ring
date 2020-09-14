@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.3",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -38,7 +38,7 @@ aPackageInfo = [
 		"extensions/ringopengl/opengl32/ring_opengl32.c",
 		"extensions/ringopengl/opengl32/ring_opengl32.rh",
 		"extensions/ringopengl/opengl32/test.ring",
-		"ring2exe/libs/opengl32.ring"
+		"tools/ring2exe/libs/opengl32.ring"
 	],
 	:windowsfiles = 	[
 
