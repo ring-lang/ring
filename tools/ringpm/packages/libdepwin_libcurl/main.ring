@@ -4,5 +4,5 @@ func main
 	? "LibDepWin_LibCurl Package"
 	? copy("=",C_LINESIZE)
 	? "LibDepWin_LibCurl package for the Ring programming language"
-	? "See the folder : ring/libdepwin/LibCurl"
+	? "See the folder : ring/extensions/libdepwin/LibCurl"
 	? copy("=",C_LINESIZE)

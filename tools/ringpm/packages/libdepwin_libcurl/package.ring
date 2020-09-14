@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -25,19 +25,19 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"libdepwin/LibCurl/bin/curl.exe",
-		"libdepwin/LibCurl/bin/libcurl.dll",
-		"libdepwin/LibCurl/include/curl/curl.h",
-		"libdepwin/LibCurl/include/curl/curlbuild.h",
-		"libdepwin/LibCurl/include/curl/curlrules.h",
-		"libdepwin/LibCurl/include/curl/curlver.h",
-		"libdepwin/LibCurl/include/curl/easy.h",
-		"libdepwin/LibCurl/include/curl/mprintf.h",
-		"libdepwin/LibCurl/include/curl/multi.h",
-		"libdepwin/LibCurl/include/curl/stdcheaders.h",
-		"libdepwin/LibCurl/include/curl/typecheck-gcc.h",
-		"libdepwin/LibCurl/lib/libcurl.exp",
-		"libdepwin/LibCurl/lib/libcurl.lib"
+		"extensions/libdepwin/LibCurl/bin/curl.exe",
+		"extensions/libdepwin/LibCurl/bin/libcurl.dll",
+		"extensions/libdepwin/LibCurl/include/curl/curl.h",
+		"extensions/libdepwin/LibCurl/include/curl/curlbuild.h",
+		"extensions/libdepwin/LibCurl/include/curl/curlrules.h",
+		"extensions/libdepwin/LibCurl/include/curl/curlver.h",
+		"extensions/libdepwin/LibCurl/include/curl/easy.h",
+		"extensions/libdepwin/LibCurl/include/curl/mprintf.h",
+		"extensions/libdepwin/LibCurl/include/curl/multi.h",
+		"extensions/libdepwin/LibCurl/include/curl/stdcheaders.h",
+		"extensions/libdepwin/LibCurl/include/curl/typecheck-gcc.h",
+		"extensions/libdepwin/LibCurl/lib/libcurl.exp",
+		"extensions/libdepwin/LibCurl/lib/libcurl.lib"
 	],
 	:windowsfiles = 	[
 
