@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.3",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -25,12 +25,8 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"bin/typehints.ring",
-		"libraries/typehints/tests/test1.ring",
-		"libraries/typehints/tests/test2.ring",
-		"libraries/typehints/tests/test3.ring",
-		"libraries/typehints/tests/test4.ring",
-		"libraries/typehints/tests/test5.ring",
+		"bin/load/typehints.ring",
+		"libraries/typehints/README.md",
 		"libraries/typehints/typehints.ring"
 	],
 	:windowsfiles = 	[
