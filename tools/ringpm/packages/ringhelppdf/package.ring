@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.12.0",
-	:ringversion = "1.12",
+	:version = "1.13.0",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.12.0",
+			:version = "1.13.0",
 			:branch = "master"
 		]
 	],
@@ -25,7 +25,7 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"docs/ring.pdf"
+		"documents/ring.pdf"
 	],
 	:windowsfiles = 	[
 
