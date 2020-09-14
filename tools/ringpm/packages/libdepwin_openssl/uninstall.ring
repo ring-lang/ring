@@ -1,7 +1,7 @@
 func main
 	? "Removing Folder : openssl"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../libdepwin")
+	chdir(exefolder()+"../extensions/libdepwin")
 	OSDeleteFolder("openssl")
 	chdir(cDir)
 
