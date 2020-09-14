@@ -570,5 +570,9 @@ aPackagesRegistry = [
 	[ :name = "ringstbimage",
 	  :description = "RingStbImage package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "qt515runtime",
+	  :description = "Qt 5.15 runtime for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
