@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.5",
+	:version = "1.0.6",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.5",
+			:version = "1.0.6",
 			:branch = "master"
 		]
 	],
@@ -26,6 +26,7 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/load/guilib.ring",
+		"bin/load/objectslib.ring",
 		"libraries/guilib/classes/ring_qt.ring",
 		"libraries/guilib/constants/qt.rh",
 		"libraries/guilib/guilib.ring",
@@ -41,6 +42,8 @@ aPackageInfo = [
 		"libraries/guilib/mvc/controllerparent.ring",
 		"libraries/guilib/mvc/viewparent.ring",
 		"libraries/guilib/webassembly/webassembly.ring",
+		"libraries/objectslib/objects.ring",
+		"libraries/objectslib/objectslib.ring",
 		"tools/ring2exe/libs/qt.ring"
 	],
 	:windowsfiles = 	[
