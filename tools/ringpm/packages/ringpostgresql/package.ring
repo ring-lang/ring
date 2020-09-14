@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.2",
+	:version = "1.0.3",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -35,7 +35,7 @@ aPackageInfo = [
 		"extensions/ringpostgresql/postgresqllib.ring",
 		"extensions/ringpostgresql/ring_pgsql.c",
 		"extensions/ringpostgresql/ring_pgsql.rh",
-		"ring2exe/libs/postgresql.ring"
+		"tools/ring2exe/libs/postgresql.ring"
 	],
 	:windowsfiles = 	[
 
