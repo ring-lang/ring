@@ -4,9 +4,9 @@ func main
 	? "RingHelpCHM Package"
 	? copy("=",C_LINESIZE)
 	? "RingHelpCHM package for the Ring programming language"
-	? "See the folder : ring/docs"
+	? "See the folder : ring/documents"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../docs")
+	chdir(exefolder()+"/../documents")
 	system("ring.chm")
 	chdir(cDir)
