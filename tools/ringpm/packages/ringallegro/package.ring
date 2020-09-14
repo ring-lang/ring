@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -39,7 +39,7 @@ aPackageInfo = [
 		"extensions/ringallegro/gendoc.ring",
 		"extensions/ringallegro/ringallegrofuncsdoc.txt",
 		"extensions/ringallegro/ring_allegro.c",
-		"ring2exe/libs/allegro.ring"
+		"tools/ring2exe/libs/allegro.ring"
 	],
 	:windowsfiles = 	[
 
