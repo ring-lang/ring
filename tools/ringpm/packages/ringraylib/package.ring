@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.39",
+	:version = "1.0.40",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.39",
+			:version = "1.0.40",
 			:branch = "master"
 		]
 	],
@@ -49,7 +49,8 @@ aPackageInfo = [
 		"extensions/libdepwin/raylib2.5/lib/cmake/raylib/raylib-config.cmake",
 		"extensions/libdepwin/raylib2.5/lib/pkgconfig/raylib.pc",
 		"extensions/libdepwin/raylib2.5/lib/raylib.lib",
-		"extensions/libdepwin/raylib2.5/lib/raylib_static.lib"
+		"extensions/libdepwin/raylib2.5/lib/raylib_static.lib",
+		"tools/ring2exe/libs/raylib.ring"
 	],
 	:windowsfiles = 	[
 
