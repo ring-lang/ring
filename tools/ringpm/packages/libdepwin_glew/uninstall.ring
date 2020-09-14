@@ -1,7 +1,7 @@
 func main
 	? "Removing Folder : glew"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../libdepwin")
+	chdir(exefolder()+"../extensions/libdepwin")
 	OSDeleteFolder("glew")
 	chdir(cDir)
 
