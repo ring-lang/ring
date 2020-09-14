@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Hassan Ahmad",
 	:email = "hsn@outlook.hu",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -40,7 +40,7 @@ aPackageInfo = [
 		"extensions/ringmurmurhash/README.md",
 		"extensions/ringmurmurhash/ring_murmurhash.c",
 		"extensions/ringmurmurhash/ring_murmurhash.h",
-		"ring2exe/libs/murmurhash.ring"
+		"tools/ring2exe/libs/murmurhash.ring"
 	],
 	:windowsfiles = 	[
 
