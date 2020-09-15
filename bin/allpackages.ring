@@ -113,7 +113,8 @@ aAllPackagesInfo = [
 		"rockpaperscissors",
 		"lotterygame",
 		"nimgame",
-		"eightqueensgame"
+		"eightqueensgame",
+		"typingquiz"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -230,7 +231,7 @@ aAllPackagesInfo = [
 		"squarespuzzle"
 	],
 	:ringraylib = 	[
-
+		"typingquiz"
 	],
 	:zerolib = 	[
 
