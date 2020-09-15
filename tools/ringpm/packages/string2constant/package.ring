@@ -5,8 +5,8 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
 			:version = "1.0.0",
@@ -30,9 +30,10 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"samples/tools/string2constant/string2constant.rform",
-		"samples/tools/string2constant/string2constantController.ring",
-		"samples/tools/string2constant/string2constantView.ring"
+		"tools/string2constant/string2constant.rform",
+		"tools/string2constant/string2constantController.ring",
+		"tools/string2constant/string2constantView.ring",
+		"tools/string2constant/README.md"
 	],
 	:windowsfiles = 	[
 

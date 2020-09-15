@@ -4,9 +4,9 @@ func main
 	? "String2Constant Package"
 	? copy("=",C_LINESIZE)
 	? "String2Constant package for the Ring programming language"
-	? "See the folder : ring/samples/tools/string2constant"
+	? "See the folder : ring/tools/string2constant"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../samples/tools/string2constant")
+	chdir(exefolder()+"/../tools/string2constant")
 	system("ring string2constantController.ring")
 	chdir(cDir)
