@@ -111,7 +111,8 @@ aAllPackagesInfo = [
 		"questions",
 		"moneycase",
 		"rockpaperscissors",
-		"lotterygame"
+		"lotterygame",
+		"nimgame"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -188,7 +189,8 @@ aAllPackagesInfo = [
 		"questions",
 		"moneycase",
 		"rockpaperscissors",
-		"lotterygame"
+		"lotterygame",
+		"nimgame"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
