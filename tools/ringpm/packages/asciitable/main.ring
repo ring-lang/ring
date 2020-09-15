@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/asciitable")
-	system("ring CalmoSoftAsciiTable.ring")
+	system("ring AsciiTable.ring")
 	chdir(cDir)

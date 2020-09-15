@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.2",
-	:ringversion = "1.11",
+	:version = "1.0.3",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -31,7 +31,7 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"applications/asciitable/asciitable.png",
-		"applications/asciitable/CalmoSoftAsciiTable.ring",
+		"applications/asciitable/AsciiTable.ring",
 		"applications/asciitable/README.md"
 	],
 	:windowsfiles = 	[
