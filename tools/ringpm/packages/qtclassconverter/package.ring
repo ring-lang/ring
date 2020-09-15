@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -30,19 +30,19 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"samples/tools/QtClassConverter/app/QtClassConverter.rform",
-		"samples/tools/QtClassConverter/app/QtClassConverterController.ring",
-		"samples/tools/QtClassConverter/app/QtClassConverterView.ring",
-		"samples/tools/QtClassConverter/images/01.jpg",
-		"samples/tools/QtClassConverter/images/02.jpg",
-		"samples/tools/QtClassConverter/images/03.jpg",
-		"samples/tools/QtClassConverter/images/04.jpg",
-		"samples/tools/QtClassConverter/images/05.jpg",
-		"samples/tools/QtClassConverter/images/06.jpg",
-		"samples/tools/QtClassConverter/images/07.jpg",
-		"samples/tools/QtClassConverter/QtClassConverter.ring",
-		"samples/tools/QtClassConverter/README.md",
-		"samples/tools/QtClassConverter/start.bat"
+		"extensions/ringqt/converter/app/QtClassConverter.rform",
+		"extensions/ringqt/converter/app/QtClassConverterController.ring",
+		"extensions/ringqt/converter/app/QtClassConverterView.ring",
+		"extensions/ringqt/converter/images/01.jpg",
+		"extensions/ringqt/converter/images/02.jpg",
+		"extensions/ringqt/converter/images/03.jpg",
+		"extensions/ringqt/converter/images/04.jpg",
+		"extensions/ringqt/converter/images/05.jpg",
+		"extensions/ringqt/converter/images/06.jpg",
+		"extensions/ringqt/converter/images/07.jpg",
+		"extensions/ringqt/converter/QtClassConverter.ring",
+		"extensions/ringqt/converter/README.md",
+		"extensions/ringqt/converter/start.bat"
 	],
 	:windowsfiles = 	[
 
