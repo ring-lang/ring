@@ -1,10 +1,8 @@
 func main
 	? "Removing Samples"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../samples")
-	OSDeleteFolder("fromdoc")
-	OSDeleteFolder("other")
-	OSDeleteFolder("rosettacode")
+	chdir(exefolder())
+	OSDeleteFolder("samples")
 	chdir(cDir)
 
 func OSDeleteFolder cFolder 
