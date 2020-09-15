@@ -4,5 +4,5 @@ func main
 	? "VSCodeEditorExtension Package"
 	? copy("=",C_LINESIZE)
 	? "VSCodeEditorExtension package for the Ring programming language"
-	? "See the folder : ring/editor/vscode"
+	? "See the folder : ring/tools/editor/vscode"
 	? copy("=",C_LINESIZE)
