@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.2",
-	:ringversion = "1.10",
+	:version = "1.0.3",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -25,18 +25,18 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"ring2exe/buildring2exe.bat",
-		"ring2exe/buildring2exe.sh",
-		"ring2exe/cleartemp.bat",
-		"ring2exe/cleartemp.sh",
-		"ring2exe/cleartemp2.bat",
-		"ring2exe/cleartemp2.sh",
-		"ring2exe/folder2qrc.ring",
-		"ring2exe/README.md",
-		"ring2exe/ring2exe.ring",
-		"ring2exe/test.ring",
-		"ring2exe/test2.ring",
-		"ring2exe/test3.ring"
+		"tools/ring2exe/buildring2exe.bat",
+		"tools/ring2exe/buildring2exe.sh",
+		"tools/ring2exe/cleartemp.bat",
+		"tools/ring2exe/cleartemp.sh",
+		"tools/ring2exe/cleartemp2.bat",
+		"tools/ring2exe/cleartemp2.sh",
+		"tools/ring2exe/folder2qrc.ring",
+		"tools/ring2exe/README.md",
+		"tools/ring2exe/ring2exe.ring",
+		"tools/ring2exe/test.ring",
+		"tools/ring2exe/test2.ring",
+		"tools/ring2exe/test3.ring"
 	],
 	:windowsfiles = 	[
 

@@ -4,6 +4,6 @@ func main
 	? "Ring2EXE Package"
 	? copy("=",C_LINESIZE)
 	? "Ring2EXE package for the Ring programming language"
-	? "See the folder : ring/ring2exe"
+	? "See the folder : ring/tools/ring2exe"
 	? "To run the application, run : ring2exe"
 	? copy("=",C_LINESIZE)
