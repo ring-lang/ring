@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/snakesandladders")
-	system("ring CalmoSoftSnakesAndLadders.ring")
+	system("ring SnakesAndLadders.ring")
 	chdir(cDir)
