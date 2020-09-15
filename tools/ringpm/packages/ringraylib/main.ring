@@ -3,4 +3,4 @@
 func main
 
 	? "RingRayLib Extension"
-	? "See samples in : ring/extensions/ringraylib/examples folder"
+	? "See : ring/extensions/ringraylib folder"
