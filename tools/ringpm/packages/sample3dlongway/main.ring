@@ -4,9 +4,9 @@ func main
 	? "Sample3DLongWay Package"
 	? copy("=",C_LINESIZE)
 	? "Sample3DLongWay package for the Ring programming language"
-	? "See the folder : ring/samples/3D/longway"
+	? "See the folder : ring/samples/UsingOpenGL/longway"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../samples/3D/longway")
+	chdir(exefolder()+"/../samples/UsingOpenGL/longway")
 	system("ring longway.ring")
 	chdir(cDir)
