@@ -4,9 +4,9 @@ func main
 	? "Sample3DCamera Package"
 	? copy("=",C_LINESIZE)
 	? "Sample3DCamera package for the Ring programming language"
-	? "See the folder : ring/samples/3D/camera"
+	? "See the folder : ring/samples/UsingOpenGL/camera"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../samples/3D/camera")
+	chdir(exefolder()+"/../samples/UsingOpenGL/camera")
 	system("ring camera.ring")
 	chdir(cDir)
