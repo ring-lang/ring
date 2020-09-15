@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -30,10 +30,10 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"samples/3D/levelsofcubes/back.jpg",
-		"samples/3D/levelsofcubes/levelsofcubes.ring",
-		"samples/3D/levelsofcubes/n1.jpg",
-		"samples/3D/levelsofcubes/pirulen.ttf"
+		"samples/UsingOpenGL/levelsofcubes/back.jpg",
+		"samples/UsingOpenGL/levelsofcubes/levelsofcubes.ring",
+		"samples/UsingOpenGL/levelsofcubes/n1.jpg",
+		"samples/UsingOpenGL/levelsofcubes/pirulen.ttf"
 	],
 	:windowsfiles = 	[
 
