@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -30,15 +30,14 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"applications/findinfiles/findinfiles.rform",
-		"applications/findinfiles/findinfilescontroller.pwct",
-		"applications/findinfiles/findinfilesController.ring",
-		"applications/findinfiles/findinfilesView.ring",
-		"applications/findinfiles/images/closeicon.jpg",
-		"applications/findinfiles/images/Search.ico",
-		"applications/findinfiles/images/search.jpg",
-		"applications/findinfiles/images/selectfolder.jpg",
-		"applications/findinfiles/README.md"
+		"tools/findinfiles/findinfiles.rform",
+		"tools/findinfiles/findinfilesController.ring",
+		"tools/findinfiles/findinfilesView.ring",
+		"tools/findinfiles/images/closeicon.jpg",
+		"tools/findinfiles/images/Search.ico",
+		"tools/findinfiles/images/search.jpg",
+		"tools/findinfiles/images/selectfolder.jpg",
+		"tools/findinfiles/README.md"
 	],
 	:windowsfiles = 	[
 

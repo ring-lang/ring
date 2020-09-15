@@ -4,9 +4,9 @@ func main
 	? "FindInFiles Package"
 	? copy("=",C_LINESIZE)
 	? "FindInFiles package for the Ring programming language"
-	? "See the folder : ring/applications/findinfiles"
+	? "See the folder : ring/tools/findinfiles"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../applications/findinfiles")
+	chdir(exefolder()+"/../tools/findinfiles")
 	system("ring findinfilescontroller.ring")
 	chdir(cDir)
