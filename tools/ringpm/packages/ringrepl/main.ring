@@ -4,9 +4,9 @@ func main
 	? "RingREPL Package"
 	? copy("=",C_LINESIZE)
 	? "RingREPL package for the Ring programming language"
-	? "See the folder : ring/applications/ringrepl"
+	? "See the folder : ring/tools/ringrepl"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../applications/ringrepl")
+	chdir(exefolder()+"/../tools/ringrepl")
 	system("ring replw.ring")
 	chdir(cDir)

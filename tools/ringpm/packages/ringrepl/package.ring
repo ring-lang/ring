@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -30,11 +30,16 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"applications/ringrepl/README.md",
-		"applications/ringrepl/repl.ring",
-		"applications/ringrepl/replw.ring",
-		"applications/ringrepl/replwscript.ring",
-		"applications/ringrepl/source.png"
+		"bin/ringrepl.exe",
+		"tools/ringrepl/build.bat",
+		"tools/ringrepl/build.sh",
+		"tools/ringrepl/ringrepl.ring",
+		"tools/ringrepl/ringreplw.ring",
+		"tools/ringrepl/README.md",
+		"tools/ringrepl/repl.ring",
+		"tools/ringrepl/replw.ring",
+		"tools/ringrepl/replwscript.ring",
+		"tools/ringrepl/source.png"
 	],
 	:windowsfiles = 	[
 
