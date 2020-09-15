@@ -2,7 +2,6 @@
 # Author: Ahmad Zakaria (zaka7024@gmail.com)
 # Date: 8/2020
 
-Load "stdlib.ring"
 Load "stdlibcore.ring"
 Load "raylib.ring"
 
@@ -30,7 +29,7 @@ UnloadImage(musicOffImage)
 InitAudioDevice()
 
 hitSound = LoadSound("assets/hurt2.ogg")
-music = LoadMusicStream("assets/Flowing Rocks.ogg")
+music = LoadMusicStream("assets/FRocks.ogg")
 
 PlayMusicStream(music)
 
