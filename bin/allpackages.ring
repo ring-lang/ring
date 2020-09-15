@@ -106,9 +106,6 @@ aAllPackagesInfo = [
 		"laser",
 		"moneyboxes"
 	],
-	:weblibtools = 	[
-		"weblib"
-	],
 	:ringallegro = 	[
 		"gameengine",
 		"flappybird3000",
