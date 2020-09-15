@@ -1,7 +1,7 @@
 func main
-	? "Removing Folder : ring/editor/visualstudio"
+	? "Removing Folder : ring/tools/editor/visualstudio"
 	cDir = CurrentDir()
-	chdir(exefolder()+"../editor")
+	chdir(exefolder()+"../tools/editor")
 	OSDeleteFolder("visualstudio")
 	chdir(cDir)
 
