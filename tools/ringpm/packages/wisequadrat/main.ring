@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/wisequadrat")
-	system("ring CalmoSoftWiseQuadratGame.ring")
+	system("ring WiseQuadratGame.ring")
 	chdir(cDir)
