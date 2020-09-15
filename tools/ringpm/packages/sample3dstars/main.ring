@@ -4,9 +4,9 @@ func main
 	? "Sample3DStars Package"
 	? copy("=",C_LINESIZE)
 	? "Sample3DStars package for the Ring programming language"
-	? "See the folder : ring/samples/3D/stars"
+	? "See the folder : ring/samples/UsingOpenGL/stars"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../samples/3D/stars")
-	system("ring stars.ring")
+	chdir(exefolder()+"/../samples/UsingOpenGL/stars")
+	system("ring stars3.ring")
 	chdir(cDir)
