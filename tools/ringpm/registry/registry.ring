@@ -578,5 +578,17 @@ aPackagesRegistry = [
 	[ :name = "qt515qmlruntime",
 	  :description = "Qt 5.15 - QML - runtime for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "matchinggame",
+	  :description = "Matching game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "pairsgame",
+	  :description = "Pairs game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "wordgame",
+	  :description = "Word game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
