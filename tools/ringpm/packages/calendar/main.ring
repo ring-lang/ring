@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/calendar")
-	system("ring CalmoSoftCalendar.ring")
+	system("ring Calendar.ring")
 	chdir(cDir)

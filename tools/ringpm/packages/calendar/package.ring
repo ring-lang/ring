@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.12",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -31,7 +31,7 @@ aPackageInfo = [
 	:ringfolderfiles = 	[
 		"applications/calendar/appscreenshot.png",
 		"applications/calendar/calendar.png",
-		"applications/calendar/CalmoSoftCalendar.ring",
+		"applications/calendar/Calendar.ring",
 		"applications/calendar/README.md"
 	],
 	:windowsfiles = 	[
