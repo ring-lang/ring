@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/magicfour")
-	system("ring CalmoSoftMagicFour.ring")
+	system("ring MagicFour.ring")
 	chdir(cDir)
