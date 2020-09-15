@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/fifteenpuzzle3d")
-	system("ring CalmoSoftFifteenPuzzleGame3D.ring")
+	system("ring FifteenPuzzleGame3D.ring")
 	chdir(cDir)

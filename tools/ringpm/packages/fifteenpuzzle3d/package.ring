@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.2",
-	:ringversion = "1.10",
+	:version = "1.0.3",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -30,7 +30,7 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"applications/fifteenpuzzle3d/CalmoSoftFifteenPuzzleGame3D.ring",
+		"applications/fifteenpuzzle3d/FifteenPuzzleGame3D.ring",
 		"applications/fifteenpuzzle3d/image/back.jpg",
 		"applications/fifteenpuzzle3d/image/empty.png",
 		"applications/fifteenpuzzle3d/image/n1.jpg",
