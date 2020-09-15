@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/othellogame")
-	system("ring CalmoSoftOthelloGame.ring")
+	system("ring OthelloGame.ring")
 	chdir(cDir)
