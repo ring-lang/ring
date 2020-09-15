@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -25,9 +25,9 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"editor/emacs/README.md",
-		"editor/emacs/ring-mode.el",
-		"editor/emacs/screenshot.png"
+		"tools/editor/emacs/README.md",
+		"tools/editor/emacs/ring-mode.el",
+		"tools/editor/emacs/screenshot.png"
 	],
 	:windowsfiles = 	[
 

@@ -4,5 +4,5 @@ func main
 	? "EmacsEditorExtension Package"
 	? copy("=",C_LINESIZE)
 	? "EmacsEditorExtension package for the Ring programming language"
-	? "See the folder : ring/editor/emacs"
+	? "See the folder : ring/tools/editor/emacs"
 	? copy("=",C_LINESIZE)
