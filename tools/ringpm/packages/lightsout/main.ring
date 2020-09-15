@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/lightsout")
-	system("ring CalmoSoftLightsOut.ring")
+	system("ring LightsOut.ring")
 	chdir(cDir)
