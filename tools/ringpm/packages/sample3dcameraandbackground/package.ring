@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -30,14 +30,14 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"samples/3D/cameraandbackground/Camera.ring",
-		"samples/3D/cameraandbackground/pirulen.ttf",
-		"samples/3D/cameraandbackground/README.md",
-		"samples/3D/cameraandbackground/skybox_nx.jpg",
-		"samples/3D/cameraandbackground/skybox_nz.jpg",
-		"samples/3D/cameraandbackground/skybox_px.jpg",
-		"samples/3D/cameraandbackground/skybox_pz.jpg",
-		"samples/3D/cameraandbackground/wala.jpg"
+		"samples/UsingOpenGL/cameraandbackground/Camera.ring",
+		"samples/UsingOpenGL/cameraandbackground/pirulen.ttf",
+		"samples/UsingOpenGL/cameraandbackground/README.md",
+		"samples/UsingOpenGL/cameraandbackground/skybox_nx.jpg",
+		"samples/UsingOpenGL/cameraandbackground/skybox_nz.jpg",
+		"samples/UsingOpenGL/cameraandbackground/skybox_px.jpg",
+		"samples/UsingOpenGL/cameraandbackground/skybox_pz.jpg",
+		"samples/UsingOpenGL/cameraandbackground/wala.jpg"
 	],
 	:windowsfiles = 	[
 
