@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/memorygame")
-	system("ring CalmoSoftMemoryGame.ring")
+	system("ring MemoryGame.ring")
 	chdir(cDir)
