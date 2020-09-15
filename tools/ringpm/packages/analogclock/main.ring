@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/analogclock")
-	system("ring AnalogClock-Image.ring")
+	system("ring AnalogClock.ring")
 	chdir(cDir)
