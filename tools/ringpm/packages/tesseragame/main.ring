@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/tesseragame")
-	system("ring CalmoSoftTesseraGame.ring")
+	system("ring TesseraGame.ring")
 	chdir(cDir)
