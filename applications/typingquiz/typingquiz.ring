@@ -2,15 +2,15 @@
 # Author: Ahmad Zakaria (zaka7024@gmail.com)
 # Date: 8/2020
 
-Load "stdlib.ring"
-load "raylib.ring"
+Load "stdlibcore.ring"
+Load "raylib.ring"
 
 screenWidth  = 800
 screenHeight = 400
 
 func main
 
-InitWindow(screenWidth, screenHeight, "raylib [core] example - keyboard input")
+InitWindow(screenWidth, screenHeight, "Typing Quiz")
 SetTargetFPS(60)
 
 if iswindows()
@@ -25,20 +25,24 @@ k = random(len(chars) - 1) + 1
 CHAR_ONE = chars[k][1]
 CHAR_TWO = chars[k][2]
 
-sentanceLength = random(39) + 1
+sentanceLength = random(20) + 20
 
 # generate quiz text
 text = generateString(sentanceLength, chars[k])
 
 # game variables
-letters = ""
-started = False
-lastKey = 0
-error = 0
-currentCharIndex = 1
-timer = 0
-keys = [:j = KEY_J, :f = KEY_F, :c = KEY_C, :e = KEY_E, :o = KEY_O,
-	 :k = KEY_K, :d = KEY_D]
+textSize = 0
+if len(text) >= 30 textSize = 25 else textSize = 35 ok
+letters 		= ""
+started 		= False
+lastKey 		= 0
+error 			= 0
+errorMap		= []
+currentCharIndex 	= 1
+timer 			= 0
+errorMap		= []
+keys 			= [:j = KEY_J, :f = KEY_F, :c = KEY_C, :e = KEY_E, :o = KEY_O,
+	 			:k = KEY_K, :d = KEY_D]
 
 CHAR_ONE_KEY = keys[CHAR_ONE]
 CHAR_TWO_KEY = keys[CHAR_TWO]
@@ -57,7 +61,7 @@ while !WindowShouldClose()
 	DrawText("SENTANCE:", 10, 50, 26, RED)
 	DrawText("ERRORS: " + error, 300, 45, 26, RED)
 	DrawText("Press R To Restart", 280, 300, 25, BLUE)
-	DrawText(text, 10, 100, 35, RED)
+	DrawText(text, 10, 100, textSize, RED)
 
 	# Check if the user click the sentance chars
 	if IsKeyReleased(CHAR_ONE_KEY)
@@ -68,8 +72,22 @@ while !WindowShouldClose()
 		lastKey = CHAR_TWO_KEY
 	elseif IsKeyReleased(KEY_SPACE)
 		letters = letters + " " 
-		lastKey = KEY_SPACE ok
+		lastKey = KEY_SPACE
+	elseif IsKeyDown(KEY_BACKSPACE)
+		letters = left(letters, len(letters) - 1)
 
+		if currentCharIndex > 1
+			currentCharIndex--
+		ok
+		
+		for i = len(errorMap) to 1 step -1
+			if errorMap[i] > len(letters)
+					error--
+					del(errorMap, i)
+			ok
+		next
+		sleep(0.1)
+	ok
 	# Restart the game
 	if IsKeyReleased(KEY_R)
 		# load game variables
@@ -78,14 +96,15 @@ while !WindowShouldClose()
 		CHAR_TWO = chars[k][2]
 		CHAR_ONE_KEY = keys[CHAR_ONE]
 		CHAR_TWO_KEY = keys[CHAR_TWO]
-		text = generateString(20, chars[K])
-		sentanceLength = random(39) + 1
+		sentanceLength = 40
+		text = generateString(sentanceLength, chars[K])
 		letters = ""
 		started = False
 		lastKey = 0
 		error = 0
 		currentCharIndex = 1
 		timer = 0
+		if len(text) >= 30 textSize = 25 else textSize = 35 ok
 	ok
 	
 	# Check if the user click at least one key
@@ -97,6 +116,7 @@ while !WindowShouldClose()
 	if len(letters) > 0 and len(letters) <= len(text)
 		if lastKey != 0 and lower(char(lastKey)) != nextChar
 			error++
+			errorMap + len(letters)
 		ok
 	
 		if lastKey != 0
@@ -118,7 +138,7 @@ while !WindowShouldClose()
 	if isnull(letters)
 		DrawText("Start typing...", 10, 140, 35, GRAY)
 	else
-		DrawText(letters, 10, 140, 35, RED)
+		DrawText(letters, 10, 140, textSize, RED)
 	ok
 	
 	# Check if the game ends 
@@ -135,7 +155,7 @@ while !WindowShouldClose()
 	EndDrawing()
 end
 
-CloseWindow()	
+CloseWindow()
 
 # Function to generate string using a list of chars
 func generateString length, letters
