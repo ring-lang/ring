@@ -104,7 +104,8 @@ aAllPackagesInfo = [
 		"juliandaycalendar",
 		"magicballs",
 		"laser",
-		"moneyboxes"
+		"moneyboxes",
+		"matchinggame"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -174,7 +175,8 @@ aAllPackagesInfo = [
 		"juliandaycalendar",
 		"magicballs",
 		"laser",
-		"moneyboxes"
+		"moneyboxes",
+		"matchinggame"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
