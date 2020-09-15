@@ -4,9 +4,9 @@ func main
 	? "Sample3DManyCubes Package"
 	? copy("=",C_LINESIZE)
 	? "Sample3DManyCubes package for the Ring programming language"
-	? "See the folder : ring/samples/3D/manycubes"
+	? "See the folder : ring/samples/UsingOpenGL/manycubes"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../samples/3D/manycubes")
+	chdir(exefolder()+"/../samples/UsingOpenGL/manycubes")
 	system("ring manycubes.ring")
 	chdir(cDir)
