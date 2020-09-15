@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.2",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -22,8 +22,10 @@ aPackageInfo = [
 	],
 	:files = 	[
 		"main.ring",
-		"README.md",
-		"Ring.pptx"
+		"README.md"
+	],
+	:ringfolderfiles = 	[
+		"marketing/presentation/Ring.pptx"
 	],
 	:windowsfiles = 	[
 
@@ -34,7 +36,7 @@ aPackageInfo = [
 	:macosfiles = 	[
 
 	],
-	:run = "Ring.pptx",
+	:run = "b:\ring\bin\../marketing/presentation/Ring.pptx",
 	:setup = "",
 	:remotefolder = "ringpresentation",
 	:branch = "master",
