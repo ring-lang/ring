@@ -590,5 +590,45 @@ aPackagesRegistry = [
 	[ :name = "wordgame",
 	  :description = "Word game package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "towersofhanoi",
+	  :description = "TowersOfHanoi package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "questions",
+	  :description = "questions game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "moneycase",
+	  :description = "MoneyCase game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "rockpaperscissors",
+	  :description = "RockPaperScissors game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "lotterygame",
+	  :description = "Lottery game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "nimgame",
+	  :description = "Nim game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "eightqueensgame",
+	  :description = "EightQueens game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "typingquiz",
+	  :description = "TypingQuiz package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "pong2game",
+	  :description = "Pong2 game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "spaceshootergame",
+	  :description = "SpaceShooter game package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
