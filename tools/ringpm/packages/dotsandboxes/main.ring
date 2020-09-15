@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/dotsandboxes")
-	system("ring CalmoSoftDotsAndBoxes.ring")
+	system("ring DotsAndBoxes.ring")
 	chdir(cDir)
