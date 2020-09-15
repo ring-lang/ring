@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.10",
+	:version = "1.0.1",
+	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -25,17 +25,17 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"editor/atom/atom-language-ring/grammars/ring.cson",
-		"editor/atom/atom-language-ring/keymaps/language-ring.cson",
-		"editor/atom/atom-language-ring/LICENSE.md",
-		"editor/atom/atom-language-ring/menus/language-ring.cson",
-		"editor/atom/atom-language-ring/package.json",
-		"editor/atom/atom-language-ring/README.md",
-		"editor/atom/atom-language-ring/scoped-properties/language-ring.cson",
-		"editor/atom/atom-language-ring/snippets/language-ring.cson",
-		"editor/atom/atom-language-ring/stylesheets/language-ring.less",
-		"editor/atom/README.md",
-		"editor/atom/Ring_Atom.jpg"
+		"tools/editor/atom/atom-language-ring/grammars/ring.cson",
+		"tools/editor/atom/atom-language-ring/keymaps/language-ring.cson",
+		"tools/editor/atom/atom-language-ring/LICENSE.md",
+		"tools/editor/atom/atom-language-ring/menus/language-ring.cson",
+		"tools/editor/atom/atom-language-ring/package.json",
+		"tools/editor/atom/atom-language-ring/README.md",
+		"tools/editor/atom/atom-language-ring/scoped-properties/language-ring.cson",
+		"tools/editor/atom/atom-language-ring/snippets/language-ring.cson",
+		"tools/editor/atom/atom-language-ring/stylesheets/language-ring.less",
+		"tools/editor/atom/README.md",
+		"tools/editor/atom/Ring_Atom.jpg"
 	],
 	:windowsfiles = 	[
 

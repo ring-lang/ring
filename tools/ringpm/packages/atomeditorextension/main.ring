@@ -4,5 +4,5 @@ func main
 	? "AtomEditorExtension Package"
 	? copy("=",C_LINESIZE)
 	? "AtomEditorExtension package for the Ring programming language"
-	? "See the folder : ring/editor/atom"
+	? "See the folder : ring/tools/editor/atom"
 	? copy("=",C_LINESIZE)
