@@ -4,5 +4,5 @@ func main
 	? "GeanyEditorExtension Package"
 	? copy("=",C_LINESIZE)
 	? "GeanyEditorExtension package for the Ring programming language"
-	? "See the folder : ring/editor/geany"
+	? "See the folder : ring/tools/editor/geany"
 	? copy("=",C_LINESIZE)
