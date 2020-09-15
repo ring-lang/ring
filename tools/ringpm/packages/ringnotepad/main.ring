@@ -4,9 +4,9 @@ func main
 	? "RingNotepad Package"
 	? copy("=",C_LINESIZE)
 	? "RingNotepad package for the Ring programming language"
-	? "See the folder : ring/applications/rnote"
+	? "See the folder : ring/tools/ringnotepad"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../applications/rnote")
+	chdir(exefolder()+"/../tools/ringnotepad")
 	system("ring rnote.ring")
 	chdir(cDir)
