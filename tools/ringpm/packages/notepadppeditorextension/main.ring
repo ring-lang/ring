@@ -4,5 +4,5 @@ func main
 	? "NotepadppEditorExtension Package"
 	? copy("=",C_LINESIZE)
 	? "NotepadppEditorExtension package for the Ring programming language"
-	? "See the folder : ring/editor/notepad_plus_plus"
+	? "See the folder : ring/tools/editor/notepad_plus_plus"
 	? copy("=",C_LINESIZE)
