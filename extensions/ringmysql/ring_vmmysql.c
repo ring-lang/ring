@@ -1,5 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
-#include <my_global.h>
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include <mysql.h>
 #include "ring.h"
 #include "ring_vmmysql.h"
