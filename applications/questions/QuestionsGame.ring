@@ -5,7 +5,7 @@
 
 load "stdlib.ring"
 load "guilib.ring"
-load "questions.ring"
+load "Questions.ring"
 
 # Constants for the Questions list
 	C_QUESTION      = 1
