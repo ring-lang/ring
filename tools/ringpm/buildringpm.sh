@@ -1,4 +1,4 @@
-ring2exe ringpm.ring
+ring ../ring2exe/ring2exe.ring ringpm.ring
 ./cleartemp.sh
 
 cp ringpm $PWD/../../bin/ringpm 
