@@ -442,3 +442,16 @@ then
 sudo cp lib/libringsdl.so /usr/lib
 sudo cp lib/libringsdl.so /usr/lib64
 fi
+
+# Make the RingRayLib library ready for use directly
+
+if [ -f lib/libringraylib.dylib ];
+then
+cp lib/libringraylib.dylib /usr/local/lib
+fi
+
+if [ -f lib/libringraylib.so ];
+then
+sudo cp lib/libringraylib.so /usr/lib
+sudo cp lib/libringraylib.so /usr/lib64
+fi
