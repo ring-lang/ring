@@ -429,3 +429,16 @@ then
 sudo cp lib/libring_consolecolors.so /usr/lib
 sudo cp lib/libring_consolecolors.so /usr/lib64
 fi
+
+# Make the RingLibSDL library ready for use directly
+
+if [ -f lib/libringsdl.dylib ];
+then
+cp lib/libringsdl.dylib /usr/local/lib
+fi
+
+if [ -f lib/libringsdl.so ];
+then
+sudo cp lib/libringsdl.so /usr/lib
+sudo cp lib/libringsdl.so /usr/lib64
+fi
