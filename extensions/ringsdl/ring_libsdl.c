@@ -6,9 +6,9 @@
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "SDL_net.h"
-#include "SDL2_gfx\SDL2_gfxPrimitives.h"
-#include "SDL2_gfx\SDL2_gfxPrimitives.c"
-#include "SDL2_gfx\SDL2_rotozoom.c"
+#include "SDL2_gfx/SDL2_gfxPrimitives.h"
+#include "SDL2_gfx/SDL2_gfxPrimitives.c"
+#include "SDL2_gfx/SDL2_rotozoom.c"
 #include "SDL_syswm.h"
 RING_FUNC(ring_sdl_new_sdl_syswminfo)
 {
