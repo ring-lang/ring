@@ -16,8 +16,8 @@ Start		= False
 InitWindow(screenWidth, screenHeight, "Pong Ring")
 
 # Load game textures
-MusicOnImage 	= LoadImage("assets/musicOn.png")
-MusicOffImage 	= LoadImage("assets/musicOff.png")
+MusicOnImage 	= LoadImage("Assets/musicOn.png")
+MusicOffImage 	= LoadImage("Assets/musicOff.png")
 
 MusicOnTex 	= LoadTextureFromImage(musicOnImage)
 MusicOffTex 	= LoadTextureFromImage(musicOffImage)
@@ -28,8 +28,8 @@ UnloadImage(musicOffImage)
 # Load game sounds
 InitAudioDevice()
 
-hitSound = LoadSound("assets/hurt2.ogg")
-music = LoadMusicStream("assets/FRocks.ogg")
+hitSound = LoadSound("Assets/hurt2.ogg")
+music = LoadMusicStream("Assets/FRocks.ogg")
 
 PlayMusicStream(music)
 
@@ -162,10 +162,10 @@ func restart
 class StartScene
 	isDone = False MARGIN = 30
 	images = [
-		"assets/tileW.png",
-		"assets/tileS.png",
-		"assets/tileUp.png",
-		"assets/tileDown.png"
+		"Assets/tileW.png",
+		"Assets/tileS.png",
+		"Assets/tileUp.png",
+		"Assets/tileDown.png"
 		]
 
 	positions = [
