@@ -65,6 +65,10 @@ SOURCES +=   \
     cpp/src/gprintpreviewwidget.cpp \
     cpp/src/gprintpreviewdialog.cpp \
     cpp/src/gprintdialog.cpp \
+	cpp/src/gmovie.cpp \
+    cpp/src/gcolordialog.cpp \
+    cpp/src/gfontdialog.cpp \
+    cpp/src/gfiledialog.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -120,7 +124,12 @@ HEADERS  += \
     cpp/include/ggeopositioninfosource.h \
     cpp/include/gprintpreviewwidget.h \
     cpp/include/gprintpreviewdialog.h \
-    cpp/include/gprintdialog.h
+    cpp/include/gprintdialog.h \
+	cpp/include/gmovie.h \
+    cpp/include/gcolordialog.h \
+    cpp/include/gfontdialog.h \
+    cpp/include/gfiledialog.h
+
     
 
 INCLUDEPATH += ../../language/include
