@@ -1,6 +1,7 @@
 ###  Visualize Sort - Animated
 ###  2019-01-27  Bert Mariani
-###  "Bubble","Selection","Insertion","Merge","Quick","Heap","Counting"
+###  2020-09-20
+###  "Bubble","Selection","Insertion","Merge","Quick","Heap","Counting","Radix"
 
 Load "guilib.ring"
 load "stdlib.ring"
@@ -18,8 +19,9 @@ LabelY   = 550
 MonaX    = 830
 MonaY    = 550
 
-gSleepDelay = 0.1           ### Set SleepDelay for Visual display of sort array steps  
-gSpace = 2                  ### Space between bars drawn
+gSleepDelay  = 0.1           ### Set SleepDelay for Visual display of sort array steps  
+gSleepDelayB = 0.5           ### Set SleepDelay for Visual display of sort array steps 
+gSpace = 2                   ### Space between bars drawn
 
 ### Setup Random Values --------------------
 
@@ -83,7 +85,7 @@ MyApp = New qapp
         comboSortType = new QComboBox(win1) 
         {
             setgeometry(500,ButtonX,ButtonW, ButtonH)
-            comboList = ["Bubble","Selection","Insertion","Merge","Quick","Heap","Counting"]
+            comboList = ["Bubble","Selection","Insertion","Merge","Quick","Heap","Counting","Radix"]
             for x in comboList additem(x,0) next                
         }
             
@@ -200,7 +202,11 @@ switch SortType
 
     on "Counting"
         CountingSort(values)  
-        See "Finished: Counting"+nl     
+        See "Finished: Counting"+nl    
+
+    on "Radix"
+        RadixSort(values)  
+        See "Finished: Radix"+nl         
             
 
 off     ### Switch OFF
@@ -667,7 +673,7 @@ Func CountingSort(Arr)
         tmp = Aux[i]
         
         ### Aux[] stores which element occurs how many times,
-        ### Add i in sortedA[] according to the number of times i occured in Arr[]
+        ### Add i in sortedA[] according to the number of times i occurred in Arr[]
         
         while(tmp) 
             Arr[j] = i
@@ -683,6 +689,125 @@ return Arr
 
 
 ###===================================================
+
+###---------------------------------------------------
+ 
+Func RadixSort(arr) 
+
+   //arr = [82,901,100,12,150,77,3145,2687,55,23]  // Test Array
+   n   = len(arr)
+   
+   See "Initial array: "+nl
+   //printA(arr, n) 
+ 
+   DrawUpdate(Arr)     ###<<< Draw Chart Intermediate
+   Sleep(gSleepDelayB)
+
+   radixSortA(arr, n);
+ 
+   See "------------"+nl+nl
+   See "Final array: "+nl
+   //printA(arr, n)
+      
+return 0
+
+###---------------------------------------------------  
+// Sort arr[] of size n using Radix Sort.
+
+Func radixSortA(arr, n)
+   
+   m      = getMax(arr, n)  
+   digits = len(""+ m)  
+ 
+   // Calling countSort() for digit at (place)th place in every input.
+   
+   place = 1
+   for i = 0 to digits - 1 
+      
+      See "------------"+nl+nl
+      See "Place: "+ place +nl
+      
+      countSort(arr, n, place)
+      place = place * 10
+
+   next
+
+return
+
+
+
+###--------------------------------------------------- 
+// CountSort method of arr[].
+
+Func countSort(arr, n, place)
+
+   // Count[i] array will be counting the number of array values having that 'i' digit at their (place)th place.  
+   
+   //output = Arr         // Replace with Visual Arr background
+   output = list(n)
+   count  = list(11)  
+ 
+   // Count the number of times each digit occurred at (place)th place in every input.
+   for i = 1 to n
+      here = floor((arr[i] / place) % 10)
+      count[  here +1] += 1    // ++;
+   next
+ 
+   // Calculating their cumulative count.
+   for i = 2 to 10;             // 1
+      count[i] += count[i-1];
+   next
+          
+   // Inserting values according to the digit '(arr[i] / place) % 10' fetched into count[(arr[i] / place) % 10].
+   for i = n to 1 step -1     
+   
+      here = floor((arr[i] / place) % 10 +1)      
+      output[ count[ here ] ]  = arr[i]
+              count[ here ]   -= 1
+              
+      DrawUpdate(output)     ###<<< Draw Chart Intermediate -- Visual Movement
+   next
+   
+   arr = output
+
+   See "arr Sort: "+nl
+   //printA( arr,  n)
+   
+   DrawUpdate(Arr)     ###<<< Draw Chart Intermediate - Visualize
+   Sleep(gSleepDelayB)
+            
+return      
+
+ 
+###---------------------------------------------------  
+// Get maximum value from array
+
+Func getMax( arr, n)
+   mx = arr[1]
+   for i = 1 to n
+      if (arr[i] > mx)
+         mx = arr[i]
+      ok
+   next
+return mx
+
+###---------------------------------------------------   
+// A utility function to printA an array 
+
+
+Func printA(arr, n) 
+ 
+    for i = 1 to n 
+        See " | "+ arr[i] 
+    next 
+    See nl+nl
+    
+return
+
+
+###--------------------------------------------------- 
+// Sorted Data ->1->3->12->54->96->129->542->886->1125->3125
+
 
 
 
