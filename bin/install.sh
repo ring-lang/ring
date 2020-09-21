@@ -8,14 +8,17 @@ then
 echo "`pwd`/ring \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ring
 chmod +x /usr/local/bin/ring
 
-echo "`pwd`/../ring2exe/ring2exe \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ring2exe
+echo "`pwd`/ring2exe \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ring2exe
 chmod +x /usr/local/bin/ring2exe
 
-echo "`pwd`/../ring2exe/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/folder2qrc
+echo "`pwd`/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/folder2qrc
 chmod +x /usr/local/bin/folder2qrc
 
-echo "`pwd`/../ringpm/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ringpm
+echo "`pwd`/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ringpm
 chmod +x /usr/local/bin/ringpm
+
+echo "`pwd`/ringrepl \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ringrepl
+chmod +x /usr/local/bin/ringrepl
 
 cd ..
 
@@ -27,14 +30,17 @@ then
 sudo echo "`pwd`/ring \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ring 
 sudo chmod +x /usr/bin/ring
 
-echo "`pwd`/../ring2exe/ring2exe \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ring2exe
+echo "`pwd`/ring2exe \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ring2exe
 chmod +x /usr/bin/ring2exe
 
-echo "`pwd`/../ring2exe/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/folder2qrc
+echo "`pwd`/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/folder2qrc
 chmod +x /usr/bin/folder2qrc
 
-sudo echo "`pwd`/../ringpm/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ringpm 
+sudo echo "`pwd`/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ringpm 
 sudo chmod +x /usr/bin/ringpm
+
+sudo echo "`pwd`/ringrepl \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ringrepl
+sudo chmod +x /usr/bin/ringrepl
 
 cd ..
 sudo cp lib/libring.so /usr/lib
