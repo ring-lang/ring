@@ -454,4 +454,6 @@ if [ -f lib/libringraylib.so ];
 then
 sudo cp lib/libringraylib.so /usr/lib
 sudo cp lib/libringraylib.so /usr/lib64
+sudo cp extensions/ringraylib/src/linux_raylib-2.5/lib/libraylib.so.* /usr/lib
+sudo cp extensions/ringraylib/src/linux_raylib-2.5/lib/libraylib.so.* /usr/lib64
 fi
