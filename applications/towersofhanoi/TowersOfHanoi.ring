@@ -74,7 +74,7 @@ MovePlay = [[1,'A','B'],
 //===========================================================================
 // Start the GAME ENGINE
 
-Load "GameEngine.ring"                      # Give control to the game engine
+Load "gameengine.ring"                      # Give control to the game engine
 
 Func Main                                   # Called by the Game Engine
 
