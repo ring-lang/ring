@@ -42,14 +42,14 @@ Sounds 	= [
 	]
 
 # Play music
-mainMusic 	= LoadMusicStream("assets/Dimensions.ogg")
+mainMusic 	= LoadMusicStream("Assets/Dimensions.ogg")
 PlayMusicStream(mainMusic)
 
 # Waves init
 generateWave()
 
 # Load background
-backgroundImage = LoadImage("assets/black.png")
+backgroundImage = LoadImage("Assets/black.png")
 ImageResize(backgroundImage, screenWidth, screenHeight)
 backgroundTex = LoadTextureFromImage(backgroundImage)
 
