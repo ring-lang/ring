@@ -1,7 +1,7 @@
 ring2exe ringpm.ring
 ./cleartemp.sh
 
-cp ringpm $PWD/../bin/ringpm 
+cp ringpm $PWD/../../bin/ringpm 
 
 if [ -f ../../lib/libring.dylib ];
 then
