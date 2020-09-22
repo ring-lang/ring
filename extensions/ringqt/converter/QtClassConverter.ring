@@ -2,7 +2,7 @@
 # Author	: Majdi Sobain <MajdiSobain@gmail.com>
 #		: Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "app\QtClassConverterController.ring"
+load "app/QtClassConverterController.ring"
 
 import System.GUI
 
