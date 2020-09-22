@@ -7,6 +7,6 @@ func main
 	? "See the folder : ring/applications/sudoku"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../applications/sudoku/v3")
+	chdir(exefolder()+"/../applications/sudoku/v1")
 	system("ring AA-Sudoku.ring")
 	chdir(cDir)
