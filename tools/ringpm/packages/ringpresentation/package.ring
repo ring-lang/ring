@@ -24,7 +24,7 @@ aPackageInfo = [
 		"main.ring",
 		"README.md"
 	],
-	:ringfolderfiles = 	[
+	:ringfolderfiles = [
 		"marketing/presentation/Ring.pptx"
 	],
 	:windowsfiles = 	[
@@ -36,10 +36,6 @@ aPackageInfo = [
 	:macosfiles = 	[
 
 	],
-	:run = "b:\ring\bin\../marketing/presentation/Ring.pptx",
-	:setup = "",
-	:remotefolder = "ringpresentation",
-	:branch = "master",
-	:providerusername = "ringpackages",
-	:providerwebsite = "github.com"
+	:run = "ring main.ring",
+	:setup = ""
 ]

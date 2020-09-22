@@ -6,7 +6,9 @@ func main
 	? "RingHelpHTML package for the Ring programming language"
 	? "See the folder : ring/documents/build/html"
 	? copy("=",C_LINESIZE)
-	cDir = currentdir()
-	chdir(exefolder()+"/../documents/build/html")
-	system("index.html")
-	chdir(cDir)
+	if isWindows()
+		cDir = currentdir()
+		chdir(exefolder()+"/../documents/build/html")
+		system("index.html")
+		chdir(cDir)
+	ok

@@ -6,7 +6,9 @@ func main
 	? "RingHelpPDF package for the Ring programming language"
 	? "See the folder : ring/documents"
 	? copy("=",C_LINESIZE)
-	cDir = currentdir()
-	chdir(exefolder()+"/../documents")
-	system("ring.pdf")
-	chdir(cDir)
+	if isWindows()
+		cDir = currentdir()
+		chdir(exefolder()+"/../documents")
+		system("ring.pdf")
+		chdir(cDir)
+	ok
