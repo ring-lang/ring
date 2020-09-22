@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../tools/findinfiles")
-	system("ring findinfilescontroller.ring")
+	system("ring findinfilesController.ring")
 	chdir(cDir)
