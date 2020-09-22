@@ -4,9 +4,9 @@ func main
 	? "VisualizeSortSample Package"
 	? copy("=",C_LINESIZE)
 	? "VisualizeSortSample package for the Ring programming language"
-	? "See the folder : ring/samples/drawing/visualizesort"
+	? "See the folder : ring/samples/Drawing/VisualizeSort"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../samples/drawing/visualizesort")
+	chdir(exefolder()+"/../samples/Drawing/VisualizeSort")
 	system("ring Visualize-Sort.ring")
 	chdir(cDir)
