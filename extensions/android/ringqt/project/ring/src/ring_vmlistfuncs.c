@@ -45,14 +45,14 @@ void ring_vmlib_list ( void *pPointer )
 					exit(0);
 				}
 				pList->pItemsBlock = pItems ;
-				ring_state_registerblock(pVM->pRingState,pItems,pItems+nSize);
+				ring_state_registerblock(pVM->pRingState,pItems+1,pItems+nSize);
 				pItem = (Item *) ring_calloc(nSize+1,sizeof(Item));
 				if ( pItem == NULL ) {
 					printf( RING_OOM ) ;
 					exit(0);
 				}
 				pList->pItemBlock = pItem ;
-				ring_state_registerblock(pVM->pRingState,pItem,pItem+nSize);
+				ring_state_registerblock(pVM->pRingState,pItem+1,pItem+nSize);
 				for ( x = 1 ; x <=nSize ; x++ ) {
 					/*
 					**  Add the Items 
@@ -98,14 +98,14 @@ void ring_vmlib_list ( void *pPointer )
 					exit(0);
 				}
 				pList->pItemsBlock = pItems ;
-				ring_state_registerblock(pVM->pRingState,pItems,pItems+(nSize*nSize2));
+				ring_state_registerblock(pVM->pRingState,pItems+1,pItems+(nSize*nSize2));
 				pItem = (Item *) ring_calloc((nSize*nSize2)+1,sizeof(Item));
 				if ( pItem == NULL ) {
 					printf( RING_OOM ) ;
 					exit(0);
 				}
 				pList->pItemBlock = pItem ;
-				ring_state_registerblock(pVM->pRingState,pItem,pItem+(nSize*nSize2));
+				ring_state_registerblock(pVM->pRingState,pItem+1,pItem+(nSize*nSize2));
 				for ( x = 1 ; x <=nSize ; x++ ) {
 					pList2 = ring_list_newlist(pList);
 					for ( y = 1 ; y <=nSize2 ; y++ ) {
