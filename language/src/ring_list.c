@@ -56,12 +56,14 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 	ring_list_deleteallitems_gc(pState,pList);
 	/* Delete Blocks (if we have allocated large block of memory) */
 	if ( pList->pItemBlock != NULL ) {
-		ring_state_unregisterblock(pState,pList->pItemBlock);
+		ring_state_unregisterblock(pState,pList->pItemBlock+1);
 		ring_state_free(pState,pList->pItemBlock);
+		pList->pItemBlock = NULL ;
 	}
 	if ( pList->pItemsBlock != NULL ) {
-		ring_state_unregisterblock(pState,pList->pItemsBlock);
+		ring_state_unregisterblock(pState,pList->pItemsBlock+1);
 		ring_state_free(pState,pList->pItemsBlock);
+		pList->pItemsBlock = NULL ;
 	}
 	ring_state_free(pState,pList);
 	pList = NULL ;
@@ -179,6 +181,17 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 	/* Free HashTable */
 	if ( pList->pHashTable != NULL ) {
 		pList->pHashTable = ring_hashtable_delete_gc(pState,pList->pHashTable);
+	}
+	/* Delete Blocks (if we have allocated large block of memory) */
+	if ( pList->pItemBlock != NULL ) {
+		ring_state_unregisterblock(pState,pList->pItemBlock+1);
+		ring_state_free(pState,pList->pItemBlock);
+		pList->pItemBlock = NULL ;
+	}
+	if ( pList->pItemsBlock != NULL ) {
+		ring_state_unregisterblock(pState,pList->pItemsBlock+1);
+		ring_state_free(pState,pList->pItemsBlock);
+		pList->pItemsBlock = NULL ;
 	}
 }
 
@@ -1096,6 +1109,8 @@ RING_API void ring_list_clear ( List *pList )
 	pList->pLastItemLastAccess = NULL ;
 	pList->pItemsArray = NULL ;
 	pList->pHashTable = NULL ;
+	pList->pItemBlock = NULL ;
+	pList->pItemsBlock = NULL ;
 }
 /* Define functions without State Pointer */
 
