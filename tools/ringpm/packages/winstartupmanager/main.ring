@@ -6,7 +6,9 @@ func main
 	? "WinStartupManager package for the Ring programming language"
 	? "See the folder : ring/applications/winstartupmanager"
 	? copy("=",C_LINESIZE)
-	cDir = currentdir()
-	chdir(exefolder()+"/../applications/winstartupmanager")
-	system("ring WinStartupManager.ring")
-	chdir(cDir)
+	if isWindows()
+		cDir = currentdir()
+		chdir(exefolder()+"/../applications/winstartupmanager")
+		system("ring WinStartupManager.ring")
+		chdir(cDir)
+	ok
