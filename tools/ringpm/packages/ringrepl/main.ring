@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../tools/ringrepl")
-	system("ring replw.ring")
+	system("ring ringreplw.ring")
 	chdir(cDir)
