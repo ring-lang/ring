@@ -1,4 +1,4 @@
-load "string2constantview.ring"
+load "string2constantView.ring"
 
 import System.GUI
 
