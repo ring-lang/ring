@@ -323,5 +323,6 @@ aTests = [
 	[ :name = "General Tests (Part 133)", :Command = "ring general/test133.ring" ],
 	[ :name = "General Tests (Part 134)", :Command = "ring general/test134.ring" ],
 	[ :name = "General Tests (Part 135)", :Command = "ring general/missingexprinclassregion.ring" ],
-	[ :name = "General Tests (Part 136)", :Command = "ring general/usinglistduringdef.ring" ]
+	[ :name = "General Tests (Part 136)", :Command = "ring general/usinglistduringdef.ring" ],
+	[ :name = "General Tests (Part 137)", :Command = "ring general/listfunctionandassignment.ring" ]
 ]
