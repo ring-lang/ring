@@ -181,6 +181,7 @@ RING_API void ring_list_deleteallitems_gc ( void *pState,List *pList )
 		ring_state_free(pState,pList->pItemsBlock);
 		pList->pItemsBlock = NULL ;
 	}
+	pList->lCopyByRef = 0 ;
 }
 
 RING_API void ring_list_copy_tohighlevel_gc ( void *pState,List *pNewList, List *pList )
