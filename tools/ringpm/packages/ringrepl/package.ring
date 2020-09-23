@@ -63,5 +63,9 @@ aPackageInfo = [
 	:linuxsetup = "",
 	:macossetup = "",
 	:ubuntusetup = "",
-	:fedorasetup = ""
+	:fedorasetup = "",
+	:remotefolder = "ringrepl",
+	:branch = "master",
+	:providerusername = "ringpackages",
+	:providerwebsite = "github.com"
 ]

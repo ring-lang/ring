@@ -60,7 +60,6 @@ aAllPackagesInfo = [
 		"formdesigner",
 		"findinfiles",
 		"ringnotepad",
-		"ringrepl",
 		"cards",
 		"analogclock",
 		"checkers",
@@ -116,7 +115,8 @@ aAllPackagesInfo = [
 		"eightqueensgame",
 		"typingquiz",
 		"pong2game",
-		"spaceshootergame"
+		"spaceshootergame",
+		"ringrepl"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -144,7 +144,6 @@ aAllPackagesInfo = [
 		"formdesigner",
 		"findinfiles",
 		"ringnotepad",
-		"ringrepl",
 		"cards",
 		"analogclock",
 		"checkers",
@@ -195,7 +194,8 @@ aAllPackagesInfo = [
 		"rockpaperscissors",
 		"lotterygame",
 		"nimgame",
-		"eightqueensgame"
+		"eightqueensgame",
+		"ringrepl"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -260,6 +260,9 @@ aAllPackagesInfo = [
 		"ringqt"
 	],
 	:ringpresentation = 	[
+
+	],
+	:ringrepl = 	[
 
 	]
 ]
