@@ -258,5 +258,8 @@ aAllPackagesInfo = [
 	],
 	:qt515qmlruntime = 	[
 		"ringqt"
+	],
+	:ringpresentation = 	[
+
 	]
 ]
