@@ -448,6 +448,7 @@ fi
 if [ -f lib/libringraylib.dylib ];
 then
 cp lib/libringraylib.dylib /usr/local/lib
+cp extensions/ringraylib/src/macOS_raylib-2.5/lib/libraylib.* /usr/local/lib
 fi
 
 if [ -f lib/libringraylib.so ];
