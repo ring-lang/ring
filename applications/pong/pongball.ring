@@ -42,15 +42,10 @@ class pongBall
 		return true
 		
 	func Touched P
-		if x = ( P.x + P.width + rad ) and y - rad < P.y + P.height and y + rad > P.y
-			return true
-		ok
+		return ( x = ( P.x + P.width + rad ) and y - rad < P.y + P.height and y + rad > P.y )
 
 	func TouchedBot bP
-		if x = bP.x - rad and y - rad < bP.y + bP.height and y + rad > bP.y
-			return true
-		ok
-		return false
+		return ( x = bP.x - rad and y - rad < bP.y + bP.height and y + rad > bP.y )
 
 	func Draw
 		gl_draw_filled_circle(x,y,rad,GE_COLOR_BLACK) // x, y, radius, color
