@@ -258,8 +258,11 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/eightqueens" target="_blank">Eight Queens Game</a>',
 		'<img src="eightqueensgame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong2" target="_blank">Pong2 Game</a>',
+		'<img src="pong2game.png" width="100%">'
 	]
-
 	]
 	],
 	["Online Applications (WebAssembly)",[
