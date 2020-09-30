@@ -1,1 +1,0 @@
-load "/../ringlibs/zerolib/zerolib.ring"

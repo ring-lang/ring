@@ -1,0 +1,1788 @@
+.. index:: 
+	Single: Using Qt3D; Using Qt3D
+
+===================================
+Graphics Programming using RingQt3D
+===================================
+
+In this chapter we will learn how to use Qt3D through many samples.
+
+
+.. index:: 
+	pair: Using Qt3D; Drawing Cube
+
+Drawing Cube
+============
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oCube = new  QCuboidMesh(oRootEntity) {
+			setXextent(2)
+			setYextent(2)
+			setZextent(3)
+		}
+
+		oCubeTransform = new  QTransform(oCube)
+		oCubeTransform.setScale(2)
+		oCubeTransform.setTranslation(new QVector3D(3, 3, 3))
+
+		oCubeMaterial = new QPhongMaterial(oCube)
+		oCubeMaterial.setDiffuse(new QColor() {setRGB(200,100,100,100)})
+
+		oCubeEntity = new QEntity(oRootEntity)
+		oCubeEntity.addComponent(oCube)
+		oCubeEntity.addComponent(oCubeMaterial)
+		oCubeEntity.addComponent(oCubeTransform)
+	 
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Cube") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex1.png
+	:alt: Qt3D Example - Drawing Cube
+
+
+.. index:: 
+	pair: Using Qt3D; Drawing Torus
+
+Drawing Torus
+=============
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oTorus = new  QTorusMesh(oRootEntity)
+			oTorus.setRadius(1.0)
+			oTorus.setMinorRadius(0.4)
+			oTorus.setRings(100)
+			oTorus.setSlices(20)
+
+		oTorusTransform = new  QTransform(oTorus)
+		oTorusTransform.setScale(2)
+		oTorusTransform.setTranslation(new QVector3D(3, 3, 3))
+
+		oTorusMaterial = new QPhongMaterial(oTorus)
+		oTorusMaterial.setDiffuse(new QColor() {setRGB(200,100,100,100)})
+
+		oTorusEntity = new QEntity(oRootEntity)
+		oTorusEntity.addComponent(oTorus)
+		oTorusEntity.addComponent(oTorusMaterial)
+		oTorusEntity.addComponent(oTorusTransform)
+	 
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Torus") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex2.png
+	:alt: Qt3D Example - Drawing Torus
+
+.. index:: 
+	pair: Using Qt3D; Drawing Sphere
+
+Drawing Sphere
+==============
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oSphere = new  QSphereMesh(oRootEntity)
+			oSphere.setRadius(1.0)
+			oSphere.setRings(100)
+			oSphere.setSlices(20)
+
+		oSphereTransform = new  QTransform(oSphere)
+		oSphereTransform.setScale(2)
+		oSphereTransform.setTranslation(new QVector3D(3, 3, 3))
+
+		oSphereMaterial = new QPhongMaterial(oSphere)
+		oSphereMaterial.setDiffuse(new QColor() {setRGB(200,100,100,100)})
+
+		oSphereEntity = new QEntity(oRootEntity)
+		oSphereEntity.addComponent(oSphere)
+		oSphereEntity.addComponent(oSphereMaterial)
+		oSphereEntity.addComponent(oSphereTransform)
+	 
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Sphere") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex3.png
+	:alt: Qt3D Example - Drawing Sphere
+
+.. index:: 
+	pair: Using Qt3D; Drawing Cylinder
+
+Drawing Cylinder
+================
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+
+		oCylinder = new  QCylinderMesh(oRootEntity)
+			oCylinder.setRadius(1)
+			oCylinder.setRings(100)
+			oCylinder.setSlices(20)
+		oCylinder.setLength(5)
+
+		oCylinderTransform = new  QTransform(oCylinder)
+		oCylinderTransform.setScale(2)
+		oCylinderTransform.setTranslation(new QVector3D(1, 0, 3))
+
+		oCylinderMaterial = new QPhongMaterial(oCylinder)
+		oCylinderMaterial.setDiffuse(new QColor() {setRGB(200,100,100,100)})
+
+		oCylinderEntity = new QEntity(oRootEntity)
+		oCylinderEntity.addComponent(oCylinder)
+		oCylinderEntity.addComponent(oCylinderMaterial)
+		oCylinderEntity.addComponent(oCylinderTransform)
+	 
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Cylinder") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex4.png
+	:alt: Qt3D Example - Drawing Cylinder
+
+.. index:: 
+	pair: Using Qt3D; Drawing Cone
+
+Drawing Cone
+============
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+
+		oCone = new  QConeMesh(oRootEntity)
+			oCone.setRings(100)
+			oCone.setSlices(20)
+		oCone.setLength(5)
+
+		oConeTransform = new  QTransform(oCone)
+		oConeTransform.setScale(2)
+		oConeTransform.setTranslation(new QVector3D(1, 0, 3))
+
+		oConeMaterial = new QPhongMaterial(oCone)
+		oConeMaterial.setDiffuse(new QColor() {setRGB(200,100,100,100)})
+
+		oConeEntity = new QEntity(oRootEntity)
+		oConeEntity.addComponent(oCone)
+		oConeEntity.addComponent(oConeMaterial)
+		oConeEntity.addComponent(oConeTransform)
+	 
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Cone") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex5.png
+	:alt: Qt3D Example - Drawing Cone
+
+.. index:: 
+	pair: Using Qt3D; Drawing Plane
+
+Drawing Plane
+=============
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+
+		oPlane = new  QPlaneMesh(oRootEntity)
+		oPlane.setHeight(5)
+		oPlane.setWidth(5)
+		oPlane.setmeshresolution(new qSize(10,10))
+
+		oPlaneTransform = new  QTransform(oPlane)
+		oPlaneTransform.setScale(2)
+		oPlaneTransform.setTranslation(new QVector3D(0, -4, 4))
+
+		oPlaneMaterial = new QPhongMaterial(oPlane)
+		oPlaneMaterial.setDiffuse(new QColor() {setRGB(200,100,100,100)})
+
+		oPlaneEntity = new QEntity(oRootEntity)
+		oPlaneEntity.addComponent(oPlane)
+		oPlaneEntity.addComponent(oPlaneMaterial)
+		oPlaneEntity.addComponent(oPlaneTransform)
+	 
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Plane") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex6.png
+	:alt: Qt3D Example - Drawing Plane
+
+	
+.. index:: 
+	pair: Using Qt3D; Texture
+
+Texture
+=======
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oCube = new  QCuboidMesh(oRootEntity) {
+			setXextent(2)
+			setYextent(2)
+			setZextent(3)
+		}
+
+		oCubeTransform = new  QTransform(oCube)
+		oCubeTransform.setScale(2)
+		oCubeTransform.setTranslation(new QVector3D(3, 3, 3))
+
+		oTextureLoader = new  QTextureLoader(oCube);
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oCubeMaterial = new QTextureMaterial(oCube)
+		oCubeMaterial.setTexture(oTextureLoader)
+
+		oCubeEntity = new QEntity(oRootEntity)
+		oCubeEntity.addComponent(oCube)
+		oCubeEntity.addComponent(oCubeMaterial)
+		oCubeEntity.addComponent(oCubeTransform)
+	 
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Adding Texture") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex7.png
+	:alt: Qt3D Example - Texture
+
+.. index:: 
+	pair: Using Qt3D; Key Press
+
+Key Press
+=========
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+			oFilter = new qallevents(oView)
+			oFilter.setKeyPressEvent("pKeyPress()")
+			oView.installeventfilter(oFilter)
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+		oCamController.setEnabled(False)
+
+		oCube = new  QCuboidMesh(oRootEntity) {
+			setXextent(2)
+			setYextent(2)
+			setZextent(3)
+		}
+
+		oCubeTransform = new  QTransform(oCube)
+		oCubeTransform.setScale(2)
+		oCubeTransform.setTranslation(new QVector3D(3, 3, 3))
+
+		oTextureLoader = new  QTextureLoader(oCube);
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oCubeMaterial = new QTextureMaterial(oCube)
+		oCubeMaterial.setTexture(oTextureLoader)
+
+		oCubeEntity = new QEntity(oRootEntity)
+		oCubeEntity.addComponent(oCube)
+		oCubeEntity.addComponent(oCubeMaterial)
+		oCubeEntity.addComponent(oCubeTransform)
+	 
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Moving Cube using the Keyboard") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		oContainer.setfocus(0)
+
+		exec()
+	}
+
+	func pKeyPress
+		nKey = oFilter.getkeycode()
+		oX = oCubeTransform.translation().x()
+		oY = oCubeTransform.translation().y() 
+		oZ = oCubeTransform.translation().z()
+		switch nKey
+			on Qt_Key_Right
+				oX++
+			on Qt_Key_Left
+				oX--
+			on Qt_Key_Up
+				oY++
+			on Qt_Key_Down
+				oY--
+		off
+		oCubeTransform.setTranslation(new QVector3D(oX, oY, oZ))
+
+.. image:: qt3d_ex8.png
+	:alt: Qt3D Example - Key Press
+
+
+.. index:: 
+	pair: Using Qt3D; Object Picker
+
+Object Picker
+=============
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+			oFilter = new qallevents(oView)
+			oFilter.setKeyPressEvent("pKeyPress()")
+			oView.installeventfilter(oFilter)
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+		oCamController.setEnabled(False)
+
+		oCube = new  QCuboidMesh(oRootEntity) {
+			setXextent(2)
+			setYextent(2)
+			setZextent(3)
+		}
+
+		oCubeTransform = new  QTransform(oCube)
+		oCubeTransform.setScale(2)
+		oCubeTransform.setTranslation(new QVector3D(3, 3, 3))
+
+		oTextureLoader = new  QTextureLoader(oCube);
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oCubeMaterial = new QTextureMaterial(oCube)
+		oCubeMaterial.setTexture(oTextureLoader)
+
+		oCubeEntity = new QEntity(oRootEntity)
+		oCubeEntity.addComponent(oCube)
+		oCubeEntity.addComponent(oCubeMaterial)
+		oCubeEntity.addComponent(oCubeTransform)
+	 
+		oPicker = new qObjectPicker(oCube) {
+			setclickedevent("pClick()")
+		}
+		oCubeEntity.addComponent(oPicker)
+
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Object Picker - Click on the Cube") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		oContainer.setfocus(0)
+
+		exec()
+	}
+
+	func pKeyPress
+		nKey = oFilter.getkeycode()
+		oX = oCubeTransform.translation().x()
+		oY = oCubeTransform.translation().y() 
+		oZ = oCubeTransform.translation().z()
+		switch nKey
+			on Qt_Key_Right
+				oX++
+			on Qt_Key_Left
+				oX--
+			on Qt_Key_Up
+				oY++
+			on Qt_Key_Down
+				oY--
+		off
+		oCubeTransform.setTranslation(new QVector3D(oX, oY, oZ))
+
+	func pClick
+		msginfo("Event","Click")
+		oContainer.setfocus(0)
+
+
+.. image:: qt3d_ex9.png
+	:alt: Qt3D Example - Object Picker
+
+.. index:: 
+	pair: Using Qt3D; Frame Action
+
+Frame Action
+============
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+		oCamController.setEnabled(False)
+
+		oCube = new  QCuboidMesh(oRootEntity) {
+			setXextent(1)
+			setYextent(1)
+			setZextent(1)
+		}
+
+		oCubeTransform = new  QTransform(oCube)
+		oCubeTransform.setScale(2)
+		oCubeTransform.setTranslation(new QVector3D(-5, -5, -5))
+
+		oTextureLoader = new  QTextureLoader(oCube);
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oCubeMaterial = new QTextureMaterial(oCube)
+		oCubeMaterial.setTexture(oTextureLoader)
+
+		oCubeEntity = new QEntity(oRootEntity)
+		oCubeEntity.addComponent(oCube)
+		oCubeEntity.addComponent(oCubeMaterial)
+		oCubeEntity.addComponent(oCubeTransform)
+	 
+		nAngle=0	nSpeed=0.1
+		oFrameAction = new qFrameAction(oRootEntity) {
+			settriggeredevent("pEvent()")
+		}
+
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Frame Action") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+	func pEvent
+
+		# Move the Cube
+			oX = oCubeTransform.translation().x()
+			oY = oCubeTransform.translation().y() 
+			oZ = oCubeTransform.translation().z()
+			if oX >= 4
+				nSpeed=-0.1
+			but oX <= -10
+				nSpeed=0.1
+			ok
+			oCubeTransform.setTranslation(
+				new QVector3D(oX+nSpeed, oY+nSpeed, oZ+nSpeed))
+
+		# Rotate the Cube
+			nAngle+=5  if nAngle=360  nAngle=0 ok
+			oQ = new QQuaternion(0,0,0,0)
+			oCubeTransform.setRotation(
+				oQ.fromAxisAndAngle(new QVector3D(0, 1, 0), nAngle))
+
+.. image:: qt3d_ex10.png
+	:alt: Qt3D Example - Frame Action
+
+.. index:: 
+	pair: Using Qt3D; Text 2D
+
+Text 2D
+=======
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oView.defaultframegraph().setclearcolor(new QColor() {setRGB(100,250,150,255)})
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oCube = new  QCuboidMesh(oRootEntity) {
+			setXextent(2)
+			setYextent(2)
+			setZextent(3)
+		}
+
+		oCubeTransform = new  QTransform(oCube)
+		oCubeTransform.setScale(2)
+		oCubeTransform.setTranslation(new QVector3D(0, 3, 4))
+
+		oTextureLoader = new  QTextureLoader(oCube);
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/ring.bmp") )
+		oCubeMaterial = new QTextureMaterial(oCube)
+		oCubeMaterial.setTexture(oTextureLoader)
+
+		oCubeEntity = new QEntity(oRootEntity)
+		oCubeEntity.addComponent(oCube)
+		oCubeEntity.addComponent(oCubeMaterial)
+		oCubeEntity.addComponent(oCubeTransform)
+	 
+
+		oText2DEntity = new  QText2DEntity(oRootEntity) {
+			setText("Ring programming language")
+			setWidth(400) setHeight(40)
+			setColor(new QColor() {setRGB(128,128,128,255)})
+		}
+
+		oText2DTransform = new  QTransform(oText2DEntity)
+		oText2DTransform.setScale(0.1)
+		oText2DTransform.setTranslation(new QVector3D(-10.5, -5, 0))
+
+		oText2DEntity.addComponent(oText2DTransform)
+
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Text2D") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+
+.. image:: qt3d_ex11.png
+	:alt: Qt3D Example - Text 2D
+
+	
+.. index:: 
+	pair: Using Qt3D; Extruded Text 
+
+Extruded Text 
+=============
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oView.defaultframegraph().setclearcolor(new QColor() {setRGB(100,250,150,255)})
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oCube = new  QCuboidMesh(oRootEntity) {
+			setXextent(2)
+			setYextent(2)
+			setZextent(3)
+		}
+
+		oCubeTransform = new  QTransform(oCube)
+		oCubeTransform.setScale(2)
+		oCubeTransform.setTranslation(new QVector3D(0, 3, 4))
+
+		oTextureLoader = new  QTextureLoader(oCube);
+		oTextureLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/ring.bmp") )
+		oCubeMaterial = new QTextureMaterial(oCube)
+		oCubeMaterial.setTexture(oTextureLoader)
+
+		oCubeEntity = new QEntity(oRootEntity)
+		oCubeEntity.addComponent(oCube)
+		oCubeEntity.addComponent(oCubeMaterial)
+		oCubeEntity.addComponent(oCubeTransform)
+	 
+		oTextEntity = new QEntity(oRootEntity)
+
+		oTextMesh = new  QExtrudedTextMesh(oTextEntity) {
+			setText("Ring")
+		}
+
+		oTextTransform = new  QTransform(oTextEntity)
+		oTextTransform.setScale(3)
+		oTextTransform.setTranslation(new QVector3D(-5.5, -4, 3))
+
+		oTextMaterial = new QPhongMaterial(oTextEntity);
+		oTextMaterial.setDiffuse(new QColor() {setRGB(0,0,255,255)})
+		
+		oTextEntity.addComponent(oTextMesh)
+		oTextEntity.addComponent(oTextTransform)
+		oTextEntity.addComponent(oTextMaterial)
+
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Extruded Text") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex12.png
+	:alt: Qt3D Example - Extruded Text 
+
+	
+.. index:: 
+	pair: Using Qt3D; Model
+
+Model
+=====
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oModel = new qmesh(oRootEntity)
+
+		oModel.setsource(
+			new qURL("file:///"+currentdir()+"/assets/model/lucky_cat.obj") ) 
+
+		oModelTransform = new  QTransform(oModel)
+		oModelTransform.setScale(0.1)
+		oModelTransform.setTranslation(new QVector3D(0, 0, 0))
+		oQ = new QQuaternion(0,0,0,0)
+		oModelTransform.setRotation(oQ.fromAxisAndAngle(new QVector3D(0, 1, 0), 180))
+
+		oModelMaterial = new QPhongMaterial(oModel)
+		oModelMaterial.setDiffuse(new QColor() {setRGB(0,255,128,255)})
+
+		oModelEntity = new QEntity(oRootEntity)
+		oModelEntity.addComponent(oModel)
+		oModelEntity.addComponent(oModelmaterial)
+		oModelEntity.addComponent(oModelTransform)
+
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Model (Obj File)") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+
+.. image:: qt3d_ex13.png
+	:alt: Qt3D Example - Model
+
+.. index:: 
+	pair: Using Qt3D; Model Texture 
+
+Model Texture 
+=============
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 25, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oModel = new qmesh(oRootEntity)
+
+		oModel.setsource(
+			new qURL("file:///"+currentdir()+"/assets/model/Robot.obj") ) 
+
+		oModelTransform = new  QTransform(oModel)
+		oModelTransform.setScale(0.5)
+		oModelTransform.setTranslation(new QVector3D(0, 12, 4))
+
+		oLoader = new  QTextureLoader(oModel)
+		oModelMaterial = new QTextureMaterial(oModel)
+		oLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/Robot.jpg") )
+		oModelMaterial.setTexture(oLoader)
+
+		oModelEntity = new QEntity(oRootEntity)
+		oModelEntity.addComponent(oModel)
+		oModelEntity.addComponent(oModelMaterial)
+		oModelEntity.addComponent(oModelTransform)
+
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Model Texture") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex14.png
+	:alt: Qt3D Example - Model Texture 
+
+	
+.. index:: 
+	pair: Using Qt3D; Draw Office 
+
+Draw Office
+===========
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oModel = new qmesh(oRootEntity)
+
+		oModel.setsource(
+			new qURL("file:///"+currentdir()+"/assets/model/Reception_Table.obj") ) 
+
+		oModelTransform = new  QTransform(oModel)
+		oModelTransform.setScale(1)
+		oModelTransform.setTranslation(new QVector3D(0, -2.5, 16))
+
+		oModelMaterial = new QPhongMaterial(oModel)
+		oModelMaterial.setDiffuse(new QColor() {setRGB(0,255,128,255)})
+
+		oModelEntity = new QEntity(oRootEntity)
+		oModelEntity.addComponent(oModel)
+		oModelEntity.addComponent(oModelmaterial)
+		oModelEntity.addComponent(oModelTransform)
+
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Model (Obj File) - Office") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex15.png
+	:alt: Qt3D Example - Draw Office 
+
+.. index:: 
+	pair: Using Qt3D; Many Objects
+
+Many Objects
+============
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 20, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oModel = new qmesh(oRootEntity)
+		oModel.setsource(
+			new qURL("file:///"+currentdir()+"/assets/model/Robot.obj") ) 
+
+		oModelTransform = new  QTransform(oModel)
+		oModelTransform.setScale(0.2)
+		oModelTransform.setTranslation(new QVector3D(0, 10, 10))
+
+		oModelMaterial = new QPhongMaterial(oModel)
+		oModelMaterial.setDiffuse(new QColor() {setRGB(0,100,0,0)})
+
+		oModelEntity = new QEntity(oRootEntity)
+		oModelEntity.addComponent(oModel)
+
+		oLoader = new  QTextureLoader(oModel);
+		oModelMaterial = new QTextureMaterial(oModel)
+		oLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oModelMaterial.setTexture(oLoader)
+
+		oModelEntity.addComponent(oModelMaterial)
+		oModelEntity.addComponent(oModelTransform)
+
+		for n = 1 to 10
+
+			oTorus = new  QTorusMesh(oRootEntity)
+				oTorus.setRadius(1.0*n)
+				oTorus.setMinorRadius(0.4*n)
+				oTorus.setRings(100)
+				oTorus.setSlices(20)
+		
+			oTorusTransform = new  QTransform(null)
+			oTorusTransform.setScale(2)
+			oTorusTransform.setTranslation(new QVector3D(5.0*n, 4.0*n, 0.0))
+		
+			oTorusMaterial = new QPhongMaterial(null);
+			oTorusMaterial.setDiffuse(new QColor() {setRGB(200,100,100,100)})
+		
+			oTorusEntity = new QEntity(oRootEntity)
+			oTorusEntity.addComponent(oTorus)
+		
+			oLoader = new  QTextureLoader(oTorus);
+			oTorusMaterial = new QTextureMaterial(oTorus)
+			oLoader.setSource(
+				new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+			oTorusMaterial.setTexture(oLoader)
+		
+			oTorusEntity.addComponent(oTorusMaterial)
+			oTorusEntity.addComponent(oTorusTransform)
+		next
+
+		oView.setRootEntity(oRootEntity)
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Many Objects") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+.. image:: qt3d_ex16.png
+	:alt: Qt3D Example - Many Objects 
+
+.. index:: 
+	pair: Using Qt3D; Camera
+
+Camera
+======
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oView = new Qt3dwindow() 
+
+		oWidget = new QWidget()	
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
+			oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(0, 20, 0))	
+
+		oLightEntity = new QEntity(oRootEntity)
+			oLight = new QPointLight(oLightEntity)
+		oLight.setColor(new QColor() { setRGB(255,255,255,255) })
+		oLight.setIntensity(1)
+		oLightEntity.addComponent(oLight)
+
+		oLightTransform = new QTransform(oLightEntity)
+		oLightTransform.setTranslation(oCameraEntity.position())
+		oLightEntity.addComponent(oLightTransform)
+
+		oCamController = new  QFirstPersonCameraController(oRootEntity)
+			oCamController.setCamera(oCameraEntity)
+
+		oModel = new qmesh(oRootEntity)
+		oModel.setsource(
+			new qURL("file:///"+currentdir()+"/assets/model/Robot.obj") ) 
+
+		oModelTransform = new  QTransform(oModel)
+		oModelTransform.setScale(0.2)
+		oModelTransform.setTranslation(new QVector3D(0, 10, 10))
+
+		oModelMaterial = new QPhongMaterial(oModel)
+		oModelMaterial.setDiffuse(new QColor() {setRGB(0,100,0,0)})
+
+		oModelEntity = new QEntity(oRootEntity)
+		oModelEntity.addComponent(oModel)
+
+		oLoader = new  QTextureLoader(oModel);
+		oModelMaterial = new QTextureMaterial(oModel)
+		oLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+		oModelMaterial.setTexture(oLoader)
+
+		oModelEntity.addComponent(oModelMaterial)
+		oModelEntity.addComponent(oModelTransform)
+
+		for n = 1 to 10
+
+			oTorus = new  QTorusMesh(oRootEntity)
+				oTorus.setRadius(1.0*n)
+				oTorus.setMinorRadius(0.4*n)
+				oTorus.setRings(100)
+				oTorus.setSlices(20)
+		
+			oTorusTransform = new  QTransform(null)
+			oTorusTransform.setScale(2)
+			oTorusTransform.setTranslation(new QVector3D(5.0*n, 4.0*n, 0.0))
+		
+			oTorusMaterial = new QPhongMaterial(null);
+			oTorusMaterial.setDiffuse(new QColor() {setRGB(200,100,100,100)})
+		
+			oTorusEntity = new QEntity(oRootEntity)
+			oTorusEntity.addComponent(oTorus)
+		
+			oLoader = new  QTextureLoader(oTorus);
+			oTorusMaterial = new QTextureMaterial(oTorus)
+			oLoader.setSource(
+				new QUrl("file:///"+currentdir()+"/assets/texture/gold.jpg") )
+			oTorusMaterial.setTexture(oLoader)
+		
+			oTorusEntity.addComponent(oTorusMaterial)
+			oTorusEntity.addComponent(oTorusTransform)
+		next
+
+		oView.setRootEntity(oRootEntity)
+
+
+		btn1 = new qPushButton(oWidget) {
+			setText("Move the Camera and the Robot") setClickEvent("pMove()") 
+		}
+
+		oLayout = new QVBoxLayout()
+		oLayout.AddWidget(oContainer)
+		oLayout.AddWidget(btn1)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Camera") 
+			resize(800,600)
+			setLayout(oLayout) 
+			showMaximized() 
+		}
+
+		exec()
+	}
+
+	func pMove 
+
+		oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+			oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+			oCameraEntity.setViewCenter(new QVector3D(20, 15, 20))
+
+		oModelTransform.setTranslation(new QVector3D(20, 15, 20))
+		oQ = new QQuaternion(0,0,0,0)
+		oModelTransform.setRotation(oQ.fromAxisAndAngle(new QVector3D(1, 1, 0), 270))
+
+
+.. image:: qt3d_ex17.png
+	:alt: Qt3D Example - Camera
+
+	
+.. index:: 
+	pair: Using Qt3D; Scene 
+
+Scence 
+======
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+
+		oWidget = new QWidget()
+
+		oView = new Qt3DWindow() 
+		oView.defaultFrameGraph().setClearColor(new QColor() {setRGB(0,0,0,255)})
+
+		oContainer = oWidget.createWindowContainer(oView,oWidget,0)
+
+		oRootEntity = new QEntity(oContainer) 
+
+		oInput = new QInputAspect(oRootEntity)
+			oView.registerAspect(oInput)
+
+		oCameraEntity = oView.Camera()
+
+		oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000)
+		oCameraEntity.setPosition(new QVector3D(-13.34, -6.43, 16.47))
+			oCameraEntity.setUpVector(new QVector3D(0.02, 0, 1))
+			oCameraEntity.setViewCenter(new QVector3D(-13.34, 17.05, 15.42))	
+
+		oCameraController = new  QFirstPersonCameraController(oRootEntity)
+		oCameraController.setCamera(oCameraEntity)
+		oCameraController.setEnabled(False)
+
+		oLongRoomEntity = new QEntity(oRootEntity)
+
+		oLongRoomModel = new QMesh(oLongRoomEntity)
+
+		oLongRoomModel.setSource(
+			new qURL("file:///"+CurrentDir()+"/assets/model/Long_Room.obj") ) 
+
+		oLongRoomTransform = new  QTransform(oLongRoomEntity)
+		oLongRoomTransform.setScale(1)
+		oLongRoomTransform.setTranslation(new QVector3D(5, 0, 15))
+
+		oLongRoomLoader = new  QTextureLoader(oLongRoomModel)
+		oLongRoomMaterial = new QTextureMaterial(oLongRoomModel)
+		oLongRoomLoader.setSource(
+			new QUrl("file:///"+currentdir()+"/assets/texture/croc.jpg") )
+		oLongRoomMaterial.setTexture(oLongRoomLoader)
+
+		oLongRoomEntity.addComponent(oLongRoomModel)
+		oLongRoomEntity.addComponent(oLongRoomMaterial)
+		oLongRoomEntity.addComponent(oLongRoomTransform)
+
+		oTableEntity = new QEntity(oRootEntity)
+
+		oTableModel = new QMesh(oTableEntity)
+		oTableModel.setSource(
+			new qURL("file:///"+CurrentDir()+"/assets/model/Reception_Table.obj") ) 
+
+		oTableTransform = new  QTransform(oTableEntity)
+		oTableTransform.setScale(0.3)
+		oTableTransform.setTranslation(new QVector3D(5, 0, 15))
+		oQ = new QQuaternion(0,0,0,0)
+		oTableTransform.setRotation(oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), -180))
+
+		oTableModelMaterial = new QPhongMaterial(oTableEntity)
+		oTableModelMaterial.setDiffuse(new QColor() {setRGB(255,255,255,255)})
+
+		oTableEntity.addComponent(oTableModel)
+		oTableEntity.addComponent(oTableModelmaterial)
+		oTableEntity.addComponent(oTableTransform)
+
+		oFirstLightEntity = new QEntity(oRootEntity)
+
+			oFirstLight = new QPointLight(oFirstLightEntity)
+		oFirstLight.setColor(new qColor() { setRGB(128,128,128,128) })
+		oFirstLight.setIntensity(1)
+
+		oFirstLightTransform = new QTransform(oFirstLightEntity)
+		oFirstLightTransform.setTranslation(new QVector3D(5, 0, 20))
+
+		oFirstLightEntity.addComponent(oFirstLight)
+		oFirstLightEntity.addComponent(oFirstLightTransform)
+
+		aCats = list(5)
+		for n = 1 to 5
+		v = n * 0.1
+		aCats[n] = []
+		aCats[n][:oCatModelEntity] = new QEntity(oRootEntity)
+		aCats[n][:oCatModel] = new QMesh(aCats[n][:oCatModelEntity])
+		aCats[n][:oCatModel].setSource(
+			new qURL("file:///"+CurrentDir()+"/assets/model/Lucky_Cat.obj") ) 
+		aCats[n][:oCatModelMaterial] = new QPhongMaterial(aCats[n][:oCatModel])
+		aCats[n][:oCatModelMaterial].setDiffuse(
+			new QColor() {setRGB(255,255,255,255)})
+		aCats[n][:oCatModelTransform] = new  QTransform(aCats[n][:oCatModelEntity])
+		aCats[n][:oCatModelTransform].setScale(0.01)
+		aCats[n][:oCatModelTransform].setTranslation(
+			new QVector3D(-5*(v+v), 1, 15.2))
+		oQ = new QQuaternion(0,0,0,0)
+		aCats[n][:oCatModelTransform].setRotation(
+			oQ.fromAxisAndAngle(
+				new QVector3D(0, 1, 1), 180))
+		aCats[n][:oCatModelEntity].addComponent(aCats[n][:oCatModel])
+		aCats[n][:oCatModelEntity].addComponent(aCats[n][:oCatModelmaterial])
+		aCats[n][:oCatModelEntity].addComponent(aCats[n][:oCatModelTransform])
+		next
+
+		oSecondLightEntity = new QEntity(oRootEntity)
+
+		oSecondLight = new QPointLight(oSecondLightEntity)
+		oSecondLight.setColor(new qColor() { setRGB(255,255,255,255) })
+		oSecondLight.setIntensity(1)
+
+		oSecondLightTransform = new QTransform(oSecondLightEntity)
+		oSecondLightTransform.setTranslation(new QVector3D(-5, 1, 15.5))
+
+		oSecondLightEntity.addComponent(oSecondLight)
+		oSecondLightEntity.addComponent(oSecondLightTransform)
+
+		oRobotEntity = new QEntity(oRootEntity)
+
+		oRobotModel = new QMesh(oRobotEntity)
+		oRobotModel.setSource(
+			new qURL("file:///"+CurrentDir()+"/assets/model/Fat_Robot.obj") ) 
+		oRobotTransform = new  QTransform(oRobotEntity)
+		oRobotTransform.setScale(0.006)
+		
+		robotX = -15
+		robotY = -2
+		robotZ = 15
+
+		oRobotTransform.setTranslation(new QVector3D(-15, -2, 15))
+		oQ = new QQuaternion(0,0,0,0)
+		oRobotTransform.setRotation(
+			oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 170))
+
+		oRobotMaterial = new QPhongMaterial(oRobotEntity)
+		oRobotMaterial.setDiffuse(new QColor() {setRGB(128,128,128,255)})
+
+		oRobotEntity.addComponent(oRobotModel)
+		oRobotEntity.addComponent(oRobotTransform)
+		oRobotEntity.addComponent(oRobotMaterial)
+
+		oView.setRootEntity(oRootEntity)
+
+		oWidget { 
+			setwindowtitle("Using Qt3D - Scene") 
+			showfullscreen() 
+		}
+
+		oContainer.resize(oWidget.width(),oWidget.height())
+
+			oFilter = new QAllEvents(oView)
+			oFilter.setKeyPressEvent("pKeyPress()")
+			oView.installeventfilter(oFilter)
+		oContainer.setfocus(0)
+
+		exec()
+
+	}
+
+	func pKeyPress
+
+		nKey 	= oFilter.getKeyCode()
+		nSpeed 	= 0.1
+		cX 	= oCameraEntity.position().x()
+		CY 	= oCameraEntity.position().y()
+		cZ 	= oCameraEntity.position().z()
+		cVCx 	= oCameraEntity.viewCenter().x()
+		cVCy 	= oCameraEntity.viewCenter().y()
+		cVCz 	= oCameraEntity.viewCenter().z()
+
+		switch nKey
+			on Qt_Key_Right
+				if cX < 4.8
+					robotX+= nSpeed
+					oCameraEntity.setPosition(
+						new QVector3D(cX+0.1, cY, cZ))
+					oCameraEntity.setViewCenter(
+						new QVector3D(cVCx+nSpeed, cVCy, cVCz))	
+					oRobotTransform.setRotation(
+						oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 170))
+				ok
+			on Qt_Key_Left
+				if cX > - 13.8
+					robotX-= nSpeed
+					oCameraEntity.setPosition(
+					  new QVector3D(cX-0.1, cY, cZ))
+					oCameraEntity.setViewCenter(
+					  new QVector3D(cVCx-nSpeed, cVCy, cVCz))	
+					oRobotTransform.setRotation(
+					  oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 160))
+				ok
+			on Qt_Key_Down 
+				if robotY > -3.5
+					robotY-= nSpeed
+					oCameraEntity.setPosition(
+					  new QVector3D(cX, cY, cZ))
+					oRobotTransform.setRotation(
+					  oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 190))
+				ok
+			on Qt_Key_Up
+				if robotY < 2
+					robotY+= nSpeed
+					oCameraEntity.setPosition(
+					  new QVector3D(cX, cY, cZ))
+					oRobotTransform.setRotation(
+					  oQ.fromAxisAndAngle(new QVector3D(0, 1, 1), 180))
+				ok
+			on Qt_Key_Escape
+				oWidget.close()
+		off
+
+		oRobotTransform.setTranslation(new QVector3D(robotX, robotY, robotZ))
+
+
+.. image:: qt3d_ex18.png
+	:alt: Qt3D Example - Scene

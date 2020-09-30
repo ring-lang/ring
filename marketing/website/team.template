@@ -86,31 +86,7 @@
 <br />	 
 
 
-   <div id="thanks" class="panel panel-default">
-      <div class="panel-heading"><h4>Thanks for discovering Ring and spreading the word! <span class="badge"><%= len(aThanks) %></span></h4></div>
-      <div class="panel-body">
-
-			<table class="table table-striped">
-				<thead>
-				  <tr>
-					<th></th>
-				  </tr>
-
-				</thead>
-				<tbody>
-				  <% for x in aThanks %>
-				  <tr>
-					<% for x2 in x %>
-						<th><%= x2 %></th>					
-					<% next %>
-				  </tr>
-				  <% next %>
-				</tbody>
-			</table>
-
-      </div>
-     </div>  
-	 
+    
 	 
   </div>  
 

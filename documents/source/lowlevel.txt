@@ -1,0 +1,1624 @@
+.. index:: 
+	single: Low Level Functions; Introduction
+
+===================
+Low Level Functions
+===================
+
+In this chapter we will learn about the low level functions provided by Ring
+
+.. code-block:: none
+
+	* callgarbagecollector()| callgc()
+	* variablepointer()	| varptr()
+	* space()
+	* nullpointer()		| nullptr()
+	* object2pointer()	| obj2ptr()
+	* pointer2object()	| ptr2obj()
+	* ispointer()		| isptr()
+	* pointercompare()	| ptrcmp()
+	* setpointer()		| setptr()
+	* getpointer()		| getptr()
+	* pointer2string()	| ptr2str()
+	* memorycopy()		| memcpy()
+	* ringvm_cfunctionslist() 
+	* ringvm_functionslist() 
+	* ringvm_classeslist() 
+	* ringvm_packageslist() 
+	* ringvm_memorylist() 
+	* ringvm_calllist() 
+	* ringvm_fileslist()
+	* ringvm_settrace()
+	* ringvm_tracedata()
+	* ringvm_traceevent()
+	* ringvm_tracefunc()
+	* ringvm_scopescount()
+	* ringvm_evalinscope() 
+	* ringvm_passerror()
+	* ringvm_hideerrorMsg()
+	* ringvm_callfunc()
+	* ringvm_see()
+	* ringvm_give()
+	* ringvm_info()
+
+.. index:: 
+	pair: Low Level Functions; callgc()
+
+callgc() function
+=================
+
+Syntax:
+
+.. code-block:: ring
+
+	callgc()			# Short name
+	callgarbagecollector()		# Long name
+
+Use this function to force calling the garbage collector during function execution when you
+use a loop that create temp. variables that you don't free using the assignment operation.
+
+It's very rare to need this function but it's useful when you create something like event-loop
+for your game engine and start creating lists on the fly when you call functions.
+
+Example 
+
+.. code-block:: ring
+
+	While True
+
+		# process events
+		# call functions using temp. lists like myfunc(["temp list"])
+
+		# call the garbage collector
+		callgc()
+	End
+
+.. tip:: In Ring the garbage collector works automatically in the end of function execution or
+	 when you use the assignment statement.
+
+.. index:: 
+	pair: Low Level Functions; varptr()
+
+varptr() function
+=================
+
+Use the varptr() function when you need to pass a pointer to a C/C++ function.
+
+Syntax:
+
+.. code-block:: ring
+
+	varptr(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
+	variablepointer(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
+
+
+example:
+
+.. code-block:: ring
+
+	r = 10
+	z = 20
+	see r + nl
+	see varptr("r","int") 
+	see varptr("z","int")
+
+Output:
+
+.. code-block:: ring
+
+	10
+	00E3C740
+	int
+	2
+	00E3BEC0
+	int
+	2
+
+.. note:: the low level object is a list contains three items (The Pointer, The Type, The Status)
+
+
+.. index:: 
+	pair: Low Level Functions; space()
+
+space() function
+================
+
+Use the space function to allocate a specific number of bytes in Memory.
+
+Syntax:
+
+.. code-block:: ring
+
+	Space(nBytesCount) ---> String 
+
+Example:
+
+.. code-block:: ring
+
+	mystring = space(200)
+	See "String Size : " + len(mystring) + nl
+	See "String : " + mystring + nl
+	See "String Pointer : " 
+	See varptr("mystring",:char)
+
+Output:
+
+.. code-block:: ring
+
+	String Size : 200
+	String :                                                                                                                                                        
+	String Pointer : 00FF8FE8
+	char
+	2
+
+.. note:: You may need the space() and VarPtr() functions to pass buffers to C functions.
+
+.. tip:: To free the memory allocated using the space() function, use the Assignment operator
+
+.. code-block:: ring
+
+	mystring = space(1000)	# Allocate memory (1000 bytes)
+	mystring = NULL 	# Free memory stored in mystring
+
+.. note:: We don't need to free the memory if it's a local variable that will be deleted after the function execution.
+
+.. index:: 
+	pair: Low Level Functions; nullpointer()
+
+nullpointer() function
+======================
+
+Syntax:
+
+.. code-block:: ring
+
+	nullptr()		# Short name
+	nullpointer()		# Long name
+
+You may need to pass the NULL pointer to a C function that may expect a pointer as parameter
+and accept NULL pointers for optional parameters.
+
+Example:
+
+The next example uses the SDL_BlitSurface() function from the LibSDL Library through RingSDL
+The function accept SDL_Rect pointers in the second and the last parameter.
+Also the function accept NULL pointers, so we can pass them using the NULLPointer() Function.
+
+.. code-block:: ring
+
+	SDL_BlitSurface(text, nullpointer(), surface, nullpointer())
+
+.. note:: The previous code doesn't work alone, you need to learn how to use RingSDL first.
+
+.. tip:: We can pass NULL as parameter instead of using the NULLPointer() function
+
+.. code-block:: ring
+
+	SDL_BlitSurface(text, NULL, surface, NULL)
+
+.. index:: 
+	pair: Low Level Functions; object2pointer()
+
+object2pointer() function
+=========================
+
+Use this function to get a C pointer for Ring lists and objects
+
+Syntax:
+
+.. code-block:: ring
+
+	obj2ptr(List|Object) --> Low Level Object ( C Pointer )		# Short name
+	object2pointer(List|Object) --> Low Level Object ( C Pointer )	# Long name
+
+.. note:: You have to be sure that the Pointer still valid (Doesn't point to deallocated memory)
+
+
+.. index:: 
+	pair: Low Level Functions; pointer2object()
+
+pointer2object() function
+=========================
+
+Use this function to get the Ring list and/or object from the low level object (C Pointer)
+
+Syntax:
+
+.. code-block:: ring
+
+	ptr2obj(Low Level Object) ---> List|Object		# Short name
+	pointer2object(Low Level Object) ---> List|Object	# Long name	
+
+
+.. note:: You have to be sure that the Pointer still valid (Doesn't point to deallocated memory)
+
+
+Example:
+
+.. code-block:: ring
+
+	# Create the list 
+	mylist = 1:5
+
+	# Create pointer to the list
+	x = object2pointer(mylist)
+	see x
+
+	see nl
+
+	# Add items to the list
+	mylist + "welcome"
+
+	# print the list items
+	y = pointer2object(x)
+	see y 
+
+Output:
+
+.. code-block:: ring
+
+	0069A5D8
+	OBJECTPOINTER
+	0
+
+	1
+	2
+	3
+	4
+	5
+	welcome
+
+.. note:: In Ring the assignment operator copy lists and objects by value, to copy by reference
+	Just use the object2pointer() and pointer2object() functions.
+
+.. tip:: The object2pointer() and pointer2object() are used in the stdlib - Tree Class implementation
+         to create a reference for the parent node (object) in the child node (another object).
+
+
+The functions Object2Pointer() and Pointer2Object() are low level functions 
+
+We have to be careful when using them to avoid memory problems
+
+If we created a Pointer to a (Local Variable) 
+
+This local variable will be deleted from the memory after the end of the function/method execution
+
+This means that the pointer created with Object2Pointer() will becomes a dangling pointer 
+
+i.e. A pointer that points to the memory location of the deallocated memory
+
+Using this invalid pointer could lead to (CRASH or Memory Corruption).
+
+If you will use pointers (Using Object2Pointer() or Pointer2Object) then never use pointers that point to the memory that are deallocated.
+
+In simple words, Keep the memory (Don't delete it if you still need it)
+
+i.e. instead of using (Local Variables) that will be deleted, You can use Class Attributes or Global Variables.
+
+.. index:: 
+	pair: Low Level Functions; ispointer()
+
+ispointer() function
+====================
+
+Check if the parameter is a pointer (C Object) or not.
+
+Syntax:
+
+.. code-block:: none
+
+	IsPtr(vPara) ---> True|False		# Short name
+	IsPointer(vPara) ---> True|False	# Long name	
+
+Example :
+
+.. code-block:: ring
+
+	fp = fopen(filename(),"r")
+
+	? type(fp)
+
+	? ispointer(fp)
+
+Output :
+
+.. code-block:: none
+
+	file
+	1
+
+.. index:: 
+	pair: Low Level Functions; ptrcmp()
+
+ptrcmp() function
+=================
+
+We can compare between two pointers (C Objects) using the ptrcmp() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	ptrcmp(oObject1,oObject2) ---> value = 1 if oObject1 = oObject2
+				       value = 0 if oObject1 != oObject2
+	pointercompare(oObject1,oObject2) ---> value = 1 if oObject1 = oObject2
+					       value = 0 if oObject1 != oObject2
+
+
+Example:
+
+.. code-block:: ring
+
+	fp = fopen("ptrcmp.ring","r")
+	fp2 = fp
+	fp3 = fopen("ptrcmp.ring","r")
+
+	see ptrcmp(fp,fp2) + nl
+	see ptrcmp(fp,fp3) + nl
+
+	fclose(fp)
+	fclose(fp3)
+
+Output:
+
+.. code-block:: ring
+
+	1
+	0
+
+.. index:: 
+	pair: Low Level Functions; setpointer()
+
+setpointer() function
+=====================
+
+Set the pointer address to another address
+
+Syntax:
+
+.. code-block:: ring
+
+	setptr(pointer,nNewAddress)		# Short name
+	setpointer(pointer,nNewAddress)		# Long name
+
+.. note:: Using setPointer() and getPointer() functions we can change the Memory Address 
+
+
+.. index:: 
+	pair: Low Level Functions; getpointer()
+
+getpointer() function
+=====================
+
+Get the pointer address
+
+Syntax:
+
+.. code-block:: ring
+
+	getptr(pointer) ---> nAddress		# Short name
+	getpointer(pointer) ---> nAddress	# Long name
+
+Example:
+
+.. code-block:: ring
+
+	? "Sample about using setPointer() and getPointer() functions"
+	? copy("=",50)
+	pointer = NULLPOINTER()
+	? pointer
+	? "Type: " + type(pointer)
+	? "Address: " + Upper(hex(getpointer(pointer)))
+	? copy("=",50)
+	name = "ring"
+	pointer = varptr(:name,:char)
+	? pointer
+	? "Type: " + type(pointer)
+	? "Address: " + Upper(hex(getpointer(pointer)))
+	? copy("=",50)
+	setpointer(pointer, getpointer(pointer) + 1 )
+	? "After Update"
+	? "Address: " + Upper(hex(getpointer(pointer)))
+	? copy("=",50) 
+
+
+Output:
+
+.. code-block:: ring
+
+	==================================================
+	00000000
+	NULLPOINTER
+	0
+
+	Type: NULLPOINTER
+	Address: 0
+	==================================================
+	026E2BA8
+	char
+	0
+
+	Type: char
+	Address: 26E2BA8
+	==================================================
+	After Update
+	Address: 26E2BA9
+	==================================================
+
+
+.. index:: 
+	pair: Low Level Functions; pointer2string()
+
+pointer2string() function
+=========================
+
+Convert a pointer to a string of binary data
+
+If you want to convert the string to a pointer again use VarPtr() function
+
+Syntax:
+
+.. code-block:: ring
+
+	ptr2str(pointer,nStart,nCount) ---> cString		# Short name
+	pointer2string(pointer,nStart,nCount) ---> cString	# Long name	
+
+
+.. note:: pointer2String() return another copy of the data 
+
+.. note:: if nStart is Zero, this means starting from the first character 
+
+Example:
+
+.. code-block:: ring
+
+	name = "ring"
+	pointer = varptr(:name,:char)
+	? pointer
+	? "Type: " + type(pointer)
+	? "Address: " + Upper(hex(getpointer(pointer)))
+
+	? "Get 4 bytes starting from the pointer address"
+	mystring = Pointer2String(pointer,0,4)
+	? mystring
+
+	? "Get 2 bytes starting from the pointer address + 1"
+	mystring2 = Pointer2String(pointer,1,2)
+	? mystring2
+
+Output:
+
+.. code-block:: ring
+
+	01E03380
+	char
+	0
+
+	Type: char
+	Address: 1E03380
+	Get 4 bytes starting from the pointer address
+	ring
+	Get 2 bytes starting from the pointer address + 1
+	in
+
+.. index:: 
+	pair: Low Level Functions; memcpy()
+
+memcpy() function
+=================
+
+Syntax:
+
+.. code-block:: ring
+
+	memcpy(pDestinationPointer,cSourceString,nSize)		# Short name
+	memorycopy(pDestinationPointer,cSourceString,nSize)	# Long name
+
+Example:
+
+.. code-block:: ring
+
+	str = space(9)
+	pointer = varptr(:str,"char")
+	memcpy(pointer,"one",3)
+	? str
+	setPointer(pointer,getPointer(pointer)+3)
+	memcpy(pointer,"one",3)
+	? str
+	setPointer(pointer,getPointer(pointer)+3)
+	memcpy(pointer,"one",3)
+	? str
+
+Output:
+
+.. code-block:: ring
+
+	one
+	oneone
+	oneoneone
+
+.. index:: 
+	pair: Low Level Functions; RingVM_CFunctionsList()
+
+ringvm_cfunctionslist() function
+================================
+
+The Function return a list of functions written in C.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_CFunctionsList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	See RingVM_CFunctionsList()
+
+.. index:: 
+	pair: Low Level Functions; RingVM_FunctionsList()
+
+ringvm_functionslist() function
+===============================
+
+The Function return a list of functions written in Ring.
+
+Each List Member is a list contains the next items
+
+* Function Name
+* Program Counter (PC) - Function Position in Byte Code.
+* Source Code File Name
+* Private Flag (For Private Methods in Classes)
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_FunctionsList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	test()
+
+	func test
+		see ringvm_functionslist()
+
+Output:
+
+.. code-block:: ring
+
+	test
+	8
+	B:/ring/tests/scripts/functionslist.ring
+	0
+
+.. index:: 
+	pair: Low Level Functions; RingVM_ClassesList()
+
+ringvm_classeslist() function
+=============================
+
+The Function return a list of Classes.
+
+Each List Member is a list contains the next items
+
+* Class Name
+* Program Counter (PC) - Class Position in Byte Code.
+* Parent Class Name
+* Methods List
+* Flag (Is parent class information collected)
+* Pointer to the package (or NULL if no package is used)
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_ClassesList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	see ringvm_classeslist()
+
+	class class1
+		func f1
+	class class2 from class1
+	class class3 from class1
+
+Output:
+
+.. code-block:: ring
+
+	class1
+	9
+
+	f1
+	13
+	B:/ring/tests/scripts/classeslist.ring
+	0
+	0
+	00000000
+	class2
+	16
+	class1
+	0
+	00000000
+	class3
+	20
+	class1
+	0
+	00000000
+
+.. index:: 
+	pair: Low Level Functions; RingVM_PackagesList()
+
+ringvm_packageslist() function
+==============================
+
+The Function return a list of Packages.
+
+Each List Member is a list contains the next items
+
+* Package Name
+* Classes List
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_PackagesList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	see ringvm_packageslist()
+
+	package package1
+		class class1
+
+	package package2
+		class class1
+
+	package package3
+		class class1
+
+Output:
+
+.. code-block:: ring
+
+	package1
+	class1
+	11
+
+	0
+	00FEF838
+	package2
+	class1
+	17
+
+	0
+	00FEF978
+	package3
+	class1
+	23
+
+	0
+	00FEFF68
+
+.. index:: 
+	pair: Low Level Functions; RingVM_MemoryList()
+
+ringvm_memorylist() function
+============================
+
+The Function return a list of Memory Scopes and Variables.
+
+Each List Member is a list contains variables in a different scope.
+
+Each Item in the scope list is a list contains the next items
+
+* Variable Name
+* Variable Type
+* Variable Value
+* Pointer Type (List/Item) if the value is a list
+* Private Flag (if the variable is an attribute in a Class)
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_MemoryList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	x = 10
+	test()
+	func test
+		y = 20
+		see ringvm_memorylist()
+
+Output:
+
+.. code-block:: ring
+
+	true
+	2
+	1
+	0
+	0
+	false
+	2
+	0
+	0
+	0
+	nl
+	1
+
+
+	0
+	0
+	null
+	1
+
+	0
+	0
+	ring_gettemp_var
+	4
+	00000000
+	0
+	0
+	ccatcherror
+	1
+	NULL
+	0
+	0
+	ring_settemp_var
+	4
+	00000000
+	0
+	0
+	ring_tempflag_var
+	2
+	0
+	0
+	0
+	stdin
+	3
+	50512DB8
+	file
+	0
+	0
+	0
+	stdout
+	3
+	50512DD8
+	file
+	0
+	0
+	0
+	stderr
+	3
+	50512DF8
+	file
+	0
+	0
+	0
+	this
+	4
+	00000000
+	0
+	0
+	sysargv
+	3
+	B:\ring\bin/ring
+	B:/ring/tests/scripts/memorylist.ring
+	0
+	0
+	x
+	2
+	10
+	0
+	0
+	y
+	2
+	20
+	0
+	0
+
+.. index:: 
+	pair: Low Level Functions; RingVM_CallList()
+
+ringvm_calllist() function
+==========================
+
+The Function return a list of the functions call list.
+
+Each List Member is a list contains the next items
+
+* Function Type
+* Function Name
+* Program Counter (PC)
+* Stack Pointer (SP)
+* Temp. Memory List
+* Method or Function Flag
+* Caller PC
+* FuncExec Flag
+* ListStart Flag
+* Nested Lists Pointer
+* State List
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_CallList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	hello()
+	func hello
+		test()
+
+	func test
+		mylist = ringvm_calllist()
+		for t in mylist see t[2] + nl next
+
+Output:
+
+.. code-block:: ring
+
+	function hello() in file B:/ring/tests/scripts/calllist.ring
+	called from line 1
+	function test() in file B:/ring/tests/scripts/calllist.ring
+	called from line 3
+	ringvm_calllist
+
+
+.. index:: 
+	pair: Low Level Functions; RingVM_FilesList()
+
+ringvm_fileslist() function
+===========================
+
+Function return a list of the Ring Files.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_FilesList() ---> List
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	see ringvm_fileslist()
+
+Output:
+
+.. code-block:: ring
+
+	B:/ring/tests/scripts/fileslist.ring
+	B:\ring\bin\stdlib.ring
+	eval
+	stdlib.ring
+	stdlib.rh
+	stdclasses.ring
+	stdfunctions.ring
+	stdbase.ring
+	stdstring.ring
+	stdlist.ring
+	stdstack.ring
+	stdqueue.ring
+	stdmath.ring
+	stddatetime.ring
+	stdfile.ring
+	stdsystem.ring
+	stddebug.ring
+	stddatatype.ring
+	stdconversion.ring
+	stdodbc.ring
+	stdmysql.ring
+	stdsecurity.ring
+	stdinternet.ring
+	stdhashtable.ring
+	stdtree.ring
+
+.. index:: 
+	pair: Low Level Functions; ringvm_settrace()
+
+ringvm_settrace()
+=================
+
+The function ringvm_settrace() determine the Trace function name
+
+The trace function is a Ring 
+function that will be called for each event
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_SetTrace(cCode)
+
+.. index:: 
+	pair: Low Level Functions; ringvm_tracedata()
+
+ringvm_tracedata()
+==================
+
+Inside the function that we will use for tracing events
+
+We can use the ringvm_tracedata() function to get the event
+data.
+
+The event data is a list contains the next items
+
+* The Source Code Line Number
+* The Source File Name 
+* The Function/Method Name 
+* Method or Function (Bool : True=Method, False=Function/File)
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_TraceData() ---> aDataList
+
+.. index:: 
+	pair: Low Level Functions; ringvm_traceevent()
+
+ringvm_traceevent()
+===================
+
+Inside the function that we will use for tracing events
+
+We can use ringvm_traceevent() to know the event type
+
+* New Line
+* Before Function
+* After Function
+* Runtime Error
+* Before C Function
+* After C Function 
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_TraceEvent() ---> nTraceEvent
+
+.. index:: 
+	pair: Low Level Functions; ringvm_tracefunc()
+
+ringvm_tracefunc()
+==================
+
+The function return the name of the function that we
+are using for tracing events.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_TraceEvent() ---> cCode
+
+.. index:: 
+	pair: Low Level Functions; ringvm_scopescount()
+
+ringvm_scopescount()
+====================
+
+We can use the RingVM_ScopesCount() function to know
+the number of scopes used in the application.
+
+In the start of the program, We have the (global scope only)
+
+When we call a function, A new scope is created.
+
+When the function execution is done, the function scope is deleted.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_ScopesCount() ---> nScopes
+
+.. index:: 
+	pair: Low Level Functions; ringvm_evalinscope()
+
+ringvm_evalinscope() 
+====================
+
+The function ringvm_evalinscope() is similar to the eval() function
+
+Unlike eval() which execute the code in the current scope
+
+Using RingVM_EvalInScope() we can execute the code in a specific scope.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_EvalInScope(nScope,cCode)
+
+.. index:: 
+	pair: Low Level Functions; ringvm_passerror()
+
+ringvm_passerror()
+==================
+
+When we have runtime error, After printing the Error message, Ring 
+will end the execution of the program.
+
+Using ringvm_passerror() we can avoid that, and continue the 
+execution of our program.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_PassError()
+
+.. index:: 
+	pair: Low Level Functions; ringvm_hideerrorMsg()
+
+ringvm_hideerrormsg()
+=====================
+
+We can disable/enable displaying the runtime error messages using the
+RingVM_HideErrorMsg() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_HideErrorMsg(lStatus)
+
+.. index:: 
+	pair: Low Level Functions; ringvm_callfunc()
+
+ringvm_callfunc()
+=================
+
+We can call a function from a string without using eval() using
+the ringvm_callfunc() 
+
+Syntax:
+
+.. code-block:: ring
+
+	RingVM_CallFunc(cFuncName)
+
+
+.. index:: 
+	pair: Low Level Functions; Example - Using the Trace Functions
+	
+Example - Using the Trace Functions
+===================================
+
+The next example use the Trace Functions to trace the program Events!
+
+In practical, We will use the Trace Library instead of 
+these low level functions!
+
+.. code-block:: ring
+
+	load "tracelib.ring"
+
+	ringvm_settrace("mytrace()")
+
+	see "Hello, world!" + nl
+	see "Welcome" + nl
+	see "How are you?" +nl
+	mytest()
+	new myclass { mymethod() }
+
+	func mytest
+		see "Message from mytest" + nl
+
+	func mytrace
+		see "====== The Trace function is Active ======" + nl +
+			"Trace Function Name : " + ringvm_TraceFunc() + nl +
+			"Trace Event : " 
+		switch ringvm_TraceEvent()
+			on TRACEEVENT_NEWLINE 		see "New Line" 
+			on TRACEEVENT_NEWFUNC		see "New Function"
+			on TRACEEVENT_RETURN		see "Return"
+			on TRACEEVENT_ERROR		see "Error"
+			on TRACEEVENT_BEFORECFUNC	see "Before C Function"
+			on TRACEEVENT_AFTERCFUNC	see "After C Function"
+		off
+		see nl +
+			"Line Number : " + ringvm_tracedata()[TRACEDATA_LINENUMBER] + nl +
+			"File Name   : " + ringvm_tracedata()[TRACEDATA_FILENAME] + nl +
+			"Function Name : " + ringvm_tracedata()[TRACEDATA_FUNCNAME] + nl +
+			"Method or Function : " 
+			if ringvm_tracedata()[TRACEDATA_METHODORFUNC] =
+					 TRACEDATA_METHODORFUNC_METHOD
+				see "Method"
+			else
+				if ringvm_tracedata()[TRACEDATA_FUNCNAME] = NULL
+					see "Command"
+				else
+					see "Function"
+				ok
+			ok		
+			see nl + Copy("=",42) + nl
+
+	class myclass
+		func mymethod
+			see "Message from mymethod" + nl
+
+Output:
+
+.. code-block:: none
+
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : After C Function
+	Line Number : 3
+	File Name   : test1.ring
+	Function Name : ringvm_settrace
+	Method or Function : Function
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Line
+	Line Number : 5
+	File Name   : test1.ring
+	Function Name :
+	Method or Function : Command
+	==========================================
+	Hello, world!
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Line
+	Line Number : 6
+	File Name   : test1.ring
+	Function Name :
+	Method or Function : Command
+	==========================================
+	Welcome
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Line
+	Line Number : 7
+	File Name   : test1.ring
+	Function Name :
+	Method or Function : Command
+	==========================================
+	How are you?
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Line
+	Line Number : 8
+	File Name   : test1.ring
+	Function Name :
+	Method or Function : Command
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Function
+	Line Number : 8
+	File Name   : test1.ring
+	Function Name : mytest
+	Method or Function : Function
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Line
+	Line Number : 12
+	File Name   : test1.ring
+	Function Name : mytest
+	Method or Function : Function
+	==========================================
+	Message from mytest
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Line
+	Line Number : 14
+	File Name   : test1.ring
+	Function Name : mytest
+	Method or Function : Function
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : Return
+	Line Number : 8
+	File Name   : test1.ring
+	Function Name :
+	Method or Function : Command
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Line
+	Line Number : 9
+	File Name   : test1.ring
+	Function Name :
+	Method or Function : Command
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Line
+	Line Number : 43
+	File Name   : test1.ring
+	Function Name :
+	Method or Function : Command
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : Before C Function
+	Line Number : 9
+	File Name   : test1.ring
+	Function Name : ismethod
+	Method or Function : Function
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : After C Function
+	Line Number : 9
+	File Name   : test1.ring
+	Function Name : ismethod
+	Method or Function : Function
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Function
+	Line Number : 9
+	File Name   : test1.ring
+	Function Name : mymethod
+	Method or Function : Method
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Line
+	Line Number : 44
+	File Name   : test1.ring
+	Function Name : mymethod
+	Method or Function : Method
+	==========================================
+	Message from mymethod
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : Return
+	Line Number : 9
+	File Name   : test1.ring
+	Function Name :
+	Method or Function : Command
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : Before C Function
+	Line Number : 9
+	File Name   : test1.ring
+	Function Name : ismethod
+	Method or Function : Function
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : After C Function
+	Line Number : 9
+	File Name   : test1.ring
+	Function Name : ismethod
+	Method or Function : Function
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : Before C Function
+	Line Number : 9
+	File Name   : test1.ring
+	Function Name : ismethod
+	Method or Function : Function
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : After C Function
+	Line Number : 9
+	File Name   : test1.ring
+	Function Name : ismethod
+	Method or Function : Function
+	==========================================
+	====== The Trace function is Active ======
+	Trace Function Name : mytrace()
+	Trace Event : New Line
+	Line Number : 11
+	File Name   : test1.ring
+	Function Name :
+	Method or Function : Command
+	==========================================
+
+
+.. index:: 
+	pair: Low Level Functions; Example - The Trace Library
+	
+Example - The Trace Library
+===========================
+
+The next example uses the Trace functions provided by the Ring language 
+to create the Trace library.
+
+Using the Trace library we have nice Tracing 
+tools and Interaction debugger too.
+
+.. code-block:: ring
+
+	# Trace Events
+	TRACEEVENT_NEWLINE 	= 1
+	TRACEEVENT_NEWFUNC 	= 2
+	TRACEEVENT_RETURN 	= 3
+	TRACEEVENT_ERROR 	= 4
+	TRACEEVENT_BEFORECFUNC 	= 5
+	TRACEEVENT_AFTERCFUNC 	= 6
+
+	# Trace Data
+	TRACEDATA_LINENUMBER  	= 1
+	TRACEDATA_FILENAME 	= 2
+	TRACEDATA_FUNCNAME 	= 3
+	TRACEDATA_METHODORFUNC 	= 4
+
+	# Method of Function
+	TRACEDATA_METHODORFUNC_METHOD 		= TRUE
+	TRACEDATA_METHODORFUNC_NOTMETHOD	= FALSE
+
+	TRACE_BREAKPOINTS = TRUE
+
+	TRACE_TEMPLIST = []
+
+	func Trace cType
+		switch trim(lower(cType))
+		on :AllEvents
+			ringvm_settrace("TraceLib_AllEvents()")
+		on :Functions 
+			ringvm_settrace("TraceLib_Functions()")
+		on :PassError
+			ringvm_settrace("TraceLib_PassError()")
+		on :Debugger 
+			ringvm_settrace("TraceLib_Debugger()")
+		on :LineByLine
+			ringvm_settrace("TraceLib_LineByLine()")
+		off
+
+	func TraceLib_AllEvents
+		if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = "tracelib.ring"
+			return 
+		ok
+		see "====== The Trace function is Active ======" + nl +
+			"Trace Function Name : " + ringvm_TraceFunc() + nl +
+			"Trace Event : " 
+		switch ringvm_TraceEvent()
+			on TRACEEVENT_NEWLINE 		see "New Line" 
+			on TRACEEVENT_NEWFUNC		see "New Function"
+			on TRACEEVENT_RETURN		see "Return"
+			on TRACEEVENT_ERROR		see "Error"
+			on TRACEEVENT_BEFORECFUNC	see "Before C Function"
+			on TRACEEVENT_AFTERCFUNC	see "After C Function"
+		off
+		see nl +
+			"Line Number : " + ringvm_tracedata()[TRACEDATA_LINENUMBER] + nl +
+			"File Name   : " + ringvm_tracedata()[TRACEDATA_FILENAME] + nl +
+			"Function Name : " + ringvm_tracedata()[TRACEDATA_FUNCNAME] + nl +
+			"Method or Function : " 
+			if ringvm_tracedata()[TRACEDATA_METHODORFUNC] =
+					 TRACEDATA_METHODORFUNC_METHOD
+				see "Method"
+			else
+				if ringvm_tracedata()[TRACEDATA_FUNCNAME] = NULL
+					see "Command"
+				else
+					see "Function"
+				ok
+			ok		
+			see nl + Copy("=",42) + nl
+
+	func TraceLib_Functions
+		if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = "tracelib.ring"
+			return 
+		ok
+		switch ringvm_TraceEvent() 
+			on TRACEEVENT_NEWFUNC
+				see "Open Func : " + 
+				ringvm_TraceData()[TRACEDATA_FUNCNAME] + nl
+			on TRACEEVENT_RETURN
+				see "Return to Func : " + 
+				ringvm_TraceData()[TRACEDATA_FUNCNAME] + nl
+		off
+
+	func TraceLib_PassError
+		if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = "tracelib.ring"
+			return 
+		ok
+		switch ringvm_TraceEvent() 
+			on  TRACEEVENT_ERROR
+				see nl
+				see "TraceLib : After Error !" + nl
+				ringvm_passerror()
+		off
+
+	func TraceLib_Debugger
+		if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = "tracelib.ring"
+			return 
+		ok
+		switch ringvm_TraceEvent() 
+			on  TRACEEVENT_ERROR
+				_BreakPoint()
+		off
+
+	func TraceLib_LineByLine
+		if right(ringvm_tracedata()[TRACEDATA_FILENAME],13) = "tracelib.ring" or
+			ringvm_TraceEvent() != TRACEEVENT_NEWLINE
+			return 
+		ok
+		aList = ringvm_tracedata()
+		see "Before Line : " + aList[TRACEDATA_LINENUMBER] + nl 
+		_BreakPoint()
+
+	func BreakPoint
+		if not TRACE_BREAKPOINTS
+			return 
+		ok
+		_BreakPoint()
+
+	func _BreakPoint 
+		see nl+nl+Copy("=",60) + nl +
+		Copy(" ",20)+"Interactive Debugger" + nl +
+		Copy("=",60) + nl +
+		"Command (Exit)        : End Program" + nl +
+		"Command (Cont)        : Continue Execution" + nl +
+		"Command (Locals)      : Print local variables names" + nl +
+		"Command (LocalsData)  : Print local variables data" + nl +
+		"Command (Globals)     : Print global variables names" + nl +
+		"We can execute Ring code" + nl +
+		Copy("=",60) + nl 
+		while true
+				see nl + "code:> "
+				give cCode
+			cmd = trim(lower(cCode))
+			if cmd = "exit" or cmd = "bye"
+				shutdown()
+			ok 
+			nScope = ringvm_scopescount()-2
+			switch cmd
+				on "locals"			
+					ringvm_EvalInScope(nScope,"see locals() callgc()")
+					loop
+				on "localsdata"
+					PrintLocalsData(nScope)
+					loop
+				on "globals"			
+					ringvm_EvalInScope(nScope,"see globals() callgc()")
+					loop
+				on "cont"
+					ringvm_passerror()
+					exit
+			off
+			Try
+				ringvm_EvalInScope(nScope,cCode)
+				catch
+						see cCatchError
+				done
+		end
+
+	func NoBreakPoints
+		TRACE_BREAKPOINTS = FALSE
+
+
+	func PrintLocalsData nScope
+		if nScope = 1	# Global
+			ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = globals()')
+		else
+			ringvm_Evalinscope(nScope,'TRACE_TEMPLIST = locals() callgc()')
+		ok
+		see nl 
+		aTempList = TRACE_TEMPLIST
+		TRACE_TEMPLIST = []
+		nSpaces = 5
+		for TRACE_ITEM in aTempList
+			if len(TRACE_ITEM) + 5 > nSpaces
+				nSpaces = len(TRACE_ITEM) + 5
+			ok
+		next
+		for TRACE_ITEM in aTempList
+			see "Variable : " +  TRACE_ITEM
+			cVarName = TRACE_ITEM
+			see copy(" ",nSpaces-len(cVarName)) + " Type : " 
+			ringvm_Evalinscope(nScope,"see type(" +  TRACE_ITEM +")")
+			ringvm_Evalinscope(nScope,"see Copy(' ',fabs(15-len(type(" +
+						  TRACE_ITEM +"))))")
+			see " Value : " 
+			ringvm_Evalinscope(nScope,"see " +  TRACE_ITEM)
+			see nl
+		next
+
+
+.. index:: 
+	pair: Low Level Functions; ringvm_see() function
+
+ringvm_see() function
+=====================
+
+Using the ringvm_see() function we can redefine the behavior of the See command
+
+Also we can use ring_see() to have the original behavior
+
+Example:
+
+.. code-block:: ring
+
+	see "Hello world" + nl
+	see 123 + nl
+	see ["one","two","three"]
+	see new point {x=10 y=20 z=30} 
+
+	func ringvm_see t
+		ring_see("We want to print: ")
+		ring_See(t)
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	We want to print: Hello world
+	We want to print: 123
+	We want to print: one
+	two
+	three
+	We want to print: x: 10.000000
+	y: 20.000000
+	z: 30.000000
+
+.. index:: 
+	pair: Low Level Functions; ringvm_give() function
+
+ringvm_give() function
+======================
+
+Using the ringvm_give() function we can redefine the behavior of the Give command
+
+Example:
+
+.. code-block:: ring
+
+	see "Name: " give name
+	see "Hello " + name
+
+	func ringvm_give
+		see "Mahmoud" + nl
+		return "Mahmoud"
+
+Output:
+
+.. code-block:: ring
+
+	Name: Mahmoud
+	Hello Mahmoud
+
+.. index:: 
+	pair: Low Level Functions; ringvm_info()
+
+ringvm_info() function
+======================
+
+The ringvm_info() is an internal function that return a list of information about the Ring VM structure.
+
+It's used only by the Ring Team in advanced tests to check the VM status.
+
+Syntax:
+
+.. code-block:: ring
+
+	ringvm_info() ---> List of information about the VM structure
+

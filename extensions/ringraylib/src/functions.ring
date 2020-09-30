@@ -150,12 +150,10 @@ func SetExitKey vKey
 
 # Get Pointer Data 
 func GPData vData 
-	# We copy the Object to avoid replacing it when using pData = pData.data()
-		pData = vData
-	if isObject(pData)
-		pData = pData.Data()
+	if isObject(vData)
+		return vData.Data()
 	ok
-	return pData
+	return vData
 
 # Update Object Data 
 func UOData vData 

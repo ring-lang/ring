@@ -1,0 +1,2 @@
+brew install -k git gcc unixodbc mysql-connector-c allegro openssl qt glew libuv libpq sdl2 sdl2_image sdl2_mixer sdl2_net sdl2_ttf
+brew link --force qt

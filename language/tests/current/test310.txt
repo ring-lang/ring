@@ -1,0 +1,5 @@
+
+Can't open file b:\ring\tests\newtests\scripts\natural\filepath2.ring 
+
+general/test126.ring Line (2) Error (C27) : Syntax Error!
+general/test126.ring errors count : 1 

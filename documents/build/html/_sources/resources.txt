@@ -1,0 +1,36 @@
+.. index:: 
+	single: Resources; Introduction
+
+=========
+Resources
+=========
+
+In this section you will find resources about the language
+
+.. index:: 
+	pair: Resources; Ring Language Website
+
+Ring Language Website 
+=====================
+
+For news about the language check the website
+
+	 http://ring-lang.net
+
+.. index:: 
+	pair: Resources; Source Code
+
+Source Code
+===========
+
+Ring is Free-Open Source (MIT License)
+
+Source Code : https://github.com/ring-lang/ring
+
+.. index:: 
+	pair: Resources; Ring Team
+
+Ring Team
+=========
+
+URL : http://ring-lang.net/team.html

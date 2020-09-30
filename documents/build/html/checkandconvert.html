@@ -1,0 +1,719 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Check Data Type and Conversion &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Mathematical Functions" href="mathfunc.html" />
+    <link rel="prev" title="Date and Time" href="dateandtime.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Check Data Type and Conversion</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#check-data-type">Check Data Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isstring-function">IsString() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isnumber-function">IsNumber() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#islist-function">IsList() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#type-function">Type() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isnull-function">IsNULL() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-character">Check Character</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isalnum-function">IsAlNum() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isalpha-function">IsAlpha() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iscntrl-function">IsCntrl() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isdigit-function">IsDigit() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isgraph-function">IsGraph() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#islower-function">IsLower() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isprint-function">IsPrint() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ispunct-function">IsPunct() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isspace-function">IsSpace() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isupper-function">IsUpper() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isxdigit-function">IsXdigit() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#conversion">Conversion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#number-function">Number() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#string-function">String() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ascii-function">Ascii() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#char-function">Char() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hex-function">Hex() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dec-function">Dec() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#str2hex-function">Str2hex() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#hex2str-function">Hex2str() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Check Data Type and Conversion</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="check-data-type-and-conversion">
+<span id="index-0"></span><h1>Check Data Type and Conversion<a class="headerlink" href="#check-data-type-and-conversion" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the functions that can be used for</p>
+<ul class="simple">
+<li><p>Checking Data Type</p></li>
+<li><p>Checking Character</p></li>
+<li><p>Conversion</p></li>
+</ul>
+<div class="section" id="check-data-type">
+<span id="index-1"></span><h2>Check Data Type<a class="headerlink" href="#check-data-type" title="Permalink to this headline">¶</a></h2>
+<p>The next functions can be used to check the data type</p>
+<ul class="simple">
+<li><p>isstring()</p></li>
+<li><p>isnumber()</p></li>
+<li><p>islist()</p></li>
+<li><p>type()</p></li>
+<li><p>isnull()</p></li>
+</ul>
+</div>
+<div class="section" id="isstring-function">
+<span id="index-2"></span><h2>IsString() Function<a class="headerlink" href="#isstring-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the IsString() function we can know if the value is a string or not</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsString</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="kt">string</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isstring</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>          <span class="c"># print 0</span>
+    <span class="n">isstring</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>      <span class="c"># print 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isnumber-function">
+<span id="index-3"></span><h2>IsNumber() Function<a class="headerlink" href="#isnumber-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the IsNumber() function we can know if the value is a number or not</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsNumber</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">number</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isnumber</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>          <span class="c"># print 1</span>
+    <span class="n">isnumber</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>      <span class="c"># print 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="islist-function">
+<span id="index-4"></span><h2>IsList() Function<a class="headerlink" href="#islist-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the IsList() function we can know if the value is a list or not</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsList</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="kt">list</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">islist</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>            <span class="c"># print 0</span>
+    <span class="n">islist</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>      <span class="c"># print 0</span>
+    <span class="n">islist</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span><span class="p">)</span>             <span class="c"># print 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-function">
+<span id="index-5"></span><h2>Type() Function<a class="headerlink" href="#type-function" title="Permalink to this headline">¶</a></h2>
+<p>We can know the type of a value using the Type() Function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">Type</span> <span class="n">as</span> <span class="kt">String</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">Type</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>          <span class="c"># print NUMBER</span>
+<span class="n">Type</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>        <span class="c"># print STRING</span>
+<span class="n">Type</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span><span class="p">)</span>               <span class="c"># print LIST</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isnull-function">
+<span id="index-6"></span><h2>IsNULL() Function<a class="headerlink" href="#isnull-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check the value to know if it’s null or not using the IsNULL() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsNULL</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="kp">NULL</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isnull</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>        <span class="c"># print 0</span>
+<span class="n">isnull</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>      <span class="c"># print 0</span>
+<span class="n">isnull</span><span class="p">(</span><span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="o">]</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>      <span class="c"># print 0</span>
+<span class="n">isnull</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>           <span class="c"># print 1</span>
+<span class="n">isnull</span><span class="p">(</span><span class="s">&quot;NULL&quot;</span><span class="p">)</span>              <span class="c"># print 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-character">
+<span id="index-7"></span><h2>Check Character<a class="headerlink" href="#check-character" title="Permalink to this headline">¶</a></h2>
+<p>The next functions can be used to check character</p>
+<ul class="simple">
+<li><p>isalnum()</p></li>
+<li><p>isalpha()</p></li>
+<li><p>iscntrl()</p></li>
+<li><p>isdigit()</p></li>
+<li><p>isgraph()</p></li>
+<li><p>islower()</p></li>
+<li><p>isprint()</p></li>
+<li><p>ispunct()</p></li>
+<li><p>isspace()</p></li>
+<li><p>isupper()</p></li>
+<li><p>isxdigit()</p></li>
+</ul>
+</div>
+<div class="section" id="isalnum-function">
+<span id="index-8"></span><h2>IsAlNum() Function<a class="headerlink" href="#isalnum-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsAlNum() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsAlNum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">digit</span><span class="o">/</span><span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isalnum</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>     <span class="c"># print 1</span>
+    <span class="n">isalnum</span><span class="p">(</span><span class="s">&quot;123456&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print 1</span>
+    <span class="n">isalnum</span><span class="p">(</span><span class="s">&quot;ABCabc123&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="c"># print 1</span>
+    <span class="n">isalnum</span><span class="p">(</span><span class="s">&quot;How are you&quot;</span><span class="p">)</span>      <span class="c"># print 0 because of spaces</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isalpha-function">
+<span id="index-9"></span><h2>IsAlpha() Function<a class="headerlink" href="#isalpha-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsAlpha() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsAlpha</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isalpha</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>     <span class="c"># print 1</span>
+    <span class="n">isalpha</span><span class="p">(</span><span class="s">&quot;123456&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print 0</span>
+    <span class="n">isalpha</span><span class="p">(</span><span class="s">&quot;ABCabc123&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="c"># print 0</span>
+    <span class="n">isalpha</span><span class="p">(</span><span class="s">&quot;How are you&quot;</span><span class="p">)</span>      <span class="c"># print 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iscntrl-function">
+<span id="index-10"></span><h2>IsCntrl() Function<a class="headerlink" href="#iscntrl-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsCntrl() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsCntrl</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">control</span> <span class="n">character</span> <span class="p">(</span><span class="n">no</span> <span class="n">printing</span> <span class="n">position</span><span class="p">)</span>
+                    <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">iscntrl</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>     <span class="c"># print 0</span>
+    <span class="n">iscntrl</span><span class="p">(</span><span class="n">nl</span><span class="p">)</span>                 <span class="c"># print 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isdigit-function">
+<span id="index-11"></span><h2>IsDigit() Function<a class="headerlink" href="#isdigit-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsDigit() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsDigit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">digit</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isdigit</span><span class="p">(</span><span class="s">&quot;0123456789&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>        <span class="c"># print 1</span>
+    <span class="n">isdigit</span><span class="p">(</span><span class="s">&quot;0123a&quot;</span><span class="p">)</span>                    <span class="c"># print 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isgraph-function">
+<span id="index-12"></span><h2>IsGraph() Function<a class="headerlink" href="#isgraph-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsGraph() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsGraph</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">can</span> <span class="n">be</span> <span class="n">printed</span> <span class="p">(</span><span class="n">Except</span> <span class="n">space</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isgraph</span><span class="p">(</span><span class="s">&quot;abcdef&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print 1</span>
+    <span class="n">isgraph</span><span class="p">(</span><span class="s">&quot;abc def&quot;</span><span class="p">)</span>          <span class="c"># print 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="islower-function">
+<span id="index-13"></span><h2>IsLower() Function<a class="headerlink" href="#islower-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsLower() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsLower</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">lowercase</span> <span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">islower</span><span class="p">(</span><span class="s">&quot;abcDEF&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print 0</span>
+    <span class="n">islower</span><span class="p">(</span><span class="s">&quot;ghi&quot;</span><span class="p">)</span>              <span class="c"># print 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isprint-function">
+<span id="index-14"></span><h2>IsPrint() Function<a class="headerlink" href="#isprint-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsPrint() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsPrint</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">occupies</span> <span class="n">a</span> <span class="n">printing</span> <span class="n">position</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isprint</span><span class="p">(</span><span class="s">&quot;Hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>             <span class="c"># print 1</span>
+    <span class="n">isprint</span><span class="p">(</span><span class="s">&quot;Nice to see you&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>   <span class="c"># print 1</span>
+    <span class="n">isprint</span><span class="p">(</span><span class="n">nl</span><span class="p">)</span>                         <span class="c"># print 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ispunct-function">
+<span id="index-15"></span><h2>IsPunct() Function<a class="headerlink" href="#ispunct-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsPunct() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsPunct</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">punctuation</span> <span class="n">character</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">ispunct</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>     <span class="c"># print 0</span>
+    <span class="n">ispunct</span><span class="p">(</span><span class="s">&quot;,&quot;</span><span class="p">)</span>                <span class="c"># print 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isspace-function">
+<span id="index-16"></span><h2>IsSpace() Function<a class="headerlink" href="#isspace-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsSpace() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsSpace</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">white</span><span class="o">-</span><span class="n">space</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isspace</span><span class="p">(</span><span class="s">&quot;   &quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>       <span class="c"># print 1</span>
+    <span class="n">isspace</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>             <span class="c"># print 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isupper-function">
+<span id="index-17"></span><h2>IsUpper() Function<a class="headerlink" href="#isupper-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsUpper() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsUpper</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">an</span> <span class="n">uppercase</span> <span class="n">alphabetic</span> <span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isupper</span><span class="p">(</span><span class="s">&quot;welcome&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print 0</span>
+    <span class="n">isupper</span><span class="p">(</span><span class="s">&quot;WELCOME&quot;</span><span class="p">)</span>           <span class="c"># print 1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isxdigit-function">
+<span id="index-18"></span><h2>IsXdigit() Function<a class="headerlink" href="#isxdigit-function" title="Permalink to this headline">¶</a></h2>
+<p>We can test a character or a string using the IsXdigit() Function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsXdigit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">hexdecimal</span> <span class="n">digit</span> <span class="n">character</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">isxdigit</span><span class="p">(</span><span class="s">&quot;0123456789abcdef&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>  <span class="c"># print 1</span>
+    <span class="n">isxdigit</span><span class="p">(</span><span class="s">&quot;123z&quot;</span><span class="p">)</span>                     <span class="c"># print 0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="conversion">
+<span id="index-19"></span><h2>Conversion<a class="headerlink" href="#conversion" title="Permalink to this headline">¶</a></h2>
+<p>The next functions can be used for conversion</p>
+<ul class="simple">
+<li><p>number()</p></li>
+<li><p>string()</p></li>
+<li><p>ascii()</p></li>
+<li><p>char()</p></li>
+<li><p>hex()</p></li>
+<li><p>dec()</p></li>
+<li><p>str2hex()</p></li>
+<li><p>hex2str()</p></li>
+</ul>
+</div>
+<div class="section" id="number-function">
+<span id="index-20"></span><h2>Number() Function<a class="headerlink" href="#number-function" title="Permalink to this headline">¶</a></h2>
+<p>We can convert strings to numbers using the Number() function or the + operator.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Number</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span>
+<span class="mi">0</span> <span class="o">+</span> <span class="kt">string</span> <span class="o">---&gt;</span> <span class="n">Number</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">number</span><span class="p">(</span><span class="s">&quot;5&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">nl</span>        <span class="c"># print 10</span>
+<span class="k">see</span> <span class="mi">0</span> <span class="o">+</span> <span class="s">&quot;10&quot;</span> <span class="o">+</span> <span class="mi">2</span>                <span class="c"># print 12</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="string-function">
+<span id="index-21"></span><h2>String() Function<a class="headerlink" href="#string-function" title="Permalink to this headline">¶</a></h2>
+<p>We can convert numbers to strings using the String() function or the + operator.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="kt">String</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span>
+<span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">number</span> <span class="o">---&gt;</span> <span class="kt">String</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="kt">string</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">+</span> <span class="mi">5</span> <span class="o">+</span> <span class="n">nl</span>          <span class="c"># print 55</span>
+<span class="k">see</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">+</span> <span class="mi">2</span>                 <span class="c"># print 102</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ascii-function">
+<span id="index-22"></span><h2>Ascii() Function<a class="headerlink" href="#ascii-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the ASCII code for a letter using the Ascii() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Ascii</span><span class="p">(</span><span class="n">character</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">ASCII</span> <span class="n">Code</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">ascii</span><span class="p">(</span><span class="s">&quot;m&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>   <span class="c"># print 109</span>
+    <span class="n">ascii</span><span class="p">(</span><span class="s">&quot;M&quot;</span><span class="p">)</span>          <span class="c"># print 77</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="char-function">
+<span id="index-23"></span><h2>Char() Function<a class="headerlink" href="#char-function" title="Permalink to this headline">¶</a></h2>
+<p>We can convert the ASCII code to character using the Char() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Char</span><span class="p">(</span><span class="n">ASCII</span> <span class="n">Code</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">character</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">char</span><span class="p">(</span><span class="mi">109</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>    <span class="c"># print m</span>
+    <span class="n">char</span><span class="p">(</span><span class="mi">77</span><span class="p">)</span>            <span class="c"># print M</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hex-function">
+<span id="index-24"></span><h2>Hex() Function<a class="headerlink" href="#hex-function" title="Permalink to this headline">¶</a></h2>
+<p>We can convert decimal to hexadecimal using the Hex() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hex</span><span class="p">(</span><span class="n">decimal</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">hexadecimal</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">hex</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>      <span class="c"># print a</span>
+    <span class="n">hex</span><span class="p">(</span><span class="mi">200</span><span class="p">)</span>            <span class="c"># print c8</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="dec-function">
+<span id="index-25"></span><h2>Dec() Function<a class="headerlink" href="#dec-function" title="Permalink to this headline">¶</a></h2>
+<p>We can convert hexadecimal to decimal using the Dec() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Dec</span><span class="p">(</span><span class="n">hexadecimal</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">decimal</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">dec</span><span class="p">(</span><span class="s">&quot;a&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>     <span class="c"># print 10</span>
+    <span class="n">dec</span><span class="p">(</span><span class="s">&quot;c8&quot;</span><span class="p">)</span>           <span class="c"># print 200</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="str2hex-function">
+<span id="index-26"></span><h2>Str2hex() Function<a class="headerlink" href="#str2hex-function" title="Permalink to this headline">¶</a></h2>
+<p>We can convert string characters to hexadecimal characters using the Str2hex() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Str2hex</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">hexadecimal</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">str2hex</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>    <span class="c"># print 68656c6c6f</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="hex2str-function">
+<span id="index-27"></span><h2>Hex2str() Function<a class="headerlink" href="#hex2str-function" title="Permalink to this headline">¶</a></h2>
+<p>We can convert hexadecimal characters to string using the Hex2str() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hex2Str</span><span class="p">(</span><span class="n">Hexadecimal</span> <span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="n">hex2str</span><span class="p">(</span><span class="s">&quot;68656c6c6f&quot;</span><span class="p">)</span>       <span class="c"># print hello</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mathfunc.html" class="btn btn-neutral float-right" title="Mathematical Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dateandtime.html" class="btn btn-neutral float-left" title="Date and Time" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

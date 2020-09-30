@@ -342,48 +342,42 @@ func playstart oGame
 	}
 
 
-func inlist nValue,aList
-	for x in aList
-		if x = nValue
-			return true
-		ok
-	next
-	return false
+func inlist nValue,aList 
+	if find(aList,nValue) return True ok 
+	return False
 
 func checkwall oGame,oself,diffx,diffy
 	alist = [1,2,3]
 	return checkwall2(oGame,oself,diffx,diffy,aList)
 
+func checkpoint oGame,xPos,yPos,aList 
+	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
+	return inlist(nValue,aList)
+
+
 func checkwall2 oGame,oself,diffx,diffy,aList
 	xPos = oSelf.x + diffx
 	yPos = oSelf.y + diffy
-	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
-	nValue = inlist(nValue,aList)
-	nValue = not nValue
-	if nValue = 0 return nValue ok
-
+	if checkPoint(oGame,xPos,yPos,aList) return False ok
 	xPos = oSelf.x + diffx
 	yPos = oSelf.y + diffy + oSelf.height
-	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
-	nValue = inlist(nValue,aList)
-	nValue = not nValue
-	if nValue = 0 return nValue ok
-
+	if checkPoint(oGame,xPos,yPos,aList) return False ok
 	xPos = oSelf.x + diffx + oSelf.width
 	yPos = oSelf.y + diffy
-	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
-	nValue = inlist(nValue,aList)
-	nValue = not nValue
-	if nValue = 0 return nValue ok
-
+	if checkPoint(oGame,xPos,yPos,aList) return False ok
 	xPos = oSelf.x + diffx + oSelf.width
 	yPos = oSelf.y + diffy + oSelf.height
-	nValue = oGame.aObjects[2].getvalue(xPos,yPos)
-	nValue = inlist(nValue,aList)
-	nValue = not nValue
-	if nValue = 0 return nValue ok
-
-	return nValue
+	if checkPoint(oGame,xPos,yPos,aList) return False ok
+	xPos = oSelf.x + diffx
+	yPos = oSelf.y + diffy + oSelf.height / 2
+	if checkPoint(oGame,xPos,yPos,aList) return False ok
+	xPos = oSelf.x + diffx + oSelf.width / 2
+	yPos = oSelf.y + diffy
+	if checkPoint(oGame,xPos,yPos,aList) return False ok
+	xPos = oSelf.x + diffx + oSelf.width / 2
+	yPos = oSelf.y + diffy + oSelf.height / 2
+	if checkPoint(oGame,xPos,yPos,aList) return False ok
+	return True
 
 func checkopenwall oGame
 	if oGameState.score = 900
@@ -407,7 +401,7 @@ func checkopenwall oGame
 	ok
 
 
-func checkgameover ogame
+func checkgameover ogame 
 	if oGameState.gameresult  return ok
 	if oGameState.value <= 0
 		oGameState.value = 0

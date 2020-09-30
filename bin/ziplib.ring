@@ -1,1 +1,0 @@
-load "/../extensions/ringzip/ziplib.ring"

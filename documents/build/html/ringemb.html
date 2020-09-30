@@ -1,0 +1,595 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Embedding Ring in Ring &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Stdlib Functions" href="stdlib.html" />
+    <link rel="prev" title="The Trace Library and the Interactive Debugger" href="debug.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Embedding Ring Language in Ring Programs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#embedding-ring-in-ring-without-sharing-the-state">Embedding Ring in Ring without sharing the State</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#serial-execution-of-programs">Serial Execution of Programs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-state-setvar">ring_state_setvar()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-state-new-and-ring-state-mainfile">ring_state_new() and ring_state_mainfile()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#runtime-errors-when-embedding-ring-in-ring">Runtime Errors when Embedding Ring in Ring</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-state-filetokens-function">ring_state_filetokens() function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Embedding Ring in Ring</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="embedding-ring-in-ring">
+<span id="index-0"></span><h1>Embedding Ring in Ring<a class="headerlink" href="#embedding-ring-in-ring" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about embedding Ring in Ring programs and applications.</p>
+<div class="section" id="embedding-ring-in-ring-without-sharing-the-state">
+<span id="index-1"></span><h2>Embedding Ring in Ring without sharing the State<a class="headerlink" href="#embedding-ring-in-ring-without-sharing-the-state" title="Permalink to this headline">¶</a></h2>
+<p>From Ring 1.0 we already have functions for embedding Ring in the C language. Also we
+can execute Ring code inside Ring programs using the eval() function. In this release
+we provide functions for embedding Ring in Ring programs without sharing the state.</p>
+<p>Advantages:</p>
+<ol class="arabic simple">
+<li><p>Quick integration for Ring programs and applications together without conflicts.</p></li>
+<li><p>Execute and run Ring code in safe environments that we can trace.</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;See &#39;Hello, World!&#39;+nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x = 10&quot;</span><span class="p">)</span>
+
+<span class="n">pState2</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;See &#39;Hello, World!&#39;+nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;x = 20&quot;</span><span class="p">)</span>
+
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;see x +nl&quot;</span><span class="p">)</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;see x +nl&quot;</span><span class="p">)</span>
+
+<span class="n">v1</span> <span class="o">=</span> <span class="n">ring_state_findvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+<span class="n">v2</span> <span class="o">=</span> <span class="n">ring_state_findvar</span><span class="p">(</span><span class="n">pState2</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">)</span>
+
+<span class="k">see</span> <span class="n">v1</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">V2</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+<span class="mi">10</span>
+<span class="mi">20</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="serial-execution-of-programs">
+<span id="index-2"></span><h2>Serial Execution of Programs<a class="headerlink" href="#serial-execution-of-programs" title="Permalink to this headline">¶</a></h2>
+<p>We can execute application after another application using ring_state_main()</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">chdir</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/../applications/formdesigner&quot;</span><span class="p">)</span>
+<span class="n">ring_state_main</span><span class="p">(</span><span class="sc">&#39;formdesigner.ring&#39;</span><span class="p">)</span>
+<span class="n">chdir</span><span class="p">(</span><span class="n">exefolder</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/../applications/cards&quot;</span><span class="p">)</span>
+<span class="n">ring_state_main</span><span class="p">(</span><span class="sc">&#39;cards.ring&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ring-state-setvar">
+<span id="index-3"></span><h2>ring_state_setvar()<a class="headerlink" href="#ring-state-setvar" title="Permalink to this headline">¶</a></h2>
+<p>Using ring_state_setvar() we can set variables value</p>
+<p>The value could be (String, Number, List or C Pointer)</p>
+<p>We need this function to quickly pass lists and C pointers to the Sub Ring Environment</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring_state_setvar(oState,cVariableName,Value)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="n">myapp</span>   <span class="o">=</span> <span class="kp">null</span>
+<span class="n">win</span>     <span class="o">=</span> <span class="kp">null</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="n">myapp</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Advanced Example on using ring_state_setvar()&quot;</span><span class="p">)</span>
+                        <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="n">resize</span><span class="p">(</span><span class="mi">600</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                        <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Test&quot;</span><span class="p">)</span>
+                                <span class="n">setClickEvent</span><span class="p">(</span><span class="s">&quot;Test()&quot;</span><span class="p">)</span>
+                        <span class="p">}</span>
+                        <span class="c"># We need this because using load &#39;guilib.ring&#39; in</span>
+                        <span class="c"># the sub environment</span>
+                        <span class="c"># Will create timers by Qt and closing the window</span>
+                        <span class="c"># will not be enough to close the application</span>
+                        <span class="n">oFilter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAllEvents</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                        <span class="n">oFilter</span><span class="p">.</span><span class="n">setCloseEvent</span><span class="p">(</span><span class="s">&quot;myapp.quit()&quot;</span><span class="p">)</span>
+                        <span class="n">win</span><span class="p">.</span><span class="n">installeventfilter</span><span class="p">(</span><span class="n">oFilter</span><span class="p">)</span>
+                        <span class="n">show</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="n">exec</span><span class="p">()</span>
+        <span class="p">}</span>
+
+<span class="k">func</span> <span class="n">test</span>
+        <span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+        <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pstate</span><span class="p">,</span><span class="s">&quot;load &#39;guilib.ring&#39;&quot;</span><span class="p">)</span>
+        <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x = NULL&quot;</span><span class="p">)</span>
+        <span class="c"># Pass String</span>
+                <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="s">&quot;hello&quot;</span><span class="p">)</span>
+                <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;? x&quot;</span><span class="p">)</span>
+        <span class="c"># Pass Number</span>
+                <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;? x&quot;</span><span class="p">)</span>
+        <span class="c"># Pass List</span>
+                <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span><span class="p">)</span>
+                <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;? x&quot;</span><span class="p">)</span>
+        <span class="c"># Pass Object</span>
+        <span class="c"># We can&#39;t pass the Ring Object (win)</span>
+        <span class="c"># Because Objects store pointers to the Class Information</span>
+        <span class="c"># And the class is related to the Parent Ring Environment</span>
+        <span class="c"># And the sub Ring environment can&#39;t access it</span>
+        <span class="c"># But we can pass C pointers like win.pObject</span>
+                <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="n">win</span><span class="p">.</span><span class="n">pObject</span><span class="p">)</span>
+        <span class="c"># Now we create the object again but using the same C pointer</span>
+        <span class="c"># So we have access to the Same window in the parent Ring enviroment</span>
+                <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;</span>
+                        <span class="k">new</span> <span class="n">qWidget</span> <span class="p">{</span>
+                                <span class="n">pObject</span> <span class="o">=</span> <span class="n">x</span>
+                                <span class="n">setwindowtitle</span><span class="p">(</span><span class="sc">&#39;Message from the Sub Ring Environment&#39;</span><span class="p">)</span>
+                        <span class="p">}</span>
+                <span class="s">&quot;)</span>
+        <span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ring-state-new-and-ring-state-mainfile">
+<span id="index-4"></span><h2>ring_state_new() and ring_state_mainfile()<a class="headerlink" href="#ring-state-new-and-ring-state-mainfile" title="Permalink to this headline">¶</a></h2>
+<p>Using ring_state_new() and ring_state_mainfile() we can run Ring programs from Ring programs</p>
+<p>But unlike ring_state_main(), Here we can control when to delete the Ring state!</p>
+<p>This is important when we run GUI programs from GUI programs</p>
+<p>Because they will share the GUI Library (RingQt), And In this case the caller will call</p>
+<p>qApp.Exec()</p>
+<p>So the sub program, will not stop and will return to the Main program</p>
+<p>Here deleting the State of the sub programs will lead to a problem when we run the sub program events</p>
+<p>So keeping the state is important for sub GUI programs hosted in GUI programs.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+        <span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Test ring_state_mainfile()&quot;</span><span class="p">)</span>
+                        <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span> <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="n">btn</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">Win</span><span class="p">)</span> <span class="p">{</span>
+                                <span class="n">settext</span><span class="p">(</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+                                <span class="n">setclickevent</span><span class="p">(</span><span class="s">&quot;mytest()&quot;</span><span class="p">)</span>
+                        <span class="p">}</span>
+                        <span class="n">show</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="n">exec</span><span class="p">()</span>
+        <span class="p">}</span>
+
+<span class="k">func</span> <span class="n">mytest</span>
+        <span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_new</span><span class="p">()</span>
+        <span class="n">ring_state_mainfile</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;runprogram.ring&quot;</span><span class="p">)</span>
+        <span class="c"># Here we don&#39;t delete the state if we will run GUI application</span>
+        <span class="c"># So we can run the GUI application events</span>
+                <span class="o">//</span> <span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>If you will use this feature, remember to update the previous example based on your application needs</p>
+<p>So you can call ring_state_delete() at some point to avoid the memory leak!</p>
+</div>
+<div class="section" id="runtime-errors-when-embedding-ring-in-ring">
+<span id="index-5"></span><h2>Runtime Errors when Embedding Ring in Ring<a class="headerlink" href="#runtime-errors-when-embedding-ring-in-ring" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.8</p>
+<p>When embedding Ring in Ring, the error in the hosted environment will not close the host</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="s">&quot;Start the test!&quot;</span>
+
+<span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_init</span><span class="p">()</span>
+
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot; ? &#39;Let us try having an error&#39; ? x&quot;</span><span class="p">)</span>
+
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;&quot;</span>
+<span class="o">?</span> <span class="s">&quot;End of test!&quot;</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Start the test!
+Let us try having an error
+
+Line 1 Error (R24) : Using uninitialized variable : x
+in file Ring_EmbeddedCode
+End of test!
+</pre></div>
+</div>
+</div>
+<div class="section" id="ring-state-filetokens-function">
+<span id="index-6"></span><h2>ring_state_filetokens() function<a class="headerlink" href="#ring-state-filetokens-function" title="Permalink to this headline">¶</a></h2>
+<p>Starting from Ring 1.12 we have the ring_state_filetokens() function</p>
+<p>Using this function we can get all the tokens in the ring source code file.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">C_FILENAME</span>      <span class="o">=</span> <span class="s">&quot;test_tokens.ring&quot;</span>
+<span class="n">C_WIDTH</span>         <span class="o">=</span> <span class="mi">12</span>
+
+<span class="c"># write the file</span>
+        <span class="n">write</span><span class="p">(</span><span class="n">C_FILENAME</span><span class="p">,</span><span class="sc">&#39;</span>
+                        <span class="k">see</span> <span class="s">&quot;Hello, World!&quot;</span>
+                        <span class="o">?</span> <span class="mi">3</span><span class="o">*</span><span class="mi">2</span><span class="o">+</span><span class="mi">3</span>
+                        <span class="n">Name</span> <span class="o">=</span> <span class="s">&quot;Ring&quot;</span>
+                        <span class="o">?</span> <span class="n">Name</span>
+<span class="sc">&#39;)</span>
+
+<span class="c"># Token Type</span>
+        <span class="n">C_KEYWORD</span>       <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">C_OPERATOR</span>      <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">C_LITERAL</span>       <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">C_NUMBER</span>        <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">C_IDENTIFIER</span>    <span class="o">=</span> <span class="mi">4</span>
+        <span class="n">C_ENDLINE</span>       <span class="o">=</span> <span class="mi">5</span>
+
+<span class="c"># Keywords List</span>
+<span class="n">aKEYWORDS</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;IF&quot;</span><span class="p">,</span><span class="s">&quot;TO&quot;</span><span class="p">,</span><span class="s">&quot;OR&quot;</span><span class="p">,</span><span class="s">&quot;AND&quot;</span><span class="p">,</span><span class="s">&quot;NOT&quot;</span><span class="p">,</span><span class="s">&quot;FOR&quot;</span><span class="p">,</span><span class="s">&quot;NEW&quot;</span><span class="p">,</span><span class="s">&quot;FUNC&quot;</span><span class="p">,</span>
+<span class="s">&quot;FROM&quot;</span><span class="p">,</span><span class="s">&quot;NEXT&quot;</span><span class="p">,</span><span class="s">&quot;LOAD&quot;</span><span class="p">,</span><span class="s">&quot;ELSE&quot;</span><span class="p">,</span><span class="s">&quot;SEE&quot;</span><span class="p">,</span><span class="s">&quot;WHILE&quot;</span><span class="p">,</span><span class="s">&quot;OK&quot;</span><span class="p">,</span><span class="s">&quot;CLASS&quot;</span><span class="p">,</span><span class="s">&quot;RETURN&quot;</span><span class="p">,</span><span class="s">&quot;BUT&quot;</span><span class="p">,</span>
+<span class="s">&quot;END&quot;</span><span class="p">,</span><span class="s">&quot;GIVE&quot;</span><span class="p">,</span><span class="s">&quot;BYE&quot;</span><span class="p">,</span><span class="s">&quot;EXIT&quot;</span><span class="p">,</span><span class="s">&quot;TRY&quot;</span><span class="p">,</span><span class="s">&quot;CATCH&quot;</span><span class="p">,</span><span class="s">&quot;DONE&quot;</span><span class="p">,</span><span class="s">&quot;SWITCH&quot;</span><span class="p">,</span><span class="s">&quot;ON&quot;</span><span class="p">,</span><span class="s">&quot;OTHER&quot;</span><span class="p">,</span><span class="s">&quot;OFF&quot;</span><span class="p">,</span>
+<span class="s">&quot;IN&quot;</span><span class="p">,</span><span class="s">&quot;LOOP&quot;</span><span class="p">,</span><span class="s">&quot;PACKAGE&quot;</span><span class="p">,</span><span class="s">&quot;IMPORT&quot;</span><span class="p">,</span><span class="s">&quot;PRIVATE&quot;</span><span class="p">,</span><span class="s">&quot;STEP&quot;</span><span class="p">,</span><span class="s">&quot;DO&quot;</span><span class="p">,</span><span class="s">&quot;AGAIN&quot;</span><span class="p">,</span><span class="s">&quot;CALL&quot;</span><span class="p">,</span><span class="s">&quot;ELSEIF&quot;</span><span class="p">,</span>
+<span class="s">&quot;PUT&quot;</span><span class="p">,</span><span class="s">&quot;GET&quot;</span><span class="p">,</span><span class="s">&quot;CASE&quot;</span><span class="p">,</span><span class="s">&quot;DEF&quot;</span><span class="p">,</span><span class="s">&quot;ENDFUNC&quot;</span><span class="p">,</span><span class="s">&quot;ENDCLASS&quot;</span><span class="p">,</span><span class="s">&quot;ENDPACKAGE&quot;</span><span class="p">,</span>
+<span class="s">&quot;CHANGERINGKEYWORD&quot;</span><span class="p">,</span><span class="s">&quot;CHANGERINGOPERATOR&quot;</span><span class="p">,</span><span class="s">&quot;LOADSYNTAX&quot;</span><span class="o">]</span>
+
+<span class="n">pState</span> <span class="o">=</span> <span class="n">ring_state_new</span><span class="p">()</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">ring_state_filetokens</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="n">C_FILENAME</span><span class="p">)</span>
+<span class="n">PrintTokens</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">pState</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">PrintTokens</span> <span class="n">aList</span>
+        <span class="k">for</span> <span class="n">aToken</span> <span class="k">in</span> <span class="n">aList</span>
+                <span class="k">switch</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+                <span class="k">on</span> <span class="n">C_KEYWORD</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Keyword&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot;: &quot;</span>  <span class="o">+</span> <span class="n">aKeywords</span><span class="o">[</span><span class="mi">0</span><span class="o">+</span><span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]]</span>
+                <span class="k">on</span> <span class="n">C_OPERATOR</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Operator&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">on</span> <span class="n">C_LITERAL</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Literal&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">on</span> <span class="n">C_NUMBER</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Number&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">on</span> <span class="n">C_IDENTIFIER</span>
+                        <span class="o">?</span> <span class="n">Width</span><span class="p">(</span><span class="s">&quot;Identifier&quot;</span><span class="p">,</span><span class="n">C_WIDTH</span><span class="p">)</span>  <span class="o">+</span> <span class="s">&quot;: &quot;</span> <span class="o">+</span> <span class="n">aToken</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">on</span> <span class="n">C_ENDLINE</span>
+                        <span class="o">?</span> <span class="s">&quot;EndLine&quot;</span>
+                <span class="k">off</span>
+        <span class="k">next</span>
+
+<span class="k">func</span> <span class="n">Width</span> <span class="n">cText</span><span class="p">,</span><span class="n">nWidth</span>
+        <span class="k">return</span> <span class="n">cText</span><span class="o">+</span><span class="n">copy</span><span class="p">(</span><span class="s">&quot; &quot;</span><span class="p">,</span><span class="n">nWidth</span><span class="o">-</span><span class="n">len</span><span class="p">(</span><span class="n">cText</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>EndLine
+Keyword     : SEE
+Literal     : Hello, World!
+EndLine
+Operator    : ?
+Number      : 3
+Operator    : *
+Number      : 2
+Operator    : +
+Number      : 3
+EndLine
+Identifier  : name
+Operator    : =
+Literal     : Ring
+EndLine
+Operator    : ?
+Identifier  : name
+EndLine
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="stdlib.html" class="btn btn-neutral float-right" title="Stdlib Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="debug.html" class="btn btn-neutral float-left" title="The Trace Library and the Interactive Debugger" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

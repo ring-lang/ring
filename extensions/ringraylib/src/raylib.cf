@@ -534,6 +534,8 @@ const char *GuiIconText(int iconId, const char *text)
 RayMath Functions 
 </comment>
 
+<filter> ! IsmacOSx() 
+
 float Clamp(float value, float min, float max)
 float Lerp(float start, float end, float amount)
 float Normalize(float value, float start, float end)
@@ -627,6 +629,8 @@ Quaternion QuaternionFromEuler@2(float roll, float pitch, float yaw)
 Vector3 QuaternionToEuler@2(Quaternion q)
 Quaternion QuaternionTransform@2(Quaternion q, Matrix mat)
 
+
+</filter>
 
 <comment>
 Special Functions - Added in RingRayLib 

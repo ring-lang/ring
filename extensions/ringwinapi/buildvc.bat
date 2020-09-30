@@ -1,12 +1,12 @@
 echo off
 
-call ../../src/locatevc.bat
+call ../../language/src/locatevc.bat
 
-cl /c /DEBUG ring_winapi.c -I"..\..\include"
+cl /c /DEBUG ring_winapi.c -I"..\..\language\include"
 
 link /DEBUG ring_winapi.obj advapi32.lib Kernel32.lib shell32.lib ..\..\lib\ring.lib  /DLL /OUT:ring_winapi.dll /SUBSYSTEM:CONSOLE,"5.01" 
 
-copy ring_winapi.dll .\bin\ring_winapi.dll
+copy ring_winapi.dll ..\..\bin\ring_winapi.dll
 
 del ring_winapi.obj
 del ring_winapi.ilk

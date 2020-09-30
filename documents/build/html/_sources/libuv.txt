@@ -1,0 +1,507 @@
+.. index:: 
+	single: RingLibuv; Introduction
+
+===============
+Using RingLibuv
+===============
+
+In this chapter we will learn about using RingLibuv
+
+.. note:: To use RingLibuv, Check ring/extensions/ringlibuv folder.
+
+Information from the library website: http://libuv.org/
+
+Libuv is a multi-platform support library with a focus on asynchronous I/O. 
+
+Feature highlights
+
+* Full-featured event loop backed by epoll, kqueue, IOCP, event ports.
+* Asynchronous TCP and UDP sockets
+* Asynchronous DNS resolution
+* Asynchronous file and file system operations
+* File system events
+* ANSI escape code controlled TTY
+* IPC with socket sharing, using Unix domain sockets or named pipes (Windows)
+* Child processes
+* Thread pool
+* Signal handling
+* High resolution clock
+* Threading and synchronization primitives
+
+.. index:: 
+	pair: RingLibuv; First Application using RingLibuv
+
+First Application using RingLibuv
+=================================
+
+Example:
+
+.. code-block:: ring
+
+	load "libuv.ring"
+
+	func main
+
+		myloop = new_uv_loop_t()
+		uv_loop_init(myloop)
+		? "Now quitting"
+		uv_run(myloop, UV_RUN_DEFAULT)
+		uv_loop_close(myloop)
+		destroy_uv_loop_t(myloop)
+
+Output:
+
+.. code-block:: none
+
+	Now quitting
+
+
+.. index:: 
+	pair: RingLibuv; The Events Loop
+
+The Events Loop
+===============
+
+Example:
+
+.. code-block:: ring
+
+	load "libuv.ring"
+
+	counter = 0
+	idler = NULL 
+
+	func main
+		idler = new_uv_idle_t()
+		uv_idle_init(uv_default_loop(), idler)
+		uv_idle_start(idler, "wait()")
+		? "Idling..."
+		uv_run(uv_default_loop(), UV_RUN_DEFAULT);
+		uv_loop_close(uv_default_loop());
+		destroy_uv_idle_t(idler)
+
+	func wait
+		counter++
+		if counter >= 100000
+			uv_idle_stop(idler)
+		ok
+
+Output:
+
+.. code-block:: none
+
+	Idling...
+
+.. index:: 
+	pair: RingLibuv; Server Example
+
+Server Example
+==============
+
+Example:
+
+.. code-block:: ring
+
+	load "libuv.ring"
+
+	? "Testing RingLibuv - Server Side"
+
+	DEFAULT_PORT    = 13370
+	DEFAULT_BACKLOG = 1024
+
+	addr    = new_sockaddr_in()
+	server  = NULL
+	client  = NULL
+	myloop  = NULL
+
+	func main
+		myloop = uv_default_loop()
+		server = new_uv_tcp_t()
+		uv_tcp_init(myloop, server)
+		uv_ip4_addr("127.0.0.1", DEFAULT_PORT, addr)
+		uv_tcp_bind(server, addr, 0)
+		r = uv_listen(server, DEFAULT_BACKLOG, "newconnection()")
+		if r 
+			? "Listen error " + uv_strerror(r)
+			return 1
+		ok
+		uv_run(myloop, UV_RUN_DEFAULT)
+		destroy_uv_tcp_t(server)
+		destroy_uv_sockaddr_in(addr)
+
+	func newconnection
+		? "New Connection"
+		aPara   = uv_Eventpara(server,:connect)
+		nStatus = aPara[2]
+		if nStatus < 0
+			? "New connection error : " + nStatus 
+			return 
+		ok
+		client = new_uv_tcp_t()
+		uv_tcp_init(myloop, client)
+		if uv_accept(server, client) = 0 
+				uv_read_start(client, uv_myalloccallback(), "echo_read()")
+		ok
+
+	func echo_read 
+		aPara = uv_Eventpara(client,:read)
+		nRead = aPara[2]
+		buf   = aPara[3]
+		if nRead > 0
+			req = new_uv_write_t()
+				wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread)
+			uv_write(req, client, wrbuf, 1, "echo_write()")
+			? uv_buf2str(wrbuf)
+			message = "message from the server to the client"
+			buf = new_uv_buf_t()
+			set_uv_buf_t_len(buf,len(message))
+			set_uv_buf_t_base(buf,varptr("message",:char))
+			uv_write(req, client, buf, 1, "echo_write()")
+		ok
+
+	func echo_write
+		aPara = uv_Eventpara(client,:read)
+		req   = aPara[1]
+
+Output:
+
+When we run the client, We will see the message "New Connection"
+
+Then the message "hello from the client"
+
+.. code-block:: none
+
+	Testing RingLibuv - Server Side
+	New Connection
+	hello from the client
+
+.. index:: 
+	pair: RingLibuv; Client Example
+
+Client Example
+==============
+
+Example:
+
+.. code-block:: ring
+
+	load "libuv.ring"
+
+	? "Testing RingLibuv - Client Side"
+
+	DEFAULT_PORT    = 13370
+	DEFAULT_BACKLOG = 1024
+
+	addr    = new_sockaddr_in()
+	connect = NULL
+	buffer  = null
+	socket  = null
+
+	func main
+		myloop  = uv_default_loop()
+		Socket  = new_uv_tcp_t()
+		connect = new_uv_connect_t()
+		uv_tcp_init(myloop, Socket)
+		uv_ip4_addr("127.0.0.1", DEFAULT_PORT, addr)
+		uv_tcp_connect(connect,Socket, addr, "connect()")
+		uv_run(myloop, UV_RUN_DEFAULT)
+		destroy_uv_tcp_t(socket)
+		destroy_uv_connect_t(connect)
+
+	func connect 
+		? "Client: Start Connection"
+		aPara   = uv_Eventpara(connect,:connect)
+		req     = aPara[1]
+		nStatus = aPara[2]
+		if nStatus = -1
+			? "Error : on_write_end "
+			return 
+		ok
+		buf = new_uv_buf_t()
+		message = "hello from the client"
+		set_uv_buf_t_len(buf,len(message))
+		set_uv_buf_t_base(buf,varptr("message",:char))
+		tcp       = get_uv_connect_t_handle(req)
+		write_req = new_uv_write_t()
+		buf_count = 1
+		uv_write(write_req, tcp, buf, buf_count, "on_write_end()")
+
+	func on_write_end
+			uv_read_start(socket, uv_myalloccallback(), "echo_read()")
+
+	func echo_read 
+		aPara = uv_Eventpara(socket,:read)
+		nRead = aPara[2]
+		buf   = aPara[3]
+		if nRead > 0
+				wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread);
+			? uv_buf2str(wrbuf)
+		ok
+
+Output:
+
+We will run the client after the server
+
+.. code-block:: none
+
+	Testing RingLibuv - Client Side
+	Client: Start Connection
+	hello from the client
+	message from the server to the client
+
+.. index:: 
+	pair: RingLibuv; Server Example using Classes
+
+Server Example Using Classes
+============================
+
+Example:
+
+.. code-block:: ring
+
+	load "libuv.ring"
+	load "objectslib.ring"
+
+	? "Testing RingLibuv - Server Side - Using Classes"
+
+	open_object(:MyServer)
+
+	class MyServer from ObjectControllerParent
+
+		DEFAULT_PORT    = 13370
+		DEFAULT_BACKLOG = 1024
+		
+		addr    = new_sockaddr_in()
+		server  = NULL
+		client  = NULL
+		myloop  = NULL
+		
+		func start
+			myloop = uv_default_loop()
+			server = new_uv_tcp_t()
+			uv_tcp_init(myloop, server)
+			uv_ip4_addr("127.0.0.1", DEFAULT_PORT, addr)
+			uv_tcp_bind(server, addr, 0)
+			r = uv_listen(server, DEFAULT_BACKLOG, Method(:newconnection) )
+			if r 
+				? "Listen error " + uv_strerror(r)
+				return 1
+			ok
+			uv_run(myloop, UV_RUN_DEFAULT)
+			destroy_uv_tcp_t(server)
+			destroy_uv_sockaddr_in(addr)
+		
+		func newconnection
+			? "New Connection"
+			aPara   = uv_Eventpara(server,:connect)
+			nStatus = aPara[2]
+			if nStatus < 0
+				? "New connection error : " + nStatus 
+				return 
+			ok
+			client = new_uv_tcp_t()
+			uv_tcp_init(myloop, client)
+			if uv_accept(server, client) = 0 
+					uv_read_start(client, uv_myalloccallback(), 
+								Method(:echo_read))
+			ok
+		
+		func echo_read 
+			aPara = uv_Eventpara(client,:read)
+			nRead = aPara[2]
+			buf   = aPara[3]
+			if nRead > 0
+				req = new_uv_write_t()
+					wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread)
+				uv_write(req, client, wrbuf, 1, Method(:echo_write))
+				? uv_buf2str(wrbuf)
+				message = "message from the server to the client"
+				buf = new_uv_buf_t()
+				set_uv_buf_t_len(buf,len(message))
+				set_uv_buf_t_base(buf,varptr("message",:char))
+				uv_write(req, client, buf, 1, Method(:echo_write))
+			ok
+		
+		func echo_write
+			aPara = uv_Eventpara(client,:read)
+			req   = aPara[1]
+	
+
+Output:
+
+When we run the client, We will see the message "New Connection"
+
+Then the message "hello from the client"
+
+.. code-block:: none
+
+	Testing RingLibuv - Server Side - Using Classes
+	New Connection
+	hello from the client
+
+
+.. index:: 
+	pair: RingLibuv; Client Example - Using Classes
+
+Client Example Using Classes
+============================
+
+Example:
+
+.. code-block:: ring
+
+	load "libuv.ring"
+	load "objectslib.ring"
+
+	? "Testing RingLibuv - Client Side - Using Classes"
+
+	open_object(:MyClient)
+
+	Class MyClient from ObjectControllerParent
+
+		DEFAULT_PORT    = 13370
+		DEFAULT_BACKLOG = 1024
+		
+		addr    = new_sockaddr_in()
+		connect = NULL
+		buffer  = null
+		socket  = null
+		
+		func start
+			myloop  = uv_default_loop()
+			Socket  = new_uv_tcp_t()
+			connect = new_uv_connect_t()
+			uv_tcp_init(myloop, Socket)
+			uv_ip4_addr("127.0.0.1", DEFAULT_PORT, addr)
+			uv_tcp_connect(connect,Socket, addr, Method(:connect))
+			uv_run(myloop, UV_RUN_DEFAULT)
+			destroy_uv_tcp_t(socket)
+			destroy_uv_connect_t(connect)
+		
+		func connect 
+			? "Client: Start Connection"
+			aPara   = uv_Eventpara(connect,:connect)
+			req     = aPara[1]
+			nStatus = aPara[2]
+			if nStatus = -1
+				? "Error : on_write_end "
+				return 
+			ok
+			buf = new_uv_buf_t()
+			message = "hello from the client"
+			set_uv_buf_t_len(buf,len(message))
+			set_uv_buf_t_base(buf,varptr("message",:char))
+			tcp       = get_uv_connect_t_handle(req)
+			write_req = new_uv_write_t()
+			buf_count = 1
+			uv_write(write_req, tcp, buf, buf_count, Method(:on_write_end))
+		
+		func on_write_end
+				uv_read_start(socket, uv_myalloccallback(), Method(:echo_read))
+		
+		func echo_read 
+			aPara = uv_Eventpara(socket,:read)
+			nRead = aPara[2]
+			buf   = aPara[3]
+			if nRead > 0
+					wrbuf = uv_buf_init(get_uv_buf_t_base(buf), nread);
+				? uv_buf2str(wrbuf)
+			ok
+
+Output:
+
+We will run the client after the server
+
+.. code-block:: none
+
+	Testing RingLibuv - Client Side - Using Classes
+	Client: Start Connection
+	hello from the client
+	message from the server to the client
+
+
+	
+
+.. index:: 
+	pair: RingLibuv; Threads Example
+
+Threads Example
+===============
+
+Example:
+
+.. code-block:: ring
+
+	load "libuv.ring"
+
+	? "Testing RingLibuv - Threads"
+
+	func main
+		one_id = new_uv_thread_t()
+		two_id = new_uv_thread_t()
+		uv_thread_create(one_id, "one()")
+		uv_thread_create(two_id, "two()")
+		uv_thread_join(one_id)
+		uv_thread_join(two_id)
+		destroy_uv_thread_t(one_id)
+		destroy_uv_thread_t(two_id)
+
+	func one
+		? "Message from the First Thread!"
+
+	func two
+		? "Message from the Second Thread!"
+
+Output:
+
+.. code-block:: none
+
+	Testing RingLibuv - Threads
+	Message from the First Thread!
+	Message from the Second Thread!
+    
+
+.. index:: 
+	pair: RingLibuv; Threads Example - Using Classes
+
+Threads Example - Using Classes
+===============================
+
+Example:
+
+.. code-block:: ring
+
+	load "libuv.ring"
+	load "objectslib.ring"
+
+	? "Testing RingLibuv - Threads - Using Classes"
+
+	open_object(:MyThreads)
+
+	class MyThreads from ObjectControllerParent
+
+		func Start
+			one_id = new_uv_thread_t()
+			two_id = new_uv_thread_t()
+			uv_thread_create(one_id, Method(:One))
+			uv_thread_create(two_id, Method(:Two))
+			uv_thread_join(one_id)
+			uv_thread_join(two_id)
+			destroy_uv_thread_t(one_id)
+			destroy_uv_thread_t(two_id)
+		
+		func one
+			? "Message from the First Thread!"
+		
+		func Two
+			? "Message from the Second Thread!"
+		
+
+Output:
+
+.. code-block:: none
+
+	Testing RingLibuv - Threads - Using Classes
+	Message from the First Thread!
+	Message from the Second Thread!
+

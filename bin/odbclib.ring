@@ -1,1 +1,0 @@
-load "/../extensions/ringodbc/odbclib.ring"

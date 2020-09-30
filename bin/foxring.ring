@@ -1,1 +1,0 @@
-load "/../ringlibs/foxring/foxring.ring"

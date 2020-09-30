@@ -1,0 +1,80 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  504 , :height = 400 , 
+		 :title =  "RingQt for WebAssembly - Upload/Download Files" , 
+		 :backcolor =  "#dfff3c" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout2" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "TextEdit1" , :id = 2 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 29 , : y = 61  , 
+		 :width =  328 , :height = 235 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "BtnUpload" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 149 , : y = 11  , 
+		 :width =  97 , :height = 40 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Upload",
+		 :BtnImage =  "",
+		 :setClickEvent =  "uploadfile"
+		]
+	],
+	[ :name = "btnDownload" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 37 , : y = 11  , 
+		 :width =  97 , :height = 40 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Download",
+		 :BtnImage =  "",
+		 :setClickEvent =  "downloadfile"
+		]
+	],
+	[ :name = "Layout1" , :id = 5 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 263 , : y = 12  , 
+		 :width =  97 , :height = 35 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "btnDownload,BtnUpload"
+		]
+	],
+	[ :name = "Layout2" , :id = 6 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 254 , : y = 301  , 
+		 :width =  98 , :height = 32 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "Layout1,TextEdit1"
+		]
+	]
+]
+# End Form Designer File

@@ -1,0 +1,5 @@
+
+Can't open file natural/filenameinpara2.ring 
+
+general/test125.ring Line (1) Error (C27) : Syntax Error!
+general/test125.ring errors count : 1 

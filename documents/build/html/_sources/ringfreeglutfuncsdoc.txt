@@ -1,0 +1,375 @@
+.. index:: 
+     single: RingFreeGLUT Functions Reference; Introduction
+
+================================
+RingFreeGLUT Functions Reference
+================================
+
+
+Introduction
+============
+
+In this chapter we have a list of the supported functions by this extension 
+
+Reference
+=========
+
+* GLUT_RGB
+* GLUT_RGBA
+* GLUT_INDEX
+* GLUT_SINGLE
+* GLUT_DOUBLE
+* GLUT_ACCUM
+* GLUT_ALPHA
+* GLUT_DEPTH
+* GLUT_STENCIL
+* GLUT_MULTISAMPLE
+* GLUT_STEREO
+* GLUT_LUMINANCE
+* GLUT_KEY_F1
+* GLUT_KEY_F2
+* GLUT_KEY_F3
+* GLUT_KEY_F4
+* GLUT_KEY_F5
+* GLUT_KEY_F6
+* GLUT_KEY_F7
+* GLUT_KEY_F8
+* GLUT_KEY_F9
+* GLUT_KEY_F10
+* GLUT_KEY_F11
+* GLUT_KEY_F12
+* GLUT_KEY_LEFT
+* GLUT_KEY_UP
+* GLUT_KEY_RIGHT
+* GLUT_KEY_DOWN
+* GLUT_KEY_PAGE_UP
+* GLUT_KEY_PAGE_DOWN
+* GLUT_KEY_HOME
+* GLUT_KEY_END
+* GLUT_KEY_INSERT
+* GLUT_LEFT_BUTTON
+* GLUT_MIDDLE_BUTTON
+* GLUT_RIGHT_BUTTON
+* GLUT_DOWN
+* GLUT_UP
+* GLUT_LEFT
+* GLUT_ENTERED
+* GLUT_MENU_NOT_IN_USE
+* GLUT_MENU_IN_USE
+* GLUT_NOT_VISIBLE
+* GLUT_VISIBLE
+* GLUT_HIDDEN
+* GLUT_FULLY_RETAINED
+* GLUT_PARTIALLY_RETAINED
+* GLUT_FULLY_COVERED
+* GLUT_WINDOW_X
+* GLUT_WINDOW_Y
+* GLUT_WINDOW_WIDTH
+* GLUT_WINDOW_HEIGHT
+* GLUT_WINDOW_BUFFER_SIZE
+* GLUT_WINDOW_STENCIL_SIZE
+* GLUT_WINDOW_DEPTH_SIZE
+* GLUT_WINDOW_RED_SIZE
+* GLUT_WINDOW_GREEN_SIZE
+* GLUT_WINDOW_BLUE_SIZE
+* GLUT_WINDOW_ALPHA_SIZE
+* GLUT_WINDOW_ACCUM_RED_SIZE
+* GLUT_WINDOW_ACCUM_GREEN_SIZE
+* GLUT_WINDOW_ACCUM_BLUE_SIZE
+* GLUT_WINDOW_ACCUM_ALPHA_SIZE
+* GLUT_WINDOW_DOUBLEBUFFER
+* GLUT_WINDOW_RGBA
+* GLUT_WINDOW_PARENT
+* GLUT_WINDOW_NUM_CHILDREN
+* GLUT_WINDOW_COLORMAP_SIZE
+* GLUT_WINDOW_NUM_SAMPLES
+* GLUT_WINDOW_STEREO
+* GLUT_WINDOW_CURSOR
+* GLUT_SCREEN_WIDTH
+* GLUT_SCREEN_HEIGHT
+* GLUT_SCREEN_WIDTH_MM
+* GLUT_SCREEN_HEIGHT_MM
+* GLUT_MENU_NUM_ITEMS
+* GLUT_DISPLAY_MODE_POSSIBLE
+* GLUT_INIT_WINDOW_X
+* GLUT_INIT_WINDOW_Y
+* GLUT_INIT_WINDOW_WIDTH
+* GLUT_INIT_WINDOW_HEIGHT
+* GLUT_INIT_DISPLAY_MODE
+* GLUT_ELAPSED_TIME
+* GLUT_WINDOW_FORMAT_ID
+* GLUT_HAS_KEYBOARD
+* GLUT_HAS_MOUSE
+* GLUT_HAS_SPACEBALL
+* GLUT_HAS_DIAL_AND_BUTTON_BOX
+* GLUT_HAS_TABLET
+* GLUT_NUM_MOUSE_BUTTONS
+* GLUT_NUM_SPACEBALL_BUTTONS
+* GLUT_NUM_BUTTON_BOX_BUTTONS
+* GLUT_NUM_DIALS
+* GLUT_NUM_TABLET_BUTTONS
+* GLUT_DEVICE_IGNORE_KEY_REPEAT
+* GLUT_DEVICE_KEY_REPEAT
+* GLUT_HAS_JOYSTICK
+* GLUT_OWNS_JOYSTICK
+* GLUT_JOYSTICK_BUTTONS
+* GLUT_JOYSTICK_AXES
+* GLUT_JOYSTICK_POLL_RATE
+* GLUT_OVERLAY_POSSIBLE
+* GLUT_LAYER_IN_USE
+* GLUT_HAS_OVERLAY
+* GLUT_TRANSPARENT_INDEX
+* GLUT_NORMAL_DAMAGED
+* GLUT_OVERLAY_DAMAGED
+* GLUT_VIDEO_RESIZE_POSSIBLE
+* GLUT_VIDEO_RESIZE_IN_USE
+* GLUT_VIDEO_RESIZE_X_DELTA
+* GLUT_VIDEO_RESIZE_Y_DELTA
+* GLUT_VIDEO_RESIZE_WIDTH_DELTA
+* GLUT_VIDEO_RESIZE_HEIGHT_DELTA
+* GLUT_VIDEO_RESIZE_X
+* GLUT_VIDEO_RESIZE_Y
+* GLUT_VIDEO_RESIZE_WIDTH
+* GLUT_VIDEO_RESIZE_HEIGHT
+* GLUT_NORMAL
+* GLUT_OVERLAY
+* GLUT_ACTIVE_SHIFT
+* GLUT_ACTIVE_CTRL
+* GLUT_ACTIVE_ALT
+* GLUT_CURSOR_RIGHT_ARROW
+* GLUT_CURSOR_LEFT_ARROW
+* GLUT_CURSOR_INFO
+* GLUT_CURSOR_DESTROY
+* GLUT_CURSOR_HELP
+* GLUT_CURSOR_CYCLE
+* GLUT_CURSOR_SPRAY
+* GLUT_CURSOR_WAIT
+* GLUT_CURSOR_TEXT
+* GLUT_CURSOR_CROSSHAIR
+* GLUT_CURSOR_UP_DOWN
+* GLUT_CURSOR_LEFT_RIGHT
+* GLUT_CURSOR_TOP_SIDE
+* GLUT_CURSOR_BOTTOM_SIDE
+* GLUT_CURSOR_LEFT_SIDE
+* GLUT_CURSOR_RIGHT_SIDE
+* GLUT_CURSOR_TOP_LEFT_CORNER
+* GLUT_CURSOR_TOP_RIGHT_CORNER
+* GLUT_CURSOR_BOTTOM_RIGHT_CORNER
+* GLUT_CURSOR_BOTTOM_LEFT_CORNER
+* GLUT_CURSOR_INHERIT
+* GLUT_CURSOR_NONE
+* GLUT_CURSOR_FULL_CROSSHAIR
+* GLUT_RED
+* GLUT_GREEN
+* GLUT_BLUE
+* GLUT_KEY_REPEAT_OFF
+* GLUT_KEY_REPEAT_ON
+* GLUT_KEY_REPEAT_DEFAULT
+* GLUT_JOYSTICK_BUTTON_A
+* GLUT_JOYSTICK_BUTTON_B
+* GLUT_JOYSTICK_BUTTON_C
+* GLUT_JOYSTICK_BUTTON_D
+* GLUT_GAME_MODE_ACTIVE
+* GLUT_GAME_MODE_POSSIBLE
+* GLUT_GAME_MODE_WIDTH
+* GLUT_GAME_MODE_HEIGHT
+* GLUT_GAME_MODE_PIXEL_DEPTH
+* GLUT_GAME_MODE_REFRESH_RATE
+* GLUT_GAME_MODE_DISPLAY_CHANGED
+* GLUT_STROKE_ROMAN
+* GLUT_STROKE_MONO_ROMAN
+* GLUT_BITMAP_9_BY_15
+* GLUT_BITMAP_8_BY_13
+* GLUT_BITMAP_TIMES_ROMAN_10
+* GLUT_BITMAP_TIMES_ROMAN_24
+* GLUT_BITMAP_HELVETICA_10
+* GLUT_BITMAP_HELVETICA_12
+* GLUT_BITMAP_HELVETICA_18
+* void glutInit(void)
+* void glutDisplayFunc(const char *)
+* void glutReshapeFunc(const char *)
+* int glutEventWidth(void)
+* int glutEventHeight(void)
+* void glutIdleFunc(const char *)
+* void glutKeyboardFunc(const char *)
+* void glutSpecialFunc(const char *)
+* void glutSpecialUpFunc(const char *)
+* void glutMouseFunc(const char *)
+* void glutMotionFunc(const char *)
+* int glutCreateMenu(const char *)
+* void glutMenuStatusFunc(const char *)
+* int glutEventKey(void)
+* int glutEventX(void)
+* int glutEventY(void)
+* int glutEventButton(void)
+* int glutEventState(void)
+* int glutEventValue(void)
+* int glutEventStatus(void)
+* void test_draw(void)
+* void glutInitWindowPosition(int x, int y)
+* void glutInitWindowSize(int width, int height)
+* void glutInitDisplayMode(unsigned displayMode)
+* void glutInitDisplayString(const char * displayMode)
+* int glutCreateWindow(const char * title)
+* int glutCreateSubWindow(int window, int x, int y, int width, int height)
+* void glutDestroyWindow(int window)
+* void glutSetWindow(int window)
+* int glutGetWindow(void)
+* void glutSetWindowTitle(const char * title)
+* void glutSetIconTitle(const char * title)
+* void glutReshapeWindow(int width, int height)
+* void glutPositionWindow(int x, int y)
+* void glutShowWindow(void)
+* void glutHideWindow(void)
+* void glutIconifyWindow(void)
+* void glutPushWindow(void)
+* void glutPopWindow(void)
+* void glutFullScreen(void)
+* void glutPostWindowRedisplay(int window)
+* void glutPostRedisplay(void)
+* void glutSwapBuffers(void)
+* void glutWarpPointer(int x, int y)
+* void glutSetCursor(int cursor)
+* void glutEstablishOverlay(void)
+* void glutRemoveOverlay(void)
+* void glutUseLayer(GLenum layer)
+* void glutPostOverlayRedisplay(void)
+* void glutPostWindowOverlayRedisplay(int window)
+* void glutShowOverlay(void)
+* void glutHideOverlay(void)
+* void glutDestroyMenu(int menu)
+* int glutGetMenu(void)
+* void glutSetMenu(int menu)
+* void glutAddMenuEntry(const char * label, int value)
+* void glutAddSubMenu(const char * label, int subMenu)
+* void glutChangeToMenuEntry(int item, const char * label, int value)
+* void glutChangeToSubMenu(int item, const char * label, int value)
+* void glutRemoveMenuItem(int item)
+* void glutAttachMenu(int button)
+* void glutDetachMenu(int button)
+* int glutGet(GLenum query)
+* int glutDeviceGet(GLenum query)
+* int glutGetModifiers(void)
+* int glutLayerGet(GLenum query)
+* void glutBitmapCharacter(void *font, int character)
+* int glutBitmapWidth(void *font, int character)
+* void glutStrokeCharacter(void *font, int character)
+* int glutStrokeWidth(void *font, int character)
+* int glutStrokeLength(void *font, char * string)
+* GLfloat glutStrokeWidthf(void *font, int character)
+* GLfloat glutStrokeLengthf(void *font, char *string)
+* int glutBitmapLength(void *font, char * string)
+* void glutWireCube(double size)
+* void glutSolidCube(double size)
+* void glutWireSphere(double radius, GLint slices, GLint stacks)
+* void glutSolidSphere(double radius, GLint slices, GLint stacks)
+* void glutWireCone(double base, double height, GLint slices, GLint stacks)
+* void glutSolidCone(double base, double height, GLint slices, GLint stacks)
+* void glutWireTorus(double innerRadius, double outerRadius, GLint sides, GLint rings)
+* void glutSolidTorus(double innerRadius, double outerRadius, GLint sides, GLint rings)
+* void glutWireDodecahedron(void)
+* void glutSolidDodecahedron(void)
+* void glutWireOctahedron(void)
+* void glutSolidOctahedron(void)
+* void glutWireTetrahedron(void)
+* void glutSolidTetrahedron(void)
+* void glutWireIcosahedron(void)
+* void glutSolidIcosahedron(void)
+* void glutWireTeapot(double size)
+* void glutSolidTeapot(double size)
+* void glutGameModeString(const char * string)
+* int glutEnterGameMode(void)
+* void glutLeaveGameMode(void)
+* int glutGameModeGet(GLenum query)
+* int glutVideoResizeGet(GLenum query)
+* void glutSetupVideoResizing(void)
+* void glutStopVideoResizing(void)
+* void glutVideoResize(int x, int y, int width, int height)
+* void glutVideoPan(int x, int y, int width, int height)
+* void glutSetColor(int color, GLfloat red, GLfloat green, GLfloat blue)
+* GLfloat glutGetColor(int color, int component)
+* void glutCopyColormap(int window)
+* void glutIgnoreKeyRepeat(int ignore)
+* void glutSetKeyRepeat(int repeatMode)
+* void glutForceJoystickFunc(void)
+* int glutExtensionSupported(const char * extension)
+* void glutReportErrors(void)
+* void glutMainLoop(void)
+* void glutCloseFunc(const char *)
+* GLUT_KEY_NUM_LOCK
+* GLUT_KEY_BEGIN
+* GLUT_KEY_DELETE
+* GLUT_KEY_SHIFT_L
+* GLUT_KEY_SHIFT_R
+* GLUT_KEY_CTRL_L
+* GLUT_KEY_CTRL_R
+* GLUT_KEY_ALT_L
+* GLUT_KEY_ALT_R
+* GLUT_ACTION_EXIT
+* GLUT_ACTION_GLUTMAINLOOP_RETURNS
+* GLUT_ACTION_CONTINUE_EXECUTION
+* GLUT_CREATE_NEW_CONTEXT
+* GLUT_USE_CURRENT_CONTEXT
+* GLUT_FORCE_INDIRECT_CONTEXT
+* GLUT_ALLOW_DIRECT_CONTEXT
+* GLUT_TRY_DIRECT_CONTEXT
+* GLUT_FORCE_DIRECT_CONTEXT
+* GLUT_INIT_STATE
+* GLUT_ACTION_ON_WINDOW_CLOSE
+* GLUT_WINDOW_BORDER_WIDTH
+* GLUT_WINDOW_BORDER_HEIGHT
+* GLUT_WINDOW_HEADER_HEIGHT
+* GLUT_VERSION
+* GLUT_RENDERING_CONTEXT
+* GLUT_DIRECT_RENDERING
+* GLUT_FULL_SCREEN
+* GLUT_SKIP_STALE_MOTION_EVENTS
+* GLUT_AUX
+* GLUT_AUX1
+* GLUT_AUX2
+* GLUT_AUX3
+* GLUT_AUX4
+* GLUT_INIT_MAJOR_VERSION
+* GLUT_INIT_MINOR_VERSION
+* GLUT_INIT_FLAGS
+* GLUT_INIT_PROFILE
+* GLUT_DEBUG
+* GLUT_FORWARD_COMPATIBLE
+* GLUT_CORE_PROFILE
+* GLUT_COMPATIBILITY_PROFILE
+* GLUT_CAPTIONLESS
+* GLUT_BORDERLESS
+* GLUT_SRGB
+* GLUT_HAS_MULTI
+* void glutMainLoopEvent( void )
+* void glutLeaveMainLoop( void )
+* void glutExit( void )
+* void glutFullScreenToggle( void )
+* void glutLeaveFullScreen( void )
+* void glutSetMenuFont(int menuID, void *font)
+* void glutSetOption(GLenum option_flag, int value )
+* int *glutGetModeValues(GLenum mode, int * size)
+* void *glutGetWindowData( void )
+* void glutSetWindowData(void *data)
+* void *glutGetMenuData( void )
+* void glutSetMenuData(void *data)
+* int glutBitmapHeight( void* font )
+* GLfloat glutStrokeHeight( void* font )
+* void glutBitmapString( void* font, char *string )
+* void glutStrokeString( void* font, char *string )
+* void glutWireRhombicDodecahedron( void )
+* void glutSolidRhombicDodecahedron( void )
+* void glutWireSierpinskiSponge( int num_levels, double *offset, double scale )
+* void glutSolidSierpinskiSponge( int num_levels, double *offset, double scale )
+* void glutWireCylinder( double radius, double height, GLint slices, GLint stacks)
+* void glutSolidCylinder( double radius, double height, GLint slices, GLint stacks)
+* void glutWireTeacup( double size )
+* void glutSolidTeacup( double size )
+* void glutWireTeaspoon( double size )
+* void glutSolidTeaspoon( double size )
+* void glutInitContextVersion( int majorVersion, int minorVersion )
+* void glutInitContextFlags( int flags )
+* void glutInitContextProfile( int profile )
+* void glutSetVertexAttribCoord3(GLint attrib)
+* void glutSetVertexAttribNormal(GLint attrib)
+* void glutSetVertexAttribTexCoord2(GLint attrib)

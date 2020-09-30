@@ -1,16 +1,31 @@
 <code>
-/* Copyright (c) 2013-2016 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "SDL.h"
-#include "SDL_syswm.h"
 #include "SDL_image.h"
 #include "SDL_ttf.h"
 #include "SDL_mixer.h"
 #include "SDL_net.h"
-#include "sdl2_gfx\sdl2_gfxPrimitives.h"
-#include "sdl2_gfx\SDL2_gfxPrimitives.c"
-#include "sdl2_gfx\SDL2_rotozoom.c"
-
+#include "SDL2_gfx/SDL2_gfxPrimitives.h"
+#include "SDL2_gfx/SDL2_gfxPrimitives.c"
+#include "SDL2_gfx/SDL2_rotozoom.c"
 </code>
+
+<filter> isWindows()
+<code>
+#include "SDL_syswm.h"
+</code>
+
+<struct>
+SDL_SysWMinfo
+SDL_SysWMmsg
+SDL_SysWMEvent
+</struct>
+
+<constant>
+SDL_SYSWMEVENT
+</constant>
+
+</filter>
 
 <runcode>
 aNumberTypes + "Uint32"
@@ -75,8 +90,6 @@ SDL_PixelFormat
 SDL_Point {x,y}
 SDL_Rect {x,y,w,h}
 SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels,void *userdata,locked,void *lock_data}
-SDL_SysWMinfo
-SDL_SysWMmsg
 SDL_ControllerAxisEvent {type,timestamp,which,axis,value}
 SDL_ControllerButtonEvent
 SDL_ControllerDeviceEvent
@@ -96,7 +109,6 @@ SDL_MouseMotionEvent {type,timestamp,windowID,which,state,x,y,xrel,yrel}
 SDL_MouseWheelEvent {type,timestamp,windowID,which,x,y}
 SDL_MultiGestureEvent
 SDL_QuitEvent
-SDL_SysWMEvent
 SDL_TextEditingEvent {type,timestamp,windowID,start,length}
 SDL_TextInputEvent {type,timestamp,windowID}
 SDL_UserEvent {type,timestamp,windowID,code,void *data1,void *data2}
@@ -124,6 +136,7 @@ SDLNet_SocketSet
 SDLNet_GenericSocket
 </struct>
 
+
 <constant>
 MIX_DEFAULT_FORMAT
 SDL_QUIT
@@ -139,7 +152,6 @@ SDL_APP_DIDENTERBACKGROUND
 SDL_APP_WILLENTERFOREGROUND
 SDL_APP_DIDENTERFOREGROUND
 SDL_WINDOWEVENT
-SDL_SYSWMEVENT
 SDL_KEYDOWN
 SDL_KEYUP
 SDL_TEXTEDITING
@@ -801,7 +813,9 @@ void SDL_UnlockSurface(SDL_Surface* surface)
 Platform-specific Window Management
 </comment>
 
+<filter> isWindows()
 SDL_bool SDL_GetWindowWMInfo(SDL_Window *window,SDL_SysWMinfo *info)
+</filter>
 
 <comment>
 Clipboard Handling

@@ -1,0 +1,340 @@
+.. index:: 
+	single: Ring Notepad; Introduction
+
+==================
+Using Ring Notepad
+==================
+
+In this chapter we will learn about using Ring Notepad to write and execute Ring programs quickly
+
+Ring Notepad is just a simple application developed using the Ring language.
+
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Main Window
+
+Ring Notepad - Main Window
+==========================
+
+When we run the Ring Notepad we get the next dockable windows
+
+* Project Files Window : where we can select and open any ring file (*.ring) quickly.
+* Source Code Window : Where we write the source code. 
+* Form Designer Window : The Form Designer to create GUI application forms.
+* Web Browser Window : Where we read the documentation or quickly open any website.
+* Output Window : Output when we run programs that print to the standard output
+* Function Window : List of functions in the current source file
+* Classes Window : List of classes in the current source file
+
+.. image:: urn_shot1.png
+	:alt: Using Ring Notepad
+
+
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first console application 
+
+Creating and running your first Console Application 
+===================================================
+
+At first we will type the source code
+
+.. code-block:: ring
+
+	see "Hello, World!"
+
+As in the next image 
+
+.. image:: urn_shot2.png
+	:alt: Using Ring Notepad
+
+Then we will click on the "Save" button from the toolbar (or press CTRL+S)
+
+.. image:: urn_shot3.png
+	:alt: Using Ring Notepad
+
+Determine the source code file name and location. 
+
+For example type : hello 
+
+This will create a new source code file called : hello.ring
+
+.. image:: urn_shot4.png
+	:alt: Using Ring Notepad
+
+To run the program click on "Debug (Run then wait!)" button from the toolbar
+
+.. image:: urn_shot5.png
+	:alt: Using Ring Notepad
+
+The next screen shot present the application during the runtime
+
+Press Enter to continue and return to the Ring Notepad.
+
+.. image:: urn_shot6.png
+	:alt: Using Ring Notepad
+
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first GUI/WebAssembly/Mobile application 
+
+Creating and running your first GUI/WebAssembly/Mobile Application 
+==================================================================
+
+To learn how to create GUI applications using Ring check the "Desktop, WebAssembly and Mobile development using RingQt" chapter.
+
+Source Code:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+		new qWidget() {
+			resize(400,400)
+			setWindowTitle("Hello, World!")
+			show()
+		}
+		exec()
+	}
+
+In Ring notepad we have a special button to run GUI applications without displaying the console window.
+
+.. image:: urn_shot7.png
+	:alt: Using Ring Notepad
+
+The next screen shot present the application during the runtime
+
+.. image:: urn_shot8.png
+	:alt: Using Ring Notepad
+
+	
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first Web application 
+
+Creating and running your first Web Application 
+===============================================
+
+To learn how to support Ring in your web server and how to create web applications check 
+the "Web Development (CGI Library)" chapter.
+
+.. note:: You need to support the Ring language in your web server to be able to run the next example.
+
+.. tip:: For Windows users, Ring comes with Apache Web server! Using Ring Notepad we can run any web application from any folder directly without doing any configuration.
+
+
+Source Code:
+
+.. code-block:: ring
+
+	#!ring -cgi
+
+	load "weblib.ring"
+
+	import System.Web
+
+	new Page {
+
+		text("Hello, World!")
+
+	}
+
+
+We can run the application in any web browser or in the browser that are embedded in Ring Notepad.
+
+.. image:: urn_shot9.png
+	:alt: Using Ring Notepad
+
+We can run the web application using the Web icon.
+
+.. image:: runwebapp1.png
+	:alt: Ring Notepad - Run Web Application - shot 1
+
+.. index:: 
+	pair: Ring Notepad; Ring Notepad - Creating and running your first game 
+
+Creating and running your first Desktop/Mobile Game
+===================================================
+
+To learn about creating 2D Games using Ring check the "Demo Project - Game Engine for 2D Games" chapter.
+
+Source Code:
+
+.. code-block:: ring
+
+	load "gameengine.ring"				 
+
+	func main					 
+
+		oGame = New Game			 
+		{
+			title = "My First Game"
+			sprite
+			{
+				type = GE_TYPE_PLAYER		 
+				x=400 y=400 width=100 height=100
+				file = "images/player.png"	
+				transparent = true			
+				Animate=false 
+				Move=true 	 
+				Scaled=true
+			}
+		}					 
+
+
+We can run the application as any GUI application.
+
+.. image:: urn_shot10.png
+	:alt: Using Ring Notepad
+
+
+.. index:: 
+	pair: Ring Notepad; The Main File in the Project
+
+The Main File in the Project
+============================
+
+The idea of the Main File ToolBar is to determine the main file in the project When the project contains many source code files
+
+Using this feature we can run the project (Main File) at any time while opening other files in the project without the need to switch to the Main File to run the project.
+
+To quickly use this feature
+
+(Open the project main file)
+
+Press Ctrl+Shift+M to set the current source code file as the main file
+
+Open and modify other source code files in the project
+
+To run the project (Main File) at any time press Ctrl+Shift+F5 (GUI) or Ctrl+Shift+D (Console)
+
+Screen Shots:
+
+.. image:: urn_shot11.png
+	:alt: Ring Notepad
+
+.. image:: urn_shot12.png
+	:alt: Ring Notepad
+
+
+.. index:: 
+	pair: Ring Notepad; The File Menu
+
+The File Menu
+=============
+
+From this menu we can create, open and save the source code files.
+
+Another feature in this menu is "Print to PDF" 
+
+.. image:: rnotemenu_file.png
+	:alt: Ring Notepad - File Menu
+
+
+.. index:: 
+	pair: Ring Notepad; The Edit Menu
+
+The Edit Menu
+=============
+
+From the Edit menu we can Cut, Copy and Paste text.
+
+Also we can change the font and the colors.
+
+We can Go to a specific line or use the Find and Replace window 
+to find and replace text.
+
+Also We can set the Tab Width (Number of Spaces)
+
+Starting from Ring 1.8 we have the (Find in Files) option.
+
+Starting from Ring 1.11 we have the (Insert Text, Lower Case, Upper Case & Capitalize) options.
+
+.. image:: rnotemenu_edit.png
+	:alt: Ring Notepad - Edit Menu
+
+.. index:: 
+	pair: Ring Notepad; The View Menu
+
+The View Menu
+=============
+
+From this menu we can show/hide the dockable windows
+
+Also we can change the Style of the Ring Notepad
+
+Common Styles are (Fusion White and Modern Black)
+
+.. image:: rnotemenu_view.png
+	:alt: Ring Notepad - View Menu
+
+Also we can quickly show/hide group of dockable windows based on the context
+
+.. image:: rnotemenu_mode.png
+	:alt: Ring Notepad - View Menu - Set Mode
+
+
+.. index:: 
+	pair: Ring Notepad; The Program Menu
+
+The Program Menu
+================
+
+From this menu we can run the programs
+
+Also we can set the Main file in the project
+
+.. image:: rnotemenu_program.png
+	:alt: Ring Notepad - Program Menu
+
+.. index:: 
+	pair: Ring Notepad; The Browser Menu
+
+The Browser Menu
+================
+
+From this menu we can quickly open common links in the browser
+
+.. image:: rnotemenu_browser.png
+	:alt: Ring Notepad - Browser Menu
+
+
+.. index:: 
+	pair: Ring Notepad; The Tools Menu
+
+The Tools Menu
+==============
+
+From this menu we can run the Form Designer in separate window
+
+Also we can run the REPL (Read-Eval-Print-Loop) application
+
+.. image:: rnotemenu_tools.png
+	:alt: Ring Notepad - Tools Menu
+
+
+.. index:: 
+	pair: Ring Notepad; The Distribute Menu
+
+The Distribute Menu
+===================
+
+From this menu we can build an executable file for the application
+
+Also we can prepare the application for distribution 
+
+.. image:: rnotedistributemenu.png
+	:alt: Ring Notepad - Distribute Menu
+
+
+.. index:: 
+	pair: Ring Notepad; The Help Menu
+
+The Help Menu
+=============
+
+From this menu we can get the help files (CHM & PDF)
+
+.. image:: rnotemenu_help.png
+	:alt: Ring Notepad - Help Menu
+
+
+
+

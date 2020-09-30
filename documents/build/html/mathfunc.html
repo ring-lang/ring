@@ -1,0 +1,659 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mathematical Functions &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Files" href="files.html" />
+    <link rel="prev" title="Check Data Type and Conversion" href="checkandconvert.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Mathematical Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-functions">List of functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#random-function">Random() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#srandom-function">SRandom() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#unsigned-function">Unsigned() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#decimals-functions">Decimals() Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-in-numbers">Using _ in numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-f-after-numbers">Using f after numbers</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Mathematical Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mathematical-functions">
+<span id="index-0"></span><h1>Mathematical Functions<a class="headerlink" href="#mathematical-functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the mathematical functions</p>
+<div class="section" id="list-of-functions">
+<span id="index-1"></span><h2>List of functions<a class="headerlink" href="#list-of-functions" title="Permalink to this headline">¶</a></h2>
+<p>The Ring programming language comes with the next mathematical functions</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 16%" />
+<col style="width: 84%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>sin(x)</p></td>
+<td><p>Returns the sine of an angle of x radians</p></td>
+</tr>
+<tr class="row-odd"><td><p>cos(x)</p></td>
+<td><p>Returns the cosine of an angle of x radians</p></td>
+</tr>
+<tr class="row-even"><td><p>tan(x)</p></td>
+<td><p>Returns the tangent of an angle of x radians</p></td>
+</tr>
+<tr class="row-odd"><td><p>asin(x)</p></td>
+<td><p>Returns the principal value of the arc sine of x, expressed in radians</p></td>
+</tr>
+<tr class="row-even"><td><p>acos(x)</p></td>
+<td><p>Returns the principal value of the arc cosine of x, expressed in radians</p></td>
+</tr>
+<tr class="row-odd"><td><p>atan(x)</p></td>
+<td><p>Returns the principal value of the arc tangent of x, expressed in radians</p></td>
+</tr>
+<tr class="row-even"><td><p>atan2(y,x)</p></td>
+<td><p>Returns the principal arc tangent of y/x, in the interval [-pi,+pi] radians</p></td>
+</tr>
+<tr class="row-odd"><td><p>sinh(x)</p></td>
+<td><p>Returns the hyperbolic sine of x radians</p></td>
+</tr>
+<tr class="row-even"><td><p>cosh(x)</p></td>
+<td><p>Returns the hyperbolic cosine of x radians</p></td>
+</tr>
+<tr class="row-odd"><td><p>tanh(x)</p></td>
+<td><p>Returns the hyperbolic tangent of x radians</p></td>
+</tr>
+<tr class="row-even"><td><p>exp(x)</p></td>
+<td><p>Returns the value of e raised to the xth power</p></td>
+</tr>
+<tr class="row-odd"><td><p>log(x)</p></td>
+<td><p>Returns the natural logarithm of x</p></td>
+</tr>
+<tr class="row-even"><td><p>log10(x)</p></td>
+<td><p>Returns the common logarithm (base-10 logarithm) of x</p></td>
+</tr>
+<tr class="row-odd"><td><p>ceil(x)</p></td>
+<td><p>Returns the smallest integer value greater than or equal to x</p></td>
+</tr>
+<tr class="row-even"><td><p>floor(x)</p></td>
+<td><p>Returns the largest integer value less than or equal to x</p></td>
+</tr>
+<tr class="row-odd"><td><p>fabs(x)</p></td>
+<td><p>Returns the absolute value of x.</p></td>
+</tr>
+<tr class="row-even"><td><p>pow(x,y)</p></td>
+<td><p>Returns x raised to the power of y</p></td>
+</tr>
+<tr class="row-odd"><td><p>sqrt(x)</p></td>
+<td><p>Returns the square root of x</p></td>
+</tr>
+<tr class="row-even"><td><p>random(x)</p></td>
+<td><p>Returns a random number in the range [0,x]</p></td>
+</tr>
+<tr class="row-odd"><td><p>srandom(x)</p></td>
+<td><p>Initialize random number generator</p></td>
+</tr>
+<tr class="row-even"><td><p>unsigned(n,n,c)</p></td>
+<td><p>Perform operation using unsigned numbers</p></td>
+</tr>
+<tr class="row-odd"><td><p>decimals(n)</p></td>
+<td><p>Determine the decimals digits after the point in float/double numbers</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="example">
+<span id="index-2"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Mathematical Functions&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Sin(0) = &quot;</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Sin(90) radians = &quot;</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Sin(90) degree = &quot;</span> <span class="o">+</span> <span class="n">sin</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;Cos(0) = &quot;</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Cos(90) radians = &quot;</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Cos(90) degree = &quot;</span> <span class="o">+</span> <span class="n">cos</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;Tan(0) = &quot;</span> <span class="o">+</span> <span class="n">tan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Tan(90) radians = &quot;</span> <span class="o">+</span> <span class="n">tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Tan(90) degree = &quot;</span> <span class="o">+</span> <span class="n">tan</span><span class="p">(</span><span class="mi">90</span><span class="o">*</span><span class="mf">3.14</span><span class="o">/</span><span class="mi">180</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;asin(0) = &quot;</span> <span class="o">+</span> <span class="n">asin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;acos(0) = &quot;</span> <span class="o">+</span> <span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;atan(0) = &quot;</span> <span class="o">+</span> <span class="n">atan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;atan2(1,1) = &quot;</span> <span class="o">+</span> <span class="n">atan2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;sinh(0) = &quot;</span> <span class="o">+</span> <span class="n">sinh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;sinh(1) = &quot;</span> <span class="o">+</span> <span class="n">sinh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;cosh(0) = &quot;</span> <span class="o">+</span> <span class="n">cosh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;cosh(1) = &quot;</span> <span class="o">+</span> <span class="n">cosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;tanh(0) = &quot;</span> <span class="o">+</span> <span class="n">tanh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;tanh(1) = &quot;</span> <span class="o">+</span> <span class="n">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;exp(0) = &quot;</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;exp(1) = &quot;</span> <span class="o">+</span> <span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;log(1) = &quot;</span> <span class="o">+</span> <span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;log(2) = &quot;</span> <span class="o">+</span> <span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;log10(1) = &quot;</span> <span class="o">+</span> <span class="n">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;log10(2) = &quot;</span> <span class="o">+</span> <span class="n">log10</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;log10(10) = &quot;</span> <span class="o">+</span> <span class="n">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;Ceil(1.12) = &quot;</span> <span class="o">+</span> <span class="n">Ceil</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Ceil(1.72) = &quot;</span> <span class="o">+</span> <span class="n">Ceil</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;Floor(1.12) = &quot;</span> <span class="o">+</span> <span class="n">floor</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;Floor(1.72) = &quot;</span> <span class="o">+</span> <span class="n">floor</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;fabs(1.12) = &quot;</span> <span class="o">+</span> <span class="n">fabs</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">See</span> <span class="s">&quot;fabs(1.72) = &quot;</span> <span class="o">+</span> <span class="n">fabs</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">See</span> <span class="s">&quot;pow(2,3) = &quot;</span> <span class="o">+</span> <span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">see</span> <span class="s">&quot;sqrt(16) = &quot;</span> <span class="o">+</span> <span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Program Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Mathematical</span> <span class="n">Functions</span>
+<span class="n">Sin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="mf">0.89</span>
+<span class="n">Sin</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">1.00</span>
+<span class="n">Cos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.45</span>
+<span class="n">Cos</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">0.00</span>
+<span class="n">Tan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">Tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">radians</span> <span class="o">=</span> <span class="o">-</span><span class="mf">2.00</span>
+<span class="n">Tan</span><span class="p">(</span><span class="mi">90</span><span class="p">)</span> <span class="n">degree</span> <span class="o">=</span> <span class="mf">1255.77</span>
+<span class="n">asin</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">acos</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.57</span>
+<span class="n">atan</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">atan2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.79</span>
+<span class="n">sinh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">sinh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.18</span>
+<span class="n">cosh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">cosh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.54</span>
+<span class="n">tanh</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">tanh</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.76</span>
+<span class="n">exp</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">exp</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mf">2.72</span>
+<span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">log</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.69</span>
+<span class="n">log10</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="mi">0</span>
+<span class="n">log10</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mf">0.30</span>
+<span class="n">log10</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Ceil</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Ceil</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Floor</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">Floor</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">fabs</span><span class="p">(</span><span class="mf">1.12</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.12</span>
+<span class="n">fabs</span><span class="p">(</span><span class="mf">1.72</span><span class="p">)</span> <span class="o">=</span> <span class="mf">1.72</span>
+<span class="n">pow</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">sqrt</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span> <span class="o">=</span> <span class="mi">4</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="random-function">
+<span id="index-3"></span><h2>Random() Function<a class="headerlink" href="#random-function" title="Permalink to this headline">¶</a></h2>
+<p>The Random() function generate a random number and we can set the maximum value (optional).</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Random</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Random</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">range</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">20</span>
+        <span class="k">see</span>  <span class="s">&quot;Random number : &quot;</span> <span class="o">+</span> <span class="n">random</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+             <span class="s">&quot;Random number Max (100) : &quot;</span> <span class="o">+</span> <span class="n">random</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Program Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">31881</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">80</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">5573</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">63</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">2231</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">43</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">12946</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">39</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">22934</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">48</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">4690</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">52</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">13196</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">65</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">30390</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">87</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">4327</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">77</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">12456</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">17</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">28438</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">13</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">30503</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">6</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">31769</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">94</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">8274</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">65</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">14390</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">90</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">28866</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">12</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">24558</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">70</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">29981</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">77</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">12847</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">63</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="p">:</span> <span class="mi">6632</span>
+<span class="n">Random</span> <span class="n">number</span> <span class="n">Max</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">:</span> <span class="mi">60</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="srandom-function">
+<span id="index-4"></span><h2>SRandom() Function<a class="headerlink" href="#srandom-function" title="Permalink to this headline">¶</a></h2>
+<p>The SRandom() function initialize random number generator.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SRandom</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="unsigned-function">
+<span id="index-5"></span><h2>Unsigned() Function<a class="headerlink" href="#unsigned-function" title="Permalink to this headline">¶</a></h2>
+<p>We can use unsigned numbers using the Unsigned() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Unsigned</span><span class="p">(</span><span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">result</span> <span class="n">of</span> <span class="n">cOperator</span> <span class="n">operation</span> <span class="k">on</span> <span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">oat_hash</span><span class="p">(</span><span class="s">&quot;hello&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="c"># Jenkins hash function - https://en.wikipedia.org/wiki/Jenkins_hash_function</span>
+<span class="k">func</span> <span class="n">oat_hash</span> <span class="n">cKey</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">cKey</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">ascii</span><span class="p">(</span><span class="n">x</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
+                <span class="n">r</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="s">&quot;&gt;&gt;&quot;</span><span class="p">)</span>
+                <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">r</span><span class="p">,</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
+        <span class="k">next</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="s">&quot;&gt;&gt;&quot;</span><span class="p">),</span><span class="s">&quot;^&quot;</span><span class="p">)</span>
+        <span class="n">h</span> <span class="o">=</span> <span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="n">unsigned</span><span class="p">(</span><span class="n">h</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="s">&quot;&lt;&lt;&quot;</span><span class="p">),</span><span class="s">&quot;+&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">h</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mf">3372029979.00</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="decimals-functions">
+<span id="index-6"></span><h2>Decimals() Functions<a class="headerlink" href="#decimals-functions" title="Permalink to this headline">¶</a></h2>
+<p>We can determine the decimals numbers count after the point in float/double numbers using the decimals() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decimals</span><span class="p">(</span><span class="n">nDecimalsCount</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mf">1.1234567890123</span>
+<span class="k">for</span> <span class="n">d</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">to</span> <span class="mi">14</span>
+        <span class="n">decimals</span><span class="p">(</span><span class="n">d</span><span class="p">)</span>
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mf">1.1</span>
+<span class="mf">1.12</span>
+<span class="mf">1.123</span>
+<span class="mf">1.1235</span>
+<span class="mf">1.12346</span>
+<span class="mf">1.123457</span>
+<span class="mf">1.1234568</span>
+<span class="mf">1.12345679</span>
+<span class="mf">1.123456789</span>
+<span class="mf">1.1234567890</span>
+<span class="mf">1.12345678901</span>
+<span class="mf">1.123456789012</span>
+<span class="mf">1.1234567890123</span>
+<span class="mf">1.12345678901230</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-in-numbers">
+<span id="index-7"></span><h2>Using _ in numbers<a class="headerlink" href="#using-in-numbers" title="Permalink to this headline">¶</a></h2>
+<p>We can use _ between numbers digits.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+<span class="k">see</span> <span class="n">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">nl</span>
+<span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">NUMBER</span>
+<span class="mi">100000001</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-f-after-numbers">
+<span id="index-8"></span><h2>Using f after numbers<a class="headerlink" href="#using-f-after-numbers" title="Permalink to this headline">¶</a></h2>
+<p>We can use the ‘f’ letter after numbers.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = 19.99f
+see type(x) + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">NUMBER</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="files.html" class="btn btn-neutral float-right" title="Files" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="checkandconvert.html" class="btn btn-neutral float-left" title="Check Data Type and Conversion" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

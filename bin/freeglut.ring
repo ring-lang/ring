@@ -1,1 +1,0 @@
-load "/../extensions/ringfreeglut/freeglut.ring"

@@ -8,14 +8,17 @@ then
 echo "`pwd`/ring \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ring
 chmod +x /usr/local/bin/ring
 
-echo "`pwd`/../ring2exe/ring2exe \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ring2exe
+echo "`pwd`/ring2exe \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ring2exe
 chmod +x /usr/local/bin/ring2exe
 
-echo "`pwd`/../ring2exe/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/folder2qrc
+echo "`pwd`/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/folder2qrc
 chmod +x /usr/local/bin/folder2qrc
 
-echo "`pwd`/../ringpm/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ringpm
+echo "`pwd`/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ringpm
 chmod +x /usr/local/bin/ringpm
+
+echo "`pwd`/ringrepl \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/ringrepl
+chmod +x /usr/local/bin/ringrepl
 
 cd ..
 
@@ -27,14 +30,17 @@ then
 sudo echo "`pwd`/ring \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ring 
 sudo chmod +x /usr/bin/ring
 
-echo "`pwd`/../ring2exe/ring2exe \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ring2exe
+echo "`pwd`/ring2exe \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ring2exe
 chmod +x /usr/bin/ring2exe
 
-echo "`pwd`/../ring2exe/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/folder2qrc
+echo "`pwd`/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/folder2qrc
 chmod +x /usr/bin/folder2qrc
 
-sudo echo "`pwd`/../ringpm/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ringpm 
+sudo echo "`pwd`/ringpm \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ringpm 
 sudo chmod +x /usr/bin/ringpm
+
+sudo echo "`pwd`/ringrepl \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/ringrepl
+sudo chmod +x /usr/bin/ringrepl
 
 cd ..
 sudo cp lib/libring.so /usr/lib
@@ -422,4 +428,33 @@ if [ -f lib/libring_consolecolors.so ];
 then
 sudo cp lib/libring_consolecolors.so /usr/lib
 sudo cp lib/libring_consolecolors.so /usr/lib64
+fi
+
+# Make the RingLibSDL library ready for use directly
+
+if [ -f lib/libringsdl.dylib ];
+then
+cp lib/libringsdl.dylib /usr/local/lib
+fi
+
+if [ -f lib/libringsdl.so ];
+then
+sudo cp lib/libringsdl.so /usr/lib
+sudo cp lib/libringsdl.so /usr/lib64
+fi
+
+# Make the RingRayLib library ready for use directly
+
+if [ -f lib/libringraylib.dylib ];
+then
+cp lib/libringraylib.dylib /usr/local/lib
+cp extensions/ringraylib/src/macOS_raylib-2.5/lib/libraylib.* /usr/local/lib
+fi
+
+if [ -f lib/libringraylib.so ];
+then
+sudo cp lib/libringraylib.so /usr/lib
+sudo cp lib/libringraylib.so /usr/lib64
+sudo cp extensions/ringraylib/src/linux_raylib-2.5/lib/libraylib.so.* /usr/lib
+sudo cp extensions/ringraylib/src/linux_raylib-2.5/lib/libraylib.so.* /usr/lib64
 fi

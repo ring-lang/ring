@@ -94,6 +94,9 @@ SOURCES +=   \
     cpp/src/gxyseries.cpp \
     cpp/src/ggraphicsscene.cpp \
     cpp/src/gmovie.cpp \
+    cpp/src/gcolordialog.cpp \
+    cpp/src/gfontdialog.cpp \
+    cpp/src/gfiledialog.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -178,13 +181,16 @@ HEADERS  += \
     cpp/include/gvalueaxis.h \
     cpp/include/gxyseries.h \
     cpp/include/ggraphicsscene.h \
-    cpp/include/gmovie.h
+    cpp/include/gmovie.h \
+    cpp/include/gcolordialog.h \
+    cpp/include/gfontdialog.h \
+    cpp/include/gfiledialog.h
 
-INCLUDEPATH += ../../include
+INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include
 
 win32 {
-	LIBS +=  ../../lib/ring.lib
+	LIBS += ../../lib/ring.lib
 	QT   += axcontainer quick quickwidgets qml
 	SOURCES += cpp/src/openglwidget.cpp cpp/src/gquickwidget.cpp 
 	HEADERS += cpp/include/openglwidget.h cpp/include/gquickwidget.h 

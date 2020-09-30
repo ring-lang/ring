@@ -1,0 +1,1226 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>FoxRing Functions Reference &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="BigNumber Library" href="bignumber.html" />
+    <link rel="prev" title="Using ZeroLib" href="zerolib.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">FoxRing Functions Reference</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#foxring-functions">FoxRing functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frabs-function">frAbs() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frasc-function">frAsc() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fraddbs-function">frAddBs() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frat-function">frAt() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fratc-function">frAtC() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frchr-function">frChr() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frempty-function">frEmpty() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frfile-function">frFile() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frfiletostr-function">frFileToStr() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frstr-function">frStr() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frsetifempty-function">frSetIfEmpty() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frspace-function">frSpace() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frinlist-function">frInList() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frforcepath-function">frForcePath() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fralltrim-function">frAllTrim() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frltrim-function">frLTrim() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frjustdrive-function">frJustDrive() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frjustext-function">frJustExt() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frjuststem-function">frJustStem() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frrtrim-function">frRTrim() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frjustpath-function">frJustPath() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frforceext-function">frForceExt() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fralines-function">frALines() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frjustfname-function">frJustFName() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frpadl-function">frPadL() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frpadr-function">frPadR() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frproper-function">frProper() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frreplicate-function">frReplicate() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frlen-function">frLen() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frstuff-function">frStuff() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frsubstr-function">frSubStr() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frstrtran-function">frStrTran() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frlisttostring-function">frListToString() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frint-function">frInt() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frstringtolist-function">frStringToList() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#friif-function">frIIf() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frval-function">frVal() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frbetween-function">frBetween() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frsetseparatorto-function">frSetSeparatorTo() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frtransform-function">frTransform() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#frvartype-function">frVarType() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>FoxRing Functions Reference</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="foxring-functions-reference">
+<span id="index-0"></span><h1>FoxRing Functions Reference<a class="headerlink" href="#foxring-functions-reference" title="Permalink to this headline">¶</a></h1>
+<p>A class contains functions similar to FoxPro functions.</p>
+<div class="section" id="foxring-functions">
+<span id="index-1"></span><h2>FoxRing functions<a class="headerlink" href="#foxring-functions" title="Permalink to this headline">¶</a></h2>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 19%" />
+<col style="width: 81%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Function Name</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>frAbs()</p></td>
+<td><p>Returns the absolute value of the specified numeric expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frAddBs()</p></td>
+<td><p>Adds a backslash (if needed) to a path expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>frALines()</p></td>
+<td><p>Creates an Array with the content of the specified string.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frAllTrim()</p></td>
+<td><p>Removes all leading and trailing spaces of the specified string.</p></td>
+</tr>
+<tr class="row-even"><td><p>frAsc()</p></td>
+<td><p>Returns the ANSI value for the leftmost character in a character expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frAt()</p></td>
+<td><p>Searches a character expression for the occurrence</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>of another character expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frAtC()</p></td>
+<td><p>Searches a character expression for the ocurrence of another character expression without</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>regard for the case of these two expressions.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frBetween()</p></td>
+<td><p>Determines whether the value of an expression is inclusively between the values of two</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>expressions of the same type.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frChr()</p></td>
+<td><p>Returns the character associated with the specified numeric ANSI code.</p></td>
+</tr>
+<tr class="row-even"><td><p>frEmpty()</p></td>
+<td><p>Determines whether an expression evaluates to empty.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frFile()</p></td>
+<td><p>Checks if a file exists on disk.</p></td>
+</tr>
+<tr class="row-even"><td><p>frFileToStr()</p></td>
+<td><p>Returns the contents of a file as a character string.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frForceExt()</p></td>
+<td><p>Returns a string with the old file name extension replaced by a new extension.</p></td>
+</tr>
+<tr class="row-even"><td><p>frForcePath()</p></td>
+<td><p>Returns a file name with a new path name substituted for the old one.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frIif()</p></td>
+<td><p>Returns one of two values depending on the value of a logical expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>frInList()</p></td>
+<td><p>Determines whether an expression matches another expression in a list.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frInt()</p></td>
+<td><p>Evaluates a numeric expression and returns the integer portion of the expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>frJustDrive()</p></td>
+<td><p>Returns the drive letter from a complete path.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frJustExt()</p></td>
+<td><p>Returns the characters of a file extension from a complete path.</p></td>
+</tr>
+<tr class="row-even"><td><p>frJustFName()</p></td>
+<td><p>Returns the file name portion of a complete path and file name.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frJustPath()</p></td>
+<td><p>Returns the path portion of a complete path and file name.</p></td>
+</tr>
+<tr class="row-even"><td><p>frJustStem()</p></td>
+<td><p>Returns the stem name (the file name before the extension)</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>from a complete path and file name.</p></td>
+</tr>
+<tr class="row-even"><td><p>frLen()</p></td>
+<td><p>Determines the number of characters in a character expression,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>indicating the length of the expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>frListToString()</p></td>
+<td><p>Creates a string with the string elements of an Array.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frLTrim()</p></td>
+<td><p>Removes all leading spaces or parsing characters from the</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>specified character expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frPadL()</p></td>
+<td><p>Returns a string from an expression, padded with spaces or characters to a</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>specified length on the left side.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frPadR()</p></td>
+<td><p>Returns a string from an expression, padded with spaces or characters to a</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>specified length on the right side.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frProper()</p></td>
+<td><p>Returns from a character expression a string capitalized as</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>appropriate for proper names.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frReplicate()</p></td>
+<td><p>Returns a character string that contains a specified character</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>expression repeated a specified number of times.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frRTrim()</p></td>
+<td><p>Removes all trailing spaces or parsing characters from</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>the specified character expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frSetIfEmpty()</p></td>
+<td><p>Set a Value into a variable if the variable value is empty, null or zero.</p></td>
+</tr>
+<tr class="row-even"><td><p>frSetSeparatorTo()</p></td>
+<td><p>Specifies the character for the numeric place separator.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frSpace()</p></td>
+<td><p>Returns a character string composed of a specified number of spaces.</p></td>
+</tr>
+<tr class="row-even"><td><p>frStr()</p></td>
+<td><p>Returns the character equivalent of a numeric expression.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frStringToList()</p></td>
+<td><p>Creates a List with the content of the specified string.</p></td>
+</tr>
+<tr class="row-even"><td><p>frStrTran()</p></td>
+<td><p>Searches a character expression for a second character expression and</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>replaces each occurrence with a third character expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>frStuff()</p></td>
+<td><p>Returns a new character string replaced by a specified number of</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>characteres in a character expression with another character expression.</p></td>
+</tr>
+<tr class="row-even"><td><p>frSubStr()</p></td>
+<td><p>Returns a character string from the given character expression,</p></td>
+</tr>
+<tr class="row-odd"><td></td>
+<td><p>starting at a specified position in the character</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>expression and continuing for a specified number of characters.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frTransform()</p></td>
+<td><p>Returns a character string from an expression in a</p></td>
+</tr>
+<tr class="row-even"><td></td>
+<td><p>format determined by a format code.</p></td>
+</tr>
+<tr class="row-odd"><td><p>frVal()</p></td>
+<td><p>Returns a numeric value from a character expression composed of numbers.</p></td>
+</tr>
+<tr class="row-even"><td><p>frVarType()</p></td>
+<td><p>Returns the data type of an expression.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="frabs-function">
+<span id="index-2"></span><h2>frAbs() function<a class="headerlink" href="#frabs-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lnReturnValue = frAbs(tnExpression)
+* Description  : Returns the absolute value of the specified numeric expression.
+*              :
+* Arguments    : &lt;tnExpression&gt;
+*              : Specifies the numeric expression whose absolute value frAbs()
+*              : returns.
+* Returns      : &lt;lnReturnValue&gt;
+*              : Returns the absolute value of the specified numeric expression.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frasc-function">
+<span id="index-3"></span><h2>frAsc() function<a class="headerlink" href="#frasc-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lnReturnValue = frAsc(tcExpression)
+* Description  : Returns the ANSI value for the leftmost character in
+*              : a character expression.
+* Arguments    : &lt;tcExpression&gt;
+*              : Specifies the character expression containing the character
+*              : whose ANSI value frAsc()
+*              : returns. Any characters after the first character in
+*              : tcExpression are ignored by frAsc().
+* Returns      : &lt;lnReturnValue&gt;
+*              : returns the position of the character in the character
+*              : table of the current code page.
+*              : Every character has a unique ANSI value in the
+*              : range from 0 to 255.
+</pre></div>
+</div>
+</div>
+<div class="section" id="fraddbs-function">
+<span id="index-4"></span><h2>frAddBs() function<a class="headerlink" href="#fraddbs-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcReturnValue = frAddBs(tcPath)
+* Description  : Adds a backslash (if needed) to a path expression.
+*              :
+* Arguments    : &lt;tcPath&gt;
+*              : Specifies the path name to which to add the backslash.
+*              :
+* Returns      : &lt;lcReturnValue&gt; The path with the backslash.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frat-function">
+<span id="index-5"></span><h2>frAt() function<a class="headerlink" href="#frat-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lnPos = frAt(tcToSearch, tcString, tnOccurrence)
+* Description  : Searches a character expression for the occurrence of
+*              : another character expression.
+*              : The search performed by frAt() is case-sensitive.
+*              :
+* Arguments    : &lt;tcToSearch&gt;
+*              : Specifies the character expression to search
+*              : for in &lt;tcString&gt;.
+*              : &lt;tcString&gt;
+*              : Specifies the character expression to search
+*              : for &lt;tcToSearch&gt;.
+*              : &lt;tnOccurrence&gt;
+*              : Specifies which occurrence, first, second, third,
+*              : and so on, of &lt;tcToSearch&gt; to search for
+*              : in &lt;tcString&gt;.
+*              : By default, frAt() searches for the first occurrence
+*              : of &lt;tcToSearch&gt; (tnOccurrence = 1).
+* Returns      : Numeric. frAt() returns an integer indicating the
+*              : position of the first character for a
+*              : character expression or memo field within another
+*              : character expression or memo field,
+*              : beginning from the leftmost character. If the
+*              : expression or field is not found, or if
+*              : &lt;tnOccurrence&gt; is greater than the number of
+*              : times &lt;tcToSearch&gt; occurs in  &lt;tcString&gt;, frAt()
+*              : returns 0.
+</pre></div>
+</div>
+</div>
+<div class="section" id="fratc-function">
+<span id="index-6"></span><h2>frAtC() function<a class="headerlink" href="#fratc-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lnPos = frAtC(tcToSearch, tcString, tnOccurrence)
+* Description  : Searches a character expression for the occurrence
+*              : of another character expression
+*              : without regard for the case of these two expressions.
+*              :
+* Arguments    : &lt;tcToSearch&gt;
+*              : Specifies the character expression to search
+*              : for in &lt;tcString&gt;.
+*              : &lt;tcString&gt;
+*              : Specifies the character expression to search
+*              : for &lt;tcToSearch&gt;.
+*              : &lt;tnOccurrence&gt;
+*              : Specifies which occurrence, first, second, third,
+*              : and so on, of &lt;tcToSearch&gt; to search for
+*              : in tcString.
+*              : By default, frAtC() searches for the first occurrence
+*              : of &lt;tcToSearch&gt; (tnOccurrence = 1).
+* Returns      : Numeric. frAtC() returns an integer indicating the
+*              : position of the first character for a
+*              : character expression or memo field within
+*              : another character expression or memo field,
+*              : beginning from the leftmost character. If the
+*              : expression or field is not found, or if
+*              : &lt;tnOccurrence&gt; is greater than the number of
+*              : times &lt;tcToSearch&gt; occurs in &lt;tcString&gt;, frAtC()
+*              : returns 0.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frchr-function">
+<span id="index-7"></span><h2>frChr() function<a class="headerlink" href="#frchr-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcReturnValue = frChr(tnExpression)
+* Description  : Returns the character associated with the specified numeric
+*              :  ANSI code.
+* Arguments    : &lt;tnExpression&gt;
+*              : Specifies a number between 0 and 255 whose equivalent ANSI
+*              : character frChr() returns.
+* Returns      : &lt;lcReturnValue&gt;
+*              : Returns a single character corresponding to the numeric
+*              : position of the character in the
+*              : character table of the current code page.
+*              :
+* Remarks      : tnExpression must be between 0 and 255
+</pre></div>
+</div>
+</div>
+<div class="section" id="frempty-function">
+<span id="index-8"></span><h2>frEmpty() function<a class="headerlink" href="#frempty-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : llReturnValue = frEmpty(tuExpression)
+* Description  : Determines whether an expression evaluates to empty.
+*              :
+* Arguments    : &lt;tuExpression&gt;
+*              : Specifies the expression that EMPTY() evaluates.
+*              : You can specify an expression with Character,
+*              : Numeric, or logical type.
+*              :
+* Returns      : &lt;llReturnValue&gt; Logical
+</pre></div>
+</div>
+</div>
+<div class="section" id="frfile-function">
+<span id="index-9"></span><h2>frFile() function<a class="headerlink" href="#frfile-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : llReturnValue = frFile(tcFileName, tnFlag)
+* Description  : Checks if the specified file exists on disk.
+*              :
+* Arguments    : &lt;tcFileName&gt;
+*              : Specifies the name of the file to check.
+*              : tcFileName must include
+*              : the file extension. You can include a path with
+*              : the file name to
+*              : search for a file in a directory or on a drive
+*              : other than the current directory or drive.
+*              :
+*              : &lt;tnFlag&gt;
+*              : tnFlag was included for future compatibility.
+*              : In this version, It always returns true whenever
+*              : the file exists on disk.
+* Returns      : &lt;llReturnValue&gt; Logical
+*              : True if file exists on disk.
+*              : False if file doesn&#39;t exist on disk.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frfiletostr-function">
+<span id="index-10"></span><h2>frFileToStr() function<a class="headerlink" href="#frfiletostr-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcReturnValue = frFileToStr(tcFileName)
+* Description  : Returns the contents of a file as a character string.
+*              :
+* Arguments    : &lt;tcFileName&gt;
+*              : Specifies the name of the file whose contents are
+*              : returned as a character
+*              : string. If the file is in a directory other than
+*              : the current default directory,
+*              : include a path with the file name.
+*              :
+* Returns      : &lt;lcReturnValue&gt;
+*              : A character string with the content of the specified file.
+*              :
+</pre></div>
+</div>
+</div>
+<div class="section" id="frstr-function">
+<span id="index-11"></span><h2>frStr() function<a class="headerlink" href="#frstr-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcReturnValue = frStr(tnValue, tnLen, tnDec)
+* Description  : Returns the character equivalent of a numeric expression.
+*              :
+* Arguments    : &lt;tnValue&gt;
+*              : Specifies the numeric expression to evaluate.
+*              :
+*              : &lt;tnLen&gt;
+*              : Specifies the length of the character string returned.
+*              : If tnLen is 0, tnLen defaults to 10 characters.
+*              : If tnLen &lt; 0 returns one string with same length as the number.
+*              : Note
+*              : If the expression contains a decimal point,
+*              : the length includes one character for
+*              : the decimal point and one character
+*              : for each digit in the character string.
+*              :
+*              : &lt;tnDec&gt;
+*              : Specifies the number of decimal places in the
+*              : character string returned.
+*              : To specify the number of decimal places using
+*              : tnDec, you must include nLength. If nDecimalPlaces is omitted,
+*              : the number of decimal places defaults to zero (0).
+*              :
+* Returns      : Character data type. frStr() returns a character string
+*              : equivalent to the specified numeric expression.
+*              : Depending on certain conditions, frStr() can return the following:
+*              : If you specify fewer decimal places than exist in tnValue,
+*              : the return value is rounded up. To round results to the nearest
+*              : decimal place instead of upward, include the ROUND( ) function.
+*              : For more information, see ROUND( ) Function.
+*              : If nExpression is an integer, and nLength is less than
+*              : the number of digits in nExpression, frStr( ) returns a string of
+*              : asterisks, indicating numeric overflow.
+*              : If nExpression contains a decimal point, and nLength is equal
+*              : to or less than the number of digits to the left of the decimal
+*              : point, frStr( ) returns a string of asterisks,
+*              : indicating numeric overflow.
+*              : If nLength is greater than the length of the value evaluated
+*              : by nExpression, frStr( ) returns a character string padded with
+*              : leading spaces.
+*              : If nExpression has Numeric or Float type, and nLength
+*              : is less than the number of digits in nExpression, and , frStr( )
+*              : returns a value using scientific notation.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frsetifempty-function">
+<span id="index-12"></span><h2>frSetIfEmpty() function<a class="headerlink" href="#frsetifempty-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : tuReturnValue = frSetIfEmpty(tuValue, tuNewValue)
+* Description  : Set a Value into a variable if the variable
+*              : value is empty, null or zero.
+* Arguments    : &lt;tuValue&gt;
+*              : The value to evaluate.
+*              :
+*              : &lt;tuNewValue&gt;
+*              : The value to set if tuValue is empty.
+*              :
+* Returns      : tuNewValue if tuValue is empty, otherwise
+*              : returns the original value.
+* Remarks      : This function doesn&#39;t exist in VFP.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frspace-function">
+<span id="index-13"></span><h2>frSpace() function<a class="headerlink" href="#frspace-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcReturnValue = frSpace(tnSpaces)
+* Description  : Returns a character string composed of a
+*              : specified number of spaces.
+* Arguments    : &lt;tnSpaces&gt;
+*              : Specifies the number of spaces that frSpace() returns.
+*              :
+* Returns      : &lt;lcReturnValue&gt;
+*              : Character
+</pre></div>
+</div>
+</div>
+<div class="section" id="frinlist-function">
+<span id="index-14"></span><h2>frInList() function<a class="headerlink" href="#frinlist-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : llReturnValue = frInList(tuExpression, taList)
+* Description  : Determines whether an expression matches another
+*              : expression in a set of expressions.
+* Arguments    : &lt;tuExpression&gt;
+*              : Specifies the expression frInList() searches for in the List.
+*              :
+*              : &lt;taList&gt;
+*              : Specifies the List of expressions to search.
+*              : You must include at least one element in the list.
+*              : The expressions in the list of expressions needn&#39;t to be
+*              : of the same data type.
+*              :
+* Returns      : &lt;luReturnValue&gt; Null or logical value.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frforcepath-function">
+<span id="index-15"></span><h2>frForcePath() function<a class="headerlink" href="#frforcepath-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcReturnValue = frForcePath(tcFileName, tcPath)
+* Description  : Returns a file name with a new path name
+*              : substituted for the old one.
+* Arguments    : &lt;tcFileName&gt;
+*              : Specifies the file name (with or without a path or extension),
+*              : which will get a new path.
+*              : &lt;tcPath&gt;
+*              : Specifies the new path for tcFileName.
+*              :
+* Returns      : &lt;lcReturnValue&gt;
+*              : Returns a file name with a new path name
+*              : substituted for the old one.
+</pre></div>
+</div>
+</div>
+<div class="section" id="fralltrim-function">
+<span id="index-16"></span><h2>frAllTrim() function<a class="headerlink" href="#fralltrim-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : lcReturnValue = frAllTrim(tcExpression, tcCharacter)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frltrim-function">
+<span id="index-17"></span><h2>frLTrim() function<a class="headerlink" href="#frltrim-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : lcRet = frLTrim(tcExpression, tcCharacter)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frjustdrive-function">
+<span id="index-18"></span><h2>frJustDrive() function<a class="headerlink" href="#frjustdrive-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcReturnValue = frJustDrive(tcPath)
+* Description  : Returns the drive letter from a complete path.
+*              :
+* Arguments    : &lt;tcPath&gt;
+*              : Specifies the complete path name for
+*              : which you want only the drive.
+* Returns      : &lt;lcReturnValue&gt;
+*              : Returns the drive letter from a complete path.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frjustext-function">
+<span id="index-19"></span><h2>frJustExt() function<a class="headerlink" href="#frjustext-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcReturnValue = frJustExt(tcPath)
+* Description  : Returns the characters of a file extension
+*              : from a complete path.
+* Arguments    : &lt;tcPath&gt;
+*              : Specifies the name, which may include the full path,
+*              : of the file for which you want only the extension.
+* Returns      : &lt;lcReturnValue&gt;
+*              : Returns the drive characters of a file extension
+*              : from a complete path.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frjuststem-function">
+<span id="index-20"></span><h2>frJustStem() function<a class="headerlink" href="#frjuststem-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcReturnValue = frJustStem(tcPath)
+* Description  : Returns the stem name (the file name before the extension)
+*              : from a complete path and file name.
+* Arguments    : &lt;tcPath&gt;
+*              : Specifies the name (including path) of the file
+*              : for which you want only the stem.
+* Returns      : &lt;lcReturnValue&gt;
+*              : Returns the stem name of a file from a complete path.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frrtrim-function">
+<span id="index-21"></span><h2>frRTrim() function<a class="headerlink" href="#frrtrim-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax : lcRet = frRTrim(tcExpression, tcCharacter)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frjustpath-function">
+<span id="index-22"></span><h2>frJustPath() function<a class="headerlink" href="#frjustpath-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : tcReturnValue = frJustPath(tcExpression)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frforceext-function">
+<span id="index-23"></span><h2>frForceExt() function<a class="headerlink" href="#frforceext-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : tcReturnValue = frForceExt(tcFileName, tcNewExtension)
+</pre></div>
+</div>
+</div>
+<div class="section" id="fralines-function">
+<span id="index-24"></span><h2>frALines() function<a class="headerlink" href="#fralines-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : tnReturnValue = frALines(taList, tcExpression, tcSeparator)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frjustfname-function">
+<span id="index-25"></span><h2>frJustFName() function<a class="headerlink" href="#frjustfname-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : tcReturnValue = frJustFName(tcExpression)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frpadl-function">
+<span id="index-26"></span><h2>frPadL() function<a class="headerlink" href="#frpadl-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : tcReturnValue = frPadL(tcString, tnLen, tcChar)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frpadr-function">
+<span id="index-27"></span><h2>frPadR() function<a class="headerlink" href="#frpadr-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : tcReturnValue = frPadR(tcString, tnLen, tcChar)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frproper-function">
+<span id="index-28"></span><h2>frProper() function<a class="headerlink" href="#frproper-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : tcReturnValue = frProper(tcExpression)
+* Description  : Returns from a character expression a string
+*              : capitalized as appropriate for proper names.
+* Arguments    : &lt;tcExpression&gt;
+*              : Specifies the character expression from which
+*              : frProper() returns a capitalized character string.
+* Returns      : &lt;tcReturnValue&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="frreplicate-function">
+<span id="index-29"></span><h2>frReplicate() function<a class="headerlink" href="#frreplicate-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : tcReturnValue = frReplicate(tcString, tnTimes)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frlen-function">
+<span id="index-30"></span><h2>frLen() function<a class="headerlink" href="#frlen-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : tnReturnValue = frLen(tcString)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frstuff-function">
+<span id="index-31"></span><h2>frStuff() function<a class="headerlink" href="#frstuff-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : tcReturnValue = frStuff(tcExpression, tnStartRep,
+                                         tnCharRep, tcToReplace)
+* Description  : Returns a new character string replaced by a
+*              : specified number of characters in a character
+*              : expression with another character expression.
+*              :
+* Arguments    : &lt;tcExpression&gt;
+*              : Specify the character expression in which the replacement occurs.
+*              :
+*              : &lt;tnStartRep&gt;
+*              : Specify the position in &lt;tcExpression&gt; where the replacement begins.
+*              :
+*              : &lt;tnCharRep&gt;
+*              : Specifies the number of characters to be replaced.
+*              : If &lt;tnCharRep&gt; is 0, the replacement string
+*              : &lt;tcToReplace&gt; is inserted into &lt;tcExpression&gt;.
+*              :
+*              : &lt;tcToReplace&gt;
+*              : Specifies the replacement character expression.
+*              : If &lt;tcToReplace&gt; is an empty string, the number of
+*              : characters specified by &lt;tnCharRep&gt; are removed from &lt;tcExpression&gt;.
+*              :
+* Returns      : Character
+</pre></div>
+</div>
+</div>
+<div class="section" id="frsubstr-function">
+<span id="index-32"></span><h2>frSubStr() function<a class="headerlink" href="#frsubstr-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : tcReturnValue = frSubStr(tcString, tnInitialPosition, tnNumberBytes)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frstrtran-function">
+<span id="index-33"></span><h2>frStrTran() function<a class="headerlink" href="#frstrtran-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax  : tcReturnValue = frStrTran(tcString, tcOldString, tcNewString)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frlisttostring-function">
+<span id="index-34"></span><h2>frListToString() function<a class="headerlink" href="#frlisttostring-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcRet = frListToString(taList)
+* Remarks      : This function doesn&#39;t exist in VFP.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frint-function">
+<span id="index-35"></span><h2>frInt() function<a class="headerlink" href="#frint-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Syntax          : lnInt = frInt(tnExpression)
+</pre></div>
+</div>
+</div>
+<div class="section" id="frstringtolist-function">
+<span id="index-36"></span><h2>frStringToList() function<a class="headerlink" href="#frstringtolist-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : laList = frStringToList(tcExpression)
+* Remarks      : This function doesn&#39;t exist in VFP.
+</pre></div>
+</div>
+</div>
+<div class="section" id="friif-function">
+<span id="index-37"></span><h2>frIIf() function<a class="headerlink" href="#friif-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : luReturnValue = frIIf(tlExpression, tuReturnIfTrue, tuReturnIfFalse)
+* Description  : Returns one of two values depending on the
+*              : value of a logical expression.
+* Arguments    : &lt;tlExpression&gt;
+*              : Specifies the logical expression that frIIf() evaluates.
+*              :
+*              : &lt;tuReturnTrue&gt;, &lt;tuReturnFalse&gt;
+*              : If tlExpression evaluates to True, tuReturnIfTrue is
+*              : returned and tuReturnIfFalse is not evaluated.
+*              : If tlExpression evaluates to False or Null, tuReturnIfFalse is
+*              : returned and tuReturnIfTrue is not evaluated.
+*              :
+* Returns      : &lt;luReturnValue&gt; Defined by &lt;tuReturnIfTrue&gt; or &lt;tuReturnIfFalse&gt;
+</pre></div>
+</div>
+</div>
+<div class="section" id="frval-function">
+<span id="index-38"></span><h2>frVal() function<a class="headerlink" href="#frval-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : luReturnValue = frVal(tcExpression)
+* Description  : Returns a numeric value from a character expression
+*              : composed of numbers
+* Arguments    : &lt;tcExpression&gt;
+*              : Specifies a character expression composed of up to 16 numbers.
+*              :
+* Returns      : &lt;tnValue&gt;
+*              : Return a numeric value.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frbetween-function">
+<span id="index-39"></span><h2>frBetween() function<a class="headerlink" href="#frbetween-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : luReturnValue = frBetween(tuTestValue, tuLowValue, tuHighValue)
+* Description  : Determines whether the value of an expression
+*              : is inclusively between the
+*              : values of two expressions of the same type.
+*              :
+* Arguments    : &lt;tuTestValue&gt;
+*              : Specifies an expression to evaluate.
+*              :
+*              : &lt;tuLowValue&gt;
+*              : Specifies the lower value in the range.
+*              :
+*              : &lt;tuHighValue&gt;
+*              : Specifies the higher value in the range.
+*              :
+* Returns      : &lt;luReturnValue&gt;
+*              : Returns a logical oder null value.
+</pre></div>
+</div>
+</div>
+<div class="section" id="frsetseparatorto-function">
+<span id="index-40"></span><h2>frSetSeparatorTo() function<a class="headerlink" href="#frsetseparatorto-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : frSetSeparatorTo(tuExpression)
+* Description  : Specifies the character for the numeric place separator.
+*              :
+* Arguments    : &lt;tuExpression&gt;
+*              : Specifies the character for the numeric place separator.
+*              :
+*              : Use frSetSeparatorTo() to change the numeric place
+*              : separator from de default, for example space &quot; &quot; or a comma &quot;,&quot;.
+*              : Issue frSetSeparatorTo(Null) to reset the value to its default.
+*              :
+* Returns      : None
+</pre></div>
+</div>
+</div>
+<div class="section" id="frtransform-function">
+<span id="index-41"></span><h2>frTransform() function<a class="headerlink" href="#frtransform-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : tcReturnValue = frTransform(tuExpression, tcFormatCodes)
+* Description  : Returns a character string from an expression in a
+*              : format determined by a format code.
+* Arguments    : &lt;tuExpression&gt;
+*              : Specifies the expression to format.
+*              :
+*              : &lt;tcFormatCodes&gt;
+*              : Specifies one or more format codes that determine how to
+*              : format the expression.
+*              :
+* Returns      : &lt;tcReturnValue&gt;
+</pre></div>
+</div>
+<p>The following table lists the available format codes for tcFormatCodes.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>--------------------------------------------------------------------------
+ Format Code   Description
+--------------------------------------------------------------------------
+ @!            Converts an entire character string to uppercase.
+ @T            Trims leading and trailing spaces from character values.
+ @B            Left-justifies Numeric data within the display region.
+ @L            Pads numeric and string data with leading zeros.
+ @C            Appends CR to positive numeric values to indicate a credit.
+ @X            Appends DB to negative numeric values to indicate a debit.
+--------------------------------------------------------------------------
+</pre></div>
+</div>
+</div>
+<div class="section" id="frvartype-function">
+<span id="index-42"></span><h2>frVarType() function<a class="headerlink" href="#frvartype-function" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>* Syntax       : lcRet = frVarType(tuExpression)
+* Description  : Returns the data type of an expression.
+*              :
+* Arguments    : &lt;tuExpression&gt;
+*              : Expecifies the expression for which the data type is returned.
+*              :  frVartype() returns a
+*              : single character indicating the data type of the expression.
+*              : The following table lists the characteres that frVarType()
+*              : returns for each data type.
+*              :
+*              : -------------------   -------------------------------------
+*              : Return Value          Data Type
+*              : -------------------   -------------------------------------
+*              : C                     Character
+*              : N                     Numeric
+*              : A                     List
+*              : O                     Object
+*              : U                     Undefined type
+*              : -------------------   -------------------------------------
+*              :
+* Returns      : Character
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<span id="index-43"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>Load &quot;foxring.ring&quot;
+
+
+mf = new frFunctions
+
+/*----------------------------------------------------------*/
+ * frProper() samples
+/*----------------------------------------------------------*/
+
+lcStr1 = &quot;ring is a good language&quot;
+?mf.frProper(lcStr1)
+?mf.frProper(Upper(lcStr1))
+
+
+/*----------------------------------------------------------*/
+ * frStuff() samples
+/*----------------------------------------------------------*/
+
+lcStr1 = &quot;abcdefghijklm&quot;
+lcStr2 = &quot;12345&quot;
+
+// insert
+?mf.frStuff(lcStr1, 4, 0, lcStr2)
+// replace
+?mf.frStuff(lcStr1, 4, 3, lcStr2)
+// delete
+?mf.frStuff(lcStr1, 4, 6, &quot;&quot;)
+// replace and insert
+?mf.frStuff(lcStr1, 4, 1, lcStr2)
+// replace and delete
+?mf.frStuff(lcStr1, 4, 4, lcStr2)
+// replace, delete rest
+?mf.frStuff(lcStr1, 4, Len(lcStr1), lcStr2)
+
+/*----------------------------------------------------------*/
+
+
+
+?mf.frAbs(-45)
+?mf.frAbs(10-30)
+?mf.frAbs(30-10)
+
+lcNumber1 = 40
+lcNumber2 = 2
+
+?mf.frAbs(lcNumber2-lcNumber1)
+
+
+
+
+lcCompletFileName = &quot;C:\ring\docs\source\contribute.txt&quot;
+
+?mf.frFile(lcCompletFileName, Null)
+if mf.frFile(lcCompletFileName, Null) {
+  ?mf.frFileToStr(lcCompletFileName)
+else
+  ?&quot;File does not exist&quot;
+}
+
+lcNewPath = &quot;C:\ring_2\docs\source\&quot;
+?mf.frJustExt(lcCompletFileName)
+?mf.frJustDrive(lcCompletFileName)
+?mf.frJustStem(lcCompletFileName)
+?mf.frForcePath(lcCompletFileName, lcNewPath)
+?mf.frTransform(&quot;    Ring is a good language    &quot;,
+                &quot;@! !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!&quot;)
+?mf.frAllTrim(&quot;    Ring is a good language    &quot;, Null)
+?mf._version
+lnValue = 3125.54
+?mf.frTransform(lnValue, &quot;@B&quot;)+ &quot;Euros&quot;
+?mf.frTransform(lnValue, &quot;@C 9999,999,999,999.999&quot;)
+mf.frSetSeparatorTo(&quot; &quot;)
+?mf.frTransform(lnValue, &quot;9999,999,999,999.999&quot;)
+?mf.frInt(lnValue)
+?mf.frForceExt(&quot;teste&quot;, &quot;dbf&quot;)
+// Format &quot;@L&quot; Added into frTransform() function
+?mf.frTransform(&quot;123&quot;, &quot;@L 999999&quot;)
+?mf.frTransform(123, &quot;@L 999999&quot;)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bignumber.html" class="btn btn-neutral float-right" title="BigNumber Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="zerolib.html" class="btn btn-neutral float-left" title="Using ZeroLib" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

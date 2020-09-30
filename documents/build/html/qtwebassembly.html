@@ -1,0 +1,496 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Building RingQt Applications for WebAssembly &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Web Development (CGI Library)" href="web.html" />
+    <link rel="prev" title="Building RingQt Applications for Mobile" href="qtmobile.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Building RingQt Applications for WebAssembly</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#download-requirements">Download Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-ring2exe">Using Ring2EXE</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-qt-project-for-your-ring-application">The Qt project for your Ring application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#comments-about-developing-for-webassembly-using-ringqt">Comments about developing for WebAssembly using RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dialogs">Dialogs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#online-applications">Online Applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Building RingQt Applications for WebAssembly</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="building-ringqt-applications-for-webassembly">
+<span id="index-0"></span><h1>Building RingQt Applications for WebAssembly<a class="headerlink" href="#building-ringqt-applications-for-webassembly" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about Building RingQt Applications for WebAssembly.</p>
+<div class="section" id="download-requirements">
+<span id="index-1"></span><h2>Download Requirements<a class="headerlink" href="#download-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Check the next link : <a class="reference external" href="https://doc.qt.io/qt-5/wasm.html">https://doc.qt.io/qt-5/wasm.html</a></p>
+<p>Tested using</p>
+<ul class="simple">
+<li><p>Qt (5.15.0) : <a class="reference external" href="https://www.qt.io/blog/qt-5.15-released">https://www.qt.io/blog/qt-5.15-released</a></p></li>
+<li><p>Emscripten (1.39.7) : <a class="reference external" href="https://emscripten.org/docs/getting_started/index.html">https://emscripten.org/docs/getting_started/index.html</a></p></li>
+</ul>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emsdk install sdk-fastcomp-1.39.7-64bit
+emsdk activate sdk-fastcomp-1.39.7-64bit
+</pre></div>
+</div>
+<p>Check Emscripten installation</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">em</span><span class="o">++</span> <span class="o">--</span><span class="n">version</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emcc (Emscripten gcc/clang-like replacement) 1.39.7
+(commit 24d88487f47629fac9d4acd231497a3a412bdee8)
+Copyright (C) 2014 the Emscripten authors (see AUTHORS.txt)
+This is free and open source software under the MIT license.
+There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
+PARTICULAR PURPOSE.
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-ring2exe">
+<span id="index-2"></span><h2>Using Ring2EXE<a class="headerlink" href="#using-ring2exe" title="Permalink to this headline">¶</a></h2>
+<p>We can use Ring2EXE to quickly prepare Qt project for our application</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring2exe myapp.ring -dist -webassemblyqt
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>We can use the Distribute Menu in Ring Notepad</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The option ( Prepare Qt project for WebAssembly ) in the Distribute Menu</p>
+</div>
+</div>
+<div class="section" id="the-qt-project-for-your-ring-application">
+<span id="index-3"></span><h2>The Qt project for your Ring application<a class="headerlink" href="#the-qt-project-for-your-ring-application" title="Permalink to this headline">¶</a></h2>
+<p>After using Ring2EXE or the Distribute Menu in Ring Notepad</p>
+<ul>
+<li><p>Using the Qt Creator Open the generated Qt project</p>
+<blockquote>
+<div><p>Folder : target/webassembly/qtproject</p>
+<p>Project file : project.pro</p>
+</div></blockquote>
+</li>
+<li><p>Using Qt Creator, You will find the compiled Ring application in the resources (YourAppName.ringo)</p>
+<blockquote>
+<div><p>This file (Ring Object File) is generated by the Ring compiler using</p>
+</div></blockquote>
+</li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring YourAppName.ring -go -norun
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>You can build your application using Qt Creator</p></li>
+</ul>
+<ol class="arabic">
+<li><p>You can add your application images to the resources</p>
+<blockquote>
+<div><p>Or You can use any text editor (Notepad) and modify : project.qrc</p>
+</div></blockquote>
+</li>
+<li><p>To find images from your Ring application, You need to use the file name in resources</p>
+<blockquote>
+<div><p>Example</p>
+</div></blockquote>
+</li>
+</ol>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
+        <span class="n">mypic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="s">&quot;:/cards.jpg&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+        <span class="n">mypic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="s">&quot;cards.jpg&quot;</span><span class="p">)</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="comments-about-developing-for-webassembly-using-ringqt">
+<span id="index-4"></span><h2>Comments about developing for WebAssembly using RingQt<a class="headerlink" href="#comments-about-developing-for-webassembly-using-ringqt" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p>The main project file is main.cpp</p>
+<blockquote>
+<div><p>This file load Ring Compiler/Virtual Machine and RingQt</p>
+<p>Then get the Ring Object File during the runtime from the resources</p>
+<p>Then run the Ring Object File (ringapp.ringo) using the Ring VM</p>
+<p>Through main.cpp you can extract more files from the resources to temp. folder once you
+add them (create projects with many files).</p>
+</div></blockquote>
+</li>
+<li><p>use if isWebAssembly() when you want to modify the code just for WebAssembly</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
+        <span class="o">//</span> <span class="n">WebAssembly</span> <span class="n">code</span>
+<span class="k">else</span>
+        <span class="o">//</span> <span class="k">other</span> <span class="n">platforms</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>When you deal with Qt Classes you can determine the images from resources (you don’t need to copy them using main.cpp)</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">isWebAssembly</span><span class="p">()</span>
+    <span class="n">mypic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="s">&quot;:/cards.jpg&quot;</span><span class="p">)</span>
+<span class="k">else</span>
+    <span class="n">mypic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="s">&quot;cards.jpg&quot;</span><span class="p">)</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+<p>Now RingQt comes with the AppFile() function to determine the file name</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">mypic</span> <span class="o">=</span> <span class="k">new</span> <span class="n">QPixmap</span><span class="p">(</span><span class="n">AppFile</span><span class="p">(</span><span class="s">&quot;cards.jpg&quot;</span><span class="p">))</span>  <span class="c"># Desktop, Android or WebAssembly</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>When you update your project code, You don’t have to use Ring2EXE to generate the Qt project again</p></li>
+</ol>
+<p>Just use the Distribute Menu in Ring Notepad and select (Generate Ring Object File)</p>
+<p>Then copy the YourAppName.ringo file to target/webassembly/qtproject folder and accept replacing files.</p>
+<ol class="arabic simple" start="5">
+<li><p>If your application folder contains a Qt resource file (project.qrc)</p></li>
+</ol>
+<p>Then when you use Ring2EXE or Ring Notepad (Distribute - Prepare Qt project for WebAssembly) the
+resource file will be used</p>
+<p>See ring/applications/cards game as an example.</p>
+<ol class="arabic simple" start="6">
+<li><p>Use stdlibcore.ring instead of stdlib.ring when using StdLib functions</p></li>
+<li><p>Use ClocksPerSecond() function instead of typing the value (1000)</p></li>
+<li><p>Nested events loops are not supported, use events for dialogs instead of calling the exec() method</p></li>
+<li><p>Using Sleep() or ProcessEvents() doesn’t provide the expected results, use Qt Timers.</p></li>
+<li><p>We don’t have a direct access to the File System because the applications are executed in a secure environment</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>We can use special functions for Uploading/Downloading files (See FileContent sample)</p>
+</div>
+</div>
+<div class="section" id="dialogs">
+<span id="index-5"></span><h2>Dialogs<a class="headerlink" href="#dialogs" title="Permalink to this headline">¶</a></h2>
+<p>See the folder: ring/samples/UsingQtWASM</p>
+<p>Folders:</p>
+<ul class="simple">
+<li><p>ColorDialog</p></li>
+<li><p>FontDialog</p></li>
+<li><p>FileDialog</p></li>
+<li><p>FileContent</p></li>
+</ul>
+</div>
+<div class="section" id="online-applications">
+<span id="index-6"></span><h2>Online Applications<a class="headerlink" href="#online-applications" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hello World   : <a class="reference external" href="https://ring-lang.github.io/web/helloworld/project.html">https://ring-lang.github.io/web/helloworld/project.html</a></p></li>
+<li><p>Matching Game : <a class="reference external" href="https://ring-lang.github.io/web/matching/project.html">https://ring-lang.github.io/web/matching/project.html</a></p></li>
+<li><p>Pairs Game    : <a class="reference external" href="https://ring-lang.github.io/web/pairs/project.html">https://ring-lang.github.io/web/pairs/project.html</a></p></li>
+<li><p>Othello Game  : <a class="reference external" href="https://ring-lang.github.io/web/othello/project.html">https://ring-lang.github.io/web/othello/project.html</a></p></li>
+<li><p>Game of Life  : <a class="reference external" href="https://ring-lang.github.io/web/gameoflife/project.html">https://ring-lang.github.io/web/gameoflife/project.html</a></p></li>
+<li><p>Form Designer : <a class="reference external" href="https://ring-lang.github.io/web/formdesigner/project.html">https://ring-lang.github.io/web/formdesigner/project.html</a></p></li>
+</ul>
+<img alt="Othello Game" src="_images/othelloweb.png" />
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="web.html" class="btn btn-neutral float-right" title="Web Development (CGI Library)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="qtmobile.html" class="btn btn-neutral float-left" title="Building RingQt Applications for Mobile" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,641 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>System Functions &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Eval() and Debugging" href="evaldebug.html" />
+    <link rel="prev" title="Files" href="files.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">System Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#system-function">System() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sysget-function">SysGet() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ismsdos-function">IsMSDOS() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iswindows-function">IsWindows() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#iswindows64-function">IsWindows64() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isunix-function">IsUnix() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ismacosx-function">IsMacOSX() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#islinux-function">IsLinux() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isfreebsd-function">IsFreeBSD() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#isandroid-function">IsAndroid() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windowsnl-function">Windowsnl() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-command-line-arguments">Get Command Line Arguments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-active-source-file-name">Get Active Source File Name</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#prevfilename-function">PrevFileName() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#currentdir-function">CurrentDir() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exefilename-function">ExeFileName() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#chdir-function">ChDir() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#exefolder-function">ExeFolder() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#version-function">Version() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shutdown-function">Shutdown() Function</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>System Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="system-functions">
+<span id="index-0"></span><h1>System Functions<a class="headerlink" href="#system-functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we are going to learn about the system functions</p>
+<ul class="simple">
+<li><p>System()</p></li>
+<li><p>SysGet()</p></li>
+<li><p>IsMSDOS()</p></li>
+<li><p>IsWindows()</p></li>
+<li><p>IsWindows64()</p></li>
+<li><p>IsUnix()</p></li>
+<li><p>IsMacOSX()</p></li>
+<li><p>IsLinux()</p></li>
+<li><p>IsFreeBSD()</p></li>
+<li><p>IsAndroid()</p></li>
+<li><p>Windowsnl()</p></li>
+<li><p>Get Command Line Arguments</p></li>
+<li><p>Get Active Source File Name</p></li>
+<li><p>CurrentDir()</p></li>
+<li><p>ExeFileName()</p></li>
+<li><p>ChDir()</p></li>
+<li><p>ExeFolder()</p></li>
+<li><p>Version()</p></li>
+<li><p>Shutdown()</p></li>
+</ul>
+<div class="section" id="system-function">
+<span id="index-1"></span><h2>System() Function<a class="headerlink" href="#system-function" title="Permalink to this headline">¶</a></h2>
+<p>We can execute system commands using the system() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">System</span><span class="p">(</span><span class="s">&quot;myapp.exe&quot;</span><span class="p">)</span>     <span class="c"># Run myapp.exe</span>
+<span class="n">System</span><span class="p">(</span><span class="s">&quot;ls&quot;</span><span class="p">)</span>            <span class="c"># print list of files</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sysget-function">
+<span id="index-2"></span><h2>SysGet() Function<a class="headerlink" href="#sysget-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get environment variables using the Get() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SysGet</span><span class="p">(</span><span class="n">cVariable</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">sysget</span><span class="p">(</span><span class="s">&quot;path&quot;</span><span class="p">)</span>              <span class="c"># print system path information</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ismsdos-function">
+<span id="index-3"></span><h2>IsMSDOS() Function<a class="headerlink" href="#ismsdos-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is MSDOS or not using the IsMSDOS() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsMSDOS</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">MS</span><span class="o">-</span><span class="n">DOS</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iswindows-function">
+<span id="index-4"></span><h2>IsWindows() Function<a class="headerlink" href="#iswindows-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Windows or not using the IsWindows() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsWindows</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Windows</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="iswindows64-function">
+<span id="index-5"></span><h2>IsWindows64() Function<a class="headerlink" href="#iswindows64-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Windows 64bit or not using the IsWindows64() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsWindows64</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Windows64</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isunix-function">
+<span id="index-6"></span><h2>IsUnix() Function<a class="headerlink" href="#isunix-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Unix or not using the IsUnix() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsUnix</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Unix</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ismacosx-function">
+<span id="index-7"></span><h2>IsMacOSX() Function<a class="headerlink" href="#ismacosx-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is macOS or not using the IsMacOSX() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsMacOSX</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Mac</span> <span class="n">OS</span> <span class="n">X</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="islinux-function">
+<span id="index-8"></span><h2>IsLinux() Function<a class="headerlink" href="#islinux-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Linux or not using the IsLinux() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsLinux</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Linux</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isfreebsd-function">
+<span id="index-9"></span><h2>IsFreeBSD() Function<a class="headerlink" href="#isfreebsd-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is FreeBSD or not using the IsFreeBSD() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsFreeBSD</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">FreeBSD</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="isandroid-function">
+<span id="index-10"></span><h2>IsAndroid() Function<a class="headerlink" href="#isandroid-function" title="Permalink to this headline">¶</a></h2>
+<p>We can check if the operating system is Android or not using the IsAndroid() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsAndroid</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Android</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="example">
+<span id="index-11"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;IsMSDOS()     --&gt; &quot;</span> <span class="o">+</span> <span class="n">ismsdos</span><span class="p">()</span>     <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsWindows()   --&gt; &quot;</span> <span class="o">+</span> <span class="n">iswindows</span><span class="p">()</span>   <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsWindows64() --&gt; &quot;</span> <span class="o">+</span> <span class="n">iswindows64</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsUnix()      --&gt; &quot;</span> <span class="o">+</span> <span class="n">isunix</span><span class="p">()</span>      <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsMacOSX()    --&gt; &quot;</span> <span class="o">+</span> <span class="n">ismacosx</span><span class="p">()</span>    <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsLinux()     --&gt; &quot;</span> <span class="o">+</span> <span class="n">islinux</span><span class="p">()</span>     <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsFreeBSD()   --&gt; &quot;</span> <span class="o">+</span> <span class="n">isfreebsd</span><span class="p">()</span>   <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;IsAndroid()   --&gt; &quot;</span> <span class="o">+</span> <span class="n">isandroid</span><span class="p">()</span>   <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsMSDOS</span><span class="p">()</span>     <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsWindows</span><span class="p">()</span>   <span class="o">--&gt;</span> <span class="mi">1</span>
+<span class="n">IsWindows64</span><span class="p">()</span> <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsUnix</span><span class="p">()</span>      <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsMacOSX</span><span class="p">()</span>    <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsLinux</span><span class="p">()</span>     <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsFreeBSD</span><span class="p">()</span>   <span class="o">--&gt;</span> <span class="mi">0</span>
+<span class="n">IsAndroid</span><span class="p">()</span>   <span class="o">--&gt;</span> <span class="mi">0</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="windowsnl-function">
+<span id="index-12"></span><h2>Windowsnl() Function<a class="headerlink" href="#windowsnl-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the windows new line string using the Windowsnl() function.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">WindowsNL</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">CR</span><span class="o">+</span><span class="n">LF</span> <span class="o">=</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;input.txt&quot;</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">iswindows</span><span class="p">()</span>
+        <span class="n">cStr</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">windowsnl</span><span class="p">(),</span><span class="n">nl</span><span class="p">)</span>
+<span class="k">ok</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="n">str2list</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="c"># to do - list items processing using &quot;for in&quot;</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">list2str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">iswindows</span><span class="p">()</span>
+        <span class="n">cStr</span> <span class="o">=</span> <span class="n">substr</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">nl</span><span class="p">,</span><span class="n">windowsnl</span><span class="p">())</span>
+<span class="k">ok</span>
+
+<span class="n">write</span><span class="p">(</span><span class="s">&quot;ouput.txt&quot;</span><span class="p">,</span><span class="n">cStr</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-command-line-arguments">
+<span id="index-13"></span><h2>Get Command Line Arguments<a class="headerlink" href="#get-command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<p>We can get the command line arguments passed to the ring script using the sysargv variable.</p>
+<p>The sysargv variable is a list contains the command line parameters.</p>
+<p>Example</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Command Line Parameters&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">sysargv</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">sysargv</span>
+<span class="k">see</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">if</span> <span class="n">len</span><span class="p">(</span><span class="n">sysargv</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">4</span> <span class="k">return</span> <span class="k">ok</span>
+<span class="n">nStart</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="n">nEnd</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="n">nStart</span> <span class="k">to</span> <span class="n">nEnd</span>
+        <span class="k">see</span> <span class="n">x</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">b</span><span class="p">:</span><span class="o">\</span><span class="n">mahmoud</span><span class="o">\</span><span class="n">apps</span><span class="o">\</span><span class="n">ring</span><span class="o">&gt;</span><span class="n">ring</span> <span class="n">tests</span><span class="o">\</span><span class="n">syspara</span><span class="p">.</span><span class="n">ring</span> <span class="mi">1</span> <span class="mi">10</span>
+<span class="o">==============================</span>
+<span class="n">Command</span> <span class="n">Line</span> <span class="n">Parameters</span>
+<span class="n">Size</span> <span class="p">:</span> <span class="mi">4</span>
+<span class="n">ring</span>
+<span class="n">tests</span><span class="o">\</span><span class="n">syspara</span><span class="p">.</span><span class="n">ring</span>
+<span class="mi">1</span>
+<span class="mi">10</span>
+<span class="o">==============================</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="mi">6</span>
+<span class="mi">7</span>
+<span class="mi">8</span>
+<span class="mi">9</span>
+<span class="mi">10</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="get-active-source-file-name">
+<span id="index-14"></span><h2>Get Active Source File Name<a class="headerlink" href="#get-active-source-file-name" title="Permalink to this headline">¶</a></h2>
+<p>We can get the active source file name (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring) using the filename() function</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">active</span> <span class="n">source</span> <span class="n">file</span> <span class="n">name</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;Active Source File Name : &quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Active</span> <span class="n">Source</span> <span class="n">File</span> <span class="n">Name</span> <span class="p">:</span> <span class="n">tests</span><span class="o">\</span><span class="n">filename</span><span class="p">.</span><span class="n">ring</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span> <span class="o">=</span> <span class="n">filename</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;I&#39;m the main program file!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="c"># we can run tests here!</span>
+<span class="k">else</span>
+        <span class="k">see</span> <span class="s">&quot;I&#39;m a sub file in a program&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="prevfilename-function">
+<span id="index-15"></span><h2>PrevFileName() Function<a class="headerlink" href="#prevfilename-function" title="Permalink to this headline">¶</a></h2>
+<p>Using the PrevFileName() function we can get the previous active source file name.</p>
+<p>The previous file would be the file of the caller function, Or the file of the function
+that we called before calling PrevFileName().</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">prevfilename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">source</span> <span class="n">file</span> <span class="n">name</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p>The next function in stdlib.ring uses the PrevFileName() to know if the file of the
+caller function is the main source file of the program or not.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">IsMainSourceFile</span>
+        <span class="k">if</span> <span class="n">PrevFileName</span><span class="p">()</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">return</span> <span class="kp">true</span>
+        <span class="k">ok</span>
+        <span class="k">return</span> <span class="kp">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="currentdir-function">
+<span id="index-16"></span><h2>CurrentDir() Function<a class="headerlink" href="#currentdir-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the path of the current directory</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">CurrenDir</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">path</span> <span class="n">of</span> <span class="n">the</span> <span class="n">currect</span> <span class="n">directory</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exefilename-function">
+<span id="index-17"></span><h2>ExeFileName() Function<a class="headerlink" href="#exefilename-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the Ring executable file name</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">exefilename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span> <span class="n">file</span> <span class="n">name</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="chdir-function">
+<span id="index-18"></span><h2>ChDir() Function<a class="headerlink" href="#chdir-function" title="Permalink to this headline">¶</a></h2>
+<p>Change the current directory</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ChDir</span><span class="p">(</span><span class="n">cNewPath</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="exefolder-function">
+<span id="index-19"></span><h2>ExeFolder() Function<a class="headerlink" href="#exefolder-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the Ring executable file path</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">exefolder</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span> <span class="n">path</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="version-function">
+<span id="index-20"></span><h2>Version() Function<a class="headerlink" href="#version-function" title="Permalink to this headline">¶</a></h2>
+<p>Return the Ring version</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">version</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mf">1.13</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="shutdown-function">
+<span id="index-21"></span><h2>Shutdown() Function<a class="headerlink" href="#shutdown-function" title="Permalink to this headline">¶</a></h2>
+<p>Close the application</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">shutdown</span><span class="p">(</span><span class="n">nStatus</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Close</span> <span class="n">the</span> <span class="n">application</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="evaldebug.html" class="btn btn-neutral float-right" title="Eval() and Debugging" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="files.html" class="btn btn-neutral float-left" title="Files" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,902 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Extension using the C/C++ languages &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Embedding Ring Language in C/C++ Programs" href="embedding.html" />
+    <link rel="prev" title="Tutorial: Ring Extensions in C/C++" href="extension_tutorial.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Extension using the C/C++ languages</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#ring-ext-h">ring_ext.h</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-ext-c">ring_ext.c</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-organization">Module Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#function-structure">Function Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-parameters-count">Check Parameters Count</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-error-message">Display Error Message</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#check-parameters-type">Check Parameters Type</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#get-parameters-values">Get Parameters Values</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#return-value">Return Value</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#function-prototype">Function Prototype</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sin-function-implementation">Sin() Function Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#fopen-and-fclose-functions-implementation">Fopen() and Fclose() Functions Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-api-list-functions">Ring API - List Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-api-string-functions">Ring API - String Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#mysql-columns-function-implementation">MySQL_Columns() Function Implementation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#dynamic-shared-libraries-dll-so-dylib-and-loadlib-function">Dynamic/Shared Libraries (DLL/So/Dylib) and LoadLib() function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-ring-api-retmanagedcpointer">Using RING_API_RETMANAGEDCPOINTER()</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Extension using the C/C++ languages</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="extension-using-the-c-c-languages">
+<span id="index-0"></span><h1>Extension using the C/C++ languages<a class="headerlink" href="#extension-using-the-c-c-languages" title="Permalink to this headline">¶</a></h1>
+<p>We can extend the Ring Virtual Machine (RingVM) by adding new functions written in the C programming language or C++.
+The RingVM comes with many functions written in C that we can call like any Ring function.</p>
+<p>We can extend the language by writing new functions then rebuilding the RingVM again, or we can create shared
+library (DLL/So) file to extend the RingVM without the need to rebuild it.</p>
+<p>The Ring language source code comes with two files to add new modules to the RingVM, ring_ext.h and ring_ext.c</p>
+<div class="section" id="ring-ext-h">
+<span id="index-1"></span><h2>ring_ext.h<a class="headerlink" href="#ring-ext-h" title="Permalink to this headline">¶</a></h2>
+<p>The file ring_ext.h contains constants that we can change to include/exclude modules during the build process.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#ifndef ringext_h</span>
+<span class="cp">#define ringext_h</span>
+<span class="cm">/* Constants */</span>
+<span class="cp">#define RING_VM_LISTFUNCS       1</span>
+<span class="cp">#define RING_VM_REFMETA         1</span>
+<span class="cp">#define RING_VM_MATH            1</span>
+<span class="cp">#define RING_VM_FILE            1</span>
+<span class="cp">#define RING_VM_OS              1</span>
+<span class="cp">#define RING_VM_MYSQL           1</span>
+<span class="cp">#define RING_VM_ODBC            1</span>
+<span class="cp">#define RING_VM_OPENSSL         1</span>
+<span class="cp">#define RING_VM_CURL            1</span>
+<span class="cp">#define RING_VM_DLL             1</span>
+<span class="cp">#endif</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ring-ext-c">
+<span id="index-2"></span><h2>ring_ext.c<a class="headerlink" href="#ring-ext-c" title="Permalink to this headline">¶</a></h2>
+<p>The file ring_ext.c check constants defined in ring_ext.h before calling the start-up function in each module.</p>
+<p>Each module contains a function that register the module functions in the RingVM.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">ring_vm_extension</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span> <span class="p">)</span>
+<span class="p">{</span>
+        <span class="cm">/* Reflection and Meta-programming */</span>
+        <span class="cp">#if RING_VM_REFMETA</span>
+                <span class="n">ring_vm_refmeta_loadfunctions</span><span class="p">(</span><span class="n">pRingState</span><span class="p">);</span>
+        <span class="cp">#endif</span>
+        <span class="cm">/* List Functions */</span>
+        <span class="cp">#if RING_VM_LISTFUNCS</span>
+                <span class="n">ring_vm_listfuncs_loadfunctions</span><span class="p">(</span><span class="n">pRingState</span><span class="p">);</span>
+        <span class="cp">#endif</span>
+        <span class="cm">/* Math */</span>
+        <span class="cp">#if RING_VM_MATH</span>
+                <span class="n">ring_vm_math_loadfunctions</span><span class="p">(</span><span class="n">pRingState</span><span class="p">);</span>
+        <span class="cp">#endif</span>
+        <span class="cm">/* File */</span>
+        <span class="cp">#if RING_VM_FILE</span>
+                <span class="n">ring_vm_file_loadfunctions</span><span class="p">(</span><span class="n">pRingState</span><span class="p">);</span>
+        <span class="cp">#endif</span>
+        <span class="cm">/* OS */</span>
+        <span class="cp">#if RING_VM_OS</span>
+                <span class="n">ring_vm_os_loadfunctions</span><span class="p">(</span><span class="n">pRingState</span><span class="p">);</span>
+        <span class="cp">#endif</span>
+        <span class="cm">/* MySQL */</span>
+        <span class="cp">#if RING_VM_MYSQL</span>
+                <span class="n">ring_vm_mysql_loadfunctions</span><span class="p">(</span><span class="n">pRingState</span><span class="p">);</span>
+        <span class="cp">#endif</span>
+        <span class="cm">/* ODBC */</span>
+        <span class="cp">#if RING_VM_ODBC</span>
+                <span class="n">ring_vm_odbc_loadfunctions</span><span class="p">(</span><span class="n">pRingState</span><span class="p">);</span>
+        <span class="cp">#endif</span>
+        <span class="cm">/* OPENSSL */</span>
+        <span class="cp">#if RING_VM_OPENSSL</span>
+                <span class="n">ring_vm_openssl_loadfunctions</span><span class="p">(</span><span class="n">pRingState</span><span class="p">);</span>
+        <span class="cp">#endif</span>
+        <span class="cm">/* CURL */</span>
+        <span class="cp">#if RING_VM_CURL</span>
+                <span class="n">ring_vm_curl_loadfunctions</span><span class="p">(</span><span class="n">pRingState</span><span class="p">);</span>
+        <span class="cp">#endif</span>
+        <span class="cm">/* DLL */</span>
+        <span class="cp">#if RING_VM_DLL</span>
+                <span class="n">ring_vm_dll_loadfunctions</span><span class="p">(</span><span class="n">pRingState</span><span class="p">);</span>
+        <span class="cp">#endif</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-organization">
+<span id="index-3"></span><h2>Module Organization<a class="headerlink" href="#module-organization" title="Permalink to this headline">¶</a></h2>
+<p>Each module starts by include the ring header file (ring.h).
+This files contains the Ring API that we can use to extend the RingVM.</p>
+<p>Each module comes with a function to register the module functions in the RingVM
+The registration is done by using ring_vm_funcregister() function.</p>
+<p>The ring_vm_funcregister() function takes two parameters, the first is the function name
+that will be used by Ring programs to call the function. The second parameter is the
+function pointer in the C program.</p>
+<p>for example, the ring_vmmath.c module contains the next code to register the module functions</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
+
+<span class="kt">void</span> <span class="nf">ring_vm_math_loadfunctions</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span> <span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sin&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sin</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;cos&quot;</span><span class="p">,</span><span class="n">ring_vm_math_cos</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;tan&quot;</span><span class="p">,</span><span class="n">ring_vm_math_tan</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;asin&quot;</span><span class="p">,</span><span class="n">ring_vm_math_asin</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;acos&quot;</span><span class="p">,</span><span class="n">ring_vm_math_acos</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;atan&quot;</span><span class="p">,</span><span class="n">ring_vm_math_atan</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;atan2&quot;</span><span class="p">,</span><span class="n">ring_vm_math_atan2</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sinh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sinh</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;cosh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_cosh</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;tanh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_tanh</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;exp&quot;</span><span class="p">,</span><span class="n">ring_vm_math_exp</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;log&quot;</span><span class="p">,</span><span class="n">ring_vm_math_log</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;log10&quot;</span><span class="p">,</span><span class="n">ring_vm_math_log10</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;ceil&quot;</span><span class="p">,</span><span class="n">ring_vm_math_ceil</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;floor&quot;</span><span class="p">,</span><span class="n">ring_vm_math_floor</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;fabs&quot;</span><span class="p">,</span><span class="n">ring_vm_math_fabs</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;pow&quot;</span><span class="p">,</span><span class="n">ring_vm_math_pow</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sqrt&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sqrt</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;unsigned&quot;</span><span class="p">,</span><span class="n">ring_vm_math_unsigned</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;decimals&quot;</span><span class="p">,</span><span class="n">ring_vm_math_decimals</span><span class="p">);</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;murmur3hash&quot;</span><span class="p">,</span><span class="n">ring_vm_math_murmur3hash</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>Remember that the function ring_vm_math_loadfunctions() will be called by the
+ring_vm_extension() function (in the ring_ext.c file).</p>
+</div>
+</div>
+<div class="section" id="function-structure">
+<span id="index-4"></span><h2>Function Structure<a class="headerlink" href="#function-structure" title="Permalink to this headline">¶</a></h2>
+<p>Each module function may contains the next steps</p>
+<p>1 - Check Parameters Count</p>
+<p>2 - Check Parameters Type</p>
+<p>3 - Get Parameters Values</p>
+<p>4 - Execute Code/Call Functions</p>
+<p>5 - Return Value</p>
+<p>The structure is very similar to any function (Input - Process - Output)
+But here we will use the Ring API for the steps 1,2,3 and 5.</p>
+</div>
+<div class="section" id="check-parameters-count">
+<span id="index-5"></span><h2>Check Parameters Count<a class="headerlink" href="#check-parameters-count" title="Permalink to this headline">¶</a></h2>
+<p>We can check the parameters count using the RING_API_PARACOUNT macro.</p>
+<p>We can compare RING_API_PARACOUNT with any numeric value using == or != operators.</p>
+<p>Example:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* code */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">==</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+        <span class="cm">/* code */</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="display-error-message">
+<span id="index-6"></span><h2>Display Error Message<a class="headerlink" href="#display-error-message" title="Permalink to this headline">¶</a></h2>
+<p>We can display error messages using the RING_API_ERROR() function.</p>
+<p>The function will display the error and end the execution of the program.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>the behaviour of this function can be changed by the Ring code
+using Try/Catch/Done statements, so in your C code, use Return after this function.</p>
+</div>
+<p>Syntax:</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">RING_API_ERROR</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cErrorMsg</span><span class="p">);</span>
+</pre></div>
+</div>
+<p>The Ring API comes with some of predefined error messages that we can use</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RING_API_MISS1PARA &quot;Bad parameters count, the function expect one parameter&quot;</span>
+<span class="cp">#define RING_API_MISS2PARA &quot;Bad parameters count, the function expect two parameters&quot;</span>
+<span class="cp">#define RING_API_MISS3PARA &quot;Bad parameters count, the function expect three parameters&quot;</span>
+<span class="cp">#define RING_API_MISS4PARA &quot;Bad parameters count, the function expect four parameters&quot;</span>
+<span class="cp">#define RING_API_BADPARATYPE    &quot;Bad parameter type!&quot;</span>
+<span class="cp">#define RING_API_BADPARACOUNT   &quot;Bad parameters count!&quot;</span>
+<span class="cp">#define RING_API_BADPARARANGE   &quot;Bad parameters value, error in range!&quot;</span>
+<span class="cp">#define RING_API_NOTPOINTER     &quot;Error in parameter, not pointer!&quot;</span>
+<span class="cp">#define RING_API_NULLPOINTER    &quot;Error in parameter, NULL pointer!&quot;</span>
+<span class="cp">#define RING_API_EMPTYLIST      &quot;Bad parameter, empty list!&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="check-parameters-type">
+<span id="index-7"></span><h2>Check Parameters Type<a class="headerlink" href="#check-parameters-type" title="Permalink to this headline">¶</a></h2>
+<p>We can check the parameter type using the next functions</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">int</span> <span class="nf">RING_API_ISNUMBER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">RING_API_ISSTRING</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">RING_API_ISLIST</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">RING_API_ISCPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">RING_API_ISPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>  <span class="c1">// List or C Pointer</span>
+</pre></div>
+</div>
+<p>The output of these functions will be 1 (True) or 0 (False).</p>
+</div>
+<div class="section" id="get-parameters-values">
+<span id="index-8"></span><h2>Get Parameters Values<a class="headerlink" href="#get-parameters-values" title="Permalink to this headline">¶</a></h2>
+<p>We can get paramters values using the next functions</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">double</span> <span class="nf">RING_API_GETNUMBER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="nf">RING_API_GETSTRING</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">RING_API_GETSTRINGSIZE</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="n">List</span> <span class="o">*</span><span class="nf">RING_API_GETLIST</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+<span class="kt">void</span> <span class="o">*</span><span class="nf">RING_API_GETCPOINTER</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">,</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cPoinerType</span><span class="p">);</span>
+<span class="kt">int</span> <span class="nf">RING_API_GETPOINTERTYPE</span><span class="p">(</span><span class="kt">int</span> <span class="n">nParameterNumber</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="return-value">
+<span id="index-9"></span><h2>Return Value<a class="headerlink" href="#return-value" title="Permalink to this headline">¶</a></h2>
+<p>We can return values from our function using the next functions.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="kt">double</span> <span class="n">nValue</span><span class="p">);</span>
+<span class="n">RING_API_RETSTRING</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cString</span><span class="p">);</span>
+<span class="n">RING_API_RETSTRING2</span><span class="p">(</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cString</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStringSize</span><span class="p">);</span>
+<span class="n">RING_API_RETLIST</span><span class="p">(</span><span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">);</span>
+<span class="n">RING_API_RETCPOINTER</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">);</span>
+<span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="kt">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
+                                <span class="kt">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">,</span><span class="kt">void</span> <span class="o">*</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="function-prototype">
+<span id="index-10"></span><h2>Function Prototype<a class="headerlink" href="#function-prototype" title="Permalink to this headline">¶</a></h2>
+<p>When we define new function to be used for RingVM extension, we use the next prototype</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">my_function_name</span><span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">);</span>
+</pre></div>
+</div>
+<p>or we can use the RING_FUNC() Macro</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">RING_FUNC</span><span class="p">(</span><span class="n">my_function_name</span><span class="p">);</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="sin-function-implementation">
+<span id="index-11"></span><h2>Sin() Function Implementation<a class="headerlink" href="#sin-function-implementation" title="Permalink to this headline">¶</a></h2>
+<p>The next code represents the sin() function implementation using the Ring API and
+the sin() C function.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_math_sin</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
+<span class="p">{</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_ISNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="n">sin</span><span class="p">(</span><span class="n">RING_API_GETNUMBER</span><span class="p">(</span><span class="mi">1</span><span class="p">)));</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fopen-and-fclose-functions-implementation">
+<span id="index-12"></span><h2>Fopen() and Fclose() Functions Implementation<a class="headerlink" href="#fopen-and-fclose-functions-implementation" title="Permalink to this headline">¶</a></h2>
+<p>The next code represents the fopen() function implementation
+using the Ring API and the fopen() C Function.</p>
+<p>The function takes two parameters, the first parameter is the file name as string.
+The second parameter is the mode as string.</p>
+<p>In the file ring_vmfile.h we have some constants to use as the pointer type like</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#define RING_VM_POINTER_FILE    &quot;file&quot;</span>
+<span class="cp">#define RING_VM_POINTER_FILEPOS &quot;filepos&quot;</span>
+</pre></div>
+</div>
+<p>The function implementation in ring_vmfile.c</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_file_fopen</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span>  <span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">2</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS2PARA</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="n">RING_API_ISSTRING</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">RING_API_GETSTRING</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">RING_API_GETSTRING</span><span class="p">(</span><span class="mi">2</span><span class="p">));</span>
+                <span class="n">RING_API_RETCPOINTER</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">RING_VM_POINTER_FILE</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The next code represents the fclose() function implementation</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_file_fclose</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
+<span class="p">{</span>
+        <span class="kt">FILE</span> <span class="o">*</span><span class="n">fp</span>  <span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_ISCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">fp</span> <span class="o">=</span> <span class="p">(</span><span class="kt">FILE</span> <span class="o">*</span><span class="p">)</span> <span class="n">RING_API_GETCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">RING_VM_POINTER_FILE</span><span class="p">)</span> <span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">fp</span> <span class="o">!=</span> <span class="nb">NULL</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">));</span>
+                        <span class="n">RING_API_SETNULLPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">);</span>
+                <span class="p">}</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>From fopen() and fclose() implementation we learned</p>
+<p>1 - how to return C pointer using RING_API_RETCPOINTER() function</p>
+<p>2 - how to check if the parameter is a pointer using the RING_API_ISCPOINTER() function</p>
+<p>3 - how to get C pointer value using the RING_API_GETCPOINTER() function</p>
+<p>4 - how to set the C pointer variable (in RingVM) to NULL using the RING_API_SETNULLPOINTER() function</p>
+</div>
+<div class="section" id="ring-api-list-functions">
+<span id="index-13"></span><h2>Ring API - List Functions<a class="headerlink" href="#ring-api-list-functions" title="Permalink to this headline">¶</a></h2>
+<p>In this section we will learn about the list functions provided by the Ring API to create new lists and
+manipulate the list items.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">List</span> <span class="o">*</span> <span class="nf">ring_list_new</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">nSize</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_newitem</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="n">Item</span> <span class="o">*</span> <span class="nf">ring_list_getitem</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="n">List</span> <span class="o">*</span> <span class="nf">ring_list_delete</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_deleteitem</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_print</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_gettype</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_setint</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">,</span><span class="kt">int</span> <span class="n">number</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_addint</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">x</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_setpointer</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">,</span><span class="kt">void</span> <span class="o">*</span><span class="n">pValue</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_addpointer</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">void</span> <span class="o">*</span><span class="n">pValue</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_setfuncpointer</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">,</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">pFunc</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_addfuncpointer</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">pFunc</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_isfuncpointer</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_setdouble</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">,</span><span class="kt">double</span> <span class="n">number</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_adddouble</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">double</span> <span class="n">x</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_setstring</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_setstring2</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_addstring</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_addstring2</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize</span> <span class="p">)</span> <span class="p">;</span>
+<span class="n">List</span> <span class="o">*</span> <span class="nf">ring_list_newlist</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="n">List</span> <span class="o">*</span> <span class="nf">ring_list_getlist</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_setlist</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_setactiveitem</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="n">Items</span> <span class="o">*</span><span class="n">pItems</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_copy</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pNewList</span><span class="p">,</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_isnumber</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_isstring</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_islist</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_ispointer</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="kt">int</span> <span class="n">index</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_deleteallitems</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_insertitem</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">x</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_insertint</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">nPos</span><span class="p">,</span><span class="kt">int</span> <span class="n">x</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_insertdouble</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">nPos</span><span class="p">,</span><span class="kt">double</span> <span class="n">x</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_insertpointer</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">nPos</span><span class="p">,</span><span class="kt">void</span> <span class="o">*</span><span class="n">pValue</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_insertstring</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">nPos</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_insertstring2</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">nPos</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_insertfuncpointer</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">nPos</span><span class="p">,</span><span class="kt">void</span> <span class="p">(</span><span class="o">*</span><span class="n">pFunc</span><span class="p">)(</span><span class="kt">void</span> <span class="o">*</span><span class="p">)</span> <span class="p">)</span> <span class="p">;</span>
+<span class="n">List</span> <span class="o">*</span> <span class="nf">ring_list_insertlist</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">nPos</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_isiteminsidelist</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="n">Item</span> <span class="o">*</span><span class="n">pItem</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_findstring</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="kt">int</span> <span class="n">nColumn</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_finddouble</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">double</span> <span class="n">nNum1</span><span class="p">,</span><span class="kt">int</span> <span class="n">nColumn</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_sortnum</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">left</span><span class="p">,</span><span class="kt">int</span> <span class="n">right</span><span class="p">,</span><span class="kt">int</span> <span class="n">nColumn</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_sortstr</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">left</span><span class="p">,</span><span class="kt">int</span> <span class="n">right</span><span class="p">,</span><span class="kt">int</span> <span class="n">nColumn</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_binarysearchnum</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">double</span> <span class="n">nNum1</span><span class="p">,</span><span class="kt">int</span> <span class="n">nColumn</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_list_binarysearchstr</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cFind</span><span class="p">,</span><span class="kt">int</span> <span class="n">nColumn</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_swap</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">x</span><span class="p">,</span><span class="kt">int</span> <span class="n">y</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">double</span> <span class="nf">ring_list_getdoublecolumn</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">nIndex</span><span class="p">,</span><span class="kt">int</span> <span class="n">nColumn</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span> <span class="nf">ring_list_getstringcolumn</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span><span class="kt">int</span> <span class="n">nIndex</span><span class="p">,</span><span class="kt">int</span> <span class="n">nColumn</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_genarray</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_deletearray</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_genhashtable</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_genhashtable2</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_refcopy</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pNewList</span><span class="p">,</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_list_clear</span> <span class="p">(</span> <span class="n">List</span> <span class="o">*</span><span class="n">pList</span> <span class="p">)</span> <span class="p">;</span>
+<span class="cm">/* Macro */</span>
+<span class="n">ring_list_isdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ring_list_isint</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ring_list_deletelastitem</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ring_list_gethashtable</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ring_list_getint</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ring_list_getpointer</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ring_list_getfuncpointer</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ring_list_callfuncpointer</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">index</span><span class="p">,</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ring_list_getdouble</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ring_list_getstring</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ring_list_getstringobject</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ring_list_getstringsize</span><span class="p">(</span><span class="n">pList</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
+<span class="n">ring_list_getsize</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="p">(</span><span class="n">x</span><span class="o">-&gt;</span><span class="n">nSize</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ring-api-string-functions">
+<span id="index-14"></span><h2>Ring API - String Functions<a class="headerlink" href="#ring-api-string-functions" title="Permalink to this headline">¶</a></h2>
+<p>In this section we will learn about the string functions provided by the Ring API to create new string and
+manipulate the string content.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="n">String</span> <span class="o">*</span> <span class="nf">ring_string_new</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="p">)</span> <span class="p">;</span>
+<span class="n">String</span> <span class="o">*</span> <span class="nf">ring_string_new2</span> <span class="p">(</span> <span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize</span> <span class="p">)</span> <span class="p">;</span>
+<span class="n">String</span> <span class="o">*</span> <span class="nf">ring_string_delete</span> <span class="p">(</span> <span class="n">String</span> <span class="o">*</span><span class="n">pString</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span> <span class="nf">ring_string_size</span> <span class="p">(</span> <span class="n">String</span> <span class="o">*</span><span class="n">pString</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_string_set</span> <span class="p">(</span> <span class="n">String</span> <span class="o">*</span><span class="n">pString</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_string_set2</span> <span class="p">(</span> <span class="n">String</span> <span class="o">*</span><span class="n">pString</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_string_add</span> <span class="p">(</span> <span class="n">String</span> <span class="o">*</span><span class="n">pString</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_string_add2</span> <span class="p">(</span> <span class="n">String</span> <span class="o">*</span><span class="n">pString</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">str</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_string_print</span> <span class="p">(</span> <span class="n">String</span> <span class="o">*</span><span class="n">pString</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_string_setfromint</span> <span class="p">(</span> <span class="n">String</span> <span class="o">*</span><span class="n">pString</span><span class="p">,</span><span class="kt">int</span> <span class="n">x</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span> <span class="nf">ring_string_lower</span> <span class="p">(</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cStr</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span> <span class="nf">ring_string_upper</span> <span class="p">(</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cStr</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span> <span class="nf">ring_string_lower2</span> <span class="p">(</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cStr</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span> <span class="nf">ring_string_upper2</span> <span class="p">(</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cStr</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span> <span class="nf">ring_string_find</span> <span class="p">(</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cStr1</span><span class="p">,</span><span class="kt">char</span> <span class="o">*</span><span class="n">cStr2</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">char</span> <span class="o">*</span> <span class="nf">ring_string_find2</span> <span class="p">(</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cStr1</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize1</span><span class="p">,</span><span class="kt">char</span> <span class="o">*</span><span class="n">cStr2</span><span class="p">,</span><span class="kt">int</span> <span class="n">nStrSize2</span> <span class="p">)</span> <span class="p">;</span>
+<span class="cm">/* Macro */</span>
+<span class="n">ring_string_tolower</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ring_string_toupper</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">ring_string_get</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="mysql-columns-function-implementation">
+<span id="index-15"></span><h2>MySQL_Columns() Function Implementation<a class="headerlink" href="#mysql-columns-function-implementation" title="Permalink to this headline">¶</a></h2>
+<p>The next code presents the MySQL_Columns() function implementation.</p>
+<p>This function returns table columns information.</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="kt">void</span> <span class="nf">ring_vm_mysql_columns</span> <span class="p">(</span> <span class="kt">void</span> <span class="o">*</span><span class="n">pPointer</span> <span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">MYSQL</span> <span class="o">*</span><span class="n">con</span>  <span class="p">;</span>
+        <span class="n">MYSQL_RES</span> <span class="o">*</span><span class="n">result</span>  <span class="p">;</span>
+        <span class="kt">int</span> <span class="n">nColumns</span><span class="p">,</span><span class="n">x</span>  <span class="p">;</span>
+        <span class="n">MYSQL_ROW</span> <span class="n">row</span>  <span class="p">;</span>
+        <span class="n">MYSQL_FIELD</span> <span class="o">*</span><span class="n">field</span>  <span class="p">;</span>
+        <span class="n">List</span> <span class="o">*</span><span class="n">pList</span><span class="p">,</span> <span class="o">*</span><span class="n">pList2</span>  <span class="p">;</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_PARACOUNT</span> <span class="o">!=</span> <span class="mi">1</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_MISS1PARA</span><span class="p">);</span>
+                <span class="k">return</span> <span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">if</span> <span class="p">(</span> <span class="n">RING_API_ISCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                <span class="n">con</span> <span class="o">=</span> <span class="p">(</span><span class="n">MYSQL</span> <span class="o">*</span><span class="p">)</span> <span class="n">RING_API_GETCPOINTER</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">RING_VM_POINTER_MYSQL</span><span class="p">)</span> <span class="p">;</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">con</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="k">return</span> <span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">result</span> <span class="o">=</span> <span class="n">mysql_store_result</span><span class="p">(</span><span class="n">con</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">result</span> <span class="o">==</span> <span class="nb">NULL</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="n">RING_API_RETNUMBER</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>
+                        <span class="k">return</span> <span class="p">;</span>
+                <span class="p">}</span>
+                <span class="n">pList</span> <span class="o">=</span> <span class="n">RING_API_NEWLIST</span> <span class="p">;</span>
+                <span class="n">nColumns</span> <span class="o">=</span> <span class="n">mysql_num_fields</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">row</span> <span class="o">=</span> <span class="n">mysql_fetch_row</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                        <span class="k">while</span> <span class="p">(</span> <span class="n">field</span> <span class="o">=</span> <span class="n">mysql_fetch_field</span><span class="p">(</span><span class="n">result</span><span class="p">)</span> <span class="p">)</span> <span class="p">{</span>
+                                <span class="n">pList2</span> <span class="o">=</span> <span class="n">ring_list_newlist</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
+                                <span class="n">ring_list_addstring</span><span class="p">(</span><span class="n">pList2</span><span class="p">,</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">name</span><span class="p">);</span>
+                                <span class="n">ring_list_adddouble</span><span class="p">(</span><span class="n">pList2</span><span class="p">,</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">length</span><span class="p">);</span>
+                                <span class="n">ring_list_adddouble</span><span class="p">(</span><span class="n">pList2</span><span class="p">,</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">type</span><span class="p">);</span>
+                                <span class="n">ring_list_adddouble</span><span class="p">(</span><span class="n">pList2</span><span class="p">,</span><span class="n">field</span><span class="o">-&gt;</span><span class="n">flags</span><span class="p">);</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="n">mysql_free_result</span><span class="p">(</span><span class="n">result</span><span class="p">);</span>
+                <span class="n">RING_API_RETLIST</span><span class="p">(</span><span class="n">pList</span><span class="p">);</span>
+        <span class="p">}</span> <span class="k">else</span> <span class="p">{</span>
+                <span class="n">RING_API_ERROR</span><span class="p">(</span><span class="n">RING_API_BADPARATYPE</span><span class="p">);</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Lists are of type List, in the previoud function we declared two pointers of type List
+using List <a href="#id1"><span class="problematic" id="id2">*</span></a>pList, <a href="#id3"><span class="problematic" id="id4">*</span></a>pList2;</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>The function uses RING_API_NEWLIST to create new list instead of ring_list_new()
+to create the list in Temp. Memory related to the function scope. This way we can
+return the list from the function. Also we don’t delete the list, if it’s stored in
+a variable by Ring Code it will be saved, if not it will be automatically deleted by RingVM.</p>
+</div>
+<p>The list can contains sub lists, we used the function ring_list_newlist() to create a sublist.</p>
+<p>The function ring_list_addstring() is used to add string items to the list/sublist.</p>
+<p>The function ring_list_adddouble() is used to add numeric items to the list/sublist.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>All numeric items in lists returned from RingVM extension functions must be of type double
+and added to the list using ring_list_adddouble() function.</p>
+</div>
+<p>We return the list from the extension function using the RING_API_RETLIST() function.</p>
+</div>
+<div class="section" id="dynamic-shared-libraries-dll-so-dylib-and-loadlib-function">
+<span id="index-16"></span><h2>Dynamic/Shared Libraries (DLL/So/Dylib) and LoadLib() function<a class="headerlink" href="#dynamic-shared-libraries-dll-so-dylib-and-loadlib-function" title="Permalink to this headline">¶</a></h2>
+<p>Instead of rebuilding the RingVM after writing new functions using C/C++ and the Ring API, we can create
+a DLL/So/Dylib file and dynamically use the functions provided by this file in the runtime using the LoadLib() function.</p>
+<p>Dynamic library example in C</p>
+<div class="highlight-C notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
+
+<span class="n">RING_DLL</span> <span class="nf">__declspec</span><span class="p">(</span><span class="n">dllexport</span><span class="p">)</span>
+
+<span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_ringlib_dlfunc</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Message from dlfunc&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">RING_DLL</span> <span class="kt">void</span> <span class="nf">ringlib_init</span><span class="p">(</span><span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;dlfunc&quot;</span><span class="p">,</span><span class="n">ring_ringlib_dlfunc</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>the idea is to create the ringlib_init() function, this function will be called by the RingVM when we use the generated DLL
+file though the LoadLib() function.</p>
+<p>Inside the ringlib_init() function we can register the module function or call a function that do the registration process
+for all of the module functions.</p>
+<p>The next Ring code demonstrates how to use the DLL library during the runtime.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Dynamic DLL&quot;</span> <span class="o">+</span> <span class="n">NL</span>
+<span class="n">LoadLib</span><span class="p">(</span><span class="s">&quot;ringlib.dll&quot;</span><span class="p">)</span>
+<span class="n">dlfunc</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Dynamic</span> <span class="n">DLL</span>
+<span class="n">Message</span> <span class="k">from</span> <span class="n">dlfunc</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-ring-api-retmanagedcpointer">
+<span id="index-17"></span><h2>Using RING_API_RETMANAGEDCPOINTER()<a class="headerlink" href="#using-ring-api-retmanagedcpointer" title="Permalink to this headline">¶</a></h2>
+<p>Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a managed
+pointer to Ring. This pointer can be controlled by the Ring VM using reference counting.</p>
+<p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
+<p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
+                                <span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p>The next example from ring_qt.cpp - QPixMap Class - Scaled() Method.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RING_FUNC(ring_QPixmap_scaled)
+{
+        QPixmap *pObject ;
+        if ( RING_API_PARACOUNT != 5 ) {
+                RING_API_ERROR(RING_API_BADPARACOUNT);
+                return ;
+        }
+        RING_API_IGNORECPOINTERTYPE ;
+        if ( ! RING_API_ISCPOINTER(1) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        pObject = (QPixmap *) RING_API_GETCPOINTER(1,&quot;QPixmap&quot;);
+        if ( ! RING_API_ISNUMBER(2) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        if ( ! RING_API_ISNUMBER(3) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        if ( ! RING_API_ISNUMBER(4) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        if ( ! RING_API_ISNUMBER(5) ) {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+                return ;
+        }
+        {
+                QPixmap *pValue ;
+                pValue = new QPixmap() ;
+                *pValue = pObject-&gt;scaled( (int ) RING_API_GETNUMBER(2),
+                         (int ) RING_API_GETNUMBER(3),
+                         (Qt::AspectRatioMode )  (int) RING_API_GETNUMBER(4),
+                         (Qt::TransformationMode )  (int) RING_API_GETNUMBER(5));
+                RING_API_RETMANAGEDCPOINTER(pValue,&quot;QPixmap&quot;,ring_QPixmap_freefunc);
+        }
+}
+</pre></div>
+</div>
+<p>The function that will free the memory takes two parameters (Ring State and the allocated Memory Pointer)</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>void ring_QPixmap_freefunc(void *pState,void *pPointer)
+{
+        QPixmap *pObject ;
+        pObject = (QPixmap *) pPointer;
+        delete pObject ;
+}
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="embedding.html" class="btn btn-neutral float-right" title="Embedding Ring Language in C/C++ Programs" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="extension_tutorial.html" class="btn btn-neutral float-left" title="Tutorial: Ring Extensions in C/C++" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

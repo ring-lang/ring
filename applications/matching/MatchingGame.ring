@@ -5,7 +5,7 @@
 
 load "stdlib.ring"
 load "guilib.ring"
-load "matchinglist.ring"
+load "MatchingList.ring"
 
 limit 		= 3
 numCountry 	= 0

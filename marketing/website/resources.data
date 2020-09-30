@@ -1,3107 +1,375 @@
-﻿aResources = [ ["Samples and Applications",[
+﻿aResources = [ ["Applications",[
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" target="_blank">Ring Notepad</a>',
+		'<img src="ringnotepad.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/tools/formdesigner" target="_blank">Ring Form Designer</a>',
+		'<img src="ringformdesigner.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/tools/findinfiles" target="_blank">Find in files</a>',
+		'<img src="findinfiles.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/cards" target="_blank">The Cards Game</a>',
+		'<img src="cards.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/starsfighter" target="_blank">Stars Fighter Game</a>',
+		'<img src="starsfighter.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/flappybird3000" target="_blank">Flappy Bird Game</a>',
+		'<img src="flappybird.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/superman2016" target="_blank">Super Man Game</a>',
+		'<img src="superman.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe3d" target="_blank">TicTacToe 3D</a>',
+		'<img src="tictactoe3d.png" width="100%">'
+	],
+	[
+		'<a href="https://store.steampowered.com/app/939200/Gold_Magic_800/" target="_blank">Gold Magic 800</a>',
+		'<img src="goldmagic800.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" target="_blank">Gold Magic 800 Level Editor</a>',
+		'<img src="gm800le.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle" target="_blank">Fifteen Puzzle Game</a>',
+		'<img src="fifteen2.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/analogclock" target="_blank">Analog Clock</a>',
+		'<img src="analogclock.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory" target="_blank">Yahoo Stock Data</a>',
+		'<img src="getquotesmac.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/urlshortener" target="_blank">Google URL Shortener</a>',
+		'<img src="urlapp.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/winstartupmanager" target="_blank">Windows Startup Manager</a>',
+		'<img src="winstartupman.jpg" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/videomusicplayer" target="_blank">Video Music Player</a>',
+		'<img src="videomusicplayer.jpg" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe" target="_blank">TicTacToe</a>',
+		'<img src="tictactoe.jpg" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/calculator" target="_blank">Calculator</a>',
+		'<img src="newcalc2.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringrepl" target="_blank">Ring REPL</a>',
+		'<img src="ringrepl.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
+		'<img src="numtostr.jpg" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen" target="_blank">Code Generator for extensions</a>',
+		'<img src="codegen.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/tools/ring2exe" target="_blank">Ring2EXE</a>',
+		'<img src="ring2exe.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/sixteenpuzzle" target="_blank">Sixteen Puzzle</a>',
+		'<img src="sixteenpuzzle.jpg" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/squarespuzzle" target="_blank">Squares Puzzle</a>',
+		'<img src="squarespuzzle.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/werdy" target="_blank">Werdy Application</a>',
+		'<img src="werdy.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/employee" target="_blank">Employee Data</a>',
+		'<img src="empapp.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/weighthistory" target="_blank">Weight History</a>',
+		'<img src="weighthistory.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle3d" target="_blank">Fifteen Puzzle 3D Game</a>',
+		'<img src="fifteen3d.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" target="_blank">Qt Class Converter</a>',
+		'<img src="qtconverter.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/tools/string2constant" target="_blank">String To Constant</a>',
+		'<img src="string2constant.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">Stop Watch</a>',
+		'<img src="stopwatch.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/chess" target="_blank">Chess Game</a>',
+		'<img src="chessgame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/gameoflife" target="_blank">Game of Life</a>',
+		'<img src="gameoflife.jpg" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/knighttour" target="_blank">Knight Tour</a>',
+		'<img src="knighttour.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/minesweeper" target="_blank">Minesweeper</a>',
+		'<img src="minesweeper.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong" target="_blank">Pong</a>',
+		'<img src="ponggame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/sumpuzzlegame" target="_blank">Sum Puzzle</a>',
+		'<img src="sumpuzzle.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/othellogame" target="_blank">Othello Game</a>',
+		'<img src="othello.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/maze" target="_blank">Maze Game</a>',
+		'<img src="maze.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/sokoban" target="_blank">Sokoban Game</a>',
+		'<img src="sokoban.jpg" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/sudoku" target="_blank">Sudoku Game</a>',
+		'<img src="sudoku.jpg" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/checkers" target="_blank">Checkers Game</a>',
+		'<img src="checkersgame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/snake" target="_blank">Snake Game</a>',
+		'<img src="snake.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/desktopscreenshot" target="_blank">Desktop Screen Shot Application</a>',
+		'<img src="dssapp.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/tesseragame" target="_blank">Tessera Game</a>',
+		'<img src="tesseragame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/asciitable" target="_blank">ASCII Table application</a>',
+		'<img src="asciitable.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/bmicalculator" target="_blank">BMI Caclculator application</a>',
+		'<img src="BMI.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/go" target="_blank">Go Game</a>',
+		'<img src="go.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
+		'<img src="calendar.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
+		'<img src="juliandaycalendar.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/magicballs" target="_blank">Magic Balls Game</a>',
+		'<img src="magicballs.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/laser" target="_blank">Laser Game</a>',
+		'<img src="lasergame2.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/questions" target="_blank">Questions Game</a>',
+		'<img src="questionsgame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneycase" target="_blank">MoneyCase Game</a>',
+		'<img src="moneycase.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneyboxes" target="_blank">MoneyBoxes Game</a>',
+		'<img src="moneyboxes.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/rockpaperscissors" target="_blank">Rock Paper Scissors Game</a>',
+		'<img src="rockgame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/matching" target="_blank">Matching Game</a>',
+		'<img src="matchinggame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/nimgame" target="_blank">Nim Game</a>',
+		'<img src="nimgame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/pairs" target="_blank">Pairs Game</a>',
+		'<img src="pairsgame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/lottery" target="_blank">Lottery Game</a>',
+		'<img src="lotterygame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/tetris" target="_blank">Tetris Game</a>',
+		'<img src="tetris.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/wordgame" target="_blank">Word Game</a>',
+		'<img src="wordgame2.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/escape" target="_blank">Escape Game</a>',
+		'<img src="escapegame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/towersofhanoi" target="_blank">Towers of Hanoi</a>',
+		'<img src="towersofhanoi.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/eightqueens" target="_blank">Eight Queens Game</a>',
+		'<img src="eightqueensgame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong2" target="_blank">Pong2 Game</a>',
+		'<img src="pong2game.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/spaceshooter" target="_blank">Space Shooter Game</a>',
+		'<img src="spaceshootergame.png" width="100%">'
+	]
+
+	]
+	],
+	["Online Applications (WebAssembly)",[
 				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle/CalmoSoftFifteenPuzzleGame.ring" target="_blank">Fifteen Puzzle Game</a>',
-					'<img src="fifteen2.png" width="100%">'
+					'<a href="web/formdesigner/project.html" target="_blank">The Form Designer</a>'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/analogclock/AnalogClock-Image.ring" target="_blank">Analog Clock</a>',
-					'<img src="analogclock.png" width="100%">'
+					'<a href="web/matching/project.html" target="_blank">The Matching Game</a>'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/rnote/rnote.ring" target="_blank">Ring Notepad</a>',
-					'<img src="ringnotepad.png" width="100%">'
+					'<a href="web/pairs/project.html" target="_blank">The Pairs Game</a>'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/formdesigner" target="_blank">Ring Form Designer</a>',
-					'<img src="ringformdesigner.png" width="100%">'
+					'<a href="web/othello/project.html" target="_blank">The Othello Game</a>'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory/GetQuotesHistoryDraw-v1.0.ring" target="_blank">Yahoo Stock Data</a>',
-					'<img src="getquotesmac.png" width="100%">'
+					'<a href="web/word/project.html" target="_blank">The Word Game</a>'
 				],
 				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/urlshortener/urlshortenermain.ring" target="_blank">Google URL Shortener</a>',
-					'<img src="urlapp.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/MajdiSobain/WinStartupManager/blob/master/WinStartupManager.ring" target="_blank">Windows Startup Manager</a>',
-					'<img src="winstartupman.jpg" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/videomusicplayer/AA-Video-Music-Player.ring" target="_blank">Video Music Player</a>',
-					'<img src="videomusicplayer.jpg" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/cards/cards.ring" target="_blank">The Cards Game</a>',
-					'<img src="cards.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe/TicTacToe.ring" target="_blank">TicTacToe</a>',
-					'<img src="tictactoe.jpg" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe3d/tictactoe3d.ring" target="_blank">TicTacToe 3D</a>',
-					'<img src="tictactoe3d.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/calculator/calc-gui.ring" target="_blank">Calculator</a>',
-					'<img src="newcalc2.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/ringrepl/replw.ring" target="_blank">Ring REPL</a>',
-					'<img src="ringrepl.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
-					'<img src="numtostr.jpg" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen/parsec.ring" target="_blank">Code Generator for extensions</a>',
-					'<img src="codegen.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/ring2exe/ring2exe.ring" target="_blank">Ring2EXE</a>',
-					'<img src="ring2exe.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/sixteenpuzzle/CalmoSoftSixteenPuzzle.ring" target="_blank">Sixteen Puzzle</a>',
-					'<img src="sixteenpuzzle.jpg" width="100%">'
-				],
-				[
-					'<a href="https://github.com/MajdiSobain/RingAllegro_SquaresPuzzle" target="_blank">Squares Puzzle</a>',
-					'<img src="squarespuzzle.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/starsfighter/starsfighter.ring" target="_blank">Stars Fighter Game</a>',
-					'<img src="starsfighter.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/flappybird3000/flappybird3000.ring" target="_blank">Flappy Bird Game</a>',
-					'<img src="flappybird.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/superman2016/superman.ring" target="_blank">Super Man Game</a>',
-					'<img src="superman.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/werdy" target="_blank">Werdy Application</a>',
-					'<img src="werdy.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/employee/Emp.ring" target="_blank">Employee Data</a>',
-					'<img src="empapp.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/weighthistory/weighthistory.ring" target="_blank">Weight History</a>',
-					'<img src="weighthistory.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle3d/CalmoSoftFifteenPuzzleGame3D.ring" target="_blank">Fifteen Puzzle 3D Game</a>',
-					'<img src="fifteen3d.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" target="_blank">Qt Class Converter</a>',
-					'<img src="qtconverter.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/findinfiles" target="_blank">Find in files</a>',
-					'<img src="findinfiles.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/samples/tools/string2constant" target="_blank">String To Constant</a>',
-					'<img src="string2constant.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">Stop Watch</a>',
-					'<img src="stopwatch.png" width="100%">'
-				],
-				[
-					'<a href="https://store.steampowered.com/app/939200/Gold_Magic_800/" target="_blank">Gold Magic 800</a>',
-					'<img src="goldmagic800.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" target="_blank">Gold Magic 800 Level Editor</a>',
-					'<img src="gm800le.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/chess" target="_blank">Chess Game</a>',
-					'<img src="chessgame.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/gameoflife" target="_blank">Game of Life</a>',
-					'<img src="gameoflife.jpg" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/knighttour" target="_blank">Knight Tour</a>',
-					'<img src="knighttour.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/minesweeper" target="_blank">Minesweeper</a>',
-					'<img src="minesweeper.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong" target="_blank">Pong</a>',
-					'<img src="ponggame.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/sumpuzzlegame" target="_blank">Sum Puzzle</a>',
-					'<img src="sumpuzzle.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/othellogame" target="_blank">Othello Game</a>',
-					'<img src="othello.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/maze" target="_blank">Maze Game</a>',
-					'<img src="maze.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/sokoban" target="_blank">Sokoban Game</a>',
-					'<img src="sokoban.jpg" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/sudoku" target="_blank">Sudoku Game</a>',
-					'<img src="sudoku.jpg" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/checkers" target="_blank">Checkers Game</a>',
-					'<img src="checkersgame.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/snake" target="_blank">Snake Game</a>',
-					'<img src="snake.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/desktopscreenshot" target="_blank">Desktop Screen Shot Application</a>',
-					'<img src="dssapp.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/tesseragame" target="_blank">Tessera Game</a>',
-					'<img src="tesseragame.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/asciitable" target="_blank">ASCII Table application</a>',
-					'<img src="asciitable.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/bmicalculator" target="_blank">BMI Caclculator application</a>',
-					'<img src="BMI.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/go" target="_blank">Go Game</a>',
-					'<img src="go.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
-					'<img src="calendar.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
-					'<img src="juliandaycalendar.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/magicballs" target="_blank">Magic Balls Game</a>',
-					'<img src="magicballs.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/laser" target="_blank">Laser Game</a>',
-					'<img src="lasergame2.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/questions" target="_blank">Questions Game</a>',
-					'<img src="questionsgame.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneycase" target="_blank">MoneyCase Game</a>',
-					'<img src="moneycase.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneyboxes" target="_blank">MoneyBoxes Game</a>',
-					'<img src="moneyboxes.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/rockpaperscissors" target="_blank">Rock Paper Scissors Game</a>',
-					'<img src="rockgame.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/matching" target="_blank">Matching Game</a>',
-					'<img src="matchinggame.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/nimgame" target="_blank">Nim Game</a>',
-					'<img src="nimgame.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/pairs" target="_blank">Pairs Game</a>',
-					'<img src="pairsgame.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/lottery" target="_blank">Lottery Game</a>',
-					'<img src="lotterygame.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/tetris" target="_blank">Tetris Game</a>',
-					'<img src="tetris.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/wordgame" target="_blank">Word Game</a>',
-					'<img src="wordgame2.png" width="100%">'
-				],
-				[
-					'<a href="https://github.com/ring-lang/ring/tree/master/applications/escape" target="_blank">Escape Game</a>',
-					'<img src="escapegame.png" width="100%">'
+					'<a href="web/gameoflife/project.html" target="_blank">The Game of Life</a>'
 				]
-			    ]
-                 ],
-	     ["English Tutorials (YouTube) by Roshan Ali",[
+	]
+	],
+	["English Resources",[
 				[
-					'<a href="https://www.youtube.com/watch?v=qQm5L-S92hk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=1" target="_blank">Ring: Hello World (Download and Installation: Lesson One)</a>'
+					'<a href="https://www.apress.com/gp/book/9781484258323" target="_blank">Apress: Beginning Ring Programming</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=7BqoQldx0Pk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=2" target="_blank">Ring Programing: Lesson 2 - Basics of Ring</a>'
+					'<a href="https://rosettacode.org/wiki/Category:Ring" target="_blank">Ring Samples (Rosettacode)</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=LO3lEAZOiTk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=3" target="_blank">Ring Programing: Lesson 3 - Classes and Objects</a>'
-				]
-			]
-	     ],
-                 ["Posts from the 'Ring Documentation Walkthrough' blog",[
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/13/ring-programming-language-guide/" target="_blank">The Ring Programming Language Guide</a>'
+					'<a href="https://en.wikibooks.org/wiki/Ring" target="_blank">Ring in Wikibooks (Version 1.0)</a>'
 				],
 				[
-					'<a href="https://ribdev.wordpress.com/2016/01/28/ring-documentation-walkthrough-1/" target="_blank">Installation</a>'
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank">Ring Group (Many Useful Topics)</a>'
 				],
 				[
-					'<a href="https://ribdev.wordpress.com/2016/01/28/ring-documentation-walkthrough-2-hello-world/" target="_blank">Hello, World!</a>'
+					'<a href="https://www.youtube.com/watch?v=QABSHg4zY6M&feature=emb_title" target="_blank">Introduction (What is Ring?)</a>'
 				],
 				[
-					'<a href="https://ribdev.wordpress.com/2016/01/29/ring-documentation-walkthrough-3-variables/" target="_blank">Variables & Comments</a>'
+					'<a href="https://www.youtube.com/watch?v=7BqoQldx0Pk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=2" target="_blank">Video Tutorials (Getting Started!)</a>'
 				],
 				[
-					'<a href="https://ribdev.wordpress.com/2016/01/30/ring-documentation-walkthrough-4-operators/" target="_blank">Operators</a>'
+					'<a href="https://www.youtube.com/watch?v=6MquWkCeft8&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=1" target="_blank">Video Tutorials (Short Movies)</a>'
 				],
 				[
-					'<a href="https://ribdev.wordpress.com/2016/01/30/ring-documentation-walkthrough-5-if-switch-statements/" target="_blank">If & Switch statements</a>'
+					'<a href="https://www.youtube.com/watch?v=3NS_AmVYhjU&list=PLpQiqjcu7CuGUnhKlYJUk1RpNQkVcaCP-&index=1" target="_blank">Video Tutorials (Answers to some Questions)</a>'
 				],
 				[
-					'<a href="https://ribdev.wordpress.com/2016/01/31/ring-documentation-walkthrough-5-1-loops/" target="_blank">Loops</a>'
+					'<a href="https://ribdev.wordpress.com/category/ring-documentation-walkthrough/" target="_blank">Ring Documentation Walkthrough</a>'
 				],
 				[
-					'<a href="https://ribdev.wordpress.com/2016/02/01/ring-documentation-walkthrough-5-2-short-circuit-evaluation/" target="_blank">Short-circuit evaluation</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/02/ring-documentation-walkthrough-5-3-inputs/" target="_blank">Inputs</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/03/ring-documentation-walkthrough-6-functions/" target="_blank">Functions</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/04/ring-documentation-walkthrough-7-lists/" target="_blank">Lists</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/09/ring-documentation-walkthrough-7-1-lists-2/" target="_blank">Lists (2)</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/11/ring-documentation-walkthrough-7-2-lists-3/" target="_blank">Lists (3)</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/12/ring-documentation-walkthrough-8-strings/" target="_blank">Strings</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/12/ring-documentation-walkthrough-8-1-str2list-list2str/" target="_blank">The str2list() & list2str() functions</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/12/ring-documentation-walkthrough-8-2-strcmp/" target="_blank">The strcmp() function</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/12/ring-documentation-walkthrough-8-3-substr/" target="_blank">The Substr() function</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/12/ring-documentation-walkthrough-9-date-and-time/" target="_blank">Date and Time</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/18/ring-documentation-walkthrough-10-check-data-types-1/" target="_blank">Check Data Types 1</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/18/ring-documentation-walkthrough-10-1-check-data-types-2/" target="_blank">Check Data Types 2</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/18/ring-documentation-walkthrough-10-2-conversions/" target="_blank">Conversions</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/20/ring-documentation-walkthrough-11-math/" target="_blank">Math</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/02/25/ring-documentation-walkthrough-12-files/" target="_blank">Files</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/03/14/ring-documentation-walkthrough-12-1-advanced-read-write-files/" target="_blank">Advanced Read & Write - Files</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/03/14/ring-documentation-walkthrough-13-system-functions/" target="_blank">System Functions</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/03/14/ring-documentation-walkthrough-14-final-eval-error-handling/" target="_blank">Eval and Error handling</a>'
-				],
-				[
-					'<a href="https://ribdev.wordpress.com/2016/07/04/ring-how-to-download-files/" target="_blank">How to download files?</a>'
-				]
-			]
-	      ],
-	      ["Posts from the 'Thinking in the Ring programming language' blog",[
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/29/printing-new-lines-and-other-characters-in-the-ring-programming-language/" target="_blank">Printing New Lines and other characters</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/29/comparing-between-strings-in-ring/" target="_blank">Comparing between strings</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/29/writing-the-split-functionmethod-in-the-ring-programming-language/" target="_blank">Writing the Split() function/method</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/29/why-we-dont-use-after-the-qapp-class-name-in-the-ring-programming-language/" target="_blank">Why we don’t use () after the qApp class name</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/29/ringqt-the-window-title-bar-is-going-outside-the-screen-the-problem-and-the-solution/" target="_blank">RingQt: The window title bar is going outside the screen – The Problem and the solution</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/29/list-of-the-ring-programming-language-keywords-and-functions/" target="_blank">List of the Ring programming language Keywords and Functions</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/30/inserting-an-item-into-the-first-position-of-the-list-using-the-ring-programming-language/" target="_blank">Inserting an item into the first position of the list</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/30/how-to-update-the-gui-from-threads-in-the-ring-programming-language/" target="_blank">How to update the GUI from threads</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/30/array-of-buttons-using-the-ring-programming-language/" target="_blank">Array of buttons</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/30/printing-lists-contains-objects-using-the-ring-programming-language/" target="_blank">Printing Lists contains objects</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/30/null-isnull-and-uninitialized-variables-in-the-ring-programming-language/" target="_blank">NULL, ISNULL() and uninitialized variables</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/31/using-step-with-for-in-and-modifying-lists/" target="_blank">Using Step with “For In” and modifying lists</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/31/nl-and-writing-the-print-function/" target="_blank">NL and writing the Print() function</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/31/closing-a-window-then-displaying-another-one/" target="_blank">Closing a window then displaying another one!</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/01/31/creating-a-modal-window/" target="_blank">Creating a Modal Window</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/01/using-the-copy-function-to-replicate-strings/" target="_blank">Using the Copy() Function to replicate Strings</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/03/functions-with-optional-parameters-using-list-with-string-index-in-the-ring-programming-langauge/" target="_blank">Functions with optional parameters using list with string index</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/03/writing-string-literal-quickly-using-the-operator-in-the-ring-programming-language/" target="_blank">Writing string literal quickly using the ‘:’ operator</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/05/eval-and-secuirty-how-to-disable-and-change-the-behaviour-of-standard-ring-functions/" target="_blank">Eval() and Secuirty – how to disable and change the behaviour of standard Ring functions</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/09/the-main-function-in-the-ring-programming-language/" target="_blank">The Main Function</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/09/the-getchar-function-in-the-ring-programming-language/" target="_blank">The GetChar() function</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/09/using-many-source-files-in-the-ring-programming-language/" target="_blank">Using many source files </a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/12/why-the-list-index-start-from-1-in-the-ring-programming-language/" target="_blank">Why the list index start from 1</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/12/the-output-of-the-strcmp-function-in-the-ring-programming-language/" target="_blank">The output of the StrCmp() function</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/13/the-philosophy-behind-data-types-in-ring/" target="_blank">The philosophy behind data types in Ring</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/13/a-difference-between-printing-new-line-with-lists-than-the-normal-behavior/" target="_blank">A difference between printing new line with lists than the normal behavior</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/14/listdictionary-print-keys-only-or-values-only-in-the-ring-programming-language/" target="_blank">List/Dictionary – Print keys only or values only</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/02/14/functions-predefined-parameters-or-optional-parameters-in-the-ring-programming-language/" target="_blank">Functions – Predefined parameters or optional parameters</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/03/12/get-the-current-source-file-path/" target="_blank">Get the current source file path</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/03/24/boolean-values/" target="_blank">Question about the Boolean Values representation</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2016/03/26/get-the-file-size-using-ftell-and-fseek-functions-in-the-ring-programming-language/" target="_blank">Get the file size using ftell() and fseek() functions</a>'
-				],
-				[
-					'<a href="https://ringlang.wordpress.com/2017/02/05/sample-in-the-ring-programming-language-add-button-after-drawing-the-button-region-using-the-mouse/" target="_blank">Add button after drawing the button region using the Mouse</a>'
+					'<a href="https://ringlang.wordpress.com" target="_blank">Thinking in the Ring programming language </a>'
 				]
 			]
 	     ],
-         ["Posts from the 'Ringorialand' blog",[
+	     ["Arabic Resources",[
 				[
-					'<a href="https://medium.com/ringorialand/a-gamified-foundation-for-mastering-programming-part-1-5-1fbea1a83446" target="_blank">A Gamified Foundation For Mastering Programming — Part 1/5</a>'
+					'<a href="https://ringprogramming4arab.wordpress.com/%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D9%88%D9%8A-2/" target="_blank">Blog: Ring Programming for Arab</a>'
 				],
 				[
-					'<a href="https://medium.com/ringorialand/a-gamified-foundatation-for-mastering-programming-part-2-5-3cf9e8c81e37" target="_blank">A Gamified Foundation For Mastering Programming — Part 2/5</a>'
+					'<a href="https://www.youtube.com/watch?v=uSv5rJp6snw&list=PLgc0fyJgivssosIJu4kJGk5avIjaMzYHK" target="_blank">Arabic Video Tutorials (Ring Basics)</a>'
 				],
 				[
-					'<a href="https://medium.com/ringorialand/a-gamified-foundation-for-mastering-programming-part-3-5-67a480e4e689" target="_blank">A Gamified Foundation For Mastering Programming — Part 3/5</a>'
+					'<a href="https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">Arabic Video Tutorials (Mastering Ring)</a>'
 				],
 				[
-					'<a href="https://medium.com/ringorialand/a-gamified-foundation-for-mastering-programming-part-4-5-819ea3606528" target="_blank">A Gamified Foundation For Mastering Programming — Part 4/5</a>'
+					'<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">Arabic Video Tutorials (Ring Lectures)</a>'
 				],
 				[
-					'<a href="https://medium.com/ringorialand/a-gamified-foundation-for-mastering-programming-part-5-5-8ba1ce97f8b3" target="_blank">A Gamified Foundation For Mastering Programming — Part 5/5</a>'
-				]
-			]
-	     ],	
-	     ["English Tutorials (YouTube)",[
-				[
-					'<a href="https://www.youtube.com/watch?v=QABSHg4zY6M" target="_blank">The Ring programming language</a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6MquWkCeft8&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=1" target="_blank">Welcome to the Ring Programming Language </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=-wogd8a3RSc&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=2" target="_blank">Hello World - Ring Programming Language - Lesson 1 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=RWeYWzcovEo&index=3&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Not Case-Sensitive - Ring Programming Language - Lesson 2 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=JOV8CQj6w3Q&index=4&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Multi-Line Literal - Ring Programming Language - Lesson 3  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=U4-2G0diGZQ&index=5&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Getting Input - Ring Programming Language - Lesson 4 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=v1Hr2O7xF9c&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=6" target="_blank">No explicit end for statement - Ring Programming Language - Lesson 5  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bZvAMNFy06o&index=7&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Writing Comments - Ring Programming Language - Lesson 6 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=nebVb94D42w&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=8" target="_blank">Variables - Ring Programming Language - Lesson 7  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=xActq-CSGyk&index=9&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Dynamic Typing - Ring Programming Language - Lesson 8 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=EokBPyWnPkQ&index=10&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Deep Copy - Ring Programming Language - Lesson 9 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=sKcbRDBdUlw&index=11&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Weakly Typed - Ring Programming Language - Lesson 10 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MkUHjDRsU_M&index=12&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Arithmetic Operators - Ring Programming Language - Lesson 11 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=kffiGjF9Tb4&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=13" target="_blank">Relational Operators - Ring Programming Language - Lesson 12  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=T2USI9jiDY4&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=14" target="_blank">Logical Operators - Ring Programming Language - Lesson 13  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=-j3wkEVXDO8&index=15&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Bitwise Operators - Ring Programming Language - Lesson 14  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=rcLQzyk6bTQ&index=16&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Assignment Operators - Ring Programming Language - Lesson 15  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=GeYkx0M9HU0&index=17&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Misc Operators - Ring Programming Language - Lesson 16  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=NJBrhq7oyhc&index=18&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Operators Precedence - Ring Programming Language - Lesson 17  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qAv9pHddKwU&index=19&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IF Statement - Ring Programming Language - Lesson 18  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ccryRH9UQG4&index=20&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Switch Statement - Ring Programming Language - Lesson 19  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=hevk4RLCtI0&index=21&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">While Loop - Ring Programming Language - Lesson 20  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=-AsKXDwUsxk&index=22&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">For Loop - Ring Programming Language - Lesson 21  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=JkCIBVSDm68&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=23" target="_blank">For In Loop - Ring Programming Language - Lesson 22  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YmIZsxU7o2c&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=24" target="_blank">Do Again Loop - Ring Programming Language - Lesson 23  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_w5fJO4Rx3Q&index=25&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Exit Command - Ring Programming Language - Lesson 24  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=I9sP2oZNhfg&index=26&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Exit from two loops - Ring Programming Language - Lesson 25  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=QxmaLKV6ApI&index=27&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Loop Command - Ring Programming Language - Lesson 26  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=y1ENZ2OxgTM&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=28" target="_blank">Exit/Loop inside Sub Functions - Ring Programming Language - Lesson 27  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FA4WCOn5nHo&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=29" target="_blank">Short-Circuit Evaluation - Ring Programming Language - Lesson 28  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qY4hu_Dj1hk&index=30&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Comments About Evaluation - Ring Programming Language - Lesson 29  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=5FpMmUdqrvA&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=31" target="_blank">Give Command - Ring Programming Language - Lesson 30  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=gkMK5x-Klew&index=32&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">GetChar() Function - Ring Programming Language - Lesson 31  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=V2qElnWjNGU&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=33" target="_blank">Input() Function - Ring Programming Language - Lesson 32  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=XJzH76k5Fjs&index=34&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Define Function - Ring Programming Language - Lesson 33  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6TqvRLWzbvo&index=35&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Call Functions - Ring Programming Language - Lesson 34  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=doeiv_2JdH0&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=36" target="_blank">Send Parameters - Ring Programming Language - Lesson 35  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=OJPzZSYNxZ4&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=37" target="_blank">Main Function - Ring Programming Language - Lesson 36  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=GR5tPeh5If0&index=38&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Variables Scope - Ring Programming Language - Lesson 37  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6KFyadeKTzg&index=39&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Program Structure - Ring Programming Language - Lesson 38  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ka_1WUODoBE&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=40" target="_blank">Return Value - Ring Programming Language - Lesson 39  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=tQDM9g6xxUI&index=41&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Recursion - Ring Programming Language - Lesson 40  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MULad6kgO54&index=42&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Create Lists - Ring Programming Language - Lesson 41  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=tU8BTbaP1aA&index=43&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Add Items to Lists - Ring Programming Language - Lesson 42  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=CSMqsXpn_2E&index=44&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Get List Size - Ring Programming Language - Lesson 43  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1M_gEtks3Ag&index=45&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Delete Item From List - Ring Programming Language - Lesson 44  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_0fal17sybc&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=46" target="_blank">Get List Item - Ring Programming Language - Lesson 45  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=f9wM6SDbk5M&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=47" target="_blank">Set List Item - Ring Programming Language - Lesson 46  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=pKepKxPmK1k&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=48" target="_blank">Search - Ring Programming Language - Lesson 47  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=aF2v4ve20wU&index=49&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">BinarySearch() Function - Ring Programming Language - Lesson 48  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=f6xsGKTvhUw&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=50" target="_blank">Sort List - Ring Programming Language - Lesson 49  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=5v_65q7DgPk&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=51" target="_blank">Reverse List - Ring Programming Language - Lesson 50  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=rOmZBbVeaYk&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=52" target="_blank">Insert Items - Ring Programming Language - Lesson 51  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6o6iM487j1w&index=53&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Nested Lists - Ring Programming Language - Lesson 52  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=I1BKZky7aSg&index=54&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Copy Lists - Ring Programming Language - Lesson 53  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=jnGQmFmVCY8&index=55&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">First-Class Lists - Ring Programming Language - Lesson 54  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=lsc7moc4_DU&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=56" target="_blank">Using Lists During Definition - Ring Programming Language - Lesson 55  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=RztnomB0P6Y&index=57&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Passing Lists to Functions - Ring Programming Language - Lesson 56  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=VgqnUgx8ulI&index=58&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Access list items by string index - Ring Programming Language - Lesson 57  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=9v-HugkIYEw&index=59&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Passing Parameters using Lists - Ring Programming Language - Lesson 58  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=i0bTcW8TAtU&index=60&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">String Literals - Ring Programming Language - Lesson 59  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=VLTRh45uYTc&index=61&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Convert Letters Case - Ring Programming Language - Lesson 60  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3fSJ_-Lt6MQ&index=62&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Access String Letters - Ring Programming Language - Lesson 61  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ErMbhJyLHJw&index=63&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Left() Function - Ring Programming Language - Lesson 62  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fOQoSEkvkpY&index=64&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Right() Function - Ring Programming Language - Lesson 63  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3u1rDyT2VEY&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=65" target="_blank">Trim() Function - Ring Programming Language - Lesson 64  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qHCNXEKHtxI&index=66&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Copy() Function - Ring Programming Language - Lesson 65  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=tEsJWm8tSS4&index=67&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Lines() Function - Ring Programming Language - Lesson 66  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=9qSoXeMRKZE&index=68&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Substr() Function - Ring Programming Language - Lesson 67  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Q_4YnkMcejM&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=69" target="_blank">Get sub string from position to end - Ring Programming Language - Lesson 68  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=vlQrDW83Mx4&index=70&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Get characters from position - Ring Programming Language - Lesson 69  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=uufxRHjpQh8&index=71&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Transform substring to another substring - Ring Programming Language - Lesson 70  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1j-SHKEHPHI&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=72" target="_blank">strcmp() Function - Ring Programming Language - Lesson 71  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Su1MAgf0qK0&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=73" target="_blank">str2list() and list2str() Functions - Ring Programming Language - Lesson 72  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KodO1bAPPhA&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=74" target="_blank">Clock() Function - Ring Programming Language - Lesson 73  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fmVhVzZxqpM&index=75&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Time() Function - Ring Programming Language - Lesson 74  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=iwlTUtMw_Lw&index=76&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Date() Function - Ring Programming Language - Lesson 75  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=QHu3KyG3OZg&index=77&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">TimeList() Function - Ring Programming Language - Lesson 76  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=OC1qNt2M2mc&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=78" target="_blank">AddDays() Function - Ring Programming Language - Lesson 77  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6BXfhiDtFwA&index=79&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">DiffDays() Function - Ring Programming Language - Lesson 78  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Bviec9utrKE&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=80" target="_blank">IsString() Function - Ring Programming Language - Lesson 79  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=OqUNXwcklSE&index=81&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsNumber() Function - Ring Programming Language - Lesson 80  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Ffsc3kVID2I&index=82&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsList() Function - Ring Programming Language - Lesson 81  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=wTG7iUaBhUM&index=83&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Type() Function - Ring Programming Language - Lesson 82  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=AvPnqtu3C2s&index=84&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsNULL() Function - Ring Programming Language - Lesson 83  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=sPlbqwyxiKY&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=85" target="_blank">IsAlNum() Function - Ring Programming Language - Lesson 84  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_RjrSSS0nos&index=86&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsAlpha() Function - Ring Programming Language - Lesson 85  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=lVXVmbcdW9U&index=87&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsCntrl() Function - Ring Programming Language - Lesson 86 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FXcraRZiYtA&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=88" target="_blank">IsDigit() Function - Ring Programming Language - Lesson 87  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ii42nd6h5eI&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=89" target="_blank">IsGraph() Function - Ring Programming Language - Lesson 88  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ie6USu0L14c&index=90&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsLower() Function - Ring Programming Language - Lesson 89  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Pt51NigU5-8&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=91" target="_blank">IsPrint() Function - Ring Programming Language - Lesson 90  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=v5_iRoPX0_Y&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=92" target="_blank">IsPunct() Function - Ring Programming Language - Lesson 91  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=oKtk4R663Ss&index=93&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsSpace() Function - Ring Programming Language - Lesson 92  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fTJmjho0Ej0&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=94" target="_blank">IsUpper() Function - Ring Programming Language - Lesson 93  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=VvEgo2Xtcpk&index=95&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsXDigit() Function - Ring Programming Language - Lesson 94  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3FmiDlsZnIQ&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=96" target="_blank">Number() Function - Ring Programming Language - Lesson 95  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3eZQKlo8xQI&index=97&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">String() Function - Ring Programming Language - Lesson 96  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=eMo99Sm9VDw&index=98&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">ASCII() Function - Ring Programming Language - Lesson 97  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=c_u3US8NcRk&index=99&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Char() Function - Ring Programming Language - Lesson 98  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=u_q_hGqBC3o&index=100&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Hex() Function - Ring Programming Language - Lesson 99  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=yBjoHLiS0kI&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=101" target="_blank">Dec() Function - Ring Programming Language - Lesson 100  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=cFi96MopYz4&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=102" target="_blank">Str2Hex() Function - Ring Programming Language - Lesson 101  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=0Uwo8XiPKdo&index=103&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Hex2Str() Function - Ring Programming Language - Lesson 102  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=EZWIRjRWu6o&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=104" target="_blank">Sin() Function - Ring Programming Language - Lesson 103  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=9Pat2MOTgCE&index=105&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Cos() Function - Ring Programming Language - Lesson 104  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=w7-go8nj6h8&index=106&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Tan() Function - Ring Programming Language - Lesson 105  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=zJ4-DnHlTjU&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=107" target="_blank">asin() Function - Ring Programming Language - Lesson 106  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qX25s1pp2Yo&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=108" target="_blank">acos() Function - Ring Programming Language - Lesson 107  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ziy2psncDWM&index=109&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">atan() Function - Ring Programming Language - Lesson 108  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=zIQ3vp_tiZA&index=110&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">atan2() Function - Ring Programming Language - Lesson 109  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=AelyZuhm4d0&index=111&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">sinh() Function - Ring Programming Language - Lesson 110  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=iuo4_i0Ctd0&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=112" target="_blank">cosh() Function - Ring Programming Language - Lesson 111  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=y8MDmVTJ2KQ&index=113&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">tanh() Function - Ring Programming Language - Lesson 112  </a>'					
+					'<a href="https://www.youtube.com/watch?v=bxVFEH3lgfU&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a" target="_blank">Introduction to Desktop and Mobile development</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=9mFx9YsZp7Q&index=114&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">exp() Function - Ring Programming Language - Lesson 113  </a>'					
+					'<a href="https://www.youtube.com/watch?v=EDyrgo-0BIg&index=1&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring Package Manager (RingPM)</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=0Lg-mCcxN3Q&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=115" target="_blank">log() Function - Ring Programming Language - Lesson 114  </a>'					
+					'<a href="https://www.youm7.com/story/2016/1/11/%D9%81%D9%89-25-%D9%8A%D9%86%D8%A7%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A8%D9%84-%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D9%85%D9%88%D8%A7%D8%B5%D9%81%D8%A7%D8%AA-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-%D9%85%D9%86/2532713" target="_blank">Introducing Ring by Youm7</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=KLMHwEPGTiM&index=116&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">log10() Function - Ring Programming Language - Lesson 115  </a>'					
+					'<a href="https://www.youm7.com/story/2016/11/23/%D8%A8%D8%AF%D8%A1-%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%AC%D9%8A%D9%84-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF-%D9%85%D9%86-%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A8%D8%AF%D9%88%D9%86-%D9%83%D9%88%D8%AF/2979508" target="_blank">Using Ring in PWCT 2.0 development</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=JgFpGm7ZvIU&index=117&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">ceil() Function - Ring Programming Language - Lesson 116  </a>'					
+					'<a href="https://muslims-res.com/%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D8%A3%D9%8A%D8%AF%D9%8D-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%88%D9%84%D9%82%D8%A7%D8%A1-%D8%AD%D8%B5%D8%B1/" target="_blank">Introducing Ring by Researchers Website</a>'
 				],
-				[
-					'<a href="https://www.youtube.com/watch?v=DQUtKYMERNM&index=118&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">floor() Function - Ring Programming Language - Lesson 117  </a>'					
-				],
-				[
-				'<a href="https://www.youtube.com/watch?v=nLv5iLPBB-M&index=119&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">fabs() Function - Ring Programming Language - Lesson 118  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=iH8SQVrvBdg&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=120" target="_blank">pow() Function - Ring Programming Language - Lesson 119  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=iJTkCECbljo&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=121" target="_blank">sqrt() Function - Ring Programming Language - Lesson 120  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fzd6bXFI2W0&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=122" target="_blank">random() Function - Ring Programming Language - Lesson 121  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=8eplclFazMY&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=123" target="_blank">unsigned() Function - Ring Programming Language - Lesson 122  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=7F9o1-NqdI4&index=124&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">decimals() Function - Ring Programming Language - Lesson 123  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=VK6h3GdInYg&index=125&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">read() Function - Ring Programming Language - Lesson 124  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KLuEejIRXqs&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=126" target="_blank">write() Function - Ring Programming Language - Lesson 125  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=sQbGtrcBT4I&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=127" target="_blank">dir() Function - Ring Programming Language - Lesson 126 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=wTAo3MTQOfA&index=128&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">rename() Function - Ring Programming Language - Lesson 127 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3_TYYnF9FTs&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=129" target="_blank">remove() Function - Ring Programming Language - Lesson 128  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=NLlRGbo_TVo&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=130" target="_blank">fopen() Function - Ring Programming Language - Lesson 129  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MpqnCoaQVsg&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=131" target="_blank">fclose() Function - Ring Programming Language - Lesson 130  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3jB7blxVOfY&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=132" target="_blank">fflush() Function - Ring Programming Language - Lesson 131  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=d5ZL2QUQHxA&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=133" target="_blank">freopen() Function - Ring Programming Language - Lesson 132  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=D34Ow6z3oGA&index=134&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">tempfile() Function - Ring Programming Language - Lesson 133  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qgZAjV6ExtY&index=135&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">tempname() Function - Ring Programming Language - Lesson 134   </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=VQ5dbGww2h8&index=136&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">fseek() Function - Ring Programming Language - Lesson 135 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=VRqPqqHP8PQ&index=137&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">ftell() Function - Ring Programming Language - Lesson 136 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=2ksOZvI-NHk&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=138" target="_blank">rewind() Function - Ring Programming Language - Lesson 137  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=pBlkLgCb0lA&index=139&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">fgetpos() Function - Ring Programming Language - Lesson 138 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=g_5ahtDGTc0&index=140&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&spfreload=5" target="_blank">Fsetpos() Function - Ring Programming Language - Lesson 139</a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=wGnjXwRI7e8&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=141" target="_blank">Clearerr() Function - Ring Programming Language - Lesson 140</a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=cVs10C5DrwI&index=142&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Feof() Function - Ring Programming Language - Lesson 141</a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=yeGz0c5NK2Q&index=143&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Ferror() Function - Ring Programming Language - Lesson 142</a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=nP-os0acdCU&index=144&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Perror() Function - Ring Programming Language - Lesson 143 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=9IN_SPEjtws&index=145&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">fgetc() Function - Ring Programming Language - Lesson 144  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=TQ_LODIi2uU&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=146" target="_blank">fgets() Function - Ring Programming Language - Lesson 145 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=BA9YgIeYIHI&index=147&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">fputc() Function - Ring Programming Language - Lesson 146 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=WWyPa2n9Ax0&index=148&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">fputs() Function - Ring Programming Language - Lesson 147  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_3BaoS-32v0&index=149&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Ungetc() Function - Ring Programming Language - Lesson 148  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=zZ5be0jmzzs&index=150&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Fread() Function - Ring Programming Language - Lesson 149   </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=7hF81WUymnQ&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=151 " target="_blank">Fwrite() Function - Ring Programming Language - Lesson 150 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=McH6s8mZVU0&index=152&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">Fexists() Function - Ring Programming Language - Lesson 151  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=uBbu4drDaL0&index=153&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">System() Function - Ring Programming Language - Lesson 152  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=4EcrzkRJwoE&index=154&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">SysGet() Function - Ring Programming Language - Lesson 153  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=jxMHjLW1CLQ&index=155&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsMSDOS() Function - Ring Programming Language - Lesson 154 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=rUqUqV8yJHE&index=156&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">IsWindows() Function - Ring Programming Language - Lesson 155   </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=x9bggqfhQ8g&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=157" target="_blank">IsWindows64() Function - Ring Programming Language - Lesson 156 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Tk_8gEVsRTM&index=158&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsUnix() Function - Ring Programming Language - Lesson 157 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=L79_6NLkP9U&index=159&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsMacOSX() Function - Ring Programming Language - Lesson 158 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KHQMk-q09KU&index=160&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">IsLinux() Function - Ring Programming Language - Lesson 159  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=neIwXpO3zro&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=161" target="_blank">IsFreeBSD() Function - Ring Programming Language - Lesson 160 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=zh8OTpLnbxo&index=162&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank"> IsAndroid() Function - Ring Programming Language - Lesson 161  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MD1hoxKDWDY&index=163&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">WindowsNL() Function - Ring Programming Language - Lesson 162  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=gZPZxxS6UnE&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=164 " target="_blank">Get Command Line Arguments - Ring Programming Language - Lesson 163  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Fh54Jh1hyrM&index=165&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">Get Active Source File Name - Ring Programming Language - Lesson 164  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=DIG-T8tq0Xs&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=166 " target="_blank">Try/Catch/Done - Ring Programming Language - Lesson 165  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=BwedxYExhNU&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=167 " target="_blank">Eval() Function - Ring Programming Language - Lesson 166  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6PAn_Dnd4ds&index=168&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">Raise() Function - Ring Programming Language - Lesson 167  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=vuOM7QUlCFY&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=169 " target="_blank">Assert() Function - Ring Programming Language - Lesson 168  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YfBBcyJRo38&index=170&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">odbc_init() Function - Ring Programming Language - Lesson 169 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=8QY-u0m1MI8&index=171&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">odbc_drivers() Function - Ring Programming Language - Lesson 170  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KjvHEE5t4RI&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=172 " target="_blank">odbc_datasources() Function - Ring Programming Language - Lesson 171  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=a3_lM63HOJw&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=173 " target="_blank">odbc_close() Function - Ring Programming Language - Lesson 172  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=AEOwmvv4RM8&index=174&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">odbc_connect() Function - Ring Programming Language - Lesson 173  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=4HLMUu2owd0&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=175 " target="_blank">odbc_disconnect() Function - Ring Programming Language - Lesson 174  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_fyyOsYcHxU&index=176&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&spfreload=10 " target="_blank">odbc_execute() Function - Ring Programming Language - Lesson 175  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Q1kGkMFX-rI&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=177 " target="_blank">odbc_colcount() Function - Ring Programming Language - Lesson 176  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=basUTVtoc8Q&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=178 " target="_blank">odbc_fetch() Function - Ring Programming Language - Lesson 177  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6XX8BJq0TVA&index=179&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">odbc_getdata() Function - Ring Programming Language - Lesson 178  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=4CovgWVOj_c&index=180&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">odbc_tables() Function - Ring Programming Language - Lesson 179  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=5Ac9pVyfmLM&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=181 " target="_blank">odbc_columns() Function - Ring Programming Language - Lesson 180  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=V2F1WvHjkww&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=182 " target="_blank">odbc_autocommit() Function - Ring Programming Language - Lesson 181  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6GMuKpqUsQw&index=183&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">odbc_commit() Function - Ring Programming Language - Lesson 182  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Pv7PW1FJdRo&index=184&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">odbc_rollback() Function - Ring Programming Language - Lesson 183  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=rUdaRSDEtHU&index=185&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">MySQL_Info() Function - Ring Programming Language - Lesson 184  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=-0E8Dcobv4M&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=186 " target="_blank">MySQL_Init() Function - Ring Programming Language - Lesson 185  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=i9ehOE1drjQ&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=187 " target="_blank">MySQL_Error() Function - Ring Programming Language - Lesson 186  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=vrrICGgG3Kg&index=188&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">MySQL_Connect() Function - Ring Programming Language - Lesson 187  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=pz6J_4aB5hQ&index=189&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">MySQL_Close() Function - Ring Programming Language - Lesson 188  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=I8pLRs6gAcE&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=190" target="_blank">MySQL_Query() Function - Ring Programming Language - Lesson 189 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fV04qvDCFxg&index=191&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">MySQL_Insert_ID() Function - Ring Programming Language - Lesson 190 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KHhs1bjpsXU&index=192&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">MySQL_Result() Function - Ring Programming Language - Lesson 191 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=kkIncpTv2mI&index=193&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">MySQL_Next_Result() Function - Ring Programming Language - Lesson 192 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=GlH0XOhqYZw&index=194&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">MySQL_Columns() Function - Ring Programming Language - Lesson 193 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=HLGQkAgrOUo&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=195 " target="_blank">MySQL_Result2() Function - Ring Programming Language - Lesson 194 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=pkjtLUJrIik&index=196&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">MySQL_Escape_String() Function - Ring Programming Language - Lesson 195 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=HWyak8EkFyI&index=197&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">MySQL_AutoCommit() Function - Ring Programming Language - Lesson 196 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=57in9ye_iqI&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=198 " target="_blank">MySQL_Commit() Function - Ring Programming Language - Lesson 197 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=K2m_2JsfvAg&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=199 " target="_blank">MySQL_Rollback() Function - Ring Programming Language - Lesson 198 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ZDVlfAL6C28&index=200&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">MD5() Function - Ring Programming Language - Lesson 199 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=b6xPAGrqENU&index=201&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">SHA1() Function - Ring Programming Language - Lesson 200 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=v7Ks8LnLdm8&index=202&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">SHA256() Function - Ring Programming Language - Lesson 201 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=E-46_OnVo-I&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=203 " target="_blank">SHA512() Function - Ring Programming Language - Lesson 202 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FA1zJ_l1fBA&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=204 " target="_blank">SHA384() Function - Ring Programming Language - Lesson 203 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=vxXk1PxGHN0&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=205 " target="_blank">SHA224() Function - Ring Programming Language - Lesson 204 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=DG5cDjUoTz4&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=206 " target="_blank">Encrypt() Function - Ring Programming Language - Lesson 205 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qNEEia-0yj0&index=207&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">Decrypt() Function - Ring Programming Language - Lesson 206 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=y5TwOJm3Di0&index=208&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw " target="_blank">RandBytes() Function - Ring Programming Language - Lesson 207 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ka371c72H8I&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=209 " target="_blank">Download() Function - Ring Programming Language - Lesson 208 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=zjINwjX_FVw&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=210 " target="_blank">SendEmail() Function - Ring Programming Language - Lesson 209 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=tH2WvuLpONg&index=211&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Create Classes - Ring Programming Language - Lesson 210 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ISp34b6JfPQ&index=212&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Create Object - Ring Programming Language - Lesson 211 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=R-v-BQW94Uo&index=213&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Using Braces to Access Objects - Ring Programming Language - Lesson 212  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=4f2JPOCE1hg&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=214" target="_blank">Using The Dot Operator to Access Objects - Ring Programming Language - Lesson 213 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=BPJcKbf6fkw&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=215" target="_blank">Composition - Ring Programming Language - Lesson 214 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=UtCMaezbeMY&index=216&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Setter and Getter - Ring Programming Language - Lesson 215 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=rNPhdkuFfCI&index=217&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Private Attributes and Methods - Ring Programming Language - Lesson 216 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=vIWF8pIS8cI&index=218&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Operator Overloading - Ring Programming Language - Lesson 217 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=0qZM03Cavkk&index=219&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Inheritance - Ring Programming Language - Lesson 218 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ryfqxmHLqGw&index=220&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Dynamic Attributes - Ring Programming Language - Lesson 219 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KPHLBYEj0gg&index=221&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Packages - Ring Programming Language - Lesson 220 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=v8SGTKiJa_s&index=222&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Printing Objects - Ring Programming Language - Lesson 221 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=JIRUSkKYWIU&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=223" target="_blank">Creating Objects Inside Lists - Ring Programming Language - Lesson 222 </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ep12HWd3Vsg&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=224" target="_blank">Returning Objects and Lists by Reference - Ring Programming Language - Lesson 223  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ItXccNdqmes&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=225" target="_blank">Executing code after the end of object access using braces - Ring Programming Language - Lesson 224  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YPSpEhvEgdU&index=226&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Natural Language Programming - Ring Programming Language - Lesson 225  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=LNASNIlCdSw&index=227&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Pure Functions - Ring Programming Language - Lesson 226  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3C-tZqax0FU&index=228&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">First-Class Functions - Ring Programming Language - Lesson 227  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=WgOOtvZmas8&index=229&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Higher-Order Functions - Ring Programming Language - Lesson 228  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=hF7WI_bKlJY&index=230&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Anonymous and Nested Functions - Ring Programming Language - Lesson 229  </a>'					
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=4sBbaG6oekE&index=231&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw" target="_blank">Equality of Functions - Ring Programming Language - Lesson 230  </a>'					
-				]
-			]		
-		],
-         ["Group Support (English Lessons - YouTube - Answer to some questions)",[
 				[
-					'<a href="https://www.youtube.com/watch?v=3NS_AmVYhjU&list=PLpQiqjcu7CuGUnhKlYJUk1RpNQkVcaCP-&index=1" target="_blank">First row in excel file when we access it using ODBC driver</a>'
+					'<a href="http://ring-lang.sourceforge.net/ref/ArabicBook_YourWayToProgramming_TalkAboutRing.pdf" target="_blank">Book: Your way to programming (talk about Ring)</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=A6roiRtcXbQ&list=PLpQiqjcu7CuGUnhKlYJUk1RpNQkVcaCP-&index=2" target="_blank">Using Classes - Braces and init() Method</a>'
+					'<a href="http://bimarabia.com/download/BIMarabia_Arabic/BIMarabia27.pdf#page=8" target="_blank">Ring Review by BIMArabia</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=VIoxZnYx_Q8&index=3&list=PLpQiqjcu7CuGUnhKlYJUk1RpNQkVcaCP-" target="_blank">Using Ring2EXE - Distribute Application</a>'
+					'<a href="http://ring-lang.sourceforge.net/RingBasics_ArabicBook.pdf" target="_blank">Book: Ring Basics (Hassouna Academy)</a>'
 				]
 			]
 	     ],
-		 ["Posts from the 'Ring Programming For Arab' blog by 'Eng Sara H. Mohammed'",[
+	     ["Japanese Resources",[
 				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/02/05/%D8%A3%D9%87%D9%84%D8%A7-%D8%A8%D9%83-%D9%81%D9%89-%D8%B9%D8%A7%D9%84%D9%85-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A8%D9%84%D8%BA%D8%A9-%D8%B1%D9%8A%D9%86%D8%AC-welcome-to-ring-programming/" target="_blank">Tutorial: Welcome to Ring Programming!</a>'
+					'<a href="http://ring-lang-081.osdn.jp/" target="_blank">Ring Website</a>'
 				],
 				[
-					'<a href="https://ringprogramming4arab.wordpress.com/%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D9%88%D9%8A-2/" target="_blank">Contents</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/06/03/%d8%a7%d9%84%d8%b7%d8%a8%d8%a7%d8%b9%d8%a9-%d9%81%d9%8a-%d8%a7%d9%84%d9%86%d9%85%d8%b7-%d8%a7%d9%84%d8%a7%d9%88%d9%84/" target="_blank">Tutorial: Input/Output - First Style</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/06/04/%d8%a7%d9%84%d9%85%d8%aa%d8%ba%d9%8a%d8%b1%d8%a7%d8%aa-variables/" target="_blank">Tutorial: Variables</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/06/06/%d8%a7%d9%84%d9%85%d8%b9%d8%a7%d9%85%d9%84%d8%a7%d8%aa-operator/" target="_blank">Tutorial: Operators</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/06/11/%d8%a7%d9%84%d8%af%d9%88%d8%a7%d9%84functions/" target="_blank">Tutorial: Functions</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/06/16/%d8%a7%d9%84%d9%82%d9%88%d8%a7%d8%a6%d9%85-lists/" target="_blank">Tutorial: Lists</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/06/21/strings/" target="_blank">Tutorial: Strings</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/06/27/1391/" target="_blank">Tutorial: Control Structures</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/07/01/%d8%a7%d9%84%d8%a7%d8%af%d8%ae%d8%a7%d9%84-getting-input/" target="_blank">Tutorial: Getting Input</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/07/04/eval-and-debugging/" target="_blank">Tutorial: Eval() and Debugging</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/07/06/date-and-time/" target="_blank">Tutorial: Date and Time</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/07/07/check-data-type-and-conversion/" target="_blank">Tutorial: Check Data Type and Conversion</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/07/10/mathematical-functions/" target="_blank">Tutorial: Mathematical Functions</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/07/16/files/" target="_blank">Tutorial: Files</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/07/20/system-functions/" target="_blank">Tutorial: System Functions</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/07/25/program-structure/" target="_blank">Tutorial: Program Structure</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/08/03/1object-oriented-programming-oop/" target="_blank">Tutorial: Object-oriented programming-OOP</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/08/09/2object-oriented-programming-oop/" target="_blank">Tutorial: Object-oriented programming-OOP (2)</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/08/16/declarative-programming/" target="_blank">Tutorial: Declarative Programming</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/08/22/reflection-and-meta-programming/" target="_blank">Tutorial: Reflection and Meta-Programming</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/08/29/scope-rules-for-variables-and-attributes/" target="_blank">Tutorial: Scope Rules for Variables and Attributes</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/09/04/scope-rules-for-functions-and-methods/" target="_blank">Tutorial: Scope Rules for Functions and Methods</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/09/11/functional-programming/" target="_blank">Tutorial: Functional Programming</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/09/13/syntax-flexibility/" target="_blank">Tutorial: Syntax Flexibility</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/09/19/natural-language-programming/" target="_blank">Tutorial: Natural Language Programming</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/09/27/using-the-natural-library/" target="_blank">Tutorial: Using the Natural Library</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/10/09/odbc-functions/" target="_blank">Tutorial: ODBC Functions</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/10/16/mysql-functions/" target="_blank">Tutorial: MySQL Functions</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/10/21/sqlite-functions/" target="_blank">Tutorial: SQLite Functions</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/10/31/security-and-internet-functions/" target="_blank">Tutorial: Security and Internet Functions</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/10/31/stdlib-functions-and-classes/" target="_blank">Tutorial: StdLib Functions and Classes</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2017/11/16/form-applications/" target="_blank">Tutorial: Form in Web Development</a>'
-				],
-				[
-					'<a href="https://ringprogramming4arab.wordpress.com/2018/01/27/generating-web-pages-using-functions/" target="_blank">Tutorial: Generating web pages using functions</a>'
+					'<a href="http://ring-lang-081.osdn.jp/docs-1.11/index.html" target="_blank">Ring Documentation</a>'
 				]
 			]
-	     ],			
-	        ["Arabic Tutorials by Mr. Alaa Mohammed (YouTube) ", [
-			        [
-					'<a href="https://www.youtube.com/watch?v=uSv5rJp6snw" target="_blank"> 01 Ring introduction in Arabic</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Ip29yXhHJg0" target="_blank"> 02 Ring Set up</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=CGNQMcZMxSk" target="_blank"> 03 Qt and Ring</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ux8b15AkNfk" target="_blank"> 04 Build your First Ring GUI Application</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ARVCf3-T3I0" target="_blank"> 05 Ring hello world</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FovfkqEj1kg" target="_blank"> 06 Ring Getting Started part1</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=SGFY__KNfDE" target="_blank"> 07 Ring Getting Started part2</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Bvb1VVunlis" target="_blank"> 08 Ring Variables Dynamic Typing</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=XG4uO-m3SZg" target="_blank"> 09 Ring Variables Deep Copy</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6E_OSkmUhLU" target="_blank"> 10 Ring Weakly Typed</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bfC-Uaz0NS4" target="_blank"> 11 Ring Arithmetic Operators</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=LELDebethmg" target="_blank"> 12 Ring Relational Operators</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qclB9xuaI0Y" target="_blank"> 13 Ring Logical Operators</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=CMTFs2TB7_w" target="_blank"> 14 Ring Bitwise Operators Binary AND</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=j7N3pYDrItg&feature=youtu.be" target="_blank"> 15 Ring Bitwise Operators Binary OR</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-			        [
-					'<a href="https://www.youtube.com/watch?v=1wrrfeVUk8o&feature=youtu.be" target="_blank"> 16 Ring Bitwise Operators Binary XOR</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				
-				[
-					'<a href="https://www.youtube.com/watch?v=x7bVMpfVY40&feature=youtu.be" target="_blank"> 17 Ring Bitwise Operators Binary NOT</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FRT_g5SeKiA&feature=youtu.be" target="_blank"> 18 Ring Bitwise Operators Binary Left Shift</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=SqiMjwyCKmY&feature=youtu.be" target="_blank"> 19 Ring Bitwise Operators Binary Right Shift</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ToGQrmWpZPY&index=19&list=PLgc0fyJgivssosIJu4kJGk5avIjaMzYHK" target="_blank"> 20 Ring Assignment Operators part 1</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bZGjQYkFlBA&feature=youtu.be" target="_blank"> 21 Ring Assignment Operators part 2</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=A0gpMP0ZVjU&feature=youtu.be" target="_blank"> 22 Ring Misc Operators </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fHtwTV3GOC0" target="_blank"> 23 Ring Operators Precedence </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=2bdtWkr39w4&feature=youtu.be" target="_blank"> 24 Ring If Statement </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=XYIOWDTsxXI&feature=youtu.be" target="_blank"> 25 Ring Switch Statement</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=iUUGSWk8_KY&feature=youtu.be" target="_blank"> 26 Ring While Loop</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bu4uln1gDE8&feature=youtu.be" target="_blank"> 27 Ring For Loop </a>'	,
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ot024yBnzFA&feature=youtu.be" target="_blank"> 28 Ring For In Loop </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=nFZoq5yI5Jw&feature=youtu.be" target="_blank"> 29 Ring using the step option with for in </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=lVYMylObJoM&feature=youtu.be" target="_blank"> 30 Ring using for in to modify lists</a>',
-					'<img src="mralaa.png" width="60%">'
-				],						
-				[
-					'<a href="https://www.youtube.com/watch?v=ngxCbYh-oUE&feature=youtu.be" target="_blank"> 31 Ring Do Again Loop</a>',
-					'<img src="mralaa.png" width="60%">'
-				],				
-				[
-					'<a href="https://www.youtube.com/watch?v=Tvo3RqOZE2k&feature=youtu.be" target="_blank"> 32 Exit Command</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=HA1PxqcoI-M" target="_blank"> 33 Exit from two loops</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=JHvOMSpRqtc&feature=youtu.be" target="_blank"> 34 Loop command </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=xFwDXJOZAFA&feature=youtu.be" target="_blank"> 35 Exit/Loop inside sub functions</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bJuy555_3wc&feature=youtu.be" target="_blank"> 36 Short-circuit evaluation</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=PO3QA4eLoqU&feature=youtu.be" target="_blank"> 37 Comments about evaluation</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bJuy555_3wc&feature=youtu.be" target="_blank"> 38 Ring programming Short-circuit evaluation</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=PO3QA4eLoqU&feature=youtu.be" target="_blank"> 39 Ring programming Comments about evaluation</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=rPpiievNGjY" target="_blank"> 40 Ring programming Getting Input Give Command</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=pezFjtJQOfw&feature=youtu.be" target="_blank"> 41 Ring programming Getting Input GetChar() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=L9Gq6nXM9oQ&feature=youtu.be" target="_blank"> 42 Ring programming Getting Input Input() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Dz3Xfir1liA&feature=youtu.be" target="_blank"> 43 Ring programming Function Introduction </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=u9n0qfi7Fpk&feature=youtu.be" target="_blank"> 44 Ring programming Define Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=64oAkFMgg8w&feature=youtu.be" target="_blank"> 45 Ring programming Call Functions</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=tBr77n1Kbg8&feature=youtu.be" target="_blank"> 46 Ring programming Declare  Send  parameters </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=uIuBvuorzPo&feature=youtu.be" target="_blank"> 47 Ring programming Main Function </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=yL8AFmxwdJI&feature=youtu.be" target="_blank"> 48 Ring programming Variables Scope </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=nDHA6bUje20&feature=youtu.be" target="_blank"> 49 Ring programming Program Structure </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=cTw7D6xXHSQ&feature=youtu.be" target="_blank"> 50 Ring programming Return Value </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=a8tkXoDaraU&feature=youtu.be" target="_blank"> 51 Ring programming Recursion </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=J5z9O1SIylk&feature=youtu.be" target="_blank"> 52 Ring programming Create Lists </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=be4OTOMxmS0&feature=youtu.be" target="_blank"> 53 Ring programming List Add Items </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3TZKe5wCcEc&feature=youtu.be" target="_blank"> 54 Ring programming Get List Size </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=5vo3VyGDaaM&feature=youtu.be" target="_blank"> 55 Ring programming Delete Item From List </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MwZ8y5FrZ8w&feature=youtu.be" target="_blank"> 56 Ring programming Get List Item</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=-1ae8E50Ivg&feature=youtu.be" target="_blank"> 57 Ring programming Set List Item </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MbgNdOWPc08&feature=youtu.be" target="_blank"> 58 Ring programming Lists Find Function Search  </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Q1_QeeB9IEI&feature=youtu.be" target="_blank"> 59 Ring programming list BinarySearch</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=gacAdb1s9N0&feature=youtu.be" target="_blank"> 60 Ring programming Lists Sort</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=NPKSjoFKkfI&feature=youtu.be" target="_blank"> 61 Ring programming Lists Reverse </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=DK3PV5ciKwY&feature=youtu.be" target="_blank"> 62 Ring programming Lists Insert Items</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ppK-HcLF-vw&feature=youtu.be" target="_blank"> 63 Ring programming Nested lists</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=XVplL7JQiEk&feature=youtu.be" target="_blank"> 64 Ring programming Copy lists</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=yKZw80gId44&feature=youtu.be" target="_blank"> 65 Ring programming First class lists</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=oGLS3Syvekc&feature=youtu.be" target="_blank"> 66 Ring programming Using Lists during definition </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=jzadaJNR1jg&feature=youtu.be" target="_blank"> 67 Ring programming Passing Lists to Functions</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=pQ66WhnJ3VI&feature=youtu.be" target="_blank"> 68 Ring programming Access List Items by String Index</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=hPxTV3YwIWs&feature=youtu.be" target="_blank"> 69 Ring programming Passing Parameters Using List</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=nBYFstD1hOo&feature=youtu.be" target="_blank"> 70 Ring programming String Literals</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1cHKKvlfIN4&feature=youtu.be" target="_blank"> 71 Ring programming Get String Length</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_MHh8zyARiI&feature=youtu.be" target="_blank"> 72 Ring programming Convert Letters Case</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=PW6FycTF92k&feature=youtu.be" target="_blank"> 73 Ring programming Access String Letters</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=lrOfSnKi92Y&feature=youtu.be" target="_blank"> 74 Ring programming Left and right Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=GSLVrXmUE94&feature=youtu.be" target="_blank"> 75 Ring programming Trim Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=pyX4RKRmLNg&feature=youtu.be" target="_blank"> 76 Ring programming Copy Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=DTRICkgUbdE&feature=youtu.be" target="_blank"> 77 Ring programming Lines Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=edSssGxvMR0&feature=youtu.be" target="_blank"> 78 Ring programming Find substring</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
- 				[
-					'<a href="https://www.youtube.com/watch?v=vs2Kvzw1lHw&feature=youtu.be" target="_blank"> 79 Ring programming Get substring from position to end</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3nYd6MaZ1yk&feature=youtu.be" target="_blank"> 80 Ring programming Get Number of Characters From Position</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1_fVoxHxpNo&feature=youtu.be" target="_blank"> 81 Ring programming Transform Substring To Another Substring</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YowowhSij8w&feature=youtu.be" target="_blank"> 82 Ring programming strcmp Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=2DxAe-2XiMs&feature=youtu.be" target="_blank"> 83 Ring programming str2list and  list2str Functions</a>',
-					'<img src="mralaa.png" width="60%">'
-                                ],
- 				[
-					'<a href="https://www.youtube.com/watch?v=aBXu7lL0JwU&feature=youtu.be" target="_blank"> 84 Ring programming clock() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=AlqjgTpISCk&feature=youtu.be" target="_blank"> 85 Ring programming Time () and  Date() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=s9lIDBefOyw&feature=youtu.be" target="_blank"> 86 Ring programming TimeList() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=wuOhNd19dTM&feature=youtu.be" target="_blank"> 87 Ring programming Adddays()Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=b65ivW4MsbI&feature=youtu.be" target="_blank"> 88 Ring programming DiffDays () Function</a>',
-					'<img src="mralaa.png" width="60%">'
-                                ],
- 				[
-					'<a href="https://www.youtube.com/watch?v=6R_e-7NHtEo&feature=youtu.be" target="_blank"> 89 Check Data Type Isstring() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=0a0dQbJ7NIY&feature=youtu.be" target="_blank"> 90 Check Data Type IsNumber() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=OBsjgK8SSCY&feature=youtu.be" target="_blank"> 91 Check Data Type IsList() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_c4marwcp58&feature=youtu.be" target="_blank"> 92 Check Data Type Type() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=A4bi2gAI8yo&feature=youtu.be" target="_blank"> 93 Check Data Type IsNULL() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-        			],
- 				[
-					'<a href="https://www.youtube.com/watch?v=slae6N2w2Kw&feature=youtu.be" target="_blank"> 94 Check Character IsAlNum() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=-Bf-HYfcvZI&feature=youtu.be" target="_blank"> 95 Check Character IsAlpha() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=-7k8aHrtfHc&feature=youtu.be" target="_blank"> 96 Check Character IsCntrl() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=HUnEEuUB1Cs&feature=youtu.be" target="_blank"> 97 Check Character IsDigit() Function and IsXDigit() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=RXdKTC518w0&feature=youtu.be" target="_blank"> 98 Check Character IsGraph() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-        			],
- 				[
-					'<a href="https://www.youtube.com/watch?v=H94f2xFeF_s&feature=youtu.be" target="_blank"> 99 Check Character IsLower() and IsUpper() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=BPrxi1JAZd8&feature=youtu.be" target="_blank"> 100 Check Character IsPrint() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=LYCeI17k3aI&feature=youtu.be" target="_blank"> 101 Check Character IsPunct() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fp-8nRoYyZI&feature=youtu.be" target="_blank"> 102 Check Character IsSpace() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=OoZy1TSYwb0&feature=youtu.be" target="_blank"> 103 Conversion Number() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-        			],
- 				[
-					'<a href="https://www.youtube.com/watch?v=aWdLf9vSke8&feature=youtu.be" target="_blank"> 104 Conversion  String() Function </a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=oj4lMYBjYTg&feature=youtu.be" target="_blank"> 105 Conversion Ascii() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fHtq4MA7NiE&feature=youtu.be" target="_blank"> 106 Conversion Char() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=cQWdfjTtBT0&feature=youtu.be" target="_blank"> 107 Conversion Hex() and Dec() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=tR79cjCFtgc&feature=youtu.be" target="_blank"> 108 Conversion Str2hex() AND Hex2str() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-                                ],
-				[
-					'<a href="https://www.youtube.com/watch?v=mL6Sqj3wYP4&feature=youtu.be"> 109 Mathematical Functions</a>',
-					'<img src="mralaa.png" width="60%">'
-                                ],
-				[
-					'<a href="https://www.youtube.com/watch?v=cWeSyBci2do&feature=youtu.be"> 110 Files Read() Functions</a>',
-					'<img src="mralaa.png" width="60%">'
-                                ],
-				[
-					'<a href="https://www.youtube.com/watch?v=6050rTHKooo&feature=youtu.be"> 111 Files Write() Functions</a>',
-					'<img src="mralaa.png" width="60%">'
-                                ],
-				[
-					'<a href="https://www.youtube.com/watch?v=hk6e-WEc8aA&feature=youtu.be"> 112 Files Dir() Functions</a>',
-					'<img src="mralaa.png" width="60%">'
-                              ] ,
-							  [
-					'<a href="https://www.youtube.com/watch?v=E343q9AxGoo"> 113 Rename() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-                              ] ,
-							  [
-					'<a href="https://www.youtube.com/watch?v=l_qluT4LRvk"> 114 Remove() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-                              ] ,
-							  [
-					'<a href="https://www.youtube.com/watch?v=IiZ_G7FGw2E"> 115 Fopen() Function</a>',
-					'<img src="mralaa.png" width="60%">'
-                              ] 
-			]
-		],		
-			["Arabic Tutorials by Mr. Ahmed Hassouna - Hassouna Academy On (YouTube) * Basis, OOP, Forms ♥",[
-				[
-					'<a href="https://www.youtube.com/watch?v=3YsdVicFv3Q" target="_blank">01 Introduction In Ring Programming Language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ThPcTPyTkXc" target="_blank">02 Download And Install Ring Programming Language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=nvgzIfuOnFo&index" target="_blank">03 Download And Install Ring On Ubuntu Linux</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ibdTtHm_61I&index" target="_blank">04 Download And Install Ring On Mac OS X</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=q09Or4KTzQs&index" target="_blank">05 Features of ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=k2vx3elMq2k&index" target="_blank">06 Output in ring programming language using see</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=xw3rX33obGM&index" target="_blank">07 Input in ring programming language using give</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Tezj0Rqi3Hk&index" target="_blank">08 Download And Install Notepad Plus Plus With Add ring language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=EDvde6hTG8s&index" target="_blank">09 Variable in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=v0rkrg1hBOY&index" target="_blank">10 Comments in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=s2bQK3dTPsc&index" target="_blank">11 Arithmetic operators in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fcduGjbJSL8&index" target="_blank">12 Logical operators in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=jWoSCijesaY&index" target="_blank">13 Comparison Or Relational operators in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=LASgs4ppOsA&index" target="_blank">14 Assignment operators in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=WJe8rLBU7tQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=15" target="_blank">15 List instead of array in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=eJi5_OkOaeg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=16" target="_blank">16 Range list array in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=h5LUDUgYClA&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=17" target="_blank">17 List part 1 in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FPVx45VoWYw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=18" target="_blank">18 List part 2 in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Ru_J4lFE76c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=19" target="_blank">19 Nested List in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=JZxwsWP7GeE" target="_blank">20 Convert String To Number in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=lxLL53jS3nE&index=21&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">21 IF Statement with OK in ring programming language</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fwlqsiLmbK8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=22" target="_blank">IF OK STATEMENT WITH ELSE & BUT in ring programming language #22</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=AqpBs8bTDIc&index=23&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">SWITCH ON OFF STATEMENT WITH OTHER in ring programming language #23</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_SiDLi5H1mM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=24" target="_blank">FOR LOOP STATEMENT in ring programming language #24</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=NvFxaED2-vo&index=25&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">Ring 1.3 #25</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=NQOMFasiGqE&index=26&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">Nested Loops in ring programming language#26</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=vTskzVew7aI&index=27&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">While Loop in ring programming language #27</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=OXoIdq75hwM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=28" target="_blank">Do again in ring programming language #28</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=WZiKi_waL9o&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=29" target="_blank">Exit in ring programming language #29</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=USY0s6n4Mpw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=30" target="_blank">Loop in ring programming language #30</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="" target="_blank">print date time #31</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=-OLP4QUJ9KQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=32" target="_blank">TimeList #32</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=y7ngyXt3sBY&index=33&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#33 Date Details</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=4-jO3sFFq34&index=34&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#34 Calculate Birth Date</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=zqZZae2uIgA&index=35&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#35 Calculate Performance</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=WU349fkNbbg&index=36&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#36 Wait Time</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=dUu1no_Dq1Q&index=37&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#37 Day Name</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_48gXq3K3EQ&index=38&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#38 Upper & Lower</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=WZwWj75XaUk&index=39&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#39 Length Of String</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=4yQBrwi7uCM&index=40&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#40 Normal Substring</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bSwL38pg2dQ&index=41&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#41 Start & End In Substring</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=8cB2Zu31smw&index=42&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#42 Replace String</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=7qtlUe56CbE&index=43&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#43 Split String</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=5uOEyK-Zw3Q&index=44&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#44 Reverse String</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=d393r6xOFec&index=45&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#45 get and put</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1PSmbDkw8d4&index=46&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#46 Right And Left With String</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=82bpoDgdj6g&index=47&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#47 Trim And Check String If Empty Space</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MOlgwvxeOCg&index=48&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#48 Copy</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Htn1jMYXKeY&index=49&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#49 StrCMP For Compare Strings</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=O3jqq_4XJps&index=50&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#50 Line Numbers Or Lines Count</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=UneJvlJnDl0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=52" target="_blank">#51 Type Of Any Var</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=eHRLTjesnQ0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=53" target="_blank">#52 Convert String To List & List To String</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YXKS-bTco-c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=54" target="_blank">#53 Check Type Using Functions</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=69hRSl6i2Cg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=55" target="_blank">#54 Check Char</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=vJ2tRyx1g3s&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=56" target="_blank">#55 Converting</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=oo3l9StITAY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=57" target="_blank">#56 Random Numbers</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=2dpOk7ppJsI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=58" target="_blank">#57 Create New Text File</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1uuk_JMZA-c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=59" target="_blank">#58 Read From Text File</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=skP1AYrAXto&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=60" target="_blank">#59 Get All Files And Folders</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=PvCRjFSfxiE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=61" target="_blank">#60 Rename Files And Folders</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=V8ueE4vOGHM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=62" target="_blank">#61 Remove Files And Folders</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=zwMeq5qE-w4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=63" target="_blank">#62 Read Files</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KpfgNeQFSSo&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=64" target="_blank">#63 Write Files</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Iq5bMVYT5xE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=65" target="_blank">#64 Write Files With Append</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=8mqcKAiHt_A&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=66" target="_blank">#65 Update Files</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=rvo7pt3Ebso&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=67" target="_blank">#66 F Seek Function</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FtFc94fhle4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=68" target="_blank">#67 Create Folder</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=VHSKaZBsft4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=69" target="_blank">#68 Run exe File</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3hT-00Ub-ug&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=70" target="_blank">#69 Run HTML</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=7vRpC68Bwco&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=71" target="_blank">#70 Try And Catch</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Rhtg_CSzyqg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=72" target="_blank">#71 Create Function First Style</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=dW1IhSeHZbg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=73" target="_blank">#72 Create Function Second Style</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=w_hR6PuOek4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=74" target="_blank">#73 Create Main Function</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=dnOQq0YRSYM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=75" target="_blank">#74 Send Parameters</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=E9p8k5TcIKs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=76" target="_blank">#75 Generate Calculator</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=CyZAhqMGOM8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=77" target="_blank">#76 Send Array As A Parameter</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=UYgQEf7PJG0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=78" target="_blank">#77 Return Value</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=oegLea_JILU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=79" target="_blank">#78 Create Function To Make Folder</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=el3zmTg_y08&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=80" target="_blank">#79 Create Function To Delete Folders</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=7wqFrGAObSw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=81" target="_blank">#80 Create Function To Generate Random</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=xxa0eIXh9uU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=82" target="_blank">#81 Create Function To Delete All Files</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ymDVpNvzxpY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=83" target="_blank">#82 Create Function To Delete All Folders</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=QZDBvxjZm7s&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=84" target="_blank">#83 Create Function To Calculate Avg And Sum</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=A_VvCSZCfD0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=85" target="_blank">#84 Create Function To Check Numbers And String</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=xIYFfvsng68&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=86" target="_blank">#85 Generate Library In Ring</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=C97ZhvC0v6c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=87" target="_blank">#86 OOP Concepts</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=nOBxSYbBkX0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=88" target="_blank">#87 Create Class</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=K1leIc-Focc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=89" target="_blank">#88 Create Object</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=lpy2Xlr1Mdo&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=90" target="_blank">#89 Package Concept</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=H6uu9beqomc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=91" target="_blank">#90 Package And Classes</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=zVAGtE9_vH8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=92" target="_blank">#91 Nested Package</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1suIuRk_NhE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=93" target="_blank">#92 Import In Ring</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KmWRZywUmdY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=94" target="_blank">#93 Basics Syntax Statements & Functions & Classes & Packages</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1waX_VMoigU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=95" target="_blank">#94 Set Values To Attributes</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ba-ULJJRcNM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=96" target="_blank">#95 Call Functions In Class</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6y1FE_W6wrM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=97" target="_blank">#96 Constructor In Ring (init Function)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=AWzFO3dfkF8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=98" target="_blank">#97 Send Parameters To Constructor</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=z9XITOKleeU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=99" target="_blank">#98 Use This In Class Contains Same Variable Names</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=NOFAdfdh2Ig&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=100" target="_blank">#99 Change Parameters Value</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=90hNLr8jKb4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=101" target="_blank">#100 Composition (Class & Object)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=2V3mO7QpUDE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=102" target="_blank">#101 Private Access Modifiers</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=T3I0UqoOPQE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=103" target="_blank">#102 Encapsulation Concept</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=JGSiA9ifU0g&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=104" target="_blank">#103 Encapsulation In Ring</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=u1LCo6UQv6o&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=105" target="_blank">#104 Inheritance Concept</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3xJgL1T_Pes&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=106" target="_blank">#105 Inheritance Example</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=rFSPHERWmtg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=107" target="_blank">#106 Overloading Concept</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=CMr5gX6U_a0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=108" target="_blank">#107 Instead Of Overloading(0)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=a6TjSU18XVI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=109" target="_blank">#108 Instead Of Overloading(1)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1_5uFnVKTXY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=110" target="_blank">#109 Instead Of Overloading(2)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KodV2Fq33dM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=111" target="_blank">#110 Instead Of Overloading(3)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=9lr81MQjZ2Q&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=112" target="_blank">#111 Instead Of Overloading(4)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Fy8X0MELS4I&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=113" target="_blank">#112 Instead Of Overloading(5)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Q2hgfGT-g1k&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=114" target="_blank">#113 Example Of Overloading(1)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YLcRSLY6F-A&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=115" target="_blank">#114 Overriding</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6aC-8-ANRR4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=116" target="_blank">#115 Overriding Example</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=cx-0Av2G4Tc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=117" target="_blank">#116 Inheritance With Constructor</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=tLuS2UYOqSY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=118" target="_blank">#117 Polymorphism Concept</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=a8bL3HYQHcY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=119" target="_blank">#118 Polymorphism Example</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=9geg-48jqTQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=120" target="_blank">#119 OOP Example (My Note)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=cyj2GpwK3mo&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=121" target="_blank">#120 OOP Example (Employee Data)</a>',
-					'<img src="ahpart2.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=gY6ybUam7Yc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=122" target="_blank">#121 Get Started With Desktop Application</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=aw5eft0RJIY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=123" target="_blank">#122 Create New Form</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=eFQtWPn_XqY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=124" target="_blank">#123 Set Location And Size Of Form</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=lekIyMdFqa8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=125" target="_blank">#124 Insert Text Box And Align Center</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6Mpa8_YRRkE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=126" target="_blank">#125 Create New Font To Controls</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=eTsN9fRk2dU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=127" target="_blank">#126 Insert Label Or Header Form</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=gLrznRwWNbc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=128" target="_blank">#127 Insert Button On Form</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=mwpnplAWzHk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=129" target="_blank">#128 Add Click Event To Button (Add Programming To Pressed)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3M5UDPoHHDY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=130" target="_blank">#129 Add Icon To Form</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=UV0y57ohVyw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=131" target="_blank">#130 Set CSS Style To Controls</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KB-zUFE2bSE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=131" target="_blank">#131 Calculator</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=mLS0E215nZk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=131" target="_blank">#132 Form Designer - Say Hello</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=c3jDXO57p8s" target="_blank">New Lessons Soon!</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=K_Dtxk6Owkk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=132" target="_blank">#133 FormTools Class</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=hf5xecCju20&index=135&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#134 FormTools Class - Center() Method</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=7nBnmaCzo0I&index=136&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#135 MVC in Ring Forms</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=l_A0uLZcSZw&index=137&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#136 Form - Load Event</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=e6SB8YPai78&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=138" target="_blank">#137 Form - Window State</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1g1szYzcNUU&index=139&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#138 Form - Window State Buttons</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=IWqFSTBHa2o&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=140" target="_blank">#139 Form - Message Box</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=v84WRfNY4UI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=141" target="_blank">#140 Form - Input Box</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=W400Uhrs8AM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=142" target="_blank">#141 Form - Add methods to the Form Tools Class </a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=gSHI6xxyFPg&index=143&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#142 Form - Form Tools Class - Message Box</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=cr7FGEhX8vk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=144" target="_blank">#143 Form - Form Tools Class - Input Box</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=xIUF0DO9faU&index=145&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#144 Game - Gold Magic 800</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Hhsf1yaHjgQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=146" target="_blank">#145 Form Tools - New Form - Get Form</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3m2rULmcSq8&index=147&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#146 Many Forms</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=x-smlk0WoB8&index=148&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#147 TextEdit</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=EcH7ExbwzBw&index=149&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#148 Form Tools - TextEdit</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=pwjmaMvK9LQ&index=150&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#149 Form Tools - ListWidget</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=wXRMyCpbzFQ&index=151&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#150 Form Tools - ListWidget - Get Selected Item</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=p8kn9YOUwD4&index=152&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#151 Form Tools - ListWidget - Insert Item</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bMnZ8JYlt1Y&index=153&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#152 Form Tools - ListWidget - Delete Item & Items Count</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=lynUy-hzNos&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=154" target="_blank">#153 Form Tools - ListWidget - Get Item Text</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=UEhcvw_cel4&index=155&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#154 Form Tools - ListWidget - Edit Item</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=38rptARVG5E&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=156" target="_blank">#155 Form Tools - ListWidget - Selecting Many Items</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1gT26vuGE8w&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=157" target="_blank">#156 Form Tools - ListWidget - Get Selected Items</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=4oujvcTT1PI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=158" target="_blank">#157 Form Tools - ListWidget - Fill List Items</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=b6079OGsIYg&index=159&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#158 Form Tools - ListWidget - Fill List Items - part(2)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=QxKTswMFjRM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=160" target="_blank">#159 Form Tools - ListWidget - Item Changed Event</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=c3nEyGXzby8&index=161&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#160 Form Tools - ListWidget - Checkbox</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=H2ozr_IXv1w&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=162" target="_blank">#161 Form Tools - Checkbox - Changed Event</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YthTtiBw8oI&index=163&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">#162 Form Tools - Checkbox - Three States</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=-2_GG_Qn9s4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=164" target="_blank">#163 Form Tools - Image</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Pinqw2pNvrI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=165" target="_blank">#164 Form Tools - Image - Show using code</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=RIjZ-Aixmho&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=166" target="_blank">#165 Show Open File Dialog</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=O5hPR59SovY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=167" target="_blank">#166 Image in Open File Dialog</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FmbZcTUba58&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=168" target="_blank">#167 Show Save File Dialog</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=t6H0_G0XfQE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=169" target="_blank">#168 Show Save File Dialog - Part 2</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=VrOtIYrLcL4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=170" target="_blank">#169 Open File Dialog</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=O4brBt4-ABM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=171" target="_blank">#170 Print Screen</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=BezztC8JXGE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=172" target="_blank">#171 Print Screen - Part (2)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=pJ4VrVU6wqs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=173" target="_blank">#172 Print Screen - Part (3)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=kbUE7Uh8rT8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=174" target="_blank">#173 Print Screen - Part (4)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Kt7Wi4OSFuI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=175" target="_blank">#174 Print Screen - Part (5)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bTDuPQ_8ygs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=176" target="_blank">#175 Slider</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=o3xXe6LbZbk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=177" target="_blank">#176 Progress Bar</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=CzElgLoornk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=178" target="_blank">#177 SpinBox</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=vM5arLfhoJ0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=179" target="_blank">#178 ComboBox - Add/Remove Items</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=S5Ac9NQNH0Q&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=180" target="_blank">#179 ComboBox - Current Item</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=NAcrsuX2980&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=181" target="_blank">#180 QDateTime</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1Qsl8AZJfUw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=182" target="_blank">#181 QDateTimeEdit</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=2rM7srtxuIA&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=183" target="_blank">#182 QTime</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=LFrUK1D2VPU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=184" target="_blank">#183 QTime - Part 2</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=M7GvkMO2aFQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=185" target="_blank">#184 QTableWidget</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=4CEZ0_dxNpM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=186" target="_blank">#185 QTableWidget - Part 2</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fawUhgVkLXg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=187" target="_blank">#186 QTableWidget - Part 3</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=PZNzG6DoG3U&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=188" target="_blank">#187 DataTable Class</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=enRF-3fQmdI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=189" target="_blank">#188 DataTable Class - Part 2</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=zaZ_drMk7fg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=190" target="_blank">#189 QTableWidget - Get Selected Item</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=G9Y1LMMfIq0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=191" target="_blank">#190 QTreeWidget</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=xXtiP-CNCJk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=192" target="_blank">#191 QTreeWidget - Edit Item</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=hNVQbWcsv7Y&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=193" target="_blank">#192 QTreeWidget - Get Selected Item</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_asTKvDLOE0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=194" target="_blank">#193 QRadioButton</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=7YW_oVELO1Q&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=195" target="_blank">#194 QTreeWidget - Get Current Child Parent</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=mFroqg4grgg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=196" target="_blank">#195 QWebView - Open Website</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=aNxyJ2rJLm4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=197" target="_blank">#196 QWebView - Part (2)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=9CjC97sMXoM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=198" target="_blank">#197 Dial Slider</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=jJuUK6_v5CQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=199" target="_blank">#198 Video Widget</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MK6o52gPfOY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=200" target="_blank">#199 Form Controls - Design Options</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ave95TWa2hI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=201" target="_blank">#200 Toolbar</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Xyqsjz5r41M&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=202" target="_blank">#201 Color Dialog</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=eFjuYjD8oRY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=203" target="_blank">#202 Media Player - Play Sound</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MhpABZBAnxg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=204" target="_blank">#203 Custom Message Box</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=wD8u3PPzeB4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=205" target="_blank">#204 Custom Message Box - Part (2)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=2mCrWGKSqeg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=206" target="_blank">#205 Custom Message Box - Part (3)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=8SFc8njMkM0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=207" target="_blank">#206 Custom Message Box - Part (4)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=HkbQULDSiro&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=208" target="_blank">#207 QLineEdit - Echo Mode</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=VY7qWYKDi20&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=209" target="_blank">#208 Input Dialog - Echo Mode</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=coBMZVpdHJA&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=210" target="_blank">#209 Regular Expression</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=yuTxWHduYQw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=211" target="_blank">#210 Regular Expression - Part (2)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=geq-orOilio&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=212" target="_blank">#211 QVBoxLayout</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=VkNfILnIWj0&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=213" target="_blank">#212 QStatusBar</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=0loPwJxwskM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=214" target="_blank">#213 QLCDNumber</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MW7foecknsU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=215" target="_blank">#214 HyperLink</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=16Bv62ktU9o&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=216" target="_blank">#215 QTabWidget</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=vFjzoKNrJfQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=217" target="_blank">#216 QTabWidget Events</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=5kdFm6DOCAo&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=218" target="_blank">#217 QTabWidget - Add & Remove Tabs</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=EKkZr2amrPM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=219" target="_blank">#218 QTabWidget - Add Control</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=R2X4-xI7bXA&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=220" target="_blank">#219 QTimer</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KnII-CDu6xE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=221" target="_blank">#220 QTimer - Part (2)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=8tyaAQ4MQWM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=222" target="_blank">#221 QTimer - Part (3)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=y3bl2fh4vo4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=223" target="_blank">#222 Digital Clock</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=nOvy89us9I4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=224" target="_blank">#223 Digital Clock - Part (2)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=XIjva-MODvk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=225" target="_blank">#224 Digital Clock - Part (3)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FtUNDzmuPhc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=226" target="_blank">#225 Digital Clock - Part (4)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=arUNb0dKEis&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=227" target="_blank">#226 Digital Clock - Part (5)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=sy-lKt93ADU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=228" target="_blank">#227 Digital Clock - Part (6)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=R33bkfKrLGk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=229" target="_blank">#228 Digital Clock - Part (7)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=CqgdcQE5ru8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=230" target="_blank">#229 Rocket Race - Part (1)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Y7IvQUrVW2s&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=231" target="_blank">#230 Rocket Race - Part (2)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=s6Eohy7hw1I&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=232" target="_blank">#231 Rocket Race - Part (3)</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=sVV1qfyXkkQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=233" target="_blank">#232 Ship Example</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=JEE7cYFJZCQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=234" target="_blank">#233 Moving on Flowers Example</a>',
-					'<img src="ahpart3.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=rOwOEFTVvg0" target="_blank">Introducing Ring in 1.5 Hour!</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ZMUvgVnwoiw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=235" target="_blank">#234 Database Programming - Lesson 1</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=DonQyg3IqRY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=236" target="_blank">#235 Database Programming - Lesson 2</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=UYTwVCvujMU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=237" target="_blank">#236 Database Programming - Lesson 3</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=NbuySwYC_-Y&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=238" target="_blank">#237 Database Programming - Lesson 4</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YB2hvJZxY84&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=239" target="_blank">#238 Database Programming - Lesson 5</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=NWUG0dyX1DA&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=240" target="_blank">#239 Database Programming - Lesson 6</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=SwnOB_v5NzE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=241" target="_blank">#240 Database Programming - Lesson 7</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Ag702r5f6GQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=242" target="_blank">#241 Database Programming - Lesson 8</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=zqAm0l_GzVo&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=243" target="_blank">#242 Database Programming - Lesson 9</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=hVE4Wzveq34&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=244" target="_blank">#243 Database Programming - Lesson 10</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bZDpgBkFmPE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=245" target="_blank">#244 Database Programming - Lesson 11</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=syYICMNsWyg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=246" target="_blank">#245 Database Programming - Lesson 12</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=9_w0SrzfG4I&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=247" target="_blank">#246 Database Programming - Lesson 13</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FEoh_xa41l8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=248" target="_blank">#247 Database Programming - Lesson 14</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=9Vv_pClJdG8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=249" target="_blank">#248 Database Programming - Lesson 15</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=-WgLkRXoUlk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=250" target="_blank">#249 Database Programming - Lesson 16</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=TNaAbCQcVDM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=251" target="_blank">#250 Database Programming - Lesson 17</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qjeT31uK-ng&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=252" target="_blank">#251 Database Programming - Lesson 18</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=eq5MK9jnH3w&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=253" target="_blank">#252 Database Programming - Lesson 19</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=m4gNI0el384&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=254" target="_blank">#253 Database Programming - Lesson 20</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FFsc63ow0-A&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=255" target="_blank">#254 Database Programming - Lesson 21</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=tatz6rvqzeQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=256" target="_blank">#255 Database Programming - Lesson 22</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bocN09pmG68&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=257" target="_blank">#256 Database Programming - Lesson 23</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ZFc181xfxnE&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=258" target="_blank">#257 Database Programming - Lesson 24</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FdxBcvyYdqY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=259" target="_blank">#258 Database Programming - Lesson 25</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=nZtDlMjkyZo&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=260" target="_blank">#259 Database Programming - Lesson 26</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=9HMUiJjBJL4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=261" target="_blank">#260 Database Programming - Lesson 27</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=7rIbFUxcnhQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=262" target="_blank">#261 Database Programming - Lesson 28</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=EfHtQ4_XTks&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=263" target="_blank">#262 Database Programming - Lesson 29</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=1UlJJPfVb7s&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=264" target="_blank">#263 Database Programming - Lesson 30</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=RXa_dPmuMIs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=265" target="_blank">#264 Database Programming - Lesson 31</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=SrVlrggAfQI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=266" target="_blank">#265 Database Programming - Lesson 32</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=cItzSepCeQs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=267" target="_blank">#266 Database Programming - Lesson 33</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=dDXZ1bs92Ro&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=268" target="_blank">#267 Database Programming - Lesson 34</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Ia_0dNmbwvM&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=269" target="_blank">#268 Database Programming - Lesson 35</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ZqrlDVk6ldg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=270" target="_blank">#269 Database Programming - Lesson 36</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=GWdhqxsq23M&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=271" target="_blank">#270 Database Programming - Lesson 37</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=FQgph4J_DOQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=272" target="_blank">#271 Database Programming - Lesson 38</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ffXFvAJTegY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=273" target="_blank">#272 Database Programming - Lesson 39</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YUCO_NjKB_I&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=274" target="_blank">#273 Database Programming - Lesson 40</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=PM4Ju-qPBD4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=275" target="_blank">#274 Database Programming - Lesson 41</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Wd_Q0Wj1os4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=276" target="_blank">#275 Database Programming - Lesson 42</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=xoxFLjh2NMA&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=277" target="_blank">#276 Database Programming - Lesson 43</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=OkF5TCYikeY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=278" target="_blank">#277 Database Programming - Lesson 44</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=UtG-5kk66O4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=279" target="_blank">#278 Database Programming - Lesson 45</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=JxI9gyWYy5E&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=280" target="_blank">#279 Database Programming - Lesson 46</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=sIWqCvHIjks&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=281" target="_blank">#280 Database Programming - Lesson 47</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=UBNXf-joZrU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=282" target="_blank">#281 Database Programming - Lesson 48</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=yBPaCOKFvU8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=283" target="_blank">#282 Database Programming - Lesson 49</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=C3kHkWI58Gk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=284" target="_blank">#283 Database Programming - Lesson 50</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qKp4Pbrb6NQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=285" target="_blank">#284 Database Programming - Lesson 51</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=O5b0GGjFX-c&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=286" target="_blank">#285 Database Programming - Lesson 52</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Dx7i_HPYboY&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=287" target="_blank">#286 Database Programming - Lesson 53</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=F6Bm3bQ46Kg&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=288" target="_blank">#287 Database Programming - Lesson 54</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=t--v7yL72rU&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=289" target="_blank">#288 Database Programming - Lesson 55</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=PQp1VLMtVCc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=290" target="_blank">#289 Database Programming - Lesson 56</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=RZ6SaFBgRWs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=291" target="_blank">#290 Database Programming - Lesson 57</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=pGi_hUNzAs8&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=292" target="_blank">#291 Database Programming - Lesson 58</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=yHKBzWAMe9Y&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=293" target="_blank">#292 Database Programming - Lesson 59</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=iwkhbox5hSk&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=294" target="_blank">#293 Database Programming - Lesson 60</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YbXlLRtQZGs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=295" target="_blank">#294 Database Programming - Lesson 61</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=CxS-6Rmpzxs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=296" target="_blank">#295 Database Programming - Lesson 62</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=epdFdjcbh-Y&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=297" target="_blank">#296 Database Programming - Lesson 63</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=sAtzdr0L1k4&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=298" target="_blank">#297 Database Programming - Lesson 64</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=BadHIX0UpSc&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=299" target="_blank">#298 Database Programming - Lesson 65</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qR5HgVUDHCs&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=300" target="_blank">#299 Database Programming - Lesson 66</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=K8Lh03PdcjI&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=301" target="_blank">#300 Database Programming - Lesson 67</a>',
-					'<img src="ahpart1.jpg" width="60%">'
-				]
-			]
-			],
-			
-	      ["Arabic Tutorials by Mahmoud Fayed (YouTube)",[
-				[
-					'<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">Ring programming language - Lesson 1 - Introduction </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=XNpbuz0SPmM&index=2&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">Ring programming language - Lesson 2 - Input/Output</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6duxGi78Qyo&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=3" target="_blank">Ring programming language - Lesson 3 - Strings</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=LhUXYS3BsB8&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=4" target="_blank">Ring programming language - Lesson 4 - Lists</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Hu9lKrYTSvg&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=5" target="_blank">Ring programming language - Lesson 5 - Control Structures</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=PB1feNRRfqw&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=6" target="_blank">Ring programming language - Lesson 6 - Functions </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=xAH4OTASbDQ&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=7" target="_blank">Ring programming language - Lesson 7 - Data Type</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=8TyfzmUlrDc&index=8&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">Ring programming language - Lesson 8 - Eval and Scope</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=KXLQRHgti3w&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=9" target="_blank">Ring programming language - Lesson 9 - Security and Internet Functions</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Z68Bi3zNqEM&index=10&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">Ring programming language - Lesson 10 - Database (ODBC, SQLite & MySQL)</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=kZRqCL-dmio&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=11" target="_blank">Ring programming language - Lesson 11 - Object Oriented Programming</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=ryhlKHaBp2c&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=12" target="_blank">Ring programming language - Lesson 12 - Object Oriented Programming (Part 2) and Declarative Programming</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Okt2JKOhCIA&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=13" target="_blank">Ring programming language - Lesson 13 - Natural Language Programming</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=wTiZPonemFU&index=14&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">Ring programming language - Lesson 14 - Natural Language Programming (Part 2)</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=AW9aYYARHG0&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=15" target="_blank">Ring programming language - Lesson 15 - Functional Programming </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Zd6wP9CYu-E&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=16" target="_blank">Ring programming language - Lesson 16 - Reflection and Metaprogramming</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=XXhd9TkoaZs&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=17" target="_blank">Ring programming language - Lesson 17 - Variables Scope</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=XvIIxPYmpmc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=18" target="_blank">Ring programming language - Lesson 18 - Functions Scope, Type Hints and Trace Library</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=xgaohQdrZcg&index=19&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">Ring programming language - Lesson 19 - Ring 1.7 Features!</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=uDGeHq_gJPI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=20" target="_blank">Ring programming language - Lesson 20 - Ring 1.8 Features!</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=48Mv774RS2g&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=21" target="_blank">Ring programming language - Lesson 21 - Ring 1.9 Features!</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=bxVFEH3lgfU&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a" target="_blank">Desktop and Mobile development using the Ring programming language - Lesson 1 - First Application (Buttons and Events)</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=jcU6XaduLUA&index=2&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a" target="_blank">Desktop and Mobile development using the Ring programming language - Lesson 2 - Using Textbox (LineEdit Control)</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=s1DxFaiFCIo&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a&index=3" target="_blank">Desktop and Mobile development using the Ring programming language - Lesson 3 - Sum Numbers (ListWidget Control)</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=EDyrgo-0BIg&index=1&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (1) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=RWlo8Eiyo0s&index=2&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (2) </a>'
-				],								
-				[
-					'<a href="https://www.youtube.com/watch?v=EGoVTIbw8M0&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=3" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (3) </a>'
-				],				
-				[
-					'<a href="https://www.youtube.com/watch?v=uBToCd6bYeE&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=4" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (4) </a>'
-				],				
-				[
-					'<a href="https://www.youtube.com/watch?v=l3QebGntG4g&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=5" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (5) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=Re4lxETIdm8&index=6&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (6) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=r_JX5Lw3U54&index=7&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (7) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=IQ1Q_9nvVCE&index=8&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (8) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=qPtMe4f9y9w&index=9&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (9) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=hpinzzgkBKk&index=10&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (10) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3bSwT28aP1w&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=11" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (11) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=B7pfTYsiPqg&index=12&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (12) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=_WLo-d0WdCs&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=13" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (13) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=YW7EXpa11h4&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=14" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (14) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=UDMkECTl3RU&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=15" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (15) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=fFsbyFLS0sU&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=16" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (16) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=aRnsWOi_euE&index=17&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (17) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=c_LLHjWnUg4&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=18" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (18) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=w8r7BP96rgQ&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=19" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (19) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=urxUIb35EDI&index=20&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (20) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=nPSyNdLJZ2U&index=21&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (21) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=MjHRQgGFxbk&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=22" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (22) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=sT5r4O4I6FY&index=23&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (23) </a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=yTjwi55u0iA&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn&index=24" target="_blank">Developing the Ring programming language Package Manager (RingPM) - Part (24) </a>'
-				]
-			]
-			]
+	     ]
 ]

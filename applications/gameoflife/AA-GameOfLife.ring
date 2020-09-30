@@ -15,7 +15,7 @@
 #	Each cell with three neighbors becomes populated. 
 ###-----------------------------------------------------------------------------
 
-load "stdlib.ring"
+load "stdlibcore.ring"
 load "guilib.ring"
 
 PatternType = "Glider"		### 1,2
@@ -30,11 +30,10 @@ PAddNext		= 1			### pArray added Cells - New Length
 ###---------------------------
 ### WINDOW SIZE, ARRAY SIZE
 
-moveX	= 200 moveY	= 100	### Open Window on Screen Position
-sizeX	= 800 sizeY	= 850	### Size of Window
+sizeX	= 800 sizeY	= 600	### Size of Window
 
-hSize	= 48				### Size of array, Display -2 -2 smaller left-right
-vSize	= 48				### Size of array, Display -2 -2 smaller top-bottom
+hSize	= 40				### Size of array, Display -2 -2 smaller left-right
+vSize	= 40				### Size of array, Display -2 -2 smaller top-bottom
 
 h		= 0					### H-coord of Cell
 v		= 0					### V-coord of Cell
@@ -116,7 +115,6 @@ Func DrawWidget()
 		workHeight = workWidget.height()
 		fontSize   = 8 + (workHeight / 100)
 		
-		  move(moveX, moveY)
 		resize(sizeX, sizeY)
 	 
 
@@ -211,7 +209,7 @@ Func DrawWidget()
 
 				comboPatternType = new QComboBox(workWidget) 
 				{
-					setStyleSheet("background-color:White")
+					setStyleSheet("color:black;background-color:White")
 					setFont(new qFont("Calibri",fontsize,50,0))
 					aList = ["Clear","UserPattern","Glider","SmallExploder","Exploder","10CellRow","LightweightSpaceship","Tumbler","GosperGliderGun"]
 					for x in aList additem(x,0) next				

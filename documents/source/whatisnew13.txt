@@ -1,0 +1,500 @@
+.. index:: 
+	single: What is new in Ring 1.13?; Introduction
+
+=========================
+What is new in Ring 1.13?
+=========================
+
+In this chapter we will learn about the changes and new features in Ring 1.13 release.
+
+.. index:: 
+	pair: What is new in Ring 1.13?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.13 comes with the next features!
+
+* New Book by Apress
+* Ring For WebAssembly
+* Better Threads Support
+* Laser Game
+* Magic Balls Game
+* MoneyBoxes Game
+* Matching Game
+* Pairs Game
+* Word Game
+* Tetris Game
+* Escape Game
+* Hassouna Course Samples
+* Ring support in SpaceVim
+* Better RingQt
+* Better RingRayLib
+* RingStbImage Extension
+* More Low Level Functions
+* Better Organization
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.13?; New Book by Apress
+
+New Book by Apress
+==================
+
+Apress: Beginning Ring Programming (From Novice to Professional)
+
+URL: https://www.apress.com/gp/book/9781484258323
+
+.. image:: ringbookbyapress.png
+	:width: 310pt
+	:height: 450pt
+	:alt: Ring Book by Apress
+
+Gain a gentle introduction to the world of Ring programming with clarity as a 
+first concern using a lot of practical examples.
+
+What You Will Learn
+
+* Get started with Ring and master its data types, I/O, functions, and classes
+* Carry out structural, object-oriented, functional, declarative, natural, and meta programming in Ring
+* Use the full power of Ring to refactor program code and develop clean program architectures
+* Quickly design professional-grade video games on top of the Ring game engine
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Ring for WebAssembly
+
+Ring for WebAssembly
+====================
+
+Ring support distributing applications for WebAssembly (Using Qt for WebAssembly)
+
+* Hello World : https://ring-lang.github.io/web/helloworld/project.html
+* Matching Game : https://ring-lang.github.io/web/matching/project.html
+* Pairs Game : https://ring-lang.github.io/web/pairs/project.html
+* Othello Game : https://ring-lang.github.io/web/othello/project.html
+* Game of Life : https://ring-lang.github.io/web/gameoflife/project.html
+* Online Form Designer : https://ring-lang.github.io/web/formdesigner/project.html
+
+.. image:: othelloweb.png
+	:alt: Othello Game
+
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Better Threads Support
+
+Better Threads Support
+======================
+
+Ring 1.13 provides better support for threads
+
+(1) Ring VM is updated to use a memory pool for each thread (Faster)
+(2) More tests for RingAllegro threads functions
+(3) RingLibUV is updated to be thread safe when using callback functions
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Laser Game
+
+Laser Game
+==========
+
+An implementation for the Laser Game
+
+.. image:: lasergame2.png
+	:alt: Laser Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Magic Balls Game
+
+Magic Balls Game
+================
+
+An implementation for the Magic Balls Game
+
+.. image:: magicballs.png
+	:alt: Magic Balls Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; MoneyBoxes Game
+
+Money Boxes Game
+================
+
+See if you can collect the required amount of money by opening boxes!
+
+.. image:: moneyboxes.png
+	:alt: Money Boxes Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Matching Game
+
+Matching Game
+=============
+
+An implementation for the Matching Game
+
+.. image:: matchinggame.png
+	:alt: Matching Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Pairs Game
+
+Pairs Game
+==========
+
+An implementation for the Pairs Game
+
+.. image:: pairsgame.png
+	:alt: Pairs Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Word Game
+
+Word Game
+=========
+
+An implementation for the Word Game
+
+.. image:: wordgame2.png
+	:alt: Word Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Tetris Game
+
+Tetris Game
+===========
+
+An implementation for the Tetris Game
+
+Features
+
+* New Shapes are selected in random way (Different Shape, Color & Position)
+* You can move and rotate the shapes, increase the speed.
+* Score: You get 10 points when completing a row (The game check for nested rows completion as expected)
+* The game is designed to work forever without user interaction (After Game Over, the Game restarts automatically)
+
+.. image:: tetris.png
+	:alt: Tetris Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Escape Game
+
+Escape Game
+===========
+
+Escape from the Snake and collect the Stars to prevent it from growing!
+
+.. image:: escapegame.png
+	:alt: Escape Game
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Hassouna Course Samples
+
+Hassouna Course Samples
+=======================
+
+URL (YouTube): https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT
+
+The course samples are added to ring/samples/UsingArabic/HassounaCourse folder
+
+The Rockets sample
+
+.. image:: hassouna3.png
+	:alt: Sample from Hassouna Course 
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Ring support in SpaceVim
+
+Ring support in SpaceVim
+========================
+
+URL: https://github.com/SpaceVim/SpaceVim
+
+Screen Shot:
+
+.. image:: ringinvim.png
+	:alt: Ring in SpaceVim
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Better RingQt
+
+Better RingQt
+=============
+
+(1) The next classes are added to RingQt 
+
+* QAbstractAxis
+* QAbstractBarSeries
+* QAbstractSeries
+* QAreaLegendMarker
+* QAreaSeries
+* QBarCategoryAxis
+* QBarLegendMarker
+* QBarSeries
+* QBarSet
+* QBoxPlotLegendMarker
+* QBoxPlotSeries
+* QBoxSet
+* QCandlestickLegendMarker
+* QCandlestickModelMapper
+* QCandlestickSeries
+* QCandlestickSet
+* QCategoryAxis
+* QChart
+* QChartView
+* QDateTimeAxis
+* QHBarModelMapper
+* QHBoxPlotModelMapper
+* QHCandlestickModelMapper
+* QHPieModelMapper
+* QHXYModelMapper
+* QHorizontalBarSeries
+* QHorizontalPercentBarSeries
+* QHorizontalStackedBarSeries
+* QLegend
+* QLegendMarker.
+* QLineSeries
+* QLogValueAxis
+* QPercentBarSeries
+* QPieLegendMarker
+* QPieSeries
+* QPieSlice
+* QPolarChart
+* QScatterSeries
+* QSplineSeries
+* QStackedBarSeries
+* QVBarModelMapper
+* QVBoxPlotModelMapper
+* QVCandleStickModelMapper
+* QVPieModelMapper
+* QVXYModelMapper
+* QValueAxis
+* QXYLegendMarker
+* QXYSeries
+* QGraphicsScene
+* QMovie
+
+(2) Better QtConverter application
+
+This application is used for preparing Qt classes for the Ring Code Generator 
+
+Then using the Ring Code Generator we generate RingQt classes
+
+The application user interface is updated for better productivity!
+
+.. image:: qtconverter.png
+	:alt: QtConverter
+
+(3) RingQt for Android - Qt Project - Special folders for Ring and RingQt
+
+(4) Using Qt 5.15.0
+
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Better RingRayLib
+
+Better RingRayLib
+=================
+
+(1) All functions return objects instead of pointers
+
+(2) Support RayMath libary functions
+
+(3) More Samples are ported from RayLib to RingRayLib
+
+* Scissor Test
+* Input Gestures Detection
+* Bouncing Ball
+* Rectangle Rounded
+* Draw Circle Sector
+* RayLib Logo Animation
+* First Person Maze
+
+.. image:: raylib_firstpersonmaze.png
+	:alt: firstpersonmaze
+
+* Plane Rotations 
+
+.. image:: raylib_planerotations.png
+	:alt: planerotations
+
+
+.. index:: 
+	pair: What is new in Ring 1.13?; RingStbImage Extension
+
+RingStbImage Extension
+======================
+
+New extension support the stb_image library
+
+Example:
+
+.. code-block:: ring
+
+	# Load the library
+		load "stbimage.ring"
+	# Image Information
+		width=0	height=0 channels=0
+	# Ring will Free cData automatically in the end of the program
+		cData = stbi_load("ring.jpg",:width,:height,:channels,STBI_rgb)
+	# Display the output
+		? "Size (bytes): " + len(cData)
+		? "Width : " + width
+		? "Height: " + height
+		? "Channels: " + channels
+
+Output:
+
+.. code-block:: ring
+
+	Size (bytes): 557371
+	Width : 563
+	Height: 330
+	Channels: 3
+
+.. index:: 
+	pair: What is new in Ring 1.13?; More Low Level Functions
+
+More Low Level Functions
+========================
+
+The next functions are added to the Low Level functions 
+
+For more information see the Low Level Functions chapter in the documentation
+
+.. code-block:: ring
+
+	setpointer(pointer,nNewAddress)
+	getpointer(pointer) ---> nAddress
+	pointer2string(pointer,nStart,nCount) ---> cString
+	memcpy(pDestinationPointer,cSourceString,nSize)
+
+.. index:: 
+	pair: What is new in Ring 1.13?; Better Organization
+
+Better Organization
+===================
+
+We have better organization for the project folders and source code files
+
+(1) A folder called (Language) contains the source code and the visual source of the Compiler and the Virtual Machine
+
+(2) The (Extensions) folder (Bindings for C/C++ libraries) - contains also the (libdepwin, android & webassembly folders)
+
+(3) The (Libraries) folder - contains Ring libraries written in Ring itself, contains now (GuiLib & ObjectsLib) too
+
+(4) The (Tools) folder - contains development tools - contains now (Editors, RingNotepad, FormDesigner, etc) 
+
+(5) The (Samples) folder - contains Ring samples - a lot of organization is done in this folder
+
+
+.. index:: 
+	pair: What is new in Ring 1.13?; More Improvements
+
+More Improvements
+=================
+
+* More Applications
+	* Towers of Hanoi
+	* Questions Game
+	* Money Case Game
+	* Rock Paper Scissors Game
+	* Lottery Game
+	* Nim Game
+	* Eight Queens Game
+	* Typing Quiz
+	* Pong 2 Game
+	* Space Shooter Game
+
+* More Samples
+	* ring/samples/Language/HelloWorld folder
+	* ring/samples/Language/ChangeIsNULL folder
+	* ring/samples/Language/Console/customsee.ring 
+	* ring/samples/Language/Numbers/decimalscount.ring
+	* ring/samples/Language/EvalInScope/swap.ring
+	* ring/samples/Language/EvalInScope/global.ring
+	* ring/samples/Language/EvalInScope/enum.ring
+	* ring/samples/Language/Endian/endian.ring
+	* ring/samples/Language/VariablePointer/varptr4.ring 
+	* ring/samples/Language/VariablePointer/varptr5.ring 
+	* ring/samples/Language/DebugCode folder
+	* ring/samples/Language/ClassMethods folder
+	* ring/samples/Language/Lists/CheckHashTableAttribute.ring
+	* ring/samples/Language/RingFileTokens folder (Ring Compiler - Scanner Output)
+	* ring/samples/ProblemSolving/Fib folder
+	* ring/samples/ProblemSolving/ArrayPathDest/solveArrayPathDest.ring
+	* ring/samples/ProblemSolving/PegSolitaire/peg-soli.ring
+	* ring/samples/General/RosettaCode/uniquecharacters.ring
+	* ring/samples/General/RosettaCode/similarcharacters.ring
+	* ring/samples/General/RandomLatinSquares folder
+	* ring/samples/General/FactorialRecursion folder
+	* ring/samples/UsingArabic/RightToLeft folder (Set Layout Direction)
+	* ring/samples/UsingWebLib/Unicode folder
+	* ring/samples/UsingQt/InputMask folder
+	* ring/samples/UsingQt/PlayGif folder
+	* ring/samples/UsingQt/TableWidget folder
+	* ring/samples/UsingQt/ButtonSizeInLayout folder
+	* ring/samples/UsingQt/DateTimeEditFormat folder (Date Picker Control)
+	* ring/samples/UsingQML/sample10 folder (Charts Samples)
+	* ring/samples/UsingQML/sample11 folder (Data Visualization Samples)
+	* ring/samples/UsingQtWASM/colordialog folder
+	* ring/samples/UsingQtWASM/fontdialog folder 
+	* ring/samples/UsingQtWASM/filedialog folder 
+	* ring/samples/UsingQtWASM/filecontent folder (Download/Upload Files)
+	* ring/samples/UsingRayLib/more/ex4_levelsofcubes.ring
+	* ring/samples/UsingOpenGL/cubeongpu/cubeongpu.ring
+	* ring/samples/UsingOpenGL/cubeongpu2/cubeongpu.ring
+
+* Ring Notepad - Output Window - set the buffer size to 1 MB
+* Ring Notepad - View Menu - Source Code (Full Screen)
+* Ring Notepad - Keyboard shortcuts for different styles
+* Ring Notepad - Support saving files in folders contains the dot character
+* Ring Notepad - Browser Window - Set colors based on the current style
+* Ring Notepad - Functions List - Display functions defined using "def" 
+* Ring Notepad - Distribute Menu - Distribute for Web Browser using WebAssembly (RingQt)
+* Form Designer - ToolBox - Larger width in Windows style  
+* Form Designer - ToolBar - New icon for the (Select Objects) button
+* Gold Magic 800 - Level Editor - Decrease the window size 
+* Super Man 2016 - Increase speed of (Game Over) message animation
+* Super Man 2016 - Better code for collision detection between SuperMan and Walls
+* Game Engine - Game Class - Icon property (set the window icon)
+* Set the window icon for many games developed using the Ring game engine
+* Type Hints library - Better Code
+* StdLib - IsMainSourceFile() function - Better Code
+* StdLib - TimeInfo() function - All TimeList() information are now available
+* StdLib - Map() & Filter() functions - Support accessing the global scope
+* StdLib - NewList() function is no longer required - Use the List() function
+* WebLib - Template() function - Support accessing the global scope
+* Objects Library - Better API
+* Natural Library - Better Code
+* RingLibSDL - Update LibSDL version from 2.0.10 to 2.0.12
+* RingOpenGL - Better Code (Added GLEW functions)
+* RingFreeGLUT - Better Code (Added many functions)
+* RingLibUV - Better Code - Samples that uses the VarPtr() function
+* RingPM - Support terminals that pass the executable name using UPPER case
+* Ring2EXE - Distribute for Web Browser using WebAssembly (RingQt)
+* Ring2EXE - Delete the executable file if we have it in the target folder
+* Ring2EXE - Always copy files listed in the resources file to the target folder
+* Ring2EXE - Distribute for Android - Copy Ring and RingQt folders
+* Ring Tests - Display report summary after running all of the tests
+* CodeGen - Add Option: PassNullBeforeVMPointer (For C++ Classes)
+* CodeGen - Using RING_API_ISCPOINTER() instead of RING_API_ISPOINTER()
+* Ring Compiler - ChangeRingKeyword - Support comments and many commands in the same line
+* Ring Compiler - ChangeRingOperator - Support comments and many commands in the same line
+* Ring Compiler - ring_parser.c - Better Code
+* Ring Compiler - ring_stmt.c - Better Code
+* Ring Compiler - ring_expr.c - Better Code
+* Ring Compiler - ring_state.c - Flag for the (Not Case Sensitive) feature
+* Ring Compiler - Load Command - Support loading libraries from ring/bin/load folder
+* Ring Compiler - LoadSyntax Command - Support loading libraries from ring/bin/load folder
+* Ring Compiler - Command: ? <expr> - Clear error message when the expression is missing
+* Ring Compiler - Better Error Messages
+* Ring VM - Using lists during definition - Support using the list itself (not only items)
+* Ring VM - List() Function - Support List(nRow,nCols) to create 2D lists
+* Ring VM - List() Function - Better Performance 
+* Ring VM - Object File - Save/Restore the files list 
+* Ring VM - ring_vmexpr.c - Better Code - Avoid magic numbers
+* Ring VM - ring_state_filetokens() - Optional parameter for the (Not Case Sensitive) feature.
+* Ring VM - ring_state_setvar() - Better Code
+* Ring VM - int2bytes(), float2bytes() & double2bytes() uses sizeof() function
+* Ring VM - fclose() function - Display error message if the FILE pointer is NULL
+* Ring VM - Extensions API - Support local scope of the caller when getting integer pointer

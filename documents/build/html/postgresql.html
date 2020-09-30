@@ -1,0 +1,711 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>PostgreSQL Functions &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Security and Internet Functions" href="secfunc.html" />
+    <link rel="prev" title="SQLite Functions" href="sqlite.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">PostgreSQL Functions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#loading-the-library">Loading the library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#examples">Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringpostgresql-constants">RingPostgreSQL Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringpostgresql-functions">RingPostgreSQL Functions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>PostgreSQL Functions</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="postgresql-functions">
+<span id="index-0"></span><h1>PostgreSQL Functions<a class="headerlink" href="#postgresql-functions" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using the PostgreSQL database in the Ring programming language.</p>
+<div class="section" id="loading-the-library">
+<span id="index-1"></span><h2>Loading the library<a class="headerlink" href="#loading-the-library" title="Permalink to this headline">¶</a></h2>
+<p>Before using the next function load the postgresqllib.ring library</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
+<span class="c"># Use PostgreSQL functions</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="examples">
+<span id="index-2"></span><h2>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h2>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
+
+<span class="n">conninfo</span> <span class="o">=</span> <span class="s">&quot;user=postgres password=sa dbname = postgres&quot;</span>
+
+<span class="n">exit_nicely</span> <span class="o">=</span> <span class="k">func</span> <span class="n">conn</span> <span class="p">{</span>
+        <span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+        <span class="n">shutdown</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">PQconnectdb</span><span class="p">(</span><span class="n">conninfo</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+                <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;select * from pg_database&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
+
+<span class="n">nFields</span> <span class="o">=</span> <span class="n">PQnfields</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+                <span class="o">?</span> <span class="n">PQfname</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+                <span class="k">see</span> <span class="n">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>
+        <span class="k">next</span>
+        <span class="k">see</span> <span class="n">nl</span>
+<span class="k">next</span>
+
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>datname
+datdba
+encoding
+datcollate
+datctype
+datistemplate
+datallowconn
+datconnlimit
+datlastsysoid
+datfrozenxid
+datminmxid
+dattablespace
+datacl
+************************************************************
+postgres 10 6 English_United States.1252
+        English_United States.1252 f t -1 12937 549 1 1663
+template1 10 6 English_United States.1252 English_United States.1252
+        t t -1 12937 549 1 1663 {=c/postgres,postgres=CTc/postgres}
+template0 10 6 English_United States.1252 English_United States.1252
+        t f -1 12937 549 1 1663 {=c/postgres,postgres=CTc/postgres}
+mahdb 10 6 English_United States.1252 English_United States.1252
+        f t -1 12937 549 1 1663
+</pre></div>
+</div>
+<p>Example(2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
+
+<span class="n">conninfo</span> <span class="o">=</span> <span class="s">&quot;user=postgres password=sa dbname = mahdb&quot;</span>
+
+<span class="n">exit_nicely</span> <span class="o">=</span> <span class="k">func</span> <span class="n">conn</span> <span class="p">{</span>
+        <span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+        <span class="n">shutdown</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">PQconnectdb</span><span class="p">(</span><span class="n">conninfo</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+                <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+        <span class="n">DROP</span> <span class="n">DATABASE</span> <span class="n">mahdb</span><span class="p">;</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Remove failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;CREATE DATABASE mahdb;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Create database failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">COMPANY</span> <span class="p">(</span>
+                 <span class="n">ID</span> <span class="n">INT</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>     <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+                 <span class="n">NAME</span>           <span class="n">TEXT</span>    <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+                 <span class="n">AGE</span>            <span class="n">INT</span>     <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+                 <span class="n">ADDRESS</span>        <span class="n">CHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+                 <span class="n">SALARY</span>         <span class="n">REAL</span> <span class="p">);</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Create Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+                <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">COMPANY</span> <span class="p">(</span><span class="n">ID</span><span class="p">,</span><span class="n">NAME</span><span class="p">,</span><span class="n">AGE</span><span class="p">,</span><span class="n">ADDRESS</span><span class="p">,</span><span class="n">SALARY</span><span class="p">)</span>
+                <span class="n">VALUES</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">&#39;Mahmoud&#39;</span> <span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="sc">&#39;Jeddah&#39;</span><span class="p">,</span> <span class="mf">10.00</span> <span class="p">),</span>
+                                <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sc">&#39;Ahmed&#39;</span>   <span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="sc">&#39;Jeddah&#39;</span><span class="p">,</span> <span class="mf">20.00</span> <span class="p">),</span>
+                                <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;Mohammed&#39;</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="sc">&#39;Egypt&#39;</span> <span class="p">,</span> <span class="mf">30.00</span> <span class="p">),</span>
+                                <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="sc">&#39;Ibrahim&#39;</span> <span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="sc">&#39;Egypt &#39;</span><span class="p">,</span> <span class="mf">40.00</span> <span class="p">);</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Insert Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+           <span class="n">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">COMPANY</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
+
+
+<span class="n">nFields</span> <span class="o">=</span> <span class="n">PQnfields</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+                <span class="o">?</span> <span class="n">PQfname</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+                <span class="k">see</span> <span class="n">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>
+        <span class="k">next</span>
+        <span class="k">see</span> <span class="n">nl</span>
+<span class="k">next</span>
+
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>id
+name
+age
+address
+salary
+************************************************************
+1 Mahmoud  31 Jeddah  10
+2 Ahmed    27 Jeddah  20
+3 Mohammed 31 Egypt   30
+4 Ibrahim  24 Egypt   40
+</pre></div>
+</div>
+</div>
+<div class="section" id="ringpostgresql-constants">
+<span id="index-3"></span><h2>RingPostgreSQL Constants<a class="headerlink" href="#ringpostgresql-constants" title="Permalink to this headline">¶</a></h2>
+<p>The next constants are define by the RingPostgreSQL Library</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>CONNECTION_STARTED
+CONNECTION_MADE
+CONNECTION_AWAITING_RESPONSE
+CONNECTION_AUTH_OK
+CONNECTION_SSL_STARTUP
+CONNECTION_SETENV
+CONNECTION_OK
+
+PQPING_OK
+PQPING_REJECT
+PQPING_NO_RESPONSE
+PQPING_NO_ATTEMPT
+
+PGRES_EMPTY_QUERY
+PGRES_COMMAND_OK
+PGRES_TUPLES_OK
+PGRES_COPY_OUT
+PGRES_COPY_IN
+PGRES_BAD_RESPONSE
+PGRES_NONFATAL_ERROR
+PGRES_FATAL_ERROR
+PGRES_COPY_BOTH
+PGRES_SINGLE_TUPLE
+
+PG_DIAG_SEVERITY
+PG_DIAG_SQLSTATE
+PG_DIAG_MESSAGE_PRIMARY
+PG_DIAG_MESSAGE_DETAIL
+PG_DIAG_MESSAGE_HINT
+PG_DIAG_STATEMENT_POSITION
+PG_DIAG_INTERNAL_POSITION
+PG_DIAG_INTERNAL_QUERY
+PG_DIAG_CONTEXT
+PG_DIAG_SCHEMA_NAME
+PG_DIAG_TABLE_NAME
+PG_DIAG_COLUMN_NAME
+PG_DIAG_DATATYPE_NAME
+PG_DIAG_CONSTRAINT_NAME
+PG_DIAG_SOURCE_FILE
+PG_DIAG_SOURCE_LINE
+PG_DIAG_SOURCE_FUNCTION
+</pre></div>
+</div>
+</div>
+<div class="section" id="ringpostgresql-functions">
+<span id="index-4"></span><h2>RingPostgreSQL Functions<a class="headerlink" href="#ringpostgresql-functions" title="Permalink to this headline">¶</a></h2>
+<p>The next functions are define by the RingPostgreSQL Library</p>
+<p>Reference : <a class="reference external" href="https://www.postgresql.org/docs/9.1/static/libpq.html">https://www.postgresql.org/docs/9.1/static/libpq.html</a></p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>PGconn *PQconnectdbParams(const char **keywords,
+        const char **values,int expand_dbname);
+PGconn *PQconnectdb(const char *conninfo)
+PGconn *PQsetdbLogin(const char *pghost,const char *pgport,
+        const char *pgoptions,const char *pgtty,
+        const char *dbName,const char *login,const char *pwd)
+PGconn *PQsetdb(char *pghost,char *pgport,char *pgoptions,
+        char *pgtty,char *dbName)
+PGconn *PQconnectStartParams(const char **keywords,
+        const char **values,int expand_dbname)
+PGconn *PQconnectStart(const char *conninfo)
+PostgresPollingStatusType PQconnectPoll(PGconn *conn)
+PQconninfoOption *PQconndefaults(void)
+PQconninfoOption *PQconninfo(PGconn *conn)
+PQconninfoOption *PQconninfoParse(const char *conninfo, char **errmsg)
+void PQfinish(PGconn *conn)
+void PQreset(PGconn *conn)
+int PQresetStart(PGconn *conn)
+PostgresPollingStatusType PQresetPoll(PGconn *conn)
+PGPing PQpingParams(const char **keywords,const char **values,
+        int expand_dbname)
+PGPing PQping(const char *conninfo)
+char *PQdb(const PGconn *conn)
+char *PQuser(const PGconn *conn)
+char *PQpass(const PGconn *conn)
+char *PQhost(const PGconn *conn)
+char *PQport(const PGconn *conn)
+char *PQtty(const PGconn *conn)
+char *PQoptions(const PGconn *conn)
+ConnStatusType PQstatus(const PGconn *conn)
+PGTransactionStatusType PQtransactionStatus(const PGconn *conn)
+const char *PQparameterStatus(const PGconn *conn, const char *paramName)
+int PQprotocolVersion(const PGconn *conn)
+int PQserverVersion(const PGconn *conn)
+char *PQerrorMessage(const PGconn *conn)
+int PQsocket(const PGconn *conn)
+int PQbackendPID(const PGconn *conn)
+int PQconnectionNeedsPassword(const PGconn *conn)
+int PQconnectionUsedPassword(const PGconn *conn)
+int PQsslInUse(const PGconn *conn)
+const char *PQsslAttribute(const PGconn *conn, const char *attribute_name)
+const char **PQsslAttributeNames(const PGconn *conn)
+void *PQsslStruct(const PGconn *conn, const char *struct_name)
+void *PQgetssl(const PGconn *conn)
+PGresult *PQexec(PGconn *conn, const char *command);
+PGresult *PQexecParams(PGconn *conn,const char *command,int nParams,
+        const Oid *paramTypes,const char **paramValues,
+        const int *paramLengths,const int *paramFormats,int resultFormat)
+PGresult *PQprepare(PGconn *conn,const char *stmtName,
+        const char *query,int nParams,const Oid *paramTypes)
+PGresult *PQexecPrepared(PGconn *conn,const char *stmtName,
+        int nParams,const char **paramValues,
+        const int *paramLengths,const int *paramFormats,int resultFormat)
+PGresult *PQdescribePrepared(PGconn *conn, const char *stmtName)
+PGresult *PQdescribePortal(PGconn *conn, const char *portalName)
+ExecStatusType PQresultStatus(const PGresult *res)
+char *PQresStatus(ExecStatusType status)
+char *PQresultErrorMessage(const PGresult *res)
+char *PQresultErrorField(const PGresult *res, int fieldcode)
+void PQclear(PGresult *res)
+int PQntuples(const PGresult *res)
+int PQnfields(const PGresult *res)
+char *PQfname(const PGresult *res,int column_number)
+int PQfnumber(const PGresult *res,const char *column_name)
+Oid PQftable(const PGresult *res,int column_number)
+int PQftablecol(const PGresult *res,int column_number)
+int PQfformat(const PGresult *res,int column_number)
+Oid PQftype(const PGresult *res,int column_number)
+int PQfmod(const PGresult *res,int column_number)
+int PQfsize(const PGresult *res,int column_number)
+int PQbinaryTuples(const PGresult *res)
+char *PQgetvalue(const PGresult *res,int row_number,int column_number)
+int PQgetisnull(const PGresult *res,int row_number,int column_number)
+int PQgetlength(const PGresult *res,int row_number,int column_number)
+int PQnparams(const PGresult *res)
+Oid PQparamtype(const PGresult *res, int param_number)
+void PQprint(FILE *fout,const PGresult *res,const PQprintOpt *po)
+char *PQcmdStatus(PGresult *res)
+char *PQcmdTuples(PGresult *res)
+Oid PQoidValue(const PGresult *res)
+char *PQoidStatus(const PGresult *res)
+char *PQescapeLiteral(PGconn *conn, const char *str, size_t length)
+char *PQescapeIdentifier(PGconn *conn, const char *str, size_t length)
+size_t PQescapeStringConn(PGconn *conn,char *to,
+        const char *from, size_t length,int *error)
+size_t PQescapeString(char *to, const char *from, size_t length)
+unsigned char *PQescapeByteaConn(PGconn *conn,
+        const unsigned char *from,size_t from_length,size_t *to_length)
+unsigned char *PQescapeBytea(const unsigned char *from,
+        size_t from_length,size_t *to_length)
+unsigned char *PQunescapeBytea(const unsigned char *from, size_t *to_length)
+int PQsendQuery(PGconn *conn, const char *command)
+int PQsendQueryParams(PGconn *conn,const char *command,
+        int nParams,const Oid *paramTypes,const char **paramValues,
+        const int *paramLengths,const int *paramFormats,int resultFormat)
+int PQsendPrepare(PGconn *conn,const char *stmtName,
+        const char *query,int nParams,const Oid *paramTypes)
+int PQsendQueryPrepared(PGconn *conn,const char *stmtName,
+        int nParams,const char **paramValues,
+        const int *paramLengths,const int *paramFormats,int resultFormat)
+int PQsendDescribePrepared(PGconn *conn, const char *stmtName)
+int PQsendDescribePortal(PGconn *conn, const char *portalName)
+PGresult *PQgetResult(PGconn *conn)
+int PQconsumeInput(PGconn *conn)
+int PQisBusy(PGconn *conn)
+int PQsetnonblocking(PGconn *conn, int arg)
+int PQisnonblocking(const PGconn *conn)
+int PQflush(PGconn *conn)
+int PQsetSingleRowMode(PGconn *conn)
+PGcancel *PQgetCancel(PGconn *conn)
+void PQfreeCancel(PGcancel *cancel)
+int PQcancel(PGcancel *cancel, char *errbuf, int errbufsize)
+int PQrequestCancel(PGconn *conn)
+PGresult *PQfn(PGconn *conn,int fnid,int *result_buf,
+        int *result_len,int result_is_int,const PQArgBlock *args,int nargs)
+PGnotify *PQnotifies(PGconn *conn)
+int PQputCopyData(PGconn *conn,const char *buffer,int nbytes)
+int PQputCopyEnd(PGconn *conn,const char *errormsg)
+int PQgetCopyData(PGconn *conn,char **buffer,int async)
+int PQgetline(PGconn *conn,char *buffer,int length)
+int PQgetlineAsync(PGconn *conn,char *buffer,int bufsize)
+int PQputline(PGconn *conn,const char *string)
+int PQputnbytes(PGconn *conn,const char *buffer,int nbytes)
+int PQendcopy(PGconn *conn)
+int PQclientEncoding(const PGconn *conn)
+char *pg_encoding_to_char(int encoding_id)
+int PQsetClientEncoding(PGconn *conn, const char *encoding)
+void PQtrace(PGconn *conn, FILE *stream)
+void PQuntrace(PGconn *conn)
+void PQfreemem(void *ptr)
+void PQconninfoFree(PQconninfoOption *connOptions)
+char *PQencryptPasswordConn(PGconn *conn, const char *passwd,
+         const char *user, const char *algorithm)
+char *PQencryptPassword(const char *passwd, const char *user)
+PGresult *PQmakeEmptyPGresult(PGconn *conn, ExecStatusType status)
+int PQfireResultCreateEvents(PGconn *conn, PGresult *res)
+PGresult *PQcopyResult(const PGresult *src, int flags)
+int PQsetResultAttrs(PGresult *res, int numAttributes, PGresAttDesc *attDescs)
+int PQsetvalue(PGresult *res, int tup_num, int field_num,
+                char *value, int len)
+void *PQresultAlloc(PGresult *res, size_t nBytes)
+int PQlibVersion(void)
+PQnoticeReceiver PQsetNoticeReceiver(PGconn *conn,
+                PQnoticeReceiver proc,void *arg)
+PQnoticeProcessor PQsetNoticeProcessor(PGconn *conn,
+                PQnoticeProcessor proc,void *arg)
+void PQinitOpenSSL(int do_ssl, int do_crypto)
+void PQinitSSL(int do_ssl)
+int PQisthreadsafe(void)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="secfunc.html" class="btn btn-neutral float-right" title="Security and Internet Functions" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sqlite.html" class="btn btn-neutral float-left" title="SQLite Functions" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

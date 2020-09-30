@@ -1,0 +1,1 @@
+loadsyntax "../../libraries/naturallib/syntax/naturalsyntaxon.ring"

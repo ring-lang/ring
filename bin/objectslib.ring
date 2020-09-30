@@ -1,1 +1,0 @@
-load "/../extensions/ringqt/guilib/objectslib/objectslib.ring"

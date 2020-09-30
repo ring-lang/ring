@@ -1,1 +1,0 @@
-load "/../extensions/ringconsolecolors/consolecolors.ring"

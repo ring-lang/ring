@@ -5,7 +5,7 @@ Author : Gal Zsolt
 
 # To run the application
 
-	ring CalmoSoftAsciiTable.ring
+	ring AsciiTable.ring
 
 # Screen Shot
 

@@ -1,0 +1,28 @@
+<RCC>
+	<qresource>
+		<file>PairsGame.ringo</file>
+		<file>images/background.jpg</file>
+		<file>images/cover.png</file>
+		<file>images/empty.png</file>
+		<file>images/p1.png</file>
+		<file>images/p10.png</file>
+		<file>images/p11.png</file>
+		<file>images/p12.png</file>
+		<file>images/p13.png</file>
+		<file>images/p14.png</file>
+		<file>images/p15.png</file>
+		<file>images/p16.png</file>
+		<file>images/p17.png</file>
+		<file>images/p18.png</file>
+		<file>images/p2.png</file>
+		<file>images/p3.png</file>
+		<file>images/p4.png</file>
+		<file>images/p5.png</file>
+		<file>images/p6.png</file>
+		<file>images/p7.png</file>
+		<file>images/p8.png</file>
+		<file>images/p9.png</file>
+		<file>images/pairsgame.png</file>
+		<file>images/pairsgame2.png</file>
+	</qresource>
+</RCC>

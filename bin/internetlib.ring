@@ -1,1 +1,0 @@
-load "/../extensions/ringinternet/internetlib.ring"

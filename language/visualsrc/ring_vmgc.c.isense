@@ -1,0 +1,152 @@
+ring_vmgcdata
+Parent: GCData
+Type: int
+nReferenceCount
+END:
+Type: GCData
+struct GCData
+Type: GCData
+Mark: ->
+struct GCData *
+Type: GCData
+Mark: ->
+GCData *
+ring_pooldata
+RING_USEPOOLMANAGER
+RING_TRACKALLOCATIONS
+RING_POOLMANAGER_ITEMSINBLOCK
+RING_POOLMANAGER_ITEMSIZE
+Parent: PoolData
+Parent: PoolDataTypes
+Type: String
+vString
+Type: Item
+vItem
+Type: Items
+vItems
+Type: List
+vList
+Type: HashTable
+vHashTable
+Type: HashItem
+vHashItem
+Type: char
+cChar[RING_POOLMANAGER_ITEMSIZE]
+END:
+Type: struct PoolData *
+pNext
+END:
+Type: PoolData
+struct PoolData
+Type: PoolData
+Mark: ->
+struct PoolData *
+Type: PoolData
+Mark: ->
+PoolData *
+Parent: PoolManager
+Type: PoolData *
+pCurrentItem
+Type: void *
+pBlockStart
+Type: void *
+pBlockEnd
+Type: unsigned int
+nAllocCount
+Type: unsigned int
+nFreeCount
+Type: unsigned int
+nSmallAllocCount
+Type: unsigned int
+nSmallFreeCount
+Type: unsigned int
+nItemsInBlock
+Type: List *
+aBlocks
+Type: unsigned int
+lDeleteMemory
+END:
+Type: PoolManager
+struct PoolManager
+Type: PoolManager
+Mark: ->
+struct PoolManager *
+Type: PoolManager
+Mark: ->
+PoolManager *
+ring_gc_h
+GCLog
+ring_vm_gc_cleardata
+ring_vm_gc_checkreferences
+Type: int
+x
+Type: List *
+pList, *pList2
+Type: Item *
+pItem
+ring_vm_gc_checknewreference
+Type: Item *
+pItem
+ring_vm_gc_checkupdatereference
+Type: Item *
+pItem
+ring_vm_gc_deleteitem_gc
+ring_vm_gc_killreference
+Type: List *
+pList
+ring_vm_gc_deletetemplists
+ring_vm_gc_newitemreference
+ring_vm_gc_freefunc
+ring_vm_gc_setfreefunc
+ring_malloc
+ring_free
+ring_calloc
+ring_realloc
+ring_state_malloc
+ring_state_free
+Type: void *
+pBlockStart
+Type: void *
+pBlockEnd
+Type: List *
+pBlocks, *pBlock
+Type: int
+x
+Type: RingState *
+pRingState
+ring_state_calloc
+ring_state_realloc
+ring_state_registerblock
+Type: List *
+pList
+Type: RingState *
+pRingState
+ring_state_unregisterblock
+Type: int
+x
+Type: List *
+pList
+Type: RingState *
+pRingState
+ring_vm_gc_deleteitem
+ring_poolmanager_new
+ring_poolmanager_newblock
+Type: PoolData *
+pMemory
+Type: int
+x
+ring_poolmanager_allocate
+Type: void *
+pMemory
+ring_poolmanager_free
+Type: PoolData *
+pPoolData
+ring_poolmanager_delete
+ring_poolmanager_newblockfromsubthread
+Type: int
+x
+Type: PoolData *
+pMemory
+ring_poolmanager_deleteblockfromsubthread
+Type: PoolData *
+pMemory

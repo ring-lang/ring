@@ -1,0 +1,487 @@
+.. index:: 
+	single: What is new in Ring 1.3?; Introduction
+
+========================
+What is new in Ring 1.3?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.3 release.
+
+.. index:: 
+	pair: What is new in Ring 1.3?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.3  comes with many new features 
+
+* Better RingQt
+* Better Ring Notepad
+* Ring mode for Emacs Editor
+* Better StdLib
+* Better Loop/Exit Command
+* New Functions
+* Return Self by Reference
+* Using '<' and ':' operators as 'from' keyword
+* Embedding Ring in Ring without sharing the State
+* RingZip Library
+* Form Designer
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Better RingQt
+
+Better RingQt
+=============
+
+(1) Another version of QPixMap class is added (QPixMap2) which takes (int width,int height)
+during object init. 
+
+Example:
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	New qapp 
+	{
+		win1 =  new qwidget() 
+		{
+			setwindowtitle("Drawing using QPixMap")
+			setgeometry(100,100,500,500)
+			label1 = new qlabel(win1) 
+			{
+				setgeometry(10,10,400,400)
+				settext("")
+			}
+			imageStock = new qlabel(win1) 
+			{               
+				image = new qPixMap2(200,200)   
+				color = new qcolor() {
+					setrgb(255,255,255,255)
+				}
+				pen = new qpen() {
+					setcolor(color)
+					setwidth(10)
+				}
+				new qpainter() {
+					begin(image)
+						setpen(pen)
+						drawline(0,0,200,200)
+						drawline(200,0,0,200)
+					endpaint()
+				}
+				setpixmap(image)   
+			}   
+			show()
+		}
+		exec()
+	}
+
+Screen Shot:
+
+.. image:: ringqtpixmap2.png
+	:alt: Using QPixMap2
+
+(2) The Objects Library is updated to include the next functions
+
+* Last_WindowID()
+* Open_WindowNoShow()
+* Open_WindowAndLink()
+
+Also the class name (WindowViewBase) is changed to (WindowsViewParent).
+
+In The next code for example the Open_WindowAndLink() will create an object
+from the SecondWindowController Class Then will add the Method
+SecondWindow() to the FirstWindowController Class
+Also will add the Method FirstWindow() to the SecondWindowController Class
+
+So the SendMessage() method in FirstWindowController class can use the
+SecondWindow() method to access the object.
+
+.. code-block:: ring
+
+	class firstwindowController from windowsControllerParent
+
+	    oView = new firstwindowView
+
+	    func OpenSecondWindow
+        	Open_WindowAndLink(:SecondWindowController,self)
+
+	    func SendMessage
+        	if IsSecondWindow() 
+	            SecondWindow().setMessage("Message from the first window")
+        	ok
+
+	    func setMessage cMessage
+        	oView.Label1.setText(cMessage)
+
+
+(3) The next classes are added to RingQt
+
+* QPixMap2
+* QScrollArea
+* QSplitter
+* QCompleter
+* QCompleter2
+* QCompleter3
+* QProcess
+* QMdiArea
+* QMdiSubWindow
+* QCursor
+* QListView
+* QDesktopServices
+
+(4) Many constants are defined in qt.rh (loaded by guilib.ring)
+
+(5) New Classes names - Index Start from 1
+
+We added new classes to RingQt - another version of classes where the class names doesn't start with the "q" letter
+Also updated methods so the index start from 1 when we deal with the GUI controls like
+
+* ComboBox
+* ListWidget
+* TableWidget
+* TreeWidget
+
+These classes are inside guilib.ring under the package name : System.GUI
+
+To use it
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	import System.GUI
+
+This doesn't have any effect on our previous code, It's just another choice for better code that is consistent with Ring rules.
+
+Also the form designer is updated to provide us the choice between using classes where (index start from 0) or (index start from 1)
+
+Example  (Uses the Form Designer)
+
+(1) https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartView.ring
+
+(2) https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartController.ring 
+
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Better Ring Notepad
+
+Better Ring Notepad
+===================
+
+(1) Using QPlainTextEdit instead of QTextEdit
+
+(2) Displaying the line number for each line in the source code file.
+
+Screen Shot:
+
+.. image:: rnotelinenumber.png
+	:alt: Ring Notepad - Line Number
+
+(3) Auto-Complete for Ring functions names, classes and words in the opened file.
+
+.. image:: autocomplete.png
+	:alt: Ring Notepad - Auto Complete
+
+(4) Functions and Methods List
+
+.. image:: functionslist.png
+	:alt: Ring Notepad - Functions List
+
+(5) Output Window
+
+.. image:: outputwin.png
+	:alt: Ring Notepad - Output Window
+
+(6) Classes List
+
+.. image:: classeslist.png
+	:alt: Ring Notepad - Classes List
+
+(7) Change the Current Style
+
+.. image:: rnotestylemenu.png
+	:alt: Ring Notepad - Style Menu
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Ring mode for Emacs Editor
+
+Ring mode for Emacs Editor
+==========================
+
+Ring 1.3 comes with Ring mode for Emacs Editor
+
+Screen Shot:
+
+.. image:: ringemacs.png
+	:alt: Ring mode for Emacs Editor
+
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Better StdLib
+
+Better StdLib
+=============
+
+The StdLib is updated to include the next functions
+
+* SplitMany()
+* JustFilePath()
+* JustFileName()
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Better Loop|Exit Command
+
+Better Loop|Exit Command
+========================
+
+The Loop|Exit command is updated to accept Expressions after the command (not only numbers).
+
+The syntax:
+
+.. code-block:: ring
+
+	Loop|Exit [Number]
+
+Changed to
+
+.. code-block:: ring
+
+	Loop|Exit [Expression]
+
+Example
+
+.. code-block:: ring
+
+	XLoop = 2	# The outer loop 
+	YLoop = 1	# The first inner loop
+	for x = 1 to 10
+        	for y = 1 to 10
+                	see "x=" + x + " y=" + y + nl
+	                if x = 3 and y = 5
+        	                exit XLoop  
+                	ok
+	        next
+	next
+
+.. index:: 
+	pair: What is new in Ring 1.3?; New Functions
+
+New Functions
+=============
+
+* PackageName() function
+* Swap() function
+
+Example:
+
+.. code-block:: ring
+
+	aList = [:one,:two,:four,:three]
+	see aList
+	see copy("*",50) + nl
+	swap(aList,3,4)
+	see aList
+
+Output
+
+.. code-block:: ring
+
+	one
+	two
+	four
+	three
+	**************************************************
+	one
+	two
+	three
+	four
+
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Return Self by Reference
+
+Return Self by Reference
+========================
+
+In this release, using Return Self in class methods will return the object by reference.
+
+Example:
+
+.. code-block:: ring
+
+	mylist = [new mytest() {
+		see self
+		x = 20
+		see self
+	}]
+
+	see mylist 
+
+	class mytest
+		x = 15
+		func init 
+			return self	# Return by reference
+
+Output
+
+.. code-block:: ring
+
+	x: 15.000000
+	x: 20.000000
+	x: 20.000000
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Using '<' and ':' operators as 'from' keyword
+
+Using '<' and ':' operators as 'from' keyword
+=============================================
+
+In this release of the Ring language we can use the '<' and ':' operators as the 'from' keyword
+
+Syntax (1):
+
+.. code-block:: ring
+	
+	class Cat from Animal
+
+Syntax (2):
+	
+.. code-block:: ring
+	
+	class Cat < Animal
+
+Syntax (3):
+
+.. code-block:: ring
+	
+	class Cat : Animal
+
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Embedding Ring in Ring without sharing the State
+
+Embedding Ring in Ring without sharing the State
+================================================
+
+From Ring 1.0 we already have functions for embedding Ring in the C language. Also we
+can execute Ring code inside Ring programs using the eval() function. In this release
+we provide functions for embedding Ring in Ring programs without sharing the state.
+
+Advantages:
+
+(1) Quick integration for Ring programs and applications together without conflicts.
+
+(2) Execute and run Ring code in safe environments that we can trace.
+
+Example:
+
+.. code-block:: ring
+
+	pState = ring_state_init()
+	ring_state_runcode(pState,"See 'Hello, World!'+nl")
+	ring_state_runcode(pState,"x = 10")
+
+	pState2 = ring_state_init()
+	ring_state_runcode(pState2,"See 'Hello, World!'+nl")
+	ring_state_runcode(pState2,"x = 20")
+
+	ring_state_runcode(pState,"see x +nl")
+	ring_state_runcode(pState2,"see x +nl")
+
+	v1 = ring_state_findvar(pState,"x")
+	v2 = ring_state_findvar(pState2,"x")
+
+	see v1[3] + nl
+	see V2[3] + nl
+
+	ring_state_delete(pState)
+	ring_state_delete(pState2)
+
+Output:
+
+.. code-block:: ring
+
+	Hello, World!
+	Hello, World!
+	10
+	20
+	10
+	20
+
+
+.. index:: 
+	pair: What is new in Ring 1.3?; RingZip Library
+
+RingZip Library
+===============
+
+Ring 1.3 comes with the RingZip library for creating, modifying and extracting *.zip files.
+
+Example (1):  Create myfile.zip contains 4 files 
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+	oZip = zip_openfile("myfile.zip",'w')
+	zip_addfile(oZip,"test.c")
+	zip_addfile(oZip,"zip.c")
+	zip_addfile(oZip,"zip.h")
+	zip_addfile(oZip,"miniz.h")
+	zip_close(oZip)
+
+Example (2): Extract myfile.zip to myfolder folder.
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+	zip_extract_allfiles("myfile.zip","myfolder")
+
+Example (3): Print file names in the myfile.zip
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+	oZip = zip_openfile("myfile.zip",'r')
+	for x=1 to zip_filescount(oZip)
+	       see zip_getfilenamebyindex(oZip,x) + nl
+	next
+	zip_close(oZip)
+
+Example (4) : Using Classes instead of Functions
+
+.. code-block:: ring
+
+	load "ziplib.ring"
+
+	new Zip {
+		SetFileName("myfile.zip")
+		Open("w")
+		AddFile("test.c")
+		AddFile("zip.c")
+		AddFile("zip.h")
+		AddFile("miniz.h")
+		Close()
+	}
+
+.. index:: 
+	pair: What is new in Ring 1.3?; Form Designer
+
+Form Designer
+=============
+
+Ring 1.3 comes with the Form Designer to quickly design your GUI application windows/forms
+and generate the Ring source code.
+
+It's written in Ring (Around 8000 Lines of code) using Object-Oriented Programming and
+Meta-Programming.
+
+We can run the From Designer from Ring Notepad
+
+.. image:: rnotefd.png
+	:alt: Form Desigenr - Inside Ring Notepad
+
+Also we can run the Form Designer in another window.
+
+.. image:: formdesigner.png
+	:alt: Form Desigenr

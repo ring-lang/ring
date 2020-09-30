@@ -632,6 +632,9 @@ func openEventsFile
 func openProFiles
 
 	RunProcess("notepad.exe",exefolder()+
+		   "../extensions/webassembly/ringqt/project/project.pro")
+
+	RunProcess("notepad.exe",exefolder()+
 		   "../extensions/android/ringqt/project/project.pro")
 
 	RunProcess("notepad.exe",exefolder()+

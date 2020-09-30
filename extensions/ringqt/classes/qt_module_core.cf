@@ -26,8 +26,6 @@
 <loadfile> core/qxmlstreamentityresolver.cf
 <loadfile> core/qxmlstreamattributes.cf
 <loadfile> core/qxmlstreamattribute.cf
-<loadfile> core/qthread.cf
-<loadfile> core/qthreadpool.cf
 <loadfile> core/qregularexpression.cf
 <loadfile> core/qregularexpressionmatch.cf
 <loadfile> core/qregularexpressionmatchiterator.cf
@@ -39,11 +37,7 @@
 <loadfile> core/qpointf.cf
 <loadfile> core/qpoint.cf
 <loadfile> core/qstring2.cf
-<loadfile> core/qprocess.cf
-<loadfile> core/quuid.cf
 <loadfile> core/qstringref.cf
-<loadfile> core/qmutex.cf
-<loadfile> core/qmutexlocker.cf
 <loadfile> core/qbuffer.cf
 <loadfile> core/qdatetime.cf
 <loadfile> core/qcoreapplication.cf
@@ -59,3 +53,12 @@
 <loadfile> core/qtextstream3.cf
 <loadfile> core/qtextstream4.cf
 <loadfile> core/qtextstream5.cf
+
+<filter> sysget("RINGQT_WEBASSEMBLY") = ""
+<loadfile> core/qthread.cf
+<loadfile> core/qthreadpool.cf
+<loadfile> core/qprocess.cf
+<loadfile> core/quuid.cf
+<loadfile> core/qmutex.cf
+<loadfile> core/qmutexlocker.cf
+</filter>

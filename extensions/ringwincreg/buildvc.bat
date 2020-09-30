@@ -1,14 +1,14 @@
 echo off
 
-call ../../src/locatevc.bat
+call ../../language/src/locatevc.bat
 
-cl /c /DEBUG /EHsc creg_registry.cpp ring_wincreg.cpp -I"..\..\include"
+cl /c /DEBUG /EHsc creg_registry.cpp ring_wincreg.cpp -I"..\..\language\include"
 
 link /DEBUG creg_registry.obj advapi32.lib shlwapi.lib ring_wincreg.obj  ..\..\lib\ring.lib  /DLL /OUT:ring_wincreg.dll /SUBSYSTEM:CONSOLE,"5.01" 
 
 mt.exe -manifest ring_wincreg.dll.manifest -outputresource:ring_wincreg.dll;2
 
-copy ring_wincreg.dll .\bin\ring_wincreg.dll
+copy ring_wincreg.dll ..\..\bin\ring_wincreg.dll
 
 del *.obj
 del ring_wincreg.ilk

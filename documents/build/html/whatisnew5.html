@@ -1,0 +1,2238 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What is new in Ring 1.5? &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="What is new in Ring 1.6?" href="whatisnew6.html" />
+    <link rel="prev" title="What is new in Ring 1.4?" href="whatisnew4.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.5</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#video-music-player-application">Video-Music-Player Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#windows-startup-manager-application">Windows StartUp Manager Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#calculator-application">Calculator Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-weblib">Better WebLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-objects-library">Better Objects Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringfreeglut-extension">RingFreeGLUT Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringopengl-extension">RingOpenGL Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-documentation-generator-for-extensions">Better Documentation Generator for Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ring-vm-tracing-functions">Ring VM - Tracing Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#trace-library-and-interactive-debugger">Trace Library and Interactive Debugger</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-syntax-flexibility">More Syntax Flexibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#type-hints-library">Type Hints Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-quality">Better Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-new-in-ring-1-5-1">What is new in Ring 1.5.1?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-new-in-ring-1-5-2">What is new in Ring 1.5.2?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-new-in-ring-1-5-3">What is new in Ring 1.5.3?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#what-is-new-in-ring-1-5-4">What is new in Ring 1.5.4?</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>What is new in Ring 1.5?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-is-new-in-ring-1-5">
+<span id="index-0"></span><h1>What is new in Ring 1.5?<a class="headerlink" href="#what-is-new-in-ring-1-5" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.5 release.</p>
+<div class="section" id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.5 comes with many new features!</p>
+<ul class="simple">
+<li><p>Video-Music-Player Application</p></li>
+<li><p>Windows StartUp Manager Application</p></li>
+<li><p>Calculator Application</p></li>
+<li><p>Better Ring Notepad</p></li>
+<li><p>Better StdLib</p></li>
+<li><p>Better WebLib</p></li>
+<li><p>Better RingQt</p></li>
+<li><p>Better Objects Library</p></li>
+<li><p>RingFreeGLUT Extension</p></li>
+<li><p>RingOpenGL Extension</p></li>
+<li><p>Better Code Generator for Extensions</p></li>
+<li><p>Better Documentation Generator for Extensions</p></li>
+<li><p>Ring VM - Tracing Functions</p></li>
+<li><p>Trace Library and Interactive Debugger</p></li>
+<li><p>More Syntax Flexibility</p></li>
+<li><p>Type Hints Library</p></li>
+<li><p>Better Quality</p></li>
+</ul>
+</div>
+<div class="section" id="video-music-player-application">
+<span id="index-2"></span><h2>Video-Music-Player Application<a class="headerlink" href="#video-music-player-application" title="Permalink to this headline">¶</a></h2>
+<p>The Video-Music-Player application is added to the Applications folder.</p>
+<p>Screen Shot:</p>
+<img alt="Video Music Player" src="_images/videomusicplayer.jpg" />
+</div>
+<div class="section" id="windows-startup-manager-application">
+<span id="index-3"></span><h2>Windows StartUp Manager Application<a class="headerlink" href="#windows-startup-manager-application" title="Permalink to this headline">¶</a></h2>
+<p>The Windows StartUp Manager</p>
+<p>URL : <a class="reference external" href="https://github.com/ring-lang/WinStartupManager">https://github.com/ring-lang/WinStartupManager</a></p>
+<p>Screen Shot:</p>
+<img alt="Windows Startup Manager" src="_images/winstartupman.jpg" />
+</div>
+<div class="section" id="calculator-application">
+<span id="index-4"></span><h2>Calculator Application<a class="headerlink" href="#calculator-application" title="Permalink to this headline">¶</a></h2>
+<p>The Calculator application is added to the Applications folder.</p>
+<p>Screen Shot:</p>
+<img alt="Calculator Application" src="_images/calcapp.jpg" />
+</div>
+<div class="section" id="better-ring-notepad">
+<span id="index-5"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Ring Notepad is updated to include some new styles and the Main File ToolBar</p></li>
+</ol>
+<p>The idea of the Main File ToolBar is to determine the main file in the project
+When the project contains many source code files</p>
+<p>This way you can run the project ( Main File ) at any time while opening other files in the project
+without the need to switch to the Main File to run the project.</p>
+<p>To quickly use this feature</p>
+<p>(Open the project main file)</p>
+<p>Press Ctrl+Shift+M  to set the current source code file as the main file</p>
+<p>Open and modify other source code files in the project</p>
+<p>To run the project (Main File) at any time press Ctrl+Shift+F5 (GUI) or Ctrl+Shift+D (Console)</p>
+<p>Screen Shots:</p>
+<img alt="Ring Notepad" src="_images/rnote15shot1.png" />
+<img alt="Ring Notepad" src="_images/rnote15shot2.png" />
+<img alt="Ring Notepad" src="_images/rnote15shot3.png" />
+<ol class="arabic simple" start="2">
+<li><p>The output window is updated to display the new lines correctly and contains the “Clear” button.</p></li>
+</ol>
+<p>Screen Shot:</p>
+<img alt="Output Window" src="_images/rnote15output.png" />
+<p>(3) The Ring Notepad is updated to quickly open and switch between large files while
+preparing the functions/classes lists in the background.</p>
+<p>Screen Shot:</p>
+<img alt="Ring Notepad - Large Files" src="_images/rnote15events.png" />
+</div>
+<div class="section" id="better-stdlib">
+<span id="index-6"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this headline">¶</a></h2>
+<p>New Functions</p>
+<ul class="simple">
+<li><p>Print2Str()</p></li>
+<li><p>ListAllFiles()</p></li>
+<li><p>SystemCmd()</p></li>
+</ul>
+<ol class="arabic simple">
+<li><p>The Print2Str() is a new function added to the StdLib</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">world</span> <span class="o">=</span> <span class="s">&quot;World!&quot;</span>
+<span class="n">mystring</span> <span class="o">=</span> <span class="n">print2str</span><span class="p">(</span><span class="s">&quot;Hello, #{world} </span><span class="se">\n</span><span class="s">In Year </span><span class="se">\n</span><span class="s">#{2000+17} </span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+
+<span class="k">see</span> <span class="n">mystring</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Hello</span><span class="p">,</span> <span class="n">World</span><span class="o">!</span>
+<span class="k">In</span> <span class="n">Year</span>
+<span class="mi">2017</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>The ListAllFiles() is a new function added to the StdLib</p></li>
+</ol>
+<p>Using this function we can quickly do a process on a group of files in a folder and it’s sub folders.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">ListAllFiles</span><span class="p">(</span><span class="s">&quot;c:/ring/ringlibs&quot;</span><span class="p">,</span><span class="s">&quot;ring&quot;</span><span class="p">)</span> <span class="c"># *.ring only</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="n">sort</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="k">see</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">see</span> <span class="n">listallfiles</span><span class="p">(</span><span class="s">&quot;b:/ring/ringlibs/weblib&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">)</span> <span class="c"># All Files</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="3">
+<li><p>The SystemCmd() is a new function added to the StdLib</p></li>
+</ol>
+<p>The function will execute a system command like the System() function but
+will return the output in a string.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cYou</span> <span class="o">=</span> <span class="n">SystemCmd</span><span class="p">(</span><span class="s">&quot;whoami&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;SystemCmd: whoami =====&quot;</span><span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">cYou</span> <span class="o">+</span><span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SystemCmd</span><span class="p">:</span> <span class="n">whoami</span> <span class="o">=====</span>
+<span class="n">desktop</span><span class="o">-</span><span class="n">umberto</span><span class="o">\</span><span class="n">umberto</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-weblib">
+<span id="index-7"></span><h2>Better WebLib<a class="headerlink" href="#better-weblib" title="Permalink to this headline">¶</a></h2>
+<p>The WebLib is updated to include the HTMLPage class</p>
+<p>Using this class we can create HTML documents without printing the output to the standard output</p>
+<p>So instead of using the WebLib in Web Applications only</p>
+<p>We can use it in Console/GUI/Mobile Applications too</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
+
+<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">mypage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HtmlPage</span> <span class="p">{</span>
+                <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
+                <span class="n">Table</span>
+                <span class="p">{</span>
+                          <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                          <span class="n">TR</span>
+                          <span class="p">{</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s">&quot;10%&quot;</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">}</span>
+                          <span class="p">}</span>
+                <span class="p">}</span>
+
+                <span class="n">Table</span>
+                <span class="p">{</span>
+                          <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+                          <span class="n">TR</span>
+                          <span class="p">{</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                          <span class="p">}</span>
+                          <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
+                                <span class="n">TR</span>
+                                <span class="p">{</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="p">}</span>
+                          <span class="k">next</span>
+                <span class="p">}</span>
+
+        <span class="p">}</span>
+
+        <span class="n">write</span><span class="p">(</span><span class="s">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="p">.</span><span class="n">output</span><span class="p">())</span>
+</pre></div>
+</div>
+<p>Using this feature we can create reports quickly using WebLib &amp; GUILib together</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;weblib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
+<span class="k">import</span> <span class="n">System</span><span class="p">.</span><span class="n">GUI</span>
+
+<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="n">open_window</span><span class="p">(:</span><span class="n">CustomersReportController</span><span class="p">)</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">CustomersReportController</span>
+
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CustomersReportView</span>
+
+        <span class="k">func</span> <span class="n">Start</span>
+                <span class="n">CreateReport</span><span class="p">()</span>
+
+        <span class="k">func</span> <span class="n">CreateReport</span>
+                <span class="n">mypage</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HtmlPage</span> <span class="p">{</span>
+                        <span class="n">h1</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Customers Report&quot;</span><span class="p">)</span> <span class="p">}</span>
+                        <span class="n">Table</span>
+                        <span class="p">{</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+                                <span class="n">TR</span>
+                                <span class="p">{</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">WIDTH</span><span class="o">=</span><span class="s">&quot;10%&quot;</span>
+                                                <span class="n">text</span><span class="p">(</span><span class="s">&quot;Customers Count : &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="p">}</span>
+                                <span class="p">}</span>
+                        <span class="p">}</span>
+                        <span class="n">Table</span>
+                        <span class="p">{</span>
+                                <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">stylegradient</span><span class="p">(</span><span class="mi">26</span><span class="p">)</span>
+                                <span class="n">TR</span>
+                                <span class="p">{</span>
+                                        <span class="n">style</span> <span class="o">=</span> <span class="n">stylewidth</span><span class="p">(</span><span class="s">&quot;100%&quot;</span><span class="p">)</span> <span class="o">+</span>
+                                                <span class="n">stylegradient</span><span class="p">(</span><span class="mi">24</span><span class="p">)</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Name &quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Age&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Country&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Job&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Company&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                <span class="p">}</span>
+                                <span class="k">for</span> <span class="n">x</span> <span class="o">=</span>  <span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
+                                        <span class="n">TR</span>
+                                        <span class="p">{</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Test&quot;</span> <span class="p">)</span>  <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;30&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Egypt&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Sales&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                                <span class="n">TD</span> <span class="p">{</span> <span class="n">text</span><span class="p">(</span><span class="s">&quot;Future&quot;</span> <span class="p">)</span> <span class="p">}</span>
+                                        <span class="p">}</span>
+                                <span class="k">next</span>
+                        <span class="p">}</span>
+                <span class="p">}</span>
+                <span class="n">write</span><span class="p">(</span><span class="s">&quot;report.html&quot;</span><span class="p">,</span><span class="n">mypage</span><span class="p">.</span><span class="n">output</span><span class="p">())</span>
+
+        <span class="k">func</span> <span class="n">PrintEvent</span>
+                <span class="n">printer1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPrinter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setoutputformat</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+                        <span class="n">setoutputfilename</span><span class="p">(</span><span class="s">&quot;report.pdf&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">oView</span> <span class="p">{</span>
+                        <span class="n">web</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span>
+                        <span class="n">web</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="n">system</span> <span class="p">(</span><span class="s">&quot;report.pdf&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">CustomersReportView</span>
+
+                <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">window</span><span class="p">()</span> <span class="p">{</span>
+                                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Report Window&quot;</span><span class="p">)</span>
+                                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">500</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+                                <span class="n">web</span> <span class="o">=</span> <span class="k">new</span> <span class="n">webview</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                                        <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">1000</span><span class="p">,</span><span class="mi">500</span><span class="p">)</span>
+                                        <span class="n">loadpage</span><span class="p">(</span><span class="k">new</span> <span class="n">qurl</span><span class="p">(</span><span class="s">&quot;file:///&quot;</span><span class="o">+</span>
+                                        <span class="n">currentdir</span><span class="p">()</span><span class="o">+</span><span class="s">&quot;/report.html&quot;</span><span class="p">))</span>
+                                <span class="p">}</span>
+                                <span class="k">new</span> <span class="n">pushbutton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                                                <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                                                <span class="n">settext</span><span class="p">(</span><span class="s">&quot;Print&quot;</span><span class="p">)</span>
+                                                <span class="n">setclickevent</span><span class="p">(</span><span class="n">Method</span><span class="p">(:</span><span class="n">PrintEvent</span><span class="p">))</span>
+                                <span class="p">}</span>
+                                <span class="n">showMaximized</span><span class="p">()</span>
+                        <span class="p">}</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="Customers Report" src="_images/ring15reportshot.png" />
+</div>
+<div class="section" id="better-ringqt">
+<span id="index-8"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<p>New classes added to RingQt :</p>
+<ul class="simple">
+<li><p>QStringRef</p></li>
+<li><p>QMutex</p></li>
+<li><p>QMutexLocker</p></li>
+<li><p>QBuffer</p></li>
+<li><p>QBluetoothAddress</p></li>
+<li><p>QBluetoothDeviceDiscoveryAgent</p></li>
+<li><p>QBluetoothDeviceInfo</p></li>
+<li><p>QBluetoothHostInfo</p></li>
+<li><p>QBluetoothLocalDevice</p></li>
+<li><p>QBluetoothServer</p></li>
+<li><p>QBluetoothServiceDiscoveryAgent</p></li>
+<li><p>QBluetoothServiceInfo</p></li>
+<li><p>QBluetoothSocket</p></li>
+<li><p>QBluetoothTransferManager</p></li>
+<li><p>QBluetoothTransferReply</p></li>
+<li><p>QBluetoothTransferRequest</p></li>
+<li><p>QBluetoothUuid</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="sd">### Submits your car VIN - Vehicle Id Number - to the Web Site - vpic.nhtsa.dot.gov -</span>
+<span class="sd">### Parses XML data returned</span>
+<span class="sd">### Prints out the car info result</span>
+
+<span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
+
+<span class="c"># request = &quot;3G1JC5248YS251015?format=xml&quot;  ### VIN - Chevrolet</span>
+  <span class="n">request</span> <span class="o">=</span> <span class="s">&quot;3GYFK62847G247323?format=xml&quot;</span>  <span class="sd">### VIN - Cadillac</span>
+
+<span class="n">call_type</span>   <span class="o">=</span> <span class="s">&quot;decodevinvalues/&quot;</span>
+<span class="n">url</span>         <span class="o">=</span> <span class="s">&quot;https://vpic.nhtsa.dot.gov/api/vehicles/&quot;</span>
+<span class="n">url_request</span> <span class="o">=</span> <span class="n">url</span> <span class="o">+</span> <span class="n">call_type</span> <span class="o">+</span> <span class="n">request</span>
+
+        <span class="k">See</span> <span class="s">&quot;URL Request: &quot;</span><span class="o">+</span> <span class="n">url_request</span> <span class="o">+</span><span class="n">nl</span>
+
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">curlopt_url</span><span class="p">,</span> <span class="n">url_request</span><span class="p">)</span>
+<span class="n">response</span> <span class="o">=</span> <span class="n">curl_easy_perform_silent</span><span class="p">(</span><span class="n">curl</span><span class="p">);</span>
+
+        <span class="k">See</span> <span class="n">nl</span> <span class="o">+</span><span class="s">&quot;Response Raw: &quot;</span><span class="o">+</span> <span class="n">response</span> <span class="o">+</span><span class="n">nl</span> <span class="o">+</span><span class="n">nl</span>
+
+<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="n">xml</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qxmlstreamreader</span><span class="p">()</span>
+<span class="n">xml</span><span class="p">.</span><span class="n">adddata_2</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+
+<span class="n">x</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qstringref</span><span class="p">()</span>
+<span class="k">while</span> <span class="ow">not</span> <span class="n">xml</span><span class="p">.</span><span class="n">atend</span><span class="p">()</span>
+           <span class="k">if</span> <span class="n">xml</span><span class="p">.</span><span class="n">error</span><span class="p">()</span>
+                           <span class="k">see</span> <span class="n">xml</span><span class="p">.</span><span class="n">errorstring</span><span class="p">()</span> <span class="k">see</span> <span class="n">nl</span>
+                           <span class="k">exit</span> <span class="k">loop</span>
+           <span class="k">ok</span>
+
+           <span class="n">x</span> <span class="o">=</span> <span class="n">xml</span><span class="p">.</span><span class="n">text</span><span class="p">()</span>
+           <span class="k">if</span> <span class="ow">not</span> <span class="n">x</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">=</span> <span class="mi">0</span>
+                           <span class="k">see</span> <span class="s">&quot;Length: &quot;</span> <span class="k">see</span> <span class="n">x</span><span class="p">.</span><span class="n">length</span><span class="p">()</span> <span class="o">+</span><span class="s">&quot; --- &quot;</span>
+                           <span class="k">see</span> <span class="s">&quot;Value: &quot;</span> <span class="k">see</span> <span class="n">x</span><span class="p">.</span><span class="n">tostring</span><span class="p">()</span> <span class="k">see</span> <span class="n">nl</span>
+           <span class="k">ok</span>
+
+           <span class="n">xml</span><span class="p">.</span><span class="n">readnext</span><span class="p">()</span>
+<span class="k">end</span>
+
+<span class="k">get</span> <span class="n">x</span>
+
+<span class="sd">###------------------------------------------</span>
+<span class="sd">### Results</span>
+<span class="c">#</span>
+<span class="c"># ==&gt;Value: 115</span>
+<span class="c"># ==&gt;Value: Results returned successfully</span>
+<span class="c"># ==&gt;Value: VIN(s): 3G1JC5248YS251015</span>
+<span class="c"># ==&gt;Value: 3G1JC5248YS251015</span>
+<span class="c"># ==&gt;Value: Sedan/Saloon</span>
+<span class="c"># ==&gt;Value: 4</span>
+<span class="c"># ==&gt;Value: 2200.0</span>
+<span class="c"># ==&gt;Value: 134.25223700841</span>
+<span class="c"># ==&gt;Value: 2.2</span>
+<span class="c"># ==&gt;Value: 4</span>
+<span class="c"># ==&gt;Value: LN2</span>
+<span class="c"># ==&gt;Value: CHEVROLET</span>
+<span class="c"># ==&gt;Value: GENERAL MOTORS LLC</span>
+<span class="c"># ==&gt;Value: Cavalier</span>
+<span class="c"># ==&gt;Value: 2000</span>
+<span class="c"># ==&gt;Value: Ramos Arzipe</span>
+<span class="c"># ==&gt;Value: PASSENGER CAR</span>
+<span class="c"># ==&gt;Value: 4</span>
+<span class="c"># ==&gt;Value: In-Line</span>
+<span class="c"># ==&gt;Value: 1st Row (Driver &amp; Passenger)</span>
+<span class="c"># ==&gt;Value: Sequential Fuel Injection (SFI)</span>
+<span class="c"># ==&gt;Value: Mexico</span>
+<span class="c"># ==&gt;Value: NA</span>
+<span class="c"># ==&gt;Value: Manual</span>
+<span class="c"># ==&gt;Value: Body Type: Sedan, 4-6 Window, Notchback (GM codes: 19, 69)</span>
+<span class="c"># ==&gt;Value:  Name Plate: Chevrolet, Pontiac</span>
+<span class="c"># ==&gt;Value: 0 - VIN decoded clean. Check Digit (9th position) is correct</span>
+<span class="c"># ==&gt;Value: LAN</span>
+<span class="c"># ==&gt;Value: 984</span>
+<span class="c">#</span>
+<span class="sd">###-----------------------------------------</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-objects-library">
+<span id="index-9"></span><h2>Better Objects Library<a class="headerlink" href="#better-objects-library" title="Permalink to this headline">¶</a></h2>
+<p>The function Open_WindowInPackages() is added to the Objects library.</p>
+<p>The Open_WindowInPackages() function is the same as Open_Window()
+but takes an extra list that determine the packages
+to import before opening the window.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Open_WindowInPackages</span><span class="p">(</span><span class="n">cClassName</span><span class="p">,</span><span class="n">aPackagesList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p>The next example from the Form Designer source code, Open the Window Flags window
+using the open_windowInPackages() function.</p>
+<p>We determine the class name “WindowFlagsController” and the packages name.</p>
+<p>The Window Flags window uses the FormDesigner and System.GUI packages.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">open_windowInPackages</span><span class="p">(:</span><span class="n">WindowFlagsController</span><span class="p">,</span><span class="o">[</span>
+        <span class="s">&quot;formdesigner&quot;</span><span class="p">,</span>
+        <span class="s">&quot;System.GUI&quot;</span>
+<span class="o">]</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ringfreeglut-extension">
+<span id="index-10"></span><h2>RingFreeGLUT Extension<a class="headerlink" href="#ringfreeglut-extension" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.5 comes with RingFreeGLUT extension to support the FreeGLUT library</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>/*
+        This sample is based on C Tutorials
+        from : http://www.lighthouse3d.com/tutorials/glut-tutorial/
+*/
+
+load &quot;freeglut.ring&quot;
+load &quot;opengl21lib.ring&quot;
+
+
+// angle of rotation for the camera direction
+angle = 0.0
+
+// actual vector representing the camera&#39;s direction
+lx=0.0 lz=-1.0
+
+// XZ position of the camera
+x=0.0  z=5.0
+
+// the key states. These variables will be zero
+//when no key is being presses
+deltaAngle = 0.0
+deltaMove = 0
+xOrigin = -1
+
+// Constant definitions for Menus
+C_RED  = 1
+C_GREEN = 2
+C_BLUE = 3
+C_ORANGE = 4
+
+C_FILL = 5
+C_LINE = 6
+
+// Pop up menu identifiers
+fillMenu=NULL
+fontMenu=NULL
+mainMenu=NULL
+colorMenu=NULL
+
+// color for the nose
+red = 1.0
+blue=0.5
+green=0.5
+
+// scale of snowman
+scale = 1.0
+
+// menu status
+menuFlag = 0
+
+// default font
+font = GLUT_BITMAP_TIMES_ROMAN_24
+
+C_INT_GLUT_BITMAP_8_BY_13 = 7
+C_INT_GLUT_BITMAP_9_BY_15 = 8
+C_INT_GLUT_BITMAP_TIMES_ROMAN_10  = 9
+C_INT_GLUT_BITMAP_TIMES_ROMAN_24  = 10
+C_INT_GLUT_BITMAP_HELVETICA_10  = 11
+C_INT_GLUT_BITMAP_HELVETICA_12  = 12
+C_INT_GLUT_BITMAP_HELVETICA_18  = 13
+
+// width and height of the window
+h = 0
+w = 0
+
+// variables to compute frames per second
+frame=0
+time=0
+timebase=0
+s = &quot;&quot;
+
+func changeSize
+        w = glutEventWidth()
+        h = glutEventHeight()
+
+        // Prevent a divide by zero, when window is too short
+        // (you cant make a window of zero width).
+        if h = 0
+                h = 1
+        ok
+
+        ratio =  w * 1.0 / h
+
+        // Use the Projection Matrix
+        glMatrixMode(GL_PROJECTION)
+
+        // Reset Matrix
+        glLoadIdentity()
+
+        // Set the viewport to be the entire window
+        glViewport(0, 0, w, h)
+
+        // Set the correct perspective.
+        gluPerspective(45.0, ratio, 0.1, 100.0)
+
+        // Get Back to the Modelview
+        glMatrixMode(GL_MODELVIEW)
+
+func drawSnowMan
+
+        glScalef(scale, scale, scale)
+        glColor3f(1.0, 1.0, 1.0)
+
+// Draw Body
+        glTranslatef(0.0 ,0.75, 0.0)
+        glutSolidSphere(0.75,20,20)
+
+// Draw Head
+        glTranslatef(0.0, 1.0, 0.0)
+        glutSolidSphere(0.25,20,20)
+
+// Draw Eyes
+        glPushMatrix()
+        glColor3f(0.0,0.0,0.0)
+        glTranslatef(0.05, 0.10, 0.18)
+        glutSolidSphere(0.05,10,10)
+        glTranslatef(-0.1, 0.0, 0.0)
+        glutSolidSphere(0.05,10,10)
+        glPopMatrix()
+
+// Draw Nose
+        glColor3f(red, green, blue)
+        glRotatef(0.0,1.0, 0.0, 0.0)
+        glutSolidCone(0.08,0.5,10,2)
+
+        glColor3f(1.0, 1.0, 1.0)
+
+func renderBitmapString x,y,z,font,string
+        glRasterPos3f(x, y,z)
+        for c in string
+                glutBitmapCharacter(font,ascii(c))
+        next
+
+func renderStrokeFontString x,y,z,font,string
+        glPushMatrix()
+        glTranslatef(x, y,z)
+        glScalef(0.002, 0.002, 0.002)
+        for c in string
+                glutStrokeCharacter(font, Ascii(c));
+        next
+        glPopMatrix()
+
+
+func restorePerspectiveProjection
+
+        glMatrixMode(GL_PROJECTION)
+        // restore previous projection matrix
+        glPopMatrix()
+
+        // get back to modelview mode
+        glMatrixMode(GL_MODELVIEW)
+
+
+func setOrthographicProjection
+
+        // switch to projection mode
+        glMatrixMode(GL_PROJECTION)
+
+        // save previous matrix which contains the
+        //settings for the perspective projection
+        glPushMatrix()
+
+        // reset matrix
+        glLoadIdentity()
+
+        // set a 2D orthographic projection
+        gluOrtho2D(0, w, h, 0)
+
+        // switch back to modelview mode
+        glMatrixMode(GL_MODELVIEW)
+
+
+
+func computePos deltaMove
+
+        x += deltaMove * lx * 0.1
+        z += deltaMove * lz * 0.1
+
+
+func renderScene
+
+        if  deltaMove
+                computePos(deltaMove)
+        ok
+
+        // Clear Color and Depth Buffers
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
+
+        // Reset transformations
+        glLoadIdentity()
+
+        // Set the camera
+        gluLookAt(      x, 1.0, z,
+                        x+lx, 1.0,  z+lz,
+                        0.0, 1.0,  0.0)
+
+        // Draw ground
+
+        glColor3f(0.9, 0.9, 0.9)
+        glBegin(GL_QUADS)
+                glVertex3f(-100.0, 0.0, -100.0)
+                glVertex3f(-100.0, 0.0,  100.0)
+                glVertex3f( 100.0, 0.0,  100.0)
+                glVertex3f( 100.0, 0.0, -100.0)
+        glEnd()
+
+// Draw 9 SnowMen
+        for i = -3 to -1
+                for j = -3 to -1
+                        glPushMatrix()
+                        glTranslatef(i*10.0, 0.0, j * 10.0)
+                        drawSnowMan()
+                        number = (i+3)*3+(j+3)
+                        renderBitmapString(0.0, 0.5, 0.0,font ,&quot;&quot;+number)
+                        glPopMatrix()
+                next
+        next
+
+        // Code to compute frames per second
+        frame++
+
+        time=glutGet(GLUT_ELAPSED_TIME)
+        if time - timebase &gt; 1000
+                s = &quot;RingFreeGLUT - FPS: &quot; + (frame*1000.0/(time-timebase))
+                timebase = time
+                frame = 0
+        ok
+
+        // Code to display a string (fps) with bitmap fonts
+        setOrthographicProjection()
+
+        glPushMatrix()
+        glLoadIdentity()
+        renderBitmapString(5,30,0,GLUT_BITMAP_HELVETICA_18,s)
+        glPopMatrix()
+
+        restorePerspectiveProjection()
+
+        glutSwapBuffers()
+
+
+// -----------------------------------
+//             KEYBOARD
+// -----------------------------------
+
+func processNormalKeys
+        key = glutEventKey()
+        xx = glutEventX()
+        yy = glutEventY()
+
+        switch key
+                on 27
+                        glutDestroyMenu(mainMenu)
+                        glutDestroyMenu(fillMenu)
+                        glutDestroyMenu(colorMenu)
+                        glutDestroyMenu(fontMenu)
+                        Shutdown()
+        off
+
+
+func pressKey
+
+        key = glutEventKey()
+        xx = glutEventX()
+        yy = glutEventY()
+
+        switch key
+                on GLUT_KEY_UP
+                         deltaMove = 0.5
+                on GLUT_KEY_DOWN
+                        deltaMove = -0.5
+        off
+
+
+func releaseKey
+
+        key = glutEventKey()
+
+        switch key
+                on GLUT_KEY_UP
+                        deltaMove = 0
+                on GLUT_KEY_DOWN
+                        deltaMove = 0
+        off
+
+
+// -----------------------------------
+//             MOUSE
+// -----------------------------------
+
+func mouseMove
+        xx = glutEventX()
+        yy = glutEventY()
+
+        // this will only be true when the left button is down
+        if xOrigin &gt;= 0
+
+                // update deltaAngle
+                deltaAngle = (xx - xOrigin) * 0.001
+
+                // update camera&#39;s direction
+                lx = sin(angle + deltaAngle)
+                lz = -cos(angle + deltaAngle)
+        ok
+
+
+func mouseButton
+
+        button = glutEventButton()
+        state = glutEventState()
+        xx = glutEventX()
+        yy = glutEventY()
+
+        // only start motion if the left button is pressed
+        if button = GLUT_LEFT_BUTTON
+                // when the button is released
+                if state = GLUT_UP
+                        angle += deltaAngle
+                        xOrigin = -1
+                else
+                        // state = GLUT_DOWN
+                        xOrigin = xx
+                ok
+        ok
+
+
+// -----------------------------------
+//             MENUS
+// -----------------------------------
+
+func processMenuStatus
+
+        status = glutEventStatus()
+
+        if status = GLUT_MENU_IN_USE
+                menuFlag = 1
+        else
+                menuFlag = 0
+        ok
+
+
+func processMainMenu
+
+        // nothing to do in here
+        // all actions are for submenus
+
+
+func processFillMenu
+
+        option = glutEventValue()
+
+        switch option
+
+                on C_FILL
+                        glPolygonMode(GL_FRONT, GL_FILL)
+                on C_LINE
+                         glPolygonMode(GL_FRONT, GL_LINE)
+        off
+
+
+func processFontMenu
+
+        option = glutEventValue()
+
+        switch (option) {
+                on C_INT_GLUT_BITMAP_8_BY_13
+                        font = GLUT_BITMAP_8_BY_13
+                on C_INT_GLUT_BITMAP_9_BY_15
+                        font = GLUT_BITMAP_9_BY_15
+                on C_INT_GLUT_BITMAP_TIMES_ROMAN_10
+                        font = GLUT_BITMAP_TIMES_ROMAN_10
+                on C_INT_GLUT_BITMAP_TIMES_ROMAN_24
+                        font = GLUT_BITMAP_TIMES_ROMAN_24
+                on C_INT_GLUT_BITMAP_HELVETICA_10
+                        font = GLUT_BITMAP_HELVETICA_10
+                on C_INT_GLUT_BITMAP_HELVETICA_12
+                        font = GLUT_BITMAP_HELVETICA_12
+                on C_INT_GLUT_BITMAP_HELVETICA_18
+                        font = GLUT_BITMAP_HELVETICA_18
+        off
+
+func processColorMenu
+
+        option = glutEventValue()
+
+        switch option
+                on C_RED
+                        red = 1.0
+                        green = 0.0
+                        blue = 0.0
+                on C_GREEN
+                        red = 0.0
+                        green = 1.0
+                        blue = 0.0
+                on C_BLUE
+                        red = 0.0
+                        green = 0.0
+                        blue = 1.0
+                on C_ORANGE
+                        red = 1.0
+                        green = 0.5
+                        blue = 0.5
+        off
+
+
+func createPopupMenus
+
+        fontMenu = glutCreateMenu(:processFontMenu)
+
+        glutAddMenuEntry(&quot;BITMAP_8_BY_13 &quot;,C_INT_GLUT_BITMAP_8_BY_13 )
+        glutAddMenuEntry(&quot;BITMAP_9_BY_15&quot;,C_INT_GLUT_BITMAP_9_BY_15 )
+        glutAddMenuEntry(&quot;BITMAP_TIMES_ROMAN_10 &quot;,C_INT_GLUT_BITMAP_TIMES_ROMAN_10  )
+        glutAddMenuEntry(&quot;BITMAP_TIMES_ROMAN_24&quot;,C_INT_GLUT_BITMAP_TIMES_ROMAN_24  )
+        glutAddMenuEntry(&quot;BITMAP_HELVETICA_10 &quot;,C_INT_GLUT_BITMAP_HELVETICA_10  )
+        glutAddMenuEntry(&quot;BITMAP_HELVETICA_12&quot;,C_INT_GLUT_BITMAP_HELVETICA_12  )
+        glutAddMenuEntry(&quot;BITMAP_HELVETICA_18&quot;,C_INT_GLUT_BITMAP_HELVETICA_18  )
+
+        fillMenu = glutCreateMenu(:processFillMenu)
+
+        glutAddMenuEntry(&quot;Fill&quot;,C_FILL)
+        glutAddMenuEntry(&quot;Line&quot;,C_LINE)
+
+        colorMenu = glutCreateMenu(:processColorMenu)
+        glutAddMenuEntry(&quot;Red&quot;,C_RED);
+        glutAddMenuEntry(&quot;Blue&quot;,C_BLUE);
+        glutAddMenuEntry(&quot;Green&quot;,C_GREEN);
+        glutAddMenuEntry(&quot;Orange&quot;,C_ORANGE);
+
+        mainMenu = glutCreateMenu(:processMainMenu)
+
+        glutAddSubMenu(&quot;Polygon Mode&quot;, fillMenu)
+        glutAddSubMenu(&quot;Color&quot;, colorMenu)
+        glutAddSubMenu(&quot;Font&quot;,fontMenu)
+        // attach the menu to the right button
+        glutAttachMenu(GLUT_RIGHT_BUTTON)
+
+        // this will allow us to know if the menu is active
+        glutMenuStatusFunc(:processMenuStatus)
+
+
+// -----------------------------------
+//             MAIN
+// -----------------------------------
+
+func main
+
+        // init GLUT and create window
+        glutInit()
+        glutInitDisplayMode(GLUT_DEPTH | GLUT_DOUBLE | GLUT_RGBA)
+        glutInitWindowPosition(100,100)
+        glutInitWindowSize(320,320)
+        glutCreateWindow(&quot;RingFreeGLUT - Test - 9 SnowMan&quot;)
+
+        // register callbacks
+        glutDisplayFunc(:renderScene)
+        glutReshapeFunc(:changeSize)
+        glutIdleFunc(:renderScene)
+
+        glutIgnoreKeyRepeat(1)
+        glutKeyboardFunc(:processNormalKeys)
+        glutSpecialFunc(:pressKey)
+        glutSpecialUpFunc(:releaseKey)
+
+        // here are the two new functions
+        glutMouseFunc(:mouseButton)
+        glutMotionFunc(:mouseMove)
+
+        // OpenGL init
+        glEnable(GL_DEPTH_TEST)
+        glEnable(GL_CULL_FACE)
+
+        // init Menus
+        createPopupMenus()
+
+        // enter GLUT event processing cycle
+        glutMainLoop()
+</pre></div>
+</div>
+<p>Screen Shots:</p>
+<img alt="RingFreeGLUT" src="_images/ring15freeglut.png" />
+<img alt="RingFreeGLUT" src="_images/ring15freeglut2.png" />
+</div>
+<div class="section" id="ringopengl-extension">
+<span id="index-11"></span><h2>RingOpenGL Extension<a class="headerlink" href="#ringopengl-extension" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.5 comes with RingOpenGL and support for the next versions</p>
+<ul class="simple">
+<li><p>OpenGL 1.1</p></li>
+<li><p>OpenGL 1.2</p></li>
+<li><p>OpenGL 1.3</p></li>
+<li><p>OpenGL 1.4</p></li>
+<li><p>OpenGL 1.5</p></li>
+<li><p>OpenGL 2.0</p></li>
+<li><p>OpenGL 2.1</p></li>
+<li><p>OpenGL 3.0</p></li>
+<li><p>OpenGL 3.2</p></li>
+<li><p>OpenGL 3.3</p></li>
+<li><p>OpenGL 4.0</p></li>
+<li><p>OpenGL 4.1</p></li>
+<li><p>OpenGL 4.2</p></li>
+<li><p>OpenGL 4.3</p></li>
+<li><p>OpenGL 4.4</p></li>
+<li><p>OpenGL 4.5</p></li>
+<li><p>OpenGL 4.6</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span>
+        <span class="n">This</span> <span class="n">sample</span> <span class="n">is</span> <span class="n">based</span> <span class="k">on</span> <span class="n">C</span> <span class="n">Tutorials</span>
+        <span class="k">from</span> <span class="p">:</span>
+                <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="p">.</span><span class="n">wikihow</span><span class="p">.</span><span class="n">com</span><span class="o">/</span><span class="n">Make</span><span class="o">-</span><span class="n">a</span><span class="o">-</span><span class="n">Cube</span><span class="o">-</span><span class="k">in</span><span class="o">-</span><span class="n">OpenGL</span>
+<span class="o">*/</span>
+
+<span class="k">load</span> <span class="s">&quot;freeglut.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;opengl21lib.ring&quot;</span>
+
+<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
+<span class="o">//</span> <span class="n">Global</span> <span class="n">Variables</span>
+<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
+<span class="n">rotate_y</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">rotate_x</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
+<span class="o">//</span> <span class="n">display</span><span class="p">()</span> <span class="n">Callback</span> <span class="n">function</span>
+<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
+<span class="k">func</span> <span class="n">display</span>
+
+  <span class="o">//</span>  <span class="n">Clear</span> <span class="n">screen</span> <span class="ow">and</span> <span class="n">Z</span><span class="o">-</span><span class="n">buffer</span>
+  <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span><span class="o">|</span><span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
+
+  <span class="o">//</span> <span class="n">Reset</span> <span class="n">transformations</span>
+  <span class="n">glLoadIdentity</span><span class="p">()</span>
+
+  <span class="o">//</span> <span class="n">Rotate</span> <span class="n">when</span> <span class="n">user</span> <span class="n">changes</span> <span class="n">rotate_x</span> <span class="ow">and</span> <span class="n">rotate_y</span>
+  <span class="n">glRotatef</span><span class="p">(</span> <span class="n">rotate_x</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>
+  <span class="n">glRotatef</span><span class="p">(</span> <span class="n">rotate_y</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>
+
+  <span class="o">//</span><span class="n">Multi</span><span class="o">-</span><span class="n">colored</span> <span class="n">side</span> <span class="o">-</span> <span class="n">FRONT</span>
+  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+
+  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c"># P1 is red</span>
+  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c"># P2 is green</span>
+  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c"># P3 is blue</span>
+  <span class="n">glColor3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>     <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>      <span class="c"># P4 is purple</span>
+
+  <span class="n">glEnd</span><span class="p">()</span>
+
+  <span class="o">//</span> <span class="n">White</span> <span class="n">side</span> <span class="o">-</span> <span class="n">BACK</span>
+  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glEnd</span><span class="p">()</span>
+
+  <span class="o">//</span> <span class="n">Purple</span> <span class="n">side</span> <span class="o">-</span> <span class="n">RIGHT</span>
+  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="n">glColor3f</span><span class="p">(</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glEnd</span><span class="p">()</span>
+
+  <span class="o">//</span> <span class="n">Green</span> <span class="n">side</span> <span class="o">-</span> <span class="n">LEFT</span>
+  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glEnd</span><span class="p">()</span>
+
+  <span class="o">//</span> <span class="n">Blue</span> <span class="n">side</span> <span class="o">-</span> <span class="n">TOP</span>
+  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">1.0</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glEnd</span><span class="p">()</span>
+
+  <span class="o">//</span> <span class="n">Red</span> <span class="n">side</span> <span class="o">-</span> <span class="n">BOTTOM</span>
+  <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_POLYGON</span><span class="p">)</span>
+  <span class="n">glColor3f</span><span class="p">(</span>   <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">0.0</span><span class="p">,</span>  <span class="mf">0.0</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span>  <span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span>  <span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glVertex3f</span><span class="p">(</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.5</span> <span class="p">)</span>
+  <span class="n">glEnd</span><span class="p">()</span>
+
+  <span class="n">glFlush</span><span class="p">()</span>
+  <span class="n">glutSwapBuffers</span><span class="p">()</span>
+
+
+<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
+<span class="o">//</span> <span class="n">specialKeys</span><span class="p">()</span> <span class="n">Callback</span> <span class="n">Function</span>
+<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
+<span class="k">func</span> <span class="n">specialKeys</span>
+
+        <span class="n">key</span> <span class="o">=</span> <span class="n">glutEventKey</span><span class="p">()</span>
+
+  <span class="o">//</span>  <span class="n">Right</span> <span class="n">arrow</span> <span class="o">-</span> <span class="n">increase</span> <span class="n">rotation</span> <span class="n">by</span> <span class="mi">5</span> <span class="n">degree</span>
+        <span class="k">switch</span> <span class="n">Key</span>
+
+        <span class="k">on</span> <span class="n">GLUT_KEY_RIGHT</span>
+                <span class="n">rotate_y</span> <span class="o">+=</span> <span class="mi">5</span>
+
+        <span class="o">//</span>  <span class="n">Left</span> <span class="n">arrow</span> <span class="o">-</span> <span class="n">decrease</span> <span class="n">rotation</span> <span class="n">by</span> <span class="mi">5</span> <span class="n">degree</span>
+        <span class="k">on</span> <span class="n">GLUT_KEY_LEFT</span>
+                <span class="n">rotate_y</span> <span class="o">-=</span> <span class="mi">5</span>
+
+        <span class="k">on</span> <span class="n">GLUT_KEY_UP</span>
+                <span class="n">rotate_x</span> <span class="o">+=</span> <span class="mi">5</span>
+
+        <span class="k">on</span> <span class="n">GLUT_KEY_DOWN</span>
+                <span class="n">rotate_x</span> <span class="o">-=</span> <span class="mi">5</span>
+
+        <span class="k">off</span>
+
+  <span class="o">//</span>  <span class="n">Request</span> <span class="n">display</span> <span class="n">update</span>
+  <span class="n">glutPostRedisplay</span><span class="p">()</span>
+
+
+
+<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
+<span class="o">//</span> <span class="n">main</span><span class="p">()</span> <span class="n">function</span>
+<span class="o">//</span> <span class="o">----------------------------------------------------------</span>
+<span class="k">func</span> <span class="n">main</span>
+
+  <span class="o">//</span>  <span class="n">Initialize</span> <span class="n">GLUT</span> <span class="ow">and</span> <span class="n">process</span> <span class="n">user</span> <span class="n">parameters</span>
+  <span class="n">glutInit</span><span class="p">()</span>
+
+  <span class="o">//</span>  <span class="n">Request</span> <span class="n">double</span> <span class="n">buffered</span> <span class="kp">true</span> <span class="n">color</span> <span class="n">window</span> <span class="n">with</span> <span class="n">Z</span><span class="o">-</span><span class="n">buffer</span>
+  <span class="n">glutInitDisplayMode</span><span class="p">(</span><span class="n">GLUT_DOUBLE</span> <span class="o">|</span> <span class="n">GLUT_RGB</span> <span class="o">|</span> <span class="n">GLUT_DEPTH</span><span class="p">)</span>
+
+  <span class="o">//</span> <span class="n">Create</span> <span class="n">window</span>
+  <span class="n">glutCreateWindow</span><span class="p">(</span><span class="s">&quot;Awesome Cube&quot;</span><span class="p">)</span>
+
+  <span class="o">//</span>  <span class="n">Enable</span> <span class="n">Z</span><span class="o">-</span><span class="n">buffer</span> <span class="n">depth</span> <span class="n">test</span>
+  <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+
+  <span class="o">//</span> <span class="n">Callback</span> <span class="n">functions</span>
+  <span class="n">glutDisplayFunc</span><span class="p">(:</span><span class="n">display</span><span class="p">)</span>
+  <span class="n">glutSpecialFunc</span><span class="p">(:</span><span class="n">specialKeys</span><span class="p">)</span>
+
+  <span class="o">//</span>  <span class="n">Pass</span> <span class="n">control</span> <span class="k">to</span> <span class="n">GLUT</span> <span class="k">for</span> <span class="n">events</span>
+  <span class="n">glutMainLoop</span><span class="p">()</span>
+
+  <span class="o">//</span>  <span class="k">Return</span> <span class="k">to</span> <span class="n">OS</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="RingOpenGL" src="_images/ring15opengl.png" />
+</div>
+<div class="section" id="better-code-generator-for-extensions">
+<span id="index-12"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<p>The Code Generator is updated to support &lt;constant&gt; type, So we can have
+constants other than numbers, for example : Strings and Pointers.</p>
+<p>When we have pointers we can determine the pointer type.
+To use this feature, before &lt;constant&gt; and &lt;/constant&gt; we can use</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">$</span><span class="n">nDefaultConstantType</span> <span class="o">=</span> <span class="n">C_CONSTANT_TYPE_POINTER</span>
+<span class="o">$</span><span class="n">cDefaultConstantPointerType</span> <span class="o">=</span> <span class="s">&quot;void *&quot;</span>
+</pre></div>
+</div>
+<p>The next example from the RingFreeGLUT extension</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">runcode</span><span class="o">&gt;</span>
+        <span class="o">$</span><span class="n">nDefaultConstantType</span> <span class="o">=</span> <span class="n">C_CONSTANT_TYPE_POINTER</span>
+        <span class="o">$</span><span class="n">cDefaultConstantPointerType</span> <span class="o">=</span> <span class="s">&quot;void&quot;</span>
+<span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
+<span class="o">&lt;</span><span class="n">constant</span><span class="o">&gt;</span>
+        <span class="n">GLUT_STROKE_ROMAN</span>
+        <span class="n">GLUT_STROKE_MONO_ROMAN</span>
+        <span class="n">GLUT_BITMAP_9_BY_15</span>
+        <span class="n">GLUT_BITMAP_8_BY_13</span>
+        <span class="n">GLUT_BITMAP_TIMES_ROMAN_10</span>
+        <span class="n">GLUT_BITMAP_TIMES_ROMAN_24</span>
+        <span class="n">GLUT_BITMAP_HELVETICA_10</span>
+        <span class="n">GLUT_BITMAP_HELVETICA_12</span>
+        <span class="n">GLUT_BITMAP_HELVETICA_18</span>
+<span class="o">&lt;/</span><span class="n">constant</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-documentation-generator-for-extensions">
+<span id="index-13"></span><h2>Better Documentation Generator for Extensions<a class="headerlink" href="#better-documentation-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<p>The documentation generator for extensions is updated to generate a list of constants
+in the generated documentation</p>
+<p>The previous versions provides the functions prototype only, Now we have the list of
+constants too.</p>
+</div>
+<div class="section" id="ring-vm-tracing-functions">
+<span id="index-14"></span><h2>Ring VM - Tracing Functions<a class="headerlink" href="#ring-vm-tracing-functions" title="Permalink to this headline">¶</a></h2>
+<p>In Ring 1.5 the next functions are added to Ring VM</p>
+<ul class="simple">
+<li><p>RingVM_SetTrace(cCode)</p></li>
+<li><p>RingVM_TraceData() –&gt; aDataList</p></li>
+<li><p>RingVM_TraceEvent() –&gt; nTraceEvent</p></li>
+<li><p>RingVM_TraceFunc() –&gt; cCode</p></li>
+<li><p>RingVM_ScopesCount() –&gt; nScopes</p></li>
+<li><p>RingVM_EvalInScope(nScope,cCode)</p></li>
+<li><p>RingVM_PassError()</p></li>
+<li><p>RingVM_HideErrorMsg(lStatus)</p></li>
+<li><p>RingVM_CallFunc(cFuncName)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
+
+<span class="n">ringvm_settrace</span><span class="p">(</span><span class="s">&quot;mytrace()&quot;</span><span class="p">)</span>
+
+<span class="k">see</span> <span class="s">&quot;Hello, world!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;Welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="s">&quot;How are you?&quot;</span> <span class="o">+</span><span class="n">nl</span>
+<span class="n">mytest</span><span class="p">()</span>
+<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">mymethod</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="k">func</span> <span class="n">mytest</span>
+        <span class="k">see</span> <span class="s">&quot;Message from mytest&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">func</span> <span class="n">mytrace</span>
+        <span class="k">see</span> <span class="s">&quot;====== The Trace function is Active ======&quot;</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+                <span class="s">&quot;Trace Function Name : &quot;</span> <span class="o">+</span> <span class="n">ringvm_TraceFunc</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+                <span class="s">&quot;Trace Event : &quot;</span>
+        <span class="k">switch</span> <span class="n">ringvm_TraceEvent</span><span class="p">()</span>
+                <span class="k">on</span> <span class="n">TRACEEVENT_NEWLINE</span>           <span class="k">see</span> <span class="s">&quot;New Line&quot;</span>
+                <span class="k">on</span> <span class="n">TRACEEVENT_NEWFUNC</span>           <span class="k">see</span> <span class="s">&quot;New Function&quot;</span>
+                <span class="k">on</span> <span class="n">TRACEEVENT_RETURN</span>            <span class="k">see</span> <span class="s">&quot;Return&quot;</span>
+                <span class="k">on</span> <span class="n">TRACEEVENT_ERROR</span>             <span class="k">see</span> <span class="s">&quot;Error&quot;</span>
+                <span class="k">on</span> <span class="n">TRACEEVENT_BEFORECFUNC</span>       <span class="k">see</span> <span class="s">&quot;Before C Function&quot;</span>
+                <span class="k">on</span> <span class="n">TRACEEVENT_AFTERCFUNC</span>        <span class="k">see</span> <span class="s">&quot;After C Function&quot;</span>
+        <span class="k">off</span>
+        <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span>
+                <span class="s">&quot;Line Number : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_LINENUMBER</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+                <span class="s">&quot;File Name   : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FILENAME</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+                <span class="s">&quot;Function Name : &quot;</span> <span class="o">+</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="o">]</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+                <span class="s">&quot;Method or Function : &quot;</span>
+                <span class="k">if</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_METHODORFUNC</span><span class="o">]</span> <span class="o">=</span>
+                                 <span class="n">TRACEDATA_METHODORFUNC_METHOD</span>
+                        <span class="k">see</span> <span class="s">&quot;Method&quot;</span>
+                <span class="k">else</span>
+                        <span class="k">if</span> <span class="n">ringvm_tracedata</span><span class="p">()</span><span class="o">[</span><span class="n">TRACEDATA_FUNCNAME</span><span class="o">]</span> <span class="o">=</span> <span class="kp">NULL</span>
+                                <span class="k">see</span> <span class="s">&quot;Command&quot;</span>
+                        <span class="k">else</span>
+                                <span class="k">see</span> <span class="s">&quot;Function&quot;</span>
+                        <span class="k">ok</span>
+                <span class="k">ok</span>
+                <span class="k">see</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">Copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">42</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="k">class</span> <span class="n">myclass</span>
+        <span class="k">func</span> <span class="n">mymethod</span>
+                <span class="k">see</span> <span class="s">&quot;Message from mymethod&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : After C Function
+Line Number : 3
+File Name   : test1.ring
+Function Name : ringvm_settrace
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Line
+Line Number : 5
+File Name   : test1.ring
+Function Name :
+Method or Function : Command
+==========================================
+Hello, world!
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Line
+Line Number : 6
+File Name   : test1.ring
+Function Name :
+Method or Function : Command
+==========================================
+Welcome
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Line
+Line Number : 7
+File Name   : test1.ring
+Function Name :
+Method or Function : Command
+==========================================
+How are you?
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Line
+Line Number : 8
+File Name   : test1.ring
+Function Name :
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Function
+Line Number : 8
+File Name   : test1.ring
+Function Name : mytest
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Line
+Line Number : 12
+File Name   : test1.ring
+Function Name : mytest
+Method or Function : Function
+==========================================
+Message from mytest
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Line
+Line Number : 14
+File Name   : test1.ring
+Function Name : mytest
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : Return
+Line Number : 8
+File Name   : test1.ring
+Function Name :
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Line
+Line Number : 9
+File Name   : test1.ring
+Function Name :
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Line
+Line Number : 43
+File Name   : test1.ring
+Function Name :
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : Before C Function
+Line Number : 9
+File Name   : test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : After C Function
+Line Number : 9
+File Name   : test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Function
+Line Number : 9
+File Name   : test1.ring
+Function Name : mymethod
+Method or Function : Method
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Line
+Line Number : 44
+File Name   : test1.ring
+Function Name : mymethod
+Method or Function : Method
+==========================================
+Message from mymethod
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : Return
+Line Number : 9
+File Name   : test1.ring
+Function Name :
+Method or Function : Command
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : Before C Function
+Line Number : 9
+File Name   : test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : After C Function
+Line Number : 9
+File Name   : test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : Before C Function
+Line Number : 9
+File Name   : test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : After C Function
+Line Number : 9
+File Name   : test1.ring
+Function Name : ismethod
+Method or Function : Function
+==========================================
+====== The Trace function is Active ======
+Trace Function Name : mytrace()
+Trace Event : New Line
+Line Number : 11
+File Name   : test1.ring
+Function Name :
+Method or Function : Command
+==========================================
+</pre></div>
+</div>
+</div>
+<div class="section" id="trace-library-and-interactive-debugger">
+<span id="index-15"></span><h2>Trace Library and Interactive Debugger<a class="headerlink" href="#trace-library-and-interactive-debugger" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.5 comes with the Trace Library and the Interactive Debugger</p>
+<p>Using this library we can trace events, execute programs line by line, open the
+Interactive Debugger when an error happens or at breakpoints.</p>
+<p>Example:</p>
+<p>The next example uses a Breakpoint to open the Interactive Debugger!</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tracelib.ring&quot;</span>
+
+<span class="n">test1</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">test1</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="k">see</span> <span class="p">:</span><span class="n">test1</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="n">t</span> <span class="o">=</span> <span class="mi">12</span>
+        <span class="n">BreakPoint</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;After breakpoint!&quot;</span> <span class="o">+</span><span class="n">nl</span>
+        <span class="k">see</span> <span class="s">&quot;t = &quot;</span> <span class="o">+</span> <span class="n">t</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">see</span> <span class="s">&quot;End of program!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Screen Shots:</p>
+<p>We have the Interactive Debugger at the Breakpoint!</p>
+<img alt="Interactive Debugger" src="_images/debugshot1.png" />
+<p>We can print the variables values</p>
+<img alt="Interactive Debugger" src="_images/debugshot2.png" />
+<p>We can change the variables values then continue execution</p>
+<img alt="Interactive Debugger" src="_images/debugshot3.png" />
+<p>We can run the Interactive Debugger in the Output Window</p>
+<img alt="Interactive Debugger" src="_images/debugshot4.png" />
+</div>
+<div class="section" id="more-syntax-flexibility">
+<span id="index-16"></span><h2>More Syntax Flexibility<a class="headerlink" href="#more-syntax-flexibility" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Using braces { } in Packages/Classes/Functions</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+
+<span class="k">import</span> <span class="n">mypackage</span>
+
+<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span>
+        <span class="n">myfunc</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">package</span> <span class="n">mypackage</span>
+<span class="p">{</span>
+        <span class="k">class</span> <span class="n">myclass</span>
+        <span class="p">{</span>
+                <span class="k">func</span> <span class="n">myfunc</span>
+                <span class="p">{</span>
+                        <span class="n">print</span><span class="p">(</span><span class="s">&quot;Hello, World!</span><span class="se">\n</span><span class="s">&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Using ‘end’ keyword after Packages/Classes/Functions</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="n">mypackage</span>
+
+<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span>
+        <span class="n">myfunc</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="n">package</span> <span class="n">mypackage</span>
+        <span class="k">class</span> <span class="n">myclass</span>
+                <span class="k">def</span> <span class="n">myfunc</span>
+                        <span class="k">put</span> <span class="s">&quot;Hello, World!&quot;</span>
+                <span class="k">end</span>
+        <span class="k">end</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Using ‘endpackage’/’endclass’/’endfunc’ keywords after Packages/Classes/Functions</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">import</span> <span class="n">mypackage</span>
+
+<span class="k">new</span> <span class="n">myclass</span> <span class="p">{</span> <span class="n">myfunc</span><span class="p">()</span> <span class="p">}</span>
+
+<span class="n">package</span> <span class="n">mypackage</span>
+        <span class="k">class</span> <span class="n">myclass</span>
+                <span class="k">func</span> <span class="n">myfunc</span>
+                        <span class="k">see</span> <span class="s">&quot;welcome&quot;</span>  <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">endfunc</span>
+        <span class="k">endclass</span>
+<span class="k">endpackage</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="type-hints-library">
+<span id="index-17"></span><h2>Type Hints Library<a class="headerlink" href="#type-hints-library" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.5 comes with the Type Hints library</p>
+<p>Using this library we can add the type information to the source code which will be
+very useful for tools like</p>
+<ul class="simple">
+<li><p>Code Editors</p></li>
+<li><p>Static-Analysis</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+
+<span class="k">see</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="p">;</span>
+<span class="k">see</span> <span class="n">sayHello</span><span class="p">(</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">);</span>
+
+<span class="n">int</span> <span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">string</span> <span class="k">func</span> <span class="n">sayHello</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The library is very powerful and support the User types (Classes) automatically!</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+
+<span class="k">import</span> <span class="n">mypackage</span>
+
+<span class="n">test</span><span class="p">()</span>  <span class="p">{</span> <span class="n">main</span><span class="p">(</span><span class="o">[</span><span class="p">:</span><span class="n">one</span><span class="p">,:</span><span class="n">two</span><span class="p">,:</span><span class="n">three</span><span class="o">]</span><span class="p">)</span> <span class="p">}</span>
+
+<span class="n">myclass</span> <span class="k">func</span> <span class="n">test</span><span class="p">()</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="s">&quot;Testing User Types!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">return</span> <span class="k">new</span> <span class="n">myclass</span>
+<span class="p">}</span>
+
+<span class="n">package</span> <span class="n">mypackage</span> <span class="p">{</span>
+        <span class="n">public</span> <span class="k">class</span> <span class="n">myclass</span> <span class="p">{</span>
+                <span class="n">public</span> <span class="n">static</span> <span class="n">void</span> <span class="k">func</span> <span class="n">main</span><span class="p">(</span><span class="kt">list</span> <span class="n">args</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="k">see</span> <span class="s">&quot;welcome&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="k">see</span> <span class="n">args</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Also You can use the types inside the code (not only the function prototype)</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;typehints.ring&quot;</span>
+
+<span class="n">int</span>     <span class="n">sum</span> <span class="o">=</span> <span class="n">sum</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="kt">string</span>  <span class="n">msg</span> <span class="o">=</span> <span class="n">sayHello</span><span class="p">(</span><span class="s">&quot;Mahmoud&quot;</span><span class="p">)</span>
+
+<span class="k">see</span> <span class="s">&quot;Sum = &quot;</span> <span class="o">+</span> <span class="n">sum</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span> <span class="n">msg</span> <span class="o">+</span> <span class="n">nl</span>
+
+
+<span class="n">int</span> <span class="k">func</span> <span class="n">sum</span><span class="p">(</span><span class="n">int</span> <span class="n">x</span><span class="p">,</span><span class="n">int</span> <span class="n">y</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="n">x</span><span class="o">+</span><span class="n">y</span> <span class="p">;</span>
+<span class="p">}</span>
+
+<span class="kt">string</span> <span class="k">func</span> <span class="n">sayHello</span><span class="p">(</span><span class="kt">string</span> <span class="n">name</span><span class="p">)</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Rules:</p>
+<ul class="simple">
+<li><p>To use the types in the function prototype, You must use ‘(‘ and ‘)’ around parameters</p></li>
+<li><p>To use the types in the function code, You must set the variable value (Assignment).</p></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Ring is a dynamic language, No type checking will be done by the compiler.</p>
+</div>
+</div>
+<div class="section" id="better-quality">
+<span id="index-18"></span><h2>Better Quality<a class="headerlink" href="#better-quality" title="Permalink to this headline">¶</a></h2>
+<p>Based on Ring usage every day in practical projects</p>
+<p>Ring 1.5 is more stable and more productive!</p>
+<p>We are adding features based on clear vision and practical needs.</p>
+<p>Also the documentation is better.</p>
+</div>
+<div class="section" id="what-is-new-in-ring-1-5-1">
+<span id="index-19"></span><h2>What is new in Ring 1.5.1?<a class="headerlink" href="#what-is-new-in-ring-1-5-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Better Documentation</p></li>
+<li><p>StdLib - Factorial() function update</p></li>
+<li><p>RingVM - Better code for clearing the stack in the Class Region.</p></li>
+<li><p>Sample : 3D Cube (OpenGL) + Texture Image using GameLib (RingAllegro)</p></li>
+</ul>
+<p>Source Code:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;gamelib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;opengl21lib.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="k">new</span> <span class="n">GraphicsApp</span> <span class="p">{</span>
+                <span class="n">start</span><span class="p">()</span>
+        <span class="p">}</span>
+
+
+<span class="k">class</span> <span class="n">GraphicsApp</span> <span class="k">from</span> <span class="n">GraphicsAppBase</span>
+
+        <span class="n">TITLE</span> <span class="o">=</span> <span class="s">&quot;Ring Cube&quot;</span>
+
+        <span class="n">bitmap</span> <span class="n">texture</span>
+
+        <span class="n">xrot</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">yrot</span> <span class="o">=</span> <span class="mf">0.0</span>
+        <span class="n">zrot</span> <span class="o">=</span> <span class="mf">0.0</span>
+
+        <span class="k">func</span> <span class="n">loadresources</span>
+
+                <span class="n">bitmap</span> <span class="o">=</span> <span class="n">al_load_bitmap</span><span class="p">(</span><span class="s">&quot;ring.bmp&quot;</span><span class="p">)</span>
+                <span class="n">texture</span> <span class="o">=</span> <span class="n">al_get_opengl_texture</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">destroyResources</span>
+
+                <span class="n">al_destroy_bitmap</span><span class="p">(</span><span class="n">bitmap</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">drawScene</span>
+
+                <span class="n">w</span> <span class="o">=</span> <span class="mi">800</span> <span class="n">h</span> <span class="o">=</span> <span class="mi">600</span>
+                <span class="n">ratio</span> <span class="o">=</span>  <span class="n">w</span> <span class="o">/</span> <span class="n">h</span>
+
+                <span class="n">glViewport</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">w</span><span class="p">,</span> <span class="n">h</span><span class="p">)</span>
+                <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_PROJECTION</span><span class="p">)</span>
+                <span class="n">glLoadIdentity</span><span class="p">()</span>
+
+                <span class="n">gluPerspective</span><span class="p">(</span><span class="mi">45</span><span class="p">,</span><span class="n">ratio</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                <span class="n">glMatrixMode</span><span class="p">(</span><span class="n">GL_MODELVIEW</span><span class="p">)</span>
+                <span class="n">glLoadIdentity</span><span class="p">()</span>
+
+                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">)</span>
+                <span class="n">glShadeModel</span><span class="p">(</span><span class="n">GL_SMOOTH</span><span class="p">)</span>
+                <span class="n">glClearColor</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.5</span><span class="p">)</span>
+                <span class="n">glClearDepth</span><span class="p">(</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_DEPTH_TEST</span><span class="p">)</span>
+                <span class="n">glEnable</span><span class="p">(</span><span class="n">GL_CULL_FACE</span><span class="p">)</span>
+                <span class="n">glDepthFunc</span><span class="p">(</span><span class="n">GL_LEQUAL</span><span class="p">)</span>
+                <span class="n">glHint</span><span class="p">(</span><span class="n">GL_PERSPECTIVE_CORRECTION_HINT</span><span class="p">,</span> <span class="n">GL_NICEST</span><span class="p">)</span>
+
+                <span class="n">glClear</span><span class="p">(</span><span class="n">GL_COLOR_BUFFER_BIT</span> <span class="o">|</span> <span class="n">GL_DEPTH_BUFFER_BIT</span><span class="p">)</span>
+                <span class="n">glLoadIdentity</span><span class="p">();</span>
+                <span class="n">glTranslatef</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="o">-</span><span class="mf">5.0</span><span class="p">);</span>
+
+                <span class="n">glRotatef</span><span class="p">(</span><span class="n">xrot</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">);</span>
+                <span class="n">glRotatef</span><span class="p">(</span><span class="n">yrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">);</span>
+                <span class="n">glRotatef</span><span class="p">(</span><span class="n">zrot</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">0.0</span><span class="p">,</span><span class="mf">1.0</span><span class="p">);</span>
+
+                <span class="n">glBindTexture</span><span class="p">(</span><span class="n">GL_TEXTURE_2D</span><span class="p">,</span> <span class="n">texture</span><span class="p">)</span>
+
+                <span class="n">glBegin</span><span class="p">(</span><span class="n">GL_QUADS</span><span class="p">)</span>
+                        <span class="o">//</span> <span class="n">Front</span> <span class="n">Face</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="o">//</span> <span class="n">Back</span> <span class="n">Face</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="o">//</span> <span class="n">Top</span> <span class="n">Face</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="o">//</span> <span class="n">Bottom</span> <span class="n">Face</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="o">//</span> <span class="n">Right</span> <span class="n">face</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span> <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="o">//</span> <span class="n">Left</span> <span class="n">Face</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">)</span>
+                        <span class="n">glTexCoord2f</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="n">glVertex3f</span><span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span>  <span class="mf">1.0</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">)</span>
+                <span class="n">glEnd</span><span class="p">()</span>
+
+                <span class="n">xrot</span> <span class="o">+=</span> <span class="mf">0.3</span>
+                <span class="n">yrot</span> <span class="o">+=</span> <span class="mf">0.2</span>
+                <span class="n">zrot</span> <span class="o">+=</span> <span class="mf">0.4</span>
+
+
+<span class="k">class</span> <span class="n">GraphicsAppBase</span>
+
+        <span class="n">display</span> <span class="n">event_queue</span> <span class="n">ev</span> <span class="n">timeout</span>
+        <span class="n">timer</span>  <span class="n">redraw</span>   <span class="o">=</span> <span class="kp">true</span>
+
+        <span class="n">FPS</span>             <span class="o">=</span> <span class="mi">60</span>
+
+        <span class="n">SCREEN_W</span>        <span class="o">=</span> <span class="mi">800</span>
+        <span class="n">SCREEN_H</span>        <span class="o">=</span> <span class="mi">600</span>
+
+        <span class="n">KEY_UP</span>          <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">KEY_DOWN</span>        <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">KEY_LEFT</span>        <span class="o">=</span> <span class="mi">3</span>
+        <span class="n">KEY_RIGHT</span>       <span class="o">=</span> <span class="mi">4</span>
+
+        <span class="n">Key</span> <span class="o">=</span> <span class="o">[</span><span class="kp">false</span><span class="p">,</span><span class="kp">false</span><span class="p">,</span><span class="kp">false</span><span class="p">,</span><span class="kp">false</span><span class="o">]</span>
+
+        <span class="n">TITLE</span> <span class="o">=</span> <span class="s">&quot;Graphics Application&quot;</span>
+
+        <span class="k">func</span> <span class="n">start</span>
+
+                <span class="n">SetUp</span><span class="p">()</span>
+                <span class="n">loadResources</span><span class="p">()</span>
+                <span class="n">eventsLoop</span><span class="p">()</span>
+                <span class="n">destroy</span><span class="p">()</span>
+
+        <span class="k">func</span> <span class="n">setup</span>
+
+                <span class="n">al_init</span><span class="p">()</span>
+                <span class="n">al_init_image_addon</span><span class="p">()</span>
+                <span class="n">al_set_new_display_flags</span><span class="p">(</span><span class="n">ALLEGRO_OPENGL</span><span class="p">)</span>
+                <span class="n">display</span> <span class="o">=</span> <span class="n">al_create_display</span><span class="p">(</span><span class="n">SCREEN_W</span><span class="p">,</span><span class="n">SCREEN_H</span><span class="p">)</span>
+                <span class="n">al_set_Window_title</span><span class="p">(</span><span class="n">display</span><span class="p">,</span><span class="n">TITLE</span><span class="p">)</span>
+                <span class="n">al_clear_to_color</span><span class="p">(</span><span class="n">al_map_rgb</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+                <span class="n">event_queue</span> <span class="o">=</span> <span class="n">al_create_event_queue</span><span class="p">()</span>
+                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="n">al_get_display_event_source</span><span class="p">(</span><span class="n">display</span><span class="p">))</span>
+                <span class="n">ev</span> <span class="o">=</span> <span class="n">al_new_allegro_event</span><span class="p">()</span>
+                <span class="n">timeout</span> <span class="o">=</span> <span class="n">al_new_allegro_timeout</span><span class="p">()</span>
+                <span class="n">al_init_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">,</span> <span class="mf">0.06</span><span class="p">)</span>
+                <span class="n">timer</span> <span class="o">=</span> <span class="n">al_create_timer</span><span class="p">(</span><span class="mf">1.0</span> <span class="o">/</span> <span class="n">FPS</span><span class="p">)</span>
+                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="n">al_get_timer_event_source</span><span class="p">(</span><span class="n">timer</span><span class="p">))</span>
+                <span class="n">al_start_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+                <span class="n">al_install_mouse</span><span class="p">()</span>
+                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="n">al_get_mouse_event_source</span><span class="p">())</span>
+                <span class="n">al_install_keyboard</span><span class="p">()</span>
+                <span class="n">al_register_event_source</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span>
+                        <span class="n">al_get_keyboard_event_source</span><span class="p">())</span>
+
+        <span class="k">func</span> <span class="n">eventsLoop</span>
+
+                <span class="k">while</span> <span class="kp">true</span>
+                        <span class="n">al_wait_for_event_until</span><span class="p">(</span><span class="n">event_queue</span><span class="p">,</span> <span class="n">ev</span><span class="p">,</span> <span class="n">timeout</span><span class="p">)</span>
+                        <span class="k">switch</span> <span class="n">al_get_allegro_event_type</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_DISPLAY_CLOSE</span>
+                                <span class="k">exit</span>
+                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_TIMER</span>
+                                <span class="n">redraw</span> <span class="o">=</span> <span class="kp">true</span>
+                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_AXES</span>
+                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_ENTER_DISPLAY</span>
+                                <span class="n">mouse_x</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_x</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                <span class="n">mouse_y</span> <span class="o">=</span> <span class="n">al_get_allegro_event_mouse_y</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_MOUSE_BUTTON_UP</span>
+                                <span class="k">exit</span>
+                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_DOWN</span>
+                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
+                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_UP</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
+                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
+                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_DOWN</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
+                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_LEFT</span>
+                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_LEFT</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
+                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_RIGHT</span>
+                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_RIGHT</span><span class="o">]</span> <span class="o">=</span> <span class="kp">true</span>
+                                <span class="k">off</span>
+                        <span class="k">on</span> <span class="n">ALLEGRO_EVENT_KEY_UP</span>
+                                <span class="k">switch</span> <span class="n">al_get_allegro_event_keyboard_keycode</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_UP</span>
+                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_UP</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
+                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_DOWN</span>
+                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_DOWN</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
+                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_LEFT</span>
+                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_LEFT</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
+                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_RIGHT</span>
+                                                <span class="n">key</span><span class="o">[</span><span class="n">KEY_RIGHT</span><span class="o">]</span> <span class="o">=</span> <span class="kp">false</span>
+                                        <span class="k">on</span> <span class="n">ALLEGRO_KEY_ESCAPE</span>
+                                                <span class="k">exit</span>
+                                <span class="k">off</span>
+                        <span class="k">off</span>
+                        <span class="k">if</span> <span class="n">redraw</span> <span class="ow">and</span> <span class="n">al_is_event_queue_empty</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                                <span class="n">redraw</span> <span class="o">=</span> <span class="kp">false</span>
+                                <span class="n">drawScene</span><span class="p">()</span>
+                                <span class="n">al_flip_display</span><span class="p">()</span>
+                        <span class="k">ok</span>
+                        <span class="n">callgc</span><span class="p">()</span>
+                <span class="k">end</span>
+
+        <span class="k">func</span> <span class="n">destroy</span>
+
+                <span class="n">destroyResources</span><span class="p">()</span>
+                <span class="n">al_destroy_timer</span><span class="p">(</span><span class="n">timer</span><span class="p">)</span>
+                <span class="n">al_destroy_allegro_event</span><span class="p">(</span><span class="n">ev</span><span class="p">)</span>
+                <span class="n">al_destroy_allegro_timeout</span><span class="p">(</span><span class="n">timeout</span><span class="p">)</span>
+                <span class="n">al_destroy_event_queue</span><span class="p">(</span><span class="n">event_queue</span><span class="p">)</span>
+                <span class="n">al_destroy_display</span><span class="p">(</span><span class="n">display</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">loadresources</span>
+
+        <span class="k">func</span> <span class="n">drawScene</span>
+
+        <span class="k">func</span> <span class="n">destroyResources</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="Ring Cube" src="_images/ringcube3d.png" />
+</div>
+<div class="section" id="what-is-new-in-ring-1-5-2">
+<span id="index-20"></span><h2>What is new in Ring 1.5.2?<a class="headerlink" href="#what-is-new-in-ring-1-5-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Documentation - Chapter “Applications developed in little hours” is updated</p></li>
+<li><p>Ring Notepad  - Display programs output in the output window on all platforms</p></li>
+<li><p>Form Designer - Help Menu - Open CHM/PDF files without displaying the console window</p></li>
+<li><p>Form Designer - Better response to Resize/Move Events when moving the Mouse quickly</p></li>
+<li><p>Form Designer - New/Open/Save As, will open the Controller class in Ring Notepad</p></li>
+<li><p>Form Designer - Added “Close Form” option to the file menu</p></li>
+<li><p>Ring Notepad  - Run, will save the current file (Also the opened Form) automatically</p></li>
+<li><p>GetQuotesHistory Application - Updated to work on MacOS X and Qt 5.2</p></li>
+<li><p>Calculator Application - Updated to include more features!</p></li>
+<li><p>RingVM - Classification for Environment Errors (Check Chapter : Language Reference)</p></li>
+<li><p>RingQt - New methods added to QAllEvents for faster Events execution</p></li>
+<li><p>RingQt - Fusion Black Style - Better colors for disabled controls</p></li>
+<li><p>Scripts - For building Ring on Fedora Linux (Check Chapter : Building From Source Code)</p></li>
+</ul>
+<p>Screen Shot:</p>
+<img alt="Ring on Fedora 1" src="_images/fedora.png" />
+</div>
+<div class="section" id="what-is-new-in-ring-1-5-3">
+<span id="index-21"></span><h2>What is new in Ring 1.5.3?<a class="headerlink" href="#what-is-new-in-ring-1-5-3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Form Designer : Close Action will notify Ring Notepad to be able to open the Form again</p></li>
+<li><p>Form Designer : Save Action will open the controller class in Ring Notepad</p></li>
+<li><p>Form Designer : Keep current control selected when selecting many controls using CTRL Key</p></li>
+<li><p>Form Designer : Nice form back color when used in Ring Notepad (Style: Modern Black)</p></li>
+<li><p>RingOpenSSL : Updated to support newer versions like OpenSSL 1.1</p></li>
+<li><p>Building Scripts : Updated to work on Fedora 26 (64bit)</p></li>
+<li><p>OpenGL : New Sample - Many Cubes (samples/3D/manycubes)</p></li>
+</ul>
+<p>Screen Shot:</p>
+<img alt="Many Cubes" src="_images/manycubes.png" />
+<ul class="simple">
+<li><p>RingQt : Add QDateTime Class</p></li>
+<li><p>RingQt : New methods added to QMenu and QCursor Classes</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qwidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Context Menu&quot;</span><span class="p">)</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                <span class="n">myfilter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAllEvents</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setContextmenuEvent</span><span class="p">(</span><span class="s">&quot;mymenu()&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">installeventfilter</span><span class="p">(</span><span class="n">myfilter</span><span class="p">)</span>
+                <span class="n">show</span><span class="p">()</span>
+        <span class="p">}</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+
+<span class="k">func</span> <span class="n">mymenu</span>
+
+        <span class="k">new</span> <span class="n">qMenu</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;new&quot;</span><span class="p">)</span>
+                        <span class="n">SetCLickevent</span><span class="p">(</span><span class="s">&quot;See :New&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
+                <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;open&quot;</span><span class="p">)</span>
+                        <span class="n">SetCLickevent</span><span class="p">(</span><span class="s">&quot;See :Open&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
+                <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;save&quot;</span><span class="p">)</span>
+                        <span class="n">SetCLickevent</span><span class="p">(</span><span class="s">&quot;See :Save&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
+                <span class="n">oAction</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qAction</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="s">&quot;close&quot;</span><span class="p">)</span>
+                        <span class="n">SetCLickevent</span><span class="p">(</span><span class="s">&quot;See :Close&quot;</span><span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">addaction</span><span class="p">(</span><span class="n">oAction</span><span class="p">)</span>
+                <span class="n">oCursor</span>  <span class="o">=</span> <span class="k">new</span> <span class="n">qCursor</span><span class="p">()</span>
+                <span class="n">exec</span><span class="p">(</span><span class="n">oCursor</span><span class="p">.</span><span class="n">pos</span><span class="p">())</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Compiler : Support using _ in numbers</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="mi">1_000_000</span>
+<span class="k">see</span> <span class="n">type</span><span class="p">(</span><span class="n">x</span><span class="p">)</span><span class="o">+</span><span class="n">nl</span>
+<span class="k">see</span> <span class="n">x</span><span class="o">+</span><span class="mi">1</span><span class="o">+</span><span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">NUMBER</span>
+<span class="mi">100000001</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Compiler : Support using f after numbers</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>x = 19.99f
+see type(x) + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">NUMBER</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Google API Shortener Application</p></li>
+</ul>
+<p>Screen Shots:</p>
+<img alt="URLShortener - shot 1" src="_images/urlappshot1.png" />
+<ul class="simple">
+<li><p>TicTacToe 3D Game</p></li>
+</ul>
+<p>Screen Shot:</p>
+<img alt="TicTacToe 3D Game" src="_images/tictactoe3d.png" />
+</div>
+<div class="section" id="what-is-new-in-ring-1-5-4">
+<span id="index-22"></span><h2>What is new in Ring 1.5.4?<a class="headerlink" href="#what-is-new-in-ring-1-5-4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>CalmoSoft Fifteen Puzzle Game 3D</p></li>
+<li><p>Ring Notepad - New Styles</p></li>
+<li><p>Ring Notepad - Better Toolbar Style</p></li>
+<li><p>Ring Notepad - View Modes</p></li>
+<li><p>Ring Notepad - QPlainTextEdit - don’t set back color for the scroll bars</p></li>
+<li><p>Ring Notepad - Style Fusion (White) - use Silver color for comments</p></li>
+<li><p>Ring Notepad - Tab and Shift-Tab - Indent multiple lines</p></li>
+<li><p>Form Designer - Better Toolbar Style</p></li>
+<li><p>Form Designer - Nice backcolor for Window Flags and Menubar Designer</p></li>
+<li><p>Form Designer - Default back color for controls</p></li>
+<li><p>RingQt - Added grab() and windowHandle() methods to QWidget class</p></li>
+<li><p>RingQt - Added new methods to QPixmap Class</p></li>
+<li><dl class="simple">
+<dt>RingQt - Added Classes :-</dt><dd><ul>
+<li><p>QScreen</p></li>
+<li><p>QWindow</p></li>
+<li><p>QGuiApplication</p></li>
+<li><p>QTextBrowser</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Code Generator for Extensions - Nonew Option - Support Parent Class</p></li>
+<li><p>Ring VM - Internal Implementation - Pass state to Strings and Lists objects</p></li>
+<li><p>Ring VM - Garbage Collector - Memory Pool for Small Objects</p></li>
+<li><p>Ring VM - Better code for Saving/Restoring the State</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="whatisnew6.html" class="btn btn-neutral float-right" title="What is new in Ring 1.6?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="whatisnew4.html" class="btn btn-neutral float-left" title="What is new in Ring 1.4?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

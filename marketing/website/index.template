@@ -1,4 +1,4 @@
-﻿<%  eval(read("news.data"))  %>
+﻿<%  eval(read("history.data"))  %>
 
 <div class="row">
 
@@ -10,13 +10,21 @@
       <div class="panel-body">
 		<p align="justify">
 			The Ring is an innovative and practical general-purpose multi-paradigm language.
-
 			The supported programming paradigms are imperative, procedural, object-oriented, declarative using nested structures, functional, meta programming and natural programming.
-			The language is portable (Windows, Linux, macOS, Android, etc.) and can be used to create Console, GUI, Web, Games and Mobile applications.
-
+			The language is portable (Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create Console, GUI, Web, Games and Mobile applications.
 			The language is designed to be simple, small, flexible and fast.					
 		</p>
-	</div>
+
+				
+				<div class="col-sm-12">
+					<a href="https://tio.run/#ring" class="btn btn-link btn-block">Try Ring (Open in Playground)</a>
+				</div>
+				
+			
+		
+       </div>
+	
+	
      </div>  
   </div>
 
@@ -32,8 +40,8 @@
 			<table class="table table-striped">
 				<thead>
 				  <tr>
-					<th width="40%">Date</th>
-					<th>Description</th>
+					<th width="40%"></th>
+					<th></th>
 				  </tr>
 				</thead>
 				<tbody>
@@ -57,6 +65,9 @@
 	</div>
 
 </div>
+
+
+
 
 <br>
 
@@ -97,147 +108,514 @@
 		<div class="row">
 			<div class="col-sm-12 col-md-12">
 		<p>
-		Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.) and the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language itself.		
+		Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.) 
+		and the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language itself.		
 		Ring is ready for use in production and increase the developers productivity.
 		</p>
 		<br>	
 
-		<div class="col-xs-12">
-  <div id="myCarousel" class="carousel slide" data-ride="carousel">
-    <!-- Indicators -->
-    <ol class="carousel-indicators">
-      <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel" data-slide-to="1"></li>
-      <li data-target="#myCarousel" data-slide-to="2"></li>
-      <li data-target="#myCarousel" data-slide-to="3"></li>
-	  <li data-target="#myCarousel" data-slide-to="4"></li>
-	  <li data-target="#myCarousel" data-slide-to="5"></li>
-	  <li data-target="#myCarousel" data-slide-to="6"></li>
-	  <li data-target="#myCarousel" data-slide-to="7"></li>
-	  <li data-target="#myCarousel" data-slide-to="8"></li>
-	  <li data-target="#myCarousel" data-slide-to="9"></li>
-	  <li data-target="#myCarousel" data-slide-to="10"></li>	  
-	  <li data-target="#myCarousel" data-slide-to="11"></li>	  
-    </ol>
-
-    <!-- Wrapper for slides -->
-    <div class="carousel-inner" role="listbox">
-
-      <div class="item active">
-        <img src="newringdemo1.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="newringdemo2.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>
-    
-      <div class="item">
-        <img src="newringdemo3.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>
-
-      <div class="item">
-        <img src="newringdemo4.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>
-  
-      <div class="item">
-        <img src="newringdemo5.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>
- 
-      <div class="item">
-        <img src="newringdemo6.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>
-
-		<div class="item">
-        <img src="newringdemo7.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>	  
-	
-
-	  <div class="item">
-        <img src="newringdemo8.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>	
-	
-      <div class="item">
-        <img src="newringdemo9.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>	  
-	
-	 
-	  <div class="item">
-        <img src="newringdemo10.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>	
-	
-      <div class="item">
-        <img src="newringdemo11.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>	
-
-      <div class="item">
-        <img src="newringdemo12.png" alt="" width="1366" height="729">
-        <div class="carousel-caption">
-          <h3></h3>
-          <p></p>
-        </div>
-      </div>	
-	  
-
-    </div>
-
-    <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-      <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
-      <span class="sr-only">Previous</span>
-    </a>
-    <a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-      <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
-      <span class="sr-only">Next</span>
-    </a>
-	
-  </div>
-</div>
 		
+		
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Custom Styles And Modern Programming Paradigms</h4></div>
+      <div class="panel-body">		
+
+		<p>
+			Using Ring you will feel that the language is yours! A lot of modern programming paradigms
+			are ready for use in production and using the Natural Language Programming you can quickly
+			integrate natural interfaces to your programs. Also, you can start your software development
+			with writing natural descriptions, then adding the implementation later.
+		</p>
+		<p>
 			
+		</p>
+		<br>
+
+	  
+				<div class="col-xs-12">
+				  <div id="myCarousel" class="carousel slide" data-interval="false">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+					  <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+					  <li data-target="#myCarousel" data-slide-to="1"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+
+					  <div class="item active">
+						<img src="newringdemo1.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+					 
+					  <div class="item">
+						<img src="newringdemo2.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>	  
+
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
+					  <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+					  <span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
+					  <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+					  <span class="sr-only">Next</span>
+					</a>
+					
+				  </div>
+				</div>
+						
+		
+	</div>
+	</div>
+
+		
+
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h4>GUI Applications Development And RAD Tools</h4></div>
+      <div class="panel-body">		
+
+		<p>
+			Many developers reported that using Ring we can develop many GUI applications in a few hours. Ring comes with Rapid Application Development (RAD) tools
+			that we can use to quickly develop GUI applications using the MVC design pattern.
+			Also, using the same source code we can distribute our applications for Desktop, Web and Mobile platforms.
+		</p>
+		<p>
+			
+		</p>
+		<br>
+
+	  
+				<div class="col-xs-12">
+				  <div id="myCarousel2" class="carousel slide" data-interval="false" >
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+					  <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+					  <li data-target="#myCarousel2" data-slide-to="1"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+
+					  <div class="item active">
+						<img src="newringdemo6.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+					  <div class="item">
+						<img src="newringdemo5.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev">
+					  <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+					  <span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel2" role="button" data-slide="next">
+					  <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+					  <span class="sr-only">Next</span>
+					</a>
+					
+				  </div>
+				</div>
+						
+		
+	</div>
+	</div>
+
+		
+
+
+    <div class="panel panel-primary">
+      <div class="panel-heading"><h4>First Class Support For Game Development</h4></div>
+      <div class="panel-body">		
+
+		<p>			 
+			We believe in Games as a nice way to encourage people to learn programming.
+			Ring comes with many game programming libraries in the standard library.
+			Ring provides native support for Allegro, LibSDL, RayLib, OpenGL and Qt3D libraries.
+			Also, Ring comes with simple game engine for 2D games development using Declarative Programming. 
+		</p>
+		<p>
+			
+		</p>
+		<br>
+
+	  
+				<div class="col-xs-12">
+				  <div id="myCarousel3" class="carousel slide" data-interval="false">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+					  <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
+					  <li data-target="#myCarousel3" data-slide-to="1"></li>
+					  <li data-target="#myCarousel3" data-slide-to="2"></li>
+					  <li data-target="#myCarousel3" data-slide-to="3"></li>
+					  <li data-target="#myCarousel3" data-slide-to="4"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+
+					  <div class="item active">
+						<img src="ringdemo13.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>		
+
+					  <div class="item">
+						<img src="goldmagic800.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+					  
+					  <div class="item">
+						<img src="newringdemo3.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+					  
+					  <div class="item">
+						<img src="snakegamecode.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+					  
+					  <div class="item">
+						<img src="sokobangamecode.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>	 
+
+				  		  
+
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel3" role="button" data-slide="prev">
+					  <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+					  <span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel3" role="button" data-slide="next">
+					  <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+					  <span class="sr-only">Next</span>
+					</a>
+					
+				  </div>
+				</div>
+						
+		
+	</div>
+	</div>
+
+		
+
+   <div class="panel panel-primary">
+      <div class="panel-heading"><h4>WebAssembly (Front-End Web Development)</h4></div>
+      <div class="panel-body">		
+
+		<p>
+			Using Ring we can quickly develop web applications using WebAssembly (Binary format
+			that allows sand-boxed executable code in web pages. 
+			This format is nearly as fast as native machine code, and is now supported by
+			all major web browsers)			
+		</p>
+		<br>
+
+	  
+				<div class="col-xs-12">
+				  <div id="myCarousel5" class="carousel slide" data-interval="false">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+					  <li data-target="#myCarousel5" data-slide-to="0" class="active"></li>
+					  <li data-target="#myCarousel5" data-slide-to="1"></li>
+					  <li data-target="#myCarousel5" data-slide-to="2"></li>
+					  <li data-target="#myCarousel5" data-slide-to="3"></li>
+					  <li data-target="#myCarousel5" data-slide-to="4"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+
+					  <div class="item active">
+						<img src="wasm_demo4.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>					
+					
+					  <div class="item ">
+						<img src="wasm_demo1.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+					  <div class="item">
+						<img src="wasm_demo2.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+					  <div class="item">
+						<img src="wasm_demo3.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+					<div class="item">
+						<img src="wasm_demo5.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>					
+										  
+					  
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel5" role="button" data-slide="prev">
+					  <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+					  <span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel5" role="button" data-slide="next">
+					  <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+					  <span class="sr-only">Next</span>
+					</a>
+					
+				  </div>
+				</div>
+						
+		
+	</div>
+	</div>
+
+
+
+		
+	
+
+   <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Back-End Web Development</h4></div>
+      <div class="panel-body">		
+
+		<p>
+			Using Ring we can quickly develop web applications using the MVC design pattern.
+			We can easily use HTML templates with embedded Ring code. 
+			Also, we can generate HTML code from Ring programs using Declarative Programming.
+		</p>
+		<br>
+
+	  
+				<div class="col-xs-12">
+				  <div id="myCarousel4" class="carousel slide" data-interval="false">
+					<!-- Indicators -->
+					<ol class="carousel-indicators">
+					  <li data-target="#myCarousel4" data-slide-to="0" class="active"></li>
+					  <li data-target="#myCarousel4" data-slide-to="1"></li>
+					</ol>
+
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+
+					  <div class="item active">
+						<img src="newringdemo9.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+					  <div class="item">
+						<img src="newringdemo12.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel4" role="button" data-slide="prev">
+					  <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+					  <span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel4" role="button" data-slide="next">
+					  <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+					  <span class="sr-only">Next</span>
+					</a>
+					
+				  </div>
+				</div>
+						
+		
+	</div>
+	</div>
+
+
+	  <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Mobile Development</h4></div>
+      <div class="panel-body">		
+
+		<p>
+			Using Ring we can distribute our applications for Mobile platforms (Android, iOS, etc.)
+		</p>
+		<br>
+
+	  
+				<div class="col-xs-12">
+				  <div id="myCarousel7" class="carousel slide" data-interval="false" >
+
+				  
+				 	<!-- Indicators -->
+					<ol class="carousel-indicators">
+					  <li data-target="#myCarousel7" data-slide-to="0" class="active"></li>
+					  <li data-target="#myCarousel7" data-slide-to="1"></li>
+					</ol>
+				  
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+
+					<div class="item active">
+						<img src="android_demo1.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+					
+					  <div class="item">
+						<img src="android_demo3.png" alt="" width="1366" height="729">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+
+
+
+					</div>
+
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel7" role="button" data-slide="prev">
+					  <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+					  <span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel7" role="button" data-slide="next">
+					  <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+					  <span class="sr-only">Next</span>
+					</a>
+					
+				  </div>
+				</div>
+						
+		
+	</div>
+	</div>
+	
+	
+	
+	
+
+  <div class="panel panel-primary">
+      <div class="panel-heading"><h4>Building Tools (Command Line)</h4></div>
+      <div class="panel-body">		
+
+		<p>
+			Using Ring we can whip up a CLI tool quickly and distribute it with ease. 
+			The Ring Package Manager is an example about a powerful tool that we developed using Ring in a few hours.
+			We recorded the development time (21 hours of development includes explaining each step)
+		</p>
+		<br>
+
+	  
+				<div class="col-xs-12">
+				  <div id="myCarousel6" class="carousel slide" data-interval="false">
+
+				  <!-- Indicators -->
+					<ol class="carousel-indicators">
+					  <li data-target="#myCarousel6" data-slide-to="0" class="active"></li>
+					  <li data-target="#myCarousel6" data-slide-to="1"></li>
+					</ol>
+				  
+					<!-- Wrapper for slides -->
+					<div class="carousel-inner" role="listbox">
+
+					  <div class="item active">
+						<img src="cmddemo2.png" alt="" width="1345" height="679">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>
+	
+					  <div class="item">
+						<img src="cmddemo3.png" alt="" width="1345" height="679">
+						<div class="carousel-caption">
+						  <h3></h3>
+						  <p></p>
+						</div>
+					  </div>	
+
+					</div>
+					
+					<!-- Left and right controls -->
+					<a class="left carousel-control" href="#myCarousel6" role="button" data-slide="prev">
+					  <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
+					  <span class="sr-only">Previous</span>
+					</a>
+					<a class="right carousel-control" href="#myCarousel6" role="button" data-slide="next">
+					  <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
+					  <span class="sr-only">Next</span>
+					</a>
+					
+					
+				  </div>
+				</div>
+						
+		
+	</div>
+	</div>
+	
+		
 		
 			</div>
 		</div>
@@ -261,9 +639,10 @@
 		domain-specific languages in a fraction of time. It is very small, fast and comes with smart
 		garbage collector that puts the memory under the programmer control. It supports many programming paradigms, comes with useful and practical libraries. 
 		The language is designed for productivity and developing high quality solutions that can scale.
-		<a href="doc1.12/faq.html#why-do-we-need-yet-another-programming-language-yapl" target="_blank"> Why? </a>
+		
 		</p>
-		<br> <br>
+		
+		<br> 
 
         <div class="panel panel-primary" id="productivityscal">
 	      <div class="panel-heading"><h4> Designed for a Clear Goal</h4></div>
@@ -271,12 +650,12 @@
 
 		<p>
 			<ul>
-			<li>Applications programming language. <a href="doc1.12/ringapps.html" target="_blank"> Examples? </a> </li>
+			<li>Applications programming language. </li>
 			<li>Productivity and developing high quality solutions that can scale.</li>			
-			<li>Small and fast language that can be embedded in C/C++ projects. <a href="doc1.12/embedding.html" target="_blank"> How? </a></li>
-			<li>Simple language that can be used in education and introducing Compiler/VM concepts. <a href="#education" target="_blank"> How? </a></li>
-			<li>General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools. <a href="doc1.12/naturallibrary.html" target="_blank"> How? </a></li>
-			<li>Practical language designed for creating the next version of the Programming Without Coding Technology software. <a href="http://pwct.org" target="_blank"> What? </a></li>							
+			<li>Small and fast language that can be embedded in C/C++ projects. </li>
+			<li>Simple language that can be used in education and introducing Compiler/VM concepts. </li>
+			<li>General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools. </li>
+			<li>Practical language designed for creating the next version of the Programming Without Coding Technology software. </li>							
 			</ul>
 
 		</p>
@@ -292,9 +671,8 @@
 	      <div class="panel-body">
 
 		Ring is a very simple language, and has a very straightforward syntax. It encourages programmers to program without boilerplate code. 
-		To print something using the standard output, We can use the 'See' command. 
-		<a href="doc1.12/faq.html#why-ring-uses-see-give-but-and-ok-keywords" target="_blank"> Why? </a>
-		
+		<br>
+		To print something using the standard output, We can use the 'See' command.		
 
 		<p>
 			<pre>
@@ -303,7 +681,7 @@
 		</p>
 
 		The Main function is optional and will be executed after the statements, and is useful for using the local scope.
-		<a href="doc1.12/faq.html#what-is-the-goal-of-including-the-main-function-in-ring" target="_blank"> Why? </a>
+		
 		<p>
 			<pre>
 <font color="purple">func</font> main
@@ -311,12 +689,10 @@
 			</pre>
 		</p>
 
-		Uses Dynamic Typing and Lexical scoping. No $ is required before the variable name, but we can use it!
-		<a href="doc1.12/syntaxflexibility.html#using-and-in-the-start-of-the-variable-name" target="_blank"> Why? </a>
+		Uses Dynamic Typing and Lexical scoping. 		
 		<br>
-		You can use the '+' operator for string concatenation and the language is 
-		weakly typed and will do simple implicit conversion between numbers and strings only based on the context.
-				<a href="doc1.12/faq.html#why-is-ring-weakly-typed" target="_blank"> Why? </a>
+		Also we can use the '+' operator for string concatenation.
+		
 		<p>
 			<pre>
 nCount = 10	<font color="green"># Global variable</font>
@@ -336,7 +712,7 @@ nCount = 10	<font color="green"># Global variable</font>
 	      <div class="panel-body">
 
 		Ring is not case-sensitive
-		<a href="doc1.12/faq.html#why-ring-is-not-case-sensitive" target="_blank"> Why? </a>
+		
 		<p>
 			<pre>
 <font color="purple">see</font> "Enter your name ? " 
@@ -345,8 +721,8 @@ nCount = 10	<font color="green"># Global variable</font>
 			</pre>
 		</p>
 
-		The list index starts from 1 (Or from 0 using the <a href="doc1.12/zerolib.html" target="_blank"> ZeroLib </a>)
-		<a href="doc1.12/faq.html#why-the-list-index-start-from-1-in-ring" target="_blank"> Why? </a>
+		The list index starts from 1
+		
 		<p>
 			<pre>
 aList = ["one","two","three"]
@@ -361,16 +737,16 @@ one()
 two() 
 three()
 <font color="purple">func</font> one 
-	<font color="purple">see</font> "One" + nl
+	<font color="purple">see</font> "One" 
 <font color="purple">func</font> two 
-	<font color="purple">see</font> "two" + nl
+	<font color="purple">see</font> "two" 
 <font color="purple">func</font> three 
-	<font color="purple">see</font> "three" + nl
+	<font color="purple">see</font> "three" 
 			</pre>
 		</p>
 
 		The assignment operator uses Deep copy (no references in this operation)
-		<a href="doc1.12/faq.html#why-the-assignment-operator-uses-deep-copy" target="_blank"> Why? </a>
+		
 		<p>
 			<pre>
 aList = ["one","two","three"]
@@ -410,7 +786,7 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 			</pre>
 		</p>
 		Exit from more than one loop
-		<a href="doc1.12/faq.html#why-you-can-specify-the-number-of-loops-you-want-to-break-out-of" target="_blank"> Why? </a>
+		
 		<p>
 			<pre>
 <font color="purple">for</font> x = 1 <font color="purple">to</font> 10
@@ -456,14 +832,14 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 		<pre>
 <font color="green">/* 
 	Program Name : My first program using Ring
-	Year         : 2017
+	Author       : Ring Team 
 */</font>
 
 <font color="purple">see</font> "What is your name? " 	<font color="green"># print message on screen</font>
 <font color="purple">give</font> cName 			<font color="green"># get input from the user</font>
 <font color="purple">see</font> "Hello " + cName	<font color="green">	# say hello!</font>
 
-<font color="green">// See "Bye!"</font>
+<font color="green">// See "End of Program!"</font>
 			</pre>
 		</p>
 
@@ -562,11 +938,27 @@ oPerson = <font color="purple">new</font> Person
 		</div>
 		</div>
 
+		
+				 <div class="panel panel-primary" id="designgoals_syntaxflexibility">
+	      <div class="panel-heading"><h4> Syntax Flexibility</h4></div>
+	      <div class="panel-body">
+
+		<p>
+			Ring comes with many styles for writing your source code! <br> <br>
+
+			Also you can change the language keywords and operators and create your custom style! <br>
+
+		</p>
+
+		<br> 
+		
+		  </div>
+		</div>
+		
+		
 	    <div class="panel panel-primary" id="libs">
 	      <div class="panel-heading"><h4> Define Natural Statements based on Object-Oriented </h4></div>
 	      <div class="panel-body">
-
-		<a href="doc1.12/faq.html#why-the-ability-to-define-your-own-languages-instead-of-just-handing-over-the-syntax-so-you-can-parse-it-using-whatever-code-you-like" target="_blank"> Why? </a>
 
 		<p>
 		After the object access using { } if the class contains a method called BraceEnd() it will be executed!
@@ -769,23 +1161,24 @@ aWords = ["hello","it","is","me"]
 		</div>
 		</div>
 		
-		<br> <br>
-		
-		 <div class="panel panel-primary" id="designgoals_syntaxflexibility">
-	      <div class="panel-heading"><h4> Syntax Flexibility</h4></div>
-	      <div class="panel-body">
+	 
+	 </div>  
+  </div>
 
-		<p>
-			Ring comes with many styles for writing your source code! <br> <br>
+</div>
 
-			Also you can change the language keywords and operators and create your custom style! <br>
+  
+<a href="#implementation" class="btn btn-default" data-toggle="collapse" style="width:100%">Implementation</a>
 
-		</p>
+<div id="implementation" class="panel-group collapse in">
 
-		  </div>
-		</div>
-		
-		<br> <br>
+<div class="panel panel-default">
+      <div class="panel-heading"><h4>Implementation</h4></div>
+      <div class="panel-body">
+
+
+
+
 <a name="education"></a>
 		        <div class="panel panel-primary" id="transparentimplementation">
 	      <div class="panel-heading"><h4> Transparent Implementation </h4></div>
@@ -794,7 +1187,7 @@ aWords = ["hello","it","is","me"]
 		Ring comes with transparent implementation. We can know what is happening in each compiler stage and
 		what is going on during the run-time by the Virtual Machine
 
-		Example : ring helloworld.ring -tokens -rules -ic
+		Example : ring helloworld.ring -tokens -rules -ic -norun
 
 		<p>
 			<pre>
@@ -838,46 +1231,38 @@ Rule : Statement  --> 'See' Expr
 
 ==================================================================
 
-
-
 ==================================================================
 Byte Code - Before Execution by the VM
 ==================================================================
 
      PC      OPCode        Data
-
       1     FuncExE
       2       PushC   Hello, World!
       3       Print
       4  ReturnNull
 
 ==================================================================
-
-Hello, World!
 			</pre>
 		</p>
 
 	</div>
 	</div>
 
+
+	
 		<div class="panel panel-primary" id="visualimplementation">
 	      <div class="panel-heading"><h4> Visual Implementation </h4></div>
 	      <div class="panel-body">
 		  
-		  The Ring programming language is designed using the <a href="http://doublesvsoop.sourceforge.net" target="_blank">PWCT visual programming tool </a>
-		  and you will find the visual source of the language in the folder
-		  "visualsrc" - *.ssf files and the generated source code (In the C Language) in the		  
-		  src folder and the include folder. <a href="http://github.com/ring-lang/ring"  target="_blank">Fork me on GitHub</a>
-			<br><br>
-		  The next screen shots for the ring_vm.ssf (Generate ring_vm.c and ring_vm.h) and ring_list.ssf (Generate ring_list.c and ring_list.h) files.
+		  The Ring programming language is designed using the <a href="http://doublesvsoop.sourceforge.net" >PWCT visual programming tool </a>
 		  <br><br>
 		  
 	<div class="col-xs-12">
-  <div id="myCarousel3" class="carousel slide" data-ride="carousel">
+  <div id="myCarouselPWCT" class="carousel slide" data-interval="false">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel3" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel3" data-slide-to="1"></li>
+      <li data-target="#myCarouselPWCT" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarouselPWCT" data-slide-to="1"></li>
     </ol>
 
     <!-- Wrapper for slides -->
@@ -902,11 +1287,11 @@ Hello, World!
     </div>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel3" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#myCarouselPWCT" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myCarousel3" role="button" data-slide="next">
+    <a class="right carousel-control" href="#myCarouselPWCT" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
       <span class="sr-only">Next</span>
     </a>		  
@@ -916,7 +1301,14 @@ Hello, World!
 
 </div>		
 		
-        <div class="panel panel-primary" id="smartgc">
+ 
+
+	</div>
+     
+
+
+
+       <div class="panel panel-primary" id="smartgc">
 	      <div class="panel-heading"><h4> Smart Garbage Collector </h4></div>
 	      <div class="panel-body">
 
@@ -949,7 +1341,6 @@ aList = "nice"
 	</div>
 	</div>
 
-			<br> <br>
 		
 		 <div class="panel panel-primary" id="designgoals_nogil">
 	      <div class="panel-heading"><h4> No Global Interpreter (VM) Lock - No GIL</h4></div>
@@ -968,16 +1359,8 @@ aList = "nice"
 		</div>
 	
 
-	</div>
-     </div>  
-  </div>
-
-</div>
-
-  
-<a href="#fastenough" class="btn btn-default" data-toggle="collapse" style="width:100%">Fast</a>
   <div id="fastenough" class="panel-group collapse in">
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
       <div class="panel-heading"><h4>Fast Enough For Many Applications</h4></div>
       <div class="panel-body">
 
@@ -1003,13 +1386,13 @@ aList = "nice"
 		<br>	
 
 		<div class="col-xs-12">
-  <div id="myCarousel2" class="carousel slide" data-ride="carousel">
+  <div id="myCarouselPerformance" class="carousel slide" data-interval="false">
     <!-- Indicators -->
     <ol class="carousel-indicators">
-      <li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
-      <li data-target="#myCarousel2" data-slide-to="1"></li>
-      <li data-target="#myCarousel2" data-slide-to="2"></li>
-      <li data-target="#myCarousel2" data-slide-to="3"></li> 
+      <li data-target="#myCarouselPerformance" data-slide-to="0" class="active"></li>
+      <li data-target="#myCarouselPerformance" data-slide-to="1"></li>
+      <li data-target="#myCarouselPerformance" data-slide-to="2"></li>
+      <li data-target="#myCarouselPerformance" data-slide-to="3"></li> 
     </ol>
 
     <!-- Wrapper for slides -->
@@ -1052,11 +1435,11 @@ aList = "nice"
     </div>
 
     <!-- Left and right controls -->
-    <a class="left carousel-control" href="#myCarousel2" role="button" data-slide="prev">
+    <a class="left carousel-control" href="#myCarouselPerformance" role="button" data-slide="prev">
       <span class="glyphicon glyphicon-chevron-left" aria-hidden="false"></span>
       <span class="sr-only">Previous</span>
     </a>
-    <a class="right carousel-control" href="#myCarousel2" role="button" data-slide="next">
+    <a class="right carousel-control" href="#myCarouselPerformance" role="button" data-slide="next">
       <span class="glyphicon glyphicon-chevron-right" aria-hidden="false"></span>
       <span class="sr-only">Next</span>
     </a>
@@ -1071,7 +1454,10 @@ aList = "nice"
 	 </div>
    </div>
 
-  
+</div>
+</div>
+</div>
+   
 
 <a href="#features" class="btn btn-default" data-toggle="collapse" style="width:100%">Features</a>
   <div id="features" class="panel-group collapse in">
@@ -1083,18 +1469,19 @@ aList = "nice"
 	  <div class="col-sm-12 col-md-4">
 
 	    <div class="panel panel-primary">
-	      <div class="panel-heading">Free and Innovative</div>
+	      <div class="panel-heading">Innovative</div>
 	      <div class="panel-body">
 			<ul>
-				<li>Free Open Source (MIT License)</li>			
-				<li>Declarative programming on the top of Object-Oriented programming</li>
-				<li>No explicit end for statements (No ; or ENTER is required)</li>
-				<li>For in get item by reference not value, you can read/edit the item</li>
+				<li>Compact Syntax</li>
+				<li>Three Styles for writing the source code</li>
+				<li>Syntax Flexibility support customization, translation and porting old code</li>
+				<li>Declarative Programming </li>
+				<li>Natural Language Programming</li>
+				<li>Clear program structure (Statements then functions then packages &amp; classes)</li>				
+				<li>using { } to access objects and use attributes/methods as variables/functions</li>				
+				<li>No explicit end for statements (No ; or ENTER is required)</li>				
 				<li>Use exit to go outside from more than one loop</li>
 				<li>No keyword to end Functions, Classes and Packages</li>
-				<li>using { } to access objects and use attributes/methods as variables/functions</li>
-				<li>Clear program structure (Statements then functions then packages &amp; classes)</li>
-				<li>Optional Printing for Tokens/Grammar/Byte-Code during execution</li>		
 			</ul>
 	      </div>	      
             </div>
@@ -1106,12 +1493,16 @@ aList = "nice"
 	      <div class="panel-body">
 
 		<ul>
+		<li>Free Open Source (MIT License)</li>			
 		<li>Hybrid Implementation (Compiler+VM)</li>
 		<li>The compiler + The Virtual Machine are 20,000 lines of C code</li>
 		<li>The other 500,000 lines of code are related to libraries!</li>
+		<li>Transparent Implementation provides optional printing for Tokens/Grammar/Byte-Code during execution</li>		
 		<li>Written in ANSI C (The code is generated)</li>
 		<li>Developed using Visual Programming (PWCT)</li>
-		<li>Portable (Windows, Linux &amp; macOS, Android, etc.)</li>
+		<li>Smart Garbage Collector suitable for Games (Automatic Memory Management using Escape Analysis and Reference Counting)</li>
+		<li>No Global Interpreter Lock (No GIL)</li>
+		<li>Portable (Windows, Linux, macOS, Android, WebAssembly, etc.)</li>
 		</ul>
 	       </div>
            </div>
@@ -1125,19 +1516,18 @@ aList = "nice"
 
 		<ul>
 		<li>Comments (One line &amp; Multi-line)</li>
+		<li>Multi-line literals</li>
 		<li>Not Case-Sensitive</li>
-		<li>Structure Programming</li>
+		<li>The list index start from 1</li>
 		<li>Rich control structures &amp; Operators</li>
-		<li>Procedures/Functions</li>
+		<li>Range operator ex: 1:10</li>
 		<li>Main Function (optional)</li>
 		<li>Call Function before the definition</li>
-		<li>Recursion</li>
-		<li>Multi-line literals</li>
-		<li>Access (read/write) string letter by index</li>
-		<li>The list index start from 1</li>
-		<li>Range operator ex: 1:10</li>
+		<li>Recursion</li>		
+		<li>Access (read/write) string letter by index</li>		
+		<li>For in get item by reference not value</li>
 		<li>First Class Variables, Lists, Objects and Functions</li>
-		<li>Store/Copy Lists/Objects by value (Deep Copy)</li>
+		<li>Store/Copy Lists/Objects by value (Deep Copy)</li>		
 		<li>Pass Lists/Objects by reference</li>
 		<li>8-bit clean, work on binary data directly</li>
 		</ul>
@@ -1159,11 +1549,10 @@ aList = "nice"
 
 		<ul>
 		<li>Dynamic Typing</li>
-		<li>Weakly typed</li>
 		<li>Lexical Scoping (Global, Local &amp; Object State)</li>
 		<li>Default scope for variables inside functions (Local)</li>
 		<li>Default scope for variables outside functions (global)</li>
-		<li>Garbage Collector - Automatic Memory Management (Escape Analysis and Reference Counting)</li>
+		<li>Optional loading for modules in separate global scope</li>
 		<li>Exception Handling</li>
 		<li>Eval() to execute code during run-time</li>
 		</ul>
@@ -1175,7 +1564,7 @@ aList = "nice"
 	<div class="col-sm-12 col-md-4">
 
 	    <div class="panel panel-primary">
-	      <div class="panel-heading"> Native Object-Oriented Support</div>
+	      <div class="panel-heading"> Object-Oriented Programming (OOP)</div>
 	      <div class="panel-body">
 
 		<ul>
@@ -1202,13 +1591,18 @@ aList = "nice"
 	      <div class="panel-body">
 
 		<ul>
-		<li>I/O commands</li><li>Math functions</li>
+		<li>I/O commands</li>
+		<li>Math functions</li>
 		<li>String functions</li>
 		<li>List functions</li>
 		<li>File processing functions</li>
-		<li>Database support (ODBC &amp; MySQL)</li>
+		<li>System functions</li>
+		<li>Database support (ODBC, MySQL, PostgreSQL and SQLite)</li>
 		<li>Security Functions (OpenSSL)</li>
 		<li>Internet Functions (LibCurl)</li>
+		<li>Powerful GUI Framework (Qt)</li>
+		<li>Web Development Library</li>
+		<li>Many Game Programming Libraries</li>
 		</ul>
 	      
 	      </div>
@@ -1224,21 +1618,22 @@ aList = "nice"
     <div class="col-sm-12 col-md-4">
 
 	    <div class="panel panel-primary">
-	      <div class="panel-heading"> CGI Library (Written in Ring)  </div>
+	      <div class="panel-heading"> Web Development  </div>
 	      <div class="panel-body">
 
 		<ul>
-		<li>CGI LIbrary - HTTP Get</li>
-		<li>CGI LIbrary - HTTP Post</li>
-		<li>CGI LIbrary - File upload</li>
-		<li>CGI LIbrary - Cookies</li>
-		<li>CGI LIbrary - URL Encode</li>
-		<li>CGI LIbrary - Templates</li>
-		<li>CGI LIbrary - HTML Special Characters</li>
-		<li>CGI LIbrary - HTML Generation using Functions</li>
-		<li>CGI LIbrary - HTML Generation using Classes</li>
-		<li>CGI LIbrary - CRUD Example (using MVC)</li>
-		<li>CGI Library - Users Example (Register, Login and Check)</li>
+		<li>HTTP Get</li>
+		<li>HTTP Post</li>
+		<li>File upload</li>
+		<li>Cookies</li>
+		<li>URL Encode</li>
+		<li>Templates</li>
+		<li>HTML Special Characters</li>
+		<li>HTML Generation using Functions</li>
+		<li>HTML Generation using Classes</li>
+		<li>CRUD Example (using MVC)</li>
+		<li>Users Example (Register, Login and Check)</li>
+		<li>Deploy web applications in the Cloud</li>
 		</ul>
 
 	      
@@ -1249,15 +1644,17 @@ aList = "nice"
     <div class="col-sm-12 col-md-4">
 
 	    <div class="panel panel-primary">
-	      <div class="panel-heading"> Extension  </div>
+	      <div class="panel-heading"> Extensions  </div>
 	      <div class="panel-body">
 
 		<ul>
 		<li>Extension using C/C++ (Simple API)</li>
-		<li>Embedding the language in C/C++ programs</li>
-		<li>Comes with code generator (Written in Ring) to quickly wrap C/C++ Libraries</li>
-		<li>Create 2D Games (Using the Allegro Library)</li>
-		<li>Create GUI Applications for Desktop and Mobile (Using the Qt Framework)</li>
+		<li>Embedding in C/C++ projects</li>
+		<li>Comes with binding generator to quickly wrap C/C++ Libraries</li>
+		<li>Network Programming (SDLNet, Libuv, etc.)
+		<li>Create 2D Games (Allegro &amp; LibSDL)</li>
+		<li>Create 3D Games (OpenGL, FreeGLUT, RayLib, Qt3D, etc.)</li>
+		<li>Create GUI Applications for Desktop, WebAssembly and Mobile platforms (Using the Qt Framework)</li>		
 		</ul>
 	      
 	      </div>
@@ -1273,6 +1670,11 @@ aList = "nice"
 		<li>Very Stable</li>
 		<li>Good Performance</li>
 		<li>Complete Documentation</li>
+		<li>Many Libraries (Batteries Included)</li>
+		<li>Many Samples (Easy to Learn)</li>
+		<li>Many Applications</li>
+		<li>Hundreds of YouTube Videos</li>
+		<li>Powerful RAD tools (Code Editor, Form Designer, REPL, Debugger, Ring2EXE, Package Manager, etc.)</li>
 		</ul>
 	      
 	      </div>
@@ -1288,9 +1690,65 @@ aList = "nice"
   </div>
 
   
- <a id="ringbook" href="https://en.wikibooks.org/wiki/Ring" target="_blank" class="btn btn-default"  style="width:100%">Ring in Wikibooks</a> 
- <a id="ringsamples" href="https://rosettacode.org/wiki/Category:Ring" target="_blank" class="btn btn-default"  style="width:100%">Ring Samples (Rosettacode)</a> 
+<br><br>
 
- 
+
+</div>
+<div id = "ringbook" class="container-fluid" style="color:white ; background: linear-gradient(to bottom, rgb(30, 32, 42) 0%, rgb(50, 52, 62) 47%, rgb(60, 62, 72) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+<div class="container" style=" margin-bottom: 2%;">
+<br> <br>
+	<div class="row">
+	
+		<div class="col-sm-8 visible-xs">
+			<table> 
+				<td>
+					<a href="https://www.apress.com/gp/book/9781484258323">
+					<img src="ringbookbyapress.png" width="150" height="200">
+					</a> 
+				</td> 
+				<td style="padding-left:5%"> 		
+					<h3>Beginning Ring Programming<h3>
+					<h4>From Novice to Professional</h4>		
+					<p>
+					Gain a gentle introduction to the world of Ring programming with clarity as a first concern using a lot of practical examples.
+					</p>
+				 </td>
+			</table>
+			<br> <br>
+		</div>
+		
+		
+		<div class="col-md-3 hidden-xs">
+			<div style="padding-left:5%">
+				<br> <br> <br>
+				<a href="https://www.apress.com/gp/book/9781484258323">
+				<img src="ringbookbyapress.png" width="250" height="370">
+				</a>
+			</div>
+		</div>	
+	
+		<div class="col-md-9 hidden-xs ">
+			<div style="padding-left:5%">
+				<h1>Beginning Ring Programming<h1>
+				<h2>From Novice to Professional</h2>
+				<p align=”justify” >
+				Gain a gentle introduction to the world of Ring programming with clarity as a first concern using a lot of practical examples. The first part lays the foundations of the language and its basic features (data types, control structures, functions, and classes). The unique way to rigorously structure Ring programs is also explained. 
+				</p><p align="justify">
+				Then, in the second part you’ll discover Ring inputs, outputs, and what is in between. You’ll use the basic constructs of computer logic (sequence, selection, and iteration) to build simple and complex logic flows. You’ll go over the common mistakes that lead to code complexity, by example, and cover several strategies to solve them (refactoring, code cleansing, and good variable naming). Then, you’ll see a visual illustration of how Ring deals with scopes at the local, object, and global levels.
+				</p><p align="justify">
+				In part three, you’ll play with two artifacts vital to Ring programming: functions and objects. You’ll learn how they can be composed to solve a problem and how advanced programming paradigms, such as declarative and natural, are beautifully implemented on top of them. As part of the discussion, you’ll also work on game programming. You’ll learn how you design your game declaratively, in Ring code, just as if you were designing it in visual software.
+				</p><p align="justify">
+				Finally, the author lays out how programming can be understood in a gamified context. You will be told the truth about how gaming can be a better metaphor to achieve mastery of Ring programming.
+				</p><p align="justify">
+				This book is for those who are passionate about writing beautiful, expressive, and learnable code. It has been designed so you can enjoy a beginner-friendly set of knowledge about Ring, and benefit from a one-stop collection of lessons learned from real-world, customer-facing programming projects.
+				</p>
+			</div>
+		</div>
+		<br>
+
+
+	</div>
+</div>
+</div>
+<div class="container" style="display: none;">  
   
-

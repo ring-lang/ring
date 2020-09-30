@@ -1,1 +1,0 @@
-load "/../extensions/ringopengl/opengl43/opengl43lib.ring"

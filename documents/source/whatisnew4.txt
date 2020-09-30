@@ -1,0 +1,501 @@
+.. index:: 
+	single: What is new in Ring 1.4?; Introduction
+
+========================
+What is new in Ring 1.4?
+========================
+
+In this chapter we will learn about the changes and new features in Ring 1.4 release.
+
+.. index:: 
+	pair: What is new in Ring 1.4?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.4  comes with many new features 
+
+* Change: Basic Extensions are separated from RingVM
+* The Natural Library
+* New Style is added to Ring Notepad
+* RingREPL
+* Convert between Numbers and Bytes
+* Better StdLib
+* Better WebLib
+* Better RingQt
+* Qt Class Convertor
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Change: Basic Extensions are separated from RingVM
+
+Change: Basic Extensions are separated from RingVM
+==================================================
+
+In Ring 1.4 the next libraries are separated from RingVM
+
+* RingODBC
+* RingMySQL
+* RingSQLite
+* RingOpenSSL
+* RingInternet
+
+To use these libraries, Use the Load command.
+
+.. code-block:: none
+
+	load "odbclib.ring"
+	# use ODBC Functions
+
+.. code-block:: none
+
+	load "mysqllib.ring"
+	# use MySQL Functions
+
+.. code-block:: none
+
+	load "sqlitelib.ring"
+	# use SQLite Functions
+
+.. code-block:: none
+
+	load "openssllib.ring"
+	# use OpenSSL Functions  ( Hash and Security functions)
+
+.. code-block:: none
+
+	load "internetlib.ring"
+	# use Internet Functions ( Download() and SendEmail() )
+
+If you will use all of these libraries, You can just use stdlib.ring
+And the stdlib.ring will load odbclib.ring, mysqllib.ring, sqlitelib.ring,
+opensslib.ring and internetlib.ring files.
+
+.. code-block:: none
+
+	load "stdlib.ring"
+
+.. index:: 
+	pair: What is new in Ring 1.4?; The Natural Library
+
+The Natural Library
+===================
+
+Ring 1.4 comes with the Natural Library to quickly define a language that contains
+a group of commands.
+
+We will write the natural code in a Text file, for example program.txt
+
+File: program.txt
+
+.. code-block:: none
+
+	Welcome to the Ring programming language!
+	What you are reading now is not comments, I swear!
+
+	After many years of programming I decided to think different about
+	programming and solve the problems in a better way. 
+
+	We are writing commands or code and the Ring language is reading
+	it to understand us! Sure, What you are seeing now is
+	just ***part of the code - Not the Complete Program***
+	You have to write little things before and after this 
+	part to be able to run it!
+
+	It is the natural part of our code where we can write in English, 
+	Arabic or any Natural Language Then we will tell the computer 
+	through the Ring language what must happens! in a way that we can scale 
+	for large frameworks and programs.
+
+	Just imagine what will happens to the world of programming once
+	we create many powerful frameworks using the Ring language that
+	uses this way (Natural Programming).
+
+	For example When we say Hello to the Machine, It can reply! and when we
+	say count from 1 to 5 it will understand us, Also if 
+	we said count from 5 to 1 it will
+	understand us too! You can see the Output window!
+
+	This Goal is not new, but the Ring language comes
+	with an innovative solution to this problem. 	
+
+Output:
+
+.. code-block:: none
+
+	Hello, Sir!
+
+
+	The Numbers!
+
+	1
+
+	2
+
+	3
+
+	4
+
+	5
+
+	I will count Again!
+
+	5
+
+	4
+
+	3
+
+	2
+
+	1
+
+
+To execute the natural code, We have start.ring
+
+In start.ring we define the language and the commands.
+
+File: start.ring
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	load "naturallib.ring"
+
+	New NaturalLanguage {
+		SetLanguageName(:MyLanguage)
+		SetCommandsPath(CurrentDir()+"/../command")
+		SetPackageName("MyLanguage.Natural")
+		UseCommand(:Hello)
+		UseCommand(:Count)
+		RunFile("program.txt")
+	}
+
+
+We defined a language called MyLanguage, We have folder for the language commands.
+
+Each command will define a class that belong to the MyLanguage.Natural package.
+
+We will define two commands, Hello and Count.
+
+So we must have two files for defining the commands in the CurrentDir()+"/../command" folder
+
+File: hello.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsKeyword([
+		:Package = "MyLanguage.Natural",
+		:Keyword = :hello, 
+		:Function = func {
+			See  "Hello, Sir!" + nl + nl
+		}
+	])
+
+File: count.ring
+
+.. code-block:: ring
+
+	DefineNaturalCommand.SyntaxIsKeywordNumberNumber([
+		:Package = "MyLanguage.Natural",
+		:Keyword = :count, 
+		:Function = func {
+			if not isattribute(self,:count_times) {
+				AddAttribute(self,:count_times)
+				Count_Times = 0
+			}
+			if Expr(1) > Expr(2) { 
+				nStep = -1 
+			else 
+				nStep = 1
+			}
+			if Count_Times = 0 { 
+				see nl+"The Numbers!" + nl 
+				Count_Times++
+			else 
+				see nl + "I will count Again!" +nl 
+			}
+			for x = Expr(1) to Expr(2) step nStep {
+				see nl+x+nl 
+			}
+			CommandReturn(fabs(Expr(1)-Expr(2))+1)				
+		}
+	])
+
+
+
+.. index:: 
+	pair: What is new in Ring 1.4?; New Style to Ring Notepad
+
+New Style is added to Ring Notepad
+==================================
+
+In Ring Notepad - From View - Styles - Select the (Modern) Style
+
+Screen Shot:
+
+.. image:: rnotemodernstyle.png
+	:alt: Using Ring Notepad - Modern Style
+
+.. index:: 
+	pair: What is new in Ring 1.4?; RingREPL
+
+RingREPL
+========
+
+In the application folder, You will find RingREPL (Read-Eval-Print-Loop)
+
+Also you can run it from Ring Notepad (Menubar - Tools)
+
+Screen Shot:
+
+.. image:: ringrepl.png
+	:alt: Using RingREPL
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Convert between Numbers and Bytes
+
+Convert between Numbers and Bytes
+=================================
+
+Ring 1.4 comes with the next functions to convert between Numbers and Bytes.
+
+* Int2Bytes()
+* Float2Bytes()
+* Double2Bytes()
+* Bytes2Int()
+* Bytes2Float()
+* Bytes2Double()
+
+Example:
+
+.. code-block:: ring
+
+	see "Test Int2Bytes() and Bytes2Int() - Value : 77" + nl
+	r = Int2Bytes(77)
+	see "Int Size : " + len(r) + nl
+	see r + nl
+	see Bytes2Int(r) + nl
+	see "Test Float2Bytes() and Bytes2Float() - Value 77.12" + nl
+	r = Float2Bytes(77.12)
+	see "Float Size : " + len(r) + nl
+	see r + nl
+	see Bytes2Float(r) + nl
+	see "Test Double2Bytes() and Bytes2Double() - Value 9999977.12345" + nl
+	r = Double2Bytes(9999977.12345)
+	see "Double Size : " + len(r) + nl
+	see r + nl
+	decimals(5)
+	see Bytes2Double(r) + nl
+
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Better StdLib
+
+Better StdLib
+=============
+
+The StdLib is updated to include the next functions
+
+* FSize()
+
+The print() function is updated to accept local variables.
+
+.. code-block:: ring
+
+	load "stdlib.ring" 
+
+	func main 
+		print("Enter your name : ")  	;
+		Name = getString() 		;
+		print( "Hello : #{Name} ") 	;
+		return 				;
+
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Better WebLib
+
+Better WebLib
+=============
+
+The web library is updated 
+
+* Provide better error message
+
+(1) Error (WebLib-1) : REQUEST_METHOD is empty ! - Run this script from the browser
+
+(2) Error (DataLib-1) : Can't connect to the database server!
+
+* Better Template() function - can accept NULL instead of object as the second paramter.
+
+.. code-block:: ring
+
+	html(template("main.rhtml",NULL))
+
+* The Form Class is updated to support the "target" attribute.
+
+.. code-block:: ring
+
+	BootStrapWebPage() 
+	{
+		Title = "The Ring Programming Language"
+		html(template("main.rhtml",NULL))
+		div {
+			classname = :container
+			div
+			{
+				id = "div3"
+				color = "black"
+				backgroundcolor = "white"
+				width = "100%"
+				form
+				{
+					method = "POST"
+					Action = website  
+					Target = "codeoutput"
+					input { type="hidden" name="page" value=1 }
+					Table
+					{ 
+						style = stylewidth("100%") +
+							stylegradient(3)			
+						TR
+						{
+					
+							TD { align="center" 
+								WIDTH="10%"
+								 text("Code :") 
+							}
+							TD {
+								html(`
+								<textarea name = "cCode" 
+								rows="5" 
+								style="width : 100%; ">
+								See "Hello, World!" + nl
+								</textarea>`)
+							}
+						}
+					}
+					Input { type = "submit" 
+						classname="btn btn-primary btn-block" 
+							value = "Execute" }
+					Table
+					{ 
+						style = stylewidth("100%") +
+							stylegradient(34)			
+						TR
+						{
+					
+							TD { align="center"
+								WIDTH="10%" 
+								text("Output :") 
+							}
+							TD {
+							html(`
+							<iframe name="codeoutput" 
+							width="100%" 
+							style="background-color:white;">
+							</iframe>`)
+							}
+						}
+					}
+
+				}
+			}
+
+		}
+		html(template("footer.rhtml",NULL))
+	}
+
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Better RingQt
+
+Better RingQt
+=============
+
+The next functions are added to RingQt
+
+* SetDialogIcon(cIconFile)
+* MsgInfo(cTitle,cMessage)
+* ConfirmMsg(cTitle,cMessage)
+* InputBox(cTitle,cMessage)
+* InputBoxInt(cTitle,cMessage)
+* InputBoxNum(cTitle,cMessage)
+* InputBoxPass(cTitle,cMessage)
+
+The next classes are added to RingQt
+
+* QToolButton
+* QSerialPort
+* QSerialPortInfo
+
+.. index:: 
+	pair: What is new in Ring 1.4?; Qt Class Convertor
+
+Qt Class Convertor
+==================
+
+Ring 1.4 comes with a simple tool that help in porting Qt classes to RingQt.
+
+You will find it in ring/extensions/ringqt/converter
+
+Online : https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter
+
+Screen Shot: 
+
+.. image:: qtclassconvertor.png
+	:alt: Qt Class convertor to RingQt
+
+.. index:: 
+	pair: What is new in Ring 1.4?; What is new in Ring 1.4.1?
+
+
+What is new in Ring 1.4.1?
+==========================
+
+Ring 1.4.1  comes with the next changes
+
+* Better Scripts for Building from Source Code
+* Better Colors for the Modern Style in Ring Notepad
+* Better StdLib
+* Better RingQt
+* New Sample : Sixteen Puzzle
+
+The scripts are updated for building from source code.
+
+Tested using Windows, Ubuntu Linux, Linux Mint and MacOS X.
+
+Screen Shot:
+
+.. image:: linuxmint.png
+	:alt: Using Ring - Linux Mint
+
+In Ring Notepad - the (Modern) Style colors are updated
+
+Screen Shot:
+
+.. image:: rnotemodernstyle2.png
+	:alt: Using Ring Notepad - Modern Style
+
+The StdLib is updated to include the next functions
+
+* TrimLeft()
+* TrimRight()
+* TrimAll()
+* EpochTime()
+
+The next functions are updated to display the dialogs on the top of other windows.
+
+* SetDialogIcon(cIconFile)
+* MsgInfo(cTitle,cMessage)
+* ConfirmMsg(cTitle,cMessage)
+* InputBox(cTitle,cMessage)
+* InputBoxInt(cTitle,cMessage)
+* InputBoxNum(cTitle,cMessage)
+* InputBoxPass(cTitle,cMessage)
+
+The Sixteen Puzzle is added to the Applications folder.
+
+Screen Shot:
+
+.. image:: sixteenpuzzle.jpg
+	:alt: Sixteen Puzzle

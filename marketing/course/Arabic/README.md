@@ -1,6 +1,8 @@
 ﻿![Ring](http://ring-lang.sf.net/thering.jpg)
 
-<div dir="rtl"> <h1> تعلم لغة البرمجة رينج  </h1> 
+<div dir="rtl"> 
+<h1> تعلم لغة البرمجة رينج عن بعد </h1> 
+<h2> (انتهت المنحة لكن يمكنك مشاهدة الدروس فى اى وقت) </h2> 
 
 <table>
 	<tr>
@@ -102,7 +104,6 @@
 			مقدمة بسيطة وايضا نتعرف على كيفية تحميل اخر اصدار من اللغة وكيفية تطبيق الدروس التعليمية وارسالها للمراجعة من خلال دمجها فى موقع المشروع		
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155396596400345/?fref=mentions">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -112,7 +113,6 @@
 			نتعرف على الطرق المختلفة لل Input وال Output فى اللغة بالاضافة الى كيفية كتابة التعليقات وكذلك تحويل العبارات الحرفية الى ارقام للقيام بالعمليات الحسابية وايضا نتعرف على الطرق المختلفة للتعبير عن العبارات الحرفية.
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155399493215345/?fref=mentions">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=XNpbuz0SPmM&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=2">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -122,7 +122,6 @@
 			نكمل تعرفنا على الـ Strings ونتحدث عن استخدامها مع ال Binary Data وكذلك استخدامها للتعبير عن ال NULL ثم نتحدث عن النوع الرقمي وكيف يستخدم للتعبير عن الارقام بصورها المختلفة بالاضافة للنوع المنطقى ثم نتعرف على ال List ونري مثال عملي لتطبيق يقبل من المستخدم اى عدد من الارقام ثم يقوم بجمعها عند الطلب
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155404899605345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=6duxGi78Qyo&index=3&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -132,7 +131,6 @@
 			نكمل تعرفنا على انواع المتغيرات الاساسية فى اللغة ونتعرف على التعامل مع ال Date وال Time واستخدام الـ List كـ Hash Table او Dictionary ثم نتعرف على الانواع الاخري كـ Object و ايضا C Object 
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155410416740345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=LhUXYS3BsB8&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=4">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -142,7 +140,6 @@
 			نكمل تعرفنا على الاساسيات واستخدام ال NL وال TAB وال CR ومفهوم ال Expression ثم نتابع ونتعرف على جمل التحكم Control Structures مثل ال if وال for وال while وال do وايضا نتعرف على مفهوم الشرط Condition 
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155416072305345/">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=Hu9lKrYTSvg&index=5&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -153,7 +150,6 @@
 			وتم طرح سؤال عن تعليقات بعض المطورين عن اللغة على موقع Quora وتم الرد على هذه التعليقات
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155416214840345/">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=PB1feNRRfqw&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=6">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -165,7 +161,6 @@
 			وايضا نتعرف على كيفية انشاء ملف EXE للتطبيق الخاص بنا من خلال الاداة Ring2EXE التى تأتى مع لغة الرينج 
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155416343940345/">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=xAH4OTASbDQ&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=7">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -176,7 +171,6 @@
 			مع الدالة Eval لارجاع قيمة ونتعلم ايضا تاثير مكان تنفيذ Eval على ال Scope الخاص بالمتغيرات التى ستعرف بداخلها وننبه لاهمية الانتباه لل Security عند استخدام Eval
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155416423255345/">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=8TyfzmUlrDc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=8">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -188,7 +182,6 @@
 			استخدام ال List اثناء تعريفها وهى ايضا من الخصائص التى تميز لغة الرينج.
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/10155421539745345/">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=KXLQRHgti3w&index=9&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -201,7 +194,6 @@
 			فى الانترنت.
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155430326770345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=Z68Bi3zNqEM&index=10&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -212,7 +204,6 @@
 			الكائنات منها Objects ونرى اساليب اللغة المتميزة فى تعديل الخصائص واستدعاء الميثود بطرق مرنة تتفوق على بقية اللغات الاخري.
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155430792185345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=kZRqCL-dmio&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=11">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -224,7 +215,6 @@
 			تشبه فى شكلها العام لغات مثل QML و REBOL 
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155430935895345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=ryhlKHaBp2c&index=12&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -234,7 +224,6 @@
 			نتعرف على مبادىء استخدام ال Natural Programming فى لغة ال Ring وماتشمله اللغة من خصائص متميزة فى هذا الجانب.
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155436439115345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=Okt2JKOhCIA&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=13">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -244,7 +233,6 @@
 			نتابع تعرفنا على ال Natural Programming فى اللغة ونري امثلة أكثر تقدما ثم نتعرف على ال Natural Library وكيف انها تسهل العمل فى اللغة.
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155441988535345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=wTiZPonemFU&index=14&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -254,7 +242,6 @@
 			نتعرف على البرمجة الوظيفية Functional Programming 
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449645470345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 		<a href="https://www.youtube.com/watch?v=AW9aYYARHG0&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=15">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -264,7 +251,6 @@
 			نتعرف على ال Reflection وال Metaprogramming 
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155449784150345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=Zd6wP9CYu-E&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=16">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -274,7 +260,6 @@
 			نتعرف على مجال رؤية المتغيرات Variables Scope
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155452486960345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=XXhd9TkoaZs&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=17">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
@@ -284,7 +269,6 @@
 			نتعرف على ال Functions Scope وال Type Hints وال Trace Library
 		</td>
 		<td>
-			<a href="https://www.facebook.com/mahmoudfayed1986/videos/vb.640625344/10155454799465345/?type=2&video_source=user_video_tab">شاهد على الفيس بوك</a> <br />
 			<a href="https://www.youtube.com/watch?v=XvIIxPYmpmc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=18">شاهد على اليوتيوب</a>
 		</td>
 	</tr>

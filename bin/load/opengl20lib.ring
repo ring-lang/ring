@@ -1,0 +1,1 @@
+load "/../../extensions/ringopengl/opengl20/opengl20lib.ring"

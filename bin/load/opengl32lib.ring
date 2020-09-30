@@ -1,0 +1,1 @@
+load "/../../extensions/ringopengl/opengl32/opengl32lib.ring"

@@ -34,8 +34,8 @@ aAllPackagesInfo = [
 		"libdepwin_mysql",
 		"libdepwin_openssl",
 		"libdepwin_pgsql",
-		"qt512runtime",
-		"qt512qmlruntime"
+		"qt515runtime",
+		"qt515qmlruntime"
 	],
 	:ringopenssl = 	[
 		"stdlib"
@@ -60,7 +60,6 @@ aAllPackagesInfo = [
 		"formdesigner",
 		"findinfiles",
 		"ringnotepad",
-		"ringrepl",
 		"cards",
 		"analogclock",
 		"checkers",
@@ -104,10 +103,20 @@ aAllPackagesInfo = [
 		"juliandaycalendar",
 		"magicballs",
 		"laser",
-		"moneyboxes"
-	],
-	:weblibtools = 	[
-		"weblib"
+		"moneyboxes",
+		"matchinggame",
+		"wordgame",
+		"pairsgame",
+		"questions",
+		"moneycase",
+		"rockpaperscissors",
+		"lotterygame",
+		"nimgame",
+		"eightqueensgame",
+		"typingquiz",
+		"pong2game",
+		"spaceshootergame",
+		"ringrepl"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -135,7 +144,6 @@ aAllPackagesInfo = [
 		"formdesigner",
 		"findinfiles",
 		"ringnotepad",
-		"ringrepl",
 		"cards",
 		"analogclock",
 		"checkers",
@@ -177,7 +185,17 @@ aAllPackagesInfo = [
 		"juliandaycalendar",
 		"magicballs",
 		"laser",
-		"moneyboxes"
+		"moneyboxes",
+		"matchinggame",
+		"wordgame",
+		"pairsgame",
+		"questions",
+		"moneycase",
+		"rockpaperscissors",
+		"lotterygame",
+		"nimgame",
+		"eightqueensgame",
+		"ringrepl"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -208,23 +226,19 @@ aAllPackagesInfo = [
 		"superman2016",
 		"androidringlibsdl",
 		"tetris",
-		"escape"
+		"escape",
+		"towersofhanoi"
 	],
 	:ringallegro = 	[
 		"squarespuzzle"
 	],
 	:ringraylib = 	[
-
+		"typingquiz",
+		"pong2game",
+		"spaceshootergame"
 	],
 	:zerolib = 	[
 
-	],
-	:qt512runtime = 	[
-		"ringqt",
-		"ringqtruntime"
-	],
-	:qt512qmlruntime = 	[
-		"ringqt"
 	],
 	:gogame = 	[
 
@@ -236,6 +250,19 @@ aAllPackagesInfo = [
 
 	],
 	:escape = 	[
+
+	],
+	:qt515runtime = 	[
+		"ringqtruntime",
+		"ringqt"
+	],
+	:qt515qmlruntime = 	[
+		"ringqt"
+	],
+	:ringpresentation = 	[
+
+	],
+	:ringrepl = 	[
 
 	]
 ]

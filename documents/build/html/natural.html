@@ -1,0 +1,861 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Natural Language Programming &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using the Natural Library" href="naturallibrary.html" />
+    <link rel="prev" title="Declarative Programming using Nested Structures" href="declarative.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Natural language programming</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#history">History</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-the-ring-keyword-and">Change the Ring Keyword ‘And’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-the-ring-operator">Change the Ring Operator ‘+’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#change-the-operator-to-is">Change the ‘=’ operator to ‘is’</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-eval-with-our-natural-code">Using Eval() with our Natural Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bracestart-and-braceend-methods">BraceStart and BraceEnd Methods</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#braceexpreval-method">BraceExprEval Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#real-natural-code">Real Natural Code</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#braceerror-method">BraceError() Method</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#clean-natural-code">Clean Natural Code</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Natural Language Programming</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="natural-language-programming">
+<span id="index-0"></span><h1>Natural Language Programming<a class="headerlink" href="#natural-language-programming" title="Permalink to this headline">¶</a></h1>
+<p>Using the Ring programming language, we can create Natural programming languages based
+on classes and objects.</p>
+<div class="section" id="history">
+<span id="index-1"></span><h2>History<a class="headerlink" href="#history" title="Permalink to this headline">¶</a></h2>
+<p>In 2010, I developed a new programming language called Supernova (developed using PWCT).
+This language uses a code that looks similar to Natural Language statements to create simple GUI applications.
+Now after five years, In the Ring programming language, we can get similar results, but now we have the ability
+to create/use code similar to Natural language statements in any domain that we like or need.</p>
+<p>The Ring programming language comes with the Supernova spirit, but with more generalization and with mix of other languages
+spirits.</p>
+</div>
+<div class="section" id="example">
+<span id="index-2"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<p>The next example presents how to create a class that define two instructions</p>
+<p>The first instruction is : I want window</p>
+<p>The second instruction is : Window title = &lt;expr&gt;</p>
+<p>Also keywords that can be ignored like the ‘the’ keyword</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">New</span> <span class="n">App</span>
+<span class="p">{</span>
+        <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+        <span class="n">The</span> <span class="n">window</span> <span class="n">title</span> <span class="o">=</span> <span class="s">&quot;hello world&quot;</span>
+<span class="p">}</span>
+
+<span class="k">Class</span> <span class="n">App</span>
+
+        <span class="c"># Attributes for the instruction I want window</span>
+                <span class="n">i</span> <span class="n">want</span> <span class="n">window</span>
+                <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c"># Attributes for the instruction Window title</span>
+        <span class="c"># Here we don&#39;t define the window attribute again</span>
+                <span class="n">title</span>
+                <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="c"># Keywords to ignore, just give them any value</span>
+                <span class="n">the</span><span class="o">=</span><span class="mi">0</span>
+
+        <span class="k">func</span> <span class="n">geti</span>
+                <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="n">nIwantwindow</span><span class="o">++</span>
+                <span class="k">ok</span>
+
+        <span class="k">func</span> <span class="n">getwant</span>
+                <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="n">nIwantwindow</span><span class="o">++</span>
+                <span class="k">ok</span>
+
+        <span class="k">func</span> <span class="n">getwindow</span>
+                <span class="k">if</span> <span class="n">nIwantwindow</span> <span class="o">=</span> <span class="mi">2</span>
+                        <span class="n">nIwantwindow</span><span class="o">=</span> <span class="mi">0</span>
+                        <span class="k">see</span> <span class="s">&quot;Instruction : I want window&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">ok</span>
+                <span class="k">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">0</span>
+                        <span class="n">nWindowTitle</span><span class="o">++</span>
+                <span class="k">ok</span>
+
+        <span class="k">func</span> <span class="n">settitle</span> <span class="n">cValue</span>
+                <span class="k">if</span> <span class="n">nWindowTitle</span> <span class="o">=</span> <span class="mi">1</span>
+                        <span class="n">nWindowTitle</span><span class="o">=</span><span class="mi">0</span>
+                        <span class="k">see</span> <span class="s">&quot;Instruction : Window Title = &quot;</span> <span class="o">+</span> <span class="n">cValue</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">ok</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Instruction</span> <span class="p">:</span> <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+<span class="n">Instruction</span> <span class="p">:</span> <span class="n">Window</span> <span class="n">Title</span> <span class="o">=</span> <span class="n">hello</span> <span class="n">world</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-the-ring-keyword-and">
+<span id="index-3"></span><h2>Change the Ring Keyword ‘And’<a class="headerlink" href="#change-the-ring-keyword-and" title="Permalink to this headline">¶</a></h2>
+<p>What if we want to connect between the two instructions using ‘and’</p>
+<p>We have a problem because in Ring ‘and’ is a keyword</p>
+<p>We can change that using the ChangeRingKeyword command.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span>  <span class="o">&lt;</span><span class="n">oldkeyword</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">newkeyword</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>remember to restore the keyword again</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The ChangeRingKeyword command is executed in the scanner stage by the compiler (before parsing).</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ChangeRingKeyword       and  _and
+
+New App
+{
+                I want window and the window title = &quot;hello world&quot;
+}
+
+Class App
+
+                # Attributes for the instruction I want window
+                                i want window
+                                nIwantwindow = 0
+                # Attributes for the instruction Window title
+                # Here we don&#39;t define the window attribute again
+                                title
+                                nWindowTitle = 0
+                # Keywords to ignore, just give them any value
+                                the=0  and=0
+
+ChangeRingKeyword       _and  and
+
+                func geti
+                        if nIwantwindow = 0
+                                nIwantwindow++
+                        ok
+
+                func getwant
+                        if nIwantwindow = 1
+                                nIwantwindow++
+                        ok
+
+                func getwindow
+                        if nIwantwindow = 2
+                                nIwantwindow= 0
+                                see &quot;Instruction : I want window&quot; + nl
+                        ok
+                        if nWindowTitle = 0
+                                nWindowTitle++
+                        ok
+
+                func settitle cValue
+                        if nWindowTitle = 1
+                                nWindowTitle=0
+                                see &quot;Instruction : Window Title = &quot; + cValue + nl
+                        ok
+
+                func getand
+                        see &quot;Using : and&quot; + nl
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Instruction</span> <span class="p">:</span> <span class="n">I</span> <span class="n">want</span> <span class="n">window</span>
+<span class="n">Using</span> <span class="p">:</span> <span class="ow">and</span>
+<span class="n">Instruction</span> <span class="p">:</span> <span class="n">Window</span> <span class="n">Title</span> <span class="o">=</span> <span class="n">hello</span> <span class="n">world</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-the-ring-operator">
+<span id="index-4"></span><h2>Change the Ring Operator ‘+’<a class="headerlink" href="#change-the-ring-operator" title="Permalink to this headline">¶</a></h2>
+<p>What if we want to define a new behavior for any operator like the “+” operator.</p>
+<p>We can do this change using the ChangeRingOperator command to hide operator (change it’s name)</p>
+<p>Then we can use the operator as identifier that we can handle it’s behaviour</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">ChangeRingOperator</span>  <span class="o">&lt;</span><span class="n">oldoperator</span><span class="o">&gt;</span>  <span class="o">&lt;</span><span class="n">newoperator</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>remember to restore the operator again</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>The ChangeRingOperator command is executed in the scanner stage by the compiler (before parsing).</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ChangeRingOperator + _+
+
+New App {
+        +
+}
+
+Class App
+        +
+        func get+
+                see &quot;Plus operator&quot;
+
+ChangeRingOperator _+ +
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Plus</span> <span class="n">operator</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="change-the-operator-to-is">
+<span id="index-5"></span><h2>Change the ‘=’ operator to ‘is’<a class="headerlink" href="#change-the-operator-to-is" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ChangeRingKeyword       and  _and
+ChangeRingOperator      =    is
+
+New App
+{
+                I want window and the window title is &quot;hello world&quot;
+}
+
+ChangeRingOperator      is    =
+
+Class App
+
+                # Attributes for the instruction I want window
+                                i want window
+                                nIwantwindow = 0
+                # Attributes for the instruction Window title
+                # Here we don&#39;t define the window attribute again
+                                title
+                                nWindowTitle = 0
+                # Keywords to ignore, just give them any value
+                                the=0  and=0
+
+ChangeRingKeyword       _and  and
+
+                func geti
+                        if nIwantwindow = 0
+                                nIwantwindow++
+                        ok
+
+                func getwant
+                        if nIwantwindow = 1
+                                nIwantwindow++
+                        ok
+
+                func getwindow
+                        if nIwantwindow = 2
+                                nIwantwindow= 0
+                                see &quot;Instruction : I want window&quot; + nl
+                        ok
+                        if nWindowTitle = 0
+                                nWindowTitle++
+                        ok
+
+                func settitle cValue
+                        if nWindowTitle = 1
+                                nWindowTitle=0
+                                see &quot;Instruction : Window Title = &quot; + cValue + nl
+                        ok
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-eval-with-our-natural-code">
+<span id="index-6"></span><h2>Using Eval() with our Natural Code<a class="headerlink" href="#using-eval-with-our-natural-code" title="Permalink to this headline">¶</a></h2>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>func Main
+
+  cProgram = &#39; I want window and the window title is &quot;hello world&quot; &#39;
+
+  MyLanguage(cProgram)
+
+Func MyLanguage cCode
+
+  # We add to the code the instructions that change keywords and operators
+  # Because Eval() uses a new Compiler Object (the original keywords and operatos).
+
+  cCode = &#39;
+        ChangeRingKeyword  and  _and
+        ChangeRingOperator  =    is
+  &#39; + cCode
+
+  New App
+  {
+          eval(cCode)
+  }
+
+
+  Class App
+
+          # Attributes for the instruction I want window
+                  i want window
+                  nIwantwindow = 0
+          # Attributes for the instruction Window title
+          # Here we don&#39;t define the window attribute again
+                  title
+                  nWindowTitle = 0
+          # Keywords to ignore, just give them any value
+                  the=0
+
+          ChangeRingKeyword  and  _and
+                  and=0
+          ChangeRingKeyword  _and  and
+
+          func geti
+                if nIwantwindow = 0
+                  nIwantwindow++
+                ok
+
+          func getwant
+                if nIwantwindow = 1
+                  nIwantwindow++
+                ok
+
+          func getwindow
+                if nIwantwindow = 2
+                  nIwantwindow= 0
+                  see &quot;Instruction : I want window&quot; + nl
+                ok
+                if nWindowTitle = 0
+                  nWindowTitle++
+                ok
+
+          func settitle cValue
+                if nWindowTitle = 1
+                  nWindowTitle=0
+                  see &quot;Instruction : Window Title = &quot; + cValue + nl
+                ok
+</pre></div>
+</div>
+</div>
+<div class="section" id="bracestart-and-braceend-methods">
+<span id="index-7"></span><h2>BraceStart and BraceEnd Methods<a class="headerlink" href="#bracestart-and-braceend-methods" title="Permalink to this headline">¶</a></h2>
+<p>We can write code that will be executed before/after using { }</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">test</span> <span class="p">{</span>
+        <span class="k">see</span> <span class="s">&quot;Hello&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="p">}</span>
+
+<span class="n">o1</span> <span class="p">{}</span>
+
+<span class="k">class</span> <span class="n">test</span>
+
+        <span class="k">func</span> <span class="n">bracestart</span>
+                <span class="k">see</span> <span class="s">&quot;start&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+
+        <span class="k">func</span> <span class="n">braceend</span>
+                <span class="k">see</span> <span class="s">&quot;end&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">start</span>
+<span class="n">Hello</span>
+<span class="k">end</span>
+<span class="n">start</span>
+<span class="k">end</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="braceexpreval-method">
+<span id="index-8"></span><h2>BraceExprEval Method<a class="headerlink" href="#braceexpreval-method" title="Permalink to this headline">¶</a></h2>
+<p>The next example demonstrates how to use the “BraceExprEval” method to get expressions in
+Natural code.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">natural</span> <span class="p">{</span>
+        <span class="n">create</span> <span class="mi">5</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">natural</span>
+        <span class="n">create</span><span class="o">=</span><span class="mi">0</span>
+        <span class="n">lkeyword</span> <span class="o">=</span> <span class="kp">false</span>
+        <span class="k">func</span> <span class="n">braceexpreval</span> <span class="n">r</span>
+                <span class="k">if</span> <span class="n">lkeyword</span> <span class="n">lkeyword</span><span class="o">=</span><span class="kp">false</span> <span class="k">return</span> <span class="k">ok</span>
+                <span class="k">see</span> <span class="s">&quot;expr eval&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">see</span> <span class="s">&quot;type: &quot;</span> <span class="o">+</span> <span class="n">type</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">see</span> <span class="n">nl</span>
+                <span class="k">see</span> <span class="s">&quot;value : &quot;</span> <span class="k">see</span> <span class="n">r</span> <span class="k">see</span> <span class="n">nl</span>
+        <span class="k">func</span> <span class="n">getcreate</span>
+                <span class="n">lkeyword</span> <span class="o">=</span> <span class="kp">true</span>
+                <span class="k">see</span> <span class="s">&quot;create&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">create</span>
+<span class="n">expr</span> <span class="n">eval</span>
+<span class="n">type</span><span class="p">:</span> <span class="n">NUMBER</span>
+<span class="n">value</span> <span class="p">:</span> <span class="mi">5</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="real-natural-code">
+<span id="index-9"></span><h2>Real Natural Code<a class="headerlink" href="#real-natural-code" title="Permalink to this headline">¶</a></h2>
+<p>The next example is a more advanced example</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Natural Code</span>
+<span class="k">new</span> <span class="n">program</span> <span class="p">{</span>
+        <span class="n">Accept</span> <span class="mi">2</span> <span class="n">numbers</span> <span class="n">then</span> <span class="n">print</span> <span class="n">the</span> <span class="n">sum</span>
+<span class="p">}</span>
+
+<span class="c"># Natural Code Implementation</span>
+<span class="k">class</span> <span class="n">program</span>
+        <span class="c"># Keywords</span>
+                <span class="n">Accept</span><span class="o">=</span><span class="mi">0</span> <span class="n">numbers</span><span class="o">=</span><span class="mi">0</span> <span class="n">then</span><span class="o">=</span><span class="mi">0</span> <span class="n">print</span><span class="o">=</span><span class="mi">0</span> <span class="n">the</span><span class="o">=</span><span class="mi">0</span> <span class="n">sum</span><span class="o">=</span><span class="mi">0</span>
+
+        <span class="c"># Execution</span>
+        <span class="k">func</span> <span class="n">braceexpreval</span> <span class="n">x</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">x</span>
+        <span class="k">func</span> <span class="n">getnumbers</span>
+                <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">value</span>
+                        <span class="k">see</span> <span class="s">&quot;Enter Number (&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;) :&quot;</span> <span class="k">give</span> <span class="n">nNumber</span>
+                        <span class="n">aNumbers</span> <span class="o">+</span> <span class="n">nNumber</span>
+                <span class="k">next</span>
+        <span class="k">func</span> <span class="n">getsum</span>
+                <span class="n">nSUm</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="n">aNumbers</span> <span class="n">nSum</span><span class="o">+=</span> <span class="n">x</span> <span class="k">next</span>
+                <span class="k">see</span> <span class="s">&quot;The Sum : &quot;</span> <span class="o">+</span> <span class="n">nSum</span>
+        <span class="n">private</span>
+                <span class="n">value</span><span class="o">=</span><span class="mi">0</span> <span class="n">aNumbers</span><span class="o">=[]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Enter</span> <span class="n">Number</span> <span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="p">:</span><span class="mi">3</span>
+<span class="n">Enter</span> <span class="n">Number</span> <span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="p">:</span><span class="mi">4</span>
+<span class="n">The</span> <span class="n">Sum</span> <span class="p">:</span> <span class="mi">7</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="braceerror-method">
+<span id="index-10"></span><h2>BraceError() Method<a class="headerlink" href="#braceerror-method" title="Permalink to this headline">¶</a></h2>
+<p>The next examples demonstrates how to use the “BraceError” method to handle errors when accessing
+the object using braces {}.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">main</span>
+        <span class="n">o1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">point</span> <span class="p">{</span>
+                <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
+                <span class="n">TEST</span>
+                <span class="k">SEE</span> <span class="n">test</span>
+        <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">braceerror</span>
+                <span class="k">see</span> <span class="s">&quot;Handle Error!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">SEE</span> <span class="s">&quot;Message :&quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">if</span> <span class="p">(</span> <span class="n">left</span><span class="p">(</span><span class="n">cCatchError</span><span class="p">,</span><span class="mi">11</span><span class="p">)</span> <span class="o">=</span> <span class="s">&quot;Error (R24)&quot;</span> <span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">isattribute</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+                        <span class="k">see</span> <span class="s">&quot;add attribute&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                        <span class="n">addattribute</span><span class="p">(</span><span class="n">self</span><span class="p">,</span><span class="s">&quot;test&quot;</span><span class="p">)</span>
+                        <span class="n">test</span> <span class="o">=</span> <span class="mi">10</span>
+                <span class="k">ok</span>
+                <span class="k">see</span> <span class="s">&quot;done&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">return</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Handle</span> <span class="n">Error</span><span class="o">!</span>
+<span class="n">Message</span> <span class="p">:</span><span class="n">Error</span> <span class="p">(</span><span class="n">R24</span><span class="p">)</span> <span class="p">:</span> <span class="n">Using</span> <span class="n">uninitialized</span> <span class="n">variable</span> <span class="p">:</span> <span class="n">test</span>
+<span class="n">add</span> <span class="n">attribute</span>
+<span class="k">done</span>
+<span class="mi">10</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">new</span> <span class="n">point</span> <span class="p">{</span>
+        <span class="n">x</span><span class="o">=</span><span class="mi">10</span> <span class="n">y</span><span class="o">=</span><span class="mi">20</span> <span class="n">z</span><span class="o">=</span><span class="mi">30</span>
+        <span class="n">test</span><span class="p">()</span>
+        <span class="k">see</span> <span class="s">&quot;mmm...&quot;</span> <span class="o">+</span> <span class="n">NL</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">point</span> <span class="n">x</span> <span class="n">y</span> <span class="n">z</span>
+        <span class="k">func</span> <span class="n">braceerror</span>
+                <span class="k">see</span> <span class="s">&quot;Handle Error!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">see</span> <span class="s">&quot;Message :&quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+                <span class="k">see</span> <span class="n">self</span>
+                <span class="k">see</span> <span class="s">&quot;Done&quot;</span> <span class="o">+</span> <span class="n">NL</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Handle</span> <span class="n">Error</span><span class="o">!</span>
+<span class="n">Message</span> <span class="p">:</span><span class="n">Error</span> <span class="p">(</span><span class="n">R3</span><span class="p">)</span> <span class="p">:</span> <span class="n">Calling</span> <span class="n">Function</span> <span class="n">without</span> <span class="n">definition</span> <span class="o">!</span><span class="p">:</span> <span class="n">test</span>
+<span class="n">x</span><span class="p">:</span> <span class="mf">10.000000</span>
+<span class="n">y</span><span class="p">:</span> <span class="mf">20.000000</span>
+<span class="n">z</span><span class="p">:</span> <span class="mf">30.000000</span>
+<span class="k">Done</span>
+<span class="n">mmm</span><span class="p">...</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="clean-natural-code">
+<span id="index-11"></span><h2>Clean Natural Code<a class="headerlink" href="#clean-natural-code" title="Permalink to this headline">¶</a></h2>
+<p>Instead of typing the literal as “literal” we can accept the words directly.</p>
+<p>Example:</p>
+<p>The next example accept hello world instead of “hello world”</p>
+<p>But this example uses braceend() to check the end of the instruction</p>
+<p>This means that this class process only one natural statement that end with literal.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>ChangeRingKeyword       and  _and
+
+New App
+{
+                I want window and the window title is hello world
+}
+
+Class App
+
+                # Attributes for the instruction I want window
+                                i want window
+                                nIwantwindow = 0
+                # Attributes for the instruction Window title
+                # Here we don&#39;t define the window attribute again
+                                title is
+                                nWindowTitle = 0
+                # Keywords to ignore, just give them any value
+                                the=0  and=0
+                # Data
+                                literal = &quot;&quot;
+
+ChangeRingKeyword       _and  and
+
+                func geti
+                        if nIwantwindow = 0
+                                nIwantwindow++
+                        ok
+
+                func getwant
+                        if nIwantwindow = 1
+                                nIwantwindow++
+                        ok
+
+                func getwindow
+                        if nIwantwindow = 2
+                                nIwantwindow= 0
+                                see &quot;Instruction : I want window&quot; + nl
+                        ok
+                        if nWindowTitle = 0
+                                nWindowTitle++
+                        ok
+
+                func gettitle
+                        if nWindowTitle = 1
+                                nWindowTitle=2
+                        ok
+
+                func getis
+                        if nWindowTitle = 2
+                                nWindowTitle=3
+                        ok
+
+                func braceend
+                        if nWindowTitle = 3
+                                see &quot;Instruction : Window Title = &quot; + literal + nl
+                                nWindowTitle = 0
+                        ok
+
+                func braceerror
+                        c= substr(cCatchError,&quot;:&quot;)
+                        while c &gt; 0
+                                c= substr(cCatchError,&quot;:&quot;)
+                                cCatchError=substr(cCatchError,c+1)
+                        end
+                        literal += substr(cCatchError,1)
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="naturallibrary.html" class="btn btn-neutral float-right" title="Using the Natural Library" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="declarative.html" class="btn btn-neutral float-left" title="Declarative Programming using Nested Structures" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,4 +1,4 @@
-﻿  <%  eval(read("news.data"))  %>
+﻿  <%  eval(read("history.data"))  %>
   <div id="news" class="panel-group">
     <div class="panel panel-info">
       <div class="panel-heading"><h4>News <span class="badge"><%=len(aNews) %></span></h4></div>

@@ -16,11 +16,11 @@ colorBlue    = new qcolor() { setrgb( 0,0,255,255 ) }
 penBlue      = new qpen()   { setcolor(colorBlue)  setwidth(2) }
 
 
-penArray  = [penRed, penGreen, penBlue]
-penNbr    = 1
-penNbrOld = 1
+penArray     = [penRed, penGreen, penBlue]
+penNbr       = 1
+penNbrOld    = 1
 
-colorGray    = new qcolor() { setrgb( 238,238,238,255 ) }
+colorGray    = new qcolor() { setrgb( 238,238,200,255 ) }
 penGray      = new qpen()   { setcolor(colorGray)  setwidth(2) }
 
 colorHour    = new qcolor() { setrgb(000, 255, 255 ,255) }  ### Yellow
@@ -40,6 +40,18 @@ Hour   = 0  oldHour   = 99
 Minute = 0  oldMinute = 99
 Second = 0  oldSecond = 99   ### 99 - First Draw, there is NO OLD Draw to Erase
 
+oScaledImage = NULL
+
+###-------------------------------
+### Window Size
+    WinLeft   = 40                  ###   80  Window position on screen
+    WinTop    = 40                  ###   80  Window position on screen
+    WinWidth  = 600                 ### 1000  Window Size - Horizontal-X WinWidth
+    WinHeight = 600                 ###  750  Window Size - Vertical-Y WinHeight
+    
+    WinRight  = WinLeft + WinWidth  ### 1080
+    WinBottom = WinTop  + WinHeight ###  830
+ 
 ##--------------------------------------------
 ###-------------------------------------------
 
@@ -47,146 +59,78 @@ New qapp
 {
    win =  new qwidget()
     {
-        setwindowtitle("Analog Clock : Draw using QPixMap : Translate : Rotate : Scale :")
+        setwindowtitle("Analog Clock")
 	setWinIcon(self,"HermleClock.jpg")
 	setwindowflags(Qt_WindowStaysOnTopHint)
-        setgeometry(100, 100, 500, 500)
+        setgeometry(WinLeft, WinTop, WinWidth, WinHeight)
 
-        Canvas = new qlabel(win)
-        {
-            MonaLisa = new qPixMap2( 500, 500)
 
-            daVinci  = new qpainter()
+            imageClock = new qlabel(win) 
             {
-                begin(MonaLisa)
+               image = new qPixMap("HermleClock.jpg")        ### CLOCK FACE
+               
+               AspectRatio = image.width() / image.height()
+               imageW = winWidth               ### 600     
+               imageH = imageW / AspectRatio
+               image  = image.scaled(imageW , imageH , 0, 0)
+               
+ 
+               daVinci   = new qpainter()
+               {
+                    begin(image)                        ### Start painting the image
 
-                setBrush(brushSGray)
-                drawRect( 0, 0, 500, 500)
-
-                ###--------------------------
-
-                width  = win.width()
-                height = win.height()
-                side   = height  if  width < height  side width  ok
-
-                # See "Side: "+ side +" width: "+ width +" height: "+ height +nl
-
-                translate( width / 2, height / 2);               ### CENTER of Label Box is 250 x 240
-                rotate(0)                                        ### NO ROTATION at Start
-                scale( 2*side / width, 2*side / height);         ### SCALE: Draw Hands in Proportion Size
+                    setPen(penRed)
+                    drawRect(0,0,WinWidth, WinHeight)
+                    #endpaint()                         ### Do NOT endpaint()
 
 
-                ###----------------------------
-                ### 1 Minute Marks - 6 degrees
+                    ###--------------------------
+                    Magnify = 2
+                    Side    = winHeight  if  WinWidth < winHeight  Side = winWidth  ok
+ 
+                    transXpos = WinWidth  / 2  -5
+                    transYpos = WinHeight / 2 -13
 
-                    for j = 0 to 60
-                        if j = 0  rotate(0)  else  rotate(6)  ok
-                        daVinci.drawLine(0, -114, 0, -118)
-                    next
+                    translate(transXpos, transYpos )                        ### Co-Ordinate System moves. CENTER of Label Box is x, y
+                    rotate(0)                                                             ### NO ROTATION at Start
+                    scale( Magnify * Side / winWidth, Magnify * Side / winHeight);        ### SCALE: Draw Hands in Proportion Size
 
-                ###----------------------------
-                ### 5 Minute Marks - 30 degrees
-
-                    for i = 0 to 12
-                        if i = 0  rotate(0)  else rotate(30)  ok
-                        daVinci.drawLine(0, -110, 0, -118)
-                    next
-
-                ###-----------------------
-
-                setCompositionMode(29)                           ###  THIS is the MAGIC - 26, 29 Erase Old Line when Redrawn
-
+                    setCompositionMode(29)     ###  THIS is the MAGIC - 26, 29 Erase Old Line when Redrawn
+               }
+                
+                   
+               setpixmap(image)
+               PosLeft = 0  
+               PosTop  = 0  
+               setGeometry(PosLeft,PosTop,imageW,imageH)                                                
             }
-
-            setpixmap(MonaLisa)
-        }
-
+        
+        
         ###-----------------------------------
         ### Font Type and Size
 
-        oFont = new qfont("Vivaldi",12,0,0)
-        setfont(oFont)
+            oFont = new qfont("Vivaldi",12,0,0)
+            setfont(oFont)
 
         ###-----------------------------------
         ### Timer Pops every 1 second
 
-        nCounter = 0
-        oTimer = new qTimer(win)
-        {
-            setinterval(1000)
-            settimeoutevent("DrawCounter()")    ### >>>== Function
-            start()
-        }
+            nCounter = 0
+            oTimer = new qTimer(win)
+            {
+                setinterval(1000)
+                settimeoutevent("DrawCounter()")    ### >>>== Function
+                start()
+            }
 
-        ###-----------------------------------
-        ### Clock Dial numbers
+        ###------------------------------------------
+        ### ReSizeEvent ... Call WindowSizeChanged function
 
-        label1 = new QLabel(win){
-                    setgeometry(350, 50, 50, 50)
-                    settext("1")}
+            myfilter = new qallevents(win)
+            myfilter.setResizeEvent("WindowSizeChanged()")
+            installeventfilter(myfilter)
 
-        label2 = new QLabel(win){
-                    setgeometry(420, 120, 50, 50)
-                    settext("2")}
-
-        label3 = new QLabel(win){
-                    setgeometry(450, 225, 50, 50)
-                    settext("3")}
-
-        label4 = new QLabel(win){
-                    setgeometry(425, 330, 50, 50)
-                    settext("4")}
-
-        label5 = new QLabel(win){
-                    setgeometry(350, 400, 50, 50)
-                    settext("5")}
-
-        label6 = new QLabel(win){
-                    setgeometry(250, 430, 50, 50)
-                    settext("6")}
-
-        label7 = new QLabel(win){
-                    setgeometry(145, 405, 50, 50)
-                    settext("7")}
-
-        label8 = new QLabel(win){
-                    setgeometry(65, 330, 50, 50)
-                    settext("8")}
-
-        label9 = new QLabel(win){
-                     setgeometry(40, 225, 50, 50)
-                     settext("9")}
-
-        label10 = new QLabel(win){
-                     setgeometry(65, 120, 50, 50)
-                     settext("10")}
-
-        label11 = new QLabel(win){
-                    setgeometry(145, 40, 50, 50)
-                    settext("11")}
-
-        label12 = new QLabel(win){
-                    setgeometry(245, 20, 50, 50)
-                    settext("12")}
-
-        label13 = new QLabel(win){
-                    setgeometry(220, 60, 60, 50)
-
-                    ###------------------------------------------
-                    ### Set a New Font. Increase the Font Size
-                    ### Clock Dial maker = Ring
-
-                    oFont = new qfont("Vivaldi",20,0,0)
-                    setfont(oFont)
-
-                     # myfont = font()
-                     # myfont.setPointSize(20)
-                     # myfont.setItalic(true)
-                     # myfont.setBold(true)
-                     # setfont(myfont)
-
-                    settext("Ring")}
-
+            
        show()
     }
 
@@ -212,17 +156,18 @@ return
 ###-------------------------------
 ### DRAW ANALOG CLOCK
 
-Func Draw(pen1)
+Func Draw(pen1)   ### <<<=== Called by Timer
 
         Hour   = TimeList()[8]
         Minute = TimeList()[11]
         Second = TimeList()[13]
+        
         #See "Time: Hour: "+ Hour +" Min: "+ Minute +" Sec: "+ Second +nl
 
             ###-----------------------------------------------------
             ### RE-Draw Old Position to erase it.
             ### On very first startup, there is Nothing to Erase.
-            ###------------------------------------------------------
+
 
             if oldSecond != 99
                 daVinci.save()
@@ -248,7 +193,7 @@ Func Draw(pen1)
             ### DRAW ANALOG HANDS: 1 Second = 6 Degrees,  5 Minutes = 30 Degrees
             ###------------------------------------------------------------------
             ### Second Hand -- Line Vertical
-            ###
+
                 daVinci.save()
                 daVinci.rotate(6 * Second  )
                 daVinci.setpen(penArray[penNbr])
@@ -275,15 +220,50 @@ Func Draw(pen1)
 
             ###-----------------------
 
-
         oldHour   = Hour
         oldMinute = Minute
         oldSecond = Second
 
         penNbrOld = penNbr
 
-        Canvas.setpixmap(MonaLisa)
+        analogClock()
+
         win.show()
 return
 
-###----------------------------
+###-----------------------------------------
+###-----------------------------------------
+### FUNCTION  WindowSizeChanged
+###----------------------------------------
+
+Func WindowSizeChanged()
+        
+    Rec = win.framegeometry()
+
+    WinWidth  = Rec.width()             ### 1000 Current Values
+    WinHeight = Rec.height()            ### 750
+        
+    WinLeft   = Rec.left()    ## +8     ### <<< QT FIX because of Win Title
+    WinTop    = Rec.top()     ## +30    ### <<< QT FIX because of Win Title
+    WinRight  = Rec.right()
+    WinBottom = Rec.bottom()
+    
+    #PosLeft = (WinWidth  - imageW) / 2  -8                              ### Center the Clock in the Window
+    #PosTop  = (WinHeight - imageH) / 2 -24                              ### Center the Clock in the Window
+
+    #image  = image.scaled(WinWidth , WinHeight , 0, 0)                  ### Distorts Image ???
+            
+    #imageClock.setpixmap(image.scaled(imageW , imageH ,0,0))            ### Image NOT distorted
+    #imageClock.setGeometry(PosLeft,PosTop,imageW,imageH)                ### Centers the Clock Image in the Window
+                    
+    analogClock()
+
+    imageClock.setGeometry(0,0,WinWidth-16, WinHeight-38)    
+
+return
+
+
+func analogClock
+        oScaledImage = image.scaled(WinWidth-16 , WinHeight-38 ,0,0)
+        imageClock.setpixmap(oScaledImage)   ### Size-H, Siz-V, Aspect, Transform
+return

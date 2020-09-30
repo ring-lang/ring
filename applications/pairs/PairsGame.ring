@@ -7,7 +7,7 @@
 # Load the required libraries 
 #===================================================================================#
 
-	load "stdlib.ring"
+	load "stdlibcore.ring"
 	load "guilib.ring"
 
 #===================================================================================#
@@ -38,26 +38,26 @@
 	time2		= 0
 	move		= 0
 	
-	C_EMPTY		= "images/empty.png"
-	C_COVER		= "images/cover.png"
-	C_P1		= "images/p1.png"
-	C_P2		= "images/p2.png"
-	C_P3		= "images/p3.png"
-	C_P4		= "images/p4.png"
-	C_P5		= "images/p5.png"
-	C_P6		= "images/p6.png"
-	C_P7		= "images/p7.png"
-	C_P8		= "images/p8.png"
-	C_P9		= "images/p9.png"
-	C_P10		= "images/p10.png"
-	C_P11		= "images/p11.png"
-	C_P12		= "images/p12.png"
-	C_P13		= "images/p13.png"
-	C_P14		= "images/p14.png"
-	C_P15		= "images/p15.png"
-	C_P16		= "images/p16.png"
-	C_P17		= "images/p17.png"
-	C_P18		= "images/p18.png"
+	C_EMPTY		= AppFile("images/empty.png")
+	C_COVER		= AppFile("images/cover.png")
+	C_P1		= AppFile("images/p1.png")
+	C_P2		= AppFile("images/p2.png")
+	C_P3		= AppFile("images/p3.png")
+	C_P4		= AppFile("images/p4.png")
+	C_P5		= AppFile("images/p5.png")
+	C_P6		= AppFile("images/p6.png")
+	C_P7		= AppFile("images/p7.png")
+	C_P8		= AppFile("images/p8.png")
+	C_P9		= AppFile("images/p9.png")
+	C_P10		= AppFile("images/p10.png")
+	C_P11		= AppFile("images/p11.png")
+	C_P12		= AppFile("images/p12.png")
+	C_P13		= AppFile("images/p13.png")
+	C_P14		= AppFile("images/p14.png")
+	C_P15		= AppFile("images/p15.png")
+	C_P16		= AppFile("images/p16.png")
+	C_P17		= AppFile("images/p17.png")
+	C_P18		= AppFile("images/p18.png")
 	
 	PLIST		= [
 			    C_P1,C_P2,C_P3,C_P4,C_P5,C_P6,C_P7,C_P8,C_P9,C_P10,C_P11,C_P12,C_P13,C_P14,C_P15,C_P16,C_P17,C_P18,
@@ -89,9 +89,9 @@ app = new qApp {
 	win = new qWidget() {
 
 		setWindowTitle('CalmoSoft Pairs Game')
-		setWinIcon(self,"images/cover.png")
+		setWinIcon(self,AppFile("images/cover.png"))
 		reSize(xWidth, yHeight)
-		setStyleSheet("background-image:url('images/background.jpg');")
+		setStyleSheet("background-image:url('"+AppFile("images/background.jpg")+"');")
 
 		LayoutButtonMain = new QVBoxLayout() {
 			setSpacing(C_SPACING)
@@ -202,6 +202,24 @@ app = new qApp {
 			setTimeoutEvent("timerMan()")  ### ==>> Func
 			start()
 		}
+
+		TimerMan2 = new qTimer(win) {
+			AddAttribute(self,:row)
+			AddAttribute(self,:col)
+			setInterval(500)
+			setTimeoutEvent("timerMan2()")  ### ==>> Func
+			stop()
+		}
+
+		TimerMan3 = new qTimer(win) {
+			AddAttribute(self,:row)
+			AddAttribute(self,:col)
+			setInterval(500)
+			setTimeoutEvent("timerMan3()")  ### ==>> Func
+			stop()
+		}
+
+
 		
 		randomPairs()
 		show()
@@ -218,7 +236,7 @@ app = new qApp {
 
 func timerMan
 
-	nowTime    = ceil( (clock() - time1) / 1000 )
+	nowTime    = ceil( (clock() - time1) / clockspersecond() )
 	nowMinute  = floor( nowTime / 60 )
 	nowSeconds = nowTime % 60
         
@@ -277,6 +295,7 @@ func randomPairs
 
 func pairsClick Row,Col
 
+	if TimerMan2.isActive() or TimerMan3.isActive() return ok
 	click++
 	if click = 1
 		Pair1 = Pairs[Row][Col]    
@@ -291,31 +310,60 @@ func pairsClick Row,Col
 		Pair2 = Pairs[Row][Col]
 		row2 = Row
 		col2 = Col
-		Button[Row][Col] { seticon(new qicon(new qpixmap(Pair2))) }
-		app.processevents()
-		sleep(0.5)
-		Button[Row][Col] { seticon(new qicon(new qpixmap(C_COVER))) }
+		Button[Row][Col] { seticon(new qicon(new qpixmap(Pair2)))  }
+
+		TimerMan2.row = row 
+		TimerMan2.col = col
+		TimerMan2.start() 		
 	ok
 
+
+func TimerMan2 
+
+	row = TimerMan2.row 
+	col = TimerMan2.col
+	TimerMan2.stop()
+	Button[Row][Col] { seticon(new qicon(new qpixmap(C_COVER)))   }
 	if (Pair1 = Pair2) and (click = 2) and not(row1=row2 and col1=col2)
 		PairOld = Pair1
-		Button[row1][col1] { seticon(new qicon(new qpixmap(Pair1))) }
-		Button[row2][col2] { seticon(new qicon(new qpixmap(Pair2))) }
-		app.processevents()
-		sleep(0.5)
-		Button[row1][col1] { seticon(new qicon(new qpixmap(C_EMPTY))) }
-		Button[row2][col2] { seticon(new qicon(new qpixmap(C_EMPTY))) }
-		Button[row1][col1].setenabled(false)
-		Button[row2][col2].setenabled(false)
-		Pairs[row1][col1] = C_EMPTY
-		Pairs[row2][col2] = C_EMPTY
-		gameOver()
+		Button[row1][col1] { seticon(new qicon(new qpixmap(Pair1)))  }
+		Button[row2][col2] { seticon(new qicon(new qpixmap(Pair2)))  }
+		TimerMan3.row = row 
+		TimerMan3.col = col
+		TimerMan3.start() 
+		return 
 	else
-		Button[row1][col1] { seticon(new qicon(new qpixmap(C_COVER))) }
+		Button[row1][col1] { seticon(new qicon(new qpixmap(C_COVER)))  }
 	ok
 
 	if (row1=row2) and (col1=col2)
-		Button[row1][col1] { seticon(new qicon(new qpixmap(Pair1))) }
+		Button[row1][col1] { seticon(new qicon(new qpixmap(Pair1)))   }
+	ok
+
+	if click = 2
+		click = 0
+		move++
+		labelShowMove.settext(string(move))
+	ok
+
+
+func TimerMan3
+
+	row = TimerMan3.row 
+	col = TimerMan3.col
+	TimerMan3.stop()
+
+	Button[row1][col1] { seticon(new qicon(new qpixmap(C_EMPTY)))   }
+	Button[row2][col2] { seticon(new qicon(new qpixmap(C_EMPTY)))   }
+	Button[row1][col1].setenabled(false)
+	Button[row2][col2].setenabled(false)
+	Pairs[row1][col1] = C_EMPTY
+	Pairs[row2][col2] = C_EMPTY
+	gameOver()
+
+
+	if (row1=row2) and (col1=col2)
+		Button[row1][col1] { seticon(new qicon(new qpixmap(Pair1)))   }
 	ok
 
 	if click = 2

@@ -1,1 +1,0 @@
-load "/../extensions/ringraylib/src/raylib.ring"

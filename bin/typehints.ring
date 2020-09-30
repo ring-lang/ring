@@ -1,1 +1,0 @@
-load "/../ringlibs/typehints/typehints.ring"

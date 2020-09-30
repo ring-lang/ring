@@ -20,6 +20,19 @@ cOutput += copy("=",len(C_CHAPTERNAME)) + windowsnl()
 cOutput += C_CHAPTERNAME + windowsnl()
 cOutput += copy("=",len(C_CHAPTERNAME)) + windowsnl() + windowsnl()
 
+cOutput += "
+Introduction
+============
+
+In this chapter we have a list of the supported functions by this extension "
+
+cOutput += "
+
+Reference
+=========
+
+"
+
 process_file(aList)
 
 write(C_OUTPUTFILE,cOutput)

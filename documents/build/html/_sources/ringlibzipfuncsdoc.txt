@@ -1,0 +1,28 @@
+.. index:: 
+     single: RingLibZip Functions Reference; Introduction
+
+==============================
+RingLibZip Functions Reference
+==============================
+
+
+Introduction
+============
+
+In this chapter we have a list of the supported functions by this extension 
+
+Reference
+=========
+
+* ZIP_T *zip_openfile(const char *, const char *)
+* int zip_entry_open(ZIP_T*, const char *)
+* int zip_entry_write(ZIP_T*, const char *,int)
+* int zip_entry_fwrite(ZIP_T*, const char *)
+* int zip_entry_read(ZIP_T*, void *, size_t *)
+* int zip_entry_fread(ZIP_T*, const char *cFile)
+* int zip_entry_close(ZIP_T*)
+* void zip_extract_allfiles(const char *cFile, const char *cFolder)
+* void zip_close(ZIP_T*)
+* int zip_filescount(ZIP_T *)
+* const char *zip_getfilenamebyindex(ZIP_T *pZip,int index)
+* void zip_extract_file(const char *cZIPFile,const char *cFile)

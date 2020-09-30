@@ -1,1 +1,0 @@
-load "lib/weblib.ring"

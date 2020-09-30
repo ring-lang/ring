@@ -1,0 +1,727 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What is new in Ring 1.11? &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="What is new in Ring 1.12?" href="whatisnew12.html" />
+    <link rel="prev" title="What is new in Ring 1.10?" href="whatisnew10.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.11</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-3d-samples">More 3D Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#checkers-game">Checkers Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sokoban-game">Sokoban Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#maze-game">Maze Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#snake-game">Snake Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sudoku-game">Sudoku Game</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#desktop-screen-shot-application">Desktop Screen Shot Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#text-to-speech-application">Text To Speech Application</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringraylib-extension">RingRayLib Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#zerolib-library">ZeroLib Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#stdlib-more-functions">StdLib - More Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-documentation">Better Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>What is new in Ring 1.11?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-is-new-in-ring-1-11">
+<span id="index-0"></span><h1>What is new in Ring 1.11?<a class="headerlink" href="#what-is-new-in-ring-1-11" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.11 release.</p>
+<div class="section" id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.11 comes with the next features!</p>
+<ul class="simple">
+<li><p>More 3D Samples</p></li>
+<li><p>Checkers Game</p></li>
+<li><p>Sokoban Game</p></li>
+<li><p>Maze Game</p></li>
+<li><p>Snake Game</p></li>
+<li><p>Sudoku Game</p></li>
+<li><p>Desktop Screen Shot Application</p></li>
+<li><p>Text To Speech Application</p></li>
+<li><p>RingRayLib Extension</p></li>
+<li><p>ZeroLib Library</p></li>
+<li><p>StdLib - More Functions</p></li>
+<li><p>Better RingQt</p></li>
+<li><p>Better Performance</p></li>
+<li><p>Better Documentation</p></li>
+<li><p>More Improvements</p></li>
+</ul>
+</div>
+<div class="section" id="more-3d-samples">
+<span id="index-2"></span><h2>More 3D Samples<a class="headerlink" href="#more-3d-samples" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.11 comes with more 3D samples based on Qt3D</p>
+<ul class="simple">
+<li><p>Folder : ring/samples/other/UsingQt3D (Contains 18 samples)</p></li>
+</ul>
+<img alt="Qt3D Example 18" src="_images/qt3dex18.png" />
+</div>
+<div class="section" id="checkers-game">
+<span id="index-3"></span><h2>Checkers Game<a class="headerlink" href="#checkers-game" title="Permalink to this headline">¶</a></h2>
+<p>It plays the - Must Jump - version of Checkers, The International Rules</p>
+<p>It handles various invalid moves, invalid jumps, and must jumps.</p>
+<p>The squares are colored to reflect errors.</p>
+<p>The Sqaures are colored to show source and destination of the move or jump.</p>
+<img alt="Checkers Game" src="_images/checkersgame.png" />
+</div>
+<div class="section" id="sokoban-game">
+<span id="index-4"></span><h2>Sokoban Game<a class="headerlink" href="#sokoban-game" title="Permalink to this headline">¶</a></h2>
+<p>A quick implementation for the Sokoban Game</p>
+<p>Developed using Ring Game Engine for 2D Games in 2 hours (Less than 300 lines of code)</p>
+<img alt="Sokoban Game" src="_images/sokoban.jpg" />
+</div>
+<div class="section" id="maze-game">
+<span id="index-5"></span><h2>Maze Game<a class="headerlink" href="#maze-game" title="Permalink to this headline">¶</a></h2>
+<p>A quick implementation for the Maze Game</p>
+<p>Developed using Ring Game Engine for 2D Games (Around 100 lines of code)</p>
+<p>Also the game comes with a level designer (Developed in 10 minutes, 37 Lines of code)</p>
+<img alt="Maze Game" src="_images/maze.png" />
+</div>
+<div class="section" id="snake-game">
+<span id="index-6"></span><h2>Snake Game<a class="headerlink" href="#snake-game" title="Permalink to this headline">¶</a></h2>
+<p>A quick implementation for the Snake Game</p>
+<p>Developed using Ring Game Engine for 2D Games (Around 200 lines of code)</p>
+<img alt="Snake Game" src="_images/snake.png" />
+</div>
+<div class="section" id="sudoku-game">
+<span id="index-7"></span><h2>Sudoku Game<a class="headerlink" href="#sudoku-game" title="Permalink to this headline">¶</a></h2>
+<p>Fill a 9 x 9 grid with digits so that each column, each row, and each of the nine 3 x 3 subgrids that
+compose the grid contain all of the digits from 1 to 9.</p>
+<img alt="Sudoku Game" src="_images/sudoku.jpg" />
+</div>
+<div class="section" id="desktop-screen-shot-application">
+<span id="index-8"></span><h2>Desktop Screen Shot Application<a class="headerlink" href="#desktop-screen-shot-application" title="Permalink to this headline">¶</a></h2>
+<img alt="Desktop Screen Shot Application" src="_images/dssapp.png" />
+</div>
+<div class="section" id="text-to-speech-application">
+<span id="index-9"></span><h2>Text To Speech Application<a class="headerlink" href="#text-to-speech-application" title="Permalink to this headline">¶</a></h2>
+<img alt="Text To Speech Application" src="_images/ttsapp.png" />
+</div>
+<div class="section" id="ringraylib-extension">
+<span id="index-10"></span><h2>RingRayLib Extension<a class="headerlink" href="#ringraylib-extension" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.11 comes with new extension to support the RayLib game programming library</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span>     <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span>    <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [core] example - basic window&quot;</span><span class="p">)</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RED</span><span class="p">)</span>
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;Congrats! You created your first window!&quot;</span><span class="p">,</span> <span class="mi">190</span><span class="p">,</span> <span class="mi">200</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">WHITE</span><span class="p">)</span>
+        <span class="n">EndDrawing</span><span class="p">()</span>
+<span class="k">end</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="RayLib Example" src="_images/raylib_ex1.png" />
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;raylib.ring&quot;</span>
+
+<span class="n">screenWidth</span> <span class="o">=</span> <span class="mi">800</span>
+<span class="n">screenHeight</span> <span class="o">=</span> <span class="mi">450</span>
+
+<span class="n">InitWindow</span><span class="p">(</span><span class="n">screenWidth</span><span class="p">,</span> <span class="n">screenHeight</span><span class="p">,</span> <span class="s">&quot;raylib [shapes] example - basic shapes drawing&quot;</span><span class="p">)</span>
+
+<span class="n">SetTargetFPS</span><span class="p">(</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="o">!</span><span class="n">WindowShouldClose</span><span class="p">()</span>
+
+        <span class="n">BeginDrawing</span><span class="p">()</span>
+
+        <span class="n">ClearBackground</span><span class="p">(</span><span class="n">RAYWHITE</span><span class="p">)</span>
+
+        <span class="n">DrawText</span><span class="p">(</span><span class="s">&quot;some basic shapes available on raylib&quot;</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="n">DARKGRAY</span><span class="p">)</span>
+        <span class="n">DrawCircle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+        <span class="n">DrawRectangle</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">120</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">RED</span><span class="p">)</span>
+        <span class="n">DrawRectangleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">320</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">ORANGE</span><span class="p">)</span>
+        <span class="n">DrawRectangleGradientH</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">2</span> <span class="o">-</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">170</span><span class="p">,</span> <span class="mi">180</span><span class="p">,</span> <span class="mi">130</span><span class="p">,</span> <span class="n">MAROON</span><span class="p">,</span> <span class="n">GOLD</span><span class="p">)</span>
+
+        <span class="n">DrawTriangle</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">80</span><span class="p">),</span>
+                         <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span>
+                         <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">150</span><span class="p">),</span> <span class="n">VIOLET</span><span class="p">)</span>
+
+        <span class="n">DrawPoly</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">320</span><span class="p">),</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">BROWN</span><span class="p">)</span>
+
+        <span class="n">DrawCircleGradient</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">220</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="n">GREEN</span><span class="p">,</span> <span class="n">SKYBLUE</span><span class="p">)</span>
+
+        <span class="n">DrawLine</span><span class="p">(</span><span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">screenWidth</span> <span class="o">-</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="n">BLACK</span><span class="p">)</span>
+        <span class="n">DrawCircleLines</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="p">,</span> <span class="mi">340</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+        <span class="n">DrawTriangleLines</span><span class="p">(</span><span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span><span class="p">,</span> <span class="mi">160</span><span class="p">),</span>
+                          <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">-</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span>
+                          <span class="n">Vector2</span><span class="p">(</span><span class="n">screenWidth</span><span class="o">/</span><span class="mi">4</span><span class="o">*</span><span class="mi">3</span> <span class="o">+</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">230</span><span class="p">),</span> <span class="n">DARKBLUE</span><span class="p">)</span>
+        <span class="n">EndDrawing</span><span class="p">()</span>
+
+<span class="k">end</span>
+
+<span class="n">CloseWindow</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="RayLib Example" src="_images/ex1_basicshapes.png" />
+</div>
+<div class="section" id="zerolib-library">
+<span id="index-11"></span><h2>ZeroLib Library<a class="headerlink" href="#zerolib-library" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.11 comes with the ZeroLib library that contains classes for Lists and Strings where the index starts from 0.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;zerolib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Using List - Index start from 0&quot;</span>
+<span class="kt">List</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="o">]</span> <span class="p">)</span>
+<span class="kt">List</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+<span class="kt">List</span><span class="p">.</span><span class="n">Add</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">List</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="n">nIndex</span> <span class="o">=</span> <span class="kt">List</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Find(2) = &quot;</span> <span class="o">+</span> <span class="n">nIndex</span>
+<span class="kt">List</span><span class="p">.</span><span class="n">delete</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;After deleting the first item : List[0]&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Now List[0] = &quot;</span> <span class="o">+</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+
+<span class="o">?</span> <span class="s">&quot;Using String - Index start from 0&quot;</span>
+<span class="kt">String</span> <span class="o">=</span> <span class="n">Z</span><span class="p">(</span> <span class="s">&quot;Welcome&quot;</span> <span class="p">)</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">3</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">4</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">5</span><span class="o">]</span>
+<span class="o">?</span> <span class="kt">String</span><span class="o">[</span><span class="mi">6</span><span class="o">]</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="kt">List</span> <span class="o">-</span> <span class="n">Index</span> <span class="n">start</span> <span class="k">from</span> <span class="mi">0</span>
+<span class="mi">1</span>
+<span class="mi">2</span>
+<span class="mi">3</span>
+<span class="mi">4</span>
+<span class="mi">5</span>
+<span class="n">Find</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">After</span> <span class="n">deleting</span> <span class="n">the</span> <span class="n">first</span> <span class="n">item</span> <span class="p">:</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span>
+<span class="n">Now</span> <span class="kt">List</span><span class="o">[</span><span class="mi">0</span><span class="o">]</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">Using</span> <span class="kt">String</span> <span class="o">-</span> <span class="n">Index</span> <span class="n">start</span> <span class="k">from</span> <span class="mi">0</span>
+<span class="n">W</span>
+<span class="n">e</span>
+<span class="n">l</span>
+<span class="n">c</span>
+<span class="n">o</span>
+<span class="n">m</span>
+<span class="n">e</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="stdlib-more-functions">
+<span id="index-12"></span><h2>StdLib - More Functions<a class="headerlink" href="#stdlib-more-functions" title="Permalink to this headline">¶</a></h2>
+<p>The next functions are added to the StdLib</p>
+<ul class="simple">
+<li><p>IsListContainsItems(aParent,aChild)</p></li>
+<li><p>IsBetween(nNumber,nMin,nMax)</p></li>
+<li><p>TimeInfo(cInformation)</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<span class="o">?</span> <span class="s">&quot;Using the IsListContainsItems() function&quot;</span>
+<span class="n">aList1</span> <span class="o">=</span> <span class="s">&quot;a&quot;</span><span class="p">:</span><span class="s">&quot;z&quot;</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="o">[</span><span class="p">:</span><span class="n">h</span><span class="p">,:</span><span class="n">l</span><span class="p">,:</span><span class="n">p</span><span class="p">,:</span><span class="n">u</span><span class="o">]</span>
+<span class="o">?</span> <span class="n">IsListContainsItems</span><span class="p">(</span><span class="n">aList1</span><span class="p">,</span><span class="n">aList2</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Using the IsBetween() function&quot;</span>
+<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">isBetween</span><span class="p">(</span><span class="mi">4</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Using the TimeInfo() function&quot;</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">date</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">year</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">time</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">timeInfo</span><span class="p">(:</span><span class="n">hour_12</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Using</span> <span class="n">the</span> <span class="n">IsListContainsItems</span><span class="p">()</span> <span class="n">function</span>
+<span class="mi">1</span>
+<span class="n">Using</span> <span class="n">the</span> <span class="n">IsBetween</span><span class="p">()</span> <span class="n">function</span>
+<span class="mi">0</span>
+<span class="mi">1</span>
+<span class="n">Using</span> <span class="n">the</span> <span class="n">TimeInfo</span><span class="p">()</span> <span class="n">function</span>
+<span class="mi">05</span><span class="o">/</span><span class="mi">24</span><span class="o">/</span><span class="mi">19</span>
+<span class="mi">2019</span>
+<span class="mi">15</span><span class="p">:</span><span class="mi">30</span><span class="p">:</span><span class="mi">33</span>
+<span class="mi">03</span>
+</pre></div>
+</div>
+<p>For more information about these functions, see the StdLib functions chapter.</p>
+</div>
+<div class="section" id="better-ringqt">
+<span id="index-13"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p>Building RingQt using Qt 5.12.3</p></li>
+<li><p>RingQt for Android - project file is updated to include webview module when we have it</p></li>
+<li><p>QString Class - New Methods</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>compare()</p></li>
+<li><p>contains()</p></li>
+<li><p>indexOf()</p></li>
+<li><p>insert()</p></li>
+<li><p>isRightToLeft()</p></li>
+<li><p>remove()</p></li>
+<li><p>repeated()</p></li>
+<li><p>replace()</p></li>
+<li><p>startsWith()</p></li>
+<li><p>endsWith()</p></li>
+<li><p>toHtmlEscaped()</p></li>
+<li><p>clear()</p></li>
+<li><p>isnull()</p></li>
+<li><p>resize()</p></li>
+<li><p>fill()</p></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p>QAxBase &amp; QVariant - Better API</p></li>
+<li><p>The next classes are added to RingQt</p>
+<blockquote>
+<div><ul class="simple">
+<li><p>QQuickView Class</p></li>
+<li><p>QPrintDialog Class</p></li>
+<li><p>QAxWidget2 Class</p></li>
+<li><p>QTextToSpeech Class</p></li>
+<li><p>QGraphicsView Class</p></li>
+<li><p>QAbstractAspect Class</p></li>
+<li><p>QNode Class</p></li>
+<li><p>QEntity Class</p></li>
+<li><p>QTransform Class</p></li>
+<li><p>QAspectEngine Class</p></li>
+<li><p>QTorusMesh Class</p></li>
+<li><p>QConeMesh Class</p></li>
+<li><p>QCylinderMesh Class</p></li>
+<li><p>QCuboidMesh Class</p></li>
+<li><p>QPlaneMesh Class</p></li>
+<li><p>QSphereMesh Class</p></li>
+<li><p>QPhongMaterial Class</p></li>
+<li><p>QForwardRenderer Class</p></li>
+<li><p>Qt3DWindow Class</p></li>
+<li><p>QAbstractCameraController Class</p></li>
+<li><p>QFirstPersonCameraController Class</p></li>
+<li><p>QTextureMaterial Class</p></li>
+<li><p>QExtrudedTextMesh Class</p></li>
+<li><p>QText2DEntity Class</p></li>
+<li><p>QSkyBoxEntity Class</p></li>
+<li><p>QConeGeometry Class</p></li>
+<li><p>QOrbitCameraController Class</p></li>
+<li><p>QDiffuseSpecularMaterial Class</p></li>
+<li><p>QGoochMaterial Class</p></li>
+<li><p>QMetalroughMaterial Class</p></li>
+<li><p>MorphPhongMaterial Class</p></li>
+<li><p>QPervertexColorMaterial Class</p></li>
+<li><p>QInputAspect Class</p></li>
+<li><p>QFrameAction Class</p></li>
+<li><p>QLogicAspect Class</p></li>
+<li><p>QCamera Class</p></li>
+<li><p>QCameraLens Class</p></li>
+<li><p>QMesh Class</p></li>
+<li><p>QTechnique Class</p></li>
+<li><p>QMaterial Class</p></li>
+<li><p>QEffect Class</p></li>
+<li><p>QRenderPass Class</p></li>
+<li><p>QSceneLoader Class</p></li>
+<li><p>QPointLight Class</p></li>
+<li><p>QRenderAspect Class</p></li>
+<li><p>QTextureLoader Class</p></li>
+<li><p>QObjectPicker Class</p></li>
+<li><p>QCameraSelector Class</p></li>
+<li><p>QCullFace Class</p></li>
+<li><p>QDepthTest Class</p></li>
+<li><p>QViewPort Class</p></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="better-performance">
+<span id="index-14"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.11 is faster than Ring 1.10</p>
+<p>The performance gain is between 10% and 30% based on the application.</p>
+</div>
+<div class="section" id="better-documentation">
+<span id="index-15"></span><h2>Better Documentation<a class="headerlink" href="#better-documentation" title="Permalink to this headline">¶</a></h2>
+<p>The next chapters are added to the documentation</p>
+<ul class="simple">
+<li><p>Tutorial : Ring Extensions in C/C++</p></li>
+<li><p>Using Qt3D</p></li>
+<li><p>Using ZeroLib</p></li>
+<li><p>Using RingRayLib</p></li>
+</ul>
+</div>
+<div class="section" id="more-improvements">
+<span id="index-16"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><dl class="simple">
+<dt>New Samples</dt><dd><ul>
+<li><p>samples/other/ModuloTimesTableCircle folder</p></li>
+<li><p>samples/other/saveimage folder</p></li>
+<li><p>samples/other/UsingQML folder</p></li>
+<li><p>samples/other/myguicontrol.ring</p></li>
+<li><p>samples/other/qcalendarwidget.ring</p></li>
+<li><p>samples/other/qcalendarwidget2.ring</p></li>
+<li><p>samples/other/sudoku-KL02.ring</p></li>
+<li><p>samples/other/sudoku-KL02-longproblem.ring</p></li>
+<li><p>samples/other/zerobasedlist.ring</p></li>
+<li><p>ringlibs/gameengine/lesson17.ring (Using Buttons)</p></li>
+<li><p>samples/other/SQLTutorial/SQL-Tutorial.ring</p></li>
+<li><p>samples/other/DrawFourier/AA-Draw-Fourier.ring</p></li>
+<li><p>samples/other/SmartPhoneEmulator/ejemploKey.ring</p></li>
+<li><p>samples/other/DiscreteFourierTransform/DiscreteFourierTransform.ring</p></li>
+<li><p>samples/other/phonedatabase/PhoneDatabase.ring</p></li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><p>Gold Magic 800 - More levels (44 Levels)</p></li>
+<li><p>Fifteen Puzzle Game 3D - Better Code (Animation Speed)</p></li>
+<li><p>Flappy Bird 3000 - change the Bird direction to be looking down when we have game over</p></li>
+<li><p>Ring Notepad - Keyboard shortcuts for the Dockable Windows Mode</p></li>
+<li><p>Ring Notepad - When displaying functions list, don’t avoid functions that contains the “_” character</p></li>
+<li><p>Ring Notepad - Output Window - Send Data - Better Code</p></li>
+<li><p>Ring Notepad - Find and Replace Window - Better Code</p></li>
+<li><p>Ring Notepad - Edit Menu - Insert Text Window</p></li>
+<li><p>Ring Notepad - Edit Menu - Lower Case and Upper Case options</p></li>
+<li><p>Ring Notepad - Edit Menu - Capitalize option</p></li>
+<li><p>Ring Notepad - Edit Menu - Comment Lines and Comment Block of lines</p></li>
+<li><p>Ring Notepad - File Tabs - Context Menu (Close other files, Close Active file and Close All files)</p></li>
+<li><p>RingPM - When updating a package - don’t reinstall the dependency again</p></li>
+<li><p>Ring Game Engine for 2D Games - Added : GE_FULLSCREEN, GE_SCREEN_W and GE_SCREEN_H</p></li>
+<li><p>Ring Game Engine for 2D Games - Added : name property to game objects</p></li>
+<li><p>Ring Game Engine for 2D Games - Added : find() method to game class (find an object by name)</p></li>
+<li><p>Ring Game Engine for 2D Games - Support oGame[:ObjectName] to access an object</p></li>
+<li><p>Natural Library - Better Performance</p></li>
+<li><p>FoxRing - Added: frCTOD() function</p></li>
+<li><p>Code generator for extensions - generate functions that use managed pointers to new structures</p></li>
+<li><p>Ring VM - Error codes for Ring Object File errors</p></li>
+<li><p>Ring VM - Eval() function - Better Code (Better Performance)</p></li>
+<li><p>Ring VM - State Management - Better Code</p></li>
+<li><p>Ring VM - the “&gt;” operator and operator overloading - Better Code</p></li>
+<li><p>Ring VM - Assignment and calling object methods - Better Code</p></li>
+<li><p>Ring VM - OOP - Getter Methods - Better Performance</p></li>
+<li><p>Ring API - Supporting RING_API_ISLIST() in C Extensions</p></li>
+<li><p>Ring Compiler - Supporting new lines after numbers and literals when writing conditions</p></li>
+<li><p>Ring Compiler - Supporting semi-colon (;) in the start of the line</p></li>
+<li><p>Ring Compiler - Prevent using Loop and Exit commands from outside loops</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="whatisnew12.html" class="btn btn-neutral float-right" title="What is new in Ring 1.12?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="whatisnew10.html" class="btn btn-neutral float-left" title="What is new in Ring 1.10?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

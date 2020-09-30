@@ -1,0 +1,204 @@
+.. index:: 
+	single: Form Designer; Introduction
+
+=======================
+Using the Form Designer
+=======================
+
+In this chapter we will learn about using the Form Designer.
+
+We can run the From Designer from Ring Notepad
+
+From the Menubar in Ring Notepad - View Menu - We can Show/Hide the Form Designer window.
+
+.. image:: rnotefd.png
+	:alt: Form Designer - Inside Ring Notepad
+
+Also we can run the Form Designer in another window.
+
+From the Ring Notepad - Tools Menu - Select the Form Designer.
+
+.. image:: formdesigner.png
+	:alt: Form Desigenr
+
+.. index:: 
+	pair: Form Designer; The Designer Windows
+
+The Designer Windows
+====================
+
+* Toolbox : To select controls to be added to the window.
+
+* Properties : To set the properties of the active window or controls.
+
+* Design Region : To select, move and resize the window and the controls.
+
+.. index:: 
+	pair: Form Designer; The Designer Windows
+
+The Toolbox
+===========
+
+We have many buttons.
+
+* Lock : We can use it to draw many controls of the same type quickly.
+
+* Select : We can use it to select a control in the Design Region
+
+* Controls Buttons : Select a control to be added to the window.
+
+.. index:: 
+	pair: Form Designer; The Properties
+
+The Properties
+==============
+
+* When we select the window or one control, We will have the selected object properties.
+
+* Also In the properties window we have a combobox to select the active control.
+
+* Some properties provide a button next to the property value. We can click on the button to get more options.
+
+* When we select more than one control, We will have options for multi-selection
+
+.. image:: fdms.png
+	:alt: Form Designer - Multiple-Selection
+
+.. index:: 
+	pair: Form Designer; Running Forms
+
+Running Forms
+=============
+
+When we save the form file (*.rform), The Form Designer will create two Ring files
+
+* The Controller Class
+* The View Class
+
+For example, if the form file is helloworld.rform 
+
+The form designer will generate two files
+
+* helloworldcontroller.ring
+* helloworldview.ring
+
+To run the program, Open the controller class file then click the Run button (CTRL+F5)
+
+.. tip:: When you open a form using Ring Notepad, the controller class will be opened automatically, So we can press (CTRL+F5) or click on the Run button while the form designer window is active.
+
+.. index:: 
+	pair: Form Designer; Events Code
+
+Events Code
+===========
+
+(1) Just type the method name in the event property. 
+
+.. image:: fdeventmethod.png
+	:alt: Form Designer - Event Method
+
+(2) Then write the method code in the
+controller class.
+
+.. image:: fdeventcode.png
+	:alt: Form Designer - Event Code
+
+In this example we write
+
+.. code-block:: ring
+
+	func CloseWindow
+		oView.win.close()
+
+Where inside the controller class, We uses the oView object to access the form.
+
+Another Example : 
+
+.. image:: fdsayhello1.png
+	:alt: Form Designer - Say Hello
+
+The Event Code
+
+.. code-block:: ring
+
+	func SayHello 
+		oView {
+			LineEdit2.setText("Hello "+ LineEdit1.text() )
+		}
+
+
+.. index:: 
+	pair: Form Designer; Keyboard Shortcuts
+
+Keyboard Shortcuts
+==================
+
+After selecting one or group of controls
+
+* Use the Arrows (Up, Down, Left and Right) to move them around.
+* Shift + the Arrows (Up, Down, Left and Right) to Resize the controls.
+* Del button to delete the controls.
+* CTRL+SHIFT+V to Duplicate the controls.
+
+
+.. index:: 
+	pair: Form Designer; Menubar Designer
+
+Menubar Designer
+================
+
+From the Window properties we can open the Menubar Designer
+
+
+.. image:: menubardesigner.png
+	:alt: Form Designer - Menubar Designer
+
+.. index:: 
+	pair: Form Designer; Window Flags
+
+Window Flags
+============
+
+From the Window properties we can open the Window Flags window.
+
+
+.. image:: windowflags.png
+	:alt: Form Designer - Window Flags
+
+
+.. index:: 
+	pair: Form Designer; Entering Items
+
+Entering Items
+==============
+
+For some controls like the List Widget we can enter items separated by comma ','
+
+.. image:: fdlistitems.png
+	:alt: Form Designer - List Items
+
+
+.. index:: 
+	pair: Form Designer; Using Layouts
+
+Using Layouts
+=============
+
+(1) To use layouts, At first add the layout control to the window.
+
+(2) Use the window "Set Layout" property to determine the main layout.
+
+(3) From the layout properties determine the controls and the layout type.
+
+
+.. index:: 
+	pair: Form Designer; More Samples and Tests
+
+More Samples and Tests
+======================
+
+Check the folder : ring/samples/UsingFormDesigner
+
+Online : https://github.com/ring-lang/ring/tree/master/samples/UsingFormDesigner
+
+

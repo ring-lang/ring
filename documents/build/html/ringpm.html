@@ -1,0 +1,906 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>The Ring Package Manager (RingPM) &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Using ZeroLib" href="zerolib.html" />
+    <link rel="prev" title="Distributing Ring Applications using Ring2EXE" href="distribute_ring2exe.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">The Ring Package Manager (RingPM)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#discovering-packages">Discovering Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#updating-the-ringpm-registry">Updating the RingPM Registry</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#installing-packages">Installing Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printing-list-of-installed-packages">Printing List of Installed Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#run-package">Run Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#update-package">Update Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#remove-package">Remove Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deleting-all-packages">Deleting All Packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#creating-new-package">Creating New Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-package-description-file">The Package Description File</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#create-package-in-the-current-folder">Create Package in the Current Folder</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-ringpm-registry-file">The RingPM Registry File</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>The Ring Package Manager (RingPM)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="the-ring-package-manager-ringpm">
+<span id="index-0"></span><h1>The Ring Package Manager (RingPM)<a class="headerlink" href="#the-ring-package-manager-ringpm" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using the Ring Package Manager (RingPM)</p>
+<p>RingPM is a tool for discovering, installing and updating Ring packages.</p>
+<div class="section" id="features">
+<span id="index-1"></span><h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>The Package Manager uses Semantic Versioning to check compatibility between packages</p>
+<p>The Package Manager comes with the next options</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Usage   : ringpm [command]
+Command : search  [keywords...]
+Command : refresh : Update the Registry (Packages List)
+Command : install [ &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;] ]
+Command : list    [-u : check updates]
+Command : run     [packagename]
+Command : update  &lt;packagename&gt;
+Command : remove  &lt;packagename&gt;
+Command : format  : Delete All Packages
+Command : new     &lt;packagename&gt;
+Command : package : Create package in the current folder
+</pre></div>
+</div>
+</div>
+<div class="section" id="discovering-packages">
+<span id="index-2"></span><h2>Discovering Packages<a class="headerlink" href="#discovering-packages" title="Permalink to this headline">¶</a></h2>
+<p>We can discover new packages using the Search command</p>
+<p>Using this command we can search in the RingPM Registry (Packages Index)</p>
+<p>The RingPM Registry is a local copy of all registred packages.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm search [keywords...]
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm search notepad
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Package : ringnotepad (Ring Notepad)
+Package : notepadppeditorextension (Notepad++ Editor Extension package)
+</pre></div>
+</div>
+<p>To print all packages in the RingPM Registry, use the search command without keywords.</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm search
+</pre></div>
+</div>
+</div>
+<div class="section" id="updating-the-ringpm-registry">
+<span id="index-3"></span><h2>Updating the RingPM Registry<a class="headerlink" href="#updating-the-ringpm-registry" title="Permalink to this headline">¶</a></h2>
+<p>The RingPM Registry is a local copy of all registred packages.</p>
+<p>We can update the local copy using the Refresh command</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm refresh
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>No updates to the Registry, Nothing to do!
+</pre></div>
+</div>
+<p>Or</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>The Registry is updated from revision 110 (2019/01/13) to revision 112 (2019/01/15)
+</pre></div>
+</div>
+</div>
+<div class="section" id="installing-packages">
+<span id="index-4"></span><h2>Installing Packages<a class="headerlink" href="#installing-packages" title="Permalink to this headline">¶</a></h2>
+<p>We can install new packages using the Install command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install [ &lt;packagename&gt; [from &lt;UserName&gt;] [branch &lt;branchname&gt;] ]
+</pre></div>
+</div>
+<p>We can type only the package name to get the package information from the RingPM Registry or
+we can determine the user name (GitHub) and the branch name of the github project (optional).</p>
+<p>If the current folder is a package folder then we don’t need to write the package name.</p>
+<p>Example (1) :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install ringnotepad
+</pre></div>
+</div>
+<p>Example (2) :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install goldmagic800
+</pre></div>
+</div>
+<p>Example (3) :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install gameoflife
+</pre></div>
+</div>
+<p>If the package is not added to the RingPM Registry, We can install it directly from the GitHub user</p>
+<p>Example (4) :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install firstpackage from mahmoudfayed
+</pre></div>
+</div>
+<p>To run the package after installation</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run firstpackage
+</pre></div>
+</div>
+<p>To install a package in the current folder</p>
+<p>Example (5) :</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm install
+</pre></div>
+</div>
+</div>
+<div class="section" id="printing-list-of-installed-packages">
+<span id="index-5"></span><h2>Printing List of Installed Packages<a class="headerlink" href="#printing-list-of-installed-packages" title="Permalink to this headline">¶</a></h2>
+<p>We can know the installed packages using the List command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm list [-u : check updates]
+</pre></div>
+</div>
+<p>Example</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm list
+</pre></div>
+</div>
+<p>Output</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>(analogclock)          : The AnalogClock Package [master]         -- (1.0.0)
+(androidringlibsdl)    : The AndroidRingLibSDL Package [master]   -- (1.0.0)
+(androidringqt)        : The AndroidRingQt Package [master]       -- (1.0.0)
+(atomeditorextension)  : The AtomEditorExtension Package [master] -- (1.0.0)
+(bignumber)            : The BigNumber Package [master]           -- (1.0.0)
+(calculator)           : The Calculator Package [master]          -- (1.0.0)
+(cards)                : The Cards Package [master]               -- (1.0.0)
+(checkers)             : The Checkers Package [master]            -- (1.0.0)
+(chess)                : The Chess Package [master]               -- (1.0.0)
+....
+</pre></div>
+</div>
+<p>To check for new updates</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm list -u
+</pre></div>
+</div>
+</div>
+<div class="section" id="run-package">
+<span id="index-6"></span><h2>Run Package<a class="headerlink" href="#run-package" title="Permalink to this headline">¶</a></h2>
+<p>After installing a package, we can run it using the Run command.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run [packagename]
+</pre></div>
+</div>
+<p>Example(1):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run ringnotepad
+</pre></div>
+</div>
+<p>Example(2):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run goldmagic800
+</pre></div>
+</div>
+<p>Example(3):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run gameoflife
+</pre></div>
+</div>
+<p>To run a package in the current folder</p>
+<p>Example(4):</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm run
+</pre></div>
+</div>
+</div>
+<div class="section" id="update-package">
+<span id="index-7"></span><h2>Update Package<a class="headerlink" href="#update-package" title="Permalink to this headline">¶</a></h2>
+<p>We can update a package using the Update command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm update &lt;packagename&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm update ringnotepad
+</pre></div>
+</div>
+</div>
+<div class="section" id="remove-package">
+<span id="index-8"></span><h2>Remove Package<a class="headerlink" href="#remove-package" title="Permalink to this headline">¶</a></h2>
+<p>We can remove a package using the Remove command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm remove &lt;packagename&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm remove ringnotepad
+</pre></div>
+</div>
+</div>
+<div class="section" id="deleting-all-packages">
+<span id="index-9"></span><h2>Deleting All Packages<a class="headerlink" href="#deleting-all-packages" title="Permalink to this headline">¶</a></h2>
+<p>We can delete all packages using the Format command</p>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm format
+</pre></div>
+</div>
+</div>
+<div class="section" id="creating-new-package">
+<span id="index-10"></span><h2>Creating New Package<a class="headerlink" href="#creating-new-package" title="Permalink to this headline">¶</a></h2>
+<p>We can create new package using the New command</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm new &lt;packagename&gt;
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm new myapp
+</pre></div>
+</div>
+<p>This will create new folder called my myapp</p>
+<p>The new folder will contains the next file</p>
+<ul class="simple">
+<li><p>package.ring : The package description and files</p></li>
+<li><p>main.ring : main program (used by the Run command)</p></li>
+<li><p>lib.ring : library file for the package</p></li>
+</ul>
+<p>File  : main.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># The Main File</span>
+
+<span class="k">load</span> <span class="s">&quot;lib.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="o">?</span> <span class="s">&quot;Hello, World!&quot;</span>
+</pre></div>
+</div>
+<p>File : lib.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># The Library File</span>
+</pre></div>
+</div>
+<p>File : package.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackageInfo</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;The myapp Package&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Our myapp package using the Ring programming language&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">folder</span> <span class="o">=</span> <span class="s">&quot;myapp&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">developer</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">email</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">license</span> <span class="o">=</span> <span class="s">&quot;MIT License&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ringversion</span> <span class="o">=</span> <span class="s">&quot;1.10&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">versions</span> <span class="o">=</span>     <span class="o">[</span>
+                <span class="o">[</span>
+                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">branch</span> <span class="o">=</span> <span class="s">&quot;master&quot;</span>
+                <span class="o">]</span>
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">libs</span> <span class="o">=</span>         <span class="o">[</span>
+                <span class="o">[</span>
+                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+                <span class="o">]</span>
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">files</span> <span class="o">=</span>        <span class="o">[</span>
+                <span class="s">&quot;lib.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;main.ring&quot;</span>
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ringfolderfiles</span> <span class="o">=</span>      <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">windowsfiles</span> <span class="o">=</span>         <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">linuxfiles</span> <span class="o">=</span>   <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ubuntufiles</span> <span class="o">=</span>  <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">fedorafiles</span> <span class="o">=</span>  <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">macosfiles</span> <span class="o">=</span>   <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">windowsringfolderfiles</span> <span class="o">=</span>       <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">linuxringfolderfiles</span> <span class="o">=</span>         <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ubunturingfolderfiles</span> <span class="o">=</span>        <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">fedoraringfolderfiles</span> <span class="o">=</span>        <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">macosringfolderfiles</span> <span class="o">=</span>         <span class="o">[</span>
+
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">run</span> <span class="o">=</span> <span class="s">&quot;ring main.ring&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">windowsrun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">linuxrun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">macosrun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ubunturun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">fedorarun</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">setup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">windowssetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">linuxsetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">macossetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ubuntusetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">fedorasetup</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">remove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">windowsremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">linuxremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">macosremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ubunturemove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">fedoraremove</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-package-description-file">
+<span id="index-11"></span><h2>The Package Description File<a class="headerlink" href="#the-package-description-file" title="Permalink to this headline">¶</a></h2>
+<p>The package description file contains the package information defined in the list aPackageInfo</p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 22%" />
+<col style="width: 78%" />
+</colgroup>
+<thead>
+<tr class="row-odd"><th class="head"><p>Attribute</p></th>
+<th class="head"><p>Description</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Name</p></td>
+<td><p>Package Name</p></td>
+</tr>
+<tr class="row-odd"><td><p>Description</p></td>
+<td><p>Package Desciption</p></td>
+</tr>
+<tr class="row-even"><td><p>Folder</p></td>
+<td><p>The Folder Name (Will be created in ring/ringpm/packages)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Developer</p></td>
+<td><p>The Package Developer Name</p></td>
+</tr>
+<tr class="row-even"><td><p>Email</p></td>
+<td><p>The Package Developer Email</p></td>
+</tr>
+<tr class="row-odd"><td><p>License</p></td>
+<td><p>The Package License</p></td>
+</tr>
+<tr class="row-even"><td><p>Version</p></td>
+<td><p>The Current Version of the Package (Latest Release)</p></td>
+</tr>
+<tr class="row-odd"><td><p>RingVersion</p></td>
+<td><p>The Required Ring Language Version (Minimum Version)</p></td>
+</tr>
+<tr class="row-even"><td><p>Versions</p></td>
+<td><p>List of different versions provided by different branches in the GitHub project</p></td>
+</tr>
+<tr class="row-odd"><td><p>Libs</p></td>
+<td><p>List of dependencies (Defined by name, version &amp; GitHub user name)</p></td>
+</tr>
+<tr class="row-even"><td><p>Files</p></td>
+<td><p>List of files (will be installed in ring/ringpm/packages/[Folder]</p></td>
+</tr>
+<tr class="row-odd"><td><p>RingFolderFiles</p></td>
+<td><p>List of files (will be installed in ring folder)</p></td>
+</tr>
+<tr class="row-even"><td><p>WindowsFiles</p></td>
+<td><p>Like (Files) but for Microsoft Windows Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>LinuxFiles</p></td>
+<td><p>Like (Files) but for Linux Only</p></td>
+</tr>
+<tr class="row-even"><td><p>MacOSFiles</p></td>
+<td><p>Like (Files) but for macOS Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>UbuntuFiles</p></td>
+<td><p>Like (Files) but for Ubuntu Only</p></td>
+</tr>
+<tr class="row-even"><td><p>FedoraFiles</p></td>
+<td><p>Like (Files) but for Fedora Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>WindowsRingFolderFiles</p></td>
+<td><p>Like (RingFolderFiles) but for Microsoft Windows Only</p></td>
+</tr>
+<tr class="row-even"><td><p>LinuxRingFolderFiles</p></td>
+<td><p>Like (RingFolderFiles) but for Linux Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>MacOSRingFolderFiles</p></td>
+<td><p>Like (RingFolderFiles) but for macOS Only</p></td>
+</tr>
+<tr class="row-even"><td><p>UbuntuRingFolderFiles</p></td>
+<td><p>Like (RingFolderFiles) but for Ubuntu Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>FedoraRingFolderFiles</p></td>
+<td><p>Like (RingFolderFiles) but for Fedora Only</p></td>
+</tr>
+<tr class="row-even"><td><p>Run</p></td>
+<td><p>System Command (Command prompt or Terminal) to run the package</p></td>
+</tr>
+<tr class="row-odd"><td><p>WindowsRun</p></td>
+<td><p>Like (Run) but for Microsoft Windows Only</p></td>
+</tr>
+<tr class="row-even"><td><p>LinuxRun</p></td>
+<td><p>Like (Run) but for Linux Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>MacOSRun</p></td>
+<td><p>Like (Run) but for macOS Only</p></td>
+</tr>
+<tr class="row-even"><td><p>UbuntuRun</p></td>
+<td><p>Like (Run) but for Ubuntu Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>FedoraRun</p></td>
+<td><p>Like (Run) but for Fedora Only</p></td>
+</tr>
+<tr class="row-even"><td><p>Setup</p></td>
+<td><p>System Command (Command prompt or Terminal) after downloading the package files</p></td>
+</tr>
+<tr class="row-odd"><td><p>WindowsSetup</p></td>
+<td><p>Like (Setup) but for Microsoft Windows Only</p></td>
+</tr>
+<tr class="row-even"><td><p>LinuxSetup</p></td>
+<td><p>Like (Setup) but for Linux Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>MacOSSetup</p></td>
+<td><p>Like (Setup) but for macOS Only</p></td>
+</tr>
+<tr class="row-even"><td><p>UbuntuSetup</p></td>
+<td><p>Like (Setup) but for Ubuntu Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>FedoraSetup</p></td>
+<td><p>Like (Setup) but for Fedora Only</p></td>
+</tr>
+<tr class="row-even"><td><p>Remove</p></td>
+<td><p>System Command (Command prompt or Terminal) before removing the package files</p></td>
+</tr>
+<tr class="row-odd"><td><p>WindowsRemove</p></td>
+<td><p>Like (Remove) but for Microsoft Windows Only</p></td>
+</tr>
+<tr class="row-even"><td><p>LinuxRemove</p></td>
+<td><p>Like (Remove) but for Linux Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>MacOSRemove</p></td>
+<td><p>Like (Remove) but for macOS Only</p></td>
+</tr>
+<tr class="row-even"><td><p>UbuntuRemove</p></td>
+<td><p>Like (Remove) but for Ubuntu Only</p></td>
+</tr>
+<tr class="row-odd"><td><p>FedoraRemove</p></td>
+<td><p>Like (Remove) but for Fedora Only</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="create-package-in-the-current-folder">
+<span id="index-12"></span><h2>Create Package in the Current Folder<a class="headerlink" href="#create-package-in-the-current-folder" title="Permalink to this headline">¶</a></h2>
+<p>To create a package for an application that already exists, go to the application folder then type</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringpm package
+</pre></div>
+</div>
+<p>This will create the package definition file (package.ring) and will add all of the application files to the package definition.</p>
+<p>Each RingPM package contains the package definition file (package.ring)</p>
+<p>The package definition file is a list that describe the package information and files.</p>
+<p>Example :</p>
+<p>The package definition file for the Ring Notepad package</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackageInfo</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;The RingNotepad Package&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Our RingNotepad package using the Ring programming language&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">folder</span> <span class="o">=</span> <span class="s">&quot;ringnotepad&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">developer</span> <span class="o">=</span> <span class="s">&quot;Mahmoud Fayed&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">email</span> <span class="o">=</span> <span class="s">&quot;msfclipper@yahoo.com&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">license</span> <span class="o">=</span> <span class="s">&quot;MIT License&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ringversion</span> <span class="o">=</span> <span class="s">&quot;1.10&quot;</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">versions</span> <span class="o">=</span>     <span class="o">[</span>
+                <span class="o">[</span>
+                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0.0&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">branch</span> <span class="o">=</span> <span class="s">&quot;master&quot;</span>
+                <span class="o">]</span>
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">libs</span> <span class="o">=</span>         <span class="o">[</span>
+                <span class="o">[</span>
+                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;stdlib&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+                <span class="o">]</span><span class="p">,</span>
+                <span class="o">[</span>
+                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ringqt&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+                <span class="o">]</span><span class="p">,</span>
+                <span class="o">[</span>
+                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;findinfiles&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+                <span class="o">]</span><span class="p">,</span>
+                <span class="o">[</span>
+                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;formdesigner&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+                <span class="o">]</span><span class="p">,</span>
+                <span class="o">[</span>
+                        <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;libdepwin_apache&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">version</span> <span class="o">=</span> <span class="s">&quot;1.0&quot;</span><span class="p">,</span>
+                        <span class="p">:</span><span class="n">providerusername</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
+                <span class="o">]</span>
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">files</span> <span class="o">=</span>        <span class="o">[</span>
+                <span class="s">&quot;main.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;README.md&quot;</span>
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">ringfolderfiles</span> <span class="o">=</span>      <span class="o">[</span>
+                <span class="s">&quot;applications/rnote/batch/killwebserver.bat&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/batch/run.bat&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/batch/run2.bat&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/back.jpg&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/back2.jpg&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/close.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/colors.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/copy.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/cut.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/debug.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/font.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/formdesigner.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/new.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/notepad.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/open.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/paste.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/print.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/project.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/richtext.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/run.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/rungui.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/save.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/saveas.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/search.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/source.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/undo.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/image/web.png&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/README.md&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnote.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnoteactivefile.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnoteactivefolder.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnoteautocomplete.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotebase.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotecontroller.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotedistribute.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnoteeditmenu.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnoteeditorevents.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotefilemenu.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotefiles.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotefilestabs.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotefind.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotefindinfiles.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnoteformdesigner.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotegoto.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotehelp.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotelists.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotemainfiletoolbar.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotemainwindow.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotemode.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnoteoutputwindow.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnoteprogrammenu.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnoterun.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotesettings.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotestyle.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotetabwidth.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotetools.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotetreeviewevents.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnoteviewmenu.ring&quot;</span><span class="p">,</span>
+                <span class="s">&quot;applications/rnote/rnotewebbrowser.ring&quot;</span>
+        <span class="o">]</span><span class="p">,</span>
+        <span class="p">:</span><span class="n">run</span> <span class="o">=</span> <span class="s">&quot;ring main.ring&quot;</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-ringpm-registry-file">
+<span id="index-13"></span><h2>The RingPM Registry File<a class="headerlink" href="#the-ringpm-registry-file" title="Permalink to this headline">¶</a></h2>
+<p>The RingPM Registry is a local copy of all registred packages.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aPackagesRegistry</span> <span class="o">=</span> <span class="o">[</span>
+        <span class="o">[</span> <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;ringpresentation&quot;</span><span class="p">,</span>
+          <span class="p">:</span><span class="n">description</span> <span class="o">=</span> <span class="s">&quot;Powerpoint presentation for the Ring programming language&quot;</span><span class="p">,</span>
+          <span class="p">:</span><span class="n">ProviderUserName</span> <span class="o">=</span> <span class="s">&quot;ringpackages&quot;</span>
+        <span class="o">]</span>
+        <span class="c"># ...</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+<p>Each package is defined using a list that determine</p>
+<ul class="simple">
+<li><p>Package Name</p></li>
+<li><p>Package Description</p></li>
+<li><p>Provider User Name (GitHub User Name)</p></li>
+</ul>
+<p>We can register new packages by updating the registry file then sending a Pull Request</p>
+<p>URL : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/tools/ringpm/registry/registry.ring">https://github.com/ring-lang/ring/blob/master/tools/ringpm/registry/registry.ring</a></p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="zerolib.html" class="btn btn-neutral float-right" title="Using ZeroLib" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="distribute_ring2exe.html" class="btn btn-neutral float-left" title="Distributing Ring Applications using Ring2EXE" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

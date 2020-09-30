@@ -1,0 +1,591 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What is new in Ring 1.2? &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="What is new in Ring 1.3?" href="whatisnew3.html" />
+    <link rel="prev" title="What is new in Ring 1.1?" href="whatisnew.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.2</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-functions">New Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objects-library-for-ringqt">Objects Library for RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringlibcurl">RingLibCurl</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-call-command">Better Call Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-null-instead-of-nullpointer">Using NULL instead of NULLPointer()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#display-warnings-option">Display Warnings Option</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-quality">Better Quality</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew9.html">Release Notes: Version 1.9</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>What is new in Ring 1.2?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-is-new-in-ring-1-2">
+<span id="index-0"></span><h1>What is new in Ring 1.2?<a class="headerlink" href="#what-is-new-in-ring-1-2" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.2 release.</p>
+<div class="section" id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.2  comes with many new features</p>
+<ul class="simple">
+<li><p>New Functions</p></li>
+<li><p>Better Functions</p></li>
+<li><p>Better Ring Notepad</p></li>
+<li><p>Better RingQt</p></li>
+<li><p>Objects Library for RingQt</p></li>
+<li><p>RingLibCurl</p></li>
+<li><p>Better Call Command</p></li>
+<li><p>Using NULL instead of NULLPointer()</p></li>
+<li><p>Display Warnings Option</p></li>
+<li><p>Better Quality</p></li>
+</ul>
+</div>
+<div class="section" id="new-functions">
+<span id="index-2"></span><h2>New Functions<a class="headerlink" href="#new-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>PtrCmp() Function is a new function that compare between C pointers like the GUI objects.</p></li>
+<li><p>PrevFileName() Function is added to return the previous active source file name.</p></li>
+<li><p>RingVM_CFunctionsList() Function is added to return a list of functions written in C.</p></li>
+<li><p>RingVM_FunctionsList() Function is added to return a list of functions written in Ring.</p></li>
+<li><p>RingVM_ClassesList() Function is added to return a list of Classes.</p></li>
+<li><p>RingVM_PackagesList() Function is added to return a list of Packages.</p></li>
+<li><p>RingVM_MemoryList() Function is added to return a list of Memory Scopes and Variables.</p></li>
+<li><p>RingVM_CallList() Function is added to return a list of the functions call list.</p></li>
+<li><p>RingVM_FilesList() Function is added to return a list of the Ring Files.</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp2</span> <span class="o">=</span> <span class="n">fp</span>
+<span class="n">fp3</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+
+<span class="k">see</span> <span class="n">ptrcmp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">fp2</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">ptrcmp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span><span class="n">fp3</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp3</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">1</span>
+<span class="mi">0</span>
+</pre></div>
+</div>
+<p>Also we can compare between them using the ‘=’ operator</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">fp</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp2.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp2</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="s">&quot;ptrcmp2.ring&quot;</span><span class="p">,</span><span class="s">&quot;r&quot;</span><span class="p">)</span>
+<span class="n">fp3</span> <span class="o">=</span> <span class="n">fp</span>
+<span class="k">see</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fp2</span>
+<span class="k">see</span> <span class="n">nl</span>
+<span class="k">see</span> <span class="n">fp</span> <span class="o">=</span> <span class="n">fp3</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp</span><span class="p">)</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">fp2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="mi">0</span>
+<span class="mi">1</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<p>The next function in stdlib.ring uses the PrevFileName() to know if the file of the
+caller function is the main source file of the program or not.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Func</span> <span class="n">IsMainSourceFile</span>
+        <span class="k">if</span> <span class="n">PrevFileName</span><span class="p">()</span> <span class="o">=</span> <span class="n">sysargv</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+                <span class="k">return</span> <span class="kp">true</span>
+        <span class="k">ok</span>
+        <span class="k">return</span> <span class="kp">false</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-functions">
+<span id="index-3"></span><h2>Better Functions<a class="headerlink" href="#better-functions" title="Permalink to this headline">¶</a></h2>
+<p>The find() function is updated to support searching in lists using C pointers like GUI
+Objects.</p>
+<p>The type() function is updated to display the C pointers types (like the GUI Object Class
+Name).</p>
+</div>
+<div class="section" id="better-ring-notepad">
+<span id="index-4"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
+<p>The Ring Notepad will save the current line number of opened files to be restored when
+we switch between files.</p>
+<p>Also Ring Notepad will ask the user to save the file if the file content is changed when
+the user switch between files.</p>
+</div>
+<div class="section" id="better-ringqt">
+<span id="index-5"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<p>RingQt classes are updated to include methods to get events (The code that will be executed
+when an event is fired). This is necessary to enable/disable events for some time or to
+get the events information.</p>
+<p>For example the next code disable an event then call a method then enable the event again.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cEvent</span> <span class="o">=</span> <span class="n">oView</span><span class="p">.</span><span class="n">oListResult</span><span class="p">.</span><span class="n">getCurrentItemChangedEvent</span><span class="p">()</span>
+<span class="n">oView</span><span class="p">.</span><span class="n">oListResult</span><span class="p">.</span><span class="n">setCurrentItemChangedEvent</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+<span class="n">FindValueAction</span><span class="p">()</span>       <span class="c"># Call Method while an event is disabled</span>
+<span class="n">oView</span><span class="p">.</span><span class="n">oListResult</span><span class="p">.</span><span class="n">setCurrentItemChangedEvent</span><span class="p">(</span><span class="n">cEvent</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Also the QAllEvents class is updated where we can set the output from the event function
+to be true or false using a new method added to the class called setEventOutput.</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="n">MyApp</span> <span class="o">=</span> <span class="k">New</span> <span class="n">qApp</span> <span class="p">{</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Hello World&quot;</span><span class="p">)</span>
+                                <span class="n">setGeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">370</span><span class="p">,</span><span class="mi">250</span><span class="p">)</span>
+                                <span class="n">lineedit1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qlineedit</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                                        <span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                                        <span class="n">setinputmask</span><span class="p">(</span><span class="s">&quot;9999;_&quot;</span><span class="p">)</span>
+                                        <span class="n">oFilter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qallevents</span><span class="p">(</span><span class="n">lineedit1</span><span class="p">)</span>
+                                        <span class="n">oFilter</span><span class="p">.</span><span class="n">setfocusoutEvent</span><span class="p">(</span><span class="s">&quot;pMove()&quot;</span><span class="p">)</span>
+                                        <span class="n">installeventfilter</span><span class="p">(</span><span class="n">oFilter</span><span class="p">)</span>
+                                <span class="p">}</span>
+                                <span class="n">lineedit2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qlineedit</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                                                <span class="n">setGeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">150</span><span class="p">,</span><span class="mi">350</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+                                <span class="p">}</span>
+                                <span class="n">show</span><span class="p">()</span>
+                <span class="p">}</span>
+                <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">pMove</span>
+           <span class="n">win</span><span class="p">.</span><span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;xxxx&quot;</span><span class="p">)</span>
+           <span class="n">oFilter</span><span class="p">.</span><span class="n">setEventOutput</span><span class="p">(</span><span class="kp">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="objects-library-for-ringqt">
+<span id="index-6"></span><h2>Objects Library for RingQt<a class="headerlink" href="#objects-library-for-ringqt" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.2 comes with the Objects library for RingQt applications. Instead of using global
+variables for windows objects and connecting events to objects using the object name, the
+Objects Library will manage the GUI objects and will provide a more natural API to quickly
+create one or many windows from the same class and the library provide a way to quickly set methods
+to be executed when an event is fired. Also the library provide a natural interface to
+quickly use the parent or the caller windows from the child or sub windows.</p>
+<p>The Objects Library is designed to be used with the MVC Design Pattern.</p>
+<p>The Objects Library is merged in RingQt so you can use it directly when you use RingQt</p>
+<p>Example :</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="n">open_window</span><span class="p">(</span> <span class="p">:</span><span class="n">MainWindowController</span> <span class="p">)</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">MainWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MainWindowView</span>
+        <span class="k">func</span> <span class="n">SubWindowAction</span>
+                <span class="n">Open_window</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowController</span> <span class="p">)</span>
+                <span class="n">Last_Window</span><span class="p">().</span><span class="n">SetParentObject</span><span class="p">(</span><span class="n">self</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">MainWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Main Window&quot;</span><span class="p">)</span>
+                <span class="n">btnSub</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">SubWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubWindowView</span>
+        <span class="k">func</span> <span class="n">SetMainWindowTitleAction</span>
+                <span class="n">Parent</span><span class="p">().</span><span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Message from the Sub Window&quot;</span><span class="p">)</span>
+                <span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Click Event Done!&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">SubWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">SetWindowTitle</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
+                <span class="n">btnMsg</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Set Main Window Title&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">SetMainWindowTitleAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">btnClose</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">Move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Close&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">CloseAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="ringlibcurl">
+<span id="index-7"></span><h2>RingLibCurl<a class="headerlink" href="#ringlibcurl" title="Permalink to this headline">¶</a></h2>
+<p>The LibCurl library is used starting from Ring 1.0 for the Download() and SendEmail()
+functions implementation. In Ring 1.2 more functions are added to provide a powerful
+library (RingLibCurl) around LibCurl.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libcurl.ring&quot;</span>
+
+<span class="n">curl</span> <span class="o">=</span> <span class="n">curl_easy_init</span><span class="p">()</span>
+
+<span class="n">cPostThis</span> <span class="o">=</span> <span class="s">&quot;page=4&amp;Number1=4&amp;Number2=5&quot;</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_URL</span><span class="p">,</span> <span class="s">&quot;http://localhost/ringapp/index.ring?page=3&quot;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_POSTFIELDS</span><span class="p">,</span> <span class="n">cPostThis</span><span class="p">)</span>
+
+<span class="n">curl_easy_perform</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+
+<span class="n">curl_easy_cleanup</span><span class="p">(</span><span class="n">curl</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-call-command">
+<span id="index-8"></span><h2>Better Call Command<a class="headerlink" href="#better-call-command" title="Permalink to this headline">¶</a></h2>
+<p>The Call command is updated to support calling functions from object attributes also (not
+only variables).</p>
+<p>For example the next code from the Stars Fighter Game</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cFunc</span> <span class="o">=</span> <span class="n">oself</span><span class="p">.</span><span class="n">keypress</span>
+<span class="k">call</span> <span class="n">cFunc</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="n">oSelf</span><span class="p">,</span><span class="n">Key_Space</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Can be written in one line</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">call</span> <span class="n">oself</span><span class="p">.</span><span class="n">keypress</span><span class="p">(</span><span class="n">oGame</span><span class="p">,</span><span class="n">oSelf</span><span class="p">,</span><span class="n">Key_Space</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-null-instead-of-nullpointer">
+<span id="index-9"></span><h2>Using NULL instead of NULLPointer()<a class="headerlink" href="#using-null-instead-of-nullpointer" title="Permalink to this headline">¶</a></h2>
+<p>We can pass NULL to functions instead of using NULLPointer()</p>
+<p>For example the next code from RingLibSDL</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">SDL_ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="n">NULLPointer</span><span class="p">(),</span><span class="n">rect</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Can be written as in the next line</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">SDL_ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="kp">NULL</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="display-warnings-option">
+<span id="index-10"></span><h2>Display Warnings Option<a class="headerlink" href="#display-warnings-option" title="Permalink to this headline">¶</a></h2>
+<p>In Ring 1.2 the Ring compiler is updated to include the Display Warnings option (-w)</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+</pre></div>
+</div>
+<p>compiling the program using the Display Warnings option will display the file duplication
+warning, While without that option the error will pass silent.</p>
+<p>This is a warning (not an error) because in large projects you may use the same file
+more than one time. For example it’s common to start each file with the next code. where
+the function IsMainSourceFile() is part from the stdlib.ring</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlib.ring&quot;</span>
+<span class="k">if</span> <span class="n">IsMainSourceFile</span><span class="p">()</span>
+        <span class="o">//</span> <span class="n">Testing</span>
+<span class="k">ok</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="better-quality">
+<span id="index-11"></span><h2>Better Quality<a class="headerlink" href="#better-quality" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.2 is more stable, We discovered and fixed more bugs during Ring usage everyday
+in practical projects. Some functions are optimized to be faster like the SubStr() function.
+Also the documentation is more better.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="whatisnew3.html" class="btn btn-neutral float-right" title="What is new in Ring 1.3?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="whatisnew.html" class="btn btn-neutral float-left" title="What is new in Ring 1.1?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

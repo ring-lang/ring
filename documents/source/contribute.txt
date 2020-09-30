@@ -1,0 +1,123 @@
+.. index:: 
+	single: How to contribute?; Introduction
+
+==================
+How to contribute?
+==================
+
+Ring is a free-open source project, Everyone is welcome to contribute to Ring.
+
+Project Home : https://github.com/ring-lang/ring
+
+To editing on web browser without Git client, when login GitHub then click pencil icon in target file. Then, sends pull request.
+
+You can help in many parts in the project
+
+* Documentation
+* Testing
+* Samples
+* Applications
+* Editors Support
+* Libraries in Ring
+* Extensions in C/C++
+* Compiler and Virtual Machine (VM)
+* Ideas and suggestions
+
+.. index:: 
+	pair: How to contribute?; Special thanks to contributors
+
+
+Special thanks to contributors
+==============================
+
+Throughout the creation of this project, Ring relied heavily on contributions from experts along with college students.  
+Their input was invaluable, and we want to take a moment to thank them and recognize them for all of their hard work.
+
+Ring Team: http://ring-lang.sf.net/team.html
+
+.. index:: 
+	pair: How to contribute?; Documentation
+
+Documentation
+=============
+
+You can modify anything in the documentation, by updating the text files (*.txt)
+in this folder : https://github.com/ring-lang/ring/tree/master/documents/source
+
+The documentation is created using Sphinx : http://www.sphinx-doc.org/en/stable/
+
+.. index:: 
+	pair: How to contribute?; Testing
+
+Testing
+=======
+
+You can write new tests in this folder 
+
+https://github.com/ring-lang/ring/tree/master/language/tests/scripts
+
+
+.. index:: 
+	pair: How to contribute?; Samples
+
+Samples
+=======
+
+You can add new samples to this folder
+
+https://github.com/ring-lang/ring/tree/master/samples
+
+.. index:: 
+	pair: How to contribute?; Applications
+
+Applications
+============
+
+You can add new applications to this folder
+
+https://github.com/ring-lang/ring/tree/master/applications
+
+.. index:: 
+	pair: How to contribute?; Libraries in Ring
+
+.. index:: 
+	pair: How to contribute?; Editors Support
+
+Editors Support
+===============
+
+You can help in supporting Ring in different code editors
+
+Check the next folder
+
+https://github.com/ring-lang/ring/tree/master/tools/editors
+
+Libraries in Ring
+=================
+
+You can update and add libraries to this folder
+
+https://github.com/ring-lang/ring/tree/master/libraries
+
+.. index:: 
+	pair: How to contribute?; Extensions in C/C++
+
+
+Extensions in C/C++
+===================
+
+You can add and update extensions in this folder
+
+https://github.com/ring-lang/ring/tree/master/extensions
+
+.. index:: 
+	pair: How to contribute?; Compiler and Virtual Machine (VM)
+
+Compiler and Virtual Machine (VM)
+=================================
+
+* Source Code (C Language) : https://github.com/ring-lang/ring/tree/master/language/src
+* Visual Source (PWCT) : https://github.com/ring-lang/ring/tree/master/language/visualsrc
+
+.. index:: 
+	pair: How to contribute?; Ideas and suggestions

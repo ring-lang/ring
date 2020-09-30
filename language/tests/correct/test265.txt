@@ -1,0 +1,7 @@
+welcome
+
+eval Line (1) Error (C27) : Syntax Error!
+eval errors count : 1 
+
+Line 6 Error in eval! 
+In eval() in file general/test81.ring 

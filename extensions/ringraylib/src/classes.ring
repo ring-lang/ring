@@ -549,7 +549,7 @@ class Mesh from RayLibBase
 		raylib_set_Mesh_vertexCount(oData,vertexCount)	
 		raylib_set_Mesh_triangleCount(oData,triangleCount)	
 		raylib_set_Mesh_vertices(oData,vertices)	
-		raylib_set_Mesh_texcoords(oData,texcoords)	
+		raylib_set_Mesh_texcoords(oData,texcoords)
 		raylib_set_Mesh_texcoords2(oData,texcoords2)	
 		raylib_set_Mesh_normals(oData,normals)	
 		raylib_set_Mesh_tangents(oData,tangents)	
@@ -710,12 +710,8 @@ class Model from RayLibBase
   		raylib_set_Model_materials(oData,materials)
   		raylib_set_Model_meshMaterial(oData,meshMaterial)
   		raylib_set_Model_boneCount(oData,boneCount)
-		if ! ISNULL(bones)
-	  		raylib_set_Model_bones(oData,bones)
-		ok
-		if ! ISNULL(bindPose)
-	  		raylib_set_Model_bindPose(oData,bindPose)
-		ok
+  		raylib_set_Model_bones(oData,bones)
+  		raylib_set_Model_bindPose(oData,bindPose)
 		return oData
 
 	func setdata oStruct 

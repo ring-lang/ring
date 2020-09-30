@@ -5,7 +5,7 @@ Author: Gal Zsolt
 
 # To run the application
 
-	ring CalmoSoftCalendar.ring
+	ring Calendar.ring
 
 # Screen Shot
 

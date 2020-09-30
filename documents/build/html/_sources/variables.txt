@@ -1,0 +1,107 @@
+.. index:: 
+	single: Variables; Introduction
+
+=========
+Variables
+=========
+
+To create a new variable, you just need to determine the variable name & value.
+The value will determine the variable type and you can change the value to
+switch between the types using the same variable name.
+
+Syntax:
+
+.. code-block:: ring
+	
+	<Variable Name> = <Value>
+
+.. tip:: 
+	
+	The operator '=' is used here as an Assignment operator and the same
+	operator can be used in conditions, but for testing equality of expressions.
+
+.. note:: 
+	
+	The Variable will contains the real value (not a reference).
+	This means that once you change the variable value, the old value will
+	be removed from memory (even if the variable contains a list or object).
+
+
+.. index:: 
+	pair: Variables; Dynamic Typing
+
+Dynamic Typing
+==============
+
+Ring is a dynamic programming language that uses `Dynamic Typing <http://en.wikipedia.org/wiki/Type_system>`_.
+
+.. code-block:: ring
+
+	x = "Hello"		# x is a string
+	see x + nl
+	x = 5			# x is a number (int)
+	see x + nl
+	x = 1.2 		# x is a number (double)
+	see x + nl
+	x = [1,2,3,4]		# x is a list
+	see x 			# print list items
+	x = date()		# x is a string contains date
+	see x + nl
+	x = time()		# x is a string contains time
+	see x + nl
+	x = true		# x is a number (logical value = 1)
+	see x + nl
+	x = false		# x is a number (logical value = 0)
+	see x + nl
+
+.. index:: 
+	pair: Variables; Deep Copy
+
+Deep Copy
+=========
+
+We can use the assignment operator '=' to copy variables.
+We can do that to copy values like strings & numbers.
+Also, we can copy complete lists & objects.
+The assignment operator will do a complete duplication for us.
+This operation called `Deep Copy <http://en.wikipedia.org/wiki/Object_copy#Deep_copy>`_
+
+
+.. code-block:: ring
+
+	list = [1,2,3,"four","five"]
+	list2 = list
+	list = []
+	See list	# print the first list - no items to print
+	See "********" + nl
+	See list2	# print the second list - contains 5 items
+
+.. index:: 
+	pair: Variables; Implicit Conversion
+
+Implicit Conversion
+===================
+
+The language can automatically convert between numbers and strings.
+
+Rules:
+
+.. code-block:: ring
+
+	<NUMBER> + <STRING> --> <NUMBER>
+	<STRING> + <NUMBER> --> <STRING>
+
+.. note:: 
+
+	The same operator '+' can be used as an arithmetic operator
+	or for string concatenation.
+
+Example:
+
+.. code-block:: ring
+
+	x = 10			# x is a number
+	y = "20"		# y is a string
+	sum = x + y		# sum is a number (y will be converted to a number)
+	Msg = "Sum = " + sum 	# Msg is a string (sum will be converted to a string)
+	see Msg + nl

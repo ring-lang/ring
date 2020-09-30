@@ -63,7 +63,7 @@ RING_FUNC(ring_stbi_load_from_memory)
 	p3 = RING_API_GETINTPOINTER(5);
 	pData = stbi_load_from_memory(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),p1,p2,p3, (int ) RING_API_GETNUMBER(6));
 	if ( pData == NULL ) {
-		RING_API_ERROR("Can't load the image data!") ;
+		RING_API_RETSTRING("") ;
 		return ;
 	}
 	RING_API_RETSTRING2(pData, (*p1) * (*p2) * (*p3));
@@ -106,7 +106,7 @@ RING_FUNC(ring_stbi_load)
 	p3 = RING_API_GETINTPOINTER(4);
 	pData = stbi_load(RING_API_GETSTRING(1),p1,p2,p3, (int ) RING_API_GETNUMBER(5));
 	if ( pData == NULL ) {
-		RING_API_ERROR("Can't load the image file!") ;
+		RING_API_RETSTRING("") ;
 		return ;
 	}
 	RING_API_RETSTRING2(pData, (*p1) * (*p2) * (*p3));

@@ -1,0 +1,41 @@
+# The Ring Standard Library
+# Common Functions and classes for applications
+# 2016-2017, Mahmoud Fayed <msfclipper@yahoo.com>
+# 2016-2017, CalmoSoft <calmosoft@gmail.com>
+
+# Constant used by the Sleep() function
+	C_SECONDSIZE = ClocksPerSecond()
+
+# Constant used by the ReadLine() function
+	C_LINESIZE = 256
+
+# Constants used by SystemSilent()
+	C_WINDOWS_NOOUTPUTNOERROR = " >nul 2>nul"
+	C_LINUX_NOOUTPUTNOERROR   = " > /dev/null"
+
+# Time Info Map
+	aTimeInfoMap = [
+	        // Time info
+	        :hour_24      = 7,
+	        :hour_12      = 8,
+	        :minutes      = 11,
+	        :seconds      = 13,
+	        :time         = 17,
+	        // Date info
+	        :day_short    = 1,
+	        :day_long     = 2,
+		:month_short  = 3,
+	        :month_long   = 4,
+		:date_time    = 5,
+		:day          = 6,
+		:day_year     = 9,
+		:month_year   = 10,
+		:am_pm        = 12,
+		:week_year    = 14,
+		:day_week     = 15,
+	        :date         = 16,
+		:year_century = 18,
+	        :year         = 19,
+		:time_zone    = 20,
+		:percent_sign = 21
+	]

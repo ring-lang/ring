@@ -1,0 +1,131 @@
+.. index:: 
+	single: Distributing Ring Application; Introduction
+
+=======================================
+Distributing Ring Applications (Manual)
+=======================================
+
+In this chapter we will learn about distributing Ring applications.
+
+The next method is old and was used in Ring 1.5 and previous versions!
+
+Starting from Ring 1.6 we have a nice tool called Ring2EXE
+
+Using Ring2EXE we can distribute applications quickly for Windows, Linux and macOS 
+
+Check the Ring2EXE chapter for more information!
+
+
+.. index:: 
+	pair: Distributing Ring Application; Distributing Applications for Microsoft Windows
+
+Distributing Applications for Microsoft Windows
+===============================================
+
+Step 1:
+
+.. code-block:: none
+
+	Copy c:\ring\bin folder to be for example c:\myapp
+
+Step 2:
+
+.. code-block:: none
+
+	Rename c:\myapp\ring.exe to c:\myapp\myapp.exe
+
+Step 3:
+
+.. code-block:: none
+
+	Create a file c:\myapp\ring.ring 
+
+And write
+
+.. code-block:: ring
+
+	Load "myapp.ring"
+
+When you run myapp.exe the file ring.ring will be executed automatically
+
+So your file myapp.ring will be called and executed
+
+Or just rename myapp.ring to ring.ring
+
+It's a fast way to distribute applications.
+
+.. index:: 
+	pair: Distributing Ring Application; Protecting the Source Code
+
+Protecting the Source Code
+==========================
+
+Step 1:
+
+Execute the next command 
+
+.. code-block:: none
+
+	ring myapp.ring -go
+
+This will generate one object file (myapp.ringo) from the project files (*.ring)
+
+Step 2:
+
+.. code-block:: none
+
+	Rename myapp.ringo to ring.ringo
+
+When you run the executable file (ring.exe) or (myapp.exe) the file ring.ringo will be executed.
+
+.. index:: 
+	pair: Distributing Ring Application; The files ring.ring and ring.ringo
+
+The files ring.ring and ring.ringo
+==================================
+
+Ring will run ring.ring or ring.ringo only when
+
+(1) The file exist in the current directory
+(2) No file is passed to (ring.exe) to execute
+
+We added the support to ring.ring (and ring.ringo) for a way to distribute Ring apps (before Ring2EXE)
+
+.. index:: 
+	pair: Distributing Ring Application; Creating Windows Installer
+
+Creating Windows Installer
+==========================
+
+There are many tools that you can use to distribute your application.
+
+Check : nullsoft scriptable install system
+
+URL : http://nsis.sourceforge.net/Main_Page
+
+.. index:: 
+	pair: Distributing Ring Application; Using C/C++ Compiler and Linker
+
+Using C/C++ Compiler and Linker
+===============================
+
+Another method to distribute applications is to use a C/C++ compiler.
+
+Ring can be embedded in C/C++ projects, We can create executable files using a C/C++ compiler
+by embedding the Ring language in our project.
+
+Check the "Embedding Ring Language in C/C++ Programs" chapter.
+
+Using this way we will avoid using ring.ring or ring.ringo files.
+
+.. index:: 
+	pair: Distributing Ring Application; Distributing Applications and Games for Mobile
+
+Distributing Applications and Games for Mobile
+==============================================
+
+Ring can be embedded in a Qt projects or LibSDL projects to build Mobile applications and Games.
+
+You can build the Qt project or the LibSDL project and get the Android package directly (*.apk)
+
+Check Ring distributions for Mobile development using Qt or LibSDL.

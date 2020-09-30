@@ -9,5 +9,8 @@
 <loadfile> network/qhostaddress.cf
 <loadfile> network/qhostinfo.cf
 <loadfile> network/qnetworkrequest.cf
-<loadfile> network/qnetworkaccessmanager.cf
 <loadfile> network/qnetworkreply.cf
+
+<filter> sysget("RINGQT_WEBASSEMBLY") = ""
+<loadfile> network/qnetworkaccessmanager.cf
+</filter>

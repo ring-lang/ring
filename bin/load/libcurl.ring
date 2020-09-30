@@ -1,0 +1,1 @@
+load "/../../extensions/ringcurl/libcurl.ring"

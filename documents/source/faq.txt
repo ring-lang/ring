@@ -1,0 +1,2463 @@
+﻿.. index:: 
+	single: Frequently Asked Questions; Introduction
+
+================================
+Frequently Asked Questions (FAQ)
+================================
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Why do we need Yet Another Programming Language (YAPL)?
+
+Why do we need Yet Another Programming Language (YAPL)?
+=======================================================
+
+The language comes with better support for natural language programming and declarative
+programming. The innovation comes in supporting these paradigms with new practical techniques
+on the top of object-oriented programming and functional programming. Ring provides the programmers
+with the tools required to build a natural language like Supernova or a declarative language
+like REBOL and QML without the need to know anything about (compilers and parsing). You get
+the language constructs ready for use to create domain-specific languages in a fraction of time.
+
+Take a look at the Supernova programming language, in this language you can type: 
+(I want window and the window title is hello world.) and it will create a GUI window 
+with "Hello, World!" as the window title. When I created Supernova language in 2010, i discovered
+that using the natural code can be (similar to English and without limits and we can use the power
+of human language in programming) but to implement that you need a new language that has: 
+
+(1) General Purpose 
+
+(2) Practical 
+
+(3) Can create natural languages very quickly. 
+
+So we can get a system that can increase ease of use and productivity to the maximum level. 
+
+So I created Ring because it was the best way to achieve this goal.
+
+Supernova was just a test of the idea, it helped getting a better view of the advantages and
+the disadvantages of the idea. And After testing the new ideas you are provided with something
+practical. So now we have Ring after Supernova. A story that is maybe similar to having Python 
+after ABC.Where Python avoids the problems of ABC, but keeps the advantages of ABC. Also, Ring
+learns from Ruby and ROR's story. The language power could appear in frameworks better than the
+direct usage as a general purpose language. Also Ring comes with a clear goal/motivation; 
+(Creating a new version of the PWCT Software) something that was learned from the design the 
+C language in a certain way to create the Unix Operating System. In other words, you have a 
+goal that directs you in each design decision.
+
+You will understand the value of our decisions once you start trying to solve the problem
+that we will use Ring to solve. The questions is: could you enable any one in the world 
+without knowledge about computer programming concepts to create very powerful software?
+Scientifically the answer is (visual Programming) and (natural Programming). 
+In practice we are still away from switching to these paradigms without introducing 
+other problems. Ring is designed to solve this problem.
+It is designed to provide natural programming in a practical way. And to create a powerful 
+visual programming tool. Ring is designed to be a new world of programming after 10 years 
+of research in visual programming and natural languages.
+
+The Ring Programming Language (Compiler+VM) is developed 100% using visual programming without
+writing a single line of code. I used my tool (Programming Without Coding Technology) to design
+everything and get the C code generated for me. 
+
+Advantages ? 
+
+(1) Faster 
+
+(2) No Syntax Errors 
+
+(3) Easy to understand and manage the code because the abstraction level is higher
+
+(4) No critical disadvantages because you can control everything as writing your code.
+
+Using my experience in using visual programming for 10 years and natural programming for 5 years,
+I designed Ring to move the knowledge to mainstream programmers by providing a practical language 
+that supports these ideas.
+
+
+I agree that each programmer/developer has the freedom to form his opinions about any software
+including programming languages. Ring is not an exception but you may miss the idea behind the 
+language. It is innovative and may help you to think differently about how to solve your problems.
+Maybe this is not clear to many programmers because It is a practical language and includes many
+features known to programmers and when a programmer looks at the language they maight think that 
+nothing new because it's familiar. I created Ring to solve problems in a different way. Where I
+will start programming just by describing the software using new natural interfaces that I will
+implement later when I move from the design stage to the implementation stage. 
+(I don't determine the time to switch between stages, You are free to use Agile methods). 
+Since Ring is a new language you have 3 options:
+
+(1) To not care at all for now.
+
+(2) Think of the future of the language and help us if you understand the idea and want to contribute.
+
+(3) Wait and come back again in the future to use it. 
+
+Summary:
+
+* Ring is designed based on a need to develop a new version of the PWCT software. 
+Once we finish PWCT 2.0 we will have good and large software developed using Ring.
+
+* We will push declarative and natural paradigms many steps forward. Also in next versions 
+we have a plan to present a new paradigm for network programming and concurrency. We tested this
+new paradigm through simple prototypes during the last years and we will integrate it with Ring 
+in future releases.
+
+.. index:: 
+	pair: Frequently Asked Questions; What is the Ring Architecture?
+
+What is the Ring Architecture?
+==============================
+
+We have the next architecture
+
+(1) Ring Applications (Your Code)  - Written in Ring - See folder : ring/applications
+(2) Ring Libraries (StdLib, WebLib, GameEngine, etc) - Written in Ring - See folder : ring/libraries
+(3) Ring Extensions (RingAllegro, RingQt, etc) - Written in C/C++ (may include Ring code) - See folder : ring/extensions
+(4) Ring Virtual Machine (Ring VM) - Written in C language
+(5) Operating System (Current Platform) - (Windows, Linux, macOS, Android, etc)
+
+The extensions are just dynamic libraries (DLL, So, Dylib)
+You can update the extensions without the need to update your code.
+
+
+Folder (ring/extensions/libdepwin) ====> C libraries used for building Ring Extensions (written in C) on Windows platform
+
+Folder (ring/libraries)  ====> Ring libraries written in Ring itself (StdLib, WebLib, GameEngine, etc)
+
+Folder (ring/language/visualsrc) ====> The Visual Source Code of the Ring Compiler & Ring VM developed using Programming Without Coding Technology (PWCT)
+
+We use the term Ring Library ---> When the library code is written in Ring
+We use the term Ring Extension ---> When the library code is Written in C or C++
+
+.. index:: 
+	pair: Frequently Asked Questions; What about Memory Management in Ring?
+
+What about Memory Management in Ring?
+=====================================
+
+(1) When we call function, we get a new scope for this function, inside this scope we store variables.
+
+Also we get Temp. memory for this function. Inside this temp. memory we store temp. lists
+
+All of this will be deleted directly after the end of the function call (end of scope)
+
+(2) In Ring to delete memory, you have the next options
+
+2.1 Wait until the end of the function scope
+
+2.2 Use the Assignment operator
+
+2.3 Use callgc() function (delete temp. lists only)
+
+(3) Ring Garbage Collector uses Escape Analysis and Reference Counting
+
+In 90% of cases, the Escape Analysis is used so we don't waste time in running the garbage collector
+We directly know what will be deleted and what will remain in the memory.
+
+https://en.wikipedia.org/wiki/Escape_analysis
+
+In 10% of cases (or less than that) Ring may use Reference Counting.
+
+For example when we pass a list and sub list to a function
+Ring will pass the lists by reference, but what will happens if we deleted the Parent List?
+In this case, the Sub List will use reference counting, and when deleting the Parent List, it will stay in memory until the end of the function.
+
+Remember that Ring encourage us to avoid using references, and the
+Assignment Operator will copy lists by value, so Ring usage of reference counting is
+very limited to special cases and in most cases the Escape Analysis is enough which is very fast.
+
+Starting from Ring 1.9 we extended the Reference Counting support to Ring Extensions and low level C pointers.
+So we don't have to care about using fclose() when we use fopen() for example. and the same for
+other extensions like RingODBC, RingSQLite, RingMySQL, RingQt, etc.
+
+All of the allocated resources will be cleaned by the Garbage Collector when we finish using it (when we lost the last reference).
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What about Data Representation in Ring?
+
+What about Data Representation in Ring?
+=======================================
+
+(1) In Ring, The String is just (Array of bytes)
+
+Ring is 8-bit clean, Each character in the string is 8 bits (1 byte)
+
+So these functions (Int2Bytes(), Float2Bytes() and Double2Bytes()) just return a string.
+
+Also we can store binary data in strings
+
+.. code-block:: ring
+
+	mystring = read("myfile.exe")
+
+(2) Remember this, when you think about variables
+
+* Value ---> What we have (What we are storing in the computer memory as data) - Low Level Concept
+* Type  ---> What we can do with what we have or how we do things with what we have (Just a Logical Concept)
+
+Computer memory ----> Just store [Bytes] - Each byte is 8-bit - (Here we avoid the memory word concept)
+
+These bytes could be grouped together when moved between the memory and the processor registers.
+Here we have (The register size) and things like 32-bit and 64-bit for example.
+Also we have the bytes order.
+
+Programming Languages ----> Add Types (Just as a concept) to these bytes so we can determine what to do with them and how operations should be done.
+
+And programming language could allow (Type Conversion) ---> Because the Type is a logical concept in most cases, What we really have is just data (Bytes, Bytes Count, Bytes Order, etc)
+
+Ring Strings ----> You have these bytes (each byte is 8-bit) and Ring know the string size (stored as number in the String structure) 
+
+So we don't check the NULL character or add it to the end of the string (Not Required)
+
+All operations inside Ring VM, will check the Ring size and deal with the string as binary data (each character is 8-bit)
+
+In the C language ---> The normal case is adding NULL character (\0) to the end of each string
+
+And the string functions check this character, This is not suitable for binary data.
+
+Signed vs Unsigned ---> Is a logical concept which is important when you do arithmetic operations on the data, but when storing the data, if you will include all of the (8-bits) and will not ignore any of them ---> Then don't care.
+
+In Ring, don't think about these details, we are hiding it from you, so you can focus on your application and what you will do.
+
+Think in C when you write C code which could be (based on need) low level code to have control on everything.
+ ----> Good for performance and memory management
+
+Think in Ring when you write Ring code which let you ignore a lot of details and concentrate only on the result
+-----> Good for productivity and delivering software quickly
+
+The good news (We can mix between Ring and C in our projects)
+
+
+(3) The functions Int2Bytes(), Float2Bytes() and Double2Bytes()
+
+These function take input as (Number) ---> Convert it to group of bytes based on the number type (int|float|double) ---> Then return a Ring string that contains these bytes
+
+Int2Bytes() ---> Ring string (Group of bytes) and the string size = sizeof(int)
+
+Float2Bytes() ---> Ring string (Group of bytes) and the string size = sizeof(float)
+
+Double2Bytes() ---> Ring string (Group of bytes) and the string size = sizeof(double)
+
+Example:
+
+.. code-block:: ring
+
+	? len( int2bytes(1) )
+	? len( float2bytes(1) )
+	? len( double2bytes(1) )
+
+Output:
+
+.. code-block:: none
+
+	4
+	4
+	8
+
+(4) Storing Numbers
+
+When we use a number, Ring always use the (Double) data type for representing these numbers in memory.
+This is important to know when we do arithmetic operations on numbers.
+
+But when we convert the number to a String using "" + number  or using string(number) we get a string where each digit is represented in 1 byte (Not good idea for storage, but useful for string processing)
+
+If you need the number to be represented in specific size (int|float|double) for storage then use bytes2int() , bytes2float() and bytes2double() when writing the data to binary files.
+
+Ring Number (double) ----> int2bytes()  - will cast the number from double to int then return the bytes ----> 4 bytes (Ring String)
+
+Ring Number (double) ----> float2bytes()  - will cast the number from double to float then return the bytes ----> 4 bytes (Ring String)
+
+Ring Number (double) ----> double2bytes()  - will use the number (double) to return the bytes ----> 8 bytes (Ring String)
+ 
+The (int) type is used only for internal Ring operations, but Ring applications|code will use only the (double) type for numbers.
+
+(5) The Unsigned() Function
+
+The function unsigned() expect the first and the second parameters as numbers
+
+.. code-block:: ring
+
+	unsigned(nNumber1,nNumber2,cOperator)
+
+We can use the bytes2int() function to convert the bytes to a number
+
+Example:
+
+.. code-block:: ring 
+
+	B = list(4)
+
+	for k=1 to 4
+	{  
+		B[k]= Space(4)
+		for kk=1 to 4 { B[k][kk]= char(60+4*k +kk) }
+		? " B" +k +": " +B[k]
+	}
+
+	A12= Space(4)     A12= bytes2int(B[1]) ^ bytes2int(B[2])      		
+	? "A12: " +string(A12)  
+	A34= Space(4)     A34= bytes2int(B[3]) ^ bytes2int(B[4])      		
+	? "A34: " +string(A34)
+	A12= space(4)     A12= Unsigned(bytes2int(B[1]),bytes2int(B[2]),"^") 	
+	? "unsigned A12: " +A12
+	A34= space(4)     A34= Unsigned(bytes2int(B[3]),bytes2int(B[4]),"^") 	
+	? "unsigned A34: " +A34
+
+Output:
+
+.. code-block:: none
+
+	B1: ABCD
+	B2: EFGH
+	B3: IJKL
+	B4: MNOP
+	A12: 201589764
+	A34: 470025220
+	unsigned A12: 201589764
+	unsigned A34: 470025220
+
+.. index:: 
+	pair: Frequently Asked Questions; Why is Ring weakly typed?
+
+Why is Ring weakly typed?
+=========================
+
+Because it's faster and more natural, and this is important for the language's goals. One
+of the rules is: the data type at the beginning affects the final result. 
+For example, when you type "Print : " + 5 , The String comes first, so 5
+will be converted to a String. While when you type 5 + "10" The number comes first so "10"
+will be converted to 10. This helps a lot to quickly convert between numbers and strings using
+the same operator. If you want to prevent conversion (Write code that prevent conversion) In
+these cases you will notice that what you are writing is less code (And can be removed). 
+
+Weakly typed = automatic conversion and *automatic* is *good thing* and is better than *manual*
+if you know how to use it correctly.
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over Lisp or Smalltalk?
+
+What are the advantages to using Ring over Lisp or Smalltalk?
+====================================================================
+
+Smalltalk and Lisp are GREAT languages. I like many of the concepts behind them but I'm sure
+that selecting the right programming language is based on the problem and comes after the problem's
+definition. I have a problem that I want to solve and these GREAT languages are not ideal for 
+this problem so I designed Ring.
+
+When you design a new language, You can learn from the past but you must look forward and live
+in the future. What you know about natural programming maybe based on the *old knowledge* about
+the power of these paradigms in the practical world and I agree with you but I see other
+techniques that can be applied to get this to work in practice. What you miss about
+*natural language* is that they are *context sensitive* and this means we can use it and think
+differently about how we can express our ideas. 
+
+Example : I want window contains 3 buttons. 
+
+In one sentence I created 4 objects (The window and the three buttons) and added the buttons
+to the window. The idea of natural programming is to get many things done like that.
+
+.. index:: 
+	pair: Frequently Asked Questions; Why is Ring largely focussed on UI creation?
+
+Why is Ring largely focussed on UI creation?
+============================================
+
+Yes UI creation is one of the important things in the language features because it is designed
+to create a visual programming tool, But the language is a multi-paradigm language where we can
+select the programming paradigm based on the problem.
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Is Ring some sort of an improvement of PHP?
+
+Is Ring some sort of an improvement of PHP?
+==========================================
+
+Ring is not designed to replace PHP, Lua or Smalltalk. Ring's support for declarative
+programming and natural language programming is very innovative and much better than staying 
+with procedural, object-oriented and functional languages. Ring see the future in programming
+without code (using natural languages) and is designed to support that.
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages of using Ring over native C or C++?
+
+What are the advantages of using Ring over native C or C++?
+===========================================================
+
+Ring provides a better way to mix between different programming paradigms in solving problems.
+
+The different programming paradigms play well together in the same language. 
+
+(1) It's easy to switch from one programming paradigm to another one because the language constructs use similar syntax for similar concepts.
+
+(2) The paradigms are provided to interact and used together in different layers in the software. 
+
+for example you can create a game engine using object-oriented programming but write the game code using declarative programming or natural programming and behind the scenes your declarative or natural code will use the object-oriented classes.
+
+(3) Ring is more productive and natural than C/C++.
+
+(4) Ring is a dynamic language. We can generate and execute code during the runtime. Ring is dynamically typed and weakly typed for flexibility.
+
+(5) The Garbage collector is generational (escape analysis) and also uses reference counting. it's very fast and still provides control to the programmer who can delete memory at any time.
+
+(6) Ring's compiler and virtual machine are just 20,000 lines of ANSI C code that can be compiled and used in any platform.
+
+(7) You can use C/C++ libraries and Ring comes with code generator to create wrappers from C functions or C++ classes. so when you need more performance or when you need to use more libraries you can easily do that.
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What is the difference between Ring and Python? And is Ring Open Source?
+
+What is the difference between Ring and Python? And is Ring Open Source?
+========================================================================
+
+Yes the language is Open Source (MIT license)
+
+In general I like Python and Ruby but I was looking for a language more suitable for creating the next version of
+the Programming Without Coding Technology (PWCT) software so I started the Ring design.
+
+Some simple changes that matters for my goal are 
+
+(1) Not case sensitive
+
+(2) The list index start from 1
+
+(3) You can call functions before definition
+
+(4) Don't use Python syntax like (indentation, using self, :, pass & _) 
+
+(5) Weakly typed (convert automatically between types based on context)
+
+(6) The programs follow simple and constant structure (Statements then functions then packages and classes)
+
+(7) Using the '=' operator for assignment and for testing values
+
+Critical changes are
+
+(1) Small Language : The Ring compiler + Virtual Machine = 15K lines of C code , the other 500K lines are related to libraries and are optional when we go for using the language in C/C++ programs.
+
+(2) The Garbage collector : Uses Escape Analysis/Reference counting and give the programmer the ability to determine when to delete memory using the assignment operator
+
+(3) Compact Syntax : Ring is not line sensitive, you don't need to write ; or press ENTER to separate between statements
+
+(4) Using { } to access the object then using the object attributes and methods directly
+
+(5) Natural Programming : It's very easy to create natural interfaces using Ring based on OOP
+
+(6) Declarative Programming using Nested Structure
+
+The Ring programming language is designed based on my experience from using many other
+languages like C, C++, C#, Lua, PHP, Python, Ruby, Harbour, Basic and Supernova
+And the language comes with innovative features added to achieve the language goal
+
+* Applications programming language.
+* Productivity and developing high quality solutions that can scale.
+* Small and fast language that can be embedded in C/C++ projects.
+* Simple language that can be used in education and introducing Compiler/VM concepts.
+* General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
+* Practical language designed for creating the next version of the Programming Without Coding Technology software.
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over Python and Ruby?
+
+What are the advantages to using Ring over Perl, PHP, Python or Ruby?
+=====================================================================
+
+(1) Ring is New and Innovative. The language will let you think different about programming.
+
+(2) Ring is Smaller. (Lessons learned from the Lua language)
+
+(3) Ring is Simple. (Lessons learned from the BASIC and Clipper/Harbour languages)
+
+(4) Ring is more Natural. (Lessons learned from the Supernova language)
+
+(5) Ring is more Declarative. (Lessons learned from REBOL and QML languages)
+
+(6) Ring Implementation is Transparent, Visual and comes with Rich Features.
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over Tcl and Lua?
+
+What are the advantages to using Ring over Tcl or Lua?
+======================================================
+
+(1) Clean Code (More Natural)
+
+(2) More Features (A lot of useful programming paradigms)
+
+.. index:: 
+	pair: Frequently Asked Questions; What are the advantages to using Ring over C# or Java?
+
+What are the advantages to using Ring over C# or Java?
+======================================================
+
+(1) Compact Code (Clean and Natural), More Productivity and Flexibility.
+
+(2) Better support for Declarative Programming and Natural Programming
+
+
+.. index:: 
+	pair: Frequently Asked Questions; The documentation says functional programming is supported, but then this happens?
+
+
+The documentation says functional programming is supported, but then this happens?
+==================================================================================
+
+The question was about this code
+
+.. code-block:: ring
+
+	f = func {
+	    a = 42
+	    return func { return a }
+	}
+ 
+	innerF = call f()
+	call innerF()
+
+Output:
+
+.. code-block:: none
+
+	Using uninitialized variable : a In function _ring_anonymous_func_16601()
+
+The Answer:
+
+* It's Anonymous Functions, i.e. Not Closures.
+
+* Many developers asked about supporting Closures and during language development we may add new features that doesn't go against the language goals or spirit.
+
+* You can use classes and objects when you want to merge between the state and functions to provide a clear solution.
+
+* You can use Lists and put the anonymous function inside the List then return the list that contains the state and the function. Pass the list to the function when you use it.
+
+* You can use eval() and substr() to add the variable value directly to the anonymous function before return.
+
+* We protect you from other scopes when you define the function. In Ring we provided the Three Scopes Rule where at each point you have only at maximum three scopes (Global, Object Scope and Local Scope).
+
+* We don't get everything from everywhere to be like others! We don't need to do that. If we will think like that then we will create a very complex language or we will save our time and use other languages.
+
+* When you think about learning or studying a new language concentrate about (What is new?) and (What is better in this language?) to know when to use it. Don't compare a new language just released little months ago with languages started many years ago and expect to find everything that you used to have.
+
+* Each programming language miss features in other languages. The idea is not the Features. it's the spirit and ability behind all of the features together.
+
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Why the ability to define your own languages Instead of just handing over the syntax so you can parse it using whatever code you like?
+
+Why the ability to define your own languages Instead of just handing over the syntax so you can parse it using whatever code you like?
+======================================================================================================================================
+
+It's innovation - You create natural statements without the need to learn about parsing. 
+You just use Classes which is intelligent decision (where later we can mix between classes to
+support more statements based on the context - We can change and translate the defined 
+statements and many more!). Also the statements are added in Ring World where you can use
+any Ring statement.
+
+.. index:: 
+	pair: Frequently Asked Questions; Why you can specify the number of loops you want to break out of?
+
+Why you can specify the number of loops you want to break out of?
+=================================================================
+
+The language supports programming in the small and programming in the large. The selection
+of what features to use is based on what are you going to do. Any programmer can write 
+poorly code in any language if he/she wants to do that. The idea is what must be done in 
+the language design to prevent errors without causing other problems like killing flexibility.
+
+Read some source code in the Linux Kernel and Ruby Implementation for example, You will find good
+usage for GOTO as a practical example that General Rules are not for All Use Cases and great
+programmers know when to break the rules. I'm not saying go and use GOTO or saying Ring add
+things like that. But the ability to break more than one loop and/or the ability to break the
+loop from sub functions is practical for small programs.
+
+Anyway these are some of the small new things added by the language (Not the big idea).
+
+.. index:: 
+	pair: Frequently Asked Questions; Why Ring uses 'See', 'Give', 'But' and 'Ok' Keywords?
+
+Why Ring uses 'See', 'Give', 'But' and 'Ok' Keywords?
+=====================================================
+
+See and Give are selected not to be "opposite actions" but to reflect what I want to do as a programmer.
+
+When I want to see something on the screen I use 'See'.
+
+When I want to give some input to the program I use 'Give'.
+
+My selection of "but" and "ok" is based on selecting keywords that can be written quickly.
+
+Also using "but" is easy to remember than elseif/elif/elsif where each language select a different keyword.
+
+In Ring 1.1 and later versions All of this is just an option.
+
+You can use 'Put' and 'Get' instead of 'See' and 'Give'
+
+You can use 'elseif' and 'end' insetad of 'But' and 'Ok'
+
+It's your choice. In Ring we have syntax flexibility where we provide more than one style.
+
+Also you can change the language keywords and operators.
+
+Also you can define new natural languages too.
+
+.. index:: 
+	pair: Frequently Asked Questions; Philosophy behind data types in Ring
+
+What is the philosophy behind data types in Ring?
+=================================================
+
+The Ring programming language is designed to be SMALL. 
+The language provides the basic constructs that you need to do anything!
+One of the goals is to keep the basic constructs simple and small as possible.
+
+Using Lists in Ring you can
+
+* Create Arrays (one data type)
+* Create Lists (Mix of data types)
+* Create Tree (Nested arrays)
+* Use String Index (Looks like Dictionary/Hash Table)
+
+The same principle is applied to Numbers
+
+* You can use the number for int value
+* You can use the number for double value
+* You can use the number for Boolean value (True/False)
+
+The sample principle is applied for Strings
+
+* You can use the string for storing one character 
+* You can use the string for storing text (one or many lines)
+* You can use the string for storing binary data
+* You can use the string for storing date
+* You can use the string for storing time
+* You can use the string for storing NULL values (empty strings)
+
+And we have Object Oriented Support + Operator Overloading where the programmer
+can define new data types and use them as default types defined by the language
+
+So We have
+
+* A small and simple language that someone can pick in little days
+* A fast language that provide primitive types (String - Number - List - Object)
+* A flexible language that can be extended using OOP to add new types according to the application domain
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What about the Boolean values in Ring?
+
+What about the Boolean values in Ring?
+======================================
+
+
+You can use true for 1 and false for 0
+
+when you test the result of Boolean expressions in your code.
+
+Just when you print the value using the see command you will see 1 for (true) and 0 for (false)
+
+Why ?
+
+Because Ring contains only 4 types of variables
+
+(1) Number
+
+(2) String
+
+(3) List
+
+(4) Object
+
+The first type (Number) is used to represent int, double and Boolean values.
+
+The second type (String) is used to represent char, array of characters, date and time.
+
+The third type (List) is used to represent Arrays of one type, Arrays of more than one type, Hash (Dictionary), Tree, etc.
+
+The object can be an object created from a Ring class (Any Class) or just a C Pointer that we get from calling a C/C++ function/method.
+
+Why ?
+
+The Ring is designed to give the programmer/developer the most simple constructs that can be used to do everything.
+The programmer/developer can customize the language by creating new classes (and use operator overloading) to get more types that he care about according to the problem domain.
+
+Why ?
+
+Because simple is better, and easy to learn and remember!
+And this provide flexibility to convert between high level types that can be represented using the same basic type
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Goal of including the "Main" function in Ring
+
+What is the goal of including the "Main" function in Ring?
+==========================================================
+
+The main function is very important, you need it when you want to write statements that uses 
+local variables instead of the Global scope.
+
+Example:
+
+.. code-block:: ring
+
+	x = 10
+	myfunc()
+	See "X value = " + X  # here I expect that x will be (10)
+        	              # but I will get another value (6) because myfunc() uses x !
+	Func myfunc
+	   for x = 1 to 5
+	       See x + nl
+	   next
+
+Output:
+
+.. code-block:: ring
+
+	1
+	2
+	3
+	4
+	5
+	X value = 6
+
+Now using the Main function
+
+.. code-block:: ring
+
+	Func Main 
+	   x = 10
+	   myfunc()
+	   See "X value = " + X                         
+
+	Func myfunc
+	   for x = 1 to 5
+	       See x + nl
+	   next
+
+Output
+
+.. code-block:: ring
+
+	1
+	2
+	3
+	4
+	5
+	X value = 10
+
+.. index:: 
+	pair: Frequently Asked Questions; List index start from 1
+
+Why the list index start from 1 in Ring?
+========================================
+
+It\'s about how we count in the real world, when we have three apples in our hand
+
+we say 1 2 3 
+
+We don\'t start from 0
+
+The question must be why the other languages start from 0 ?
+
+The answer is, because this is related to the machine and how we deal with values and memory address.
+
+Example
+
+we have array called myarray[5]
+
+In memory : myarray will have an address
+
+The first item will be stored in that address
+
+The second item will come after that address and so on
+
+Now when we need to point to the first item we need the address of myarray
+
+So we type myarray[0] because myarray + 0 result will still point to the first item
+
+for the second item myarray[1] because myarray + 1 result will point to the second item and so on
+
+In Low Level languages or languages near to the machine it\'s good to be like this
+
+But for high level language designed for applications it\'s better to be natural
+
+Example
+
+.. code-block:: ring
+
+	mylist = [1,2,3,4,5]
+	for x = 1 to len(mylist)
+		see x + nl
+	next
+
+In the previous example we start from 1 to the length of the array
+if the index starts from 0 we will write
+
+.. code-block:: ring
+
+	for x = 0 to len(mylist)-1
+
+or remember the for loop in other languages
+
+.. code-block:: ring
+
+	for(x=0 ; x<nMax ; x++ )
+
+You will use the < operator !
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Why Ring is not case-sensitive
+
+Why Ring is not case-sensitive?
+===============================
+
+(1) To be more human-friendly
+
+(2) Like Ada, SQL, Pascal, Delphi, Visual Basic, Visual FoxPro, etc. 
+
+(3) To help in supporting Natural Language Programming.
+
+(4) To be able to select your favorite style when writing the language keywords
+
+.. code-block:: ring
+
+	see "lower case!"
+
+.. code-block:: ring
+
+	SEE "UPPER case!"
+
+.. code-block:: ring
+
+	See "First Letter is UPPER case!"
+
+(5) To avoid getting error message when writing quick tests then type "variable" instead of "Variable".
+
+(6) To avoid getting error message when you type "Dosomething()" instead of "doSomething()"
+
+(7) In Ring, No conflict between Variables, Method Names & Classes Names
+
+We can write person as variable name and Person as class name.
+
+.. code-block:: ring
+	
+	person = new Person	
+	class Person 
+		name address phone
+	
+
+.. index:: 
+	pair: Frequently Asked Questions; Why the Assignment operator uses Deep copy?
+
+Why the Assignment operator uses Deep Copy?
+===========================================
+
+"Because it's a poor tradeoff to add complexity for dubious performance gains, a good
+approach to deep vs. shallow copies is to prefer deep copies until proven otherwise."
+	, Steve McConnell, Code Complete 
+
+(1) It's more natural, When you use the assignment operator, You expect a deep copy.
+
+(2) If you don't need a deep copy, Just don't use it! 
+
+(3) The Ring language is designed to reduce references usage as much as possible.
+
+(4) The Ring language is designed to make using references simple and possible in special cases where this make sense.
+
+(5) We have references when this is natural, like passing lists and objects to functions,
+	creating objects (Like GUI Objects) from a C/C++ library, returning an object stored 
+	inside a list.
+
+(6) It is a feature, We can use it to create pure functions. The Value() function in the
+	stdlib uses this feature to pass lists & objects by value when we need this.
+
+(7) When we need references, It's recommended to create a class that manage sharing lists and objects.
+	
+(8) It's more safe at the application level to avoid many logical errors.
+
+(9) In Ring, we start without thinking about the little details and concentrate on the application, You
+	don't have to write the type (Dynamic Typing), You don't have to write explicit
+	conversions between numbers and strings (Weakly Typed) and you don't have to select
+	between using values or references, You don't have to write the scope (Lexical Scoping).
+
+(10) In Ring, we have smart garbage collector (Simple & Fast), We can delete the memory directly
+	at any time using the Assignment operator too. Reducing references usage or using them through
+	managers helps a lot to achieve this goal. by doing this we have full control.
+
+(11) If you want to create references and avoid creating a manager, 
+	You can use Object2Pointer() and Pointer2Object() functions
+	But It's not the Ring way "Spirit" to do things.
+
+.. index:: 
+	pair: Frequently Asked Questions; Constructor methods in Ring
+
+
+Is there constructor methods in Ring?
+=====================================
+
+When you create new object for example
+
+.. code-block:: ring
+
+	new point
+
+1 - Ring will allocate dynamic memory space to be used for the new object attributes that Ring doesn't know anything about them.
+
+2 - Ring will change the current local scope and the current object scope to use the object state created in step (1)
+
+3 - Ring will move the execution to the class Region (After the class name and before any methods)
+
+4 - Any Instructions/Code in the class region will be executed as any Ring code
+
+5 - Control is moved from the class region to the location of (new point) once we reach the end of the class region or we uses a Return command.
+
+So All attributes that added to the object are dynamic attributes, this mean that you can control what attributes will be added through the runtime.
+
+Example:
+
+.. code-block:: ring
+
+	$3D = False
+	see  new point 
+	$3D = True
+	see new point 
+
+	class point
+		x y
+		if not $3D return ok
+		z
+
+Output:
+
+.. code-block:: none
+
+	x: NULL
+	y: NULL
+	x: NULL
+	y: NULL
+	z: NULL
+
+You have an option to call init() method directly when you create a new object 
+
+This method can do anything with the object attributes as it will be called after creating the object and executing the class region code.
+
+
+.. code-block:: ring
+
+	p1 = new point3d(100,200,300)
+	see p1
+
+	class point3d
+		x y z
+		func init p1,p2,p3
+			x=p1 y=p2 z=p3
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What happens when we create a new object?
+
+What happens when we create a new object?
+=========================================
+
+1- When you create an object, the class region code will be executed and you will have the object attributes based on the code in that region
+
+2- Ring don't care about the object methods until you start calling a method
+
+3- When you call a method, Ring will check the object class and the class parent (if you are using inheritance) and will collect the methods for you to be used now or later from any object that belong to the same class.
+
+4- Since methods are dynamic and each object get the method from the class, you can after creating objects, add new methods and use it with the object or any object created or will be created from the same class.
+
+Example:
+
+.. code-block:: ring
+
+	o1 = new point {x=10 y=20 z=30}
+	o2 = new point {x=100 y=200 z =300}
+
+	addmethod(o1,"print", func { see x + nl + y + nl + z + nl } )
+
+	o1.print()
+	o2.print()
+
+	class point x y z
+
+Output:
+
+.. code-block:: none
+
+	10
+	20
+	30
+	100
+	200
+	300
+
+.. index:: 
+	pair: Frequently Asked Questions; Getter and Setter Methods
+
+Can we use the attributes by accessing the Getter and Setter methods?
+=====================================================================
+
+Yes we can, The setter/getter methods are called automatically when you start using the attributes from outside the class
+Also you can call the methods instead of using the attributes. It's your choice.
+
+Example:
+
+.. code-block:: ring
+
+	o1 = new Developer
+	o1.name = "Mahmoud"  see o1.name + nl
+	o1 { name = "Gal"  see name }
+	o1 { name = "Bert"  see name }
+
+	o1.setname("Marino")
+	see o1.getname()
+
+	Class Developer
+
+			name language = "Ring Programming Language"
+
+			func setname value
+					see "Message from SetName() Function!" + nl
+					name = value + " - " + language
+
+			func getname
+					see "Message from GetName() Function!" + nl + nl
+					return "Mr. " + name + nl
+
+Output
+
+.. code-block:: none
+
+	Message from SetName() Function!
+	Message from GetName() Function!
+
+	Mr. Mahmoud - Ring Programming Language
+
+	Message from SetName() Function!
+	Message from GetName() Function!
+
+	Mr. Gal - Ring Programming Language
+	Message from SetName() Function!
+	Message from GetName() Function!
+
+	Mr. Bert - Ring Programming Language
+	Message from SetName() Function!
+	Message from GetName() Function!
+
+	Mr. Marino - Ring Programming Language
+
+.. index:: 
+	pair: Frequently Asked Questions; Search of global names while defining the class attributes
+
+Why should a search of global names be made while defining the class attributes?
+================================================================================
+
+The question is why we don't avoid conflicts with global variable names when we
+define the class attributes ?
+
+At first remember that using the optional $ mark in the global variables names solve
+the problem. Also using the Main function and avoiding global variables may help.
+
+The Answer:
+
+Ring is a dynamic language
+
+We can in the run-time determine the class attributes (Add/Remove) 
+
+We can execute (any code) while defining the class attributes
+
+Example (1)
+
+.. code-block:: ring
+
+	oPerson = new Person
+	Class Person
+	   See "Welcome to the Ring language"
+
+Example (2)
+
+Customize attributes based on global variable value
+
+.. code-block:: ring
+
+	$debug = true
+	oPerson = new Person
+	see oPerson
+	Class Person
+	    if $debug  date=date()  time=time() ok
+
+In the previous example when we have the $debug flag set to true, we will add the Date and Time
+attributes to the object state.
+
+Example (3)
+
+Store the object index based on global variable
+
+.. code-block:: ring
+
+	$ObjectsCount = 0
+	oPerson = new Person
+	see oPerson
+	oPerson2 = new Person
+	see oPerson2
+	Class Person
+	      $ObjectsCount++
+	      nIndex = $ObjectsCount
+
+Output:
+
+.. code-block:: ring
+
+	nindex: 1.000000
+	nindex: 2.000000
+
+Common Example: 
+
+* Connect to the database then get table columns (Using global Variable/Object).
+
+* Create class attributes based on the column names.
+
+* Later when you modify the database - you may don't need to modify your code.
+
+It's flexibility but remember that power comes with great responsibility.
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Conflict between Global Variables and Class Attributes
+
+
+Why Ring doesn't avoid the conflict between Global Variables and Class Attributes Names?
+========================================================================================
+
+In this use case we have 
+
+1 - Global Variable defined without a special mark like $
+
+2 - Class contains Attributes defined using a special syntax (where we type the attribute name directly after the class)
+
+3 - The Attributes are defined in the class region that allows writing code and using global variables
+
+If I will accepted your proposal about changing how Ring find variables in the class region I must break one of the previous three features which will lead to more problems that are more important than this problem.
+
+I don't like changing the feature number (1) because I would like to keep Ring code more clean and let the programmer decide when to use $ or not.
+
+I don't like changing the feature number (2) because I like this feature and I don't like forcing the programmer to type
+self.attribute 
+
+I don't like changing the feature number (3) because it's very important in many applications to access global variables in the class region.
+
+So what was my decision ? 
+
+I decided to leave this case for the programmer who will decide what to do to avoid this special case
+
+1 - The programmer can avoid using global variables (Better) and can use the Main function (Optional)
+
+2 - The programmer can use $ before the variable name or any mark like global_ or g_
+
+3 - The programmer can use self.attribute after the class name to define the attributes 
+
+In general, for small programs you can use global variables and functions.
+For large programs, use classes and objects and small number of global variables or avoid them at all.
+
+.. index:: 
+	pair: Frequently Asked Questions; Where can I write a program and execute it?
+
+
+Where can I write a program and execute it?
+===========================================
+
+Run the Ring Notepad where you can write/execute programs.
+
+If you want to run programs using the command line
+
+Add Ring/bin folder to the path then
+
+.. code-block:: none
+
+	ring <filename.ring>|<filename.ringo>
+
+.. index:: 
+	pair: Frequently Asked Questions; How to get the file size using ftell() and fseek() functions?
+
+How to get the file size using ftell() and fseek() functions?
+=============================================================
+
+
+The next function can be used to get the file size without reading the file!
+
+.. code-block:: ring
+
+	func getFileSize fp
+	       C_FILESTART = 0
+	       C_FILEEND = 2
+	       fseek(fp,0,C_FILEEND)
+	       nFileSize = ftell(fp)
+	       fseek(fp,0,C_FILESTART)
+	       return nFileSize
+
+.. note:: The previous function take the fp (file pointer) as parameter, We can get the fp from opening the file using fopen() function.
+
+.. code-block:: ring
+
+	fp = fopen("filename","r")
+
+	see  "File Size : " + getFileSize(fp) + nl
+
+Another solution (Read the file)
+
+.. code-block:: ring
+
+	see len(read("filename"))
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to get the current source file path?
+
+How to get the current source file path?
+========================================
+
+We can use the next function to get the current source file path
+then we can add the path variable to the file name
+
+.. code-block:: ring
+
+	cPath = CurrentPath()
+	func currentpath
+		cFileName = filename()
+		for x = len(cFileName) to 1 step -1
+			if cFileName[x] = "/"
+				return left(cFileName,x-1)
+			ok
+		next
+		return cFileName
+
+
+.. index:: 
+	pair: Frequently Asked Questions; What about predefined parameters or optional parameters in functions?
+
+What about predefined parameters or optional parameters in functions?
+=====================================================================
+
+if you want to use predefined parameters or optional parameters
+Just accept a list that works like hash/dictionary
+
+Example
+
+.. code-block:: ring
+
+	sum([ :a = 1, :b = 2])
+	sum([ :a = 1 ])
+	sum([ :b = 2 ])
+	func sum pList
+		if plist[:a] = NULL pList[:a] = 4 ok
+		if plist[:b] = NULL pList[:b] = 5 ok
+		see pList[:a] + pList[:b] + nl
+
+Output
+
+.. code-block:: none
+
+	3
+	6
+	6
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to print keys or values only in List/Dictionary?
+
+How to print keys or values only in List/Dictionary?
+====================================================
+
+
+If you want to print keys only or values only just select the index of the item (one or two).
+
+Example
+
+.. code-block:: ring
+
+
+	C_COUNTRY = 1
+	C_CITY = 2
+	mylist = [
+		:KSA = "Riyadh" ,
+		:Egypt = "Cairo"
+	]
+
+	for x in mylist
+		see x[C_COUNTRY] + nl
+	next
+
+	for x in mylist
+		see x[C_CITY] + nl
+	next
+
+Output
+
+.. code-block:: none
+
+	ksa
+	egypt
+	Riyadh
+	Cairo
+
+.. index:: 
+	pair: Frequently Asked Questions; Why I get a strange result when printing nl with lists?
+
+Why I get a strange result when printing nl with lists?
+=======================================================
+
+In the next code
+
+.. code-block:: ring
+
+	list = 1:5        # list = [1,2,3,4,5]
+	see list + nl
+
+New Line will be added to the list then the list will be printed, the default print of the lists 
+will print a newline at the end, You added new newline and You have now 2 newlines to be printed.
+
+.. code-block:: ring	
+
+	See <Expr>
+
+The see command just print the final result of the expression, the expression will be evaluated as it
+
+.. code-block:: ring
+
+	nl = char(13) + char(10) # just a variable that you can change to anything !
+
+The + is an operator
+
+.. code-block:: none
+
+	string + string ---> new string
+	string + number ---> new string
+	number + number ---> new number
+	number + string ---> new number
+
+list + item ---> nothing new will be created but the item will be added to the same list
+
+Exception
+
+number + nl -> New String
+
+This exception is added to easily print numbers then new line.
+
+No need for this with printing lists because after printing the last item we already get a new line.
+
+.. index:: 
+	pair: Frequently Asked Questions; Could you explain the output of the StrCmp() function?
+
+Could you explain the output of the StrCmp() function?
+======================================================
+
+At first remember that you can check strings using '=' operator directly.
+
+.. code-block:: ring
+
+	see strcmp("hello","hello") + nl +
+	strcmp("abc","bcd") + nl +
+	strcmp("bcd","abc") + nl
+
+if the two strings are the same then it returns 0
+
+abc and bcd aren't the same. in the second line it returns -1 and in the third line it returns 1
+
+In the second line we compare between "abc" and "bcd"
+
+Not equal because the first letter in "abc" = "a" 
+and the first letter in "bcd" = "b"
+
+So we have "a" != "b" and "a" < "b"
+
+So we get output = -1
+
+In the third line we have "bcd" and "abc"
+
+the first letter in "bcd" is "b" and the first letter in "abc" is "a"
+
+So we have "b" != "a" and "b" > "a"
+
+So we get output = 1
+
+.. note:: ASCII("a") = 97 and ASCII("b") = 98 So "a" < "b" because 97 < 98
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to use many source code files in the project?
+
+How to use many source code files in the project?
+=================================================
+
+Example:
+
+I have the next folder
+
+.. code-block:: none
+
+	C:\LRing
+
+Contains the next files
+
+.. code-block:: none
+
+	C:\LRing\t1.ring
+	C:\LRing\mylib.ring
+	C:\LRing\libs\mylib2.ring
+
+The file t1.ring contains the next code
+
+.. code-block:: ring
+
+	load "mylib.ring"
+	load "libs\mylib2.ring"
+	myfunc()
+	test()
+
+The file mylib.ring contains the next code
+
+.. code-block:: ring
+
+	func myfunc
+		see "message from myfunc"+nl
+
+The file libs\mylib2.ring contains the next code
+
+.. code-block:: ring
+
+	func test
+		see "message from test" + nl
+
+from the folder C:\LRing
+
+If Ring is not added to the path you can add it or use the next command
+
+.. code-block:: none
+
+	set path=%path%;c:\ring\bin;
+
+Where c:\ring is the Ring folder
+
+Now run
+
+.. code-block:: none
+
+	Ring t1.ring
+
+Output
+
+.. code-block:: none
+
+	message from myfunc
+	message from test
+
+.. index:: 
+	pair: Frequently Asked Questions; Why this example use the GetChar() twice?
+
+Why this example use the GetChar() twice?
+=========================================
+
+The GetChar() function accept one character from the keyboard buffer
+
+In this example
+
+
+.. code-block:: ring
+
+
+	While True
+	       	See "
+        	        Main Menu
+                	(1) Say Hello
+	                (2) Exit
+	        "
+	        Option = GetChar()
+        	GetChar() GetChar()  # End of line
+	        # the previous two lines can be replaced with the next line
+        	# Give Option
+
+	        if Option = 1
+        	        see "Enter your name : " give cName
+                	see "Hello " + cName
+	        else
+        	        bye
+	        ok
+	End
+
+We uses GetChar() Three times
+
+The first time we get the user option
+
+.. code-block:: ring
+
+	Option = GetChar()
+ 
+
+But in the second and the third times (We accept the new line characters from the buffer)
+
+.. code-block:: ring
+
+	GetChar() GetChar()  # End of line
+
+Example : when the user select the option number 1 then press ENTER
+
+We have Three Characters
+
+* The first character is : Number 1
+* The second character is : CHAR(13)
+* The third character is : CHAR(10)
+
+Because Windows uses CHAR(13) and CHAR(10) for each new line  ( i.e. CR+LF )
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to use NULL and ISNULL() function?
+
+How to use NULL and ISNULL() function?
+======================================
+
+when we try to use uninitialized variable in the Ring programming language, we get a clear runtime error message
+
+Example
+
+.. code-block:: ring
+
+	See x
+
+Output
+
+.. code-block:: none
+
+	Line 1 Error (R24) : Using uninitialized variable : x
+	in file tests\seeuninit.ring
+
+The same happens when you try to access uninitialized attributes
+
+Example
+
+.. code-block:: ring
+
+	o1 = new point
+	see o1
+	see o1.x
+	class point x y z
+
+Output
+
+.. code-block:: none
+
+	x: NULL
+	y: NULL
+	z: NULL
+
+	Line 3 Error (R24) : Using uninitialized variable : x
+	in file tests\seeuninit2.ring
+
+if you want to check for the error, just use Try/Catch/End
+
+.. code-block:: ring
+
+	Try
+		see x
+	Catch
+		See "Sorry, We can't use x!" + nl
+	Done
+
+Output
+
+.. code-block:: none
+
+	Sorry, We can't use x!
+
+Now we will talk about NULL and ISNULL()
+
+Since we get error message when we deal with uninitialized variables
+
+We can check these errors using Try/Catch/Done, So we uses NULL and ISNULL() for dealing with Strings.
+
+NULL is a variable contains an empty string
+
+ISNULL() is a function that returns true (1) if the input is an empty string or just a string contains "NULL"
+
+This because we need to test these values (empty strings) and strings contains "NULL" that sometimes come from external resource like DBMS.
+
+Example
+
+.. code-block:: ring
+
+	See IsNull(5) + nl +        # print 0
+	IsNull("hello") + nl +      # print 0
+	IsNull([1,3,5]) + nl +      # print 0
+	IsNull("") + nl +           # print 1
+	IsNull("NULL")              # print 1
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to print lists that contains objects?
+
+How to print lists that contains objects?
+=========================================
+
+In this example we will see how we can print a list contains objects.
+
+.. code-block:: ring
+
+	aList = [[1,2,3] , new point(1,2,3), new point(1,2,3)]
+	see "print the list" + nl
+	see alist
+	see "print the item (object)" + nl
+	see alist[2]
+	class point x y z
+		func init p1,p2,p3 x=p1 y=p2 z=p3
+
+Output
+
+.. code-block:: none
+
+	print the list
+	1
+	2
+	3
+	x: 1.000000
+	y: 2.000000
+	z: 3.000000
+	x: 1.000000
+	y: 2.000000
+	z: 3.000000
+	print the item (object)
+	x: 1.000000
+	y: 2.000000
+	z: 3.000000
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to insert an item to the first position in the list?
+
+How to insert an item to the first position in the list?
+========================================================
+
+To insert an item we can use the insert(aList,nIndex,Value) function.
+
+.. code-block:: ring
+
+	aList = 1:5
+	insert(aList,0,0)
+	See aList # print numbers from 0 to 5
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to print new lines and other characters?
+
+How to print new lines and other characters?
+============================================
+
+To print new line we can use the nl variable.
+
+.. code-block:: ring
+
+	See "Hello" + nl
+
+or we can use multi-line literal as in the next example
+
+.. code-block:: ring
+
+	See "Hello
+	
+	"
+if we want to print other characters we can use the char(nASCII) function
+
+.. code-block:: ring
+
+	See char(109) + nl +    # print m
+	    char(77)            # print M
+
+.. index:: 
+	pair: Frequently Asked Questions; Why we don't use () after the QApp class name?
+
+Why we don't use () after the QApp class name?
+==============================================
+
+When we use RingQt to create GUI application, we uses () after the 
+class name when we create new objects for example.
+
+.. code-block:: ring
+
+	new qWidget() { setWindowTitle("Hello World") resize(400,400) show() }
+
+but before doing that we create an object from the qApp class and we don't use () after that
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	app = new qApp
+	{
+	    win=new qWidget()
+	    {
+        	setwindowtitle(:test)
+         	show()
+	    }
+	    exec()
+	}
+ 
+Using () after the class name means calling the init() method in the class and passing parameters to this method.
+
+If we used () while no init() method in the class we get the expected error message.
+
+The class qApp don't have this method while the other classes have it because they need it to 
+create an object using a function that return a pointer to that object and this pointer will
+be stored in an attribute called pObject, for more information see ring_qt.ring file
+which contains the classes.
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Why the window title bar is going outside the screen?
+
+Why the window title bar is going outside the screen?
+=====================================================
+
+When we write the next code
+
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	app = new qApp
+	{
+		win=new qWidget()
+		{
+		      setwindowtitle(:test)
+		      setGeometry(0,0,200,200)
+		      show()
+		}
+		exec()
+	}
+ 
+I would expect that the window will run at the point (0,0) with (200,200) size but the actual 
+result is that the window title bar is going outside the screen.
+
+This is related to the behavior of Qt framework.
+
+The next code will avoid the problem
+
+.. code-block:: ring
+
+	load "guilib.ring"
+	new qApp {
+		new qWidget() {
+			move(0,0)
+			resize(200,200)
+			show()
+		}
+		exec()
+	}
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to create an array of buttons in GUI applications?
+
+How to create an array of buttons in GUI applications?
+======================================================
+
+Check the next example:
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+
+	App1 = new qApp {
+
+		win1 = new qWidget() {
+			move(0,0)
+			resize(500,500)
+			new qPushButton(win1)
+			{
+				settext("OK")
+				setclickevent("click()")
+			}
+			btn1 = new qPushButton(win1)
+			{
+				setgeometry(100,100,100,30)
+				settext("Button1")
+			}
+
+			btn2 = new qPushButton(win1)
+			{
+				setgeometry(200,100,100,30)
+				settext("Button2")
+			}
+
+			button = [btn1, btn2]
+			show()
+		}
+
+		exec()
+
+	}
+
+	func click
+
+		button[1] { settext ("Button3") }
+		button[2] { settext ("Button4") }
+
+.. index:: 
+	pair: Frequently Asked Questions; How to Close a window then displaying another one?
+
+How to Close a window then displaying another one?
+==================================================
+
+This example demonstrates how to close a window and show another one
+
+.. code-block:: none
+
+	Load "guilib.ring"
+
+	app=new qApp
+	{
+		frmBefore=new Qwidget()
+		{
+			setWindowTitle("before!")
+			resize(300,320)
+			move(200,200)
+
+			button=new qPushButton(frmBefore)
+			{
+				setText("Close")
+				setClickEvent("frmBefore.close() frmMain.show()")
+			}
+
+			show()
+		}
+
+		frmMain=new Qwidget()
+		{
+			setWindowTitle("After!")
+			resize(300,320)
+			move(200,200)
+		}
+
+		exec()
+
+	}
+
+.. index:: 
+	pair: Frequently Asked Questions; How to create a Modal Window?
+
+How to create a Modal Window?
+=============================
+
+This example demonstrates how to create a modal window
+
+.. code-block:: ring
+
+	load "guilib.ring"
+	app=new qApp
+	{
+		frmStart=new Qwidget()
+		{
+			setWindowTitle("The First Window")
+			resize(300,320)
+			move(200,200)
+		
+			button=new qPushButton(frmStart)
+			{
+				setText("Show Modal Window")
+				resize(200,30)
+				setClickEvent("frmModal.show()")
+			}
+
+			new qPushButton(frmStart)
+			{
+				setText("Close Window")
+				move(0,50)
+				resize(200,30)
+				setClickEvent("frmStart.Close()")
+			}
+
+			show()
+		}
+
+		frmModal =new Qwidget()
+		{
+			setWindowTitle("Modal Window")
+			resize(300,320)
+			move(200,200)
+			setparent(frmStart)
+			setwindowmodality(true)
+			setwindowflags(Qt_Dialog)
+		}
+
+		exec()
+
+	}
+
+ 
+Related Documents
+
+* http://doc.qt.io/qt-5/qtwidgets-widgets-windowflags-example.html
+* http://doc.qt.io/qt-5/qt.html#WindowType-enum
+* http://doc.qt.io/qt-5/qwindow.html#setParent
+* http://doc.qt.io/qt-5/qt.html#WindowModality-enum
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How can I disable maximize button and resize window?
+
+How can I disable maximize button and resize window?
+====================================================
+
+Use the method setWindowFlags()
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	app1 = new qapp {
+			win1 = new qwidget() {
+					setwindowtitle("First")
+					setgeometry(100,100,500,500)
+
+					new qpushbutton(win1) {
+							setgeometry(100,100,100,30)
+							settext("close")
+							setclickevent("app1.quit()")
+					}
+
+					new qpushbutton(win1) {
+							setgeometry(250,100,100,30)
+							settext("Second")
+							setclickevent("second()")
+					}
+
+					showmaximized()
+			}
+			exec()
+	}
+
+	func second
+			win2 = new qwidget() {
+					setwindowtitle("Second")
+					setgeometry(100,100,500,500)
+					setwindowflags(Qt_dialog)
+					show()
+			}
+
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to use SQLite using ODBC?
+
+How to use SQLite using ODBC?
+=============================
+
+In Ring 1.1 and later versions we have native support for SQLite, so you don't need to use it through ODBC.
+
+Also we can access SQLite through RingQt.
+
+The answer to your question
+
+.. code-block:: ring
+
+	pODBC = odbc_init()
+	odbc_connect(pODBC,"DRIVER=SQLite3 ODBC Driver;Database=mydb.db;LongNames=0;"+
+			   "Timeout=1000;NoTXN=0;SyncPragma=NORMAL;StepAPI=0;")
+	odbc_execute(pODBC,"create table 'tel' ('ID','NAME','PHONE');")
+	odbc_execute(pODBC,"insert into 'tel' values ('1','Mahmoud','123456');")
+	odbc_execute(pODBC,"insert into 'tel' values ('2','Ahmed','123456');")
+	odbc_execute(pODBC,"insert into 'tel' values ('3','Ibrahim','123456');")
+	odbc_execute(pODBC,"select * from tel") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+        	See nl
+	        for x = 1 to nMax
+        	        see odbc_getdata(pODBC,x) 
+			if x != nMax see " - " ok
+	        next
+	end
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output:
+
+.. code-block:: none
+
+	Columns Count : 3
+
+	1 - Mahmoud - 123456
+	2 - Ahmed - 123456
+	3 - Ibrahim - 123456
+
+The program will create the file : mydb.db
+
+Note : when I print the odbc drivers I see the long list that includes
+
+.. code-block:: none
+
+	SQLite3 ODBC Driver - UsageCount=1
+	SQLite ODBC Driver - UsageCount=1	
+	SQLite ODBC (UTF-8) Driver - UsageCount=1
+
+And I'm using "SQLite3 ODBC Driver".
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Can I connect to dbase/harbour database?
+
+Can I connect to dbase/harbour database?
+========================================
+
+You can connect to any database using ODBC
+
+To connect to xbase files (*.DBF)
+
+.. code-block:: ring
+
+	See "Using DBF Files using ODBC" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"Driver={Microsoft dBase Driver (*.dbf)};"+
+			   "datasource=dBase Files;DriverID=277")
+	See "Select data" + nl
+	odbc_execute(pODBC,"select * from tel.dbf") 
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		   See "Row data:" + nl
+		   for x = 1 to nMax
+				   see odbc_getdata(pODBC,x) + " - "
+		   next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+Output 
+
+.. code-block:: none
+
+	Using DBF Files using ODBC
+	Connect to database
+	Select data
+	Columns Count : 3
+	Row data:
+	Ahmad - Egypt - 234567 - Row data:
+	Fady - Egypt - 345678 - Row data:
+	Shady - Egypt - 456789 - Row data:
+	Mahmoud - Egypt - 123456 - Close database...
+
+
+Also you can connect to a Visual FoxPro database (requires installing Visual FoxPro driver)
+
+.. code-block:: ring
+
+
+	See "ODBC test 6" + nl
+	pODBC = odbc_init()
+	See "Connect to database" + nl
+	odbc_connect(pODBC,"Driver={Microsoft Visual FoxPro Driver};"+
+		"SourceType=DBC;SourceDB=C:\PWCT19\ssbuild\PWCTDATA\CH1\Data\mydata.dbc;") 
+	See "Select data" + nl
+	see odbc_execute(pODBC,"select * from t38") + nl
+	nMax = odbc_colcount(pODBC)
+	See "Columns Count : " + nMax + nl
+	while odbc_fetch(pODBC)
+		See "Row data:" + nl
+		for x = 1 to nMax
+			see odbc_getdata(pODBC,x) + " - "
+		next
+	end
+	See "Close database..." + nl
+	odbc_disconnect(pODBC)
+	odbc_close(pODBC)
+
+.. index:: 
+	pair: Frequently Asked Questions; Why setClickEvent() doesn't see the object methods directly?
+
+Why setClickEvent() doesn't see the object methods directly?
+============================================================
+
+setClickEvent(cCode) take a string contains code. The code will be executed when the event happens.
+
+Ring support Many Programming Paradigms like Procedural, OOP, Functional and others.
+
+But when you support many paradigms at the language level you can't know which paradigm will be used so you have two options
+
+(1) Provide General Solutions that works with many programming paradigms.
+
+(2) Provide Many Specific solutions where each one match a specific paradigm.
+
+setClickEvent() and others belong to (General Solutions that works with many programming paradigms).
+
+You just pass a string of code that will be executed without any care about classes and objects.
+
+This code could be anything like calling a function, calling a method and setting variable value.
+
+Some other languages force you to use OOP and call methods for events.
+Also some other languages uses anonymous functions that may get parameters like the current object.
+
+Now we have the general solution (not restricted with any paradigm), In the future we may 
+add specific solutions that match specific paradigms (OOP, Functional, Declarative and Natural).
+
+.. index:: 
+	pair: Frequently Asked Questions; Why I get Calling Function without definition Error?
+
+Why I get Calling Function without definition Error?
+====================================================
+
+Each program follow the next order 
+
+1 - Loading Files
+2 - Global Variables and Statements
+3 - Functions
+4 - Packages, Classes and Methods
+
+So what does that mean ?
+
+(1) **** No Functions comes After Classes ****
+(2) **** No command is required to end functions/methods/classes/packages ****
+
+Look at this example
+
+.. code-block:: ring
+
+	See "Hello"
+	test()
+	func test 
+	    see "message from the test function!" + nl
+	class test 
+ 
+In the previous example we have a function called test() so we can call it directly using test()
+
+In the next example, test() will become a method
+
+.. code-block:: ring
+
+	See"Hello"
+	test()    # runtime error message
+	class test
+		func test # Test() now is a method (not a function)
+			see "message from the test method!" + nl
+
+The errors comes when you define a method then try calling it directly as a function.
+
+The previous program must be
+
+.. code-block:: ring
+
+	See"Hello"
+	new test { test() }   # now will call the method
+	class test
+		func test # Test() now is a method (not a function)
+			see "message from the test method!" + nl
+
+
+.. index:: 
+	pair: Frequently Asked Questions; Can Ring work on Windows XP?
+
+Can Ring work on Windows XP?
+============================
+
+Ring can work on Windows XP and load extensions without problems.
+
+Just be sure that the extension can work on Windows XP and your compiler version support that (modern compilers requires some flags to support XP)
+
+Check this topic
+https://blogs.msdn.microsoft.com/vcblog/2012/10/08/windows-xp-targeting-with-c-in-visual-studio-2012/
+
+For example, We added 
+
+.. code-block:: none
+
+	/link /SUBSYSTEM:CONSOLE,"5.01" 
+
+To the batch file to support Windows XP
+
+See : https://github.com/ring-lang/ring/blob/master/language/src/buildvc.bat
+
+
+.. index:: 
+	pair: Frequently Asked Questions; How to extend RingQt and add more classes?
+
+How to extend RingQt and add more classes?
+==========================================
+
+You have many options
+
+In general you can extend Ring using C or C++ code
+
+Ring from Ring code you can call C Functions or use C++ Classes & Methods
+
+This chapter in the documentation explains this part in the language
+https://ring-lang.sourceforge.io/doc1.13/extension.html
+
+For example the next code in *.c file can be compiled to a DLL file using the Ring library (*.lib)
+
+.. code-block:: c
+
+	#include "ring.h"
+
+	RING_FUNC(ring_ringlib_dlfunc)
+	{
+        	printf("Message from dlfunc");
+	}
+
+	RING_API void ringlib_init(RingState *pRingState)
+	{
+        	ring_vm_funcregister("dlfunc",ring_ringlib_dlfunc);
+	}
+
+Then from Ring you can load the DLL file using LoadLib() function then call the C function that called dlfunc() as any Ring function.
+
+.. code-block:: ring
+
+	See "Dynamic DLL" + NL
+	LoadLib("ringlib.dll")
+	dlfunc()
+
+Output
+
+.. code-block:: none
+
+	Dynamic DLL
+	Message from dlfunc
+
+When you read the documentation you will know about how to get parameters like (strings, numbers, lists and objects)
+
+And how to return a value (any type) from you function.
+
+From experience, when we support a C library or C++ Library
+
+We discovered that a lot of functions share a lot of code 
+
+To save our time, and to quickly generate wrappers for C/C++ Libraries to be used in Ring
+
+We have this code generator
+
+https://github.com/ring-lang/ring/blob/master/extensions/codegen/parsec.ring
+
+The code generator is just a Ring program < 1200 lines of Ring code
+
+The generator take as input a configuration file contains the C/C++ library information
+
+like Functions Prototype, Classes and Methods, Constants, Enum, Structures and members , etc.
+
+Then the generator will generate
+
+*.C File for C libraries (to be able to use the library functions)
+
+*.CPP File for C++ libraries (to be able to use C++ classes and methods)
+
+*.Ring File (to be able to use C++ classes as Ring classes)
+
+*.RH file (Constants)
+
+To understand how the generator work check this extension for the Allegro game programming library
+
+https://github.com/ring-lang/ring/tree/master/extensions/ringallegro
+
+At first we have the configuration file
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/allegro.cf
+
+To write this file, i just used the Allegro documentation + the Ring code generator rules
+
+Then after executing the generator using this batch file
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.bat
+
+or using this script
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.sh
+
+I get the generated source code file
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/ring_allegro.c
+
+The generated source code file (ring_allegro.c) is around 12,000 Lines of code (12 KLOC)
+
+While the configuration file is less than 1 KLOC
+
+To build the library (create the DLL files)
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/buildvc.bat
+
+Also you can check this extension for the LibSDL Library
+
+https://github.com/ring-lang/ring/tree/master/extensions/ringsdl
+
+After this know you should know about
+
+1 - Writing the configuration file 
+
+2 - Using the Code Generator 
+
+3 - Building your library/extension
+
+4 - Using your library/extension from Ring code
+
+Let us move now to you question about Qt
+
+We have RingQt which is just an extension to ring (ringqt.dll)
+
+You don't need to modify Ring.
+
+(1) You just need to modify RingQt
+
+(2) Or extend Ring with another extension based on Qt (but the same Qt version)
+
+For the first option see the RingQt extension
+
+https://github.com/ring-lang/ring/tree/master/extensions/ringqt
+
+Configuration file
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/classes/qt.cf
+
+To generate the source code
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencode.bat
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencode.sh
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/gencodeandroid.bat
+
+To build the DLL/so/Dylib files
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildmingw32.bat
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildgcc.sh
+
+https://github.com/ring-lang/ring/blob/master/extensions/ringqt/buildclang.sh
+
+Study RingQt
+
+Learn about the options that you have 
+
+(1) wrapping a Qt class directly
+
+(2) Creating a new class then wrapping your new class 
+
+For the second option (in the previous two points or in the two points before that)
+
+You will create new classes in C++ code
+
+Then you merge these classes to RingQt or provide special DLL for them (your decision)
+
+If your work is general (will help others) just put it to RingQt.
+
+if your work is special (to specific application) just put it in another extension.
+
+.. index:: 
+	pair: Frequently Asked Questions; How to add Combobox and other elements to the cells of a QTableWidget?
+
+How to add Combobox and other elements to the cells of a QTableWidget?
+======================================================================
+
+Check the next code
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	New qApp 
+	{
+		win1 = new qMainWindow() {
+			setGeometry(100,100,1100,370)
+			setwindowtitle("Using QTableWidget")
+
+			Table1 = new qTableWidget(win1) {
+				setrowcount(10) setcolumncount(10)
+				setGeometry(0,0,800,400)
+				setselectionbehavior(QAbstractItemView_SelectRows)
+				
+				for x = 1 to 10
+					for y = 1 to 10
+						item1 = new qtablewidgetitem("R"+X+"C"+Y)
+						setitem(x-1,y-1, item1)
+					next
+				next
+
+				cmb = new QComboBox(Table1) {
+					alist = ["one","two","three","four","five"]
+					for x in aList additem(x,0) next   
+				}
+					setCellWidget(5, 5, cmb)
+			}
+
+			setcentralwidget(table1)
+			show()
+		}
+		exec()
+	}
+	
+.. index:: 
+	pair: Frequently Asked Questions; How to perform some manipulations on selected cells in QTableWidget?
+
+How to perform some manipulations on selected cells in QTableWidget?
+====================================================================
+
+Check the next sample
+
+.. code-block:: ring
+
+	Load "guilib.ring"
+	
+	New qApp {
+		win1 = new qMainWindow() {
+			setGeometry(100,100,800,600)
+			setwindowtitle("Using QTableWidget")
+			Table1 = new qTableWidget(win1) {
+				setrowcount(10) setcolumncount(10)
+				setGeometry(10,10,400,400)
+				for x = 1 to 10
+					for y = 1 to 10
+						item1 = new qtablewidgetitem("10")
+						setitem(x-1,y-1,item1)
+					next
+				next
+			}
+			btn1 = new qPushButton(win1) {
+				setText("Increase")    
+				setGeometry(510,10,100,30)
+				setClickEvent("pClick()")
+			}
+			show()
+		}
+		exec()
+	}
+
+	func pClick
+		for nRow = 0 to Table1.rowcount() - 1
+			for nCol = 0 to Table1.columncount() - 1
+				Table1.item(nRow,nCol)  {
+					if isSelected()
+						setText( "" + ( 10 + text()) )
+					ok
+				}
+			next
+		next
+
+.. index:: 
+	pair: Frequently Asked Questions; Which of 3 coding styles are commonly used or recommended by the community?
+
+Which of 3 coding styles are commonly used or recommended by the community?
+===========================================================================
+
+(1) Just select any style of them but don't mix between the different styles in the same project
+     or at least in the same context (Implementation, Tests, Scripts, etc)
+
+.. Note:: State the rules in the start of each project and follow it.
+
+(2) You can create your style (by changing keywords) - The idea is about customization and freedom.
+
+.. Note:: It's better to change keywords and create new style only for a clear reason like using another natural  language (Arabic, French, etc.)
+
+(3) The First style is better (IMHO) for questions, tutorials and small applications/programs (Less than 5,000 LOC)
+      Example : Ring Book, Most of Ring Samples and Applications.
+
+(4) The Third style is better(IMHO) for large applications and mainstream programmers
+
+	Example (Form Designer) : https://github.com/ring-lang/ring/tree/master/tools/formdesigner

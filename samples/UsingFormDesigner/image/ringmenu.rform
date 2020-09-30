@@ -1,0 +1,62 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 46 , : y = 52  , 
+		 :width =  745 , :height = 332 , 
+		 :title =  "Image" , 
+		 :backcolor =  "#ffffff" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Image1" , :id = 2 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 26 , : y = 35  , 
+		 :width =  296 , :height = 158 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "thering.jpg"
+		]
+	],
+	[ :name = "Label1" , :id = 3 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 428 , : y = 42  , 
+		 :width =  157 , :height = 60 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "MS Shell Dlg 2,18,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Main Menu",
+		 :textalign =  0
+		]
+	],
+	[ :name = "Button1" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 338 , : y = 139  , 
+		 :width =  342 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#cdff60" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Start",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	],
+	[ :name = "Button4" , :id = 5 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 338 , : y = 207  , 
+		 :width =  342 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#cdff60" , 
+		 :font =  "MS Shell Dlg 2,16,-1,5,50,0,0,0,0,0" , 
+		 :parent =  "win"  ,
+		 :text =  "Close",
+		 :BtnImage =  "",
+		 :setClickEvent =  ""
+		]
+	]
+]
+# End Form Designer File

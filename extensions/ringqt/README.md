@@ -7,8 +7,6 @@ The folder "Events" contains ring files that define each Qt class singals and sl
 
 The folder "Cpp" contains the generated code (Don't modify it directly) by the code generator.
 
-The folder "GuiLib" contains the Ring classes that wraps Qt classes.
-
 The folder "Docs" contains scripts that generate the documentation of this extension.
 
 How to study this extension

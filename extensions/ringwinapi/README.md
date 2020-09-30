@@ -24,11 +24,6 @@ This is a simple ring code that use this extension:
     Ok
 
 
-## Other resources
-
-- [The article of this extension in the ring forum](https://groups.google.com/forum/#!topic/ring-lang/4wp4gIoZFm4)
-  
-
 ## How to Compile
 
 1- Open [Git bash](http://opensourcerer.diy.org/challenge/3) then Navigate to the folder that you want to bring Ring source into it. For example:

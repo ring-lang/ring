@@ -1,0 +1,822 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>What is new in Ring 1.9? &mdash; Ring 1.13 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="What is new in Ring 1.10?" href="whatisnew10.html" />
+    <link rel="prev" title="What is new in Ring 1.8?" href="whatisnew8.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="index.html">
+          
+
+          
+            
+            <img src="_static/ringdoclogo.jpg" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
+<li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started.html">Getting Started - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started2.html">Getting Started - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getting_started3.html">Getting Started - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="variables.html">Variables</a></li>
+<li class="toctree-l1"><a class="reference internal" href="operators.html">Operators</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures.html">Control Structures - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures2.html">Control Structures - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="controlstructures3.html">Control Structures - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="getinput.html">Getting Input</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions.html">Functions - First Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions2.html">Functions - Second Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="functions3.html">Functions - Third Style</a></li>
+<li class="toctree-l1"><a class="reference internal" href="programstructure.html">Program Structure</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lists.html">Lists</a></li>
+<li class="toctree-l1"><a class="reference internal" href="strings.html">Strings</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dateandtime.html">Date and Time</a></li>
+<li class="toctree-l1"><a class="reference internal" href="checkandconvert.html">Check Data Type and Conversion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mathfunc.html">Mathematical Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="files.html">Files</a></li>
+<li class="toctree-l1"><a class="reference internal" href="systemfunc.html">System Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="evaldebug.html">Eval() and Debugging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="demo.html">Demo Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="odbc.html">ODBC Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mysql.html">MySQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sqlite.html">SQLite Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="postgresql.html">PostgreSQL Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="secfunc.html">Security and Internet Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oop.html">Object Oriented Programming (OOP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fp.html">Functional Programming (FP)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="metaprog.html">Reflection and Meta-programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="declarative.html">Declarative Programming using Nested Structures</a></li>
+<li class="toctree-l1"><a class="reference internal" href="natural.html">Natural language programming</a></li>
+<li class="toctree-l1"><a class="reference internal" href="naturallibrary.html">Using the Natural Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope.html">Scope Rules for Variables and Attributes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="scope2.html">Scope Rules for Functions and Methods</a></li>
+<li class="toctree-l1"><a class="reference internal" href="syntaxflexibility.html">Syntax Flexibility</a></li>
+<li class="toctree-l1"><a class="reference internal" href="typehints.html">The Type Hints Library</a></li>
+<li class="toctree-l1"><a class="reference internal" href="debug.html">The Trace Library and the Interactive Debugger</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringemb.html">Embedding Ring Language in Ring Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
+<li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
+<li class="toctree-l1"><a class="reference internal" href="web.html">Web Development (CGI Library)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
+<li class="toctree-l1"><a class="reference internal" href="allegro.html">Graphics and 2D Games programming using RingAllegro</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengine.html">Demo Project - Game Engine for 2D Games</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gameengineandorid.html">Building Games For Android</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringraylib.html">Developing Games using RingRayLib</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
+<li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="distribute_ring2exe.html">Distributing Ring Applications using Ring2EXE</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringpm.html">The Ring Package Manager (RingPM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringconsolecolorsfuncsdoc.html">RingConsoleColors Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringallegrofuncsdoc.html">RingAllegro Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libsdl.html">Using RingLibSDL</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibsdlfuncsdoc.html">RingLibSDL Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libuv.html">Using Ringlibuv</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringlibuvfuncsdoc.html">RingLibuv Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringfreeglutfuncsdoc.html">RingFreeGLUT Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringstbimage.html">RingStbImage Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringopengl32funcsdoc.html">RingOpenGL (OpenGL 3.2) Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="qtclassesdoc.html">RingQt Classes and Methods Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="lowlevel.html">Low Level Functions</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension_tutorial.html">Tutorial: Ring Extensions in C/C++</a></li>
+<li class="toctree-l1"><a class="reference internal" href="extension.html">Extension using the C/C++ languages</a></li>
+<li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codegenerator.html">Code Generator for wrapping C/C++ Libraries</a></li>
+<li class="toctree-l1"><a class="reference internal" href="ringbeep.html">Create your first extension using the Code Generator</a></li>
+<li class="toctree-l1"><a class="reference internal" href="languagedesign.html">Release Notes: Version 1.0</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew.html">Release Notes: Version 1.1</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew2.html">Release Notes: Version 1.2</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew3.html">Release Notes: Version 1.3</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew4.html">Release Notes: Version 1.4</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew5.html">Release Notes: Version 1.5</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew6.html">Release Notes: Version 1.6</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew7.html">Release Notes: Version 1.7</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew8.html">Release Notes: Version 1.8</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.9</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#new-game-gold-magic-800">New Game : Gold Magic 800</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-games">More Games</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-stdlib">Better StdLib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#bignumber-library">BigNumber Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringpostgresql-extension">RingPostgreSQL Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploying-web-applications-in-the-cloud">Deploying Web applications in the Cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-memory-management">Better Memory Management</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew10.html">Release Notes: Version 1.10</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew11.html">Release Notes: Version 1.11</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew12.html">Release Notes: Version 1.12</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
+<li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="contribute.html">How to contribute?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="reference.html">Language Specification</a></li>
+<li class="toctree-l1"><a class="reference internal" href="resources.html">Resources</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Ring</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>What is new in Ring 1.9?</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="what-is-new-in-ring-1-9">
+<span id="index-0"></span><h1>What is new in Ring 1.9?<a class="headerlink" href="#what-is-new-in-ring-1-9" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.9 release.</p>
+<div class="section" id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.9 comes with the next features!</p>
+<ul class="simple">
+<li><p>New Game : Gold Magic 800</p></li>
+<li><p>More Games</p></li>
+<li><p>Better Ring Notepad</p></li>
+<li><p>Better StdLib</p></li>
+<li><p>BigNumber Library</p></li>
+<li><p>RingPostgreSQL Extension</p></li>
+<li><p>Deploying Web applications in the Cloud</p></li>
+<li><p>Better RingQt</p></li>
+<li><p>Better Memory Management</p></li>
+<li><p>Better Code Generator for Extensions</p></li>
+<li><p>More Improvements</p></li>
+</ul>
+</div>
+<div class="section" id="new-game-gold-magic-800">
+<span id="index-2"></span><h2>New Game : Gold Magic 800<a class="headerlink" href="#new-game-gold-magic-800" title="Permalink to this headline">¶</a></h2>
+<p>The Gold Magic 800 is a new puzzle game.</p>
+<p>Ring 1.9 comes with the Demo Version (18 Levels) and the game source code.</p>
+<p>Steam Page (44 Levels) : <a class="reference external" href="https://store.steampowered.com/app/939200/Gold_Magic_800/">https://store.steampowered.com/app/939200/Gold_Magic_800/</a></p>
+<p>We can select the level</p>
+<img alt="Gold Magic 800 - Screen Shot 2" src="_images/gmshot2.png" />
+<p>The next screen shot for level (1)</p>
+<img alt="Gold Magic 800 - Screen Shot 3" src="_images/gmshot3.png" />
+<p>The Gold Magic 800 Level Editor</p>
+<img alt="Gold Magic 800 Level Editor" src="_images/gmleveleditor.png" />
+</div>
+<div class="section" id="more-games">
+<span id="index-3"></span><h2>More Games<a class="headerlink" href="#more-games" title="Permalink to this headline">¶</a></h2>
+<p>The next games are added to Ring Applications</p>
+<ol class="arabic simple">
+<li><p>The 2048 Game</p></li>
+<li><p>The Memory Game</p></li>
+<li><p>The Wise Quadrat Game</p></li>
+<li><p>The Tessera Game</p></li>
+<li><p>The Othello Game</p></li>
+</ol>
+<p>The next screen shot for the 2048 game on Android</p>
+<img alt="2048 Game" src="_images/game2048_shot1.png" />
+<p>The next screen shot for the Tessera game</p>
+<img alt="Tessera Game" src="_images/tesseragame.png" />
+<p>The next screen shot for the Othello game</p>
+<img alt="Othello Game" src="_images/othellogame.png" />
+</div>
+<div class="section" id="better-ring-notepad">
+<span id="index-4"></span><h2>Better Ring Notepad<a class="headerlink" href="#better-ring-notepad" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>New Style</p></li>
+<li><p>New Mode</p></li>
+<li><p>Tabs for opened files</p></li>
+<li><p>Support executing batch files</p></li>
+</ol>
+<img alt="Ring Notepad" src="_images/rnote19.jpg" />
+</div>
+<div class="section" id="better-stdlib">
+<span id="index-5"></span><h2>Better StdLib<a class="headerlink" href="#better-stdlib" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>The List2Code() function is added to the StdLib</p></li>
+</ol>
+<p>This function convert a Ring list during the runtime to Ring source code that we can save to source files.</p>
+<p>The list may contains strings, numbers or sub lists.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+<span class="n">aList</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span>
+<span class="o">?</span> <span class="n">list2Code</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">[</span>
+        <span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span>
+<span class="o">]</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>The Str2ASCIIList() and ASCIIList2Str() are added to the StdLib</p></li>
+</ol>
+<p>Using these functions we can convert between string of bytes and a list of numbers where each item represent
+the ASCII code of one byte in the string.</p>
+<p>So we may convert a string of bytes to ASCII List then do some operations on the list numbers (Like XOR)</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;stdlibcore.ring&quot;</span>
+
+<span class="n">cStr</span> <span class="o">=</span> <span class="s">&quot;MmMm&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="n">Str2ASCIILIST</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">aList</span>
+
+<span class="n">cStr2</span> <span class="o">=</span> <span class="n">ASCIIList2Str</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">cStr2</span>
+<span class="o">?</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>77
+109
+77
+109
+
+MmMm
+4
+</pre></div>
+</div>
+</div>
+<div class="section" id="bignumber-library">
+<span id="index-6"></span><h2>BigNumber Library<a class="headerlink" href="#bignumber-library" title="Permalink to this headline">¶</a></h2>
+<p>Using the BigNumber library we can do arithmetic operations on huge numbers.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;bignumber.ring&quot;</span>
+
+<span class="n">num1</span> <span class="o">=</span> <span class="s">&quot;62345678901234567891678345123456789&quot;</span>    <span class="sd">### Big</span>
+<span class="n">num2</span> <span class="o">=</span>  <span class="s">&quot;1237894567890123419871236545&quot;</span>          <span class="sd">### Small</span>
+<span class="n">num3</span> <span class="o">=</span>     <span class="s">&quot;64&quot;</span>                                 <span class="sd">### Divide Small</span>
+<span class="n">num4</span> <span class="o">=</span> <span class="s">&quot;765432&quot;</span>
+<span class="n">num5</span> <span class="o">=</span>      <span class="s">&quot;3&quot;</span>                                 <span class="sd">### Power</span>
+
+<span class="o">?</span> <span class="s">&quot;Add big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">+</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Substract big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">-</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">Print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Multiply big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">*</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Divide big numbers:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num2</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Divide big numbers: by very small number&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num3</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="o">/</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+
+<span class="o">?</span> <span class="s">&quot;Power of big number:&quot;</span>
+<span class="n">a1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num1</span><span class="p">)</span>        <span class="n">a1</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">BigNumber</span><span class="p">(</span><span class="n">num5</span><span class="p">)</span>        <span class="n">a2</span><span class="p">.</span><span class="n">print</span><span class="p">()</span>
+<span class="n">a3</span> <span class="o">=</span> <span class="n">a1</span> <span class="p">^</span> <span class="n">a2</span>                    <span class="n">a3</span><span class="p">.</span><span class="n">print</span><span class="p">()</span> <span class="o">?</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Add big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+62345680139129135781801764994693334
+
+
+Substract big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+52345687663340000001554925252220244
+
+
+Multiply big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+77177377243260150103462178714197454736432472780119682305154005
+
+
+Divide big numbers:
+62345678901234567891678345123456789
+1237894567890123419871236545
+50364288
+
+
+Divide big numbers: by very small number
+62345678901234567891678345123456789
+64
+974151232831790123307474142554012
+
+
+Power of big number:
+62345678901234567891678345123456789
+3
+242336636261471172092347146031727004 (Output continue in next line)
+371698195628343934238988256152289508 (Output continue in next line)
+493964611043228971692389860897069
+</pre></div>
+</div>
+<p>For more information check the BigNumber Library Chapter in the documentation</p>
+</div>
+<div class="section" id="ringpostgresql-extension">
+<span id="index-7"></span><h2>RingPostgreSQL Extension<a class="headerlink" href="#ringpostgresql-extension" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.9 provide native support for PostgreSQL database using the RingPostgreSQL Extension.</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;postgresqllib.ring&quot;</span>
+
+<span class="n">conninfo</span> <span class="o">=</span> <span class="s">&quot;user=postgres password=sa dbname = mahdb&quot;</span>
+
+<span class="n">exit_nicely</span> <span class="o">=</span> <span class="k">func</span> <span class="n">conn</span> <span class="p">{</span>
+        <span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+        <span class="n">shutdown</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="p">}</span>
+
+<span class="n">conn</span> <span class="o">=</span> <span class="n">PQconnectdb</span><span class="p">(</span><span class="n">conninfo</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="p">(</span><span class="n">PQstatus</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span> <span class="o">!=</span> <span class="n">CONNECTION_OK</span><span class="p">)</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Connection to database failed: &quot;</span><span class="o">+</span><span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+                <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+        <span class="n">DROP</span> <span class="n">DATABASE</span> <span class="n">mahdb</span><span class="p">;</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Remove failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;CREATE DATABASE mahdb;&quot;</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Create database failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+<span class="n">CREATE</span> <span class="n">TABLE</span> <span class="n">COMPANY</span> <span class="p">(</span>
+                 <span class="n">ID</span> <span class="n">INT</span> <span class="n">PRIMARY</span> <span class="n">KEY</span>     <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+                 <span class="n">NAME</span>           <span class="n">TEXT</span>    <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+                 <span class="n">AGE</span>            <span class="n">INT</span>     <span class="ow">NOT</span> <span class="kp">NULL</span><span class="p">,</span>
+                 <span class="n">ADDRESS</span>        <span class="n">CHAR</span><span class="p">(</span><span class="mi">50</span><span class="p">),</span>
+                 <span class="n">SALARY</span>         <span class="n">REAL</span> <span class="p">);</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Create Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+                <span class="n">INSERT</span> <span class="n">INTO</span> <span class="n">COMPANY</span> <span class="p">(</span><span class="n">ID</span><span class="p">,</span><span class="n">NAME</span><span class="p">,</span><span class="n">AGE</span><span class="p">,</span><span class="n">ADDRESS</span><span class="p">,</span><span class="n">SALARY</span><span class="p">)</span>
+                <span class="n">VALUES</span>  <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="sc">&#39;Mahmoud&#39;</span> <span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="sc">&#39;Jeddah&#39;</span><span class="p">,</span> <span class="mf">10.00</span> <span class="p">),</span>
+                                <span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="sc">&#39;Ahmed&#39;</span>   <span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="sc">&#39;Jeddah&#39;</span><span class="p">,</span> <span class="mf">20.00</span> <span class="p">),</span>
+                                <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="sc">&#39;Mohammed&#39;</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="sc">&#39;Egypt&#39;</span> <span class="p">,</span> <span class="mf">30.00</span> <span class="p">),</span>
+                                <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="sc">&#39;Ibrahim&#39;</span> <span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="sc">&#39;Egypt &#39;</span><span class="p">,</span> <span class="mf">40.00</span> <span class="p">);</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Insert Table failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">ok</span>
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">res</span> <span class="o">=</span> <span class="n">PQexec</span><span class="p">(</span><span class="n">conn</span><span class="p">,</span> <span class="s">&quot;</span>
+           <span class="n">select</span> <span class="o">*</span> <span class="k">from</span> <span class="n">COMPANY</span>
+<span class="s">&quot;)</span>
+<span class="k">if</span> <span class="n">PQresultStatus</span><span class="p">(</span><span class="n">res</span><span class="p">)</span> <span class="o">!=</span> <span class="n">PGRES_TUPLES_OK</span>
+        <span class="n">fputs</span><span class="p">(</span><span class="n">stderr</span><span class="p">,</span> <span class="s">&quot;Select failed: &quot;</span> <span class="o">+</span> <span class="n">PQerrorMessage</span><span class="p">(</span><span class="n">conn</span><span class="p">))</span>
+        <span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">call</span> <span class="n">exit_nicely</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+<span class="k">ok</span>
+
+
+<span class="n">nFields</span> <span class="o">=</span> <span class="n">PQnfields</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+                <span class="o">?</span> <span class="n">PQfname</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="k">next</span>
+
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;*&quot;</span><span class="p">,</span><span class="mi">60</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="n">PQntuples</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">j</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nFields</span>
+                <span class="k">see</span> <span class="n">PQgetvalue</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span>
+        <span class="k">next</span>
+        <span class="k">see</span> <span class="n">nl</span>
+<span class="k">next</span>
+
+<span class="n">PQclear</span><span class="p">(</span><span class="n">res</span><span class="p">)</span>
+
+<span class="n">PQfinish</span><span class="p">(</span><span class="n">conn</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>id
+name
+age
+address
+salary
+************************************************************
+1 Mahmoud  31 Jeddah  10
+2 Ahmed    27 Jeddah  20
+3 Mohammed 31 Egypt   30
+4 Ibrahim  24 Egypt   40
+</pre></div>
+</div>
+<p>For more information check the PostgreSQL Chapter in the documentation</p>
+</div>
+<div class="section" id="deploying-web-applications-in-the-cloud">
+<span id="index-8"></span><h2>Deploying Web applications in the Cloud<a class="headerlink" href="#deploying-web-applications-in-the-cloud" title="Permalink to this headline">¶</a></h2>
+<p>We created a new project and tutorial to explain how to deploy Ring web applications in the Cloud using Heroku</p>
+<p>Demo : <a class="reference external" href="http://testring.herokuapp.com/">http://testring.herokuapp.com/</a></p>
+<p>Project : <a class="reference external" href="https://github.com/ring-lang/RingWebAppOnHeroku">https://github.com/ring-lang/RingWebAppOnHeroku</a></p>
+<p>Heroku Website : <a class="reference external" href="https://www.heroku.com/">https://www.heroku.com/</a></p>
+<img alt="Ring Web Application in the Cloud" src="_images/ringincloud.png" />
+<p>For more information check the Deploying Web Applications In The Cloud chapter in the documentation.</p>
+</div>
+<div class="section" id="better-ringqt">
+<span id="index-9"></span><h2>Better RingQt<a class="headerlink" href="#better-ringqt" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>The next classes are added to RingQt</p></li>
+</ol>
+<ul class="simple">
+<li><p>QDrag</p></li>
+<li><p>QMimeData</p></li>
+<li><p>QDropEvent</p></li>
+<li><p>QDragMoveEvent</p></li>
+<li><p>QDragEnterEvent</p></li>
+<li><p>QDragLeaveEvent</p></li>
+<li><p>QClipboard</p></li>
+<li><p>QChildEvent</p></li>
+<li><p>QGeoPositionInfo</p></li>
+<li><p>QGeoCoordinate</p></li>
+<li><p>QGeoAddress</p></li>
+<li><p>QGeoAreaMonitorInfo</p></li>
+<li><p>QGeoAreaMonitorSource</p></li>
+<li><p>QGeoCircle</p></li>
+<li><p>QGeoPositionInfoSource</p></li>
+<li><p>QGeoRectangle</p></li>
+<li><p>QGeoShape</p></li>
+<li><p>QGeoSatelliteInfo</p></li>
+<li><p>QGeoSatelliteInfoSource</p></li>
+<li><p>QNmeaPositionInfoSource</p></li>
+<li><p>QAxWidget</p></li>
+<li><p>QTextStream</p></li>
+<li><p>QPrinterInfo</p></li>
+<li><p>QPrintPreviewWidget</p></li>
+<li><p>QPrintPreviewDialog</p></li>
+<li><p>QPageSetupDialog</p></li>
+<li><p>QAbstractPrintDialog</p></li>
+<li><p>QPrintDialog</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>The next classes are updated</p></li>
+</ol>
+<ul class="simple">
+<li><p>QAllEvents Class : New Events (ChildAdded, ChildPolished, ChildRemoved).</p></li>
+<li><p>QPainter Class : Updated Methods (drawConvexPloygon, drawPoints, drawPolyline) Accept Ring list of points.</p></li>
+<li><p>QVariant : More versions that accept different parameters when creating the object.</p></li>
+<li><p>QAxBase : Different versions for the dynamicCall() and querySubObject() methods.</p></li>
+</ul>
+<p>The next example for using the QPrintPreviewDialog class</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="n">win1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qwidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Printer Preview Dialog&quot;</span><span class="p">)</span>
+                <span class="n">setgeometry</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="mi">800</span><span class="p">,</span><span class="mi">880</span><span class="p">)</span>
+                <span class="n">printer1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPrinter</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+                <span class="n">show</span><span class="p">()</span>
+                <span class="n">oPreview</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPrintPreviewDialog</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setParent</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span>
+                        <span class="n">move</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+                        <span class="n">setPaintrequestedevent</span><span class="p">(</span><span class="s">&quot;printPreview()&quot;</span><span class="p">)</span>
+                        <span class="n">exec</span><span class="p">()</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">func</span> <span class="n">printPreview</span>
+        <span class="n">printer1</span>  <span class="p">{</span>
+                <span class="n">painter</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qpainter</span><span class="p">()</span> <span class="p">{</span>
+                        <span class="n">begin</span><span class="p">(</span><span class="n">printer1</span><span class="p">)</span>
+                        <span class="n">myfont</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qfont</span><span class="p">(</span><span class="s">&quot;Times&quot;</span><span class="p">,</span><span class="mi">50</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">setfont</span><span class="p">(</span><span class="n">myfont</span><span class="p">)</span>
+                        <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s">&quot;Test - Page (1)&quot;</span><span class="p">)</span>
+                        <span class="n">printer1</span><span class="p">.</span><span class="n">newpage</span><span class="p">()</span>
+                        <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">,</span><span class="s">&quot;Test - Page (2)&quot;</span><span class="p">)</span>
+                        <span class="n">printer1</span><span class="p">.</span><span class="n">newpage</span><span class="p">()</span>
+                        <span class="n">myfont2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qfont</span><span class="p">(</span><span class="s">&quot;Times&quot;</span><span class="p">,</span><span class="mi">14</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">setfont</span><span class="p">(</span><span class="n">myfont2</span><span class="p">)</span>
+                        <span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">30</span>
+                                <span class="n">drawtext</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="o">+</span><span class="p">(</span><span class="mi">20</span><span class="o">*</span><span class="n">x</span><span class="p">),</span><span class="s">&quot;Number : &quot;</span> <span class="o">+</span> <span class="n">x</span><span class="p">)</span>
+                        <span class="k">next</span>
+                        <span class="n">endpaint</span><span class="p">()</span>
+                <span class="p">}</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="Print Preview Dialog" src="_images/printpreviewdialog.png" />
+</div>
+<div class="section" id="better-memory-management">
+<span id="index-10"></span><h2>Better Memory Management<a class="headerlink" href="#better-memory-management" title="Permalink to this headline">¶</a></h2>
+<p>The Ring API is updated to include RING_API_RETMANAGEDCPOINTER()</p>
+<p>Using RING_API_RETMANAGEDCPOINTER() the Ring extensions written in C/C++ languages can return a managed
+pointer to Ring. This pointer can be controlled by the Ring VM using reference counting.</p>
+<p>This is important to avoid the need to write code that free the unmanaged resources like QPixMap objects in RingQt.</p>
+<p>Also the Code Generator for extensions is updated to automatically use RING_API_RETMANAGEDCPOINTER() based on need.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">RING_API_RETMANAGEDCPOINTER</span><span class="p">(</span><span class="n">void</span> <span class="o">*</span><span class="n">pValue</span><span class="p">,</span><span class="n">const</span> <span class="n">char</span> <span class="o">*</span><span class="n">cPointerType</span><span class="p">,</span>
+                                <span class="n">void</span> <span class="p">(</span><span class="o">*</span> <span class="n">pFreeFunc</span><span class="p">)(</span><span class="n">void</span> <span class="o">*</span><span class="p">,</span><span class="n">void</span> <span class="o">*</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>For more information about RING_API_RETMANAGEDCPOINTER()</p>
+<p>See the “Extension using the C/C++ languages” Chapter in the documentation</p>
+</div>
+<div class="section" id="better-code-generator-for-extensions">
+<span id="index-11"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>The code generator for extensions is updated to support the &lt;loadfile&gt; command</p></li>
+</ol>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">filename</span><span class="p">.</span><span class="n">cf</span>
+</pre></div>
+</div>
+<p>This is useful to separate the extension configuraition file to many files</p>
+<p>Example:</p>
+<p>The file : qt_module_network.cf in the RingQt Extension</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">comment</span><span class="o">&gt;</span>
+                                <span class="n">Module</span> <span class="p">(</span><span class="n">network</span><span class="p">)</span>
+<span class="o">&lt;/</span><span class="n">comment</span><span class="o">&gt;</span>
+
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qabstractsocket</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkproxy</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpsocket</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qtcpserver</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostaddress</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qhostinfo</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkrequest</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkaccessmanager</span><span class="p">.</span><span class="n">cf</span>
+<span class="o">&lt;</span><span class="n">loadfile</span><span class="o">&gt;</span> <span class="n">qnetworkreply</span><span class="p">.</span><span class="n">cf</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="2">
+<li><p>The code generator support the &lt;managed&gt; option when defining classes.</p></li>
+</ol>
+<p>Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.</p>
+<p>So the Garabage Collector will manage these C pointers.</p>
+<p>Example</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="k">class</span><span class="o">&gt;</span>
+<span class="n">name</span><span class="p">:</span> <span class="n">QFont</span>
+<span class="n">para</span><span class="p">:</span> <span class="n">QString</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">int</span><span class="p">,</span> <span class="n">bool</span>
+<span class="n">managed</span>
+<span class="o">&lt;/</span><span class="k">class</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="more-improvements">
+<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Ring Compiler - The Rule (Factor -&gt; ‘-‘ Expr) changed to (Factor -&gt; ‘-‘ Factor).</p></li>
+<li><p>Ring VM - Better Error Message.</p></li>
+<li><p>Better code for IsNULL() function - updated to check pointers too.</p></li>
+<li><p>Better code for ringvm_evalinscope() function - used by the Trace Library.</p></li>
+<li><p>Better code for Space() function.</p></li>
+<li><p>Better code for Hex() and Dec() functions.</p></li>
+<li><p>Better code for Download() function.</p></li>
+<li><p>Better code for SubStr() function.</p></li>
+<li><p>Better code for the Unsigned() function.</p></li>
+<li><p>Better code for Chdir() function.</p></li>
+<li><p>Better code for Tempname() function.</p></li>
+<li><p>Better code for HashTable - New Key (using ring_strdup() instead of strdup() function).</p></li>
+<li><p>New Function : SRandom() - Initialize random number generator.</p></li>
+<li><p>New Function : IsPointer().</p></li>
+<li><p>IsList() will not return True for C Pointers, we have now the IsPointer() function.</p></li>
+<li><p>The ? Operator is updated to respect the ringvm_see() function.</p></li>
+<li><p>Scripts to run Ring tests on Linux and macOS (Not only Windows).</p></li>
+<li><p>RingAllegro is Updated from Allegro 5.1 to Allegro 5.2.</p></li>
+<li><p>Shader Functions are added to RingAllegro.</p></li>
+<li><p>Joystick Functions are added to RingAllegro.</p></li>
+<li><p>Network functions are added to RingLibSDL.</p></li>
+<li><p>Game Engine for 2D Games - Text Class - Check the font object before usage.</p></li>
+<li><p>Game Engine for 2D Games - Automatic support for Joystick.</p></li>
+<li><p>RingLibCurl is updated to automatically use CURLOPT_COPYPOSTFIELDS when needed.</p></li>
+<li><p>Ring Notepad - Find Previous Feature.</p></li>
+<li><p>Ring Notepad - Default Style.</p></li>
+<li><p>Ring Notepad - Support using Non-English language (Like Arabic) in file names.</p></li>
+<li><p>Form Designer - Nice Aliginment for Toolbox Icons.</p></li>
+<li><p>Form Desginer - QAllEvents Class - Mouse Double Click Event.</p></li>
+<li><p>Find in Files - Replace and Replace All options.</p></li>
+<li><p>Qt Class Converter is updated for better conversion results.</p></li>
+<li><p>More samples are added to ring/samples/other folder.</p></li>
+<li><p>Code Refactoring for Ring Notepad, RingQt, Game Engine for 2D Games.</p></li>
+<li><p>Better Documentation - Many images are updated to reflect the current state of Ring Environment.</p></li>
+<li><p>Better Documentation - More chapters are added to the documentation.</p></li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="whatisnew10.html" class="btn btn-neutral float-right" title="What is new in Ring 1.10?" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="whatisnew8.html" class="btn btn-neutral float-left" title="What is new in Ring 1.8?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright 2016-2020, Ring Team
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(false);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
