@@ -377,7 +377,7 @@ void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCoun
 	**  Set Values in Ring State 
 	**  Set First Item in Ring State 
 	*/
-	pSubRingState->vPoolManager.pCurrentItem = ring_state_calloc(pMainRingState,1,sizeof(PoolData)) ;
+	pSubRingState->vPoolManager.pCurrentItem = (PoolData *) ring_state_calloc(pMainRingState,1,sizeof(PoolData)) ;
 	/* Set Block Start and End */
 	pSubRingState->vPoolManager.pBlockStart = pMainRingState->vPoolManager.pBlockStart ;
 	pSubRingState->vPoolManager.pBlockEnd = pMainRingState->vPoolManager.pBlockEnd ;
@@ -391,7 +391,7 @@ void ring_poolmanager_newblockfromsubthread ( RingState *pSubRingState,int nCoun
 	/* Create the Items */
 	pMemory = pSubRingState->vPoolManager.pCurrentItem ;
 	for ( x = 1 ; x <= nCount-1 ; x++ ) {
-		pMemory->pNext = ring_state_calloc(pMainRingState,1,sizeof(PoolData)) ;
+		pMemory->pNext = (PoolData *) ring_state_calloc(pMainRingState,1,sizeof(PoolData)) ;
 		pMemory = pMemory->pNext ;
 	}
 	pMemory->pNext = NULL ;
