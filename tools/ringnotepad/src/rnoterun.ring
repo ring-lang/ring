@@ -12,8 +12,10 @@ Class RNoteRun
 		else 
 			if iswindows()
 				cCode = 'start '+cCurrentDir+'batch\run "' + cFileName + '"' + nl
-			else
-				cCode = 'cd $(dirname "'+cFileName+'") ; ' + ' ring "' + cFileName + '"' + nl
+			elseif isMacOSX()
+                                cCode = 'osascript -e ' + char(39) + 'tell app "Terminal" to do script "'+cCurrentDir+'batch/run.sh ' + JustFilePath(cFileName) + ' ' + JustFileName(cFileName) + char(34) + char(39) + nl
+                        else
+                                cCode = "x-terminal-emulator -e "+cCurrentDir+'batch/run.sh ' + JustFilePath(cFileName) + ' ' + JustFileName(cFileName) + nl
 			ok
 		ok
 		system(cCode)
@@ -28,8 +30,10 @@ Class RNoteRun
 		else 
 			if iswindows()
 				cCode = 'start '+cCurrentDir+'batch\run2 "' + cFileName + '"' + nl
-			else
-				cCode = 'cd $(dirname "'+cFileName+'") ; ' + ' ring "' + cFileName + '"' + nl
+			elseif isMacOSX()
+                                cCode = 'osascript -e ' + char(39) + 'tell app "Terminal" to do script "'+cCurrentDir+'batch/run2.sh ' + JustFilePath(cFileName) + ' ' + JustFileName(cFileName) + char(34) + char(39) + nl
+                        else
+                                cCode = "x-terminal-emulator -e "+cCurrentDir+'batch/run2.sh ' + JustFilePath(cFileName) + ' ' + JustFileName(cFileName) + nl
 			ok
 		ok
 		system(cCode)
