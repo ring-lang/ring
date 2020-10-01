@@ -258,7 +258,7 @@ The output of these functions will be 1 (True) or 0 (False).
 Get Parameters Values
 =====================
 
-We can get paramters values using the next functions
+We can get parameters values using the next functions
 
 .. code-block:: C
 
