@@ -654,6 +654,14 @@ class RNoteMainWindow
 							setclickEvent(Method(:RunInBrowserMainFile))
 						}
 						addaction(oAction)
+                                                addseparator()
+                                                oAction = new qAction(this.win1) {
+							setShortcut(new QKeySequence("Ctrl+Shift+P"))
+							setbtnimage(self,"image/web.png")
+							settext("Fix Ring files permissions to run by Apache")
+							setclickEvent(Method(:MakeFilesExecutable))
+						}
+						addaction(oAction)
 					}  
 					subBrowser {
 						for x=1 to len(this.aBrowserLinks)
