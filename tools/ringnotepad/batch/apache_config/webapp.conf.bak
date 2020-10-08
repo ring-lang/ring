@@ -1,0 +1,27 @@
+Listen 8060
+
+<VirtualHost *:8060>
+	
+	ServerName ringwebapp.local
+	ServerAlias www.ringwebapp.local
+
+	ServerAdmin webmaster@ringwebapp.local
+
+	IncludeOptional conf-available/serve-cgi-bin.conf
+	
+	DocumentRoot #{RingWebAppPath}
+
+	ErrorLog #{RingApacheConfigDir}error.log
+	CustomLog #{RingApacheConfigDir}access.log combined
+
+	<Directory "#{RingWebAppPath}">
+		Options ExecCGI
+		AddHandler cgi-script .ring .php
+		DirectoryIndex index.ring index.html
+		AllowOverride All
+		Require all granted
+	</Directory>
+
+</VirtualHost>
+
+# vim: syntax=apache ts=4 sw=4 sts=4 sr noet

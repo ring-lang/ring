@@ -70,12 +70,28 @@ Class RNoteRun
 			new QDesktopServices {
 				OpenURL(new qURL("http://localhost:8080/"+JustFileName(cFile)))
 			}
-		else 
-			cWebURL = cFileName
-			nPos = substr(cWebURL,"htdocs")
-			cWebURL = substr(cWebURL,nPOS+7)
+		else
+                        apacheConfigPath = cCurrentDir+ "batch/apache_config/"
+                        lastRunPathFile = apacheConfigPath + "lastrundirpath.txt"
+                        lastRunPath = substr(read(lastRunPathFile),nl , "")
+                        cAppDir = JustFilePath(cFileName)
+                        if len(lastRunPath) = 0 OR Substr(cAppDir, lastRunPath) = 0
+                                apacheConfigTxt = read(apacheConfigPath + "webapp.conf.bak")
+                                apacheConfigTxt = substr(apacheConfigTxt, "#{RingWebAppPath}", cAppDir)
+                                apacheConfigTxt = substr(apacheConfigTxt, "#{RingApacheConfigDir}", apacheConfigPath)
+                                write(apacheConfigPath + "ringwebapp.local.conf", apacheConfigTxt)
+                                if IsMacOSX()
+                                        system('osascript -e ' + char(39) + 'tell app "Terminal" to do script "'+cCurrentDir+'batch/apache_config/setwebappconf.sh ' + apacheConfigPath + ' ' + cAppDir + char(34) + char(39))
+                                else
+                                        system("x-terminal-emulator -e "+cCurrentDir+ "batch/apache_config/setwebappconf.sh " + apacheConfigPath + " " + cAppDir)
+                                ok
+                                return
+                        else
+                                cAppDir = lastRunPath
+                        ok
+			cWebURL = substr(cFileName, cAppDir, "")
 			new QDesktopServices {
-				OpenURL(new qURL("http://localhost/"+cWebURL))
+				OpenURL(new qURL("http://ringwebapp.local:8060/"+ cWebURL))
 			}
 		ok
 
