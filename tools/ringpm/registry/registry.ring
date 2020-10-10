@@ -630,5 +630,9 @@ aPackagesRegistry = [
 	[ :name = "spaceshootergame",
 	  :description = "SpaceShooter game package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "webassemblyringqt",
+	  :description = "WebassemblyRingQt package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
