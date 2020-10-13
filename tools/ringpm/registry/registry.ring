@@ -634,5 +634,9 @@ aPackagesRegistry = [
 	[ :name = "webassemblyringqt",
 	  :description = "WebassemblyRingQt package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "objectslib",
+	  :description = "ObjectsLib for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
