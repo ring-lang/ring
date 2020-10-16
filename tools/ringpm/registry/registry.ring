@@ -638,5 +638,9 @@ aPackagesRegistry = [
 	[ :name = "objectslib",
 	  :description = "ObjectsLib for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "guilib",
+	  :description = "GUILib for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
