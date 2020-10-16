@@ -266,5 +266,11 @@ aAllPackagesInfo = [
 	],
 	:ringrepl = 	[
 
+	],
+	:guilib = 	[
+		"ringqtruntime"
+	],
+	:objectslib = 	[
+		"ringqtruntime"
 	]
 ]
