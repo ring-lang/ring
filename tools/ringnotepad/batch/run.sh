@@ -5,6 +5,6 @@ cd $1
 # Execute the program
 ring $2
 
-printf '\n\n\nPress enter to continue'
+printf '\n\n\nPress enter to exit'
 read enter
 
