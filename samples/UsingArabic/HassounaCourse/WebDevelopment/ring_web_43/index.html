@@ -1,0 +1,84 @@
+
+<div style="padding:20px">
+
+<form method="post" id="frm">
+	<h1>Employee Form (based Sqlite - for test)</h1>
+	<hr>
+	<div class="form-group">
+    <label for="txtid">Employee ID</label>
+    <input type="number" required name="id" class="form-control" id="id" placeholder="Enter id" value="<%=get_autonum()%>">
+  </div>
+	<div class="form-group">
+    <label for="txtname">Employee Name</label>
+    <input type="text" required name="name" class="form-control" id="empname" placeholder="Enter Name">
+  </div>
+	<div class="form-group">
+    <label for="txtsalary">Employee Salary</label>
+    <input type="number" required name="salary" class="form-control" id="salary" placeholder="Enter Salary">
+  </div>
+	<hr>
+  <button type="submit" name="btnadd" id="btnadd" class="btn btn-primary">Add</button>
+  <button type="submit" disabled name="btnedit" id="btnedit" class="btn btn-primary">Edit</button>
+  <button type="submit" disabled name="btndel" id="btndel" class="btn btn-primary">Delete</button>
+  <button type="submit" name="btnclear" id="btnclear" class="btn btn-primary">Clear</button>
+	<hr>
+  <input type="text" name="search" class="form-control" id="search" placeholder="Search">
+	<br>
+
+<% fill_emp() %>	
+
+<% if len(emps) %>
+<table class="table table-hover" id="tblemp">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+<% ok %>
+
+	<% for emp in emps %>
+    <tr>
+      <th scope="row"><%=emp['id']%></th>
+      <td><%=emp['name']%></td>
+      <td><%=emp['salary']%></td>
+    </tr>
+	<% next %>
+
+<% if len(emps) %>
+  </tbody>
+</table>
+<% ok %>
+
+</form>
+
+</div>
+
+<script>
+
+tbl = window.tblemp
+for(x=1 ; x < tbl.rows.length ; x++){
+	tbl.rows[x].onclick = function(){
+		window.id.value = this.cells[0].innerHTML 
+		window.empname.value = this.cells[1].innerHTML 
+		window.salary.value = this.cells[2].innerHTML 
+		window.btnadd.disabled = true 
+		window.btnedit.disabled = false
+		window.btndel.disabled = false 
+	}
+}
+
+$(document).ready(function(){
+	$("#search").on("keyup", function(){
+		value = $(this).val().toLowerCase()
+		$("#tblemp tr").filter(function(){
+			$(this).toggle($(this).text().toLowerCase().indexOf(value)>-1)
+		})
+		$("#tblemp tr:first").show()
+	})
+})
+
+</script>
+
