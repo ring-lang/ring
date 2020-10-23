@@ -294,3 +294,11 @@
 127.0.0.1 - - [04/Aug/2020:03:51:24 +0300] "GET /testunicode.ring HTTP/1.1" 200 301 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0" **0/325130**
 127.0.0.1 - - [04/Aug/2020:03:51:34 +0300] "GET /testunicode.ring HTTP/1.1" 200 295 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0" **0/267286**
 127.0.0.1 - - [04/Aug/2020:03:53:08 +0300] "GET /testunicode.ring HTTP/1.1" 200 295 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:79.0) Gecko/20100101 Firefox/79.0" **0/263296**
+127.0.0.1 - - [23/Oct/2020:12:26:49 +0300] "GET /index.ring HTTP/1.1" 200 770 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **1/1389107**
+127.0.0.1 - - [23/Oct/2020:12:27:12 +0300] "GET /favicon.ico HTTP/1.1" 404 209 "http://localhost:8080/index.ring" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/0**
+127.0.0.1 - - [23/Oct/2020:12:28:05 +0300] "GET /index.ring HTTP/1.1" 200 1430 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/377742**
+127.0.0.1 - - [23/Oct/2020:12:28:30 +0300] "POST /index.ring HTTP/1.1" 200 1458 "http://localhost:8080/index.ring" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/236367**
+127.0.0.1 - - [23/Oct/2020:12:28:33 +0300] "POST /index.ring HTTP/1.1" 200 1458 "http://localhost:8080/index.ring" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/230414**
+127.0.0.1 - - [23/Oct/2020:12:28:47 +0300] "POST /index.ring HTTP/1.1" 200 1460 "http://localhost:8080/index.ring" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/233377**
+127.0.0.1 - - [23/Oct/2020:12:28:49 +0300] "POST /index.ring HTTP/1.1" 200 1458 "http://localhost:8080/index.ring" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/236367**
+127.0.0.1 - - [23/Oct/2020:12:28:50 +0300] "POST /index.ring HTTP/1.1" 200 1458 "http://localhost:8080/index.ring" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/242353**
