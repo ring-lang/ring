@@ -1,0 +1,31 @@
+<div style="padding:20px">
+
+<form method="get" id="frm">
+
+  <button type="button" onclick="more()" class="btn btn-primary" value="Sum All">More +</button>
+  <input type="submit" name="btnsum" class="btn btn-primary" value="Sum All">
+  <input type="number" style="margin:5px" class="form-control" name="num1" placeholder="Number 1" >
+  <input type="number" style="margin:5px" class="form-control" name="num2" placeholder="Number 2" >
+
+</form>
+
+</div>
+
+<script>
+
+txtCount = 2
+
+function more(){
+
+	txtCount +=1
+	input = document.createElement('input')
+	input.type = "number"
+	input.name = "num" + txtCount
+	input.placeholder = "Number " + txtCount
+	input.className = "form-control"
+	input.style.margin = "5px"
+	window.frm.append(input)
+
+}
+
+</script>
