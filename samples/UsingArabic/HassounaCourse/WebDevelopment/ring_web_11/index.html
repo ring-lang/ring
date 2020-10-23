@@ -1,0 +1,14 @@
+<h1><% for x in 1:5 %>	<%=string(x)+', ' %>	<% next %></h1>
+<hr>
+<h1><% for x in 'A':'Z' %>	<%=x%>	<% next %></h1>
+<hr>
+
+<h1>
+<% for x in langs%>
+	<% if x[3] %>
+		<%= ' ' + x[1] + ', ' + x[2] %>
+		<br>
+	<% ok %>
+<% next %>
+</h1>
+
