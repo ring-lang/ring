@@ -23,7 +23,7 @@ The next tables contains some samples from the course
 			 Do arithmetic operations on two numbers
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingArabic/HassounaCourse/shots/hweb1.png" width="450" height="200">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingArabic/HassounaCourse/shots/hweb1.png" width="250" height="200">
 		</td>
 	</tr>
 	<tr>
@@ -37,7 +37,7 @@ The next tables contains some samples from the course
 			 Simple database example using SQLite 
 		</td>
 		<td>
-			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingArabic/HassounaCourse/shots/hweb2.png" width="450" height="200">
+			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingArabic/HassounaCourse/shots/hweb2.png" width="250" height="200">
 		</td>
 	</tr>
 </table>
