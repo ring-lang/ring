@@ -20,7 +20,7 @@ The next tables contains some samples from the course
 			 <a href="https://github.com/ring-lang/ring/tree/master/samples/UsingArabic/HassounaCourse/WebDevelopment/ring_web_21"> Calculator Sample </a>
 		</td>
 		<td>
-			 Calculator Sample
+			 Do arithmetic operations on two numbers
 		</td>
 		<td>
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingArabic/HassounaCourse/shots/hweb1.png" width="450" height="200">
@@ -34,7 +34,7 @@ The next tables contains some samples from the course
 			 <a href="https://github.com/ring-lang/ring/tree/master/samples/UsingArabic/HassounaCourse/WebDevelopment/ring_web_42"> Employee Sample </a>
 		</td>
 		<td>
-			 Employee Sample
+			 Simple database example using SQLite 
 		</td>
 		<td>
 			<img src="https://raw.githubusercontent.com/ring-lang/ring/master/samples/UsingArabic/HassounaCourse/shots/hweb2.png" width="450" height="200">
