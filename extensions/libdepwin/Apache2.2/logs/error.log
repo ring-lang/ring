@@ -245,3 +245,51 @@ Child 12104: Child process is running
 [Fri Oct 23 12:28:02 2020] [notice] Child 8700: Acquired the start mutex.
 [Fri Oct 23 12:28:02 2020] [notice] Child 8700: Starting 64 worker threads.
 [Fri Oct 23 12:28:02 2020] [notice] Child 8700: Starting thread to listen on port 8080.
+[Sun Oct 25 07:39:38 2020] [warn] pid file B:/ring/extensions/libdepwin/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Oct 25 07:39:38 2020] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Sun Oct 25 07:39:38 2020] [notice] Server built: Jul 10 2013 01:52:12
+[Sun Oct 25 07:39:38 2020] [notice] Parent: Created child process 9772
+[Sun Oct 25 07:39:38 2020] [notice] Child 9772: Child process is running
+[Sun Oct 25 07:39:38 2020] [notice] Child 9772: Acquired the start mutex.
+[Sun Oct 25 07:39:38 2020] [notice] Child 9772: Starting 64 worker threads.
+[Sun Oct 25 07:39:38 2020] [notice] Child 9772: Starting thread to listen on port 8080.
+[Sun Oct 25 07:41:30 2020] [warn] pid file B:/ring/extensions/libdepwin/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Oct 25 07:41:30 2020] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Sun Oct 25 07:41:30 2020] [notice] Server built: Jul 10 2013 01:52:12
+[Sun Oct 25 07:41:30 2020] [notice] Parent: Created child process 12704
+[Sun Oct 25 07:41:30 2020] [notice] Child 12704: Child process is running
+[Sun Oct 25 07:41:30 2020] [notice] Child 12704: Acquired the start mutex.
+[Sun Oct 25 07:41:30 2020] [notice] Child 12704: Starting 64 worker threads.
+[Sun Oct 25 07:41:30 2020] [notice] Child 12704: Starting thread to listen on port 8080.
+[Sun Oct 25 07:42:00 2020] [warn] pid file B:/ring/extensions/libdepwin/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Oct 25 07:42:00 2020] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Sun Oct 25 07:42:00 2020] [notice] Server built: Jul 10 2013 01:52:12
+[Sun Oct 25 07:42:00 2020] [notice] Parent: Created child process 4392
+[Sun Oct 25 07:42:00 2020] [notice] Child 4392: Child process is running
+[Sun Oct 25 07:42:00 2020] [notice] Child 4392: Acquired the start mutex.
+[Sun Oct 25 07:42:00 2020] [notice] Child 4392: Starting 64 worker threads.
+[Sun Oct 25 07:42:00 2020] [notice] Child 4392: Starting thread to listen on port 8080.
+[Sun Oct 25 07:42:15 2020] [warn] pid file B:/ring/extensions/libdepwin/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Oct 25 07:42:15 2020] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Sun Oct 25 07:42:15 2020] [notice] Server built: Jul 10 2013 01:52:12
+[Sun Oct 25 07:42:15 2020] [notice] Parent: Created child process 17244
+[Sun Oct 25 07:42:15 2020] [notice] Child 17244: Child process is running
+[Sun Oct 25 07:42:15 2020] [notice] Child 17244: Acquired the start mutex.
+[Sun Oct 25 07:42:15 2020] [notice] Child 17244: Starting 64 worker threads.
+[Sun Oct 25 07:42:15 2020] [notice] Child 17244: Starting thread to listen on port 8080.
+[Sun Oct 25 07:42:28 2020] [warn] pid file B:/ring/extensions/libdepwin/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Oct 25 07:42:28 2020] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Sun Oct 25 07:42:28 2020] [notice] Server built: Jul 10 2013 01:52:12
+[Sun Oct 25 07:42:28 2020] [notice] Parent: Created child process 2848
+[Sun Oct 25 07:42:28 2020] [notice] Child 2848: Child process is running
+[Sun Oct 25 07:42:28 2020] [notice] Child 2848: Acquired the start mutex.
+[Sun Oct 25 07:42:28 2020] [notice] Child 2848: Starting 64 worker threads.
+[Sun Oct 25 07:42:28 2020] [notice] Child 2848: Starting thread to listen on port 8080.
+[Sun Oct 25 07:42:41 2020] [warn] pid file B:/ring/extensions/libdepwin/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Sun Oct 25 07:42:41 2020] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Sun Oct 25 07:42:41 2020] [notice] Server built: Jul 10 2013 01:52:12
+[Sun Oct 25 07:42:41 2020] [notice] Parent: Created child process 2404
+[Sun Oct 25 07:42:41 2020] [notice] Child 2404: Child process is running
+[Sun Oct 25 07:42:41 2020] [notice] Child 2404: Acquired the start mutex.
+[Sun Oct 25 07:42:41 2020] [notice] Child 2404: Starting 64 worker threads.
+[Sun Oct 25 07:42:41 2020] [notice] Child 2404: Starting thread to listen on port 8080.

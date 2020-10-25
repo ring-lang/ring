@@ -302,3 +302,13 @@
 127.0.0.1 - - [23/Oct/2020:12:28:47 +0300] "POST /index.ring HTTP/1.1" 200 1460 "http://localhost:8080/index.ring" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/233377**
 127.0.0.1 - - [23/Oct/2020:12:28:49 +0300] "POST /index.ring HTTP/1.1" 200 1458 "http://localhost:8080/index.ring" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/236367**
 127.0.0.1 - - [23/Oct/2020:12:28:50 +0300] "POST /index.ring HTTP/1.1" 200 1458 "http://localhost:8080/index.ring" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/242353**
+127.0.0.1 - - [25/Oct/2020:07:39:42 +0300] "GET /index.ring HTTP/1.1" 200 1430 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/385969**
+127.0.0.1 - - [25/Oct/2020:07:39:49 +0300] "POST /index.ring HTTP/1.1" 200 1463 "http://localhost:8080/index.ring" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/253325**
+127.0.0.1 - - [25/Oct/2020:07:41:34 +0300] "GET /index.ring HTTP/1.1" 200 1340 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/372006**
+127.0.0.1 - - [25/Oct/2020:07:42:04 +0300] "GET /index.ring HTTP/1.1" 200 2842 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/762960**
+127.0.0.1 - - [25/Oct/2020:07:42:19 +0300] "GET /index.ring HTTP/1.1" 200 3115 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/682175**
+127.0.0.1 - - [25/Oct/2020:07:42:32 +0300] "GET /index.ring HTTP/1.1" 200 2464 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/560502**
+127.0.0.1 - - [25/Oct/2020:07:42:38 +0300] "GET /index.ring HTTP/1.1" 200 2464 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/583439**
+127.0.0.1 - - [25/Oct/2020:07:42:44 +0300] "GET /index.ring HTTP/1.1" 200 3115 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/408912**
+127.0.0.1 - - [25/Oct/2020:07:42:49 +0300] "GET /index.ring HTTP/1.1" 200 3115 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/434835**
+127.0.0.1 - - [25/Oct/2020:07:44:06 +0300] "GET /index.ring HTTP/1.1" 200 3115 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:81.0) Gecko/20100101 Firefox/81.0" **0/705112**
