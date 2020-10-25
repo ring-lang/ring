@@ -24,3 +24,6 @@ Ring 1.14 comes with the next features!
 More Improvements
 =================
 
+* RingPM - New Package: GUILib (Separate package for the GUILib classes)
+* RingPM - New Package: ObjectsLib (Separate package for the ObjectsLib classes)
+* RingQtRuntime Package: Using GUILib & ObjectsLib packages
