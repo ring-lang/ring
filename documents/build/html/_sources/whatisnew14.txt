@@ -15,8 +15,26 @@ List of changes and new features
 
 Ring 1.14 comes with the next features!
 
+* Hassouna Course (Web Development Samples)
 * More Improvements
 
+.. index:: 
+	pair: What is new in Ring 1.14?; Hassouna Course (Web Development Samples)
+
+Hassouna Course (Web Development Samples)
+=========================================
+
+Starting from lesson 301, the course provided lessons about web development.
+
+These lessons uses the WebLib library for Back-end web development.
+
+Special YouTube playlist for these lessons: 
+
+* https://www.youtube.com/watch?v=a3ZYjssAvbI&list=PLHIfW1KZRIfn1cs2BupsdJ7dzCQ7wmHFk
+
+The samples are added to this folder:
+
+* https://github.com/ring-lang/ring/tree/master/samples/UsingArabic/HassounaCourse/WebDevelopment
 
 .. index:: 
 	pair: What is new in Ring 1.14?; More Improvements
