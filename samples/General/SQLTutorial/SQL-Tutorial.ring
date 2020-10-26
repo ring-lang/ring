@@ -1,4 +1,5 @@
 // https://www.tutlane.com/tutorial/sqlite/sqlite-transactions-begin-commit-rollback
+// Bert Mariani 2020-10-25 update
 
 load "sqlitelib.ring"
 
@@ -7,7 +8,7 @@ oSQLite  =  null
 aDBLines = []
 
 //==================================================================
-// Remove existing file so we can start from scratch (dlete record 4 Dog)
+// Remove existing file so we can start from scratch (delete record 4 Dog)
     Remove(MyDb)
 
 //--------------------------------------------------
@@ -17,6 +18,7 @@ aDBLines = []
 //------------------------------------------------------------------
 // OPEN FILE for DB ( Will CREATE it if it does NOT EXIST)
     sqlite_open(oSQLite, MyDB)
+    
 
 //------------------------------------------------------------------
 // To use transaction commands first we need to CREATE TABLE called Emp_Master 
@@ -137,6 +139,36 @@ aDBLines = []
     aDBLines = sqlite_execute(oSQLite,"SELECT * FROM  Emp_Master")
     DisplayDBLines( aDBLines, "UPDATE first_name = 'Umberto' WHERE empd_id = 9") 
 
+
+//==================================================================
+// ALTER TABLE -- ADD COLUMN color TEXT
+// SET Column in Each Row to color value
+
+    sqlite_execute(oSQLite, "ALTER TABLE Emp_Master
+                             ADD COLUMN color TEXT;
+                             COMMIT; ")
+                             
+    sql = "UPDATE Emp_Master SET color='White'  WHERE emp_id=1;
+           UPDATE Emp_Master SET color='Black'  WHERE emp_id=2; 
+			  UPDATE Emp_Master SET color='Red'    WHERE emp_id=3;
+			  UPDATE Emp_Master SET color='Yellow' WHERE emp_id=4;
+			  UPDATE Emp_Master SET color='Orange' WHERE emp_id=5;
+			  UPDATE Emp_Master SET color='Green'  WHERE emp_id=6;
+			  UPDATE Emp_Master SET color='Blue'   WHERE emp_id=7;
+			  UPDATE Emp_Master SET color='Purple' WHERE emp_id=8;
+			  UPDATE Emp_Master SET color='Violet' WHERE emp_id=9;
+			  UPDATE Emp_Master SET color='Brown'  WHERE emp_id=10; "
+    sqlite_execute(oSQLite, sql)
+                          
+    aDBLines = sqlite_execute(oSQLite,"SELECT * FROM  Emp_Master")
+    DisplayDBLines( aDBLines, "Inserted Column = color")
+	 
+//==================================================================
+// DISPLAY DB HEADERS -- Column names and types
+
+   DisplayDBHeaders()
+   
+   
 //==================================================================
 // CLOSE SQLITE
 
@@ -157,6 +189,8 @@ Func DisplayDBLines( aDBLines, Msg )
     See Msg +nl
     See nl + "emp_id" +Tab+ "first" +Tab+   "last"  +Tab+ "salary" +Tab+ "dept_id" +nl
     
+
+    
     for Line in aDBLines
         for Field in Line
                 See  Field[2] + Tab 
@@ -164,12 +198,52 @@ Func DisplayDBLines( aDBLines, Msg )
         See nl  ### after each line
     next
     
-        // ALTERNATIVE DISPLAY  
-        //  See nl + copy("*",50) +nl
-        //  for Line in aResult
-        //          ? Line[:first_name]
-        //  next
 
 return
 
+//--------------------------------------------------------------------  
+// Display DB Headers, Column names and types
+
+Func DisplayDBHeaders()
+
+    See nl + copy("*",50) +nl
+    See "DISPLAY DB Headers, Column names and types: "+nl
+    
+    //----------------------------
+    //aDBheaders = sqlite_execute(oSQLite, "SELECT *         FROM sqlite_master WHERE type='table' AND name = 'Emp_Master' ")
+    //aDBheaders = sqlite_execute(oSQLite, "SELECT name, sql FROM sqlite_master WHERE type='table' AND name = 'Emp_Master' ")
+      aDBheaders = sqlite_execute(oSQLite, "SELECT sql       FROM sqlite_master WHERE type='table' AND name = 'Emp_Master' ")
+  
+     See nl
+     for Line in aDBheaders
+        for Field in Line
+                See  Field[2] + Tab 
+        next
+        See nl  ### after each line
+     next
+     See nl
+    
+
+return
+
+//-------------------------------
+/*
+ aDBheaders:
+ 
+type
+table
+name
+  Emp_Master
+tbl_name
+  Emp_Master
+rootpage
+  2
+sql
+  CREATE TABLE Emp_Master
+            ( emp_id INTEGER PRIMARY KEY AUTOINCREMENT,
+              first_name TEXT,
+              last_name  TEXT,
+              salary     NUMERIC,
+              dept_id    INTEGER  )
+*/
 //--------------------------------------------------------------------  
