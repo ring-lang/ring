@@ -2,6 +2,7 @@
 # Common Functions and classes for applications
 # 2016-2019, Mahmoud Fayed <msfclipper@yahoo.com>
 # 2016-2019, CalmoSoft <calmosoft@gmail.com>
+# 2020, Bert Mariani (Matrix Multiplication)
 
 Load "stdlib.rh"
 Load "stdfunctions.ring"
@@ -566,17 +567,34 @@ Func Binarydigits a
 */     
 
 Func Matrixmulti A, B
-	n = len(A)
-	C = newlist(n,n)
-	for i = 1 to n
-		for j = 1 to n
-			for k = 1 to n
-				C[i][k] += A[i][j] * B[j][k]  
+
+	vertA = len(A)    horzA = len(A[1])
+	vertB = len(B)    horzB = len(B[1])
+	vertC = len(A)    horzC = len(B)
+	C     = list(vertA, horzB)         // Make array bigV and bigH
+      
+	if horzA != vertB 
+		See "Error: Matrix dimension: Horz-A:"+horzA +" MUST EQUAL vert-B:"+vertB +nl
+		return 1
+	ok   
+   
+	for vA = 1 to vertA
+		for hB = 1 to horzB
+			Sum = 0
+			for k = 1 to horzA             
+				Sum += A[vA][k] * B[k][hB]    
+				if FlagShowSolution = 1                  // 0 No Show, 1 = Show Solutio
+					See " "+ A[vA][k] +"*"+ B[k][hB]
+				ok
 			next
+			if FlagShowSolution = 1 
+				See " = "+ Sum  +"  C"+ vA + hB +nl
+			ok
+			C[va][hB] = Sum          
 		next
 	next
-	return C
-     
+	return C     
+
 /*
 	Function Name	: Matrixtrans
 	Usage		: Transpose an arbitrarily sized rectangular Matrix. 
