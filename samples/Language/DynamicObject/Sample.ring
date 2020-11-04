@@ -1,3 +1,6 @@
+# Mohammad Hamdy Ghanem
+# 04/11/2020
+
 load "dynobj.ring"
 
 Color = defObj([
