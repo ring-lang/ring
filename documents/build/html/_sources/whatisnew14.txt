@@ -54,6 +54,10 @@ Screen Shots:
 More Improvements
 =================
 
+* More Samples
+	* ring/samples/Language/EnumGenerator folder
+	* ring/samples/Language/DynamicObject folder
+
 * RingPM - New Package: GUILib (Separate package for the GUILib classes)
 * RingPM - New Package: ObjectsLib (Separate package for the ObjectsLib classes)
 * RingQtRuntime Package: Using GUILib & ObjectsLib packages
