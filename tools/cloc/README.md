@@ -8,9 +8,13 @@ We are using cloc version 1.88
 
 URL: https://github.com/AlDanial/cloc
 
+## Install
+
+	ringpm install cloc
+
 ## Usage
 
-	ringcloc application_folder_path
+	ringcloc <application_folder_path>
 
 ## Example
 
