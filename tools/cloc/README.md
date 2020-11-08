@@ -1,30 +1,26 @@
-Using CLOC (Count Lines of Code)
-================================
+# Using CLOC (Count Lines of Code)
 
 Using CLOC and the Ring programming language projects.
 
-The Tool
-========
+## The Tool
 
 We are using cloc version 1.88 
 
 URL: https://github.com/AlDanial/cloc
 
-Usage
-=====
+## Usage
 
 	ringcloc application_folder_path
 
-Example
-=======
+## Example
 
-== Ring Notepad ==
+### Ring Notepad
 
-Usage:
+#### Usage
 
 	ringcloc c:\ring\tools\ringnotepad
 
-Output:
+#### Output
 
 	      47 text files.
 	      47 unique files.
@@ -45,13 +41,13 @@ Output:
 	SUM:                                46            302            156           3328
 	-----------------------------------------------------------------------------------
 
-== The Form Designer ==
+### The Form Designer
 
-Usage:
+#### Usage
 
 	ringcloc c:\ring\tools\formdesigner
 
-Output:
+#### Output
 
 	      54 text files.
 	      54 unique files.
