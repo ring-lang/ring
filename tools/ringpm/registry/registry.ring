@@ -636,11 +636,15 @@ aPackagesRegistry = [
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "objectslib",
-	  :description = "ObjectsLib for the Ring programming language",
+	  :description = "ObjectsLib package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "guilib",
-	  :description = "GUILib for the Ring programming language",
+	  :description = "GUILib package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "cloc",
+	  :description = "CLOC package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	]
 ]
