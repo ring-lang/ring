@@ -18,7 +18,9 @@ Usage
 Example
 =======
 
-* Ring Notepad 
+== Ring Notepad ==
+
+Usage:
 
 	ringcloc c:\ring\tools\ringnotepad
 
@@ -43,7 +45,9 @@ Output:
 	SUM:                                46            302            156           3328
 	-----------------------------------------------------------------------------------
 
-* The Form Designer
+== The Form Designer ==
+
+Usage:
 
 	ringcloc c:\ring\tools\formdesigner
 
