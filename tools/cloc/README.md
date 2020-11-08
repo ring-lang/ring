@@ -13,14 +13,14 @@ URL: https://github.com/AlDanial/cloc
 Usage
 =====
 
-	runcloc application_folder_path
+	ringcloc application_folder_path
 
 Example
 =======
 
 * Ring Notepad 
 
-	runcloc c:\ring\tools\ringnotepad
+	ringcloc c:\ring\tools\ringnotepad
 
 Output:
 
@@ -45,7 +45,7 @@ Output:
 
 * The Form Designer
 
-	runcloc c:\ring\tools\formdesigner
+	ringcloc c:\ring\tools\formdesigner
 
 Output:
 
