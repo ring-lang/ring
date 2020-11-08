@@ -1,0 +1,12 @@
+Ring
+    filter remove_matches ^\s*//
+    filter remove_inline //.*$
+    filter remove_matches ^\s*#
+    filter docstring_to_C
+    filter call_regexp_common C
+    filter remove_inline #.*$
+    extension ring
+    extension rh
+    extension rform
+    3rd_gen_scale 4.20
+    end_of_line_continuation \\$
