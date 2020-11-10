@@ -10,7 +10,7 @@ URL: https://github.com/AlDanial/cloc
 
 ## Install
 
-	ringpm install cloc
+	ringpm install cloc from ringpackages
 
 ## Usage
 
