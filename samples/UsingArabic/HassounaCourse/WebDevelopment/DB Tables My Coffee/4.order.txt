@@ -1,0 +1,8 @@
+create table IF NOT EXISTS "order"
+(
+	id          serial    primary key,
+	order_date  timestamp with time zone not null,
+	is_finished boolean   not null,
+	user_id     integer   not null,
+	foreign key(user_id)  references "user"(id)
+);

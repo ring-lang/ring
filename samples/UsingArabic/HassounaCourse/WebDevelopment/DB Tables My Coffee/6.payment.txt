@@ -1,0 +1,11 @@
+create table if not exists payment
+(
+	id               serial       primary key,
+	order_id         integer      unique,
+	shipment_address varchar(250) not null,
+	shipment_phone   varchar(50)  not null,
+	card_number      varchar(25)  not null,
+	expire           date         not null,
+	security_code    varchar(4)   not null,
+	foreign key(order_id) references "order"(id)
+);
