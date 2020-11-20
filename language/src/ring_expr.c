@@ -1153,6 +1153,7 @@ int ring_parser_mixer ( Parser *pParser )
 			ring_parser_icg_newoperandint(pParser,0);
 			if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
 				ring_parser_nexttoken(pParser);
+				RING_PARSER_PASSNEWLINE ;
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
 				
