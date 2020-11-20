@@ -1074,6 +1074,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 			if (! ring_parser_paralist(pParser)) return 0 ;
 		}
+		RING_PARSER_PASSNEWLINE ;
 		/* Get Function Code */
 		if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 			ring_parser_nexttoken(pParser);
