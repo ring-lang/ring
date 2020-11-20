@@ -1390,6 +1390,7 @@ int ring_parser_objattributes ( Parser *pParser )
 			puts("Rule : Mixer -> '.' Identifier ");
 			#endif
 			ring_parser_nexttoken(pParser);
+			RING_PARSER_IGNORENEWLINE ;
 		}
 		else {
 			return 0 ;
