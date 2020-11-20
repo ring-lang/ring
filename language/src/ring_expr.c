@@ -1050,6 +1050,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 	/* Factor --> Anonymous Function */
 	if ( ring_parser_iskeyword(pParser,K_FUNC) || ring_parser_iskeyword(pParser,K_DEF) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_PASSNEWLINE ;
 		/*
 		**  Generate Code 
 		**  Push Function Name, then jump after the function code 
