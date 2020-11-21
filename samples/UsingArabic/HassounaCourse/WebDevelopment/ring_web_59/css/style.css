@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda&display=swap');
+
+html, body{
+  height: 100%;
+  width: 100%;
+}
+
+a{
+  color: rgb(255, 231, 204) ;
+}
+
+a:hover{
+  color: #fff;
+}
+
+body{
+    /*background-color: antiquewhite;*/
+    font-family: 'Merienda', cursive;
+    padding-top:65px;
+}
+
+.img-brand{
+    width:40px;
+    height:40px;
+    transition: 0.5s;
+    border-radius: 20px;
+}
+
+.img-brand:hover{
+    transform: rotate(360deg);
+}
+
+.navbar-brand:hover .img-brand{
+    box-shadow: 1px 1px 10px #fff,
+                -1px -1px 10px #fff;
+}
+
+.navbar-brand{
+    font-family: 'Gloria Hallelujah', cursive;
+    transition: 0.5s;
+}
+
+.navbar-brand:hover{
+    text-shadow: 1px 1px 10px #fff,
+                -1px -1px 10px #fff;
+    transform: rotate(-1deg);
+}
+
+.navbar-custom {
+  transition:0.5s;
+  background-color: #5A020Cce; 
+}
+
+.navbar-custom:hover:not(footer) {
+  background-color: #71131Eee; 
+}
+
+.navbar li{
+    transition: 0.5s;
+}
+
+.navbar li:hover:not([id=coffee-nav-item]){
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+#coffee-nav-item:hover{
+    margin-left: 10px !important;
+    margin-right: 10px !important;
+}
+
+
+#coffee-nav-item{
+  background-color:#5A020Cce;
+  border-radius: 25px;
+  padding-left:5px;
+  padding-right:5px;
+}
+
+@media (min-width: 100px) {
+    .animate {
+      animation-duration: 0.3s;
+      -webkit-animation-duration: 0.3s;
+      animation-fill-mode: both;
+      -webkit-animation-fill-mode: both;
+    }
+}
+  
+@keyframes slideIn {
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+    100% {
+      transform:translateY(0rem);
+      opacity: 1;
+    }
+    0% {
+      transform: translateY(1rem);
+      opacity: 0;
+    }
+}
+  
+@-webkit-keyframes slideIn {
+    0% {
+      -webkit-transform: transform;
+      -webkit-opacity: 0;
+    }
+    100% {
+      -webkit-transform: translateY(0);
+      -webkit-opacity: 1;
+    }
+    0% {
+      -webkit-transform: translateY(1rem);
+      -webkit-opacity: 0;
+    }
+}
+ 
+
+
+.slideIn {
+    -webkit-animation-name: slideIn;
+    animation-name: slideIn;
+}
+
+textarea:focus, 
+select:focus, 
+select.custom-select:focus, 
+textarea.form-control:focus, 
+input.form-control:focus, 
+input[type=text]:focus, 
+input[type=password]:focus, 
+input[type=email]:focus, 
+input[type=number]:focus, 
+[type=text].form-control:focus, 
+[type=password].form-control:focus, 
+[type=email].form-control:focus, 
+[type=tel].form-control:focus, 
+[contenteditable].form-control:focus {
+  box-shadow: inset 0 -1px 0 #dddddd00,
+             1px 1px 6px #ffc107,
+             -1px -1px 6px #ffc107;
+}
+
+.carousel-inner img{
+  width: 100%;
+  height: 100%;
+}
+
+
+.jumbotron{
+  background-color: antiquewhite;
+  color: #71131E;
+}
+
+.rounded-bottom{
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+}
+
+.mycoffee-svg{
+  width: 100%;
+  padding-left: 50px;
+  opacity: 0.8;
+  transition: 0.5s;
+}
+
+.mycoffee-svg:hover{
+  opacity: 1;
+  transform: rotate(-60deg);
+}
+
+.about-img{
+  background-color: #71131E55;
+}
+
+.about-img:hover{
+  background-color: #71131E77;
+}
+
+.my-form{
+  background-color: antiquewhite;
+}
+
+.my-content{
+  background-color: antiquewhite;
+}
+
+.my-content h1,
+.my-content h2,
+.my-content h3{
+  color: #71131E;
+}
+
+.my-content p{
+  transition: 0.5s;
+}
+
+.my-content p:before{
+  color: #71131E;
+  content: '► ';
+}
+
+#price{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: bold;
+}
