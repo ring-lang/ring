@@ -5,7 +5,7 @@ Author : Abdulrahman
 
 URL : https://github.com/AbdelrahmanGIT/Ring_for_NotePad_plus_plus
 
-Screen shot
+Screenshot
 ===========
 
 ![Ring syntax highlighter in action](http://i.imgur.com/DqZyyXg.png)
@@ -33,10 +33,10 @@ Instructions
 Run integration
 ===============
 
-1. Open notepad++ if it's not already opend
+1. Open notepad++ if it's not already opened
 2. Open the "Run" menu
 3. Choose `Run...`
-4. On the run dialog Put this command(Chnage `RING_BIN_FOLDER` to point to ring folder): 
+4. On the run dialog Put this command (Change `RING_BIN_FOLDER` to point to ring folder): 
  
 `cmd /K cd /D "RING_BIN_FOLDER" && runring.bat "$(FULL_CURRENT_PATH)""`
 
