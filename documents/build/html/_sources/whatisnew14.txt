@@ -58,6 +58,7 @@ More Improvements
 	* ring/samples/Language/EnumGenerator folder
 	* ring/samples/Language/DynamicObject folder
 	* ring/samples/UsingQML/sample11 folder
+	* ring/samples/General/BinarokuGame folder
 
 * Ring Compiler - Pass new lines after the FUNC keyword in anonymous functions
 * Ring Compiler - Pass new lines after the function parameters in anonymous functions
