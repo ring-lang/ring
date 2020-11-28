@@ -11,7 +11,20 @@
 
 <constant>
 uiPi
+uiForEachContinue
+uiForEachStop
 </constant>
+
+<struct>
+uiInitOptions
+</struct>
+
+<runcode>
+aNumberTypes + "size_t"
+
+aEnumTypes + "uiForEach"
+aEnumTypes + "uiTextWeight"
+</runcode>
 
 const char *uiInit(uiInitOptions *options)
 
@@ -302,15 +315,6 @@ uiTable *uiNewTable(uiTableParams *params)
 void uiAreaSetSize(uiArea *a, int width, int height)
 
 <comment>
-
-_UI_ENUM(uiForEach) {
-	uiForEachContinue,
-	uiForEachStop,
-}
-
-struct uiInitOptions {
-	size_t Size
-}
 
 void uiQueueMain(void (*f)(void *data), void *data)
 void uiTimer(int milliseconds, int (*f)(void *data), void *data)

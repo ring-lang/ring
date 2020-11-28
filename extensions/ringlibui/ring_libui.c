@@ -11,6 +11,58 @@ RING_FUNC(ring_get_uipi)
 	RING_API_RETNUMBER(uiPi);
 }
 
+RING_FUNC(ring_get_uiforeachcontinue)
+{
+	RING_API_RETNUMBER(uiForEachContinue);
+}
+
+RING_FUNC(ring_get_uiforeachstop)
+{
+	RING_API_RETNUMBER(uiForEachStop);
+}
+
+RING_FUNC(ring_new_uiinitoptions)
+{
+	uiInitOptions *pMyPointer ;
+	pMyPointer = (uiInitOptions *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiInitOptions)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiInitOptions");
+}
+
+RING_FUNC(ring_new_managed_uiinitoptions)
+{
+	uiInitOptions *pMyPointer ;
+	pMyPointer = (uiInitOptions *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiInitOptions)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiInitOptions",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uiinitoptions)
+{
+	uiInitOptions *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiInitOptions");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 
 RING_FUNC(ring_uiInit)
 {
@@ -3932,9 +3984,11 @@ RING_FUNC(ring_uiNewWeightAttribute)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	RING_API_RETCPOINTER(uiNewWeightAttribute(* (uiTextWeight  *) RING_API_GETCPOINTER(1,"uiTextWeight")),"uiAttribute");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiTextWeight"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewWeightAttribute( (uiTextWeight )  (int) RING_API_GETNUMBER(1)),"uiAttribute");
 }
 
 
@@ -3948,12 +4002,7 @@ RING_FUNC(ring_uiAttributeWeight)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		uiTextWeight *pValue ; 
-		pValue = (uiTextWeight *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTextWeight)) ;
-		*pValue = uiAttributeWeight((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"uiTextWeight",ring_state_free);
-	}
+	RING_API_RETNUMBER(uiAttributeWeight((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute")));
 }
 
 
@@ -4478,4 +4527,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uinewtable",ring_uiNewTable);
 	ring_vm_funcregister("uiareasetsize",ring_uiAreaSetSize);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
+	ring_vm_funcregister("get_uiforeachcontinue",ring_get_uiforeachcontinue);
+	ring_vm_funcregister("get_uiforeachstop",ring_get_uiforeachstop);
+	ring_vm_funcregister("new_uiinitoptions",ring_new_uiinitoptions);
+	ring_vm_funcregister("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
+	ring_vm_funcregister("destroy_uiinitoptions",ring_destroy_uiinitoptions);
 }
