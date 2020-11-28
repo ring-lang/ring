@@ -81,6 +81,21 @@ RING_FUNC(ring_get_uidrawbrushtypeimage)
 	RING_API_RETNUMBER(uiDrawBrushTypeImage);
 }
 
+RING_FUNC(ring_get_uidrawdefaultmiterlimit)
+{
+	RING_API_RETNUMBER(uiDrawDefaultMiterLimit);
+}
+
+RING_FUNC(ring_get_uitablemodelcolumnnevereditable)
+{
+	RING_API_RETNUMBER(uiTableModelColumnNeverEditable);
+}
+
+RING_FUNC(ring_get_uitablemodelcolumnalwayseditable)
+{
+	RING_API_RETNUMBER(uiTableModelColumnAlwaysEditable);
+}
+
 RING_FUNC(ring_new_uiinitoptions)
 {
 	uiInitOptions *pMyPointer ;
@@ -5055,6 +5070,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_uidrawbrushtypelineargradient",ring_get_uidrawbrushtypelineargradient);
 	ring_vm_funcregister("get_uidrawbrushtyperadialgradient",ring_get_uidrawbrushtyperadialgradient);
 	ring_vm_funcregister("get_uidrawbrushtypeimage",ring_get_uidrawbrushtypeimage);
+	ring_vm_funcregister("get_uidrawdefaultmiterlimit",ring_get_uidrawdefaultmiterlimit);
+	ring_vm_funcregister("get_uitablemodelcolumnnevereditable",ring_get_uitablemodelcolumnnevereditable);
+	ring_vm_funcregister("get_uitablemodelcolumnalwayseditable",ring_get_uitablemodelcolumnalwayseditable);
 	ring_vm_funcregister("new_uiinitoptions",ring_new_uiinitoptions);
 	ring_vm_funcregister("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
 	ring_vm_funcregister("destroy_uiinitoptions",ring_destroy_uiinitoptions);

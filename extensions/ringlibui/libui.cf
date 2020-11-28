@@ -25,6 +25,9 @@ uiDrawBrushTypeSolid
 uiDrawBrushTypeLinearGradient
 uiDrawBrushTypeRadialGradient
 uiDrawBrushTypeImage
+uiDrawDefaultMiterLimit
+uiTableModelColumnNeverEditable
+uiTableModelColumnAlwaysEditable
 </constant>
 
 <struct>
@@ -375,8 +378,6 @@ void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *
 #define uiMenu(this) ((uiMenu *) (this))
 #define uiArea(this) ((uiArea *) (this))
 
-
-
 _UI_ENUM(uiDrawLineCap) {
 	uiDrawLineCapFlat,
 	uiDrawLineCapRound,
@@ -388,8 +389,6 @@ _UI_ENUM(uiDrawLineJoin) {
 	uiDrawLineJoinRound,
 	uiDrawLineJoinBevel,
 }
-
-#define uiDrawDefaultMiterLimit 10.0
 
 _UI_ENUM(uiDrawFillMode) {
 	uiDrawFillModeWinding,
@@ -501,14 +500,6 @@ _UI_ENUM(uiUnderlineColor) {
 	uiUnderlineColorAuxiliary,		// for instance, the color used by smart replacements on macOS or in Microsoft Office
 }
 
-typedef struct uiOpenTypeFeatures uiOpenTypeFeatures
-typedef uiForEach (*uiOpenTypeFeaturesForEachFunc)(const uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t value, void *data)
-
-typedef struct uiAttributedString uiAttributedString
-typedef uiForEach (*uiAttributedStringForEachAttributeFunc)(const uiAttributedString *s, const uiAttribute *a, size_t start, size_t end, void *data)
-
-typedef struct uiFontDescriptor uiFontDescriptor
-
 struct uiFontDescriptor {
 	char *Family
 	double Size
@@ -517,15 +508,11 @@ struct uiFontDescriptor {
 	uiTextStretch Stretch
 }
 
-typedef struct uiDrawTextLayout uiDrawTextLayout
-
 _UI_ENUM(uiDrawTextAlign) {
 	uiDrawTextAlignLeft,
 	uiDrawTextAlignCenter,
 	uiDrawTextAlignRight,
 }
-
-typedef struct uiDrawTextLayoutParams uiDrawTextLayoutParams
 
 struct uiDrawTextLayoutParams {
 	uiAttributedString *String
@@ -534,7 +521,6 @@ struct uiDrawTextLayoutParams {
 	uiDrawTextAlign Align
 }
 
-typedef struct uiFontButton uiFontButton
 #define uiFontButton(this) ((uiFontButton *) (this))
 
 void uiFontButtonOnChanged(uiFontButton *b, void (*f)(uiFontButton *, void *), void *data)
@@ -608,11 +594,9 @@ struct uiAreaKeyEvent {
 	int Up
 }
 
-typedef struct uiColorButton uiColorButton
 #define uiColorButton(this) ((uiColorButton *) (this))
 void uiColorButtonOnChanged(uiColorButton *b, void (*f)(uiColorButton *, void *), void *data)
 
-typedef struct uiForm uiForm
 #define uiForm(this) ((uiForm *) (this))
 
 _UI_ENUM(uiAlign) {
@@ -629,12 +613,7 @@ _UI_ENUM(uiAt) {
 	uiAtBottom,
 }
 
-typedef struct uiGrid uiGrid
 #define uiGrid(this) ((uiGrid *) (this))
-
-typedef struct uiImage uiImage
-typedef struct uiTableValue uiTableValue
-
 
 _UI_ENUM(uiTableValueType) {
 	uiTableValueTypeString,
@@ -643,9 +622,6 @@ _UI_ENUM(uiTableValueType) {
 	uiTableValueTypeColor,
 }
 
-typedef struct uiTableModel uiTableModel
-typedef struct uiTableModelHandler uiTableModelHandler
-
 struct uiTableModelHandler {
 	int (*NumColumns)(uiTableModelHandler *, uiTableModel *)
 	uiTableValueType (*ColumnType)(uiTableModelHandler *, uiTableModel *, int)
@@ -653,13 +629,6 @@ struct uiTableModelHandler {
 	uiTableValue *(*CellValue)(uiTableModelHandler *mh, uiTableModel *m, int row, int column)
 	void (*SetCellValue)(uiTableModelHandler *, uiTableModel *, int, int, const uiTableValue *)
 }
-
-
-#define uiTableModelColumnNeverEditable (-1)
-#define uiTableModelColumnAlwaysEditable (-2)
-
-typedef struct uiTableTextColumnOptionalParams uiTableTextColumnOptionalParams
-typedef struct uiTableParams uiTableParams
 
 struct uiTableTextColumnOptionalParams {
 	int ColorModelColumn
@@ -670,7 +639,6 @@ struct uiTableParams {
 	int RowBackgroundColorModelColumn
 }
 
-typedef struct uiTable uiTable
 #define uiTable(this) ((uiTable *) (this))
 
 </comment>
