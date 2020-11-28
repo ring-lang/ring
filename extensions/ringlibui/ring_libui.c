@@ -3428,6 +3428,11 @@ RING_FUNC(ring_uiInit_2)
 	RING_API_RETSTRING(uiInit((uiInitOptions *) RING_API_GETCPOINTER(1,"uiInitOptions")));
 }
 
+
+VM *pVMLibUI = NULL;
+List *aLibUIEvents ;
+uiWindow *activeWindow ;
+
 RING_FUNC(ring_uiInit)
 {
 	uiInitOptions o;
@@ -3438,16 +3443,45 @@ RING_FUNC(ring_uiInit)
 		RING_API_ERROR("error initializing libui");
 		uiFreeInitError(err);
 	}
+	pVMLibUI = (VM *) pPointer;
+	aLibUIEvents = ring_list_new(0);
 }
 
 RING_FUNC(ring_uiUninit)
 {
-	if ( RING_API_PARACOUNT != 0 ) {
-		RING_API_ERROR(RING_API_BADPARACOUNT);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
 	uiUninit();
+	ring_list_delete(aLibUIEvents);
+}
+
+int libui_event(void *data)
+{
+	const char *cCode;
+	cCode = (const char *) data;
+	ring_vm_runcode(pVMLibUI,cCode);
+	return 0;
+}
+
+int libui_windowevent(uiWindow *w,void *data)
+{
+	const char *cCode;
+	cCode = (const char *) data;
+	activeWindow = w;
+	ring_vm_runcode(pVMLibUI,cCode);
+	return 0;
+}
+
+RING_FUNC(ring_uiOnShouldQuit)
+{
+	ring_list_addstring(aLibUIEvents,RING_API_GETSTRING(1));
+	uiOnShouldQuit(libui_event,ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents)));
+	printf("%s",ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents)));
+}
+
+RING_FUNC(ring_uiWindowOnClosing)
+{
+	ring_list_addstring(aLibUIEvents,RING_API_GETSTRING(2));
+	uiWindowOnClosing(RING_API_GETCPOINTER(1,"uiWindow"),
+		libui_windowevent,ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents)));
 }
 
 
@@ -7922,6 +7956,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uiinit_2",ring_uiInit_2);
 	ring_vm_funcregister("uiinit",ring_uiInit);
 	ring_vm_funcregister("uiuninit",ring_uiUninit);
+	ring_vm_funcregister("uionshouldquit",ring_uiOnShouldQuit);
+	ring_vm_funcregister("uiwindowonclosing",ring_uiWindowOnClosing);
 	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
 	ring_vm_funcregister("uimain",ring_uiMain);
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);

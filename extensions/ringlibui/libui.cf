@@ -187,9 +187,17 @@ const char *uiInit@2(uiInitOptions *options)
 
 <register>
 void *uiInit(void)
+void uiUninit(void)
+void uiOnShouldQuit(const char *cEvent)
+void uiWindowOnClosing(uiWindow *w,const char *cEvent)
 </register>
 
 <code>
+
+VM *pVMLibUI = NULL;
+List *aLibUIEvents ;
+uiWindow *activeWindow ;
+
 RING_FUNC(ring_uiInit)
 {
 	uiInitOptions o;
@@ -200,10 +208,49 @@ RING_FUNC(ring_uiInit)
 		RING_API_ERROR("error initializing libui");
 		uiFreeInitError(err);
 	}
+	pVMLibUI = (VM *) pPointer;
+	aLibUIEvents = ring_list_new(0);
 }
+
+RING_FUNC(ring_uiUninit)
+{
+	uiUninit();
+	ring_list_delete(aLibUIEvents);
+}
+
+int libui_event(void *data)
+{
+	const char *cCode;
+	cCode = (const char *) data;
+	ring_vm_runcode(pVMLibUI,cCode);
+	return 0;
+}
+
+int libui_windowevent(uiWindow *w,void *data)
+{
+	const char *cCode;
+	cCode = (const char *) data;
+	activeWindow = w;
+	ring_vm_runcode(pVMLibUI,cCode);
+	return 0;
+}
+
+RING_FUNC(ring_uiOnShouldQuit) 
+{
+	ring_list_addstring(aLibUIEvents,RING_API_GETSTRING(1));
+	uiOnShouldQuit(libui_event,ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents)));
+	printf("%s",ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents)));
+}
+
+RING_FUNC(ring_uiWindowOnClosing)
+{
+	ring_list_addstring(aLibUIEvents,RING_API_GETSTRING(2));
+	uiWindowOnClosing(RING_API_GETCPOINTER(1,"uiWindow"),
+		libui_windowevent,ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents)));
+}
+
 </code>
 
-void uiUninit(void)
 void uiFreeInitError(const char *err)
 
 void uiMain(void)
