@@ -4213,6 +4213,28 @@ RING_FUNC(ring_uiNewTable)
 	RING_API_RETCPOINTER(uiNewTable((uiTableParams *) RING_API_GETCPOINTER(1,"uiTableParams")),"uiTable");
 }
 
+
+RING_FUNC(ring_uiAreaSetSize)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAreaSetSize((uiArea *) RING_API_GETCPOINTER(1,"uiArea"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -4454,5 +4476,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uitableappendprogressbarcolumn",ring_uiTableAppendProgressBarColumn);
 	ring_vm_funcregister("uitableappendbuttoncolumn",ring_uiTableAppendButtonColumn);
 	ring_vm_funcregister("uinewtable",ring_uiNewTable);
+	ring_vm_funcregister("uiareasetsize",ring_uiAreaSetSize);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }

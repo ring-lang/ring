@@ -299,6 +299,7 @@ void uiTableAppendProgressBarColumn(uiTable *t,const char *name,int progressMode
 void uiTableAppendButtonColumn(uiTable *t,const char *name,int buttonModelColumn,int buttonClickableModelColumn)
 uiTable *uiNewTable(uiTableParams *params)
 
+void uiAreaSetSize(uiArea *a, int width, int height)
 
 <comment>
 
@@ -337,36 +338,29 @@ struct uiControl {
 
 uintptr_t uiControlHandle(uiControl *)
 
-
 typedef struct uiWindow uiWindow
 #define uiWindow(this) ((uiWindow *) (this))
 
-
 void uiWindowOnContentSizeChanged(uiWindow *w, void (*f)(uiWindow *, void *), void *data)
 void uiWindowOnClosing(uiWindow *w, int (*f)(uiWindow *w, void *data), void *data)
-
 
 typedef struct uiButton uiButton
 #define uiButton(this) ((uiButton *) (this))
 
 void uiButtonOnClicked(uiButton *b, void (*f)(uiButton *b, void *data), void *data)
 
-
 typedef struct uiBox uiBox
 #define uiBox(this) ((uiBox *) (this))
-
 
 typedef struct uiCheckbox uiCheckbox
 #define uiCheckbox(this) ((uiCheckbox *) (this))
 
 void uiCheckboxOnToggled(uiCheckbox *c, void (*f)(uiCheckbox *c, void *data), void *data)
 
-
 typedef struct uiEntry uiEntry
 #define uiEntry(this) ((uiEntry *) (this))
 
 void uiEntryOnChanged(uiEntry *e, void (*f)(uiEntry *e, void *data), void *data)
-
 
 typedef struct uiLabel uiLabel
 #define uiLabel(this) ((uiLabel *) (this))
@@ -374,16 +368,13 @@ typedef struct uiLabel uiLabel
 typedef struct uiTab uiTab
 #define uiTab(this) ((uiTab *) (this))
 
-
 typedef struct uiGroup uiGroup
 #define uiGroup(this) ((uiGroup *) (this))
-
 
 typedef struct uiSpinbox uiSpinbox
 #define uiSpinbox(this) ((uiSpinbox *) (this))
 
 void uiSpinboxOnChanged(uiSpinbox *s, void (*f)(uiSpinbox *s, void *data), void *data)
-
 
 typedef struct uiSlider uiSlider
 #define uiSlider(this) ((uiSlider *) (this))
@@ -401,25 +392,21 @@ typedef struct uiCombobox uiCombobox
 
 void uiComboboxOnSelected(uiCombobox *c, void (*f)(uiCombobox *c, void *data), void *data)
 
-
 typedef struct uiEditableCombobox uiEditableCombobox
 #define uiEditableCombobox(this) ((uiEditableCombobox *) (this))
 
 void uiEditableComboboxOnChanged(uiEditableCombobox *c, void (*f)(uiEditableCombobox *c, void *data), void *data)
-
 
 typedef struct uiRadioButtons uiRadioButtons
 #define uiRadioButtons(this) ((uiRadioButtons *) (this))
 
 void uiRadioButtonsOnSelected(uiRadioButtons *r, void (*f)(uiRadioButtons *, void *), void *data)
 
-
 struct tm
 typedef struct uiDateTimePicker uiDateTimePicker
 #define uiDateTimePicker(this) ((uiDateTimePicker *) (this))
 
 void uiDateTimePickerOnChanged(uiDateTimePicker *d, void (*f)(uiDateTimePicker *, void *), void *data)
-
 
 typedef struct uiMultilineEntry uiMultilineEntry
 #define uiMultilineEntry(this) ((uiMultilineEntry *) (this))
@@ -430,7 +417,6 @@ typedef struct uiMenuItem uiMenuItem
 #define uiMenuItem(this) ((uiMenuItem *) (this))
 
 void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *window, void *data), void *data)
-
 
 typedef struct uiMenu uiMenu
 #define uiMenu(this) ((uiMenu *) (this))
@@ -463,8 +449,6 @@ _UI_ENUM(uiWindowResizeEdge) {
 }
 
 #define uiArea(this) ((uiArea *) (this))
-void uiAreaSetSize(uiArea *a, int width, int height)
-
 
 struct uiAreaDrawParams {
 	uiDrawContext *Context
@@ -582,14 +566,11 @@ _UI_ENUM(uiTextWeight) {
 	uiTextWeightMaximum = 1000,
 }
 
-
-
 _UI_ENUM(uiTextItalic) {
 	uiTextItalicNormal,
 	uiTextItalicOblique,
 	uiTextItalicItalic,
 }
-
 
 _UI_ENUM(uiTextStretch) {
 	uiTextStretchUltraCondensed,
@@ -602,7 +583,6 @@ _UI_ENUM(uiTextStretch) {
 	uiTextStretchExtraExpanded,
 	uiTextStretchUltraExpanded,
 }
-
 
 _UI_ENUM(uiUnderline) {
 	uiUnderlineNone,
@@ -650,7 +630,6 @@ struct uiDrawTextLayoutParams {
 	double Width
 	uiDrawTextAlign Align
 }
-
 
 typedef struct uiFontButton uiFontButton
 #define uiFontButton(this) ((uiFontButton *) (this))
@@ -777,7 +756,6 @@ struct uiTableModelHandler {
 #define uiTableModelColumnAlwaysEditable (-2)
 
 typedef struct uiTableTextColumnOptionalParams uiTableTextColumnOptionalParams
-
 typedef struct uiTableParams uiTableParams
 
 struct uiTableTextColumnOptionalParams {
@@ -791,6 +769,5 @@ struct uiTableParams {
 
 typedef struct uiTable uiTable
 #define uiTable(this) ((uiTable *) (this))
-
 
 </comment>
