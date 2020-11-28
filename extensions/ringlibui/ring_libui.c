@@ -61,6 +61,26 @@ RING_FUNC(ring_get_uiwindowresizeedgebottomright)
 	RING_API_RETNUMBER(uiWindowResizeEdgeBottomRight);
 }
 
+RING_FUNC(ring_get_uidrawbrushtypesolid)
+{
+	RING_API_RETNUMBER(uiDrawBrushTypeSolid);
+}
+
+RING_FUNC(ring_get_uidrawbrushtypelineargradient)
+{
+	RING_API_RETNUMBER(uiDrawBrushTypeLinearGradient);
+}
+
+RING_FUNC(ring_get_uidrawbrushtyperadialgradient)
+{
+	RING_API_RETNUMBER(uiDrawBrushTypeRadialGradient);
+}
+
+RING_FUNC(ring_get_uidrawbrushtypeimage)
+{
+	RING_API_RETNUMBER(uiDrawBrushTypeImage);
+}
+
 RING_FUNC(ring_new_uiinitoptions)
 {
 	uiInitOptions *pMyPointer ;
@@ -5031,6 +5051,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_uiwindowresizeedgetopright",ring_get_uiwindowresizeedgetopright);
 	ring_vm_funcregister("get_uiwindowresizeedgebottomleft",ring_get_uiwindowresizeedgebottomleft);
 	ring_vm_funcregister("get_uiwindowresizeedgebottomright",ring_get_uiwindowresizeedgebottomright);
+	ring_vm_funcregister("get_uidrawbrushtypesolid",ring_get_uidrawbrushtypesolid);
+	ring_vm_funcregister("get_uidrawbrushtypelineargradient",ring_get_uidrawbrushtypelineargradient);
+	ring_vm_funcregister("get_uidrawbrushtyperadialgradient",ring_get_uidrawbrushtyperadialgradient);
+	ring_vm_funcregister("get_uidrawbrushtypeimage",ring_get_uidrawbrushtypeimage);
 	ring_vm_funcregister("new_uiinitoptions",ring_new_uiinitoptions);
 	ring_vm_funcregister("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
 	ring_vm_funcregister("destroy_uiinitoptions",ring_destroy_uiinitoptions);

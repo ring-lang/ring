@@ -21,6 +21,10 @@ uiWindowResizeEdgeTopLeft
 uiWindowResizeEdgeTopRight
 uiWindowResizeEdgeBottomLeft
 uiWindowResizeEdgeBottomRight
+uiDrawBrushTypeSolid
+uiDrawBrushTypeLinearGradient
+uiDrawBrushTypeRadialGradient
+uiDrawBrushTypeImage
 </constant>
 
 <struct>
@@ -36,8 +40,8 @@ aNumberTypes + "size_t"
 aEnumTypes + "uiForEach"
 aEnumTypes + "uiTextWeight"
 aEnumTypes + "uiWindowResizeEdge"
+aEnumTypes + "uiDrawBrushType"
 </runcode>
-
 
 const char *uiInit(uiInitOptions *options)
 
@@ -371,12 +375,7 @@ void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *
 #define uiMenu(this) ((uiMenu *) (this))
 #define uiArea(this) ((uiArea *) (this))
 
-_UI_ENUM(uiDrawBrushType) {
-	uiDrawBrushTypeSolid,
-	uiDrawBrushTypeLinearGradient,
-	uiDrawBrushTypeRadialGradient,
-	uiDrawBrushTypeImage,
-}
+
 
 _UI_ENUM(uiDrawLineCap) {
 	uiDrawLineCapFlat,
