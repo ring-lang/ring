@@ -202,6 +202,40 @@ const char *uiAttributeFamily(const uiAttribute *a)
 uiAttribute *uiNewSizeAttribute(double size)
 double uiAttributeSize(const uiAttribute *a)
 
+uiAttribute *uiNewStretchAttribute(uiTextStretch stretch)
+uiTextStretch uiAttributeStretch(const uiAttribute *a)
+uiAttribute *uiNewColorAttribute(double r, double g, double b, double a)
+void uiAttributeColor(const uiAttribute *a, double *r, double *g, double *b, double *alpha)
+uiAttribute *uiNewBackgroundAttribute(double r, double g, double b, double a)
+
+uiAttribute *uiNewUnderlineAttribute(uiUnderline u)
+uiUnderline uiAttributeUnderline(const uiAttribute *a)
+
+uiAttribute *uiNewUnderlineColorAttribute(uiUnderlineColor u, double r, double g, double b, double a)
+void uiAttributeUnderlineColor(const uiAttribute *a, uiUnderlineColor *u, double *r, double *g, double *b, double *alpha)
+uiOpenTypeFeatures *uiNewOpenTypeFeatures(void)
+void uiFreeOpenTypeFeatures(uiOpenTypeFeatures *otf)
+uiOpenTypeFeatures *uiOpenTypeFeaturesClone(const uiOpenTypeFeatures *otf)
+void uiOpenTypeFeaturesAdd(uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t value)
+void uiOpenTypeFeaturesRemove(uiOpenTypeFeatures *otf, char a, char b, char c, char d)
+int uiOpenTypeFeaturesGet(const uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t *value)
+void uiOpenTypeFeaturesForEach(const uiOpenTypeFeatures *otf, uiOpenTypeFeaturesForEachFunc f, void *data)
+uiAttribute *uiNewFeaturesAttribute(const uiOpenTypeFeatures *otf)
+const uiOpenTypeFeatures *uiAttributeFeatures(const uiAttribute *a)
+uiAttributedString *uiNewAttributedString(const char *initialString)
+void uiFreeAttributedString(uiAttributedString *s)
+const char *uiAttributedStringString(const uiAttributedString *s)
+size_t uiAttributedStringLen(const uiAttributedString *s)
+void uiAttributedStringAppendUnattributed(uiAttributedString *s, const char *str)
+void uiAttributedStringInsertAtUnattributed(uiAttributedString *s, const char *str, size_t at)
+void uiAttributedStringDelete(uiAttributedString *s, size_t start, size_t end)
+void uiAttributedStringSetAttribute(uiAttributedString *s, uiAttribute *a, size_t start, size_t end)
+void uiAttributedStringForEachAttribute(const uiAttributedString *s, uiAttributedStringForEachAttributeFunc f, void *data)
+size_t uiAttributedStringNumGraphemes(uiAttributedString *s)
+size_t uiAttributedStringByteIndexToGrapheme(uiAttributedString *s, size_t pos)
+size_t uiAttributedStringGraphemeToByteIndex(uiAttributedString *s, size_t pos)
+
+
 <comment>
 
 _UI_ENUM(uiForEach) {
@@ -512,11 +546,6 @@ _UI_ENUM(uiTextStretch) {
 	uiTextStretchUltraExpanded,
 }
 
-uiAttribute *uiNewStretchAttribute(uiTextStretch stretch)
-uiTextStretch uiAttributeStretch(const uiAttribute *a)
-uiAttribute *uiNewColorAttribute(double r, double g, double b, double a)
-void uiAttributeColor(const uiAttribute *a, double *r, double *g, double *b, double *alpha)
-uiAttribute *uiNewBackgroundAttribute(double r, double g, double b, double a)
 
 _UI_ENUM(uiUnderline) {
 	uiUnderlineNone,
@@ -525,9 +554,7 @@ _UI_ENUM(uiUnderline) {
 	uiUnderlineSuggestion,		// wavy or dotted underlines used for spelling/grammar checkers
 }
 
-uiAttribute *uiNewUnderlineAttribute(uiUnderline u)
 
-uiUnderline uiAttributeUnderline(const uiAttribute *a)
 
 _UI_ENUM(uiUnderlineColor) {
 	uiUnderlineColorCustom,
@@ -536,58 +563,13 @@ _UI_ENUM(uiUnderlineColor) {
 	uiUnderlineColorAuxiliary,		// for instance, the color used by smart replacements on macOS or in Microsoft Office
 }
 
-uiAttribute *uiNewUnderlineColorAttribute(uiUnderlineColor u, double r, double g, double b, double a)
-
-void uiAttributeUnderlineColor(const uiAttribute *a, uiUnderlineColor *u, double *r, double *g, double *b, double *alpha)
-
 typedef struct uiOpenTypeFeatures uiOpenTypeFeatures
-
 typedef uiForEach (*uiOpenTypeFeaturesForEachFunc)(const uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t value, void *data)
 
-uiOpenTypeFeatures *uiNewOpenTypeFeatures(void)
-
-void uiFreeOpenTypeFeatures(uiOpenTypeFeatures *otf)
-
-uiOpenTypeFeatures *uiOpenTypeFeaturesClone(const uiOpenTypeFeatures *otf)
-
-void uiOpenTypeFeaturesAdd(uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t value)
-
-void uiOpenTypeFeaturesRemove(uiOpenTypeFeatures *otf, char a, char b, char c, char d)
-
-int uiOpenTypeFeaturesGet(const uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t *value)
-
-void uiOpenTypeFeaturesForEach(const uiOpenTypeFeatures *otf, uiOpenTypeFeaturesForEachFunc f, void *data)
-
-uiAttribute *uiNewFeaturesAttribute(const uiOpenTypeFeatures *otf)
-
-const uiOpenTypeFeatures *uiAttributeFeatures(const uiAttribute *a)
-
 typedef struct uiAttributedString uiAttributedString
-
 typedef uiForEach (*uiAttributedStringForEachAttributeFunc)(const uiAttributedString *s, const uiAttribute *a, size_t start, size_t end, void *data)
 
-uiAttributedString *uiNewAttributedString(const char *initialString)
-void uiFreeAttributedString(uiAttributedString *s)
 
-const char *uiAttributedStringString(const uiAttributedString *s)
-
-size_t uiAttributedStringLen(const uiAttributedString *s)
-
-void uiAttributedStringAppendUnattributed(uiAttributedString *s, const char *str)
-
-void uiAttributedStringInsertAtUnattributed(uiAttributedString *s, const char *str, size_t at)
-
-void uiAttributedStringDelete(uiAttributedString *s, size_t start, size_t end)
-
-void uiAttributedStringSetAttribute(uiAttributedString *s, uiAttribute *a, size_t start, size_t end)
-
-void uiAttributedStringForEachAttribute(const uiAttributedString *s, uiAttributedStringForEachAttributeFunc f, void *data)
-
-size_t uiAttributedStringNumGraphemes(uiAttributedString *s)
-
-size_t uiAttributedStringByteIndexToGrapheme(uiAttributedString *s, size_t pos)
-
-size_t uiAttributedStringGraphemeToByteIndex(uiAttributedString *s, size_t pos)
 
 typedef struct uiFontDescriptor uiFontDescriptor
 

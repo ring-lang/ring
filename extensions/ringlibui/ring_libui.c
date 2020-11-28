@@ -2622,6 +2622,586 @@ RING_FUNC(ring_uiAttributeSize)
 	RING_API_RETNUMBER(uiAttributeSize((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute")));
 }
 
+
+RING_FUNC(ring_uiNewStretchAttribute)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewStretchAttribute(* (uiTextStretch  *) RING_API_GETCPOINTER(1,"uiTextStretch")),"uiAttribute");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiTextStretch"));
+}
+
+
+RING_FUNC(ring_uiAttributeStretch)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		uiTextStretch *pValue ; 
+		pValue = (uiTextStretch *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTextStretch)) ;
+		*pValue = uiAttributeStretch((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"uiTextStretch",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_uiNewColorAttribute)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewColorAttribute( (double ) RING_API_GETNUMBER(1), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4)),"uiAttribute");
+}
+
+
+RING_FUNC(ring_uiAttributeColor)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAttributeColor((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"),RING_API_GETDOUBLEPOINTER(2),RING_API_GETDOUBLEPOINTER(3),RING_API_GETDOUBLEPOINTER(4),RING_API_GETDOUBLEPOINTER(5));
+}
+
+
+RING_FUNC(ring_uiNewBackgroundAttribute)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewBackgroundAttribute( (double ) RING_API_GETNUMBER(1), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4)),"uiAttribute");
+}
+
+
+RING_FUNC(ring_uiNewUnderlineAttribute)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewUnderlineAttribute(* (uiUnderline  *) RING_API_GETCPOINTER(1,"uiUnderline")),"uiAttribute");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiUnderline"));
+}
+
+
+RING_FUNC(ring_uiAttributeUnderline)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		uiUnderline *pValue ; 
+		pValue = (uiUnderline *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiUnderline)) ;
+		*pValue = uiAttributeUnderline((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"uiUnderline",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_uiNewUnderlineColorAttribute)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewUnderlineColorAttribute(* (uiUnderlineColor  *) RING_API_GETCPOINTER(1,"uiUnderlineColor"), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4), (double ) RING_API_GETNUMBER(5)),"uiAttribute");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiUnderlineColor"));
+}
+
+
+RING_FUNC(ring_uiAttributeUnderlineColor)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAttributeUnderlineColor((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"),(uiUnderlineColor *) RING_API_GETCPOINTER(2,"uiUnderlineColor"),RING_API_GETDOUBLEPOINTER(3),RING_API_GETDOUBLEPOINTER(4),RING_API_GETDOUBLEPOINTER(5),RING_API_GETDOUBLEPOINTER(6));
+}
+
+
+RING_FUNC(ring_uiNewOpenTypeFeatures)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewOpenTypeFeatures(),"uiOpenTypeFeatures");
+}
+
+
+RING_FUNC(ring_uiFreeOpenTypeFeatures)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFreeOpenTypeFeatures((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"));
+}
+
+
+RING_FUNC(ring_uiOpenTypeFeaturesClone)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiOpenTypeFeaturesClone((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures")),"uiOpenTypeFeatures");
+}
+
+
+RING_FUNC(ring_uiOpenTypeFeaturesAdd)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiOpenTypeFeaturesAdd((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"),* (char  *) RING_API_GETCPOINTER(2,"char"),* (char  *) RING_API_GETCPOINTER(3,"char"),* (char  *) RING_API_GETCPOINTER(4,"char"),* (char  *) RING_API_GETCPOINTER(5,"char"), (uint32_t ) RING_API_GETNUMBER(6));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"char"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"char"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"char"));
+}
+
+
+RING_FUNC(ring_uiOpenTypeFeaturesRemove)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiOpenTypeFeaturesRemove((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"),* (char  *) RING_API_GETCPOINTER(2,"char"),* (char  *) RING_API_GETCPOINTER(3,"char"),* (char  *) RING_API_GETCPOINTER(4,"char"),* (char  *) RING_API_GETCPOINTER(5,"char"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"char"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"char"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"char"));
+}
+
+
+RING_FUNC(ring_uiOpenTypeFeaturesGet)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiOpenTypeFeaturesGet((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"),* (char  *) RING_API_GETCPOINTER(2,"char"),* (char  *) RING_API_GETCPOINTER(3,"char"),* (char  *) RING_API_GETCPOINTER(4,"char"),* (char  *) RING_API_GETCPOINTER(5,"char"),(uint32_t *) RING_API_GETCPOINTER(6,"uint32_t")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"char"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"char"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(5))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"char"));
+}
+
+
+RING_FUNC(ring_uiOpenTypeFeaturesForEach)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiOpenTypeFeaturesForEach((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"),* (uiOpenTypeFeaturesForEachFunc  *) RING_API_GETCPOINTER(2,"uiOpenTypeFeaturesForEachFunc"),(void *) RING_API_GETCPOINTER(3,"void"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uiOpenTypeFeaturesForEachFunc"));
+}
+
+
+RING_FUNC(ring_uiNewFeaturesAttribute)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewFeaturesAttribute((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures")),"uiAttribute");
+}
+
+
+RING_FUNC(ring_uiAttributeFeatures)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiAttributeFeatures((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute")),"uiOpenTypeFeatures");
+}
+
+
+RING_FUNC(ring_uiNewAttributedString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewAttributedString(RING_API_GETSTRING(1)),"uiAttributedString");
+}
+
+
+RING_FUNC(ring_uiFreeAttributedString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFreeAttributedString((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"));
+}
+
+
+RING_FUNC(ring_uiAttributedStringString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(uiAttributedStringString((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString")));
+}
+
+
+RING_FUNC(ring_uiAttributedStringLen)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiAttributedStringLen((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString")));
+}
+
+
+RING_FUNC(ring_uiAttributedStringAppendUnattributed)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAttributedStringAppendUnattributed((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiAttributedStringInsertAtUnattributed)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAttributedStringInsertAtUnattributed((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"),RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_uiAttributedStringDelete)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAttributedStringDelete((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"), (size_t ) RING_API_GETNUMBER(2), (size_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_uiAttributedStringSetAttribute)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAttributedStringSetAttribute((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"),(uiAttribute *) RING_API_GETCPOINTER(2,"uiAttribute"), (size_t ) RING_API_GETNUMBER(3), (size_t ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_uiAttributedStringForEachAttribute)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAttributedStringForEachAttribute((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"),* (uiAttributedStringForEachAttributeFunc  *) RING_API_GETCPOINTER(2,"uiAttributedStringForEachAttributeFunc"),(void *) RING_API_GETCPOINTER(3,"void"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uiAttributedStringForEachAttributeFunc"));
+}
+
+
+RING_FUNC(ring_uiAttributedStringNumGraphemes)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiAttributedStringNumGraphemes((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString")));
+}
+
+
+RING_FUNC(ring_uiAttributedStringByteIndexToGrapheme)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiAttributedStringByteIndexToGrapheme((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"), (size_t ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uiAttributedStringGraphemeToByteIndex)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiAttributedStringGraphemeToByteIndex((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"), (size_t ) RING_API_GETNUMBER(2)));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -2782,5 +3362,35 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uiattributefamily",ring_uiAttributeFamily);
 	ring_vm_funcregister("uinewsizeattribute",ring_uiNewSizeAttribute);
 	ring_vm_funcregister("uiattributesize",ring_uiAttributeSize);
+	ring_vm_funcregister("uinewstretchattribute",ring_uiNewStretchAttribute);
+	ring_vm_funcregister("uiattributestretch",ring_uiAttributeStretch);
+	ring_vm_funcregister("uinewcolorattribute",ring_uiNewColorAttribute);
+	ring_vm_funcregister("uiattributecolor",ring_uiAttributeColor);
+	ring_vm_funcregister("uinewbackgroundattribute",ring_uiNewBackgroundAttribute);
+	ring_vm_funcregister("uinewunderlineattribute",ring_uiNewUnderlineAttribute);
+	ring_vm_funcregister("uiattributeunderline",ring_uiAttributeUnderline);
+	ring_vm_funcregister("uinewunderlinecolorattribute",ring_uiNewUnderlineColorAttribute);
+	ring_vm_funcregister("uiattributeunderlinecolor",ring_uiAttributeUnderlineColor);
+	ring_vm_funcregister("uinewopentypefeatures",ring_uiNewOpenTypeFeatures);
+	ring_vm_funcregister("uifreeopentypefeatures",ring_uiFreeOpenTypeFeatures);
+	ring_vm_funcregister("uiopentypefeaturesclone",ring_uiOpenTypeFeaturesClone);
+	ring_vm_funcregister("uiopentypefeaturesadd",ring_uiOpenTypeFeaturesAdd);
+	ring_vm_funcregister("uiopentypefeaturesremove",ring_uiOpenTypeFeaturesRemove);
+	ring_vm_funcregister("uiopentypefeaturesget",ring_uiOpenTypeFeaturesGet);
+	ring_vm_funcregister("uiopentypefeaturesforeach",ring_uiOpenTypeFeaturesForEach);
+	ring_vm_funcregister("uinewfeaturesattribute",ring_uiNewFeaturesAttribute);
+	ring_vm_funcregister("uiattributefeatures",ring_uiAttributeFeatures);
+	ring_vm_funcregister("uinewattributedstring",ring_uiNewAttributedString);
+	ring_vm_funcregister("uifreeattributedstring",ring_uiFreeAttributedString);
+	ring_vm_funcregister("uiattributedstringstring",ring_uiAttributedStringString);
+	ring_vm_funcregister("uiattributedstringlen",ring_uiAttributedStringLen);
+	ring_vm_funcregister("uiattributedstringappendunattributed",ring_uiAttributedStringAppendUnattributed);
+	ring_vm_funcregister("uiattributedstringinsertatunattributed",ring_uiAttributedStringInsertAtUnattributed);
+	ring_vm_funcregister("uiattributedstringdelete",ring_uiAttributedStringDelete);
+	ring_vm_funcregister("uiattributedstringsetattribute",ring_uiAttributedStringSetAttribute);
+	ring_vm_funcregister("uiattributedstringforeachattribute",ring_uiAttributedStringForEachAttribute);
+	ring_vm_funcregister("uiattributedstringnumgraphemes",ring_uiAttributedStringNumGraphemes);
+	ring_vm_funcregister("uiattributedstringbyteindextographeme",ring_uiAttributedStringByteIndexToGrapheme);
+	ring_vm_funcregister("uiattributedstringgraphemetobyteindex",ring_uiAttributedStringGraphemeToByteIndex);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }
