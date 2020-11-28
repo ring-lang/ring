@@ -136,6 +136,221 @@ RING_FUNC(ring_get_uidrawfillmodealternate)
 	RING_API_RETNUMBER(uiDrawFillModeAlternate);
 }
 
+RING_FUNC(ring_get_uiattributetypefamily)
+{
+	RING_API_RETNUMBER(uiAttributeTypeFamily);
+}
+
+RING_FUNC(ring_get_uiattributetypesize)
+{
+	RING_API_RETNUMBER(uiAttributeTypeSize);
+}
+
+RING_FUNC(ring_get_uiattributetypeweight)
+{
+	RING_API_RETNUMBER(uiAttributeTypeWeight);
+}
+
+RING_FUNC(ring_get_uiattributetypeitalic)
+{
+	RING_API_RETNUMBER(uiAttributeTypeItalic);
+}
+
+RING_FUNC(ring_get_uiattributetypestretch)
+{
+	RING_API_RETNUMBER(uiAttributeTypeStretch);
+}
+
+RING_FUNC(ring_get_uiattributetypecolor)
+{
+	RING_API_RETNUMBER(uiAttributeTypeColor);
+}
+
+RING_FUNC(ring_get_uiattributetypebackground)
+{
+	RING_API_RETNUMBER(uiAttributeTypeBackground);
+}
+
+RING_FUNC(ring_get_uiattributetypeunderline)
+{
+	RING_API_RETNUMBER(uiAttributeTypeUnderline);
+}
+
+RING_FUNC(ring_get_uiattributetypeunderlinecolor)
+{
+	RING_API_RETNUMBER(uiAttributeTypeUnderlineColor);
+}
+
+RING_FUNC(ring_get_uiattributetypefeatures)
+{
+	RING_API_RETNUMBER(uiAttributeTypeFeatures);
+}
+
+RING_FUNC(ring_get_uitextweightminimum)
+{
+	RING_API_RETNUMBER(uiTextWeightMinimum);
+}
+
+RING_FUNC(ring_get_uitextweightthin)
+{
+	RING_API_RETNUMBER(uiTextWeightThin);
+}
+
+RING_FUNC(ring_get_uitextweightultralight)
+{
+	RING_API_RETNUMBER(uiTextWeightUltraLight);
+}
+
+RING_FUNC(ring_get_uitextweightlight)
+{
+	RING_API_RETNUMBER(uiTextWeightLight);
+}
+
+RING_FUNC(ring_get_uitextweightbook)
+{
+	RING_API_RETNUMBER(uiTextWeightBook);
+}
+
+RING_FUNC(ring_get_uitextweightnormal)
+{
+	RING_API_RETNUMBER(uiTextWeightNormal);
+}
+
+RING_FUNC(ring_get_uitextweightmedium)
+{
+	RING_API_RETNUMBER(uiTextWeightMedium);
+}
+
+RING_FUNC(ring_get_uitextweightsemibold)
+{
+	RING_API_RETNUMBER(uiTextWeightSemiBold);
+}
+
+RING_FUNC(ring_get_uitextweightbold)
+{
+	RING_API_RETNUMBER(uiTextWeightBold);
+}
+
+RING_FUNC(ring_get_uitextweightultrabold)
+{
+	RING_API_RETNUMBER(uiTextWeightUltraBold);
+}
+
+RING_FUNC(ring_get_uitextweightheavy)
+{
+	RING_API_RETNUMBER(uiTextWeightHeavy);
+}
+
+RING_FUNC(ring_get_uitextweightultraheavy)
+{
+	RING_API_RETNUMBER(uiTextWeightUltraHeavy);
+}
+
+RING_FUNC(ring_get_uitextweightmaximum)
+{
+	RING_API_RETNUMBER(uiTextWeightMaximum);
+}
+
+RING_FUNC(ring_get_uitextstretchultracondensed)
+{
+	RING_API_RETNUMBER(uiTextStretchUltraCondensed);
+}
+
+RING_FUNC(ring_get_uitextstretchextracondensed)
+{
+	RING_API_RETNUMBER(uiTextStretchExtraCondensed);
+}
+
+RING_FUNC(ring_get_uitextstretchcondensed)
+{
+	RING_API_RETNUMBER(uiTextStretchCondensed);
+}
+
+RING_FUNC(ring_get_uitextstretchsemicondensed)
+{
+	RING_API_RETNUMBER(uiTextStretchSemiCondensed);
+}
+
+RING_FUNC(ring_get_uitextstretchnormal)
+{
+	RING_API_RETNUMBER(uiTextStretchNormal);
+}
+
+RING_FUNC(ring_get_uitextstretchsemiexpanded)
+{
+	RING_API_RETNUMBER(uiTextStretchSemiExpanded);
+}
+
+RING_FUNC(ring_get_uitextstretchexpanded)
+{
+	RING_API_RETNUMBER(uiTextStretchExpanded);
+}
+
+RING_FUNC(ring_get_uitextstretchextraexpanded)
+{
+	RING_API_RETNUMBER(uiTextStretchExtraExpanded);
+}
+
+RING_FUNC(ring_get_uitextstretchultraexpanded)
+{
+	RING_API_RETNUMBER(uiTextStretchUltraExpanded);
+}
+
+RING_FUNC(ring_get_uitextitalicnormal)
+{
+	RING_API_RETNUMBER(uiTextItalicNormal);
+}
+
+RING_FUNC(ring_get_uitextitalicoblique)
+{
+	RING_API_RETNUMBER(uiTextItalicOblique);
+}
+
+RING_FUNC(ring_get_uitextitalicitalic)
+{
+	RING_API_RETNUMBER(uiTextItalicItalic);
+}
+
+RING_FUNC(ring_get_uiunderlinenone)
+{
+	RING_API_RETNUMBER(uiUnderlineNone);
+}
+
+RING_FUNC(ring_get_uiunderlinesingle)
+{
+	RING_API_RETNUMBER(uiUnderlineSingle);
+}
+
+RING_FUNC(ring_get_uiunderlinedouble)
+{
+	RING_API_RETNUMBER(uiUnderlineDouble);
+}
+
+RING_FUNC(ring_get_uiunderlinesuggestion)
+{
+	RING_API_RETNUMBER(uiUnderlineSuggestion);
+}
+
+RING_FUNC(ring_get_uiunderlinecolorcustom)
+{
+	RING_API_RETNUMBER(uiUnderlineColorCustom);
+}
+
+RING_FUNC(ring_get_uiunderlinecolorspelling)
+{
+	RING_API_RETNUMBER(uiUnderlineColorSpelling);
+}
+
+RING_FUNC(ring_get_uiunderlinecolorgrammar)
+{
+	RING_API_RETNUMBER(uiUnderlineColorGrammar);
+}
+
+RING_FUNC(ring_get_uiunderlinecolorauxiliary	)
+{
+	RING_API_RETNUMBER(uiUnderlineColorAuxiliary	);
+}
+
 RING_FUNC(ring_new_uiinitoptions)
 {
 	uiInitOptions *pMyPointer ;
@@ -4111,12 +4326,7 @@ RING_FUNC(ring_uiAttributeGetType)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		uiAttributeType *pValue ; 
-		pValue = (uiAttributeType *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAttributeType)) ;
-		*pValue = uiAttributeGetType((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"uiAttributeType",ring_state_free);
-	}
+	RING_API_RETNUMBER(uiAttributeGetType((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute")));
 }
 
 
@@ -4182,9 +4392,11 @@ RING_FUNC(ring_uiNewStretchAttribute)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	RING_API_RETCPOINTER(uiNewStretchAttribute(* (uiTextStretch  *) RING_API_GETCPOINTER(1,"uiTextStretch")),"uiAttribute");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiTextStretch"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewStretchAttribute( (uiTextStretch )  (int) RING_API_GETNUMBER(1)),"uiAttribute");
 }
 
 
@@ -4198,12 +4410,7 @@ RING_FUNC(ring_uiAttributeStretch)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		uiTextStretch *pValue ; 
-		pValue = (uiTextStretch *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTextStretch)) ;
-		*pValue = uiAttributeStretch((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"uiTextStretch",ring_state_free);
-	}
+	RING_API_RETNUMBER(uiAttributeStretch((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute")));
 }
 
 
@@ -4295,9 +4502,11 @@ RING_FUNC(ring_uiNewUnderlineAttribute)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	RING_API_RETCPOINTER(uiNewUnderlineAttribute(* (uiUnderline  *) RING_API_GETCPOINTER(1,"uiUnderline")),"uiAttribute");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiUnderline"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewUnderlineAttribute( (uiUnderline )  (int) RING_API_GETNUMBER(1)),"uiAttribute");
 }
 
 
@@ -4311,12 +4520,7 @@ RING_FUNC(ring_uiAttributeUnderline)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		uiUnderline *pValue ; 
-		pValue = (uiUnderline *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiUnderline)) ;
-		*pValue = uiAttributeUnderline((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"uiUnderline",ring_state_free);
-	}
+	RING_API_RETNUMBER(uiAttributeUnderline((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute")));
 }
 
 
@@ -4324,6 +4528,10 @@ RING_FUNC(ring_uiNewUnderlineColorAttribute)
 {
 	if ( RING_API_PARACOUNT != 5 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	if ( ! RING_API_ISNUMBER(2) ) {
@@ -4342,9 +4550,7 @@ RING_FUNC(ring_uiNewUnderlineColorAttribute)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(uiNewUnderlineColorAttribute(* (uiUnderlineColor  *) RING_API_GETCPOINTER(1,"uiUnderlineColor"), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4), (double ) RING_API_GETNUMBER(5)),"uiAttribute");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiUnderlineColor"));
+	RING_API_RETCPOINTER(uiNewUnderlineColorAttribute( (uiUnderlineColor )  (int) RING_API_GETNUMBER(1), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4), (double ) RING_API_GETNUMBER(5)),"uiAttribute");
 }
 
 
@@ -5513,9 +5719,11 @@ RING_FUNC(ring_uiNewItalicAttribute)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	RING_API_RETCPOINTER(uiNewItalicAttribute(* (uiTextItalic  *) RING_API_GETCPOINTER(1,"uiTextItalic")),"uiAttribute");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiTextItalic"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewItalicAttribute( (uiTextItalic )  (int) RING_API_GETNUMBER(1)),"uiAttribute");
 }
 
 
@@ -5529,12 +5737,7 @@ RING_FUNC(ring_uiAttributeItalic)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		uiTextItalic *pValue ; 
-		pValue = (uiTextItalic *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTextItalic)) ;
-		*pValue = uiAttributeItalic((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"uiTextItalic",ring_state_free);
-	}
+	RING_API_RETNUMBER(uiAttributeItalic((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute")));
 }
 
 
@@ -6088,6 +6291,49 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_uidrawlinejoinbevel",ring_get_uidrawlinejoinbevel);
 	ring_vm_funcregister("get_uidrawfillmodewinding",ring_get_uidrawfillmodewinding);
 	ring_vm_funcregister("get_uidrawfillmodealternate",ring_get_uidrawfillmodealternate);
+	ring_vm_funcregister("get_uiattributetypefamily",ring_get_uiattributetypefamily);
+	ring_vm_funcregister("get_uiattributetypesize",ring_get_uiattributetypesize);
+	ring_vm_funcregister("get_uiattributetypeweight",ring_get_uiattributetypeweight);
+	ring_vm_funcregister("get_uiattributetypeitalic",ring_get_uiattributetypeitalic);
+	ring_vm_funcregister("get_uiattributetypestretch",ring_get_uiattributetypestretch);
+	ring_vm_funcregister("get_uiattributetypecolor",ring_get_uiattributetypecolor);
+	ring_vm_funcregister("get_uiattributetypebackground",ring_get_uiattributetypebackground);
+	ring_vm_funcregister("get_uiattributetypeunderline",ring_get_uiattributetypeunderline);
+	ring_vm_funcregister("get_uiattributetypeunderlinecolor",ring_get_uiattributetypeunderlinecolor);
+	ring_vm_funcregister("get_uiattributetypefeatures",ring_get_uiattributetypefeatures);
+	ring_vm_funcregister("get_uitextweightminimum",ring_get_uitextweightminimum);
+	ring_vm_funcregister("get_uitextweightthin",ring_get_uitextweightthin);
+	ring_vm_funcregister("get_uitextweightultralight",ring_get_uitextweightultralight);
+	ring_vm_funcregister("get_uitextweightlight",ring_get_uitextweightlight);
+	ring_vm_funcregister("get_uitextweightbook",ring_get_uitextweightbook);
+	ring_vm_funcregister("get_uitextweightnormal",ring_get_uitextweightnormal);
+	ring_vm_funcregister("get_uitextweightmedium",ring_get_uitextweightmedium);
+	ring_vm_funcregister("get_uitextweightsemibold",ring_get_uitextweightsemibold);
+	ring_vm_funcregister("get_uitextweightbold",ring_get_uitextweightbold);
+	ring_vm_funcregister("get_uitextweightultrabold",ring_get_uitextweightultrabold);
+	ring_vm_funcregister("get_uitextweightheavy",ring_get_uitextweightheavy);
+	ring_vm_funcregister("get_uitextweightultraheavy",ring_get_uitextweightultraheavy);
+	ring_vm_funcregister("get_uitextweightmaximum",ring_get_uitextweightmaximum);
+	ring_vm_funcregister("get_uitextstretchultracondensed",ring_get_uitextstretchultracondensed);
+	ring_vm_funcregister("get_uitextstretchextracondensed",ring_get_uitextstretchextracondensed);
+	ring_vm_funcregister("get_uitextstretchcondensed",ring_get_uitextstretchcondensed);
+	ring_vm_funcregister("get_uitextstretchsemicondensed",ring_get_uitextstretchsemicondensed);
+	ring_vm_funcregister("get_uitextstretchnormal",ring_get_uitextstretchnormal);
+	ring_vm_funcregister("get_uitextstretchsemiexpanded",ring_get_uitextstretchsemiexpanded);
+	ring_vm_funcregister("get_uitextstretchexpanded",ring_get_uitextstretchexpanded);
+	ring_vm_funcregister("get_uitextstretchextraexpanded",ring_get_uitextstretchextraexpanded);
+	ring_vm_funcregister("get_uitextstretchultraexpanded",ring_get_uitextstretchultraexpanded);
+	ring_vm_funcregister("get_uitextitalicnormal",ring_get_uitextitalicnormal);
+	ring_vm_funcregister("get_uitextitalicoblique",ring_get_uitextitalicoblique);
+	ring_vm_funcregister("get_uitextitalicitalic",ring_get_uitextitalicitalic);
+	ring_vm_funcregister("get_uiunderlinenone",ring_get_uiunderlinenone);
+	ring_vm_funcregister("get_uiunderlinesingle",ring_get_uiunderlinesingle);
+	ring_vm_funcregister("get_uiunderlinedouble",ring_get_uiunderlinedouble);
+	ring_vm_funcregister("get_uiunderlinesuggestion",ring_get_uiunderlinesuggestion);
+	ring_vm_funcregister("get_uiunderlinecolorcustom",ring_get_uiunderlinecolorcustom);
+	ring_vm_funcregister("get_uiunderlinecolorspelling",ring_get_uiunderlinecolorspelling);
+	ring_vm_funcregister("get_uiunderlinecolorgrammar",ring_get_uiunderlinecolorgrammar);
+	ring_vm_funcregister("get_uiunderlinecolorauxiliary	",ring_get_uiunderlinecolorauxiliary	);
 	ring_vm_funcregister("new_uiinitoptions",ring_new_uiinitoptions);
 	ring_vm_funcregister("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
 	ring_vm_funcregister("destroy_uiinitoptions",ring_destroy_uiinitoptions);

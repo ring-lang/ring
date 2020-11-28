@@ -36,6 +36,49 @@ uiDrawLineJoinRound
 uiDrawLineJoinBevel
 uiDrawFillModeWinding
 uiDrawFillModeAlternate
+uiAttributeTypeFamily
+uiAttributeTypeSize
+uiAttributeTypeWeight
+uiAttributeTypeItalic
+uiAttributeTypeStretch
+uiAttributeTypeColor
+uiAttributeTypeBackground
+uiAttributeTypeUnderline
+uiAttributeTypeUnderlineColor
+uiAttributeTypeFeatures
+uiTextWeightMinimum
+uiTextWeightThin
+uiTextWeightUltraLight
+uiTextWeightLight
+uiTextWeightBook
+uiTextWeightNormal
+uiTextWeightMedium
+uiTextWeightSemiBold
+uiTextWeightBold
+uiTextWeightUltraBold
+uiTextWeightHeavy
+uiTextWeightUltraHeavy
+uiTextWeightMaximum
+uiTextStretchUltraCondensed
+uiTextStretchExtraCondensed
+uiTextStretchCondensed
+uiTextStretchSemiCondensed
+uiTextStretchNormal
+uiTextStretchSemiExpanded
+uiTextStretchExpanded
+uiTextStretchExtraExpanded
+uiTextStretchUltraExpanded
+uiTextItalicNormal
+uiTextItalicOblique
+uiTextItalicItalic
+uiUnderlineNone
+uiUnderlineSingle
+uiUnderlineDouble
+uiUnderlineSuggestion
+uiUnderlineColorCustom
+uiUnderlineColorSpelling
+uiUnderlineColorGrammar
+uiUnderlineColorAuxiliary	
 </constant>
 
 <struct>
@@ -59,6 +102,13 @@ aEnumTypes + "uiDrawBrushType"
 aEnumTypes + "uiDrawLineCap"
 aEnumTypes + "uiDrawLineJoin"
 aEnumTypes + "uiDrawFillMode"
+aEnumTypes + "uiAttributeType"
+aEnumTypes + "uiTextWeight"
+aEnumTypes + "uiTextItalic"
+aEnumTypes + "uiTextStretch"
+aEnumTypes + "uiUnderline"
+aEnumTypes + "uiUnderlineColor"
+
 </runcode>
 
 const char *uiInit(uiInitOptions *options)
@@ -393,8 +443,6 @@ void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *
 #define uiMenu(this) ((uiMenu *) (this))
 #define uiArea(this) ((uiArea *) (this))
 
-
-
 struct uiDrawStrokeParams {
 	uiDrawLineCap Cap
 	uiDrawLineJoin Join
@@ -405,66 +453,7 @@ struct uiDrawStrokeParams {
 	double DashPhase
 }
 
-_UI_ENUM(uiAttributeType) {
-	uiAttributeTypeFamily,
-	uiAttributeTypeSize,
-	uiAttributeTypeWeight,
-	uiAttributeTypeItalic,
-	uiAttributeTypeStretch,
-	uiAttributeTypeColor,
-	uiAttributeTypeBackground,
-	uiAttributeTypeUnderline,
-	uiAttributeTypeUnderlineColor,
-	uiAttributeTypeFeatures,
-}
 
-_UI_ENUM(uiTextWeight) {
-	uiTextWeightMinimum = 0,
-	uiTextWeightThin = 100,
-	uiTextWeightUltraLight = 200,
-	uiTextWeightLight = 300,
-	uiTextWeightBook = 350,
-	uiTextWeightNormal = 400,
-	uiTextWeightMedium = 500,
-	uiTextWeightSemiBold = 600,
-	uiTextWeightBold = 700,
-	uiTextWeightUltraBold = 800,
-	uiTextWeightHeavy = 900,
-	uiTextWeightUltraHeavy = 950,
-	uiTextWeightMaximum = 1000,
-}
-
-_UI_ENUM(uiTextItalic) {
-	uiTextItalicNormal,
-	uiTextItalicOblique,
-	uiTextItalicItalic,
-}
-
-_UI_ENUM(uiTextStretch) {
-	uiTextStretchUltraCondensed,
-	uiTextStretchExtraCondensed,
-	uiTextStretchCondensed,
-	uiTextStretchSemiCondensed,
-	uiTextStretchNormal,
-	uiTextStretchSemiExpanded,
-	uiTextStretchExpanded,
-	uiTextStretchExtraExpanded,
-	uiTextStretchUltraExpanded,
-}
-
-_UI_ENUM(uiUnderline) {
-	uiUnderlineNone,
-	uiUnderlineSingle,
-	uiUnderlineDouble,
-	uiUnderlineSuggestion,		// wavy or dotted underlines used for spelling/grammar checkers
-}
-
-_UI_ENUM(uiUnderlineColor) {
-	uiUnderlineColorCustom,
-	uiUnderlineColorSpelling,
-	uiUnderlineColorGrammar,
-	uiUnderlineColorAuxiliary,		// for instance, the color used by smart replacements on macOS or in Microsoft Office
-}
 
 struct uiFontDescriptor {
 	char *Family
