@@ -105,6 +105,22 @@ int uiSliderValue(uiSlider *s)
 void uiSliderSetValue(uiSlider *s, int value)
 uiSlider *uiNewSlider(int min, int max)
 
+int uiProgressBarValue(uiProgressBar *p)
+void uiProgressBarSetValue(uiProgressBar *p, int n)
+uiProgressBar *uiNewProgressBar(void)
+
+uiSeparator *uiNewHorizontalSeparator(void)
+uiSeparator *uiNewVerticalSeparator(void)
+
+void uiComboboxAppend(uiCombobox *c, const char *text)
+int uiComboboxSelected(uiCombobox *c)
+void uiComboboxSetSelected(uiCombobox *c, int n)
+uiCombobox *uiNewCombobox(void)
+
+void uiEditableComboboxAppend(uiEditableCombobox *c, const char *text)
+char *uiEditableComboboxText(uiEditableCombobox *c)
+void uiEditableComboboxSetText(uiEditableCombobox *c, const char *text)
+uiEditableCombobox *uiNewEditableCombobox(void)
 
 
 <comment>
@@ -199,30 +215,21 @@ void uiSliderOnChanged(uiSlider *s, void (*f)(uiSlider *s, void *data), void *da
 
 typedef struct uiProgressBar uiProgressBar
 #define uiProgressBar(this) ((uiProgressBar *) (this))
-int uiProgressBarValue(uiProgressBar *p)
-void uiProgressBarSetValue(uiProgressBar *p, int n)
-uiProgressBar *uiNewProgressBar(void)
 
 typedef struct uiSeparator uiSeparator
 #define uiSeparator(this) ((uiSeparator *) (this))
-uiSeparator *uiNewHorizontalSeparator(void)
-uiSeparator *uiNewVerticalSeparator(void)
 
 typedef struct uiCombobox uiCombobox
 #define uiCombobox(this) ((uiCombobox *) (this))
-void uiComboboxAppend(uiCombobox *c, const char *text)
-int uiComboboxSelected(uiCombobox *c)
-void uiComboboxSetSelected(uiCombobox *c, int n)
+
 void uiComboboxOnSelected(uiCombobox *c, void (*f)(uiCombobox *c, void *data), void *data)
-uiCombobox *uiNewCombobox(void)
+
 
 typedef struct uiEditableCombobox uiEditableCombobox
 #define uiEditableCombobox(this) ((uiEditableCombobox *) (this))
-void uiEditableComboboxAppend(uiEditableCombobox *c, const char *text)
-char *uiEditableComboboxText(uiEditableCombobox *c)
-void uiEditableComboboxSetText(uiEditableCombobox *c, const char *text)
+
 void uiEditableComboboxOnChanged(uiEditableCombobox *c, void (*f)(uiEditableCombobox *c, void *data), void *data)
-uiEditableCombobox *uiNewEditableCombobox(void)
+
 
 typedef struct uiRadioButtons uiRadioButtons
 #define uiRadioButtons(this) ((uiRadioButtons *) (this))

@@ -1223,6 +1223,188 @@ RING_FUNC(ring_uiNewSlider)
 	RING_API_RETCPOINTER(uiNewSlider( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)),"uiSlider");
 }
 
+
+RING_FUNC(ring_uiProgressBarValue)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiProgressBarValue((uiProgressBar *) RING_API_GETCPOINTER(1,"uiProgressBar")));
+}
+
+
+RING_FUNC(ring_uiProgressBarSetValue)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiProgressBarSetValue((uiProgressBar *) RING_API_GETCPOINTER(1,"uiProgressBar"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewProgressBar)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewProgressBar(),"uiProgressBar");
+}
+
+
+RING_FUNC(ring_uiNewHorizontalSeparator)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewHorizontalSeparator(),"uiSeparator");
+}
+
+
+RING_FUNC(ring_uiNewVerticalSeparator)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewVerticalSeparator(),"uiSeparator");
+}
+
+
+RING_FUNC(ring_uiComboboxAppend)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiComboboxAppend((uiCombobox *) RING_API_GETCPOINTER(1,"uiCombobox"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiComboboxSelected)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiComboboxSelected((uiCombobox *) RING_API_GETCPOINTER(1,"uiCombobox")));
+}
+
+
+RING_FUNC(ring_uiComboboxSetSelected)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiComboboxSetSelected((uiCombobox *) RING_API_GETCPOINTER(1,"uiCombobox"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewCombobox)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewCombobox(),"uiCombobox");
+}
+
+
+RING_FUNC(ring_uiEditableComboboxAppend)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiEditableComboboxAppend((uiEditableCombobox *) RING_API_GETCPOINTER(1,"uiEditableCombobox"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiEditableComboboxText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(uiEditableComboboxText((uiEditableCombobox *) RING_API_GETCPOINTER(1,"uiEditableCombobox")));
+}
+
+
+RING_FUNC(ring_uiEditableComboboxSetText)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiEditableComboboxSetText((uiEditableCombobox *) RING_API_GETCPOINTER(1,"uiEditableCombobox"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiNewEditableCombobox)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewEditableCombobox(),"uiEditableCombobox");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -1302,5 +1484,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uislidervalue",ring_uiSliderValue);
 	ring_vm_funcregister("uislidersetvalue",ring_uiSliderSetValue);
 	ring_vm_funcregister("uinewslider",ring_uiNewSlider);
+	ring_vm_funcregister("uiprogressbarvalue",ring_uiProgressBarValue);
+	ring_vm_funcregister("uiprogressbarsetvalue",ring_uiProgressBarSetValue);
+	ring_vm_funcregister("uinewprogressbar",ring_uiNewProgressBar);
+	ring_vm_funcregister("uinewhorizontalseparator",ring_uiNewHorizontalSeparator);
+	ring_vm_funcregister("uinewverticalseparator",ring_uiNewVerticalSeparator);
+	ring_vm_funcregister("uicomboboxappend",ring_uiComboboxAppend);
+	ring_vm_funcregister("uicomboboxselected",ring_uiComboboxSelected);
+	ring_vm_funcregister("uicomboboxsetselected",ring_uiComboboxSetSelected);
+	ring_vm_funcregister("uinewcombobox",ring_uiNewCombobox);
+	ring_vm_funcregister("uieditablecomboboxappend",ring_uiEditableComboboxAppend);
+	ring_vm_funcregister("uieditablecomboboxtext",ring_uiEditableComboboxText);
+	ring_vm_funcregister("uieditablecomboboxsettext",ring_uiEditableComboboxSetText);
+	ring_vm_funcregister("uineweditablecombobox",ring_uiNewEditableCombobox);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }
