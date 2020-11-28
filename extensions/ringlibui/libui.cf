@@ -1,3 +1,5 @@
+<ignorecpointertype>
+
 <code>
 /* Copyright (c) 2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 
@@ -209,6 +211,16 @@ void uiMainSteps(void)
 int uiMainStep(int wait)
 void uiQuit(void)
 
+void uiControlDestroy(uiControl *)
+uiControl *uiControlParent(uiControl *)
+void uiControlSetParent(uiControl *, uiControl *)
+int uiControlToplevel(uiControl *)
+int uiControlVisible(uiControl *)
+void uiControlShow(uiControl *)
+void uiControlHide(uiControl *)
+int uiControlEnabled(uiControl *)
+void uiControlEnable(uiControl *)
+void uiControlDisable(uiControl *)
 
 uiControl *uiAllocControl(size_t n, uint32_t OSsig, uint32_t typesig, const char *typenamestr)
 void uiFreeControl(uiControl *)
@@ -480,18 +492,6 @@ void uiAreaSetSize(uiArea *a, int width, int height)
 uintptr_t uiControlHandle(uiControl *)
 
 void uiFreeText(char *text)
-
-<ignorecpointertype>
-void uiControlDestroy(uiControl *)
-uiControl *uiControlParent(uiControl *)
-void uiControlSetParent(uiControl *, uiControl *)
-int uiControlToplevel(uiControl *)
-int uiControlVisible(uiControl *)
-void uiControlShow(uiControl *)
-void uiControlHide(uiControl *)
-int uiControlEnabled(uiControl *)
-void uiControlEnable(uiControl *)
-void uiControlDisable(uiControl *)
 
 <comment>
 void uiQueueMain(void (*f)(void *data), void *data)

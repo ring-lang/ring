@@ -3514,6 +3514,160 @@ RING_FUNC(ring_uiQuit)
 }
 
 
+RING_FUNC(ring_uiControlDestroy)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiControlDestroy((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
+}
+
+
+RING_FUNC(ring_uiControlParent)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiControlParent((uiControl *) RING_API_GETCPOINTER(1,"uiControl")),"uiControl");
+}
+
+
+RING_FUNC(ring_uiControlSetParent)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiControlSetParent((uiControl *) RING_API_GETCPOINTER(1,"uiControl"),(uiControl *) RING_API_GETCPOINTER(2,"uiControl"));
+}
+
+
+RING_FUNC(ring_uiControlToplevel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiControlToplevel((uiControl *) RING_API_GETCPOINTER(1,"uiControl")));
+}
+
+
+RING_FUNC(ring_uiControlVisible)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiControlVisible((uiControl *) RING_API_GETCPOINTER(1,"uiControl")));
+}
+
+
+RING_FUNC(ring_uiControlShow)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiControlShow((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
+}
+
+
+RING_FUNC(ring_uiControlHide)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiControlHide((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
+}
+
+
+RING_FUNC(ring_uiControlEnabled)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiControlEnabled((uiControl *) RING_API_GETCPOINTER(1,"uiControl")));
+}
+
+
+RING_FUNC(ring_uiControlEnable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiControlEnable((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
+}
+
+
+RING_FUNC(ring_uiControlDisable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiControlDisable((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
+}
+
+
 RING_FUNC(ring_uiAllocControl)
 {
 	if ( RING_API_PARACOUNT != 4 ) {
@@ -7763,160 +7917,6 @@ RING_FUNC(ring_uiFreeText)
 	uiFreeText(RING_API_GETSTRING(1));
 }
 
-
-RING_FUNC(ring_uiControlDestroy)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	uiControlDestroy((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
-}
-
-
-RING_FUNC(ring_uiControlParent)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETCPOINTER(uiControlParent((uiControl *) RING_API_GETCPOINTER(1,"uiControl")),"uiControl");
-}
-
-
-RING_FUNC(ring_uiControlSetParent)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISCPOINTER(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	uiControlSetParent((uiControl *) RING_API_GETCPOINTER(1,"uiControl"),(uiControl *) RING_API_GETCPOINTER(2,"uiControl"));
-}
-
-
-RING_FUNC(ring_uiControlToplevel)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(uiControlToplevel((uiControl *) RING_API_GETCPOINTER(1,"uiControl")));
-}
-
-
-RING_FUNC(ring_uiControlVisible)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(uiControlVisible((uiControl *) RING_API_GETCPOINTER(1,"uiControl")));
-}
-
-
-RING_FUNC(ring_uiControlShow)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	uiControlShow((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
-}
-
-
-RING_FUNC(ring_uiControlHide)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	uiControlHide((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
-}
-
-
-RING_FUNC(ring_uiControlEnabled)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(uiControlEnabled((uiControl *) RING_API_GETCPOINTER(1,"uiControl")));
-}
-
-
-RING_FUNC(ring_uiControlEnable)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	uiControlEnable((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
-}
-
-
-RING_FUNC(ring_uiControlDisable)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	uiControlDisable((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
-}
-
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit_2",ring_uiInit_2);
@@ -7927,6 +7927,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
 	ring_vm_funcregister("uimainstep",ring_uiMainStep);
 	ring_vm_funcregister("uiquit",ring_uiQuit);
+	ring_vm_funcregister("uicontroldestroy",ring_uiControlDestroy);
+	ring_vm_funcregister("uicontrolparent",ring_uiControlParent);
+	ring_vm_funcregister("uicontrolsetparent",ring_uiControlSetParent);
+	ring_vm_funcregister("uicontroltoplevel",ring_uiControlToplevel);
+	ring_vm_funcregister("uicontrolvisible",ring_uiControlVisible);
+	ring_vm_funcregister("uicontrolshow",ring_uiControlShow);
+	ring_vm_funcregister("uicontrolhide",ring_uiControlHide);
+	ring_vm_funcregister("uicontrolenabled",ring_uiControlEnabled);
+	ring_vm_funcregister("uicontrolenable",ring_uiControlEnable);
+	ring_vm_funcregister("uicontroldisable",ring_uiControlDisable);
 	ring_vm_funcregister("uialloccontrol",ring_uiAllocControl);
 	ring_vm_funcregister("uifreecontrol",ring_uiFreeControl);
 	ring_vm_funcregister("uicontrolverifysetparent",ring_uiControlVerifySetParent);
@@ -8152,16 +8162,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uiareasetsize",ring_uiAreaSetSize);
 	ring_vm_funcregister("uicontrolhandle",ring_uiControlHandle);
 	ring_vm_funcregister("uifreetext",ring_uiFreeText);
-	ring_vm_funcregister("uicontroldestroy",ring_uiControlDestroy);
-	ring_vm_funcregister("uicontrolparent",ring_uiControlParent);
-	ring_vm_funcregister("uicontrolsetparent",ring_uiControlSetParent);
-	ring_vm_funcregister("uicontroltoplevel",ring_uiControlToplevel);
-	ring_vm_funcregister("uicontrolvisible",ring_uiControlVisible);
-	ring_vm_funcregister("uicontrolshow",ring_uiControlShow);
-	ring_vm_funcregister("uicontrolhide",ring_uiControlHide);
-	ring_vm_funcregister("uicontrolenabled",ring_uiControlEnabled);
-	ring_vm_funcregister("uicontrolenable",ring_uiControlEnable);
-	ring_vm_funcregister("uicontroldisable",ring_uiControlDisable);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 	ring_vm_funcregister("get_uiforeachcontinue",ring_get_uiforeachcontinue);
 	ring_vm_funcregister("get_uiforeachstop",ring_get_uiforeachstop);
