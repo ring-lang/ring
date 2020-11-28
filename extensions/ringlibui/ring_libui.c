@@ -2065,6 +2065,252 @@ RING_FUNC(ring_set_uidrawbrushgradientstop_A)
 	pMyPointer->A = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_uidrawstrokeparams)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	pMyPointer = (uiDrawStrokeParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawStrokeParams)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiDrawStrokeParams");
+}
+
+RING_FUNC(ring_new_managed_uidrawstrokeparams)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	pMyPointer = (uiDrawStrokeParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawStrokeParams)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawStrokeParams",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uidrawstrokeparams)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_uidrawstrokeparams_Cap)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	RING_API_RETNUMBER(pMyPointer->Cap);
+}
+
+RING_FUNC(ring_set_uidrawstrokeparams_Cap)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	pMyPointer->Cap = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawstrokeparams_Join)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	RING_API_RETNUMBER(pMyPointer->Join);
+}
+
+RING_FUNC(ring_set_uidrawstrokeparams_Join)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	pMyPointer->Join = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawstrokeparams_Thickness)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	RING_API_RETNUMBER(pMyPointer->Thickness);
+}
+
+RING_FUNC(ring_set_uidrawstrokeparams_Thickness)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	pMyPointer->Thickness = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawstrokeparams_MiterLimit)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	RING_API_RETNUMBER(pMyPointer->MiterLimit);
+}
+
+RING_FUNC(ring_set_uidrawstrokeparams_MiterLimit)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	pMyPointer->MiterLimit = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawstrokeparams_NumDashes)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	RING_API_RETNUMBER(pMyPointer->NumDashes);
+}
+
+RING_FUNC(ring_set_uidrawstrokeparams_NumDashes)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	pMyPointer->NumDashes = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawstrokeparams_DashPhase)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	RING_API_RETNUMBER(pMyPointer->DashPhase);
+}
+
+RING_FUNC(ring_set_uidrawstrokeparams_DashPhase)
+{
+	uiDrawStrokeParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
+	pMyPointer->DashPhase = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_uiInit)
 {
@@ -6775,4 +7021,19 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_uidrawbrushgradientstop_b",ring_set_uidrawbrushgradientstop_B);
 	ring_vm_funcregister("get_uidrawbrushgradientstop_a",ring_get_uidrawbrushgradientstop_A);
 	ring_vm_funcregister("set_uidrawbrushgradientstop_a",ring_set_uidrawbrushgradientstop_A);
+	ring_vm_funcregister("new_uidrawstrokeparams",ring_new_uidrawstrokeparams);
+	ring_vm_funcregister("new_managed_uidrawstrokeparams",ring_new_managed_uidrawstrokeparams);
+	ring_vm_funcregister("destroy_uidrawstrokeparams",ring_destroy_uidrawstrokeparams);
+	ring_vm_funcregister("get_uidrawstrokeparams_cap",ring_get_uidrawstrokeparams_Cap);
+	ring_vm_funcregister("set_uidrawstrokeparams_cap",ring_set_uidrawstrokeparams_Cap);
+	ring_vm_funcregister("get_uidrawstrokeparams_join",ring_get_uidrawstrokeparams_Join);
+	ring_vm_funcregister("set_uidrawstrokeparams_join",ring_set_uidrawstrokeparams_Join);
+	ring_vm_funcregister("get_uidrawstrokeparams_thickness",ring_get_uidrawstrokeparams_Thickness);
+	ring_vm_funcregister("set_uidrawstrokeparams_thickness",ring_set_uidrawstrokeparams_Thickness);
+	ring_vm_funcregister("get_uidrawstrokeparams_miterlimit",ring_get_uidrawstrokeparams_MiterLimit);
+	ring_vm_funcregister("set_uidrawstrokeparams_miterlimit",ring_set_uidrawstrokeparams_MiterLimit);
+	ring_vm_funcregister("get_uidrawstrokeparams_numdashes",ring_get_uidrawstrokeparams_NumDashes);
+	ring_vm_funcregister("set_uidrawstrokeparams_numdashes",ring_set_uidrawstrokeparams_NumDashes);
+	ring_vm_funcregister("get_uidrawstrokeparams_dashphase",ring_get_uidrawstrokeparams_DashPhase);
+	ring_vm_funcregister("set_uidrawstrokeparams_dashphase",ring_set_uidrawstrokeparams_DashPhase);
 }
