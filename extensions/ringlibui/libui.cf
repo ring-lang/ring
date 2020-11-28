@@ -64,6 +64,25 @@ void uiBoxSetPadded(uiBox *b, int padded)
 uiBox *uiNewHorizontalBox(void)
 uiBox *uiNewVerticalBox(void)
 
+char *uiCheckboxText(uiCheckbox *c)
+void uiCheckboxSetText(uiCheckbox *c, const char *text)
+int uiCheckboxChecked(uiCheckbox *c)
+void uiCheckboxSetChecked(uiCheckbox *c, int checked)
+uiCheckbox *uiNewCheckbox(const char *text)
+
+char *uiEntryText(uiEntry *e)
+void uiEntrySetText(uiEntry *e, const char *text)
+int uiEntryReadOnly(uiEntry *e)
+void uiEntrySetReadOnly(uiEntry *e, int readonly)
+uiEntry *uiNewEntry(void)
+uiEntry *uiNewPasswordEntry(void)
+uiEntry *uiNewSearchEntry(void)
+
+char *uiLabelText(uiLabel *l)
+void uiLabelSetText(uiLabel *l, const char *text)
+uiLabel *uiNewLabel(const char *text)
+
+
 <comment>
 
 _UI_ENUM(uiForEach) {
@@ -122,29 +141,18 @@ typedef struct uiBox uiBox
 
 typedef struct uiCheckbox uiCheckbox
 #define uiCheckbox(this) ((uiCheckbox *) (this))
-char *uiCheckboxText(uiCheckbox *c)
-void uiCheckboxSetText(uiCheckbox *c, const char *text)
+
 void uiCheckboxOnToggled(uiCheckbox *c, void (*f)(uiCheckbox *c, void *data), void *data)
-int uiCheckboxChecked(uiCheckbox *c)
-void uiCheckboxSetChecked(uiCheckbox *c, int checked)
-uiCheckbox *uiNewCheckbox(const char *text)
+
 
 typedef struct uiEntry uiEntry
 #define uiEntry(this) ((uiEntry *) (this))
-char *uiEntryText(uiEntry *e)
-void uiEntrySetText(uiEntry *e, const char *text)
+
 void uiEntryOnChanged(uiEntry *e, void (*f)(uiEntry *e, void *data), void *data)
-int uiEntryReadOnly(uiEntry *e)
-void uiEntrySetReadOnly(uiEntry *e, int readonly)
-uiEntry *uiNewEntry(void)
-uiEntry *uiNewPasswordEntry(void)
-uiEntry *uiNewSearchEntry(void)
+
 
 typedef struct uiLabel uiLabel
 #define uiLabel(this) ((uiLabel *) (this))
-char *uiLabelText(uiLabel *l)
-void uiLabelSetText(uiLabel *l, const char *text)
-uiLabel *uiNewLabel(const char *text)
 
 typedef struct uiTab uiTab
 #define uiTab(this) ((uiTab *) (this))

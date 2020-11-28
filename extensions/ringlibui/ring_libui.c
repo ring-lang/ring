@@ -679,6 +679,224 @@ RING_FUNC(ring_uiNewVerticalBox)
 	RING_API_RETCPOINTER(uiNewVerticalBox(),"uiBox");
 }
 
+
+RING_FUNC(ring_uiCheckboxText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(uiCheckboxText((uiCheckbox *) RING_API_GETCPOINTER(1,"uiCheckbox")));
+}
+
+
+RING_FUNC(ring_uiCheckboxSetText)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiCheckboxSetText((uiCheckbox *) RING_API_GETCPOINTER(1,"uiCheckbox"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiCheckboxChecked)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiCheckboxChecked((uiCheckbox *) RING_API_GETCPOINTER(1,"uiCheckbox")));
+}
+
+
+RING_FUNC(ring_uiCheckboxSetChecked)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiCheckboxSetChecked((uiCheckbox *) RING_API_GETCPOINTER(1,"uiCheckbox"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewCheckbox)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewCheckbox(RING_API_GETSTRING(1)),"uiCheckbox");
+}
+
+
+RING_FUNC(ring_uiEntryText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(uiEntryText((uiEntry *) RING_API_GETCPOINTER(1,"uiEntry")));
+}
+
+
+RING_FUNC(ring_uiEntrySetText)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiEntrySetText((uiEntry *) RING_API_GETCPOINTER(1,"uiEntry"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiEntryReadOnly)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiEntryReadOnly((uiEntry *) RING_API_GETCPOINTER(1,"uiEntry")));
+}
+
+
+RING_FUNC(ring_uiEntrySetReadOnly)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiEntrySetReadOnly((uiEntry *) RING_API_GETCPOINTER(1,"uiEntry"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewEntry)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewEntry(),"uiEntry");
+}
+
+
+RING_FUNC(ring_uiNewPasswordEntry)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewPasswordEntry(),"uiEntry");
+}
+
+
+RING_FUNC(ring_uiNewSearchEntry)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewSearchEntry(),"uiEntry");
+}
+
+
+RING_FUNC(ring_uiLabelText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(uiLabelText((uiLabel *) RING_API_GETCPOINTER(1,"uiLabel")));
+}
+
+
+RING_FUNC(ring_uiLabelSetText)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiLabelSetText((uiLabel *) RING_API_GETCPOINTER(1,"uiLabel"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiNewLabel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewLabel(RING_API_GETSTRING(1)),"uiLabel");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -724,5 +942,20 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uiboxsetpadded",ring_uiBoxSetPadded);
 	ring_vm_funcregister("uinewhorizontalbox",ring_uiNewHorizontalBox);
 	ring_vm_funcregister("uinewverticalbox",ring_uiNewVerticalBox);
+	ring_vm_funcregister("uicheckboxtext",ring_uiCheckboxText);
+	ring_vm_funcregister("uicheckboxsettext",ring_uiCheckboxSetText);
+	ring_vm_funcregister("uicheckboxchecked",ring_uiCheckboxChecked);
+	ring_vm_funcregister("uicheckboxsetchecked",ring_uiCheckboxSetChecked);
+	ring_vm_funcregister("uinewcheckbox",ring_uiNewCheckbox);
+	ring_vm_funcregister("uientrytext",ring_uiEntryText);
+	ring_vm_funcregister("uientrysettext",ring_uiEntrySetText);
+	ring_vm_funcregister("uientryreadonly",ring_uiEntryReadOnly);
+	ring_vm_funcregister("uientrysetreadonly",ring_uiEntrySetReadOnly);
+	ring_vm_funcregister("uinewentry",ring_uiNewEntry);
+	ring_vm_funcregister("uinewpasswordentry",ring_uiNewPasswordEntry);
+	ring_vm_funcregister("uinewsearchentry",ring_uiNewSearchEntry);
+	ring_vm_funcregister("uilabeltext",ring_uiLabelText);
+	ring_vm_funcregister("uilabelsettext",ring_uiLabelSetText);
+	ring_vm_funcregister("uinewlabel",ring_uiNewLabel);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }
