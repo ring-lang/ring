@@ -2311,6 +2311,260 @@ RING_FUNC(ring_set_uidrawstrokeparams_DashPhase)
 	pMyPointer->DashPhase = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_uitablemodelhandler)
+{
+	uiTableModelHandler *pMyPointer ;
+	pMyPointer = (uiTableModelHandler *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableModelHandler)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiTableModelHandler");
+}
+
+RING_FUNC(ring_new_managed_uitablemodelhandler)
+{
+	uiTableModelHandler *pMyPointer ;
+	pMyPointer = (uiTableModelHandler *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableModelHandler)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableModelHandler",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uitablemodelhandler)
+{
+	uiTableModelHandler *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiTableModelHandler");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_new_uiareakeyevent)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	pMyPointer = (uiAreaKeyEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaKeyEvent)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiAreaKeyEvent");
+}
+
+RING_FUNC(ring_new_managed_uiareakeyevent)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	pMyPointer = (uiAreaKeyEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaKeyEvent)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaKeyEvent",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uiareakeyevent)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_uiareakeyevent_Key)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	RING_API_RETNUMBER(pMyPointer->Key);
+}
+
+RING_FUNC(ring_set_uiareakeyevent_Key)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	pMyPointer->Key = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareakeyevent_ExtKey)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	RING_API_RETNUMBER(pMyPointer->ExtKey);
+}
+
+RING_FUNC(ring_set_uiareakeyevent_ExtKey)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	pMyPointer->ExtKey = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareakeyevent_Modifier)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	RING_API_RETNUMBER(pMyPointer->Modifier);
+}
+
+RING_FUNC(ring_set_uiareakeyevent_Modifier)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	pMyPointer->Modifier = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareakeyevent_Modifiers)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	RING_API_RETNUMBER(pMyPointer->Modifiers);
+}
+
+RING_FUNC(ring_set_uiareakeyevent_Modifiers)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	pMyPointer->Modifiers = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareakeyevent_Up)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	RING_API_RETNUMBER(pMyPointer->Up);
+}
+
+RING_FUNC(ring_set_uiareakeyevent_Up)
+{
+	uiAreaKeyEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
+	pMyPointer->Up = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_uiInit)
 {
@@ -7036,4 +7290,20 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_uidrawstrokeparams_numdashes",ring_set_uidrawstrokeparams_NumDashes);
 	ring_vm_funcregister("get_uidrawstrokeparams_dashphase",ring_get_uidrawstrokeparams_DashPhase);
 	ring_vm_funcregister("set_uidrawstrokeparams_dashphase",ring_set_uidrawstrokeparams_DashPhase);
+	ring_vm_funcregister("new_uitablemodelhandler",ring_new_uitablemodelhandler);
+	ring_vm_funcregister("new_managed_uitablemodelhandler",ring_new_managed_uitablemodelhandler);
+	ring_vm_funcregister("destroy_uitablemodelhandler",ring_destroy_uitablemodelhandler);
+	ring_vm_funcregister("new_uiareakeyevent",ring_new_uiareakeyevent);
+	ring_vm_funcregister("new_managed_uiareakeyevent",ring_new_managed_uiareakeyevent);
+	ring_vm_funcregister("destroy_uiareakeyevent",ring_destroy_uiareakeyevent);
+	ring_vm_funcregister("get_uiareakeyevent_key",ring_get_uiareakeyevent_Key);
+	ring_vm_funcregister("set_uiareakeyevent_key",ring_set_uiareakeyevent_Key);
+	ring_vm_funcregister("get_uiareakeyevent_extkey",ring_get_uiareakeyevent_ExtKey);
+	ring_vm_funcregister("set_uiareakeyevent_extkey",ring_set_uiareakeyevent_ExtKey);
+	ring_vm_funcregister("get_uiareakeyevent_modifier",ring_get_uiareakeyevent_Modifier);
+	ring_vm_funcregister("set_uiareakeyevent_modifier",ring_set_uiareakeyevent_Modifier);
+	ring_vm_funcregister("get_uiareakeyevent_modifiers",ring_get_uiareakeyevent_Modifiers);
+	ring_vm_funcregister("set_uiareakeyevent_modifiers",ring_set_uiareakeyevent_Modifiers);
+	ring_vm_funcregister("get_uiareakeyevent_up",ring_get_uiareakeyevent_Up);
+	ring_vm_funcregister("set_uiareakeyevent_up",ring_set_uiareakeyevent_Up);
 }

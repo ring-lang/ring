@@ -149,6 +149,8 @@ uiTableTextColumnOptionalParams {ColorModelColumn}
 uiDrawBrush {Type,R,G,B,A,X0,Y0,X1,Y1,OuterRadius,NumStops}
 uiDrawBrushGradientStop {Pos,R,G,B,A}
 uiDrawStrokeParams {Cap,Join,Thickness,MiterLimit,NumDashes,DashPhase}
+uiTableModelHandler
+uiAreaKeyEvent {Key,ExtKey,Modifier,Modifiers,Up}
 </struct>
 
 <runcode>
@@ -539,22 +541,6 @@ struct uiAreaMouseEvent {
 	int Count
 	uiModifiers Modifiers
 	uint64_t Held1To64
-}
-
-struct uiAreaKeyEvent {
-	char Key
-	uiExtKey ExtKey
-	uiModifiers Modifier
-	uiModifiers Modifiers
-	int Up
-}
-
-struct uiTableModelHandler {
-	int (*NumColumns)(uiTableModelHandler *, uiTableModel *)
-	uiTableValueType (*ColumnType)(uiTableModelHandler *, uiTableModel *, int)
-	int (*NumRows)(uiTableModelHandler *, uiTableModel *)
-	uiTableValue *(*CellValue)(uiTableModelHandler *mh, uiTableModel *m, int row, int column)
-	void (*SetCellValue)(uiTableModelHandler *, uiTableModel *, int, int, const uiTableValue *)
 }
 
 struct uiTableParams {
