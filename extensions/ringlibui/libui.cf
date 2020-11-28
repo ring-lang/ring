@@ -255,6 +255,23 @@ int uiFormPadded(uiForm *f)
 void uiFormSetPadded(uiForm *f, int padded)
 uiForm *uiNewForm(void)
 
+void uiGridAppend(uiGrid *g, uiControl *c, int left, int top, int xspan, int yspan, int hexpand, uiAlign halign, int vexpand, uiAlign valign)
+void uiGridInsertAt(uiGrid *g, uiControl *c, uiControl *existing, uiAt at, int xspan, int yspan, int hexpand, uiAlign halign, int vexpand, uiAlign valign)
+int uiGridPadded(uiGrid *g)
+void uiGridSetPadded(uiGrid *g, int padded)
+uiGrid *uiNewGrid(void)
+
+uiTableValueType uiTableValueGetType(const uiTableValue *v)
+uiTableValue *uiNewTableValueString(const char *str)
+const char *uiTableValueString(const uiTableValue *v)
+uiTableValue *uiNewTableValueImage(uiImage *img)
+uiImage *uiTableValueImage(const uiTableValue *v)
+uiTableValue *uiNewTableValueInt(int i)
+int uiTableValueInt(const uiTableValue *v)
+uiTableValue *uiNewTableValueColor(double r, double g, double b, double a)
+void uiTableValueColor(const uiTableValue *v, double *r, double *g, double *b, double *a)
+
+
 <comment>
 
 _UI_ENUM(uiForEach) {
@@ -712,11 +729,7 @@ _UI_ENUM(uiAt) {
 
 typedef struct uiGrid uiGrid
 #define uiGrid(this) ((uiGrid *) (this))
-void uiGridAppend(uiGrid *g, uiControl *c, int left, int top, int xspan, int yspan, int hexpand, uiAlign halign, int vexpand, uiAlign valign)
-void uiGridInsertAt(uiGrid *g, uiControl *c, uiControl *existing, uiAt at, int xspan, int yspan, int hexpand, uiAlign halign, int vexpand, uiAlign valign)
-int uiGridPadded(uiGrid *g)
-void uiGridSetPadded(uiGrid *g, int padded)
-uiGrid *uiNewGrid(void)
+
 
 typedef struct uiImage uiImage
 
@@ -737,27 +750,11 @@ _UI_ENUM(uiTableValueType) {
 	uiTableValueTypeColor,
 }
 
-uiTableValueType uiTableValueGetType(const uiTableValue *v)
-
-uiTableValue *uiNewTableValueString(const char *str)
-
-const char *uiTableValueString(const uiTableValue *v)
-
-uiTableValue *uiNewTableValueImage(uiImage *img)
-
-uiImage *uiTableValueImage(const uiTableValue *v)
-
-uiTableValue *uiNewTableValueInt(int i)
-
-int uiTableValueInt(const uiTableValue *v)
-
-uiTableValue *uiNewTableValueColor(double r, double g, double b, double a)
-
-void uiTableValueColor(const uiTableValue *v, double *r, double *g, double *b, double *a)
-
 typedef struct uiTableModel uiTableModel
-
 typedef struct uiTableModelHandler uiTableModelHandler
+
+
+
 
 struct uiTableModelHandler {
 	int (*NumColumns)(uiTableModelHandler *, uiTableModel *)
