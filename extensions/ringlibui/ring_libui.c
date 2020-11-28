@@ -3023,6 +3023,184 @@ RING_FUNC(ring_set_uiareamouseevent_Held1To64)
 	pMyPointer->Held1To64 = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_uidrawtextlayoutparams)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	pMyPointer = (uiDrawTextLayoutParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawTextLayoutParams)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiDrawTextLayoutParams");
+}
+
+RING_FUNC(ring_new_managed_uidrawtextlayoutparams)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	pMyPointer = (uiDrawTextLayoutParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawTextLayoutParams)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawTextLayoutParams",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uidrawtextlayoutparams)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_uidrawtextlayoutparams_String)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
+	RING_API_RETCPOINTER(pMyPointer->String,"uiAttributedString");
+}
+
+RING_FUNC(ring_set_uidrawtextlayoutparams_String)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
+	pMyPointer->String = (uiAttributedString *) RING_API_GETCPOINTER(2,"uiAttributedString");
+}
+
+RING_FUNC(ring_get_uidrawtextlayoutparams_DefaultFont)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
+	RING_API_RETCPOINTER(pMyPointer->DefaultFont,"uiFontDescriptor");
+}
+
+RING_FUNC(ring_set_uidrawtextlayoutparams_DefaultFont)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
+	pMyPointer->DefaultFont = (uiFontDescriptor *) RING_API_GETCPOINTER(2,"uiFontDescriptor");
+}
+
+RING_FUNC(ring_get_uidrawtextlayoutparams_Width)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
+	RING_API_RETNUMBER(pMyPointer->Width);
+}
+
+RING_FUNC(ring_set_uidrawtextlayoutparams_Width)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
+	pMyPointer->Width = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawtextlayoutparams_Align)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
+	RING_API_RETNUMBER(pMyPointer->Align);
+}
+
+RING_FUNC(ring_set_uidrawtextlayoutparams_Align)
+{
+	uiDrawTextLayoutParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
+	pMyPointer->Align = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_uiInit)
 {
@@ -7792,4 +7970,15 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_uiareamouseevent_modifiers",ring_set_uiareamouseevent_Modifiers);
 	ring_vm_funcregister("get_uiareamouseevent_held1to64",ring_get_uiareamouseevent_Held1To64);
 	ring_vm_funcregister("set_uiareamouseevent_held1to64",ring_set_uiareamouseevent_Held1To64);
+	ring_vm_funcregister("new_uidrawtextlayoutparams",ring_new_uidrawtextlayoutparams);
+	ring_vm_funcregister("new_managed_uidrawtextlayoutparams",ring_new_managed_uidrawtextlayoutparams);
+	ring_vm_funcregister("destroy_uidrawtextlayoutparams",ring_destroy_uidrawtextlayoutparams);
+	ring_vm_funcregister("get_uidrawtextlayoutparams_string",ring_get_uidrawtextlayoutparams_String);
+	ring_vm_funcregister("set_uidrawtextlayoutparams_string",ring_set_uidrawtextlayoutparams_String);
+	ring_vm_funcregister("get_uidrawtextlayoutparams_defaultfont",ring_get_uidrawtextlayoutparams_DefaultFont);
+	ring_vm_funcregister("set_uidrawtextlayoutparams_defaultfont",ring_set_uidrawtextlayoutparams_DefaultFont);
+	ring_vm_funcregister("get_uidrawtextlayoutparams_width",ring_get_uidrawtextlayoutparams_Width);
+	ring_vm_funcregister("set_uidrawtextlayoutparams_width",ring_set_uidrawtextlayoutparams_Width);
+	ring_vm_funcregister("get_uidrawtextlayoutparams_align",ring_get_uidrawtextlayoutparams_Align);
+	ring_vm_funcregister("set_uidrawtextlayoutparams_align",ring_set_uidrawtextlayoutparams_Align);
 }

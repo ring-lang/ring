@@ -153,6 +153,7 @@ uiTableModelHandler
 uiAreaKeyEvent {Key,ExtKey,Modifier,Modifiers,Up}
 uiTableParams {uiTableModel *Model,RowBackgroundColorModelColumn}
 uiAreaMouseEvent {X,Y,AreaWidth,AreaHeight,Down,Up,Count,Modifiers,Held1To64}
+uiDrawTextLayoutParams {uiAttributedString *String,uiFontDescriptor *DefaultFont,Width,Align}
 </struct>
 
 <runcode>
@@ -526,11 +527,6 @@ struct uiFontDescriptor {
 	uiTextStretch Stretch
 }
 
-struct uiDrawTextLayoutParams {
-	uiAttributedString *String
-	uiFontDescriptor *DefaultFont
-	double Width
-	uiDrawTextAlign Align
-}
+
 
 </comment>
