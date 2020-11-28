@@ -271,6 +271,17 @@ int uiTableValueInt(const uiTableValue *v)
 uiTableValue *uiNewTableValueColor(double r, double g, double b, double a)
 void uiTableValueColor(const uiTableValue *v, double *r, double *g, double *b, double *a)
 
+uiImage *uiNewImage(double width, double height)
+void uiFreeImage(uiImage *i)
+void uiImageAppend(uiImage *i, void *pixels, int pixelWidth, int pixelHeight, int byteStride)
+
+void uiFreeTableValue(uiTableValue *v)
+
+uiTableModel *uiNewTableModel(uiTableModelHandler *mh)
+void uiFreeTableModel(uiTableModel *m)
+void uiTableModelRowInserted(uiTableModel *m, int newIndex)
+void uiTableModelRowChanged(uiTableModel *m, int index)
+void uiTableModelRowDeleted(uiTableModel *m, int oldIndex)
 
 <comment>
 
@@ -707,11 +718,8 @@ typedef struct uiColorButton uiColorButton
 #define uiColorButton(this) ((uiColorButton *) (this))
 void uiColorButtonOnChanged(uiColorButton *b, void (*f)(uiColorButton *, void *), void *data)
 
-
-
 typedef struct uiForm uiForm
 #define uiForm(this) ((uiForm *) (this))
-
 
 _UI_ENUM(uiAlign) {
 	uiAlignFill,
@@ -730,18 +738,9 @@ _UI_ENUM(uiAt) {
 typedef struct uiGrid uiGrid
 #define uiGrid(this) ((uiGrid *) (this))
 
-
 typedef struct uiImage uiImage
-
-uiImage *uiNewImage(double width, double height)
-
-void uiFreeImage(uiImage *i)
-
-void uiImageAppend(uiImage *i, void *pixels, int pixelWidth, int pixelHeight, int byteStride)
-
 typedef struct uiTableValue uiTableValue
 
-void uiFreeTableValue(uiTableValue *v)
 
 _UI_ENUM(uiTableValueType) {
 	uiTableValueTypeString,
@@ -753,9 +752,6 @@ _UI_ENUM(uiTableValueType) {
 typedef struct uiTableModel uiTableModel
 typedef struct uiTableModelHandler uiTableModelHandler
 
-
-
-
 struct uiTableModelHandler {
 	int (*NumColumns)(uiTableModelHandler *, uiTableModel *)
 	uiTableValueType (*ColumnType)(uiTableModelHandler *, uiTableModel *, int)
@@ -764,15 +760,7 @@ struct uiTableModelHandler {
 	void (*SetCellValue)(uiTableModelHandler *, uiTableModel *, int, int, const uiTableValue *)
 }
 
-uiTableModel *uiNewTableModel(uiTableModelHandler *mh)
 
-void uiFreeTableModel(uiTableModel *m)
-
-void uiTableModelRowInserted(uiTableModel *m, int newIndex)
-
-void uiTableModelRowChanged(uiTableModel *m, int index)
-
-void uiTableModelRowDeleted(uiTableModel *m, int oldIndex)
 #define uiTableModelColumnNeverEditable (-1)
 #define uiTableModelColumnAlwaysEditable (-2)
 

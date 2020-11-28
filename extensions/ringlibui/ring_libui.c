@@ -3767,6 +3767,164 @@ RING_FUNC(ring_uiTableValueColor)
 	uiTableValueColor((uiTableValue *) RING_API_GETCPOINTER(1,"uiTableValue"),RING_API_GETDOUBLEPOINTER(2),RING_API_GETDOUBLEPOINTER(3),RING_API_GETDOUBLEPOINTER(4),RING_API_GETDOUBLEPOINTER(5));
 }
 
+
+RING_FUNC(ring_uiNewImage)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewImage( (double ) RING_API_GETNUMBER(1), (double ) RING_API_GETNUMBER(2)),"uiImage");
+}
+
+
+RING_FUNC(ring_uiFreeImage)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFreeImage((uiImage *) RING_API_GETCPOINTER(1,"uiImage"));
+}
+
+
+RING_FUNC(ring_uiImageAppend)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiImageAppend((uiImage *) RING_API_GETCPOINTER(1,"uiImage"),(void *) RING_API_GETCPOINTER(2,"void"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_uiFreeTableValue)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFreeTableValue((uiTableValue *) RING_API_GETCPOINTER(1,"uiTableValue"));
+}
+
+
+RING_FUNC(ring_uiNewTableModel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewTableModel((uiTableModelHandler *) RING_API_GETCPOINTER(1,"uiTableModelHandler")),"uiTableModel");
+}
+
+
+RING_FUNC(ring_uiFreeTableModel)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFreeTableModel((uiTableModel *) RING_API_GETCPOINTER(1,"uiTableModel"));
+}
+
+
+RING_FUNC(ring_uiTableModelRowInserted)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTableModelRowInserted((uiTableModel *) RING_API_GETCPOINTER(1,"uiTableModel"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiTableModelRowChanged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTableModelRowChanged((uiTableModel *) RING_API_GETCPOINTER(1,"uiTableModel"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiTableModelRowDeleted)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTableModelRowDeleted((uiTableModel *) RING_API_GETCPOINTER(1,"uiTableModel"), (int ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -3986,5 +4144,14 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uitablevalueint",ring_uiTableValueInt);
 	ring_vm_funcregister("uinewtablevaluecolor",ring_uiNewTableValueColor);
 	ring_vm_funcregister("uitablevaluecolor",ring_uiTableValueColor);
+	ring_vm_funcregister("uinewimage",ring_uiNewImage);
+	ring_vm_funcregister("uifreeimage",ring_uiFreeImage);
+	ring_vm_funcregister("uiimageappend",ring_uiImageAppend);
+	ring_vm_funcregister("uifreetablevalue",ring_uiFreeTableValue);
+	ring_vm_funcregister("uinewtablemodel",ring_uiNewTableModel);
+	ring_vm_funcregister("uifreetablemodel",ring_uiFreeTableModel);
+	ring_vm_funcregister("uitablemodelrowinserted",ring_uiTableModelRowInserted);
+	ring_vm_funcregister("uitablemodelrowchanged",ring_uiTableModelRowChanged);
+	ring_vm_funcregister("uitablemodelrowdeleted",ring_uiTableModelRowDeleted);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }
