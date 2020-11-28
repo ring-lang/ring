@@ -283,6 +283,23 @@ void uiTableModelRowInserted(uiTableModel *m, int newIndex)
 void uiTableModelRowChanged(uiTableModel *m, int index)
 void uiTableModelRowDeleted(uiTableModel *m, int oldIndex)
 
+uiAttribute *uiNewWeightAttribute(uiTextWeight weight)
+uiTextWeight uiAttributeWeight(const uiAttribute *a)
+uiAttribute *uiNewItalicAttribute(uiTextItalic italic)
+uiTextItalic uiAttributeItalic(const uiAttribute *a)
+
+void uiFreeAttribute(uiAttribute *a)
+
+void uiTableAppendTextColumn(uiTable *t,const char *name,int textModelColumn,int textEditableModelColumn,uiTableTextColumnOptionalParams *textParams)
+void uiTableAppendImageColumn(uiTable *t,const char *name,int imageModelColumn)
+void uiTableAppendImageTextColumn(uiTable *t,const char *name,int imageModelColumn,int textModelColumn,int textEditableModelColumn,uiTableTextColumnOptionalParams *textParams)
+void uiTableAppendCheckboxColumn(uiTable *t,const char *name,int checkboxModelColumn,int checkboxEditableModelColumn)
+void uiTableAppendCheckboxTextColumn(uiTable *t,const char *name,int checkboxModelColumn,int checkboxEditableModelColumn,int textModelColumn,int textEditableModelColumn,uiTableTextColumnOptionalParams *textParams)
+void uiTableAppendProgressBarColumn(uiTable *t,const char *name,int progressModelColumn)
+void uiTableAppendButtonColumn(uiTable *t,const char *name,int buttonModelColumn,int buttonClickableModelColumn)
+uiTable *uiNewTable(uiTableParams *params)
+
+
 <comment>
 
 _UI_ENUM(uiForEach) {
@@ -535,7 +552,6 @@ struct uiDrawStrokeParams {
 }
 
 typedef struct uiAttribute uiAttribute
-void uiFreeAttribute(uiAttribute *a)
 
 _UI_ENUM(uiAttributeType) {
 	uiAttributeTypeFamily,
@@ -565,9 +581,8 @@ _UI_ENUM(uiTextWeight) {
 	uiTextWeightUltraHeavy = 950,
 	uiTextWeightMaximum = 1000,
 }
-uiAttribute *uiNewWeightAttribute(uiTextWeight weight)
 
-uiTextWeight uiAttributeWeight(const uiAttribute *a)
+
 
 _UI_ENUM(uiTextItalic) {
 	uiTextItalicNormal,
@@ -575,9 +590,6 @@ _UI_ENUM(uiTextItalic) {
 	uiTextItalicItalic,
 }
 
-uiAttribute *uiNewItalicAttribute(uiTextItalic italic)
-
-uiTextItalic uiAttributeItalic(const uiAttribute *a)
 
 _UI_ENUM(uiTextStretch) {
 	uiTextStretchUltraCondensed,
@@ -780,45 +792,5 @@ struct uiTableParams {
 typedef struct uiTable uiTable
 #define uiTable(this) ((uiTable *) (this))
 
-void uiTableAppendTextColumn(uiTable *t,
-	const char *name,
-	int textModelColumn,
-	int textEditableModelColumn,
-	uiTableTextColumnOptionalParams *textParams)
-
-void uiTableAppendImageColumn(uiTable *t,
-	const char *name,
-	int imageModelColumn)
-
-void uiTableAppendImageTextColumn(uiTable *t,
-	const char *name,
-	int imageModelColumn,
-	int textModelColumn,
-	int textEditableModelColumn,
-	uiTableTextColumnOptionalParams *textParams)
-
-void uiTableAppendCheckboxColumn(uiTable *t,
-	const char *name,
-	int checkboxModelColumn,
-	int checkboxEditableModelColumn)
-
-void uiTableAppendCheckboxTextColumn(uiTable *t,
-	const char *name,
-	int checkboxModelColumn,
-	int checkboxEditableModelColumn,
-	int textModelColumn,
-	int textEditableModelColumn,
-	uiTableTextColumnOptionalParams *textParams)
-
-void uiTableAppendProgressBarColumn(uiTable *t,
-	const char *name,
-	int progressModelColumn)
-
-void uiTableAppendButtonColumn(uiTable *t,
-	const char *name,
-	int buttonModelColumn,
-	int buttonClickableModelColumn)
-
-uiTable *uiNewTable(uiTableParams *params)
 
 </comment>

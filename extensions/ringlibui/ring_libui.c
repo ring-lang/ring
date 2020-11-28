@@ -3925,6 +3925,294 @@ RING_FUNC(ring_uiTableModelRowDeleted)
 	uiTableModelRowDeleted((uiTableModel *) RING_API_GETCPOINTER(1,"uiTableModel"), (int ) RING_API_GETNUMBER(2));
 }
 
+
+RING_FUNC(ring_uiNewWeightAttribute)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewWeightAttribute(* (uiTextWeight  *) RING_API_GETCPOINTER(1,"uiTextWeight")),"uiAttribute");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiTextWeight"));
+}
+
+
+RING_FUNC(ring_uiAttributeWeight)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		uiTextWeight *pValue ; 
+		pValue = (uiTextWeight *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTextWeight)) ;
+		*pValue = uiAttributeWeight((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"uiTextWeight",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_uiNewItalicAttribute)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewItalicAttribute(* (uiTextItalic  *) RING_API_GETCPOINTER(1,"uiTextItalic")),"uiAttribute");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiTextItalic"));
+}
+
+
+RING_FUNC(ring_uiAttributeItalic)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		uiTextItalic *pValue ; 
+		pValue = (uiTextItalic *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTextItalic)) ;
+		*pValue = uiAttributeItalic((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"uiTextItalic",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_uiFreeAttribute)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFreeAttribute((uiAttribute *) RING_API_GETCPOINTER(1,"uiAttribute"));
+}
+
+
+RING_FUNC(ring_uiTableAppendTextColumn)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTableAppendTextColumn((uiTable *) RING_API_GETCPOINTER(1,"uiTable"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),(uiTableTextColumnOptionalParams *) RING_API_GETCPOINTER(5,"uiTableTextColumnOptionalParams"));
+}
+
+
+RING_FUNC(ring_uiTableAppendImageColumn)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTableAppendImageColumn((uiTable *) RING_API_GETCPOINTER(1,"uiTable"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_uiTableAppendImageTextColumn)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTableAppendImageTextColumn((uiTable *) RING_API_GETCPOINTER(1,"uiTable"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5),(uiTableTextColumnOptionalParams *) RING_API_GETCPOINTER(6,"uiTableTextColumnOptionalParams"));
+}
+
+
+RING_FUNC(ring_uiTableAppendCheckboxColumn)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTableAppendCheckboxColumn((uiTable *) RING_API_GETCPOINTER(1,"uiTable"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_uiTableAppendCheckboxTextColumn)
+{
+	if ( RING_API_PARACOUNT != 7 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(7) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTableAppendCheckboxTextColumn((uiTable *) RING_API_GETCPOINTER(1,"uiTable"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6),(uiTableTextColumnOptionalParams *) RING_API_GETCPOINTER(7,"uiTableTextColumnOptionalParams"));
+}
+
+
+RING_FUNC(ring_uiTableAppendProgressBarColumn)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTableAppendProgressBarColumn((uiTable *) RING_API_GETCPOINTER(1,"uiTable"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_uiTableAppendButtonColumn)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTableAppendButtonColumn((uiTable *) RING_API_GETCPOINTER(1,"uiTable"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_uiNewTable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewTable((uiTableParams *) RING_API_GETCPOINTER(1,"uiTableParams")),"uiTable");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -4153,5 +4441,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uitablemodelrowinserted",ring_uiTableModelRowInserted);
 	ring_vm_funcregister("uitablemodelrowchanged",ring_uiTableModelRowChanged);
 	ring_vm_funcregister("uitablemodelrowdeleted",ring_uiTableModelRowDeleted);
+	ring_vm_funcregister("uinewweightattribute",ring_uiNewWeightAttribute);
+	ring_vm_funcregister("uiattributeweight",ring_uiAttributeWeight);
+	ring_vm_funcregister("uinewitalicattribute",ring_uiNewItalicAttribute);
+	ring_vm_funcregister("uiattributeitalic",ring_uiAttributeItalic);
+	ring_vm_funcregister("uifreeattribute",ring_uiFreeAttribute);
+	ring_vm_funcregister("uitableappendtextcolumn",ring_uiTableAppendTextColumn);
+	ring_vm_funcregister("uitableappendimagecolumn",ring_uiTableAppendImageColumn);
+	ring_vm_funcregister("uitableappendimagetextcolumn",ring_uiTableAppendImageTextColumn);
+	ring_vm_funcregister("uitableappendcheckboxcolumn",ring_uiTableAppendCheckboxColumn);
+	ring_vm_funcregister("uitableappendcheckboxtextcolumn",ring_uiTableAppendCheckboxTextColumn);
+	ring_vm_funcregister("uitableappendprogressbarcolumn",ring_uiTableAppendProgressBarColumn);
+	ring_vm_funcregister("uitableappendbuttoncolumn",ring_uiTableAppendButtonColumn);
+	ring_vm_funcregister("uinewtable",ring_uiNewTable);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }
