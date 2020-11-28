@@ -34,6 +34,24 @@ int uiControlEnabled(uiControl *)
 void uiControlEnable(uiControl *)
 void uiControlDisable(uiControl *)
 
+uiControl *uiAllocControl(size_t n, uint32_t OSsig, uint32_t typesig, const char *typenamestr)
+void uiFreeControl(uiControl *)
+void uiControlVerifySetParent(uiControl *, uiControl *)
+int uiControlEnabledToUser(uiControl *)
+void uiUserBugCannotSetParentOnToplevel(const char *type)
+
+char *uiWindowTitle(uiWindow *w)
+void uiWindowSetTitle(uiWindow *w, const char *title)
+void uiWindowContentSize(uiWindow *w, int *width, int *height)
+void uiWindowSetContentSize(uiWindow *w, int width, int height)
+int uiWindowFullscreen(uiWindow *w)
+void uiWindowSetFullscreen(uiWindow *w, int fullscreen)
+int uiWindowBorderless(uiWindow *w)
+void uiWindowSetBorderless(uiWindow *w, int borderless)
+void uiWindowSetChild(uiWindow *w, uiControl *child)
+int uiWindowMargined(uiWindow *w)
+void uiWindowSetMargined(uiWindow *w, int margined)
+uiWindow *uiNewWindow(const char *title, int width, int height, int hasMenubar)
 
 
 <comment>
@@ -73,31 +91,14 @@ struct uiControl {
 
 uintptr_t uiControlHandle(uiControl *)
 
-uiControl *uiAllocControl(size_t n, uint32_t OSsig, uint32_t typesig, const char *typenamestr)
-void uiFreeControl(uiControl *)
-
-void uiControlVerifySetParent(uiControl *, uiControl *)
-int uiControlEnabledToUser(uiControl *)
-
-void uiUserBugCannotSetParentOnToplevel(const char *type)
 
 typedef struct uiWindow uiWindow
 #define uiWindow(this) ((uiWindow *) (this))
 
-char *uiWindowTitle(uiWindow *w)
-void uiWindowSetTitle(uiWindow *w, const char *title)
-void uiWindowContentSize(uiWindow *w, int *width, int *height)
-void uiWindowSetContentSize(uiWindow *w, int width, int height)
-int uiWindowFullscreen(uiWindow *w)
-void uiWindowSetFullscreen(uiWindow *w, int fullscreen)
+
 void uiWindowOnContentSizeChanged(uiWindow *w, void (*f)(uiWindow *, void *), void *data)
 void uiWindowOnClosing(uiWindow *w, int (*f)(uiWindow *w, void *data), void *data)
-int uiWindowBorderless(uiWindow *w)
-void uiWindowSetBorderless(uiWindow *w, int borderless)
-void uiWindowSetChild(uiWindow *w, uiControl *child)
-int uiWindowMargined(uiWindow *w)
-void uiWindowSetMargined(uiWindow *w, int margined)
-uiWindow *uiNewWindow(const char *title, int width, int height, int hasMenubar)
+
 
 typedef struct uiButton uiButton
 #define uiButton(this) ((uiButton *) (this))
