@@ -856,6 +856,498 @@ RING_FUNC(ring_set_uidrawmatrix_M32)
 	pMyPointer->M32 = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_uitabletextcolumnoptionalparams)
+{
+	uiTableTextColumnOptionalParams *pMyPointer ;
+	pMyPointer = (uiTableTextColumnOptionalParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableTextColumnOptionalParams)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiTableTextColumnOptionalParams");
+}
+
+RING_FUNC(ring_new_managed_uitabletextcolumnoptionalparams)
+{
+	uiTableTextColumnOptionalParams *pMyPointer ;
+	pMyPointer = (uiTableTextColumnOptionalParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableTextColumnOptionalParams)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableTextColumnOptionalParams",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uitabletextcolumnoptionalparams)
+{
+	uiTableTextColumnOptionalParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiTableTextColumnOptionalParams");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_uitabletextcolumnoptionalparams_ColorModelColumn)
+{
+	uiTableTextColumnOptionalParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiTableTextColumnOptionalParams");
+	RING_API_RETNUMBER(pMyPointer->ColorModelColumn);
+}
+
+RING_FUNC(ring_set_uitabletextcolumnoptionalparams_ColorModelColumn)
+{
+	uiTableTextColumnOptionalParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiTableTextColumnOptionalParams");
+	pMyPointer->ColorModelColumn = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_new_uidrawbrush)
+{
+	uiDrawBrush *pMyPointer ;
+	pMyPointer = (uiDrawBrush *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawBrush)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiDrawBrush");
+}
+
+RING_FUNC(ring_new_managed_uidrawbrush)
+{
+	uiDrawBrush *pMyPointer ;
+	pMyPointer = (uiDrawBrush *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawBrush)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawBrush",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uidrawbrush)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_uidrawbrush_Type)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->Type);
+}
+
+RING_FUNC(ring_set_uidrawbrush_Type)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->Type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawbrush_R)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->R);
+}
+
+RING_FUNC(ring_set_uidrawbrush_R)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->R = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawbrush_G)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->G);
+}
+
+RING_FUNC(ring_set_uidrawbrush_G)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->G = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawbrush_B)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->B);
+}
+
+RING_FUNC(ring_set_uidrawbrush_B)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->B = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawbrush_A)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->A);
+}
+
+RING_FUNC(ring_set_uidrawbrush_A)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->A = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawbrush_X0)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->X0);
+}
+
+RING_FUNC(ring_set_uidrawbrush_X0)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->X0 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawbrush_Y0)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->Y0);
+}
+
+RING_FUNC(ring_set_uidrawbrush_Y0)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->Y0 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawbrush_X1)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->X1);
+}
+
+RING_FUNC(ring_set_uidrawbrush_X1)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->X1 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawbrush_Y1)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->Y1);
+}
+
+RING_FUNC(ring_set_uidrawbrush_Y1)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->Y1 = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawbrush_OuterRadius)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->OuterRadius);
+}
+
+RING_FUNC(ring_set_uidrawbrush_OuterRadius)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->OuterRadius = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uidrawbrush_NumStops)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	RING_API_RETNUMBER(pMyPointer->NumStops);
+}
+
+RING_FUNC(ring_set_uidrawbrush_NumStops)
+{
+	uiDrawBrush *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiDrawBrush");
+	pMyPointer->NumStops = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_uiInit)
 {
@@ -5429,4 +5921,34 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_uidrawmatrix_m31",ring_set_uidrawmatrix_M31);
 	ring_vm_funcregister("get_uidrawmatrix_m32",ring_get_uidrawmatrix_M32);
 	ring_vm_funcregister("set_uidrawmatrix_m32",ring_set_uidrawmatrix_M32);
+	ring_vm_funcregister("new_uitabletextcolumnoptionalparams",ring_new_uitabletextcolumnoptionalparams);
+	ring_vm_funcregister("new_managed_uitabletextcolumnoptionalparams",ring_new_managed_uitabletextcolumnoptionalparams);
+	ring_vm_funcregister("destroy_uitabletextcolumnoptionalparams",ring_destroy_uitabletextcolumnoptionalparams);
+	ring_vm_funcregister("get_uitabletextcolumnoptionalparams_colormodelcolumn",ring_get_uitabletextcolumnoptionalparams_ColorModelColumn);
+	ring_vm_funcregister("set_uitabletextcolumnoptionalparams_colormodelcolumn",ring_set_uitabletextcolumnoptionalparams_ColorModelColumn);
+	ring_vm_funcregister("new_uidrawbrush",ring_new_uidrawbrush);
+	ring_vm_funcregister("new_managed_uidrawbrush",ring_new_managed_uidrawbrush);
+	ring_vm_funcregister("destroy_uidrawbrush",ring_destroy_uidrawbrush);
+	ring_vm_funcregister("get_uidrawbrush_type",ring_get_uidrawbrush_Type);
+	ring_vm_funcregister("set_uidrawbrush_type",ring_set_uidrawbrush_Type);
+	ring_vm_funcregister("get_uidrawbrush_r",ring_get_uidrawbrush_R);
+	ring_vm_funcregister("set_uidrawbrush_r",ring_set_uidrawbrush_R);
+	ring_vm_funcregister("get_uidrawbrush_g",ring_get_uidrawbrush_G);
+	ring_vm_funcregister("set_uidrawbrush_g",ring_set_uidrawbrush_G);
+	ring_vm_funcregister("get_uidrawbrush_b",ring_get_uidrawbrush_B);
+	ring_vm_funcregister("set_uidrawbrush_b",ring_set_uidrawbrush_B);
+	ring_vm_funcregister("get_uidrawbrush_a",ring_get_uidrawbrush_A);
+	ring_vm_funcregister("set_uidrawbrush_a",ring_set_uidrawbrush_A);
+	ring_vm_funcregister("get_uidrawbrush_x0",ring_get_uidrawbrush_X0);
+	ring_vm_funcregister("set_uidrawbrush_x0",ring_set_uidrawbrush_X0);
+	ring_vm_funcregister("get_uidrawbrush_y0",ring_get_uidrawbrush_Y0);
+	ring_vm_funcregister("set_uidrawbrush_y0",ring_set_uidrawbrush_Y0);
+	ring_vm_funcregister("get_uidrawbrush_x1",ring_get_uidrawbrush_X1);
+	ring_vm_funcregister("set_uidrawbrush_x1",ring_set_uidrawbrush_X1);
+	ring_vm_funcregister("get_uidrawbrush_y1",ring_get_uidrawbrush_Y1);
+	ring_vm_funcregister("set_uidrawbrush_y1",ring_set_uidrawbrush_Y1);
+	ring_vm_funcregister("get_uidrawbrush_outerradius",ring_get_uidrawbrush_OuterRadius);
+	ring_vm_funcregister("set_uidrawbrush_outerradius",ring_set_uidrawbrush_OuterRadius);
+	ring_vm_funcregister("get_uidrawbrush_numstops",ring_get_uidrawbrush_NumStops);
+	ring_vm_funcregister("set_uidrawbrush_numstops",ring_set_uidrawbrush_NumStops);
 }

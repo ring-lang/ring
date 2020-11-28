@@ -44,6 +44,8 @@ uiControl {Signature, OSSignature, TypeSignature}
 uiAreaHandler
 uiAreaDrawParams {AreaWidth,AreaHeight, ClipX,ClipY,ClipWidth,ClipHeight}
 uiDrawMatrix {M11,M12,M21,M22,M31,M32}
+uiTableTextColumnOptionalParams {ColorModelColumn}
+uiDrawBrush {Type,R,G,B,A,X0,Y0,X1,Y1,OuterRadius,NumStops}
 </struct>
 
 <runcode>
@@ -390,20 +392,7 @@ void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *
 #define uiMenu(this) ((uiMenu *) (this))
 #define uiArea(this) ((uiArea *) (this))
 
-struct uiDrawBrush {
-	uiDrawBrushType Type
-	double R
-	double G
-	double B
-	double A
-	double X0
-	double Y0
-	double X1
-	double Y1
-	double OuterRadius
-	uiDrawBrushGradientStop *Stops
-	size_t NumStops
-}
+
 
 struct uiDrawBrushGradientStop {
 	double Pos
@@ -422,8 +411,6 @@ struct uiDrawStrokeParams {
 	size_t NumDashes
 	double DashPhase
 }
-
-typedef struct uiAttribute uiAttribute
 
 _UI_ENUM(uiAttributeType) {
 	uiAttributeTypeFamily,
@@ -614,10 +601,6 @@ struct uiTableModelHandler {
 	int (*NumRows)(uiTableModelHandler *, uiTableModel *)
 	uiTableValue *(*CellValue)(uiTableModelHandler *mh, uiTableModel *m, int row, int column)
 	void (*SetCellValue)(uiTableModelHandler *, uiTableModel *, int, int, const uiTableValue *)
-}
-
-struct uiTableTextColumnOptionalParams {
-	int ColorModelColumn
 }
 
 struct uiTableParams {
