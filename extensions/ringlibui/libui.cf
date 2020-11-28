@@ -81,7 +81,7 @@ uiUnderlineColorGrammar
 uiUnderlineColorAuxiliary
 uiDrawTextAlignLeft
 uiDrawTextAlignCenter
-uiDrawTextAlignRight	
+uiDrawTextAlignRight
 uiModifierCtrl
 uiModifierAlt
 uiModifierShift

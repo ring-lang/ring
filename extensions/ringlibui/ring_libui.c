@@ -361,9 +361,9 @@ RING_FUNC(ring_get_uidrawtextaligncenter)
 	RING_API_RETNUMBER(uiDrawTextAlignCenter);
 }
 
-RING_FUNC(ring_get_uidrawtextalignright	)
+RING_FUNC(ring_get_uidrawtextalignright)
 {
-	RING_API_RETNUMBER(uiDrawTextAlignRight	);
+	RING_API_RETNUMBER(uiDrawTextAlignRight);
 }
 
 RING_FUNC(ring_get_uimodifierctrl)
@@ -7979,7 +7979,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_uiunderlinecolorauxiliary",ring_get_uiunderlinecolorauxiliary);
 	ring_vm_funcregister("get_uidrawtextalignleft",ring_get_uidrawtextalignleft);
 	ring_vm_funcregister("get_uidrawtextaligncenter",ring_get_uidrawtextaligncenter);
-	ring_vm_funcregister("get_uidrawtextalignright	",ring_get_uidrawtextalignright	);
+	ring_vm_funcregister("get_uidrawtextalignright",ring_get_uidrawtextalignright);
 	ring_vm_funcregister("get_uimodifierctrl",ring_get_uimodifierctrl);
 	ring_vm_funcregister("get_uimodifieralt",ring_get_uimodifieralt);
 	ring_vm_funcregister("get_uimodifiershift",ring_get_uimodifiershift);
