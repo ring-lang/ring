@@ -2565,6 +2565,116 @@ RING_FUNC(ring_set_uiareakeyevent_Up)
 	pMyPointer->Up = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_uitableparams)
+{
+	uiTableParams *pMyPointer ;
+	pMyPointer = (uiTableParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableParams)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiTableParams");
+}
+
+RING_FUNC(ring_new_managed_uitableparams)
+{
+	uiTableParams *pMyPointer ;
+	pMyPointer = (uiTableParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableParams)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableParams",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uitableparams)
+{
+	uiTableParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiTableParams");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_uitableparams_Model)
+{
+	uiTableParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiTableParams");
+	RING_API_RETCPOINTER(pMyPointer->Model,"uiTableModel");
+}
+
+RING_FUNC(ring_set_uitableparams_Model)
+{
+	uiTableParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiTableParams");
+	pMyPointer->Model = (uiTableModel *) RING_API_GETCPOINTER(2,"uiTableModel");
+}
+
+RING_FUNC(ring_get_uitableparams_RowBackgroundColorModelColumn)
+{
+	uiTableParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiTableParams");
+	RING_API_RETNUMBER(pMyPointer->RowBackgroundColorModelColumn);
+}
+
+RING_FUNC(ring_set_uitableparams_RowBackgroundColorModelColumn)
+{
+	uiTableParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiTableParams");
+	pMyPointer->RowBackgroundColorModelColumn = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_uiInit)
 {
@@ -7306,4 +7416,11 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_uiareakeyevent_modifiers",ring_set_uiareakeyevent_Modifiers);
 	ring_vm_funcregister("get_uiareakeyevent_up",ring_get_uiareakeyevent_Up);
 	ring_vm_funcregister("set_uiareakeyevent_up",ring_set_uiareakeyevent_Up);
+	ring_vm_funcregister("new_uitableparams",ring_new_uitableparams);
+	ring_vm_funcregister("new_managed_uitableparams",ring_new_managed_uitableparams);
+	ring_vm_funcregister("destroy_uitableparams",ring_destroy_uitableparams);
+	ring_vm_funcregister("get_uitableparams_model",ring_get_uitableparams_Model);
+	ring_vm_funcregister("set_uitableparams_model",ring_set_uitableparams_Model);
+	ring_vm_funcregister("get_uitableparams_rowbackgroundcolormodelcolumn",ring_get_uitableparams_RowBackgroundColorModelColumn);
+	ring_vm_funcregister("set_uitableparams_rowbackgroundcolormodelcolumn",ring_set_uitableparams_RowBackgroundColorModelColumn);
 }
