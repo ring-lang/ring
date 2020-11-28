@@ -541,6 +541,144 @@ RING_FUNC(ring_uiNewWindow)
 	RING_API_RETCPOINTER(uiNewWindow(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)),"uiWindow");
 }
 
+
+RING_FUNC(ring_uiButtonText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(uiButtonText((uiButton *) RING_API_GETCPOINTER(1,"uiButton")));
+}
+
+
+RING_FUNC(ring_uiButtonSetText)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiButtonSetText((uiButton *) RING_API_GETCPOINTER(1,"uiButton"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiNewButton)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewButton(RING_API_GETSTRING(1)),"uiButton");
+}
+
+
+RING_FUNC(ring_uiBoxAppend)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiBoxAppend((uiBox *) RING_API_GETCPOINTER(1,"uiBox"),(uiControl *) RING_API_GETCPOINTER(2,"uiControl"), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_uiBoxDelete)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiBoxDelete((uiBox *) RING_API_GETCPOINTER(1,"uiBox"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiBoxPadded)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiBoxPadded((uiBox *) RING_API_GETCPOINTER(1,"uiBox")));
+}
+
+
+RING_FUNC(ring_uiBoxSetPadded)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiBoxSetPadded((uiBox *) RING_API_GETCPOINTER(1,"uiBox"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewHorizontalBox)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewHorizontalBox(),"uiBox");
+}
+
+
+RING_FUNC(ring_uiNewVerticalBox)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewVerticalBox(),"uiBox");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -577,5 +715,14 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uiwindowmargined",ring_uiWindowMargined);
 	ring_vm_funcregister("uiwindowsetmargined",ring_uiWindowSetMargined);
 	ring_vm_funcregister("uinewwindow",ring_uiNewWindow);
+	ring_vm_funcregister("uibuttontext",ring_uiButtonText);
+	ring_vm_funcregister("uibuttonsettext",ring_uiButtonSetText);
+	ring_vm_funcregister("uinewbutton",ring_uiNewButton);
+	ring_vm_funcregister("uiboxappend",ring_uiBoxAppend);
+	ring_vm_funcregister("uiboxdelete",ring_uiBoxDelete);
+	ring_vm_funcregister("uiboxpadded",ring_uiBoxPadded);
+	ring_vm_funcregister("uiboxsetpadded",ring_uiBoxSetPadded);
+	ring_vm_funcregister("uinewhorizontalbox",ring_uiNewHorizontalBox);
+	ring_vm_funcregister("uinewverticalbox",ring_uiNewVerticalBox);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }

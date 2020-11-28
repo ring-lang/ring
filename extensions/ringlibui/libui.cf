@@ -53,6 +53,16 @@ int uiWindowMargined(uiWindow *w)
 void uiWindowSetMargined(uiWindow *w, int margined)
 uiWindow *uiNewWindow(const char *title, int width, int height, int hasMenubar)
 
+char *uiButtonText(uiButton *b)
+void uiButtonSetText(uiButton *b, const char *text)
+uiButton *uiNewButton(const char *text)
+
+void uiBoxAppend(uiBox *b, uiControl *child, int stretchy)
+void uiBoxDelete(uiBox *b, int index)
+int uiBoxPadded(uiBox *b)
+void uiBoxSetPadded(uiBox *b, int padded)
+uiBox *uiNewHorizontalBox(void)
+uiBox *uiNewVerticalBox(void)
 
 <comment>
 
@@ -103,19 +113,12 @@ void uiWindowOnClosing(uiWindow *w, int (*f)(uiWindow *w, void *data), void *dat
 typedef struct uiButton uiButton
 #define uiButton(this) ((uiButton *) (this))
 
-char *uiButtonText(uiButton *b)
-void uiButtonSetText(uiButton *b, const char *text)
 void uiButtonOnClicked(uiButton *b, void (*f)(uiButton *b, void *data), void *data)
-uiButton *uiNewButton(const char *text)
+
 
 typedef struct uiBox uiBox
 #define uiBox(this) ((uiBox *) (this))
-void uiBoxAppend(uiBox *b, uiControl *child, int stretchy)
-void uiBoxDelete(uiBox *b, int index)
-int uiBoxPadded(uiBox *b)
-void uiBoxSetPadded(uiBox *b, int padded)
-uiBox *uiNewHorizontalBox(void)
-uiBox *uiNewVerticalBox(void)
+
 
 typedef struct uiCheckbox uiCheckbox
 #define uiCheckbox(this) ((uiCheckbox *) (this))
