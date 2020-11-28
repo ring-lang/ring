@@ -1633,6 +1633,172 @@ RING_FUNC(ring_uiNewNonWrappingMultilineEntry)
 	RING_API_RETCPOINTER(uiNewNonWrappingMultilineEntry(),"uiMultilineEntry");
 }
 
+
+RING_FUNC(ring_uiMenuItemEnable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMenuItemEnable((uiMenuItem *) RING_API_GETCPOINTER(1,"uiMenuItem"));
+}
+
+
+RING_FUNC(ring_uiMenuItemDisable)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMenuItemDisable((uiMenuItem *) RING_API_GETCPOINTER(1,"uiMenuItem"));
+}
+
+
+RING_FUNC(ring_uiMenuItemChecked)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiMenuItemChecked((uiMenuItem *) RING_API_GETCPOINTER(1,"uiMenuItem")));
+}
+
+
+RING_FUNC(ring_uiMenuItemSetChecked)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMenuItemSetChecked((uiMenuItem *) RING_API_GETCPOINTER(1,"uiMenuItem"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiMenuAppendItem)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiMenuAppendItem((uiMenu *) RING_API_GETCPOINTER(1,"uiMenu"),RING_API_GETSTRING(2)),"uiMenuItem");
+}
+
+
+RING_FUNC(ring_uiMenuAppendCheckItem)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiMenuAppendCheckItem((uiMenu *) RING_API_GETCPOINTER(1,"uiMenu"),RING_API_GETSTRING(2)),"uiMenuItem");
+}
+
+
+RING_FUNC(ring_uiMenuAppendQuitItem)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiMenuAppendQuitItem((uiMenu *) RING_API_GETCPOINTER(1,"uiMenu")),"uiMenuItem");
+}
+
+
+RING_FUNC(ring_uiMenuAppendPreferencesItem)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiMenuAppendPreferencesItem((uiMenu *) RING_API_GETCPOINTER(1,"uiMenu")),"uiMenuItem");
+}
+
+
+RING_FUNC(ring_uiMenuAppendAboutItem)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiMenuAppendAboutItem((uiMenu *) RING_API_GETCPOINTER(1,"uiMenu")),"uiMenuItem");
+}
+
+
+RING_FUNC(ring_uiMenuAppendSeparator)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMenuAppendSeparator((uiMenu *) RING_API_GETCPOINTER(1,"uiMenu"));
+}
+
+
+RING_FUNC(ring_uiNewMenu)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewMenu(RING_API_GETSTRING(1)),"uiMenu");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -1741,5 +1907,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uimultilineentrysetreadonly",ring_uiMultilineEntrySetReadOnly);
 	ring_vm_funcregister("uinewmultilineentry",ring_uiNewMultilineEntry);
 	ring_vm_funcregister("uinewnonwrappingmultilineentry",ring_uiNewNonWrappingMultilineEntry);
+	ring_vm_funcregister("uimenuitemenable",ring_uiMenuItemEnable);
+	ring_vm_funcregister("uimenuitemdisable",ring_uiMenuItemDisable);
+	ring_vm_funcregister("uimenuitemchecked",ring_uiMenuItemChecked);
+	ring_vm_funcregister("uimenuitemsetchecked",ring_uiMenuItemSetChecked);
+	ring_vm_funcregister("uimenuappenditem",ring_uiMenuAppendItem);
+	ring_vm_funcregister("uimenuappendcheckitem",ring_uiMenuAppendCheckItem);
+	ring_vm_funcregister("uimenuappendquititem",ring_uiMenuAppendQuitItem);
+	ring_vm_funcregister("uimenuappendpreferencesitem",ring_uiMenuAppendPreferencesItem);
+	ring_vm_funcregister("uimenuappendaboutitem",ring_uiMenuAppendAboutItem);
+	ring_vm_funcregister("uimenuappendseparator",ring_uiMenuAppendSeparator);
+	ring_vm_funcregister("uinewmenu",ring_uiNewMenu);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }

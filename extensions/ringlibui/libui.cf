@@ -141,6 +141,19 @@ void uiMultilineEntrySetReadOnly(uiMultilineEntry *e, int readonly)
 uiMultilineEntry *uiNewMultilineEntry(void)
 uiMultilineEntry *uiNewNonWrappingMultilineEntry(void)
 
+void uiMenuItemEnable(uiMenuItem *m)
+void uiMenuItemDisable(uiMenuItem *m)
+int uiMenuItemChecked(uiMenuItem *m)
+void uiMenuItemSetChecked(uiMenuItem *m, int checked)
+
+uiMenuItem *uiMenuAppendItem(uiMenu *m, const char *name)
+uiMenuItem *uiMenuAppendCheckItem(uiMenu *m, const char *name)
+uiMenuItem *uiMenuAppendQuitItem(uiMenu *m)
+uiMenuItem *uiMenuAppendPreferencesItem(uiMenu *m)
+uiMenuItem *uiMenuAppendAboutItem(uiMenu *m)
+void uiMenuAppendSeparator(uiMenu *m)
+uiMenu *uiNewMenu(const char *name)
+
 
 <comment>
 
@@ -270,21 +283,13 @@ void uiMultilineEntryOnChanged(uiMultilineEntry *e, void (*f)(uiMultilineEntry *
 
 typedef struct uiMenuItem uiMenuItem
 #define uiMenuItem(this) ((uiMenuItem *) (this))
-void uiMenuItemEnable(uiMenuItem *m)
-void uiMenuItemDisable(uiMenuItem *m)
+
 void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *window, void *data), void *data)
-int uiMenuItemChecked(uiMenuItem *m)
-void uiMenuItemSetChecked(uiMenuItem *m, int checked)
+
 
 typedef struct uiMenu uiMenu
 #define uiMenu(this) ((uiMenu *) (this))
-uiMenuItem *uiMenuAppendItem(uiMenu *m, const char *name)
-uiMenuItem *uiMenuAppendCheckItem(uiMenu *m, const char *name)
-uiMenuItem *uiMenuAppendQuitItem(uiMenu *m)
-uiMenuItem *uiMenuAppendPreferencesItem(uiMenu *m)
-uiMenuItem *uiMenuAppendAboutItem(uiMenu *m)
-void uiMenuAppendSeparator(uiMenu *m)
-uiMenu *uiNewMenu(const char *name)
+
 
 char *uiOpenFile(uiWindow *parent)
 char *uiSaveFile(uiWindow *parent)
