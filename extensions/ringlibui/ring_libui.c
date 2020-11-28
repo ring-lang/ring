@@ -581,6 +581,66 @@ RING_FUNC(ring_get_uiextkeyndivide)
 	RING_API_RETNUMBER(uiExtKeyNDivide);
 }
 
+RING_FUNC(ring_get_uialignfill)
+{
+	RING_API_RETNUMBER(uiAlignFill);
+}
+
+RING_FUNC(ring_get_uialignstart)
+{
+	RING_API_RETNUMBER(uiAlignStart);
+}
+
+RING_FUNC(ring_get_uialigncenter)
+{
+	RING_API_RETNUMBER(uiAlignCenter);
+}
+
+RING_FUNC(ring_get_uialignend)
+{
+	RING_API_RETNUMBER(uiAlignEnd);
+}
+
+RING_FUNC(ring_get_uiatleading)
+{
+	RING_API_RETNUMBER(uiAtLeading);
+}
+
+RING_FUNC(ring_get_uiattop)
+{
+	RING_API_RETNUMBER(uiAtTop);
+}
+
+RING_FUNC(ring_get_uiattrailing)
+{
+	RING_API_RETNUMBER(uiAtTrailing);
+}
+
+RING_FUNC(ring_get_uiatbottom)
+{
+	RING_API_RETNUMBER(uiAtBottom);
+}
+
+RING_FUNC(ring_get_uitablevaluetypestring)
+{
+	RING_API_RETNUMBER(uiTableValueTypeString);
+}
+
+RING_FUNC(ring_get_uitablevaluetypeimage)
+{
+	RING_API_RETNUMBER(uiTableValueTypeImage);
+}
+
+RING_FUNC(ring_get_uitablevaluetypeint)
+{
+	RING_API_RETNUMBER(uiTableValueTypeInt);
+}
+
+RING_FUNC(ring_get_uitablevaluetypecolor)
+{
+	RING_API_RETNUMBER(uiTableValueTypeColor);
+}
+
 RING_FUNC(ring_new_uiinitoptions)
 {
 	uiInitOptions *pMyPointer ;
@@ -5500,15 +5560,19 @@ RING_FUNC(ring_uiGridAppend)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISNUMBER(9) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	uiGridAppend((uiGrid *) RING_API_GETCPOINTER(1,"uiGrid"),(uiControl *) RING_API_GETCPOINTER(2,"uiControl"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7),* (uiAlign  *) RING_API_GETCPOINTER(8,"uiAlign"), (int ) RING_API_GETNUMBER(9),* (uiAlign  *) RING_API_GETCPOINTER(10,"uiAlign"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(8))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(8,"uiAlign"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(10))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(10,"uiAlign"));
+	if ( ! RING_API_ISNUMBER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiGridAppend((uiGrid *) RING_API_GETCPOINTER(1,"uiGrid"),(uiControl *) RING_API_GETCPOINTER(2,"uiControl"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7), (uiAlign )  (int) RING_API_GETNUMBER(8), (int ) RING_API_GETNUMBER(9), (uiAlign )  (int) RING_API_GETNUMBER(10));
 }
 
 
@@ -5530,6 +5594,10 @@ RING_FUNC(ring_uiGridInsertAt)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISNUMBER(5) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -5542,17 +5610,19 @@ RING_FUNC(ring_uiGridInsertAt)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(8) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISNUMBER(9) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	uiGridInsertAt((uiGrid *) RING_API_GETCPOINTER(1,"uiGrid"),(uiControl *) RING_API_GETCPOINTER(2,"uiControl"),(uiControl *) RING_API_GETCPOINTER(3,"uiControl"),* (uiAt  *) RING_API_GETCPOINTER(4,"uiAt"), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7),* (uiAlign  *) RING_API_GETCPOINTER(8,"uiAlign"), (int ) RING_API_GETNUMBER(9),* (uiAlign  *) RING_API_GETCPOINTER(10,"uiAlign"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"uiAt"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(8))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(8,"uiAlign"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(10))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(10,"uiAlign"));
+	if ( ! RING_API_ISNUMBER(10) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiGridInsertAt((uiGrid *) RING_API_GETCPOINTER(1,"uiGrid"),(uiControl *) RING_API_GETCPOINTER(2,"uiControl"),(uiControl *) RING_API_GETCPOINTER(3,"uiControl"), (uiAt )  (int) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6), (int ) RING_API_GETNUMBER(7), (uiAlign )  (int) RING_API_GETNUMBER(8), (int ) RING_API_GETNUMBER(9), (uiAlign )  (int) RING_API_GETNUMBER(10));
 }
 
 
@@ -5608,12 +5678,7 @@ RING_FUNC(ring_uiTableValueGetType)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		uiTableValueType *pValue ; 
-		pValue = (uiTableValueType *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableValueType)) ;
-		*pValue = uiTableValueGetType((uiTableValue *) RING_API_GETCPOINTER(1,"uiTableValue"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"uiTableValueType",ring_state_free);
-	}
+	RING_API_RETNUMBER(uiTableValueGetType((uiTableValue *) RING_API_GETCPOINTER(1,"uiTableValue")));
 }
 
 
@@ -6610,6 +6675,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_uiextkeynsubtract",ring_get_uiextkeynsubtract);
 	ring_vm_funcregister("get_uiextkeynmultiply",ring_get_uiextkeynmultiply);
 	ring_vm_funcregister("get_uiextkeyndivide",ring_get_uiextkeyndivide);
+	ring_vm_funcregister("get_uialignfill",ring_get_uialignfill);
+	ring_vm_funcregister("get_uialignstart",ring_get_uialignstart);
+	ring_vm_funcregister("get_uialigncenter",ring_get_uialigncenter);
+	ring_vm_funcregister("get_uialignend",ring_get_uialignend);
+	ring_vm_funcregister("get_uiatleading",ring_get_uiatleading);
+	ring_vm_funcregister("get_uiattop",ring_get_uiattop);
+	ring_vm_funcregister("get_uiattrailing",ring_get_uiattrailing);
+	ring_vm_funcregister("get_uiatbottom",ring_get_uiatbottom);
+	ring_vm_funcregister("get_uitablevaluetypestring",ring_get_uitablevaluetypestring);
+	ring_vm_funcregister("get_uitablevaluetypeimage",ring_get_uitablevaluetypeimage);
+	ring_vm_funcregister("get_uitablevaluetypeint",ring_get_uitablevaluetypeint);
+	ring_vm_funcregister("get_uitablevaluetypecolor",ring_get_uitablevaluetypecolor);
 	ring_vm_funcregister("new_uiinitoptions",ring_new_uiinitoptions);
 	ring_vm_funcregister("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
 	ring_vm_funcregister("destroy_uiinitoptions",ring_destroy_uiinitoptions);

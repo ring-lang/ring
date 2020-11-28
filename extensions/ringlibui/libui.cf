@@ -125,6 +125,18 @@ uiExtKeyNAdd
 uiExtKeyNSubtract
 uiExtKeyNMultiply
 uiExtKeyNDivide
+uiAlignFill
+uiAlignStart
+uiAlignCenter
+uiAlignEnd
+uiAtLeading
+uiAtTop
+uiAtTrailing
+uiAtBottom
+uiTableValueTypeString
+uiTableValueTypeImage
+uiTableValueTypeInt
+uiTableValueTypeColor
 </constant>
 
 <struct>
@@ -157,6 +169,9 @@ aEnumTypes + "uiUnderlineColor"
 aEnumTypes + "uiDrawTextAlign"
 aEnumTypes + "uiModifiers"
 aEnumTypes + "uiExtKey"
+aEnumTypes + "uiAlign"
+aEnumTypes + "uiAt"
+aEnumTypes + "uiTableValueType"
 </runcode>
 
 const char *uiInit(uiInitOptions *options)
@@ -546,28 +561,11 @@ void uiColorButtonOnChanged(uiColorButton *b, void (*f)(uiColorButton *, void *)
 
 #define uiForm(this) ((uiForm *) (this))
 
-_UI_ENUM(uiAlign) {
-	uiAlignFill,
-	uiAlignStart,
-	uiAlignCenter,
-	uiAlignEnd,
-}
 
-_UI_ENUM(uiAt) {
-	uiAtLeading,
-	uiAtTop,
-	uiAtTrailing,
-	uiAtBottom,
-}
 
 #define uiGrid(this) ((uiGrid *) (this))
 
-_UI_ENUM(uiTableValueType) {
-	uiTableValueTypeString,
-	uiTableValueTypeImage,
-	uiTableValueTypeInt,
-	uiTableValueTypeColor,
-}
+
 
 struct uiTableModelHandler {
 	int (*NumColumns)(uiTableModelHandler *, uiTableModel *)
