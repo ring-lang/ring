@@ -346,9 +346,24 @@ RING_FUNC(ring_get_uiunderlinecolorgrammar)
 	RING_API_RETNUMBER(uiUnderlineColorGrammar);
 }
 
-RING_FUNC(ring_get_uiunderlinecolorauxiliary	)
+RING_FUNC(ring_get_uiunderlinecolorauxiliary)
 {
-	RING_API_RETNUMBER(uiUnderlineColorAuxiliary	);
+	RING_API_RETNUMBER(uiUnderlineColorAuxiliary);
+}
+
+RING_FUNC(ring_get_uidrawtextalignleft)
+{
+	RING_API_RETNUMBER(uiDrawTextAlignLeft);
+}
+
+RING_FUNC(ring_get_uidrawtextaligncenter)
+{
+	RING_API_RETNUMBER(uiDrawTextAlignCenter);
+}
+
+RING_FUNC(ring_get_uidrawtextalignright	)
+{
+	RING_API_RETNUMBER(uiDrawTextAlignRight	);
 }
 
 RING_FUNC(ring_new_uiinitoptions)
@@ -6333,7 +6348,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_uiunderlinecolorcustom",ring_get_uiunderlinecolorcustom);
 	ring_vm_funcregister("get_uiunderlinecolorspelling",ring_get_uiunderlinecolorspelling);
 	ring_vm_funcregister("get_uiunderlinecolorgrammar",ring_get_uiunderlinecolorgrammar);
-	ring_vm_funcregister("get_uiunderlinecolorauxiliary	",ring_get_uiunderlinecolorauxiliary	);
+	ring_vm_funcregister("get_uiunderlinecolorauxiliary",ring_get_uiunderlinecolorauxiliary);
+	ring_vm_funcregister("get_uidrawtextalignleft",ring_get_uidrawtextalignleft);
+	ring_vm_funcregister("get_uidrawtextaligncenter",ring_get_uidrawtextaligncenter);
+	ring_vm_funcregister("get_uidrawtextalignright	",ring_get_uidrawtextalignright	);
 	ring_vm_funcregister("new_uiinitoptions",ring_new_uiinitoptions);
 	ring_vm_funcregister("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
 	ring_vm_funcregister("destroy_uiinitoptions",ring_destroy_uiinitoptions);

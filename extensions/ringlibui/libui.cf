@@ -78,7 +78,10 @@ uiUnderlineSuggestion
 uiUnderlineColorCustom
 uiUnderlineColorSpelling
 uiUnderlineColorGrammar
-uiUnderlineColorAuxiliary	
+uiUnderlineColorAuxiliary
+uiDrawTextAlignLeft
+uiDrawTextAlignCenter
+uiDrawTextAlignRight	
 </constant>
 
 <struct>
@@ -108,7 +111,7 @@ aEnumTypes + "uiTextItalic"
 aEnumTypes + "uiTextStretch"
 aEnumTypes + "uiUnderline"
 aEnumTypes + "uiUnderlineColor"
-
+aEnumTypes + "uiDrawTextAlign"
 </runcode>
 
 const char *uiInit(uiInitOptions *options)
@@ -453,8 +456,6 @@ struct uiDrawStrokeParams {
 	double DashPhase
 }
 
-
-
 struct uiFontDescriptor {
 	char *Family
 	double Size
@@ -463,11 +464,7 @@ struct uiFontDescriptor {
 	uiTextStretch Stretch
 }
 
-_UI_ENUM(uiDrawTextAlign) {
-	uiDrawTextAlignLeft,
-	uiDrawTextAlignCenter,
-	uiDrawTextAlignRight,
-}
+
 
 struct uiDrawTextLayoutParams {
 	uiAttributedString *String
