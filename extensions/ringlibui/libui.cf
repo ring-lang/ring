@@ -1,0 +1,9 @@
+<code>
+/* Copyright (c) 2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+
+#include <ui.h>
+<filter> iswindows()
+#include <ui_windows.h>
+</filter>
+
+</code>
