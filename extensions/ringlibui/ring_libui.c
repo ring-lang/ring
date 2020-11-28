@@ -897,6 +897,232 @@ RING_FUNC(ring_uiNewLabel)
 	RING_API_RETCPOINTER(uiNewLabel(RING_API_GETSTRING(1)),"uiLabel");
 }
 
+
+RING_FUNC(ring_uiTabAppend)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTabAppend((uiTab *) RING_API_GETCPOINTER(1,"uiTab"),RING_API_GETSTRING(2),(uiControl *) RING_API_GETCPOINTER(3,"uiControl"));
+}
+
+
+RING_FUNC(ring_uiTabInsertAt)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTabInsertAt((uiTab *) RING_API_GETCPOINTER(1,"uiTab"),RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3),(uiControl *) RING_API_GETCPOINTER(4,"uiControl"));
+}
+
+
+RING_FUNC(ring_uiTabDelete)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTabDelete((uiTab *) RING_API_GETCPOINTER(1,"uiTab"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiTabNumPages)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiTabNumPages((uiTab *) RING_API_GETCPOINTER(1,"uiTab")));
+}
+
+
+RING_FUNC(ring_uiTabMargined)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiTabMargined((uiTab *) RING_API_GETCPOINTER(1,"uiTab"), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_uiTabSetMargined)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTabSetMargined((uiTab *) RING_API_GETCPOINTER(1,"uiTab"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_uiNewTab)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewTab(),"uiTab");
+}
+
+
+RING_FUNC(ring_uiGroupTitle)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(uiGroupTitle((uiGroup *) RING_API_GETCPOINTER(1,"uiGroup")));
+}
+
+
+RING_FUNC(ring_uiGroupSetTitle)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiGroupSetTitle((uiGroup *) RING_API_GETCPOINTER(1,"uiGroup"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiGroupSetChild)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiGroupSetChild((uiGroup *) RING_API_GETCPOINTER(1,"uiGroup"),(uiControl *) RING_API_GETCPOINTER(2,"uiControl"));
+}
+
+
+RING_FUNC(ring_uiGroupMargined)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiGroupMargined((uiGroup *) RING_API_GETCPOINTER(1,"uiGroup")));
+}
+
+
+RING_FUNC(ring_uiGroupSetMargined)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiGroupSetMargined((uiGroup *) RING_API_GETCPOINTER(1,"uiGroup"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewGroup)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewGroup(RING_API_GETSTRING(1)),"uiGroup");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -957,5 +1183,18 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uilabeltext",ring_uiLabelText);
 	ring_vm_funcregister("uilabelsettext",ring_uiLabelSetText);
 	ring_vm_funcregister("uinewlabel",ring_uiNewLabel);
+	ring_vm_funcregister("uitabappend",ring_uiTabAppend);
+	ring_vm_funcregister("uitabinsertat",ring_uiTabInsertAt);
+	ring_vm_funcregister("uitabdelete",ring_uiTabDelete);
+	ring_vm_funcregister("uitabnumpages",ring_uiTabNumPages);
+	ring_vm_funcregister("uitabmargined",ring_uiTabMargined);
+	ring_vm_funcregister("uitabsetmargined",ring_uiTabSetMargined);
+	ring_vm_funcregister("uinewtab",ring_uiNewTab);
+	ring_vm_funcregister("uigrouptitle",ring_uiGroupTitle);
+	ring_vm_funcregister("uigroupsettitle",ring_uiGroupSetTitle);
+	ring_vm_funcregister("uigroupsetchild",ring_uiGroupSetChild);
+	ring_vm_funcregister("uigroupmargined",ring_uiGroupMargined);
+	ring_vm_funcregister("uigroupsetmargined",ring_uiGroupSetMargined);
+	ring_vm_funcregister("uinewgroup",ring_uiNewGroup);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }

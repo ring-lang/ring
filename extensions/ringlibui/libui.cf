@@ -82,6 +82,20 @@ char *uiLabelText(uiLabel *l)
 void uiLabelSetText(uiLabel *l, const char *text)
 uiLabel *uiNewLabel(const char *text)
 
+void uiTabAppend(uiTab *t, const char *name, uiControl *c)
+void uiTabInsertAt(uiTab *t, const char *name, int before, uiControl *c)
+void uiTabDelete(uiTab *t, int index)
+int uiTabNumPages(uiTab *t)
+int uiTabMargined(uiTab *t, int page)
+void uiTabSetMargined(uiTab *t, int page, int margined)
+uiTab *uiNewTab(void)
+
+char *uiGroupTitle(uiGroup *g)
+void uiGroupSetTitle(uiGroup *g, const char *title)
+void uiGroupSetChild(uiGroup *g, uiControl *c)
+int uiGroupMargined(uiGroup *g)
+void uiGroupSetMargined(uiGroup *g, int margined)
+uiGroup *uiNewGroup(const char *title)
 
 <comment>
 
@@ -156,22 +170,11 @@ typedef struct uiLabel uiLabel
 
 typedef struct uiTab uiTab
 #define uiTab(this) ((uiTab *) (this))
-void uiTabAppend(uiTab *t, const char *name, uiControl *c)
-void uiTabInsertAt(uiTab *t, const char *name, int before, uiControl *c)
-void uiTabDelete(uiTab *t, int index)
-int uiTabNumPages(uiTab *t)
-int uiTabMargined(uiTab *t, int page)
-void uiTabSetMargined(uiTab *t, int page, int margined)
-uiTab *uiNewTab(void)
+
 
 typedef struct uiGroup uiGroup
 #define uiGroup(this) ((uiGroup *) (this))
-char *uiGroupTitle(uiGroup *g)
-void uiGroupSetTitle(uiGroup *g, const char *title)
-void uiGroupSetChild(uiGroup *g, uiControl *c)
-int uiGroupMargined(uiGroup *g)
-void uiGroupSetMargined(uiGroup *g, int margined)
-uiGroup *uiNewGroup(const char *title)
+
 
 typedef struct uiSpinbox uiSpinbox
 #define uiSpinbox(this) ((uiSpinbox *) (this))
