@@ -86,6 +86,45 @@ uiModifierCtrl
 uiModifierAlt
 uiModifierShift
 uiModifierSuper
+uiExtKeyEscape
+uiExtKeyInsert
+uiExtKeyDelete
+uiExtKeyHome
+uiExtKeyEnd
+uiExtKeyPageUp
+uiExtKeyPageDown
+uiExtKeyUp
+uiExtKeyDown
+uiExtKeyLeft
+uiExtKeyRight
+uiExtKeyF1
+uiExtKeyF2
+uiExtKeyF3
+uiExtKeyF4
+uiExtKeyF5
+uiExtKeyF6
+uiExtKeyF7
+uiExtKeyF8
+uiExtKeyF9
+uiExtKeyF10
+uiExtKeyF11
+uiExtKeyF12
+uiExtKeyN0
+uiExtKeyN1
+uiExtKeyN2
+uiExtKeyN3
+uiExtKeyN4
+uiExtKeyN5
+uiExtKeyN6
+uiExtKeyN7
+uiExtKeyN8
+uiExtKeyN9
+uiExtKeyNDot
+uiExtKeyNEnter
+uiExtKeyNAdd
+uiExtKeyNSubtract
+uiExtKeyNMultiply
+uiExtKeyNDivide
 </constant>
 
 <struct>
@@ -117,6 +156,7 @@ aEnumTypes + "uiUnderline"
 aEnumTypes + "uiUnderlineColor"
 aEnumTypes + "uiDrawTextAlign"
 aEnumTypes + "uiModifiers"
+aEnumTypes + "uiExtKey"
 </runcode>
 
 const char *uiInit(uiInitOptions *options)
@@ -492,47 +532,6 @@ struct uiAreaMouseEvent {
 	uint64_t Held1To64
 }
 
-_UI_ENUM(uiExtKey) {
-	uiExtKeyEscape = 1,
-	uiExtKeyInsert,
-	uiExtKeyDelete,
-	uiExtKeyHome,
-	uiExtKeyEnd,
-	uiExtKeyPageUp,
-	uiExtKeyPageDown,
-	uiExtKeyUp,
-	uiExtKeyDown,
-	uiExtKeyLeft,
-	uiExtKeyRight,
-	uiExtKeyF1,
-	uiExtKeyF2,
-	uiExtKeyF3,
-	uiExtKeyF4,
-	uiExtKeyF5,
-	uiExtKeyF6,
-	uiExtKeyF7,
-	uiExtKeyF8,
-	uiExtKeyF9,
-	uiExtKeyF10,
-	uiExtKeyF11,
-	uiExtKeyF12,
-	uiExtKeyN0,
-	uiExtKeyN1,
-	uiExtKeyN2,
-	uiExtKeyN3,
-	uiExtKeyN4,
-	uiExtKeyN5,
-	uiExtKeyN6,
-	uiExtKeyN7,
-	uiExtKeyN8,
-	uiExtKeyN9,
-	uiExtKeyNDot,
-	uiExtKeyNEnter,
-	uiExtKeyNAdd,
-	uiExtKeyNSubtract,
-	uiExtKeyNMultiply,
-	uiExtKeyNDivide,
-}
 
 struct uiAreaKeyEvent {
 	char Key

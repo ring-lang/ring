@@ -386,6 +386,201 @@ RING_FUNC(ring_get_uimodifiersuper)
 	RING_API_RETNUMBER(uiModifierSuper);
 }
 
+RING_FUNC(ring_get_uiextkeyescape)
+{
+	RING_API_RETNUMBER(uiExtKeyEscape);
+}
+
+RING_FUNC(ring_get_uiextkeyinsert)
+{
+	RING_API_RETNUMBER(uiExtKeyInsert);
+}
+
+RING_FUNC(ring_get_uiextkeydelete)
+{
+	RING_API_RETNUMBER(uiExtKeyDelete);
+}
+
+RING_FUNC(ring_get_uiextkeyhome)
+{
+	RING_API_RETNUMBER(uiExtKeyHome);
+}
+
+RING_FUNC(ring_get_uiextkeyend)
+{
+	RING_API_RETNUMBER(uiExtKeyEnd);
+}
+
+RING_FUNC(ring_get_uiextkeypageup)
+{
+	RING_API_RETNUMBER(uiExtKeyPageUp);
+}
+
+RING_FUNC(ring_get_uiextkeypagedown)
+{
+	RING_API_RETNUMBER(uiExtKeyPageDown);
+}
+
+RING_FUNC(ring_get_uiextkeyup)
+{
+	RING_API_RETNUMBER(uiExtKeyUp);
+}
+
+RING_FUNC(ring_get_uiextkeydown)
+{
+	RING_API_RETNUMBER(uiExtKeyDown);
+}
+
+RING_FUNC(ring_get_uiextkeyleft)
+{
+	RING_API_RETNUMBER(uiExtKeyLeft);
+}
+
+RING_FUNC(ring_get_uiextkeyright)
+{
+	RING_API_RETNUMBER(uiExtKeyRight);
+}
+
+RING_FUNC(ring_get_uiextkeyf1)
+{
+	RING_API_RETNUMBER(uiExtKeyF1);
+}
+
+RING_FUNC(ring_get_uiextkeyf2)
+{
+	RING_API_RETNUMBER(uiExtKeyF2);
+}
+
+RING_FUNC(ring_get_uiextkeyf3)
+{
+	RING_API_RETNUMBER(uiExtKeyF3);
+}
+
+RING_FUNC(ring_get_uiextkeyf4)
+{
+	RING_API_RETNUMBER(uiExtKeyF4);
+}
+
+RING_FUNC(ring_get_uiextkeyf5)
+{
+	RING_API_RETNUMBER(uiExtKeyF5);
+}
+
+RING_FUNC(ring_get_uiextkeyf6)
+{
+	RING_API_RETNUMBER(uiExtKeyF6);
+}
+
+RING_FUNC(ring_get_uiextkeyf7)
+{
+	RING_API_RETNUMBER(uiExtKeyF7);
+}
+
+RING_FUNC(ring_get_uiextkeyf8)
+{
+	RING_API_RETNUMBER(uiExtKeyF8);
+}
+
+RING_FUNC(ring_get_uiextkeyf9)
+{
+	RING_API_RETNUMBER(uiExtKeyF9);
+}
+
+RING_FUNC(ring_get_uiextkeyf10)
+{
+	RING_API_RETNUMBER(uiExtKeyF10);
+}
+
+RING_FUNC(ring_get_uiextkeyf11)
+{
+	RING_API_RETNUMBER(uiExtKeyF11);
+}
+
+RING_FUNC(ring_get_uiextkeyf12)
+{
+	RING_API_RETNUMBER(uiExtKeyF12);
+}
+
+RING_FUNC(ring_get_uiextkeyn0)
+{
+	RING_API_RETNUMBER(uiExtKeyN0);
+}
+
+RING_FUNC(ring_get_uiextkeyn1)
+{
+	RING_API_RETNUMBER(uiExtKeyN1);
+}
+
+RING_FUNC(ring_get_uiextkeyn2)
+{
+	RING_API_RETNUMBER(uiExtKeyN2);
+}
+
+RING_FUNC(ring_get_uiextkeyn3)
+{
+	RING_API_RETNUMBER(uiExtKeyN3);
+}
+
+RING_FUNC(ring_get_uiextkeyn4)
+{
+	RING_API_RETNUMBER(uiExtKeyN4);
+}
+
+RING_FUNC(ring_get_uiextkeyn5)
+{
+	RING_API_RETNUMBER(uiExtKeyN5);
+}
+
+RING_FUNC(ring_get_uiextkeyn6)
+{
+	RING_API_RETNUMBER(uiExtKeyN6);
+}
+
+RING_FUNC(ring_get_uiextkeyn7)
+{
+	RING_API_RETNUMBER(uiExtKeyN7);
+}
+
+RING_FUNC(ring_get_uiextkeyn8)
+{
+	RING_API_RETNUMBER(uiExtKeyN8);
+}
+
+RING_FUNC(ring_get_uiextkeyn9)
+{
+	RING_API_RETNUMBER(uiExtKeyN9);
+}
+
+RING_FUNC(ring_get_uiextkeyndot)
+{
+	RING_API_RETNUMBER(uiExtKeyNDot);
+}
+
+RING_FUNC(ring_get_uiextkeynenter)
+{
+	RING_API_RETNUMBER(uiExtKeyNEnter);
+}
+
+RING_FUNC(ring_get_uiextkeynadd)
+{
+	RING_API_RETNUMBER(uiExtKeyNAdd);
+}
+
+RING_FUNC(ring_get_uiextkeynsubtract)
+{
+	RING_API_RETNUMBER(uiExtKeyNSubtract);
+}
+
+RING_FUNC(ring_get_uiextkeynmultiply)
+{
+	RING_API_RETNUMBER(uiExtKeyNMultiply);
+}
+
+RING_FUNC(ring_get_uiextkeyndivide)
+{
+	RING_API_RETNUMBER(uiExtKeyNDivide);
+}
+
 RING_FUNC(ring_new_uiinitoptions)
 {
 	uiInitOptions *pMyPointer ;
@@ -6376,6 +6571,45 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_uimodifieralt",ring_get_uimodifieralt);
 	ring_vm_funcregister("get_uimodifiershift",ring_get_uimodifiershift);
 	ring_vm_funcregister("get_uimodifiersuper",ring_get_uimodifiersuper);
+	ring_vm_funcregister("get_uiextkeyescape",ring_get_uiextkeyescape);
+	ring_vm_funcregister("get_uiextkeyinsert",ring_get_uiextkeyinsert);
+	ring_vm_funcregister("get_uiextkeydelete",ring_get_uiextkeydelete);
+	ring_vm_funcregister("get_uiextkeyhome",ring_get_uiextkeyhome);
+	ring_vm_funcregister("get_uiextkeyend",ring_get_uiextkeyend);
+	ring_vm_funcregister("get_uiextkeypageup",ring_get_uiextkeypageup);
+	ring_vm_funcregister("get_uiextkeypagedown",ring_get_uiextkeypagedown);
+	ring_vm_funcregister("get_uiextkeyup",ring_get_uiextkeyup);
+	ring_vm_funcregister("get_uiextkeydown",ring_get_uiextkeydown);
+	ring_vm_funcregister("get_uiextkeyleft",ring_get_uiextkeyleft);
+	ring_vm_funcregister("get_uiextkeyright",ring_get_uiextkeyright);
+	ring_vm_funcregister("get_uiextkeyf1",ring_get_uiextkeyf1);
+	ring_vm_funcregister("get_uiextkeyf2",ring_get_uiextkeyf2);
+	ring_vm_funcregister("get_uiextkeyf3",ring_get_uiextkeyf3);
+	ring_vm_funcregister("get_uiextkeyf4",ring_get_uiextkeyf4);
+	ring_vm_funcregister("get_uiextkeyf5",ring_get_uiextkeyf5);
+	ring_vm_funcregister("get_uiextkeyf6",ring_get_uiextkeyf6);
+	ring_vm_funcregister("get_uiextkeyf7",ring_get_uiextkeyf7);
+	ring_vm_funcregister("get_uiextkeyf8",ring_get_uiextkeyf8);
+	ring_vm_funcregister("get_uiextkeyf9",ring_get_uiextkeyf9);
+	ring_vm_funcregister("get_uiextkeyf10",ring_get_uiextkeyf10);
+	ring_vm_funcregister("get_uiextkeyf11",ring_get_uiextkeyf11);
+	ring_vm_funcregister("get_uiextkeyf12",ring_get_uiextkeyf12);
+	ring_vm_funcregister("get_uiextkeyn0",ring_get_uiextkeyn0);
+	ring_vm_funcregister("get_uiextkeyn1",ring_get_uiextkeyn1);
+	ring_vm_funcregister("get_uiextkeyn2",ring_get_uiextkeyn2);
+	ring_vm_funcregister("get_uiextkeyn3",ring_get_uiextkeyn3);
+	ring_vm_funcregister("get_uiextkeyn4",ring_get_uiextkeyn4);
+	ring_vm_funcregister("get_uiextkeyn5",ring_get_uiextkeyn5);
+	ring_vm_funcregister("get_uiextkeyn6",ring_get_uiextkeyn6);
+	ring_vm_funcregister("get_uiextkeyn7",ring_get_uiextkeyn7);
+	ring_vm_funcregister("get_uiextkeyn8",ring_get_uiextkeyn8);
+	ring_vm_funcregister("get_uiextkeyn9",ring_get_uiextkeyn9);
+	ring_vm_funcregister("get_uiextkeyndot",ring_get_uiextkeyndot);
+	ring_vm_funcregister("get_uiextkeynenter",ring_get_uiextkeynenter);
+	ring_vm_funcregister("get_uiextkeynadd",ring_get_uiextkeynadd);
+	ring_vm_funcregister("get_uiextkeynsubtract",ring_get_uiextkeynsubtract);
+	ring_vm_funcregister("get_uiextkeynmultiply",ring_get_uiextkeynmultiply);
+	ring_vm_funcregister("get_uiextkeyndivide",ring_get_uiextkeyndivide);
 	ring_vm_funcregister("new_uiinitoptions",ring_new_uiinitoptions);
 	ring_vm_funcregister("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
 	ring_vm_funcregister("destroy_uiinitoptions",ring_destroy_uiinitoptions);
