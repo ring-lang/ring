@@ -505,6 +505,13 @@ void uiMultilineEntryOnChanged(uiMultilineEntry *e, void (*f)(uiMultilineEntry *
 void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *window, void *data), void *data)
 #define uiMenu(this) ((uiMenu *) (this))
 #define uiArea(this) ((uiArea *) (this))
+#define uiFontButton(this) ((uiFontButton *) (this))
+void uiFontButtonOnChanged(uiFontButton *b, void (*f)(uiFontButton *, void *), void *data)
+#define uiColorButton(this) ((uiColorButton *) (this))
+void uiColorButtonOnChanged(uiColorButton *b, void (*f)(uiColorButton *, void *), void *data)
+#define uiForm(this) ((uiForm *) (this))
+#define uiGrid(this) ((uiGrid *) (this))
+#define uiTable(this) ((uiTable *) (this))
 
 struct uiDrawStrokeParams {
 	uiDrawLineCap Cap
@@ -531,10 +538,6 @@ struct uiDrawTextLayoutParams {
 	uiDrawTextAlign Align
 }
 
-#define uiFontButton(this) ((uiFontButton *) (this))
-
-void uiFontButtonOnChanged(uiFontButton *b, void (*f)(uiFontButton *, void *), void *data)
-
 struct uiAreaMouseEvent {
 	double X
 	double Y
@@ -547,7 +550,6 @@ struct uiAreaMouseEvent {
 	uint64_t Held1To64
 }
 
-
 struct uiAreaKeyEvent {
 	char Key
 	uiExtKey ExtKey
@@ -555,17 +557,6 @@ struct uiAreaKeyEvent {
 	uiModifiers Modifiers
 	int Up
 }
-
-#define uiColorButton(this) ((uiColorButton *) (this))
-void uiColorButtonOnChanged(uiColorButton *b, void (*f)(uiColorButton *, void *), void *data)
-
-#define uiForm(this) ((uiForm *) (this))
-
-
-
-#define uiGrid(this) ((uiGrid *) (this))
-
-
 
 struct uiTableModelHandler {
 	int (*NumColumns)(uiTableModelHandler *, uiTableModel *)
@@ -579,7 +570,5 @@ struct uiTableParams {
 	uiTableModel *Model
 	int RowBackgroundColorModelColumn
 }
-
-#define uiTable(this) ((uiTable *) (this))
 
 </comment>
