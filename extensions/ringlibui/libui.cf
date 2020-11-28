@@ -46,6 +46,7 @@ uiAreaDrawParams {AreaWidth,AreaHeight, ClipX,ClipY,ClipWidth,ClipHeight}
 uiDrawMatrix {M11,M12,M21,M22,M31,M32}
 uiTableTextColumnOptionalParams {ColorModelColumn}
 uiDrawBrush {Type,R,G,B,A,X0,Y0,X1,Y1,OuterRadius,NumStops}
+uiDrawBrushGradientStop {Pos,R,G,B,A}
 </struct>
 
 <runcode>
@@ -393,14 +394,6 @@ void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *
 #define uiArea(this) ((uiArea *) (this))
 
 
-
-struct uiDrawBrushGradientStop {
-	double Pos
-	double R
-	double G
-	double B
-	double A
-}
 
 struct uiDrawStrokeParams {
 	uiDrawLineCap Cap
