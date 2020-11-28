@@ -3,6 +3,7 @@
 
 #include <ui.h>
 <filter> iswindows()
+#include <windows.h>
 #include <ui_windows.h>
 </filter>
 
