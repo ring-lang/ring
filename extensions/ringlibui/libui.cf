@@ -13,6 +13,8 @@
 uiPi
 </constant>
 
+const char *uiInit(uiInitOptions *options)
+
 <comment>
 
 _UI_ENUM(uiForEach) {
@@ -24,7 +26,6 @@ struct uiInitOptions {
 	size_t Size
 }
 
-const char *uiInit(uiInitOptions *options)
 void uiUninit(void)
 void uiFreeInitError(const char *err)
 
