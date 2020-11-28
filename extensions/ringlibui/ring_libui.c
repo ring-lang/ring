@@ -1799,6 +1799,188 @@ RING_FUNC(ring_uiNewMenu)
 	RING_API_RETCPOINTER(uiNewMenu(RING_API_GETSTRING(1)),"uiMenu");
 }
 
+
+RING_FUNC(ring_uiOpenFile)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(uiOpenFile((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow")));
+}
+
+
+RING_FUNC(ring_uiSaveFile)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(uiSaveFile((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow")));
+}
+
+
+RING_FUNC(ring_uiMsgBox)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMsgBox((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow"),RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+}
+
+
+RING_FUNC(ring_uiMsgBoxError)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMsgBoxError((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow"),RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+}
+
+
+RING_FUNC(ring_uiAreaQueueRedrawAll)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAreaQueueRedrawAll((uiArea *) RING_API_GETCPOINTER(1,"uiArea"));
+}
+
+
+RING_FUNC(ring_uiAreaScrollTo)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAreaScrollTo((uiArea *) RING_API_GETCPOINTER(1,"uiArea"), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4), (double ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_uiAreaBeginUserWindowMove)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAreaBeginUserWindowMove((uiArea *) RING_API_GETCPOINTER(1,"uiArea"));
+}
+
+
+RING_FUNC(ring_uiAreaBeginUserWindowResize)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiAreaBeginUserWindowResize((uiArea *) RING_API_GETCPOINTER(1,"uiArea"),* (uiWindowResizeEdge  *) RING_API_GETCPOINTER(2,"uiWindowResizeEdge"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uiWindowResizeEdge"));
+}
+
+
+RING_FUNC(ring_uiNewArea)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewArea((uiAreaHandler *) RING_API_GETCPOINTER(1,"uiAreaHandler")),"uiArea");
+}
+
+
+RING_FUNC(ring_uiNewScrollingArea)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewScrollingArea((uiAreaHandler *) RING_API_GETCPOINTER(1,"uiAreaHandler"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)),"uiArea");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -1918,5 +2100,15 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uimenuappendaboutitem",ring_uiMenuAppendAboutItem);
 	ring_vm_funcregister("uimenuappendseparator",ring_uiMenuAppendSeparator);
 	ring_vm_funcregister("uinewmenu",ring_uiNewMenu);
+	ring_vm_funcregister("uiopenfile",ring_uiOpenFile);
+	ring_vm_funcregister("uisavefile",ring_uiSaveFile);
+	ring_vm_funcregister("uimsgbox",ring_uiMsgBox);
+	ring_vm_funcregister("uimsgboxerror",ring_uiMsgBoxError);
+	ring_vm_funcregister("uiareaqueueredrawall",ring_uiAreaQueueRedrawAll);
+	ring_vm_funcregister("uiareascrollto",ring_uiAreaScrollTo);
+	ring_vm_funcregister("uiareabeginuserwindowmove",ring_uiAreaBeginUserWindowMove);
+	ring_vm_funcregister("uiareabeginuserwindowresize",ring_uiAreaBeginUserWindowResize);
+	ring_vm_funcregister("uinewarea",ring_uiNewArea);
+	ring_vm_funcregister("uinewscrollingarea",ring_uiNewScrollingArea);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }
