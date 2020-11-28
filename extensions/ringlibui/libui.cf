@@ -15,6 +15,14 @@ uiPi
 
 const char *uiInit(uiInitOptions *options)
 
+void uiUninit(void)
+void uiFreeInitError(const char *err)
+
+void uiMain(void)
+void uiMainSteps(void)
+int uiMainStep(int wait)
+void uiQuit(void)
+
 <comment>
 
 _UI_ENUM(uiForEach) {
@@ -26,13 +34,6 @@ struct uiInitOptions {
 	size_t Size
 }
 
-void uiUninit(void)
-void uiFreeInitError(const char *err)
-
-void uiMain(void)
-void uiMainSteps(void)
-int uiMainStep(int wait)
-void uiQuit(void)
 void uiQueueMain(void (*f)(void *data), void *data)
 void uiTimer(int milliseconds, int (*f)(void *data), void *data)
 void uiOnShouldQuit(int (*f)(void *data), void *data)
