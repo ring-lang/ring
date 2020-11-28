@@ -122,6 +122,25 @@ char *uiEditableComboboxText(uiEditableCombobox *c)
 void uiEditableComboboxSetText(uiEditableCombobox *c, const char *text)
 uiEditableCombobox *uiNewEditableCombobox(void)
 
+void uiRadioButtonsAppend(uiRadioButtons *r, const char *text)
+int uiRadioButtonsSelected(uiRadioButtons *r)
+void uiRadioButtonsSetSelected(uiRadioButtons *r, int n)
+uiRadioButtons *uiNewRadioButtons(void)
+
+void uiDateTimePickerTime(uiDateTimePicker *d, struct tm *time)
+void uiDateTimePickerSetTime(uiDateTimePicker *d, const struct tm *time)
+uiDateTimePicker *uiNewDateTimePicker(void)
+uiDateTimePicker *uiNewDatePicker(void)
+uiDateTimePicker *uiNewTimePicker(void)
+
+char *uiMultilineEntryText(uiMultilineEntry *e)
+void uiMultilineEntrySetText(uiMultilineEntry *e, const char *text)
+void uiMultilineEntryAppend(uiMultilineEntry *e, const char *text)
+int uiMultilineEntryReadOnly(uiMultilineEntry *e)
+void uiMultilineEntrySetReadOnly(uiMultilineEntry *e, int readonly)
+uiMultilineEntry *uiNewMultilineEntry(void)
+uiMultilineEntry *uiNewNonWrappingMultilineEntry(void)
+
 
 <comment>
 
@@ -233,32 +252,21 @@ void uiEditableComboboxOnChanged(uiEditableCombobox *c, void (*f)(uiEditableComb
 
 typedef struct uiRadioButtons uiRadioButtons
 #define uiRadioButtons(this) ((uiRadioButtons *) (this))
-void uiRadioButtonsAppend(uiRadioButtons *r, const char *text)
-int uiRadioButtonsSelected(uiRadioButtons *r)
-void uiRadioButtonsSetSelected(uiRadioButtons *r, int n)
+
 void uiRadioButtonsOnSelected(uiRadioButtons *r, void (*f)(uiRadioButtons *, void *), void *data)
-uiRadioButtons *uiNewRadioButtons(void)
+
 
 struct tm
 typedef struct uiDateTimePicker uiDateTimePicker
 #define uiDateTimePicker(this) ((uiDateTimePicker *) (this))
-void uiDateTimePickerTime(uiDateTimePicker *d, struct tm *time)
-void uiDateTimePickerSetTime(uiDateTimePicker *d, const struct tm *time)
+
 void uiDateTimePickerOnChanged(uiDateTimePicker *d, void (*f)(uiDateTimePicker *, void *), void *data)
-uiDateTimePicker *uiNewDateTimePicker(void)
-uiDateTimePicker *uiNewDatePicker(void)
-uiDateTimePicker *uiNewTimePicker(void)
+
 
 typedef struct uiMultilineEntry uiMultilineEntry
 #define uiMultilineEntry(this) ((uiMultilineEntry *) (this))
-char *uiMultilineEntryText(uiMultilineEntry *e)
-void uiMultilineEntrySetText(uiMultilineEntry *e, const char *text)
-void uiMultilineEntryAppend(uiMultilineEntry *e, const char *text)
+
 void uiMultilineEntryOnChanged(uiMultilineEntry *e, void (*f)(uiMultilineEntry *e, void *data), void *data)
-int uiMultilineEntryReadOnly(uiMultilineEntry *e)
-void uiMultilineEntrySetReadOnly(uiMultilineEntry *e, int readonly)
-uiMultilineEntry *uiNewMultilineEntry(void)
-uiMultilineEntry *uiNewNonWrappingMultilineEntry(void)
 
 typedef struct uiMenuItem uiMenuItem
 #define uiMenuItem(this) ((uiMenuItem *) (this))

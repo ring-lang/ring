@@ -1405,6 +1405,234 @@ RING_FUNC(ring_uiNewEditableCombobox)
 	RING_API_RETCPOINTER(uiNewEditableCombobox(),"uiEditableCombobox");
 }
 
+
+RING_FUNC(ring_uiRadioButtonsAppend)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiRadioButtonsAppend((uiRadioButtons *) RING_API_GETCPOINTER(1,"uiRadioButtons"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiRadioButtonsSelected)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiRadioButtonsSelected((uiRadioButtons *) RING_API_GETCPOINTER(1,"uiRadioButtons")));
+}
+
+
+RING_FUNC(ring_uiRadioButtonsSetSelected)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiRadioButtonsSetSelected((uiRadioButtons *) RING_API_GETCPOINTER(1,"uiRadioButtons"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewRadioButtons)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewRadioButtons(),"uiRadioButtons");
+}
+
+
+RING_FUNC(ring_uiDateTimePickerTime)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiDateTimePickerTime((uiDateTimePicker *) RING_API_GETCPOINTER(1,"uiDateTimePicker"),(struct tm *) RING_API_GETCPOINTER(2,"struct tm"));
+}
+
+
+RING_FUNC(ring_uiDateTimePickerSetTime)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiDateTimePickerSetTime((uiDateTimePicker *) RING_API_GETCPOINTER(1,"uiDateTimePicker"),(struct tm *) RING_API_GETCPOINTER(2,"struct tm"));
+}
+
+
+RING_FUNC(ring_uiNewDateTimePicker)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewDateTimePicker(),"uiDateTimePicker");
+}
+
+
+RING_FUNC(ring_uiNewDatePicker)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewDatePicker(),"uiDateTimePicker");
+}
+
+
+RING_FUNC(ring_uiNewTimePicker)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewTimePicker(),"uiDateTimePicker");
+}
+
+
+RING_FUNC(ring_uiMultilineEntryText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(uiMultilineEntryText((uiMultilineEntry *) RING_API_GETCPOINTER(1,"uiMultilineEntry")));
+}
+
+
+RING_FUNC(ring_uiMultilineEntrySetText)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMultilineEntrySetText((uiMultilineEntry *) RING_API_GETCPOINTER(1,"uiMultilineEntry"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiMultilineEntryAppend)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMultilineEntryAppend((uiMultilineEntry *) RING_API_GETCPOINTER(1,"uiMultilineEntry"),RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_uiMultilineEntryReadOnly)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiMultilineEntryReadOnly((uiMultilineEntry *) RING_API_GETCPOINTER(1,"uiMultilineEntry")));
+}
+
+
+RING_FUNC(ring_uiMultilineEntrySetReadOnly)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMultilineEntrySetReadOnly((uiMultilineEntry *) RING_API_GETCPOINTER(1,"uiMultilineEntry"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewMultilineEntry)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewMultilineEntry(),"uiMultilineEntry");
+}
+
+
+RING_FUNC(ring_uiNewNonWrappingMultilineEntry)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewNonWrappingMultilineEntry(),"uiMultilineEntry");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -1497,5 +1725,21 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uieditablecomboboxtext",ring_uiEditableComboboxText);
 	ring_vm_funcregister("uieditablecomboboxsettext",ring_uiEditableComboboxSetText);
 	ring_vm_funcregister("uineweditablecombobox",ring_uiNewEditableCombobox);
+	ring_vm_funcregister("uiradiobuttonsappend",ring_uiRadioButtonsAppend);
+	ring_vm_funcregister("uiradiobuttonsselected",ring_uiRadioButtonsSelected);
+	ring_vm_funcregister("uiradiobuttonssetselected",ring_uiRadioButtonsSetSelected);
+	ring_vm_funcregister("uinewradiobuttons",ring_uiNewRadioButtons);
+	ring_vm_funcregister("uidatetimepickertime",ring_uiDateTimePickerTime);
+	ring_vm_funcregister("uidatetimepickersettime",ring_uiDateTimePickerSetTime);
+	ring_vm_funcregister("uinewdatetimepicker",ring_uiNewDateTimePicker);
+	ring_vm_funcregister("uinewdatepicker",ring_uiNewDatePicker);
+	ring_vm_funcregister("uinewtimepicker",ring_uiNewTimePicker);
+	ring_vm_funcregister("uimultilineentrytext",ring_uiMultilineEntryText);
+	ring_vm_funcregister("uimultilineentrysettext",ring_uiMultilineEntrySetText);
+	ring_vm_funcregister("uimultilineentryappend",ring_uiMultilineEntryAppend);
+	ring_vm_funcregister("uimultilineentryreadonly",ring_uiMultilineEntryReadOnly);
+	ring_vm_funcregister("uimultilineentrysetreadonly",ring_uiMultilineEntrySetReadOnly);
+	ring_vm_funcregister("uinewmultilineentry",ring_uiNewMultilineEntry);
+	ring_vm_funcregister("uinewnonwrappingmultilineentry",ring_uiNewNonWrappingMultilineEntry);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }
