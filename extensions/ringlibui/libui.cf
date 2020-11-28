@@ -166,6 +166,41 @@ void uiAreaBeginUserWindowResize(uiArea *a, uiWindowResizeEdge edge)
 uiArea *uiNewArea(uiAreaHandler *ah)
 uiArea *uiNewScrollingArea(uiAreaHandler *ah, int width, int height)
 
+uiDrawPath *uiDrawNewPath(uiDrawFillMode fillMode)
+void uiDrawFreePath(uiDrawPath *p)
+
+void uiDrawPathNewFigure(uiDrawPath *p, double x, double y)
+void uiDrawPathNewFigureWithArc(uiDrawPath *p, double xCenter, double yCenter, double radius, double startAngle, double sweep, int negative)
+void uiDrawPathLineTo(uiDrawPath *p, double x, double y)
+void uiDrawPathArcTo(uiDrawPath *p, double xCenter, double yCenter, double radius, double startAngle, double sweep, int negative)
+void uiDrawPathBezierTo(uiDrawPath *p, double c1x, double c1y, double c2x, double c2y, double endX, double endY)
+void uiDrawPathCloseFigure(uiDrawPath *p)
+
+void uiDrawPathAddRectangle(uiDrawPath *p, double x, double y, double width, double height)
+void uiDrawPathEnd(uiDrawPath *p)
+void uiDrawStroke(uiDrawContext *c, uiDrawPath *path, uiDrawBrush *b, uiDrawStrokeParams *p)
+void uiDrawFill(uiDrawContext *c, uiDrawPath *path, uiDrawBrush *b)
+
+void uiDrawMatrixSetIdentity(uiDrawMatrix *m)
+void uiDrawMatrixTranslate(uiDrawMatrix *m, double x, double y)
+void uiDrawMatrixScale(uiDrawMatrix *m, double xCenter, double yCenter, double x, double y)
+void uiDrawMatrixRotate(uiDrawMatrix *m, double x, double y, double amount)
+void uiDrawMatrixSkew(uiDrawMatrix *m, double x, double y, double xamount, double yamount)
+void uiDrawMatrixMultiply(uiDrawMatrix *dest, uiDrawMatrix *src)
+int uiDrawMatrixInvertible(uiDrawMatrix *m)
+int uiDrawMatrixInvert(uiDrawMatrix *m)
+void uiDrawMatrixTransformPoint(uiDrawMatrix *m, double *x, double *y)
+void uiDrawMatrixTransformSize(uiDrawMatrix *m, double *x, double *y)
+void uiDrawTransform(uiDrawContext *c, uiDrawMatrix *m)
+void uiDrawClip(uiDrawContext *c, uiDrawPath *path)
+void uiDrawSave(uiDrawContext *c)
+void uiDrawRestore(uiDrawContext *c)
+
+uiAttributeType uiAttributeGetType(const uiAttribute *a)
+uiAttribute *uiNewFamilyAttribute(const char *family)
+const char *uiAttributeFamily(const uiAttribute *a)
+uiAttribute *uiNewSizeAttribute(double size)
+double uiAttributeSize(const uiAttribute *a)
 
 <comment>
 
@@ -418,35 +453,6 @@ struct uiDrawStrokeParams {
 	double DashPhase
 }
 
-uiDrawPath *uiDrawNewPath(uiDrawFillMode fillMode)
-void uiDrawFreePath(uiDrawPath *p)
-
-void uiDrawPathNewFigure(uiDrawPath *p, double x, double y)
-void uiDrawPathNewFigureWithArc(uiDrawPath *p, double xCenter, double yCenter, double radius, double startAngle, double sweep, int negative)
-void uiDrawPathLineTo(uiDrawPath *p, double x, double y)
-void uiDrawPathArcTo(uiDrawPath *p, double xCenter, double yCenter, double radius, double startAngle, double sweep, int negative)
-void uiDrawPathBezierTo(uiDrawPath *p, double c1x, double c1y, double c2x, double c2y, double endX, double endY)
-void uiDrawPathCloseFigure(uiDrawPath *p)
-
-void uiDrawPathAddRectangle(uiDrawPath *p, double x, double y, double width, double height)
-void uiDrawPathEnd(uiDrawPath *p)
-void uiDrawStroke(uiDrawContext *c, uiDrawPath *path, uiDrawBrush *b, uiDrawStrokeParams *p)
-void uiDrawFill(uiDrawContext *c, uiDrawPath *path, uiDrawBrush *b)
-
-void uiDrawMatrixSetIdentity(uiDrawMatrix *m)
-void uiDrawMatrixTranslate(uiDrawMatrix *m, double x, double y)
-void uiDrawMatrixScale(uiDrawMatrix *m, double xCenter, double yCenter, double x, double y)
-void uiDrawMatrixRotate(uiDrawMatrix *m, double x, double y, double amount)
-void uiDrawMatrixSkew(uiDrawMatrix *m, double x, double y, double xamount, double yamount)
-void uiDrawMatrixMultiply(uiDrawMatrix *dest, uiDrawMatrix *src)
-int uiDrawMatrixInvertible(uiDrawMatrix *m)
-int uiDrawMatrixInvert(uiDrawMatrix *m)
-void uiDrawMatrixTransformPoint(uiDrawMatrix *m, double *x, double *y)
-void uiDrawMatrixTransformSize(uiDrawMatrix *m, double *x, double *y)
-void uiDrawTransform(uiDrawContext *c, uiDrawMatrix *m)
-void uiDrawClip(uiDrawContext *c, uiDrawPath *path)
-void uiDrawSave(uiDrawContext *c)
-void uiDrawRestore(uiDrawContext *c)
 typedef struct uiAttribute uiAttribute
 void uiFreeAttribute(uiAttribute *a)
 
@@ -463,11 +469,7 @@ _UI_ENUM(uiAttributeType) {
 	uiAttributeTypeFeatures,
 }
 
-uiAttributeType uiAttributeGetType(const uiAttribute *a)
-uiAttribute *uiNewFamilyAttribute(const char *family)
-const char *uiAttributeFamily(const uiAttribute *a)
-uiAttribute *uiNewSizeAttribute(double size)
-double uiAttributeSize(const uiAttribute *a)
+
 
 _UI_ENUM(uiTextWeight) {
 	uiTextWeightMinimum = 0,
