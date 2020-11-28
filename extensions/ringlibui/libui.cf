@@ -28,6 +28,14 @@ uiDrawBrushTypeImage
 uiDrawDefaultMiterLimit
 uiTableModelColumnNeverEditable
 uiTableModelColumnAlwaysEditable
+uiDrawLineCapFlat
+uiDrawLineCapRound
+uiDrawLineCapSquare
+uiDrawLineJoinMiter
+uiDrawLineJoinRound
+uiDrawLineJoinBevel
+uiDrawFillModeWinding
+uiDrawFillModeAlternate
 </constant>
 
 <struct>
@@ -44,6 +52,9 @@ aEnumTypes + "uiForEach"
 aEnumTypes + "uiTextWeight"
 aEnumTypes + "uiWindowResizeEdge"
 aEnumTypes + "uiDrawBrushType"
+aEnumTypes + "uiDrawLineCap"
+aEnumTypes + "uiDrawLineJoin"
+aEnumTypes + "uiDrawFillMode"
 </runcode>
 
 const char *uiInit(uiInitOptions *options)
@@ -336,13 +347,13 @@ void uiAreaSetSize(uiArea *a, int width, int height)
 
 uintptr_t uiControlHandle(uiControl *)
 
+void uiFreeText(char *text)
+
 <comment>
 
 void uiQueueMain(void (*f)(void *data), void *data)
 void uiTimer(int milliseconds, int (*f)(void *data), void *data)
 void uiOnShouldQuit(int (*f)(void *data), void *data)
-void uiFreeText(char *text)
-
 #define uiControl(this) ((uiControl *) (this))
 #define uiWindow(this) ((uiWindow *) (this))
 void uiWindowOnContentSizeChanged(uiWindow *w, void (*f)(uiWindow *, void *), void *data)
@@ -377,23 +388,6 @@ void uiMultilineEntryOnChanged(uiMultilineEntry *e, void (*f)(uiMultilineEntry *
 void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *window, void *data), void *data)
 #define uiMenu(this) ((uiMenu *) (this))
 #define uiArea(this) ((uiArea *) (this))
-
-_UI_ENUM(uiDrawLineCap) {
-	uiDrawLineCapFlat,
-	uiDrawLineCapRound,
-	uiDrawLineCapSquare,
-}
-
-_UI_ENUM(uiDrawLineJoin) {
-	uiDrawLineJoinMiter,
-	uiDrawLineJoinRound,
-	uiDrawLineJoinBevel,
-}
-
-_UI_ENUM(uiDrawFillMode) {
-	uiDrawFillModeWinding,
-	uiDrawFillModeAlternate,
-}
 
 struct uiDrawMatrix {
 	double M11

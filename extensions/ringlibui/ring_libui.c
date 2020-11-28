@@ -96,6 +96,46 @@ RING_FUNC(ring_get_uitablemodelcolumnalwayseditable)
 	RING_API_RETNUMBER(uiTableModelColumnAlwaysEditable);
 }
 
+RING_FUNC(ring_get_uidrawlinecapflat)
+{
+	RING_API_RETNUMBER(uiDrawLineCapFlat);
+}
+
+RING_FUNC(ring_get_uidrawlinecapround)
+{
+	RING_API_RETNUMBER(uiDrawLineCapRound);
+}
+
+RING_FUNC(ring_get_uidrawlinecapsquare)
+{
+	RING_API_RETNUMBER(uiDrawLineCapSquare);
+}
+
+RING_FUNC(ring_get_uidrawlinejoinmiter)
+{
+	RING_API_RETNUMBER(uiDrawLineJoinMiter);
+}
+
+RING_FUNC(ring_get_uidrawlinejoinround)
+{
+	RING_API_RETNUMBER(uiDrawLineJoinRound);
+}
+
+RING_FUNC(ring_get_uidrawlinejoinbevel)
+{
+	RING_API_RETNUMBER(uiDrawLineJoinBevel);
+}
+
+RING_FUNC(ring_get_uidrawfillmodewinding)
+{
+	RING_API_RETNUMBER(uiDrawFillModeWinding);
+}
+
+RING_FUNC(ring_get_uidrawfillmodealternate)
+{
+	RING_API_RETNUMBER(uiDrawFillModeAlternate);
+}
+
 RING_FUNC(ring_new_uiinitoptions)
 {
 	uiInitOptions *pMyPointer ;
@@ -2549,9 +2589,11 @@ RING_FUNC(ring_uiDrawNewPath)
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
-	RING_API_RETCPOINTER(uiDrawNewPath(* (uiDrawFillMode  *) RING_API_GETCPOINTER(1,"uiDrawFillMode")),"uiDrawPath");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"uiDrawFillMode"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiDrawNewPath( (uiDrawFillMode )  (int) RING_API_GETNUMBER(1)),"uiDrawPath");
 }
 
 
@@ -4812,6 +4854,20 @@ RING_FUNC(ring_uiControlHandle)
 	}
 }
 
+
+RING_FUNC(ring_uiFreeText)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFreeText(RING_API_GETSTRING(1));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -5055,6 +5111,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uinewtable",ring_uiNewTable);
 	ring_vm_funcregister("uiareasetsize",ring_uiAreaSetSize);
 	ring_vm_funcregister("uicontrolhandle",ring_uiControlHandle);
+	ring_vm_funcregister("uifreetext",ring_uiFreeText);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 	ring_vm_funcregister("get_uiforeachcontinue",ring_get_uiforeachcontinue);
 	ring_vm_funcregister("get_uiforeachstop",ring_get_uiforeachstop);
@@ -5073,6 +5130,14 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_uidrawdefaultmiterlimit",ring_get_uidrawdefaultmiterlimit);
 	ring_vm_funcregister("get_uitablemodelcolumnnevereditable",ring_get_uitablemodelcolumnnevereditable);
 	ring_vm_funcregister("get_uitablemodelcolumnalwayseditable",ring_get_uitablemodelcolumnalwayseditable);
+	ring_vm_funcregister("get_uidrawlinecapflat",ring_get_uidrawlinecapflat);
+	ring_vm_funcregister("get_uidrawlinecapround",ring_get_uidrawlinecapround);
+	ring_vm_funcregister("get_uidrawlinecapsquare",ring_get_uidrawlinecapsquare);
+	ring_vm_funcregister("get_uidrawlinejoinmiter",ring_get_uidrawlinejoinmiter);
+	ring_vm_funcregister("get_uidrawlinejoinround",ring_get_uidrawlinejoinround);
+	ring_vm_funcregister("get_uidrawlinejoinbevel",ring_get_uidrawlinejoinbevel);
+	ring_vm_funcregister("get_uidrawfillmodewinding",ring_get_uidrawfillmodewinding);
+	ring_vm_funcregister("get_uidrawfillmodealternate",ring_get_uidrawfillmodealternate);
 	ring_vm_funcregister("new_uiinitoptions",ring_new_uiinitoptions);
 	ring_vm_funcregister("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
 	ring_vm_funcregister("destroy_uiinitoptions",ring_destroy_uiinitoptions);
