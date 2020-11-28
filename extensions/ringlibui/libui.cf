@@ -181,7 +181,25 @@ aEnumTypes + "uiAt"
 aEnumTypes + "uiTableValueType"
 </runcode>
 
-const char *uiInit(uiInitOptions *options)
+const char *uiInit@2(uiInitOptions *options)
+
+<register>
+void *uiInit(void)
+</register>
+
+<code>
+RING_FUNC(ring_uiInit)
+{
+	uiInitOptions o;
+	const char *err;
+	memset(&o, 0, sizeof (uiInitOptions));
+	err = uiInit(&o);
+	if (err != NULL) {
+		RING_API_ERROR("error initializing libui");
+		uiFreeInitError(err);
+	}
+}
+</code>
 
 void uiUninit(void)
 void uiFreeInitError(const char *err)
@@ -191,16 +209,6 @@ void uiMainSteps(void)
 int uiMainStep(int wait)
 void uiQuit(void)
 
-void uiControlDestroy(uiControl *)
-uiControl *uiControlParent(uiControl *)
-void uiControlSetParent(uiControl *, uiControl *)
-int uiControlToplevel(uiControl *)
-int uiControlVisible(uiControl *)
-void uiControlShow(uiControl *)
-void uiControlHide(uiControl *)
-int uiControlEnabled(uiControl *)
-void uiControlEnable(uiControl *)
-void uiControlDisable(uiControl *)
 
 uiControl *uiAllocControl(size_t n, uint32_t OSsig, uint32_t typesig, const char *typenamestr)
 void uiFreeControl(uiControl *)
@@ -473,51 +481,35 @@ uintptr_t uiControlHandle(uiControl *)
 
 void uiFreeText(char *text)
 
-<comment>
+<ignorecpointertype>
+void uiControlDestroy(uiControl *)
+uiControl *uiControlParent(uiControl *)
+void uiControlSetParent(uiControl *, uiControl *)
+int uiControlToplevel(uiControl *)
+int uiControlVisible(uiControl *)
+void uiControlShow(uiControl *)
+void uiControlHide(uiControl *)
+int uiControlEnabled(uiControl *)
+void uiControlEnable(uiControl *)
+void uiControlDisable(uiControl *)
 
+<comment>
 void uiQueueMain(void (*f)(void *data), void *data)
 void uiTimer(int milliseconds, int (*f)(void *data), void *data)
 void uiOnShouldQuit(int (*f)(void *data), void *data)
-#define uiControl(this) ((uiControl *) (this))
-#define uiWindow(this) ((uiWindow *) (this))
 void uiWindowOnContentSizeChanged(uiWindow *w, void (*f)(uiWindow *, void *), void *data)
 void uiWindowOnClosing(uiWindow *w, int (*f)(uiWindow *w, void *data), void *data)
-#define uiButton(this) ((uiButton *) (this))
 void uiButtonOnClicked(uiButton *b, void (*f)(uiButton *b, void *data), void *data)
-#define uiBox(this) ((uiBox *) (this))
-#define uiCheckbox(this) ((uiCheckbox *) (this))
 void uiCheckboxOnToggled(uiCheckbox *c, void (*f)(uiCheckbox *c, void *data), void *data)
-#define uiEntry(this) ((uiEntry *) (this))
 void uiEntryOnChanged(uiEntry *e, void (*f)(uiEntry *e, void *data), void *data)
-#define uiLabel(this) ((uiLabel *) (this))
-#define uiTab(this) ((uiTab *) (this))
-#define uiGroup(this) ((uiGroup *) (this))
-#define uiSpinbox(this) ((uiSpinbox *) (this))
 void uiSpinboxOnChanged(uiSpinbox *s, void (*f)(uiSpinbox *s, void *data), void *data)
-#define uiSlider(this) ((uiSlider *) (this))
 void uiSliderOnChanged(uiSlider *s, void (*f)(uiSlider *s, void *data), void *data)
-#define uiProgressBar(this) ((uiProgressBar *) (this))
-#define uiSeparator(this) ((uiSeparator *) (this))
-#define uiCombobox(this) ((uiCombobox *) (this))
 void uiComboboxOnSelected(uiCombobox *c, void (*f)(uiCombobox *c, void *data), void *data)
-#define uiEditableCombobox(this) ((uiEditableCombobox *) (this))
 void uiEditableComboboxOnChanged(uiEditableCombobox *c, void (*f)(uiEditableCombobox *c, void *data), void *data)
-#define uiRadioButtons(this) ((uiRadioButtons *) (this))
 void uiRadioButtonsOnSelected(uiRadioButtons *r, void (*f)(uiRadioButtons *, void *), void *data)
-#define uiDateTimePicker(this) ((uiDateTimePicker *) (this))
 void uiDateTimePickerOnChanged(uiDateTimePicker *d, void (*f)(uiDateTimePicker *, void *), void *data)
-#define uiMultilineEntry(this) ((uiMultilineEntry *) (this))
 void uiMultilineEntryOnChanged(uiMultilineEntry *e, void (*f)(uiMultilineEntry *e, void *data), void *data)
-#define uiMenuItem(this) ((uiMenuItem *) (this))
 void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *window, void *data), void *data)
-#define uiMenu(this) ((uiMenu *) (this))
-#define uiArea(this) ((uiArea *) (this))
-#define uiFontButton(this) ((uiFontButton *) (this))
 void uiFontButtonOnChanged(uiFontButton *b, void (*f)(uiFontButton *, void *), void *data)
-#define uiColorButton(this) ((uiColorButton *) (this))
 void uiColorButtonOnChanged(uiColorButton *b, void (*f)(uiColorButton *, void *), void *data)
-#define uiForm(this) ((uiForm *) (this))
-#define uiGrid(this) ((uiGrid *) (this))
-#define uiTable(this) ((uiTable *) (this))
-
 </comment>
