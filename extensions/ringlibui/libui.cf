@@ -190,6 +190,7 @@ void *uiInit(void)
 void uiUninit(void)
 void uiOnShouldQuit(const char *cEvent)
 void uiWindowOnClosing(uiWindow *w,const char *cEvent)
+void uiButtonOnClicked(uiButton *b,const char *cEvent)
 </register>
 
 <code>
@@ -197,7 +198,7 @@ void uiWindowOnClosing(uiWindow *w,const char *cEvent)
 VM *pVMLibUI = NULL;
 List *aLibUIEvents ;
 uiWindow *activeWindow ;
-
+uiButton *activeButton ;
 RING_FUNC(ring_uiInit)
 {
 	uiInitOptions o;
@@ -228,11 +229,15 @@ int libui_event(void *data)
 
 int libui_windowevent(uiWindow *w,void *data)
 {
-	const char *cCode;
-	cCode = (const char *) data;
 	activeWindow = w;
-	ring_vm_runcode(pVMLibUI,cCode);
+	ring_vm_runcode(pVMLibUI,(const char *) data);
 	return 0;
+}
+
+void libui_buttonevent(uiButton *btn,void *data)
+{
+	activeButton = btn;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void *RegisterEvent(const char *cEvent)
@@ -250,6 +255,12 @@ RING_FUNC(ring_uiWindowOnClosing)
 {
 	uiWindowOnClosing(RING_API_GETCPOINTER(1,"uiWindow"),
 		libui_windowevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiButtonOnClicked)
+{
+	uiButtonOnClicked(RING_API_GETCPOINTER(1,"uiButton"),
+		libui_buttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 </code>

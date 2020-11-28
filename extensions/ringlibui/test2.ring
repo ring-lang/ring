@@ -16,12 +16,21 @@ uiGridAppend(g, btn1, 0, 0, 2, 1, 1, uiAlignFill, 0, uiAlignFill)
 uiGridAppend(g, btn2, 0, 1, 1, 1, 1, uiAlignFill, 0, uiAlignFill)
 
 uiWindowOnClosing(oWindow,"closeapp()")
+uiButtonOnClicked(btn1,"one()")
+uiButtonOnClicked(btn2,"two()")
+
 
 uiMain()
 uiUninit()
 
-func closeapp
+func closeApp
 	? "close the window!"
 	uiControlDestroy(oWindow)
 	? "close the application!"
 	shutdown(0)
+
+func one 
+	? "Hello!"
+
+func two 
+	closeApp()

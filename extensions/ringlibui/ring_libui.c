@@ -3432,7 +3432,7 @@ RING_FUNC(ring_uiInit_2)
 VM *pVMLibUI = NULL;
 List *aLibUIEvents ;
 uiWindow *activeWindow ;
-
+uiButton *activeButton ;
 RING_FUNC(ring_uiInit)
 {
 	uiInitOptions o;
@@ -3463,11 +3463,15 @@ int libui_event(void *data)
 
 int libui_windowevent(uiWindow *w,void *data)
 {
-	const char *cCode;
-	cCode = (const char *) data;
 	activeWindow = w;
-	ring_vm_runcode(pVMLibUI,cCode);
+	ring_vm_runcode(pVMLibUI,(const char *) data);
 	return 0;
+}
+
+void libui_buttonevent(uiButton *btn,void *data)
+{
+	activeButton = btn;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void *RegisterEvent(const char *cEvent)
@@ -3485,6 +3489,12 @@ RING_FUNC(ring_uiWindowOnClosing)
 {
 	uiWindowOnClosing(RING_API_GETCPOINTER(1,"uiWindow"),
 		libui_windowevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiButtonOnClicked)
+{
+	uiButtonOnClicked(RING_API_GETCPOINTER(1,"uiButton"),
+		libui_buttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 
@@ -7961,6 +7971,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uiuninit",ring_uiUninit);
 	ring_vm_funcregister("uionshouldquit",ring_uiOnShouldQuit);
 	ring_vm_funcregister("uiwindowonclosing",ring_uiWindowOnClosing);
+	ring_vm_funcregister("uibuttononclicked",ring_uiButtonOnClicked);
 	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
 	ring_vm_funcregister("uimain",ring_uiMain);
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
