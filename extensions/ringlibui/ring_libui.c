@@ -3201,6 +3201,218 @@ RING_FUNC(ring_set_uidrawtextlayoutparams_Align)
 	pMyPointer->Align = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_uifontdescriptor)
+{
+	uiFontDescriptor *pMyPointer ;
+	pMyPointer = (uiFontDescriptor *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiFontDescriptor)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiFontDescriptor");
+}
+
+RING_FUNC(ring_new_managed_uifontdescriptor)
+{
+	uiFontDescriptor *pMyPointer ;
+	pMyPointer = (uiFontDescriptor *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiFontDescriptor)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiFontDescriptor",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uifontdescriptor)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_uifontdescriptor_Family)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	RING_API_RETCPOINTER(pMyPointer->Family,"char");
+}
+
+RING_FUNC(ring_set_uifontdescriptor_Family)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	pMyPointer->Family = (char *) RING_API_GETCPOINTER(2,"char");
+}
+
+RING_FUNC(ring_get_uifontdescriptor_Size)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	RING_API_RETNUMBER(pMyPointer->Size);
+}
+
+RING_FUNC(ring_set_uifontdescriptor_Size)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	pMyPointer->Size = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uifontdescriptor_Weight)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	RING_API_RETNUMBER(pMyPointer->Weight);
+}
+
+RING_FUNC(ring_set_uifontdescriptor_Weight)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	pMyPointer->Weight = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uifontdescriptor_Italic)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	RING_API_RETNUMBER(pMyPointer->Italic);
+}
+
+RING_FUNC(ring_set_uifontdescriptor_Italic)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	pMyPointer->Italic = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uifontdescriptor_Stretch)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	RING_API_RETNUMBER(pMyPointer->Stretch);
+}
+
+RING_FUNC(ring_set_uifontdescriptor_Stretch)
+{
+	uiFontDescriptor *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiFontDescriptor");
+	pMyPointer->Stretch = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_uiInit)
 {
@@ -7981,4 +8193,17 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_uidrawtextlayoutparams_width",ring_set_uidrawtextlayoutparams_Width);
 	ring_vm_funcregister("get_uidrawtextlayoutparams_align",ring_get_uidrawtextlayoutparams_Align);
 	ring_vm_funcregister("set_uidrawtextlayoutparams_align",ring_set_uidrawtextlayoutparams_Align);
+	ring_vm_funcregister("new_uifontdescriptor",ring_new_uifontdescriptor);
+	ring_vm_funcregister("new_managed_uifontdescriptor",ring_new_managed_uifontdescriptor);
+	ring_vm_funcregister("destroy_uifontdescriptor",ring_destroy_uifontdescriptor);
+	ring_vm_funcregister("get_uifontdescriptor_family",ring_get_uifontdescriptor_Family);
+	ring_vm_funcregister("set_uifontdescriptor_family",ring_set_uifontdescriptor_Family);
+	ring_vm_funcregister("get_uifontdescriptor_size",ring_get_uifontdescriptor_Size);
+	ring_vm_funcregister("set_uifontdescriptor_size",ring_set_uifontdescriptor_Size);
+	ring_vm_funcregister("get_uifontdescriptor_weight",ring_get_uifontdescriptor_Weight);
+	ring_vm_funcregister("set_uifontdescriptor_weight",ring_set_uifontdescriptor_Weight);
+	ring_vm_funcregister("get_uifontdescriptor_italic",ring_get_uifontdescriptor_Italic);
+	ring_vm_funcregister("set_uifontdescriptor_italic",ring_set_uifontdescriptor_Italic);
+	ring_vm_funcregister("get_uifontdescriptor_stretch",ring_get_uifontdescriptor_Stretch);
+	ring_vm_funcregister("set_uifontdescriptor_stretch",ring_set_uifontdescriptor_Stretch);
 }

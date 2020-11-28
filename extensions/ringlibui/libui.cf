@@ -154,6 +154,7 @@ uiAreaKeyEvent {Key,ExtKey,Modifier,Modifiers,Up}
 uiTableParams {uiTableModel *Model,RowBackgroundColorModelColumn}
 uiAreaMouseEvent {X,Y,AreaWidth,AreaHeight,Down,Up,Count,Modifiers,Held1To64}
 uiDrawTextLayoutParams {uiAttributedString *String,uiFontDescriptor *DefaultFont,Width,Align}
+uiFontDescriptor {char *Family,Size,Weight,Italic,Stretch}
 </struct>
 
 <runcode>
@@ -518,15 +519,5 @@ void uiColorButtonOnChanged(uiColorButton *b, void (*f)(uiColorButton *, void *)
 #define uiForm(this) ((uiForm *) (this))
 #define uiGrid(this) ((uiGrid *) (this))
 #define uiTable(this) ((uiTable *) (this))
-
-struct uiFontDescriptor {
-	char *Family
-	double Size
-	uiTextWeight Weight
-	uiTextItalic Italic
-	uiTextStretch Stretch
-}
-
-
 
 </comment>
