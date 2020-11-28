@@ -3202,6 +3202,280 @@ RING_FUNC(ring_uiAttributedStringGraphemeToByteIndex)
 	RING_API_RETNUMBER(uiAttributedStringGraphemeToByteIndex((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"), (size_t ) RING_API_GETNUMBER(2)));
 }
 
+
+RING_FUNC(ring_uiDrawNewTextLayout)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiDrawNewTextLayout((uiDrawTextLayoutParams *) RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams")),"uiDrawTextLayout");
+}
+
+
+RING_FUNC(ring_uiDrawFreeTextLayout)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiDrawFreeTextLayout((uiDrawTextLayout *) RING_API_GETCPOINTER(1,"uiDrawTextLayout"));
+}
+
+
+RING_FUNC(ring_uiDrawText)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiDrawText((uiDrawContext *) RING_API_GETCPOINTER(1,"uiDrawContext"),(uiDrawTextLayout *) RING_API_GETCPOINTER(2,"uiDrawTextLayout"), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_uiDrawTextLayoutExtents)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiDrawTextLayoutExtents((uiDrawTextLayout *) RING_API_GETCPOINTER(1,"uiDrawTextLayout"),RING_API_GETDOUBLEPOINTER(2),RING_API_GETDOUBLEPOINTER(3));
+}
+
+
+RING_FUNC(ring_uiFontButtonFont)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFontButtonFont((uiFontButton *) RING_API_GETCPOINTER(1,"uiFontButton"),(uiFontDescriptor *) RING_API_GETCPOINTER(2,"uiFontDescriptor"));
+}
+
+
+RING_FUNC(ring_uiNewFontButton)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewFontButton(),"uiFontButton");
+}
+
+
+RING_FUNC(ring_uiFreeFontButtonFont)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFreeFontButtonFont((uiFontDescriptor *) RING_API_GETCPOINTER(1,"uiFontDescriptor"));
+}
+
+
+RING_FUNC(ring_uiColorButtonColor)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiColorButtonColor((uiColorButton *) RING_API_GETCPOINTER(1,"uiColorButton"),RING_API_GETDOUBLEPOINTER(2),RING_API_GETDOUBLEPOINTER(3),RING_API_GETDOUBLEPOINTER(4),RING_API_GETDOUBLEPOINTER(5));
+}
+
+
+RING_FUNC(ring_uiColorButtonSetColor)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiColorButtonSetColor((uiColorButton *) RING_API_GETCPOINTER(1,"uiColorButton"), (double ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3), (double ) RING_API_GETNUMBER(4), (double ) RING_API_GETNUMBER(5));
+}
+
+
+RING_FUNC(ring_uiNewColorButton)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewColorButton(),"uiColorButton");
+}
+
+
+RING_FUNC(ring_uiFormAppend)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFormAppend((uiForm *) RING_API_GETCPOINTER(1,"uiForm"),RING_API_GETSTRING(2),(uiControl *) RING_API_GETCPOINTER(3,"uiControl"), (int ) RING_API_GETNUMBER(4));
+}
+
+
+RING_FUNC(ring_uiFormDelete)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFormDelete((uiForm *) RING_API_GETCPOINTER(1,"uiForm"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiFormPadded)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiFormPadded((uiForm *) RING_API_GETCPOINTER(1,"uiForm")));
+}
+
+
+RING_FUNC(ring_uiFormSetPadded)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFormSetPadded((uiForm *) RING_API_GETCPOINTER(1,"uiForm"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewForm)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewForm(),"uiForm");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -3392,5 +3666,20 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uiattributedstringnumgraphemes",ring_uiAttributedStringNumGraphemes);
 	ring_vm_funcregister("uiattributedstringbyteindextographeme",ring_uiAttributedStringByteIndexToGrapheme);
 	ring_vm_funcregister("uiattributedstringgraphemetobyteindex",ring_uiAttributedStringGraphemeToByteIndex);
+	ring_vm_funcregister("uidrawnewtextlayout",ring_uiDrawNewTextLayout);
+	ring_vm_funcregister("uidrawfreetextlayout",ring_uiDrawFreeTextLayout);
+	ring_vm_funcregister("uidrawtext",ring_uiDrawText);
+	ring_vm_funcregister("uidrawtextlayoutextents",ring_uiDrawTextLayoutExtents);
+	ring_vm_funcregister("uifontbuttonfont",ring_uiFontButtonFont);
+	ring_vm_funcregister("uinewfontbutton",ring_uiNewFontButton);
+	ring_vm_funcregister("uifreefontbuttonfont",ring_uiFreeFontButtonFont);
+	ring_vm_funcregister("uicolorbuttoncolor",ring_uiColorButtonColor);
+	ring_vm_funcregister("uicolorbuttonsetcolor",ring_uiColorButtonSetColor);
+	ring_vm_funcregister("uinewcolorbutton",ring_uiNewColorButton);
+	ring_vm_funcregister("uiformappend",ring_uiFormAppend);
+	ring_vm_funcregister("uiformdelete",ring_uiFormDelete);
+	ring_vm_funcregister("uiformpadded",ring_uiFormPadded);
+	ring_vm_funcregister("uiformsetpadded",ring_uiFormSetPadded);
+	ring_vm_funcregister("uinewform",ring_uiNewForm);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }
