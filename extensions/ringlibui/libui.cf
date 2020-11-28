@@ -40,9 +40,10 @@ uiDrawFillModeAlternate
 
 <struct>
 uiInitOptions
-uiControl { Signature, OSSignature, TypeSignature }
+uiControl {Signature, OSSignature, TypeSignature}
 uiAreaHandler
 uiAreaDrawParams {AreaWidth,AreaHeight, ClipX,ClipY,ClipWidth,ClipHeight}
+uiDrawMatrix {M11,M12,M21,M22,M31,M32}
 </struct>
 
 <runcode>
@@ -388,15 +389,6 @@ void uiMultilineEntryOnChanged(uiMultilineEntry *e, void (*f)(uiMultilineEntry *
 void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *window, void *data), void *data)
 #define uiMenu(this) ((uiMenu *) (this))
 #define uiArea(this) ((uiArea *) (this))
-
-struct uiDrawMatrix {
-	double M11
-	double M12
-	double M21
-	double M22
-	double M31
-	double M32
-}
 
 struct uiDrawBrush {
 	uiDrawBrushType Type
