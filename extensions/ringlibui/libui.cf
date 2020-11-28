@@ -82,6 +82,10 @@ uiUnderlineColorAuxiliary
 uiDrawTextAlignLeft
 uiDrawTextAlignCenter
 uiDrawTextAlignRight	
+uiModifierCtrl
+uiModifierAlt
+uiModifierShift
+uiModifierSuper
 </constant>
 
 <struct>
@@ -112,6 +116,7 @@ aEnumTypes + "uiTextStretch"
 aEnumTypes + "uiUnderline"
 aEnumTypes + "uiUnderlineColor"
 aEnumTypes + "uiDrawTextAlign"
+aEnumTypes + "uiModifiers"
 </runcode>
 
 const char *uiInit(uiInitOptions *options)
@@ -464,8 +469,6 @@ struct uiFontDescriptor {
 	uiTextStretch Stretch
 }
 
-
-
 struct uiDrawTextLayoutParams {
 	uiAttributedString *String
 	uiFontDescriptor *DefaultFont
@@ -476,13 +479,6 @@ struct uiDrawTextLayoutParams {
 #define uiFontButton(this) ((uiFontButton *) (this))
 
 void uiFontButtonOnChanged(uiFontButton *b, void (*f)(uiFontButton *, void *), void *data)
-
-_UI_ENUM(uiModifiers) {
-	uiModifierCtrl = 1 << 0,
-	uiModifierAlt = 1 << 1,
-	uiModifierShift = 1 << 2,
-	uiModifierSuper = 1 << 3,
-}
 
 struct uiAreaMouseEvent {
 	double X
