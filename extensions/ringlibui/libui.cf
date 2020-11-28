@@ -152,6 +152,7 @@ uiDrawStrokeParams {Cap,Join,Thickness,MiterLimit,NumDashes,DashPhase}
 uiTableModelHandler
 uiAreaKeyEvent {Key,ExtKey,Modifier,Modifiers,Up}
 uiTableParams {uiTableModel *Model,RowBackgroundColorModelColumn}
+uiAreaMouseEvent {X,Y,AreaWidth,AreaHeight,Down,Up,Count,Modifiers,Held1To64}
 </struct>
 
 <runcode>
@@ -530,18 +531,6 @@ struct uiDrawTextLayoutParams {
 	uiFontDescriptor *DefaultFont
 	double Width
 	uiDrawTextAlign Align
-}
-
-struct uiAreaMouseEvent {
-	double X
-	double Y
-	double AreaWidth
-	double AreaHeight
-	int Down
-	int Up
-	int Count
-	uiModifiers Modifiers
-	uint64_t Held1To64
 }
 
 </comment>

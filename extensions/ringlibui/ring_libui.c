@@ -2675,6 +2675,354 @@ RING_FUNC(ring_set_uitableparams_RowBackgroundColorModelColumn)
 	pMyPointer->RowBackgroundColorModelColumn = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_uiareamouseevent)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	pMyPointer = (uiAreaMouseEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaMouseEvent)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiAreaMouseEvent");
+}
+
+RING_FUNC(ring_new_managed_uiareamouseevent)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	pMyPointer = (uiAreaMouseEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaMouseEvent)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaMouseEvent",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uiareamouseevent)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_uiareamouseevent_X)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	RING_API_RETNUMBER(pMyPointer->X);
+}
+
+RING_FUNC(ring_set_uiareamouseevent_X)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	pMyPointer->X = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareamouseevent_Y)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	RING_API_RETNUMBER(pMyPointer->Y);
+}
+
+RING_FUNC(ring_set_uiareamouseevent_Y)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	pMyPointer->Y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareamouseevent_AreaWidth)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	RING_API_RETNUMBER(pMyPointer->AreaWidth);
+}
+
+RING_FUNC(ring_set_uiareamouseevent_AreaWidth)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	pMyPointer->AreaWidth = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareamouseevent_AreaHeight)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	RING_API_RETNUMBER(pMyPointer->AreaHeight);
+}
+
+RING_FUNC(ring_set_uiareamouseevent_AreaHeight)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	pMyPointer->AreaHeight = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareamouseevent_Down)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	RING_API_RETNUMBER(pMyPointer->Down);
+}
+
+RING_FUNC(ring_set_uiareamouseevent_Down)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	pMyPointer->Down = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareamouseevent_Up)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	RING_API_RETNUMBER(pMyPointer->Up);
+}
+
+RING_FUNC(ring_set_uiareamouseevent_Up)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	pMyPointer->Up = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareamouseevent_Count)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	RING_API_RETNUMBER(pMyPointer->Count);
+}
+
+RING_FUNC(ring_set_uiareamouseevent_Count)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	pMyPointer->Count = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareamouseevent_Modifiers)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	RING_API_RETNUMBER(pMyPointer->Modifiers);
+}
+
+RING_FUNC(ring_set_uiareamouseevent_Modifiers)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	pMyPointer->Modifiers = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uiareamouseevent_Held1To64)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	RING_API_RETNUMBER(pMyPointer->Held1To64);
+}
+
+RING_FUNC(ring_set_uiareamouseevent_Held1To64)
+{
+	uiAreaMouseEvent *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
+	pMyPointer->Held1To64 = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_uiInit)
 {
@@ -7423,4 +7771,25 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_uitableparams_model",ring_set_uitableparams_Model);
 	ring_vm_funcregister("get_uitableparams_rowbackgroundcolormodelcolumn",ring_get_uitableparams_RowBackgroundColorModelColumn);
 	ring_vm_funcregister("set_uitableparams_rowbackgroundcolormodelcolumn",ring_set_uitableparams_RowBackgroundColorModelColumn);
+	ring_vm_funcregister("new_uiareamouseevent",ring_new_uiareamouseevent);
+	ring_vm_funcregister("new_managed_uiareamouseevent",ring_new_managed_uiareamouseevent);
+	ring_vm_funcregister("destroy_uiareamouseevent",ring_destroy_uiareamouseevent);
+	ring_vm_funcregister("get_uiareamouseevent_x",ring_get_uiareamouseevent_X);
+	ring_vm_funcregister("set_uiareamouseevent_x",ring_set_uiareamouseevent_X);
+	ring_vm_funcregister("get_uiareamouseevent_y",ring_get_uiareamouseevent_Y);
+	ring_vm_funcregister("set_uiareamouseevent_y",ring_set_uiareamouseevent_Y);
+	ring_vm_funcregister("get_uiareamouseevent_areawidth",ring_get_uiareamouseevent_AreaWidth);
+	ring_vm_funcregister("set_uiareamouseevent_areawidth",ring_set_uiareamouseevent_AreaWidth);
+	ring_vm_funcregister("get_uiareamouseevent_areaheight",ring_get_uiareamouseevent_AreaHeight);
+	ring_vm_funcregister("set_uiareamouseevent_areaheight",ring_set_uiareamouseevent_AreaHeight);
+	ring_vm_funcregister("get_uiareamouseevent_down",ring_get_uiareamouseevent_Down);
+	ring_vm_funcregister("set_uiareamouseevent_down",ring_set_uiareamouseevent_Down);
+	ring_vm_funcregister("get_uiareamouseevent_up",ring_get_uiareamouseevent_Up);
+	ring_vm_funcregister("set_uiareamouseevent_up",ring_set_uiareamouseevent_Up);
+	ring_vm_funcregister("get_uiareamouseevent_count",ring_get_uiareamouseevent_Count);
+	ring_vm_funcregister("set_uiareamouseevent_count",ring_set_uiareamouseevent_Count);
+	ring_vm_funcregister("get_uiareamouseevent_modifiers",ring_get_uiareamouseevent_Modifiers);
+	ring_vm_funcregister("set_uiareamouseevent_modifiers",ring_set_uiareamouseevent_Modifiers);
+	ring_vm_funcregister("get_uiareamouseevent_held1to64",ring_get_uiareamouseevent_Held1To64);
+	ring_vm_funcregister("set_uiareamouseevent_held1to64",ring_set_uiareamouseevent_Held1To64);
 }
