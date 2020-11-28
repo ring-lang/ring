@@ -235,18 +235,21 @@ int libui_windowevent(uiWindow *w,void *data)
 	return 0;
 }
 
+void *RegisterEvent(const char *cEvent)
+{
+	ring_list_addstring(aLibUIEvents,cEvent);
+	return (void *) ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents));
+}
+
 RING_FUNC(ring_uiOnShouldQuit) 
 {
-	ring_list_addstring(aLibUIEvents,RING_API_GETSTRING(1));
-	uiOnShouldQuit(libui_event,ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents)));
-	printf("%s",ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents)));
+	uiOnShouldQuit(libui_event,RegisterEvent(RING_API_GETSTRING(1)));
 }
 
 RING_FUNC(ring_uiWindowOnClosing)
 {
-	ring_list_addstring(aLibUIEvents,RING_API_GETSTRING(2));
 	uiWindowOnClosing(RING_API_GETCPOINTER(1,"uiWindow"),
-		libui_windowevent,ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents)));
+		libui_windowevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 </code>
