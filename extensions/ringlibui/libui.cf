@@ -23,6 +23,19 @@ void uiMainSteps(void)
 int uiMainStep(int wait)
 void uiQuit(void)
 
+void uiControlDestroy(uiControl *)
+uiControl *uiControlParent(uiControl *)
+void uiControlSetParent(uiControl *, uiControl *)
+int uiControlToplevel(uiControl *)
+int uiControlVisible(uiControl *)
+void uiControlShow(uiControl *)
+void uiControlHide(uiControl *)
+int uiControlEnabled(uiControl *)
+void uiControlEnable(uiControl *)
+void uiControlDisable(uiControl *)
+
+
+
 <comment>
 
 _UI_ENUM(uiForEach) {
@@ -58,17 +71,7 @@ struct uiControl {
 
 #define uiControl(this) ((uiControl *) (this))
 
-void uiControlDestroy(uiControl *)
 uintptr_t uiControlHandle(uiControl *)
-uiControl *uiControlParent(uiControl *)
-void uiControlSetParent(uiControl *, uiControl *)
-int uiControlToplevel(uiControl *)
-int uiControlVisible(uiControl *)
-void uiControlShow(uiControl *)
-void uiControlHide(uiControl *)
-int uiControlEnabled(uiControl *)
-void uiControlEnable(uiControl *)
-void uiControlDisable(uiControl *)
 
 uiControl *uiAllocControl(size_t n, uint32_t OSsig, uint32_t typesig, const char *typenamestr)
 void uiFreeControl(uiControl *)
