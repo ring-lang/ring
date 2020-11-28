@@ -17,6 +17,7 @@ uiForEachStop
 
 <struct>
 uiInitOptions
+uiControl { Signature, OSSignature, TypeSignature }
 </struct>
 
 <runcode>
@@ -320,23 +321,6 @@ void uiQueueMain(void (*f)(void *data), void *data)
 void uiTimer(int milliseconds, int (*f)(void *data), void *data)
 void uiOnShouldQuit(int (*f)(void *data), void *data)
 void uiFreeText(char *text)
-
-struct uiControl {
-	uint32_t Signature
-	uint32_t OSSignature
-	uint32_t TypeSignature
-	void (*Destroy)(uiControl *)
-	uintptr_t (*Handle)(uiControl *)
-	uiControl *(*Parent)(uiControl *)
-	void (*SetParent)(uiControl *, uiControl *)
-	int (*Toplevel)(uiControl *)
-	int (*Visible)(uiControl *)
-	void (*Show)(uiControl *)
-	void (*Hide)(uiControl *)
-	int (*Enabled)(uiControl *)
-	void (*Enable)(uiControl *)
-	void (*Disable)(uiControl *)
-}
 
 #define uiControl(this) ((uiControl *) (this))
 

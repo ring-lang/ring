@@ -63,6 +63,150 @@ RING_FUNC(ring_destroy_uiinitoptions)
 	}
 }
 
+RING_FUNC(ring_new_uicontrol)
+{
+	uiControl *pMyPointer ;
+	pMyPointer = (uiControl *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiControl)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"uiControl");
+}
+
+RING_FUNC(ring_new_managed_uicontrol)
+{
+	uiControl *pMyPointer ;
+	pMyPointer = (uiControl *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiControl)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiControl",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_uicontrol)
+{
+	uiControl *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiControl");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_uicontrol_Signature)
+{
+	uiControl *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiControl");
+	RING_API_RETNUMBER(pMyPointer->Signature);
+}
+
+RING_FUNC(ring_set_uicontrol_Signature)
+{
+	uiControl *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiControl");
+	pMyPointer->Signature = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uicontrol_OSSignature)
+{
+	uiControl *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiControl");
+	RING_API_RETNUMBER(pMyPointer->OSSignature);
+}
+
+RING_FUNC(ring_set_uicontrol_OSSignature)
+{
+	uiControl *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiControl");
+	pMyPointer->OSSignature = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_uicontrol_TypeSignature)
+{
+	uiControl *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiControl");
+	RING_API_RETNUMBER(pMyPointer->TypeSignature);
+}
+
+RING_FUNC(ring_set_uicontrol_TypeSignature)
+{
+	uiControl *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiControl");
+	pMyPointer->TypeSignature = RING_API_GETNUMBER(2);
+}
+
 
 RING_FUNC(ring_uiInit)
 {
@@ -4532,4 +4676,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("new_uiinitoptions",ring_new_uiinitoptions);
 	ring_vm_funcregister("new_managed_uiinitoptions",ring_new_managed_uiinitoptions);
 	ring_vm_funcregister("destroy_uiinitoptions",ring_destroy_uiinitoptions);
+	ring_vm_funcregister("new_uicontrol",ring_new_uicontrol);
+	ring_vm_funcregister("new_managed_uicontrol",ring_new_managed_uicontrol);
+	ring_vm_funcregister("destroy_uicontrol",ring_destroy_uicontrol);
+	ring_vm_funcregister("get_uicontrol_signature",ring_get_uicontrol_Signature);
+	ring_vm_funcregister("set_uicontrol_signature",ring_set_uicontrol_Signature);
+	ring_vm_funcregister("get_uicontrol_ossignature",ring_get_uicontrol_OSSignature);
+	ring_vm_funcregister("set_uicontrol_ossignature",ring_set_uicontrol_OSSignature);
+	ring_vm_funcregister("get_uicontrol_typesignature",ring_get_uicontrol_TypeSignature);
+	ring_vm_funcregister("set_uicontrol_typesignature",ring_set_uicontrol_TypeSignature);
 }
