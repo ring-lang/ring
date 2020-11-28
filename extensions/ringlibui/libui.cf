@@ -97,6 +97,16 @@ int uiGroupMargined(uiGroup *g)
 void uiGroupSetMargined(uiGroup *g, int margined)
 uiGroup *uiNewGroup(const char *title)
 
+int uiSpinboxValue(uiSpinbox *s)
+void uiSpinboxSetValue(uiSpinbox *s, int value)
+uiSpinbox *uiNewSpinbox(int min, int max)
+
+int uiSliderValue(uiSlider *s)
+void uiSliderSetValue(uiSlider *s, int value)
+uiSlider *uiNewSlider(int min, int max)
+
+
+
 <comment>
 
 _UI_ENUM(uiForEach) {
@@ -178,17 +188,14 @@ typedef struct uiGroup uiGroup
 
 typedef struct uiSpinbox uiSpinbox
 #define uiSpinbox(this) ((uiSpinbox *) (this))
-int uiSpinboxValue(uiSpinbox *s)
-void uiSpinboxSetValue(uiSpinbox *s, int value)
+
 void uiSpinboxOnChanged(uiSpinbox *s, void (*f)(uiSpinbox *s, void *data), void *data)
-uiSpinbox *uiNewSpinbox(int min, int max)
+
 
 typedef struct uiSlider uiSlider
 #define uiSlider(this) ((uiSlider *) (this))
-int uiSliderValue(uiSlider *s)
-void uiSliderSetValue(uiSlider *s, int value)
+
 void uiSliderOnChanged(uiSlider *s, void (*f)(uiSlider *s, void *data), void *data)
-uiSlider *uiNewSlider(int min, int max)
 
 typedef struct uiProgressBar uiProgressBar
 #define uiProgressBar(this) ((uiProgressBar *) (this))

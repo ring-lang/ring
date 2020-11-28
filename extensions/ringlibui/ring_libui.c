@@ -1123,6 +1123,106 @@ RING_FUNC(ring_uiNewGroup)
 	RING_API_RETCPOINTER(uiNewGroup(RING_API_GETSTRING(1)),"uiGroup");
 }
 
+
+RING_FUNC(ring_uiSpinboxValue)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiSpinboxValue((uiSpinbox *) RING_API_GETCPOINTER(1,"uiSpinbox")));
+}
+
+
+RING_FUNC(ring_uiSpinboxSetValue)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiSpinboxSetValue((uiSpinbox *) RING_API_GETCPOINTER(1,"uiSpinbox"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewSpinbox)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewSpinbox( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)),"uiSpinbox");
+}
+
+
+RING_FUNC(ring_uiSliderValue)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(uiSliderValue((uiSlider *) RING_API_GETCPOINTER(1,"uiSlider")));
+}
+
+
+RING_FUNC(ring_uiSliderSetValue)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiSliderSetValue((uiSlider *) RING_API_GETCPOINTER(1,"uiSlider"), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_uiNewSlider)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(uiNewSlider( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)),"uiSlider");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit",ring_uiInit);
@@ -1196,5 +1296,11 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uigroupmargined",ring_uiGroupMargined);
 	ring_vm_funcregister("uigroupsetmargined",ring_uiGroupSetMargined);
 	ring_vm_funcregister("uinewgroup",ring_uiNewGroup);
+	ring_vm_funcregister("uispinboxvalue",ring_uiSpinboxValue);
+	ring_vm_funcregister("uispinboxsetvalue",ring_uiSpinboxSetValue);
+	ring_vm_funcregister("uinewspinbox",ring_uiNewSpinbox);
+	ring_vm_funcregister("uislidervalue",ring_uiSliderValue);
+	ring_vm_funcregister("uislidersetvalue",ring_uiSliderSetValue);
+	ring_vm_funcregister("uinewslider",ring_uiNewSlider);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 }
