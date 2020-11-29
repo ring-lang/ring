@@ -189,11 +189,12 @@ const char *uiInit@2(uiInitOptions *options)
 void *uiInit(void)
 void uiUninit(void)
 void uiOnShouldQuit(const char *cEvent)
-void uiWindowOnClosing(uiWindow *w,const char *cEvent)
-void uiButtonOnClicked(uiButton *b,const char *cEvent)
+void uiWindowOnClosing(uiWindow *obj,const char *cEvent)
+void uiButtonOnClicked(uiButton *obj,const char *cEvent)
 void uiQueueMain(const char *cEvent)
 void uiTimer(int x,const char *cEvent)
-void uiWindowOnContentSizeChanged(uiWindow *w,const char *cEvent)
+void uiWindowOnContentSizeChanged(uiWindow *obj,const char *cEvent)
+void uiCheckboxOnToggled(uiCheckbox *obj,const char *cEvent)
 </register>
 
 <code>
@@ -373,6 +374,12 @@ RING_FUNC(ring_uiWindowOnContentSizeChanged)
 {
 	uiWindowOnContentSizeChanged(RING_API_GETCPOINTER(1,"uiWindow"),
 		libui_windowevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiCheckboxOnToggled)
+{
+	uiCheckboxOnToggled(RING_API_GETCPOINTER(1,"uiCheckbox"),
+		libui_checkboxevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 </code>
@@ -667,7 +674,6 @@ uintptr_t uiControlHandle(uiControl *)
 void uiFreeText(char *text)
 
 <comment>
-void uiCheckboxOnToggled(uiCheckbox *c, void (*f)(uiCheckbox *c, void *data), void *data)
 void uiEntryOnChanged(uiEntry *e, void (*f)(uiEntry *e, void *data), void *data)
 void uiSpinboxOnChanged(uiSpinbox *s, void (*f)(uiSpinbox *s, void *data), void *data)
 void uiSliderOnChanged(uiSlider *s, void (*f)(uiSlider *s, void *data), void *data)
