@@ -356,105 +356,177 @@ void *RegisterEvent(const char *cEvent)
 
 RING_FUNC(ring_uiOnShouldQuit) 
 {
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
 	uiOnShouldQuit(libui_event,RegisterEvent(RING_API_GETSTRING(1)));
 }
 
 RING_FUNC(ring_uiWindowOnClosing)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiWindowOnClosing(RING_API_GETCPOINTER(1,"uiWindow"),
 		libui_windowevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiButtonOnClicked)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiButtonOnClicked(RING_API_GETCPOINTER(1,"uiButton"),
 		libui_buttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiQueueMain)
 {
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
 	uiQueueMain(libui_event2,RegisterEvent(RING_API_GETSTRING(1)));
 }
 
 RING_FUNC(ring_uiTimer)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiTimer(RING_API_GETNUMBER(1),libui_event,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiWindowOnContentSizeChanged)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiWindowOnContentSizeChanged(RING_API_GETCPOINTER(1,"uiWindow"),
 		libui_windowevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiCheckboxOnToggled)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiCheckboxOnToggled(RING_API_GETCPOINTER(1,"uiCheckbox"),
 		libui_checkboxevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiEntryOnChanged)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiEntryOnChanged(RING_API_GETCPOINTER(1,"uiEntry"),
 		libui_entryevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiSpinboxOnChanged)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiSpinboxOnChanged(RING_API_GETCPOINTER(1,"uiSpinbox"),
 		libui_spinboxevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiSliderOnChanged)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiSliderOnChanged(RING_API_GETCPOINTER(1,"uiSlider"),
 		libui_sliderevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiComboboxOnSelected)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiComboboxOnSelected(RING_API_GETCPOINTER(1,"uiCombobox"),
 		libui_comboboxevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiEditableComboboxOnChanged)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiEditableComboboxOnChanged(RING_API_GETCPOINTER(1,"uiEditableCombobox"),
 		libui_editablecomboboxevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiRadioButtonsOnSelected)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiRadioButtonsOnSelected(RING_API_GETCPOINTER(1,"uiRadioButtons"),
 		libui_radiobuttonsevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiDateTimePickerOnChanged)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiDateTimePickerOnChanged(RING_API_GETCPOINTER(1,"uiDateTimePicker"),
 		libui_datetimepickerevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiMultilineEntryOnChanged)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiMultilineEntryOnChanged(RING_API_GETCPOINTER(1,"uiMultilineEntry"),
 		libui_multilineentryevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiMenuItemOnClicked)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiMenuItemOnClicked(RING_API_GETCPOINTER(1,"uiMenuItem"),
 		libui_menuitemevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiFontButtonOnChanged)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiFontButtonOnChanged(RING_API_GETCPOINTER(1,"uiFontButton"),
 		libui_fontbuttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 RING_FUNC(ring_uiColorButtonOnChanged)
 {
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
 	uiColorButtonOnChanged(RING_API_GETCPOINTER(1,"uiColorButton"),
 		libui_colorbuttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
