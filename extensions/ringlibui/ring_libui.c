@@ -3579,6 +3579,10 @@ RING_FUNC(ring_uiOnShouldQuit)
 		RING_API_ERROR(RING_API_MISS1PARA) ;
 		return ;
 	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	uiOnShouldQuit(libui_event,RegisterEvent(RING_API_GETSTRING(1)));
 }
 
@@ -3586,6 +3590,14 @@ RING_FUNC(ring_uiWindowOnClosing)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	uiWindowOnClosing(RING_API_GETCPOINTER(1,"uiWindow"),
@@ -3598,6 +3610,14 @@ RING_FUNC(ring_uiButtonOnClicked)
 		RING_API_ERROR(RING_API_MISS2PARA) ;
 		return ;
 	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	uiButtonOnClicked(RING_API_GETCPOINTER(1,"uiButton"),
 		libui_buttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
@@ -3606,6 +3626,10 @@ RING_FUNC(ring_uiQueueMain)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	uiQueueMain(libui_event2,RegisterEvent(RING_API_GETSTRING(1)));
@@ -3617,6 +3641,14 @@ RING_FUNC(ring_uiTimer)
 		RING_API_ERROR(RING_API_MISS2PARA) ;
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	uiTimer(RING_API_GETNUMBER(1),libui_event,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
@@ -3624,6 +3656,14 @@ RING_FUNC(ring_uiWindowOnContentSizeChanged)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	uiWindowOnContentSizeChanged(RING_API_GETCPOINTER(1,"uiWindow"),
@@ -3636,6 +3676,14 @@ RING_FUNC(ring_uiCheckboxOnToggled)
 		RING_API_ERROR(RING_API_MISS2PARA) ;
 		return ;
 	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	uiCheckboxOnToggled(RING_API_GETCPOINTER(1,"uiCheckbox"),
 		libui_checkboxevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
@@ -3644,6 +3692,14 @@ RING_FUNC(ring_uiEntryOnChanged)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	uiEntryOnChanged(RING_API_GETCPOINTER(1,"uiEntry"),
@@ -3656,6 +3712,14 @@ RING_FUNC(ring_uiSpinboxOnChanged)
 		RING_API_ERROR(RING_API_MISS2PARA) ;
 		return ;
 	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	uiSpinboxOnChanged(RING_API_GETCPOINTER(1,"uiSpinbox"),
 		libui_spinboxevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
@@ -3664,6 +3728,14 @@ RING_FUNC(ring_uiSliderOnChanged)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	uiSliderOnChanged(RING_API_GETCPOINTER(1,"uiSlider"),
@@ -3676,6 +3748,14 @@ RING_FUNC(ring_uiComboboxOnSelected)
 		RING_API_ERROR(RING_API_MISS2PARA) ;
 		return ;
 	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	uiComboboxOnSelected(RING_API_GETCPOINTER(1,"uiCombobox"),
 		libui_comboboxevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
@@ -3684,6 +3764,14 @@ RING_FUNC(ring_uiEditableComboboxOnChanged)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	uiEditableComboboxOnChanged(RING_API_GETCPOINTER(1,"uiEditableCombobox"),
@@ -3696,6 +3784,14 @@ RING_FUNC(ring_uiRadioButtonsOnSelected)
 		RING_API_ERROR(RING_API_MISS2PARA) ;
 		return ;
 	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	uiRadioButtonsOnSelected(RING_API_GETCPOINTER(1,"uiRadioButtons"),
 		libui_radiobuttonsevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
@@ -3704,6 +3800,14 @@ RING_FUNC(ring_uiDateTimePickerOnChanged)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	uiDateTimePickerOnChanged(RING_API_GETCPOINTER(1,"uiDateTimePicker"),
@@ -3716,6 +3820,14 @@ RING_FUNC(ring_uiMultilineEntryOnChanged)
 		RING_API_ERROR(RING_API_MISS2PARA) ;
 		return ;
 	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	uiMultilineEntryOnChanged(RING_API_GETCPOINTER(1,"uiMultilineEntry"),
 		libui_multilineentryevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
@@ -3724,6 +3836,14 @@ RING_FUNC(ring_uiMenuItemOnClicked)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	uiMenuItemOnClicked(RING_API_GETCPOINTER(1,"uiMenuItem"),
@@ -3736,6 +3856,14 @@ RING_FUNC(ring_uiFontButtonOnChanged)
 		RING_API_ERROR(RING_API_MISS2PARA) ;
 		return ;
 	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	uiFontButtonOnChanged(RING_API_GETCPOINTER(1,"uiFontButton"),
 		libui_fontbuttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
@@ -3744,6 +3872,14 @@ RING_FUNC(ring_uiColorButtonOnChanged)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	uiColorButtonOnChanged(RING_API_GETCPOINTER(1,"uiColorButton"),
