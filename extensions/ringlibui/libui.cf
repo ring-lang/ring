@@ -205,6 +205,7 @@ void uiDateTimePickerOnChanged(uiDateTimePicker *obj,const char *cEvent)
 void uiMultilineEntryOnChanged(uiMultilineEntry *obj,const char *cEvent)
 void uiMenuItemOnClicked(uiMenuItem *obj,const char *cEvent)
 void uiFontButtonOnChanged(uiFontButton *obj,const char *cEvent)
+void uiColorButtonOnChanged(uiColorButton *obj,const char *cEvent)
 </register>
 
 <code>
@@ -450,6 +451,12 @@ RING_FUNC(ring_uiFontButtonOnChanged)
 {
 	uiFontButtonOnChanged(RING_API_GETCPOINTER(1,"uiFontButton"),
 		libui_fontbuttonevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiColorButtonOnChanged)
+{
+	uiColorButtonOnChanged(RING_API_GETCPOINTER(1,"uiColorButton"),
+		libui_colorbuttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 </code>
@@ -742,7 +749,3 @@ void uiAreaSetSize(uiArea *a, int width, int height)
 uintptr_t uiControlHandle(uiControl *)
 
 void uiFreeText(char *text)
-
-<comment>
-void uiColorButtonOnChanged(uiColorButton *b, void (*f)(uiColorButton *, void *), void *data)
-</comment>
