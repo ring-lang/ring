@@ -197,6 +197,7 @@ void uiWindowOnContentSizeChanged(uiWindow *obj,const char *cEvent)
 void uiCheckboxOnToggled(uiCheckbox *obj,const char *cEvent)
 void uiEntryOnChanged(uiEntry *obj,const char *cEvent)
 void uiSpinboxOnChanged(uiSpinbox *obj,const char *cEvent)
+void uiSliderOnChanged(uiSlider *obj,const char *cEvent)
 </register>
 
 <code>
@@ -394,6 +395,12 @@ RING_FUNC(ring_uiSpinboxOnChanged)
 {
 	uiSpinboxOnChanged(RING_API_GETCPOINTER(1,"uiSpinbox"),
 		libui_spinboxevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiSliderOnChanged)
+{
+	uiSliderOnChanged(RING_API_GETCPOINTER(1,"uiSlider"),
+		libui_sliderevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 </code>
@@ -688,7 +695,6 @@ uintptr_t uiControlHandle(uiControl *)
 void uiFreeText(char *text)
 
 <comment>
-void uiSliderOnChanged(uiSlider *s, void (*f)(uiSlider *s, void *data), void *data)
 void uiComboboxOnSelected(uiCombobox *c, void (*f)(uiCombobox *c, void *data), void *data)
 void uiEditableComboboxOnChanged(uiEditableCombobox *c, void (*f)(uiEditableCombobox *c, void *data), void *data)
 void uiRadioButtonsOnSelected(uiRadioButtons *r, void (*f)(uiRadioButtons *, void *), void *data)
