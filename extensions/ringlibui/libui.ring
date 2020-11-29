@@ -7,3 +7,5 @@ else
 ok
 
 load "ring_libui.rh"
+
+uiInit()

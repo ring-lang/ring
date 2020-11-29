@@ -1,8 +1,6 @@
 load "libui.ring"
 
-uiInit()
-
-oWindow = uiNewWindow( "Hello, World", 800, 600, True)
+oWindow = uiNewWindow( "Hello, World", 400, 400, True)
 
 uiControlShow( oWindow )
 
@@ -19,18 +17,14 @@ uiWindowOnClosing(oWindow,"closeapp()")
 uiButtonOnClicked(btn1,"one()")
 uiButtonOnClicked(btn2,"two()")
 
-
 uiMain()
-uiUninit()
 
 func closeApp
-	? "close the window!"
 	uiControlDestroy(oWindow)
-	? "close the application!"
 	shutdown(0)
 
 func one 
-	? "Hello!"
+	uiMsgBox(oWindow,"Hi","Hello")
 
 func two 
 	closeApp()
