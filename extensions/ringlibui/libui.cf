@@ -192,6 +192,7 @@ void uiOnShouldQuit(const char *cEvent)
 void uiWindowOnClosing(uiWindow *w,const char *cEvent)
 void uiButtonOnClicked(uiButton *b,const char *cEvent)
 void uiQueueMain(const char *cEvent)
+void uiTimer(int x,const char *cEvent)
 </register>
 
 <code>
@@ -270,6 +271,11 @@ RING_FUNC(ring_uiButtonOnClicked)
 RING_FUNC(ring_uiQueueMain)
 {
 	uiQueueMain(libui_event2,RegisterEvent(RING_API_GETSTRING(1)));
+}
+
+RING_FUNC(ring_uiTimer)
+{
+	uiTimer(RING_API_GETNUMBER(1),libui_event,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 </code>
