@@ -221,10 +221,13 @@ RING_FUNC(ring_uiUninit)
 
 int libui_event(void *data)
 {
-	const char *cCode;
-	cCode = (const char *) data;
-	ring_vm_runcode(pVMLibUI,cCode);
+	ring_vm_runcode(pVMLibUI,(const char *) data);
 	return 0;
+}
+
+void libui_event2(void *data)
+{
+	ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 int libui_windowevent(uiWindow *w,void *data)
