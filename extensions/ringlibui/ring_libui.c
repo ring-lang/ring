@@ -3500,6 +3500,11 @@ RING_FUNC(ring_uiButtonOnClicked)
 		libui_buttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
+RING_FUNC(ring_uiQueueMain)
+{
+	uiQueueMain(libui_event2,RegisterEvent(RING_API_GETSTRING(1)));
+}
+
 
 RING_FUNC(ring_uiFreeInitError)
 {
@@ -7975,6 +7980,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uionshouldquit",ring_uiOnShouldQuit);
 	ring_vm_funcregister("uiwindowonclosing",ring_uiWindowOnClosing);
 	ring_vm_funcregister("uibuttononclicked",ring_uiButtonOnClicked);
+	ring_vm_funcregister("uiqueuemain",ring_uiQueueMain);
 	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
 	ring_vm_funcregister("uimain",ring_uiMain);
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
