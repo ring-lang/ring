@@ -3510,6 +3510,12 @@ RING_FUNC(ring_uiTimer)
 	uiTimer(RING_API_GETNUMBER(1),libui_event,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
+RING_FUNC(ring_uiWindowOnContentSizeChanged)
+{
+	uiWindowOnContentSizeChanged(RING_API_GETCPOINTER(1,"uiWindow"),
+		libui_windowevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
 
 RING_FUNC(ring_uiFreeInitError)
 {
@@ -7987,6 +7993,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uibuttononclicked",ring_uiButtonOnClicked);
 	ring_vm_funcregister("uiqueuemain",ring_uiQueueMain);
 	ring_vm_funcregister("uitimer",ring_uiTimer);
+	ring_vm_funcregister("uiwindowoncontentsizechanged",ring_uiWindowOnContentSizeChanged);
 	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
 	ring_vm_funcregister("uimain",ring_uiMain);
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
