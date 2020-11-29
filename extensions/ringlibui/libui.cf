@@ -204,6 +204,7 @@ void uiRadioButtonsOnSelected(uiRadioButtons *obj,const char *cEvent)
 void uiDateTimePickerOnChanged(uiDateTimePicker *obj,const char *cEvent)
 void uiMultilineEntryOnChanged(uiMultilineEntry *obj,const char *cEvent)
 void uiMenuItemOnClicked(uiMenuItem *obj,const char *cEvent)
+void uiFontButtonOnChanged(uiFontButton *obj,const char *cEvent)
 </register>
 
 <code>
@@ -443,6 +444,12 @@ RING_FUNC(ring_uiMenuItemOnClicked)
 {
 	uiMenuItemOnClicked(RING_API_GETCPOINTER(1,"uiMenuItem"),
 		libui_menuitemevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiFontButtonOnChanged)
+{
+	uiFontButtonOnChanged(RING_API_GETCPOINTER(1,"uiFontButton"),
+		libui_fontbuttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 </code>
@@ -737,6 +744,5 @@ uintptr_t uiControlHandle(uiControl *)
 void uiFreeText(char *text)
 
 <comment>
-void uiFontButtonOnChanged(uiFontButton *b, void (*f)(uiFontButton *, void *), void *data)
 void uiColorButtonOnChanged(uiColorButton *b, void (*f)(uiColorButton *, void *), void *data)
 </comment>
