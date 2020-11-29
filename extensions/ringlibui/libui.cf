@@ -201,6 +201,7 @@ void uiSliderOnChanged(uiSlider *obj,const char *cEvent)
 void uiComboboxOnSelected(uiCombobox *obj,const char *cEvent)
 void uiEditableComboboxOnChanged(uiEditableCombobox *obj,const char *cEvent)
 void uiRadioButtonsOnSelected(uiRadioButtons *obj,const char *cEvent)
+void uiDateTimePickerOnChanged(uiDateTimePicker *obj,const char *cEvent)
 </register>
 
 <code>
@@ -422,6 +423,12 @@ RING_FUNC(ring_uiRadioButtonsOnSelected)
 {
 	uiRadioButtonsOnSelected(RING_API_GETCPOINTER(1,"uiRadioButtons"),
 		libui_radiobuttonsevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiDateTimePickerOnChanged)
+{
+	uiDateTimePickerOnChanged(RING_API_GETCPOINTER(1,"uiDateTimePicker"),
+		libui_datetimepickerevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 </code>
@@ -716,7 +723,6 @@ uintptr_t uiControlHandle(uiControl *)
 void uiFreeText(char *text)
 
 <comment>
-void uiDateTimePickerOnChanged(uiDateTimePicker *d, void (*f)(uiDateTimePicker *, void *), void *data)
 void uiMultilineEntryOnChanged(uiMultilineEntry *e, void (*f)(uiMultilineEntry *e, void *data), void *data)
 void uiMenuItemOnClicked(uiMenuItem *m, void (*f)(uiMenuItem *sender, uiWindow *window, void *data), void *data)
 void uiFontButtonOnChanged(uiFontButton *b, void (*f)(uiFontButton *, void *), void *data)
