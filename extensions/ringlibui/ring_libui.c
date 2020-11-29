@@ -3642,6 +3642,12 @@ RING_FUNC(ring_uiEditableComboboxOnChanged)
 		libui_editablecomboboxevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
+RING_FUNC(ring_uiRadioButtonsOnSelected)
+{
+	uiRadioButtonsOnSelected(RING_API_GETCPOINTER(1,"uiRadioButtons"),
+		libui_radiobuttonsevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
 
 RING_FUNC(ring_uiFreeInitError)
 {
@@ -8126,6 +8132,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uislideronchanged",ring_uiSliderOnChanged);
 	ring_vm_funcregister("uicomboboxonselected",ring_uiComboboxOnSelected);
 	ring_vm_funcregister("uieditablecomboboxonchanged",ring_uiEditableComboboxOnChanged);
+	ring_vm_funcregister("uiradiobuttonsonselected",ring_uiRadioButtonsOnSelected);
 	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
 	ring_vm_funcregister("uimain",ring_uiMain);
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
