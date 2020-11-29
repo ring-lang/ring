@@ -199,6 +199,7 @@ void uiEntryOnChanged(uiEntry *obj,const char *cEvent)
 void uiSpinboxOnChanged(uiSpinbox *obj,const char *cEvent)
 void uiSliderOnChanged(uiSlider *obj,const char *cEvent)
 void uiComboboxOnSelected(uiCombobox *obj,const char *cEvent)
+void uiEditableComboboxOnChanged(uiEditableCombobox *obj,const char *cEvent)
 </register>
 
 <code>
@@ -408,6 +409,12 @@ RING_FUNC(ring_uiComboboxOnSelected)
 {
 	uiComboboxOnSelected(RING_API_GETCPOINTER(1,"uiCombobox"),
 		libui_comboboxevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiEditableComboboxOnChanged)
+{
+	uiEditableComboboxOnChanged(RING_API_GETCPOINTER(1,"uiEditableCombobox"),
+		libui_editablecomboboxevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 </code>
@@ -702,7 +709,6 @@ uintptr_t uiControlHandle(uiControl *)
 void uiFreeText(char *text)
 
 <comment>
-void uiEditableComboboxOnChanged(uiEditableCombobox *c, void (*f)(uiEditableCombobox *c, void *data), void *data)
 void uiRadioButtonsOnSelected(uiRadioButtons *r, void (*f)(uiRadioButtons *, void *), void *data)
 void uiDateTimePickerOnChanged(uiDateTimePicker *d, void (*f)(uiDateTimePicker *, void *), void *data)
 void uiMultilineEntryOnChanged(uiMultilineEntry *e, void (*f)(uiMultilineEntry *e, void *data), void *data)
