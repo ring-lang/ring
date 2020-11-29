@@ -195,6 +195,7 @@ void uiQueueMain(const char *cEvent)
 void uiTimer(int x,const char *cEvent)
 void uiWindowOnContentSizeChanged(uiWindow *obj,const char *cEvent)
 void uiCheckboxOnToggled(uiCheckbox *obj,const char *cEvent)
+void uiEntryOnChanged(uiEntry *obj,const char *cEvent)
 </register>
 
 <code>
@@ -380,6 +381,12 @@ RING_FUNC(ring_uiCheckboxOnToggled)
 {
 	uiCheckboxOnToggled(RING_API_GETCPOINTER(1,"uiCheckbox"),
 		libui_checkboxevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiEntryOnChanged)
+{
+	uiEntryOnChanged(RING_API_GETCPOINTER(1,"uiEntry"),
+		libui_entryevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
 </code>
@@ -674,7 +681,6 @@ uintptr_t uiControlHandle(uiControl *)
 void uiFreeText(char *text)
 
 <comment>
-void uiEntryOnChanged(uiEntry *e, void (*f)(uiEntry *e, void *data), void *data)
 void uiSpinboxOnChanged(uiSpinbox *s, void (*f)(uiSpinbox *s, void *data), void *data)
 void uiSliderOnChanged(uiSlider *s, void (*f)(uiSlider *s, void *data), void *data)
 void uiComboboxOnSelected(uiCombobox *c, void (*f)(uiCombobox *c, void *data), void *data)
