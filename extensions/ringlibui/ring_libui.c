@@ -3660,6 +3660,12 @@ RING_FUNC(ring_uiMultilineEntryOnChanged)
 		libui_multilineentryevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
+RING_FUNC(ring_uiMenuItemOnClicked)
+{
+	uiMenuItemOnClicked(RING_API_GETCPOINTER(1,"uiMenuItem"),
+		libui_menuitemevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
 
 RING_FUNC(ring_uiFreeInitError)
 {
@@ -8147,6 +8153,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uiradiobuttonsonselected",ring_uiRadioButtonsOnSelected);
 	ring_vm_funcregister("uidatetimepickeronchanged",ring_uiDateTimePickerOnChanged);
 	ring_vm_funcregister("uimultilineentryonchanged",ring_uiMultilineEntryOnChanged);
+	ring_vm_funcregister("uimenuitemonclicked",ring_uiMenuItemOnClicked);
 	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
 	ring_vm_funcregister("uimain",ring_uiMain);
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
