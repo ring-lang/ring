@@ -3430,9 +3430,25 @@ RING_FUNC(ring_uiInit_2)
 
 
 VM *pVMLibUI = NULL;
+
 List *aLibUIEvents ;
+
 uiWindow *activeWindow ;
 uiButton *activeButton ;
+uiCheckbox *activeCheckbox;
+uiEntry *activeEntry;
+uiSpinbox *activeSpinbox;
+uiSlider *activeSlider;
+uiCombobox *activeCombobox;
+uiEditableCombobox *activeEditableCombobox;
+uiRadioButtons *activeRadioButtons;
+uiDateTimePicker *activeDateTimePicker;
+uiMultilineEntry *activeMultilineEntry;
+uiMenuItem *activeMenuItem;
+uiWindow *activeMenuItemWindow;
+uiFontButton *activeFontButton;
+uiColorButton *activeColorButton;
+
 RING_FUNC(ring_uiInit)
 {
 	uiInitOptions o;
@@ -3464,18 +3480,92 @@ void libui_event2(void *data)
 	ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
-int libui_windowevent(uiWindow *w,void *data)
+int libui_windowevent(uiWindow *obj,void *data)
 {
-	activeWindow = w;
+	activeWindow = obj;
 	ring_vm_runcode(pVMLibUI,(const char *) data);
 	return 0;
 }
 
-void libui_buttonevent(uiButton *btn,void *data)
+void libui_buttonevent(uiButton *obj,void *data)
 {
-	activeButton = btn;
+	activeButton = obj;
 	ring_vm_runcode(pVMLibUI,(const char *) data);
 }
+
+void libui_checkboxevent(uiCheckbox *obj,void *data)
+{
+	activeCheckbox = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_entryevent(uiEntry *obj,void *data)
+{
+	activeEntry = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_spinboxevent(uiSpinbox *obj,void *data)
+{
+	activeSpinbox = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_sliderevent(uiSlider *obj,void *data)
+{
+	activeSlider = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_comboboxevent(uiCombobox *obj,void *data)
+{
+	activeCombobox = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_editablecomboboxevent(uiEditableCombobox *obj,void *data)
+{
+	activeEditableCombobox = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_radiobuttonsevent(uiRadioButtons *obj,void *data)
+{
+	activeRadioButtons = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_datetimepickerevent(uiDateTimePicker *obj,void *data)
+{
+	activeDateTimePicker = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_multilineentryevent(uiMultilineEntry *obj,void *data)
+{
+	activeMultilineEntry = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_menuitemevent(uiMenuItem *obj,uiWindow *obj2,void *data)
+{
+	activeMenuItem = obj;
+	activeMenuItemWindow = obj2;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_fontbuttonevent(uiFontButton *obj,void *data)
+{
+	activeFontButton = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_colorbuttonevent(uiColorButton *obj,void *data)
+{
+	activeColorButton = obj;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
 
 void *RegisterEvent(const char *cEvent)
 {
