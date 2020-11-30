@@ -26,7 +26,7 @@ script:
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringfreeglut && ./gencode.sh && ./buildgcc.sh ; fi 
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then cd ../ringopengl/opengl21 && ./gencode.sh && ./buildgcc.sh ; fi 
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd language/src && ./buildclang.sh ; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../ringqt && ./gencodemac.sh && ./buildclang.sh ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then cd ../../extensions/ringqt && ./gencodemac.sh && ./buildclang.sh ; fi
  
 notifications:
  email: false
