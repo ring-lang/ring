@@ -3901,6 +3901,82 @@ RING_FUNC(ring_uiColorButtonOnChanged)
 		libui_colorbuttonevent,RegisterEvent(RING_API_GETSTRING(2)));
 }
 
+RING_FUNC(ring_uiEventWindow)
+{
+	RING_API_RETCPOINTER(activeWindow,"uiWindow");
+}
+
+RING_FUNC(ring_uiEventButton)
+{
+	RING_API_RETCPOINTER(activeButton,"uiButton");
+}
+
+RING_FUNC(ring_uiEventCheckbox)
+{
+	RING_API_RETCPOINTER(activeCheckbox,"uiCheckbox");
+}
+
+RING_FUNC(ring_uiEventEntry)
+{
+	RING_API_RETCPOINTER(activeEntry,"uiEntry");
+}
+
+RING_FUNC(ring_uiEventSpinbox)
+{
+	RING_API_RETCPOINTER(activeSpinbox,"uiSpinbox");
+}
+
+RING_FUNC(ring_uiEventSlider)
+{
+	RING_API_RETCPOINTER(activeSlider,"uiSlider");
+}
+
+RING_FUNC(ring_uiEventCombobox)
+{
+	RING_API_RETCPOINTER(activeCombobox,"uiCombox");
+}
+
+RING_FUNC(ring_uiEventEditableCombobox)
+{
+	RING_API_RETCPOINTER(activeEditableCombobox,"uiCombobox");
+}
+
+RING_FUNC(ring_uiEventRadioButtons)
+{
+	RING_API_RETCPOINTER(activeRadioButtons,"uiRadioButtons");
+}
+
+RING_FUNC(ring_uiEventDateTimePicker)
+{
+	RING_API_RETCPOINTER(activeDateTimePicker,"uiDateTimePicker");
+}
+
+RING_FUNC(ring_uiEventMultilineEntry)
+{
+	RING_API_RETCPOINTER(activeMultilineEntry,"uiMultilineEntry");
+}
+
+RING_FUNC(ring_uiEventMenuItem)
+{
+	RING_API_RETCPOINTER(activeMenuItem,"uiMenuItem");
+}
+
+RING_FUNC(ring_uiEventMenuItemWindow)
+{
+	RING_API_RETCPOINTER(activeMenuItemWindow,"uiWindow");
+}
+
+RING_FUNC(ring_uiEventFontButton)
+{
+	RING_API_RETCPOINTER(activeFontButton,"uiFontButton");
+}
+
+RING_FUNC(ring_uiEventColorButton)
+{
+	RING_API_RETCPOINTER(activeColorButton,"uiColorButton");
+}
+
+
 
 RING_FUNC(ring_uiFreeInitError)
 {
@@ -8391,6 +8467,21 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uimenuitemonclicked",ring_uiMenuItemOnClicked);
 	ring_vm_funcregister("uifontbuttononchanged",ring_uiFontButtonOnChanged);
 	ring_vm_funcregister("uicolorbuttononchanged",ring_uiColorButtonOnChanged);
+	ring_vm_funcregister("uieventwindow",ring_uiEventWindow);
+	ring_vm_funcregister("uieventbutton",ring_uiEventButton);
+	ring_vm_funcregister("uieventcheckbox",ring_uiEventCheckbox);
+	ring_vm_funcregister("uievententry",ring_uiEventEntry);
+	ring_vm_funcregister("uieventspinbox",ring_uiEventSpinbox);
+	ring_vm_funcregister("uieventslider",ring_uiEventSlider);
+	ring_vm_funcregister("uieventcombobox",ring_uiEventCombobox);
+	ring_vm_funcregister("uieventeditablecombobox",ring_uiEventEditableCombobox);
+	ring_vm_funcregister("uieventradiobuttons",ring_uiEventRadioButtons);
+	ring_vm_funcregister("uieventdatetimepicker",ring_uiEventDateTimePicker);
+	ring_vm_funcregister("uieventmultilineentry",ring_uiEventMultilineEntry);
+	ring_vm_funcregister("uieventmenuitem",ring_uiEventMenuItem);
+	ring_vm_funcregister("uieventmenuitemwindow",ring_uiEventMenuItemWindow);
+	ring_vm_funcregister("uieventfontbutton",ring_uiEventFontButton);
+	ring_vm_funcregister("uieventcolorbutton",ring_uiEventColorButton);
 	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
 	ring_vm_funcregister("uimain",ring_uiMain);
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
