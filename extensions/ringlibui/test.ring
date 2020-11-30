@@ -20,5 +20,4 @@ func sayHello
 	uiMsgBox(oWindow,"Hi","Hello")
 
 func closeApp
-	uiControlDestroy(oWindow)
-	shutdown(0)
+	uiQuit()
