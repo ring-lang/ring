@@ -242,6 +242,21 @@ RING_FUNC(ring_uiInit)
 	}
 	pVMLibUI = (VM *) pPointer;
 	aLibUIEvents = ring_list_new(0);
+	activeWindow = NULL;
+	activeButton = NULL;
+	activeCheckbox = NULL;
+	activeEntry = NULL;
+	activeSpinbox = NULL;
+	activeSlider = NULL;
+	activeCombobox = NULL;
+	activeEditableCombobox = NULL;
+	activeRadioButtons = NULL;
+	activeDateTimePicker = NULL;
+	activeMultilineEntry = NULL;
+	activeMenuItem = NULL;
+	activeMenuItemWindow = NULL;
+	activeFontButton = NULL;
+	activeColorButton = NULL;
 }
 
 RING_FUNC(ring_uiUninit)
