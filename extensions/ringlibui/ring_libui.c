@@ -3480,8 +3480,10 @@ RING_FUNC(ring_uiInit)
 
 RING_FUNC(ring_uiUninit)
 {
-	uiUninit();
-	ring_list_delete(aLibUIEvents);
+	aLibUIEvents = ring_list_delete(aLibUIEvents);
+	// Calling uiUninit() lead to CRASH (A bug in libui itself)
+	// Also it's not necessary to call it before closing the applicaiton
+	// uiUninit();
 }
 
 int libui_event(void *data)

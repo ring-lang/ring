@@ -186,7 +186,7 @@ aEnumTypes + "uiTableValueType"
 const char *uiInit@2(uiInitOptions *options)
 
 <register>
-void *uiInit(void)
+void uiInit(void)
 void uiUninit(void)
 void uiOnShouldQuit(const char *cEvent)
 void uiWindowOnClosing(uiWindow *obj,const char *cEvent)
@@ -276,8 +276,10 @@ RING_FUNC(ring_uiInit)
 
 RING_FUNC(ring_uiUninit)
 {
-	uiUninit();
-	ring_list_delete(aLibUIEvents);
+	aLibUIEvents = ring_list_delete(aLibUIEvents);
+	// Calling uiUninit() lead to CRASH (A bug in libui itself)
+	// Also it's not necessary to call it before closing the applicaiton
+	// uiUninit();
 }
 
 int libui_event(void *data)
