@@ -238,16 +238,16 @@ func onSliderChanged
 
 func onOpenFileClicked
 	filename = uiOpenFile(mainwin)
-	if filename = NULL
+	if ISNULL(filename)
 		uiEntrySetText(entryOpen, "(cancelled)")
-		return;
+		return
 	ok
 	uiEntrySetText(entryOpen, filename)
 	uiFreeText(filename)
 
 func onSaveFileClicked
 	filename = uiSaveFile(mainwin)
-	if filename = NULL
+	if ISNULL(filename)
 		uiEntrySetText(entrySave, "(cancelled)")
 		return
 	ok
