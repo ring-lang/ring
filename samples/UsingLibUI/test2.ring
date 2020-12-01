@@ -12,17 +12,20 @@ uiButtonOnClicked(btn1,"sayHello()")
 btn2 = uiNewButton("Close")
 uiButtonOnClicked(btn2,"closeApp()")
 
+lbl2 = uiNewLabel("")
+
 g = uiNewGrid() uiGridSetPadded(g, 1) uiWindowSetChild(oWindow, g)
 uiGridAppend(g, lbl1, 0, 0, 2, 1, 1, uiAlignCenter, 0, uiAlignCenter)
 uiGridAppend(g, text1, 1, 0, 2, 1, 1, uiAlignFill, 0, uiAlignFill)
 uiGridAppend(g, btn1, 0, 1, 1, 2, 1, uiAlignFill, 0, uiAlignFill)
 uiGridAppend(g, btn2, 2, 1, 1, 1, 1, uiAlignFill, 0, uiAlignFill)
+uiGridAppend(g, lbl2, 1, 3, 2, 1, 1, uiAlignFill, 0, uiAlignCenter)
 
 uiControlShow( oWindow )
 uiMain()
 
 func sayHello 
-	uiEntrySetText(text1,"Hello " + uiEntryText(text1))
+	uiLabelSetText(lbl2,"Hello " + uiEntryText(text1))
 
 func closeApp
 	uiQuit()
