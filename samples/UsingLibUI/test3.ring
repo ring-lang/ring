@@ -100,12 +100,12 @@ func makeDataChoosersPage
 		0, uiAlignCenter, 0, uiAlignStart)
 
 	button = uiNewButton("Message Box")
-	//uiButtonOnClicked(button, onMsgBoxClicked, NULL)
+	uiButtonOnClicked(button, "onMsgBoxClicked()")
 	uiGridAppend(msggrid, uiControl(button),
 		0, 0, 1, 1,
 		0, uiAlignFill, 0, uiAlignFill)
 	button = uiNewButton("Error Box")
-	//uiButtonOnClicked(button, onMsgBoxErrorClicked, NULL)
+	uiButtonOnClicked(button, "onMsgBoxErrorClicked()")
 	uiGridAppend(msggrid, uiControl(button),
 		1, 0, 1, 1,
 		0, uiAlignFill, 0, uiAlignFill)
@@ -232,3 +232,34 @@ func onSliderChanged
 	s = uiEventSlider()
 	uiSpinboxSetValue(spinbox, uiSliderValue(s));
 	uiProgressBarSetValue(pbar, uiSliderValue(s));
+
+
+func onOpenFileClicked
+	entry = uiEntry(data)
+	filename = uiOpenFile(mainwin)
+	if filename = NULL
+		uiEntrySetText(entry, "(cancelled)")
+		return;
+	ok
+	uiEntrySetText(entry, filename)
+	uiFreeText(filename)
+
+func onSaveFileClicked
+	entry = uiEntry(data)
+	filename = uiSaveFile(mainwin)
+	if filename = NULL
+		uiEntrySetText(entry, "(cancelled)")
+		return
+	ok
+	uiEntrySetText(entry, filename)
+	uiFreeText(filename)
+
+func onMsgBoxClicked
+	uiMsgBox(mainwin,
+		"This is a normal message box.",
+		"More detailed information can be shown here.")
+
+func onMsgBoxErrorClicked
+	uiMsgBoxError(mainwin,
+		"This message box describes an error.",
+		"More detailed information can be shown here.")
