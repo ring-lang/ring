@@ -29,7 +29,6 @@ func onClosing
 	uiQuit()
 
 func makeDataChoosersPage 
-{
 
 	hbox = uiNewHorizontalBox()
 	uiBoxSetPadded(hbox, 1)
@@ -107,10 +106,8 @@ func makeDataChoosersPage
 		0, uiAlignFill, 0, uiAlignFill)
 
 	return uiControl(hbox)
-}
 
-func makeNumbersPage()
-{
+func makeNumbersPage
 
 	hbox = uiNewHorizontalBox()
 	uiBoxSetPadded(hbox, 1)
@@ -163,11 +160,9 @@ func makeNumbersPage()
 	uiBoxAppend(vbox, uiControl(rb), 0)
 
 	return uiControl(hbox)
-}
 
 
 func makeBasicControlsPage
-{
 
 	vbox = uiNewVerticalBox()
 	uiBoxSetPadded(vbox, 1)
@@ -221,4 +216,3 @@ func makeBasicControlsPage
 		1)
 
 	return uiControl(vbox)
-}
