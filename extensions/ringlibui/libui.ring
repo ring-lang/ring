@@ -9,3 +9,6 @@ ok
 load "ring_libui.rh"
 
 uiInit()
+
+func uiControl x
+	return x

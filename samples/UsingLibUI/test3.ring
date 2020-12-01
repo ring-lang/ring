@@ -22,9 +22,6 @@ mainwin = uiNewWindow("libui Control Gallery", 640, 480, 1)
 	uiControlShow(uiControl(mainwin))
 	uiMain()
 
-func uiControl x
-	return x
-
 func onClosing
 	uiQuit()
 
