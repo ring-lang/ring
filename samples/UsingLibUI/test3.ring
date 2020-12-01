@@ -8,6 +8,8 @@ load "libui.ring"
 	slider = NULL
 	spinbox = NULL
 	pBar = NULL
+	entryOpen = NULL
+	entrySave = NULL
 
 # Main Window
 
@@ -72,24 +74,24 @@ func makeDataChoosersPage
 	uiBoxAppend(vbox, uiControl(grid), 0)
 
 	button = uiNewButton("Open File")
-	entry = uiNewEntry()
-	uiEntrySetReadOnly(entry, 1)
-//	uiButtonOnClicked(button, onOpenFileClicked, entry)
+	entryOpen = uiNewEntry()
+	uiEntrySetReadOnly(entryOpen, 1)
+	uiButtonOnClicked(button, "onOpenFileClicked()")
 	uiGridAppend(grid, uiControl(button),
 		0, 0, 1, 1,
 		0, uiAlignFill, 0, uiAlignFill)
-	uiGridAppend(grid, uiControl(entry),
+	uiGridAppend(grid, uiControl(entryOpen),
 		1, 0, 1, 1,
 		1, uiAlignFill, 0, uiAlignFill)
 
 	button = uiNewButton("Save File")
-	entry = uiNewEntry()
-	uiEntrySetReadOnly(entry, 1)
-//	uiButtonOnClicked(button, onSaveFileClicked, entry)
+	entrySave = uiNewEntry()
+	uiEntrySetReadOnly(entrySave, 1)
+	uiButtonOnClicked(button, "onSaveFileClicked()")
 	uiGridAppend(grid, uiControl(button),
 		0, 1, 1, 1,
 		0, uiAlignFill, 0, uiAlignFill)
-	uiGridAppend(grid, uiControl(entry),
+	uiGridAppend(grid, uiControl(entrySave),
 		1, 1, 1, 1,
 		1, uiAlignFill, 0, uiAlignFill)
 
@@ -235,23 +237,21 @@ func onSliderChanged
 
 
 func onOpenFileClicked
-	entry = uiEntry(data)
 	filename = uiOpenFile(mainwin)
 	if filename = NULL
-		uiEntrySetText(entry, "(cancelled)")
+		uiEntrySetText(entryOpen, "(cancelled)")
 		return;
 	ok
-	uiEntrySetText(entry, filename)
+	uiEntrySetText(entryOpen, filename)
 	uiFreeText(filename)
 
 func onSaveFileClicked
-	entry = uiEntry(data)
 	filename = uiSaveFile(mainwin)
 	if filename = NULL
-		uiEntrySetText(entry, "(cancelled)")
+		uiEntrySetText(entrySave, "(cancelled)")
 		return
 	ok
-	uiEntrySetText(entry, filename)
+	uiEntrySetText(entrySave, filename)
 	uiFreeText(filename)
 
 func onMsgBoxClicked
