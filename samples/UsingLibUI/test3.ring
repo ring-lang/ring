@@ -3,7 +3,15 @@
 
 load "libui.ring"
 
-mainwin = uiNewWindow("libui Control Gallery", 640, 480, 1)
+# Global Variables  
+
+	slider = NULL
+	spinbox = NULL
+	pBar = NULL
+
+# Main Window
+
+	mainwin = uiNewWindow("libui Control Gallery", 640, 480, 1)
 	uiWindowOnClosing(mainwin, "onClosing()")
 
 	tab = uiNewTab()
@@ -120,8 +128,8 @@ func makeNumbersPage
 	spinbox = uiNewSpinbox(0, 100)
 	slider = uiNewSlider(0, 100)
 	pbar = uiNewProgressBar()
-	//uiSpinboxOnChanged(spinbox, onSpinboxChanged, NULL)
-	//uiSliderOnChanged(slider, onSliderChanged, NULL)
+	uiSpinboxOnChanged(spinbox, "onSpinboxChanged()")
+	uiSliderOnChanged(slider, "onSliderChanged()")
 	uiBoxAppend(vbox, uiControl(spinbox), 0)
 	uiBoxAppend(vbox, uiControl(slider), 0)
 	uiBoxAppend(vbox, uiControl(pbar), 0)
@@ -213,3 +221,14 @@ func makeBasicControlsPage
 		1)
 
 	return uiControl(vbox)
+
+
+func onSpinboxChanged
+	s = uiEventSpinBox()
+	uiSliderSetValue(slider, uiSpinboxValue(s));
+	uiProgressBarSetValue(pbar, uiSpinboxValue(s));
+
+func onSliderChanged
+	s = uiEventSlider()
+	uiSpinboxSetValue(spinbox, uiSliderValue(s));
+	uiProgressBarSetValue(pbar, uiSliderValue(s));
