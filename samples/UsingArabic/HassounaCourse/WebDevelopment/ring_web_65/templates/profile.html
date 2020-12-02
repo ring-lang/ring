@@ -1,0 +1,79 @@
+
+    <div class="my-form container p-5 my-5 rounded border border-warning">
+<% if aPageVars['is_login'] %>
+
+        <form method="post">
+            <h2 class="text-center">Profile</h2>
+            <hr>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputFirstName">First Name</label>
+                    <input type="text" class="form-control" id="inputFirstName"  name="first_name" required value="<%=aPageVars['first_name_show']%>">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputLastName">Last Name</label>
+                    <input type="text" class="form-control" id="inputLastName" name="last_name" required value="<%=aPageVars['last_name_show']%>">
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="inputAddress">Address</label>
+                <input type="text" class="form-control" id="inputAddress" name="address" placeholder="1234 Main St" required value="<%=aPageVars['address_show']%>">
+            </div>
+            <div class="form-group">
+                <label for="inputAddress2">Address 2</label>
+                <input type="text" class="form-control" id="inputAddress2" name="address2" placeholder="Apartment, studio, or floor" required value="<%=aPageVars['address2_show']%>">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputCity">City</label>
+                    <input type="text" class="form-control" id="inputCity" name="city" required value="<%=aPageVars['city_show']%>">
+                </div>
+                <div class="form-group col-md-4">
+                    <label for="inputZip">State</label>
+                    <input type="text" class="form-control" id="inputState" name="state" required value="<%=aPageVars['state_show']%>">
+                </div>
+                <div class="form-group col-md-2">
+                    <label for="inputZip">Zip</label>
+                    <input type="text" class="form-control" id="inputZip" name="zip" placeholder="11111" required value="<%=aPageVars['zip_show']%>">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="inputEmail">Email</label>
+                <input type="email" readonly  name="email" class="form-control-plaintext border border-warning rounded" id="inputEmail" placeholder="name@example.com" required value="<%=aPageVars['email_show']%>">
+            </div>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for="inputUsername">Username</label>
+                    <input type="text" readonly name="username" class="form-control-plaintext border border-warning rounded" id="inputUsername" placeholder="ahmed" required value="<%=aPageVars['username_show']%>">
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="inputPassword">Password</label>
+                    <input type="password" class="form-control" name="password" id="inputPassword" required value="<%=aPageVars['password_show']%>" onfocus="this.select();" onclick="this.select();">
+                </div>
+            </div>
+
+            <button type="submit" name="btnsave" class="btn btn-warning">
+					Save Changes
+				</button>
+        </form>
+
+<% else %>
+
+        <form method="post">
+
+				<br><br><br><br>
+				<hr>
+            <h2 class="text-center alert alert-warning">
+					You should must be login.
+				<button class="btn btn-lg btn-outline-warning" name="btnlogin">Login</button>
+				</h2>
+            <hr>
+				<br><br><br><br>
+            
+        </form>
+
+<% ok %>
+
+    </div>
