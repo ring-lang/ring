@@ -409,7 +409,7 @@ Func DrawMatrix()
 		
       // DisplayMatrix(Corners)   // Debug for coordinate numbers 
 		
-       DoDraw(Corners)           // ===>>>   Comment Out --- stops at 258 iterations -- Stack ???
+       DoDraw(Corners)           
       
 		R = R + IncRotation       // Rotation Steps increase by:  WhileLoop
 	
