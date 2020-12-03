@@ -174,12 +174,12 @@ myApp = new qApp
          lSpeed      =  new qLabel(win)    { setgeometry( 0, 480 , 60, 20)  settext("SPEED") setStyleSheet("background-color: yellow")}
 
          lSpeedX    =  new qLabel(win)    { setgeometry( 0, 500 , 30, 20)  settext("Delay:")  setStyleSheet("background-color: yellow")}
-         eSpeedXV   =  new qlineedit(win) { setgeometry(30, 500 , 30, 20)  settext("0.25") }                           
-         sSpeedXV   =  new qslider(win)   { setGeometry(60, 500 , 90, 20)  setOrientation(Qt_Horizontal)  setValue(50)  setValueChangedEvent("fSpeedXV()") }      
+         eSpeedXV   =  new qlineedit(win) { setgeometry(30, 500 , 30, 20)  settext("0.00") }                           
+         sSpeedXV   =  new qslider(win)   { setGeometry(60, 500 , 90, 20)  setOrientation(Qt_Horizontal)  setValue(99)  setValueChangedEvent("fSpeedXV()") }      
           
          lIncrX     =  new qLabel(win)    { setgeometry( 0, 520 , 30, 20)  settext("Inc:")  setStyleSheet("background-color: yellow")}
-         eIncrXV    =  new qlineedit(win) { setgeometry(30, 520 , 30, 20)  settext("0.1") }                           
-         sIncrXV    =  new qslider(win)   { setGeometry(60, 520 , 90, 20)  setOrientation(Qt_Horizontal)  setValue(50)  setValueChangedEvent("fIncrXV()") }      
+         eIncrXV    =  new qlineedit(win) { setgeometry(30, 520 , 30, 20)  settext("0.01") }                           
+         sIncrXV    =  new qslider(win)   { setGeometry(60, 520 , 90, 20)  setOrientation(Qt_Horizontal)  setValue(1)  setValueChangedEvent("fIncrXV()") }      
  
       //-------------------------------------------------------------      
       // TIMER per Cycle
@@ -187,7 +187,7 @@ myApp = new qApp
          lTime     =  new qLabel(win)    { setgeometry( 0, 550 , 60, 20)  settext("TimeCycle:") setStyleSheet("background-color: yellow")}
 
          lTimeX    =  new qLabel(win)    { setgeometry( 0, 570 , 30, 20)  settext("MSec::")  setStyleSheet("background-color: yellow")}
-         eTimeXV   =  new qlineedit(win) { setgeometry(30, 570 , 30, 20)  settext("0.25") }                           
+         eTimeXV   =  new qlineedit(win) { setgeometry(30, 570 , 30, 20)  settext("0.00") }                           
 
          lCountX    =  new qLabel(win)    { setgeometry( 0, 590 , 30, 20)  settext("Count::")  setStyleSheet("background-color: yellow")}
          eCountXV   =  new qlineedit(win) { setgeometry(30, 590 , 30, 20)  settext("0") }                           
@@ -392,6 +392,8 @@ Func DrawMatrix()
          C = MatrixMultiply(H,C)   // Shear
          C = MatrixMultiply(F,C)   // Reflection                    
                       
+	 callgc()
+	
          Corners[i][1] = C[1][1]               // Save Each Corner Point for xyz
          Corners[i][2] = C[2][1]
          Corners[i][3] = C[3][1]
@@ -402,16 +404,25 @@ Func DrawMatrix()
       t3 = t2 - t1
 		eTimeXV.setText(""+ t3)
 		eCountXV.setText(""+ Count++)
+      
+      See "Time for Iteration: "+ Count +" msec: "+ t3 +nl
 		
-      // DisplayMatrix(Corners)     
+      // DisplayMatrix(Corners)   // Debug for coordinate numbers 
 		
-      DoDraw(Corners)           // ===>>>
+       DoDraw(Corners)           // ===>>>   Comment Out --- stops at 258 iterations -- Stack ???
       
 		R = R + IncRotation       // Rotation Steps increase by:  WhileLoop
-		
-   //next 
+	
+   ? " R : " + R
+	 ? " NbrRotation : " + NbrRotation
+
 	end
-   
+
+? "out of the loop"
+   ? " R : " + R
+	 ? " NbrRotation : " + NbrRotation
+
+
 return
 
 //----------------------------------------------------------
