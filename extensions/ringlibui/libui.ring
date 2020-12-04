@@ -12,3 +12,6 @@ uiInit()
 
 func uiControl x
 	return x
+
+func uiMenuItem x
+	return x
