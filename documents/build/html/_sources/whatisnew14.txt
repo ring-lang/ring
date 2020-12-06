@@ -15,8 +15,76 @@ List of changes and new features
 
 Ring 1.14 comes with the next features!
 
+* Using CLOC (Count Lines of Code)
 * Hassouna Course (Web Development Samples)
+* More Samples
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Using CLOC (Count Lines of Code)
+
+Using CLOC (Count Lines of Code)
+================================
+
+Usage:
+
+.. code-block:: none
+
+	ringcloc <application_folder_path>
+
+Example(1):
+
+.. code-block:: none
+
+	ringcloc c:\ring\tools\ringnotepad
+
+Output:
+
+.. code-block:: none
+
+	      47 text files.
+	      47 unique files.
+	      11 files ignored.
+	
+	github.com/AlDanial/cloc v 1.88  T=1.18 s (39.0 files/s, 3212.2 lines/s)
+	-----------------------------------------------------------------------------------
+	Language                         files          blank        comment           code
+	-----------------------------------------------------------------------------------
+	Ring                                33            273            139           3186
+	Bourne Shell                         4             22              9             88
+	DOS Batch                            4              3              7             20
+	INI                                  1              0              0             15
+	C                                    1              0              1             10
+	Markdown                             2              4              0              8
+	Windows Resource File                1              0              0              1
+	-----------------------------------------------------------------------------------
+	SUM:                                46            302            156           3328
+	-----------------------------------------------------------------------------------
+
+Example(2):
+
+.. code-block:: none
+
+	ringcloc c:\ring\tools\formdesigner
+
+Output:
+
+.. code-block:: none
+
+	      54 text files.
+	      54 unique files.
+	      13 files ignored.
+	
+	github.com/AlDanial/cloc v 1.88  T=1.54 s (34.5 files/s, 7122.4 lines/s)
+	-------------------------------------------------------------------------------
+	Language                     files          blank        comment           code
+	-------------------------------------------------------------------------------
+	Ring                            52           1306            567           9071
+	Markdown                         1              5              0              7
+	-------------------------------------------------------------------------------
+	SUM:                            53           1311            567           9078
+	-------------------------------------------------------------------------------
+	
 
 .. index:: 
 	pair: What is new in Ring 1.14?; Hassouna Course (Web Development Samples)
@@ -48,17 +116,26 @@ Screen Shots:
 .. image:: hweb2.png
 	:alt: Web Sample 2
 
+
+.. index:: 
+	pair: What is new in Ring 1.14?; More Samples
+
+More Samples
+============
+
+The next samples are added to the samples folder
+
+	* ring/samples/Language/EnumGenerator folder
+	* ring/samples/Language/DynamicObject folder
+	* ring/samples/UsingQML/sample11 folder
+	* ring/samples/General/BinarokuGame folder
+
 .. index:: 
 	pair: What is new in Ring 1.14?; More Improvements
 
 More Improvements
 =================
 
-* More Samples
-	* ring/samples/Language/EnumGenerator folder
-	* ring/samples/Language/DynamicObject folder
-	* ring/samples/UsingQML/sample11 folder
-	* ring/samples/General/BinarokuGame folder
 
 * Ring Compiler - Pass new lines after the FUNC keyword in anonymous functions
 * Ring Compiler - Pass new lines after the function parameters in anonymous functions
