@@ -16,7 +16,7 @@ List of changes and new features
 Ring 1.14 comes with the next features!
 
 * Using CLOC (Count Lines of Code)
-* Hassouna Course (Web Development Samples)
+* Web Development Samples
 * More Samples
 * More Improvements
 
@@ -87,12 +87,12 @@ Output:
 	
 
 .. index:: 
-	pair: What is new in Ring 1.14?; Hassouna Course (Web Development Samples)
+	pair: What is new in Ring 1.14?; Web Development Samples
 
-Hassouna Course (Web Development Samples)
-=========================================
+Web Development Samples
+=======================
 
-Starting from lesson 301, the course provided lessons about web development.
+Starting from lesson 301, the Hassouna Course provides lessons about web development.
 
 These lessons uses the WebLib library for Back-end web development.
 
@@ -129,6 +129,13 @@ The next samples are added to the samples folder
 	* ring/samples/Language/DynamicObject folder
 	* ring/samples/UsingQML/sample11 folder
 	* ring/samples/General/BinarokuGame folder
+	* ring/samples/Drawing/MatrixMultiply3DRotationCube
+
+Screen Shots:
+
+.. image:: matrix3dcube.png
+	:alt: Matrix 3D Cube
+
 
 .. index:: 
 	pair: What is new in Ring 1.14?; More Improvements
