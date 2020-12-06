@@ -15,10 +15,62 @@ List of changes and new features
 
 Ring 1.14 comes with the next features!
 
-* Using CLOC (Count Lines of Code)
-* Web Development Samples
 * More Samples
+* Web Development Samples
+* Using CLOC (Count Lines of Code)
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring 1.14?; More Samples
+
+More Samples
+============
+
+The next samples are added to the samples folder
+
+	* ring/samples/UsingQML/sample12 folder
+	* ring/samples/General/BinarokuGame folder
+	* ring/samples/Language/EnumGenerator folder
+	* ring/samples/Language/DynamicObject folder
+	* ring/samples/Drawing/MatrixMultiply3DRotationCube
+
+Screen Shots:
+
+.. image:: UsingQtQuick3D.png
+	:alt: Qt Quick 3D
+
+.. image:: matrix3dcube.png
+	:alt: Matrix 3D Cube
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Web Development Samples
+
+Web Development Samples
+=======================
+
+Starting from lesson 301, the Hassouna Course provides lessons about web development.
+
+These lessons uses the WebLib library for Back-end web development.
+
+Special YouTube playlist for these lessons: 
+
+* https://www.youtube.com/watch?v=a3ZYjssAvbI&list=PLHIfW1KZRIfn1cs2BupsdJ7dzCQ7wmHFk
+
+The samples are added to this folder:
+
+* https://github.com/ring-lang/ring/tree/master/samples/UsingArabic/HassounaCourse/WebDevelopment
+
+Screen Shots:
+
+* Calculator Sample
+
+.. image:: hweb1.png
+	:alt: Web Sample 1
+
+* Employee Sample
+
+.. image:: hweb2.png
+	:alt: Web Sample 2
 
 .. index:: 
 	pair: What is new in Ring 1.14?; Using CLOC (Count Lines of Code)
@@ -85,57 +137,6 @@ Output:
 	SUM:                            53           1311            567           9078
 	-------------------------------------------------------------------------------
 	
-
-.. index:: 
-	pair: What is new in Ring 1.14?; Web Development Samples
-
-Web Development Samples
-=======================
-
-Starting from lesson 301, the Hassouna Course provides lessons about web development.
-
-These lessons uses the WebLib library for Back-end web development.
-
-Special YouTube playlist for these lessons: 
-
-* https://www.youtube.com/watch?v=a3ZYjssAvbI&list=PLHIfW1KZRIfn1cs2BupsdJ7dzCQ7wmHFk
-
-The samples are added to this folder:
-
-* https://github.com/ring-lang/ring/tree/master/samples/UsingArabic/HassounaCourse/WebDevelopment
-
-Screen Shots:
-
-* Calculator Sample
-
-.. image:: hweb1.png
-	:alt: Web Sample 1
-
-* Employee Sample
-
-.. image:: hweb2.png
-	:alt: Web Sample 2
-
-
-.. index:: 
-	pair: What is new in Ring 1.14?; More Samples
-
-More Samples
-============
-
-The next samples are added to the samples folder
-
-	* ring/samples/Language/EnumGenerator folder
-	* ring/samples/Language/DynamicObject folder
-	* ring/samples/UsingQML/sample11 folder
-	* ring/samples/General/BinarokuGame folder
-	* ring/samples/Drawing/MatrixMultiply3DRotationCube
-
-Screen Shots:
-
-.. image:: matrix3dcube.png
-	:alt: Matrix 3D Cube
-
 
 .. index:: 
 	pair: What is new in Ring 1.14?; More Improvements
