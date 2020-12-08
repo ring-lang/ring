@@ -274,7 +274,7 @@ static void handlerDraw(uiAreaHandler *a, uiArea *area, uiAreaDrawParams *p)
 	activeArea = area;
 	activeAreaDrawParams = p;
 	oHandler = (customAreaHandler *) a;
-	if ( strcmp(oHandler->cDraw,"") != 0)
+	if ( oHandler->cDraw[0] != '\0')
 		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDraw);
 }
 
@@ -285,7 +285,7 @@ static void handlerMouseEvent(uiAreaHandler *a, uiArea *area, uiAreaMouseEvent *
 	activeArea = area;
 	activeAreaMouseEvent = e;
 	oHandler = (customAreaHandler *) a;
-	if ( strcmp(oHandler->cMouseEvent,"") != 0)
+	if ( oHandler->cMouseEvent[0] != '\0')
 		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseEvent);
 }
 
@@ -295,8 +295,8 @@ static void handlerMouseCrossed(uiAreaHandler *ah, uiArea *a, int left)
 	activeAreaHandler = ah;
 	activeArea = a;
 	activeLeft = left;
-	oHandler = (customAreaHandler *) a;
-	if ( strcmp(oHandler->cMouseCrossed,"") != 0)
+	oHandler = (customAreaHandler *) ah;
+	if ( oHandler->cMouseCrossed[0] != '\0')
 		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseCrossed);
 }
 
@@ -305,8 +305,8 @@ static void handlerDragBroken(uiAreaHandler *ah, uiArea *a)
 	customAreaHandler *oHandler;
 	activeAreaHandler = ah;
 	activeArea = a;
-	oHandler = (customAreaHandler *) a;
-	if ( strcmp(oHandler->cDragBroken,"") != 0)
+	oHandler = (customAreaHandler *) ah;
+	if ( oHandler->cDragBroken[0] != '\0')
 		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDragBroken);
 }
 
@@ -316,8 +316,8 @@ static int handlerKeyEvent(uiAreaHandler *ah, uiArea *a, uiAreaKeyEvent *e)
 	activeAreaHandler = ah;
 	activeArea = a;
 	activeAreaKeyEvent = e;
-	oHandler = (customAreaHandler *) a;
-	if ( strcmp(oHandler->cKeyEvent,"") != 0)
+	oHandler = (customAreaHandler *) ah;
+	if ( oHandler->cKeyEvent[0] != '\0')
 		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cKeyEvent);
 	return 0;
 }
@@ -350,7 +350,7 @@ RING_FUNC(ring_uiNewAreaHandler)
 		return ;
 	}
 
-	oHandler = (customAreaHandler *) malloc(sizeof(customAreaHandler)) ;
+	oHandler = (customAreaHandler *) calloc(1,sizeof(customAreaHandler)) ;
 
 	oHandler->ah.Draw = handlerDraw ;
 	oHandler->ah.MouseEvent = handlerMouseEvent ;
@@ -422,80 +422,93 @@ RING_FUNC(ring_uiUninit)
 
 int libui_event(void *data)
 {
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 	return 1;
 }
 
 void libui_event2(void *data)
 {
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 int libui_windowevent(uiWindow *obj,void *data)
 {
 	activeWindow = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 	return 0;
 }
 
 void libui_buttonevent(uiButton *obj,void *data)
 {
 	activeButton = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_checkboxevent(uiCheckbox *obj,void *data)
 {
 	activeCheckbox = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_entryevent(uiEntry *obj,void *data)
 {
 	activeEntry = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_spinboxevent(uiSpinbox *obj,void *data)
 {
 	activeSpinbox = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_sliderevent(uiSlider *obj,void *data)
 {
 	activeSlider = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_comboboxevent(uiCombobox *obj,void *data)
 {
 	activeCombobox = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_editablecomboboxevent(uiEditableCombobox *obj,void *data)
 {
 	activeEditableCombobox = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_radiobuttonsevent(uiRadioButtons *obj,void *data)
 {
 	activeRadioButtons = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_datetimepickerevent(uiDateTimePicker *obj,void *data)
 {
 	activeDateTimePicker = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_multilineentryevent(uiMultilineEntry *obj,void *data)
 {
 	activeMultilineEntry = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_menuitemevent(uiMenuItem *obj,uiWindow *obj2,void *data)
@@ -508,13 +521,15 @@ void libui_menuitemevent(uiMenuItem *obj,uiWindow *obj2,void *data)
 void libui_fontbuttonevent(uiFontButton *obj,void *data)
 {
 	activeFontButton = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 void libui_colorbuttonevent(uiColorButton *obj,void *data)
 {
 	activeColorButton = obj;
-	ring_vm_runcode(pVMLibUI,(const char *) data);
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
 }
 
 
