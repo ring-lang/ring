@@ -19,11 +19,11 @@ uiControlShow( oWindow )
 uiMain()
 
 func draw
-		Rectangle(0, 0, uiEventAreaWidth(), uiEventAreaHeight(), colorBlack)
-		Rectangle(0, 0, 400, 400, colorWhite)
-		Rectangle(10, 10, 20, 20, colorRed)
-		Rectangle(30, 30, 30, 30, colorGreen)
-		Rectangle(60, 60, 40, 40, colorBlue)
+	Rectangle(0, 0, uiEventAreaWidth(), uiEventAreaHeight(), colorGray)
+	Rectangle(0, 0, 400, 400, colorWhite)
+	Rectangle(10, 10, 20, 20, colorRed)
+	Rectangle(30, 30, 30, 30, colorGreen)
+	Rectangle(60, 60, 40, 40, colorBlue)
 
 func Rectangle x,y,width,height,color
 	oContext = uiEventContext()

@@ -11,12 +11,23 @@ load "ring_libui.rh"
 uiInit()
 
 # Define some colors
+	colorAqua = dec("00FFFF")
+	colorGray = dec("808080")
+	colorNavy = dec("000080")
+	colorSilver = dec("C0C0C0")
 	colorBlack = dec("000000")
-	colorWhite = dec("FFFFFF")	
-	colorRed = dec("FF0000")
-	colorGreen = dec("00FF00")
+	colorGreen = dec("008000")
+	colorOlive = dec("808000")
+	colorTeal = dec("008080")
 	colorBlue = dec("0000FF")
-
+	colorLime = dec("00FF00")
+	colorPurple = dec("800080")
+	colorWhite = dec("FFFFFF")	
+	colorFuchsia = dec("FF00FF")
+	colorMaroon = dec("800000")
+	colorRed = dec("FF0000")
+	colorYellow = dec("FFFF00")
+	colorDarkGray = dec("A9A9A9")
 
 func uiControl x
 	return x
