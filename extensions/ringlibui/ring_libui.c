@@ -3448,6 +3448,12 @@ uiMenuItem *activeMenuItem;
 uiWindow *activeMenuItemWindow;
 uiFontButton *activeFontButton;
 uiColorButton *activeColorButton;
+uiAreaHandler *activeAreaHandler;
+uiArea *activeArea;
+uiAreaDrawParams *activeAreaDrawParams;
+uiAreaKeyEvent *activeAreaKeyEvent;
+uiAreaMouseEvent *activeAreaMouseEvent;
+int activeleft;
 
 typedef struct customAreaHandler {
 	uiAreaHandler ah;
@@ -3462,6 +3468,9 @@ typedef struct customAreaHandler {
 static void handlerDraw(uiAreaHandler *a, uiArea *area, uiAreaDrawParams *p)
 {
 	customAreaHandler *oHandler;
+	activeAreaHandler = a;
+	activeArea = area;
+	activeAreaDrawParams = p;
 	oHandler = (customAreaHandler *) a;
 	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDraw);
 }
@@ -3469,6 +3478,9 @@ static void handlerDraw(uiAreaHandler *a, uiArea *area, uiAreaDrawParams *p)
 static void handlerMouseEvent(uiAreaHandler *a, uiArea *area, uiAreaMouseEvent *e)
 {
 	customAreaHandler *oHandler;
+	activeAreaHandler = a;
+	activeArea = area;
+	activeAreaMouseEvent = e;
 	oHandler = (customAreaHandler *) a;
 	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseEvent);
 }
@@ -3476,6 +3488,9 @@ static void handlerMouseEvent(uiAreaHandler *a, uiArea *area, uiAreaMouseEvent *
 static void handlerMouseCrossed(uiAreaHandler *ah, uiArea *a, int left)
 {
 	customAreaHandler *oHandler;
+	activeAreaHandler = ah;
+	activeArea = a;
+	activeleft = left;
 	oHandler = (customAreaHandler *) a;
 	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseCrossed);
 }
@@ -3483,6 +3498,8 @@ static void handlerMouseCrossed(uiAreaHandler *ah, uiArea *a, int left)
 static void handlerDragBroken(uiAreaHandler *ah, uiArea *a)
 {
 	customAreaHandler *oHandler;
+	activeAreaHandler = ah;
+	activeArea = a;
 	oHandler = (customAreaHandler *) a;
 	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDragBroken);
 }
@@ -3490,6 +3507,9 @@ static void handlerDragBroken(uiAreaHandler *ah, uiArea *a)
 static int handlerKeyEvent(uiAreaHandler *ah, uiArea *a, uiAreaKeyEvent *e)
 {
 	customAreaHandler *oHandler;
+	activeAreaHandler = ah;
+	activeArea = a;
+	activeAreaKeyEvent = e;
 	oHandler = (customAreaHandler *) a;
 	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cKeyEvent);
 	return 0;
@@ -3522,7 +3542,6 @@ RING_FUNC(ring_uiNewAreaHandler)
 		RING_API_ERROR("The Event String size is greater than 255 characters!");
 		return ;
 	}
-	
 
 	oHandler = (customAreaHandler *) malloc(sizeof(customAreaHandler)) ;
 
