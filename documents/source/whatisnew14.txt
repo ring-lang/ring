@@ -153,3 +153,4 @@ More Improvements
 * RingPM - New Package: ObjectsLib (Separate package for the ObjectsLib classes)
 * RingPM - New Package: CLOC (Count Lines of Code)
 * RingQtRuntime Package: Using GUILib & ObjectsLib packages
+* GameEngine - Add the delay function to the Graphics Library: gl_delay() function
