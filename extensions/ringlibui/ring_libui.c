@@ -3453,7 +3453,7 @@ uiArea *activeArea;
 uiAreaDrawParams *activeAreaDrawParams;
 uiAreaKeyEvent *activeAreaKeyEvent;
 uiAreaMouseEvent *activeAreaMouseEvent;
-int activeleft;
+int activeLeft;
 
 typedef struct customAreaHandler {
 	uiAreaHandler ah;
@@ -3472,7 +3472,8 @@ static void handlerDraw(uiAreaHandler *a, uiArea *area, uiAreaDrawParams *p)
 	activeArea = area;
 	activeAreaDrawParams = p;
 	oHandler = (customAreaHandler *) a;
-	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDraw);
+	if ( strcmp(oHandler->cDraw,"") != 0)
+		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDraw);
 }
 
 static void handlerMouseEvent(uiAreaHandler *a, uiArea *area, uiAreaMouseEvent *e)
@@ -3482,7 +3483,8 @@ static void handlerMouseEvent(uiAreaHandler *a, uiArea *area, uiAreaMouseEvent *
 	activeArea = area;
 	activeAreaMouseEvent = e;
 	oHandler = (customAreaHandler *) a;
-	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseEvent);
+	if ( strcmp(oHandler->cMouseEvent,"") != 0)
+		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseEvent);
 }
 
 static void handlerMouseCrossed(uiAreaHandler *ah, uiArea *a, int left)
@@ -3490,9 +3492,10 @@ static void handlerMouseCrossed(uiAreaHandler *ah, uiArea *a, int left)
 	customAreaHandler *oHandler;
 	activeAreaHandler = ah;
 	activeArea = a;
-	activeleft = left;
+	activeLeft = left;
 	oHandler = (customAreaHandler *) a;
-	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseCrossed);
+	if ( strcmp(oHandler->cMouseCrossed,"") != 0)
+		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseCrossed);
 }
 
 static void handlerDragBroken(uiAreaHandler *ah, uiArea *a)
@@ -3501,7 +3504,8 @@ static void handlerDragBroken(uiAreaHandler *ah, uiArea *a)
 	activeAreaHandler = ah;
 	activeArea = a;
 	oHandler = (customAreaHandler *) a;
-	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDragBroken);
+	if ( strcmp(oHandler->cDragBroken,"") != 0)
+		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDragBroken);
 }
 
 static int handlerKeyEvent(uiAreaHandler *ah, uiArea *a, uiAreaKeyEvent *e)
@@ -3511,7 +3515,8 @@ static int handlerKeyEvent(uiAreaHandler *ah, uiArea *a, uiAreaKeyEvent *e)
 	activeArea = a;
 	activeAreaKeyEvent = e;
 	oHandler = (customAreaHandler *) a;
-	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cKeyEvent);
+	if ( strcmp(oHandler->cKeyEvent,"") != 0)
+		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cKeyEvent);
 	return 0;
 }
 
@@ -4089,6 +4094,36 @@ RING_FUNC(ring_uiEventFontButton)
 RING_FUNC(ring_uiEventColorButton)
 {
 	RING_API_RETCPOINTER(activeColorButton,"uiColorButton");
+}
+
+RING_FUNC(ring_uiEventAreaHandler)
+{
+	RING_API_RETCPOINTER(activeAreaHandler,"uiAreaHandler");
+}
+
+RING_FUNC(ring_uiEventArea)
+{
+	RING_API_RETCPOINTER(activeArea,"uiArea");
+}
+
+RING_FUNC(ring_uiEventAreaDrawParams)
+{
+	RING_API_RETCPOINTER(activeAreaDrawParams,"uiAreaDrawParams");
+}
+
+RING_FUNC(ring_uiEventAreaKeyEvent)
+{
+	RING_API_RETCPOINTER(activeAreaKeyEvent,"uiAreaKeyEvent");
+}
+
+RING_FUNC(ring_uiEventAreaMouseEvent)
+{
+	RING_API_RETCPOINTER(activeAreaMouseEvent,"uiAreaMouseEvent");
+}
+
+RING_FUNC(ring_uiEventLeft)
+{
+	RING_API_RETNUMBER(activeLeft);
 }
 
 
@@ -8598,6 +8633,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uieventfontbutton",ring_uiEventFontButton);
 	ring_vm_funcregister("uieventcolorbutton",ring_uiEventColorButton);
 	ring_vm_funcregister("uinewareahandler",ring_uiNewAreaHandler);
+	ring_vm_funcregister("uieventareahandler",ring_uiEventAreaHandler);
+	ring_vm_funcregister("uieventarea",ring_uiEventArea);
+	ring_vm_funcregister("uieventareadrawparams",ring_uiEventAreaDrawParams);
+	ring_vm_funcregister("uieventareakeyevent",ring_uiEventAreaKeyEvent);
+	ring_vm_funcregister("uieventareamouseevent",ring_uiEventAreaMouseEvent);
+	ring_vm_funcregister("uieventleft",ring_uiEventLeft);
 	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
 	ring_vm_funcregister("uimain",ring_uiMain);
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
