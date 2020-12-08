@@ -20,7 +20,7 @@ func uiEventContext
 	return Get_uiAreaDrawParams_Context(uiEventAreaDrawParams())
 
 func uiNewBrush
-	return new_uiDrawBrush()
+	return new_managed_uiDrawBrush()
 
 func uiNewSolidBrush oColor
 	oBrush = uiNewBrush()	
