@@ -10,6 +10,13 @@ load "ring_libui.rh"
 
 uiInit()
 
+# Define some colors
+	colorWhite = dec("FFFFFF")	
+	colorRed = dec("FF0000")
+	colorGreen = dec("00FF00")
+	colorBlue = dec("0000FF")
+
+
 func uiControl x
 	return x
 
