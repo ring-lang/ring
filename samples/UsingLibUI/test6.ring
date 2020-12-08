@@ -1,6 +1,6 @@
 load "libui.ring"
 
-oWindow = uiNewWindow( "Drawing Sample", 400, 400, True)
+oWindow = uiNewWindow( "Drawing Sample", 800, 600, True)
 uiWindowOnClosing(oWindow,"closeApp()")
 
 oAreaHandler = uiNewAreaHandler("draw()","","","","")
@@ -9,14 +9,17 @@ area = uiNewArea(oAreaHandler)
 btnClose = uiNewButton("Close Application")
 uiButtonOnClicked(btnClose,"closeApp()")
 
-g = uiNewGrid() uiGridSetPadded(g, 1) uiWindowSetChild(oWindow, g)
-uiGridAppend(g, area, 0, 0, 0, 0, 0, uiAlignFill, 0, uiAlignEnd)
-uiGridAppend(g, btnClose, 0, 0, 2, 1, 1, uiAlignEnd, 0, uiAlignEnd)
+hbox = uiNewVerticalBox()
+uiBoxSetPadded(hbox, 1)
+uiBoxAppend(hbox,btnClose,0)
+uiBoxAppend(hbox,area,1)
+uiWindowSetChild(oWindow, hbox)
 
 uiControlShow( oWindow )
 uiMain()
 
 func draw
+		Rectangle(0, 0, 800, 600, colorBlack)
 		Rectangle(0, 0, 400, 400, colorWhite)
 		Rectangle(10, 10, 20, 20, colorRed)
 		Rectangle(30, 30, 30, 30, colorGreen)

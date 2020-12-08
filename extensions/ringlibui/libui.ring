@@ -11,6 +11,7 @@ load "ring_libui.rh"
 uiInit()
 
 # Define some colors
+	colorBlack = dec("000000")
 	colorWhite = dec("FFFFFF")	
 	colorRed = dec("FF0000")
 	colorGreen = dec("00FF00")
