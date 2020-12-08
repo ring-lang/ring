@@ -2,7 +2,7 @@
 # Game Engine for 2D Games
 # 2016, Mahmoud Fayed <msfclipper@yahoo.com>
 
-load "gl_libsdl.ring"
+load "gameengine.ring"
 
 gl_start_playing()
 
