@@ -15,3 +15,14 @@ func uiControl x
 
 func uiMenuItem x
 	return x
+
+func uiEventContext 
+	return Get_uiAreaDrawParams_Context(uiEventAreaDrawParams())
+
+func uiNewBrush
+	return new_uiDrawBrush()
+
+func uiNewSolidBrush oColor
+	oBrush = uiNewBrush()	
+	setSolidBrush(oBrush, oColor, 1.0);
+	return oBrush
