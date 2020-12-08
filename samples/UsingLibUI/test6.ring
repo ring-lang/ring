@@ -1,7 +1,6 @@
 load "libui.ring"
-load "stdlibcore.ring"
 
-oWindow = uiNewWindow( "Drawing", 400, 400, True)
+oWindow = uiNewWindow( "Drawing Sample", 400, 400, True)
 uiWindowOnClosing(oWindow,"closeApp()")
 
 oAreaHandler = uiNewAreaHandler("draw()","","","","")
@@ -20,38 +19,44 @@ uiMain()
 func draw
 
 	oContext = uiEventContext()
-	colorWhite = dec("FFFFFF")	
-	colorRed = dec("FF0000")
-	colorGreen = dec("00FF00")
-	colorBlue = dec("0000FF")
 
-	oBrush = uiNewSolidBrush(colorWhite)	
-	oPath = uiDrawNewPath(uiDrawFillModeWinding)
-	uiDrawPathAddRectangle(oPath, 0, 0, 400, 400)
-	uiDrawPathEnd(oPath)
-	uiDrawFill(oContext, oPath, oBrush)
-	uiDrawFreePath(oPath)
+	# Define some colors
+		colorWhite = dec("FFFFFF")	
+		colorRed = dec("FF0000")
+		colorGreen = dec("00FF00")
+		colorBlue = dec("0000FF")
 
-	oBrush = uiNewSolidBrush(colorRed)	
-	oPath = uiDrawNewPath(uiDrawFillModeWinding)
-	uiDrawPathAddRectangle(oPath, 10, 10, 20, 20)
-	uiDrawPathEnd(oPath)
-	uiDrawFill(oContext, oPath, oBrush)
-	uiDrawFreePath(oPath)
+	# Draw White Rectangle
+		oBrush = uiNewSolidBrush(colorWhite)	
+		oPath = uiDrawNewPath(uiDrawFillModeWinding)
+		uiDrawPathAddRectangle(oPath, 0, 0, 400, 400)
+		uiDrawPathEnd(oPath)
+		uiDrawFill(oContext, oPath, oBrush)
+		uiDrawFreePath(oPath)
 
-	oBrush = uiNewSolidBrush(colorGreen)	
-	oPath = uiDrawNewPath(uiDrawFillModeWinding)
-	uiDrawPathAddRectangle(oPath, 30, 30, 30, 30)
-	uiDrawPathEnd(oPath)
-	uiDrawFill(oContext, oPath, oBrush)
-	uiDrawFreePath(oPath)
+	# Draw Red Rectangle
+		oBrush = uiNewSolidBrush(colorRed)	
+		oPath = uiDrawNewPath(uiDrawFillModeWinding)
+		uiDrawPathAddRectangle(oPath, 10, 10, 20, 20)
+		uiDrawPathEnd(oPath)
+		uiDrawFill(oContext, oPath, oBrush)
+		uiDrawFreePath(oPath)
 
-	oBrush = uiNewSolidBrush(colorBlue)	
-	oPath = uiDrawNewPath(uiDrawFillModeWinding)
-	uiDrawPathAddRectangle(oPath, 60, 60, 40, 40)
-	uiDrawPathEnd(oPath)
-	uiDrawFill(oContext, oPath, oBrush)
-	uiDrawFreePath(oPath)
+	# Draw Green Rectangle
+		oBrush = uiNewSolidBrush(colorGreen)	
+		oPath = uiDrawNewPath(uiDrawFillModeWinding)
+		uiDrawPathAddRectangle(oPath, 30, 30, 30, 30)
+		uiDrawPathEnd(oPath)
+		uiDrawFill(oContext, oPath, oBrush)
+		uiDrawFreePath(oPath)
+
+	# Draw Blue Rectangle
+		oBrush = uiNewSolidBrush(colorBlue)	
+		oPath = uiDrawNewPath(uiDrawFillModeWinding)
+		uiDrawPathAddRectangle(oPath, 60, 60, 40, 40)
+		uiDrawPathEnd(oPath)
+		uiDrawFill(oContext, oPath, oBrush)
+		uiDrawFreePath(oPath)
 
 func closeApp
 	uiQuit()
