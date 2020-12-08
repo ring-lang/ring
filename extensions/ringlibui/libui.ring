@@ -27,6 +27,12 @@ func uiMenuItem x
 func uiEventContext 
 	return Get_uiAreaDrawParams_Context(uiEventAreaDrawParams())
 
+func uiEventAreaWidth
+	return get_uiareadrawparams_areawidth(uiEventAreaDrawParams())
+
+func uiEventAreaHeight
+	return get_uiareadrawparams_areaheight(uiEventAreaDrawParams())
+
 func uiNewBrush
 	return new_managed_uiDrawBrush()
 
