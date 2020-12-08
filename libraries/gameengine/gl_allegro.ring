@@ -244,3 +244,6 @@ func gl_draw_point x,y,color
 
 func gl_errormsg cMessage 
 	al_show_native_message_box(NULL,"Game","Error",cMessage,NULL,ALLEGRO_MESSAGEBOX_ERROR)
+
+func gl_delay x
+	al_rest(x/1000)
