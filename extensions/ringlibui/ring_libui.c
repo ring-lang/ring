@@ -827,48 +827,6 @@ RING_FUNC(ring_set_uicontrol_TypeSignature)
 	pMyPointer->TypeSignature = RING_API_GETNUMBER(2);
 }
 
-RING_FUNC(ring_new_uiareahandler)
-{
-	uiAreaHandler *pMyPointer ;
-	pMyPointer = (uiAreaHandler *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaHandler)) ;
-	if (pMyPointer == NULL) 
-	{
-		RING_API_ERROR(RING_OOM);
-		return ;
-	}
-	RING_API_RETCPOINTER(pMyPointer,"uiAreaHandler");
-}
-
-RING_FUNC(ring_new_managed_uiareahandler)
-{
-	uiAreaHandler *pMyPointer ;
-	pMyPointer = (uiAreaHandler *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaHandler)) ;
-	if (pMyPointer == NULL) 
-	{
-		RING_API_ERROR(RING_OOM);
-		return ;
-	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaHandler",ring_state_free);
-}
-
-RING_FUNC(ring_destroy_uiareahandler)
-{
-	uiAreaHandler *pMyPointer ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA) ;
-		return ;
-	}
-	if ( ! RING_API_ISCPOINTER(1) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaHandler");
-	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
-		RING_API_SETNULLPOINTER(1);
-	}
-}
-
 RING_FUNC(ring_new_uiareadrawparams)
 {
 	uiAreaDrawParams *pMyPointer ;
@@ -909,6 +867,40 @@ RING_FUNC(ring_destroy_uiareadrawparams)
 		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
+}
+
+RING_FUNC(ring_get_uiareadrawparams_Context)
+{
+	uiAreaDrawParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaDrawParams");
+	RING_API_RETCPOINTER(pMyPointer->Context,"uiDrawContext");
+}
+
+RING_FUNC(ring_set_uiareadrawparams_Context)
+{
+	uiAreaDrawParams *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"uiAreaDrawParams");
+	pMyPointer->Context = (uiDrawContext *) RING_API_GETCPOINTER(2,"uiDrawContext");
 }
 
 RING_FUNC(ring_get_uiareadrawparams_AreaWidth)
@@ -3566,6 +3558,20 @@ RING_FUNC(ring_uiNewAreaHandler)
 
 }
 
+static void setSolidBrush(uiDrawBrush *brush, uint32_t color, double alpha)
+{
+	uint8_t component;
+
+	brush->Type = uiDrawBrushTypeSolid;
+	component = (uint8_t) ((color >> 16) & 0xFF);
+	brush->R = ((double) component) / 255;
+	component = (uint8_t) ((color >> 8) & 0xFF);
+	brush->G = ((double) component) / 255;
+	component = (uint8_t) (color & 0xFF);
+	brush->B = ((double) component) / 255;
+	brush->A = alpha;
+}
+
 
 RING_FUNC(ring_uiInit)
 {
@@ -4126,6 +4132,29 @@ RING_FUNC(ring_uiEventLeft)
 	RING_API_RETNUMBER(activeLeft);
 }
 
+
+
+RING_FUNC(ring_setSolidBrush)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	setSolidBrush((uiDrawBrush *) RING_API_GETCPOINTER(1,"uiDrawBrush"), (uint32_t ) RING_API_GETNUMBER(2), (double ) RING_API_GETNUMBER(3));
+}
 
 
 RING_FUNC(ring_uiFreeInitError)
@@ -8639,6 +8668,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uieventareakeyevent",ring_uiEventAreaKeyEvent);
 	ring_vm_funcregister("uieventareamouseevent",ring_uiEventAreaMouseEvent);
 	ring_vm_funcregister("uieventleft",ring_uiEventLeft);
+	ring_vm_funcregister("setsolidbrush",ring_setSolidBrush);
 	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
 	ring_vm_funcregister("uimain",ring_uiMain);
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
@@ -9018,12 +9048,11 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_uicontrol_ossignature",ring_set_uicontrol_OSSignature);
 	ring_vm_funcregister("get_uicontrol_typesignature",ring_get_uicontrol_TypeSignature);
 	ring_vm_funcregister("set_uicontrol_typesignature",ring_set_uicontrol_TypeSignature);
-	ring_vm_funcregister("new_uiareahandler",ring_new_uiareahandler);
-	ring_vm_funcregister("new_managed_uiareahandler",ring_new_managed_uiareahandler);
-	ring_vm_funcregister("destroy_uiareahandler",ring_destroy_uiareahandler);
 	ring_vm_funcregister("new_uiareadrawparams",ring_new_uiareadrawparams);
 	ring_vm_funcregister("new_managed_uiareadrawparams",ring_new_managed_uiareadrawparams);
 	ring_vm_funcregister("destroy_uiareadrawparams",ring_destroy_uiareadrawparams);
+	ring_vm_funcregister("get_uiareadrawparams_context",ring_get_uiareadrawparams_Context);
+	ring_vm_funcregister("set_uiareadrawparams_context",ring_set_uiareadrawparams_Context);
 	ring_vm_funcregister("get_uiareadrawparams_areawidth",ring_get_uiareadrawparams_AreaWidth);
 	ring_vm_funcregister("set_uiareadrawparams_areawidth",ring_set_uiareadrawparams_AreaWidth);
 	ring_vm_funcregister("get_uiareadrawparams_areaheight",ring_get_uiareadrawparams_AreaHeight);

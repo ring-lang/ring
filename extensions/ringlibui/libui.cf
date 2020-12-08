@@ -144,8 +144,7 @@ uiTableValueTypeColor
 <struct>
 uiInitOptions
 uiControl {Signature, OSSignature, TypeSignature}
-uiAreaHandler
-uiAreaDrawParams {AreaWidth,AreaHeight, ClipX,ClipY,ClipWidth,ClipHeight}
+uiAreaDrawParams {uiDrawContext *Context,AreaWidth,AreaHeight, ClipX,ClipY,ClipWidth,ClipHeight}
 uiDrawMatrix {M11,M12,M21,M22,M31,M32}
 uiTableTextColumnOptionalParams {ColorModelColumn}
 uiDrawBrush {Type,R,G,B,A,X0,Y0,X1,Y1,OuterRadius,NumStops}
@@ -367,6 +366,20 @@ RING_FUNC(ring_uiNewAreaHandler)
 
 	RING_API_RETCPOINTER(oHandler,"uiAreaHandler");
 
+}
+
+static void setSolidBrush(uiDrawBrush *brush, uint32_t color, double alpha)
+{
+	uint8_t component;
+
+	brush->Type = uiDrawBrushTypeSolid;
+	component = (uint8_t) ((color >> 16) & 0xFF);
+	brush->R = ((double) component) / 255;
+	component = (uint8_t) ((color >> 8) & 0xFF);
+	brush->G = ((double) component) / 255;
+	component = (uint8_t) (color & 0xFF);
+	brush->B = ((double) component) / 255;
+	brush->A = alpha;
 }
 
 
@@ -931,6 +944,8 @@ RING_FUNC(ring_uiEventLeft)
 
 
 </code>
+
+void setSolidBrush(uiDrawBrush *brush, uint32_t color, double alpha)
 
 void uiFreeInitError(const char *err)
 
