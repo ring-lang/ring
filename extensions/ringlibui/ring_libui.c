@@ -3449,6 +3449,100 @@ uiWindow *activeMenuItemWindow;
 uiFontButton *activeFontButton;
 uiColorButton *activeColorButton;
 
+typedef struct customAreaHandler {
+	uiAreaHandler ah;
+	char cDraw[256];
+	char cMouseEvent[256];
+	char cMouseCrossed[256];
+	char cDragBroken[256];
+	char cKeyEvent[256];
+} customAreaHandler;
+
+
+static void handlerDraw(uiAreaHandler *a, uiArea *area, uiAreaDrawParams *p)
+{
+	customAreaHandler *oHandler;
+	oHandler = (customAreaHandler *) a;
+	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDraw);
+}
+
+static void handlerMouseEvent(uiAreaHandler *a, uiArea *area, uiAreaMouseEvent *e)
+{
+	customAreaHandler *oHandler;
+	oHandler = (customAreaHandler *) a;
+	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseEvent);
+}
+
+static void handlerMouseCrossed(uiAreaHandler *ah, uiArea *a, int left)
+{
+	customAreaHandler *oHandler;
+	oHandler = (customAreaHandler *) a;
+	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseCrossed);
+}
+
+static void handlerDragBroken(uiAreaHandler *ah, uiArea *a)
+{
+	customAreaHandler *oHandler;
+	oHandler = (customAreaHandler *) a;
+	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDragBroken);
+}
+
+static int handlerKeyEvent(uiAreaHandler *ah, uiArea *a, uiAreaKeyEvent *e)
+{
+	customAreaHandler *oHandler;
+	oHandler = (customAreaHandler *) a;
+	ring_vm_runcode(pVMLibUI,(const char *) oHandler->cKeyEvent);
+	return 0;
+}
+
+RING_FUNC(ring_uiNewAreaHandler)
+{
+
+	customAreaHandler *oHandler;
+
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR("The function expect 5 parameters") ;
+		return ;
+	}
+
+	if ( ( ! RING_API_ISSTRING(1) ) ||
+			 ( ! RING_API_ISSTRING(2) ) ||
+			 ( ! RING_API_ISSTRING(3) ) ||
+			 ( ! RING_API_ISSTRING(4) ) ||
+			 ( ! RING_API_ISSTRING(5) )  ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	if ( ( strlen( RING_API_GETSTRING(1) ) > 255 ) ||
+			 ( strlen( RING_API_GETSTRING(2) ) > 255 ) ||
+			 ( strlen( RING_API_GETSTRING(3) ) > 255 ) ||
+			 ( strlen( RING_API_GETSTRING(4) ) > 255 ) ||
+			 ( strlen( RING_API_GETSTRING(5) ) > 255 )  ) {
+		RING_API_ERROR("The Event String size is greater than 255 characters!");
+		return ;
+	}
+	
+
+	oHandler = (customAreaHandler *) malloc(sizeof(customAreaHandler)) ;
+
+	oHandler->ah.Draw = handlerDraw ;
+	oHandler->ah.MouseEvent = handlerMouseEvent ;
+	oHandler->ah.MouseCrossed = handlerMouseCrossed ;
+	oHandler->ah.DragBroken = handlerDragBroken ;
+	oHandler->ah.KeyEvent =  handlerKeyEvent ;
+
+	strcpy(oHandler->cDraw,RING_API_GETSTRING(1));
+	strcpy(oHandler->cMouseEvent,RING_API_GETSTRING(2));
+	strcpy(oHandler->cMouseCrossed,RING_API_GETSTRING(3));
+	strcpy(oHandler->cDragBroken,RING_API_GETSTRING(4));
+	strcpy(oHandler->cKeyEvent,RING_API_GETSTRING(5));
+
+	RING_API_RETCPOINTER(oHandler,"uiAreaHandler");
+
+}
+
+
 RING_FUNC(ring_uiInit)
 {
 	uiInitOptions o;
@@ -8484,6 +8578,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uieventmenuitemwindow",ring_uiEventMenuItemWindow);
 	ring_vm_funcregister("uieventfontbutton",ring_uiEventFontButton);
 	ring_vm_funcregister("uieventcolorbutton",ring_uiEventColorButton);
+	ring_vm_funcregister("uinewareahandler",ring_uiNewAreaHandler);
 	ring_vm_funcregister("uifreeiniterror",ring_uiFreeInitError);
 	ring_vm_funcregister("uimain",ring_uiMain);
 	ring_vm_funcregister("uimainsteps",ring_uiMainSteps);
