@@ -25,6 +25,7 @@ func draw
 	Rectangle(30, 30, 30, 30, colorGreen)
 	Rectangle(60, 60, 40, 40, colorBlue)
 
+# The Rectangle function is now part of RingLibUI as uiRectangle()
 func Rectangle x,y,width,height,color
 	oContext = uiEventContext()
 	oBrush = uiNewSolidBrush(color)	

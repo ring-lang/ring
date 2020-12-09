@@ -47,6 +47,15 @@ func uiEventAreaHeight
 func uiNewBrush
 	return new_managed_uiDrawBrush()
 
+func uiRectangle x,y,width,height,color
+	oContext = uiEventContext()
+	oBrush = uiNewSolidBrush(color)	
+	oPath = uiDrawNewPath(uiDrawFillModeWinding)
+	uiDrawPathAddRectangle(oPath, x, y, width, height)
+	uiDrawPathEnd(oPath)
+	uiDrawFill(oContext, oPath, oBrush)
+	uiDrawFreePath(oPath)
+
 func uiNewSolidBrush oColor
 	oBrush = uiNewBrush()	
 	setSolidBrush(oBrush, oColor, 1.0);
