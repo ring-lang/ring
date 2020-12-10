@@ -17,4 +17,9 @@ To Run The Application
 ![dbtables](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/dbtables.png)
 
 4) Change port and password in file "mycoffee_webapp/db.ring"
+
+![setdbnameincode](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/setdbnameincode.png)
+
 5) Run mycoffee_webapp/index.ring from Ring Notepad using CTRL+F6 (Run Web Application) 
+
+![runwebapp](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/runwebapp.png)
