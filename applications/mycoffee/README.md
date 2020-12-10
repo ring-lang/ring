@@ -1,5 +1,14 @@
-Screen Shots
-============
+# Contents:
+
+- [Introduction](#Introduction)
+- [Screen shots](#Screen-Shots)
+- [How to install the application](#How-to-install-the-application)
+
+# Introduction
+
+Web application developed using Ring WebLib by Ahmed Hassouna
+
+# Screen Shots
 
 ![shot1](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot1.png)
 ![shot2](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot2.png)
@@ -12,8 +21,7 @@ Screen Shots
 ![shot9](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot9.png)
 ![shot10](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot10.png)
 
-To Run The Application
-======================
+# How to install the application
 
 1) Install postgreSQL
 2) Run pgAdmin and Create database: mycoffeedb
