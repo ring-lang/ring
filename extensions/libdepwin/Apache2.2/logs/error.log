@@ -293,3 +293,23 @@ Child 12104: Child process is running
 [Sun Oct 25 07:42:41 2020] [notice] Child 2404: Acquired the start mutex.
 [Sun Oct 25 07:42:41 2020] [notice] Child 2404: Starting 64 worker threads.
 [Sun Oct 25 07:42:41 2020] [notice] Child 2404: Starting thread to listen on port 8080.
+[Thu Dec 10 18:45:49 2020] [warn] pid file B:/ring/extensions/libdepwin/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu Dec 10 18:45:49 2020] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Thu Dec 10 18:45:49 2020] [notice] Server built: Jul 10 2013 01:52:12
+[Thu Dec 10 18:45:49 2020] [notice] Parent: Created child process 672
+[Thu Dec 10 18:45:49 2020] [notice] Child 672: Child process is running
+[Thu Dec 10 18:45:49 2020] [notice] Child 672: Acquired the start mutex.
+[Thu Dec 10 18:45:49 2020] [notice] Child 672: Starting 64 worker threads.
+[Thu Dec 10 18:45:49 2020] [notice] Child 672: Starting thread to listen on port 8080.
+[Thu Dec 10 18:45:54 2020] [error] [client 127.0.0.1] File does not exist: B:/ring/applications/mycoffee/mycoffee_webapp/favicon.ico, referer: http://localhost:8080/index.ring
+[Thu Dec 10 18:53:06 2020] [error] [client 127.0.0.1] File does not exist: B:/ring/applications/mycoffee/mycoffee_webapp/favicon.ico, referer: http://localhost:8080/index.ring
+[Thu Dec 10 19:19:44 2020] [warn] pid file B:/ring/extensions/libdepwin/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu Dec 10 19:19:44 2020] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Thu Dec 10 19:19:44 2020] [notice] Server built: Jul 10 2013 01:52:12
+[Thu Dec 10 19:19:44 2020] [notice] Parent: Created child process 7624
+[Thu Dec 10 19:19:44 2020] [notice] Child 7624: Child process is running
+[Thu Dec 10 19:19:44 2020] [notice] Child 7624: Acquired the start mutex.
+[Thu Dec 10 19:19:44 2020] [notice] Child 7624: Starting 64 worker threads.
+[Thu Dec 10 19:19:44 2020] [notice] Child 7624: Starting thread to listen on port 8080.
+[Thu Dec 10 19:19:49 2020] [error] [client 127.0.0.1] File does not exist: B:/ring/applications/mycoffee/mycoffee_webapp/favicon.ico, referer: http://localhost:8080/index.ring
+[Thu Dec 10 19:31:06 2020] [error] [client 127.0.0.1] File does not exist: B:/ring/applications/mycoffee/mycoffee_webapp/favicon.ico, referer: http://localhost:8080/index.ring
