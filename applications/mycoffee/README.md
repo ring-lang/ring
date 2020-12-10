@@ -1,3 +1,17 @@
+Screen Shots
+============
+
+![shot1](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot1.png)
+![shot2](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot2.png)
+![shot3](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot3.png)
+![shot4](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot4.png)
+![shot5](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot5.png)
+![shot6](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot6.png)
+![shot7](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot7.png)
+![shot8](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot8.png)
+![shot9](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot9.png)
+![shot10](https://raw.githubusercontent.com/ring-lang/ring/master/applications/mycoffee/images/shot10.png)
+
 To Run The Application
 ======================
 
