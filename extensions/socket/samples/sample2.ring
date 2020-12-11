@@ -12,3 +12,4 @@ msg = recv(sock,1024)
 
 close(sock)
 ? "socket connection closed"
+

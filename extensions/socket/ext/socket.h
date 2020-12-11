@@ -19,3 +19,4 @@ RING_API void ringlib_init(RingState *pRingState);
 #define RING_VM_POINTER_SOCKET "socket"
 
 #endif
+
