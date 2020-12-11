@@ -20,13 +20,13 @@ typedef struct ring_vm_socket_obj {
     int sockfd;
     struct sockaddr_in addr;
 
-} SOCKET;
+} RING_SOCKET;
 
 
 
 void ring_vm_socket_init(void *pPointer) {
 
-    SOCKET *sock = (SOCKET *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SOCKET));
+    RING_SOCKET *sock = (RING_SOCKET *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(RING_SOCKET));
     int proto = 0, opt;
 
     if(RING_API_PARACOUNT < 2) {
@@ -73,12 +73,12 @@ void ring_vm_socket_bind(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISSTRING(2) && !RING_API_ISNUMBER(3)) {
+    if(!RING_API_ISCPOINTER(1) && !RING_API_ISSTRING(2) && !RING_API_ISNUMBER(3)) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
 
-    SOCKET *sock = (SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
     const char *host = RING_API_GETSTRING(2);
     const int port = (int) RING_API_GETNUMBER(3);
     sock->addr.sin_addr.s_addr = inet_addr(host);
@@ -93,8 +93,18 @@ void ring_vm_socket_bind(void *pPointer) {
 
 void ring_vm_socket_listen(void *pPointer) {
  
-    SOCKET *sock = (SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
     int n;
+
+    if(RING_API_PARACOUNT < 1) {
+        RING_API_ERROR(RING_API_MISS2PARA);
+        return;
+    }
+
+    if(!RING_API_ISCPOINTER(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
 
     if(RING_API_PARACOUNT == 1)
         n = 5;
@@ -118,8 +128,19 @@ void ring_vm_socket_listen(void *pPointer) {
 }
 
 void ring_vm_socket_accept(void *pPointer) {
-    SOCKET *sock = (SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    SOCKET *newsockfd = (SOCKET *) ring_state_malloc(((VM *) pPointer)->pRingState, sizeof(SOCKET));
+
+    if(RING_API_PARACOUNT != 1) {
+        RING_API_ERROR(RING_API_MISS2PARA);
+        return;
+    }
+
+    if(!RING_API_ISCPOINTER(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    RING_SOCKET *newsockfd = (RING_SOCKET *) ring_state_malloc(((VM *) pPointer)->pRingState, sizeof(RING_SOCKET));
     int addr_len = sizeof(sock->addr);
     if((newsockfd->sockfd = accept(sock->sockfd,(struct sockaddr *)&sock->addr,(socklen_t *)&addr_len)) < 0)
     {
@@ -136,12 +157,12 @@ void ring_vm_socket_send(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISSTRING(2)) {
+    if(!RING_API_ISCPOINTER(1) && !RING_API_ISSTRING(2)) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
 
-    SOCKET *sockfd = (SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    RING_SOCKET *sockfd = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
     char *Msg = RING_API_GETSTRING(2);
     
     send(sockfd->sockfd,Msg,strlen(Msg),0);
@@ -154,16 +175,16 @@ void ring_vm_socket_recv(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISNUMBER(2)) {
+    if(!RING_API_ISCPOINTER(1) && !RING_API_ISNUMBER(2)) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
 
-    SOCKET *sockfd = (SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    int buffer = (int) RING_API_GETNUMBER(2);
-
+    RING_SOCKET *sockfd = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    int buffer = (int) RING_API_GETNUMBER(2) , bytes_read;
     char Msg[buffer];
-    recv(sockfd->sockfd,Msg,buffer,0);
+    bytes_read = recv(sockfd->sockfd,Msg,buffer,0);
+    Msg[bytes_read] = 0;
 
     RING_API_RETSTRING(Msg);
 }
@@ -174,12 +195,12 @@ void ring_vm_socket_connect(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISSTRING(2) && !RING_API_ISNUMBER(3)) {
+    if(!RING_API_ISCPOINTER(1) && !RING_API_ISSTRING(2) && !RING_API_ISNUMBER(3)) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
 
-    SOCKET *sock = (SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
     char *host = RING_API_GETSTRING(2);
     int port = (int) RING_API_GETNUMBER(3) , n;
     
@@ -205,7 +226,12 @@ void ring_vm_socket_close(void *pPointer) {
         return;
     }
 
-    SOCKET *sock = (SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    if(!RING_API_ISCPOINTER(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
     close(sock->sockfd);
     ring_state_free(((VM *) pPointer)->pRingState,sock);
 	RING_API_SETNULLPOINTER(1);
