@@ -15,10 +15,31 @@ List of changes and new features
 
 Ring 1.14 comes with the next features!
 
+* MyCoffee (Web Application)
 * More Samples
 * Web Development Samples
 * Using CLOC (Count Lines of Code)
 * More Improvements
+
+
+.. index:: 
+	pair: What is new in Ring 1.14?; MyCoffee (Web Application)
+
+MyCoffee (Web Application)
+==========================
+
+A web application that uses the WebLib library and PostgreSQL database
+
+Screen Shots:
+
+.. image:: mycoffee1.png
+	:alt: MyCoffee1
+
+.. image:: mycoffee2.png
+	:alt: MyCoffee2
+
+.. image:: mycoffee3.png
+	:alt: MyCoffee3
 
 .. index:: 
 	pair: What is new in Ring 1.14?; More Samples

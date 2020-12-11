@@ -313,3 +313,11 @@ Child 12104: Child process is running
 [Thu Dec 10 19:19:44 2020] [notice] Child 7624: Starting thread to listen on port 8080.
 [Thu Dec 10 19:19:49 2020] [error] [client 127.0.0.1] File does not exist: B:/ring/applications/mycoffee/mycoffee_webapp/favicon.ico, referer: http://localhost:8080/index.ring
 [Thu Dec 10 19:31:06 2020] [error] [client 127.0.0.1] File does not exist: B:/ring/applications/mycoffee/mycoffee_webapp/favicon.ico, referer: http://localhost:8080/index.ring
+[Thu Dec 10 19:48:36 2020] [warn] pid file B:/ring/extensions/libdepwin/Apache2.2/logs/httpd.pid overwritten -- Unclean shutdown of previous Apache run?
+[Thu Dec 10 19:48:36 2020] [notice] Apache/2.2.25 (Win32) configured -- resuming normal operations
+[Thu Dec 10 19:48:36 2020] [notice] Server built: Jul 10 2013 01:52:12
+[Thu Dec 10 19:48:36 2020] [notice] Parent: Created child process 11892
+[Thu Dec 10 19:48:36 2020] [notice] Child 11892: Child process is running
+[Thu Dec 10 19:48:36 2020] [notice] Child 11892: Acquired the start mutex.
+[Thu Dec 10 19:48:36 2020] [notice] Child 11892: Starting 64 worker threads.
+[Thu Dec 10 19:48:36 2020] [notice] Child 11892: Starting thread to listen on port 8080.
