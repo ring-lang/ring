@@ -5,3 +5,4 @@ host = gethostbyname("google.com")
 
 see "=========================" + nl
 ? gethostbyaddr(host)
+

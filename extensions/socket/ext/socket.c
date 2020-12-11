@@ -145,7 +145,7 @@ void ring_vm_socket_send(void *pPointer) {
     char *Msg = RING_API_GETSTRING(2);
     
     send(sockfd->sockfd,Msg,strlen(Msg),0);
-    RING_API_RETSTRING(Msg);
+    
 }
 
 void ring_vm_socket_recv(void *pPointer) {
