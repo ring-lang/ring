@@ -1,0 +1,28 @@
+
+- socket(Address Family , Connection type , proto = 0)  -> return <socket handler>
+- bind(socket handler , host , port)
+- listen(socket handler , backlog)
+- accept(socket handler)    -> return <connection handler>
+- send(connection handler OR socket handler if it the client  , "Your Message")
+- recv(connection handler OR socket handler if it the client)   -> return <data>
+- connect(socket handler , host , port)    -> return <0> if successful
+- close(socket handler)
+
+------------------------------------------------------------------------------------------
+
+- gethostbyname(hostname)       ->  return  <IP Address>
+- gethostbyaddr(ip address)     ->  return  <List of host info>
+
+------------------------------------------------------------------------------------------
+
+Address Family :   
+                - AF_INET       >>  mean use IPV4
+                - AF_INET6      >>  ........ IPV6
+
+Connection type :
+                - SOCK_STREAM   >>  mean use TCP Protocol
+                - SOCK_DGRAM    >>  ........ UDP ........
+
+------------------------------------------------------------------------------------------
+
+You Can Take a Look on Samples Folder For More Info
