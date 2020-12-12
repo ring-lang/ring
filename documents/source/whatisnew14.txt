@@ -60,8 +60,8 @@ Screen Shots:
 .. image:: UsingQtQuick3D.png
 	:alt: Qt Quick 3D
 
-.. image:: matrix3dcube.png
-	:alt: Matrix 3D Cube
+.. image:: drawpi.png
+	:alt: Matrix Multiplication
 
 .. index:: 
 	pair: What is new in Ring 1.14?; Web Development Samples
