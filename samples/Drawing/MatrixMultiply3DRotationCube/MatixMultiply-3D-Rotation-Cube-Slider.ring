@@ -15,6 +15,7 @@ NbrRotation = 8.2 * PI
 IncRotation = 0.1       ### 0.1
 //eIncrXV.text()  = 0.1 ### Increment rotation by:
 
+
 t1 = 2    ### Time per Iteration
 t2 = 3
 t3 = 1
@@ -27,23 +28,176 @@ yHeight = 800   ### Canvas position on Screen
   
 ###--------------
 
-colorGreen  = new qcolor() { setrgb(000,255,000,255) }
-colorRed    = new qcolor() { setrgb(255,000,000,255) }
-colorBlue   = new qcolor() { setrgb(000,000,255,255) }
-colorWhite  = new qcolor() { setrgb(255,255,255,064) }  ### 64 faint line
-colorBlack  = new qcolor() { setrgb(000,000,000,255) }
-colorYellow = new qcolor() { setrgb(255,255,000,255) }  ### Yellow
+colorGreen   = new qcolor() { setrgb(000,255,000,255) }
+colorRed     = new qcolor() { setrgb(255,000,000,255) }
+colorBlue    = new qcolor() { setrgb(000,000,255,255) }
+colorWhite   = new qcolor() { setrgb(255,255,255,064) }  ### 64 faint line
+colorBlack   = new qcolor() { setrgb(000,000,000,255) }
+colorYellow  = new qcolor() { setrgb(255,255,000,255) }  ### Yellow
+colorGray    = new qcolor() { setrgb(128,128,128,255) }  ### 
+colorMagenta = new qcolor() { setrgb(000,255,255,255) }  ### 
 
-penGreen    = new qpen() { setcolor(colorGreen)  setwidth(2) }
-penRed      = new qpen() { setcolor(colorRed)    setwidth(2) }
-penBlue     = new qpen() { setcolor(colorBlue)   setwidth(2) }
-penWhite    = new qpen() { setcolor(colorWhite)  setwidth(1) }
-penBlack    = new qpen() { setcolor(colorBlack)  setwidth(1) }
-penYellow   = new qpen() { setcolor(colorYellow) setwidth(2) }
+penGreen    = new qpen() { setcolor(colorGreen)   setwidth(2) }
+penRed      = new qpen() { setcolor(colorRed)     setwidth(2) }
+penBlue     = new qpen() { setcolor(colorBlue)    setwidth(2) }
+penWhite    = new qpen() { setcolor(colorWhite)   setwidth(1) }
+penBlack    = new qpen() { setcolor(colorBlack)   setwidth(1) }
+penYellow   = new qpen() { setcolor(colorYellow)  setwidth(2) }
+penGray     = new qpen() { setcolor(colorGray)    setwidth(2) }
+penMagenta  = new qpen() { setcolor(colorMagenta) setwidth(2) }
 
-brushS      = new qbrush() { setstyle(1)  setcolor (colorYellow)}   ### Yellow
-brushSB     = new qbrush() { setstyle(1)  setcolor (colorBlack)}    ### Black
+brushSR     = new qbrush() { setstyle(1)  setcolor (colorRed)}      ### Red
+brushSG     = new qbrush() { setstyle(1)  setcolor (colorGreen)}    ### Green
+brushSB     = new qbrush() { setstyle(1)  setcolor (colorBlue)}     ### Blue
+brushSY     = new qbrush() { setstyle(1)  setcolor (colorYellow)}   ### Yellow
+brushSGR    = new qbrush() { setstyle(1)  setcolor (colorGray)}     ### 
+brushSW     = new qbrush() { setstyle(1)  setcolor (colorWhite)}    ### 
+brushSM     = new qbrush() { setstyle(1)  setcolor (colorMagenta)}  ### 
+
 brushE      = new qbrush() { setstyle(0)  setcolor (colorYellow)}   ### Empty
+
+ShapeCube = [[ -100, -100, -100],        // TopRight  x,y,z Cube Shape
+             [  100, -100, -100],        // TopLeft
+             [  100,  100, -100],        // BottomLeft
+             [ -100,  100, -100],        // BottomRight      
+             
+             [ -100, -100,  100],
+             [  100, -100,  100],
+             [  100,  100,  100],
+             [ -100,  100,  100]]          
+
+
+ShapeTriangle =  [[ -100, -100, 000],
+                  [  100, -100, 000],
+                  [  000,  100, 000],
+                  [  000,  000, 100]] 
+
+ShapePI = [
+[  106,   25, 100, 0],
+[  106,   50, 100, 0],
+[  106,   75, 100, 0],
+[  109,  100, 100, 0],
+[  117,  125, 100, 0],
+[  125,  134, 100, 0],
+[  150,  144, 100, 0],
+[  175,  141, 100, 0],
+[  197,  125, 100, 0],
+[  200,  123, 100, 0],
+[  209,  100, 100, 0],
+[  210,   88, 100, 0],
+[  227,   88, 100, 0],
+[  226,  100, 100, 0],
+[  221,  125, 100, 0],
+[  213,  150, 100, 0],
+[  201,  175, 100, 0],
+[  179,  200, 100, 0],
+[  175,  203, 100, 0],
+[  150,  214, 100, 0],
+[  125,  218, 100, 0],
+[  100,  215, 100, 0],
+[   75,  205, 100, 0],
+[   66,  200, 100, 0],
+[   49,  185, 100, 0],
+[   43,  175, 100, 0],
+[   37,  150, 100, 0],
+[   37,  125, 100, 0],
+[   37,  100, 100, 0],
+[   38,   75, 100, 0],
+[   40,   50, 100, 0],
+[   42,   25, 100, 0],
+[   44,    0, 100, 0],
+[   47,  -25, 100, 0],
+[   49,  -50, 100, 0],
+[   51,  -75, 100, 0],
+[   53, -100, 100, 0],
+[   55, -125, 100, 0],
+[   58, -150, 100, 0],
+[   50, -150, 100, 0],
+[   25, -150, 100, 0],
+[    0, -150, 100, 0],
+[  -25, -150, 100, 0],
+[  -45, -150, 100, 0],
+[  -47, -125, 100, 0],
+[  -49, -100, 100, 0],
+[  -51,  -75, 100, 0],
+[  -54,  -50, 100, 0],
+[  -57,  -25, 100, 0],
+[  -60,    0, 100, 0],
+[  -62,   25, 100, 0],
+[  -65,   50, 100, 0],
+[  -67,   75, 100, 0],
+[  -70,  100, 100, 0],
+[  -73,  125, 100, 0],
+[  -77,  150, 100, 0],
+[  -85,  175, 100, 0],
+[ -100,   202, 100, 0],
+[ -125,   220, 100, 0],
+[ -150,   220, 100, 0],
+[ -175,   205, 100, 0],
+[ -178,   200, 100, 0],
+[ -189,   175, 100, 0],
+[ -186,   150, 100, 0],
+[ -170,   125, 100, 0],
+[ -152,   100, 100, 0],
+[ -136,    75, 100, 0],
+[ -122,    50, 100, 0],
+[ -113,    25, 100, 0],
+[ -105,     0, 100, 0],
+[ -100,   -25, 100, 0],
+[  -95,   -50, 100, 0],
+[  -92,   -75, 100, 0],
+[  -89,  -100, 100, 0],
+[  -87,  -125, 100, 0],
+[  -87,  -150, 100, 0],
+[ -100,  -150, 100, 0],
+[ -125,  -150, 100, 0],
+[ -150,  -145, 100, 0],
+[ -175,  -132, 100, 0],
+[ -182,  -125, 100, 0],
+[ -200,  -100, 100, 0],
+[ -209,   -85, 100, 0],
+[ -225,   -85, 100, 0],
+[ -220,  -100, 100, 0],
+[ -211,  -125, 100, 0],
+[ -203,  -150, 100, 0],
+[ -190,  -175, 100, 0],
+[ -175,  -190, 100, 0],
+[ -158,  -200, 100, 0],
+[ -150,  -203, 100, 0],
+[ -125,  -209, 100, 0],
+[ -100,  -212, 100, 0],
+[  -75,  -215, 100, 0],
+[  -50,  -217, 100, 0],
+[  -25,  -219, 100, 0],
+[    0,  -219, 100, 0],
+[   25,  -220, 100, 0],
+[   50,  -220, 100, 0],
+[   75,  -220, 100, 0],
+[  100,  -220, 100, 0],
+[  125,  -220, 100, 0],
+[  150,  -220, 100, 0],
+[  175,  -220, 100, 0],
+[  200,  -220, 100, 0],
+[  225,  -220, 100, 0],
+[  225,  -200, 100, 0],
+[  225,  -175, 100, 0],
+[  225,  -150, 100, 0],
+[  200,  -150, 100, 0],
+[  175,  -150, 100, 0],
+[  150,  -150, 100, 0],
+[  125,  -150, 100, 0],
+[  117,  -150, 100, 0],
+[  116,  -125, 100, 0],
+[  115,  -100, 100, 0],
+[  113,   -75, 100, 0],
+[  112,   -50, 100, 0],
+[  110,   -25, 100, 0],
+[  108,     0, 100, 0],
+[  106,    25, 100, 0]]
+           
+ShapeType =  "ShapeCube"			  
+ShapeLen  =  len(ShapePI)					
+Corners   =  ShapePI        //  Biggest Shape, Use for Cube and Triable
 
 ###-----------------
 
@@ -73,6 +227,13 @@ myApp = new qApp
         btn = new qPushButton(win) { setGeometry(0, 2, 100, 20)  setText("DrawMatrix")  setStyleSheet("background-color: yellow")
                                      setClickEvent("DrawMatrix()") 
                                    }
+
+        comboShapeType = new QComboBox(win) 
+        {
+            setgeometry(110, 2, 100, 20)
+            comboList = ["ShapeCube","ShapeSolid","ShapeTriangle","ShapeSolidTriangle","ShapePI"]
+            for x in comboList additem(x,0) next         			
+        }
 
   
       //-------------------------------------------------------------
@@ -193,10 +354,11 @@ myApp = new qApp
          eCountXV   =  new qlineedit(win) { setgeometry(30, 590 , 30, 20)  settext("0") }                           
 
 
-         //-----------------------------------------------------------
-  
-        //--------------------
-        show()
+      //-----------------------------------------------------------
+
+
+      show()
+		  
     }
     exec()
 }
@@ -293,51 +455,57 @@ Func fIncrXV()    nbr = sIncrXV.value()  / 400      eIncrXV.setText(""+nbr)     
 Func DrawMatrix()
 
    count = 0
-
+   ShapeType = comboShapeType.currentText()  
+  
+//    if   ShapeType  = "ShapeCube"      ShapeLen = len(ShapeCube)          
+//    but  ShapeType  = "ShapeSolid"     ShapeLen = len(ShapeCube)    
+//    but  ShapeType  = "ShapePI"        ShapeLen = len(ShapePI)     
+//    but  ShapeType  = "ShapeTriangle"  ShapeLen = len(ShapeTriangle) 
+//    ok
              
-   Points = [[ -100, -100, -100],        // TopRight  x,y,z Cube Shape
-             [  100, -100, -100],        // TopLeft
-             [  100,  100, -100],        // BottomLeft
-             [ -100,  100, -100],        // BottomRight      
-             
-             [ -100, -100,  100],
-             [  100, -100,  100],
-             [  100,  100,  100],
-             [ -100,  100,  100]]          
-
-
-   Triangle = [[ -100, -100, 000],
-               [  100, -100, 000],
-               [  000,  100, 000],
-               [  000,  000, 100]]           
-             
-   Corners = [[  1, 1, 1 ],              // 3x8  x,y,z  Corner Points SAVE
-              [  1, 1, 1 ],
-              [  1, 1, 1 ],
-              [  1, 1, 1 ],
-              [  1, 1, 1 ],
-              [  1, 1, 1 ],
-              [  1, 1, 1 ],
-              [  1, 1, 1 ]]        
     
    //--------------------------------------------
    // R = Radians, Rotate 360 degrees, 62 steps   
    // for R = 0.0 to NbrRotation  step IncRotation    // 8.2*PI
-	
-	Count = 0
-	R = 0
+   
+   Count = 0
+   R = 0
    while R <= NbrRotation
-		t1 = Clock()
-	
-      // Map the 8 Corners of the Cube Rotation
-      for i = 1 to 8 //  Cube-8
-                  
-         A = [[ Points[i][1] ],               // X Y Z = 3x1  ==> Clockwise Rotation
-              [ Points[i][2] ], 
-              [ Points[i][3] ],
-              [ 1 ]]              
+      t1 = Clock()
+   
+      
+     for i = 1 to ShapeLen
+         
+         if ShapeType = "ShapeCube" || ShapeType = "ShapeSolid"
+			   ShapeLen = len(ShapeCube)               // USER changes on the fly.
+          
+            A = [[ ShapeCube[i][1] ],               // X Y Z = 4x1  ==> Clockwise Rotation
+                 [ ShapeCube[i][2] ], 
+                 [ ShapeCube[i][3] ],
+                 [              1  ]]   
+         ok
+       
+                 
+         if ShapeType = "ShapePI"
+			   ShapeLen = len(ShapePI)
 
+           A = [[ ShapePI[i][1] ],             
+                [ ShapePI[i][2] ], 
+                [ ShapePI[i][3] ],
+                [            1  ]]         
+         ok
 
+         if ShapeType = "ShapeTriangle" || ShapeType = "ShapeSolidTriangle"
+			   ShapeLen = len(ShapeTriangle)
+
+           A = [[ ShapeTriangle[i][1] ],             
+                [ ShapeTriangle[i][2] ], 
+                [ ShapeTriangle[i][3] ],
+                [                  1  ]]         
+         ok
+
+         //-------------------------------
+			
          Rx = R * eRotXV.text()  Ry = R * eRotYV.text()  Rz = R * eRotZV.text()        // Multiple to speed up
          X = [[ 1,       0,        0, 0 ],    // Rx Rotation: Matrix * XYZ,  3x3 * 3x1 => 3x1
               [ 0, cos(Rx), -sin(Rx), 0 ],
@@ -390,39 +558,37 @@ Func DrawMatrix()
          C = MatrixMultiply(S,C)   // Scale
          C = MatrixMultiply(T,C)   // Translate
          C = MatrixMultiply(H,C)   // Shear
-         C = MatrixMultiply(F,C)   // Reflection                    
+         C = MatrixMultiply(F,C)   // Reflection        
+
+         CallGC()                  // FIX SPEED SLOWING DOWN         
                       
-	 callgc()
-	
          Corners[i][1] = C[1][1]               // Save Each Corner Point for xyz
          Corners[i][2] = C[2][1]
          Corners[i][3] = C[3][1]
          
       next            
    
-		t2 = Clock()
+      t2 = Clock()
       t3 = t2 - t1
-		eTimeXV.setText(""+ t3)
-		eCountXV.setText(""+ Count++)
+      eTimeXV.setText(""+ t3)
+      eCountXV.setText(""+ Count++)
       
-      See "Time for Iteration: "+ Count +" msec: "+ t3 +nl
-		
+      // See "Time for Iteration: "+ Count +" msec: "+ t3 +nl
       // DisplayMatrix(Corners)   // Debug for coordinate numbers 
-		
-       DoDraw(Corners)           
       
-		R = R + IncRotation       // Rotation Steps increase by:  WhileLoop
-	
-   ? " R : " + R
-	 ? " NbrRotation : " + NbrRotation
-
-	end
-
-? "out of the loop"
-   ? " R : " + R
-	 ? " NbrRotation : " + NbrRotation
-
-
+      t11 = Clock()
+      DoDraw(Corners)           // ===>>>   Comment Out --- stops at 258 iterations -- Stack ???
+      
+      t12 = Clock()
+      t13 = t12 - t11
+      //See "Time for Iteration: "+ Count +" msec: "+ t3  +" DrawTime: "+ t13  +nl
+      
+      R = R + IncRotation       // Rotation Steps increase by:  WhileLoop
+		
+		
+      
+   end
+   
 return
 
 //----------------------------------------------------------
@@ -430,6 +596,8 @@ return
 
 Func DoDraw(C)
 
+   ShapeType = comboShapeType.currentText()
+	
    MonaLisa.fill(colorBlack)     // Blank out Old Image
    
    daVinci.setpen(penWhite)
@@ -439,27 +607,89 @@ Func DoDraw(C)
   
    // Draw the 12 Lines between the 8 Corners of the Cube
 
-   daVinci.setpen(penRed)
-   daVinci.drawLine( C[1][1], C[1][2], C[2][1], C[2][2] )  ### Draw NEW Line
-   daVinci.drawLine( C[2][1], C[2][2], C[3][1], C[3][2] )  
-   daVinci.drawLine( C[3][1], C[3][2], C[4][1], C[4][2] )  
-   daVinci.drawLine( C[4][1], C[4][2], C[1][1], C[1][2] )  
+
+   if ShapeType = "ShapeCube"
+      daVinci.setpen(penRed)
+      daVinci.drawLine( C[1][1], C[1][2], C[2][1], C[2][2] )  ### 1 2 > Draw NEW Line
+      daVinci.drawLine( C[2][1], C[2][2], C[3][1], C[3][2] )  #   2 3
+      daVinci.drawLine( C[3][1], C[3][2], C[4][1], C[4][2] )  #   3 4 >
+      daVinci.drawLine( C[4][1], C[4][2], C[1][1], C[1][2] )  #   4 1
 
 
-   daVinci.setpen(penGreen)
-   daVinci.drawLine( C[5][1], C[5][2], C[6][1], C[6][2] )  
-   daVinci.drawLine( C[6][1], C[6][2], C[7][1], C[7][2] )  
-   daVinci.drawLine( C[7][1], C[7][2], C[8][1], C[8][2] )  
-   daVinci.drawLine( C[8][1], C[8][2], C[5][1], C[5][2] )  
+      daVinci.setpen(penGreen)
+      daVinci.drawLine( C[5][1], C[5][2], C[6][1], C[6][2] )  #   5 6 >
+      daVinci.drawLine( C[6][1], C[6][2], C[7][1], C[7][2] )  #   6 7
+      daVinci.drawLine( C[7][1], C[7][2], C[8][1], C[8][2] )  #   7 8 >
+      daVinci.drawLine( C[8][1], C[8][2], C[5][1], C[5][2] )  #   8 1
 
-   daVinci.setpen(penBlue)
-   daVinci.drawLine( C[1][1], C[1][2], C[5][1], C[5][2] )  
-   daVinci.drawLine( C[2][1], C[2][2], C[6][1], C[6][2] ) 
+      daVinci.setpen(penBlue)
+      daVinci.drawLine( C[1][1], C[1][2], C[5][1], C[5][2] )  
+      daVinci.drawLine( C[2][1], C[2][2], C[6][1], C[6][2] ) 
+     
+      daVinci.setpen(penYellow) 
+      daVinci.drawLine( C[3][1], C[3][2], C[7][1], C[7][2] )  
+      daVinci.drawLine( C[4][1], C[4][2], C[8][1], C[8][2] )  
+   ok
+   
+
   
-   daVinci.setpen(penYellow) 
-   daVinci.drawLine( C[3][1], C[3][2], C[7][1], C[7][2] )  
-   daVinci.drawLine( C[4][1], C[4][2], C[8][1], C[8][2] )  
+   if ShapeType = "ShapeSolid"
+      daVinci.setBrush(brushSY)
+      daVinci.drawPolygon( [ [C[5][1], C[5][2]], [C[8][1], C[8][2]], [C[4][1], C[4][2]], [C[1][1], C[1][2]] ], 0)  // Yello 14 85
 
+      daVinci.setBrush(brushSR)
+      daVinci.drawPolygon( [ [C[1][1], C[1][2]], [C[4][1], C[4][2]], [C[3][1], C[3][2]], [C[2][1], C[2][2]] ], 0)  // Red   12 34
+    
+      daVinci.setBrush(brushSM)
+      daVinci.drawPolygon( [ [C[2][1], C[2][2]], [C[3][1], C[3][2]], [C[7][1], C[7][2]], [C[6][1], C[6][2]] ], 0)  // Cyan 23 76
+
+      daVinci.setBrush(brushSG)
+      daVinci.drawPolygon( [ [C[6][1], C[6][2]], [C[7][1], C[7][2]], [C[8][1], C[8][2]], [C[5][1], C[5][2]] ], 0)  // Green 56 79
+      
+      
+      daVinci.setBrush(brushSB)
+      daVinci.drawPolygon( [ [C[1][1], C[1][2]], [C[2][1], C[2][2]], [C[6][1], C[6][2]], [C[5][1], C[5][2]] ], 0)  // Blue  12 65
+      
+      daVinci.setBrush(brushSGR)
+      daVinci.drawPolygon( [ [C[3][1], C[3][2]], [C[4][1], C[4][2]], [C[8][1], C[8][2]], [C[7][1], C[7][2]] ], 0)  // Gray  34 87
+
+   ok
+ 
+   if ShapeType = "ShapeTriangle"
+      daVinci.setpen(penRed)
+      daVinci.drawLine( C[1][1], C[1][2], C[2][1], C[2][2] )  ### 1 2 > Draw NEW Line
+      daVinci.drawLine( C[1][1], C[1][2], C[3][1], C[3][2] )  #   5 6 >
+      daVinci.drawLine( C[1][1], C[1][2], C[4][1], C[4][2] )  #   5 6 >
+      
+      daVinci.setpen(penGreen)
+      daVinci.drawLine( C[2][1], C[2][2], C[3][1], C[3][2] )  #   2 3
+      daVinci.drawLine( C[2][1], C[2][2], C[4][1], C[4][2] )  #   6 7
+      daVinci.drawLine( C[3][1], C[3][2], C[4][1], C[4][2] )  #   3 4 > 
+   ok 
+   
+ 
+  if ShapeType = "ShapeSolidTriangle"
+      daVinci.setBrush(brushSY)
+      daVinci.drawPolygon( [ [C[1][1], C[1][2]], [C[2][1], C[2][2]], [C[3][1], C[3][2]] ], 0)  // Yello 14 85
+
+      daVinci.setBrush(brushSR)
+      daVinci.drawPolygon( [ [C[1][1], C[1][2]], [C[3][1], C[3][2]], [C[4][1], C[4][2]] ], 0)  // Red   12 34
+    
+      daVinci.setBrush(brushSM)
+      daVinci.drawPolygon( [ [C[1][1], C[1][2]], [C[4][1], C[4][2]], [C[2][1], C[2][2]] ], 0)  // Cyan 23 76
+
+      daVinci.setBrush(brushSG)
+      daVinci.drawPolygon( [ [C[2][1], C[2][2]], [C[3][1], C[3][2]], [C[4][1], C[4][2]] ], 0)  // Green 56 79
+  ok 
+   
+   
+
+   if ShapeType = "ShapePI"
+      daVinci.setpen(penYellow) 
+      for i = 1 to len(ShapePI) -1
+            daVinci.drawLine( C[i][1], C[i][2], C[i+1][1], C[i+1][2] ) 
+      next
+   ok
 
    Canvas.setPixMap(MonaLisa)          ### Need this setPixMap to display imageLabel               
    MyApp.ProcessEvents()               ### <<< EXEC the Draw
