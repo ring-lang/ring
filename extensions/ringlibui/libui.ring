@@ -28,6 +28,7 @@ uiInit()
 	colorRed = dec("FF0000")
 	colorYellow = dec("FFFF00")
 	colorDarkGray = dec("A9A9A9")
+	colorDodgerBlue = dec("1E90FF")
 
 func uiControl x
 	return x
@@ -60,3 +61,33 @@ func uiNewSolidBrush oColor
 	oBrush = uiNewBrush()	
 	setSolidBrush(oBrush, oColor, 1.0);
 	return oBrush
+
+func uiBrushR brush
+	return get_uidrawbrush_R(brush)
+
+func uiBrushG brush
+	return get_uidrawbrush_G(brush)
+
+func uiBrushB brush
+	return get_uidrawbrush_B(brush)
+
+func uiBrushA brush
+	return get_uidrawbrush_A(brush)
+
+func uiBrushType brush
+	return get_uidrawbrush_Type(brush)
+
+func uiSetBrushR brush,value
+	return set_uidrawbrush_R(brush,value)
+
+func uiSetBrushG brush,value
+	return set_uidrawbrush_G(brush,value)
+
+func uiSetBrushB brush,value
+	return set_uidrawbrush_B(brush,value)
+
+func uiSetBrushA brush,value
+	return set_uidrawbrush_A(brush,value)
+
+func uiSetBrushType brush,value
+	return set_uidrawbrush_Type(brush,value)
