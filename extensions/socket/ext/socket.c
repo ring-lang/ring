@@ -123,9 +123,7 @@ void ring_vm_socket_bind(void *pPointer) {
 
 void ring_vm_socket_listen(void *pPointer) {
  
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    int n;
-
+    
     if(RING_API_PARACOUNT < 1) {
         RING_API_ERROR(RING_API_MISS2PARA);
         return;
@@ -135,7 +133,8 @@ void ring_vm_socket_listen(void *pPointer) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
-
+    
+    int n;
     if(RING_API_PARACOUNT == 1)
         n = 5;
 
@@ -149,6 +148,8 @@ void ring_vm_socket_listen(void *pPointer) {
         }
 
     }
+    
+    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
 
 #ifdef win
     if(listen(sock->sockfd,n) == SOCKET_ERROR) {
