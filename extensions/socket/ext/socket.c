@@ -123,7 +123,7 @@ void ring_vm_socket_bind(void *pPointer) {
 
 void ring_vm_socket_listen(void *pPointer) {
  
-    
+
     if(RING_API_PARACOUNT < 1) {
         RING_API_ERROR(RING_API_MISS2PARA);
         return;
@@ -133,7 +133,7 @@ void ring_vm_socket_listen(void *pPointer) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
-    
+
     int n;
     if(RING_API_PARACOUNT == 1)
         n = 5;
@@ -148,7 +148,7 @@ void ring_vm_socket_listen(void *pPointer) {
         }
 
     }
-    
+
     RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
 
 #ifdef win
@@ -234,12 +234,12 @@ void ring_vm_socket_recv(void *pPointer) {
     }
 
     RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    int buffer = (int) RING_API_GETNUMBER(2) , bytes_read;
-    char Msg[1024];
-    bytes_read = recv(sock->sockfd,Msg,buffer,0);
-    Msg[bytes_read] = 0;
+    size_t buffer = (size_t) RING_API_GETNUMBER(2);
+    char *Msg = (char *) malloc(buffer);
+    recv(sock->sockfd,Msg,buffer,0);
 
     RING_API_RETSTRING(Msg);
+    free((char *) Msg);
 }
 
 void ring_vm_socket_connect(void *pPointer) {
