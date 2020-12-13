@@ -3,19 +3,19 @@
 
 load "libui.ring"
 
-datapoints = list(10)
-currentPoint = -1
+datapoints	= list(10)
+currentPoint	= -1
 
 // some metrics
-xoffLeft		= 20			/* histogram margins */
-yoffTop			= 20
-xoffRight		= 20
+xoffLeft	= 20			/* histogram margins */
+yoffTop		= 20
+xoffRigh	= 20
 yoffBottom	= 20
 pointRadius	= 5
 
-histogram = NULL
+histogram	= NULL
 mainwin		= NULL
-colorButton = NULL
+colorButton	= NULL
 
 func pointLocations width, height, xs, ys
 	xincr = width / 9		// 10 - 1 to make the last point be at the end
