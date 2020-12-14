@@ -272,5 +272,8 @@ aAllPackagesInfo = [
 	],
 	:objectslib = 	[
 		"ringqtruntime"
+	],
+	:socket = 	[
+
 	]
 ]

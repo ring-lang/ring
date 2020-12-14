@@ -25,13 +25,18 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/load/socket.ring",
+		"bin/socket.dll",
 		"extensions/socket/buildclang.sh",
 		"extensions/socket/buildgcc.sh",
 		"extensions/socket/buildvc.bat",
 		"extensions/socket/socket.ring",
 		"extensions/socket/lib/constants.ring",
 		"extensions/socket/ext/socket.c",
-		"extensions/socket/ext/socket.h"
+		"extensions/socket/ext/socket.h",
+		"extensions/socket/samples/sample1.ring",
+		"extensions/socket/samples/sample2.ring",
+		"extensions/socket/samples/sample3.ring",
+		"extensions/socket/docs/docs.txt"
 	],
 	:windowsfiles = 	[
 
@@ -80,5 +85,9 @@ aPackageInfo = [
 	:linuxremove = "",
 	:macosremove = "",
 	:ubunturemove = "",
-	:fedoraremove = ""
+	:fedoraremove = "",
+	:remotefolder = "socket",
+	:branch = "master",
+	:providerusername = "ringpackages",
+	:providerwebsite = "github.com"
 ]
