@@ -646,5 +646,9 @@ aPackagesRegistry = [
 	[ :name = "cloc",
 	  :description = "CLOC package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
-	]
+	],
+        [ :name = "socket",
+          :description = "Socket extension for network programming with Ring programming language",
+          :ProviderUserName = "abdallah-elsharif"
+        ]
 ]
