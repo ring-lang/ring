@@ -649,6 +649,6 @@ aPackagesRegistry = [
 	],
         [ :name = "socket",
           :description = "Socket extension for network programming with Ring programming language",
-          :ProviderUserName = "abdallah-elsharif"
+          :ProviderUserName = "ringpackages"
         ]
 ]
