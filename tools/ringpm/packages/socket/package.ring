@@ -29,6 +29,7 @@ aPackageInfo = [
 		"extensions/socket/buildgcc.sh",
 		"extensions/socket/buildvc.bat",
 		"extensions/socket/socket.ring",
+		"extensions/socket/lib/constants.ring",
 		"extensions/socket/ext/socket.c",
 		"extensions/socket/ext/socket.h"
 	],
