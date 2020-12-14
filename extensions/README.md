@@ -62,3 +62,5 @@ The RingWinCREG folder contains some functions for using the Windows Registry
 The RingStbImage folder contains the Ring binding to the stb_image library
 
 The RingLibUI folder contains the Ring binding to the libui library
+
+The Socket folder contains a Sockets library for network programming
