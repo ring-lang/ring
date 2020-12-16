@@ -39,7 +39,7 @@ void ring_vm_socket_init(void *pPointer) {
     WSADATA data;
     sock->addr = NULL;
 	if (WSAStartup(MAKEWORD(2, 2), &data) != 0) {
-		RING_API_ERROR("WSAStartup failed");
+		RING_API_ERROR("WSAStartup Failed");
 		return;
 	}
 
@@ -96,7 +96,7 @@ void ring_vm_socket_bind(void *pPointer) {
 #ifdef win
     char sPort[10];
     if(getaddrinfo(NULL,itoa(port,sPort,10),&sock->hints,&sock->addr) != 0) {
-        RING_API_ERROR("getaddrinfo Falied");
+        RING_API_ERROR("getaddrinfo Failed");
         return;
     }
 
@@ -239,7 +239,7 @@ void ring_vm_socket_recv(void *pPointer) {
     recv(sock->sockfd,Msg,buffer,0);
 
     RING_API_RETSTRING(Msg);
-    free((char *) Msg);
+    free(Msg);
 }
 
 void ring_vm_socket_connect(void *pPointer) {
@@ -308,7 +308,7 @@ void ring_vm_socket_close(void *pPointer) {
     close(sock->sockfd);
 #endif
     ring_state_free(((VM *) pPointer)->pRingState,sock);
-	RING_API_SETNULLPOINTER(1);
+
 }
 
 void ring_vm_socket_gethostbyname(void *pPointer) {
@@ -411,6 +411,98 @@ void ring_vm_socket_gethostbyaddr(void *pPointer) {
     RING_API_RETLIST(ringval);
 }
 
+void ring_vm_socket_gethostname(void *pPointer) {
+    int len = 1024;
+    char *hostname = (char *) malloc(len);
+
+#ifdef win
+
+    WSADATA d;
+    if(WSAStartup(MAKEWORD(2,2),&d) != 0) {
+        RING_API_ERROR("WSAStartup Failed");
+        return;
+    }
+
+#endif
+
+    if(gethostname(hostname,len) != 0) {
+        RING_API_ERROR("Get Hostname Failed");
+        return;
+    }
+
+    RING_API_RETSTRING(hostname);
+    free(hostname);
+
+}
+
+void ring_vm_socket_getservbyname(void *pPointer) {
+    if(RING_API_PARACOUNT != 1) {
+        RING_API_ERROR(RING_API_MISS2PARA);
+        return;
+    }
+
+    if(!RING_API_ISSTRING(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    char *servName = RING_API_GETSTRING(1);
+    struct servent *s;
+
+#ifdef win
+
+    WSADATA d;
+    if(WSAStartup(MAKEWORD(2,2),&d) != 0) {
+        RING_API_ERROR("WSAStartup Failed");
+        return;
+    }
+
+#endif
+
+    if(s = getservbyname(servName,"tcp")) {
+        RING_API_RETNUMBER(ntohs(s->s_port));
+    }
+
+    else {
+        RING_API_ERROR("getservbyname Failed");
+        return;
+    }
+}
+
+void ring_vm_socket_getservbyport(void *pPointer) {
+    if(RING_API_PARACOUNT != 1) {
+        RING_API_ERROR(RING_API_MISS2PARA);
+        return;
+    }
+
+    if(!RING_API_ISNUMBER(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    int port = RING_API_GETNUMBER(1);
+    struct servent *s;
+
+#ifdef win
+
+    WSADATA d;
+    if(WSAStartup(MAKEWORD(2,2),&d) != 0) {
+        RING_API_ERROR("WSAStartup Failed");
+        return;
+    }
+
+#endif
+
+    if(s = getservbyport(htons(port),"tcp")) {
+        RING_API_RETSTRING(s->s_name);
+    }
+
+    else {
+        RING_API_ERROR("getservbyport Failed");
+        return;
+    }
+}
+
 
 RING_API void ringlib_init(RingState *pRingState) {
     ring_vm_funcregister("socket",ring_vm_socket_init);
@@ -423,4 +515,8 @@ RING_API void ringlib_init(RingState *pRingState) {
     ring_vm_funcregister("close",ring_vm_socket_close);
     ring_vm_funcregister("gethostbyname",ring_vm_socket_gethostbyname);
     ring_vm_funcregister("gethostbyaddr",ring_vm_socket_gethostbyaddr);
+    ring_vm_funcregister("gethostname",ring_vm_socket_gethostname);
+    ring_vm_funcregister("getservbyname",ring_vm_socket_getservbyname);
+    ring_vm_funcregister("getservbyport",ring_vm_socket_getservbyport);
 }
+
