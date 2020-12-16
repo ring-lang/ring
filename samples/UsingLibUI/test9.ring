@@ -3,12 +3,13 @@
 
 load "libui.ring"
 
-mainwin=NULL
-area=NULL
-handler=NULL
-fontButton=NULL
-alignment=NULL
-attrstr=NULL
+# Global Variables
+	mainwin		= NULL
+	area		= NULL
+	handler		= NULL
+	fontButton	= NULL
+	alignment	= NULL
+	attrstr		= NULL
 
 func appendWithAttribute what, attr, attr2
 	nStart = uiAttributedStringLen(attrstr)
@@ -105,11 +106,11 @@ func onComboboxSelected
 	uiAreaQueueRedrawAll(area)
 
 func onClosing
-	uiControlDestroy(uiControl(mainwin))
+	uiControlDestroy(mainwin)
 	uiQuit()
 
 func shouldQuit
-	uiControlDestroy(uiControl(mainwin))
+	uiControlDestroy(mainwin)
 
 func main
 
@@ -123,34 +124,32 @@ func main
 
 	hbox = uiNewHorizontalBox()
 	uiBoxSetPadded(hbox, 1)
-	uiWindowSetChild(mainwin, uiControl(hbox))
+	uiWindowSetChild(mainwin, hbox)
 
 	vbox = uiNewVerticalBox()
 	uiBoxSetPadded(vbox, 1)
-	uiBoxAppend(hbox, uiControl(vbox), 0)
+	uiBoxAppend(hbox, vbox, 0)
 
 	fontButton = uiNewFontButton()
 	uiFontButtonOnChanged(fontButton, "onFontChanged()")
-	uiBoxAppend(vbox, uiControl(fontButton), 0)
+	uiBoxAppend(vbox, fontButton, 0)
 
 	form = uiNewForm()
 	uiFormSetPadded(form, 1)
-	// TODO on OS X if this is set to 1 then the window can't resize does the form not have the concept of stretchy trailing space?
-	uiBoxAppend(vbox, uiControl(form), 0)
+	uiBoxAppend(vbox, form, 0)
 
 	alignment = uiNewCombobox()
-	// note that the items match with the values of the uiDrawTextAlign values
 	uiComboboxAppend(alignment, "Left")
 	uiComboboxAppend(alignment, "Center")
 	uiComboboxAppend(alignment, "Right")
 	uiComboboxSetSelected(alignment, 0)		// start with left alignment
 	uiComboboxOnSelected(alignment, "onComboboxSelected()")
-	uiFormAppend(form, "Alignment", uiControl(alignment), 0)
+	uiFormAppend(form, "Alignment", alignment, 0)
 
 	oAreaHandler = uiNewAreaHandler("handlerDraw()","","","","")
 	area = uiNewArea(oAreaHandler)
-	uiBoxAppend(hbox, uiControl(area), 1)
+	uiBoxAppend(hbox, area, 1)
 
-	uiControlShow(uiControl(mainwin))
+	uiControlShow(mainwin)
 	uiMain()
 	uiFreeAttributedString(attrstr)
