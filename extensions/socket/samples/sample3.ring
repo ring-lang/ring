@@ -6,3 +6,11 @@ host = gethostbyname("google.com")
 see "=========================" + nl
 ? gethostbyaddr(host)
 
+see "=========================" + nl
+? gethostname()
+
+see "=========================" + nl
+? getservbyname("ftp")
+
+see "=========================" + nl
+? getservbyport(21)
