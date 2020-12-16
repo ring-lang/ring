@@ -6051,36 +6051,6 @@ RING_FUNC(ring_uiNewMenu)
 }
 
 
-RING_FUNC(ring_uiOpenFile)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(uiOpenFile((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow")));
-}
-
-
-RING_FUNC(ring_uiSaveFile)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(uiSaveFile((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow")));
-}
-
-
 RING_FUNC(ring_uiMsgBox)
 {
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -8662,6 +8632,45 @@ RING_FUNC(ring_uiFreeText)
 	uiFreeText(RING_API_GETSTRING(1));
 }
 
+RING_FUNC(ring_uiOpenFile)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiOpenFile((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+	}
+}
+
+RING_FUNC(ring_uiSaveFile)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiSaveFile((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+	}
+}
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("uiinit_2",ring_uiInit_2);
@@ -8823,8 +8832,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uimenuappendaboutitem",ring_uiMenuAppendAboutItem);
 	ring_vm_funcregister("uimenuappendseparator",ring_uiMenuAppendSeparator);
 	ring_vm_funcregister("uinewmenu",ring_uiNewMenu);
-	ring_vm_funcregister("uiopenfile",ring_uiOpenFile);
-	ring_vm_funcregister("uisavefile",ring_uiSaveFile);
 	ring_vm_funcregister("uimsgbox",ring_uiMsgBox);
 	ring_vm_funcregister("uimsgboxerror",ring_uiMsgBoxError);
 	ring_vm_funcregister("uiareaqueueredrawall",ring_uiAreaQueueRedrawAll);
@@ -8948,6 +8955,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("uiareasetsize",ring_uiAreaSetSize);
 	ring_vm_funcregister("uicontrolhandle",ring_uiControlHandle);
 	ring_vm_funcregister("uifreetext",ring_uiFreeText);
+	ring_vm_funcregister("uiopenfile",ring_uiOpenFile);
+	ring_vm_funcregister("uisavefile",ring_uiSaveFile);
 	ring_vm_funcregister("get_uipi",ring_get_uipi);
 	ring_vm_funcregister("get_uiforeachcontinue",ring_get_uiforeachcontinue);
 	ring_vm_funcregister("get_uiforeachstop",ring_get_uiforeachstop);

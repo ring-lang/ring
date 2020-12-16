@@ -1101,8 +1101,6 @@ uiMenuItem *uiMenuAppendAboutItem(uiMenu *m)
 void uiMenuAppendSeparator(uiMenu *m)
 uiMenu *uiNewMenu(const char *name)
 
-char *uiOpenFile(uiWindow *parent)
-char *uiSaveFile(uiWindow *parent)
 void uiMsgBox(uiWindow *parent, const char *title, const char *description)
 void uiMsgBoxError(uiWindow *parent, const char *title, const char *description)
 
@@ -1251,3 +1249,49 @@ void uiAreaSetSize(uiArea *a, int width, int height)
 uintptr_t uiControlHandle(uiControl *)
 
 void uiFreeText(char *text)
+
+<register>
+char *uiOpenFile(uiWindow *parent)
+char *uiSaveFile(uiWindow *parent)
+<register>
+<code>
+RING_FUNC(ring_uiOpenFile)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiOpenFile((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+	}
+}
+
+RING_FUNC(ring_uiSaveFile)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiSaveFile((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+	}
+}
+</code>
