@@ -12,6 +12,9 @@
 
 - gethostbyname(hostname)       ->  return  <IP Address>
 - gethostbyaddr(ip address)     ->  return  <List of host info>
+- gethostname()			->  return  <My Hostname>
+- getservbyname(service_name)   ->  return  <service port>
+- getservbyport(port)		->  return  <service name>
 
 ------------------------------------------------------------------------------------------
 
