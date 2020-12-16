@@ -1,3 +1,6 @@
+# Sample ported to Ring 
+# Based on original sample from : https://github.com/andlabs/libui
+
 load "libui.ring"
 
 mainwin=NULL
