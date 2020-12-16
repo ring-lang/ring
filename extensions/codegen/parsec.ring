@@ -72,7 +72,8 @@ C_TYPE_ENUM	= 6
 $cFuncStart 	= ""
 $aStructFuncs 	= []
 
-aNumberTypes 	= ["int","float","double","bool","unsigned char","size_t",
+aNumberTypes 	= ["int","float","double","bool",
+"char","unsigned char","signed char","size_t",
 "long int","int8_t","int16_t","int32_t","int64_t",
 "uint8_t","uint16_t","uint32_t","uint64_t"]
 
