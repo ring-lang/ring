@@ -9,7 +9,7 @@ currentPoint	= -1
 // some metrics
 xoffLeft	= 20			/* histogram margins */
 yoffTop		= 20
-xoffRigh	= 20
+xoffRight	= 20
 yoffBottom	= 20
 pointRadius	= 5
 
