@@ -60,7 +60,7 @@ func draw
 
 	// draw helping lines
 	// keep the square cap to match the reference picture on the cairo website
-	crsourcergba(source, 1, 0.2, 0.2, 1)
+	uiCrSourceRGBA(source, 1, 0.2, 0.2, 1)
 	set_uiDrawStrokeParams_Thickness(sp,2.56)	
 	path = uiDrawNewPath(uiDrawFillModeWinding)
 	uiDrawPathNewFigure(path, 64.0, 50.0)
@@ -75,10 +75,3 @@ func draw
 
 func closeApp
 	uiQuit()
-
-func crsourcergba brush,r,g,b,a
-	set_uiDrawBrush_Type(brush,uiDrawBrushTypeSolid)
-	set_uiDrawBrush_R(brush,r)
-	set_uiDrawBrush_G(brush,g)
-	set_uiDrawBrush_B(brush,b)
-	set_uiDrawBrush_A(brush,a)

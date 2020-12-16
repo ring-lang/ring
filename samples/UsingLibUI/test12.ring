@@ -74,19 +74,12 @@ func draw
 	uiDrawPathCloseFigure(path)
 	uiDrawPathEnd(path)
 
-	crsourcergba(source, 0.5, 0.5, 1, 1)
+	uiCrSourceRGBA(source, 0.5, 0.5, 1, 1)
 	uiDrawFill(uiEventContext(), path, source)
-	crsourcergba(source, 0.5, 0, 0, 0.5)
+	uiCrSourceRGBA(source, 0.5, 0, 0, 0.5)
 	set_uiDrawStrokeParams_Thickness(sp,10)	
 	uiDrawStroke(uiEventContext(), path, source, sp)
 	uiDrawFreePath(path)
 
 func closeApp
 	uiQuit()
-
-func crsourcergba brush,r,g,b,a
-	set_uiDrawBrush_Type(brush,uiDrawBrushTypeSolid)
-	set_uiDrawBrush_R(brush,r)
-	set_uiDrawBrush_G(brush,g)
-	set_uiDrawBrush_B(brush,b)
-	set_uiDrawBrush_A(brush,a)

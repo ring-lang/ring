@@ -91,3 +91,10 @@ func uiSetBrushA brush,value
 
 func uiSetBrushType brush,value
 	return set_uidrawbrush_Type(brush,value)
+
+func uiCrsourcergba brush,r,g,b,a
+	set_uiDrawBrush_Type(brush,uiDrawBrushTypeSolid)
+	set_uiDrawBrush_R(brush,r)
+	set_uiDrawBrush_G(brush,g)
+	set_uiDrawBrush_B(brush,b)
+	set_uiDrawBrush_A(brush,a)
