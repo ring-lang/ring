@@ -1,3 +1,6 @@
+# Sample ported to Ring 
+# Based on original sample from : https://github.com/andlabs/libui
+
 load "libui.ring"
 
 oWindow = uiNewWindow( "Drawing Sample", 800, 600, True)
@@ -31,32 +34,32 @@ func draw
 	set_uiDrawStrokeParams_DashPhase(sp,0)	
 	set_uiDrawStrokeParams_Thickness(sp,40.96)	
 
-	path = uiDrawNewPath(uiDrawFillModeWinding);
-	uiDrawPathNewFigure(path, 76.8, 84.48);
-	uiDrawPathLineTo(path, 76.8 + 51.2, 84.48 -51.2);
-	uiDrawPathLineTo(path, 76.8 + 51.2 + 51.2, 84.48 - 51.2 + 51.2);
-	uiDrawPathEnd(path);
+	path = uiDrawNewPath(uiDrawFillModeWinding)
+	uiDrawPathNewFigure(path, 76.8, 84.48)
+	uiDrawPathLineTo(path, 76.8 + 51.2, 84.48 -51.2)
+	uiDrawPathLineTo(path, 76.8 + 51.2 + 51.2, 84.48 - 51.2 + 51.2)
+	uiDrawPathEnd(path)
 	set_uiDrawStrokeParams_Join(sp,uiDrawLineJoinMiter)	
-	uiDrawStroke(uiEventContext(), path, source, sp);
-	uiDrawFreePath(path);
+	uiDrawStroke(uiEventContext(), path, source, sp)
+	uiDrawFreePath(path)
 
-	path = uiDrawNewPath(uiDrawFillModeWinding);
-	uiDrawPathNewFigure(path, 76.8, 161.28);
-	uiDrawPathLineTo(path, 76.8 + 51.2, 161.28 -51.2);
-	uiDrawPathLineTo(path, 76.8 + 51.2 + 51.2, 161.28 - 51.2 + 51.2);
-	uiDrawPathEnd(path);
+	path = uiDrawNewPath(uiDrawFillModeWinding)
+	uiDrawPathNewFigure(path, 76.8, 161.28)
+	uiDrawPathLineTo(path, 76.8 + 51.2, 161.28 -51.2)
+	uiDrawPathLineTo(path, 76.8 + 51.2 + 51.2, 161.28 - 51.2 + 51.2)
+	uiDrawPathEnd(path)
 	set_uiDrawStrokeParams_Join(sp,uiDrawLineJoinBevel)	
-	uiDrawStroke(uiEventContext(), path, source, sp);
-	uiDrawFreePath(path);
+	uiDrawStroke(uiEventContext(), path, source, sp)
+	uiDrawFreePath(path)
 
-	path = uiDrawNewPath(uiDrawFillModeWinding);
-	uiDrawPathNewFigure(path, 76.8, 238.08);
-	uiDrawPathLineTo(path, 76.8 + 51.2, 238.08 -51.2);
-	uiDrawPathLineTo(path, 76.8 + 51.2 + 51.2, 238.08 - 51.2 + 51.2);
-	uiDrawPathEnd(path);
+	path = uiDrawNewPath(uiDrawFillModeWinding)
+	uiDrawPathNewFigure(path, 76.8, 238.08)
+	uiDrawPathLineTo(path, 76.8 + 51.2, 238.08 -51.2)
+	uiDrawPathLineTo(path, 76.8 + 51.2 + 51.2, 238.08 - 51.2 + 51.2)
+	uiDrawPathEnd(path)
 	set_uiDrawStrokeParams_Join(sp,uiDrawLineJoinRound)	
-	uiDrawStroke(uiEventContext(), path, source, sp);
-	uiDrawFreePath(path);
+	uiDrawStroke(uiEventContext(), path, source, sp)
+	uiDrawFreePath(path)
 
 func closeApp
 	uiQuit()
