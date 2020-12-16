@@ -7177,19 +7177,27 @@ RING_FUNC(ring_uiOpenTypeFeaturesAdd)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISNUMBER(6) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	uiOpenTypeFeaturesAdd((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"),* (char  *) RING_API_GETCPOINTER(2,"char"),* (char  *) RING_API_GETCPOINTER(3,"char"),* (char  *) RING_API_GETCPOINTER(4,"char"),* (char  *) RING_API_GETCPOINTER(5,"char"), (uint32_t ) RING_API_GETNUMBER(6));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"char"));
+	uiOpenTypeFeaturesAdd((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"), (char ) RING_API_GETNUMBER(2), (char ) RING_API_GETNUMBER(3), (char ) RING_API_GETNUMBER(4), (char ) RING_API_GETNUMBER(5), (uint32_t ) RING_API_GETNUMBER(6));
 }
 
 
@@ -7204,15 +7212,23 @@ RING_FUNC(ring_uiOpenTypeFeaturesRemove)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	uiOpenTypeFeaturesRemove((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"),* (char  *) RING_API_GETCPOINTER(2,"char"),* (char  *) RING_API_GETCPOINTER(3,"char"),* (char  *) RING_API_GETCPOINTER(4,"char"),* (char  *) RING_API_GETCPOINTER(5,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"char"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiOpenTypeFeaturesRemove((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"), (char ) RING_API_GETNUMBER(2), (char ) RING_API_GETNUMBER(3), (char ) RING_API_GETNUMBER(4), (char ) RING_API_GETNUMBER(5));
 }
 
 
@@ -7227,19 +7243,27 @@ RING_FUNC(ring_uiOpenTypeFeaturesGet)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISCPOINTER(6) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(uiOpenTypeFeaturesGet((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"),* (char  *) RING_API_GETCPOINTER(2,"char"),* (char  *) RING_API_GETCPOINTER(3,"char"),* (char  *) RING_API_GETCPOINTER(4,"char"),* (char  *) RING_API_GETCPOINTER(5,"char"),(uint32_t *) RING_API_GETCPOINTER(6,"uint32_t")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(5))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(5,"char"));
+	RING_API_RETNUMBER(uiOpenTypeFeaturesGet((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"), (char ) RING_API_GETNUMBER(2), (char ) RING_API_GETNUMBER(3), (char ) RING_API_GETNUMBER(4), (char ) RING_API_GETNUMBER(5),(uint32_t *) RING_API_GETCPOINTER(6,"uint32_t")));
 }
 
 

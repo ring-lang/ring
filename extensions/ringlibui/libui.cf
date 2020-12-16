@@ -160,6 +160,7 @@ uiFontDescriptor {char *Family,Size,Weight,Italic,Stretch}
 
 <runcode>
 aNumberTypes + "size_t"
+aNumberTypes + "char"
 
 aEnumTypes + "uiForEach"
 aEnumTypes + "uiTextWeight"
