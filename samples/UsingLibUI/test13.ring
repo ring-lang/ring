@@ -3,7 +3,7 @@
 
 load "libui.ring"
 
-oWindow = uiNewWindow( "Drawing Sample", 400, 400, True)
+oWindow = uiNewWindow( "Drawing Sample", 300, 300, True)
 uiWindowOnClosing(oWindow,"closeApp()")
 
 oAreaHandler = uiNewAreaHandler("draw()","","","","")

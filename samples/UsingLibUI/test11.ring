@@ -3,7 +3,7 @@
 
 load "libui.ring"
 
-oWindow = uiNewWindow( "Drawing Sample", 800, 600, True)
+oWindow = uiNewWindow( "Drawing Sample", 400, 400, True)
 uiWindowOnClosing(oWindow,"closeApp()")
 
 oAreaHandler = uiNewAreaHandler("draw()","","","","")
@@ -26,7 +26,7 @@ func draw
 
 	source = new_uiDrawBrush()
 	sp = new_uiDrawStrokeParams()
-	source = uiNewSolidBrush(colorBlue)	
+	source = uiNewSolidBrush(colorBlack)	
 	set_uiDrawStrokeParams_Cap(sp,uiDrawLineCapFlat)	
 	set_uiDrawStrokeParams_Join(sp,uiDrawLineJoinMiter)	
 	set_uiDrawStrokeParams_MiterLimit(sp,uiDrawDefaultMiterLimit)	

@@ -1,6 +1,6 @@
 load "libui.ring"
 
-oWindow = uiNewWindow( "Draw Gradient", 800, 600, True)
+oWindow = uiNewWindow( "Draw Gradient", 500, 500, True)
 uiWindowOnClosing(oWindow,"closeApp()")
 
 oAreaHandler = uiNewAreaHandler("draw()","","","","")

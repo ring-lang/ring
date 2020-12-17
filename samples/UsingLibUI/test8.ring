@@ -195,7 +195,7 @@ func main
 
 	uiOnShouldQuit("shouldQuit()")
 
-	mainwin = uiNewWindow("Histogram Sample", 640, 480, 1)
+	mainwin = uiNewWindow("Histogram Sample", 800, 480, 1)
 	uiWindowSetMargined(mainwin, 1)
 	uiWindowOnClosing(mainwin, "onClosing()")
 
