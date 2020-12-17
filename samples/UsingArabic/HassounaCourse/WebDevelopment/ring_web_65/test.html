@@ -1,0 +1,16 @@
+<div style="height:100px"></div>
+
+<% if aPageVars['is_login'] %>
+	<div class="alert alert-success">Yes, Logged</div>
+<% else %>
+	<div class="alert alert-danger">No, Not logged</div>
+<% ok %>
+
+<form method="post">
+	<button name="btnlogin" class="btn btn-warning btn-lg m-2">Login</button>
+	<button name="btnlogout" class="btn btn-danger btn-lg m-2">Logout</button>
+	<button name="btn_add_order" class="btn btn-info btn-lg m-2">Add Order</button>
+	<button name="btn_test" class="btn btn-info btn-lg m-2">Test</button>
+</form>
+
+<div style="height:100px"></div>

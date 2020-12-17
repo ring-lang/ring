@@ -1,0 +1,18 @@
+create table if not exists "user"
+(
+	id          serial       primary key,
+	first_name  varchar(130) not null,
+	last_name   varchar(130) not null,
+	address     varchar(250) not null,
+	address2    varchar(250) not null,
+	city        varchar(70)  not null,
+	state       varchar(60)  not null,
+	zip         varchar(5)   not null,
+	email       varchar(254) not null unique,
+	username    varchar(150) not null unique,
+	password    varchar(150) not null,
+	date_joined timestamp    with time zone not null,
+	last_login  timestamp    with time zone,
+	is_admin    boolean      not null,
+	is_active   boolean      not null
+);

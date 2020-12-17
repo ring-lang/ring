@@ -1,0 +1,8 @@
+create table if not exists user_product_favorites
+(
+	user_id    integer not null,
+	product_id integer not null,
+	primary key(user_id, product_id),
+	foreign key(user_id)    references "user"(id),
+	foreign key(product_id) references product(id)
+);

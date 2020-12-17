@@ -1,0 +1,70 @@
+   
+<div class="my-form container p-5 my-5 rounded border border-warning">
+    <h2 class="text-center">Orders</h2>
+    <hr>
+
+<% if len(orders) > 0 %>
+
+        <h5 class="alert alert-warning">
+            Found <%=len(orders)%> Orders
+        </h5>
+        <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Order Number</th>
+                <th scope="col">Date & Time</th>
+                <th scope="col">Items Count</th>
+                <th scope="col">Total</th>
+                <th scope="col">Is Finished</th>
+              </tr>
+            </thead>
+            <tbody>
+
+<% for x in orders %>
+	<% 
+		my_order_details=get_order_details(x['id']) 
+		my_total = 0 
+		for i in my_order_details 
+			my_total += Number(i['subtotals'])
+		next 
+	%>
+        <tr>
+            <td>
+                <%=x['id']%>
+            </td>
+            <td>
+                <%=x['order_date']%>
+            </td>
+            <td>
+                <%=len(my_order_details)%>
+            </td>
+            <td>
+                <%=my_total%>$
+            </td>
+            <td>
+					<% if lower(x['is_finished'])='t' %>
+               	<%='Yes'%>
+					<% else %>
+               	<%='No'%>
+					<% ok %>
+            </td>
+        </tr>
+
+<% next %>
+
+        </tbody>
+        </table>
+
+<% else %>
+
+	<hr>
+	<h4 class="text-center">No orders here 
+	<a class="btn btn-lg btn-warning" href="products.ring">All Products</a>
+	</h4>
+
+<% ok %>
+
+    <hr>
+</div>
+
+

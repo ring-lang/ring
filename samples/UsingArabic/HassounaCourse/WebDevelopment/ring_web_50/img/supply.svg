@@ -1,0 +1,78 @@
+<?xml version="1.0"?>
+<svg xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://inkscape.sourceforge.net/DTD/sodipodi-0.dtd" xmlns:cc="http://web.resource.org/cc/" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:svg="http://www.w3.org/2000/svg" id="svg2" viewBox="0 0 128 128" sodipodi:version="0.32" sodipodi:docname="openbox.svg" sodipodi:docbase="/home/nicu/Desktop">
+  <defs id="defs3">
+    <linearGradient id="linearGradient4596">
+      <stop id="stop4598" stop-color="#937541" offset="0"/>
+      <stop id="stop4600" stop-color="#524124" offset="1"/>
+    </linearGradient>
+    <linearGradient id="linearGradient4580">
+      <stop id="stop4582" stop-color="#d3b46b" offset="0"/>
+      <stop id="stop4584" stop-color="#ad9457" offset="1"/>
+    </linearGradient>
+    <linearGradient id="linearGradient4564">
+      <stop id="stop4566" stop-color="#c6a965" offset="0"/>
+      <stop id="stop4568" stop-color="#b79d5d" offset="1"/>
+    </linearGradient>
+    <linearGradient id="linearGradient1406" x1="438.71" xlink:href="#linearGradient4580" gradientUnits="userSpaceOnUse" y1="123.37" gradientTransform="matrix(.32351 0 0 .52462 -19.084 -24.618)" x2="363.25" y2="192.05"/>
+    <linearGradient id="linearGradient1418" x1="112.91" xlink:href="#linearGradient4564" gradientUnits="userSpaceOnUse" y1="318.34" gradientTransform="matrix(.57191 0 0 .29676 -19.084 -24.618)" x2="46.404" y2="375.61"/>
+    <linearGradient id="linearGradient1423" x1="202.97" xlink:href="#linearGradient4564" gradientUnits="userSpaceOnUse" y1="274.57" gradientTransform="matrix(.43839 0 0 .38715 -19.084 -24.618)" x2="111.2" y2="292.66"/>
+    <linearGradient id="linearGradient1427" x1="527.32" xlink:href="#linearGradient4580" gradientUnits="userSpaceOnUse" y1="150.89" gradientTransform="matrix(.22886 0 0 .74160 -19.084 -24.618)" x2="492.42" y2="167.67"/>
+    <linearGradient id="linearGradient1462" x1="326.82" xlink:href="#linearGradient4596" gradientUnits="userSpaceOnUse" y1="130.02" gradientTransform="matrix(.37875 0 0 .44811 -19.084 -24.618)" x2="217.16" y2="238.83"/>
+    <linearGradient id="linearGradient1465" x1="235.61" xlink:href="#linearGradient4596" gradientUnits="userSpaceOnUse" y1="116.75" gradientTransform="matrix(.34386 0 0 .49358 -19.084 -24.618)" x2="114.06" y2="252.57"/>
+  </defs>
+  <sodipodi:namedview id="base" bordercolor="#666666" borderopacity="1.0" showguides="true" pagecolor="#ffffff"/>
+  <g id="layer1">
+    <path id="path5973" sodipodi:nodetypes="ccccccccccc" fill="#79673d" d="m68.512 19.218l-50.28 22.743-16.185 35.753c-0.0004 0 11.748 1.495 17.061 2.358l0.469 15.152 72.204 12.646 25.329-32.597 0.26-12.704 9.49-13.119-10.46-23.668-47.888-6.564z"/>
+    <path id="path3628" sodipodi:nodetypes="ccccc" fill-rule="evenodd" fill="url(#linearGradient1465)" d="m19.563 42.568c1.413-0.942 49.122-22.85 49.122-22.85l2.409 54.895s-50.714 19.984-50.714 19.042-0.817-51.087-0.817-51.087z"/>
+    <path id="path3626" sodipodi:nodetypes="ccccc" fill-rule="evenodd" fill="url(#linearGradient1462)" d="m115.7 26.762l-47.016-7.009 2.346 54.899 44.8 0.787-0.13-48.677z"/>
+    <path id="path2085" sodipodi:nodetypes="ccccc" fill-rule="evenodd" fill="url(#linearGradient1427)" d="m91.276 51.841c1.412-1.883 24.454-24.914 24.454-24.914l-0.04 48.396-24.536 31.247 0.122-54.729z"/>
+    <path id="path2083" fill-rule="evenodd" fill="url(#linearGradient1423)" d="m19.236 42.66l72.511 9.181-0.471 54.859-70.863-12.482-1.177-51.558z"/>
+    <path id="path5971" sodipodi:nodetypes="ccccc" fill-rule="evenodd" fill="#79673d" d="m19.236 42.59l0.725 37.157c8.824 2.341 61.635 10.677 62.106 9.735 0.471-0.941 9.749-37.765 9.749-36.865l-72.58-10.027z"/>
+    <path id="path3630" sodipodi:nodetypes="ccccc" fill-rule="evenodd" fill="url(#linearGradient1418)" d="m19.236 42.59l-15.303 33.736c0.0001 0 76.042 12.477 76.513 11.535 0.471-0.941 10.83-35.784 10.83-35.784l-72.04-9.487z"/>
+    <path id="path5969" sodipodi:nodetypes="ccccc" fill-rule="evenodd" fill="#79673d" d="m91.331 53.753l9.869 32.42 15.03-21.863-0.71-37.659-24.189 27.102z"/>
+    <path id="path3632" sodipodi:nodetypes="ccccc" fill-rule="evenodd" fill="url(#linearGradient1406)" d="m91.151 51.772l10.959 30.439 23.3-32.488-9.89-23.072-24.369 25.121z"/>
+  </g>
+  <metadata>
+    <rdf:RDF>
+      <cc:Work>
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+        <cc:license rdf:resource="http://creativecommons.org/licenses/publicdomain/"/>
+        <dc:publisher>
+          <cc:Agent rdf:about="http://openclipart.org/">
+            <dc:title>Openclipart</dc:title>
+          </cc:Agent>
+        </dc:publisher>
+        <dc:title>Open box</dc:title>
+        <dc:date>2009-03-12T15:58:28</dc:date>
+        <dc:description>an open brown cardboard box</dc:description>
+        <dc:source>http://openclipart.org/detail/22259/open-box-by-nicubunu</dc:source>
+        <dc:creator>
+          <cc:Agent>
+            <dc:title>nicubunu</dc:title>
+          </cc:Agent>
+        </dc:creator>
+        <dc:subject>
+          <rdf:Bag>
+            <rdf:li>box</rdf:li>
+            <rdf:li>clip art</rdf:li>
+            <rdf:li>clipart</rdf:li>
+            <rdf:li>image</rdf:li>
+            <rdf:li>media</rdf:li>
+            <rdf:li>office</rdf:li>
+            <rdf:li>png</rdf:li>
+            <rdf:li>public domain</rdf:li>
+            <rdf:li>supply</rdf:li>
+            <rdf:li>svg</rdf:li>
+            <rdf:li>symbol</rdf:li>
+          </rdf:Bag>
+        </dc:subject>
+      </cc:Work>
+      <cc:License rdf:about="http://creativecommons.org/licenses/publicdomain/">
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Reproduction"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#Distribution"/>
+        <cc:permits rdf:resource="http://creativecommons.org/ns#DerivativeWorks"/>
+      </cc:License>
+    </rdf:RDF>
+  </metadata>
+</svg>

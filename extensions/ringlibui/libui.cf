@@ -1,0 +1,1297 @@
+<ignorecpointertype>
+
+<code>
+/* Copyright (c) 2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+
+#include <ui.h>
+<filter> iswindows()
+#include <windows.h>
+#include <ui_windows.h>
+</filter>
+
+</code>
+
+<constant>
+uiPi
+uiForEachContinue
+uiForEachStop
+uiWindowResizeEdgeLeft
+uiWindowResizeEdgeTop
+uiWindowResizeEdgeRight
+uiWindowResizeEdgeBottom
+uiWindowResizeEdgeTopLeft
+uiWindowResizeEdgeTopRight
+uiWindowResizeEdgeBottomLeft
+uiWindowResizeEdgeBottomRight
+uiDrawBrushTypeSolid
+uiDrawBrushTypeLinearGradient
+uiDrawBrushTypeRadialGradient
+uiDrawBrushTypeImage
+uiDrawDefaultMiterLimit
+uiTableModelColumnNeverEditable
+uiTableModelColumnAlwaysEditable
+uiDrawLineCapFlat
+uiDrawLineCapRound
+uiDrawLineCapSquare
+uiDrawLineJoinMiter
+uiDrawLineJoinRound
+uiDrawLineJoinBevel
+uiDrawFillModeWinding
+uiDrawFillModeAlternate
+uiAttributeTypeFamily
+uiAttributeTypeSize
+uiAttributeTypeWeight
+uiAttributeTypeItalic
+uiAttributeTypeStretch
+uiAttributeTypeColor
+uiAttributeTypeBackground
+uiAttributeTypeUnderline
+uiAttributeTypeUnderlineColor
+uiAttributeTypeFeatures
+uiTextWeightMinimum
+uiTextWeightThin
+uiTextWeightUltraLight
+uiTextWeightLight
+uiTextWeightBook
+uiTextWeightNormal
+uiTextWeightMedium
+uiTextWeightSemiBold
+uiTextWeightBold
+uiTextWeightUltraBold
+uiTextWeightHeavy
+uiTextWeightUltraHeavy
+uiTextWeightMaximum
+uiTextStretchUltraCondensed
+uiTextStretchExtraCondensed
+uiTextStretchCondensed
+uiTextStretchSemiCondensed
+uiTextStretchNormal
+uiTextStretchSemiExpanded
+uiTextStretchExpanded
+uiTextStretchExtraExpanded
+uiTextStretchUltraExpanded
+uiTextItalicNormal
+uiTextItalicOblique
+uiTextItalicItalic
+uiUnderlineNone
+uiUnderlineSingle
+uiUnderlineDouble
+uiUnderlineSuggestion
+uiUnderlineColorCustom
+uiUnderlineColorSpelling
+uiUnderlineColorGrammar
+uiUnderlineColorAuxiliary
+uiDrawTextAlignLeft
+uiDrawTextAlignCenter
+uiDrawTextAlignRight
+uiModifierCtrl
+uiModifierAlt
+uiModifierShift
+uiModifierSuper
+uiExtKeyEscape
+uiExtKeyInsert
+uiExtKeyDelete
+uiExtKeyHome
+uiExtKeyEnd
+uiExtKeyPageUp
+uiExtKeyPageDown
+uiExtKeyUp
+uiExtKeyDown
+uiExtKeyLeft
+uiExtKeyRight
+uiExtKeyF1
+uiExtKeyF2
+uiExtKeyF3
+uiExtKeyF4
+uiExtKeyF5
+uiExtKeyF6
+uiExtKeyF7
+uiExtKeyF8
+uiExtKeyF9
+uiExtKeyF10
+uiExtKeyF11
+uiExtKeyF12
+uiExtKeyN0
+uiExtKeyN1
+uiExtKeyN2
+uiExtKeyN3
+uiExtKeyN4
+uiExtKeyN5
+uiExtKeyN6
+uiExtKeyN7
+uiExtKeyN8
+uiExtKeyN9
+uiExtKeyNDot
+uiExtKeyNEnter
+uiExtKeyNAdd
+uiExtKeyNSubtract
+uiExtKeyNMultiply
+uiExtKeyNDivide
+uiAlignFill
+uiAlignStart
+uiAlignCenter
+uiAlignEnd
+uiAtLeading
+uiAtTop
+uiAtTrailing
+uiAtBottom
+uiTableValueTypeString
+uiTableValueTypeImage
+uiTableValueTypeInt
+uiTableValueTypeColor
+</constant>
+
+<struct>
+uiInitOptions
+uiControl {Signature, OSSignature, TypeSignature}
+uiAreaDrawParams {uiDrawContext *Context,AreaWidth,AreaHeight, ClipX,ClipY,ClipWidth,ClipHeight}
+uiDrawMatrix {M11,M12,M21,M22,M31,M32}
+uiTableTextColumnOptionalParams {ColorModelColumn}
+uiDrawBrush {Type,R,G,B,A,X0,Y0,X1,Y1,OuterRadius,NumStops}
+uiDrawBrushGradientStop {Pos,R,G,B,A}
+uiDrawStrokeParams {Cap,Join,Thickness,MiterLimit,NumDashes,DashPhase}
+uiTableModelHandler
+uiAreaKeyEvent {Key,ExtKey,Modifier,Modifiers,Up}
+uiTableParams {uiTableModel *Model,RowBackgroundColorModelColumn}
+uiAreaMouseEvent {X,Y,AreaWidth,AreaHeight,Down,Up,Count,Modifiers,Held1To64}
+uiDrawTextLayoutParams {uiAttributedString *String,uiFontDescriptor *DefaultFont,Width,Align}
+uiFontDescriptor {char *Family,Size,Weight,Italic,Stretch}
+</struct>
+
+<runcode>
+aNumberTypes + "size_t"
+aNumberTypes + "char"
+
+aEnumTypes + "uiForEach"
+aEnumTypes + "uiTextWeight"
+aEnumTypes + "uiWindowResizeEdge"
+aEnumTypes + "uiDrawBrushType"
+aEnumTypes + "uiDrawLineCap"
+aEnumTypes + "uiDrawLineJoin"
+aEnumTypes + "uiDrawFillMode"
+aEnumTypes + "uiAttributeType"
+aEnumTypes + "uiTextWeight"
+aEnumTypes + "uiTextItalic"
+aEnumTypes + "uiTextStretch"
+aEnumTypes + "uiUnderline"
+aEnumTypes + "uiUnderlineColor"
+aEnumTypes + "uiDrawTextAlign"
+aEnumTypes + "uiModifiers"
+aEnumTypes + "uiExtKey"
+aEnumTypes + "uiAlign"
+aEnumTypes + "uiAt"
+aEnumTypes + "uiTableValueType"
+</runcode>
+
+const char *uiInit@2(uiInitOptions *options)
+
+<register>
+void uiInit(void)
+void uiUninit(void)
+void uiOnShouldQuit(const char *cEvent)
+void uiWindowOnClosing(uiWindow *obj,const char *cEvent)
+void uiButtonOnClicked(uiButton *obj,const char *cEvent)
+void uiQueueMain(const char *cEvent)
+void uiTimer(int x,const char *cEvent)
+void uiWindowOnContentSizeChanged(uiWindow *obj,const char *cEvent)
+void uiCheckboxOnToggled(uiCheckbox *obj,const char *cEvent)
+void uiEntryOnChanged(uiEntry *obj,const char *cEvent)
+void uiSpinboxOnChanged(uiSpinbox *obj,const char *cEvent)
+void uiSliderOnChanged(uiSlider *obj,const char *cEvent)
+void uiComboboxOnSelected(uiCombobox *obj,const char *cEvent)
+void uiEditableComboboxOnChanged(uiEditableCombobox *obj,const char *cEvent)
+void uiRadioButtonsOnSelected(uiRadioButtons *obj,const char *cEvent)
+void uiDateTimePickerOnChanged(uiDateTimePicker *obj,const char *cEvent)
+void uiMultilineEntryOnChanged(uiMultilineEntry *obj,const char *cEvent)
+void uiMenuItemOnClicked(uiMenuItem *obj,const char *cEvent)
+void uiFontButtonOnChanged(uiFontButton *obj,const char *cEvent)
+void uiColorButtonOnChanged(uiColorButton *obj,const char *cEvent)
+uiWindow *uiEventWindow(void)
+uiButton *uiEventButton(void)
+uiCheckbox *uiEventCheckbox(void)
+uiEntry *uiEventEntry(void)
+uiSpinbox *uiEventSpinbox(void)
+uiSlider *uiEventSlider(void)
+uiCombobox *uiEventCombobox(void)
+uiEditableCombobox *uiEventEditableCombobox(void)
+uiRadioButtons *uiEventRadioButtons(void)
+uiDateTimePicker *uiEventDateTimePicker(void)
+uiMultilineEntry *uiEventMultilineEntry(void)
+uiMenuItem *uiEventMenuItem(void)
+uiWindow *uiEventMenuItemWindow(void)
+uiFontButton *uiEventFontButton(void)
+uiColorButton *uiEventColorButton(void)
+uiAreaHandler *uiNewAreaHandler(const char *cDraw,const char *cMouseEvent,const char *cMouseCrossed,const char *DragBroken,const char *cKeyEvent)
+uiAreaHandler *uiEventAreaHandler(void)
+uiArea *uiEventArea(void)
+uiAreaDrawParams *uiEventAreaDrawParams(void)
+uiAreaKeyEvent *uiEventAreaKeyEvent(void)
+uiAreaMouseEvent *uiEventAreaMouseEvent(void)
+int uiEventLeft(void)
+</register>
+
+<code>
+
+VM *pVMLibUI = NULL;
+
+List *aLibUIEvents ;
+
+uiWindow *activeWindow ;
+uiButton *activeButton ;
+uiCheckbox *activeCheckbox;
+uiEntry *activeEntry;
+uiSpinbox *activeSpinbox;
+uiSlider *activeSlider;
+uiCombobox *activeCombobox;
+uiEditableCombobox *activeEditableCombobox;
+uiRadioButtons *activeRadioButtons;
+uiDateTimePicker *activeDateTimePicker;
+uiMultilineEntry *activeMultilineEntry;
+uiMenuItem *activeMenuItem;
+uiWindow *activeMenuItemWindow;
+uiFontButton *activeFontButton;
+uiColorButton *activeColorButton;
+uiAreaHandler *activeAreaHandler;
+uiArea *activeArea;
+uiAreaDrawParams *activeAreaDrawParams;
+uiAreaKeyEvent *activeAreaKeyEvent;
+uiAreaMouseEvent *activeAreaMouseEvent;
+int activeLeft;
+
+typedef struct customAreaHandler {
+	uiAreaHandler ah;
+	char cDraw[256];
+	char cMouseEvent[256];
+	char cMouseCrossed[256];
+	char cDragBroken[256];
+	char cKeyEvent[256];
+} customAreaHandler;
+
+
+static void handlerDraw(uiAreaHandler *a, uiArea *area, uiAreaDrawParams *p)
+{
+	customAreaHandler *oHandler;
+	activeAreaHandler = a;
+	activeArea = area;
+	activeAreaDrawParams = p;
+	oHandler = (customAreaHandler *) a;
+	if ( oHandler->cDraw[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDraw);
+}
+
+static void handlerMouseEvent(uiAreaHandler *a, uiArea *area, uiAreaMouseEvent *e)
+{
+	customAreaHandler *oHandler;
+	activeAreaHandler = a;
+	activeArea = area;
+	activeAreaMouseEvent = e;
+	oHandler = (customAreaHandler *) a;
+	if ( oHandler->cMouseEvent[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseEvent);
+}
+
+static void handlerMouseCrossed(uiAreaHandler *ah, uiArea *a, int left)
+{
+	customAreaHandler *oHandler;
+	activeAreaHandler = ah;
+	activeArea = a;
+	activeLeft = left;
+	oHandler = (customAreaHandler *) ah;
+	if ( oHandler->cMouseCrossed[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cMouseCrossed);
+}
+
+static void handlerDragBroken(uiAreaHandler *ah, uiArea *a)
+{
+	customAreaHandler *oHandler;
+	activeAreaHandler = ah;
+	activeArea = a;
+	oHandler = (customAreaHandler *) ah;
+	if ( oHandler->cDragBroken[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cDragBroken);
+}
+
+static int handlerKeyEvent(uiAreaHandler *ah, uiArea *a, uiAreaKeyEvent *e)
+{
+	customAreaHandler *oHandler;
+	activeAreaHandler = ah;
+	activeArea = a;
+	activeAreaKeyEvent = e;
+	oHandler = (customAreaHandler *) ah;
+	if ( oHandler->cKeyEvent[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) oHandler->cKeyEvent);
+	return 0;
+}
+
+RING_FUNC(ring_uiNewAreaHandler)
+{
+
+	customAreaHandler *oHandler;
+
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR("The function expect 5 parameters") ;
+		return ;
+	}
+
+	if ( ( ! RING_API_ISSTRING(1) ) || 
+ 			 ( ! RING_API_ISSTRING(2) ) ||  
+			 ( ! RING_API_ISSTRING(3) ) || 
+			 ( ! RING_API_ISSTRING(4) ) || 
+			 ( ! RING_API_ISSTRING(5) )  ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	if ( ( strlen( RING_API_GETSTRING(1) ) > 255 ) || 
+ 			 ( strlen( RING_API_GETSTRING(2) ) > 255 ) ||  
+			 ( strlen( RING_API_GETSTRING(3) ) > 255 ) || 
+			 ( strlen( RING_API_GETSTRING(4) ) > 255 ) || 
+			 ( strlen( RING_API_GETSTRING(5) ) > 255 )  ) { 
+		RING_API_ERROR("The Event String size is greater than 255 characters!");
+		return ;
+	}
+
+	oHandler = (customAreaHandler *) calloc(1,sizeof(customAreaHandler)) ;
+
+	oHandler->ah.Draw = handlerDraw ;
+	oHandler->ah.MouseEvent = handlerMouseEvent ;
+	oHandler->ah.MouseCrossed = handlerMouseCrossed ;
+	oHandler->ah.DragBroken = handlerDragBroken ;
+	oHandler->ah.KeyEvent =  handlerKeyEvent ;
+
+	strcpy(oHandler->cDraw,RING_API_GETSTRING(1));
+	strcpy(oHandler->cMouseEvent,RING_API_GETSTRING(2));
+	strcpy(oHandler->cMouseCrossed,RING_API_GETSTRING(3));
+	strcpy(oHandler->cDragBroken,RING_API_GETSTRING(4));
+	strcpy(oHandler->cKeyEvent,RING_API_GETSTRING(5));
+
+	RING_API_RETCPOINTER(oHandler,"uiAreaHandler");
+
+}
+
+static void setSolidBrush(uiDrawBrush *brush, uint32_t color, double alpha)
+{
+	uint8_t component;
+
+	brush->Type = uiDrawBrushTypeSolid;
+	component = (uint8_t) ((color >> 16) & 0xFF);
+	brush->R = ((double) component) / 255;
+	component = (uint8_t) ((color >> 8) & 0xFF);
+	brush->G = ((double) component) / 255;
+	component = (uint8_t) (color & 0xFF);
+	brush->B = ((double) component) / 255;
+	brush->A = alpha;
+}
+
+
+RING_FUNC(ring_uiInit)
+{
+	uiInitOptions o;
+	const char *err;
+	memset(&o, 0, sizeof (uiInitOptions));
+	err = uiInit(&o);
+	if (err != NULL) {
+		RING_API_ERROR("error initializing libui");
+		uiFreeInitError(err);
+	}
+	pVMLibUI = (VM *) pPointer;
+	aLibUIEvents = ring_list_new(0);
+	activeWindow = NULL;
+	activeButton = NULL;
+	activeCheckbox = NULL;
+	activeEntry = NULL;
+	activeSpinbox = NULL;
+	activeSlider = NULL;
+	activeCombobox = NULL;
+	activeEditableCombobox = NULL;
+	activeRadioButtons = NULL;
+	activeDateTimePicker = NULL;
+	activeMultilineEntry = NULL;
+	activeMenuItem = NULL;
+	activeMenuItemWindow = NULL;
+	activeFontButton = NULL;
+	activeColorButton = NULL;
+}
+
+RING_FUNC(ring_uiUninit)
+{
+	aLibUIEvents = ring_list_delete(aLibUIEvents);
+	// Calling uiUninit() lead to CRASH (A bug in libui itself)
+	// Also it's not necessary to call it before closing the applicaiton
+	// uiUninit();
+}
+
+int libui_event(void *data)
+{
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+	return 1;
+}
+
+void libui_event2(void *data)
+{
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+int libui_windowevent(uiWindow *obj,void *data)
+{
+	activeWindow = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+	return 0;
+}
+
+void libui_buttonevent(uiButton *obj,void *data)
+{
+	activeButton = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_checkboxevent(uiCheckbox *obj,void *data)
+{
+	activeCheckbox = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_entryevent(uiEntry *obj,void *data)
+{
+	activeEntry = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_spinboxevent(uiSpinbox *obj,void *data)
+{
+	activeSpinbox = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_sliderevent(uiSlider *obj,void *data)
+{
+	activeSlider = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_comboboxevent(uiCombobox *obj,void *data)
+{
+	activeCombobox = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_editablecomboboxevent(uiEditableCombobox *obj,void *data)
+{
+	activeEditableCombobox = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_radiobuttonsevent(uiRadioButtons *obj,void *data)
+{
+	activeRadioButtons = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_datetimepickerevent(uiDateTimePicker *obj,void *data)
+{
+	activeDateTimePicker = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_multilineentryevent(uiMultilineEntry *obj,void *data)
+{
+	activeMultilineEntry = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_menuitemevent(uiMenuItem *obj,uiWindow *obj2,void *data)
+{
+	activeMenuItem = obj;
+	activeMenuItemWindow = obj2;
+	ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_fontbuttonevent(uiFontButton *obj,void *data)
+{
+	activeFontButton = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+void libui_colorbuttonevent(uiColorButton *obj,void *data)
+{
+	activeColorButton = obj;
+	if ( ((const char *) data)[0] != '\0')
+		ring_vm_runcode(pVMLibUI,(const char *) data);
+}
+
+
+void *RegisterEvent(const char *cEvent)
+{
+	ring_list_addstring(aLibUIEvents,cEvent);
+	return (void *) ring_list_getstring(aLibUIEvents,ring_list_getsize(aLibUIEvents));
+}
+
+RING_FUNC(ring_uiOnShouldQuit) 
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiOnShouldQuit(libui_event,RegisterEvent(RING_API_GETSTRING(1)));
+}
+
+RING_FUNC(ring_uiWindowOnClosing)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiWindowOnClosing(RING_API_GETCPOINTER(1,"uiWindow"),
+		libui_windowevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiButtonOnClicked)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiButtonOnClicked(RING_API_GETCPOINTER(1,"uiButton"),
+		libui_buttonevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiQueueMain)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiQueueMain(libui_event2,RegisterEvent(RING_API_GETSTRING(1)));
+}
+
+RING_FUNC(ring_uiTimer)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiTimer(RING_API_GETNUMBER(1),libui_event,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiWindowOnContentSizeChanged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiWindowOnContentSizeChanged(RING_API_GETCPOINTER(1,"uiWindow"),
+		libui_windowevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiCheckboxOnToggled)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiCheckboxOnToggled(RING_API_GETCPOINTER(1,"uiCheckbox"),
+		libui_checkboxevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiEntryOnChanged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiEntryOnChanged(RING_API_GETCPOINTER(1,"uiEntry"),
+		libui_entryevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiSpinboxOnChanged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiSpinboxOnChanged(RING_API_GETCPOINTER(1,"uiSpinbox"),
+		libui_spinboxevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiSliderOnChanged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiSliderOnChanged(RING_API_GETCPOINTER(1,"uiSlider"),
+		libui_sliderevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiComboboxOnSelected)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiComboboxOnSelected(RING_API_GETCPOINTER(1,"uiCombobox"),
+		libui_comboboxevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiEditableComboboxOnChanged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiEditableComboboxOnChanged(RING_API_GETCPOINTER(1,"uiEditableCombobox"),
+		libui_editablecomboboxevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiRadioButtonsOnSelected)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiRadioButtonsOnSelected(RING_API_GETCPOINTER(1,"uiRadioButtons"),
+		libui_radiobuttonsevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiDateTimePickerOnChanged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiDateTimePickerOnChanged(RING_API_GETCPOINTER(1,"uiDateTimePicker"),
+		libui_datetimepickerevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiMultilineEntryOnChanged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMultilineEntryOnChanged(RING_API_GETCPOINTER(1,"uiMultilineEntry"),
+		libui_multilineentryevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiMenuItemOnClicked)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiMenuItemOnClicked(RING_API_GETCPOINTER(1,"uiMenuItem"),
+		libui_menuitemevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiFontButtonOnChanged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiFontButtonOnChanged(RING_API_GETCPOINTER(1,"uiFontButton"),
+		libui_fontbuttonevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiColorButtonOnChanged)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	uiColorButtonOnChanged(RING_API_GETCPOINTER(1,"uiColorButton"),
+		libui_colorbuttonevent,RegisterEvent(RING_API_GETSTRING(2)));
+}
+
+RING_FUNC(ring_uiEventWindow)
+{
+	RING_API_RETCPOINTER(activeWindow,"uiWindow");
+}
+
+RING_FUNC(ring_uiEventButton)
+{
+	RING_API_RETCPOINTER(activeButton,"uiButton");
+}
+
+RING_FUNC(ring_uiEventCheckbox)
+{
+	RING_API_RETCPOINTER(activeCheckbox,"uiCheckbox");
+}
+
+RING_FUNC(ring_uiEventEntry)
+{
+	RING_API_RETCPOINTER(activeEntry,"uiEntry");
+}
+
+RING_FUNC(ring_uiEventSpinbox)
+{
+	RING_API_RETCPOINTER(activeSpinbox,"uiSpinbox");
+}
+
+RING_FUNC(ring_uiEventSlider)
+{
+	RING_API_RETCPOINTER(activeSlider,"uiSlider");
+}
+
+RING_FUNC(ring_uiEventCombobox)
+{
+	RING_API_RETCPOINTER(activeCombobox,"uiCombox");
+}
+
+RING_FUNC(ring_uiEventEditableCombobox)
+{
+	RING_API_RETCPOINTER(activeEditableCombobox,"uiCombobox");
+}
+
+RING_FUNC(ring_uiEventRadioButtons)
+{
+	RING_API_RETCPOINTER(activeRadioButtons,"uiRadioButtons");
+}
+
+RING_FUNC(ring_uiEventDateTimePicker)
+{
+	RING_API_RETCPOINTER(activeDateTimePicker,"uiDateTimePicker");
+}
+
+RING_FUNC(ring_uiEventMultilineEntry)
+{
+	RING_API_RETCPOINTER(activeMultilineEntry,"uiMultilineEntry");
+}
+
+RING_FUNC(ring_uiEventMenuItem)
+{
+	RING_API_RETCPOINTER(activeMenuItem,"uiMenuItem");
+}
+
+RING_FUNC(ring_uiEventMenuItemWindow)
+{
+	RING_API_RETCPOINTER(activeMenuItemWindow,"uiWindow");
+}
+
+RING_FUNC(ring_uiEventFontButton)
+{
+	RING_API_RETCPOINTER(activeFontButton,"uiFontButton");
+}
+
+RING_FUNC(ring_uiEventColorButton)
+{
+	RING_API_RETCPOINTER(activeColorButton,"uiColorButton");
+}
+
+RING_FUNC(ring_uiEventAreaHandler)
+{
+	RING_API_RETCPOINTER(activeAreaHandler,"uiAreaHandler");
+}
+
+RING_FUNC(ring_uiEventArea)
+{
+	RING_API_RETCPOINTER(activeArea,"uiArea");
+}
+
+RING_FUNC(ring_uiEventAreaDrawParams)
+{
+	RING_API_RETCPOINTER(activeAreaDrawParams,"uiAreaDrawParams");
+}
+
+RING_FUNC(ring_uiEventAreaKeyEvent)
+{
+	RING_API_RETCPOINTER(activeAreaKeyEvent,"uiAreaKeyEvent");
+}
+
+RING_FUNC(ring_uiEventAreaMouseEvent)
+{
+	RING_API_RETCPOINTER(activeAreaMouseEvent,"uiAreaMouseEvent");
+}
+
+RING_FUNC(ring_uiEventLeft)
+{
+	RING_API_RETNUMBER(activeLeft);
+}
+
+
+</code>
+
+void setSolidBrush(uiDrawBrush *brush, uint32_t color, double alpha)
+
+void uiFreeInitError(const char *err)
+
+void uiMain(void)
+void uiMainSteps(void)
+int uiMainStep(int wait)
+void uiQuit(void)
+
+void uiControlDestroy(uiControl *)
+uiControl *uiControlParent(uiControl *)
+void uiControlSetParent(uiControl *, uiControl *)
+int uiControlToplevel(uiControl *)
+int uiControlVisible(uiControl *)
+void uiControlShow(uiControl *)
+void uiControlHide(uiControl *)
+int uiControlEnabled(uiControl *)
+void uiControlEnable(uiControl *)
+void uiControlDisable(uiControl *)
+
+uiControl *uiAllocControl(size_t n, uint32_t OSsig, uint32_t typesig, const char *typenamestr)
+void uiFreeControl(uiControl *)
+void uiControlVerifySetParent(uiControl *, uiControl *)
+int uiControlEnabledToUser(uiControl *)
+void uiUserBugCannotSetParentOnToplevel(const char *type)
+
+char *uiWindowTitle(uiWindow *w)
+void uiWindowSetTitle(uiWindow *w, const char *title)
+void uiWindowContentSize(uiWindow *w, int *width, int *height)
+void uiWindowSetContentSize(uiWindow *w, int width, int height)
+int uiWindowFullscreen(uiWindow *w)
+void uiWindowSetFullscreen(uiWindow *w, int fullscreen)
+int uiWindowBorderless(uiWindow *w)
+void uiWindowSetBorderless(uiWindow *w, int borderless)
+void uiWindowSetChild(uiWindow *w, uiControl *child)
+int uiWindowMargined(uiWindow *w)
+void uiWindowSetMargined(uiWindow *w, int margined)
+uiWindow *uiNewWindow(const char *title, int width, int height, int hasMenubar)
+
+char *uiButtonText(uiButton *b)
+void uiButtonSetText(uiButton *b, const char *text)
+uiButton *uiNewButton(const char *text)
+
+void uiBoxAppend(uiBox *b, uiControl *child, int stretchy)
+void uiBoxDelete(uiBox *b, int index)
+int uiBoxPadded(uiBox *b)
+void uiBoxSetPadded(uiBox *b, int padded)
+uiBox *uiNewHorizontalBox(void)
+uiBox *uiNewVerticalBox(void)
+
+char *uiCheckboxText(uiCheckbox *c)
+void uiCheckboxSetText(uiCheckbox *c, const char *text)
+int uiCheckboxChecked(uiCheckbox *c)
+void uiCheckboxSetChecked(uiCheckbox *c, int checked)
+uiCheckbox *uiNewCheckbox(const char *text)
+
+char *uiEntryText(uiEntry *e)
+void uiEntrySetText(uiEntry *e, const char *text)
+int uiEntryReadOnly(uiEntry *e)
+void uiEntrySetReadOnly(uiEntry *e, int readonly)
+uiEntry *uiNewEntry(void)
+uiEntry *uiNewPasswordEntry(void)
+uiEntry *uiNewSearchEntry(void)
+
+char *uiLabelText(uiLabel *l)
+void uiLabelSetText(uiLabel *l, const char *text)
+uiLabel *uiNewLabel(const char *text)
+
+void uiTabAppend(uiTab *t, const char *name, uiControl *c)
+void uiTabInsertAt(uiTab *t, const char *name, int before, uiControl *c)
+void uiTabDelete(uiTab *t, int index)
+int uiTabNumPages(uiTab *t)
+int uiTabMargined(uiTab *t, int page)
+void uiTabSetMargined(uiTab *t, int page, int margined)
+uiTab *uiNewTab(void)
+
+char *uiGroupTitle(uiGroup *g)
+void uiGroupSetTitle(uiGroup *g, const char *title)
+void uiGroupSetChild(uiGroup *g, uiControl *c)
+int uiGroupMargined(uiGroup *g)
+void uiGroupSetMargined(uiGroup *g, int margined)
+uiGroup *uiNewGroup(const char *title)
+
+int uiSpinboxValue(uiSpinbox *s)
+void uiSpinboxSetValue(uiSpinbox *s, int value)
+uiSpinbox *uiNewSpinbox(int min, int max)
+
+int uiSliderValue(uiSlider *s)
+void uiSliderSetValue(uiSlider *s, int value)
+uiSlider *uiNewSlider(int min, int max)
+
+int uiProgressBarValue(uiProgressBar *p)
+void uiProgressBarSetValue(uiProgressBar *p, int n)
+uiProgressBar *uiNewProgressBar(void)
+
+uiSeparator *uiNewHorizontalSeparator(void)
+uiSeparator *uiNewVerticalSeparator(void)
+
+void uiComboboxAppend(uiCombobox *c, const char *text)
+int uiComboboxSelected(uiCombobox *c)
+void uiComboboxSetSelected(uiCombobox *c, int n)
+uiCombobox *uiNewCombobox(void)
+
+void uiEditableComboboxAppend(uiEditableCombobox *c, const char *text)
+char *uiEditableComboboxText(uiEditableCombobox *c)
+void uiEditableComboboxSetText(uiEditableCombobox *c, const char *text)
+uiEditableCombobox *uiNewEditableCombobox(void)
+
+void uiRadioButtonsAppend(uiRadioButtons *r, const char *text)
+int uiRadioButtonsSelected(uiRadioButtons *r)
+void uiRadioButtonsSetSelected(uiRadioButtons *r, int n)
+uiRadioButtons *uiNewRadioButtons(void)
+
+void uiDateTimePickerTime(uiDateTimePicker *d, struct tm *time)
+void uiDateTimePickerSetTime(uiDateTimePicker *d, const struct tm *time)
+uiDateTimePicker *uiNewDateTimePicker(void)
+uiDateTimePicker *uiNewDatePicker(void)
+uiDateTimePicker *uiNewTimePicker(void)
+
+char *uiMultilineEntryText(uiMultilineEntry *e)
+void uiMultilineEntrySetText(uiMultilineEntry *e, const char *text)
+void uiMultilineEntryAppend(uiMultilineEntry *e, const char *text)
+int uiMultilineEntryReadOnly(uiMultilineEntry *e)
+void uiMultilineEntrySetReadOnly(uiMultilineEntry *e, int readonly)
+uiMultilineEntry *uiNewMultilineEntry(void)
+uiMultilineEntry *uiNewNonWrappingMultilineEntry(void)
+
+void uiMenuItemEnable(uiMenuItem *m)
+void uiMenuItemDisable(uiMenuItem *m)
+int uiMenuItemChecked(uiMenuItem *m)
+void uiMenuItemSetChecked(uiMenuItem *m, int checked)
+
+uiMenuItem *uiMenuAppendItem(uiMenu *m, const char *name)
+uiMenuItem *uiMenuAppendCheckItem(uiMenu *m, const char *name)
+uiMenuItem *uiMenuAppendQuitItem(uiMenu *m)
+uiMenuItem *uiMenuAppendPreferencesItem(uiMenu *m)
+uiMenuItem *uiMenuAppendAboutItem(uiMenu *m)
+void uiMenuAppendSeparator(uiMenu *m)
+uiMenu *uiNewMenu(const char *name)
+
+void uiMsgBox(uiWindow *parent, const char *title, const char *description)
+void uiMsgBoxError(uiWindow *parent, const char *title, const char *description)
+
+void uiAreaQueueRedrawAll(uiArea *a)
+void uiAreaScrollTo(uiArea *a, double x, double y, double width, double height)
+void uiAreaBeginUserWindowMove(uiArea *a)
+void uiAreaBeginUserWindowResize(uiArea *a, uiWindowResizeEdge edge)
+uiArea *uiNewArea(uiAreaHandler *ah)
+uiArea *uiNewScrollingArea(uiAreaHandler *ah, int width, int height)
+
+uiDrawPath *uiDrawNewPath(uiDrawFillMode fillMode)
+void uiDrawFreePath(uiDrawPath *p)
+
+void uiDrawPathNewFigure(uiDrawPath *p, double x, double y)
+void uiDrawPathNewFigureWithArc(uiDrawPath *p, double xCenter, double yCenter, double radius, double startAngle, double sweep, int negative)
+void uiDrawPathLineTo(uiDrawPath *p, double x, double y)
+void uiDrawPathArcTo(uiDrawPath *p, double xCenter, double yCenter, double radius, double startAngle, double sweep, int negative)
+void uiDrawPathBezierTo(uiDrawPath *p, double c1x, double c1y, double c2x, double c2y, double endX, double endY)
+void uiDrawPathCloseFigure(uiDrawPath *p)
+
+void uiDrawPathAddRectangle(uiDrawPath *p, double x, double y, double width, double height)
+void uiDrawPathEnd(uiDrawPath *p)
+void uiDrawStroke(uiDrawContext *c, uiDrawPath *path, uiDrawBrush *b, uiDrawStrokeParams *p)
+void uiDrawFill(uiDrawContext *c, uiDrawPath *path, uiDrawBrush *b)
+
+void uiDrawMatrixSetIdentity(uiDrawMatrix *m)
+void uiDrawMatrixTranslate(uiDrawMatrix *m, double x, double y)
+void uiDrawMatrixScale(uiDrawMatrix *m, double xCenter, double yCenter, double x, double y)
+void uiDrawMatrixRotate(uiDrawMatrix *m, double x, double y, double amount)
+void uiDrawMatrixSkew(uiDrawMatrix *m, double x, double y, double xamount, double yamount)
+void uiDrawMatrixMultiply(uiDrawMatrix *dest, uiDrawMatrix *src)
+int uiDrawMatrixInvertible(uiDrawMatrix *m)
+int uiDrawMatrixInvert(uiDrawMatrix *m)
+void uiDrawMatrixTransformPoint(uiDrawMatrix *m, double *x, double *y)
+void uiDrawMatrixTransformSize(uiDrawMatrix *m, double *x, double *y)
+void uiDrawTransform(uiDrawContext *c, uiDrawMatrix *m)
+void uiDrawClip(uiDrawContext *c, uiDrawPath *path)
+void uiDrawSave(uiDrawContext *c)
+void uiDrawRestore(uiDrawContext *c)
+
+uiAttributeType uiAttributeGetType(const uiAttribute *a)
+uiAttribute *uiNewFamilyAttribute(const char *family)
+const char *uiAttributeFamily(const uiAttribute *a)
+uiAttribute *uiNewSizeAttribute(double size)
+double uiAttributeSize(const uiAttribute *a)
+
+uiAttribute *uiNewStretchAttribute(uiTextStretch stretch)
+uiTextStretch uiAttributeStretch(const uiAttribute *a)
+uiAttribute *uiNewColorAttribute(double r, double g, double b, double a)
+void uiAttributeColor(const uiAttribute *a, double *r, double *g, double *b, double *alpha)
+uiAttribute *uiNewBackgroundAttribute(double r, double g, double b, double a)
+
+uiAttribute *uiNewUnderlineAttribute(uiUnderline u)
+uiUnderline uiAttributeUnderline(const uiAttribute *a)
+
+uiAttribute *uiNewUnderlineColorAttribute(uiUnderlineColor u, double r, double g, double b, double a)
+void uiAttributeUnderlineColor(const uiAttribute *a, uiUnderlineColor *u, double *r, double *g, double *b, double *alpha)
+uiOpenTypeFeatures *uiNewOpenTypeFeatures(void)
+void uiFreeOpenTypeFeatures(uiOpenTypeFeatures *otf)
+uiOpenTypeFeatures *uiOpenTypeFeaturesClone(const uiOpenTypeFeatures *otf)
+void uiOpenTypeFeaturesAdd(uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t value)
+void uiOpenTypeFeaturesRemove(uiOpenTypeFeatures *otf, char a, char b, char c, char d)
+int uiOpenTypeFeaturesGet(const uiOpenTypeFeatures *otf, char a, char b, char c, char d, uint32_t *value)
+void uiOpenTypeFeaturesForEach(const uiOpenTypeFeatures *otf, uiOpenTypeFeaturesForEachFunc f, void *data)
+uiAttribute *uiNewFeaturesAttribute(const uiOpenTypeFeatures *otf)
+const uiOpenTypeFeatures *uiAttributeFeatures(const uiAttribute *a)
+uiAttributedString *uiNewAttributedString(const char *initialString)
+void uiFreeAttributedString(uiAttributedString *s)
+const char *uiAttributedStringString(const uiAttributedString *s)
+size_t uiAttributedStringLen(const uiAttributedString *s)
+void uiAttributedStringAppendUnattributed(uiAttributedString *s, const char *str)
+void uiAttributedStringInsertAtUnattributed(uiAttributedString *s, const char *str, size_t at)
+void uiAttributedStringDelete(uiAttributedString *s, size_t start, size_t end)
+void uiAttributedStringSetAttribute(uiAttributedString *s, uiAttribute *a, size_t start, size_t end)
+void uiAttributedStringForEachAttribute(const uiAttributedString *s, uiAttributedStringForEachAttributeFunc f, void *data)
+size_t uiAttributedStringNumGraphemes(uiAttributedString *s)
+size_t uiAttributedStringByteIndexToGrapheme(uiAttributedString *s, size_t pos)
+size_t uiAttributedStringGraphemeToByteIndex(uiAttributedString *s, size_t pos)
+
+
+uiDrawTextLayout *uiDrawNewTextLayout(uiDrawTextLayoutParams *params)
+void uiDrawFreeTextLayout(uiDrawTextLayout *tl)
+void uiDrawText(uiDrawContext *c, uiDrawTextLayout *tl, double x, double y)
+void uiDrawTextLayoutExtents(uiDrawTextLayout *tl, double *width, double *height)
+
+void uiFontButtonFont(uiFontButton *b, uiFontDescriptor *desc)
+uiFontButton *uiNewFontButton(void)
+void uiFreeFontButtonFont(uiFontDescriptor *desc)
+
+void uiColorButtonColor(uiColorButton *b, double *r, double *g, double *bl, double *a)
+void uiColorButtonSetColor(uiColorButton *b, double r, double g, double bl, double a)
+uiColorButton *uiNewColorButton(void)
+
+void uiFormAppend(uiForm *f, const char *label, uiControl *c, int stretchy)
+void uiFormDelete(uiForm *f, int index)
+int uiFormPadded(uiForm *f)
+void uiFormSetPadded(uiForm *f, int padded)
+uiForm *uiNewForm(void)
+
+void uiGridAppend(uiGrid *g, uiControl *c, int left, int top, int xspan, int yspan, int hexpand, uiAlign halign, int vexpand, uiAlign valign)
+void uiGridInsertAt(uiGrid *g, uiControl *c, uiControl *existing, uiAt at, int xspan, int yspan, int hexpand, uiAlign halign, int vexpand, uiAlign valign)
+int uiGridPadded(uiGrid *g)
+void uiGridSetPadded(uiGrid *g, int padded)
+uiGrid *uiNewGrid(void)
+
+uiTableValueType uiTableValueGetType(const uiTableValue *v)
+uiTableValue *uiNewTableValueString(const char *str)
+const char *uiTableValueString(const uiTableValue *v)
+uiTableValue *uiNewTableValueImage(uiImage *img)
+uiImage *uiTableValueImage(const uiTableValue *v)
+uiTableValue *uiNewTableValueInt(int i)
+int uiTableValueInt(const uiTableValue *v)
+uiTableValue *uiNewTableValueColor(double r, double g, double b, double a)
+void uiTableValueColor(const uiTableValue *v, double *r, double *g, double *b, double *a)
+
+uiImage *uiNewImage(double width, double height)
+void uiFreeImage(uiImage *i)
+void uiImageAppend(uiImage *i, void *pixels, int pixelWidth, int pixelHeight, int byteStride)
+
+void uiFreeTableValue(uiTableValue *v)
+
+uiTableModel *uiNewTableModel(uiTableModelHandler *mh)
+void uiFreeTableModel(uiTableModel *m)
+void uiTableModelRowInserted(uiTableModel *m, int newIndex)
+void uiTableModelRowChanged(uiTableModel *m, int index)
+void uiTableModelRowDeleted(uiTableModel *m, int oldIndex)
+
+uiAttribute *uiNewWeightAttribute(uiTextWeight weight)
+uiTextWeight uiAttributeWeight(const uiAttribute *a)
+uiAttribute *uiNewItalicAttribute(uiTextItalic italic)
+uiTextItalic uiAttributeItalic(const uiAttribute *a)
+
+void uiFreeAttribute(uiAttribute *a)
+
+void uiTableAppendTextColumn(uiTable *t,const char *name,int textModelColumn,int textEditableModelColumn,uiTableTextColumnOptionalParams *textParams)
+void uiTableAppendImageColumn(uiTable *t,const char *name,int imageModelColumn)
+void uiTableAppendImageTextColumn(uiTable *t,const char *name,int imageModelColumn,int textModelColumn,int textEditableModelColumn,uiTableTextColumnOptionalParams *textParams)
+void uiTableAppendCheckboxColumn(uiTable *t,const char *name,int checkboxModelColumn,int checkboxEditableModelColumn)
+void uiTableAppendCheckboxTextColumn(uiTable *t,const char *name,int checkboxModelColumn,int checkboxEditableModelColumn,int textModelColumn,int textEditableModelColumn,uiTableTextColumnOptionalParams *textParams)
+void uiTableAppendProgressBarColumn(uiTable *t,const char *name,int progressModelColumn)
+void uiTableAppendButtonColumn(uiTable *t,const char *name,int buttonModelColumn,int buttonClickableModelColumn)
+uiTable *uiNewTable(uiTableParams *params)
+
+void uiAreaSetSize(uiArea *a, int width, int height)
+
+uintptr_t uiControlHandle(uiControl *)
+
+void uiFreeText(char *text)
+
+<register>
+char *uiOpenFile(uiWindow *parent)
+char *uiSaveFile(uiWindow *parent)
+<register>
+<code>
+RING_FUNC(ring_uiOpenFile)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiOpenFile((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+	}
+}
+
+RING_FUNC(ring_uiSaveFile)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiSaveFile((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+	}
+}
+</code>

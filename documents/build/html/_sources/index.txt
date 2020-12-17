@@ -114,6 +114,7 @@ Contents:
    Release Notes: Version 1.11 <whatisnew11>
    Release Notes: Version 1.12 <whatisnew12>
    Release Notes: Version 1.13 <whatisnew13>
+   Release Notes: Version 1.14 <whatisnew14>
    Using Other Code Editors <codeeditors>
    Frequently Asked Questions (FAQ) <faq>
    How to Compile Ring From Source Code? <sourcecode>

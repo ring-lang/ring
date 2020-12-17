@@ -1,0 +1,26 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">id</th>
+      <th scope="col">Name</th>
+      <th scope="col">Salary</th>
+			<th scope="col">Is Active</th>
+    </tr>
+  </thead>
+  <tbody>
+<%for emp in employees%>
+    <tr>
+      <th scope="row"><%=emp[:id]%></th>
+      <td><%=emp[:name]%></td>
+      <td><%=emp[:salary]%></td>
+			<td>
+				<%if emp[:is_active]%>
+					Yes
+				<%else%>
+					No
+				<%ok%>
+			</td>
+    </tr>
+<%next%>
+  </tbody>
+</table>

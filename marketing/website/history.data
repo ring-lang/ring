@@ -1,4 +1,7 @@
 aNews = [
+  ["December 10, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/applications/mycoffee" target="_blank"> MyCoffee (Web Application)'],
+  ["November 10, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/tools/cloc" target="_blank"> Using CLOC</a>'],
+  ["October 25, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/samples/UsingArabic/HassounaCourse/WebDevelopment#hassouna-course-web-development-samples" target="_blank"> Web Development Samples (WebLib)</a>'],
   ["September 15, 2020",'<a href="doc1.13/whatisnew13.html" target="_blank"> Ring 1.13 Released!</a>'],
   ["August 24, 2020",'<a href="https://www.infoworld.com/article/3572395/ring-language-upgrade-focuses-on-webassembly.html" target="_blank">InfoWorld: Introducing Ring 1.13</a>'],
   ["August 20, 2020",'<a href="resources.html#section2" target="_blank">Online Applications (WebAssembly)</a>'],

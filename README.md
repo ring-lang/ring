@@ -56,16 +56,16 @@
 
 Ring is an innovative and practical general-purpose multi-paradigm language.
 The supported programming paradigms are Imperative, Procedural, Object-Oriented, Functional,
-Meta programming, Declarative programming using nested structures, and Natural programming.
+Metaprogramming, Declarative programming using nested structures, and Natural programming.
 The language is portable (Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create
-Console, GUI, Web, Games and Mobile applications. 
-The language is designed to be Simple, Small, Flexible and Fast. 
+Console, GUI, Web, Games, and Mobile applications. 
+The language is designed to be Simple, Small, Flexible, and Fast. 
 
 # Innovative
 
 The language comes with better support for Natural Language Programming and Declarative Programming. 
 
-The innovation comes in supporting these paradigms with new practical techniques on the top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). 
+The innovation comes in supporting these paradigms with new practical techniques on top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). 
 
 You get the language constructs ready for use to create domain-specific languages in a fraction of time. 
 
@@ -81,13 +81,13 @@ You get the language constructs ready for use to create domain-specific language
 
 # Practical
 
-Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.) and the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language itself. Ring is ready for use in production and increase the developers productivity. 
+Many of the Ring libraries (StdLib, WebLib, Natural Library, Games Engine, etc.) and the Ring IDE (Ring Notepad, Form Designer, etc.) are written in the Ring language itself. Ring is ready for use in production and increases the developers productivity. 
 
 ## Custom Styles And Modern Programming Paradigms
 
-Using Ring you will feel that the language is yours! A lot of modern programming paradigms are ready for use in production and using the Natural Language Programming you can quickly integrate natural interfaces to your programs. 
+Using Ring you will feel that the language is yours! A lot of modern programming paradigms are ready for use in production and using Natural Language Programming you can quickly integrate natural interfaces to your programs. 
 
-Also, you can start your software development with writing natural descriptions, then adding the implementation later. 
+Also, you can start your software development by writing natural descriptions, then adding the implementation later. 
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo1.png)
 
@@ -98,7 +98,7 @@ Also, you can start your software development with writing natural descriptions,
 
 Many developers reported that using Ring we can develop many GUI applications in a few hours. 
 Ring comes with Rapid Application Development (RAD) tools that we can use to quickly develop GUI applications using the MVC design pattern. 
-Also, using the same source code we can distribute our applications for Desktop, Web and Mobile platforms. 
+Also, using the same source code we can distribute our applications for Desktop, Web, and Mobile platforms. 
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo6.png)
 
@@ -106,10 +106,10 @@ Also, using the same source code we can distribute our applications for Desktop,
 
 ## First Class Support For Game Development
 
-We believe in Games as a nice way to encourage people to learn programming.
+We believe in Games as a nice way to encourage people to learn to program.
 Ring comes with many game programming libraries in the standard library.
-Ring provides native support for Allegro, LibSDL, RayLib, OpenGL and Qt3D libraries.
-Also, Ring comes with simple game engine for 2D games development using Declarative Programming.
+Ring provides native support for Allegro, LibSDL, RayLib, OpenGL, and Qt3D libraries.
+Also, Ring comes with a simple game engine for 2D game development using Declarative Programming.
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo13.png)
 
@@ -124,7 +124,7 @@ Also, Ring comes with simple game engine for 2D games development using Declarat
 
 ## WebAssembly (Front-End Web Development)
 
-Using Ring we can quickly develop web applications using WebAssembly (Binary format that allows sand-boxed executable code in web pages. This format is nearly as fast as native machine code, and is now supported by all major web browsers) 
+Using Ring we can quickly develop web applications using WebAssembly (Binary format that allows sand-boxed executable code in web pages. This format is nearly as fast as native machine code and is now supported by all major web browsers) 
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/wasm_demo4.png)
 
@@ -148,44 +148,44 @@ Also, we can generate HTML code from Ring programs using Declarative Programming
 
 ## Mobile Development
 
-Using Ring we can distribute our applications for Mobile platforms (Android, iOS, etc.)
+Using Ring we can distribute our applications for mobile platforms (Android, iOS, etc.)
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/android_demo1.png)
 
 ## Building Tools (Command Line)
 
 Using Ring we can whip up a CLI tool quickly and distribute it with ease. 
-The Ring Package Manager is an example about a powerful tool that we developed using Ring in a few hours. 
+The Ring Package Manager is an example of a powerful tool that we developed using Ring in a few hours. 
 We recorded the development time (21 hours of development includes explaining each step) 
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/cmddemo2.png)
 
 # Why Ring?
 
-The language is simple, trying to be natural, encourage organization and comes with transparent and visual implementation. 
+The language is simple, trying to be natural, encourage organization, and comes with transparent and visual implementation. 
 It comes with compact syntax and a group of features that enable the programmer to create natural interfaces and declarative domain-specific languages in a fraction of time. 
-It is very small, fast and comes with smart garbage collector that puts the memory under the programmer control. 
+It is very small, fast, and comes with a smart garbage collector that puts the memory under the programmer's control. 
 It supports many programming paradigms, comes with useful and practical libraries. 
-The language is designed for productivity and developing high quality solutions that can scale.
+The language is designed for productivity and developing high-quality solutions that can scale.
 
 ## Designed for a Clear Goal
 
 
 * Applications programming language.
 
-* Productivity and developing high quality solutions that can scale.
+* Productivity and developing high-quality solutions that can scale.
 
 * Small and fast language that can be embedded in C/C++ projects.
 
 * Simple language that can be used in education and introducing Compiler/VM concepts.
 
-* General-Purpose language that can be used for creating domain-specific libraries, frameworks and tools.
+* General-Purpose language that can be used for creating domain-specific libraries, frameworks, and tools.
 
 * Practical language designed for creating the next version of the Programming Without Coding Technology software.
 
 ## Simple 
 
-Ring is a very simple language, and has a very straightforward syntax. 
+Ring is a very simple language and has a very straightforward syntax. 
 It encourages programmers to program without boilerplate code.
 To print something using the standard output, We can use the 'See' command.
 
@@ -201,7 +201,7 @@ func main
 ```					
 
 Uses Dynamic Typing and Lexical scoping.
-Also we can use the '+' operator for string concatenation.
+Also, we can use the '+' operator for string concatenation.
 
 ``` ring
 nCount = 10	# Global variable
@@ -227,7 +227,7 @@ aList = ["one","two","three"]
 see aList[1]	# print one
 ```			
 
-Call functions before definition
+Call functions before the definition
 
 ``` ring
 one() 
@@ -252,7 +252,7 @@ see aList2[1]	# print one
 ```			
 
 Pass numbers and strings by value, but pass lists and objects by reference.
-The for in loop can update the list items.
+The for-in loop can update the list items.
 
 ``` ring
 func main
@@ -301,7 +301,7 @@ Each source file follow the next structure
     Functions
     Packages and Classes
 
-This enable us to use Packages, Classes and Functions without the need to use a keyword to end these components.
+This enables us to use Packages, Classes, and Functions without the need to use a keyword to end these components.
 
 We can write one line comments and multi-line comments
 
@@ -324,26 +324,26 @@ see "Hello " + cName		# say hello!
 			
 ## Compact Syntax 
 
-The language is not line sensitive, you don't need to write ; after statements, also you don't need to press ENTER or TAB, so we can write the next code
+The language is not line-sensitive, you don't need to write ; after statements, also you don't need to press ENTER or TAB, so we can write the next code
 
 ``` ring
 see "The First Message"	see " Another message in the same line! " + nl
 see "Enter your name?" give Name see "Hello " + Name
 ```			
 
-The next code create a class called Point contains three attributes X,Y and Z. No keywords is used to end the package/class/function definition. Also, we can write the attributes names directly below the class name.
+The next code creates a class called Point contains three attributes X,Y, and Z. No keywords is used to end the package/class/function definition. Also, we can write the attributes' names directly below the class name.
 
 ``` ring
 class Point X Y Z
 ```			
 
-We can use classes and functions before their definition, In this example we will create new object, set the object attributes then print the object values.
+We can use classes and functions before their definition, In this example, we will create a new object, set the object attributes then print the object values.
 
 ``` ring
 o1 = new point	o1.x=10    o1.y=20   o1.z=30	see O1	class Point X Y Z
 ```			
 
-Instead of using the dot '.' operator to access the object attributes and methods we can use braces { } to access the object, then we can use the object attributes and methods.
+Instead of using the dot '.' operator to access the object attributes and methods, we can use braces { } to access the object, then we can use the object attributes and methods.
  
 ``` ring
 o1 = new point { x=10 y=20 z=30 } see O1  class Point X Y Z
@@ -390,7 +390,7 @@ class Number one two three
 
 Ring comes with many styles for writing your source code!
 
-Also you can change the language keywords and operators and create your custom style!
+Also, you can change the language keywords and operators and create your custom style!
 
 ## Define Natural Statements based on Object-Oriented 
 
@@ -437,7 +437,7 @@ The first instruction is : I want window
 
 The second instruction is : Window title = Expression
 
-Also keywords that can be ignored like the ‘the’ keyword
+Also, keywords that can be ignored like the ‘the’ keyword
 
 ``` ring
 new App
@@ -499,9 +499,9 @@ Also, you can update the methods GetWindow() and SetTitle() to create Real windo
 
 We learned how to use Natural statements to execute our code and using the same features we can use nested structures to execute our code.
 
-The next example from the Web library, generate HTML document using the Bootstrap library. No HTML code is written directly in this example, we created a similar language (just as example) Then using this declarative language that uses nested structures, we generated the HTML Document..
+The next example from the Web library, generate an HTML document using the Bootstrap library. No HTML code is written directly in this example, we created a similar language (just as an example) Then using this declarative language that uses nested structures, we generated the HTML Document.
 
-The idea in this example is that the GetDiv() and GetH1() methods return an object that we can access using {} and after each object access the method BraceEnd() will be executed to send the generated HTML to the parent object until we reach to the root where BraceEnd() will print the output.
+The idea in this example is that the GetDiv() and GetH1() methods return an object that we can access using {} and after each object access, the method BraceEnd() will be executed to send the generated HTML to the parent object until we reach to the root where BraceEnd() will print the output.
 
 ``` ring
 load "weblib.ring"
@@ -622,20 +622,20 @@ The Ring programming language is designed using the PWCT visual programming tool
 
 ## Smart Garbage Collector
 
-Avoid memory problems :-
+Avoid memory problems:-
 
     Invalid Memory Access
     Memory leaks
     Uninitialized Memory Access
     Dangling pointer
 
-Rules :-
+Rules:-
 
 * Global variables always stay in the memory, until you delete these variables using the assignment statement.
 
 * Local variables always deleted after the end of the function.
 
-* The programmer have full control on when to delete the variable from the memory using the Assignment statement.
+* The programmer has full control over when to delete the variable from the memory using the Assignment statement.
 
 Example:
 
@@ -652,7 +652,7 @@ If we have a reference to a variable (when we pass objects and lists to function
 
 ## No Global Interpreter (VM) Lock - No GIL
 
-When we use threads in Ring applications, We don’t have global interpreter (VM) lock (No GIL)
+When we use threads in Ring applications, We don’t have a global interpreter (VM) lock (No GIL)
 
 So threads can work in parallel and execute Ring instructions at the same time
 
@@ -660,17 +660,17 @@ This is better for threads and concurrency (More Faster!)
 
 ## Fast Enough For Many Applications
 
-Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.
+Ring is designed to be a simple, small, and flexible language in the first place, but also it is fast enough for many applications.
 
 Ring can do each of the next tasks in around 1 second using normal computers in the market during the last 5 years
 
 (1) Compiling 100,000 lines of code
 
-(2) Executing empty loop that count from 1 to 10,000,000
+(2) Executing an empty loop that counts from 1 to 10,000,000
 
 (3) Executing 1000 search operation using linear search in a list contains 100,000 items, trying to find the last item (The worst case)
 
-(4) Creating list contains 1,000,000 items then summing all of the list items
+(4) Creating a list that contains 1,000,000 items then summing all of the list items
 
 (5) Adding 20,000 items to the ListWidget in GUI applications
 
@@ -711,7 +711,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Use exit to go outside from more than one loop
 
-* No keyword to end Functions, Classes and Packages
+* No keyword to end Functions, Classes, and Packages
 
 ## Powerful Implementation
 
@@ -743,7 +743,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Not Case-Sensitive
 
-* The list index start from 1
+* The list index starts from 1
 
 * Rich control structures & Operators
 
@@ -777,7 +777,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Default scope for variables outside functions (global)
 
-* Optional loading for modules in separate global scope
+* Optional loading for modules in a separate global scope
 
 * Exception Handling
 
@@ -853,7 +853,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * CRUD Example (using MVC)
 
-* Users Example (Register, Login and Check)
+* Users Example (Register, Login, and Check)
 
 * Deploy web applications in the Cloud
 
@@ -863,7 +863,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Embedding in C/C++ projects
 
-* Comes with binding generator to quickly wrap C/C++ Libraries
+* Comes with a binding generator to quickly wrap C/C++ Libraries
 
 * Network Programming (SDLNet, Libuv, etc.)
 
@@ -871,7 +871,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Create 3D Games (OpenGL, FreeGLUT, RayLib, Qt3D, etc.)
 
-* Create GUI Applications for Desktop, WebAssembly and Mobile platforms (Using the Qt Framework)
+* Create GUI Applications for Desktop, WebAssembly, and Mobile platforms (Using the Qt Framework)
 
 ## More 
 
@@ -893,7 +893,7 @@ Also when we need more speed we can use C/C++ extensions!
 			
 # Building from source code
 
-We provide instructions for building on the next platforms :-
+We provide instructions for building on the next platforms:-
 
 (1) [Microsoft Windows](language/README_Windows.md)
 

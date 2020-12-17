@@ -1050,6 +1050,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 	/* Factor --> Anonymous Function */
 	if ( ring_parser_iskeyword(pParser,K_FUNC) || ring_parser_iskeyword(pParser,K_DEF) ) {
 		ring_parser_nexttoken(pParser);
+		RING_PARSER_PASSNEWLINE ;
 		/*
 		**  Generate Code 
 		**  Push Function Name, then jump after the function code 
@@ -1073,6 +1074,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		if ( ring_parser_isidentifier(pParser) || ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 			if (! ring_parser_paralist(pParser)) return 0 ;
 		}
+		RING_PARSER_PASSNEWLINE ;
 		/* Get Function Code */
 		if ( ring_parser_isoperator2(pParser,OP_BRACEOPEN) ) {
 			ring_parser_nexttoken(pParser);
@@ -1151,6 +1153,7 @@ int ring_parser_mixer ( Parser *pParser )
 			ring_parser_icg_newoperandint(pParser,0);
 			if ( ring_parser_isoperator2(pParser,OP_LCLOSE) ) {
 				ring_parser_nexttoken(pParser);
+				RING_PARSER_PASSNEWLINE ;
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
 				
@@ -1387,6 +1390,7 @@ int ring_parser_objattributes ( Parser *pParser )
 			puts("Rule : Mixer -> '.' Identifier ");
 			#endif
 			ring_parser_nexttoken(pParser);
+			RING_PARSER_IGNORENEWLINE ;
 		}
 		else {
 			return 0 ;

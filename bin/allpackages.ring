@@ -35,7 +35,8 @@ aAllPackagesInfo = [
 		"libdepwin_openssl",
 		"libdepwin_pgsql",
 		"qt515runtime",
-		"qt515qmlruntime"
+		"qt515qmlruntime",
+		"webassemblyringqt"
 	],
 	:ringopenssl = 	[
 		"stdlib"
@@ -116,7 +117,8 @@ aAllPackagesInfo = [
 		"typingquiz",
 		"pong2game",
 		"spaceshootergame",
-		"ringrepl"
+		"ringrepl",
+		"webassemblyringqt"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -263,6 +265,15 @@ aAllPackagesInfo = [
 
 	],
 	:ringrepl = 	[
+
+	],
+	:guilib = 	[
+		"ringqtruntime"
+	],
+	:objectslib = 	[
+		"ringqtruntime"
+	],
+	:socket = 	[
 
 	]
 ]

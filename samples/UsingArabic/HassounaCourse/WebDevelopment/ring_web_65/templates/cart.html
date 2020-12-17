@@ -1,0 +1,85 @@
+ 
+<div class="my-form container p-5 my-5 rounded border border-warning">
+    <h2 class="text-center">Cart</h2>
+    <hr>
+
+<% if len(order_details) > 0 %>
+    <h5>
+        Full name: 
+        <span class="my-num">
+          <%=full_name%>
+        </span>
+
+        <a href="products.ring" class="btn btn-outline-warning float-right m-1">
+          Continue Shopping
+        </a>
+
+        <a href="payment.ring" class="btn btn-outline-secondary float-right m-1">
+          Checkout
+        </a>
+
+        <br><br>
+        <hr>
+        Order Number: <span class="my-num"><%=order_details[1]['order_id']%></span> 
+        with total: <span class="my-num"><%=total%>$</span> 
+        for <span class="my-num"><%=len(order_details)%></span> products
+    </h5>
+
+<form method="post">
+
+    <table class="table table-hover">
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Product</th>
+            <th scope="col">Image</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+            <th scope="col">Subtotals</th>
+            <th scope="col">Control</th>
+          </tr>
+        </thead>
+        <tbody>
+<% my_count=1 %>
+<% for x in order_details %>
+          <tr>
+            <th scope="row"><%=my_count %></th>
+            <td><%=x['name']%></td>
+            <td><img src="products/<%=x['id']%>.jpg" style="width:80px;height:80px" alt=""></td>
+            <td>
+              <button name="btnsub" value="<%=x['id']%>" class="btn btn-outline-warning btn-sm">
+						-
+				  </button>
+              <%=x['quantity']%>
+              <button name="btnadd" value="<%=x['id']%>" class="btn btn-outline-warning btn-sm">
+						+
+				  </button>
+            </td>
+            <td><%=x['price']%>$</td>
+            <td style="font-weight: bold;color:darkred"><%=x['subtotals']%>$</td>
+            <td>
+              <button name="btndel" value="<%=x['id']%>" class="btn btn-outline-danger btn-sm">
+						Remove
+				  </button>
+            </td>
+          </tr>
+<% my_count = my_count+1 %>
+<% next %>
+
+
+        </tbody>
+      </table>
+
+</form>
+
+<% else %>
+
+	<hr>
+	<h4 class="text-center">Cart is empty
+	<a class="btn btn-lg btn-warning" href="products.ring">All Products</a>
+	</h4>
+
+<% ok %>
+
+    <hr>
+</div>

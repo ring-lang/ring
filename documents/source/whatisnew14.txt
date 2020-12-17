@@ -1,0 +1,177 @@
+.. index:: 
+	single: What is new in Ring 1.14?; Introduction
+
+=========================
+What is new in Ring 1.14?
+=========================
+
+In this chapter we will learn about the changes and new features in Ring 1.14 release.
+
+.. index:: 
+	pair: What is new in Ring 1.14?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring 1.14 comes with the next features!
+
+* MyCoffee (Web Application)
+* More Samples
+* Web Development Samples
+* Using CLOC (Count Lines of Code)
+* More Improvements
+
+
+.. index:: 
+	pair: What is new in Ring 1.14?; MyCoffee (Web Application)
+
+MyCoffee (Web Application)
+==========================
+
+A web application that uses the WebLib library and PostgreSQL database
+
+Screen Shots:
+
+.. image:: mycoffee1.png
+	:alt: MyCoffee1
+
+.. image:: mycoffee2.png
+	:alt: MyCoffee2
+
+.. image:: mycoffee3.png
+	:alt: MyCoffee3
+
+.. index:: 
+	pair: What is new in Ring 1.14?; More Samples
+
+More Samples
+============
+
+The next samples are added to the samples folder
+
+	* ring/samples/UsingQML/sample12 folder
+	* ring/samples/General/BinarokuGame folder
+	* ring/samples/Language/EnumGenerator folder
+	* ring/samples/Language/DynamicObject folder
+	* ring/samples/Drawing/MatrixMultiply3DRotationCube
+
+Screen Shots:
+
+.. image:: UsingQtQuick3D.png
+	:alt: Qt Quick 3D
+
+.. image:: drawpi.png
+	:alt: Matrix Multiplication
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Web Development Samples
+
+Web Development Samples
+=======================
+
+Starting from lesson 301, the Hassouna Course provides lessons about web development.
+
+These lessons uses the WebLib library for Back-end web development.
+
+Special YouTube playlist for these lessons: 
+
+* https://www.youtube.com/watch?v=a3ZYjssAvbI&list=PLHIfW1KZRIfn1cs2BupsdJ7dzCQ7wmHFk
+
+The samples are added to this folder:
+
+* https://github.com/ring-lang/ring/tree/master/samples/UsingArabic/HassounaCourse/WebDevelopment
+
+Screen Shots:
+
+* Calculator Sample
+
+.. image:: hweb1.png
+	:alt: Web Sample 1
+
+* Employee Sample
+
+.. image:: hweb2.png
+	:alt: Web Sample 2
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Using CLOC (Count Lines of Code)
+
+Using CLOC (Count Lines of Code)
+================================
+
+Usage:
+
+.. code-block:: none
+
+	ringcloc <application_folder_path>
+
+Example(1):
+
+.. code-block:: none
+
+	ringcloc c:\ring\tools\ringnotepad
+
+Output:
+
+.. code-block:: none
+
+	      47 text files.
+	      47 unique files.
+	      11 files ignored.
+	
+	github.com/AlDanial/cloc v 1.88  T=1.18 s (39.0 files/s, 3212.2 lines/s)
+	-----------------------------------------------------------------------------------
+	Language                         files          blank        comment           code
+	-----------------------------------------------------------------------------------
+	Ring                                33            273            139           3186
+	Bourne Shell                         4             22              9             88
+	DOS Batch                            4              3              7             20
+	INI                                  1              0              0             15
+	C                                    1              0              1             10
+	Markdown                             2              4              0              8
+	Windows Resource File                1              0              0              1
+	-----------------------------------------------------------------------------------
+	SUM:                                46            302            156           3328
+	-----------------------------------------------------------------------------------
+
+Example(2):
+
+.. code-block:: none
+
+	ringcloc c:\ring\tools\formdesigner
+
+Output:
+
+.. code-block:: none
+
+	      54 text files.
+	      54 unique files.
+	      13 files ignored.
+	
+	github.com/AlDanial/cloc v 1.88  T=1.54 s (34.5 files/s, 7122.4 lines/s)
+	-------------------------------------------------------------------------------
+	Language                     files          blank        comment           code
+	-------------------------------------------------------------------------------
+	Ring                            52           1306            567           9071
+	Markdown                         1              5              0              7
+	-------------------------------------------------------------------------------
+	SUM:                            53           1311            567           9078
+	-------------------------------------------------------------------------------
+	
+
+.. index:: 
+	pair: What is new in Ring 1.14?; More Improvements
+
+More Improvements
+=================
+
+
+* Ring Compiler - Pass new lines after the FUNC keyword in anonymous functions
+* Ring Compiler - Pass new lines after the function parameters in anonymous functions
+* Ring Compiler - Pass new lines after the access of the list items 
+* Ring Compiler - Pass new lines after the access of the object attribute 
+* RingPM - New Package: GUILib (Separate package for the GUILib classes)
+* RingPM - New Package: ObjectsLib (Separate package for the ObjectsLib classes)
+* RingPM - New Package: CLOC (Count Lines of Code)
+* RingQtRuntime Package: Using GUILib & ObjectsLib packages
+* GameEngine - Add the delay function to the Graphics Library: gl_delay() function

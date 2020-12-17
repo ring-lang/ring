@@ -398,7 +398,7 @@ Syntax:
 
 			...
 
-The function operator takes two paramters, the first represent the operator
+The function operator takes two parameters, the first represent the operator
 and the second represent the second parameter after the operator.
 
 Example:

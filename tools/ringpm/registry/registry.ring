@@ -630,5 +630,25 @@ aPackagesRegistry = [
 	[ :name = "spaceshootergame",
 	  :description = "SpaceShooter game package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
-	]
+	],
+	[ :name = "webassemblyringqt",
+	  :description = "WebassemblyRingQt package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "objectslib",
+	  :description = "ObjectsLib package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "guilib",
+	  :description = "GUILib package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "cloc",
+	  :description = "CLOC package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+        [ :name = "socket",
+          :description = "Socket extension for network programming with Ring programming language",
+          :ProviderUserName = "ringpackages"
+        ]
 ]

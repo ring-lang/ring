@@ -112,6 +112,8 @@ Ring 1.12 is released on January 25, 2020
 
 Ring 1.13 is released on September 15, 2020 
 
+Ring 1.14 will be released on January 25, 2021
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -238,7 +240,7 @@ The Ring Programming Language
 
 http://ring-lang.net/
 
-Version 1.13
+Version 1.14
 
 The MIT License (MIT)
 

@@ -1,0 +1,19 @@
+<div style="padding:20px">
+
+<form method="get">
+
+  <div class="form-group">
+    <label for="name">Name:</label>
+    <input type="text" class="form-control" id="name" name="name" aria-describedby="emailHelp" placeholder="Enter name">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Say Hello</button>
+
+</form>
+
+<% if aPageVars['name'] != null %>
+	<hr>
+	<h1>Hello <%=aPageVars['name']%></h1>
+<% ok %>
+
+</div>
