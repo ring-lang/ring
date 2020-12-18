@@ -967,24 +967,25 @@ void ring_vm_bitnot ( VM *pVM )
 char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 {
 	char cOptions[10]  ;
-	int nNum2 ;
+	int nNum2  ;
 	if ( nNum1 == (int) nNum1 ) {
 		sprintf( cStr , "%.0f" , nNum1 ) ;
 	}
 	else {
 		sprintf( cOptions , "%s%df" , "%.",pVM->nDecimals ) ;
-		/* avoir buffer overrun by using snprint with size=100 since cStr is 100 characters long */
-		nNum2 = snprintf( cStr , 100, cOptions , nNum1 ) ;
-		if (nNum2 < 0)
-			cStr[0] = 0; /* error */
-		else if (nNum2 >= 100)
-		{
-			/* result truncated so print in compact format with a precison of 90 
-			 * which is guaranteed to never overrun our buffer
-			 */
-			nNum2 = snprintf( cStr , 100, "%.90e" , nNum1 ) ;
-			if (nNum2 < 0)
-				cStr[0] = 0; /* error */
+		/* Avoid buffer overrun by using snprint() function */
+		nNum2 = snprintf(cStr , 100, cOptions , nNum1);
+		if ( nNum2 < 0 ) {
+			/* Error */
+			cStr[0] = 0 ;
+		}
+		else if ( nNum2 >= 100 ) {
+			/* Result truncated so print in compact format with a precision of 90 */
+			nNum2 = snprintf(cStr , 100, "%.90e" , nNum1);
+			if ( nNum2 < 0 ) {
+				/* Error */
+				cStr[0] = 0 ;
+			}
 		}
 	}
 	return cStr ;
