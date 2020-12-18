@@ -14,6 +14,7 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
+  <link rel="stylesheet" href="_static/osexample.css" type="text/css" />
 
   
   
@@ -31,6 +32,7 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
+        <script src="_static/osexample.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -136,7 +138,12 @@
 <li class="toctree-l1"><a class="reference internal" href="qtmobile.html">Building RingQt Applications for Mobile</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qtwebassembly.html">Building RingQt Applications for WebAssembly</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Web Development (CGI Library)</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#configure-the-apache-web-server">Configure the Apache web server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#configure-the-apache-web-server">Configure the Apache web server</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#using-xampp-apache-web-server">Using XAMPP Apache web server</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#setting-the-shebang-line">Setting the shebang line</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#grant-ring-files-execution-permission">Grant Ring files execution permission</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ring-cgi-hello-world-program">Ring CGI Hello World Program</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#hello-world-program-using-the-web-library">Hello World Program using the Web Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#web-library-features">Web Library Features</a></li>
@@ -165,7 +172,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#scriptfunctions-class">ScriptFunctions Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#stylefunctions-class">StyleFunctions Class</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#webpage-class">WebPage Class</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#index-30">HtmlPage Class</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#index-33">HtmlPage Class</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="deployincloud.html">Deploying Web Applications in the Cloud</a></li>
@@ -294,29 +301,28 @@
 <p>In this chapter we will learn about developing Web applications using a CGI Library written in the Ring language.</p>
 <div class="section" id="configure-the-apache-web-server">
 <span id="index-1"></span><h2>Configure the Apache web server<a class="headerlink" href="#configure-the-apache-web-server" title="Permalink to this headline">¶</a></h2>
-<p>We can use Ring with any web server that support CGI.
-In this section we will learn about using Ring with the Apache HTTP Server.</p>
-<p>You can download Apache from : <a class="reference external" href="http://httpd.apache.org/">http://httpd.apache.org/</a></p>
-<p>Or you can get it included with other projects like</p>
+<p>In this section we will learn about using Ring with the Apache HTTP Server. We can also use Ring with any web server that supports CGI.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>From Ring 1.14, if you are developing your application using Ring Notepad there’s no need to configure apache manually because configuration process will be prompted and done with ease at the time you run your application.</p>
+</div>
+<div class="section" id="using-xampp-apache-web-server">
+<span id="index-2"></span><h3>Using XAMPP Apache web server<a class="headerlink" href="#using-xampp-apache-web-server" title="Permalink to this headline">¶</a></h3>
+<p>Here we will use the XAMPP application that has apache web server already been included. You can download XAMPP package from this link</p>
 <p>XAMPP : <a class="reference external" href="https://www.apachefriends.org/download.html">https://www.apachefriends.org/download.html</a></p>
-<p>Install then open the file:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>xampp\apache\conf\httpd.conf
+<p>Install then open the configuration file from the XAMPP application or search for it in the following locations based on your operating system.</p>
+<div class="example-code docutils container">
+<div class="highlight-Windows notranslate"><div class="highlight"><pre><span></span>xampp\apache\conf\httpd.conf
 </pre></div>
 </div>
-<p>search for</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Directory /&gt;
+<div class="highlight-Linux notranslate"><div class="highlight"><pre><span></span>/opt/lampp/etc/httpd.conf
 </pre></div>
 </div>
-<p>Then after it add</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Options FollowSymLinks +ExecCGI
+<div class="highlight-MacOS notranslate"><div class="highlight"><pre><span></span>/Applications/XAMPP/xamppfiles/etc/httpd.conf
 </pre></div>
 </div>
-<p>So we have</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;Directory /&gt;
-Options FollowSymLinks +ExecCGI
-</pre></div>
 </div>
-<p>Search for the next line and be sure that it’s not commented</p>
+<p>Search for the next line and make sure that it’s not commented</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>LoadModule cgi_module modules/mod_cgi.so
 </pre></div>
 </div>
@@ -330,37 +336,81 @@ Options FollowSymLinks +ExecCGI
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>AddHandler cgi-script .cgi .pl .asp .ring
 </pre></div>
 </div>
-<p>Run/Start the server</p>
+<p>Restart/Start the server using XAMPP “Manage Servers” or “Services” section</p>
 <p>Create your web applications in a directory supported by the web server.</p>
-<p>Example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Apache2.2\htdocs\mywebapplicationfolder
+<div class="example-code docutils container">
+<div class="highlight-Windows notranslate"><div class="highlight"><pre><span></span>xampp\htdocs\mywebapplicationfolder
 </pre></div>
 </div>
-<p>Example:</p>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>xampp\htdocs\mywebapplicationfolder
+<div class="highlight-Linux notranslate"><div class="highlight"><pre><span></span>/opt/lampp/htdocs/mywebapplicationfolder
 </pre></div>
 </div>
-<p>Inside the source code file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring), Add this line</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
+<div class="highlight-MacOS notranslate"><div class="highlight"><pre><span></span>Open XAMPP application then go to &quot;Volumes&quot; section
+
+Mount the &quot;/opt/lampp&quot; volume
+
+Open Finder then you will find it mounted as an IP address under &quot;Locations&quot; on the left menu
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="setting-the-shebang-line">
+<span id="index-3"></span><h2>Setting the shebang line<a class="headerlink" href="#setting-the-shebang-line" title="Permalink to this headline">¶</a></h2>
+<p>For Ring files to run properly under CGI we need to set the shebang line to locate the executable file of Ring. So, Inside the source code file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring), Add next line as the very first line in the file:</p>
+<div class="example-code docutils container">
+<div class="highlight-Windows notranslate"><div class="highlight"><pre><span></span>#!ring -cgi
+</pre></div>
+</div>
+<div class="highlight-Linux notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/ring -cgi
+</pre></div>
+</div>
+<div class="highlight-MacOS notranslate"><div class="highlight"><pre><span></span>#!/usr/local/bin/ring -cgi
+</pre></div>
+</div>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Change the previous line based on the path to ring executable in your machine</p>
+</div>
+</div>
+<div class="section" id="grant-ring-files-execution-permission">
+<span id="index-4"></span><h2>Grant Ring files execution permission<a class="headerlink" href="#grant-ring-files-execution-permission" title="Permalink to this headline">¶</a></h2>
+<p>In linux and Mac operating systems ring files cannot be run properly using CGI until we grant them executable permission. You can do that using the properties section of your prefered File manager or you can do it using Terminal as follow:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>sudo chmod +x ringAppFile.ring
 </pre></div>
 </div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>Change the previous line based on the path to ring.exe in your machine</p>
+<p>From Ring 1.14, if you are developing your application using Ring Notepad this step will be prompted and done with ease at the time you run your application.</p>
 </div>
 </div>
 <div class="section" id="ring-cgi-hello-world-program">
-<span id="index-2"></span><h2>Ring CGI Hello World Program<a class="headerlink" href="#ring-cgi-hello-world-program" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Ring CGI Hello World Program<a class="headerlink" href="#ring-cgi-hello-world-program" title="Permalink to this headline">¶</a></h2>
 <p>The next program is the Hello World program</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
+<div class="example-code docutils container">
+<div class="highlight-Windows notranslate"><div class="highlight"><pre><span></span>#!ring -cgi
 
-<span class="k">See</span> <span class="s">&quot;content-type: text/html&quot;</span> <span class="o">+</span><span class="n">nl</span><span class="o">+</span><span class="n">nl</span><span class="o">+</span>
-    <span class="s">&quot;Hello World!&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+See &quot;content-type: text/html&quot; +nl+nl+
+    &quot;Hello World!&quot; + nl
+</pre></div>
+</div>
+<div class="highlight-Linux notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/ring -cgi
+
+See &quot;content-type: text/html&quot; +nl+nl+
+    &quot;Hello World!&quot; + nl
+</pre></div>
+</div>
+<div class="highlight-MacOS notranslate"><div class="highlight"><pre><span></span>#!/usr/local/bin/ring -cgi
+
+See &quot;content-type: text/html&quot; +nl+nl+
+    &quot;Hello World!&quot; + nl
 </pre></div>
 </div>
 </div>
+</div>
 <div class="section" id="hello-world-program-using-the-web-library">
-<span id="index-3"></span><h2>Hello World Program using the Web Library<a class="headerlink" href="#hello-world-program-using-the-web-library" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Hello World Program using the Web Library<a class="headerlink" href="#hello-world-program-using-the-web-library" title="Permalink to this headline">¶</a></h2>
 <p>We can use the web library to write CGI Web applications quickly</p>
 <p>Example (1) :</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
@@ -395,7 +445,7 @@ return the page object instead of creating the object using new statement.</p>
 </div>
 </div>
 <div class="section" id="web-library-features">
-<span id="index-4"></span><h2>Web Library Features<a class="headerlink" href="#web-library-features" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>Web Library Features<a class="headerlink" href="#web-library-features" title="Permalink to this headline">¶</a></h2>
 <p>The next features are provided by the Web library to quickly create web applications.</p>
 <ul class="simple">
 <li><p>Generate HTML pages using functions</p></li>
@@ -410,7 +460,7 @@ return the page object instead of creating the object using new statement.</p>
 </ul>
 </div>
 <div class="section" id="http-get-example">
-<span id="index-5"></span><h2>HTTP Get Example<a class="headerlink" href="#http-get-example" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>HTTP Get Example<a class="headerlink" href="#http-get-example" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -579,7 +629,7 @@ return the page object instead of creating the object using new statement.</p>
 <img alt="HTTP Get" src="_images/ex5.jpg" />
 </div>
 <div class="section" id="http-post-example">
-<span id="index-6"></span><h2>HTTP POST Example<a class="headerlink" href="#http-post-example" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>HTTP POST Example<a class="headerlink" href="#http-post-example" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -634,7 +684,7 @@ return the page object instead of creating the object using new statement.</p>
 <img alt="HTTP Post" src="_images/ex7.jpg" />
 </div>
 <div class="section" id="upload-files">
-<span id="index-7"></span><h2>Upload Files<a class="headerlink" href="#upload-files" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Upload Files<a class="headerlink" href="#upload-files" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -708,7 +758,7 @@ return the page object instead of creating the object using new statement.</p>
 <img alt="Upload File" src="_images/ex9.jpg" />
 </div>
 <div class="section" id="cookies">
-<span id="index-8"></span><h2>Cookies<a class="headerlink" href="#cookies" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Cookies<a class="headerlink" href="#cookies" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -755,7 +805,7 @@ return the page object instead of creating the object using new statement.</p>
 <img alt="Cookies" src="_images/ex11.jpg" />
 </div>
 <div class="section" id="url-encode">
-<span id="index-9"></span><h2>URL Encode<a class="headerlink" href="#url-encode" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>URL Encode<a class="headerlink" href="#url-encode" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -779,7 +829,7 @@ return the page object instead of creating the object using new statement.</p>
 <img alt="URL Encode" src="_images/ex12r.jpg" />
 </div>
 <div class="section" id="templates">
-<span id="index-10"></span><h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
 <p>Using Templates we can write Ring code inside HTML files</p>
 <p>Syntax:</p>
 <div class="highlight-html notranslate"><div class="highlight"><pre><span></span>&lt;%= Ring Expression %&gt;
@@ -851,7 +901,7 @@ return the page object instead of creating the object using new statement.</p>
 <img alt="Templates" src="_images/ex13.jpg" />
 </div>
 <div class="section" id="html-special-characters">
-<span id="index-11"></span><h2>HTML Special Characters<a class="headerlink" href="#html-special-characters" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>HTML Special Characters<a class="headerlink" href="#html-special-characters" title="Permalink to this headline">¶</a></h2>
 <p>The text() function display HTML special characters.</p>
 <p>If you want to write html code, use the html() function.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
@@ -878,7 +928,7 @@ return the page object instead of creating the object using new statement.</p>
 <img alt="HTML Special Characters" src="_images/ex14.jpg" />
 </div>
 <div class="section" id="hash-functions">
-<span id="index-12"></span><h2>Hash Functions<a class="headerlink" href="#hash-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Hash Functions<a class="headerlink" href="#hash-functions" title="Permalink to this headline">¶</a></h2>
 <p>The Page User Interface</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -943,7 +993,7 @@ return the page object instead of creating the object using new statement.</p>
 <img alt="Hash Functions" src="_images/ex16.jpg" />
 </div>
 <div class="section" id="random-image">
-<span id="index-13"></span><h2>Random Image<a class="headerlink" href="#random-image" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>Random Image<a class="headerlink" href="#random-image" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
 <span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
@@ -976,7 +1026,7 @@ return the page object instead of creating the object using new statement.</p>
 <img alt="Random Image" src="_images/ex17.jpg" />
 </div>
 <div class="section" id="html-lists">
-<span id="index-14"></span><h2>HTML Lists<a class="headerlink" href="#html-lists" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>HTML Lists<a class="headerlink" href="#html-lists" title="Permalink to this headline">¶</a></h2>
 <p>The next example print a list contains numbers from 1 to 10</p>
 <p>Then print a list from Ring List.</p>
 <p>Finally we have a list of buttons and when we press on a button we get a message
@@ -1015,7 +1065,7 @@ contains the clicked button number.</p>
 <img alt="HTML Lists" src="_images/ex18.jpg" />
 </div>
 <div class="section" id="html-tables">
-<span id="index-15"></span><h2>HTML Tables<a class="headerlink" href="#html-tables" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>HTML Tables<a class="headerlink" href="#html-tables" title="Permalink to this headline">¶</a></h2>
 <p>In this example we will learn how to generate HTML tables using the
 tablestart(), tableend(), rowstart(), rowend() ,headerstart(), headerend(), cellstart()
 and cellend() functions.</p>
@@ -1048,7 +1098,7 @@ and cellend() functions.</p>
 <img alt="HTML Tables" src="_images/ex19.jpg" />
 </div>
 <div class="section" id="gradient">
-<span id="index-16"></span><h2>Gradient<a class="headerlink" href="#gradient" title="Permalink to this headline">¶</a></h2>
+<span id="index-19"></span><h2>Gradient<a class="headerlink" href="#gradient" title="Permalink to this headline">¶</a></h2>
 <p>In this example we will learn how to use the StyleGradient() function.</p>
 <p>The function takes the style number as input (range from 1 to 60).</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
@@ -1076,7 +1126,7 @@ and cellend() functions.</p>
 <img alt="Gradient" src="_images/ex20.jpg" />
 </div>
 <div class="section" id="generating-pages-using-objects">
-<span id="index-17"></span><h2>Generating Pages using Objects<a class="headerlink" href="#generating-pages-using-objects" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>Generating Pages using Objects<a class="headerlink" href="#generating-pages-using-objects" title="Permalink to this headline">¶</a></h2>
 <p>Instead of using functions/methods to generate HTML pages, we can use an object
 for each element in the page.</p>
 <p>This choice means more beautiful code but slower.</p>
@@ -1230,7 +1280,7 @@ templates then using objects (slower).</p>
 <img alt="Using Objects - part 2" src="_images/ex21_2.jpg" />
 </div>
 <div class="section" id="htmlpage-class">
-<span id="index-18"></span><h2>HtmlPage Class<a class="headerlink" href="#htmlpage-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-21"></span><h2>HtmlPage Class<a class="headerlink" href="#htmlpage-class" title="Permalink to this headline">¶</a></h2>
 <p>Using this class we can create HTML documents without printing the output to the standard output</p>
 <p>So instead of using the WebLib in Web Applications only</p>
 <p>We can use it in Console/GUI/Mobile Applications too</p>
@@ -1285,7 +1335,7 @@ templates then using objects (slower).</p>
 </div>
 </div>
 <div class="section" id="using-bootstrap-library-using-functions">
-<span id="index-19"></span><h2>Using Bootstrap Library using Functions<a class="headerlink" href="#using-bootstrap-library-using-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-22"></span><h2>Using Bootstrap Library using Functions<a class="headerlink" href="#using-bootstrap-library-using-functions" title="Permalink to this headline">¶</a></h2>
 <p>The next example uses the Bootstrap JavaScript Library when generating the HTML page.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
 <span class="k">Load</span> <span class="s">&quot;weblib.ring&quot;</span>
@@ -1319,7 +1369,7 @@ templates then using objects (slower).</p>
 <img alt="Bootstrap" src="_images/ex22.jpg" />
 </div>
 <div class="section" id="using-bootstrap-library-using-objects">
-<span id="index-20"></span><h2>Using Bootstrap Library using Objects<a class="headerlink" href="#using-bootstrap-library-using-objects" title="Permalink to this headline">¶</a></h2>
+<span id="index-23"></span><h2>Using Bootstrap Library using Objects<a class="headerlink" href="#using-bootstrap-library-using-objects" title="Permalink to this headline">¶</a></h2>
 <p>The next example uses the Bootstrap JavaScript Library when generating the HTML page.</p>
 <p>Instead of using functions to generate the HTML elements, we will use objects.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c">#!ring -cgi</span>
@@ -1444,7 +1494,7 @@ templates then using objects (slower).</p>
 <img alt="Bootstrap Page using Objects" src="_images/ex23.jpg" />
 </div>
 <div class="section" id="crud-example-using-mvc">
-<span id="index-21"></span><h2>CRUD Example using MVC<a class="headerlink" href="#crud-example-using-mvc" title="Permalink to this headline">¶</a></h2>
+<span id="index-24"></span><h2>CRUD Example using MVC<a class="headerlink" href="#crud-example-using-mvc" title="Permalink to this headline">¶</a></h2>
 <p>The next example uses the weblib.ring &amp; datalib.ring.</p>
 <p>The datalib.ring contains classes for creating database applications using MVC pattern.</p>
 <p>In this example we create an object from the SalaryController class then call the Routing
@@ -1511,7 +1561,7 @@ modify a record.</p>
 <img alt="Salary Table - Search" src="_images/ex24_2.jpg" />
 </div>
 <div class="section" id="users-registration-and-login">
-<span id="index-22"></span><h2>Users registration and Login<a class="headerlink" href="#users-registration-and-login" title="Permalink to this headline">¶</a></h2>
+<span id="index-25"></span><h2>Users registration and Login<a class="headerlink" href="#users-registration-and-login" title="Permalink to this headline">¶</a></h2>
 <p>We have the users classes (Model, View &amp; Controller) to deal with the users data
 like username &amp; email.</p>
 <p>The next code is stored in ex25_users.ring</p>
@@ -1777,7 +1827,7 @@ like username &amp; email.</p>
 </div>
 </div>
 <div class="section" id="database-modelbase-controllerbase-classes">
-<span id="index-23"></span><h2>Database, ModelBase &amp; ControllerBase classes<a class="headerlink" href="#database-modelbase-controllerbase-classes" title="Permalink to this headline">¶</a></h2>
+<span id="index-26"></span><h2>Database, ModelBase &amp; ControllerBase classes<a class="headerlink" href="#database-modelbase-controllerbase-classes" title="Permalink to this headline">¶</a></h2>
 <p>In this section we will see some code from datalib.ring</p>
 <p>The next code presents the Database, ModelBase &amp; ControllerBase classes</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">Import</span> <span class="n">System</span><span class="p">.</span><span class="n">Web</span>
@@ -2065,7 +2115,7 @@ like username &amp; email.</p>
 </div>
 </div>
 <div class="section" id="weblib-api">
-<span id="index-24"></span><h2>WebLib API<a class="headerlink" href="#weblib-api" title="Permalink to this headline">¶</a></h2>
+<span id="index-27"></span><h2>WebLib API<a class="headerlink" href="#weblib-api" title="Permalink to this headline">¶</a></h2>
 <p>In this section we will see the web library functions, classes and methods.</p>
 <table class="docutils align-default">
 <colgroup>
@@ -2243,7 +2293,7 @@ like username &amp; email.</p>
 </table>
 </div>
 <div class="section" id="application-class">
-<span id="index-25"></span><h2>Application Class<a class="headerlink" href="#application-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-28"></span><h2>Application Class<a class="headerlink" href="#application-class" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
@@ -2310,7 +2360,7 @@ like username &amp; email.</p>
 <p>The method URLEncode is used to encode a URL to be used in HTML pages.</p>
 </div>
 <div class="section" id="page-class">
-<span id="index-26"></span><h2>Page Class<a class="headerlink" href="#page-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-29"></span><h2>Page Class<a class="headerlink" href="#page-class" title="Permalink to this headline">¶</a></h2>
 <table class="docutils align-default">
 <colgroup>
 <col style="width: 16%" />
@@ -2601,7 +2651,7 @@ Using aPara we can set values for the next attributes</p>
 </div>
 </div>
 <div class="section" id="scriptfunctions-class">
-<span id="index-27"></span><h2>ScriptFunctions Class<a class="headerlink" href="#scriptfunctions-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-30"></span><h2>ScriptFunctions Class<a class="headerlink" href="#scriptfunctions-class" title="Permalink to this headline">¶</a></h2>
 <p>This class contains methods for adding JavaScript code to the generated web page.</p>
 <p>The class methods are merged to the Page class, so we can use the next methods with
 page objects directly.</p>
@@ -2654,7 +2704,7 @@ page objects directly.</p>
 </table>
 </div>
 <div class="section" id="stylefunctions-class">
-<span id="index-28"></span><h2>StyleFunctions Class<a class="headerlink" href="#stylefunctions-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-31"></span><h2>StyleFunctions Class<a class="headerlink" href="#stylefunctions-class" title="Permalink to this headline">¶</a></h2>
 <p>This class contains methods for adding CSS to the generated web page.</p>
 <p>Like ScriptFunctions Class, The StyleFunctions class methods are merged to the
 Page class, so we can use the next methods with page objects directly.</p>
@@ -2783,7 +2833,7 @@ Page class, so we can use the next methods with page objects directly.</p>
 </table>
 </div>
 <div class="section" id="webpage-class">
-<span id="index-29"></span><h2>WebPage Class<a class="headerlink" href="#webpage-class" title="Permalink to this headline">¶</a></h2>
+<span id="index-32"></span><h2>WebPage Class<a class="headerlink" href="#webpage-class" title="Permalink to this headline">¶</a></h2>
 <p>We use braces to access the active WebPage object attributes</p>
 <p>Each one of these attribute will return a new object to access again using braces.</p>
 <table class="docutils align-default">
@@ -2881,8 +2931,8 @@ Page class, so we can use the next methods with page objects directly.</p>
 </tbody>
 </table>
 </div>
-<div class="section" id="index-30">
-<span id="id3"></span><h2>HtmlPage Class<a class="headerlink" href="#index-30" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="index-33">
+<span id="id3"></span><h2>HtmlPage Class<a class="headerlink" href="#index-33" title="Permalink to this headline">¶</a></h2>
 <p>The same as the WebPage class with the next changes</p>
 <ol class="arabic simple">
 <li><p>No output to the stdout</p></li>
