@@ -1724,7 +1724,7 @@ void ring_vmlib_substr ( void *pPointer )
 		nMark = 0 ;
 		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
 		while ( cString != NULL ) {
-			nPos = (unsigned int) (((long long) cString) - ((long long) cStr) + 1) ;
+			nPos = (unsigned int)(((long long) cString) - ((long long) cStr) + 1) ;
 			/* Add SubString to pString */
 			ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr+nMark,nPos-1-nMark);
 			ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr3,RING_API_GETSTRINGSIZE(3));
