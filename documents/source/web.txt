@@ -7,48 +7,44 @@ Web Development (CGI Library)
 
 In this chapter we will learn about developing Web applications using a CGI Library written in the Ring language.
 
-
 .. index:: 
 	pair: Web Development (CGI Library); Configure the Apache web server
 
 Configure the Apache web server
 ===============================
 
-We can use Ring with any web server that support CGI. 
-In this section we will learn about using Ring with the Apache HTTP Server.
+In this section we will learn about using Ring with the Apache HTTP Server. We can also use Ring with any web server that supports CGI.
 
-You can download Apache from : http://httpd.apache.org/
+.. note:: From Ring 1.14, if you are developing your application using Ring Notepad there's no need to configure apache manually because configuration process will be prompted and done with ease at the time you run your application.
 
-Or you can get it included with other projects like 
+.. index::
+	pair: Configure the Apache web server; Using XAMPP Apache web server
+	
+Using XAMPP Apache web server
+-----------------------------
+
+Here we will use the XAMPP application that has apache web server already been included. You can download XAMPP package from this link
 
 XAMPP : https://www.apachefriends.org/download.html
 
-Install then open the file: 
+Install then open the configuration file from the XAMPP application or search for it in the following locations based on your operating system.
 
-.. code-block:: none
+.. example-code::
 
-	xampp\apache\conf\httpd.conf
+  .. code-block:: Windows
 
-search for 
+    xampp\apache\conf\httpd.conf
 
-.. code-block:: none
+  .. code-block:: Linux
 
-	<Directory />
+    /opt/lampp/etc/httpd.conf
 
-Then after it add
+  .. code-block:: MacOS
 
-.. code-block:: none
-	
-	Options FollowSymLinks +ExecCGI
+    /Applications/XAMPP/xamppfiles/etc/httpd.conf
 
-So we have
 
-.. code-block:: none
-
-	<Directory />
-	Options FollowSymLinks +ExecCGI
-
-Search for the next line and be sure that it's not commented
+Search for the next line and make sure that it's not commented
 
 .. code-block:: none
 
@@ -70,29 +66,66 @@ Example
 
 	AddHandler cgi-script .cgi .pl .asp .ring
 
-Run/Start the server 
+Restart/Start the server using XAMPP "Manage Servers" or "Services" section
 
 Create your web applications in a directory supported by the web server.
 
-Example: 
+.. example-code::
+
+  .. code-block:: Windows
+
+    xampp\htdocs\mywebapplicationfolder
+
+  .. code-block:: Linux
+
+    /opt/lampp/htdocs/mywebapplicationfolder
+
+  .. code-block:: MacOS
+
+    Open XAMPP application then go to "Volumes" section
+
+    Mount the "/opt/lampp" volume
+
+    Open Finder then you will find it mounted as an IP address under "Locations" on the left menu
+
+.. index:: 
+	pair: Web Development (CGI Library); Setting the shebang line
+
+Setting the shebang line
+========================
+
+For Ring files to run properly under CGI we need to set the shebang line to locate the executable file of Ring. So, Inside the source code file (*.ring), Add next line as the very first line in the file:
+
+.. example-code::
+
+  .. code-block:: Windows
+
+    #!ring -cgi
+
+  .. code-block:: Linux
+
+    #!/usr/bin/ring -cgi
+
+  .. code-block:: MacOS
+
+    #!/usr/local/bin/ring -cgi
+
+
+.. note:: Change the previous line based on the path to ring executable in your machine
+
+.. index:: 
+	pair: Web Development (CGI Library); Grant Ring files execution permission
+
+Grant Ring files execution permission
+=====================================
+
+In linux and Mac operating systems ring files cannot be run properly using CGI until we grant them executable permission. You can do that using the properties section of your prefered File manager or you can do it using Terminal as follow:
 
 .. code-block:: none
 
-	Apache2.2\htdocs\mywebapplicationfolder
+	sudo chmod +x ringAppFile.ring
 
-Example: 
-
-.. code-block:: none
-
-	xampp\htdocs\mywebapplicationfolder
-
-Inside the source code file (*.ring), Add this line
-
-.. code-block:: ring
-
-	#!ring -cgi
-
-.. note:: Change the previous line based on the path to ring.exe in your machine
+.. note:: From Ring 1.14, if you are developing your application using Ring Notepad this step will be prompted and done with ease at the time you run your application.
 
 .. index:: 
 	pair: Web Development (CGI Library); Ring CGI Hello World Program
@@ -102,12 +135,28 @@ Ring CGI Hello World Program
 
 The next program is the Hello World program 
 
-.. code-block:: ring
+.. example-code::
 
-	#!ring -cgi
+  .. code-block:: Windows
 
-	See "content-type: text/html" +nl+nl+
-	    "Hello World!" + nl
+    #!ring -cgi
+
+    See "content-type: text/html" +nl+nl+
+        "Hello World!" + nl
+
+  .. code-block:: Linux
+
+    #!/usr/bin/ring -cgi
+
+    See "content-type: text/html" +nl+nl+
+        "Hello World!" + nl
+
+  .. code-block:: MacOS
+
+    #!/usr/local/bin/ring -cgi
+
+    See "content-type: text/html" +nl+nl+
+        "Hello World!" + nl
 
 
 .. index:: 

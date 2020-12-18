@@ -1,10 +1,10 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Change the current directory to the application folder
 cd $1
 # Execute the program
 ring $2
 
-echo '\n\n\nPress enter to continue'
+printf '\n\n\nPress enter to exit'
 read enter
 
