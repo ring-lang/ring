@@ -15,7 +15,7 @@ Configure the Apache web server
 
 In this section we will learn about using Ring with the Apache HTTP Server. We can also use Ring with any web server that supports CGI.
 
-.. note:: If you are developing your application using Ring Notepad then there's no need to configure apache manually.
+.. note:: If you are developing your application using Ring Notepad then there's no need to configure Apache manually.
 
 .. index::
 	pair: Configure the Apache web server; Using XAMPP Apache web server
@@ -23,7 +23,7 @@ In this section we will learn about using Ring with the Apache HTTP Server. We c
 Using XAMPP Apache web server
 -----------------------------
 
-Here we will use the XAMPP application that has apache web server already been included. You can download XAMPP package from this link
+Here we will use the XAMPP application that has Apache web server already been included. You can download XAMPP package from this link
 
 XAMPP : https://www.apachefriends.org/download.html
 
@@ -135,7 +135,7 @@ In linux and Mac operating systems ring files cannot be run properly using CGI u
 
 	sudo chmod +x ringAppFile.ring
 
-.. note:: From Ring 1.14, if you are developing your application using Ring Notepad this step will be prompted and done with ease at the time you run your application.
+.. note:: If you are developing your application using Ring Notepad then this step will be done automatically.
 
 .. index:: 
 	pair: Web Development (CGI Library); Ring CGI Hello World Program
