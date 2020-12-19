@@ -14,7 +14,6 @@
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
   <link rel="stylesheet" href="_static/css/custom.css" type="text/css" />
-  <link rel="stylesheet" href="_static/osexample.css" type="text/css" />
 
   
   
@@ -32,7 +31,6 @@
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
         <script src="_static/language_data.js"></script>
-        <script src="_static/osexample.js"></script>
     
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
@@ -311,17 +309,6 @@
 <p>Here we will use the XAMPP application that has apache web server already been included. You can download XAMPP package from this link</p>
 <p>XAMPP : <a class="reference external" href="https://www.apachefriends.org/download.html">https://www.apachefriends.org/download.html</a></p>
 <p>Install then open the configuration file from the XAMPP application or search for it in the following locations based on your operating system.</p>
-<div class="example-code docutils container">
-<div class="highlight-Windows notranslate"><div class="highlight"><pre><span></span>xampp\apache\conf\httpd.conf
-</pre></div>
-</div>
-<div class="highlight-Linux notranslate"><div class="highlight"><pre><span></span>/opt/lampp/etc/httpd.conf
-</pre></div>
-</div>
-<div class="highlight-MacOS notranslate"><div class="highlight"><pre><span></span>/Applications/XAMPP/xamppfiles/etc/httpd.conf
-</pre></div>
-</div>
-</div>
 <p>Search for the next line and make sure that it’s not commented</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>LoadModule cgi_module modules/mod_cgi.so
 </pre></div>
@@ -338,37 +325,11 @@
 </div>
 <p>Restart/Start the server using XAMPP “Manage Servers” or “Services” section</p>
 <p>Create your web applications in a directory supported by the web server.</p>
-<div class="example-code docutils container">
-<div class="highlight-Windows notranslate"><div class="highlight"><pre><span></span>xampp\htdocs\mywebapplicationfolder
-</pre></div>
-</div>
-<div class="highlight-Linux notranslate"><div class="highlight"><pre><span></span>/opt/lampp/htdocs/mywebapplicationfolder
-</pre></div>
-</div>
-<div class="highlight-MacOS notranslate"><div class="highlight"><pre><span></span>Open XAMPP application then go to &quot;Volumes&quot; section
-
-Mount the &quot;/opt/lampp&quot; volume
-
-Open Finder then you will find it mounted as an IP address under &quot;Locations&quot; on the left menu
-</pre></div>
-</div>
-</div>
 </div>
 </div>
 <div class="section" id="setting-the-shebang-line">
 <span id="index-3"></span><h2>Setting the shebang line<a class="headerlink" href="#setting-the-shebang-line" title="Permalink to this headline">¶</a></h2>
 <p>For Ring files to run properly under CGI we need to set the shebang line to locate the executable file of Ring. So, Inside the source code file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring), Add next line as the very first line in the file:</p>
-<div class="example-code docutils container">
-<div class="highlight-Windows notranslate"><div class="highlight"><pre><span></span>#!ring -cgi
-</pre></div>
-</div>
-<div class="highlight-Linux notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/ring -cgi
-</pre></div>
-</div>
-<div class="highlight-MacOS notranslate"><div class="highlight"><pre><span></span>#!/usr/local/bin/ring -cgi
-</pre></div>
-</div>
-</div>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Change the previous line based on the path to ring executable in your machine</p>
@@ -388,26 +349,6 @@ Open Finder then you will find it mounted as an IP address under &quot;Locations
 <div class="section" id="ring-cgi-hello-world-program">
 <span id="index-5"></span><h2>Ring CGI Hello World Program<a class="headerlink" href="#ring-cgi-hello-world-program" title="Permalink to this headline">¶</a></h2>
 <p>The next program is the Hello World program</p>
-<div class="example-code docutils container">
-<div class="highlight-Windows notranslate"><div class="highlight"><pre><span></span>#!ring -cgi
-
-See &quot;content-type: text/html&quot; +nl+nl+
-    &quot;Hello World!&quot; + nl
-</pre></div>
-</div>
-<div class="highlight-Linux notranslate"><div class="highlight"><pre><span></span>#!/usr/bin/ring -cgi
-
-See &quot;content-type: text/html&quot; +nl+nl+
-    &quot;Hello World!&quot; + nl
-</pre></div>
-</div>
-<div class="highlight-MacOS notranslate"><div class="highlight"><pre><span></span>#!/usr/local/bin/ring -cgi
-
-See &quot;content-type: text/html&quot; +nl+nl+
-    &quot;Hello World!&quot; + nl
-</pre></div>
-</div>
-</div>
 </div>
 <div class="section" id="hello-world-program-using-the-web-library">
 <span id="index-6"></span><h2>Hello World Program using the Web Library<a class="headerlink" href="#hello-world-program-using-the-web-library" title="Permalink to this headline">¶</a></h2>
