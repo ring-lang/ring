@@ -1276,8 +1276,8 @@ void ring_vmlib_str2hex ( void *pPointer )
 	unsigned char *cString  ;
 	int x,nMax  ;
 	char *cString2  ;
-	unsigned char bVal ;
-	static const char cHexChars[] = "0123456789abcdef";
+	unsigned char bVal  ;
+	static const char cHexChars[] = "0123456789abcdef" ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;

@@ -257,13 +257,16 @@ nNum1
 Type: char
 cStr[100]
 ring_vmlib_str2hex
-cStr
 Type: unsigned char *
 cString
 Type: int
 x,nMax
 Type: char *
 cString2
+Type: unsigned char
+bVal
+Type: static const char
+cHexChars[]
 ring_vmlib_hex2str
 cStr
 Type: const char *
