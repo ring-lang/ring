@@ -1273,10 +1273,11 @@ void ring_vmlib_string ( void *pPointer )
 
 void ring_vmlib_str2hex ( void *pPointer )
 {
-	char cStr[3]  ;
 	unsigned char *cString  ;
 	int x,nMax  ;
 	char *cString2  ;
+	unsigned char bVal  ;
+	static const char cHexChars[] = "0123456789abcdef" ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1290,13 +1291,9 @@ void ring_vmlib_str2hex ( void *pPointer )
 			return ;
 		}
 		for ( x = 1 ; x <= nMax ; x++ ) {
-			sprintf( cStr , "%x" , (unsigned int) cString[x-1] ) ;
-			cString2[(x-1)*2] = cStr[0] ;
-			if ( cStr[1] != '\0' ) {
-				cString2[((x-1)*2)+1] = cStr[1] ;
-			} else {
-				cString2[((x-1)*2)+1] = ' ' ;
-			}
+			bVal = cString[x-1] ;
+			cString2[(x-1)*2] = cHexChars[bVal >> 4] ;
+			cString2[((x-1)*2)+1] = cHexChars[bVal & 0x0F] ;
 		}
 		RING_API_RETSTRING2(cString2,nMax*2);
 		ring_state_free(((VM *) pPointer)->pRingState,cString2);
