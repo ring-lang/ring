@@ -109,14 +109,14 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	ring_vm_backstate(pVM,pVMState->aNumbers[11],pVM->aScopeID);
 	pVM->nActiveScopeID = pVMState->aNumbers[12] ;
 	/* Loop/Exit Mark */
-	if ( nFlag != RING_STATE_EXIT ) {
+	if ( nFlag == RING_STATE_EXIT ) {
 		ring_vm_backstate(pVM,pVMState->aNumbers[13],pVM->pExitMark);
 		ring_vm_backstate(pVM,pVMState->aNumbers[14],pVM->pLoopMark);
 		/* For Step */
 		ring_vm_backstate(pVM,pVMState->aNumbers[18],pVM->aForStep);
 	}
 	/* Try/Catch/Done */
-	if ( nFlag != RING_STATE_TRYCATCH ) {
+	if ( nFlag == RING_STATE_TRYCATCH ) {
 		ring_vm_backstate(pVM,pVMState->aNumbers[15],pVM->pTry);
 	}
 	/* List Status */
