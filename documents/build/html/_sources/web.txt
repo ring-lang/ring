@@ -15,7 +15,7 @@ Configure the Apache web server
 
 In this section we will learn about using Ring with the Apache HTTP Server. We can also use Ring with any web server that supports CGI.
 
-.. note:: From Ring 1.14, if you are developing your application using Ring Notepad there's no need to configure apache manually because configuration process will be prompted and done with ease at the time you run your application.
+.. note:: If you are developing your application using Ring Notepad then there's no need to configure apache manually.
 
 .. index::
 	pair: Configure the Apache web server; Using XAMPP Apache web server
@@ -29,20 +29,23 @@ XAMPP : https://www.apachefriends.org/download.html
 
 Install then open the configuration file from the XAMPP application or search for it in the following locations based on your operating system.
 
-.. example-code::
+For Windows:
 
-  .. code-block:: Windows
+.. code-block:: none
 
     xampp\apache\conf\httpd.conf
 
-  .. code-block:: Linux
+For Linux:
+
+.. code-block:: none
 
     /opt/lampp/etc/httpd.conf
 
-  .. code-block:: MacOS
+For macOS:
+
+.. code-block:: none
 
     /Applications/XAMPP/xamppfiles/etc/httpd.conf
-
 
 Search for the next line and make sure that it's not commented
 
@@ -70,17 +73,21 @@ Restart/Start the server using XAMPP "Manage Servers" or "Services" section
 
 Create your web applications in a directory supported by the web server.
 
-.. example-code::
+For Windows:
 
-  .. code-block:: Windows
+.. code-block:: none
 
     xampp\htdocs\mywebapplicationfolder
 
-  .. code-block:: Linux
+For Linux:
+
+.. code-block:: none
 
     /opt/lampp/htdocs/mywebapplicationfolder
 
-  .. code-block:: MacOS
+For macOS:
+
+.. code-block:: none
 
     Open XAMPP application then go to "Volumes" section
 
@@ -96,20 +103,23 @@ Setting the shebang line
 
 For Ring files to run properly under CGI we need to set the shebang line to locate the executable file of Ring. So, Inside the source code file (*.ring), Add next line as the very first line in the file:
 
-.. example-code::
+For Windows:
 
-  .. code-block:: Windows
+.. code-block:: none
 
     #!ring -cgi
 
-  .. code-block:: Linux
+For Linux:
+
+.. code-block:: none
 
     #!/usr/bin/ring -cgi
 
-  .. code-block:: MacOS
+For macOS:
+
+.. code-block:: none
 
     #!/usr/local/bin/ring -cgi
-
 
 .. note:: Change the previous line based on the path to ring executable in your machine
 
@@ -135,23 +145,27 @@ Ring CGI Hello World Program
 
 The next program is the Hello World program 
 
-.. example-code::
+For Windows:
 
-  .. code-block:: Windows
+.. code-block:: none
 
     #!ring -cgi
 
     See "content-type: text/html" +nl+nl+
         "Hello World!" + nl
 
-  .. code-block:: Linux
+For Linux:
+
+.. code-block:: none
 
     #!/usr/bin/ring -cgi
 
     See "content-type: text/html" +nl+nl+
         "Hello World!" + nl
 
-  .. code-block:: MacOS
+For macOS:
+
+.. code-block:: none
 
     #!/usr/local/bin/ring -cgi
 
