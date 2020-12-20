@@ -132,8 +132,6 @@ void ring_vmlib_string ( void *pPointer ) ;
 
 void ring_vmlib_str2hex ( void *pPointer ) ;
 
-unsigned char ring_vmlib_hex2str_hex2nibble (char cVal) ;
-
 void ring_vmlib_hex2str ( void *pPointer ) ;
 
 void ring_vmlib_str2list ( void *pPointer ) ;

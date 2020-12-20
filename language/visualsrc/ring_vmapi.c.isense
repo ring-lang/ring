@@ -45,6 +45,8 @@ RING_API_MISS4PARA
 RING_API_BADPARATYPE
 RING_API_BADPARACOUNT
 RING_API_BADPARARANGE
+RING_API_BADPARALENGTH
+RING_API_BADPARAVALUE
 RING_API_NOTPOINTER
 RING_API_NULLPOINTER
 RING_API_EMPTYLIST
@@ -267,6 +269,9 @@ Type: unsigned char
 bVal
 Type: static const char
 cHexChars[]
+ring_vmlib_hex2str_hex2nibble
+Type: unsigned char
+bVal
 ring_vmlib_hex2str
 cStr
 Type: const char *
@@ -274,9 +279,9 @@ cString
 Type: char *
 cString2
 Type: int
-x,i,nMax,nOutput
-Type: unsigned int
-y
+x,i,nMax
+Type: unsigned char
+bVal, bNibble
 ring_vmlib_str2list
 Type: char *
 cStr
