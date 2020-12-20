@@ -236,9 +236,9 @@ void ring_vm_socket_recv(void *pPointer) {
     RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
     size_t buffer = (size_t) RING_API_GETNUMBER(2);
     char *Msg = (char *) malloc(buffer);
-    recv(sock->sockfd,Msg,buffer,0);
+    int bytes = recv(sock->sockfd,Msg,buffer,0);
 
-    RING_API_RETSTRING(Msg);
+    RING_API_RETSTRING2(Msg,bytes);
     free(Msg);
 }
 
@@ -519,4 +519,5 @@ RING_API void ringlib_init(RingState *pRingState) {
     ring_vm_funcregister("getservbyname",ring_vm_socket_getservbyname);
     ring_vm_funcregister("getservbyport",ring_vm_socket_getservbyport);
 }
+
 
