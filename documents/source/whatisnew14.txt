@@ -50,6 +50,7 @@ More Samples
 The next samples are added to the samples folder
 
 	* ring/samples/UsingQML/sample12 folder
+	* ring/samples/General/TimeServer folder
 	* ring/samples/General/BinarokuGame folder
 	* ring/samples/Language/EnumGenerator folder
 	* ring/samples/Language/DynamicObject folder
