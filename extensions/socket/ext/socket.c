@@ -64,6 +64,7 @@ void ring_vm_socket_init(void *pPointer) {
 
     if((sock->sockfd = socket(sock->addr.sin_family,type,proto)) == 0) {
         RING_API_ERROR("Sock Init Failed");
+        close(sock->sockfd);
         return;
     }
 
@@ -281,6 +282,7 @@ void ring_vm_socket_connect(void *pPointer) {
 
     if((n = connect(sock->sockfd,(struct sockaddr *) &sock->addr,sizeof(sock->addr))) < 0) {
         RING_API_ERROR("Connection Refused");
+        close(sock->sockfd);
         return;
     }
 
