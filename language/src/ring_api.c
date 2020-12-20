@@ -1212,7 +1212,7 @@ void ring_vmlib_hex ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISNUMBER(1) ) {
-		sprintf( cStr , "%lx" , (unsigned long) RING_API_GETNUMBER(1) ) ;
+		sprintf( cStr , "%llx" , (unsigned long long) RING_API_GETNUMBER(1) ) ;
 		RING_API_RETSTRING(cStr);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
