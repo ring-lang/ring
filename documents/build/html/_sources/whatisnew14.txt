@@ -165,12 +165,12 @@ Output:
 More Improvements
 =================
 
-
 * Ring Compiler - Pass new lines after the FUNC keyword in anonymous functions
 * Ring Compiler - Pass new lines after the function parameters in anonymous functions
 * Ring Compiler - Pass new lines after the access of the list items 
 * Ring Compiler - Pass new lines after the access of the object attribute 
 * Ring VM - Str2Hex() function - Better Performance 
+* Ring VM - Hex2Str() function - Better Performance 
 * Ring VM - SubStr() function - Better Code 
 * RingPM - New Package: GUILib (Separate package for the GUILib classes)
 * RingPM - New Package: ObjectsLib (Separate package for the ObjectsLib classes)
