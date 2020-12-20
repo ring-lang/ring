@@ -132,6 +132,8 @@ void ring_vmlib_string ( void *pPointer ) ;
 
 void ring_vmlib_str2hex ( void *pPointer ) ;
 
+unsigned char ring_vmlib_hex2str_hex2nibble (char cVal) ;
+
 void ring_vmlib_hex2str ( void *pPointer ) ;
 
 void ring_vmlib_str2list ( void *pPointer ) ;
@@ -297,6 +299,8 @@ void ring_vmlib_addsublistsbyfastcopy ( void *pPointer ) ;
 #define RING_API_BADPARATYPE "Bad parameter type!"
 #define RING_API_BADPARACOUNT "Bad parameters count!"
 #define RING_API_BADPARARANGE "Bad parameters value, error in range!"
+#define RING_API_BADPARALENGTH "Bad parameters value, error in length!"
+#define RING_API_BADPARAVALUE "Bad parameter value!"
 #define RING_API_NOTPOINTER "Error in parameter, not pointer!"
 #define RING_API_NULLPOINTER "Error in parameter, NULL pointer!"
 #define RING_API_EMPTYLIST "Bad parameter, empty list!"
