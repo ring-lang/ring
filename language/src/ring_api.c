@@ -1302,13 +1302,27 @@ void ring_vmlib_str2hex ( void *pPointer )
 	}
 }
 
+unsigned char ring_vmlib_hex2str_hex2nibble (char cVal)
+{
+	unsigned char bVal = 0 ;
+	if (cVal >= '0' && cVal <= '9')
+		bVal = cVal - '0';
+	else if (cVal >= 'a' && cVal <= 'f')
+		bVal = cVal - 'a' + 10;
+	else if (cVal >= 'A' && cVal <= 'F')
+		bVal = cVal - 'A' + 10;
+	else
+		bVal = 0xFF;
+	
+	return bVal;
+}
+
 void ring_vmlib_hex2str ( void *pPointer )
 {
-	char cStr[3]  ;
 	const char *cString  ;
 	char *cString2  ;
-	int x,i,nMax,nOutput  ;
-	unsigned int y  ;
+	int x,i,nMax  ;
+	unsigned char bVal, bNibble  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -1316,6 +1330,10 @@ void ring_vmlib_hex2str ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cString = RING_API_GETSTRING(1) ;
 		nMax = RING_API_GETSTRINGSIZE(1) ;
+		if ( nMax % 2 != 0 ) { /* implementation expects even number of characters */
+			RING_API_ERROR(RING_API_BADPARALENGTH);
+			return ;
+		}
 		cString2 = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,(nMax/2)+1);
 		if ( cString2 == NULL ) {
 			RING_API_ERROR(RING_OOM);
@@ -1323,19 +1341,21 @@ void ring_vmlib_hex2str ( void *pPointer )
 		}
 		i = 0 ;
 		for ( x = 0 ; x < nMax ; x+=2 ) {
-			cStr[0] = cString[x] ;
-			if ( cString[x+1]   != ' ' ) {
-				cStr[1] = cString[x+1] ;
-				cStr[2] = '\0' ;
-			} else {
-				cStr[1] = '\0' ;
+			bNibble = ring_vmlib_hex2str_hex2nibble (cString[x]) ;
+			if ( bNibble != 0xFF ) {
+				bVal = bNibble;
+				if ( cString[x+1]   != ' ' ) {
+					bNibble = ring_vmlib_hex2str_hex2nibble (cString[x+1]) ;
+					if ( bNibble != 0xFF ) {
+						bVal = (bVal << 4) + bNibble;
+					}
+				}
 			}
-			nOutput = sscanf(cStr,"%x",&y);
-			if ( nOutput == EOF ) {
-				RING_API_ERROR(RING_SSCANFERROR);
+			if ( bNibble == 0xFF ) {
+				RING_API_ERROR(RING_API_BADPARAVALUE);
 				return ;
 			}
-			cString2[i] = y ;
+			cString2[i] = (char) bVal ;
 			i++ ;
 		}
 		RING_API_RETSTRING2(cString2,nMax/2);
