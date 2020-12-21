@@ -1,5 +1,5 @@
 
-# SERVER
+# TCP SERVER
 
 load "socket.ring" 
 

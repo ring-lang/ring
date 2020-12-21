@@ -192,7 +192,7 @@ void ring_vm_socket_accept(void *pPointer) {
         return;
     }
 
-    closesocket(sock->sockfd);
+    
 #else
     int addr_len = sizeof(sock->addr);
     if((newsockfd->sockfd = accept(sock->sockfd,(struct sockaddr *)&sock->addr,(socklen_t *)&addr_len)) < 0)
@@ -223,6 +223,28 @@ void ring_vm_socket_send(void *pPointer) {
     
 }
 
+void ring_vm_socket_sendto(void *pPointer) {
+    if(RING_API_PARACOUNT != 2) {
+        RING_API_ERROR(RING_API_MISS2PARA);
+        return;
+    }
+
+    if(!RING_API_ISCPOINTER(1) && !RING_API_ISSTRING(2)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    char *Msg = RING_API_GETSTRING(2);
+    int addr_len = sizeof(sock->addr);
+#ifdef win
+    sendto(sock->sockfd,Msg,strlen(Msg),0,(const struct sockaddr *) sock->addr,(socklen_t) addr_len);
+#else
+    sendto(sock->sockfd,Msg,strlen(Msg),0,(const struct sockaddr *) &sock->addr,(socklen_t) addr_len);
+#endif
+
+}
+
 void ring_vm_socket_recv(void *pPointer) {
     if(RING_API_PARACOUNT != 2) {
         RING_API_ERROR(RING_API_MISS2PARA);
@@ -239,6 +261,30 @@ void ring_vm_socket_recv(void *pPointer) {
     char *Msg = (char *) malloc(buffer);
     int bytes = recv(sock->sockfd,Msg,buffer,0);
 
+    RING_API_RETSTRING2(Msg,bytes);
+    free(Msg);
+}
+
+void ring_vm_socket_recvfrom(void *pPointer) {
+    if(RING_API_PARACOUNT != 2) {
+        RING_API_ERROR(RING_API_MISS2PARA);
+        return;
+    }
+
+    if(!RING_API_ISCPOINTER(1) && !RING_API_ISNUMBER(2)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    size_t buffer = (size_t) RING_API_GETNUMBER(2);
+    char *Msg = (char *) malloc(buffer);
+    int addr_len = sizeof(sock->addr);
+#ifdef win
+    int bytes = (int) recvfrom(sock->sockfd,Msg,buffer,0,(struct sockaddr *) sock->addr,(socklen_t *)&addr_len);
+#else
+    int bytes = (int) recvfrom(sock->sockfd,Msg,buffer,0,(struct sockaddr *) &sock->addr,(socklen_t *)&addr_len);
+#endif
     RING_API_RETSTRING2(Msg,bytes);
     free(Msg);
 }
@@ -512,7 +558,9 @@ RING_API void ringlib_init(RingState *pRingState) {
     ring_vm_funcregister("listen",ring_vm_socket_listen);
     ring_vm_funcregister("accept",ring_vm_socket_accept);
     ring_vm_funcregister("send",ring_vm_socket_send);
+    ring_vm_funcregister("sendto",ring_vm_socket_sendto);
     ring_vm_funcregister("recv",ring_vm_socket_recv);
+    ring_vm_funcregister("recvfrom",ring_vm_socket_recvfrom);
     ring_vm_funcregister("connect",ring_vm_socket_connect);
     ring_vm_funcregister("close",ring_vm_socket_close);
     ring_vm_funcregister("gethostbyname",ring_vm_socket_gethostbyname);

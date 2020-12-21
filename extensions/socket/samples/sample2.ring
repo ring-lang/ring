@@ -1,5 +1,5 @@
 
-# Client
+# TCP Client
 
 load "socket.ring" 
 

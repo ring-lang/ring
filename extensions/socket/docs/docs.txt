@@ -4,7 +4,9 @@
 - listen(socket handler , backlog)
 - accept(socket handler)    -> return <connection handler>
 - send(connection handler OR socket handler if it the client  , "Your Message")
-- recv(connection handler OR socket handler if it the client)   -> return <data>
+- sendto(socket handler , "Your Message")
+- recv(connection handler OR socket handler if it the client , buffer)   -> return <data>
+- recvfrom(socket handler , buffer)     -> return <data>
 - connect(socket handler , host , port)    -> return <0> if successful
 - close(socket handler)
 
