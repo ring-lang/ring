@@ -762,6 +762,8 @@ List * ring_vm_getglobalscope ( VM *pVM ) ;
 #define RING_VM_ERROR_BADCOMMAND "Error (R37) : Sorry, The command is not supported in this context"
 #define RING_VM_ERROR_LIBLOADERROR "Error (R38) : Runtime Error in loading the dynamic library!"
 #define RING_VM_ERROR_TEMPFILENAME "Error (R39) : Error occurred creating unique filename."
+#define RING_VM_ERROR_NUMERICUNDERFLOW "Error (R40) : Numeric Underflow! "
+#define RING_VM_ERROR_NUMERICINVALID "Error (R41) : Invalid Numeric string "
 /* Extra Size (for eval) */
 #define RING_VM_EXTRASIZE 2
 #define RING_VM_MINVMINSTRUCTIONS 100000

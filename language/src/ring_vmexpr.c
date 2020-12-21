@@ -968,8 +968,8 @@ char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 {
 	char cOptions[10]  ;
 	int nNum2  ;
-	if ( nNum1 == (int) nNum1 ) {
-		sprintf( cStr , "%.0f" , nNum1 ) ;
+	if ( nNum1 == (long long) nNum1 ) {
+		sprintf( cStr , "%lld" , (long long) nNum1 ) ;
 	}
 	else {
 		sprintf( cOptions , "%s%df" , "%.",pVM->nDecimals ) ;
@@ -990,10 +990,25 @@ char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 {
 	double nResult  ;
-	if ( strlen(cStr) <= RING_VM_MAXDIGITSINSTRINGTONUMBER ) {
-		nResult = atof(cStr);
-	} else {
+	char* cEndStr ;
+	errno = 0;
+	nResult = strtod (cStr, &cEndStr) ;
+	/* https://linux.die.net/man/3/strtod */
+	if (nResult == 0 && (errno != 0)) {
+		if (errno == ERANGE) {
+			ring_vm_error(pVM,RING_VM_ERROR_NUMERICUNDERFLOW);
+		} else {
+			ring_vm_error(pVM,RING_VM_ERROR_NUMERICINVALID);
+		}
+		return 0.0 ;
+	}
+	else if ( (nResult == HUGE_VAL || nResult == -HUGE_VAL ) && (errno == ERANGE) ) {
 		ring_vm_error(pVM,RING_VM_ERROR_NUMERICOVERFLOW);
+		return 0.0 ;
+	}
+	else if ( cStr == cEndStr ) {
+		/* no character was converted. so input has invalid format */
+		ring_vm_error(pVM,RING_VM_ERROR_NUMERICINVALID);
 		return 0.0 ;
 	}
 	return nResult ;
