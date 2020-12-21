@@ -23,7 +23,11 @@ Simple Samples (See The Ring/Applications folder)
 
 (6) Sokoban
 
+(7) Towers of Hanoi
 
+(8) Escape
+
+(9) Tetris
 
 
 
