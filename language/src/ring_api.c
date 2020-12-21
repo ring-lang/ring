@@ -1221,15 +1221,16 @@ void ring_vmlib_hex ( void *pPointer )
 
 void ring_vmlib_dec ( void *pPointer )
 {
-	unsigned long x  ;
+	unsigned long long x  ;
 	int nOutput  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		nOutput = sscanf(RING_API_GETSTRING(1),"%lx",&x);
-		if ( nOutput == EOF ) {
+		nOutput = sscanf(RING_API_GETSTRING(1),"%llx",&x);
+		/* error if nOutput is zero which means that sscanf failed to convert any character */
+		if ( nOutput == EOF || nOutput == 0 ) {
 			RING_API_ERROR(RING_SSCANFERROR);
 			return ;
 		}
