@@ -1229,8 +1229,8 @@ void ring_vmlib_dec ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		nOutput = sscanf(RING_API_GETSTRING(1),"%llx",&x);
-		/* error if nOutput is zero which means that sscanf failed to convert any character */
-		if ( nOutput == EOF || nOutput == 0 ) {
+		/* Display error if nOutput is Zero which means that sscanf() function failed to convert any character */
+		if ( (nOutput == EOF) || (nOutput == 0) ) {
 			RING_API_ERROR(RING_SSCANFERROR);
 			return ;
 		}
