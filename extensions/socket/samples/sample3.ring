@@ -1,3 +1,6 @@
+
+# Some Socket Functions
+
 load "socket.ring"
 
 host = gethostbyname("google.com") 
