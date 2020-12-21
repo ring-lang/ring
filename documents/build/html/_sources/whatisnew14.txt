@@ -173,6 +173,7 @@ More Improvements
 * Ring VM - Str2Hex() function - Better Performance 
 * Ring VM - Hex2Str() function - Better Performance 
 * Ring VM - SubStr() function - Better Code 
+* Ring VM - Dec() function - Better Code
 * RingPM - New Package: GUILib (Separate package for the GUILib classes)
 * RingPM - New Package: ObjectsLib (Separate package for the ObjectsLib classes)
 * RingPM - New Package: CLOC (Count Lines of Code)
