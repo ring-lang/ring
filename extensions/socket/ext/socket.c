@@ -192,7 +192,7 @@ void ring_vm_socket_accept(void *pPointer) {
         return;
     }
 
-    closesocket(sock->sockfd);
+    
 #else
     int addr_len = sizeof(sock->addr);
     if((newsockfd->sockfd = accept(sock->sockfd,(struct sockaddr *)&sock->addr,(socklen_t *)&addr_len)) < 0)
