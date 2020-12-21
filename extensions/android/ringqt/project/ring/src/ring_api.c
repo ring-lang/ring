@@ -1212,7 +1212,7 @@ void ring_vmlib_hex ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISNUMBER(1) ) {
-		sprintf( cStr , "%lx" , (unsigned long) RING_API_GETNUMBER(1) ) ;
+		sprintf( cStr , "%llx" , (unsigned long long) RING_API_GETNUMBER(1) ) ;
 		RING_API_RETSTRING(cStr);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -1221,15 +1221,16 @@ void ring_vmlib_hex ( void *pPointer )
 
 void ring_vmlib_dec ( void *pPointer )
 {
-	unsigned long x  ;
+	unsigned long long x  ;
 	int nOutput  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		nOutput = sscanf(RING_API_GETSTRING(1),"%lx",&x);
-		if ( nOutput == EOF ) {
+		nOutput = sscanf(RING_API_GETSTRING(1),"%llx",&x);
+		/* Display error if nOutput is Zero which means that sscanf() function failed to convert any character */
+		if ( (nOutput == EOF) || (nOutput == 0) ) {
 			RING_API_ERROR(RING_SSCANFERROR);
 			return ;
 		}
