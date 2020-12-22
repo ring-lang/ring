@@ -968,8 +968,18 @@ char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 {
 	char cOptions[10]  ;
 	int nNum2  ;
-	if ( nNum1 == (long long) nNum1 ) {
-		sprintf( cStr , "%lld" , (long long) nNum1 ) ;
+	long long nVal = (long long) nNum1;
+	/*
+	** https://en.wikipedia.org/wiki/IEEE_754
+	**
+	**  double type has 53 significant bits (52 bits of mantissa plus 1 implied)
+	**  so the maximum absolut integer value that can be stored in it without 
+	**  issue is (2^53 - 1) which is equal to 9007199254740991
+	**  So if the (long long) cast results in equality , we also check that the 
+	**  absolut value is less than or equal to 9007199254740991
+	*/
+	if ( (nNum1 == nVal) && (nVal >= -9007199254740991LL && nVal <= 9007199254740991LL) ) {
+		sprintf( cStr , "%lld" , nVal ) ;
 	}
 	else {
 		sprintf( cOptions , "%s%df" , "%.",pVM->nDecimals ) ;
