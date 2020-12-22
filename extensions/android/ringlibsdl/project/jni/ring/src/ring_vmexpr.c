@@ -968,10 +968,10 @@ char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 {
 	char cOptions[10]  ;
 	int nNum2  ;
-	long long nVal  ;
-	nVal = (long long) nNum1 ;
-	if ( (nNum1 == nVal) && (nVal >= -9007199254740991LL && nVal <= 9007199254740991LL) ) {
-		sprintf(cStr , "%lld" , nVal);
+	RING_LONGLONG nVal  ;
+	nVal = (RING_LONGLONG) nNum1 ;
+	if ( (nNum1 == nVal) && (nVal >= RING_LONGLONG_LOWVALUE && nVal <= RING_LONGLONG_HIGHVALUE) ) {
+		sprintf(cStr , RING_LONGLONG_FORMAT , nVal);
 	}
 	else {
 		sprintf( cOptions , "%s%df" , "%.",pVM->nDecimals ) ;
