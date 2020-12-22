@@ -1212,7 +1212,7 @@ void ring_vmlib_hex ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISNUMBER(1) ) {
-		sprintf( cStr , "%llx" , (unsigned long long) RING_API_GETNUMBER(1) ) ;
+		sprintf( cStr , RING_UNSIGNEDLONGLONG_FORMAT , (RING_UNSIGNEDLONGLONG) RING_API_GETNUMBER(1) ) ;
 		RING_API_RETSTRING(cStr);
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
@@ -1221,14 +1221,14 @@ void ring_vmlib_hex ( void *pPointer )
 
 void ring_vmlib_dec ( void *pPointer )
 {
-	unsigned long long x  ;
+	RING_UNSIGNEDLONGLONG x  ;
 	int nOutput  ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		nOutput = sscanf(RING_API_GETSTRING(1),"%llx",&x);
+		nOutput = sscanf(RING_API_GETSTRING(1),RING_UNSIGNEDLONGLONG_FORMAT,&x);
 		/* Display error if nOutput is Zero which means that sscanf() function failed to convert any character */
 		if ( (nOutput == EOF) || (nOutput == 0) ) {
 			RING_API_ERROR(RING_SSCANFERROR);
@@ -1683,7 +1683,7 @@ void ring_vmlib_substr ( void *pPointer )
 			nSize2 = RING_API_GETSTRINGSIZE(2) ;
 			cStr3 = ring_string_find2(cStr,nSize,cStr2,nSize2);
 			if ( cStr3 != NULL ) {
-				nNum1 = ((long long) cStr3) - ((long long) cStr) + 1 ;
+				nNum1 = ((RING_LONGLONG) cStr3) - ((RING_LONGLONG) cStr) + 1 ;
 			} else {
 				nNum1 = 0.0 ;
 			}
@@ -1747,7 +1747,7 @@ void ring_vmlib_substr ( void *pPointer )
 		nMark = 0 ;
 		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
 		while ( cString != NULL ) {
-			nPos = (unsigned int)(((long long) cString) - ((long long) cStr) + 1) ;
+			nPos = (unsigned int)(((RING_LONGLONG) cString) - ((RING_LONGLONG) cStr) + 1) ;
 			/* Add SubString to pString */
 			ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr+nMark,nPos-1-nMark);
 			ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr3,RING_API_GETSTRINGSIZE(3));
