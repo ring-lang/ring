@@ -246,7 +246,7 @@ ring_vmlib_ispointer
 ring_vmlib_hex
 cStr
 ring_vmlib_dec
-Type: unsigned long long
+Type: RING_UNSIGNEDLONGLONG
 x
 Type: int
 nOutput

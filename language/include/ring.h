@@ -1,6 +1,28 @@
 /* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_h
 #define ring_h
+/* ANSI C */
+#define RING_ANSI_C 0
+/*
+**  Check the standard 
+**  Types 
+*/
+#if RING_ANSI_C
+/* Use ANSI C Types */
+#define RING_LONGLONG long
+#define RING_UNSIGNEDLONGLONG unsigned long
+#define RING_LONGLONG_FORMAT "%ld"
+#define RING_UNSIGNEDLONGLONG_FORMAT "%lx"
+#define RING_LONGLONG_LOWVALUE -2147483647L -1
+#define RING_LONGLONG_HIGHVALUE 2147483647L
+#else
+#define RING_LONGLONG long long
+#define RING_UNSIGNEDLONGLONG unsigned long long
+#define RING_LONGLONG_FORMAT "%lld"
+#define RING_UNSIGNEDLONGLONG_FORMAT "%llx"
+#define RING_LONGLONG_LOWVALUE -9007199254740991LL
+#define RING_LONGLONG_HIGHVALUE 9007199254740991LL
+#endif
 /*
 **  DLL/So 
 **  Check Operating System 
