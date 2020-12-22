@@ -968,18 +968,9 @@ char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 {
 	char cOptions[10]  ;
 	int nNum2  ;
-	long long nVal = (long long) nNum1;
-	/*
-	** https://en.wikipedia.org/wiki/IEEE_754
-	**
-	**  double type has 53 significant bits (52 bits of mantissa plus 1 implied)
-	**  so the maximum absolut integer value that can be stored in it without 
-	**  issue is (2^53 - 1) which is equal to 9007199254740991
-	**  So if the (long long) cast results in equality , we also check that the 
-	**  absolut value is less than or equal to 9007199254740991
-	*/
+	long long nVal = (long long) nNum1 ;
 	if ( (nNum1 == nVal) && (nVal >= -9007199254740991LL && nVal <= 9007199254740991LL) ) {
-		sprintf( cStr , "%lld" , nVal ) ;
+		sprintf(cStr , "%lld" , nVal);
 	}
 	else {
 		sprintf( cOptions , "%s%df" , "%.",pVM->nDecimals ) ;
@@ -1000,14 +991,14 @@ char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 {
 	double nResult  ;
-	char* cEndStr ;
-	errno = 0;
-	nResult = strtod (cStr, &cEndStr) ;
-	/* https://linux.die.net/man/3/strtod */
-	if (nResult == 0 && (errno != 0)) {
-		if (errno == ERANGE) {
+	char *cEndStr  ;
+	errno = 0 ;
+	nResult = strtod(cStr, &cEndStr);
+	if ( nResult == 0 && (errno != 0) ) {
+		if ( errno == ERANGE ) {
 			ring_vm_error(pVM,RING_VM_ERROR_NUMERICUNDERFLOW);
-		} else {
+		}
+		else {
 			ring_vm_error(pVM,RING_VM_ERROR_NUMERICINVALID);
 		}
 		return 0.0 ;
@@ -1017,7 +1008,7 @@ double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 		return 0.0 ;
 	}
 	else if ( cStr == cEndStr ) {
-		/* no character was converted. so input has invalid format */
+		/* No character was converted. so input has invalid format */
 		ring_vm_error(pVM,RING_VM_ERROR_NUMERICINVALID);
 		return 0.0 ;
 	}
