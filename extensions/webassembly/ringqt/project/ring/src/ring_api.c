@@ -2245,8 +2245,8 @@ void ring_vmlib_state_setvar ( void *pPointer )
 {
 	List *pList, *pList2, *pList3  ;
 	VM *pVM  ;
-	pVM = (VM *) pPointer ;
 	RingState *pRingSubState  ;
+	pVM = (VM *) pPointer ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
