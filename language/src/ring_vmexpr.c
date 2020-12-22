@@ -968,7 +968,8 @@ char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 {
 	char cOptions[10]  ;
 	int nNum2  ;
-	long long nVal = (long long) nNum1 ;
+	long long nVal  ;
+	nVal = (long long) nNum1 ;
 	if ( (nNum1 == nVal) && (nVal >= -9007199254740991LL && nVal <= 9007199254740991LL) ) {
 		sprintf(cStr , "%lld" , nVal);
 	}
