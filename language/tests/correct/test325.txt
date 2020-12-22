@@ -5,8 +5,8 @@ String to Number
 String: 123456790
 Number plus one: 123456791
 Number to String
-Number: 123456789012345.00
-Number: 123456789012345.00
+Number: 123456789012345
+Number: 123456789012345
 String to Number
 String: 123456789012345
-Number plus one: 123456789012346.00
+Number plus one: 123456789012346
