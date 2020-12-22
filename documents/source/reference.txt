@@ -398,6 +398,8 @@ Runtime Errors
 * Error (R37) : Sorry, The command is not supported in this context
 * Error (R38) : Runtime Error in loading the dynamic library!
 * Error (R39) : Error occurred creating unique filename
+* Error (R40) : Numeric underflow!
+* Error (R41) : Invalid numeric string
 
 .. index:: 
 	pair: Language Specification; Environment Errors
