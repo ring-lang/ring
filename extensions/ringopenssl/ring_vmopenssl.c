@@ -418,7 +418,7 @@ void ring_vm_openssl_sha384_init ( void *pPointer )
 		SHA512_CTX* pValue;
 		pValue = (SHA512_CTX *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SHA512_CTX)) ;
 		SHA384_Init (pValue);
-		RING_API_RETMANAGEDCPOINTER(pValue,"SHA512_384_CTX",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"SHA384_CTX",ring_state_free);
 	}
 }
 
@@ -439,7 +439,7 @@ void ring_vm_openssl_sha384_update ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pValue = (SHA512_CTX *) RING_API_GETCPOINTER(1,"SHA512_384_CTX") ;
+	pValue = (SHA512_CTX *) RING_API_GETCPOINTER(1,"SHA384_CTX") ;
 	if ( ! pValue ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -463,7 +463,7 @@ void ring_vm_openssl_sha384_final ( void *pPointer )
 	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
-	pValue = (SHA512_CTX *) RING_API_GETCPOINTER(1,"SHA512_384_CTX") ;
+	pValue = (SHA512_CTX *) RING_API_GETCPOINTER(1,"SHA384_CTX") ;
 	if ( ! pValue ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -504,7 +504,7 @@ void ring_vm_openssl_sha224_init ( void *pPointer )
 		SHA256_CTX* pValue;
 		pValue = (SHA256_CTX *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(SHA256_CTX)) ;
 		SHA224_Init (pValue);
-		RING_API_RETMANAGEDCPOINTER(pValue,"SHA256_224_CTX",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"SHA224_CTX",ring_state_free);
 	}
 }
 
@@ -525,7 +525,7 @@ void ring_vm_openssl_sha224_update ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pValue = (SHA256_CTX *) RING_API_GETCPOINTER(1,"SHA256_224_CTX") ;
+	pValue = (SHA256_CTX *) RING_API_GETCPOINTER(1,"SHA224_CTX") ;
 	if ( ! pValue ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -549,7 +549,7 @@ void ring_vm_openssl_sha224_final ( void *pPointer )
 	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
-	pValue = (SHA256_CTX *) RING_API_GETCPOINTER(1,"SHA256_224_CTX") ;
+	pValue = (SHA256_CTX *) RING_API_GETCPOINTER(1,"SHA224_CTX") ;
 	if ( ! pValue ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
