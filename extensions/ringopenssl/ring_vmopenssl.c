@@ -191,6 +191,7 @@ void ring_vm_openssl_randbytes ( void *pPointer )
 			else {
 				RING_API_ERROR(RING_API_INTERNALFAILURE);
 			}
+			free (cStr) ;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
