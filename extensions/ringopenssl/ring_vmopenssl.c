@@ -187,11 +187,13 @@ void ring_vm_openssl_randbytes ( void *pPointer )
 			}
 			if ( RAND_bytes(cStr,nNum1) ) {
 				RING_API_RETSTRING2((const char *) cStr,nNum1);
+				free(cStr);
 			}
 			else {
+				free(cStr);
+				/* We use free before RING_API_ERROR  because Ring code may use Try/Catch/Done */
 				RING_API_ERROR(RING_API_INTERNALFAILURE);
 			}
-			free (cStr) ;
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
