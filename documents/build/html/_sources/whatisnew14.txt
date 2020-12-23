@@ -181,3 +181,4 @@ More Improvements
 * RingPM - New Package: CLOC (Count Lines of Code)
 * RingQtRuntime Package: Using GUILib & ObjectsLib packages
 * GameEngine - Add the delay function to the Graphics Library: gl_delay() function
+* RingOpenSSL - RandBytes() function - Better Code
