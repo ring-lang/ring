@@ -1009,8 +1009,12 @@ double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 		return 0.0 ;
 	}
 	else if ( cStr == cEndStr ) {
-		/* No character was converted. so input has invalid format */
-		ring_vm_error(pVM,RING_VM_ERROR_NUMERICINVALID);
+		/*
+		**  No character was converted. so input has invalid format 
+		**  In this case we don't display a runtime error, we just have an empty string 
+		**  Programs expect this behavior (Including Ring Notepad) 
+		**  For example: ( if lineno = NULL ) 
+		*/
 		return 0.0 ;
 	}
 	return nResult ;
