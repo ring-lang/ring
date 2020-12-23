@@ -180,12 +180,17 @@ void ring_vm_openssl_randbytes ( void *pPointer )
 	if ( RING_API_ISNUMBER(1) ) {
 		nNum1 = (int) RING_API_GETNUMBER(1) ;
 		if ( nNum1 > 0 ) {
-			cStr =  malloc(nNum1+1) ;
-			if ( RAND_bytes(cStr,nNum1) ) {
-				RING_API_RETSTRING2((const char *) cStr,nNum1);
-			}
-			else {
-				RING_API_RETNUMBER(0);
+			cStr =  malloc(nNum1) ;
+			if (cStr) {
+				if ( RAND_bytes(cStr,nNum1) ) {
+					RING_API_RETSTRING2((const char *) cStr,nNum1);
+				}
+				else {
+					RING_API_ERROR(RING_API_INTERNALFAILURE);
+				}
+				free (cStr) ;
+			} else {
+				RING_API_ERROR(RING_OOM);
 			}
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
