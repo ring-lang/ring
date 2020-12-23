@@ -302,6 +302,7 @@ void ring_vmlib_addsublistsbyfastcopy ( void *pPointer ) ;
 #define RING_API_NOTPOINTER "Error in parameter, not pointer!"
 #define RING_API_NULLPOINTER "Error in parameter, NULL pointer!"
 #define RING_API_EMPTYLIST "Bad parameter, empty list!"
+#define RING_API_INTERNALFAILURE "Internal function call failed!"
 #define ring_vm_funcregister(x,y) ring_vm_funcregister2(pRingState,x,y)
 /*
 **  Note : The C Function Get Lists as pointers because of (List Pass by Reference) 
