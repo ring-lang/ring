@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #include "ring.h"
@@ -181,16 +181,15 @@ void ring_vm_openssl_randbytes ( void *pPointer )
 		nNum1 = (int) RING_API_GETNUMBER(1) ;
 		if ( nNum1 > 0 ) {
 			cStr =  malloc(nNum1) ;
-			if (cStr) {
-				if ( RAND_bytes(cStr,nNum1) ) {
-					RING_API_RETSTRING2((const char *) cStr,nNum1);
-				}
-				else {
-					RING_API_ERROR(RING_API_INTERNALFAILURE);
-				}
-				free (cStr) ;
-			} else {
+			if ( cStr == NULL ) {
 				RING_API_ERROR(RING_OOM);
+				return ;
+			}
+			if ( RAND_bytes(cStr,nNum1) ) {
+				RING_API_RETSTRING2((const char *) cStr,nNum1);
+			}
+			else {
+				RING_API_ERROR(RING_API_INTERNALFAILURE);
 			}
 		} else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
