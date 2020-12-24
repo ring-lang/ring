@@ -6,6 +6,12 @@ This extension provides complete support for the Libui library
 
 Libui URL: https://github.com/andlabs/libui
 
+## Install
+
+We can install this extension using the Ring Package Manager
+
+	ringpm install ringlibui from ringpackages
+
 ## Samples
 
 We have the samples in the ring/samples/UsingLibUI folder
