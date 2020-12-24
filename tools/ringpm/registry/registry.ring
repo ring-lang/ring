@@ -650,5 +650,9 @@ aPackagesRegistry = [
         [ :name = "socket",
           :description = "Socket extension for network programming with Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+        [ :name = "ringlibui",
+          :description = "RingLibUI extension for the Ring programming language",
+          :ProviderUserName = "ringpackages"
         ]
 ]
