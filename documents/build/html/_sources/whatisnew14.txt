@@ -18,6 +18,7 @@ Ring 1.14 comes with the next features!
 * MyCoffee (Web Application)
 * More Samples
 * Web Development Samples
+* Better RingOpenSSL
 * Using CLOC (Count Lines of Code)
 * More Improvements
 
@@ -93,6 +94,43 @@ Screen Shots:
 
 .. image:: hweb2.png
 	:alt: Web Sample 2
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Better RingOpenSSL
+
+Better RingOpenSSL
+==================
+
+The next functions are added to the RingOpenSSL extension
+
+These functions compute the hash of large files/data without the need to load all of the content in a single string.
+
+.. code-block:: none
+
+	md5init() -> MD5_CTX
+	md5update (MD5_CTX, string) -> 1 for success or 0 for failure
+	md5final (MD5_CTX) -> string
+	
+	sha1init() -> SHA_CTX
+	sha1update (SHA_CTX, string) -> 1 for success or 0 for failure
+	sha1final (SHA_CTX) -> string
+	
+	sha224init() -> SHA224_CTX
+	sha224update (SHA224_CTX, string) -> 1 for success or 0 for failure
+	sha224final (SHA224_CTX) -> string
+	
+	sha256init() -> SHA256_CTX
+	sha256update (SHA256_CTX, string) -> 1 for success or 0 for failure
+	sha256final (SHA256_CTX) -> string
+	
+	sha384init() -> SHA384_CTX
+	sha384update (SHA384_CTX, string) -> 1 for success or 0 for failure
+	sha384final (SHA384_CTX) -> string
+	
+	sha512init() -> SHA512_CTX
+	sha512update (SHA512_CTX, string) -> 1 for success or 0 for failure
+	sha512final (SHA512_CTX) -> string
+
 
 .. index:: 
 	pair: What is new in Ring 1.14?; Using CLOC (Count Lines of Code)

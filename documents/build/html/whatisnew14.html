@@ -192,6 +192,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#mycoffee-web-application">MyCoffee (Web Application)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#web-development-samples">Web Development Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringopenssl">Better RingOpenSSL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-cloc-count-lines-of-code">Using CLOC (Count Lines of Code)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -275,6 +276,7 @@
 <li><p>MyCoffee (Web Application)</p></li>
 <li><p>More Samples</p></li>
 <li><p>Web Development Samples</p></li>
+<li><p>Better RingOpenSSL</p></li>
 <li><p>Using CLOC (Count Lines of Code)</p></li>
 <li><p>More Improvements</p></li>
 </ul>
@@ -326,8 +328,38 @@
 </ul>
 <img alt="Web Sample 2" src="_images/hweb2.png" />
 </div>
+<div class="section" id="better-ringopenssl">
+<span id="index-5"></span><h2>Better RingOpenSSL<a class="headerlink" href="#better-ringopenssl" title="Permalink to this headline">¶</a></h2>
+<p>The next functions are added to the RingOpenSSL extension</p>
+<p>These functions compute the hash of large files/data without the need to load all of the content in a single string.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>md5init() -&gt; MD5_CTX
+md5update (MD5_CTX, string) -&gt; 1 for success or 0 for failure
+md5final (MD5_CTX) -&gt; string
+
+sha1init() -&gt; SHA_CTX
+sha1update (SHA_CTX, string) -&gt; 1 for success or 0 for failure
+sha1final (SHA_CTX) -&gt; string
+
+sha224init() -&gt; SHA224_CTX
+sha224update (SHA224_CTX, string) -&gt; 1 for success or 0 for failure
+sha224final (SHA224_CTX) -&gt; string
+
+sha256init() -&gt; SHA256_CTX
+sha256update (SHA256_CTX, string) -&gt; 1 for success or 0 for failure
+sha256final (SHA256_CTX) -&gt; string
+
+sha384init() -&gt; SHA384_CTX
+sha384update (SHA384_CTX, string) -&gt; 1 for success or 0 for failure
+sha384final (SHA384_CTX) -&gt; string
+
+sha512init() -&gt; SHA512_CTX
+sha512update (SHA512_CTX, string) -&gt; 1 for success or 0 for failure
+sha512final (SHA512_CTX) -&gt; string
+</pre></div>
+</div>
+</div>
 <div class="section" id="using-cloc-count-lines-of-code">
-<span id="index-5"></span><h2>Using CLOC (Count Lines of Code)<a class="headerlink" href="#using-cloc-count-lines-of-code" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Using CLOC (Count Lines of Code)<a class="headerlink" href="#using-cloc-count-lines-of-code" title="Permalink to this headline">¶</a></h2>
 <p>Usage:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringcloc &lt;application_folder_path&gt;
 </pre></div>
@@ -379,7 +411,7 @@ SUM:                            53           1311            567           9078
 </div>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-6"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring Compiler - Pass new lines after the FUNC keyword in anonymous functions</p></li>
 <li><p>Ring Compiler - Pass new lines after the function parameters in anonymous functions</p></li>
