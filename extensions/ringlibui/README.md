@@ -12,6 +12,21 @@ We have the samples in the ring/samples/UsingLibUI folder
 
 URL: https://github.com/ring-lang/ring/tree/master/samples/UsingLibUI
 
+## Example
+
+``` ring
+load "libui.ring"
+
+oWindow = uiNewWindow( "Hello, World", 400, 400, True)
+uiWindowOnClosing(oWindow,"closeApp()")
+
+uiControlShow( oWindow )
+uiMain()
+
+func closeApp
+	uiQuit()
+```					
+
 ## Screen Shots
 
 ### Hello World
