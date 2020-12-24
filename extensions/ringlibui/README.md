@@ -1,21 +1,36 @@
-RingLibui Extension
-===================
+# RingLibui Extension
+
+## Introduction
 
 This extension provides complete support for the Libui library
 
-Examples: https://github.com/ring-lang/ring/tree/master/samples/UsingLibUI
+Libui URL: https://github.com/andlabs/libui
 
-Screen Shots:
+## Samples
+
+We have the samples in the ring/samples/UsingLibUI folder
+
+URL: https://github.com/ring-lang/ring/tree/master/samples/UsingLibUI
+
+## Screen Shots
+
+### Hello World
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_1.png)
 
+### Message Box
+
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_2.png)
+
+### Using Buttons
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_3.png)
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_4.png)
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_5.png)
+
+### Controls
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_6.png)
 
@@ -25,21 +40,31 @@ Screen Shots:
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_9.png)
 
+### Say Something
+
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_10.png)
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_11.png)
+
+### Menubar
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_12.png)
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_13.png)
 
+### Histogram
+
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_14.png)
+
+### Drawing Text
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_15.png)
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_16.png)
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_17.png)
+
+### Drawing Shapes
 
 ![RingLibuiScreenShot](https://github.com/ring-lang/ring/blob/master/documents/source/libui_18.png)
 
