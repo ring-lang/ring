@@ -1,4 +1,5 @@
 aNews = [
+  ["December 25, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringlibui" target="_blank"> RingLibUI Extension</a>'],
   ["December 10, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/applications/mycoffee" target="_blank"> MyCoffee (Web Application)'],
   ["November 10, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/tools/cloc" target="_blank"> Using CLOC</a>'],
   ["October 25, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/samples/UsingArabic/HassounaCourse/WebDevelopment#hassouna-course-web-development-samples" target="_blank"> Web Development Samples (WebLib)</a>'],
@@ -34,7 +35,7 @@ aNews = [
   ["October 5, 2019",'<a href="http://ring-lang.sourceforge.net/RingBasics_ArabicBook.pdf" target="_blank"> Ring Basics (Arabic Book)</a>'],
   ["October 1, 2019",'<a href="https://www.youtube.com/watch?v=rOwOEFTVvg0" target="_blank"> Movie: Introducing Ring in 1.5 Hour!</a>'],
   ["September 15, 2019",'<a href="doc1.13/whatisnew11.html" target="_blank"> Ring 1.11 Released!</a>'],
-  ["June 25, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringraylib" target="_blank"> RayLib Extension</a>'],
+  ["June 25, 2019",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringraylib" target="_blank"> RingRayLib Extension</a>'],
   ["June 10, 2019",'<a href="https://github.com/ring-lang/ring/blob/master/samples/UsingQt3D/README.md" target="_blank"> Qt3D Tutorial </a>'],
   ["June 3, 2019",'<a href="https://github.com/ring-lang/ring/blob/master/applications/maze" target="_blank"> The Maze Game </a>'],
   ["June 1, 2019",'<a href="https://github.com/ring-lang/ring/blob/master/applications/sokoban" target="_blank"> The Sokoban Game </a>'],
