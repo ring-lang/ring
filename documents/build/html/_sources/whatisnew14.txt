@@ -18,6 +18,7 @@ Ring 1.14 comes with the next features!
 * MyCoffee (Web Application)
 * More Samples
 * Web Development Samples
+* RingLibui Extension
 * Better RingOpenSSL
 * Using CLOC (Count Lines of Code)
 * More Improvements
@@ -94,6 +95,77 @@ Screen Shots:
 
 .. image:: hweb2.png
 	:alt: Web Sample 2
+
+.. index:: 
+	pair: What is new in Ring 1.14?; RingLibui Extension
+
+RingLibui Extension
+===================
+
+This extension provides complete support for Libui 
+
+Example:
+
+.. code-block:: ring
+
+	load "libui.ring"
+
+	oWindow = uiNewWindow( "Say Hello", 500, 80, True)
+	uiWindowOnClosing(oWindow,"closeApp()")
+
+	lbl1 = uiNewLabel("Name: ")
+	text1 = uiNewEntry()
+
+	btn1 = uiNewButton("SayHello")
+	uiButtonOnClicked(btn1,"sayHello()")
+
+	btn2 = uiNewButton("Close")
+	uiButtonOnClicked(btn2,"closeApp()")
+
+	lbl2 = uiNewLabel("")
+
+	g = uiNewGrid() uiGridSetPadded(g, 1) uiWindowSetChild(oWindow, g)
+	uiGridAppend(g, lbl1, 0, 0, 2, 1, 1, uiAlignCenter, 0, uiAlignCenter)
+	uiGridAppend(g, text1, 1, 0, 2, 1, 1, uiAlignFill, 0, uiAlignFill)
+	uiGridAppend(g, btn1, 0, 1, 1, 2, 1, uiAlignFill, 0, uiAlignFill)
+	uiGridAppend(g, btn2, 2, 1, 1, 1, 1, uiAlignFill, 0, uiAlignFill)
+	uiGridAppend(g, lbl2, 0, 3, 2, 1, 1, uiAlignCenter, 0, uiAlignCenter)
+
+	uiControlShow( oWindow )
+	uiMain()
+
+	func sayHello 
+		uiLabelSetText(lbl2,"Hello " + uiEntryText(text1))
+
+	func closeApp
+		uiQuit()
+
+
+Screen Shots:
+
+.. image:: libui_3.png
+	:alt: RingLibui Screen Shot
+
+.. image:: libui_6.png
+	:alt: RingLibui Screen Shot
+
+.. image:: libui_7.png
+	:alt: RingLibui Screen Shot
+
+.. image:: libui_8.png
+	:alt: RingLibui Screen Shot
+
+.. image:: libui_13.png
+	:alt: RingLibui Screen Shot
+
+.. image:: libui_14.png
+	:alt: RingLibui Screen Shot
+
+.. image:: libui_16.png
+	:alt: RingLibui Screen Shot
+
+.. image:: libui_26.png
+	:alt: RingLibui Screen Shot
 
 .. index:: 
 	pair: What is new in Ring 1.14?; Better RingOpenSSL

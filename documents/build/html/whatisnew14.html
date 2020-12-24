@@ -192,6 +192,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#mycoffee-web-application">MyCoffee (Web Application)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#web-development-samples">Web Development Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringlibui-extension">RingLibui Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringopenssl">Better RingOpenSSL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-cloc-count-lines-of-code">Using CLOC (Count Lines of Code)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
@@ -276,6 +277,7 @@
 <li><p>MyCoffee (Web Application)</p></li>
 <li><p>More Samples</p></li>
 <li><p>Web Development Samples</p></li>
+<li><p>RingLibui Extension</p></li>
 <li><p>Better RingOpenSSL</p></li>
 <li><p>Using CLOC (Count Lines of Code)</p></li>
 <li><p>More Improvements</p></li>
@@ -328,8 +330,55 @@
 </ul>
 <img alt="Web Sample 2" src="_images/hweb2.png" />
 </div>
+<div class="section" id="ringlibui-extension">
+<span id="index-5"></span><h2>RingLibui Extension<a class="headerlink" href="#ringlibui-extension" title="Permalink to this headline">¶</a></h2>
+<p>This extension provides complete support for Libui</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;libui.ring&quot;</span>
+
+<span class="n">oWindow</span> <span class="o">=</span> <span class="n">uiNewWindow</span><span class="p">(</span> <span class="s">&quot;Say Hello&quot;</span><span class="p">,</span> <span class="mi">500</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="kp">True</span><span class="p">)</span>
+<span class="n">uiWindowOnClosing</span><span class="p">(</span><span class="n">oWindow</span><span class="p">,</span><span class="s">&quot;closeApp()&quot;</span><span class="p">)</span>
+
+<span class="n">lbl1</span> <span class="o">=</span> <span class="n">uiNewLabel</span><span class="p">(</span><span class="s">&quot;Name: &quot;</span><span class="p">)</span>
+<span class="n">text1</span> <span class="o">=</span> <span class="n">uiNewEntry</span><span class="p">()</span>
+
+<span class="n">btn1</span> <span class="o">=</span> <span class="n">uiNewButton</span><span class="p">(</span><span class="s">&quot;SayHello&quot;</span><span class="p">)</span>
+<span class="n">uiButtonOnClicked</span><span class="p">(</span><span class="n">btn1</span><span class="p">,</span><span class="s">&quot;sayHello()&quot;</span><span class="p">)</span>
+
+<span class="n">btn2</span> <span class="o">=</span> <span class="n">uiNewButton</span><span class="p">(</span><span class="s">&quot;Close&quot;</span><span class="p">)</span>
+<span class="n">uiButtonOnClicked</span><span class="p">(</span><span class="n">btn2</span><span class="p">,</span><span class="s">&quot;closeApp()&quot;</span><span class="p">)</span>
+
+<span class="n">lbl2</span> <span class="o">=</span> <span class="n">uiNewLabel</span><span class="p">(</span><span class="s">&quot;&quot;</span><span class="p">)</span>
+
+<span class="n">g</span> <span class="o">=</span> <span class="n">uiNewGrid</span><span class="p">()</span> <span class="n">uiGridSetPadded</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span> <span class="n">uiWindowSetChild</span><span class="p">(</span><span class="n">oWindow</span><span class="p">,</span> <span class="n">g</span><span class="p">)</span>
+<span class="n">uiGridAppend</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">lbl1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">uiAlignCenter</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">uiAlignCenter</span><span class="p">)</span>
+<span class="n">uiGridAppend</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">text1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">uiAlignFill</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">uiAlignFill</span><span class="p">)</span>
+<span class="n">uiGridAppend</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">btn1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">uiAlignFill</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">uiAlignFill</span><span class="p">)</span>
+<span class="n">uiGridAppend</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">btn2</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">uiAlignFill</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">uiAlignFill</span><span class="p">)</span>
+<span class="n">uiGridAppend</span><span class="p">(</span><span class="n">g</span><span class="p">,</span> <span class="n">lbl2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="n">uiAlignCenter</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">uiAlignCenter</span><span class="p">)</span>
+
+<span class="n">uiControlShow</span><span class="p">(</span> <span class="n">oWindow</span> <span class="p">)</span>
+<span class="n">uiMain</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">sayHello</span>
+        <span class="n">uiLabelSetText</span><span class="p">(</span><span class="n">lbl2</span><span class="p">,</span><span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">uiEntryText</span><span class="p">(</span><span class="n">text1</span><span class="p">))</span>
+
+<span class="k">func</span> <span class="n">closeApp</span>
+        <span class="n">uiQuit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shots:</p>
+<img alt="RingLibui Screen Shot" src="_images/libui_3.png" />
+<img alt="RingLibui Screen Shot" src="_images/libui_6.png" />
+<img alt="RingLibui Screen Shot" src="_images/libui_7.png" />
+<img alt="RingLibui Screen Shot" src="_images/libui_8.png" />
+<img alt="RingLibui Screen Shot" src="_images/libui_13.png" />
+<img alt="RingLibui Screen Shot" src="_images/libui_14.png" />
+<img alt="RingLibui Screen Shot" src="_images/libui_16.png" />
+<img alt="RingLibui Screen Shot" src="_images/libui_26.png" />
+</div>
 <div class="section" id="better-ringopenssl">
-<span id="index-5"></span><h2>Better RingOpenSSL<a class="headerlink" href="#better-ringopenssl" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Better RingOpenSSL<a class="headerlink" href="#better-ringopenssl" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to the RingOpenSSL extension</p>
 <p>These functions compute the hash of large files/data without the need to load all of the content in a single string.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>md5init() -&gt; MD5_CTX
@@ -359,7 +408,7 @@ sha512final (SHA512_CTX) -&gt; string
 </div>
 </div>
 <div class="section" id="using-cloc-count-lines-of-code">
-<span id="index-6"></span><h2>Using CLOC (Count Lines of Code)<a class="headerlink" href="#using-cloc-count-lines-of-code" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>Using CLOC (Count Lines of Code)<a class="headerlink" href="#using-cloc-count-lines-of-code" title="Permalink to this headline">¶</a></h2>
 <p>Usage:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ringcloc &lt;application_folder_path&gt;
 </pre></div>
@@ -411,7 +460,7 @@ SUM:                            53           1311            567           9078
 </div>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring Compiler - Pass new lines after the FUNC keyword in anonymous functions</p></li>
 <li><p>Ring Compiler - Pass new lines after the function parameters in anonymous functions</p></li>
