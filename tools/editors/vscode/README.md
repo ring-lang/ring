@@ -11,4 +11,4 @@ Copy the Ring folder to : C:\Users\YourUserName\\.vscode\extensions\ folder
 Screen Shot
 ===========
 
-![Ring](https://github.com/ring-lang/ring/blob/master/editor/vscode/ringinvscode.png)
+![Ring](https://github.com/ring-lang/ring/blob/master/tools/editors/vscode/ringinvscode.png)
