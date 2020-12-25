@@ -54,4 +54,4 @@ Example
 Output:
 =======
 
-![RayLib](https://github.com/ring-lang/ring/blob/master/extensions/ringraylib/examples/shapes/ex1_basicshapes.png)
+![RayLib](https://github.com/ring-lang/ring/blob/master/samples/UsingRayLib/shapes/ex1_basicshapes.png)
