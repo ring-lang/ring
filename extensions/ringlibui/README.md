@@ -6,6 +6,17 @@ This extension provides complete support for the Libui library
 
 Libui URL: https://github.com/andlabs/libui
 
+Using this extension we can develop and distribute lightweight GUI Applications 
+using Ring (Less than 1 MB)
+
+Runtime files and their size
+
+* Ring.dll (448 KB)
+* Libui.dll (210 KB)
+* Ring_Libui.dll (633 KB)
+* Total : 1,291 KB without compressing the files 
+* After compressing the files (To ZIP file) - Total : 504 KB
+
 ## Install
 
 We can install this extension using the Ring Package Manager
