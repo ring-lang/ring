@@ -16,10 +16,11 @@ List of changes and new features
 Ring 1.14 comes with the next features!
 
 * MyCoffee (Web Application)
-* More Samples
 * Web Development Samples
+* More Samples
 * RingLibui Extension
 * Better RingOpenSSL
+* Better Operations on Numbers
 * Using CLOC (Count Lines of Code)
 * More Improvements
 
@@ -42,29 +43,6 @@ Screen Shots:
 
 .. image:: mycoffee3.png
 	:alt: MyCoffee3
-
-.. index:: 
-	pair: What is new in Ring 1.14?; More Samples
-
-More Samples
-============
-
-The next samples are added to the samples folder
-
-	* ring/samples/UsingQML/sample12 folder
-	* ring/samples/General/TimeServer folder
-	* ring/samples/General/BinarokuGame folder
-	* ring/samples/Language/EnumGenerator folder
-	* ring/samples/Language/DynamicObject folder
-	* ring/samples/Drawing/MatrixMultiply3DRotationCube
-
-Screen Shots:
-
-.. image:: UsingQtQuick3D.png
-	:alt: Qt Quick 3D
-
-.. image:: drawpi.png
-	:alt: Matrix Multiplication
 
 .. index:: 
 	pair: What is new in Ring 1.14?; Web Development Samples
@@ -95,6 +73,29 @@ Screen Shots:
 
 .. image:: hweb2.png
 	:alt: Web Sample 2
+
+.. index:: 
+	pair: What is new in Ring 1.14?; More Samples
+
+More Samples
+============
+
+The next samples are added to the samples folder
+
+	* ring/samples/UsingQML/sample12 folder
+	* ring/samples/General/TimeServer folder
+	* ring/samples/General/BinarokuGame folder
+	* ring/samples/Language/EnumGenerator folder
+	* ring/samples/Language/DynamicObject folder
+	* ring/samples/Drawing/MatrixMultiply3DRotationCube
+
+Screen Shots:
+
+.. image:: drawpi.png
+	:alt: Matrix Multiplication
+
+.. image:: UsingQtQuick3D.png
+	:alt: Qt Quick 3D
 
 .. index:: 
 	pair: What is new in Ring 1.14?; RingLibui Extension
@@ -203,6 +204,65 @@ These functions compute the hash of large files/data without the need to load al
 	sha512update (SHA512_CTX, string) -> 1 for success or 0 for failure
 	sha512final (SHA512_CTX) -> string
 
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Better Operations on Numbers
+
+Better Operations on Numbers
+============================
+
+(1) Printing large double value
+
+Example:
+
+.. code-block:: ring
+
+	c = 999999999999999
+	for i = 1 to 13
+		c *= 999999999999999
+	next
+	? "c = " + c
+
+Output:
+
+.. code-block:: none
+
+	c = 9.999999999999862032924046117813879019544782068185773946275755888189234614925384380788550958e+209
+
+(2) Using String() and Number() with large double values
+
+Example:
+
+.. code-block:: ring
+
+	c1 = 999999999999999
+	for i = 1 to 13 
+		c1 *= 999999999999999
+	next
+	
+	s = string(c1)	? "c1 = " + s
+	c2 = number(s)	? "c2 = " + c2
+	
+	? "c2 - c1 = " + (c2 - c1)
+	
+	str1	= "-2222044646462"
+	c	= Number(str1)
+	str2	= String(c)
+	
+	if str1 = str2 
+		? "Strings Identical"
+	else
+		? "Strings Mismatch!"
+	ok
+
+Output:
+
+.. code-block:: none
+
+	c1 = 9.999999999999862032924046117813879019544782068185773946275755888189234614925384380788550958e+209
+	c2 = 9.999999999999862032924046117813879019544782068185773946275755888189234614925384380788550958e+209
+	c2 - c1 = 0
+	Strings Identical
 
 .. index:: 
 	pair: What is new in Ring 1.14?; Using CLOC (Count Lines of Code)
