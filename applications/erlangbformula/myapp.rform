@@ -1,0 +1,264 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 0 , : y = 8  , 
+		 :width =  1052 , :height = 687 , 
+		 :title =  "Erlang B Formula" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "images/erlangb.png" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 6 , : y = 16  , 
+		 :width =  77 , :height = 46 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "N",
+		 :textalign =  2
+		]
+	],
+	[ :name = "Frame1" , :id = 3 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 745 , : y = 16  , 
+		 :width =  288 , :height = 300 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffffff" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "textN" , :id = 4 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 94 , : y = 16  , 
+		 :width =  100 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label2" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 6 , : y = 77  , 
+		 :width =  77 , :height = 46 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "A (Min.)",
+		 :textalign =  2
+		]
+	],
+	[ :name = "textAMin" , :id = 6 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 94 , : y = 77  , 
+		 :width =  100 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label5" , :id = 7 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 6 , : y = 138  , 
+		 :width =  77 , :height = 46 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "A (Max)",
+		 :textalign =  2
+		]
+	],
+	[ :name = "textAMax" , :id = 8 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 94 , : y = 138  , 
+		 :width =  100 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label7" , :id = 9 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 6 , : y = 199  , 
+		 :width =  77 , :height = 46 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Step",
+		 :textalign =  2
+		]
+	],
+	[ :name = "textStep" , :id = 10 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 94 , : y = 199  , 
+		 :width =  100 , :height = 41 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "TableWidget1" , :id = 11 , :classname = "formdesigner_qtablewidget" , :data = [
+		 :x = 206 , : y = 16  , 
+		 :width =  520 , :height = 660 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :RowCount =  "",
+		 :ColumnCount =  "5",
+		 :HorizontalHeaders =  "A,B,J,K,Q",
+		 :ColumnsWidth =  "",
+		 :HorizontalHeaderStyle =  "",
+		 :VerticalHeaderStyle =  "",
+		 :selectionbehavior =  1,
+		 :alternatingcolors =  0,
+		 :setcellActivatedEvent =  "",
+		 :setcellChangedEvent =  "",
+		 :setcellClickedEvent =  "",
+		 :setcellDoubleClickedEvent =  "",
+		 :setcellEnteredEvent =  "",
+		 :setcellPressedEvent =  "",
+		 :setcurrentCellChangedEvent =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 9 , : y = 279  , 
+		 :width =  185 , :height = 36 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffeba2" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Calculate",
+		 :BtnImage =  "",
+		 :setClickEvent =  "calculate"
+		]
+	],
+	[ :name = "Image1" , :id = 13 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 751 , : y = 32  , 
+		 :width =  268 , :height = 270 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :imagefile =  "images/erlangb.png"
+		]
+	],
+	[ :name = "Frame2" , :id = 14 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 745 , : y = 328  , 
+		 :width =  288 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffeba2" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Frame14" , :id = 15 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 745 , : y = 398  , 
+		 :width =  288 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffeba2" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Frame15" , :id = 16 , :classname = "formdesigner_qframe3" , :data = [
+		 :x = 745 , : y = 467  , 
+		 :width =  288 , :height = 48 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffeba2" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :FrameType =  0
+		]
+	],
+	[ :name = "Label15" , :id = 17 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 751 , : y = 339  , 
+		 :width =  275 , :height = 27 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffeba2" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "J = A * B",
+		 :textalign =  1
+		]
+	],
+	[ :name = "Label17" , :id = 18 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 751 , : y = 403  , 
+		 :width =  275 , :height = 33 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffeba2" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "K = A - J",
+		 :textalign =  1
+		]
+	],
+	[ :name = "Label18" , :id = 19 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 751 , : y = 478  , 
+		 :width =  275 , :height = 23 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "#ffeba2" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Q = K / N",
+		 :textalign =  1
+		]
+	],
+	[ :name = "Button19" , :id = 20 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 9 , : y = 334  , 
+		 :width =  185 , :height = 36 , 
+		 :textcolor =  "#ffffff" , 
+		 :backcolor =  "#ff0000" , 
+		 :font =  "Tahoma,16,-1,5,50,0,0,0,0,0,Regular" , 
+		 :parent =  "win"  ,
+		 :text =  "Close",
+		 :BtnImage =  "",
+		 :setClickEvent =  "closeapp"
+		]
+	]
+]
+# End Form Designer File
