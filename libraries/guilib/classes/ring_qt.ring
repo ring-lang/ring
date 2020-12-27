@@ -569,7 +569,7 @@ Class QByteArray
 
 	Func fill P1,P2
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_fill(pObject,GetObjectPointerFromRingObject(P1),P2)
+		pTempObj.pObject = QByteArray_fill(pObject,P1,P2)
 		return pTempObj
 
 	Func indexOf P1,P2
@@ -596,7 +596,7 @@ Class QByteArray
 
 	Func leftJustified P1,P2,P3
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_leftJustified(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+		pTempObj.pObject = QByteArray_leftJustified(pObject,P1,P2,P3)
 		return pTempObj
 
 	Func length 
@@ -646,7 +646,7 @@ Class QByteArray
 
 	Func rightJustified P1,P2,P3
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_rightJustified(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+		pTempObj.pObject = QByteArray_rightJustified(pObject,P1,P2,P3)
 		return pTempObj
 
 	Func setNum P1,P2
@@ -708,7 +708,7 @@ Class QByteArray
 
 	Func toPercentEncoding P1,P2,P3
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_toPercentEncoding(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		pTempObj.pObject = QByteArray_toPercentEncoding(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
 		return pTempObj
 
 	Func toShort P1,P2
@@ -751,7 +751,7 @@ Class QByteArray
 
 	Func fromPercentEncoding P1,P2
 		pTempObj = new QByteArray
-		pTempObj.pObject = QByteArray_fromPercentEncoding(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		pTempObj.pObject = QByteArray_fromPercentEncoding(pObject,GetObjectPointerFromRingObject(P1),P2)
 		return pTempObj
 
 	Func fromRawData P1,P2
@@ -803,7 +803,7 @@ Class QIODevice from QObject
 		return QIODevice_peek(pObject,P1,P2)
 
 	Func putChar P1
-		return QIODevice_putChar(pObject,GetObjectPointerFromRingObject(P1))
+		return QIODevice_putChar(pObject,P1)
 
 	Func read P1,P2
 		return QIODevice_read(pObject,P1,P2)
@@ -820,7 +820,7 @@ Class QIODevice from QObject
 		return QIODevice_setTextModeEnabled(pObject,P1)
 
 	Func ungetChar P1
-		return QIODevice_ungetChar(pObject,GetObjectPointerFromRingObject(P1))
+		return QIODevice_ungetChar(pObject,P1)
 
 	Func write P1,P2
 		return QIODevice_write(pObject,P1,P2)
@@ -3806,7 +3806,7 @@ Class QChar
 
 	Func fromLatin1 P1
 		pTempObj = new QChar
-		pTempObj.pObject = QChar_fromLatin1(pObject,GetObjectPointerFromRingObject(P1))
+		pTempObj.pObject = QChar_fromLatin1(pObject,P1)
 		return pTempObj
 
 	Func hasMirrored_2 P1
@@ -30451,11 +30451,11 @@ Class QValueAxis from QAbstractAxis
 	Func setRange P1,P2
 		return QValueAxis_setRange(pObject,P1,P2)
 
-	Func setTickAnchor P1
-		return QValueAxis_setTickAnchor(pObject,P1)
-
 	Func setTickCount P1
 		return QValueAxis_setTickCount(pObject,P1)
+
+	Func setTickAnchor P1
+		return QValueAxis_setTickAnchor(pObject,P1)
 
 	Func setTickInterval P1
 		return QValueAxis_setTickInterval(pObject,P1)
@@ -30466,14 +30466,14 @@ Class QValueAxis from QAbstractAxis
 	Func tickAnchor 
 		return QValueAxis_tickAnchor(pObject)
 
-	Func tickCount 
-		return QValueAxis_tickCount(pObject)
-
 	Func tickInterval 
 		return QValueAxis_tickInterval(pObject)
 
 	Func tickType 
 		return QValueAxis_tickType(pObject)
+
+	Func tickCount 
+		return QValueAxis_tickCount(pObject)
 
 	Func setlabelFormatChangedEvent P1
 		return QValueAxis_setlabelFormatChangedEvent(pObject,P1)
