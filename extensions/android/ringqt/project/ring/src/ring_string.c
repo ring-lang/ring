@@ -60,15 +60,24 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str
 	int x  ;
 	assert(pString != NULL);
 	assert(pString->cStr != NULL);
-	ring_state_free(pState,pString->cStr);
-	pString->cStr = (char *) ring_state_malloc(pState,nStrSize+1);
-	if ( pString->cStr  == NULL ) {
-		printf( RING_OOM ) ;
-		exit(0);
+	/* Allocate new buffer only if the new size is different from the current size */
+	if ( pString->nSize != nStrSize ) {
+		ring_state_free(pState,pString->cStr);
+		pString->cStr = (char *) ring_state_malloc(pState,nStrSize+1);
+		if ( pString->cStr  == NULL ) {
+			printf( RING_OOM ) ;
+			exit(0);
+		}
 	}
 	/* Copy String */
-	for ( x = 0 ; x < nStrSize ; x++ ) {
-		pString->cStr[x] = str[x] ;
+	if ( nStrSize < 64 ) {
+		/* Benchmarks show that below 64 bytes, memcpy() gain is not significant */
+		for ( x = 0 ; x < nStrSize ; x++ ) {
+			pString->cStr[x] = str[x] ;
+		}
+	}
+	else {
+		memcpy(pString->cStr, str, nStrSize);
 	}
 	pString->cStr[nStrSize] = '\0' ;
 	pString->nSize = nStrSize ;
