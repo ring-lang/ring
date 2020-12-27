@@ -118,6 +118,17 @@ RingLibui Extension
 
 This extension provides complete support for Libui 
 
+Using this extension we can develop and distribute lightweight GUI Applications using Ring (Less than 1 MB)
+
+Runtime files and their size
+
+* Ring.dll (448 KB)
+* Libui.dll (210 KB)
+* Ring_Libui.dll (633 KB)
+* Total : 1,291 KB without compressing the files
+* After compressing the files (To ZIP file) - Total : 504 KB
+
+
 Example:
 
 .. code-block:: ring
@@ -374,6 +385,27 @@ Output:
 .. code-block:: none
 
 	4e677154639dae3baa048ce5ae0b04b63bcd33316e2d2041297dcee85604d778
+
+* Ring 1.14 is 60x Faster when adding strings to other strings
+
+Example:
+
+.. code-block:: ring
+
+	t1 = clock()
+	test = "My Ring"
+	for x = 1 to 20000
+		test += x
+	next 
+	? "Time : " + ((clock()-t1)/clockspersecond()) + " seconds"
+
+Output:
+
+.. code-block:: none
+
+	Time : 0.01 seconds
+
+* These improvements increased the performance of Ring Code Generator for Extensions (4x Faster)
 
 .. index:: 
 	pair: What is new in Ring 1.14?; More Improvements
