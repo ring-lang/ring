@@ -218,37 +218,39 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 	return ring_calloc(nitems,size) ;
 }
 
-RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t nAllocatedSize, size_t size )
+RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSize,size_t size )
 {
 	#if RING_USEPOOLMANAGER
 	void *pMemory  ;
 	PoolData *pPoolData  ;
-	int x ;
+	int x  ;
 	if ( pState != NULL ) {
 		#if RING_TRACKALLOCATIONS
-		((RingState *) pState)->vPoolManager.nAllocCount++ ;
+		((RingState *) pState)->vPoolManager.nAllocCount++ ; ;
 		#endif
-		
 		if ( ((RingState *) pState)->pVM != NULL ) {
 			if ( ring_poolmanager_find((RingState *) pState,ptr) ) {
-				pPoolData = (PoolData*) ptr;
+				pPoolData = (PoolData*) ptr ;
 				if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
-					/* pointer belong to memory pool and new size less than RING_POOLMANAGER_ITEMSIZE */
-					/* in this case, just return the same pointer since we have space for new data */
-					return ptr;
-				} else {
-					/* allocate new buffer, copy data to it and then free existing pointer from pool */					
+					/*
+					**  The Pointer belong to memory pool and new size less than RING_POOLMANAGER_ITEMSIZE 
+					**  In this case, just return the same pointer since we have space for the new data 
+					*/
+					return ptr ;
+				}
+				else {
+					/* Allocate new buffer, copy data to it and then free existing pointer from pool */
 					pMemory = ring_malloc(size);
 					/* Check Memory */
 					if ( pMemory == NULL ) {
 						printf( RING_OOM ) ;
 						exit(0);
 					}
-					/* copy existing data */
-					for ( x = 0 ; x <  nAllocatedSize ; x++ ) {
-						((unsigned char*) pMemory)[x] = ((unsigned char*) ptr)[x];
+					/* Copy existing data */
+					for ( x = 0 ; x < nAllocatedSize ; x++ ) {
+						((unsigned char*) pMemory)[x] = ((unsigned char*) ptr)[x] ;
 					}
-					ring_poolmanager_free(((RingState *) pState),ptr) ;
+					ring_poolmanager_free(((RingState *) pState),ptr);
 					return pMemory ;
 				}
 			}

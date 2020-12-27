@@ -116,6 +116,12 @@ Type: RingState *
 pRingState
 ring_state_calloc
 ring_state_realloc
+Type: void *
+pMemory
+Type: PoolData *
+pPoolData
+Type: int
+x
 ring_state_registerblock
 Type: List *
 pList
@@ -138,6 +144,7 @@ x
 ring_poolmanager_allocate
 Type: void *
 pMemory
+ring_poolmanager_find
 ring_poolmanager_free
 Type: PoolData *
 pPoolData
