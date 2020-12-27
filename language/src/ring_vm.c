@@ -276,7 +276,7 @@ RING_API void ring_vm_loadcode ( VM *pVM )
 	**  This optimization increase the performance of applications that uses eval() 
 	*/
 	nSize = (MAX(ring_list_getsize(pVM->pCode),RING_VM_MINVMINSTRUCTIONS))*RING_VM_EXTRASIZE ;
-	pVM->pByteCode = (ByteCode *) ring_state_calloc(pVM->pRingState,nSize,sizeof(ByteCode));
+	pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode));
 	if ( pVM->pByteCode == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);
@@ -813,7 +813,7 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		ring_vm_blockflag2(pVM,nPC);
 		pVM->nPC = nLastPC+1 ;
 		if ( ring_list_getsize(pVM->pCode)  > pVM->nEvalReallocationSize ) {
-			pByteCode = (ByteCode *) ring_state_realloc(pVM->pRingState,pVM->pByteCode , sizeof(ByteCode) * pVM->nEvalReallocationSize, sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
+			pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode, sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
 			if ( pByteCode == NULL ) {
 				printf( RING_OOM ) ;
 				printf( "RingVM : Can't Allocate Memory for the Byte Code!\n" ) ;
@@ -925,7 +925,7 @@ void ring_vm_returneval ( VM *pVM )
 		}
 		if ( pVM->nEvalReallocationFlag == 1 ) {
 			pVM->nEvalReallocationFlag = 0 ;
-			pByteCode = (ByteCode *) ring_state_realloc(pVM->pRingState,pVM->pByteCode , sizeof(ByteCode) * pVM->nEvalReallocationSize, sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
+			pByteCode = (ByteCode *) ring_realloc(pVM->pByteCode, sizeof(ByteCode) * ring_list_getsize(pVM->pCode));
 			if ( pByteCode == NULL ) {
 				printf( RING_OOM ) ;
 				exit(0);
