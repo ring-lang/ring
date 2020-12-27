@@ -20,7 +20,6 @@ typedef struct PoolData {
 		HashItem vHashItem  ;
 		char cChar[RING_POOLMANAGER_ITEMSIZE]  ;
 	} PoolDataTypes ;
-	int nAllocatedSize;
 	struct PoolData *pNext  ;
 } PoolData ;
 typedef struct PoolManager {

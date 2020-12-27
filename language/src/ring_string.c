@@ -24,8 +24,13 @@ RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSiz
 		exit(0);
 	}
 	/* Copy String */
-	for ( x = 0 ; x < nStrSize ; x++ ) {
-		pString->cStr[x] = str[x] ;
+	if (nStrSize < 64) {
+		/* benchmarks show that below 64 bytes, memcpy gain is not significant */
+		for ( x = 0 ; x < nStrSize ; x++ ) {
+			pString->cStr[x] = str[x] ;
+		}
+	} else {
+		memcpy (pString->cStr, str, nStrSize);
 	}
 	pString->cStr[nStrSize] = '\0' ;
 	pString->nSize = nStrSize ;
@@ -90,7 +95,7 @@ RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str
 	assert(pString != NULL);
 	nOriginalSize = ring_string_size(pString) ;
 	x2 = nStrSize+nOriginalSize ;
-	pString->cStr = (char *) ring_state_realloc(pState,pString->cStr,x2+1);
+	pString->cStr = (char *) ring_state_realloc(pState,pString->cStr,nOriginalSize+1,x2+1);
 	if ( pString->cStr  == NULL ) {
 		printf( RING_OOM ) ;
 		exit(0);

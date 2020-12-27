@@ -218,7 +218,7 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 	return ring_calloc(nitems,size) ;
 }
 
-RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size )
+RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t nAllocatedSize, size_t size )
 {
 	#if RING_USEPOOLMANAGER
 	void *pMemory  ;
@@ -235,8 +235,6 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size )
 				if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
 					/* pointer belong to memory pool and new size less than RING_POOLMANAGER_ITEMSIZE */
 					/* in this case, just return the same pointer since we have space for new data */
-					/* and update the nAllocatedSize field with the new size */
-					pPoolData->nAllocatedSize = (int) size;
 					return ptr;
 				} else {
 					/* allocate new buffer, copy data to it and then free existing pointer from pool */					
@@ -247,7 +245,7 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size )
 						exit(0);
 					}
 					/* copy existing data */
-					for ( x = 0 ; x <  pPoolData->nAllocatedSize ; x++ ) {
+					for ( x = 0 ; x <  nAllocatedSize ; x++ ) {
 						((unsigned char*) pMemory)[x] = ((unsigned char*) ptr)[x];
 					}
 					ring_poolmanager_free(((RingState *) pState),ptr) ;
@@ -351,7 +349,6 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
 	/* Get Item from the Pool Manager */
 	if ( pRingState->vPoolManager.pCurrentItem != NULL ) {
 		pMemory = pRingState->vPoolManager.pCurrentItem ;
-		pRingState->vPoolManager.pCurrentItem->nAllocatedSize = (int) size;
 		pRingState->vPoolManager.pCurrentItem = pRingState->vPoolManager.pCurrentItem->pNext ;
 	}
 	/* If no free items, Allocate new item */
@@ -387,7 +384,6 @@ int ring_poolmanager_free ( RingState *pRingState,void *pMemory )
 	PoolData *pPoolData  ;
 	if ( ring_poolmanager_find(pRingState, pMemory) ) {
 		pPoolData = (PoolData *) pMemory ;
-		pPoolData->nAllocatedSize = 0;
 		pPoolData->pNext = pRingState->vPoolManager.pCurrentItem ;
 		pRingState->vPoolManager.pCurrentItem = pPoolData ;
 		#if RING_TRACKALLOCATIONS
