@@ -226,7 +226,7 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
 	int x  ;
 	if ( pState != NULL ) {
 		#if RING_TRACKALLOCATIONS
-		((RingState *) pState)->vPoolManager.nAllocCount++ ; ;
+		((RingState *) pState)->vPoolManager.nAllocCount++ ;
 		#endif
 		if ( ((RingState *) pState)->pVM != NULL ) {
 			if ( ring_poolmanager_find((RingState *) pState,ptr) ) {
