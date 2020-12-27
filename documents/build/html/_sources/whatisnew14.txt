@@ -18,6 +18,7 @@ Ring 1.14 comes with the next features!
 * MyCoffee (Web Application)
 * Web Development Samples
 * More Samples
+* Erlang B Formula
 * RingLibui Extension
 * Better RingOpenSSL
 * Better Operations on Numbers
@@ -96,6 +97,17 @@ Screen Shots:
 
 .. image:: UsingQtQuick3D.png
 	:alt: Qt Quick 3D
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Erlang B Formula
+
+Erlang B Formula
+================
+
+An application that uses the Erlang B Formula (Circuit Switching Systems)
+
+.. image:: erlangb.png
+	:alt: erlangb
 
 .. index:: 
 	pair: What is new in Ring 1.14?; RingLibui Extension
