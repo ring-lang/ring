@@ -195,8 +195,9 @@
 <li class="toctree-l2"><a class="reference internal" href="#erlang-b-formula">Erlang B Formula</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringlibui-extension">RingLibui Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringopenssl">Better RingOpenSSL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#better-operations-on-numbers">Better Operations on Numbers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-handling-for-numbers">Better Handling For Numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-cloc-count-lines-of-code">Using CLOC (Count Lines of Code)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -282,8 +283,9 @@
 <li><p>Erlang B Formula</p></li>
 <li><p>RingLibui Extension</p></li>
 <li><p>Better RingOpenSSL</p></li>
-<li><p>Better Operations on Numbers</p></li>
+<li><p>Better Handling For Numbers</p></li>
 <li><p>Using CLOC (Count Lines of Code)</p></li>
+<li><p>Better Performance</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </div>
@@ -416,8 +418,8 @@ sha512final (SHA512_CTX) -&gt; string
 </pre></div>
 </div>
 </div>
-<div class="section" id="better-operations-on-numbers">
-<span id="index-8"></span><h2>Better Operations on Numbers<a class="headerlink" href="#better-operations-on-numbers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="better-handling-for-numbers">
+<span id="index-8"></span><h2>Better Handling For Numbers<a class="headerlink" href="#better-handling-for-numbers" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Printing large double value</p></li>
 </ol>
@@ -518,8 +520,35 @@ SUM:                            53           1311            567           9078
 </pre></div>
 </div>
 </div>
+<div class="section" id="better-performance">
+<span id="index-10"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Ring 1.14 is 3x Faster in programs that have strings with long and fixed size</p></li>
+</ul>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;openssllib.ring&quot;</span>
+<span class="n">f</span> <span class="o">=</span> <span class="n">fopen</span><span class="p">(</span><span class="n">exefilename</span><span class="p">(),</span><span class="s">&quot;rb&quot;</span><span class="p">)</span>
+<span class="n">h</span> <span class="o">=</span> <span class="n">SHA256Init</span><span class="p">()</span>
+<span class="k">while</span> <span class="kp">true</span>
+  <span class="n">s</span> <span class="o">=</span> <span class="n">fread</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="mi">4096</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">isstring</span><span class="p">(</span><span class="n">s</span><span class="p">)</span>
+    <span class="n">SHA256Update</span><span class="p">(</span><span class="n">h</span><span class="p">,</span> <span class="n">s</span><span class="p">)</span>
+  <span class="k">else</span>
+    <span class="k">exit</span>
+  <span class="k">ok</span>
+<span class="k">end</span>
+<span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256Final</span><span class="p">(</span><span class="n">h</span><span class="p">)</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">digest</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>4e677154639dae3baa048ce5ae0b04b63bcd33316e2d2041297dcee85604d778
+</pre></div>
+</div>
+</div>
 <div class="section" id="more-improvements">
-<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring Compiler - Pass new lines after the FUNC keyword in anonymous functions</p></li>
 <li><p>Ring Compiler - Pass new lines after the function parameters in anonymous functions</p></li>

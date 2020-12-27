@@ -21,8 +21,9 @@ Ring 1.14 comes with the next features!
 * Erlang B Formula
 * RingLibui Extension
 * Better RingOpenSSL
-* Better Operations on Numbers
+* Better Handling For Numbers
 * Using CLOC (Count Lines of Code)
+* Better Performance
 * More Improvements
 
 
@@ -218,9 +219,9 @@ These functions compute the hash of large files/data without the need to load al
 
 
 .. index:: 
-	pair: What is new in Ring 1.14?; Better Operations on Numbers
+	pair: What is new in Ring 1.14?; Better Handling For Numbers
 
-Better Operations on Numbers
+Better Handling For Numbers
 ============================
 
 (1) Printing large double value
@@ -340,7 +341,39 @@ Output:
 	-------------------------------------------------------------------------------
 	SUM:                            53           1311            567           9078
 	-------------------------------------------------------------------------------
-	
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Better Performance
+
+Better Performance
+==================	
+
+* Ring 1.14 is 3x Faster in programs that have strings with long and fixed size
+
+Example:
+
+.. code-block:: ring
+
+	load "openssllib.ring"
+	f = fopen(exefilename(),"rb")
+	h = SHA256Init()
+	while true 
+	  s = fread(f, 4096)
+	  if isstring(s) 
+	    SHA256Update(h, s)
+	  else
+	    exit
+	  ok
+	end
+	digest = SHA256Final(h)
+	fclose(f)
+	? digest
+
+Output:
+
+.. code-block:: none
+
+	4e677154639dae3baa048ce5ae0b04b63bcd33316e2d2041297dcee85604d778
 
 .. index:: 
 	pair: What is new in Ring 1.14?; More Improvements
