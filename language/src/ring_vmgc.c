@@ -220,6 +220,43 @@ RING_API void * ring_state_calloc ( void *pState,size_t nitems, size_t size )
 
 RING_API void * ring_state_realloc ( void *pState,void *ptr, size_t size )
 {
+	#if RING_USEPOOLMANAGER
+	void *pMemory  ;
+	PoolData *pPoolData  ;
+	int x ;
+	if ( pState != NULL ) {
+		#if RING_TRACKALLOCATIONS
+		((RingState *) pState)->vPoolManager.nAllocCount++ ;
+		#endif
+		
+		if ( ((RingState *) pState)->pVM != NULL ) {
+			if ( ring_poolmanager_find((RingState *) pState,ptr) ) {
+				pPoolData = (PoolData*) ptr;
+				if ( size <= RING_POOLMANAGER_ITEMSIZE ) {
+					/* pointer belong to memory pool and new size less than RING_POOLMANAGER_ITEMSIZE */
+					/* in this case, just return the same pointer since we have space for new data */
+					/* and update the nAllocatedSize field with the new size */
+					pPoolData->nAllocatedSize = (int) size;
+					return ptr;
+				} else {
+					/* allocate new buffer, copy data to it and then free existing pointer from pool */					
+					pMemory = ring_malloc(size);
+					/* Check Memory */
+					if ( pMemory == NULL ) {
+						printf( RING_OOM ) ;
+						exit(0);
+					}
+					/* copy existing data */
+					for ( x = 0 ; x <  pPoolData->nAllocatedSize ; x++ ) {
+						((unsigned char*) pMemory)[x] = ((unsigned char*) ptr)[x];
+					}
+					ring_poolmanager_free(((RingState *) pState),ptr) ;
+					return pMemory ;
+				}
+			}
+		}
+	}
+	#endif
 	return ring_realloc(ptr,size) ;
 }
 
@@ -314,6 +351,7 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
 	/* Get Item from the Pool Manager */
 	if ( pRingState->vPoolManager.pCurrentItem != NULL ) {
 		pMemory = pRingState->vPoolManager.pCurrentItem ;
+		pRingState->vPoolManager.pCurrentItem->nAllocatedSize = (int) size;
 		pRingState->vPoolManager.pCurrentItem = pRingState->vPoolManager.pCurrentItem->pNext ;
 	}
 	/* If no free items, Allocate new item */
@@ -331,21 +369,31 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
 	return pMemory ;
 }
 
-int ring_poolmanager_free ( RingState *pRingState,void *pMemory )
+int ring_poolmanager_find ( RingState *pRingState,void *pMemory )
 {
-	PoolData *pPoolData  ;
 	if ( pRingState != NULL ) {
 		if ( pRingState->vPoolManager.pBlockStart != NULL ) {
 			if ( (pMemory >= pRingState->vPoolManager.pBlockStart) && (pMemory <= pRingState->vPoolManager.pBlockEnd ) ) {
-				pPoolData = (PoolData *) pMemory ;
-				pPoolData->pNext = pRingState->vPoolManager.pCurrentItem ;
-				pRingState->vPoolManager.pCurrentItem = pPoolData ;
-				#if RING_TRACKALLOCATIONS
-				pRingState->vPoolManager.nSmallFreeCount++ ;
-				#endif
 				return 1 ;
 			}
 		}
+	}
+	/* Reaching this point means that the Pool Manager doesn't own this memory to free it! */
+	return 0 ;
+}
+
+int ring_poolmanager_free ( RingState *pRingState,void *pMemory )
+{
+	PoolData *pPoolData  ;
+	if ( ring_poolmanager_find(pRingState, pMemory) ) {
+		pPoolData = (PoolData *) pMemory ;
+		pPoolData->nAllocatedSize = 0;
+		pPoolData->pNext = pRingState->vPoolManager.pCurrentItem ;
+		pRingState->vPoolManager.pCurrentItem = pPoolData ;
+		#if RING_TRACKALLOCATIONS
+		pRingState->vPoolManager.nSmallFreeCount++ ;
+		#endif
+		return 1 ;
 	}
 	/* Reaching this point means that the Pool Manager doesn't own this memory to free it! */
 	return 0 ;
