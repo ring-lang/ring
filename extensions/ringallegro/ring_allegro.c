@@ -5705,9 +5705,11 @@ RING_FUNC(ring_al_path_cstr)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(al_path_cstr((ALLEGRO_PATH *) RING_API_GETCPOINTER(1,"ALLEGRO_PATH"),* (char  *) RING_API_GETCPOINTER(2,"char")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(al_path_cstr((ALLEGRO_PATH *) RING_API_GETCPOINTER(1,"ALLEGRO_PATH"), (char ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -7780,13 +7782,15 @@ RING_FUNC(ring_al_utf8_encode)
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(al_utf8_encode(* (char  *) RING_API_GETCPOINTER(1,"char"), (int32_t ) RING_API_GETNUMBER(2)));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"char"));
+	RING_API_RETNUMBER(al_utf8_encode( (char ) RING_API_GETNUMBER(1), (int32_t ) RING_API_GETNUMBER(2)));
 }
 
 
