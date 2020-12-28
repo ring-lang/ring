@@ -22,6 +22,6 @@ Developed using Ring and RingQt.
 
 ![sourcecode](https://raw.githubusercontent.com/ring-lang/ring/master/applications/erlangbformula/images/shot3.png)
 
-* The Calculate function get the input the check it before usage
+* The Calculate function get the input then check it before usage
 
 ![sourcecode](https://raw.githubusercontent.com/ring-lang/ring/master/applications/erlangbformula/images/shot4.png)
