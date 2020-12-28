@@ -55,8 +55,6 @@ void ring_vm_file_fwrite ( void *pPointer ) ;
 
 void ring_vm_file_dir ( void *pPointer ) ;
 
-void ring_vm_file_listdir(void *pPointer);
-
 void ring_vm_file_read ( void *pPointer ) ;
 
 void ring_vm_file_write ( void *pPointer ) ;
