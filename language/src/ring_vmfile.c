@@ -629,7 +629,7 @@ void ring_vm_file_listdir(void *pPointer) {
 
 	const char *path;
 	List *files;
-	
+
 #ifdef _WIN32
 	WIN32_FIND_DATA fdFile;
 	HANDLE finder;
@@ -659,6 +659,7 @@ void ring_vm_file_listdir(void *pPointer) {
 		} while(FindNextFile(finder, &fdFile));
 
 		FindClose(finder);
+		ring_string_delete_gc(((VM *) pPointer)->pRingState,str);
 	}
 
 #else
