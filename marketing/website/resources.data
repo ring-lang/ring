@@ -270,6 +270,10 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/spaceshooter" target="_blank">Space Shooter Game</a>',
 		'<img src="spaceshootergame.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/tree/master/applications/erlangbformula" target="_blank">Erlang B Formula</a>',
+		'<img src="erlangbformula.png" width="100%">'
 	]
 
 	]
