@@ -617,11 +617,6 @@ void ring_vm_file_dir ( void *pPointer )
 }
 
 void ring_vm_file_listdir(void *pPointer) {
-	char *path;
-	List *files;
-	DIR *d;
-	struct dirent *ent;
-
 	if(RING_API_PARACOUNT != 1) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return;
@@ -632,7 +627,41 @@ void ring_vm_file_listdir(void *pPointer) {
 		return;
 	}
 
+	const char *path;
+	List *files;
+	
+#ifdef _WIN32
+	WIN32_FIND_DATA fdFile;
+	HANDLE finder;
+	String *str;
+#else
+	DIR *d;
+	struct dirent *ent;
+#endif
+
 	path = RING_API_GETSTRING(1);
+	files = RING_API_NEWLIST;
+
+#ifdef _WIN32
+	str = ring_string_new_gc(((VM *) pPointer)->pRingState,path);
+	ring_string_add_gc(((VM *) pPointer)->pRingState,str,"\\*.*");
+	path = ring_string_get(str);
+
+	if(((finder = FindFirstFile(path, &fdFile)) == INVALID_HANDLE_VALUE)) {
+		RING_API_ERROR(RING_API_BADDIRECTORY);
+		return;
+	}
+
+	else {
+		do {
+			ring_list_addstring(files,fdFile.cFileName);
+
+		} while(FindNextFile(finder, &fdFile));
+
+		FindClose(finder);
+	}
+
+#else
 	
 	if((d = opendir(path)) == NULL) {
 		RING_API_ERROR("Path is not exist");
@@ -640,15 +669,18 @@ void ring_vm_file_listdir(void *pPointer) {
 	}
 
 	else {
-		files = RING_API_NEWLIST;
+		
 		while((ent = readdir(d)) != NULL) {
 			ring_list_addstring(files,ent->d_name);
 		}
 
 		closedir(d);
 		
-		RING_API_RETLIST(files);
 	}
+
+#endif
+
+	RING_API_RETLIST(files);
 }
 
 void ring_vm_file_read ( void *pPointer )
@@ -834,3 +866,4 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
 	fp = (FILE *) pPointer ;
 	fclose( fp ) ;
 }
+
