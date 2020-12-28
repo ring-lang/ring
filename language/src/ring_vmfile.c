@@ -648,6 +648,7 @@ void ring_vm_file_listdir(void *pPointer) {
 	path = ring_string_get(str);
 
 	if(((finder = FindFirstFile(path, &fdFile)) == INVALID_HANDLE_VALUE)) {
+		ring_string_delete_gc(((VM *) pPointer)->pRingState,str);
 		RING_API_ERROR(RING_API_BADDIRECTORY);
 		return;
 	}
