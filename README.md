@@ -448,7 +448,7 @@ class Number one two three
 
 Ring comes with many styles for writing your source code!
 
-Also, you can change the language keywords and operators and create your custom style!
+Also, You can change the language keywords and operators and create your custom style!
 
 ### The First Style
 
@@ -515,6 +515,18 @@ class Test {
 	}
 }
 ```
+
+### Change Keywords
+
+```
+ChangeRingKeyword See Print
+Print "Hello, World!"
+ChangeRingKeyword Print See
+See "Hello, World!"
+ChangeRingKeyword See Show
+Show "Hello, World!"
+```
+
 
 ## Define Natural Statements based on Object-Oriented 
 
