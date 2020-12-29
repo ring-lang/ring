@@ -2,6 +2,11 @@
 
 Developed using Ring and RingQt.
 
+## Install
+
+	ringpm refresh
+	ringpm install erlangbformula
+
 ## Screen Shot
 
 ![erlangbformula](https://raw.githubusercontent.com/ring-lang/ring/master/applications/erlangbformula/images/appscreenshot.png)
