@@ -450,6 +450,67 @@ Ring comes with many styles for writing your source code!
 
 Also, you can change the language keywords and operators and create your custom style!
 
+### The First Style
+
+``` ring
+? "Welcome to Ring! "
+new test { start() }
+
+class Test
+	x=10  y=20
+	func start 
+		? "x+y="+(x+y)
+		for x=1 to 10 ? "x = "+x if x=3 ?"Three" ok next
+```
+
+### The Second Style
+
+``` ring
+def main
+	put "Welcome to Ring! "+nl
+	new test { start() }
+end
+
+class Test
+	x=10
+	y=20
+	def start 
+		put "x+y="+(x+y)+nl
+		for x=1 to 10 
+			put "x = "+x+nl
+			if x=3 
+				put "Three"+nl
+			end
+		end
+	end
+end
+```
+
+### The Third Style
+
+``` ring
+load "stdlib.ring"
+
+func main() {
+	print("Welcome to Ring! \n")
+	new test { start() }
+}
+
+class Test {
+	x=10
+	y=20
+	func start {
+		print("x+y="+(x+y)+"\n")
+		for x=1 to 10 {
+			print("x = " + x + " \n")
+			if x=3 {
+				print("Three \n")
+			}
+		}
+	}
+}
+```
+
 ## Define Natural Statements based on Object-Oriented 
 
 After the object access using { } if the class contains a method called BraceEnd() it will be executed!
