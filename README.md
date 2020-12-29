@@ -459,27 +459,32 @@ new test { start() }
 class Test
 	x=10  y=20
 	func start 
-		? "x+y="+(x+y)
-		for x=1 to 10 ? "x = "+x if x=3 ?"Three" ok next
+		? "x+y=" + (x+y)
+		for x=1 to 10 
+			? "x = " + x 
+			if x=3 
+				? "Three" 
+			ok 
+		next
 ```
 
 ### The Second Style
 
 ``` ring
 def main
-	put "Welcome to Ring! "+nl
+	put "Welcome to Ring! " + nl
 	new test { start() }
 end
 
 class Test
-	x=10
-	y=20
+	x = 10
+	y = 20
 	def start 
-		put "x+y="+(x+y)+nl
+		put "x+y=" + (x+y) + nl
 		for x=1 to 10 
-			put "x = "+x+nl
+			put "x = " + x + nl
 			if x=3 
-				put "Three"+nl
+				put "Three" + nl
 			end
 		end
 	end
@@ -497,10 +502,10 @@ func main() {
 }
 
 class Test {
-	x=10
-	y=20
+	x = 10
+	y = 20
 	func start {
-		print("x+y="+(x+y)+"\n")
+		print("x+y=" + (x+y) + "\n")
 		for x=1 to 10 {
 			print("x = " + x + " \n")
 			if x=3 {
