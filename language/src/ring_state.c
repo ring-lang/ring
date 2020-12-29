@@ -381,6 +381,36 @@ int ring_fexists ( const char *cFileName )
 	return 0 ;
 }
 
+int ring_direxists ( const char *cDirPath )
+{
+	struct stat sb;
+	if (stat(cDirPath, &sb) == 0) {
+		if ( S_ISDIR(sb.st_mode) ) {
+			/* path exists and it is a directory */
+			return 1;
+		}
+	}
+	return 0 ;
+}
+
+int ring_getpathtype ( const char *cPath )
+{
+	struct stat sb;
+	if (stat(cPath, &sb) == 0) {
+		if ( S_ISREG(sb.st_mode) ) {
+			/* path exists and it is a regular file */
+			return 1;
+		}
+		if ( S_ISDIR(sb.st_mode) ) {
+			/* path exists and it is a directory */
+			return 2;
+		}
+		/* unknown type */
+		return -1;
+	}
+	return 0 ;
+}
+
 int ring_currentdir ( char *cDirPath )
 {
 	int nSize  ;
