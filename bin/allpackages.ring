@@ -118,7 +118,8 @@ aAllPackagesInfo = [
 		"pong2game",
 		"spaceshootergame",
 		"ringrepl",
-		"webassemblyringqt"
+		"webassemblyringqt",
+		"erlangbformula"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -197,7 +198,8 @@ aAllPackagesInfo = [
 		"lotterygame",
 		"nimgame",
 		"eightqueensgame",
-		"ringrepl"
+		"ringrepl",
+		"erlangbformula"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
