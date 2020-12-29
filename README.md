@@ -460,9 +460,9 @@ class Test
 	x=10  y=20
 	func start 
 		? "x+y=" + (x+y)
-		for x=1 to 10 
-			? "x = " + x 
-			if x=3 
+		for t=1 to 10 
+			? "t = " + t
+			if t=3 
 				? "Three" 
 			ok 
 		next
@@ -481,9 +481,9 @@ class Test
 	y = 20
 	def start 
 		put "x+y=" + (x+y) + nl
-		for x=1 to 10 
-			put "x = " + x + nl
-			if x=3 
+		for t=1 to 10 
+			put "t = " + t + nl
+			if t=3 
 				put "Three" + nl
 			end
 		end
@@ -506,9 +506,9 @@ class Test {
 	y = 20
 	func start {
 		print("x+y=" + (x+y) + "\n")
-		for x=1 to 10 {
-			print("x = " + x + " \n")
-			if x=3 {
+		for t=1 to 10 {
+			print("t = " + t + " \n")
+			if t=3 {
 				print("Three \n")
 			}
 		}
