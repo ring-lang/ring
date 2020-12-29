@@ -335,13 +335,30 @@ to write functions that are more usable in different situtations.
 The String type is used to represent:
 * One character
 * A string of many characters
-* Multi-line strings
+* Multi-line string
 * Binary Data 
+
+``` ring
+cStr1 = "a"			# One character
+cStr2 = "Hello, World!" 	# A string of many characters
+cStr3 = "Hello
+Welcome to the Ring language!
+"				# Multi-line string
+cStr4 = read(EXEFileName())	# Read executable file (Contain Binary Data)
+```
 
 The Number type is used to represent
 * Boolean Values 
 * Signed/Unsigned Integers
 * Float/Double 
+
+``` ring
+nNum1 = True		# Boolean Value (1) 
+nNum2 = False		# Boolean Value (0)
+nNum3 = 10		# Integer
+nNum4 = -10		# Signed Integer
+nNum5 = 1250.11		# Float/Double
+```
 
 The List type is used to represent
 * One Dimension Arrays
@@ -352,7 +369,15 @@ The List type is used to represent
 * Tree
 * Wrapper around a C Pointer
 
+``` ring
+aList1 = ["one","two","three"]				# Array of strings
+aList2 = [1,2,3,4,5,6,7,8,9,10]				# Array of numbers
+aList3 = ["Ring",2020]					# List of multiple types
+aList4 = [["Fayed","Egypt"],["Mansour","Tunisia"]]  	# Nested Lists
+aList5 = [ :name = "Fayed", :country = "Egypt"]		# Hash Tables
+```
 The Object type is used to represent objects created from classes
+
 Using classes and operator overloading we can create custom types 
 			
 ## Compact Syntax 
