@@ -28,6 +28,7 @@
   * [Simple](#simple)
   * [Trying to be natural](#trying-to-be-natural)
   * [Encourage Organization](#encourage-organization)
+  * [Data Representation](#data-representation)
   * [Compact Syntax](#compact-syntax)
   * [Syntax Flexibility](#syntax-flexibility)
   * [Define Natural Statements based on Object-Oriented](#define-natural-statements-based-on-object-oriented)
@@ -321,6 +322,38 @@ see "Hello " + cName		# say hello!
 
 // See "End of Program!"
 ```
+
+## Data Representation
+
+Ring contains only 4 types that represent the program data
+
+These types are (String, Number, List & Object)
+
+The idea is to have many use cases for each type which increase the flexibility and the ability
+to write functions that are more usable in different situtations.
+
+The String type is used to represent:
+* One character
+* A string of many characters
+* Multi-line strings
+* Binary Data 
+
+The Number type is used to represent
+* Boolean Values 
+* Signed/Unsigned Integers
+* Float/Double 
+
+The List type is used to represent
+* One Dimension Arrays
+* Multi-Dimension Arrays
+* Lists of multiple types
+* Nested Lists
+* Hash Tables (Key & Value)
+* Tree
+* Wrapper around a C Pointer
+
+The Object type is used to represent objects created from classes
+Using classes and operator overloading we can create custom types 
 			
 ## Compact Syntax 
 
