@@ -654,5 +654,9 @@ aPackagesRegistry = [
         [ :name = "ringlibui",
           :description = "RingLibUI extension for the Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+        [ :name = "erlangbformula",
+          :description = "Erlang B Formula package for the Ring programming language",
+          :ProviderUserName = "ringpackages"
         ]
 ]
