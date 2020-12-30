@@ -104,7 +104,6 @@ void ring_vm_socket_bind(void *pPointer) {
     if(bind(sock->sockfd ,sock->addr->ai_addr,(int) sock->addr->ai_addrlen) == SOCKET_ERROR) {
         RING_API_ERROR("Bind Error");
         freeaddrinfo(sock->addr);
-        closesocket(sock->sockfd);
         WSACleanup();
         return;
     }
@@ -155,7 +154,6 @@ void ring_vm_socket_listen(void *pPointer) {
 #ifdef win
     if(listen(sock->sockfd,n) == SOCKET_ERROR) {
         RING_API_ERROR("Listen Failed");
-        closesocket(sock->sockfd);
         WSACleanup();
         return;
     }
@@ -187,7 +185,6 @@ void ring_vm_socket_accept(void *pPointer) {
 #ifdef win
     if((newsockfd->sockfd = accept(sock->sockfd,(struct sockaddr *) sock->addr,NULL)) == SOCKET_ERROR) {
         RING_API_ERROR("Accept Failed");
-        closesocket(sock->sockfd);
         WSACleanup();
         return;
     }
@@ -314,7 +311,6 @@ void ring_vm_socket_connect(void *pPointer) {
 
     if((n = connect(sock->sockfd,sock->addr->ai_addr,(int) sock->addr->ai_addrlen)) == SOCKET_ERROR) {
         RING_API_ERROR("Connection Refused");
-        closesocket(sock->sockfd);
         return;
     }
 
@@ -328,7 +324,6 @@ void ring_vm_socket_connect(void *pPointer) {
 
     if((n = connect(sock->sockfd,(struct sockaddr *) &sock->addr,sizeof(sock->addr))) < 0) {
         RING_API_ERROR("Connection Refused");
-        close(sock->sockfd);
         return;
     }
 
