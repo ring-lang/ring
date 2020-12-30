@@ -1017,12 +1017,91 @@ oPerson = <font color="purple">new</font> Person
 	      <div class="panel-body">
 
 		<p>
-			Ring comes with many styles for writing your source code! <br> <br>
-
-			Also you can change the language keywords and operators and create your custom style! <br>
-
+			Ring comes with many styles for writing your source code. Also, You can change the language keywords and operators and create your custom style!
 		</p>
 
+<ul>
+<li> The First Style </li> <br>
+
+<pre>
+? "Welcome to Ring! "
+new test { start() }
+
+class Test
+	x=10  y=20
+	func start 
+		? "x+y=" + (x+y)
+		for t=1 to 10 
+			? "t = " + t
+			if t=3 
+				? "Three" 
+			ok 
+		next
+</pre>
+
+<li> The Second Style </li> <br>
+
+<pre>
+def main
+	put "Welcome to Ring! " + nl
+	new test { start() }
+end
+
+class Test
+	x = 10
+	y = 20
+	def start 
+		put "x+y=" + (x+y) + nl
+		for t=1 to 10 
+			put "t = " + t + nl
+			if t=3 
+				put "Three" + nl
+			end
+		end
+	end
+end
+</pre>
+
+<li> The Third Style</li> <br>
+
+<pre>
+load "stdlib.ring"
+
+func main() {
+	print("Welcome to Ring! \n")
+	new test { start() }
+}
+
+class Test {
+	x = 10
+	y = 20
+	func start {
+		print("x+y=" + (x+y) + "\n")
+		for t=1 to 10 {
+			print("t = " + t + " \n")
+			if t=3 {
+				print("Three \n")
+			}
+		}
+	}
+}
+</pre>
+
+<li> Change Keywords </li> <br>
+
+<pre>
+ChangeRingKeyword See Print
+Print "Hello, World!"
+ChangeRingKeyword Print See
+See "Hello, World!"
+ChangeRingKeyword See Show
+Show "Hello, World!"
+</pre>
+
+</ul>
+
+		
+		
 		<br> 
 		
 		  </div>
