@@ -60,6 +60,18 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("bytes2double",ring_vm_file_bytes2double);
 }
 
+int ring_fexists_general ( const char *cFileName )
+{
+	struct stat sb;
+	if (stat(cFileName, &sb) == 0) {
+		if ( S_ISREG(sb.st_mode) ) {
+			/* path exists and it is a regular file */
+			return 1;
+		}
+	}
+	return 0 ;
+}
+
 int ring_direxists ( const char *cDirPath )
 {
 	struct stat sb;

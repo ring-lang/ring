@@ -3,22 +3,10 @@
 **  Include Files 
 */
 #include "ring.h"
-#include <sys/types.h>
-#include <sys/stat.h>
 #ifdef _WIN32
 /* Windows only */
 #include <direct.h>
 #define GetCurrentDir _getcwd
-/* Microsoft Visual Studio doesn't define S_ISREG and S_ISDIR */
-#ifdef _MSC_VER
-#if !defined(S_ISREG) && defined(_S_IFMT) && defined(_S_IFREG)
-  #define S_ISREG(m) (((m) & _S_IFMT) == _S_IFREG)
-#endif
-#if !defined(S_ISDIR) && defined(_S_IFMT) && defined(_S_IFDIR)
-  #define S_ISDIR(m) (((m) & _S_IFMT) == _S_IFDIR)
-#endif
-#define stat _stat
-#endif
 #else
 #include <unistd.h>
 #define GetCurrentDir getcwd
@@ -376,18 +364,6 @@ int ring_fexists ( const char *cFileName )
 	if ( fp ) {
 		fclose( fp ) ;
 		return 1 ;
-	}
-	return 0 ;
-}
-
-int ring_fexists_general ( const char *cFileName )
-{
-	struct stat sb;
-	if (stat(cFileName, &sb) == 0) {
-		if ( S_ISREG(sb.st_mode) ) {
-			/* path exists and it is a regular file */
-			return 1;
-		}
 	}
 	return 0 ;
 }
