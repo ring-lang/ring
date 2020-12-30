@@ -179,6 +179,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#simple">Simple</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#trying-to-be-natural">Trying to be natural</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#encourage-organization">Encourage Organization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#data-representation">Data Representation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#compact-syntax">Compact Syntax</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#define-natural-statements">Define Natural Statements</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#define-declarative-languages">Define Declarative Languages</a></li>
@@ -411,8 +412,56 @@ Multi-line comments are written between /* and <a href="#id1"><span class="probl
 </pre></div>
 </div>
 </div>
+<div class="section" id="data-representation">
+<span id="index-6"></span><h2>Data Representation<a class="headerlink" href="#data-representation" title="Permalink to this headline">¶</a></h2>
+<p>Ring contains only 4 types that represent the program data</p>
+<p>These types are (String, Number, List &amp; Object)</p>
+<p>The idea is to have many use cases for each type which increase the flexibility and the ability
+to write functions that are more usable in different situtations.</p>
+<p>The String type is used to represent:
+* One character
+* A string of many characters
+* Multi-line string
+* Binary Data</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr1</span> <span class="o">=</span> <span class="s">&quot;a&quot;</span>                     <span class="c"># One character</span>
+<span class="n">cStr2</span> <span class="o">=</span> <span class="s">&quot;Hello, World!&quot;</span>         <span class="c"># A string of many characters</span>
+<span class="n">cStr3</span> <span class="o">=</span> <span class="s">&quot;Hello</span>
+<span class="n">Welcome</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">language</span><span class="o">!</span>
+<span class="s">&quot;                               # Multi-line string</span>
+<span class="n">cStr4</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">EXEFileName</span><span class="p">())</span>     <span class="c"># Read executable file (Contain Binary Data)</span>
+</pre></div>
+</div>
+<p>The Number type is used to represent
+* Boolean Values
+* Signed/Unsigned Integers
+* Float/Double</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">nNum1</span> <span class="o">=</span> <span class="kp">True</span>            <span class="c"># Boolean Value (1)</span>
+<span class="n">nNum2</span> <span class="o">=</span> <span class="kp">False</span>           <span class="c"># Boolean Value (0)</span>
+<span class="n">nNum3</span> <span class="o">=</span> <span class="mi">10</span>              <span class="c"># Integer</span>
+<span class="n">nNum4</span> <span class="o">=</span> <span class="o">-</span><span class="mi">10</span>             <span class="c"># Signed Integer</span>
+<span class="n">nNum5</span> <span class="o">=</span> <span class="mf">1250.11</span>         <span class="c"># Float/Double</span>
+</pre></div>
+</div>
+<p>The List type is used to represent
+* One Dimension Arrays
+* Multi-Dimension Arrays
+* Lists of multiple types
+* Nested Lists
+* Hash Tables (Key &amp; Value)
+* Tree
+* Wrapper around a C Pointer</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList1</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>                          <span class="c"># Array of strings</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="o">]</span>                         <span class="c"># Array of numbers</span>
+<span class="n">aList3</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;Ring&quot;</span><span class="p">,</span><span class="mi">2020</span><span class="o">]</span>                                  <span class="c"># List of multiple types</span>
+<span class="n">aList4</span> <span class="o">=</span> <span class="o">[[</span><span class="s">&quot;Fayed&quot;</span><span class="p">,</span><span class="s">&quot;Egypt&quot;</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="s">&quot;Mansour&quot;</span><span class="p">,</span><span class="s">&quot;Tunisia&quot;</span><span class="o">]]</span>      <span class="c"># Nested Lists</span>
+<span class="n">aList5</span> <span class="o">=</span> <span class="o">[</span> <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Fayed&quot;</span><span class="p">,</span> <span class="p">:</span><span class="n">country</span> <span class="o">=</span> <span class="s">&quot;Egypt&quot;</span><span class="o">]</span>         <span class="c"># Hash Tables</span>
+</pre></div>
+</div>
+<p>The Object type is used to represent objects created from classes</p>
+<p>Using classes and operator overloading we can create custom types</p>
+</div>
 <div class="section" id="compact-syntax">
-<span id="index-6"></span><h2>Compact Syntax<a class="headerlink" href="#compact-syntax" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>Compact Syntax<a class="headerlink" href="#compact-syntax" title="Permalink to this headline">¶</a></h2>
 <p>The language is not line sensitive, you don’t need to write ; after statements, also you don’t need to press ENTER or TAB, so we can write the next code</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;The First Message&quot;</span> <span class="k">See</span> <span class="s">&quot; Another message in the same line! &quot;</span> <span class="o">+</span> <span class="n">nl</span>
 <span class="k">See</span> <span class="s">&quot;Enter your name?&quot;</span> <span class="k">Give</span> <span class="n">Name</span> <span class="k">See</span> <span class="s">&quot;Hello &quot;</span> <span class="o">+</span> <span class="n">Name</span>
@@ -465,7 +514,7 @@ Multi-line comments are written between /* and <a href="#id1"><span class="probl
 </div>
 </div>
 <div class="section" id="define-natural-statements">
-<span id="index-7"></span><h2>Define Natural Statements<a class="headerlink" href="#define-natural-statements" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>Define Natural Statements<a class="headerlink" href="#define-natural-statements" title="Permalink to this headline">¶</a></h2>
 <p>After the object access using { } if the class contains a method called BraceEnd() it will be executed!</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">TimeForFun</span> <span class="o">=</span> <span class="k">new</span> <span class="n">journey</span>
 <span class="c"># The first surprise!</span>
@@ -552,7 +601,7 @@ Also keywords that can be ignored like the ‘the’ keyword</p>
 Also, you can update the methods GetWindow() and SetTitle() to create Real windows using the GUI Library</p>
 </div>
 <div class="section" id="define-declarative-languages">
-<span id="index-8"></span><h2>Define Declarative Languages<a class="headerlink" href="#define-declarative-languages" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>Define Declarative Languages<a class="headerlink" href="#define-declarative-languages" title="Permalink to this headline">¶</a></h2>
 <p>We learned how to use Natural statements to execute our code and using the same features we can use nested structures to execute our code.</p>
 <p>The next example from the Web library, generate HTML document using the Bootstrap library. No HTML code is written directly in this example, we created a similar language (just as example) Then using this declarative language that uses nested structures, we generated the HTML Document..
 The idea in this example is that the GetDiv() and GetH1() methods return an object that we can access using {} and after each object access the method BraceEnd() will be executed to send the generated HTML to the parent object until we reach to the root where BraceEnd() will print the output.</p>
@@ -606,7 +655,7 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 </div>
 </div>
 <div class="section" id="transparent-implementation">
-<span id="index-9"></span><h2>Transparent Implementation<a class="headerlink" href="#transparent-implementation" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Transparent Implementation<a class="headerlink" href="#transparent-implementation" title="Permalink to this headline">¶</a></h2>
 <p>Ring comes with transparent implementation. We can know what is happening in each compiler stage and what is going on during the run-time by the Virtual Machine Example : ring helloworld.ring -tokens -rules -ic</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Hello, World!&quot;</span>
 </pre></div>
@@ -664,7 +713,7 @@ The idea in this example is that the GetDiv() and GetH1() methods return an obje
 </div>
 </div>
 <div class="section" id="visual-implementation">
-<span id="index-10"></span><h2>Visual Implementation<a class="headerlink" href="#visual-implementation" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Visual Implementation<a class="headerlink" href="#visual-implementation" title="Permalink to this headline">¶</a></h2>
 <p>The Ring programming language is designed using the PWCT visual programming tool
 and you will find the visual source of the language in the folder “language/visualsrc” - <a href="#id3"><span class="problematic" id="id4">*</span></a>.ssf
 files and the generated source code (In the C Language) in the  language/src folder and
@@ -675,7 +724,7 @@ the language/include folder.</p>
 <img alt="_images/visualsrc2.JPG" src="_images/visualsrc2.JPG" />
 </div>
 <div class="section" id="smart-garbage-collector">
-<span id="index-11"></span><h2>Smart Garbage Collector<a class="headerlink" href="#smart-garbage-collector" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Smart Garbage Collector<a class="headerlink" href="#smart-garbage-collector" title="Permalink to this headline">¶</a></h2>
 <p>Avoid memory problems :-</p>
 <ul class="simple">
 <li><p>Invalid Memory Access</p></li>
@@ -701,13 +750,13 @@ the language/include folder.</p>
 </ul>
 </div>
 <div class="section" id="no-global-interpreter-vm-lock-no-gil">
-<span id="index-12"></span><h2>No Global Interpreter (VM) Lock - No GIL<a class="headerlink" href="#no-global-interpreter-vm-lock-no-gil" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>No Global Interpreter (VM) Lock - No GIL<a class="headerlink" href="#no-global-interpreter-vm-lock-no-gil" title="Permalink to this headline">¶</a></h2>
 <p>When we use threads in Ring applications, We don’t have global interpreter (VM) lock (No GIL)</p>
 <p>So threads can work in parallel and execute Ring instructions at the same time</p>
 <p>This is better for threads and concurrency (More Faster!)</p>
 </div>
 <div class="section" id="fast-enough-for-many-applications">
-<span id="index-13"></span><h2>Fast Enough For Many Applications<a class="headerlink" href="#fast-enough-for-many-applications" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Fast Enough For Many Applications<a class="headerlink" href="#fast-enough-for-many-applications" title="Permalink to this headline">¶</a></h2>
 <p>Ring is designed to be a simple, small and flexible language in the first place, but also it is fast enough for many applications.</p>
 <p>Ring can do each of the next tasks in around 1 second using normal computers in the market during the last 5 years</p>
 <ol class="arabic simple">
