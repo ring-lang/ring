@@ -147,6 +147,8 @@ Also, we can generate HTML code from Ring programs using Declarative Programming
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/newringdemo12.png)
 
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/mycoffee.png)
+
 ## Mobile Development
 
 Using Ring we can distribute our applications for mobile platforms (Android, iOS, etc.)
