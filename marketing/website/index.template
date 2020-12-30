@@ -848,6 +848,79 @@ aList = [ [1,2,3,4,5] , aList[1] , aList[1] ]
 
 
 	    <div class="panel panel-primary" id="libs">
+	      <div class="panel-heading"><h4> Data Representation </h4></div>
+	      <div class="panel-body">
+
+<p>
+Ring contains only four (4) types that represent the program data. These types are (String, Number, List & Object). 
+
+The idea is to have many use cases for each type which increase the flexibility and the ability
+to write functions that are more usable in different situtations.
+</p>
+
+The String type is used to represent: <br><br>
+
+<ul>
+<li>One character </li>
+<li>A string of many characters</li>
+<li>Multi-line string</li>
+<li>Binary Data </li>
+</ul>
+
+<pre>
+cStr1 = "a"			# One character
+cStr2 = "Hello, World!" 	# A string of many characters
+cStr3 = "Hello
+Welcome to the Ring language!
+"				# Multi-line string
+cStr4 = read(EXEFileName())	# Read executable file (Contain Binary Data)
+</pre>
+
+The Number type is used to represent<br><br>
+<ul>
+<li>Boolean Values </li>
+<li>Signed/Unsigned Integers</li>
+<li>Float/Double </li>
+</ul>
+
+<pre>
+nNum1 = True		# Boolean Value (1) 
+nNum2 = False		# Boolean Value (0)
+nNum3 = 10		# Integer
+nNum4 = -10		# Signed Integer
+nNum5 = 1250.11		# Float/Double
+</pre>
+
+The List type is used to represent <br><br>
+
+<ul>
+<li>One Dimension Arrays</li>
+<li>Multi-Dimension Arrays</li>
+<li>Lists of multiple types</li>
+<li>Nested Lists</li>
+<li>Hash Tables (Key & Value)</li>
+<li>Tree</li>
+<li>Wrapper around a C Pointer</li>
+</ul>
+
+<pre>
+aList1 = ["one","two","three"]				# Array of strings
+aList2 = [1,2,3,4,5,6,7,8,9,10]				# Array of numbers
+aList3 = ["Ring",2020]					# List of multiple types
+aList4 = [["Fayed","Egypt"],["Mansour","Tunisia"]]  	# Nested Lists
+aList5 = [ :name = "Fayed", :country = "Egypt"]		# Hash Tables
+</pre>
+The Object type is used to represent objects created from classes<br><br>
+
+Using classes and operator overloading we can create custom types<br> 
+
+		  
+		</div>
+		</div>
+
+
+		  
+	    <div class="panel panel-primary" id="libs">
 	      <div class="panel-heading"><h4> Compact Syntax </h4></div>
 	      <div class="panel-body">
 
