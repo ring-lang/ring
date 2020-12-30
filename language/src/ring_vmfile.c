@@ -7,10 +7,10 @@
 #include <windows.h>
 #ifdef _MSC_VER
 #if !defined(S_ISREG) && defined(_S_IFMT) && defined(_S_IFREG)
-  #define S_ISREG(m) (((m) & _S_IFMT) == _S_IFREG)
+#define S_ISREG(m) (((m) & _S_IFMT) == _S_IFREG)
 #endif
 #if !defined(S_ISDIR) && defined(_S_IFMT) && defined(_S_IFDIR)
-  #define S_ISDIR(m) (((m) & _S_IFMT) == _S_IFDIR)
+#define S_ISDIR(m) (((m) & _S_IFMT) == _S_IFDIR)
 #endif
 #define stat _stat
 #endif
@@ -59,14 +59,15 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("bytes2float",ring_vm_file_bytes2float);
 	ring_vm_funcregister("bytes2double",ring_vm_file_bytes2double);
 }
+/* Check File/Dir/Type */
 
 int ring_fexists_general ( const char *cFileName )
 {
-	struct stat sb;
-	if (stat(cFileName, &sb) == 0) {
+	struct stat sb  ;
+	if ( stat(cFileName, &sb) == 0 ) {
 		if ( S_ISREG(sb.st_mode) ) {
-			/* path exists and it is a regular file */
-			return 1;
+			/* Path exists and it is a regular file */
+			return 1 ;
 		}
 	}
 	return 0 ;
@@ -74,30 +75,30 @@ int ring_fexists_general ( const char *cFileName )
 
 int ring_direxists ( const char *cDirPath )
 {
-	struct stat sb;
-	if (stat(cDirPath, &sb) == 0) {
+	struct stat sb  ;
+	if ( stat(cDirPath, &sb) == 0 ) {
 		if ( S_ISDIR(sb.st_mode) ) {
-			/* path exists and it is a directory */
-			return 1;
+			/* Path exists and it is a directory */
+			return 1 ;
 		}
 	}
 	return 0 ;
 }
 
-int ring_getpathtype ( const char *cPath )
+int ring_getpathtype ( const char *cDirPath )
 {
-	struct stat sb;
-	if (stat(cPath, &sb) == 0) {
+	struct stat sb  ;
+	if ( stat(cDirPath, &sb) == 0 ) {
 		if ( S_ISREG(sb.st_mode) ) {
-			/* path exists and it is a regular file */
-			return 1;
+			/* Path exists and it is a regular file */
+			return 1 ;
 		}
 		if ( S_ISDIR(sb.st_mode) ) {
-			/* path exists and it is a directory */
-			return 2;
+			/* Path exists and it is a directory */
+			return 2 ;
 		}
-		/* unknown type */
-		return -1;
+		/* Unknown Type */
+		return -1 ;
 	}
 	return 0 ;
 }
