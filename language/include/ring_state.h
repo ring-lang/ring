@@ -97,9 +97,7 @@ RING_API void ring_state_log ( RingState *pRingState,const char *cStr ) ;
 
 int ring_fexists ( const char *cFileName ) ;
 
-int ring_direxists ( const char *cDirPath ) ;
-
-int ring_getpathtype ( const char *cPath ) ;
+int ring_fexists_general ( const char *cFileName ) ;
 
 int ring_currentdir ( char *cDirPath ) ;
 
