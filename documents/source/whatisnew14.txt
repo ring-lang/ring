@@ -416,6 +416,8 @@ More Improvements
 * Ring Compiler - Pass new lines after the function parameters in anonymous functions
 * Ring Compiler - Pass new lines after the access of the list items 
 * Ring Compiler - Pass new lines after the access of the object attribute 
+* Ring VM - New Function - DirExists()
+* Ring VM - New Function - GetPathType()
 * Ring VM - Str2Hex() function - Better Performance 
 * Ring VM - Hex2Str() function - Better Performance 
 * Ring VM - SubStr() function - Better Code 
