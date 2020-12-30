@@ -356,6 +356,7 @@ void ring_vm_socket_close(void *pPointer) {
     close(sock->sockfd);
 #endif
     ring_state_free(((VM *) pPointer)->pRingState,sock);
+    RING_API_SETNULLPOINTER(1);
 
 }
 
