@@ -1,11 +1,20 @@
 /* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 #include <sys/types.h>
+#include <sys/stat.h>
 #ifdef _WIN32
 /* Windows Only */
 #include <windows.h>
+#ifdef _MSC_VER
+#if !defined(S_ISREG) && defined(_S_IFMT) && defined(_S_IFREG)
+#define S_ISREG(m) (((m) & _S_IFMT) == _S_IFREG)
+#endif
+#if !defined(S_ISDIR) && defined(_S_IFMT) && defined(_S_IFDIR)
+#define S_ISDIR(m) (((m) & _S_IFMT) == _S_IFDIR)
+#endif
+#define stat _stat
+#endif
 #else
-#include <sys/stat.h>
 #include <dirent.h>
 #include <unistd.h>
 #endif
@@ -41,12 +50,57 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("read",ring_vm_file_read);
 	ring_vm_funcregister("write",ring_vm_file_write);
 	ring_vm_funcregister("fexists",ring_vm_file_fexists);
+	ring_vm_funcregister("direxists",ring_vm_file_direxists);
+	ring_vm_funcregister("getpathtype",ring_vm_file_getpathtype);
 	ring_vm_funcregister("int2bytes",ring_vm_file_int2bytes);
 	ring_vm_funcregister("float2bytes",ring_vm_file_float2bytes);
 	ring_vm_funcregister("double2bytes",ring_vm_file_double2bytes);
 	ring_vm_funcregister("bytes2int",ring_vm_file_bytes2int);
 	ring_vm_funcregister("bytes2float",ring_vm_file_bytes2float);
 	ring_vm_funcregister("bytes2double",ring_vm_file_bytes2double);
+}
+/* Check File/Dir/Type */
+
+int ring_fexists_general ( const char *cFileName )
+{
+	struct stat sb  ;
+	if ( stat(cFileName, &sb) == 0 ) {
+		if ( S_ISREG(sb.st_mode) ) {
+			/* Path exists and it is a regular file */
+			return 1 ;
+		}
+	}
+	return 0 ;
+}
+
+int ring_direxists ( const char *cDirPath )
+{
+	struct stat sb  ;
+	if ( stat(cDirPath, &sb) == 0 ) {
+		if ( S_ISDIR(sb.st_mode) ) {
+			/* Path exists and it is a directory */
+			return 1 ;
+		}
+	}
+	return 0 ;
+}
+
+int ring_getpathtype ( const char *cDirPath )
+{
+	struct stat sb  ;
+	if ( stat(cDirPath, &sb) == 0 ) {
+		if ( S_ISREG(sb.st_mode) ) {
+			/* Path exists and it is a regular file */
+			return 1 ;
+		}
+		if ( S_ISDIR(sb.st_mode) ) {
+			/* Path exists and it is a directory */
+			return 2 ;
+		}
+		/* Unknown Type */
+		return -1 ;
+	}
+	return 0 ;
 }
 
 void ring_vm_file_fopen ( void *pPointer )
@@ -680,7 +734,33 @@ void ring_vm_file_fexists ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		RING_API_RETNUMBER(ring_fexists(RING_API_GETSTRING(1)));
+		RING_API_RETNUMBER(ring_fexists_general(RING_API_GETSTRING(1)));
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vm_file_direxists ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		RING_API_RETNUMBER(ring_direxists(RING_API_GETSTRING(1)));
+	} else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vm_file_getpathtype ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		RING_API_RETNUMBER(ring_getpathtype(RING_API_GETSTRING(1)));
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
