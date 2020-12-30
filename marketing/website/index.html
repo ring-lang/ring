@@ -1035,12 +1035,12 @@ The String type is used to represent: <br><br>
 </ul>
 
 <pre>
-cStr1 = "a"			# One character
-cStr2 = "Hello, World!" 	# A string of many characters
+cStr1 = "a"			<font color="green"># One character</font>
+cStr2 = "Hello, World!" 	<font color="green"># A string of many characters</font>
 cStr3 = "Hello
 Welcome to the Ring language!
-"				# Multi-line string
-cStr4 = read(EXEFileName())	# Read executable file (Contain Binary Data)
+"				<font color="green"># Multi-line string</font>
+cStr4 = read(EXEFileName())	<font color="green"># Read executable file (Contain Binary Data)</font>
 </pre>
 
 The Number type is used to represent<br><br>
@@ -1051,11 +1051,11 @@ The Number type is used to represent<br><br>
 </ul>
 
 <pre>
-nNum1 = True		# Boolean Value (1) 
-nNum2 = False		# Boolean Value (0)
-nNum3 = 10		# Integer
-nNum4 = -10		# Signed Integer
-nNum5 = 1250.11		# Float/Double
+nNum1 = True		<font color="green"># Boolean Value (1)</font>
+nNum2 = False		<font color="green"># Boolean Value (0)</font>
+nNum3 = 10		<font color="green"># Integer</font>
+nNum4 = -10		<font color="green"># Signed Integer</font>
+nNum5 = 1250.11		<font color="green"># Float/Double</font>
 </pre>
 
 The List type is used to represent <br><br>
@@ -1071,11 +1071,11 @@ The List type is used to represent <br><br>
 </ul>
 
 <pre>
-aList1 = ["one","two","three"]				# Array of strings
-aList2 = [1,2,3,4,5,6,7,8,9,10]				# Array of numbers
-aList3 = ["Ring",2020]					# List of multiple types
-aList4 = [["Fayed","Egypt"],["Mansour","Tunisia"]]  	# Nested Lists
-aList5 = [ :name = "Fayed", :country = "Egypt"]		# Hash Tables
+aList1 = ["one","two","three"]				<font color="green"># Array of strings</font>
+aList2 = [1,2,3,4,5,6,7,8,9,10]				<font color="green"># Array of numbers</font>
+aList3 = ["Ring",2020]					<font color="green"># List of multiple types</font>
+aList4 = [["Fayed","Egypt"],["Mansour","Tunisia"]]  	<font color="green"># Nested Lists</font>
+aList5 = [ :name = "Fayed", :country = "Egypt"]		<font color="green"># Hash Tables</font>
 </pre>
 The Object type is used to represent objects created from classes<br><br>
 
@@ -1192,61 +1192,61 @@ oPerson = <font color="purple">new</font> Person
 
 <pre>
 ? "Welcome to Ring! "
-new test { start() }
+<font color="purple">new</font> test { start() }
 
-class Test
+<font color="purple">class</font> Test
 	x=10  y=20
-	func start 
+	<font color="purple">func</font> start 
 		? "x+y=" + (x+y)
-		for t=1 to 10 
+		<font color="purple">for</font> t=1 <font color="purple">to</font> 10 
 			? "t = " + t
-			if t=3 
+			<font color="purple">if</font> t=3 
 				? "Three" 
-			ok 
-		next
+			<font color="purple">ok</font>
+		<font color="purple">next</font>
 </pre>
 
 <li> The Second Style </li> <br>
 
 <pre>
-def main
-	put "Welcome to Ring! " + nl
-	new test { start() }
-end
+<font color="purple">def</font> main
+	<font color="purple">put</font> "Welcome to Ring! " + nl
+	<font color="purple">new</font> test { start() }
+<font color="purple">end</font>
 
-class Test
+<font color="purple">class</font> Test
 	x = 10
 	y = 20
-	def start 
-		put "x+y=" + (x+y) + nl
-		for t=1 to 10 
-			put "t = " + t + nl
-			if t=3 
-				put "Three" + nl
-			end
-		end
-	end
-end
+	<font color="purple">def</font> start 
+		<font color="purple">put</font> "x+y=" + (x+y) + nl
+		<font color="purple">for</font> t=1 <font color="purple">to</font> 10 
+			<font color="purple">put</font> "t = " + t + nl
+			<font color="purple">if</font> t=3 
+				<font color="purple">put</font> "Three" + nl
+			<font color="purple">end</font>
+		<font color="purple">end</font>
+	<font color="purple">end</font>
+<font color="purple">end</font>
 </pre>
 
 <li> The Third Style</li> <br>
 
 <pre>
-load "stdlib.ring"
+<font color="purple">load</font> "stdlib.ring"
 
-func main() {
+<font color="purple">func</font> main() {
 	print("Welcome to Ring! \n")
-	new test { start() }
+	<font color="purple">new</font> test { start() }
 }
 
-class Test {
+<font color="purple">class</font> Test {
 	x = 10
 	y = 20
-	func start {
+	<font color="purple">func</font> start {
 		print("x+y=" + (x+y) + "\n")
-		for t=1 to 10 {
+		<font color="purple">for</font> t=1 to 10 {
 			print("t = " + t + " \n")
-			if t=3 {
+			<font color="purple">if</font> t=3 {
 				print("Three \n")
 			}
 		}
@@ -1257,12 +1257,12 @@ class Test {
 <li> Change Keywords </li> <br>
 
 <pre>
-ChangeRingKeyword See Print
-Print "Hello, World!"
-ChangeRingKeyword Print See
-See "Hello, World!"
-ChangeRingKeyword See Show
-Show "Hello, World!"
+<font color="purple">ChangeRingKeyword</font> See Print
+<font color="purple">Print</font> "Hello, World!"
+<font color="purple">ChangeRingKeyword</font> Print See
+<font color="purple">See</font> "Hello, World!"
+<font color="purple">ChangeRingKeyword</font> See Show
+<font color="purple">Show</font> "Hello, World!"
 </pre>
 
 </ul>
