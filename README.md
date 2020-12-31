@@ -346,7 +346,7 @@ cStr2 = "Hello, World!" 	# A string of many characters
 cStr3 = "Hello
 Welcome to the Ring language!
 "				# Multi-line string
-cStr4 = read(EXEFileName())	# Read executable file (Contain Binary Data)
+cStr4 = read(EXEFileName())	# Read executable file (Binary Data)
 ```
 
 The Number type is used to represent
@@ -362,7 +362,7 @@ nNum4 = -10		# Signed Integer
 nNum5 = 1250.11		# Float/Double
 ```
 
-The List type is used to represent
+The List type is used instead of
 * One Dimension Arrays
 * Multi-Dimension Arrays
 * Lists of multiple types
@@ -372,11 +372,11 @@ The List type is used to represent
 * Wrapper around a C Pointer
 
 ```
-aList1 = ["one","two","three"]				# Array of strings
-aList2 = [1,2,3,4,5,6,7,8,9,10]				# Array of numbers
-aList3 = ["Ring",2020]					# List of multiple types
+aList1 = ["one","two","three"]				# Strings
+aList2 = [1,2,3,4,5,6,7,8,9,10]				# Numbers
+aList3 = ["Ring",2020]					# Multiple types
 aList4 = [["Fayed","Egypt"],["Mansour","Tunisia"]]  	# Nested Lists
-aList5 = [ :name = "Fayed", :country = "Egypt"]		# Hash Tables
+aList5 = [ :name = "Fayed", :country = "Egypt"]		# Hash Table
 ```
 The Object type is used to represent objects created from classes
 

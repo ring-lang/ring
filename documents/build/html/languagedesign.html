@@ -428,7 +428,7 @@ to write functions that are more usable in different situtations.</p>
 <span class="n">cStr3</span> <span class="o">=</span> <span class="s">&quot;Hello</span>
 <span class="n">Welcome</span> <span class="k">to</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">language</span><span class="o">!</span>
 <span class="s">&quot;                               # Multi-line string</span>
-<span class="n">cStr4</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">EXEFileName</span><span class="p">())</span>     <span class="c"># Read executable file (Contain Binary Data)</span>
+<span class="n">cStr4</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="n">EXEFileName</span><span class="p">())</span>     <span class="c"># Read executable file (Binary Data)</span>
 </pre></div>
 </div>
 <p>The Number type is used to represent
@@ -442,7 +442,7 @@ to write functions that are more usable in different situtations.</p>
 <span class="n">nNum5</span> <span class="o">=</span> <span class="mf">1250.11</span>         <span class="c"># Float/Double</span>
 </pre></div>
 </div>
-<p>The List type is used to represent
+<p>The List type is used instead of
 * One Dimension Arrays
 * Multi-Dimension Arrays
 * Lists of multiple types
@@ -450,9 +450,9 @@ to write functions that are more usable in different situtations.</p>
 * Hash Tables (Key &amp; Value)
 * Tree
 * Wrapper around a C Pointer</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList1</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>                          <span class="c"># Array of strings</span>
-<span class="n">aList2</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="o">]</span>                         <span class="c"># Array of numbers</span>
-<span class="n">aList3</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;Ring&quot;</span><span class="p">,</span><span class="mi">2020</span><span class="o">]</span>                                  <span class="c"># List of multiple types</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList1</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="p">,</span><span class="s">&quot;three&quot;</span><span class="o">]</span>                          <span class="c"># Strings</span>
+<span class="n">aList2</span> <span class="o">=</span> <span class="o">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">10</span><span class="o">]</span>                         <span class="c"># Numbers</span>
+<span class="n">aList3</span> <span class="o">=</span> <span class="o">[</span><span class="s">&quot;Ring&quot;</span><span class="p">,</span><span class="mi">2020</span><span class="o">]</span>                                  <span class="c"># Multiple types</span>
 <span class="n">aList4</span> <span class="o">=</span> <span class="o">[[</span><span class="s">&quot;Fayed&quot;</span><span class="p">,</span><span class="s">&quot;Egypt&quot;</span><span class="o">]</span><span class="p">,</span><span class="o">[</span><span class="s">&quot;Mansour&quot;</span><span class="p">,</span><span class="s">&quot;Tunisia&quot;</span><span class="o">]]</span>      <span class="c"># Nested Lists</span>
 <span class="n">aList5</span> <span class="o">=</span> <span class="o">[</span> <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Fayed&quot;</span><span class="p">,</span> <span class="p">:</span><span class="n">country</span> <span class="o">=</span> <span class="s">&quot;Egypt&quot;</span><span class="o">]</span>         <span class="c"># Hash Tables</span>
 </pre></div>
