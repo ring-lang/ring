@@ -391,7 +391,7 @@ Runtime Errors
 * Error (R30) : Parent class name is identical to child class name 
 * Error (R31) : Trying to destory the object using the self reference 
 * Error (R32) : The CALL command expect a variable contains string!
-* Error (R33) : Bad decimals number (correct range >= 0 and <=14) !
+* Error (R33) : Bad decimals number (correct range >= 0 and <= 90)
 * Error (R34) : Variable is required for the assignment operation
 * Error (R35) : Can't create/open the file!
 * Error (R36) : The column number is not correct! It's greater than the number of columns in the list

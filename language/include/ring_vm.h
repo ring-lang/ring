@@ -755,7 +755,7 @@ List * ring_vm_getglobalscope ( VM *pVM ) ;
 #define RING_VM_ERROR_PARENTCLASSLIKESUBCLASS "Error (R30) : parent class name is identical to child class name "
 #define RING_VM_ERROR_TRYINGTOMODIFYTHESELFPOINTER "Error (R31) : Trying to destory the object using the self reference "
 #define RING_VM_ERROR_BADCALLPARA "Error (R32) : The CALL command expect a variable contains string!"
-#define RING_VM_ERROR_BADDECIMALNUMBER "Error (R33) : Bad decimals number (correct range >= 0 and <=90) !"
+#define RING_VM_ERROR_BADDECIMALNUMBER "Error (R33) : Bad decimals number (correct range >= 0 and <= 90)"
 #define RING_VM_ERROR_ASSIGNNOTVARIABLE "Error (R34) : Variable is required for the assignment operation"
 #define RING_VM_ERROR_CANTOPENFILE "Error (R35) : Can't create/open the file!"
 #define RING_VM_ERROR_BADCOLUMNNUMBER "Error (R36) : The column number is not correct! It's greater than the number of columns in the list"
