@@ -286,9 +286,24 @@ Output:
 	pair: What is new in Ring 1.14?; Better Handling For Numbers
 
 Better Handling For Numbers
-============================
+===========================
 
-(1) Printing large double value
+(1) Using Hexadecimal Values
+
+Example:
+
+.. code-block:: ring
+
+	x = 0x10
+	? x		# 16
+	x = 0xff
+	? x		# 255
+	x = 0x0A
+	? x		# 10
+	? 0xFFFF	# 65535
+	? 0x0A + 1	# 10+1 = 11
+
+(2) Printing large double value
 
 Example:
 
@@ -306,7 +321,7 @@ Output:
 
 	c = 9.999999999999862032924046117813879019544782068185773946275755888189234614925384380788550958e+209
 
-(2) Using String() and Number() with large double values
+(3) Using String() and Number() with large double values
 
 Example:
 
