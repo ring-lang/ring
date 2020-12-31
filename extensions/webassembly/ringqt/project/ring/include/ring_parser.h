@@ -185,4 +185,5 @@ int ring_parser_gencallringvmsee ( Parser *pParser ) ;
 #define RING_PARSER_CURRENTTOKEN pParser->ActiveToken
 #define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode)
 #define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->ActiveToken == pParser->TokensCount ) break ;
+#define RING_PARSER_NUMBERLENGTH 97
 #endif
