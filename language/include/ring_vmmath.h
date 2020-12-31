@@ -46,4 +46,6 @@ void ring_vm_math_unsigned ( void *pPointer ) ;
 void ring_vm_math_decimals ( void *pPointer ) ;
 
 void ring_vm_math_murmur3hash ( void *pPointer ) ;
+/* Constants */
+#define RING_VM_DECIMALSLIMIT 90
 #endif

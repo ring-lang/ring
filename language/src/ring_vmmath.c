@@ -342,7 +342,7 @@ void ring_vm_math_decimals ( void *pPointer )
 	if ( RING_API_PARACOUNT == 1 ) {
 		if ( RING_API_ISNUMBER(1) ) {
 			nNum1 = (int) RING_API_GETNUMBER(1) ;
-			if ( (nNum1 >= 0) && (nNum1 <= 14) ) {
+			if ( (nNum1 >= 0) && (nNum1 <= RING_VM_DECIMALSLIMIT) ) {
 				((VM *) pPointer)->nDecimals = nNum1 ;
 			}
 			else {

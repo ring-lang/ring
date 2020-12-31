@@ -1,4 +1,5 @@
 ring_vmmath_h
+RING_VM_DECIMALSLIMIT
 ring_vm_math_loadfunctions
 ring_vm_math_sin
 ring_vm_math_cos
@@ -21,8 +22,6 @@ ring_vm_math_sqrt
 ring_vm_math_unsigned
 Type: unsigned long
 nNum1,nNum2,nNum3
-Type: double
-nNum3
 Type: const char *
 cStr
 ring_vm_math_decimals
