@@ -822,7 +822,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 	/* Factor --> Number */
 	if ( ring_parser_isnumber(pParser) ) {
 		/* Generate Code */
-		if ( strlen(pParser->TokenText) <= 15 ) {
+		if ( strlen(pParser->TokenText) <= RING_PARSER_NUMBERLENGTH ) {
 			ring_parser_icg_newoperation(pParser,ICO_PUSHN);
 			ring_parser_icg_newoperanddouble(pParser,atof(pParser->TokenText));
 		}
