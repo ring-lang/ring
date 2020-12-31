@@ -81,7 +81,7 @@ void ring_vm_socket_init(void *pPointer) {
 
 void ring_vm_socket_bind(void *pPointer) {
     if(RING_API_PARACOUNT != 3) {
-        RING_API_ERROR(RING_API_MISS2PARA);
+        RING_API_ERROR(RING_API_MISS3PARA);
         return;
     }
 
@@ -126,7 +126,7 @@ void ring_vm_socket_listen(void *pPointer) {
  
 
     if(RING_API_PARACOUNT < 1) {
-        RING_API_ERROR(RING_API_MISS2PARA);
+        RING_API_ERROR(RING_API_MISS1PARA);
         return;
     }
 
@@ -172,7 +172,7 @@ void ring_vm_socket_listen(void *pPointer) {
 void ring_vm_socket_accept(void *pPointer) {
 
     if(RING_API_PARACOUNT != 1) {
-        RING_API_ERROR(RING_API_MISS2PARA);
+        RING_API_ERROR(RING_API_MISS1PARA);
         return;
     }
 
@@ -291,7 +291,7 @@ void ring_vm_socket_recvfrom(void *pPointer) {
 
 void ring_vm_socket_connect(void *pPointer) {
     if(RING_API_PARACOUNT != 3) {
-        RING_API_ERROR(RING_API_MISS2PARA);
+        RING_API_ERROR(RING_API_MISS3PARA);
         return;
     }
 
@@ -339,7 +339,7 @@ void ring_vm_socket_connect(void *pPointer) {
 
 void ring_vm_socket_close(void *pPointer) {
     if (RING_API_PARACOUNT != 1) {
-        RING_API_ERROR(RING_API_MISS2PARA);
+        RING_API_ERROR(RING_API_MISS1PARA);
         return;
     }
 
@@ -361,7 +361,7 @@ void ring_vm_socket_close(void *pPointer) {
 
 void ring_vm_socket_gethostbyname(void *pPointer) {
     if(RING_API_PARACOUNT != 1) {
-        RING_API_ERROR(RING_API_MISS2PARA);
+        RING_API_ERROR(RING_API_MISS1PARA);
         return;
     }
 
@@ -395,7 +395,7 @@ void ring_vm_socket_gethostbyname(void *pPointer) {
 
 void ring_vm_socket_gethostbyaddr(void *pPointer) {
     if(RING_API_PARACOUNT != 1) {
-        RING_API_ERROR(RING_API_MISS2PARA);
+        RING_API_ERROR(RING_API_MISS1PARA);
         return;
     }
 
@@ -485,7 +485,7 @@ void ring_vm_socket_gethostname(void *pPointer) {
 
 void ring_vm_socket_getservbyname(void *pPointer) {
     if(RING_API_PARACOUNT != 1) {
-        RING_API_ERROR(RING_API_MISS2PARA);
+        RING_API_ERROR(RING_API_MISS1PARA);
         return;
     }
 
@@ -519,7 +519,7 @@ void ring_vm_socket_getservbyname(void *pPointer) {
 
 void ring_vm_socket_getservbyport(void *pPointer) {
     if(RING_API_PARACOUNT != 1) {
-        RING_API_ERROR(RING_API_MISS2PARA);
+        RING_API_ERROR(RING_API_MISS1PARA);
         return;
     }
 
