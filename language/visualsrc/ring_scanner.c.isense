@@ -167,9 +167,7 @@ Type: char
 cStr[5]
 ring_scanner_isnumber
 Type: unsigned int
-x
-Type: unsigned int
-x2
+x,x2,lHex
 ring_scanner_checklasttoken
 ring_scanner_isoperator
 Type: int
@@ -241,7 +239,7 @@ c
 Type: int
 nSize
 Type: char
-cFileName2[200]
+cFileName2[RING_PATHSIZE]
 Type: unsigned int
 x
 ring_scanner_readtwoparameters
