@@ -625,9 +625,24 @@ void ring_scanner_checktoken ( Scanner *pScanner )
 
 int ring_scanner_isnumber ( char *cStr )
 {
-	unsigned int x  ;
-	unsigned int x2  ;
+	unsigned int x,x2,lHex  ;
+	lHex = 0 ;
 	for ( x = 0 ; x < strlen(cStr) ; x++ ) {
+		/* Accept Hexadecimal values */
+		if ( (x == 0) && (strlen(cStr) > 2) ) {
+			/* Support 0x */
+			if ( (cStr[0] == '0') && ( (cStr[1] == 'x') || (cStr[1] == 'X') ) ) {
+				lHex = 1 ;
+				x++ ;
+				continue ;
+			}
+		}
+		if ( lHex ) {
+			/* Support A-F & a-f */
+			if ( (cStr[x] >= 97 && cStr[x] <= 102) || (cStr[x] >= 65 && cStr[x] <= 70) ) {
+				continue ;
+			}
+		}
 		/* Accept _ in the number */
 		if ( (cStr[x] == '_') && (x > 0) && (x < strlen(cStr) - 1) ) {
 			for ( x2 = x ; x2 < strlen(cStr) ; x2++ ) {
