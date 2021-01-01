@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /*
 **  Variables 
@@ -126,7 +126,8 @@ int ring_vm_findvar2 ( VM *pVM,int x,List *pList2,const char *cStr )
 		if ( strcmp(cStr,"self") != 0 ) {
 			pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 		}
-	} else {
+	}
+	else {
 		/* Check Private Attributes */
 		if ( ring_list_getint(pList2,RING_VAR_PRIVATEFLAG) == 1 ) {
 			/* We check that we are not in the class region too (defining the private attribute then reusing it) */
@@ -220,7 +221,8 @@ void ring_vm_newvar ( VM *pVM,const char *cStr )
 	}
 	else if ( pVM->pActiveMem == ring_list_getlist(pVM->pMem,ring_list_getsize(pVM->pMem)) ) {
 		pVM->nVarScope = RING_VARSCOPE_LOCAL ;
-	} else {
+	}
+	else {
 		pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 	}
 	/* Save Scope Information */
