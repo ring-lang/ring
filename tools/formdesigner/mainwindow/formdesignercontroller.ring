@@ -1337,7 +1337,7 @@ class FormDesignerController from WindowsControllerParent
 		MsgBox("About",
 		"This application developed using the Ring programming language" + nl +
 		"Ring Version : " + version() + nl +
-		"2018-2020, Mahmoud Fayed <msfclipper@yahoo.com>")
+		"2018-2021, Mahmoud Fayed <msfclipper@yahoo.com>")
 
 	func HasParent 
 		oParent = oView.win.parentwidget()
