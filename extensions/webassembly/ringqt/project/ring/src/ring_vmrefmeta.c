@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #include "ring.h"
@@ -143,7 +143,8 @@ void ring_vm_refmeta_islocal ( void *pPointer )
 			}
 		}
 		RING_API_RETNUMBER(0);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -170,7 +171,8 @@ void ring_vm_refmeta_isglobal ( void *pPointer )
 			}
 		}
 		RING_API_RETNUMBER(0);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -197,7 +199,8 @@ void ring_vm_refmeta_isfunction ( void *pPointer )
 			}
 		}
 		RING_API_RETNUMBER(0);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -224,7 +227,8 @@ void ring_vm_refmeta_iscfunction ( void *pPointer )
 			}
 		}
 		RING_API_RETNUMBER(0);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -266,7 +270,8 @@ void ring_vm_refmeta_ispackage ( void *pPointer )
 			}
 		}
 		RING_API_RETNUMBER(0);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -307,7 +312,8 @@ void ring_vm_refmeta_isclass ( void *pPointer )
 			}
 		}
 		RING_API_RETNUMBER(0);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -341,7 +347,8 @@ void ring_vm_refmeta_packageclasses ( void *pPointer )
 			}
 		}
 		RING_API_RETNUMBER(0);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -377,7 +384,8 @@ void ring_vm_refmeta_ispackageclass ( void *pPointer )
 			}
 		}
 		RING_API_RETNUMBER(0);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -395,10 +403,12 @@ void ring_vm_refmeta_classname ( void *pPointer )
 		if ( ring_vm_oop_isobject(pList) ) {
 			cStr = ring_list_getstring((List *) ring_list_getpointer(pList,RING_OBJECT_CLASSPOINTER),RING_CLASSMAP_CLASSNAME);
 			RING_API_RETSTRING(cStr);
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -416,10 +426,12 @@ void ring_vm_refmeta_objectid ( void *pPointer )
 		if ( ring_vm_oop_isobject(pList) ) {
 			sprintf( cStr , "%p" , (void *) pList ) ;
 			RING_API_RETSTRING(cStr);
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -441,10 +453,12 @@ void ring_vm_refmeta_attributes ( void *pPointer )
 				ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,ring_list_getstring(ring_list_getlist(pList,x),RING_VAR_NAME));
 			}
 			RING_API_RETLIST(pList2);
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -467,10 +481,12 @@ void ring_vm_refmeta_methods ( void *pPointer )
 				ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,ring_list_getstring(ring_list_getlist(pList,x),RING_FUNCMAP_NAME));
 			}
 			RING_API_RETLIST(pList2);
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -496,10 +512,12 @@ void ring_vm_refmeta_isattribute ( void *pPointer )
 				}
 			}
 			RING_API_RETNUMBER(0);
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -522,7 +540,8 @@ void ring_vm_refmeta_ismethod ( void *pPointer )
 			cStr = ring_string_lower(RING_API_GETSTRING(2)) ;
 			RING_API_RETNUMBER(ring_vm_oop_ismethod((VM *) pPointer,pList,cStr));
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -553,10 +572,12 @@ void ring_vm_refmeta_isprivateattribute ( void *pPointer )
 				}
 			}
 			RING_API_RETNUMBER(0);
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -586,7 +607,8 @@ void ring_vm_refmeta_isprivatemethod ( void *pPointer )
 				RING_API_RETNUMBER(0);
 			}
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -620,13 +642,16 @@ void ring_vm_refmeta_addattribute ( void *pPointer )
 						ring_vm_newvar2((VM *)pPointer,cStr,pList);
 					}
 				}
-			} else {
+			}
+			else {
 				RING_API_ERROR(RING_API_BADPARATYPE);
 			}
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -665,10 +690,12 @@ void ring_vm_refmeta_addmethod ( void *pPointer )
 					return ;
 				}
 			}
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 	RING_API_RETNUMBER(0);
@@ -705,10 +732,12 @@ void ring_vm_refmeta_getattribute ( void *pPointer )
 				}
 			}
 			RING_API_ERROR("Error : Property is not found!");
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -747,10 +776,12 @@ void ring_vm_refmeta_setattribute ( void *pPointer )
 				}
 			}
 			RING_API_ERROR("Error : Property is not found!");
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -812,7 +843,8 @@ void ring_vm_refmeta_mergemethods ( void *pPointer )
 		}
 		/* Copy Methods from Source to Dest */
 		ring_list_copy_gc(pVM->pRingState,pList2,pList3);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -927,7 +959,8 @@ void ring_vm_refmeta_ringvmsettrace ( void *pPointer )
 			pVM->lTrace = 1 ;
 			ring_string_set_gc(((VM *) pPointer)->pRingState,pVM->pTrace,cStr);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1016,7 +1049,8 @@ void ring_vm_refmeta_ringvmevalinscope ( void *pPointer )
 		pVM->pMem->pLast->pNext = pNextItem ;
 		pVM->pMem->pLast = pLastItem ;
 		pVM->pActiveMem = pActiveMem ;
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1038,7 +1072,8 @@ void ring_vm_refmeta_ringvmhideerrormsg ( void *pPointer )
 	}
 	if ( RING_API_ISNUMBER(1) ) {
 		pVM->lHideErrorMsg = (int) RING_API_GETNUMBER(1) ;
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1057,7 +1092,8 @@ void ring_vm_refmeta_ringvmcallfunc ( void *pPointer )
 		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,RING_API_GETSTRING(1));
 		ring_vm_callfunction(pVM,ring_string_get(pString));
 		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1134,7 +1170,8 @@ void ring_vm_refmeta_ringvmgenarray ( void *pPointer )
 	}
 	if ( RING_API_ISLIST(1) ) {
 		ring_list_genarray_gc(pVM->pRingState,RING_API_GETLIST(1));
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
