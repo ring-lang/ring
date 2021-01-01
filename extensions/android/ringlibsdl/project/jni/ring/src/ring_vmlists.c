@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Lists */
 
@@ -39,7 +39,8 @@ void ring_vm_liststart ( VM *pVM )
 			ring_vm_createtemplist(pVM);
 			pVar = (List *) RING_VM_STACK_READP ;
 			nType = RING_VM_STACK_OBJTYPE ;
-		} else {
+		}
+		else {
 			if ( RING_VM_STACK_ISPOINTER == 0 ) {
 				/* Create the List in the Temp Memory. */
 				ring_vm_newtempvar(pVM, RING_TEMP_VARIABLE ,ring_vm_prevtempmem(pVM));
@@ -50,7 +51,8 @@ void ring_vm_liststart ( VM *pVM )
 			nType = RING_VM_STACK_OBJTYPE ;
 			if ( nType == RING_OBJTYPE_LISTITEM ) {
 				pItem = (Item *) RING_VM_STACK_READP ;
-			} else {
+			}
+			else {
 				pVar = (List *) RING_VM_STACK_READP ;
 			}
 			RING_VM_STACK_POP ;
@@ -67,7 +69,8 @@ void ring_vm_liststart ( VM *pVM )
 			ring_list_deleteallitems_gc(pVM->pRingState,pVar);
 			ring_list_addpointer_gc(pVM->pRingState,pVM->pNestedLists,pVar);
 		}
-	} else {
+	}
+	else {
 		pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
 		ring_list_addpointer_gc(pVM->pRingState,pVM->pNestedLists,ring_list_newlist_gc(pVM->pRingState,pList));
 	}
@@ -157,7 +160,8 @@ void ring_vm_loadindexaddress ( VM *pVM )
 					pString = ring_list_getstringobject(pVar,RING_VAR_VALUE) ;
 					ring_vm_string_index(pVM,pString,nNum1);
 					return ;
-				} else {
+				}
+				else {
 					RING_VM_STACK_POP ;
 					ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
 					return ;
@@ -185,12 +189,14 @@ void ring_vm_loadindexaddress ( VM *pVM )
 					pString = ring_item_getstring(pItem);
 					ring_vm_string_index(pVM,pString,nNum1);
 					return ;
-				} else {
+				}
+				else {
 					RING_VM_STACK_POP ;
 					ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
 					return ;
 				}
-			} else {
+			}
+			else {
 				ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
 				return ;
 			}
@@ -200,7 +206,8 @@ void ring_vm_loadindexaddress ( VM *pVM )
 			cStr2[1] = '\0' ;
 			RING_VM_STACK_SETCVALUE2(cStr2,1);
 			return ;
-		} else {
+		}
+		else {
 			ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
 			return ;
 		}
@@ -223,7 +230,8 @@ void ring_vm_loadindexaddress ( VM *pVM )
 						return ;
 					}
 					ring_vm_listgetvalue(pVM,pVar,ring_string_get(pString));
-				} else {
+				}
+				else {
 					ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
 				}
 			}
@@ -239,18 +247,22 @@ void ring_vm_loadindexaddress ( VM *pVM )
 						return ;
 					}
 					ring_vm_listgetvalue(pVM,pVar,ring_string_get(pString));
-				} else {
+				}
+				else {
 					ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
 				}
-			} else {
+			}
+			else {
 				ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
 			}
-		} else {
+		}
+		else {
 			ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
 			/* Don't return here, we need to delete the string to avoid memory leak */
 		}
 		ring_string_delete_gc(pVM->pRingState,pString);
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_INDEXOUTOFRANGE);
 	}
 }
@@ -306,7 +318,8 @@ void ring_vm_listassignment ( VM *pVM )
 		RING_VM_STACK_POP ;
 		if ( pVM->nBeforeEqual == 0 ) {
 			ring_item_setstring2_gc(pVM->pRingState,pItem, ring_string_get(cStr1),ring_string_size(cStr1));
-		} else {
+		}
+		else {
 			if ( ring_item_isstring(pItem) ) {
 				pString = ring_item_getstring(pItem);
 				ring_string_add2_gc(pVM->pRingState,pString,ring_string_get(cStr1),ring_string_size(cStr1));
@@ -325,7 +338,8 @@ void ring_vm_listassignment ( VM *pVM )
 		RING_VM_STACK_POP ;
 		if ( pVM->nBeforeEqual == 0 ) {
 			ring_item_setdouble_gc(pVM->pRingState,pItem , nNum1);
-		} else {
+		}
+		else {
 			ring_vm_beforeequalitem(pVM,pItem,nNum1);
 		}
 	}
@@ -356,7 +370,8 @@ void ring_vm_listassignment ( VM *pVM )
 				ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
 			}
 		}
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 	}
 }
