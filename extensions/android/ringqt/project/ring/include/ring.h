@@ -2,11 +2,12 @@
 #ifndef ring_h
 #define ring_h
 /* ANSI C */
+#if __BORLANDC__
+#define RING_ANSI_C 1
+#else
 #define RING_ANSI_C 0
-/*
-**  Check the standard 
-**  Types 
-*/
+#endif
+/* Types */
 #if RING_ANSI_C
 /* Use ANSI C Types */
 #define RING_LONGLONG long
