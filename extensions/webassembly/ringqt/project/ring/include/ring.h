@@ -1,11 +1,34 @@
 /* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_h
 #define ring_h
-/* ANSI C */
+/* Include C Headers */
+#include <stdlib.h>
+#include <stdio.h>
+#include <time.h>
+#include <assert.h>
+#include <string.h>
+#include <ctype.h>
+#include <math.h>
+#include <signal.h>
+#include <errno.h>
+#include <limits.h>
+#ifdef _WIN32
+#include <io.h>
+#include <fcntl.h>
+/* Required to get binary data from stdin (to be able to upload and read using cgi) */
 #if __BORLANDC__
-#define RING_ANSI_C 1
+#define RING_SETBINARY setmode(fileno(stdin), O_BINARY)
 #else
+#define RING_SETBINARY _setmode(_fileno(stdin), _O_BINARY)
+#endif
+#else
+#define RING_SETBINARY 0
+#endif
+/* Using ANSI C */
+#if ULLONG_MAX
 #define RING_ANSI_C 0
+#else
+#define RING_ANSI_C 1
 #endif
 /* Types */
 #if RING_ANSI_C
@@ -80,32 +103,7 @@
 /* See and Give - use ringvm_see() and ringvm_give() */
 #define RING_USESEEFUNCTION 1
 #define RING_USEGIVEFUNCTION 1
-/*
-**  Include Files 
-**  Include C Headers 
-*/
-#include <stdlib.h>
-#include <stdio.h>
-#include <time.h>
-#include <assert.h>
-#include <string.h>
-#include <ctype.h>
-#include <math.h>
-#include "signal.h"
-#ifdef _WIN32
-#include "io.h"
-#include "fcntl.h"
-/* Required to get binary data from stdin (to be able to upload and read using cgi) */
-#if __BORLANDC__
-#define RING_SETBINARY setmode(fileno(stdin), O_BINARY)
-#else
-#define RING_SETBINARY _setmode(_fileno(stdin), _O_BINARY)
-#endif
-#else
-#define RING_SETBINARY 0
-#endif
-#include <errno.h>
-/* Include Project Headers */
+/* Include Ring Headers */
 #include "ring_ext.h"
 #include "ring_string.h"
 #include "ring_vmgcdata.h"
