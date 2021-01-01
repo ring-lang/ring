@@ -239,7 +239,7 @@ The List type is used instead of
 
 	aList1 = ["one","two","three"]				# Strings
 	aList2 = [1,2,3,4,5,6,7,8,9,10]				# Numbers
-	aList3 = ["Ring",2020]					# Multiple types
+	aList3 = ["Ring",1234]					# Multiple types
 	aList4 = [["Fayed","Egypt"],["Mansour","Tunisia"]]  	# Nested Lists
 	aList5 = [ :name = "Fayed", :country = "Egypt"]		# Hash Tables
 
