@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Support for C Functions */
 
@@ -502,7 +502,8 @@ void ring_vmlib_len ( void *pPointer )
 			ring_vm_expr_npoo(pVM,"len",0);
 			pVM->nIgnoreNULL = 1 ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -530,7 +531,8 @@ void ring_vmlib_add ( void *pPointer )
 			pList2 = RING_API_GETLIST(2) ;
 			ring_vm_addlisttolist(pVM,pList2,pList);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -552,11 +554,13 @@ void ring_vmlib_del ( void *pPointer )
 				return ;
 			}
 			ring_list_deleteitem_gc(((VM *) pPointer)->pRingState,pList,nNum1);
-		} else {
+		}
+		else {
 			RING_API_ERROR("Error in second parameter, Function requires number!");
 			return ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -572,10 +576,12 @@ void ring_vmlib_get ( void *pPointer )
 		pData = getenv(RING_API_GETSTRING(1));
 		if ( pData != NULL ) {
 			RING_API_RETSTRING(pData);
-		} else {
+		}
+		else {
 			RING_API_RETSTRING("");
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -600,7 +606,8 @@ void ring_vmlib_input ( void *pPointer )
 	}
 	else if ( RING_API_ISSTRING(1) ) {
 		nSize = ring_vm_stringtonum((VM *) pPointer,RING_API_GETSTRING(1));
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -616,7 +623,8 @@ void ring_vmlib_input ( void *pPointer )
 		/* Return String */
 		RING_API_RETSTRING2(cLine,nSize);
 		ring_state_free(((VM *) pPointer)->pRingState,cLine);
-	} else {
+	}
+	else {
 		RING_API_ERROR("Error in first parameter,  input size < 1 !");
 	}
 }
@@ -634,11 +642,13 @@ void ring_vmlib_ascii ( void *pPointer )
 			cString = (unsigned char *) RING_API_GETSTRING(1) ;
 			x = (int) cString[0] ;
 			RING_API_RETNUMBER(x);
-		} else {
+		}
+		else {
 			RING_API_ERROR("Error in first parameter, the string size is not one letter !");
 			return ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -656,7 +666,8 @@ void ring_vmlib_char ( void *pPointer )
 		cStr[0] = (char) x ;
 		cStr[1] = '\0' ;
 		RING_API_RETSTRING2(cStr,1);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -745,7 +756,8 @@ void ring_vmlib_system ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		system(RING_API_GETSTRING(1));
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1029,13 +1041,16 @@ void ring_vmlib_swap ( void *pPointer )
 			nSize = ring_list_getsize(pList);
 			if ( (nNum1 > 0) && (nNum2 > 0) && (nNum1!= nNum2) && (nNum1<= nSize) && (nNum2 <= nSize) ) {
 				ring_list_swap(pList,nNum1, nNum2);
-			} else {
+			}
+			else {
 				RING_API_ERROR(RING_API_BADPARARANGE);
 			}
-		} else {
+		}
+		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1082,7 +1097,8 @@ void ring_vmlib_isstring ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		RING_API_RETNUMBER(1);
-	} else {
+	}
+	else {
 		RING_API_RETNUMBER(0);
 	}
 }
@@ -1095,7 +1111,8 @@ void ring_vmlib_isnumber ( void *pPointer )
 	}
 	if ( RING_API_ISNUMBER(1) ) {
 		RING_API_RETNUMBER(1);
-	} else {
+	}
+	else {
 		RING_API_RETNUMBER(0);
 	}
 }
@@ -1138,7 +1155,8 @@ void ring_vmlib_type ( void *pPointer )
 	}
 	else if ( RING_API_ISLIST(1) ) {
 		RING_API_RETSTRING("LIST");
-	} else {
+	}
+	else {
 		RING_API_RETSTRING("UNKNOWN");
 	}
 }
@@ -1214,7 +1232,8 @@ void ring_vmlib_hex ( void *pPointer )
 	if ( RING_API_ISNUMBER(1) ) {
 		sprintf( cStr , RING_UNSIGNEDLONGLONG_FORMAT , (RING_UNSIGNEDLONGLONG) RING_API_GETNUMBER(1) ) ;
 		RING_API_RETSTRING(cStr);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1235,7 +1254,8 @@ void ring_vmlib_dec ( void *pPointer )
 			return ;
 		}
 		RING_API_RETNUMBER(x);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1250,7 +1270,8 @@ void ring_vmlib_number ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		x = ring_vm_stringtonum((VM *) pPointer,RING_API_GETSTRING(1));
 		RING_API_RETNUMBER(x);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1267,7 +1288,8 @@ void ring_vmlib_string ( void *pPointer )
 		nNum1 = RING_API_GETNUMBER(1);
 		ring_vm_numtostring((VM *) pPointer, nNum1,cStr);
 		RING_API_RETSTRING(cStr);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1298,7 +1320,8 @@ void ring_vmlib_str2hex ( void *pPointer )
 		}
 		RING_API_RETSTRING2(cString2,nMax*2);
 		ring_state_free(((VM *) pPointer)->pRingState,cString2);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1366,7 +1389,8 @@ void ring_vmlib_hex2str ( void *pPointer )
 		}
 		RING_API_RETSTRING2(cString2,nMax/2);
 		ring_state_free(((VM *) pPointer)->pRingState,cString2);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1394,7 +1418,8 @@ void ring_vmlib_str2list ( void *pPointer )
 					else {
 						ring_list_addstring2_gc(((VM *) pPointer)->pRingState,pList,cStr+nStart,x-nStart);
 					}
-				} else {
+				}
+				else {
 					ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList,"");
 				}
 				nStart = x+1 ;
@@ -1404,7 +1429,8 @@ void ring_vmlib_str2list ( void *pPointer )
 			ring_list_addstring2_gc(((VM *) pPointer)->pRingState,pList,cStr+nStart,nSize-nStart);
 		}
 		RING_API_RETLIST(pList);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1439,7 +1465,8 @@ void ring_vmlib_list2str ( void *pPointer )
 		}
 		RING_API_RETSTRING(ring_string_get(pString));
 		ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1471,7 +1498,8 @@ void ring_vmlib_str2hexcstyle ( void *pPointer )
 			cString2[(x-1)*5+3] = cStr[0] ;
 			if ( cStr[1] != '\0' ) {
 				cString2[((x-1)*5)+4] = cStr[1] ;
-			} else {
+			}
+			else {
 				cString2[((x-1)*5)+4] = ' ' ;
 			}
 		}
@@ -1481,7 +1509,8 @@ void ring_vmlib_str2hexcstyle ( void *pPointer )
 		/* When we call free() we use the original pointer */
 		cString2-- ;
 		ring_state_free(((VM *) pPointer)->pRingState,cString2);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1514,11 +1543,13 @@ void ring_vmlib_left ( void *pPointer )
 				RING_API_RETSTRING2(pString,nNum1);
 				ring_state_free(((VM *) pPointer)->pRingState,pString);
 			}
-		} else {
+		}
+		else {
 			RING_API_ERROR("Error in second parameter, Function requires number !");
 			return ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1551,11 +1582,13 @@ void ring_vmlib_right ( void *pPointer )
 				RING_API_RETSTRING2(pString,nNum1);
 				ring_state_free(((VM *) pPointer)->pRingState,pString);
 			}
-		} else {
+		}
+		else {
 			RING_API_ERROR("Error in second parameter, Function requires number !");
 			return ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1602,7 +1635,8 @@ void ring_vmlib_trim ( void *pPointer )
 		}
 		RING_API_RETSTRING2(cNewStr,nPos2-nPos1+1);
 		ring_state_free(((VM *) pPointer)->pRingState,cNewStr);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1626,11 +1660,13 @@ void ring_vmlib_copy ( void *pPointer )
 			}
 			RING_API_RETSTRING2(ring_string_get(pString),ring_string_size(pString));
 			ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
-		} else {
+		}
+		else {
 			RING_API_ERROR("Error in second parameter, Function requires number !");
 			return ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1663,7 +1699,8 @@ void ring_vmlib_substr ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
-	} else {
+	}
+	else {
 		RING_API_ERROR("Error in first parameter, Function requires string !");
 		return ;
 	}
@@ -1684,11 +1721,13 @@ void ring_vmlib_substr ( void *pPointer )
 			cStr3 = ring_string_find2(cStr,nSize,cStr2,nSize2);
 			if ( cStr3 != NULL ) {
 				nNum1 = ((RING_LONGLONG) cStr3) - ((RING_LONGLONG) cStr) + 1 ;
-			} else {
+			}
+			else {
 				nNum1 = 0.0 ;
 			}
 			RING_API_RETNUMBER(nNum1);
-		} else {
+		}
+		else {
 			RING_API_ERROR("Error in second parameter type!");
 			return ;
 		}
@@ -1712,7 +1751,8 @@ void ring_vmlib_substr ( void *pPointer )
 		}
 		else if ( RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) {
 			nTransform = 1 ;
-		} else {
+		}
+		else {
 			RING_API_ERROR("Error in parameters type!");
 			return ;
 		}
@@ -1722,11 +1762,13 @@ void ring_vmlib_substr ( void *pPointer )
 			if ( RING_API_GETNUMBER(4)  == 1.0 ) {
 				nTransform = 2 ;
 			}
-		} else {
+		}
+		else {
 			RING_API_ERROR("Error in parameters type!");
 			return ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR("Error in parameters count!");
 	}
 	/* Transform/Replace */
@@ -1736,7 +1778,8 @@ void ring_vmlib_substr ( void *pPointer )
 		/* Search */
 		if ( nTransform == 1 ) {
 			cString = ring_string_find2(cStr,nSize,cStr2,nSize2) ;
-		} else {
+		}
+		else {
 			cString = ring_string_find3(cStr,nSize,cStr2,nSize2) ;
 		}
 		if ( cString == NULL ) {
@@ -1755,7 +1798,8 @@ void ring_vmlib_substr ( void *pPointer )
 			/* Search */
 			if ( nTransform == 1 ) {
 				cString = ring_string_find2(cStr+((int) nMark),nSize-nMark,cStr2,nSize2) ;
-			} else {
+			}
+			else {
 				cString = ring_string_find3(cStr+((int) nMark),nSize-nMark,cStr2,nSize2) ;
 			}
 			if ( cString == NULL ) {
@@ -1776,7 +1820,8 @@ void ring_vmlib_lower ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		RING_API_RETSTRING2(ring_string_lower2(RING_API_GETSTRING(1),RING_API_GETSTRINGSIZE(1)),RING_API_GETSTRINGSIZE(1));
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1789,7 +1834,8 @@ void ring_vmlib_upper ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		RING_API_RETSTRING2(ring_string_upper2(RING_API_GETSTRING(1),RING_API_GETSTRINGSIZE(1)),RING_API_GETSTRINGSIZE(1));
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1812,7 +1858,8 @@ void ring_vmlib_lines ( void *pPointer )
 			}
 		}
 		RING_API_RETNUMBER(nCount);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1825,7 +1872,8 @@ void ring_vmlib_strcmp ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) {
 		RING_API_RETNUMBER(strcmp(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1853,7 +1901,8 @@ void ring_vmlib_eval ( void *pPointer )
 		**  The CALL instruction will check nEvalCalledFromRingCode to execute the main loop again 
 		**  Before executing the main loop again, The CALL instruction will set nEvalCalledFromRingCode to 0 
 		*/
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1867,7 +1916,8 @@ void ring_vmlib_raise ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_GETSTRING(1));
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1883,7 +1933,8 @@ void ring_vmlib_assert ( void *pPointer )
 			RING_API_ERROR("Assertion Failed!");
 			return ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1907,7 +1958,8 @@ void ring_vmlib_isfunc ( void *pPointer,int (*pFunc)(int) )
 			}
 		}
 		RING_API_RETNUMBER(1);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1984,7 +2036,8 @@ void ring_vmlib_varptr ( void *pPointer )
 		cStr = RING_API_GETSTRING(1);
 		cStr2 = RING_API_GETSTRING(2);
 		RING_API_RETCPOINTER(ring_vm_api_varptr(pPointer,cStr,cStr2),cStr2);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -1999,7 +2052,8 @@ void ring_vmlib_intvalue ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1);
 		ring_vm_api_intvalue(pPointer,cStr);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -2057,7 +2111,8 @@ void ring_vmlib_space ( void *pPointer )
 		memset(pString,' ',nStrSize);
 		RING_API_RETSTRING2(pString,nStrSize);
 		ring_state_free(((VM *) pPointer)->pRingState,pString);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -2073,7 +2128,8 @@ void ring_vmlib_ptrcmp ( void *pPointer )
 		pList = RING_API_GETLIST(1) ;
 		pList2 = RING_API_GETLIST(2) ;
 		RING_API_RETNUMBER(ring_vm_api_cpointercmp(pList,pList2));
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -2364,7 +2420,8 @@ void ring_vmlib_checkoverflow ( void *pPointer )
 		else {
 			((VM *) pPointer)->lCheckOverFlow = 0 ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -2382,7 +2439,8 @@ void ring_vmlib_addsublistsbymove ( void *pPointer )
 		else {
 			((VM *) pPointer)->lAddSubListsByMove = 0 ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
@@ -2400,7 +2458,8 @@ void ring_vmlib_addsublistsbyfastcopy ( void *pPointer )
 		else {
 			((VM *) pPointer)->lAddSubListsByFastCopy = 0 ;
 		}
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
