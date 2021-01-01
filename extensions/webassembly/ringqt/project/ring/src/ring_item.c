@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Header Files 
 */
 #include "ring.h"
@@ -51,7 +51,8 @@ RING_API void ring_item_print ( Item *pItem )
 			/* Work */
 			if ( pItem->NumberFlag == ITEM_NUMBERFLAG_INT ) {
 				printf( "%d\n ",pItem->data.iNumber ) ;
-			} else {
+			}
+			else {
 				printf( "%f \n",pItem->data.dNumber ) ;
 			}
 			break ;
