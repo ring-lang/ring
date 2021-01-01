@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /*
 **  Functions 
@@ -257,7 +257,7 @@ VM * ring_vm_delete ( VM *pVM )
 	pVM->aActiveGlobalScopes = ring_list_delete_gc(pVM->pRingState,pVM->aActiveGlobalScopes);
 	/* Dynamic Libraries */
 	#if RING_VM_DLL
-	ring_vm_dll_closealllibs(pVM);
+		ring_vm_dll_closealllibs(pVM);
 	#endif
 	pVM->pCLibraries = ring_list_delete_gc(pVM->pRingState,pVM->pCLibraries);
 	pVM->aAddressScope = ring_list_delete_gc(pVM->pRingState,pVM->aAddressScope);
@@ -312,24 +312,24 @@ void ring_vm_mainloop ( VM *pVM )
 {
 	pVM->pRingState->lStartPoolManager = 1 ;
 	#if RING_VMSHOWOPCODE
-	/* Preprocessor Allows showing the OPCODE */
-	if ( pVM->pRingState->nPrintInstruction ) {
-		do {
-			ring_vm_fetch2(pVM);
-			while(pVM->lStopThisThread) ; ;
-		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
-	}
-	else {
+		/* Preprocessor Allows showing the OPCODE */
+		if ( pVM->pRingState->nPrintInstruction ) {
+			do {
+				ring_vm_fetch2(pVM);
+				while(pVM->lStopThisThread) ; ;
+			} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+		}
+		else {
+			do {
+				ring_vm_fetch(pVM);
+				while(pVM->lStopThisThread) ; ;
+			} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+		}
+	#else
 		do {
 			ring_vm_fetch(pVM);
 			while(pVM->lStopThisThread) ; ;
 		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
-	}
-	#else
-	do {
-		ring_vm_fetch(pVM);
-		while(pVM->lStopThisThread) ; ;
-	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	#endif
 }
 
@@ -349,24 +349,24 @@ void ring_vm_fetch2 ( VM *pVM )
 	pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1 ;
 	pVM->nOPCode = RING_VM_IR_OPCODE ;
 	#if RING_VMSHOWOPCODE
-	if ( pVM->pRingState->nPrintInstruction ) {
-		ring_print_line();
-		printf( "\nVM Pointer  : %p  " , (void *) pVM ) ;
-		printf( "\nOperation  : %s  " , RING_IC_OP[pVM->nOPCode] ) ;
-		printf( "\nPC         : %d  " ,pVM->nPC ) ;
-		printf( "\nLine Number    : %d  , File %s \n " ,pVM->nLineNumber,pVM->cFileName ) ;
-		if ( (pVM->nOPCode == ICO_PUSHC) || (pVM->nOPCode == ICO_LOADADDRESS) || (pVM->nOPCode == ICO_LOADFUNC) ) {
-			printf( "\nData       : %s \n",RING_VM_IR_READC ) ;
+		if ( pVM->pRingState->nPrintInstruction ) {
+			ring_print_line();
+			printf( "\nVM Pointer  : %p  " , (void *) pVM ) ;
+			printf( "\nOperation  : %s  " , RING_IC_OP[pVM->nOPCode] ) ;
+			printf( "\nPC         : %d  " ,pVM->nPC ) ;
+			printf( "\nLine Number    : %d  , File %s \n " ,pVM->nLineNumber,pVM->cFileName ) ;
+			if ( (pVM->nOPCode == ICO_PUSHC) || (pVM->nOPCode == ICO_LOADADDRESS) || (pVM->nOPCode == ICO_LOADFUNC) ) {
+				printf( "\nData       : %s \n",RING_VM_IR_READC ) ;
+			}
 		}
-	}
 	#endif
 	pVM->nPC++ ;
 	ring_vm_execute(pVM);
 	#if RING_VMSHOWOPCODE
-	if ( pVM->pRingState->nPrintInstruction ) {
-		printf( "\nSP (After) : %d  - FuncSP : %d \n LineNumber %d \n" , (int) pVM->nSP,pVM->nFuncSP,pVM->nLineNumber ) ;
-		ring_print_line();
-	}
+		if ( pVM->pRingState->nPrintInstruction ) {
+			printf( "\nSP (After) : %d  - FuncSP : %d \n LineNumber %d \n" , (int) pVM->nSP,pVM->nFuncSP,pVM->nLineNumber ) ;
+			ring_print_line();
+		}
 	#endif
 	if ( pVM->nSP > RING_VM_STACK_CHECKOVERFLOW ) {
 		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
@@ -793,7 +793,8 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		pVM->pRingState->lNoLineNumber = 1 ;
 		nRunVM = ring_parser_start(pScanner->Tokens,pVM->pRingState);
 		pVM->pRingState->lNoLineNumber = 0 ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,"Error in eval!");
 		ring_scanner_delete(pScanner);
 		return 0 ;
@@ -850,7 +851,8 @@ int ring_vm_eval ( VM *pVM,const char *cStr )
 		**  Update ReallocationSize 
 		*/
 		pVM->nEvalReallocationSize = pVM->nEvalReallocationSize - (ring_list_getsize(pVM->pCode)-nLastPC) ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,"Error in eval!");
 		ring_scanner_delete(pScanner);
 		return 0 ;
@@ -872,7 +874,7 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 	pIR = ring_list_getlist(pVM->pCode,x);
 	pByteCode->nSize = ring_list_getsize(pIR) ;
 	#if RING_SHOWICFINAL
-	pByteCode->pList = pIR ;
+		pByteCode->pList = pIR ;
 	#endif
 	/* Check Instruction Size */
 	if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT ) {
@@ -1274,17 +1276,26 @@ void ring_vm_mainloopforeval ( VM *pVM )
 	nDontDelete = pVM->nRetEvalDontDelete ;
 	pVM->nRetEvalDontDelete = 0 ;
 	#if RING_VMSHOWOPCODE
-	/* Preprocessor Allows showing the OPCODE */
-	if ( pVM->pRingState->nPrintInstruction ) {
-		do {
-			ring_vm_fetch2(pVM);
-			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-				pVM->nEvalReturnPC = 0 ;
-				break ;
-			}
-		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
-	}
-	else {
+		/* Preprocessor Allows showing the OPCODE */
+		if ( pVM->pRingState->nPrintInstruction ) {
+			do {
+				ring_vm_fetch2(pVM);
+				if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+					pVM->nEvalReturnPC = 0 ;
+					break ;
+				}
+			} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+		}
+		else {
+			do {
+				ring_vm_fetch(pVM);
+				if ( pVM->nPC <= pVM->nEvalReturnPC ) {
+					pVM->nEvalReturnPC = 0 ;
+					break ;
+				}
+			} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
+		}
+	#else
 		do {
 			ring_vm_fetch(pVM);
 			if ( pVM->nPC <= pVM->nEvalReturnPC ) {
@@ -1292,15 +1303,6 @@ void ring_vm_mainloopforeval ( VM *pVM )
 				break ;
 			}
 		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
-	}
-	#else
-	do {
-		ring_vm_fetch(pVM);
-		if ( pVM->nPC <= pVM->nEvalReturnPC ) {
-			pVM->nEvalReturnPC = 0 ;
-			break ;
-		}
-	} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	#endif
 	pVM->lInsideEval-- ;
 	pVM->nRetEvalDontDelete = nDontDelete ;
