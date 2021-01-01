@@ -25,10 +25,10 @@
 #define RING_SETBINARY 0
 #endif
 /* Using ANSI C */
-#if __BORLANDC__
-#define RING_ANSI_C 1
-#else
+#if ULLONG_MAX
 #define RING_ANSI_C 0
+#else
+#define RING_ANSI_C 1
 #endif
 /* Types */
 #if RING_ANSI_C
