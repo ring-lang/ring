@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Remember, When we read from the stack LIFO 
 **  If we have two parameters, we read the second parameter first 
 */
@@ -35,7 +35,8 @@ void ring_vm_sum ( VM *pVM )
 				ring_string_add_gc(pVM->pRingState,cStr2,ring_string_get(cStr1));
 				RING_VM_STACK_SETCVALUE(ring_string_get(cStr2));
 				ring_string_delete_gc(pVM->pRingState,cStr2);
-			} else {
+			}
+			else {
 				RING_VM_STACK_SETNVALUE(nNum2 + ring_vm_stringtonum(pVM,ring_string_get(cStr1)));
 			}
 		}
@@ -68,7 +69,8 @@ void ring_vm_sum ( VM *pVM )
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"+");
 		return ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 		return ;
 	}
@@ -296,7 +298,8 @@ void ring_vm_equal ( VM *pVM )
 			cStr2 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
 			if ( strcmp(ring_string_get(cStr1),ring_string_get(cStr2)) == 0 ) {
 				RING_VM_STACK_TRUE ;
-			} else {
+			}
+			else {
 				RING_VM_STACK_FALSE ;
 			}
 			ring_string_delete_gc(pVM->pRingState,cStr2);
@@ -306,7 +309,8 @@ void ring_vm_equal ( VM *pVM )
 			ring_vm_numtostring(pVM,nNum1,cStr3);
 			if ( strcmp(ring_string_get(cStr1),cStr3) == 0 ) {
 				RING_VM_STACK_TRUE ;
-			} else {
+			}
+			else {
 				RING_VM_STACK_FALSE ;
 			}
 		}
@@ -324,14 +328,16 @@ void ring_vm_equal ( VM *pVM )
 			nNum2 = RING_VM_STACK_READN ;
 			if ( nNum1 == nNum2 ) {
 				RING_VM_STACK_TRUE ;
-			} else {
+			}
+			else {
 				RING_VM_STACK_FALSE ;
 			}
 		}
 		else if ( RING_VM_STACK_ISSTRING ) {
 			if ( ring_vm_stringtonum(pVM,RING_VM_STACK_READC) == nNum1 ) {
 				RING_VM_STACK_TRUE ;
-			} else {
+			}
+			else {
 				RING_VM_STACK_FALSE ;
 			}
 		}
@@ -389,7 +395,8 @@ void ring_vm_lessequal ( VM *pVM )
 	/* Compare */
 	if ( nNum2 <= nNum1 ) {
 		RING_VM_STACK_TRUE ;
-	} else {
+	}
+	else {
 		RING_VM_STACK_FALSE ;
 	}
 }
@@ -438,7 +445,8 @@ void ring_vm_less ( VM *pVM )
 	/* Compare */
 	if ( nNum2 < nNum1 ) {
 		RING_VM_STACK_TRUE ;
-	} else {
+	}
+	else {
 		RING_VM_STACK_FALSE ;
 	}
 }
@@ -487,7 +495,8 @@ void ring_vm_greater ( VM *pVM )
 	/* Compare */
 	if ( nNum2 > nNum1 ) {
 		RING_VM_STACK_TRUE ;
-	} else {
+	}
+	else {
 		RING_VM_STACK_FALSE ;
 	}
 }
@@ -536,7 +545,8 @@ void ring_vm_greaterequal ( VM *pVM )
 	/* Compare */
 	if ( nNum2 >= nNum1 ) {
 		RING_VM_STACK_TRUE ;
-	} else {
+	}
+	else {
 		RING_VM_STACK_FALSE ;
 	}
 }
@@ -554,7 +564,8 @@ void ring_vm_notequal ( VM *pVM )
 			/* Compare */
 			if ( strcmp(ring_string_get(cStr1),ring_string_get(cStr2)) == 0 ) {
 				RING_VM_STACK_FALSE ;
-			} else {
+			}
+			else {
 				RING_VM_STACK_TRUE ;
 			}
 			ring_string_delete_gc(pVM->pRingState,cStr2);
@@ -565,7 +576,8 @@ void ring_vm_notequal ( VM *pVM )
 			/* Compare */
 			if ( nNum1 == nNum2 ) {
 				RING_VM_STACK_FALSE ;
-			} else {
+			}
+			else {
 				RING_VM_STACK_TRUE ;
 			}
 		}
@@ -584,7 +596,8 @@ void ring_vm_notequal ( VM *pVM )
 			/* Compare */
 			if ( nNum1 == nNum2 ) {
 				RING_VM_STACK_FALSE ;
-			} else {
+			}
+			else {
 				RING_VM_STACK_TRUE ;
 			}
 		}
@@ -594,7 +607,8 @@ void ring_vm_notequal ( VM *pVM )
 			/* Compare */
 			if ( strcmp(ring_string_get(cStr2),cStr3) == 0 ) {
 				RING_VM_STACK_FALSE ;
-			} else {
+			}
+			else {
 				RING_VM_STACK_TRUE ;
 			}
 			ring_string_delete_gc(pVM->pRingState,cStr2);
@@ -705,7 +719,8 @@ void ring_vm_not ( VM *pVM )
 	if ( RING_VM_STACK_ISNUMBER ) {
 		if ( RING_VM_STACK_READN != 0 ) {
 			RING_VM_STACK_SETNVALUE(0.0);
-		} else {
+		}
+		else {
 			RING_VM_STACK_SETNVALUE(1.0);
 		}
 	}
@@ -713,7 +728,8 @@ void ring_vm_not ( VM *pVM )
 		nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		if ( nNum1 == 1.0 ) {
 			RING_VM_STACK_SETNVALUE(0.0);
-		} else {
+		}
+		else {
 			RING_VM_STACK_SETNVALUE(1.0);
 		}
 	}
@@ -1037,7 +1053,8 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 	else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 		pItem = (Item *) RING_VM_STACK_READP ;
 		pList = ring_item_getlist(pItem);
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 		return ;
 	}
@@ -1053,7 +1070,8 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) RING_VM_STACK_READP ;
 			pList2 = ring_item_getlist(pItem);
-		} else {
+		}
+		else {
 			ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 			return ;
 		}
@@ -1079,10 +1097,12 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 			/* Operator Overloading */
 			ring_vm_oop_operatoroverloading(pVM,pList2,cStr,RING_OOPARA_POINTER,"",0,pPointer,nType);
 			RING_VM_STACK_POP ;
-		} else {
+		}
+		else {
 			ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 		}
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 	}
 }
@@ -1099,7 +1119,8 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 	else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 		pItem = (Item *) RING_VM_STACK_READP ;
 		pList = ring_item_getlist(pItem);
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 		return ;
 	}
@@ -1113,7 +1134,8 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 		/* Operator Overloading */
 		ring_vm_oop_operatoroverloading(pVM,pList,cStr,RING_OOPARA_NUMBER,"",nNum1,NULL,0);
 		RING_VM_STACK_POP ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 	}
 }
@@ -1130,7 +1152,8 @@ void ring_vm_expr_spoo ( VM *pVM,const char *cStr,const char *cStr2,int nSize )
 	else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 		pItem = (Item *) RING_VM_STACK_READP ;
 		pList = ring_item_getlist(pItem);
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 		return ;
 	}
@@ -1144,7 +1167,8 @@ void ring_vm_expr_spoo ( VM *pVM,const char *cStr,const char *cStr2,int nSize )
 		/* Operator Overloading */
 		ring_vm_oop_operatoroverloading(pVM,pList,cStr,RING_OOPARA_STRING,cStr2,0,NULL,0);
 		RING_VM_STACK_POP ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 	}
 }
