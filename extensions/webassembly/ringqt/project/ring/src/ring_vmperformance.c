@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* For Better Performance */
 
@@ -21,9 +21,9 @@ void ring_vm_pushplocal ( VM *pVM )
 		ring_list_deliteminsidelist_gc(pVM->pRingState,pVM->aNewByteCodeItems,RING_VM_IR_ITEM(3));
 		ring_list_deliteminsidelist_gc(pVM->pRingState,pVM->aNewByteCodeItems,RING_VM_IR_ITEM(4));
 		#if RING_SHOWICFINAL
-		RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
-		ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-		ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
+			RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
+			ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
+			ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
 		#endif
 		pVM->nPC-- ;
 		return ;
@@ -63,7 +63,8 @@ void ring_vm_incjump ( VM *pVM )
 		/* Replace ICO_INCJUMP with IncPJUMP for better performance */
 		if ( nNum1 == 1.0 ) {
 			RING_VM_IR_OPCODE = ICO_INCPJUMPSTEP1 ;
-		} else {
+		}
+		else {
 			RING_VM_IR_OPCODE = ICO_INCPJUMP ;
 		}
 		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
@@ -83,7 +84,8 @@ void ring_vm_incjump ( VM *pVM )
 	}
 	else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
 		nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
@@ -104,7 +106,8 @@ void ring_vm_incpjump ( VM *pVM )
 	}
 	else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
 		nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
@@ -123,9 +126,9 @@ void ring_vm_inclpjump ( VM *pVM )
 		ring_list_deliteminsidelist_gc(pVM->pRingState,pVM->aNewByteCodeItems,RING_VM_IR_ITEM(3));
 		ring_list_deliteminsidelist_gc(pVM->pRingState,pVM->aNewByteCodeItems,RING_VM_IR_ITEM(4));
 		#if RING_SHOWICFINAL
-		RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
-		ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-		ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
+			RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
+			ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
+			ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
 		#endif
 		pVM->nPC-- ;
 		return ;
@@ -138,7 +141,8 @@ void ring_vm_inclpjump ( VM *pVM )
 	}
 	else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
 		nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
@@ -160,7 +164,8 @@ void ring_vm_jumpvarlenum ( VM *pVM )
 		/* Replace JumpVarLENum with JumpVarPLENum for better performance */
 		if ( nNum1 == 1.0 ) {
 			RING_VM_IR_OPCODE = ICO_JUMPVARPLENUMSTEP1 ;
-		} else {
+		}
+		else {
 			RING_VM_IR_OPCODE = ICO_JUMPVARPLENUM ;
 		}
 		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(1),RING_VM_STACK_READP);
@@ -171,9 +176,9 @@ void ring_vm_jumpvarlenum ( VM *pVM )
 		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(4),RING_VM_STACK_READP);
 		ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(5),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
 		#if RING_SHOWICFINAL
-		RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 2 ;
-		ring_list_addpointer_gc(pVM->pRingState,RING_VM_IR_LIST,RING_VM_STACK_READP);
-		ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
+			RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 2 ;
+			ring_list_addpointer_gc(pVM->pRingState,RING_VM_IR_LIST,RING_VM_STACK_READP);
+			ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
 		#endif
 	}
 	pVar = (List *) RING_VM_STACK_READP ;
@@ -185,7 +190,8 @@ void ring_vm_jumpvarlenum ( VM *pVM )
 	}
 	else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
 		nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
@@ -194,7 +200,8 @@ void ring_vm_jumpvarlenum ( VM *pVM )
 			/* Jump */
 			pVM->nPC = RING_VM_IR_READIVALUE(3) ;
 		}
-	} else {
+	}
+	else {
 		if ( ! (nNum2 <= RING_VM_IR_READDVALUE(2)) ) {
 			/* Jump */
 			pVM->nPC = RING_VM_IR_READIVALUE(3) ;
@@ -214,7 +221,8 @@ void ring_vm_jumpvarplenum ( VM *pVM )
 	}
 	else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
 		nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
@@ -223,7 +231,8 @@ void ring_vm_jumpvarplenum ( VM *pVM )
 			/* Jump */
 			pVM->nPC = RING_VM_IR_READIVALUE(3) ;
 		}
-	} else {
+	}
+	else {
 		if ( ! (nNum2 <= RING_VM_IR_READDVALUE(2)) ) {
 			/* Jump */
 			pVM->nPC = RING_VM_IR_READIVALUE(3) ;
@@ -239,9 +248,9 @@ void ring_vm_jumpvarlplenum ( VM *pVM )
 	if ( RING_VM_IR_READIVALUE(5)  != pVM->nActiveScopeID ) {
 		RING_VM_IR_OPCODE = ICO_JUMPVARLENUM ;
 		#if RING_SHOWICFINAL
-		RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
-		ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-		ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
+			RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
+			ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
+			ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
 		#endif
 		pVM->nPC-- ;
 		return ;
@@ -254,7 +263,8 @@ void ring_vm_jumpvarlplenum ( VM *pVM )
 	}
 	else if ( ring_list_isnumber(pVar,RING_VAR_VALUE) ) {
 		nNum2 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
@@ -263,7 +273,8 @@ void ring_vm_jumpvarlplenum ( VM *pVM )
 			/* Jump */
 			pVM->nPC = RING_VM_IR_READIVALUE(3) ;
 		}
-	} else {
+	}
+	else {
 		if ( ! (nNum2 <= RING_VM_IR_READDVALUE(2)) ) {
 			/* Jump */
 			pVM->nPC = RING_VM_IR_READIVALUE(3) ;
