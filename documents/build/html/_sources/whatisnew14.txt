@@ -441,6 +441,7 @@ More Improvements
 * Ring VM - String() function - Better Code
 * Ring VM - Number() function - Better Code 
 * Ring VM - Decimals() function - Allows a range between 0 and 90 
+* Ring Compiler/VM Source Code - Better Format
 * RingPM - New Package: GUILib (Separate package for the GUILib classes)
 * RingPM - New Package: ObjectsLib (Separate package for the ObjectsLib classes)
 * RingPM - New Package: CLOC (Count Lines of Code)
