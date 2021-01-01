@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Functions */
 
@@ -75,7 +75,8 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			/* Method or Function */
 			if ( (y == 1) && (pVM->nCallMethod != 1) ) {
 				ring_list_addint_gc(pVM->pRingState,pList3,0);
-			} else {
+			}
+			else {
 				ring_list_addint_gc(pVM->pRingState,pList3,1);
 			}
 			/* Line Number */
@@ -96,13 +97,13 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 				ring_vm_newbytecodeitem(pVM,5);
 				ring_vm_newbytecodeitem(pVM,6);
 				#if RING_SHOWICFINAL
-				/* Update generated code list, so the new items could appear */
-				RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 5 ;
-				ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pList2,RING_FUNCMAP_PC));
-				ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,RING_FUNCTYPE_SCRIPT);
-				ring_list_addpointer_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
-				ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
-				ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
+					/* Update generated code list, so the new items could appear */
+					RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 5 ;
+					ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pList2,RING_FUNCMAP_PC));
+					ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,RING_FUNCTYPE_SCRIPT);
+					ring_list_addpointer_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
+					ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
+					ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
 				#endif
 				ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(2),ring_list_getint(pList2,RING_FUNCMAP_PC));
 				ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_FUNCTYPE_SCRIPT);
@@ -315,7 +316,8 @@ void ring_vm_call2 ( VM *pVM )
 		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 			pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 			pVM->nFuncSP = ring_list_getint(pList,RING_FUNCCL_SP) ;
-		} else {
+		}
+		else {
 			pVM->nFuncSP = 0 ;
 		}
 		/* if eval() is called, start the main loop again */
@@ -388,12 +390,14 @@ void ring_vm_return ( VM *pVM )
 		if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 			pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 			pVM->nFuncSP = ring_list_getint(pList,RING_FUNCCL_SP) ;
-		} else {
+		}
+		else {
 			pVM->nFuncSP = 0 ;
 		}
 		/* Trace */
 		ring_vm_traceevent(pVM,RING_VM_TRACEEVENT_RETURN);
-	} else {
+	}
+	else {
 		/* Call Main Function */
 		if ( pVM->nCallMainFunction == 0 ) {
 			pVM->nPC-- ;
@@ -441,7 +445,8 @@ void ring_vm_newfunc ( VM *pVM )
 					ring_vm_addnewpointervar(pVM,RING_VM_IR_READCVALUE(x-1),RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
 					RING_VM_STACK_POP ;
 				}
-			} else {
+			}
+			else {
 				ring_vm_error(pVM,RING_VM_ERROR_LESSPARAMETERSCOUNT);
 				break ;
 			}
@@ -502,14 +507,16 @@ void ring_vm_movetoprevscope ( VM *pVM )
 		pList = (List *) RING_VM_STACK_READP ;
 		if ( ring_list_islist(pList,RING_VAR_VALUE) ) {
 			pList = ring_list_getlist(pList,RING_VAR_VALUE);
-		} else {
+		}
+		else {
 			return ;
 		}
 	}
 	else if ( RING_VM_STACK_OBJTYPE ==RING_OBJTYPE_LISTITEM ) {
 		pItem = (Item *) RING_VM_STACK_READP ;
 		pList = ring_item_getlist(pItem);
-	} else {
+	}
+	else {
 		return ;
 	}
 	pList3 = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,ring_vm_prevtempmem(pVM));
