@@ -4,16 +4,16 @@
 */
 #include "ring.h"
 #ifdef _WIN32
-/* Windows only */
-#include <direct.h>
-#define GetCurrentDir _getcwd
+	/* Windows only */
+	#include <direct.h>
+	#define GetCurrentDir _getcwd
 #else
-#include <unistd.h>
-#define GetCurrentDir getcwd
-#if __MACH__
-/* Mac OS X */
-#include <mach-o/dyld.h>
-#endif
+	#include <unistd.h>
+	#define GetCurrentDir getcwd
+	#if __MACH__
+		/* Mac OS X */
+		#include <mach-o/dyld.h>
+	#endif
 #endif
 /* General Options (Only for ring_state_main()) */
 static int nRingStateDEBUGSEGFAULT  ;
@@ -21,7 +21,7 @@ static int nRingStateCGI  ;
 /* Define Functions */
 #if RING_TESTUNITS
 
-static void ring_testallunits ( void ) ;
+	static void ring_testallunits ( void ) ;
 #endif
 
 static void ring_showtime ( void ) ;
@@ -71,7 +71,7 @@ RING_API RingState * ring_state_new ( void )
 	ring_list_addint(pRingState->aCustomGlobalScopeStack,pRingState->nCustomGlobalScopeCounter);
 	/* Log File */
 	#if RING_LOGFILE
-	pRingState->pLogFile = fopen("ringlog.txt" , "w+" );
+		pRingState->pLogFile = fopen("ringlog.txt" , "w+" );
 	#endif
 	/* Tokens Only */
 	pRingState->nOnlyTokens = 0 ;
@@ -102,7 +102,7 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 	pRingState->aCustomGlobalScopeStack = ring_list_delete(pRingState->aCustomGlobalScopeStack);
 	/* Log File */
 	#if RING_LOGFILE
-	fclose( pRingState->pLogFile ) ;
+		fclose( pRingState->pLogFile ) ;
 	#endif
 	ring_poolmanager_delete(pRingState);
 	ring_free(pRingState);
@@ -182,7 +182,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	nRingStateCGI = 0 ;
 	signal(SIGSEGV,segfaultaction);
 	#if RING_TESTUNITS
-	ring_testallunits();
+		ring_testallunits();
 	#endif
 	if ( argc > 1 ) {
 		for ( x = 1 ; x < argc ; x++ ) {
@@ -286,21 +286,21 @@ RING_API void ring_state_log ( RingState *pRingState,const char *cStr )
 {
 	/* Log File */
 	#if RING_LOGFILE
-	fprintf( pRingState->pLogFile , "%s\n" , cStr ) ;
-	fflush(pRingState->pLogFile);
+		fprintf( pRingState->pLogFile , "%s\n" , cStr ) ;
+		fflush(pRingState->pLogFile);
 	#endif
 }
 #if RING_TESTUNITS
 
-static void ring_testallunits ( void )
-{
-	/* Test */
-	ring_string_test();
-	ring_list_test();
-	ring_hashtable_test();
-	printf( "end of test \n  " ) ;
-	getchar();
-}
+	static void ring_testallunits ( void )
+	{
+		/* Test */
+		ring_string_test();
+		ring_list_test();
+		ring_hashtable_test();
+		printf( "end of test \n  " ) ;
+		getchar();
+	}
 #endif
 
 static void ring_showtime ( void )
@@ -384,17 +384,17 @@ int ring_exefilename ( char *cDirPath )
 	unsigned int nSize  ;
 	nSize = RING_PATHSIZE ;
 	#ifdef _WIN32
-	/* Windows only */
-	GetModuleFileName(NULL,cDirPath,nSize);
+		/* Windows only */
+		GetModuleFileName(NULL,cDirPath,nSize);
 	#elif __MACH__
-	/* Mac OS X */
-	_NSGetExecutablePath(cDirPath,&nSize);
+		/* Mac OS X */
+		_NSGetExecutablePath(cDirPath,&nSize);
 	#elif __linux__
-	/* readlink() doesn't null terminate */
-	memset(cDirPath,0,nSize);
-	if ( ! readlink("/proc/self/exe",cDirPath,nSize) ) {
-		return 0 ;
-	}
+		/* readlink() doesn't null terminate */
+		memset(cDirPath,0,nSize);
+		if ( ! readlink("/proc/self/exe",cDirPath,nSize) ) {
+			return 0 ;
+		}
 	#endif
 	return 1 ;
 }
@@ -402,16 +402,16 @@ int ring_exefilename ( char *cDirPath )
 int ring_chdir ( const char *cDir )
 {
 	#ifdef _WIN32
-	/* Windows only */
-	#ifdef __BORLANDC__
-	/* Borland C/C++ */
-	return chdir(cDir) ;
+		/* Windows only */
+		#ifdef __BORLANDC__
+			/* Borland C/C++ */
+			return chdir(cDir) ;
+		#else
+			/* Modern Compilers Like Visual C/C++ */
+			return _chdir(cDir) ;
+		#endif
 	#else
-	/* Modern Compilers Like Visual C/C++ */
-	return _chdir(cDir) ;
-	#endif
-	#else
-	return chdir(cDir) ;
+		return chdir(cDir) ;
 	#endif
 }
 
