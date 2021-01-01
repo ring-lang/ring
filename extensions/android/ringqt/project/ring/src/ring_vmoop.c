@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  pClassesMap ( cClass Name ,  iPC , cParentClass, aMethodsList , nFlagIsParentClassInformation 
 **  pClassesMap ( cClass Name, Pointer to List that represent class inside a Package, Pointer to File 
 **  pFunctionsMap ( Name, PC, FileName, Private Flag ) 
@@ -589,7 +589,7 @@ void ring_vm_oop_bracestart ( VM *pVM )
 	ring_list_addpointer_gc(pVM->pRingState,pList,pClass);
 	/* Add Brace Object & Stack Pointer to List */
 	pList = ring_list_newlist_gc(pVM->pRingState,pVM->aBraceObjects);
-	ring_list_addpointer(pList,pVM->pBraceObject);
+	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pBraceObject);
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nSP);
 	/* Store List information to allow using braces from list item and creating lists from that brace */
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nListStart);
