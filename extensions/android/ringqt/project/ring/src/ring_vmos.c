@@ -1,11 +1,11 @@
 /*
-**  Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #ifdef _WIN32
-#include "windows.h"
-typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
-LPFN_ISWOW64PROCESS fnCheckWindows64  ;
+	#include "windows.h"
+	typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
+	LPFN_ISWOW64PROCESS fnCheckWindows64  ;
 #endif
 #include "ring.h"
 #include "ring_vmos.h"
@@ -31,18 +31,18 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 void ring_vm_os_ismsdos ( void *pPointer )
 {
 	#if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
-	RING_API_RETNUMBER(1);
+		RING_API_RETNUMBER(1);
 	#else
-	RING_API_RETNUMBER(0);
+		RING_API_RETNUMBER(0);
 	#endif
 }
 
 void ring_vm_os_iswindows ( void *pPointer )
 {
 	#ifdef _WIN32
-	RING_API_RETNUMBER(1);
+		RING_API_RETNUMBER(1);
 	#else
-	RING_API_RETNUMBER(0);
+		RING_API_RETNUMBER(0);
 	#endif
 }
 
@@ -50,17 +50,17 @@ void ring_vm_os_iswindows64 ( void *pPointer )
 {
 	int lSystem64  ;
 	#ifdef _WIN32
-	HMODULE pModule  ;
-	lSystem64 = 0 ;
-	pModule = GetModuleHandle(TEXT("kernel32"));
-	if ( pModule != NULL ) {
-		fnCheckWindows64 = (LPFN_ISWOW64PROCESS) GetProcAddress(pModule,"IsWow64Process") ;
-		if ( fnCheckWindows64 != NULL ) {
-			fnCheckWindows64(GetCurrentProcess(),&lSystem64);
-			RING_API_RETNUMBER(lSystem64);
-			return ;
+		HMODULE pModule  ;
+		lSystem64 = 0 ;
+		pModule = GetModuleHandle(TEXT("kernel32"));
+		if ( pModule != NULL ) {
+			fnCheckWindows64 = (LPFN_ISWOW64PROCESS) GetProcAddress(pModule,"IsWow64Process") ;
+			if ( fnCheckWindows64 != NULL ) {
+				fnCheckWindows64(GetCurrentProcess(),&lSystem64);
+				RING_API_RETNUMBER(lSystem64);
+				return ;
+			}
 		}
-	}
 	#endif
 	RING_API_RETNUMBER(0.0);
 }
@@ -68,45 +68,45 @@ void ring_vm_os_iswindows64 ( void *pPointer )
 void ring_vm_os_isunix ( void *pPointer )
 {
 	#if defined(unix) || defined(__unix__) || defined(__unix)
-	RING_API_RETNUMBER(1);
+		RING_API_RETNUMBER(1);
 	#else
-	RING_API_RETNUMBER(0);
+		RING_API_RETNUMBER(0);
 	#endif
 }
 
 void ring_vm_os_ismacosx ( void *pPointer )
 {
 	#if defined(__APPLE__)  || defined(__MACH__)
-	RING_API_RETNUMBER(1);
+		RING_API_RETNUMBER(1);
 	#else
-	RING_API_RETNUMBER(0);
+		RING_API_RETNUMBER(0);
 	#endif
 }
 
 void ring_vm_os_islinux ( void *pPointer )
 {
 	#ifdef __linux__
-	RING_API_RETNUMBER(1);
+		RING_API_RETNUMBER(1);
 	#else
-	RING_API_RETNUMBER(0);
+		RING_API_RETNUMBER(0);
 	#endif
 }
 
 void ring_vm_os_isfreebsd ( void *pPointer )
 {
 	#ifdef __FreeBSD__
-	RING_API_RETNUMBER(1);
+		RING_API_RETNUMBER(1);
 	#else
-	RING_API_RETNUMBER(0);
+		RING_API_RETNUMBER(0);
 	#endif
 }
 
 void ring_vm_os_isandroid ( void *pPointer )
 {
 	#ifdef __ANDROID__
-	RING_API_RETNUMBER(1);
+		RING_API_RETNUMBER(1);
 	#else
-	RING_API_RETNUMBER(0);
+		RING_API_RETNUMBER(0);
 	#endif
 }
 
