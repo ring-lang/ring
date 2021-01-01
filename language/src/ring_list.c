@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /*
 **  Functions 
@@ -36,7 +36,8 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
 			pItemsLast = pItems ;
 		}
 		pList->pLast = pItems ;
-	} else {
+	}
+	else {
 		pList->pFirst = NULL ;
 		pList->pLast = NULL ;
 	}
@@ -120,7 +121,8 @@ RING_API void ring_list_print ( List *pList )
 				y = ring_list_getdouble(pList,x) ;
 				if ( y == (int) y ) {
 					printf( "%.0f\n",y ) ;
-				} else {
+				}
+				else {
 					printf( "%.2f\n",y ) ;
 				}
 			}
@@ -227,7 +229,8 @@ RING_API void ring_list_newitem_gc ( void *pState,List *pList )
 		pList->pLast->pNext = pItems ;
 		pItems->pPrev = pList->pLast ;
 		pList->pLast = pItems ;
-	} else {
+	}
+	else {
 		pList->pFirst = pItems ;
 		pList->pLast = pItems ;
 	}
