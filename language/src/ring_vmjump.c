@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Jump Functions */
 
@@ -28,7 +28,8 @@ void ring_vm_jumpfor ( VM *pVM )
 	else if ( RING_VM_STACK_ISSTRING ) {
 		nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		RING_VM_STACK_POP ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
@@ -41,7 +42,8 @@ void ring_vm_jumpfor ( VM *pVM )
 	else if ( RING_VM_STACK_ISSTRING ) {
 		nNum3 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		RING_VM_STACK_POP ;
-	} else {
+	}
+	else {
 		ring_vm_error(pVM,RING_VM_ERROR_FORLOOPDATATYPE);
 		return ;
 	}
