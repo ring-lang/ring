@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* User Interface - Commands Implementation (Faster) - Because we don't have functions call */
 
@@ -18,7 +18,8 @@ void ring_vm_see ( VM *pVM )
 			for ( x = 0 ; x < RING_VM_STACK_STRINGSIZE ; x++ ) {
 				printf( "%c",cString[x] ) ;
 			}
-		} else {
+		}
+		else {
 			printf( "%s",cString ) ;
 		}
 	}
@@ -27,7 +28,8 @@ void ring_vm_see ( VM *pVM )
 			pList = ring_list_getlist((List *) RING_VM_STACK_READP,RING_VAR_VALUE);
 			if ( ring_vm_oop_isobject(pList) ) {
 				ring_vm_oop_printobj(pVM,pList);
-			} else {
+			}
+			else {
 				ring_list_print(pList);
 			}
 		}
@@ -36,7 +38,8 @@ void ring_vm_see ( VM *pVM )
 			pList = ring_item_getlist(pItem) ;
 			if ( ring_vm_oop_isobject(pList) ) {
 				ring_vm_oop_printobj(pVM,pList);
-			} else {
+			}
+			else {
 				ring_list_print(pList);
 			}
 		}
@@ -96,7 +99,8 @@ void ring_vmlib_see ( void *pPointer )
 			for ( x = 0 ; x < RING_API_GETSTRINGSIZE(1) ; x++ ) {
 				printf( "%c",cString[x] ) ;
 			}
-		} else {
+		}
+		else {
 			printf( "%s",cString ) ;
 		}
 	}
@@ -108,7 +112,8 @@ void ring_vmlib_see ( void *pPointer )
 		pList = RING_API_GETLIST(1);
 		if ( ring_vm_oop_isobject(pList) ) {
 			ring_vm_oop_printobj(pVM,pList);
-		} else {
+		}
+		else {
 			ring_list_print(pList);
 		}
 	}
