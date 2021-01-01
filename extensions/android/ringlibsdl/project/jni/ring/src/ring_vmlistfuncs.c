@@ -1,5 +1,5 @@
 /*
-**  Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> 
+**  Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
 #include "ring.h"
@@ -581,7 +581,8 @@ void ring_vmlib_reverse ( void *pPointer )
 			}
 		}
 		RING_API_RETLIST(pList);
-	} else {
+	}
+	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
