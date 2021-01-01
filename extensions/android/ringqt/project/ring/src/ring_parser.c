@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Functions */
 
@@ -9,28 +9,29 @@ int ring_parser_start ( List *pTokens,RingState *pRingState )
 	ring_state_log(pRingState,"function ring_parser_start() begin");
 	pParser = ring_parser_new(pTokens,pRingState);
 	#if RING_PARSERSTART
-	/* Parse Tokens */
-	ring_parser_nexttoken(pParser);
-	do {
-		nResult = ring_parser_class(pParser);
-		if ( nResult == 0 ) {
-			ring_parser_error(pParser,"");
-			/* Important check to avoid missing the line number counter */
-			if ( ring_parser_isendline(pParser) == 0 ) {
-				/* Move next trying to avoid the error */
-				ring_parser_nexttoken(pParser);
+		/* Parse Tokens */
+		ring_parser_nexttoken(pParser);
+		do {
+			nResult = ring_parser_class(pParser);
+			if ( nResult == 0 ) {
+				ring_parser_error(pParser,"");
+				/* Important check to avoid missing the line number counter */
+				if ( ring_parser_isendline(pParser) == 0 ) {
+					/* Move next trying to avoid the error */
+					ring_parser_nexttoken(pParser);
+				}
 			}
+		} while (pParser->ActiveToken !=pParser->TokensCount)  ;
+		/* Display Errors Count */
+		RingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
+		if ( pParser->nErrorsCount == 0 ) {
+			ring_parser_delete(pParser);
+			ring_state_log(pRingState,"function ring_parser_start() end");
+			return 1 ;
 		}
-	} while (pParser->ActiveToken !=pParser->TokensCount)  ;
-	/* Display Errors Count */
-	RingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
-	if ( pParser->nErrorsCount == 0 ) {
-		ring_parser_delete(pParser);
-		ring_state_log(pRingState,"function ring_parser_start() end");
-		return 1 ;
-	} else {
-		printf( "\n%s errors count : %d \n",ring_list_getstring(pParser->pRingState->pRingFilesStack,RingActiveFile),pParser->nErrorsCount ) ;
-	}
+		else {
+			printf( "\n%s errors count : %d \n",ring_list_getstring(pParser->pRingState->pRingFilesStack,RingActiveFile),pParser->nErrorsCount ) ;
+		}
 	#endif
 	ring_parser_delete(pParser);
 	ring_state_log(pRingState,"function ring_parser_start() end");
@@ -188,11 +189,13 @@ void ring_parser_error ( Parser *pParser,const char *cStr )
 		pParser->nErrorsCount++ ;
 		if ( strcmp(cStr,"") != 0 ) {
 			printf( "%s",cStr ) ;
-		} else {
+		}
+		else {
 			printf( RING_PARSER_ERROR_SYNTAXERROR ) ;
 		}
 		return ;
-	} else if ( strcmp(cStr,"") != 0 ) {
+	}
+	else if ( strcmp(cStr,"") != 0 ) {
 		pParser->nErrorsCount++ ;
 	}
 	if ( strcmp(cStr,"") != 0 ) {
