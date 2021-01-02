@@ -81,6 +81,7 @@ Contents:
    BigNumber Functions Reference <bignumber>
    Using RingLibCurl <libcurl>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
+   Using Sockets <socket>
    Using RingZip <ringzip>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>

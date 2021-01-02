@@ -1,0 +1,58 @@
+.. index:: 
+	single: socket; Introduction
+
+================
+Socket Extension
+================
+
+In this chapter we will learn about using the Socket extension.
+
+.. index:: 
+	pair: socket; TCP Server
+
+TCP Server
+==========
+
+Example (TCP Server Code): 
+
+.. code-block:: ring
+
+	# TCP SERVER
+
+	load "socket.ring" 
+
+	sock = socket(AF_INET,SOCK_STREAM,0) 
+	bind(sock,"127.0.0.1",5050)
+	listen(sock,5)
+	ns = accept(sock)
+
+	send(ns,"Hello Client")
+	msg = recv(ns,1024)
+	? "Client Say >> " + msg
+	close(sock)
+	? "socket connection closed"
+
+.. index:: 
+	pair: socket; TCP Client
+
+TCP Client
+==========
+
+Example (TCP Client Code):
+
+.. code-block:: ring
+
+	# TCP Client
+
+	load "socket.ring" 
+
+	sock = socket(AF_INET,SOCK_STREAM)
+	connect(sock,"127.0.0.1",5050)
+
+	send(sock,"Hello Server")
+	msg = recv(sock,1024)
+	? "Server Say >> " + msg
+
+	close(sock)
+	? "socket connection closed"
+
