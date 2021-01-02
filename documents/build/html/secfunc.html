@@ -125,6 +125,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#encryption-and-decryption-example">Encryption and Decryption Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#file-hash">File Hash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#randbytes-function">Randbytes() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#large-files-hash">Large Files Hash</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#download-function">Download() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sendemail-function">SendEmail() Function</a></li>
 </ul>
@@ -276,7 +277,7 @@
 <span id="index-0"></span><h1>Security and Internet Functions<a class="headerlink" href="#security-and-internet-functions" title="Permalink to this headline">¶</a></h1>
 <p>This chapter contains the security and internet functions provided by the Ring programming language
 for Hashing, Encryption &amp; Decryption.</p>
-<p>Before using the next function load the openssllib.ring library</p>
+<p>Before using the next functions load the openssllib.ring library</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;openssllib.ring&quot;</span>
 <span class="c"># Use OpenSSL functions</span>
 </pre></div>
@@ -291,8 +292,14 @@ for Hashing, Encryption &amp; Decryption.</p>
 <li><p>Encrypt()</p></li>
 <li><p>Decrypt()</p></li>
 <li><p>Randbytes()</p></li>
+<li><p>MD5Init(), MD5Update(), MD5Final()</p></li>
+<li><p>SHA1Init(), SHA1Update(), SHA1Final()</p></li>
+<li><p>SHA256Init(), SHA256Update(), SHA256Final()</p></li>
+<li><p>SHA512Init(), SHA512Update(), SHA512Final()</p></li>
+<li><p>SHA384Init(), SHA384Update(), SHA384Final()</p></li>
+<li><p>SHA224Init(), SHA224Update(), SHA224Final()</p></li>
 </ul>
-<p>Before using the next function load the internetlib.ring library</p>
+<p>Before using the next functions load the internetlib.ring library</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;internetlib.ring&quot;</span>
 <span class="c"># Use the Internet functions</span>
 </pre></div>
@@ -522,8 +529,37 @@ cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 </pre></div>
 </div>
 </div>
+<div class="section" id="large-files-hash">
+<span id="index-12"></span><h2>Large Files Hash<a class="headerlink" href="#large-files-hash" title="Permalink to this headline">¶</a></h2>
+<p>These functions compute the hash of large files/data without the need to load all of the content in a single string.</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>md5init() -&gt; MD5_CTX
+md5update (MD5_CTX, string) -&gt; 1 for success or 0 for failure
+md5final (MD5_CTX) -&gt; string
+
+sha1init() -&gt; SHA_CTX
+sha1update (SHA_CTX, string) -&gt; 1 for success or 0 for failure
+sha1final (SHA_CTX) -&gt; string
+
+sha224init() -&gt; SHA224_CTX
+sha224update (SHA224_CTX, string) -&gt; 1 for success or 0 for failure
+sha224final (SHA224_CTX) -&gt; string
+
+sha256init() -&gt; SHA256_CTX
+sha256update (SHA256_CTX, string) -&gt; 1 for success or 0 for failure
+sha256final (SHA256_CTX) -&gt; string
+
+sha384init() -&gt; SHA384_CTX
+sha384update (SHA384_CTX, string) -&gt; 1 for success or 0 for failure
+sha384final (SHA384_CTX) -&gt; string
+
+sha512init() -&gt; SHA512_CTX
+sha512update (SHA512_CTX, string) -&gt; 1 for success or 0 for failure
+sha512final (SHA512_CTX) -&gt; string
+</pre></div>
+</div>
+</div>
 <div class="section" id="download-function">
-<span id="index-12"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Download</span><span class="p">(</span><span class="n">cURL</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">server</span> <span class="n">response</span>
 </pre></div>
@@ -536,7 +572,7 @@ cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 </div>
 </div>
 <div class="section" id="sendemail-function">
-<span id="index-13"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SendEmail</span><span class="p">(</span><span class="n">cSMTPServer</span><span class="p">,</span><span class="n">cEmail</span><span class="p">,</span><span class="n">cPassword</span><span class="p">,</span><span class="n">cSender</span><span class="p">,</span><span class="n">cReceiver</span><span class="p">,</span><span class="n">cCC</span><span class="p">,</span><span class="n">cTitle</span><span class="p">,</span><span class="n">cContent</span><span class="p">)</span>
 </pre></div>
