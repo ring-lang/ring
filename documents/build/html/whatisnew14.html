@@ -195,9 +195,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#erlang-b-formula">Erlang B Formula</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringlibui-extension">RingLibui Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringopenssl">Better RingOpenSSL</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#better-performance">Better Performance</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-performance-for-strings">Better Performance For Strings</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-handling-for-numbers">Better Handling For Numbers</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-cloc-count-lines-of-code">Using CLOC (Count Lines of Code)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-functions">More Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -283,9 +284,10 @@
 <li><p>Erlang B Formula</p></li>
 <li><p>RingLibui Extension</p></li>
 <li><p>Better RingOpenSSL</p></li>
-<li><p>Better Performance</p></li>
+<li><p>Better Performance For Strings</p></li>
 <li><p>Better Handling For Numbers</p></li>
 <li><p>Using CLOC (Count Lines of Code)</p></li>
+<li><p>More Functions</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </div>
@@ -427,8 +429,8 @@ sha512final (SHA512_CTX) -&gt; string
 </pre></div>
 </div>
 </div>
-<div class="section" id="better-performance">
-<span id="index-8"></span><h2>Better Performance<a class="headerlink" href="#better-performance" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="better-performance-for-strings">
+<span id="index-8"></span><h2>Better Performance For Strings<a class="headerlink" href="#better-performance-for-strings" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring 1.14 is 3x Faster in programs that have strings with long and fixed size</p></li>
 </ul>
@@ -589,16 +591,33 @@ SUM:                            53           1311            567           9078
 </pre></div>
 </div>
 </div>
+<div class="section" id="more-functions">
+<span id="index-11"></span><h2>More Functions<a class="headerlink" href="#more-functions" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>DirExists() Function</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>DirExists(cDirPath) ---&gt; returns 1 if the directory exists
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>GetPathType() Function</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>GetPathType(cPath) ---&gt; 0 if the path doesn&#39;t exists
+                        1 if it corresponds to existing file
+                        2 if it corresponds to existing directory
+                        -1 if the path exists but has
+                           an unknown type (e.g. a pipe)
+</pre></div>
+</div>
+</div>
 <div class="section" id="more-improvements">
-<span id="index-11"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring Compiler - Pass new lines after the FUNC keyword in anonymous functions</p></li>
 <li><p>Ring Compiler - Pass new lines after the function parameters in anonymous functions</p></li>
 <li><p>Ring Compiler - Pass new lines after the access of the list items</p></li>
 <li><p>Ring Compiler - Pass new lines after the access of the object attribute</p></li>
 <li><p>Ring Compiler - Support numbers of 97 digits</p></li>
-<li><p>Ring VM - New Function - DirExists()</p></li>
-<li><p>Ring VM - New Function - GetPathType()</p></li>
 <li><p>Ring VM - Str2Hex() function - Better Performance</p></li>
 <li><p>Ring VM - Hex2Str() function - Better Performance</p></li>
 <li><p>Ring VM - SubStr() function - Better Code</p></li>
