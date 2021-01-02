@@ -349,3 +349,22 @@ Output:
 .. code-block:: ring
 
 	NUMBER
+
+Using Hexadecimal Numbers
+=========================
+
+We can write Hexadecimal number by preceding with "0x" or "0X"
+
+Example:
+
+.. code-block:: ring
+
+	x = 0x10
+	? x             # 16
+	x = 0xff
+	? x             # 255
+	x = 0x0A
+	? x             # 10
+	? 0xFFFF        # 65535
+	? 0x0A + 1      # 10+1 = 11
+
