@@ -310,7 +310,7 @@ void ring_vm_listassignment ( VM *pVM )
 	List *pList,*pVar  ;
 	pVar = NULL ;
 	if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= 1) ) {
-		cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		assert(cStr1 != NULL);
 		RING_VM_STACK_POP ;
 		pItem = (Item *) RING_VM_STACK_READP ;
@@ -328,7 +328,6 @@ void ring_vm_listassignment ( VM *pVM )
 				ring_item_setdouble_gc(pVM->pRingState,pItem,ring_item_getdouble(pItem)+ring_vm_stringtonum(pVM,ring_string_get(cStr1)));
 			}
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;

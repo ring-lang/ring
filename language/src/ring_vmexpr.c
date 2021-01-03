@@ -11,6 +11,8 @@ void ring_vm_sum ( VM *pVM )
 	String *cStr1,*cStr2  ;
 	double nNum1,nNum2  ;
 	char cStr3[100]  ;
+	int nSize,x ;
+	char* cValue;
 	/*
 	**  Description 
 	**  We can sum string + number ---> string , number + string ---> number 
@@ -19,22 +21,23 @@ void ring_vm_sum ( VM *pVM )
 	**  list1 + list2 ---> add list2 items to list 1 
 	*/
 	if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE) ;
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		RING_VM_STACK_POP ;
 		if ( RING_VM_STACK_ISSTRING ) {
-			cStr2 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE) ;
+			cStr2 = RING_VM_STACK_GETSTRINGRAW ;
 			ring_string_add2_gc(pVM->pRingState,cStr2,ring_string_get(cStr1),ring_string_size(cStr1));
-			RING_VM_STACK_SETCVALUE2(ring_string_get(cStr2),ring_string_size(cStr2));
-			ring_string_delete_gc(pVM->pRingState,cStr2);
 		}
 		else if ( RING_VM_STACK_ISNUMBER ) {
 			nNum2 = RING_VM_STACK_READN ;
 			if ( strcmp(ring_string_get(cStr1),"\n") == 0 ) {
-				cStr2 = ring_string_new_gc(pVM->pRingState,"") ;
-				ring_string_add_gc(pVM->pRingState,cStr2,ring_vm_numtostring(pVM,nNum2,cStr3));
-				ring_string_add_gc(pVM->pRingState,cStr2,ring_string_get(cStr1));
-				RING_VM_STACK_SETCVALUE(ring_string_get(cStr2));
-				ring_string_delete_gc(pVM->pRingState,cStr2);
+				nSize = strlen (ring_vm_numtostring(pVM,nNum2,cStr3)) ;
+				/* pre-allocated the stack string variable */
+				RING_VM_STACK_SETCSIZE(nSize + 1);
+				cStr2 = RING_VM_STACK_GETSTRINGRAW ;
+				/* copy manually the content */
+				cValue = ring_string_get(cStr2);
+				RING_MEMCPY(cValue, cStr3, nSize);
+				cValue[nSize] = '\n';
 			}
 			else {
 				RING_VM_STACK_SETNVALUE(nNum2 + ring_vm_stringtonum(pVM,ring_string_get(cStr1)));
@@ -42,10 +45,8 @@ void ring_vm_sum ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"+",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
@@ -55,11 +56,9 @@ void ring_vm_sum ( VM *pVM )
 			RING_VM_STACK_SETNVALUE(nNum1+nNum2);
 		}
 		else if ( RING_VM_STACK_ISSTRING ) {
-			cStr2 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC) ;
+			cStr2 = RING_VM_STACK_GETSTRINGRAW ;
 			ring_vm_numtostring(pVM,nNum1,cStr3);
 			ring_string_add_gc(pVM->pRingState,cStr2,cStr3);
-			RING_VM_STACK_SETCVALUE(ring_string_get(cStr2));
-			ring_string_delete_gc(pVM->pRingState,cStr2);
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_npoo(pVM,"+",nNum1);
@@ -95,7 +94,7 @@ void ring_vm_sub ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE) ;
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -108,10 +107,8 @@ void ring_vm_sub ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"-",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"-");
@@ -139,7 +136,7 @@ void ring_vm_mul ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE) ;
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -152,10 +149,8 @@ void ring_vm_mul ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"*",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"*");
@@ -189,7 +184,7 @@ void ring_vm_div ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE) ;
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -202,10 +197,8 @@ void ring_vm_div ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"/",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"/");
@@ -239,7 +232,7 @@ void ring_vm_mod ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE) ;
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -252,10 +245,8 @@ void ring_vm_mod ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"%",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"%");
@@ -292,17 +283,16 @@ void ring_vm_equal ( VM *pVM )
 	double nNum1,nNum2  ;
 	char cStr3[100]  ;
 	if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		RING_VM_STACK_POP ;
 		if ( RING_VM_STACK_ISSTRING ) {
-			cStr2 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+			cStr2 = RING_VM_STACK_GETSTRINGRAW ;
 			if ( strcmp(ring_string_get(cStr1),ring_string_get(cStr2)) == 0 ) {
 				RING_VM_STACK_TRUE ;
 			}
 			else {
 				RING_VM_STACK_FALSE ;
 			}
-			ring_string_delete_gc(pVM->pRingState,cStr2);
 		}
 		else if ( RING_VM_STACK_ISNUMBER ) {
 			nNum1 = RING_VM_STACK_READN ;
@@ -316,10 +306,8 @@ void ring_vm_equal ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"=",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
@@ -370,7 +358,7 @@ void ring_vm_lessequal ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -383,10 +371,8 @@ void ring_vm_lessequal ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"<=",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"<=");
@@ -420,7 +406,7 @@ void ring_vm_less ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -433,10 +419,8 @@ void ring_vm_less ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"<",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"<");
@@ -470,7 +454,7 @@ void ring_vm_greater ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -483,10 +467,8 @@ void ring_vm_greater ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,">",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,">");
@@ -520,7 +502,7 @@ void ring_vm_greaterequal ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -533,10 +515,8 @@ void ring_vm_greaterequal ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,">=",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,">=");
@@ -557,10 +537,10 @@ void ring_vm_notequal ( VM *pVM )
 	double nNum1,nNum2  ;
 	char cStr3[100]  ;
 	if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		RING_VM_STACK_POP ;
 		if ( RING_VM_STACK_ISSTRING ) {
-			cStr2 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+			cStr2 = RING_VM_STACK_GETSTRINGRAW ;
 			/* Compare */
 			if ( strcmp(ring_string_get(cStr1),ring_string_get(cStr2)) == 0 ) {
 				RING_VM_STACK_FALSE ;
@@ -568,7 +548,6 @@ void ring_vm_notequal ( VM *pVM )
 			else {
 				RING_VM_STACK_TRUE ;
 			}
-			ring_string_delete_gc(pVM->pRingState,cStr2);
 		}
 		else if ( RING_VM_STACK_ISNUMBER ) {
 			nNum2 = RING_VM_STACK_READN ;
@@ -583,10 +562,8 @@ void ring_vm_notequal ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"!=",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
@@ -602,7 +579,7 @@ void ring_vm_notequal ( VM *pVM )
 			}
 		}
 		else if ( RING_VM_STACK_ISSTRING ) {
-			cStr2 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+			cStr2 = RING_VM_STACK_GETSTRINGRAW ;
 			ring_vm_numtostring(pVM,nNum1,cStr3);
 			/* Compare */
 			if ( strcmp(ring_string_get(cStr2),cStr3) == 0 ) {
@@ -611,7 +588,6 @@ void ring_vm_notequal ( VM *pVM )
 			else {
 				RING_VM_STACK_TRUE ;
 			}
-			ring_string_delete_gc(pVM->pRingState,cStr2);
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_npoo(pVM,"!=",nNum1);
@@ -645,7 +621,7 @@ void ring_vm_and ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -659,10 +635,8 @@ void ring_vm_and ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"and",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"and");
@@ -689,7 +663,7 @@ void ring_vm_or ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -703,10 +677,8 @@ void ring_vm_or ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"or",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"or");
@@ -760,7 +732,7 @@ void ring_vm_bitand ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -774,10 +746,8 @@ void ring_vm_bitand ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"&",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"&");
@@ -804,7 +774,7 @@ void ring_vm_bitor ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -818,10 +788,8 @@ void ring_vm_bitor ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"|",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"|");
@@ -851,7 +819,7 @@ void ring_vm_bitshl ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -867,10 +835,8 @@ void ring_vm_bitshl ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"<<",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"<<");
@@ -897,7 +863,7 @@ void ring_vm_bitshr ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW;
 		nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		RING_VM_STACK_POP ;
 		if ( RING_VM_STACK_ISNUMBER ) {
@@ -909,10 +875,8 @@ void ring_vm_bitshr ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,">>",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,">>");
@@ -939,7 +903,7 @@ void ring_vm_bitxor ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -953,10 +917,8 @@ void ring_vm_bitxor ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISPOINTER ) {
 			ring_vm_expr_spoo(pVM,"^",ring_string_get(cStr1),ring_string_size(cStr1));
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 			return ;
 		}
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		ring_vm_expr_ppoo(pVM,"^");
