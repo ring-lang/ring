@@ -571,6 +571,7 @@
 	#define RING_VM_STACK_SETNVALUE(x) ring_itemarray_setdouble(pVM->aStack, pVM->nSP , x)
 	#define RING_VM_STACK_SETPVALUE(x) ring_itemarray_setpointer(pVM->aStack, pVM->nSP , x )
 	#define RING_VM_STACK_SETCVALUE2(x,y) ring_itemarray_setstring2(pVM->aStack, pVM->nSP, x,y)
+	#define RING_VM_STACK_SETCSIZE(x) ring_itemarray_setstring2(pVM->aStack, pVM->nSP, NULL,x)
 	#define RING_VM_STACK_PUSHCVALUE2(x,y) pVM->nSP++ ; ring_itemarray_setstring2(pVM->aStack, pVM->nSP, x,y)
 	/* Check */
 	#define RING_VM_STACK_ISSTRING ring_itemarray_isstring(pVM->aStack,pVM->nSP)
@@ -579,6 +580,7 @@
 	#define RING_VM_STACK_ISPOINTERVALUE(x) ring_itemarray_ispointer(pVM->aStack,x)
 	/* Read */
 	#define RING_VM_STACK_READC ring_itemarray_getstring(pVM->aStack,pVM->nSP)
+	#define RING_VM_STACK_STRINGRAW ring_itemarray_getstring_raw(pVM->aStack,pVM->nSP)
 	#define RING_VM_STACK_STRINGSIZE ring_itemarray_getstringsize(pVM->aStack,pVM->nSP)
 	#define RING_VM_STACK_READN ring_itemarray_getdouble(pVM->aStack,pVM->nSP)
 	#define RING_VM_STACK_READP ring_itemarray_getpointer(pVM->aStack,pVM->nSP)

@@ -23,14 +23,17 @@ RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSiz
 		printf( RING_OOM ) ;
 		exit(0);
 	}
-	/* Copy String */
-	if ( nStrSize < 16 ) {
-		for ( x = 0 ; x < nStrSize ; x++ ) {
-			pString->cStr[x] = str[x] ;
+	/* if str is NULL, then caller wants to just pre-allocated memory */
+	if ( str ) {
+		/* Copy String */
+		if ( nStrSize < 16 ) {
+			for ( x = 0 ; x < nStrSize ; x++ ) {
+				pString->cStr[x] = str[x] ;
+			}
 		}
-	}
-	else {
-		memcpy(pString->cStr, str, nStrSize);
+		else {
+			memcpy(pString->cStr, str, nStrSize);
+		}
 	}
 	pString->cStr[nStrSize] = '\0' ;
 	pString->nSize = nStrSize ;
@@ -56,6 +59,10 @@ RING_API void ring_string_set_gc ( void *pState,String *pString,const char *str 
 {
 	int x  ;
 	assert(pString != NULL);
+	if ( pString->cStr == str ) {
+		/* we setting the string by itself, do nothing */
+		return;
+	}
 	x = strlen( str ) ;
 	ring_string_set2_gc(pState,pString,str,x);
 }
@@ -65,6 +72,10 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str
 	int x  ;
 	assert(pString != NULL);
 	assert(pString->cStr != NULL);
+	if ( (pString->nSize == nStrSize) && (pString->cStr == str) ) {
+		/* we setting the string by itself, do nothing */
+		return;
+	}
 	/* Allocate new buffer only if the new size is different from the current size */
 	if ( pString->nSize != nStrSize ) {
 		ring_state_free(pState,pString->cStr);
@@ -75,14 +86,17 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str
 		}
 	}
 	/* Copy String */
-	if ( nStrSize < 16 ) {
-		/* Benchmarks show that below 64 bytes, memcpy() gain is not significant */
-		for ( x = 0 ; x < nStrSize ; x++ ) {
-			pString->cStr[x] = str[x] ;
+	/* if str is NULL, then caller wants to just pre-allocated memory */
+	if ( str ) {
+		if ( nStrSize < 16 ) {
+			/* memcpy treshold as defined in glic 2.8: https://github.com/lattera/glibc/blob/master/string/memcmp.c#L53 */
+			for ( x = 0 ; x < nStrSize ; x++ ) {
+				pString->cStr[x] = str[x] ;
+			}
 		}
-	}
-	else {
-		memcpy(pString->cStr, str, nStrSize);
+		else {
+			memcpy(pString->cStr, str, nStrSize);
+		}
 	}
 	pString->cStr[nStrSize] = '\0' ;
 	pString->nSize = nStrSize ;

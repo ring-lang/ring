@@ -94,34 +94,36 @@ RING_API void ring_item_content_delete_gc ( void *pState,Item *pItem )
 RING_API void ring_item_settype_gc ( void *pState,Item *pItem,int ItemType )
 {
 	assert(pItem != NULL);
-	/* When we set the type we remove the current content at first */
-	ring_item_content_delete_gc(pState,pItem);
-	switch ( ItemType ) {
-		case ITEMTYPE_NOTHING :
-			pItem->nType = ITEMTYPE_NOTHING ;
-			break ;
-		case ITEMTYPE_STRING :
-			pItem->nType = ITEMTYPE_STRING ;
-			pItem->data.pString = ring_string_new_gc(pState,"");
-			break ;
-		case ITEMTYPE_NUMBER :
-			pItem->nType = ITEMTYPE_NUMBER ;
-			pItem->data.dNumber = 0 ;
-			pItem->data.iNumber = 0 ;
-			break ;
-		case ITEMTYPE_POINTER :
-			pItem->nType = ITEMTYPE_POINTER ;
-			pItem->data.pPointer = NULL ;
-			pItem->nObjectType = 0 ;
-			break ;
-		case ITEMTYPE_LIST :
-			pItem->nType = ITEMTYPE_LIST ;
-			pItem->data.pList = ring_list_new_gc(pState,0);
-			break ;
-		case ITEMTYPE_FUNCPOINTER :
-			pItem->nType = ITEMTYPE_FUNCPOINTER ;
-			pItem->data.pFunc = NULL ;
-			break ;
+	if ( ItemType != pItem->nType || (ItemType != ITEMTYPE_STRING)) {
+		/* When we set the type we remove the current content at first */
+		ring_item_content_delete_gc(pState,pItem);
+		switch ( ItemType ) {
+			case ITEMTYPE_NOTHING :
+				pItem->nType = ITEMTYPE_NOTHING ;
+				break ;
+			case ITEMTYPE_STRING :
+				pItem->nType = ITEMTYPE_STRING ;
+				pItem->data.pString = ring_string_new_gc(pState,"");
+				break ;
+			case ITEMTYPE_NUMBER :
+				pItem->nType = ITEMTYPE_NUMBER ;
+				pItem->data.dNumber = 0 ;
+				pItem->data.iNumber = 0 ;
+				break ;
+			case ITEMTYPE_POINTER :
+				pItem->nType = ITEMTYPE_POINTER ;
+				pItem->data.pPointer = NULL ;
+				pItem->nObjectType = 0 ;
+				break ;
+			case ITEMTYPE_LIST :
+				pItem->nType = ITEMTYPE_LIST ;
+				pItem->data.pList = ring_list_new_gc(pState,0);
+				break ;
+			case ITEMTYPE_FUNCPOINTER :
+				pItem->nType = ITEMTYPE_FUNCPOINTER ;
+				pItem->data.pFunc = NULL ;
+				break ;
+		}
 	}
 }
 /*
