@@ -23,7 +23,7 @@ RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSiz
 		printf( RING_OOM ) ;
 		exit(0);
 	}
-	/* if str is NULL, then caller wants to just pre-allocated memory */
+	/* if str is NULL then the caller wants to adjust the preallocated memory */
 	if ( str ) {
 		/* Copy String */
 		RING_MEMCPY(pString->cStr, str, nStrSize);
@@ -53,8 +53,8 @@ RING_API void ring_string_set_gc ( void *pState,String *pString,const char *str 
 	int x  ;
 	assert(pString != NULL);
 	if ( pString->cStr == str ) {
-		/* we setting the string by itself, do nothing */
-		return;
+		/* Setting the string by itself - Do nothing! */
+		return ;
 	}
 	x = strlen( str ) ;
 	ring_string_set2_gc(pState,pString,str,x);
@@ -66,8 +66,8 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str
 	assert(pString != NULL);
 	assert(pString->cStr != NULL);
 	if ( (pString->nSize == nStrSize) && (pString->cStr == str) ) {
-		/* we setting the string by itself, do nothing */
-		return;
+		/* Setting the string by itself - Do nothing! */
+		return ;
 	}
 	/* Allocate new buffer only if the new size is different from the current size */
 	if ( pString->nSize != nStrSize ) {
@@ -78,9 +78,9 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str
 			exit(0);
 		}
 	}
-	/* Copy String */
-	/* if str is NULL, then caller wants to just pre-allocated memory */
+	/* if str is NULL then the caller wants to adjust the preallocated memory */
 	if ( str ) {
+		/* Copy String */
 		RING_MEMCPY(pString->cStr, str, nStrSize);
 	}
 	pString->cStr[nStrSize] = '\0' ;
@@ -99,9 +99,9 @@ RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str
 	int x,x2,nOriginalSize  ;
 	char *cStr  ;
 	assert(pString != NULL);
-	if ( nStrSize == 0) {
-		/* adding empty string: do nothing */
-		return;
+	if ( nStrSize == 0 ) {
+		/* Adding empty string ---> Do Nothing! */
+		return ;
 	}
 	nOriginalSize = ring_string_size(pString) ;
 	x2 = nStrSize+nOriginalSize ;
@@ -199,7 +199,7 @@ RING_API char * ring_string_find2_gc ( void *pState,char *cStr1,int nStrSize1,ch
 			}
 		}
 		else {
-			if ( 0 == memcmp (cStr1+nPos,cStr2,nStrSize2) ) {
+			if ( memcmp(cStr1+nPos,cStr2,nStrSize2) == 0 ) {
 				return cStr1+nPos ;
 			}
 		}
@@ -243,7 +243,7 @@ RING_API char * ring_string_find3_gc ( void *pState,char *cStr1,int nStrSize1,ch
 			}
 		}
 		else {
-			if ( 0 == memcmp (cStr3+nPos,cStr4,nStrSize2) ) {
+			if ( memcmp(cStr3+nPos,cStr4,nStrSize2) == 0 ) {
 				pOutput = cStr1+nPos ;
 				break ;
 			}
