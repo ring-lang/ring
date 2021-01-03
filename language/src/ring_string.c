@@ -24,7 +24,7 @@ RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSiz
 		exit(0);
 	}
 	/* Copy String */
-	if ( nStrSize < 64 ) {
+	if ( nStrSize < 16 ) {
 		for ( x = 0 ; x < nStrSize ; x++ ) {
 			pString->cStr[x] = str[x] ;
 		}
@@ -75,7 +75,7 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str
 		}
 	}
 	/* Copy String */
-	if ( nStrSize < 64 ) {
+	if ( nStrSize < 16 ) {
 		/* Benchmarks show that below 64 bytes, memcpy() gain is not significant */
 		for ( x = 0 ; x < nStrSize ; x++ ) {
 			pString->cStr[x] = str[x] ;
@@ -100,6 +100,10 @@ RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str
 	int x,x2,nOriginalSize  ;
 	char *cStr  ;
 	assert(pString != NULL);
+	if ( nStrSize == 0) {
+		/* adding empty string: do nothing */
+		return;
+	}
 	nOriginalSize = ring_string_size(pString) ;
 	x2 = nStrSize+nOriginalSize ;
 	pString->cStr = (char *) ring_state_realloc(pState,pString->cStr,nOriginalSize+1,x2+1);
@@ -108,7 +112,7 @@ RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str
 		exit(0);
 	}
 	/* Copy String */
-	if ( nStrSize < 64 ) {
+	if ( nStrSize < 16 ) {
 		for ( x = 0 ; x < nStrSize ; x++ ) {
 			pString->cStr[x+nOriginalSize] = str[x] ;
 		}
@@ -136,8 +140,9 @@ RING_API void ring_string_setfromint_gc ( void *pState,String *pString,int x )
 
 RING_API char * ring_string_lower ( char *cStr )
 {
-	unsigned int x  ;
-	for ( x = 0 ; x < strlen(cStr) ; x++ ) {
+	unsigned int x, nLen  ;
+	nLen = strlen(cStr) ;
+	for ( x = 0 ; x < nLen ; x++ ) {
 		if ( isalpha((unsigned char) cStr[x]) ) {
 			cStr[x] = tolower( cStr[x] );
 		}
@@ -158,8 +163,9 @@ RING_API char * ring_string_lower2 ( char *cStr,int nStrSize )
 
 RING_API char * ring_string_upper ( char *cStr )
 {
-	unsigned int x  ;
-	for ( x = 0 ; x < strlen(cStr) ; x++ ) {
+	unsigned int x, nLen  ;
+	nLen = strlen(cStr) ;
+	for ( x = 0 ; x < nLen ; x++ ) {
 		if ( isalpha((unsigned char) cStr[x]) ) {
 			cStr[x] = toupper( cStr[x] );
 		}
@@ -191,12 +197,19 @@ RING_API char * ring_string_find2_gc ( void *pState,char *cStr1,int nStrSize1,ch
 		return NULL ;
 	}
 	while ( nPos <= (nStrSize1 - nStrSize2) ) {
-		x = 0 ;
-		while ( (x < nStrSize2) && (cStr1[nPos+x] == cStr2[x] ) ) {
-			x++ ;
+		if ( nStrSize2 < 16 ) {
+			x = 0 ;
+			while ( (x < nStrSize2) && (cStr1[nPos+x] == cStr2[x] ) ) {
+				x++ ;
+			}
+			if ( x == nStrSize2 ) {
+				return cStr1+nPos ;
+			}
 		}
-		if ( x == nStrSize2 ) {
-			return cStr1+nPos ;
+		else {
+			if ( 0 == memcmp (cStr1+nPos,cStr2,nStrSize2) ) {
+				return cStr1+nPos ;
+			}
 		}
 		nPos++ ;
 	}
@@ -221,23 +234,41 @@ RING_API char * ring_string_find3_gc ( void *pState,char *cStr1,int nStrSize1,ch
 		printf( RING_OOM ) ;
 		exit(0);
 	}
-	for ( x = 0 ; x <= nStrSize1 ; x++ ) {
-		cStr3[x] = cStr1[x] ;
+	if ( nStrSize1 < 16 ) {
+		for ( x = 0 ; x <= nStrSize1 ; x++ ) {
+			cStr3[x] = cStr1[x] ;
+		}
 	}
-	for ( x = 0 ; x <= nStrSize2 ; x++ ) {
-		cStr4[x] = cStr2[x] ;
+	else {
+		memcpy (cStr3,cStr1,nStrSize1);
+	}
+	if ( nStrSize2 < 16 ) {
+		for ( x = 0 ; x <= nStrSize2 ; x++ ) {
+			cStr4[x] = cStr2[x] ;
+		}
+	}
+	else {
+		memcpy (cStr4,cStr2,nStrSize2);
 	}
 	ring_string_lower2(cStr3,nStrSize1);
 	ring_string_lower2(cStr4,nStrSize2);
 	pOutput = NULL ;
 	while ( nPos <= (nStrSize1 - nStrSize2) ) {
-		x = 0 ;
-		while ( (x < nStrSize2) && (cStr3[nPos+x] == cStr4[x] ) ) {
-			x++ ;
+		if ( nStrSize2 < 16 ) {
+			x = 0 ;
+			while ( (x < nStrSize2) && (cStr3[nPos+x] == cStr4[x] ) ) {
+				x++ ;
+			}
+			if ( x == nStrSize2 ) {
+				pOutput = cStr1+nPos ;
+				break ;
+			}
 		}
-		if ( x == nStrSize2 ) {
-			pOutput = cStr1+nPos ;
-			break ;
+		else {
+			if ( 0 == memcmp (cStr3+nPos,cStr4,nStrSize2) ) {
+				pOutput = cStr1+nPos ;
+				break ;
+			}
 		}
 		nPos++ ;
 	}
@@ -257,8 +288,13 @@ RING_API char * ring_strdup ( void *pState,const char *cStr )
 		printf( RING_OOM ) ;
 		exit(0);
 	}
-	for ( x = 0 ; x < nSize ; x++ ) {
-		cString[x] = cStr[x] ;
+	if ( nSize < 16 ) {
+		for ( x = 0 ; x < nSize ; x++ ) {
+			cString[x] = cStr[x] ;
+		}
+	}
+	else {
+		memcpy (cString, cStr, nSize);
 	}
 	cString[nSize] = '\0' ;
 	return cString ;
