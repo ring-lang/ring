@@ -56,3 +56,49 @@ Example (TCP Client Code):
 	close(sock)
 	? "socket connection closed"
 
+
+.. index:: 
+	pair: socket; Functions
+
+Functions
+=========
+
+The next functions are provided by this extension
+
+.. code-block:: none
+
+	socket(nAddressFamily, nConnectionType) -> SocketHandle
+	bind(pSocketHandle, cHost , nPort)
+	listen(pSocketHandle, nBacklog)
+	accept(pSocketHandle) -> pConnectionHandle
+	send(pConnectionHandle|pSocketHandle,cMessage)
+	sendto(pSocketHandle,cMessage)
+	recv(pConnectionHandle|pSocketHandle,nBuffer) -> cData
+	recvfrom(pSocketHandle, nBuffer) -> cData
+	connect(pSocketHandle, cHost , nPort) -> return <0> if successful
+	close(pSocketHandle)
+	gethostbyname(cHostName) -> cIPAddress
+	gethostbyaddr(cIPAddress) -> aListOfHostInfo
+	gethostname() -> cHostName
+	getservbyname(cName) -> nPort
+	getservbyport(nPort) -> cName
+
+.. index:: 
+	pair: socket; Constants
+
+Constants
+=========
+
+Address Family:
+
+.. code-block:: none   
+
+	AF_INET       #  mean use IPV4
+	AF_INET6      #  ........ IPV6
+
+Connection type:
+
+.. code-block:: none   
+
+	SOCK_STREAM   #  mean use TCP Protocol
+	SOCK_DGRAM    #  ........ UDP ........
