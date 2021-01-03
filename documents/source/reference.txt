@@ -79,7 +79,7 @@ Keywords Count : 49
 Language Functions
 ==================
 
-Functions Count : 228
+Functions Count : 230
 
 .. code-block:: ring
 
@@ -133,6 +133,8 @@ Functions Count : 228
 	feof()
 	ferror()
 	fexists()
+	direxists()
+	getpathtype()
 	fflush()
 	fgetc()
 	fgetpos()
