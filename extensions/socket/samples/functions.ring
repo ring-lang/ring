@@ -2,11 +2,13 @@ load "socket.ring"
 
 host = gethostbyname("google.com")
 ? host
-? copy("=",30)
+line()
 ? gethostbyaddr(host)
-? copy("=",30)
+line()
 ? gethostname()
-? copy("=",30)
+line()
 ? getservbyname("ftp")
-? copy("=",30)
+line()
 ? getservbyport(21)
+
+func line ? copy("=",30)
