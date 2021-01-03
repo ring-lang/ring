@@ -310,7 +310,7 @@ void ring_vm_listassignment ( VM *pVM )
 	List *pList,*pVar  ;
 	pVar = NULL ;
 	if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= 1) ) {
-		cStr1 = RING_VM_STACK_STRINGRAW ;
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		assert(cStr1 != NULL);
 		RING_VM_STACK_POP ;
 		pItem = (Item *) RING_VM_STACK_READP ;

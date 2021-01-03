@@ -580,7 +580,7 @@
 	#define RING_VM_STACK_ISPOINTERVALUE(x) ring_itemarray_ispointer(pVM->aStack,x)
 	/* Read */
 	#define RING_VM_STACK_READC ring_itemarray_getstring(pVM->aStack,pVM->nSP)
-	#define RING_VM_STACK_STRINGRAW ring_itemarray_getstring_raw(pVM->aStack,pVM->nSP)
+	#define RING_VM_STACK_GETSTRINGRAW ring_itemarray_getstringraw(pVM->aStack,pVM->nSP)
 	#define RING_VM_STACK_STRINGSIZE ring_itemarray_getstringsize(pVM->aStack,pVM->nSP)
 	#define RING_VM_STACK_READN ring_itemarray_getdouble(pVM->aStack,pVM->nSP)
 	#define RING_VM_STACK_READP ring_itemarray_getpointer(pVM->aStack,pVM->nSP)

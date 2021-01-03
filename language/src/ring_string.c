@@ -26,14 +26,7 @@ RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSiz
 	/* if str is NULL, then caller wants to just pre-allocated memory */
 	if ( str ) {
 		/* Copy String */
-		if ( nStrSize < 16 ) {
-			for ( x = 0 ; x < nStrSize ; x++ ) {
-				pString->cStr[x] = str[x] ;
-			}
-		}
-		else {
-			memcpy(pString->cStr, str, nStrSize);
-		}
+		RING_MEMCPY(pString->cStr, str, nStrSize);
 	}
 	pString->cStr[nStrSize] = '\0' ;
 	pString->nSize = nStrSize ;
@@ -88,15 +81,7 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str
 	/* Copy String */
 	/* if str is NULL, then caller wants to just pre-allocated memory */
 	if ( str ) {
-		if ( nStrSize < 16 ) {
-			/* memcpy treshold as defined in glic 2.8: https://github.com/lattera/glibc/blob/master/string/memcmp.c#L53 */
-			for ( x = 0 ; x < nStrSize ; x++ ) {
-				pString->cStr[x] = str[x] ;
-			}
-		}
-		else {
-			memcpy(pString->cStr, str, nStrSize);
-		}
+		RING_MEMCPY(pString->cStr, str, nStrSize);
 	}
 	pString->cStr[nStrSize] = '\0' ;
 	pString->nSize = nStrSize ;
@@ -126,14 +111,7 @@ RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str
 		exit(0);
 	}
 	/* Copy String */
-	if ( nStrSize < 16 ) {
-		for ( x = 0 ; x < nStrSize ; x++ ) {
-			pString->cStr[x+nOriginalSize] = str[x] ;
-		}
-	}
-	else {
-		memcpy(pString->cStr + nOriginalSize, str, nStrSize);
-	}
+	RING_MEMCPY(pString->cStr + nOriginalSize, str, nStrSize);
 	pString->cStr[x2] = '\0' ;
 	pString->nSize = x2 ;
 }
@@ -211,7 +189,7 @@ RING_API char * ring_string_find2_gc ( void *pState,char *cStr1,int nStrSize1,ch
 		return NULL ;
 	}
 	while ( nPos <= (nStrSize1 - nStrSize2) ) {
-		if ( nStrSize2 < 16 ) {
+		if ( nStrSize2 < RING_LOOP_THRESHOLD ) {
 			x = 0 ;
 			while ( (x < nStrSize2) && (cStr1[nPos+x] == cStr2[x] ) ) {
 				x++ ;
@@ -248,27 +226,13 @@ RING_API char * ring_string_find3_gc ( void *pState,char *cStr1,int nStrSize1,ch
 		printf( RING_OOM ) ;
 		exit(0);
 	}
-	if ( nStrSize1 < 16 ) {
-		for ( x = 0 ; x <= nStrSize1 ; x++ ) {
-			cStr3[x] = cStr1[x] ;
-		}
-	}
-	else {
-		memcpy (cStr3,cStr1,nStrSize1);
-	}
-	if ( nStrSize2 < 16 ) {
-		for ( x = 0 ; x <= nStrSize2 ; x++ ) {
-			cStr4[x] = cStr2[x] ;
-		}
-	}
-	else {
-		memcpy (cStr4,cStr2,nStrSize2);
-	}
+	RING_MEMCPY(cStr3,cStr1,nStrSize1);
+	RING_MEMCPY(cStr4,cStr2,nStrSize2);
 	ring_string_lower2(cStr3,nStrSize1);
 	ring_string_lower2(cStr4,nStrSize2);
 	pOutput = NULL ;
 	while ( nPos <= (nStrSize1 - nStrSize2) ) {
-		if ( nStrSize2 < 16 ) {
+		if ( nStrSize2 < RING_LOOP_THRESHOLD ) {
 			x = 0 ;
 			while ( (x < nStrSize2) && (cStr3[nPos+x] == cStr4[x] ) ) {
 				x++ ;
@@ -302,14 +266,7 @@ RING_API char * ring_strdup ( void *pState,const char *cStr )
 		printf( RING_OOM ) ;
 		exit(0);
 	}
-	if ( nSize < 16 ) {
-		for ( x = 0 ; x < nSize ; x++ ) {
-			cString[x] = cStr[x] ;
-		}
-	}
-	else {
-		memcpy (cString, cStr, nSize);
-	}
+	RING_MEMCPY(cString, cStr, nSize);
 	cString[nSize] = '\0' ;
 	return cString ;
 }

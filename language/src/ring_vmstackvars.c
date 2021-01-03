@@ -119,7 +119,7 @@ void ring_vm_assignment ( VM *pVM )
 	}
 	else if ( RING_VM_STACK_PREVOBJTYPE ==RING_OBJTYPE_VARIABLE ) {
 		if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= 1 ) ) {
-			cStr1 = RING_VM_STACK_STRINGRAW ;
+			cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 			RING_VM_STACK_POP ;
 			pVar = (List *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;

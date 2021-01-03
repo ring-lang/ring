@@ -84,7 +84,7 @@
 	#define ring_itemarray_getint(pList,index) ( pList[index].data.iNumber )
 	#define ring_itemarray_getpointer(pList,index) ( pList[index].data.pPointer )
 	#define ring_itemarray_getdouble(pList,index) pList[index].data.dNumber
-	#define ring_itemarray_getstring_raw(pList,index) ( pList[index].data.pString )
+	#define ring_itemarray_getstringraw(pList,index) ( pList[index].data.pString )
 	#define ring_itemarray_getstring(pList,index) ring_string_get(pList[index].data.pString )
 	#define ring_itemarray_getstringsize(pList,index) ring_string_size(pList[index].data.pString )
 	/* Check */
