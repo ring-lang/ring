@@ -1,19 +1,12 @@
-
-# Some Socket Functions
-
 load "socket.ring"
 
-host = gethostbyname("google.com") 
+host = gethostbyname("google.com")
 ? host
-
-see "=========================" + nl
+? copy("=",30)
 ? gethostbyaddr(host)
-
-see "=========================" + nl
+? copy("=",30)
 ? gethostname()
-
-see "=========================" + nl
+? copy("=",30)
 ? getservbyname("ftp")
-
-see "=========================" + nl
+? copy("=",30)
 ? getservbyport(21)

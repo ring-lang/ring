@@ -1,6 +1,3 @@
-
-# UDP SERVER
-
 load 'socket.ring'
 
 sock = socket(AF_INET,SOCK_DGRAM)
@@ -12,4 +9,4 @@ msg = recvfrom(sock,1024)
 sendto(sock,"Hello Client")
 close(sock)
 
-? "socket connection closed"
+? "Socket connection closed"

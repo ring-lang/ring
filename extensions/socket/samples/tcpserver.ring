@@ -1,6 +1,3 @@
-
-# TCP SERVER
-
 load "socket.ring" 
 
 sock = socket(AF_INET,SOCK_STREAM,0) 
@@ -12,5 +9,5 @@ send(ns,"Hello Client")
 msg = recv(ns,1024)
 ? "Client Say >> " + msg
 close(sock)
-? "socket connection closed"
+? "Socket connection closed"
 
