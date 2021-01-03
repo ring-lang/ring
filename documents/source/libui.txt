@@ -21,7 +21,7 @@ Runtime files and their size (For Ring 1.14)
 
 
 .. index:: 
-	pair: lib; Hello World
+	pair: libui; Hello World
 
 Hello World
 ===========
@@ -59,6 +59,9 @@ Screen Shots:
 
 .. image:: libui_2.png
 	:alt: RingLibui Screen Shot
+
+.. index:: 
+	pair: libui; Say Hello
 
 Say Hello
 =========
@@ -107,6 +110,9 @@ Screen Shot:
 
 .. image:: libui_5.png
 	:alt: RingLibui Screen Shot
+
+.. index:: 
+	pair: libui; Control Gallery
 
 Control Gallery
 ===============
@@ -393,6 +399,8 @@ Screen Shot:
 .. image:: libui_9.png
 	:alt: RingLibui Screen Shot
 
+.. index:: 
+	pair: libui; Say Something
 
 Say Something
 =============
@@ -443,6 +451,8 @@ Screen Shot:
 .. image:: libui_11.png
 	:alt: RingLibui Screen Shot
 
+.. index:: 
+	pair: libui; Using the Menubar
 
 Using the Menubar
 =================
@@ -552,6 +562,8 @@ Screen Shot:
 .. image:: libui_13.png
 	:alt: RingLibui Screen Shot
 
+.. index:: 
+	pair: libui; Drawing Sample
 
 Drawing Sample
 ==============
@@ -603,6 +615,9 @@ Screen Shot:
 .. image:: libui_21.png
 	:alt: RingLibui Screen Shot
 
+.. index:: 
+	pair: libui; Draw Gradient
+
 Draw Gradient
 =============
 
@@ -643,6 +658,9 @@ Screen Shot:
 
 .. image:: libui_22.png
 	:alt: RingLibui Screen Shot
+
+.. index:: 
+	pair: libui; Histogram
 
 Histogram
 =========
@@ -893,6 +911,8 @@ Screen Shot:
 .. image:: libui_14.png
 	:alt: RingLibui Screen Shot
 
+.. index:: 
+	pair: libui; Text Drawing
 
 Text Drawing
 ============
@@ -1066,6 +1086,8 @@ Screen Shot:
 .. image:: libui_17.png
 	:alt: RingLibui Screen Shot
 
+.. index:: 
+	pair: libui; More Drawing Samples
 
 More Drawing Samples
 ====================
