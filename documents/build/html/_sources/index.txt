@@ -82,6 +82,7 @@ Contents:
    Using RingLibCurl <libcurl>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    Using Sockets <socket>
+   Using Libui <libui>
    Using RingZip <ringzip>
    RingLibZip Functions Reference <ringlibzipfuncsdoc>
    RingMurmurHash Functions Reference <ringmurmurhashfuncsdoc>
