@@ -157,6 +157,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Using Sockets</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#tcp-server">TCP Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tcp-client">TCP Client</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#udp-server">UDP Server</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#udp-client">UDP Client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a></li>
 </ul>
@@ -270,9 +272,7 @@
 <div class="section" id="tcp-server">
 <span id="index-1"></span><h2>TCP Server<a class="headerlink" href="#tcp-server" title="Permalink to this headline">¶</a></h2>
 <p>Example (TCP Server Code):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># TCP SERVER</span>
-
-<span class="k">load</span> <span class="s">&quot;socket.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;socket.ring&quot;</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
@@ -290,9 +290,7 @@
 <div class="section" id="tcp-client">
 <span id="index-2"></span><h2>TCP Client<a class="headerlink" href="#tcp-client" title="Permalink to this headline">¶</a></h2>
 <p>Example (TCP Client Code):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># TCP Client</span>
-
-<span class="k">load</span> <span class="s">&quot;socket.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;socket.ring&quot;</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
 <span class="n">connect</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
@@ -306,8 +304,40 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="udp-server">
+<span id="index-3"></span><h2>UDP Server<a class="headerlink" href="#udp-server" title="Permalink to this headline">¶</a></h2>
+<p>Example (UDP Server Code):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="sc">&#39;socket.ring&#39;</span>
+
+<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+<span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
+
+<span class="n">msg</span> <span class="o">=</span> <span class="n">recvfrom</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Client Say &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
+<span class="n">sendto</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;Hello Client&quot;</span><span class="p">)</span>
+<span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Socket connection closed&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="udp-client">
+<span id="index-4"></span><h2>UDP Client<a class="headerlink" href="#udp-client" title="Permalink to this headline">¶</a></h2>
+<p>Example (UDP Client Code):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="sc">&#39;socket.ring&#39;</span>
+
+<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
+<span class="n">connect</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
+<span class="n">sendto</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;Hello Server&quot;</span><span class="p">)</span>
+<span class="n">msg</span> <span class="o">=</span> <span class="n">recvfrom</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Server Say &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
+<span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Socket connection closed&quot;</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="functions">
-<span id="index-3"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are provided by this extension</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>socket(nAddressFamily, nConnectionType) -&gt; SocketHandle
 bind(pSocketHandle, cHost , nPort)
@@ -326,9 +356,24 @@ getservbyname(cName) -&gt; nPort
 getservbyport(nPort) -&gt; cName
 </pre></div>
 </div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;socket.ring&quot;</span>
+
+<span class="n">host</span> <span class="o">=</span> <span class="n">gethostbyname</span><span class="p">(</span><span class="s">&quot;google.com&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">host</span>
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">gethostbyaddr</span><span class="p">(</span><span class="n">host</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">gethostname</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">getservbyname</span><span class="p">(</span><span class="s">&quot;ftp&quot;</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">copy</span><span class="p">(</span><span class="s">&quot;=&quot;</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
+<span class="o">?</span> <span class="n">getservbyport</span><span class="p">(</span><span class="mi">21</span><span class="p">)</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="constants">
-<span id="index-4"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
 <p>Address Family:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>AF_INET       #  mean use IPV4
 AF_INET6      #  ........ IPV6

@@ -17,8 +17,6 @@ Example (TCP Server Code):
 
 .. code-block:: ring
 
-	# TCP SERVER
-
 	load "socket.ring" 
 
 	sock = socket(AF_INET,SOCK_STREAM,0) 
@@ -42,8 +40,6 @@ Example (TCP Client Code):
 
 .. code-block:: ring
 
-	# TCP Client
-
 	load "socket.ring" 
 
 	sock = socket(AF_INET,SOCK_STREAM)
@@ -56,6 +52,47 @@ Example (TCP Client Code):
 	close(sock)
 	? "socket connection closed"
 
+.. index:: 
+	pair: socket; UDP Server
+
+UDP Server
+==========
+
+Example (UDP Server Code):
+
+.. code-block:: ring
+
+	load 'socket.ring'
+
+	sock = socket(AF_INET,SOCK_DGRAM)
+	bind(sock,"127.0.0.1",5050)
+
+	msg = recvfrom(sock,1024)
+	? "Client Say >> " + msg
+	sendto(sock,"Hello Client")
+	close(sock)
+
+	? "Socket connection closed"
+
+.. index:: 
+	pair: socket; UDP Client
+
+UDP Client
+==========
+
+Example (UDP Client Code):
+
+.. code-block:: ring
+
+	load 'socket.ring'
+
+	sock = socket(AF_INET,SOCK_DGRAM)
+	connect(sock,"127.0.0.1",5050)
+	sendto(sock,"Hello Server")
+	msg = recvfrom(sock,1024)
+	? "Server Say >> " + msg
+	close(sock)
+	? "Socket connection closed"
 
 .. index:: 
 	pair: socket; Functions
@@ -82,6 +119,23 @@ The next functions are provided by this extension
 	gethostname() -> cHostName
 	getservbyname(cName) -> nPort
 	getservbyport(nPort) -> cName
+
+Example:
+
+.. code-block:: ring
+
+	load "socket.ring"
+
+	host = gethostbyname("google.com") 
+	? host
+	? copy("=",30)
+	? gethostbyaddr(host)
+	? copy("=",30)
+	? gethostname()
+	? copy("=",30)
+	? getservbyname("ftp")
+	? copy("=",30)
+	? getservbyport(21)
 
 .. index:: 
 	pair: socket; Constants
