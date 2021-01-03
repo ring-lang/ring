@@ -49,13 +49,13 @@ int zip_filescount(ZIP_T *pZip) {
 	return mz_zip_reader_get_num_files((mz_zip_archive *) pZip);
 }
 
-const char *zip_getfilenamebyindex(ZIP_T *pZip,int index) {
+char *zip_getfilenamebyindex(ZIP_T *pZip,int index) {
 	mz_zip_archive_file_stat info;
 	if (!mz_zip_reader_file_stat((mz_zip_archive *) pZip, index-1, &info)) {
 // Cannot get information about zip archive;
 return NULL;
 }	
-return info.m_filename ;
+return strdup(info.m_filename) ;
 }
 
 
@@ -244,9 +244,9 @@ RING_FUNC(ring_zip_filescount)
 	RING_API_RETNUMBER(zip_filescount((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T")));
 }
 
-
 RING_FUNC(ring_zip_getfilenamebyindex)
 {
+	char* cStr ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -260,7 +260,13 @@ RING_FUNC(ring_zip_getfilenamebyindex)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(zip_getfilenamebyindex((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T"), (int ) RING_API_GETNUMBER(2)));
+	cStr = zip_getfilenamebyindex((ZIP_T *) RING_API_GETCPOINTER(1,"ZIP_T"), (int ) RING_API_GETNUMBER(2));
+	if ( cStr == NULL ) {
+		RING_API_ERROR(RING_API_BADPARAVALUE);
+		return ;
+	}
+	RING_API_RETSTRING(cStr);
+	free(cStr) ;
 }
 
 RING_FUNC(ring_zip_extract_file)
