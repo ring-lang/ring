@@ -287,7 +287,7 @@ void ring_vm_equal ( VM *pVM )
 		RING_VM_STACK_POP ;
 		if ( RING_VM_STACK_ISSTRING ) {
 			cStr2 = RING_VM_STACK_GETSTRINGRAW ;
-			if ( strcmp(ring_string_get(cStr1),ring_string_get(cStr2)) == 0 ) {
+			if ( (cStr1->nSize == cStr2->nSize) && (memcmp(ring_string_get(cStr1),ring_string_get(cStr2), cStr1->nSize) == 0) ) {
 				RING_VM_STACK_TRUE ;
 			}
 			else {
