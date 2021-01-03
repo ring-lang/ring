@@ -94,7 +94,7 @@ RING_API void ring_item_content_delete_gc ( void *pState,Item *pItem )
 RING_API void ring_item_settype_gc ( void *pState,Item *pItem,int ItemType )
 {
 	assert(pItem != NULL);
-	if ( ItemType != pItem->nType || (ItemType != ITEMTYPE_STRING)) {
+	if ( (ItemType != pItem->nType) || (ItemType != ITEMTYPE_STRING) ) {
 		/* When we set the type we remove the current content at first */
 		ring_item_content_delete_gc(pState,pItem);
 		switch ( ItemType ) {
