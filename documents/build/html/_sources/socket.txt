@@ -27,6 +27,7 @@ Example (TCP Server Code):
 	send(ns,"Hello Client")
 	msg = recv(ns,1024)
 	? "Client Say >> " + msg
+	close(ns)
 	close(sock)
 	? "socket connection closed"
 
