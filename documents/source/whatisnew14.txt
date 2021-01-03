@@ -518,3 +518,4 @@ More Improvements
 * RingQtRuntime Package: Using GUILib & ObjectsLib packages
 * GameEngine - Add the delay function to the Graphics Library: gl_delay() function
 * RingOpenSSL - RandBytes() function - Better Code
+* RingZip - GetFileNameByIndex() function - Better Code
