@@ -277,14 +277,14 @@ func GenerateBatchGeneral aPara,aOptions
 		cWindowsBatch = cFile+"_buildvc.bat"
 		write(cWindowsBatch,cCode)
 	# Generate Linux Script (GNU C/C++)
-		cCode = 'gcc -rdynamic #{f1}.c -o #{f1} #{f2} -lm -ldl  -I #{f3}/../language/include  '
+		cCode = 'gcc -rdynamic -O2 #{f1}.c -o #{f1} #{f2} -lm -ldl  -I #{f3}/../language/include  '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:linux])
 		cCode = substr(cCode,"#{f3}",exefolder())
 		cLinuxBatch = cFile+"_buildgcc.sh"
 		write(cLinuxBatch,cCode)
 	# Generate MacOS X Script (CLang C/C++)
-		cCode = 'clang #{f1}.c #{f2} -o #{f1} -lm -ldl  -I #{f3}/../language/include  '
+		cCode = 'clang -O2 #{f1}.c #{f2} -o #{f1} -lm -ldl  -I #{f3}/../language/include  '
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:macosx])
 		cCode = substr(cCode,"#{f3}",exefolder())
