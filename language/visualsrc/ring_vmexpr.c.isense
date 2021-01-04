@@ -5,6 +5,10 @@ Type: double
 nNum1,nNum2
 Type: char
 cStr3[100]
+Type: int
+nSize,x
+Type: char *
+cValue
 ring_vm_sub
 Type: double
 nNum1=0,nNum2=0

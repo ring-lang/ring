@@ -11,8 +11,8 @@ void ring_vm_sum ( VM *pVM )
 	String *cStr1,*cStr2  ;
 	double nNum1,nNum2  ;
 	char cStr3[100]  ;
-	int nSize,x ;
-	char* cValue;
+	int nSize,x  ;
+	char *cValue  ;
 	/*
 	**  Description 
 	**  We can sum string + number ---> string , number + string ---> number 
@@ -31,13 +31,13 @@ void ring_vm_sum ( VM *pVM )
 			nNum2 = RING_VM_STACK_READN ;
 			if ( strcmp(ring_string_get(cStr1),"\n") == 0 ) {
 				nSize = strlen (ring_vm_numtostring(pVM,nNum2,cStr3)) ;
-				/* pre-allocated the stack string variable */
+				/* Pre-allocated the stack string variable */
 				RING_VM_STACK_SETCSIZE(nSize + 1);
 				cStr2 = RING_VM_STACK_GETSTRINGRAW ;
-				/* copy manually the content */
+				/* Manual copy for the content */
 				cValue = ring_string_get(cStr2);
 				RING_MEMCPY(cValue, cStr3, nSize);
-				cValue[nSize] = '\n';
+				cValue[nSize] = '\n' ;
 			}
 			else {
 				RING_VM_STACK_SETNVALUE(nNum2 + ring_vm_stringtonum(pVM,ring_string_get(cStr1)));
@@ -621,7 +621,7 @@ void ring_vm_and ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = RING_VM_STACK_GETSTRINGRAW;
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -732,7 +732,7 @@ void ring_vm_bitand ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = RING_VM_STACK_GETSTRINGRAW;
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		if ( ! RING_VM_STACK_ISPOINTERVALUE(pVM->nSP-1) ) {
 			nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		}
@@ -863,7 +863,7 @@ void ring_vm_bitshr ( VM *pVM )
 		}
 	}
 	else if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = RING_VM_STACK_GETSTRINGRAW;
+		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		nNum1 = ring_vm_stringtonum(pVM,RING_VM_STACK_READC);
 		RING_VM_STACK_POP ;
 		if ( RING_VM_STACK_ISNUMBER ) {
