@@ -50,6 +50,8 @@
 	#define ring_string_tolower(x) ring_string_lower(x->cStr)
 	#define ring_string_toupper(x) ring_string_upper(x->cStr)
 	#define ring_string_get(x) (x->cStr)
+	#define RING_LOOP_THRESHOLD 16
+	#define RING_MEMCPY(cStrDest,cStrSrc,nSize) do { if ( (nSize) < RING_LOOP_THRESHOLD ) { for ( x = 0 ; x < (nSize) ; x++ ) { (cStrDest)[x] = (cStrSrc)[x] ; } } else { memcpy ((cStrDest), (cStrSrc), (nSize)); } } while (0)
 	/* Functions without state pointer */
 
 	RING_API String * ring_string_new2 ( const char *str,int nStrSize ) ;
