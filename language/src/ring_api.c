@@ -1308,9 +1308,9 @@ void ring_vmlib_str2hex ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cString = (unsigned char *) RING_API_GETSTRING(1) ;
 		nMax = RING_API_GETSTRINGSIZE(1) ;
-		/* pre-allocated the return value on the stack */
+		/* Pre-allocated the return value on the stack */
 		RING_API_RETSTRINGSIZE(nMax*2);
-		cString2 = ring_string_get(RING_API_GETSTRINGRAW) ;
+		cString2 = ring_string_get(RING_API_GETSTRINGRAW);
 		for ( x = 1 ; x <= nMax ; x++ ) {
 			bVal = cString[x-1] ;
 			cString2[(x-1)*2] = cHexChars[bVal >> 4] ;
@@ -1359,9 +1359,9 @@ void ring_vmlib_hex2str ( void *pPointer )
 			RING_API_ERROR(RING_API_BADPARALENGTH);
 			return ;
 		}
-		/* pre-allocated the return value on the stack */
-		RING_API_RETSTRINGSIZE((nMax/2));
-		cString2 = ring_string_get(RING_API_GETSTRINGRAW) ;
+		/* Pre-allocated the return value on the stack */
+		RING_API_RETSTRINGSIZE(nMax/2);
+		cString2 = ring_string_get(RING_API_GETSTRINGRAW);
 		i = 0 ;
 		for ( x = 0 ; x < nMax ; x+=2 ) {
 			bNibble = ring_vmlib_hex2str_hex2nibble(cString[x]);
@@ -1523,10 +1523,10 @@ void ring_vmlib_left ( void *pPointer )
 			cStr = RING_API_GETSTRING(1) ;
 			nNum1 = RING_API_GETNUMBER(2) ;
 			if ( (nNum1 > 0 ) && (nNum1 <= RING_API_GETSTRINGSIZE(1) ) ) {
-				nNewSize = (int) nNum1;
-				/* pre-allocated the return value on the stack */
+				nNewSize = (int) nNum1 ;
+				/* Pre-allocated the return value on the stack */
 				RING_API_RETSTRINGSIZE(nNewSize);
-				pString = ring_string_get(RING_API_GETSTRINGRAW) ;
+				pString = ring_string_get(RING_API_GETSTRINGRAW);
 				RING_MEMCPY(pString,cStr,nNewSize);
 			}
 		}
@@ -1557,9 +1557,9 @@ void ring_vmlib_right ( void *pPointer )
 			nSize = RING_API_GETSTRINGSIZE(1) ;
 			if ( (nNum1 > 0 ) && (nNum1 <= nSize ) ) {
 				nNewSize = (int) nNum1 ;
-				/* pre-allocated the return value on the stack */
+				/* Pre-allocated the return value on the stack */
 				RING_API_RETSTRINGSIZE(nNewSize);
-				pString = ring_string_get(RING_API_GETSTRINGRAW) ;
+				pString = ring_string_get(RING_API_GETSTRINGRAW);
 				RING_MEMCPY(pString,cStr+(nSize-nNewSize),nNewSize);
 			}
 		}
@@ -1608,10 +1608,10 @@ void ring_vmlib_trim ( void *pPointer )
 			RING_API_RETSTRING("");
 			return ;
 		}
-		/* pre-allocated the return value on the stack */
+		/* Pre-allocated the return value on the stack */
 		RING_API_RETSTRINGSIZE(nPos2-nPos1+1);
-		cNewStr = ring_string_get(RING_API_GETSTRINGRAW) ;
-		if (nPos2-nPos1+1 < 16 ) {
+		cNewStr = ring_string_get(RING_API_GETSTRINGRAW);
+		if ( nPos2-nPos1+1 < RING_LOOP_THRESHOLD ) {
 			for ( x = nPos1 ; x <= nPos2 ; x++ ) {
 				cNewStr[x-nPos1] = cStr[x] ;
 			}
@@ -1629,7 +1629,7 @@ void ring_vmlib_copy ( void *pPointer )
 {
 	const char *cStr  ;
 	int x,nSize,nStrSize,nPos,i  ;
-	char* cRetStr;
+	char *cRetStr  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -1639,14 +1639,14 @@ void ring_vmlib_copy ( void *pPointer )
 			cStr = RING_API_GETSTRING(1) ;
 			nStrSize = RING_API_GETSTRINGSIZE(1) ;
 			nSize = RING_API_GETNUMBER(2) ;
-			/* pre-allocated the return value on the stack */
+			/* Pre-allocated the return value on the stack */
 			RING_API_RETSTRINGSIZE(nSize * nStrSize);
-			cRetStr = ring_string_get(RING_API_GETSTRINGRAW) ;
-			nPos = 0;
-			/* copy the input string bSize times */
+			cRetStr = ring_string_get(RING_API_GETSTRINGRAW);
+			nPos = 0 ;
+			/* Copy the input string nSize times */
 			for ( i = 1 ; i <= nSize ; i++ ) {
 				RING_MEMCPY(cRetStr+nPos,cStr,nStrSize);
-				nPos += nStrSize;
+				nPos += nStrSize ;
 			}
 		}
 		else {

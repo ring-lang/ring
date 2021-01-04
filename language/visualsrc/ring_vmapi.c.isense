@@ -14,12 +14,14 @@ RING_API_GETLIST(x)
 RING_API_RETNUMBER(x)
 RING_API_RETSTRING(x)
 RING_API_RETSTRING2(x,y)
+RING_API_RETSTRINGSIZE(x)
 RING_API_RETLIST(x)
 RING_API_NEWLIST
 RING_API_RETCPOINTER(x,y)
 RING_API_GETCPOINTER(x,y)
 RING_API_PUSHPVALUE(x)
 RING_API_OBJTYPE
+RING_API_GETSTRINGRAW
 RING_FUNC(x)
 RING_API_GETSTRINGSIZE(x)
 RING_API_SETNULLPOINTER(x)
@@ -312,7 +314,7 @@ nNum1
 Type: const char *
 cStr
 Type: int
-x
+x,nNewSize
 Type: char *
 pString
 ring_vmlib_right
@@ -321,7 +323,7 @@ nNum1
 Type: const char *
 cStr
 Type: int
-x,nSize
+x,nSize,nNewSize
 Type: char *
 pString
 ring_vmlib_trim
@@ -334,10 +336,10 @@ cNewStr
 ring_vmlib_copy
 Type: const char *
 cStr
-Type: String *
-pString
 Type: int
-x,nSize
+x,nSize,nStrSize,nPos,i
+Type: char *
+cRetStr
 ring_vmlib_substr
 Type: char *
 cStr,*cStr2,*cStr3,*cString
