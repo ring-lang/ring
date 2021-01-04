@@ -119,7 +119,7 @@ void ring_vm_assignment ( VM *pVM )
 	}
 	else if ( RING_VM_STACK_PREVOBJTYPE ==RING_OBJTYPE_VARIABLE ) {
 		if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= 1 ) ) {
-			cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+			cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 			RING_VM_STACK_POP ;
 			pVar = (List *) RING_VM_STACK_READP ;
 			RING_VM_STACK_POP ;
@@ -141,7 +141,6 @@ void ring_vm_assignment ( VM *pVM )
 					ring_list_setdouble_gc(pVM->pRingState,pVar, RING_VAR_VALUE ,ring_list_getdouble(pVar,RING_VAR_VALUE) +ring_vm_stringtonum(pVM,ring_string_get(cStr1)));
 				}
 			}
-			ring_string_delete_gc(pVM->pRingState,cStr1);
 		}
 		else if ( RING_VM_STACK_ISNUMBER ) {
 			nNum1 = RING_VM_STACK_READN ;
