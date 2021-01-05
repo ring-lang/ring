@@ -1947,6 +1947,116 @@ RING_FUNC(ring_set_tln_tileattributes_priority)
 	pMyPointer->priority = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_tln_pixelmap)
+{
+	TLN_PixelMap *pMyPointer ;
+	pMyPointer = (TLN_PixelMap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_PixelMap)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"TLN_PixelMap");
+}
+
+RING_FUNC(ring_new_managed_tln_pixelmap)
+{
+	TLN_PixelMap *pMyPointer ;
+	pMyPointer = (TLN_PixelMap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_PixelMap)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"TLN_PixelMap",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_tln_pixelmap)
+{
+	TLN_PixelMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_PixelMap");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_tln_pixelmap_dx)
+{
+	TLN_PixelMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_PixelMap");
+	RING_API_RETNUMBER(pMyPointer->dx);
+}
+
+RING_FUNC(ring_set_tln_pixelmap_dx)
+{
+	TLN_PixelMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_PixelMap");
+	pMyPointer->dx = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_tln_pixelmap_dy)
+{
+	TLN_PixelMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_PixelMap");
+	RING_API_RETNUMBER(pMyPointer->dy);
+}
+
+RING_FUNC(ring_set_tln_pixelmap_dy)
+{
+	TLN_PixelMap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_PixelMap");
+	pMyPointer->dy = RING_API_GETNUMBER(2);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_tilengine_ver_maj",ring_get_tilengine_ver_maj);
@@ -2087,4 +2197,11 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_tln_tileattributes_type",ring_set_tln_tileattributes_type);
 	ring_vm_funcregister("get_tln_tileattributes_priority",ring_get_tln_tileattributes_priority);
 	ring_vm_funcregister("set_tln_tileattributes_priority",ring_set_tln_tileattributes_priority);
+	ring_vm_funcregister("new_tln_pixelmap",ring_new_tln_pixelmap);
+	ring_vm_funcregister("new_managed_tln_pixelmap",ring_new_managed_tln_pixelmap);
+	ring_vm_funcregister("destroy_tln_pixelmap",ring_destroy_tln_pixelmap);
+	ring_vm_funcregister("get_tln_pixelmap_dx",ring_get_tln_pixelmap_dx);
+	ring_vm_funcregister("set_tln_pixelmap_dx",ring_set_tln_pixelmap_dx);
+	ring_vm_funcregister("get_tln_pixelmap_dy",ring_get_tln_pixelmap_dy);
+	ring_vm_funcregister("set_tln_pixelmap_dy",ring_set_tln_pixelmap_dy);
 }
