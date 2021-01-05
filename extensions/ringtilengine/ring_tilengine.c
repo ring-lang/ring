@@ -153,6 +153,126 @@ RING_FUNC(ring_get_player4)
 	RING_API_RETNUMBER(PLAYER4);
 }
 
+RING_FUNC(ring_get_input_none)
+{
+	RING_API_RETNUMBER(INPUT_NONE);
+}
+
+RING_FUNC(ring_get_input_up)
+{
+	RING_API_RETNUMBER(INPUT_UP);
+}
+
+RING_FUNC(ring_get_input_down)
+{
+	RING_API_RETNUMBER(INPUT_DOWN);
+}
+
+RING_FUNC(ring_get_input_left)
+{
+	RING_API_RETNUMBER(INPUT_LEFT);
+}
+
+RING_FUNC(ring_get_input_right)
+{
+	RING_API_RETNUMBER(INPUT_RIGHT);
+}
+
+RING_FUNC(ring_get_input_button1)
+{
+	RING_API_RETNUMBER(INPUT_BUTTON1);
+}
+
+RING_FUNC(ring_get_input_button2)
+{
+	RING_API_RETNUMBER(INPUT_BUTTON2);
+}
+
+RING_FUNC(ring_get_input_button3)
+{
+	RING_API_RETNUMBER(INPUT_BUTTON3);
+}
+
+RING_FUNC(ring_get_input_button4)
+{
+	RING_API_RETNUMBER(INPUT_BUTTON4);
+}
+
+RING_FUNC(ring_get_input_button5)
+{
+	RING_API_RETNUMBER(INPUT_BUTTON5);
+}
+
+RING_FUNC(ring_get_input_button6)
+{
+	RING_API_RETNUMBER(INPUT_BUTTON6);
+}
+
+RING_FUNC(ring_get_input_start)
+{
+	RING_API_RETNUMBER(INPUT_START);
+}
+
+RING_FUNC(ring_get_input_quit)
+{
+	RING_API_RETNUMBER(INPUT_QUIT);
+}
+
+RING_FUNC(ring_get_input_crt)
+{
+	RING_API_RETNUMBER(INPUT_CRT);
+}
+
+RING_FUNC(ring_get_input_p1)
+{
+	RING_API_RETNUMBER(INPUT_P1);
+}
+
+RING_FUNC(ring_get_input_p2)
+{
+	RING_API_RETNUMBER(INPUT_P2);
+}
+
+RING_FUNC(ring_get_input_p3)
+{
+	RING_API_RETNUMBER(INPUT_P3);
+}
+
+RING_FUNC(ring_get_input_p4)
+{
+	RING_API_RETNUMBER(INPUT_P4);
+}
+
+RING_FUNC(ring_get_input_a)
+{
+	RING_API_RETNUMBER(INPUT_A);
+}
+
+RING_FUNC(ring_get_input_b)
+{
+	RING_API_RETNUMBER(INPUT_B);
+}
+
+RING_FUNC(ring_get_input_c)
+{
+	RING_API_RETNUMBER(INPUT_C);
+}
+
+RING_FUNC(ring_get_input_d)
+{
+	RING_API_RETNUMBER(INPUT_D);
+}
+
+RING_FUNC(ring_get_input_e)
+{
+	RING_API_RETNUMBER(INPUT_E);
+}
+
+RING_FUNC(ring_get_input_f)
+{
+	RING_API_RETNUMBER(INPUT_F);
+}
+
 RING_FUNC(ring_new_tln_affine)
 {
 	TLN_Affine *pMyPointer ;
@@ -2533,6 +2653,30 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_player2",ring_get_player2);
 	ring_vm_funcregister("get_player3",ring_get_player3);
 	ring_vm_funcregister("get_player4",ring_get_player4);
+	ring_vm_funcregister("get_input_none",ring_get_input_none);
+	ring_vm_funcregister("get_input_up",ring_get_input_up);
+	ring_vm_funcregister("get_input_down",ring_get_input_down);
+	ring_vm_funcregister("get_input_left",ring_get_input_left);
+	ring_vm_funcregister("get_input_right",ring_get_input_right);
+	ring_vm_funcregister("get_input_button1",ring_get_input_button1);
+	ring_vm_funcregister("get_input_button2",ring_get_input_button2);
+	ring_vm_funcregister("get_input_button3",ring_get_input_button3);
+	ring_vm_funcregister("get_input_button4",ring_get_input_button4);
+	ring_vm_funcregister("get_input_button5",ring_get_input_button5);
+	ring_vm_funcregister("get_input_button6",ring_get_input_button6);
+	ring_vm_funcregister("get_input_start",ring_get_input_start);
+	ring_vm_funcregister("get_input_quit",ring_get_input_quit);
+	ring_vm_funcregister("get_input_crt",ring_get_input_crt);
+	ring_vm_funcregister("get_input_p1",ring_get_input_p1);
+	ring_vm_funcregister("get_input_p2",ring_get_input_p2);
+	ring_vm_funcregister("get_input_p3",ring_get_input_p3);
+	ring_vm_funcregister("get_input_p4",ring_get_input_p4);
+	ring_vm_funcregister("get_input_a",ring_get_input_a);
+	ring_vm_funcregister("get_input_b",ring_get_input_b);
+	ring_vm_funcregister("get_input_c",ring_get_input_c);
+	ring_vm_funcregister("get_input_d",ring_get_input_d);
+	ring_vm_funcregister("get_input_e",ring_get_input_e);
+	ring_vm_funcregister("get_input_f",ring_get_input_f);
 	ring_vm_funcregister("new_tln_affine",ring_new_tln_affine);
 	ring_vm_funcregister("new_managed_tln_affine",ring_new_managed_tln_affine);
 	ring_vm_funcregister("destroy_tln_affine",ring_destroy_tln_affine);
