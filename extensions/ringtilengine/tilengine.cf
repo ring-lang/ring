@@ -206,3 +206,19 @@ TLN_Palette TLN_GetSpritesetPalette(TLN_Spriteset spriteset)
 int TLN_FindSpritesetSprite(TLN_Spriteset spriteset, const char* name)
 bool TLN_SetSpritesetData(TLN_Spriteset spriteset, int entry, TLN_SpriteData* data, void* pixels, int pitch)
 bool TLN_DeleteSpriteset(TLN_Spriteset Spriteset)
+
+<comment>
+Tileset resources management for background layers 
+</comment>
+
+TLN_Tileset TLN_CreateTileset(int numtiles, int width, int height, TLN_Palette palette, TLN_SequencePack sp, TLN_TileAttributes* attributes)
+TLN_Tileset TLN_CreateImageTileset(int numtiles, TLN_TileImage* images)
+TLN_Tileset TLN_LoadTileset(const char* filename)
+TLN_Tileset TLN_CloneTileset(TLN_Tileset src)
+bool TLN_SetTilesetPixels(TLN_Tileset tileset, int entry, uint8_t* srcdata, int srcpitch)
+int TLN_GetTileWidth(TLN_Tileset tileset)
+int TLN_GetTileHeight(TLN_Tileset tileset)
+int TLN_GetTilesetNumTiles(TLN_Tileset tileset)
+TLN_Palette TLN_GetTilesetPalette(TLN_Tileset tileset)
+TLN_SequencePack TLN_GetTilesetSequencePack(TLN_Tileset tileset)
+bool TLN_DeleteTileset(TLN_Tileset tileset)
