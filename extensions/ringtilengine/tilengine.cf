@@ -89,6 +89,9 @@ TLN_ERR_WRONG_SIZE
 TLN_ERR_UNSUPPORTED
 TLN_ERR_REF_LIST
 TLN_MAX_ERR
+TLN_LOG_NONE
+TLN_LOG_ERRORS
+TLN_LOG_VERBOSE
 </constant>
 
 <struct>
@@ -123,5 +126,6 @@ aEnumTypes + "TLN_Overlay"
 aEnumTypes + "TLN_Player"
 aEnumTypes + "TLN_Input"
 aEnumTypes + "TLN_Error"
+aEnumTypes + "TLN_LogLevel"
 </runcode>
 

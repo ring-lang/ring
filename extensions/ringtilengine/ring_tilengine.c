@@ -413,6 +413,21 @@ RING_FUNC(ring_get_tln_max_err)
 	RING_API_RETNUMBER(TLN_MAX_ERR);
 }
 
+RING_FUNC(ring_get_tln_log_none)
+{
+	RING_API_RETNUMBER(TLN_LOG_NONE);
+}
+
+RING_FUNC(ring_get_tln_log_errors)
+{
+	RING_API_RETNUMBER(TLN_LOG_ERRORS);
+}
+
+RING_FUNC(ring_get_tln_log_verbose)
+{
+	RING_API_RETNUMBER(TLN_LOG_VERBOSE);
+}
+
 RING_FUNC(ring_new_tln_affine)
 {
 	TLN_Affine *pMyPointer ;
@@ -2845,6 +2860,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_tln_err_unsupported",ring_get_tln_err_unsupported);
 	ring_vm_funcregister("get_tln_err_ref_list",ring_get_tln_err_ref_list);
 	ring_vm_funcregister("get_tln_max_err",ring_get_tln_max_err);
+	ring_vm_funcregister("get_tln_log_none",ring_get_tln_log_none);
+	ring_vm_funcregister("get_tln_log_errors",ring_get_tln_log_errors);
+	ring_vm_funcregister("get_tln_log_verbose",ring_get_tln_log_verbose);
 	ring_vm_funcregister("new_tln_affine",ring_new_tln_affine);
 	ring_vm_funcregister("new_managed_tln_affine",ring_new_managed_tln_affine);
 	ring_vm_funcregister("destroy_tln_affine",ring_destroy_tln_affine);
