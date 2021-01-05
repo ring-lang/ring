@@ -4123,6 +4123,243 @@ RING_FUNC(ring_TLN_DeleteTilemap)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Tilemap"));
 }
 
+
+RING_FUNC(ring_TLN_CreatePalette)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		TLN_Palette *pValue ; 
+		pValue = (TLN_Palette *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Palette)) ;
+		*pValue = TLN_CreatePalette( (int ) RING_API_GETNUMBER(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Palette",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_TLN_LoadPalette)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		TLN_Palette *pValue ; 
+		pValue = (TLN_Palette *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Palette)) ;
+		*pValue = TLN_LoadPalette((char *) RING_API_GETCPOINTER(1,"char"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Palette",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_TLN_ClonePalette)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	{
+		TLN_Palette *pValue ; 
+		pValue = (TLN_Palette *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Palette)) ;
+		*pValue = TLN_ClonePalette(* (TLN_Palette  *) RING_API_GETCPOINTER(1,"TLN_Palette"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Palette"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Palette",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_TLN_SetPaletteColor)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetPaletteColor(* (TLN_Palette  *) RING_API_GETCPOINTER(1,"TLN_Palette"), (int ) RING_API_GETNUMBER(2), (uint8_t ) RING_API_GETNUMBER(3), (uint8_t ) RING_API_GETNUMBER(4), (uint8_t ) RING_API_GETNUMBER(5)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Palette"));
+}
+
+
+RING_FUNC(ring_TLN_MixPalettes)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_MixPalettes(* (TLN_Palette  *) RING_API_GETCPOINTER(1,"TLN_Palette"),* (TLN_Palette  *) RING_API_GETCPOINTER(2,"TLN_Palette"),* (TLN_Palette  *) RING_API_GETCPOINTER(3,"TLN_Palette"), (uint8_t ) RING_API_GETNUMBER(4)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Palette"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_Palette"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"TLN_Palette"));
+}
+
+
+RING_FUNC(ring_TLN_AddPaletteColor)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_AddPaletteColor(* (TLN_Palette  *) RING_API_GETCPOINTER(1,"TLN_Palette"), (uint8_t ) RING_API_GETNUMBER(2), (uint8_t ) RING_API_GETNUMBER(3), (uint8_t ) RING_API_GETNUMBER(4), (uint8_t ) RING_API_GETNUMBER(5), (uint8_t ) RING_API_GETNUMBER(6)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Palette"));
+}
+
+
+RING_FUNC(ring_TLN_SubPaletteColor)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SubPaletteColor(* (TLN_Palette  *) RING_API_GETCPOINTER(1,"TLN_Palette"), (uint8_t ) RING_API_GETNUMBER(2), (uint8_t ) RING_API_GETNUMBER(3), (uint8_t ) RING_API_GETNUMBER(4), (uint8_t ) RING_API_GETNUMBER(5), (uint8_t ) RING_API_GETNUMBER(6)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Palette"));
+}
+
+
+RING_FUNC(ring_TLN_ModPaletteColor)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_ModPaletteColor(* (TLN_Palette  *) RING_API_GETCPOINTER(1,"TLN_Palette"), (uint8_t ) RING_API_GETNUMBER(2), (uint8_t ) RING_API_GETNUMBER(3), (uint8_t ) RING_API_GETNUMBER(4), (uint8_t ) RING_API_GETNUMBER(5), (uint8_t ) RING_API_GETNUMBER(6)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Palette"));
+}
+
+
+RING_FUNC(ring_TLN_GetPaletteData)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(TLN_GetPaletteData(* (TLN_Palette  *) RING_API_GETCPOINTER(1,"TLN_Palette"), (int ) RING_API_GETNUMBER(2)),"uint8_t");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Palette"));
+}
+
+
+RING_FUNC(ring_TLN_DeletePalette)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETNUMBER(TLN_DeletePalette(* (TLN_Palette  *) RING_API_GETCPOINTER(1,"TLN_Palette")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Palette"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("tln_init",ring_TLN_Init);
@@ -4204,6 +4441,16 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("tln_settilemaptile",ring_TLN_SetTilemapTile);
 	ring_vm_funcregister("tln_copytiles",ring_TLN_CopyTiles);
 	ring_vm_funcregister("tln_deletetilemap",ring_TLN_DeleteTilemap);
+	ring_vm_funcregister("tln_createpalette",ring_TLN_CreatePalette);
+	ring_vm_funcregister("tln_loadpalette",ring_TLN_LoadPalette);
+	ring_vm_funcregister("tln_clonepalette",ring_TLN_ClonePalette);
+	ring_vm_funcregister("tln_setpalettecolor",ring_TLN_SetPaletteColor);
+	ring_vm_funcregister("tln_mixpalettes",ring_TLN_MixPalettes);
+	ring_vm_funcregister("tln_addpalettecolor",ring_TLN_AddPaletteColor);
+	ring_vm_funcregister("tln_subpalettecolor",ring_TLN_SubPaletteColor);
+	ring_vm_funcregister("tln_modpalettecolor",ring_TLN_ModPaletteColor);
+	ring_vm_funcregister("tln_getpalettedata",ring_TLN_GetPaletteData);
+	ring_vm_funcregister("tln_deletepalette",ring_TLN_DeletePalette);
 	ring_vm_funcregister("get_tilengine_ver_maj",ring_get_tilengine_ver_maj);
 	ring_vm_funcregister("get_tilengine_ver_min",ring_get_tilengine_ver_min);
 	ring_vm_funcregister("get_tilengine_ver_rev",ring_get_tilengine_ver_rev);
