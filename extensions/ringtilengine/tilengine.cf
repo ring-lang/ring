@@ -11,6 +11,12 @@ TILENGINE_VER_MAJ
 TILENGINE_VER_MIN
 TILENGINE_VER_REV
 TILENGINE_HEADER_VERSION
+FLAG_NONE
+FLAG_FLIPX
+FLAG_FLIPY
+FLAG_ROTATE
+FLAG_PRIORITY
+FLAG_MASKED
 </constant>
 
 <struct>
@@ -26,6 +32,6 @@ aNumberTypes + "uint8_t"
 aNumberTypes + "uint16_t"
 aNumberTypes + "uint32_t"
 aNumberTypes + "bool"
-
+aEnumTypes + "TLN_TileFlags"
 </runcode>
 
