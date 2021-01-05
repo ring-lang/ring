@@ -32,6 +32,7 @@ BLEND_MIX
 <struct>
 TLN_Affine {angle,dx,dy,sx,sy}
 Tile {value,index,flags}
+TLN_SequenceFrame {index,delay}
 </struct>
 
 <runcode>
