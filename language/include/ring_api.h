@@ -61,6 +61,10 @@
 	void ring_vmlib_del ( void *pPointer ) ;
 
 	void ring_vmlib_get ( void *pPointer ) ;
+	
+	void ring_vmlib_set ( void *pPointer ) ;
+
+	void ring_vmlib_unset ( void *pPointer ) ;
 
 	void ring_vmlib_clock ( void *pPointer ) ;
 
