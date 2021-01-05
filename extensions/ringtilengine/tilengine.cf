@@ -129,3 +129,34 @@ aEnumTypes + "TLN_Error"
 aEnumTypes + "TLN_LogLevel"
 </runcode>
 
+<comment>
+Basic setup and management
+</comment>
+
+TLN_Engine TLN_Init(int hres, int vres, int numlayers, int numsprites, int numanimations)
+void TLN_Deinit(void)
+bool TLN_DeleteContext(TLN_Engine context)
+bool TLN_SetContext(TLN_Engine context)
+TLN_Engine TLN_GetContext(void)
+int TLN_GetWidth(void)
+int TLN_GetHeight(void)
+uint32_t TLN_GetNumObjects(void)
+uint32_t TLN_GetUsedMemory(void)
+uint32_t TLN_GetVersion(void)
+int TLN_GetNumLayers(void)
+int TLN_GetNumSprites(void)
+void TLN_SetBGColor(uint8_t r, uint8_t g, uint8_t b)
+bool TLN_SetBGColorFromTilemap(TLN_Tilemap tilemap)
+void TLN_DisableBGColor(void)
+bool TLN_SetBGBitmap(TLN_Bitmap bitmap)
+bool TLN_SetBGPalette(TLN_Palette palette)
+void TLN_SetRasterCallback(TLN_VideoCallback)
+void TLN_SetFrameCallback(TLN_VideoCallback)
+void TLN_SetRenderTarget(uint8_t* data, int pitch)
+void TLN_UpdateFrame(int frame)
+void TLN_SetLoadPath(const char* path)
+void TLN_SetCustomBlendFunction(TLN_BlendFunction)
+void TLN_SetLogLevel(TLN_LogLevel log_level)
+bool TLN_OpenResourcePack(const char* filename, const char* key)
+void TLN_CloseResourcePack(void)
+
