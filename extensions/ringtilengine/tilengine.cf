@@ -68,7 +68,6 @@ CWF_S2
 CWF_S3
 CWF_S4
 CWF_S5
-CWF_NEAREST	
 TLN_ERR_OK
 TLN_ERR_OUT_OF_MEMORY
 TLN_ERR_IDX_LAYER
@@ -154,10 +153,10 @@ void TLN_SetRasterCallback(TLN_VideoCallback)
 void TLN_SetFrameCallback(TLN_VideoCallback)
 void TLN_SetRenderTarget(uint8_t* data, int pitch)
 void TLN_UpdateFrame(int frame)
-void TLN_SetLoadPath(const char* path)
+void TLN_SetLoadPath(const char * path)
 void TLN_SetCustomBlendFunction(TLN_BlendFunction)
 void TLN_SetLogLevel(TLN_LogLevel log_level)
-bool TLN_OpenResourcePack(const char* filename, const char* key)
+bool TLN_OpenResourcePack(const char * filename, const char * key)
 void TLN_CloseResourcePack(void)
 
 <comment>
@@ -172,9 +171,9 @@ const char *TLN_GetErrorString(TLN_Error error)
 Built-in window and input management
 </comment>
 
-bool TLN_CreateWindow(const char* overlay, int flags)
-bool TLN_CreateWindowThread(const char* overlay, int flags)
-void TLN_SetWindowTitle(const char* title)
+bool TLN_CreateWindow(const char * overlay, int flags)
+bool TLN_CreateWindowThread(const char * overlay, int flags)
+void TLN_SetWindowTitle(const char * title)
 bool TLN_ProcessWindow(void)
 bool TLN_IsWindowActive(void)
 bool TLN_GetInput(TLN_Input id)
@@ -199,11 +198,11 @@ Spriteset resources management for sprites
 </comment>
 
 TLN_Spriteset TLN_CreateSpriteset(TLN_Bitmap bitmap, TLN_SpriteData* data, int num_entries)
-TLN_Spriteset TLN_LoadSpriteset(const char* name)
+TLN_Spriteset TLN_LoadSpriteset(const char * name)
 TLN_Spriteset TLN_CloneSpriteset(TLN_Spriteset src)
 bool TLN_GetSpriteInfo(TLN_Spriteset spriteset, int entry, TLN_SpriteInfo* info)
 TLN_Palette TLN_GetSpritesetPalette(TLN_Spriteset spriteset)
-int TLN_FindSpritesetSprite(TLN_Spriteset spriteset, const char* name)
+int TLN_FindSpritesetSprite(TLN_Spriteset spriteset, const char * name)
 bool TLN_SetSpritesetData(TLN_Spriteset spriteset, int entry, TLN_SpriteData* data, void* pixels, int pitch)
 bool TLN_DeleteSpriteset(TLN_Spriteset Spriteset)
 
@@ -213,7 +212,7 @@ Tileset resources management for background layers
 
 TLN_Tileset TLN_CreateTileset(int numtiles, int width, int height, TLN_Palette palette, TLN_SequencePack sp, TLN_TileAttributes* attributes)
 TLN_Tileset TLN_CreateImageTileset(int numtiles, TLN_TileImage* images)
-TLN_Tileset TLN_LoadTileset(const char* filename)
+TLN_Tileset TLN_LoadTileset(const char * filename)
 TLN_Tileset TLN_CloneTileset(TLN_Tileset src)
 bool TLN_SetTilesetPixels(TLN_Tileset tileset, int entry, uint8_t* srcdata, int srcpitch)
 int TLN_GetTileWidth(TLN_Tileset tileset)
@@ -228,7 +227,7 @@ Tilemap resources management for background layers
 </comment>
 
 TLN_Tilemap TLN_CreateTilemap(int rows, int cols, TLN_Tile tiles, uint32_t bgcolor, TLN_Tileset tileset)
-TLN_Tilemap TLN_LoadTilemap(const char* filename, const char* layername)
+TLN_Tilemap TLN_LoadTilemap(const char * filename, const char * layername)
 TLN_Tilemap TLN_CloneTilemap(TLN_Tilemap src)
 int TLN_GetTilemapRows(TLN_Tilemap tilemap)
 int TLN_GetTilemapCols(TLN_Tilemap tilemap)
@@ -243,7 +242,7 @@ Color palette resources management for sprites and background layers
 </comment>
 
 TLN_Palette TLN_CreatePalette(int entries)
-TLN_Palette TLN_LoadPalette(const char* filename)
+TLN_Palette TLN_LoadPalette(const char * filename)
 TLN_Palette TLN_ClonePalette(TLN_Palette src)
 bool TLN_SetPaletteColor(TLN_Palette palette, int color, uint8_t r, uint8_t g, uint8_t b)
 bool TLN_MixPalettes(TLN_Palette src1, TLN_Palette src2, TLN_Palette dst, uint8_t factor)
@@ -258,7 +257,7 @@ Bitmap management
 </comment>
 
 TLN_Bitmap TLN_CreateBitmap(int width, int height, int bpp)
-TLN_Bitmap TLN_LoadBitmap(const char* filename)
+TLN_Bitmap TLN_LoadBitmap(const char * filename)
 TLN_Bitmap TLN_CloneBitmap(TLN_Bitmap src)
 uint8_t* TLN_GetBitmapPtr(TLN_Bitmap bitmap, int x, int y)
 int TLN_GetBitmapWidth(TLN_Bitmap bitmap)
@@ -275,7 +274,7 @@ ObjectList resources management
 
 TLN_ObjectList TLN_CreateObjectList(void)
 bool TLN_AddTileObjectToList(TLN_ObjectList list, uint16_t id, uint16_t gid, uint16_t flags, int x, int y)
-TLN_ObjectList TLN_LoadObjectList(const char* filename, const char* layername)
+TLN_ObjectList TLN_LoadObjectList(const char * filename, const char * layername)
 TLN_ObjectList TLN_CloneObjectList(TLN_ObjectList src)
 int TLN_GetListNumObjects(TLN_ObjectList list)
 bool TLN_GetListObject(TLN_ObjectList list, TLN_ObjectInfo* info)
@@ -343,9 +342,9 @@ TLN_Palette TLN_GetSpritePalette(int nsprite)
 Sequence resources management for layer, sprite and palette animations
 </comment>
 
-TLN_Sequence TLN_CreateSequence(const char* name, int target, int num_frames, TLN_SequenceFrame* frames)
-TLN_Sequence TLN_CreateCycle(const char* name, int num_strips, TLN_ColorStrip* strips)
-TLN_Sequence TLN_CreateSpriteSequence(const char* name, TLN_Spriteset spriteset, const char* basename, int delay)
+TLN_Sequence TLN_CreateSequence(const char * name, int target, int num_frames, TLN_SequenceFrame* frames)
+TLN_Sequence TLN_CreateCycle(const char * name, int num_strips, TLN_ColorStrip* strips)
+TLN_Sequence TLN_CreateSpriteSequence(const char * name, TLN_Spriteset spriteset, const char * basename, int delay)
 TLN_Sequence TLN_CloneSequence(TLN_Sequence src)
 bool TLN_GetSequenceInfo(TLN_Sequence sequence, TLN_SequenceInfo* info)
 bool TLN_DeleteSequence(TLN_Sequence sequence)
@@ -355,9 +354,9 @@ Sequence pack manager for grouping and finding sequences
 </comment>
 
 TLN_SequencePack TLN_CreateSequencePack(void)
-TLN_SequencePack TLN_LoadSequencePack(const char* filename)
+TLN_SequencePack TLN_LoadSequencePack(const char * filename)
 TLN_Sequence TLN_GetSequence(TLN_SequencePack sp, int index)
-TLN_Sequence TLN_FindSequence(TLN_SequencePack sp, const char* name)
+TLN_Sequence TLN_FindSequence(TLN_SequencePack sp, const char * name)
 int TLN_GetSequencePackCount(TLN_SequencePack sp)
 bool TLN_AddSequenceToPack(TLN_SequencePack sp, TLN_Sequence sequence)
 bool TLN_DeleteSequencePack(TLN_SequencePack sp)

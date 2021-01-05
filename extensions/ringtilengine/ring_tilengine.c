@@ -308,11 +308,6 @@ RING_FUNC(ring_get_cwf_s5)
 	RING_API_RETNUMBER(CWF_S5);
 }
 
-RING_FUNC(ring_get_cwf_nearest	)
-{
-	RING_API_RETNUMBER(CWF_NEAREST	);
-}
-
 RING_FUNC(ring_get_tln_err_ok)
 {
 	RING_API_RETNUMBER(TLN_ERR_OK);
@@ -3083,11 +3078,11 @@ RING_FUNC(ring_TLN_SetLoadPath)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	TLN_SetLoadPath((char *) RING_API_GETCPOINTER(1,"char"));
+	TLN_SetLoadPath(RING_API_GETSTRING(1));
 }
 
 
@@ -3126,15 +3121,15 @@ RING_FUNC(ring_TLN_OpenResourcePack)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(TLN_OpenResourcePack((char *) RING_API_GETCPOINTER(1,"char"),(char *) RING_API_GETCPOINTER(2,"char")));
+	RING_API_RETNUMBER(TLN_OpenResourcePack(RING_API_GETSTRING(1),RING_API_GETSTRING(2)));
 }
 
 
@@ -3197,7 +3192,7 @@ RING_FUNC(ring_TLN_CreateWindow)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -3205,7 +3200,7 @@ RING_FUNC(ring_TLN_CreateWindow)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(TLN_CreateWindow((char *) RING_API_GETCPOINTER(1,"char"), (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(TLN_CreateWindow(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -3216,7 +3211,7 @@ RING_FUNC(ring_TLN_CreateWindowThread)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -3224,7 +3219,7 @@ RING_FUNC(ring_TLN_CreateWindowThread)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(TLN_CreateWindowThread((char *) RING_API_GETCPOINTER(1,"char"), (int ) RING_API_GETNUMBER(2)));
+	RING_API_RETNUMBER(TLN_CreateWindowThread(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)));
 }
 
 
@@ -3235,11 +3230,11 @@ RING_FUNC(ring_TLN_SetWindowTitle)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	TLN_SetWindowTitle((char *) RING_API_GETCPOINTER(1,"char"));
+	TLN_SetWindowTitle(RING_API_GETSTRING(1));
 }
 
 
@@ -3568,14 +3563,14 @@ RING_FUNC(ring_TLN_LoadSpriteset)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		TLN_Spriteset *pValue ; 
 		pValue = (TLN_Spriteset *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Spriteset)) ;
-		*pValue = TLN_LoadSpriteset((char *) RING_API_GETCPOINTER(1,"char"));
+		*pValue = TLN_LoadSpriteset(RING_API_GETSTRING(1));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Spriteset",ring_state_free);
 	}
 }
@@ -3645,11 +3640,11 @@ RING_FUNC(ring_TLN_FindSpritesetSprite)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETNUMBER(TLN_FindSpritesetSprite(* (TLN_Spriteset  *) RING_API_GETCPOINTER(1,"TLN_Spriteset"),(char *) RING_API_GETCPOINTER(2,"char")));
+	RING_API_RETNUMBER(TLN_FindSpritesetSprite(* (TLN_Spriteset  *) RING_API_GETCPOINTER(1,"TLN_Spriteset"),RING_API_GETSTRING(2)));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Spriteset"));
 }
@@ -3764,14 +3759,14 @@ RING_FUNC(ring_TLN_LoadTileset)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		TLN_Tileset *pValue ; 
 		pValue = (TLN_Tileset *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Tileset)) ;
-		*pValue = TLN_LoadTileset((char *) RING_API_GETCPOINTER(1,"char"));
+		*pValue = TLN_LoadTileset(RING_API_GETSTRING(1));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Tileset",ring_state_free);
 	}
 }
@@ -3947,18 +3942,18 @@ RING_FUNC(ring_TLN_LoadTilemap)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		TLN_Tilemap *pValue ; 
 		pValue = (TLN_Tilemap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Tilemap)) ;
-		*pValue = TLN_LoadTilemap((char *) RING_API_GETCPOINTER(1,"char"),(char *) RING_API_GETCPOINTER(2,"char"));
+		*pValue = TLN_LoadTilemap(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Tilemap",ring_state_free);
 	}
 }
@@ -4151,14 +4146,14 @@ RING_FUNC(ring_TLN_LoadPalette)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		TLN_Palette *pValue ; 
 		pValue = (TLN_Palette *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Palette)) ;
-		*pValue = TLN_LoadPalette((char *) RING_API_GETCPOINTER(1,"char"));
+		*pValue = TLN_LoadPalette(RING_API_GETSTRING(1));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Palette",ring_state_free);
 	}
 }
@@ -4396,14 +4391,14 @@ RING_FUNC(ring_TLN_LoadBitmap)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		TLN_Bitmap *pValue ; 
 		pValue = (TLN_Bitmap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Bitmap)) ;
-		*pValue = TLN_LoadBitmap((char *) RING_API_GETCPOINTER(1,"char"));
+		*pValue = TLN_LoadBitmap(RING_API_GETSTRING(1));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Bitmap",ring_state_free);
 	}
 }
@@ -4602,18 +4597,18 @@ RING_FUNC(ring_TLN_LoadObjectList)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		TLN_ObjectList *pValue ; 
 		pValue = (TLN_ObjectList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_ObjectList)) ;
-		*pValue = TLN_LoadObjectList((char *) RING_API_GETCPOINTER(1,"char"),(char *) RING_API_GETCPOINTER(2,"char"));
+		*pValue = TLN_LoadObjectList(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_ObjectList",ring_state_free);
 	}
 }
@@ -5604,7 +5599,7 @@ RING_FUNC(ring_TLN_CreateSequence)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -5623,7 +5618,7 @@ RING_FUNC(ring_TLN_CreateSequence)
 	{
 		TLN_Sequence *pValue ; 
 		pValue = (TLN_Sequence *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Sequence)) ;
-		*pValue = TLN_CreateSequence((char *) RING_API_GETCPOINTER(1,"char"), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),(TLN_SequenceFrame *) RING_API_GETCPOINTER(4,"TLN_SequenceFrame"));
+		*pValue = TLN_CreateSequence(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3),(TLN_SequenceFrame *) RING_API_GETCPOINTER(4,"TLN_SequenceFrame"));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Sequence",ring_state_free);
 	}
 }
@@ -5636,7 +5631,7 @@ RING_FUNC(ring_TLN_CreateCycle)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -5651,7 +5646,7 @@ RING_FUNC(ring_TLN_CreateCycle)
 	{
 		TLN_Sequence *pValue ; 
 		pValue = (TLN_Sequence *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Sequence)) ;
-		*pValue = TLN_CreateCycle((char *) RING_API_GETCPOINTER(1,"char"), (int ) RING_API_GETNUMBER(2),(TLN_ColorStrip *) RING_API_GETCPOINTER(3,"TLN_ColorStrip"));
+		*pValue = TLN_CreateCycle(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),(TLN_ColorStrip *) RING_API_GETCPOINTER(3,"TLN_ColorStrip"));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Sequence",ring_state_free);
 	}
 }
@@ -5664,11 +5659,11 @@ RING_FUNC(ring_TLN_CreateSpriteSequence)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	if ( ! RING_API_ISCPOINTER(3) ) {
+	if ( ! RING_API_ISSTRING(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
@@ -5679,7 +5674,7 @@ RING_FUNC(ring_TLN_CreateSpriteSequence)
 	{
 		TLN_Sequence *pValue ; 
 		pValue = (TLN_Sequence *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Sequence)) ;
-		*pValue = TLN_CreateSpriteSequence((char *) RING_API_GETCPOINTER(1,"char"),* (TLN_Spriteset  *) RING_API_GETCPOINTER(2,"TLN_Spriteset"),(char *) RING_API_GETCPOINTER(3,"char"), (int ) RING_API_GETNUMBER(4));
+		*pValue = TLN_CreateSpriteSequence(RING_API_GETSTRING(1),* (TLN_Spriteset  *) RING_API_GETCPOINTER(2,"TLN_Spriteset"),RING_API_GETSTRING(3), (int ) RING_API_GETNUMBER(4));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_Spriteset"));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Sequence",ring_state_free);
@@ -5758,14 +5753,14 @@ RING_FUNC(ring_TLN_LoadSequencePack)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
+	if ( ! RING_API_ISSTRING(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		TLN_SequencePack *pValue ; 
 		pValue = (TLN_SequencePack *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_SequencePack)) ;
-		*pValue = TLN_LoadSequencePack((char *) RING_API_GETCPOINTER(1,"char"));
+		*pValue = TLN_LoadSequencePack(RING_API_GETSTRING(1));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_SequencePack",ring_state_free);
 	}
 }
@@ -5800,14 +5795,14 @@ RING_FUNC(ring_TLN_FindSequence)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(2) ) {
+	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	{
 		TLN_Sequence *pValue ; 
 		pValue = (TLN_Sequence *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Sequence)) ;
-		*pValue = TLN_FindSequence(* (TLN_SequencePack  *) RING_API_GETCPOINTER(1,"TLN_SequencePack"),(char *) RING_API_GETCPOINTER(2,"char"));
+		*pValue = TLN_FindSequence(* (TLN_SequencePack  *) RING_API_GETCPOINTER(1,"TLN_SequencePack"),RING_API_GETSTRING(2));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_SequencePack"));
 		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Sequence",ring_state_free);
@@ -6196,7 +6191,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_cwf_s3",ring_get_cwf_s3);
 	ring_vm_funcregister("get_cwf_s4",ring_get_cwf_s4);
 	ring_vm_funcregister("get_cwf_s5",ring_get_cwf_s5);
-	ring_vm_funcregister("get_cwf_nearest	",ring_get_cwf_nearest	);
 	ring_vm_funcregister("get_tln_err_ok",ring_get_tln_err_ok);
 	ring_vm_funcregister("get_tln_err_out_of_memory",ring_get_tln_err_out_of_memory);
 	ring_vm_funcregister("get_tln_err_idx_layer",ring_get_tln_err_idx_layer);
