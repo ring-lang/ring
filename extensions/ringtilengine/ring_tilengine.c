@@ -315,6 +315,150 @@ RING_FUNC(ring_set_tln_affine_sy)
 	pMyPointer->sy = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_tile)
+{
+	Tile *pMyPointer ;
+	pMyPointer = (Tile *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Tile)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"Tile");
+}
+
+RING_FUNC(ring_new_managed_tile)
+{
+	Tile *pMyPointer ;
+	pMyPointer = (Tile *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Tile)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"Tile",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_tile)
+{
+	Tile *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Tile");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_tile_value)
+{
+	Tile *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Tile");
+	RING_API_RETNUMBER(pMyPointer->value);
+}
+
+RING_FUNC(ring_set_tile_value)
+{
+	Tile *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Tile");
+	pMyPointer->value = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_tile_index)
+{
+	Tile *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Tile");
+	RING_API_RETNUMBER(pMyPointer->index);
+}
+
+RING_FUNC(ring_set_tile_index)
+{
+	Tile *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Tile");
+	pMyPointer->index = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_tile_flags)
+{
+	Tile *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Tile");
+	RING_API_RETNUMBER(pMyPointer->flags);
+}
+
+RING_FUNC(ring_set_tile_flags)
+{
+	Tile *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"Tile");
+	pMyPointer->flags = RING_API_GETNUMBER(2);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_tilengine_ver_maj",ring_get_tilengine_ver_maj);
@@ -350,4 +494,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_tln_affine_sx",ring_set_tln_affine_sx);
 	ring_vm_funcregister("get_tln_affine_sy",ring_get_tln_affine_sy);
 	ring_vm_funcregister("set_tln_affine_sy",ring_set_tln_affine_sy);
+	ring_vm_funcregister("new_tile",ring_new_tile);
+	ring_vm_funcregister("new_managed_tile",ring_new_managed_tile);
+	ring_vm_funcregister("destroy_tile",ring_destroy_tile);
+	ring_vm_funcregister("get_tile_value",ring_get_tile_value);
+	ring_vm_funcregister("set_tile_value",ring_set_tile_value);
+	ring_vm_funcregister("get_tile_index",ring_get_tile_index);
+	ring_vm_funcregister("set_tile_index",ring_set_tile_index);
+	ring_vm_funcregister("get_tile_flags",ring_get_tile_flags);
+	ring_vm_funcregister("set_tile_flags",ring_set_tile_flags);
 }
