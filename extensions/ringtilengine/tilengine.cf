@@ -7,6 +7,10 @@
 </code>
 
 <constant>
+TILENGINE_VER_MAJ
+TILENGINE_VER_MIN
+TILENGINE_VER_REV
+TILENGINE_HEADER_VERSION
 </constant>
 
 <struct>
@@ -15,5 +19,13 @@
 <runcode>
 aNumberTypes + "size_t"
 aNumberTypes + "char"
+aNumberTypes + "int8_t"
+aNumberTypes + "int16_t"
+aNumberTypes + "int32_t"
+aNumberTypes + "uint8_t"
+aNumberTypes + "uint16_t"
+aNumberTypes + "uint32_t"
+aNumberTypes + "bool"
+
 </runcode>
 
