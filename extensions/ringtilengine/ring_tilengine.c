@@ -3935,30 +3935,6 @@ RING_FUNC(ring_TLN_CreateTilemap)
 }
 
 
-RING_FUNC(ring_TLN_LoadTilemap)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	{
-		TLN_Tilemap *pValue ; 
-		pValue = (TLN_Tilemap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Tilemap)) ;
-		*pValue = TLN_LoadTilemap(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Tilemap",ring_state_free);
-	}
-}
-
-
 RING_FUNC(ring_TLN_CloneTilemap)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -4118,6 +4094,31 @@ RING_FUNC(ring_TLN_DeleteTilemap)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Tilemap"));
 }
 
+RING_FUNC(ring_TLN_LoadTilemap)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		TLN_Tilemap *pValue ;
+		pValue = (TLN_Tilemap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Tilemap)) ;
+		if ( strcmp(RING_API_GETSTRING(2),"") == 0 )
+			*pValue = TLN_LoadTilemap(RING_API_GETSTRING(1),NULL);
+		else
+			*pValue = TLN_LoadTilemap(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Tilemap",ring_state_free);
+	}
+}
 
 RING_FUNC(ring_TLN_CreatePalette)
 {
