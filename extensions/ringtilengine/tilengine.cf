@@ -30,6 +30,7 @@ BLEND_MIX
 </constant>
 
 <struct>
+TLN_Affine {angle,dx,dy,sx,sy}
 </struct>
 
 <runcode>
