@@ -5174,6 +5174,428 @@ RING_FUNC(ring_TLN_GetLayerHeight)
 	RING_API_RETNUMBER(TLN_GetLayerHeight( (int ) RING_API_GETNUMBER(1)));
 }
 
+
+RING_FUNC(ring_TLN_ConfigSprite)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_ConfigSprite( (int ) RING_API_GETNUMBER(1),* (TLN_Spriteset  *) RING_API_GETCPOINTER(2,"TLN_Spriteset"), (uint32_t ) RING_API_GETNUMBER(3)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_Spriteset"));
+}
+
+
+RING_FUNC(ring_TLN_SetSpriteSet)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetSpriteSet( (int ) RING_API_GETNUMBER(1),* (TLN_Spriteset  *) RING_API_GETCPOINTER(2,"TLN_Spriteset")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_Spriteset"));
+}
+
+
+RING_FUNC(ring_TLN_SetSpriteFlags)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetSpriteFlags( (int ) RING_API_GETNUMBER(1), (uint32_t ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_TLN_EnableSpriteFlag)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_EnableSpriteFlag( (int ) RING_API_GETNUMBER(1), (uint32_t ) RING_API_GETNUMBER(2), (bool ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_TLN_SetSpritePosition)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetSpritePosition( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_TLN_SetSpritePicture)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetSpritePicture( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_TLN_SetSpritePalette)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetSpritePalette( (int ) RING_API_GETNUMBER(1),* (TLN_Palette  *) RING_API_GETCPOINTER(2,"TLN_Palette")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_Palette"));
+}
+
+
+RING_FUNC(ring_TLN_SetSpriteBlendMode)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetSpriteBlendMode( (int ) RING_API_GETNUMBER(1), (TLN_Blend )  (int) RING_API_GETNUMBER(2), (uint8_t ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_TLN_SetSpriteScaling)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetSpriteScaling( (int ) RING_API_GETNUMBER(1), (float ) RING_API_GETNUMBER(2), (float ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_TLN_ResetSpriteScaling)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_ResetSpriteScaling( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_TLN_GetSpritePicture)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_GetSpritePicture( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_TLN_GetAvailableSprite)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETNUMBER(TLN_GetAvailableSprite());
+}
+
+
+RING_FUNC(ring_TLN_EnableSpriteCollision)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_EnableSpriteCollision( (int ) RING_API_GETNUMBER(1), (bool ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_TLN_GetSpriteCollision)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_GetSpriteCollision( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_TLN_GetSpriteState)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_GetSpriteState( (int ) RING_API_GETNUMBER(1),(TLN_SpriteState *) RING_API_GETCPOINTER(2,"TLN_SpriteState")));
+}
+
+
+RING_FUNC(ring_TLN_SetFirstSprite)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetFirstSprite( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_TLN_SetNextSprite)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetNextSprite( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_TLN_EnableSpriteMasking)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_EnableSpriteMasking( (int ) RING_API_GETNUMBER(1), (bool ) RING_API_GETNUMBER(2)));
+}
+
+
+RING_FUNC(ring_TLN_SetSpritesMaskRegion)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	TLN_SetSpritesMaskRegion( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_TLN_SetSpriteAnimation)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetSpriteAnimation( (int ) RING_API_GETNUMBER(1),* (TLN_Sequence  *) RING_API_GETCPOINTER(2,"TLN_Sequence"), (int ) RING_API_GETNUMBER(3)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_Sequence"));
+}
+
+
+RING_FUNC(ring_TLN_DisableSpriteAnimation)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_DisableSpriteAnimation( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_TLN_DisableSprite)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_DisableSprite( (int ) RING_API_GETNUMBER(1)));
+}
+
+
+RING_FUNC(ring_TLN_GetSpritePalette)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		TLN_Palette *pValue ; 
+		pValue = (TLN_Palette *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Palette)) ;
+		*pValue = TLN_GetSpritePalette( (int ) RING_API_GETNUMBER(1));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Palette",ring_state_free);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("tln_init",ring_TLN_Init);
@@ -5308,6 +5730,29 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("tln_getlayertile",ring_TLN_GetLayerTile);
 	ring_vm_funcregister("tln_getlayerwidth",ring_TLN_GetLayerWidth);
 	ring_vm_funcregister("tln_getlayerheight",ring_TLN_GetLayerHeight);
+	ring_vm_funcregister("tln_configsprite",ring_TLN_ConfigSprite);
+	ring_vm_funcregister("tln_setspriteset",ring_TLN_SetSpriteSet);
+	ring_vm_funcregister("tln_setspriteflags",ring_TLN_SetSpriteFlags);
+	ring_vm_funcregister("tln_enablespriteflag",ring_TLN_EnableSpriteFlag);
+	ring_vm_funcregister("tln_setspriteposition",ring_TLN_SetSpritePosition);
+	ring_vm_funcregister("tln_setspritepicture",ring_TLN_SetSpritePicture);
+	ring_vm_funcregister("tln_setspritepalette",ring_TLN_SetSpritePalette);
+	ring_vm_funcregister("tln_setspriteblendmode",ring_TLN_SetSpriteBlendMode);
+	ring_vm_funcregister("tln_setspritescaling",ring_TLN_SetSpriteScaling);
+	ring_vm_funcregister("tln_resetspritescaling",ring_TLN_ResetSpriteScaling);
+	ring_vm_funcregister("tln_getspritepicture",ring_TLN_GetSpritePicture);
+	ring_vm_funcregister("tln_getavailablesprite",ring_TLN_GetAvailableSprite);
+	ring_vm_funcregister("tln_enablespritecollision",ring_TLN_EnableSpriteCollision);
+	ring_vm_funcregister("tln_getspritecollision",ring_TLN_GetSpriteCollision);
+	ring_vm_funcregister("tln_getspritestate",ring_TLN_GetSpriteState);
+	ring_vm_funcregister("tln_setfirstsprite",ring_TLN_SetFirstSprite);
+	ring_vm_funcregister("tln_setnextsprite",ring_TLN_SetNextSprite);
+	ring_vm_funcregister("tln_enablespritemasking",ring_TLN_EnableSpriteMasking);
+	ring_vm_funcregister("tln_setspritesmaskregion",ring_TLN_SetSpritesMaskRegion);
+	ring_vm_funcregister("tln_setspriteanimation",ring_TLN_SetSpriteAnimation);
+	ring_vm_funcregister("tln_disablespriteanimation",ring_TLN_DisableSpriteAnimation);
+	ring_vm_funcregister("tln_disablesprite",ring_TLN_DisableSprite);
+	ring_vm_funcregister("tln_getspritepalette",ring_TLN_GetSpritePalette);
 	ring_vm_funcregister("get_tilengine_ver_maj",ring_get_tilengine_ver_maj);
 	ring_vm_funcregister("get_tilengine_ver_min",ring_get_tilengine_ver_min);
 	ring_vm_funcregister("get_tilengine_ver_rev",ring_get_tilengine_ver_rev);
