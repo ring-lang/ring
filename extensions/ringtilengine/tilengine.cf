@@ -222,3 +222,18 @@ int TLN_GetTilesetNumTiles(TLN_Tileset tileset)
 TLN_Palette TLN_GetTilesetPalette(TLN_Tileset tileset)
 TLN_SequencePack TLN_GetTilesetSequencePack(TLN_Tileset tileset)
 bool TLN_DeleteTileset(TLN_Tileset tileset)
+
+<comment>
+Tilemap resources management for background layers
+</comment>
+
+TLN_Tilemap TLN_CreateTilemap(int rows, int cols, TLN_Tile tiles, uint32_t bgcolor, TLN_Tileset tileset)
+TLN_Tilemap TLN_LoadTilemap(const char* filename, const char* layername)
+TLN_Tilemap TLN_CloneTilemap(TLN_Tilemap src)
+int TLN_GetTilemapRows(TLN_Tilemap tilemap)
+int TLN_GetTilemapCols(TLN_Tilemap tilemap)
+TLN_Tileset TLN_GetTilemapTileset(TLN_Tilemap tilemap)
+bool TLN_GetTilemapTile(TLN_Tilemap tilemap, int row, int col, TLN_Tile tile)
+bool TLN_SetTilemapTile(TLN_Tilemap tilemap, int row, int col, TLN_Tile tile)
+bool TLN_CopyTiles(TLN_Tilemap src, int srcrow, int srccol, int rows, int cols, TLN_Tilemap dst, int dstrow, int dstcol)
+bool TLN_DeleteTilemap(TLN_Tilemap tilemap)
