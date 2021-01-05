@@ -38,6 +38,7 @@ TLN_SequenceInfo {num_frames}
 TLN_SpriteData {x,y,w,h}
 TLN_SpriteInfo {w,h}
 TLN_TileInfo {index,flags,row,col,xoffset,yoffset,color,type,empty}
+TLN_ObjectInfo {id,gid,flags,x,y,width,height,type,visible}
 </struct>
 
 <runcode>
