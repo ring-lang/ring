@@ -48,6 +48,7 @@ TLN_ObjectInfo {id,gid,flags,x,y,width,height,type,visible}
 TLN_TileAttributes {type,priority}
 TLN_PixelMap {dx,dy}
 TLN_TileImage {id,type}
+TLN_SpriteState {x,y,w,h,flags,index,enabled,collision}
 </struct>
 
 <runcode>
