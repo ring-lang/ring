@@ -34,6 +34,9 @@ TLN_Affine {angle,dx,dy,sx,sy}
 Tile {value,index,flags}
 TLN_SequenceFrame {index,delay}
 TLN_ColorStrip {delay,first,count,dir}
+TLN_SequenceInfo {num_frames}
+TLN_SpriteData {x,y,w,h}
+TLN_SpriteInfo {w,h}
 </struct>
 
 <runcode>

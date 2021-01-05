@@ -747,6 +747,370 @@ RING_FUNC(ring_set_tln_colorstrip_dir)
 	pMyPointer->dir = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_tln_sequenceinfo)
+{
+	TLN_SequenceInfo *pMyPointer ;
+	pMyPointer = (TLN_SequenceInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_SequenceInfo)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"TLN_SequenceInfo");
+}
+
+RING_FUNC(ring_new_managed_tln_sequenceinfo)
+{
+	TLN_SequenceInfo *pMyPointer ;
+	pMyPointer = (TLN_SequenceInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_SequenceInfo)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"TLN_SequenceInfo",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_tln_sequenceinfo)
+{
+	TLN_SequenceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SequenceInfo");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_tln_sequenceinfo_num_frames)
+{
+	TLN_SequenceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SequenceInfo");
+	RING_API_RETNUMBER(pMyPointer->num_frames);
+}
+
+RING_FUNC(ring_set_tln_sequenceinfo_num_frames)
+{
+	TLN_SequenceInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SequenceInfo");
+	pMyPointer->num_frames = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_new_tln_spritedata)
+{
+	TLN_SpriteData *pMyPointer ;
+	pMyPointer = (TLN_SpriteData *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_SpriteData)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"TLN_SpriteData");
+}
+
+RING_FUNC(ring_new_managed_tln_spritedata)
+{
+	TLN_SpriteData *pMyPointer ;
+	pMyPointer = (TLN_SpriteData *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_SpriteData)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"TLN_SpriteData",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_tln_spritedata)
+{
+	TLN_SpriteData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteData");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_tln_spritedata_x)
+{
+	TLN_SpriteData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteData");
+	RING_API_RETNUMBER(pMyPointer->x);
+}
+
+RING_FUNC(ring_set_tln_spritedata_x)
+{
+	TLN_SpriteData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteData");
+	pMyPointer->x = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_tln_spritedata_y)
+{
+	TLN_SpriteData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteData");
+	RING_API_RETNUMBER(pMyPointer->y);
+}
+
+RING_FUNC(ring_set_tln_spritedata_y)
+{
+	TLN_SpriteData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteData");
+	pMyPointer->y = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_tln_spritedata_w)
+{
+	TLN_SpriteData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteData");
+	RING_API_RETNUMBER(pMyPointer->w);
+}
+
+RING_FUNC(ring_set_tln_spritedata_w)
+{
+	TLN_SpriteData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteData");
+	pMyPointer->w = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_tln_spritedata_h)
+{
+	TLN_SpriteData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteData");
+	RING_API_RETNUMBER(pMyPointer->h);
+}
+
+RING_FUNC(ring_set_tln_spritedata_h)
+{
+	TLN_SpriteData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteData");
+	pMyPointer->h = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_new_tln_spriteinfo)
+{
+	TLN_SpriteInfo *pMyPointer ;
+	pMyPointer = (TLN_SpriteInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_SpriteInfo)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"TLN_SpriteInfo");
+}
+
+RING_FUNC(ring_new_managed_tln_spriteinfo)
+{
+	TLN_SpriteInfo *pMyPointer ;
+	pMyPointer = (TLN_SpriteInfo *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_SpriteInfo)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"TLN_SpriteInfo",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_tln_spriteinfo)
+{
+	TLN_SpriteInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteInfo");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_tln_spriteinfo_w)
+{
+	TLN_SpriteInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteInfo");
+	RING_API_RETNUMBER(pMyPointer->w);
+}
+
+RING_FUNC(ring_set_tln_spriteinfo_w)
+{
+	TLN_SpriteInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteInfo");
+	pMyPointer->w = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_tln_spriteinfo_h)
+{
+	TLN_SpriteInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteInfo");
+	RING_API_RETNUMBER(pMyPointer->h);
+}
+
+RING_FUNC(ring_set_tln_spriteinfo_h)
+{
+	TLN_SpriteInfo *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_SpriteInfo");
+	pMyPointer->h = RING_API_GETNUMBER(2);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_tilengine_ver_maj",ring_get_tilengine_ver_maj);
@@ -809,4 +1173,27 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_tln_colorstrip_count",ring_set_tln_colorstrip_count);
 	ring_vm_funcregister("get_tln_colorstrip_dir",ring_get_tln_colorstrip_dir);
 	ring_vm_funcregister("set_tln_colorstrip_dir",ring_set_tln_colorstrip_dir);
+	ring_vm_funcregister("new_tln_sequenceinfo",ring_new_tln_sequenceinfo);
+	ring_vm_funcregister("new_managed_tln_sequenceinfo",ring_new_managed_tln_sequenceinfo);
+	ring_vm_funcregister("destroy_tln_sequenceinfo",ring_destroy_tln_sequenceinfo);
+	ring_vm_funcregister("get_tln_sequenceinfo_num_frames",ring_get_tln_sequenceinfo_num_frames);
+	ring_vm_funcregister("set_tln_sequenceinfo_num_frames",ring_set_tln_sequenceinfo_num_frames);
+	ring_vm_funcregister("new_tln_spritedata",ring_new_tln_spritedata);
+	ring_vm_funcregister("new_managed_tln_spritedata",ring_new_managed_tln_spritedata);
+	ring_vm_funcregister("destroy_tln_spritedata",ring_destroy_tln_spritedata);
+	ring_vm_funcregister("get_tln_spritedata_x",ring_get_tln_spritedata_x);
+	ring_vm_funcregister("set_tln_spritedata_x",ring_set_tln_spritedata_x);
+	ring_vm_funcregister("get_tln_spritedata_y",ring_get_tln_spritedata_y);
+	ring_vm_funcregister("set_tln_spritedata_y",ring_set_tln_spritedata_y);
+	ring_vm_funcregister("get_tln_spritedata_w",ring_get_tln_spritedata_w);
+	ring_vm_funcregister("set_tln_spritedata_w",ring_set_tln_spritedata_w);
+	ring_vm_funcregister("get_tln_spritedata_h",ring_get_tln_spritedata_h);
+	ring_vm_funcregister("set_tln_spritedata_h",ring_set_tln_spritedata_h);
+	ring_vm_funcregister("new_tln_spriteinfo",ring_new_tln_spriteinfo);
+	ring_vm_funcregister("new_managed_tln_spriteinfo",ring_new_managed_tln_spriteinfo);
+	ring_vm_funcregister("destroy_tln_spriteinfo",ring_destroy_tln_spriteinfo);
+	ring_vm_funcregister("get_tln_spriteinfo_w",ring_get_tln_spriteinfo_w);
+	ring_vm_funcregister("set_tln_spriteinfo_w",ring_set_tln_spriteinfo_w);
+	ring_vm_funcregister("get_tln_spriteinfo_h",ring_get_tln_spriteinfo_h);
+	ring_vm_funcregister("set_tln_spriteinfo_h",ring_set_tln_spriteinfo_h);
 }
