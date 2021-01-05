@@ -3534,6 +3534,168 @@ RING_FUNC(ring_TLN_GetWindowHeight)
 	RING_API_RETNUMBER(TLN_GetWindowHeight());
 }
 
+
+RING_FUNC(ring_TLN_CreateSpriteset)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		TLN_Spriteset *pValue ; 
+		pValue = (TLN_Spriteset *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Spriteset)) ;
+		*pValue = TLN_CreateSpriteset(* (TLN_Bitmap  *) RING_API_GETCPOINTER(1,"TLN_Bitmap"),(TLN_SpriteData *) RING_API_GETCPOINTER(2,"TLN_SpriteData"), (int ) RING_API_GETNUMBER(3));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Bitmap"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Spriteset",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_TLN_LoadSpriteset)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		TLN_Spriteset *pValue ; 
+		pValue = (TLN_Spriteset *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Spriteset)) ;
+		*pValue = TLN_LoadSpriteset((char *) RING_API_GETCPOINTER(1,"char"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Spriteset",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_TLN_CloneSpriteset)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	{
+		TLN_Spriteset *pValue ; 
+		pValue = (TLN_Spriteset *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Spriteset)) ;
+		*pValue = TLN_CloneSpriteset(* (TLN_Spriteset  *) RING_API_GETCPOINTER(1,"TLN_Spriteset"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Spriteset"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Spriteset",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_TLN_GetSpriteInfo)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_GetSpriteInfo(* (TLN_Spriteset  *) RING_API_GETCPOINTER(1,"TLN_Spriteset"), (int ) RING_API_GETNUMBER(2),(TLN_SpriteInfo *) RING_API_GETCPOINTER(3,"TLN_SpriteInfo")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Spriteset"));
+}
+
+
+RING_FUNC(ring_TLN_GetSpritesetPalette)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	{
+		TLN_Palette *pValue ; 
+		pValue = (TLN_Palette *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Palette)) ;
+		*pValue = TLN_GetSpritesetPalette(* (TLN_Spriteset  *) RING_API_GETCPOINTER(1,"TLN_Spriteset"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Spriteset"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_Palette",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_TLN_FindSpritesetSprite)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_FindSpritesetSprite(* (TLN_Spriteset  *) RING_API_GETCPOINTER(1,"TLN_Spriteset"),(char *) RING_API_GETCPOINTER(2,"char")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Spriteset"));
+}
+
+
+RING_FUNC(ring_TLN_SetSpritesetData)
+{
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_SetSpritesetData(* (TLN_Spriteset  *) RING_API_GETCPOINTER(1,"TLN_Spriteset"), (int ) RING_API_GETNUMBER(2),(TLN_SpriteData *) RING_API_GETCPOINTER(3,"TLN_SpriteData"),(void *) RING_API_GETCPOINTER(4,"void"), (int ) RING_API_GETNUMBER(5)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Spriteset"));
+}
+
+
+RING_FUNC(ring_TLN_DeleteSpriteset)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETNUMBER(TLN_DeleteSpriteset(* (TLN_Spriteset  *) RING_API_GETCPOINTER(1,"TLN_Spriteset")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Spriteset"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("tln_init",ring_TLN_Init);
@@ -3586,6 +3748,14 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("tln_getticks",ring_TLN_GetTicks);
 	ring_vm_funcregister("tln_getwindowwidth",ring_TLN_GetWindowWidth);
 	ring_vm_funcregister("tln_getwindowheight",ring_TLN_GetWindowHeight);
+	ring_vm_funcregister("tln_createspriteset",ring_TLN_CreateSpriteset);
+	ring_vm_funcregister("tln_loadspriteset",ring_TLN_LoadSpriteset);
+	ring_vm_funcregister("tln_clonespriteset",ring_TLN_CloneSpriteset);
+	ring_vm_funcregister("tln_getspriteinfo",ring_TLN_GetSpriteInfo);
+	ring_vm_funcregister("tln_getspritesetpalette",ring_TLN_GetSpritesetPalette);
+	ring_vm_funcregister("tln_findspritesetsprite",ring_TLN_FindSpritesetSprite);
+	ring_vm_funcregister("tln_setspritesetdata",ring_TLN_SetSpritesetData);
+	ring_vm_funcregister("tln_deletespriteset",ring_TLN_DeleteSpriteset);
 	ring_vm_funcregister("get_tilengine_ver_maj",ring_get_tilengine_ver_maj);
 	ring_vm_funcregister("get_tilengine_ver_min",ring_get_tilengine_ver_min);
 	ring_vm_funcregister("get_tilengine_ver_rev",ring_get_tilengine_ver_rev);

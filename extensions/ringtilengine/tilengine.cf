@@ -193,3 +193,16 @@ void TLN_Delay(uint32_t msecs)
 uint32_t TLN_GetTicks(void)
 int TLN_GetWindowWidth(void)
 int TLN_GetWindowHeight(void)
+
+<comment>
+Spriteset resources management for sprites
+</comment>
+
+TLN_Spriteset TLN_CreateSpriteset(TLN_Bitmap bitmap, TLN_SpriteData* data, int num_entries)
+TLN_Spriteset TLN_LoadSpriteset(const char* name)
+TLN_Spriteset TLN_CloneSpriteset(TLN_Spriteset src)
+bool TLN_GetSpriteInfo(TLN_Spriteset spriteset, int entry, TLN_SpriteInfo* info)
+TLN_Palette TLN_GetSpritesetPalette(TLN_Spriteset spriteset)
+int TLN_FindSpritesetSprite(TLN_Spriteset spriteset, const char* name)
+bool TLN_SetSpritesetData(TLN_Spriteset spriteset, int entry, TLN_SpriteData* data, void* pixels, int pitch)
+bool TLN_DeleteSpriteset(TLN_Spriteset Spriteset)
