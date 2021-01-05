@@ -1,7 +1,7 @@
 <ignorecpointertype>
 
 <code>
-/* Copyright (c) 2021 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright(c) 2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include <tilengine.h>
 </code>
@@ -160,3 +160,36 @@ void TLN_SetLogLevel(TLN_LogLevel log_level)
 bool TLN_OpenResourcePack(const char* filename, const char* key)
 void TLN_CloseResourcePack(void)
 
+<comment>
+Errors
+</comment>
+
+void TLN_SetLastError(TLN_Error error)
+TLN_Error TLN_GetLastError(void)
+const char *TLN_GetErrorString(TLN_Error error)
+
+<comment>
+Built-in window and input management
+</comment>
+
+bool TLN_CreateWindow(const char* overlay, int flags)
+bool TLN_CreateWindowThread(const char* overlay, int flags)
+void TLN_SetWindowTitle(const char* title)
+bool TLN_ProcessWindow(void)
+bool TLN_IsWindowActive(void)
+bool TLN_GetInput(TLN_Input id)
+void TLN_EnableInput(TLN_Player player, bool enable)
+void TLN_AssignInputJoystick(TLN_Player player, int index)
+void TLN_DefineInputKey(TLN_Player player, TLN_Input input, uint32_t keycode)
+void TLN_DefineInputButton(TLN_Player player, TLN_Input input, uint8_t joybutton)
+void TLN_DrawFrame(int frame)
+void TLN_WaitRedraw(void)
+void TLN_DeleteWindow(void)
+void TLN_EnableBlur(bool mode)
+void TLN_EnableCRTEffect(TLN_Overlay overlay, uint8_t overlay_factor, uint8_t threshold, uint8_t v0, uint8_t v1, uint8_t v2, uint8_t v3, bool blur, uint8_t glow_factor)
+void TLN_DisableCRTEffect(void)
+void TLN_SetSDLCallback(TLN_SDLCallback)
+void TLN_Delay(uint32_t msecs)
+uint32_t TLN_GetTicks(void)
+int TLN_GetWindowWidth(void)
+int TLN_GetWindowHeight(void)
