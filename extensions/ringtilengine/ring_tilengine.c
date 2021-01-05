@@ -5031,25 +5031,6 @@ RING_FUNC(ring_TLN_ResetLayerMode)
 }
 
 
-RING_FUNC(ring_TLN_SetLayerObjects)
-{
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(TLN_SetLayerObjects( (int ) RING_API_GETNUMBER(1),* (TLN_ObjectList  *) RING_API_GETCPOINTER(2,"TLN_ObjectList"),* (TLN_Tileset  *) RING_API_GETCPOINTER(3,"TLN_Tileset")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_ObjectList"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"TLN_Tileset"));
-}
-
-
 RING_FUNC(ring_TLN_SetLayerPriority)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -5217,6 +5198,29 @@ RING_FUNC(ring_TLN_SetLayer)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"TLN_Tilemap"));
 
 }
+
+RING_FUNC(ring_TLN_SetLayerObjects)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( RING_API_GETCPOINTER(3,"TLN_Tileset") == NULL ) {
+		RING_API_RETNUMBER(TLN_SetLayerObjects( (int ) RING_API_GETNUMBER(1),* (TLN_ObjectList  *) RING_API_GETCPOINTER(2,"TLN_ObjectList"), NULL ));
+	} else {
+		RING_API_RETNUMBER(TLN_SetLayerObjects( (int ) RING_API_GETNUMBER(1),* (TLN_ObjectList  *) RING_API_GETCPOINTER(2,"TLN_ObjectList"),* (TLN_Tileset  *) RING_API_GETCPOINTER(3,"TLN_Tileset")));
+	}
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_ObjectList"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"TLN_Tileset"));
+}
+
 
 RING_FUNC(ring_TLN_ConfigSprite)
 {
