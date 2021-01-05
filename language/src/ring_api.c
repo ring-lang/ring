@@ -20,6 +20,8 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("add",ring_vmlib_add);
 	ring_vm_funcregister("del",ring_vmlib_del);
 	ring_vm_funcregister("sysget",ring_vmlib_get);
+	ring_vm_funcregister("sysset",ring_vmlib_set);
+	ring_vm_funcregister("sysunset",ring_vmlib_unset);
 	ring_vm_funcregister("clock",ring_vmlib_clock);
 	ring_vm_funcregister("lower",ring_vmlib_lower);
 	ring_vm_funcregister("upper",ring_vmlib_upper);
@@ -136,6 +138,27 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("addsublistsbymove",ring_vmlib_addsublistsbymove);
 	ring_vm_funcregister("addsublistsbyfastcopy",ring_vmlib_addsublistsbyfastcopy);
 }
+
+#ifdef _MSC_VER
+/* Visual Studio C++ compiler doesn't provide setenv/unsetenv functions */
+int setenv(const char *name, const char *value, int overwrite)
+{
+    errno_t errcode = 0;
+    if (!overwrite) {
+        size_t envsize = 0;
+        errcode = getenv_s(&envsize, NULL, 0, name);
+        if (errcode || envsize) {
+			return (int) errcode;
+		}
+    }
+    return (int) _putenv_s(name, value);
+}
+
+int unsetenv(const char *name)
+{
+	return (int) _putenv_s(name, "");
+}
+#endif
 
 int ring_vm_api_islist ( void *pPointer,int x )
 {
@@ -579,6 +602,55 @@ void ring_vmlib_get ( void *pPointer )
 		}
 		else {
 			RING_API_RETSTRING("");
+		}
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vmlib_set ( void *pPointer )
+{
+	char *cStrName  ;
+	char *cStrValue  ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	
+	cStrName = RING_API_GETSTRING(1);
+	cStrValue = RING_API_GETSTRING(2);
+	
+	if ( setenv (cStrName,cStrValue,1) == 0 ) {
+		RING_API_RETNUMBER(1);
+	}
+	else {
+		RING_API_RETNUMBER(0);
+	}
+}
+
+void ring_vmlib_unset ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		if ( unsetenv(RING_API_GETSTRING(1)) == 0 ) {
+			RING_API_RETNUMBER(1);
+		}
+		else {
+			RING_API_RETNUMBER(0);
 		}
 	}
 	else {
