@@ -2771,6 +2771,48 @@ RING_FUNC(ring_set_tln_spritestate_collision)
 	pMyPointer->collision = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_tln_tilemap)
+{
+	TLN_Tilemap *pMyPointer ;
+	pMyPointer = (TLN_Tilemap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Tilemap)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"TLN_Tilemap");
+}
+
+RING_FUNC(ring_new_managed_tln_tilemap)
+{
+	TLN_Tilemap *pMyPointer ;
+	pMyPointer = (TLN_Tilemap *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_Tilemap)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"TLN_Tilemap",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_tln_tilemap)
+{
+	TLN_Tilemap *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_Tilemap");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 
 RING_FUNC(ring_TLN_Init)
 {
@@ -4676,25 +4718,6 @@ RING_FUNC(ring_TLN_DeleteObjectList)
 }
 
 
-RING_FUNC(ring_TLN_SetLayer)
-{
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISNUMBER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETNUMBER(TLN_SetLayer( (int ) RING_API_GETNUMBER(1),* (TLN_Tileset  *) RING_API_GETCPOINTER(2,"TLN_Tileset"),* (TLN_Tilemap  *) RING_API_GETCPOINTER(3,"TLN_Tilemap")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_Tileset"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"TLN_Tilemap"));
-}
-
-
 RING_FUNC(ring_TLN_SetLayerTilemap)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -5170,6 +5193,29 @@ RING_FUNC(ring_TLN_GetLayerHeight)
 	RING_API_RETNUMBER(TLN_GetLayerHeight( (int ) RING_API_GETNUMBER(1)));
 }
 
+RING_FUNC(ring_TLN_SetLayer)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	if (RING_API_GETCPOINTER(2,"TLN_Tileset") == NULL) {
+		RING_API_RETNUMBER(TLN_SetLayer( (int ) RING_API_GETNUMBER(1),NULL,* (TLN_Tilemap  *) RING_API_GETCPOINTER(3,"TLN_Tilemap")));
+	} else {
+		RING_API_RETNUMBER(TLN_SetLayer( (int ) RING_API_GETNUMBER(1),* (TLN_Tileset  *) RING_API_GETCPOINTER(2,"TLN_Tileset"),* (TLN_Tilemap  *) RING_API_GETCPOINTER(3,"TLN_Tilemap")));
+	}
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_Tileset"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"TLN_Tilemap"));
+
+}
 
 RING_FUNC(ring_TLN_ConfigSprite)
 {
@@ -6360,4 +6406,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_tln_spritestate_enabled",ring_set_tln_spritestate_enabled);
 	ring_vm_funcregister("get_tln_spritestate_collision",ring_get_tln_spritestate_collision);
 	ring_vm_funcregister("set_tln_spritestate_collision",ring_set_tln_spritestate_collision);
+	ring_vm_funcregister("new_tln_tilemap",ring_new_tln_tilemap);
+	ring_vm_funcregister("new_managed_tln_tilemap",ring_new_managed_tln_tilemap);
+	ring_vm_funcregister("destroy_tln_tilemap",ring_destroy_tln_tilemap);
 }

@@ -107,6 +107,7 @@ TLN_TileAttributes {type,priority}
 TLN_PixelMap {dx,dy}
 TLN_TileImage {id,type}
 TLN_SpriteState {x,y,w,h,flags,index,enabled,collision}
+TLN_Tilemap
 </struct>
 
 <runcode>
@@ -314,7 +315,9 @@ bool TLN_DeleteObjectList(TLN_ObjectList list)
 Background layers management
 </comment>
 
+<register>
 bool TLN_SetLayer(int nlayer, TLN_Tileset tileset, TLN_Tilemap tilemap)
+</register>
 bool TLN_SetLayerTilemap(int nlayer, TLN_Tilemap tilemap)
 bool TLN_SetLayerBitmap(int nlayer, TLN_Bitmap bitmap)
 bool TLN_SetLayerPalette(int nlayer, TLN_Palette palette)
@@ -339,6 +342,32 @@ TLN_Palette TLN_GetLayerPalette(int nlayer)
 bool TLN_GetLayerTile(int nlayer, int x, int y, TLN_TileInfo* info)
 int  TLN_GetLayerWidth(int nlayer)
 int  TLN_GetLayerHeight(int nlayer)
+
+<code>
+RING_FUNC(ring_TLN_SetLayer)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	if (RING_API_GETCPOINTER(2,"TLN_Tileset") == NULL) {
+		RING_API_RETNUMBER(TLN_SetLayer( (int ) RING_API_GETNUMBER(1),NULL,* (TLN_Tilemap  *) RING_API_GETCPOINTER(3,"TLN_Tilemap")));
+	} else {
+		RING_API_RETNUMBER(TLN_SetLayer( (int ) RING_API_GETNUMBER(1),* (TLN_Tileset  *) RING_API_GETCPOINTER(2,"TLN_Tileset"),* (TLN_Tilemap  *) RING_API_GETCPOINTER(3,"TLN_Tilemap")));
+	}
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"TLN_Tileset"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"TLN_Tilemap"));
+
+}
+</code>
 
 <comment>
 Sprites management
