@@ -1807,6 +1807,116 @@ RING_FUNC(ring_set_tln_objectinfo_visible)
 	pMyPointer->visible = RING_API_GETNUMBER(2);
 }
 
+RING_FUNC(ring_new_tln_tileattributes)
+{
+	TLN_TileAttributes *pMyPointer ;
+	pMyPointer = (TLN_TileAttributes *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_TileAttributes)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"TLN_TileAttributes");
+}
+
+RING_FUNC(ring_new_managed_tln_tileattributes)
+{
+	TLN_TileAttributes *pMyPointer ;
+	pMyPointer = (TLN_TileAttributes *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_TileAttributes)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"TLN_TileAttributes",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_tln_tileattributes)
+{
+	TLN_TileAttributes *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_TileAttributes");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_tln_tileattributes_type)
+{
+	TLN_TileAttributes *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_TileAttributes");
+	RING_API_RETNUMBER(pMyPointer->type);
+}
+
+RING_FUNC(ring_set_tln_tileattributes_type)
+{
+	TLN_TileAttributes *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_TileAttributes");
+	pMyPointer->type = RING_API_GETNUMBER(2);
+}
+
+RING_FUNC(ring_get_tln_tileattributes_priority)
+{
+	TLN_TileAttributes *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_TileAttributes");
+	RING_API_RETNUMBER(pMyPointer->priority);
+}
+
+RING_FUNC(ring_set_tln_tileattributes_priority)
+{
+	TLN_TileAttributes *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"TLN_TileAttributes");
+	pMyPointer->priority = RING_API_GETNUMBER(2);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_tilengine_ver_maj",ring_get_tilengine_ver_maj);
@@ -1934,4 +2044,11 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("set_tln_objectinfo_type",ring_set_tln_objectinfo_type);
 	ring_vm_funcregister("get_tln_objectinfo_visible",ring_get_tln_objectinfo_visible);
 	ring_vm_funcregister("set_tln_objectinfo_visible",ring_set_tln_objectinfo_visible);
+	ring_vm_funcregister("new_tln_tileattributes",ring_new_tln_tileattributes);
+	ring_vm_funcregister("new_managed_tln_tileattributes",ring_new_managed_tln_tileattributes);
+	ring_vm_funcregister("destroy_tln_tileattributes",ring_destroy_tln_tileattributes);
+	ring_vm_funcregister("get_tln_tileattributes_type",ring_get_tln_tileattributes_type);
+	ring_vm_funcregister("set_tln_tileattributes_type",ring_set_tln_tileattributes_type);
+	ring_vm_funcregister("get_tln_tileattributes_priority",ring_get_tln_tileattributes_priority);
+	ring_vm_funcregister("set_tln_tileattributes_priority",ring_set_tln_tileattributes_priority);
 }
