@@ -133,6 +133,26 @@ RING_FUNC(ring_get_tln_max_overlay)
 	RING_API_RETNUMBER(TLN_MAX_OVERLAY);
 }
 
+RING_FUNC(ring_get_player1)
+{
+	RING_API_RETNUMBER(PLAYER1);
+}
+
+RING_FUNC(ring_get_player2)
+{
+	RING_API_RETNUMBER(PLAYER2);
+}
+
+RING_FUNC(ring_get_player3)
+{
+	RING_API_RETNUMBER(PLAYER3);
+}
+
+RING_FUNC(ring_get_player4)
+{
+	RING_API_RETNUMBER(PLAYER4);
+}
+
 RING_FUNC(ring_new_tln_affine)
 {
 	TLN_Affine *pMyPointer ;
@@ -2509,6 +2529,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_tln_overlay_scanlines",ring_get_tln_overlay_scanlines);
 	ring_vm_funcregister("get_tln_overlay_custom",ring_get_tln_overlay_custom);
 	ring_vm_funcregister("get_tln_max_overlay",ring_get_tln_max_overlay);
+	ring_vm_funcregister("get_player1",ring_get_player1);
+	ring_vm_funcregister("get_player2",ring_get_player2);
+	ring_vm_funcregister("get_player3",ring_get_player3);
+	ring_vm_funcregister("get_player4",ring_get_player4);
 	ring_vm_funcregister("new_tln_affine",ring_new_tln_affine);
 	ring_vm_funcregister("new_managed_tln_affine",ring_new_managed_tln_affine);
 	ring_vm_funcregister("destroy_tln_affine",ring_destroy_tln_affine);

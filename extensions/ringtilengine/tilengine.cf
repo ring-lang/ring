@@ -33,6 +33,10 @@ TLN_OVERLAY_APERTURE
 TLN_OVERLAY_SCANLINES
 TLN_OVERLAY_CUSTOM
 TLN_MAX_OVERLAY
+PLAYER1
+PLAYER2
+PLAYER3
+PLAYER4
 </constant>
 
 <struct>
@@ -64,5 +68,6 @@ aNumberTypes + "bool"
 aEnumTypes + "TLN_TileFlags"
 aEnumTypes + "TLN_Blend"
 aEnumTypes + "TLN_Overlay"
+aEnumTypes + "TLN_Player"
 </runcode>
 
