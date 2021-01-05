@@ -252,3 +252,21 @@ bool TLN_SubPaletteColor(TLN_Palette palette, uint8_t r, uint8_t g, uint8_t b, u
 bool TLN_ModPaletteColor(TLN_Palette palette, uint8_t r, uint8_t g, uint8_t b, uint8_t start, uint8_t num)
 uint8_t* TLN_GetPaletteData(TLN_Palette palette, int index)
 bool TLN_DeletePalette(TLN_Palette palette)
+
+<comment>
+Bitmap management
+</comment>
+
+TLN_Bitmap TLN_CreateBitmap(int width, int height, int bpp)
+TLN_Bitmap TLN_LoadBitmap(const char* filename)
+TLN_Bitmap TLN_CloneBitmap(TLN_Bitmap src)
+uint8_t* TLN_GetBitmapPtr(TLN_Bitmap bitmap, int x, int y)
+int TLN_GetBitmapWidth(TLN_Bitmap bitmap)
+int TLN_GetBitmapHeight(TLN_Bitmap bitmap)
+int TLN_GetBitmapDepth(TLN_Bitmap bitmap)
+int TLN_GetBitmapPitch(TLN_Bitmap bitmap)
+TLN_Palette TLN_GetBitmapPalette(TLN_Bitmap bitmap)
+bool TLN_SetBitmapPalette(TLN_Bitmap bitmap, TLN_Palette palette)
+bool TLN_DeleteBitmap(TLN_Bitmap bitmap)
+
+
