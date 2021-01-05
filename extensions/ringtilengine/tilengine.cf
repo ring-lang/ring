@@ -27,6 +27,12 @@ BLEND_MOD
 BLEND_CUSTOM
 MAX_BLEND
 BLEND_MIX
+TLN_OVERLAY_NONE
+TLN_OVERLAY_SHADOWMASK
+TLN_OVERLAY_APERTURE
+TLN_OVERLAY_SCANLINES
+TLN_OVERLAY_CUSTOM
+TLN_MAX_OVERLAY
 </constant>
 
 <struct>
@@ -54,5 +60,6 @@ aNumberTypes + "uint32_t"
 aNumberTypes + "bool"
 aEnumTypes + "TLN_TileFlags"
 aEnumTypes + "TLN_Blend"
+aEnumTypes + "TLN_Overlay"
 </runcode>
 

@@ -103,6 +103,36 @@ RING_FUNC(ring_get_blend_mix)
 	RING_API_RETNUMBER(BLEND_MIX);
 }
 
+RING_FUNC(ring_get_tln_overlay_none)
+{
+	RING_API_RETNUMBER(TLN_OVERLAY_NONE);
+}
+
+RING_FUNC(ring_get_tln_overlay_shadowmask)
+{
+	RING_API_RETNUMBER(TLN_OVERLAY_SHADOWMASK);
+}
+
+RING_FUNC(ring_get_tln_overlay_aperture)
+{
+	RING_API_RETNUMBER(TLN_OVERLAY_APERTURE);
+}
+
+RING_FUNC(ring_get_tln_overlay_scanlines)
+{
+	RING_API_RETNUMBER(TLN_OVERLAY_SCANLINES);
+}
+
+RING_FUNC(ring_get_tln_overlay_custom)
+{
+	RING_API_RETNUMBER(TLN_OVERLAY_CUSTOM);
+}
+
+RING_FUNC(ring_get_tln_max_overlay)
+{
+	RING_API_RETNUMBER(TLN_MAX_OVERLAY);
+}
+
 RING_FUNC(ring_new_tln_affine)
 {
 	TLN_Affine *pMyPointer ;
@@ -1939,6 +1969,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_blend_custom",ring_get_blend_custom);
 	ring_vm_funcregister("get_max_blend",ring_get_max_blend);
 	ring_vm_funcregister("get_blend_mix",ring_get_blend_mix);
+	ring_vm_funcregister("get_tln_overlay_none",ring_get_tln_overlay_none);
+	ring_vm_funcregister("get_tln_overlay_shadowmask",ring_get_tln_overlay_shadowmask);
+	ring_vm_funcregister("get_tln_overlay_aperture",ring_get_tln_overlay_aperture);
+	ring_vm_funcregister("get_tln_overlay_scanlines",ring_get_tln_overlay_scanlines);
+	ring_vm_funcregister("get_tln_overlay_custom",ring_get_tln_overlay_custom);
+	ring_vm_funcregister("get_tln_max_overlay",ring_get_tln_max_overlay);
 	ring_vm_funcregister("new_tln_affine",ring_new_tln_affine);
 	ring_vm_funcregister("new_managed_tln_affine",ring_new_managed_tln_affine);
 	ring_vm_funcregister("destroy_tln_affine",ring_destroy_tln_affine);
