@@ -388,6 +388,8 @@ oApp = new QApp {
 	}
 		
 	Exec()
+	Shutdown()
+
 }
 
 func pAutoSearchToggledEvent
