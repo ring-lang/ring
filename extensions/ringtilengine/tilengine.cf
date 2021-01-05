@@ -33,6 +33,7 @@ BLEND_MIX
 TLN_Affine {angle,dx,dy,sx,sy}
 Tile {value,index,flags}
 TLN_SequenceFrame {index,delay}
+TLN_ColorStrip {delay,first,count,dir}
 </struct>
 
 <runcode>
