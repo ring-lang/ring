@@ -338,3 +338,37 @@ bool TLN_SetSpriteAnimation(int nsprite, TLN_Sequence sequence, int loop)
 bool TLN_DisableSpriteAnimation(int nsprite)
 bool TLN_DisableSprite(int nsprite)
 TLN_Palette TLN_GetSpritePalette(int nsprite)
+
+<comment>
+Sequence resources management for layer, sprite and palette animations
+</comment>
+
+TLN_Sequence TLN_CreateSequence(const char* name, int target, int num_frames, TLN_SequenceFrame* frames)
+TLN_Sequence TLN_CreateCycle(const char* name, int num_strips, TLN_ColorStrip* strips)
+TLN_Sequence TLN_CreateSpriteSequence(const char* name, TLN_Spriteset spriteset, const char* basename, int delay)
+TLN_Sequence TLN_CloneSequence(TLN_Sequence src)
+bool TLN_GetSequenceInfo(TLN_Sequence sequence, TLN_SequenceInfo* info)
+bool TLN_DeleteSequence(TLN_Sequence sequence)
+
+<comment>
+Sequence pack manager for grouping and finding sequences
+</comment>
+
+TLN_SequencePack TLN_CreateSequencePack(void)
+TLN_SequencePack TLN_LoadSequencePack(const char* filename)
+TLN_Sequence TLN_GetSequence(TLN_SequencePack sp, int index)
+TLN_Sequence TLN_FindSequence(TLN_SequencePack sp, const char* name)
+int TLN_GetSequencePackCount(TLN_SequencePack sp)
+bool TLN_AddSequenceToPack(TLN_SequencePack sp, TLN_Sequence sequence)
+bool TLN_DeleteSequencePack(TLN_SequencePack sp)
+
+<comment>
+Color cycle animation
+</comment>
+
+bool TLN_SetPaletteAnimation(int index, TLN_Palette palette, TLN_Sequence sequence, bool blend)
+bool TLN_SetPaletteAnimationSource(int index, TLN_Palette)
+bool TLN_GetAnimationState(int index)
+bool TLN_SetAnimationDelay(int index, int frame, int delay)
+int  TLN_GetAvailableAnimation(void)
+bool TLN_DisablePaletteAnimation(int index)
