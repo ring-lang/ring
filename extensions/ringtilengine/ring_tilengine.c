@@ -4545,6 +4545,140 @@ RING_FUNC(ring_TLN_DeleteBitmap)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_Bitmap"));
 }
 
+
+RING_FUNC(ring_TLN_CreateObjectList)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	{
+		TLN_ObjectList *pValue ; 
+		pValue = (TLN_ObjectList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_ObjectList)) ;
+		*pValue = TLN_CreateObjectList();
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_ObjectList",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_TLN_AddTileObjectToList)
+{
+	if ( RING_API_PARACOUNT != 6 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(5) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_AddTileObjectToList(* (TLN_ObjectList  *) RING_API_GETCPOINTER(1,"TLN_ObjectList"), (uint16_t ) RING_API_GETNUMBER(2), (uint16_t ) RING_API_GETNUMBER(3), (uint16_t ) RING_API_GETNUMBER(4), (int ) RING_API_GETNUMBER(5), (int ) RING_API_GETNUMBER(6)));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_ObjectList"));
+}
+
+
+RING_FUNC(ring_TLN_LoadObjectList)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		TLN_ObjectList *pValue ; 
+		pValue = (TLN_ObjectList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_ObjectList)) ;
+		*pValue = TLN_LoadObjectList((char *) RING_API_GETCPOINTER(1,"char"),(char *) RING_API_GETCPOINTER(2,"char"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_ObjectList",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_TLN_CloneObjectList)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	{
+		TLN_ObjectList *pValue ; 
+		pValue = (TLN_ObjectList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_ObjectList)) ;
+		*pValue = TLN_CloneObjectList(* (TLN_ObjectList  *) RING_API_GETCPOINTER(1,"TLN_ObjectList"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_ObjectList"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_ObjectList",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_TLN_GetListNumObjects)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETNUMBER(TLN_GetListNumObjects(* (TLN_ObjectList  *) RING_API_GETCPOINTER(1,"TLN_ObjectList")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_ObjectList"));
+}
+
+
+RING_FUNC(ring_TLN_GetListObject)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(TLN_GetListObject(* (TLN_ObjectList  *) RING_API_GETCPOINTER(1,"TLN_ObjectList"),(TLN_ObjectInfo *) RING_API_GETCPOINTER(2,"TLN_ObjectInfo")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_ObjectList"));
+}
+
+
+RING_FUNC(ring_TLN_DeleteObjectList)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETNUMBER(TLN_DeleteObjectList(* (TLN_ObjectList  *) RING_API_GETCPOINTER(1,"TLN_ObjectList")));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_ObjectList"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("tln_init",ring_TLN_Init);
@@ -4647,6 +4781,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("tln_getbitmappalette",ring_TLN_GetBitmapPalette);
 	ring_vm_funcregister("tln_setbitmappalette",ring_TLN_SetBitmapPalette);
 	ring_vm_funcregister("tln_deletebitmap",ring_TLN_DeleteBitmap);
+	ring_vm_funcregister("tln_createobjectlist",ring_TLN_CreateObjectList);
+	ring_vm_funcregister("tln_addtileobjecttolist",ring_TLN_AddTileObjectToList);
+	ring_vm_funcregister("tln_loadobjectlist",ring_TLN_LoadObjectList);
+	ring_vm_funcregister("tln_cloneobjectlist",ring_TLN_CloneObjectList);
+	ring_vm_funcregister("tln_getlistnumobjects",ring_TLN_GetListNumObjects);
+	ring_vm_funcregister("tln_getlistobject",ring_TLN_GetListObject);
+	ring_vm_funcregister("tln_deleteobjectlist",ring_TLN_DeleteObjectList);
 	ring_vm_funcregister("get_tilengine_ver_maj",ring_get_tilengine_ver_maj);
 	ring_vm_funcregister("get_tilengine_ver_min",ring_get_tilengine_ver_min);
 	ring_vm_funcregister("get_tilengine_ver_rev",ring_get_tilengine_ver_rev);

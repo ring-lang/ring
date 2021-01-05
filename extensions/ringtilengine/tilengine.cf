@@ -269,4 +269,15 @@ TLN_Palette TLN_GetBitmapPalette(TLN_Bitmap bitmap)
 bool TLN_SetBitmapPalette(TLN_Bitmap bitmap, TLN_Palette palette)
 bool TLN_DeleteBitmap(TLN_Bitmap bitmap)
 
+<comment>
+ObjectList resources management
+</comment>
+
+TLN_ObjectList TLN_CreateObjectList(void)
+bool TLN_AddTileObjectToList(TLN_ObjectList list, uint16_t id, uint16_t gid, uint16_t flags, int x, int y)
+TLN_ObjectList TLN_LoadObjectList(const char* filename, const char* layername)
+TLN_ObjectList TLN_CloneObjectList(TLN_ObjectList src)
+int TLN_GetListNumObjects(TLN_ObjectList list)
+bool TLN_GetListObject(TLN_ObjectList list, TLN_ObjectInfo* info)
+bool TLN_DeleteObjectList(TLN_ObjectList list)
 
