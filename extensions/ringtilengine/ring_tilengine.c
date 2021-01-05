@@ -4633,30 +4633,6 @@ RING_FUNC(ring_TLN_AddTileObjectToList)
 }
 
 
-RING_FUNC(ring_TLN_LoadObjectList)
-{
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISSTRING(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	{
-		TLN_ObjectList *pValue ; 
-		pValue = (TLN_ObjectList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_ObjectList)) ;
-		*pValue = TLN_LoadObjectList(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_ObjectList",ring_state_free);
-	}
-}
-
-
 RING_FUNC(ring_TLN_CloneObjectList)
 {
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -4717,6 +4693,31 @@ RING_FUNC(ring_TLN_DeleteObjectList)
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_ObjectList"));
 }
 
+RING_FUNC(ring_TLN_LoadObjectList)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		TLN_ObjectList *pValue ;
+		pValue = (TLN_ObjectList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_ObjectList)) ;
+		if (strcmp(RING_API_GETSTRING(2),"")==0)
+			*pValue = TLN_LoadObjectList(RING_API_GETSTRING(1),NULL);
+		else
+			*pValue = TLN_LoadObjectList(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_ObjectList",ring_state_free);
+	}
+}
 
 RING_FUNC(ring_TLN_SetLayerTilemap)
 {

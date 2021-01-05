@@ -305,11 +305,41 @@ ObjectList resources management
 
 TLN_ObjectList TLN_CreateObjectList(void)
 bool TLN_AddTileObjectToList(TLN_ObjectList list, uint16_t id, uint16_t gid, uint16_t flags, int x, int y)
+<register>
 TLN_ObjectList TLN_LoadObjectList(const char * filename, const char * layername)
+</register>
 TLN_ObjectList TLN_CloneObjectList(TLN_ObjectList src)
 int TLN_GetListNumObjects(TLN_ObjectList list)
 bool TLN_GetListObject(TLN_ObjectList list, TLN_ObjectInfo* info)
 bool TLN_DeleteObjectList(TLN_ObjectList list)
+
+<code>
+RING_FUNC(ring_TLN_LoadObjectList)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		TLN_ObjectList *pValue ; 
+		pValue = (TLN_ObjectList *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(TLN_ObjectList)) ;
+		if (strcmp(RING_API_GETSTRING(2),"")==0)
+			*pValue = TLN_LoadObjectList(RING_API_GETSTRING(1),NULL);
+		else
+			*pValue = TLN_LoadObjectList(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"TLN_ObjectList",ring_state_free);
+	}
+}
+</code>
 
 <comment>
 Background layers management
