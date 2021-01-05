@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sequences>
+	<sequence name="walk" delay="10" loop="0">
+		1,2,3,4,5,6,0
+	</sequence>
+</sequences>
+
+

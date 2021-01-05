@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="32" height="6" tilewidth="8" tileheight="8" nextobjectid="1">
+ <tileset firstgid="1" source="track1_bg.tsx"/>
+ <layer name="Layer 1" width="32" height="6">
+  <data encoding="base64" compression="zlib">
+   eJzFz+kKgCAQBOC12y67j/d/0QYyWGQjw6CF78fIrKIioghiUD9IIKVzMsihsDSULPMzbXcrjx3J1ZOmhgZalg107Mx3pxfwewYYYYL5weL0v8grbDd/ksbth+b9xdtSPzQfhDAGZA==
+  </data>
+ </layer>
+</map>

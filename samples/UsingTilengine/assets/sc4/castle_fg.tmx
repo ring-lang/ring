@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.0" orientation="orthogonal" renderorder="right-down" width="256" height="30" tilewidth="8" tileheight="8" nextobjectid="1">
+ <tileset firstgid="1" source="castle_fg.tsx"/>
+ <layer name="Layer 1" width="256" height="30">
+  <data encoding="base64" compression="zlib">
+   eJzt2EsOhCAMAND5z9z/xMPahabB2mreS7owBougFrzdAAAAAAAAAAAAAAAAAACIuI94jHiOeBX3BTjWe8RnxHfEr7gvcLRl/ds63vv6s6L9j+a3PliXPb/d85/dsv5tHe99/VnR/kfzWx+sy57f7vmrZde/2fzZ7a8uezy6r/+q23eXXf9m82e3v7rs8ei+/qtuX+1q36uobvd/dL2Mnj+b6vpcnX/L2b5Xe+t2/0fXy+j5s6muz9n5q/fn1Or2P8bzFTP7/lbvz6nV7X+M5yvG+wsAAAAAACz9AfhLCCk=
+  </data>
+ </layer>
+</map>

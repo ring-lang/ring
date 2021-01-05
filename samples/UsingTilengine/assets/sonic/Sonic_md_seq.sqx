@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<sequences>
+	<cycle name="seq_water" >
+		<strip first="4" count="4" dir="0" delay="8" />
+		<!--strip first="9" count="6" dir="1" delay="9" /-->	
+	</cycle>
+</sequences>

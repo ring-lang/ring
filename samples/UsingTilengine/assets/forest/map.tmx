@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.3.3" orientation="orthogonal" renderorder="right-down" width="160" height="25" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="57">
+ <tileset firstgid="1" source="tileset.tsx"/>
+ <tileset firstgid="241" source="props.tsx"/>
+ <imagelayer id="4" name="bottom">
+  <image source="background.png" width="192" height="240"/>
+ </imagelayer>
+ <imagelayer id="5" name="middle">
+  <image source="middleground.png" width="384" height="240"/>
+ </imagelayer>
+ <layer id="1" name="Main Layer" width="160" height="25">
+  <data encoding="base64" compression="zlib">
+   eJztWsuKZEUQDcQHMrj3N3pABjci6IyIuBFBHZ1Fr7XVT7hj4wPtbS18UO0PqMNUL50RH/SgqDiKj41SioW/YQR1gz73VGTezK7bM11TFXDIvJl5M7IyTkZG3G6R0yn/KmaKmy32W9wsxM+EXzK6RgTUGc1t7d8rflDsFGC3fW9G8+TWxOL6uPxW8V3QvpG8nKUyEuTgpEUJ94wfNfxzGyL/Zgl9+237VPG33Dr+uT4u/1T8FbRvJC2psxvJT7Loi9iO7CeNH8g96/8vsx63Ifs/1uPnYCbH83/Rmr/Ib1WRPDjAHOskU4nPbiTOv1Lfh+NKuGeCd6+fCZzzQLq82Zd6/zeSeL0237IcXDf+/SPy8Y8KLnkc3621MYpx75rEd2Df/eu27eOeCfLPz0Qfx2v8307w24eM15B/uXhmXeRuxT2Ke6G8T+pilM8lzb2J5DnoPrCEeyYc/yGcH6zPf0Mp//i31+xFnxj/HlA8rrjQ4okl51xlWfY+MO7luOUczPmo0tjedGH8x35pKnN+sL5a/9d3Py8jvt+N4nKLZedcZVmWfx7zpXKMSaK9Jq4yX3Fe5r4C/d1Uun4plfd4/xD8e7F6h2JpZMO/IcT457Yu/eYXjUv5wOcUzyteUFyUrt/jPMG57vNzzn4a/J9LI13+DZFbr6PgNxe2f+5eRv+Uyz1eVrwic9u/Kl2/l8pTfR2csw/BP4P7YoP5w/sVZ2QeS58p3LdGuvwb6vvOqsuWlOdlmHdgntEX781kkX+5vW9kbnfMPaJvLxzvcTkU/9wXG15TvN6usyaWsd/E/LvTOLjVolQ8J7PzbTZO5WWPSTcm8/F9vHN+joO+65Le+0bmdsfcI/ftZSpx3joU/0ZQN//3UrvOIfiXy8W2AGeD+q36noO6kF/ehjyK8nt+39HI/Ezb+bY9TsU6HJN5yTmC8zLKRUZydIchzgfrtXWh7fl7S2lZyq/3MuCxKf93Vw/sN/XxD/ll8ki7P3juL1Dbo8H7KXv38ZXHRHrdFthuz8iLHerHd3Gui4QU/zAmi+4l1G9zsN+z5ybQh++kdOEdPJX8dzouS/OLhxTnWnC9ofEp/8c+gLlymRCN4/IZ2mcsvf5sRmduPal+rEd62d5uR95X7k/NxfzLnd9Se6LfG7fP+P4bwTspXbnvf7X+bxS0me4nFU+14HpD75v/ezcA24S5wvxL2YPLmvg04meqL8eHGt1DInVHuo8t5d9Vwlhi/o1g3hE9c9tx/B/fpT4PPlt5qV3jOKhHc1jfPozz31e6Rxvkwf6ptA/5ty9dDqIN92SRDxEvDOzTzkn6rjxuPcc/H/OwHPHOfs9EujxsToHdVhlo8z1Jx+N7kj/nzr+JHPm+q9LlTQ2m0vVpyOncvVlTz/HPxzwtXd45/Lk5BTZcZezSvvq5flPxluJtxTsFex3dv+wL+9oRkf4UV06qbuvclqOzNIa6w/Zkc/8uxz/fW//bhj2/r/hA8aHiI9jrEv65jSZBW+QjOWZM6fe+bRh/kvVJW8eYD9eJfx+83XZcVSBvMLb5RPGp4jPFFanzfweyyK3atkg/+qeDdvxJ17dlMebztU5l2O/d6wjMGzC2+VLxleJrxTdS7v/GBM4X+S5LtbH+Ze9f91W1725D3Xnoc+X2Y4M6/uFdafhV8Zvid8UfUnf/InjeUkT6HZeOUZ/K3Fd5u3MoNd77t2VxbT5Xbj82KIPFLoeKGxl4f1/+6zY7hPcO6dnnQXD/IfSVtt/I9GGd/4cVfzvWvR/bMd7jb5i3247rjl2pi4f4m3PtmTnuOmvWmHr3Tufb/xEu1Bc=
+  </data>
+ </layer>
+ <objectgroup id="2" name="Object Layer">
+  <object id="1" gid="2147483894" x="16" y="226" width="213" height="223">
+   <properties>
+    <property name="priority" type="bool" value="true"/>
+   </properties>
+  </object>
+  <object id="2" gid="241" x="2352" y="208" width="193" height="165"/>
+  <object id="43" gid="245" x="256" y="208" width="49" height="29"/>
+  <object id="44" gid="242" x="336" y="208" width="25" height="33"/>
+  <object id="45" gid="243" x="432" y="176" width="23" height="28"/>
+  <object id="47" gid="247" x="304" y="64" width="41" height="53"/>
+  <object id="48" gid="247" x="976" y="64" width="41" height="53"/>
+  <object id="49" gid="246" x="2137" y="226" width="213" height="223"/>
+  <object id="54" name="OneRectangle" type="3" x="0" y="0" width="112" height="112"/>
+  <object id="55" name="AnotherRectangle" type="4" x="272" y="256" width="176" height="128"/>
+ </objectgroup>
+</map>

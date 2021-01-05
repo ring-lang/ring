@@ -1,0 +1,11 @@
+<sequences>
+	<cycle name="beach" >
+		<strip first="32" count="16" dir="1" delay="13" />
+		<strip first="48" count="16" dir="1" delay="9" />
+		<strip first="64" count="16" dir="1" delay="9" />
+		<strip first="80" count="16" dir="1" delay="13" />
+		<strip first="96" count="8" dir="1" delay="17" />
+		<strip first="128" count="16" dir="1" delay="9" />
+		<strip first="22" count="10" dir="1" delay="10" />
+	</cycle>
+</sequences>
