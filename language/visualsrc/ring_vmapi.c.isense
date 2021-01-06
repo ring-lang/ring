@@ -138,9 +138,6 @@ Type: List *
 pList
 Type: double
 nNum1
-ring_vmlib_get
-Type: char *
-pData
 ring_vmlib_clock
 Type: clock_t
 nNum1
@@ -467,6 +464,17 @@ lCase
 ring_vmlib_checkoverflow
 ring_vmlib_addsublistsbymove
 ring_vmlib_addsublistsbyfastcopy
+ring_vmlib_sysget
+Type: char *
+pData
+setenv
+Type: errno_t
+errcode
+Type: size_t
+envsize
+unsetenv
+ring_vmlib_sysset
+ring_vmlib_sysunset
 ringext_h
 RING_VM_LISTFUNCS
 RING_VM_REFMETA
