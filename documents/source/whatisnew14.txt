@@ -493,6 +493,22 @@ More Functions
 				-1 if the path exists but has 
 				   an unknown type (e.g. a pipe)
 
+* SysSet() Function
+
+We can set environment variables using the SysSet() function
+
+.. code-block:: none
+
+	SysSet(cVariable, cValue) ---> Returns 1 for success and return 0 for failure
+
+* SysUnset() Function
+
+We can delete an environment variables using the SysUnset() function
+
+.. code-block:: none
+
+	SysUnset(cVariable) ---> Returns 1 for success and return 0 for failure
+
 .. index:: 
 	pair: What is new in Ring 1.14?; More Improvements
 
