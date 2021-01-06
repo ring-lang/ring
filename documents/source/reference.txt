@@ -79,7 +79,7 @@ Keywords Count : 49
 Language Functions
 ==================
 
-Functions Count : 230
+Functions Count : 232
 
 .. code-block:: ring
 
@@ -296,6 +296,8 @@ Functions Count : 230
 	substr()
 	swap()
 	sysget()
+	sysset()
+	sysunset()
 	system()
 	tan()
 	tanh()
