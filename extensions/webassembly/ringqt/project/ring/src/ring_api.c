@@ -983,7 +983,7 @@ void ring_vmlib_diffdays ( void *pPointer )
 
 void ring_vmlib_version ( void *pPointer )
 {
-	RING_API_RETSTRING(RING_VERSION);
+	RING_API_RETSTRING(RING_STATE_VERSION);
 }
 
 void ring_vmlib_clockspersecond ( void *pPointer )

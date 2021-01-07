@@ -50,6 +50,7 @@ extern "C" {
 #include "ring/src/ring_api.c"
 #include "ring/src/ring_vmmath.c"
 #include "ring/src/ring_vmfile.c"
+#include "ring/src/ring_general.c"
 #include "ring/src/ring_state.c"
 #include "ring/src/ring_vmrefmeta.c"
 #include "ring/src/ring_vmlistfuncs.c"
