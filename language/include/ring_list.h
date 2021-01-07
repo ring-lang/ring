@@ -25,8 +25,6 @@
 
 	RING_API void ring_list_newitem_gc ( void *pState,List *pList ) ;
 
-	void ring_list_test ( void ) ;
-
 	RING_API Item * ring_list_getitem ( List *pList,int index ) ;
 
 	RING_API List * ring_list_delete_gc ( void *pState,List *pList ) ;
@@ -53,8 +51,6 @@
 	RING_API void ring_list_addfuncpointer_gc ( void *pState,List *pList,void (*pFunc)(void *) ) ;
 
 	RING_API int ring_list_isfuncpointer ( List *pList, int index ) ;
-
-	void ring_list_testfuncpointer ( void *pPointer ) ;
 	/* double */
 
 	RING_API void ring_list_setdouble_gc ( void *pState,List *pList, int index ,double number ) ;

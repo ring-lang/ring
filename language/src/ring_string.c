@@ -270,33 +270,6 @@ RING_API char * ring_strdup ( void *pState,const char *cStr )
 	cString[nSize] = '\0' ;
 	return cString ;
 }
-
-void ring_string_test ( void )
-{
-	#define nMaxValue 10
-	String *mystr[nMaxValue]  ;
-	int x  ;
-	String *pString  ;
-	for ( x = 0 ; x < nMaxValue ; x++ ) {
-		mystr[x] = ring_string_new("Wow Really i like the c language so much");
-		ring_string_print(mystr[x]);
-	}
-	for ( x = 0 ; x < nMaxValue ; x++ ) {
-		mystr[x] = ring_string_delete(mystr[x]);
-	}
-	/* Test String Add */
-	pString = ring_string_new("Hello ");
-	ring_string_add(pString,"World");
-	printf( "\nTest String Add , Output = %s\n",ring_string_get(pString) ) ;
-	ring_string_add(pString," Welcome to the C programming language");
-	printf( "\nTest String Add , Output = %s\n",ring_string_get(pString) ) ;
-	ring_string_delete(pString);
-	/* Test String to Lower */
-	pString = ring_string_new("Welcome to my StrinG");
-	printf( "Test string to lower \n" ) ;
-	printf( "%s\n",ring_string_tolower(pString) ) ;
-	ring_string_delete(pString);
-}
 /* Functions without state pointer */
 
 RING_API String * ring_string_new2 ( const char *str,int nStrSize )

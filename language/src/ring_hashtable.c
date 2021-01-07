@@ -212,47 +212,6 @@ void ring_hashtable_print ( HashTable *pHashTable )
 		}
 	}
 }
-
-void ring_hashtable_test ( void )
-{
-	HashTable *pHashTable  ;
-	char cStr[20]  ;
-	int x  ;
-	puts("\nRing - HashTable Test");
-	pHashTable = ring_hashtable_new();
-	puts("\nCreate HashTable Items ");
-	/* Add Items */
-	ring_hashtable_newnumber(pHashTable,"one",1);
-	ring_hashtable_newnumber(pHashTable,"two",2);
-	ring_hashtable_newnumber(pHashTable,"three",3);
-	ring_hashtable_newnumber(pHashTable,"four",4);
-	ring_hashtable_newnumber(pHashTable,"five",5);
-	ring_hashtable_newnumber(pHashTable,"six",6);
-	ring_hashtable_newnumber(pHashTable,"seven",7);
-	ring_hashtable_newnumber(pHashTable,"eight",8);
-	ring_hashtable_newnumber(pHashTable,"nine",9);
-	ring_hashtable_newnumber(pHashTable,"ten",10);
-	ring_hashtable_newpointer(pHashTable,"mypointer",cStr);
-	for ( x = 1 ; x <= 100 ; x++ ) {
-		sprintf( cStr , "test%d" , x ) ;
-		ring_hashtable_newnumber(pHashTable,cStr,x);
-	}
-	puts("\nPrint HashTable Items ");
-	ring_hashtable_print(pHashTable);
-	puts("\nFind Items ");
-	printf( "\n Item : one - nIndex : %d",ring_hashtable_findnumber(pHashTable,"one") ) ;
-	printf( "\n Item : five - nIndex : %d",ring_hashtable_findnumber(pHashTable,"five") ) ;
-	printf( "\n Item : two - nIndex : %d",ring_hashtable_findnumber(pHashTable,"two") ) ;
-	printf( "\n Item : four - nIndex : %d",ring_hashtable_findnumber(pHashTable,"four") ) ;
-	printf( "\n Item : three - nIndex : %d",ring_hashtable_findnumber(pHashTable,"three") ) ;
-	ring_hashtable_deleteitem(pHashTable,"three");
-	printf( "\n Item : three After Delete - nIndex : %d",ring_hashtable_findnumber(pHashTable,"three") ) ;
-	printf( "\n Item : mypointer - pointer : %s ",(char *) ring_hashtable_findpointer(pHashTable,"mypointer") ) ;
-	puts("\nDelete HashTable ");
-	ring_hashtable_delete(pHashTable);
-	puts("\nEnd of HashTable Test ");
-	exit(0);
-}
 /* Functions without the State pointer */
 
 HashTable * ring_hashtable_new ( void )

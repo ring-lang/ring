@@ -92,13 +92,6 @@ Type: int
 x
 Type: HashItem *
 pItem
-ring_hashtable_test
-Type: HashTable *
-pHashTable
-Type: char
-cStr[20]
-Type: int
-x
 ring_hashtable_new
 ring_hashtable_newitem
 ring_hashtable_deleteitem

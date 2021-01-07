@@ -111,4 +111,3 @@ ring_state_runobjectstring
 ring_state_log
 ring_state_cgiheader
 ring_state_segfaultaction
-ring_testallunits

@@ -136,9 +136,6 @@ Type: Item *
 pItem
 ring_list_addfuncpointer_gc
 ring_list_isfuncpointer
-ring_list_testfuncpointer
-Type: List *
-pList
 ring_list_insertitem_gc
 Type: Items *
 pItems
@@ -270,14 +267,3 @@ ring_list_genhashtable2
 ring_list_swaptwolists
 Type: List
 TempList
-ring_list_test
-Type: List *
-pList,*pList2
-Type: int
-x
-Type: Item *
-pItem
-Type: String *
-pString
-Type: char
-mystr[20]

@@ -41,8 +41,6 @@
 
 	void ring_hashtable_print ( HashTable *pHashTable ) ;
 
-	void ring_hashtable_test ( void ) ;
-
 	void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable ) ;
 	/* Macro */
 	#define RING_HASHITEMTYPE_NOTYPE 0

@@ -73,13 +73,6 @@ Type: char *
 cString
 Type: int
 x,nSize
-ring_string_test
-nMaxValue
-Type: String *
-mystr[nMaxValue]
-x
-Type: String *
-pString
 ring_string_new2
 ring_string_new
 ring_string_add
