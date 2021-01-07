@@ -173,7 +173,6 @@
 	#define ring_parser_icg_instructionscount(pParser) ring_list_getsize(pParser->GenCode)
 	#define ring_parser_icg_getoperationlist(pParser,x) ring_list_getlist(pParser->GenCode,x)
 	#define RING_PARSER_ICG_GOTOLASTOP pParser->ActiveGenCodeList = ring_list_getlist(pParser->GenCode,ring_list_getsize(pParser->GenCode))
-	extern const char *RING_IC_OP[] ;
 	/* Operations Text (Array) */
 	static const char * RING_IC_OP[] = {"NewLine","FileName","Print","Class","Func","Dup","New","Give","Private","NewLabel", 
 	
