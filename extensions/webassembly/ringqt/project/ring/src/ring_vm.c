@@ -316,7 +316,7 @@ void ring_vm_mainloop ( VM *pVM )
 		if ( pVM->pRingState->nPrintInstruction ) {
 			do {
 				ring_vm_fetch2(pVM);
-				while(pVM->lStopThisThread) ; ;
+				while(pVM->lStopThisThread) ;
 			} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 		}
 		else {
@@ -328,7 +328,7 @@ void ring_vm_mainloop ( VM *pVM )
 	#else
 		do {
 			ring_vm_fetch(pVM);
-			while(pVM->lStopThisThread) ; ;
+			while(pVM->lStopThisThread) ;
 		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	#endif
 }
