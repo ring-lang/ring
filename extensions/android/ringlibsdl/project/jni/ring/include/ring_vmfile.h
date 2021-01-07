@@ -91,4 +91,22 @@
 		double dNumber  ;
 		char cBytes[8]  ;
 	} Ring_uData ;
+	#include <sys/types.h>
+	#include <sys/stat.h>
+	#ifdef _WIN32
+		/* Windows Only */
+		#include <windows.h>
+		#ifdef _MSC_VER
+			#if !defined(S_ISREG) && defined(_S_IFMT) && defined(_S_IFREG)
+				#define S_ISREG(m) (((m) & _S_IFMT) == _S_IFREG)
+			#endif
+			#if !defined(S_ISDIR) && defined(_S_IFMT) && defined(_S_IFDIR)
+				#define S_ISDIR(m) (((m) & _S_IFMT) == _S_IFDIR)
+			#endif
+			#define stat _stat
+		#endif
+	#else
+		#include <dirent.h>
+		#include <unistd.h>
+	#endif
 #endif
