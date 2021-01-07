@@ -203,9 +203,6 @@ Type: List *
 pList
 Type: char *
 cString
-ring_execute
-Type: RingState *
-pRingState
 ring_scanner_getkeywordtext
 ring_scanner_runobjfile
 ring_scanner_runobjstring
