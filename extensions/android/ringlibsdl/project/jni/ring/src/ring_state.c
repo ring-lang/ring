@@ -228,6 +228,32 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	}
 }
 
+RING_API void ring_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nGenCObj,int nWarn,int argc,char *argv[] )
+{
+	RingState *pRingState  ;
+	pRingState = ring_state_new();
+	pRingState->nISCGI = nISCGI ;
+	pRingState->nRun = nRun ;
+	pRingState->nPrintIC = nPrintIC ;
+	pRingState->nPrintICFinal = nPrintICFinal ;
+	pRingState->nPrintTokens = nTokens ;
+	pRingState->nPrintRules = nRules ;
+	pRingState->nPrintInstruction = nIns ;
+	pRingState->nGenObj = nGenObj ;
+	pRingState->nGenCObj = nGenCObj ;
+	pRingState->nWarning = nWarn ;
+	pRingState->argc = argc ;
+	pRingState->argv = argv ;
+	ring_state_log(pRingState,"function ring_execute()");
+	if ( ring_issourcefile(cFileName) ) {
+		ring_scanner_readfile(pRingState,cFileName);
+	}
+	else {
+		ring_scanner_runobjfile(pRingState,cFileName);
+	}
+	ring_state_delete(pRingState);
+}
+
 RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName )
 {
 	ring_scanner_readfile(pRingState,cFileName);

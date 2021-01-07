@@ -154,8 +154,6 @@
 
 	void ring_scanner_printtokens ( Scanner *pScanner ) ;
 
-	RING_API void ring_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nGenCObj,int nWarn,int argc,char *argv[] ) ;
-
 	const char * ring_scanner_getkeywordtext ( const char *cStr ) ;
 
 	void ring_scanner_runobjfile ( RingState *pRingState,char *cFileName ) ;
