@@ -3,18 +3,6 @@
 **  Include Files 
 */
 #include "ring.h"
-#ifdef _WIN32
-	/* Windows only */
-	#include <direct.h>
-	#define GetCurrentDir _getcwd
-#else
-	#include <unistd.h>
-	#define GetCurrentDir getcwd
-	#if __MACH__
-		/* Mac OS X */
-		#include <mach-o/dyld.h>
-	#endif
-#endif
 /* General Options (Only for ring_state_main()) */
 static int nRingStateDEBUGSEGFAULT  ;
 static int nRingStateCGI  ;
@@ -23,10 +11,6 @@ static int nRingStateCGI  ;
 
 	static void ring_testallunits ( void ) ;
 #endif
-
-static void ring_showtime ( void ) ;
-
-void segfaultaction ( int sig ) ;
 /* API Functions */
 
 RING_API RingState * ring_state_new ( void )
@@ -109,18 +93,6 @@ RING_API RingState * ring_state_delete ( RingState *pRingState )
 	return NULL ;
 }
 
-void ring_state_cgiheader ( RingState *pRingState )
-{
-	if ( pRingState->nISCGI == 1 ) {
-		printf( "Content-Type: text/plain \n\n" ) ;
-	}
-}
-
-RING_API void ring_print_line ( void )
-{
-	puts("===========================================================================");
-}
-
 RING_API RingState * ring_state_init ( void )
 {
 	RingState *pRingState  ;
@@ -180,7 +152,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	nWarn = 0 ;
 	nRingStateDEBUGSEGFAULT = 0 ;
 	nRingStateCGI = 0 ;
-	signal(SIGSEGV,segfaultaction);
+	signal(SIGSEGV,ring_state_segfaultaction);
 	#if RING_TESTUNITS
 		ring_testallunits();
 	#endif
@@ -243,7 +215,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	/* Print Version */
 	if ( (argc == 1) || (cStr == NULL) ) {
 		ring_print_line();
-		printf( "Ring version %s \n2013-2021, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_VERSION ) ;
+		printf( "Ring version %s \n2013-2021, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_STATE_VERSION ) ;
 		puts("Usage : ring filename.ring [Options]");
 		ring_print_line();
 		/* Options */
@@ -290,6 +262,25 @@ RING_API void ring_state_log ( RingState *pRingState,const char *cStr )
 		fflush(pRingState->pLogFile);
 	#endif
 }
+
+void ring_state_cgiheader ( RingState *pRingState )
+{
+	if ( pRingState->nISCGI == 1 ) {
+		printf( "Content-Type: text/plain \n\n" ) ;
+	}
+}
+
+void ring_state_segfaultaction ( int sig )
+{
+	if ( nRingStateDEBUGSEGFAULT == 1 ) {
+		if ( nRingStateCGI == 1 ) {
+			printf( "Content-Type: text/plain\n\n" ) ;
+		}
+		printf( RING_SEGFAULT ) ;
+		printf( " : %d ",sig ) ;
+	}
+	exit(0);
+}
 #if RING_TESTUNITS
 
 	static void ring_testallunits ( void )
@@ -302,176 +293,3 @@ RING_API void ring_state_log ( RingState *pRingState,const char *cStr )
 		getchar();
 	}
 #endif
-
-static void ring_showtime ( void )
-{
-	time_t timer  ;
-	char buffer[50]  ;
-	struct tm*tm_info  ;
-	clock_t myclock  ;
-	time(&timer);
-	tm_info = localtime(&timer);
-	strftime(buffer,50,"Date  : %Y/%m/%d Time : %H:%M:%S", tm_info);
-	printf( "\n" ) ;
-	ring_print_line();
-	puts(buffer);
-	myclock = clock();
-	printf( "Clock : %ld \n", myclock ) ;
-	ring_print_line();
-}
-
-void segfaultaction ( int sig )
-{
-	if ( nRingStateDEBUGSEGFAULT == 1 ) {
-		if ( nRingStateCGI == 1 ) {
-			printf( "Content-Type: text/plain\n\n" ) ;
-		}
-		printf( RING_SEGFAULT ) ;
-		printf( " : %d ",sig ) ;
-	}
-	exit(0);
-}
-
-int ring_issourcefile ( const char *cStr )
-{
-	int x  ;
-	x = strlen(cStr) - 1 ;
-	if ( x >= 5 ) {
-		if ( tolower(cStr[x]) == 'g' && tolower(cStr[x-1]) == 'n' && tolower(cStr[x-2]) == 'i' && tolower(cStr[x-3]) == 'r' && cStr[x-4] == '.' ) {
-			return 1 ;
-		}
-	}
-	return 0 ;
-}
-
-int ring_isobjectfile ( const char *cStr )
-{
-	int x  ;
-	x = strlen(cStr) - 1 ;
-	if ( x > 6 ) {
-		if ( tolower(cStr[x]) == 'o' && tolower(cStr[x-1]) == 'g' && tolower(cStr[x-2]) == 'n' && tolower(cStr[x-3]) == 'i' && tolower(cStr[x-4]) == 'r' && cStr[x-5] == '.' ) {
-			return 1 ;
-		}
-	}
-	return 0 ;
-}
-/* General Functions */
-
-int ring_fexists ( const char *cFileName )
-{
-	FILE *fp  ;
-	fp = fopen(cFileName , "r" );
-	if ( fp ) {
-		fclose( fp ) ;
-		return 1 ;
-	}
-	return 0 ;
-}
-
-int ring_currentdir ( char *cDirPath )
-{
-	int nSize  ;
-	nSize = RING_PATHSIZE ;
-	if ( !GetCurrentDir(cDirPath, nSize) ) {
-		return errno ;
-	}
-	cDirPath[nSize-1] = '\0' ;
-	return 0 ;
-}
-
-int ring_exefilename ( char *cDirPath )
-{
-	unsigned int nSize  ;
-	nSize = RING_PATHSIZE ;
-	#ifdef _WIN32
-		/* Windows only */
-		GetModuleFileName(NULL,cDirPath,nSize);
-	#elif __MACH__
-		/* Mac OS X */
-		_NSGetExecutablePath(cDirPath,&nSize);
-	#elif __linux__
-		/* readlink() doesn't null terminate */
-		memset(cDirPath,0,nSize);
-		if ( ! readlink("/proc/self/exe",cDirPath,nSize) ) {
-			return 0 ;
-		}
-	#endif
-	return 1 ;
-}
-
-int ring_chdir ( const char *cDir )
-{
-	#ifdef _WIN32
-		/* Windows only */
-		#ifdef __BORLANDC__
-			/* Borland C/C++ */
-			return chdir(cDir) ;
-		#else
-			/* Modern Compilers Like Visual C/C++ */
-			return _chdir(cDir) ;
-		#endif
-	#else
-		return chdir(cDir) ;
-	#endif
-}
-
-void ring_exefolder ( char *cDirPath )
-{
-	char cDir[RING_PATHSIZE]  ;
-	char cDir2[RING_PATHSIZE]  ;
-	int x,x2,nSize  ;
-	ring_exefilename(cDir);
-	nSize = strlen( cDir ) ;
-	strcpy(cDir2,"");
-	for ( x = nSize-1 ; x >= 0 ; x-- ) {
-		if ( (cDir[x] == '\\') || (cDir[x] == '/') ) {
-			for ( x2 = x ; x2 >= 0 ; x2-- ) {
-				cDir2[x2] = cDir[x2] ;
-			}
-			cDir2[x+1] = '\0' ;
-			break ;
-		}
-	}
-	strcpy(cDirPath,cDir2);
-}
-
-void ring_switchtofilefolder ( char *cFileName )
-{
-	char cFileName2[RING_PATHSIZE]  ;
-	strcpy(cFileName2,cFileName);
-	if ( ring_justfilepath(cFileName2) ) {
-		ring_chdir(cFileName2);
-		/* Remove The Path from the file Name - Keep the File Name Only */
-		ring_justfilename(cFileName);
-		return ;
-	}
-}
-
-int ring_justfilepath ( char *cFileName )
-{
-	int x,nSize  ;
-	nSize = strlen( cFileName ) ;
-	for ( x = nSize-1 ; x >= 0 ; x-- ) {
-		if ( (cFileName[x] == '\\') || (cFileName[x] == '/') ) {
-			cFileName[x+1] = '\0' ;
-			return 1 ;
-		}
-	}
-	return 0 ;
-}
-
-void ring_justfilename ( char *cFileName )
-{
-	int x,nSize,r  ;
-	nSize = strlen( cFileName ) ;
-	for ( x = nSize-1 ; x >= 0 ; x-- ) {
-		if ( (cFileName[x] == '\\') || (cFileName[x] == '/') ) {
-			r = 0 ;
-			for ( x = x+1 ; x <= nSize+1 ; x++ ) {
-				cFileName[r] = cFileName[x] ;
-				r++ ;
-			}
-			break ;
-		}
-	}
-}

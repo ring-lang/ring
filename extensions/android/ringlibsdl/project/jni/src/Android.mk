@@ -23,6 +23,7 @@ LOCAL_SRC_FILES := $(SDL_PATH)/src/main/android/SDL_android_main.c \
 	$(RING_PATH)/ring_item.c \
 	$(RING_PATH)/ring_items.c \
 	$(RING_PATH)/ring_hashtable.c \
+	$(RING_PATH)/ring_general.c \
 	$(RING_PATH)/ring_state.c \
 	$(RING_PATH)/ring_scanner.c \
 	$(RING_PATH)/ring_parser.c \
