@@ -1,6 +1,7 @@
 ring_test_h
 main
 ring_testallunits
+ring_section
 ring_string_test
 nMaxValue
 Type: String *

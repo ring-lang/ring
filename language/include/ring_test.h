@@ -12,4 +12,6 @@
 	void ring_list_testfuncpointer ( void *pPointer ) ;
 
 	void ring_hashtable_test ( void ) ;
+
+	void ring_section ( const char *cTitle ) ;
 #endif

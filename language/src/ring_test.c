@@ -8,19 +8,14 @@
 
 int main ( int argc, char *argv[] )
 {
-	ring_print_line();
-	printf( "Hello \n" ) ;
+	ring_section("Hello!");
 	printf( "These are some old tests that I was using in the early days of development \n" ) ;
 	printf( "This was before we have a Compiler and a VM that we can run \n" ) ;
 	printf( "Now we have a group of tests in ring/language/test folder \n" ) ;
 	printf( "Also we keep this file if you want to do some experiments! \n" ) ;
-	ring_print_line();
-	printf( "Start of tests \n" ) ;
-	ring_print_line();
+	ring_section("Start of tests");
 	ring_testallunits();
-	ring_print_line();
-	printf( "End of tests \n" ) ;
-	ring_print_line();
+	ring_section("End of tests");
 	getchar();
 }
 /* Functions */
@@ -28,9 +23,19 @@ int main ( int argc, char *argv[] )
 void ring_testallunits ( void )
 {
 	/* Test */
+	ring_section("Strings");
 	ring_string_test();
+	ring_section("Lists");
 	ring_list_test();
+	ring_section("HashTable");
 	ring_hashtable_test();
+}
+
+void ring_section ( const char *cTitle )
+{
+	ring_print_line();
+	printf( "%s\n",cTitle ) ;
+	ring_print_line();
 }
 
 void ring_string_test ( void )
