@@ -93,4 +93,7 @@
 	/* MACRO */
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
 	#define RING_STATE_VERSION "1.14"
+	/* General Options (Only for ring_state_main()) */
+	static int nRingStateDEBUGSEGFAULT  ;
+	static int nRingStateCGI  ;
 #endif

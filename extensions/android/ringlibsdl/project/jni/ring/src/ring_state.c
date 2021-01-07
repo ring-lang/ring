@@ -3,9 +3,6 @@
 **  Include Files 
 */
 #include "ring.h"
-/* General Options (Only for ring_state_main()) */
-static int nRingStateDEBUGSEGFAULT  ;
-static int nRingStateCGI  ;
 /* API Functions */
 
 RING_API RingState * ring_state_new ( void )
