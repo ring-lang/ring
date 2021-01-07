@@ -20,6 +20,7 @@ Ring 1.14 comes with the next features!
 * More Samples
 * Erlang B Formula
 * Customers Form
+* Tilengine Extension
 * RingLibui Extension
 * Socket Extension
 * Better RingOpenSSL
@@ -126,6 +127,32 @@ The Use Interface is provided in Arabic, English & French
 
 .. image:: customersapp.png
 	:alt: erlangb
+
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Tilengine Extension
+
+Tilengine Extension
+===================
+
+This extension provides support for Tilengine - The 2D retro graphics engine with raster effects
+
+Screen Shots:
+
+.. image:: tilengine_shot1.png
+	:alt: tilengine
+
+.. image:: tilengine_shot2.png
+	:alt: tilengine
+
+.. image:: tilengine_shot3.png
+	:alt: tilengine
+
+.. image:: tilengine_shot4.png
+	:alt: tilengine
+
+.. image:: tilengine_shot5.png
+	:alt: tilengine
 
 .. index:: 
 	pair: What is new in Ring 1.14?; RingLibui Extension
