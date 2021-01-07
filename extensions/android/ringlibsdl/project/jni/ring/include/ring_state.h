@@ -79,7 +79,7 @@
 
 	RING_API void ring_state_main ( int argc, char *argv[] ) ;
 
-	RING_API void ring_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nGenCObj,int nWarn,int argc,char *argv[] ) ;
+	RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nGenCObj,int nWarn,int argc,char *argv[] ) ;
 
 	RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName ) ;
 
