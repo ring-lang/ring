@@ -19,6 +19,7 @@ Ring 1.14 comes with the next features!
 * Web Development Samples
 * More Samples
 * Erlang B Formula
+* Customers Form
 * RingLibui Extension
 * Socket Extension
 * Better RingOpenSSL
@@ -110,6 +111,20 @@ Erlang B Formula
 An application that uses the Erlang B Formula (Circuit Switching Systems)
 
 .. image:: erlangb.png
+	:alt: erlangb
+
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Customers Form
+
+Customers Form
+==============
+
+An application that uses SQLite and TableWidget 
+
+The Use Interface is provided in Arabic, English & French
+
+.. image:: customersapp.png
 	:alt: erlangb
 
 .. index:: 
