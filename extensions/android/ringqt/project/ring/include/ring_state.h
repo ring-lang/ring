@@ -69,10 +69,6 @@
 
 	RING_API RingState * ring_state_delete ( RingState *pRingState ) ;
 
-	void ring_state_cgiheader ( RingState *pRingState ) ;
-
-	RING_API void ring_print_line ( void ) ;
-
 	RING_API RingState * ring_state_init ( void ) ;
 
 	RING_API void ring_state_runcode ( RingState *pRingState,const char *cStr ) ;
@@ -90,28 +86,11 @@
 	RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName ) ;
 
 	RING_API void ring_state_log ( RingState *pRingState,const char *cStr ) ;
+
+	void ring_state_cgiheader ( RingState *pRingState ) ;
+
+	void ring_state_segfaultaction ( int sig ) ;
 	/* MACRO */
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
-	#define RING_VERSION "1.14"
-	/* General Functions */
-
-	int ring_fexists ( const char *cFileName ) ;
-
-	int ring_currentdir ( char *cDirPath ) ;
-
-	int ring_exefilename ( char *cDirPath ) ;
-
-	int ring_chdir ( const char *cDir ) ;
-
-	void ring_exefolder ( char *cDirPath ) ;
-
-	int ring_issourcefile ( const char *cStr ) ;
-
-	int ring_isobjectfile ( const char *cStr ) ;
-
-	void ring_switchtofilefolder ( char *cFileName ) ;
-
-	int ring_justfilepath ( char *cFileName ) ;
-
-	void ring_justfilename ( char *cFileName ) ;
+	#define RING_STATE_VERSION "1.14"
 #endif

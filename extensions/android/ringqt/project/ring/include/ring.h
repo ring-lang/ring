@@ -113,6 +113,7 @@
 	#include "ring_hashlib.h"
 	#include "ring_hashtable.h"
 	#include "ring_pooldata.h"
+	#include "ring_general.h"
 	#include "ring_state.h"
 	#include "ring_scanner.h"
 	#include "ring_parser.h"
