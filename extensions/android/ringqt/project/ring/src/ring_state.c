@@ -6,11 +6,6 @@
 /* General Options (Only for ring_state_main()) */
 static int nRingStateDEBUGSEGFAULT  ;
 static int nRingStateCGI  ;
-/* Define Functions */
-#if RING_TESTUNITS
-
-	static void ring_testallunits ( void ) ;
-#endif
 /* API Functions */
 
 RING_API RingState * ring_state_new ( void )
@@ -153,9 +148,6 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	nRingStateDEBUGSEGFAULT = 0 ;
 	nRingStateCGI = 0 ;
 	signal(SIGSEGV,ring_state_segfaultaction);
-	#if RING_TESTUNITS
-		ring_testallunits();
-	#endif
 	if ( argc > 1 ) {
 		for ( x = 1 ; x < argc ; x++ ) {
 			if ( strcmp(argv[x],"-cgi") == 0 ) {
@@ -281,15 +273,3 @@ void ring_state_segfaultaction ( int sig )
 	}
 	exit(0);
 }
-#if RING_TESTUNITS
-
-	static void ring_testallunits ( void )
-	{
-		/* Test */
-		ring_string_test();
-		ring_list_test();
-		ring_hashtable_test();
-		printf( "end of test \n  " ) ;
-		getchar();
-	}
-#endif

@@ -44,8 +44,6 @@
 	RING_API char * ring_string_find3_gc ( void *pState,char *cStr1,int nStrSize1,char *cStr2,int nStrSize2 ) ;
 
 	RING_API char * ring_strdup ( void *pState,const char *cStr ) ;
-
-	void ring_string_test ( void ) ;
 	/* Macro */
 	#define ring_string_tolower(x) ring_string_lower(x->cStr)
 	#define ring_string_toupper(x) ring_string_upper(x->cStr)
