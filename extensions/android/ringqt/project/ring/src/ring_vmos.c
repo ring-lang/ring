@@ -2,13 +2,7 @@
 **  Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> 
 **  Include Files 
 */
-#ifdef _WIN32
-	#include "windows.h"
-	typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
-	LPFN_ISWOW64PROCESS fnCheckWindows64  ;
-#endif
 #include "ring.h"
-#include "ring_vmos.h"
 /* Functions */
 
 void ring_vm_os_loadfunctions ( RingState *pRingState )

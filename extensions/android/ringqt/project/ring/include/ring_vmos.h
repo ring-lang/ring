@@ -32,4 +32,9 @@
 	void ring_vm_os_exefolder ( void *pPointer ) ;
 	/* Constants */
 	#define RING_VM_POINTER_LIBNAME "os"
+	#ifdef _WIN32
+		#include "windows.h"
+		typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
+		LPFN_ISWOW64PROCESS fnCheckWindows64  ;
+	#endif
 #endif
