@@ -22,7 +22,7 @@
 		/* Literal Line */
 		int nLiteralLine  ;
 	} Scanner ;
-	/* Keywords */
+	/* Keywords Enum */
 	typedef enum SCANNER_KEYWORD {
 		K_IF=1 ,
 		K_TO ,
@@ -77,6 +77,18 @@
 		K_CHANGERINGIOPERATOR ,
 		K_LOADSYNTAX 
 	} SCANNER_KEYWORD ;
+	/* Keywords String */
+	static const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC", 
+	
+	"FROM","NEXT","LOAD","ELSE","SEE","WHILE","OK","CLASS","RETURN","BUT", 
+	
+	"END","GIVE","BYE","EXIT","TRY","CATCH","DONE","SWITCH","ON","OTHER","OFF", 
+	
+	"IN","LOOP","PACKAGE","IMPORT","PRIVATE","STEP","DO","AGAIN","CALL","ELSEIF", 
+	
+	"PUT","GET","CASE","DEF","ENDFUNC","ENDCLASS","ENDPACKAGE", 
+	
+	"CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX"} ;
 	/* Operators */
 	typedef enum SCANNER_OPERATOR {
 		OP_PLUS = 1 ,
