@@ -89,8 +89,8 @@
 
 	void ring_state_cgiheader ( RingState *pRingState ) ;
 
-	void segfaultaction ( int sig ) ;
+	void ring_state_segfaultaction ( int sig ) ;
 	/* MACRO */
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
-	#define RING_VERSION "1.14"
+	#define RING_STATE_VERSION "1.14"
 #endif

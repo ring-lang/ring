@@ -152,7 +152,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	nWarn = 0 ;
 	nRingStateDEBUGSEGFAULT = 0 ;
 	nRingStateCGI = 0 ;
-	signal(SIGSEGV,segfaultaction);
+	signal(SIGSEGV,ring_state_segfaultaction);
 	#if RING_TESTUNITS
 		ring_testallunits();
 	#endif
@@ -215,7 +215,7 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 	/* Print Version */
 	if ( (argc == 1) || (cStr == NULL) ) {
 		ring_print_line();
-		printf( "Ring version %s \n2013-2021, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_VERSION ) ;
+		printf( "Ring version %s \n2013-2021, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_STATE_VERSION ) ;
 		puts("Usage : ring filename.ring [Options]");
 		ring_print_line();
 		/* Options */
@@ -270,7 +270,7 @@ void ring_state_cgiheader ( RingState *pRingState )
 	}
 }
 
-void segfaultaction ( int sig )
+void ring_state_segfaultaction ( int sig )
 {
 	if ( nRingStateDEBUGSEGFAULT == 1 ) {
 		if ( nRingStateCGI == 1 ) {

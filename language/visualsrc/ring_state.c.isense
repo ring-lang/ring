@@ -110,49 +110,5 @@ ring_state_runobjectfile
 ring_state_runobjectstring
 ring_state_log
 ring_state_cgiheader
-segfaultaction
+ring_state_segfaultaction
 ring_testallunits
-GetCurrentDir
-GetCurrentDir
-ring_fexists
-Type: FILE *
-fp
-ring_currentdir
-Type: int
-nSize
-ring_exefilename
-Type: unsigned int
-nSize
-ring_chdir
-ring_exefolder
-Type: char
-cDir[RING_PATHSIZE]
-Type: char
-cDir2[RING_PATHSIZE]
-Type: int
-x,x2,nSize
-ring_switchtofilefolder
-Type: char
-cFileName2[RING_PATHSIZE]
-ring_justfilepath
-Type: int
-x,nSize
-ring_justfilename
-Type: int
-x,nSize,r
-ring_issourcefile
-Type: int
-x
-ring_isobjectfile
-Type: int
-x
-ring_print_line
-ring_showtime
-Type: time_t
-timer
-Type: char
-buffer[50]
-Type: struct tm*
-tm_info
-Type: clock_t
-myclock
