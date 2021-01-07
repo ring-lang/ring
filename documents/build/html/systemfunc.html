@@ -109,6 +109,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">System Functions</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#system-function">System() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sysget-function">SysGet() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sysset-function">SysSet() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#sysunset-function">SysUnset() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ismsdos-function">IsMSDOS() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#iswindows-function">IsWindows() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#iswindows64-function">IsWindows64() Function</a></li>
@@ -178,6 +180,7 @@
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using Sockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using Libui</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
@@ -287,6 +290,8 @@
 <ul class="simple">
 <li><p>System()</p></li>
 <li><p>SysGet()</p></li>
+<li><p>SysSet()</p></li>
+<li><p>SysUnset()</p></li>
 <li><p>IsMSDOS()</p></li>
 <li><p>IsWindows()</p></li>
 <li><p>IsWindows64()</p></li>
@@ -330,8 +335,22 @@
 </pre></div>
 </div>
 </div>
+<div class="section" id="sysset-function">
+<span id="index-3"></span><h2>SysSet() Function<a class="headerlink" href="#sysset-function" title="Permalink to this headline">¶</a></h2>
+<p>We can set environment variables using the SysSet() function</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SysSet(cVariable, cValue) ---&gt; Returns 1 for success and return 0 for failure
+</pre></div>
+</div>
+</div>
+<div class="section" id="sysunset-function">
+<span id="index-4"></span><h2>SysUnset() Function<a class="headerlink" href="#sysunset-function" title="Permalink to this headline">¶</a></h2>
+<p>We can delete an environment variables using the SysUnset() function</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SysUnset(cVariable) ---&gt; Returns 1 for success and return 0 for failure
+</pre></div>
+</div>
+</div>
 <div class="section" id="ismsdos-function">
-<span id="index-3"></span><h2>IsMSDOS() Function<a class="headerlink" href="#ismsdos-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>IsMSDOS() Function<a class="headerlink" href="#ismsdos-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is MSDOS or not using the IsMSDOS() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsMSDOS</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">MS</span><span class="o">-</span><span class="n">DOS</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
@@ -339,7 +358,7 @@
 </div>
 </div>
 <div class="section" id="iswindows-function">
-<span id="index-4"></span><h2>IsWindows() Function<a class="headerlink" href="#iswindows-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>IsWindows() Function<a class="headerlink" href="#iswindows-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is Windows or not using the IsWindows() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsWindows</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Windows</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
@@ -347,7 +366,7 @@
 </div>
 </div>
 <div class="section" id="iswindows64-function">
-<span id="index-5"></span><h2>IsWindows64() Function<a class="headerlink" href="#iswindows64-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>IsWindows64() Function<a class="headerlink" href="#iswindows64-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is Windows 64bit or not using the IsWindows64() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsWindows64</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Windows64</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
@@ -355,7 +374,7 @@
 </div>
 </div>
 <div class="section" id="isunix-function">
-<span id="index-6"></span><h2>IsUnix() Function<a class="headerlink" href="#isunix-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>IsUnix() Function<a class="headerlink" href="#isunix-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is Unix or not using the IsUnix() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsUnix</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Unix</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
@@ -363,7 +382,7 @@
 </div>
 </div>
 <div class="section" id="ismacosx-function">
-<span id="index-7"></span><h2>IsMacOSX() Function<a class="headerlink" href="#ismacosx-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>IsMacOSX() Function<a class="headerlink" href="#ismacosx-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is macOS or not using the IsMacOSX() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsMacOSX</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Mac</span> <span class="n">OS</span> <span class="n">X</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
@@ -371,7 +390,7 @@
 </div>
 </div>
 <div class="section" id="islinux-function">
-<span id="index-8"></span><h2>IsLinux() Function<a class="headerlink" href="#islinux-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>IsLinux() Function<a class="headerlink" href="#islinux-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is Linux or not using the IsLinux() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsLinux</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Linux</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
@@ -379,7 +398,7 @@
 </div>
 </div>
 <div class="section" id="isfreebsd-function">
-<span id="index-9"></span><h2>IsFreeBSD() Function<a class="headerlink" href="#isfreebsd-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>IsFreeBSD() Function<a class="headerlink" href="#isfreebsd-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is FreeBSD or not using the IsFreeBSD() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsFreeBSD</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">FreeBSD</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
@@ -387,7 +406,7 @@
 </div>
 </div>
 <div class="section" id="isandroid-function">
-<span id="index-10"></span><h2>IsAndroid() Function<a class="headerlink" href="#isandroid-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>IsAndroid() Function<a class="headerlink" href="#isandroid-function" title="Permalink to this headline">¶</a></h2>
 <p>We can check if the operating system is Android or not using the IsAndroid() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">IsAndroid</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Android</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
@@ -395,7 +414,7 @@
 </div>
 </div>
 <div class="section" id="example">
-<span id="index-11"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">see</span> <span class="s">&quot;IsMSDOS()     --&gt; &quot;</span> <span class="o">+</span> <span class="n">ismsdos</span><span class="p">()</span>     <span class="o">+</span> <span class="n">nl</span>
 <span class="k">see</span> <span class="s">&quot;IsWindows()   --&gt; &quot;</span> <span class="o">+</span> <span class="n">iswindows</span><span class="p">()</span>   <span class="o">+</span> <span class="n">nl</span>
 <span class="k">see</span> <span class="s">&quot;IsWindows64() --&gt; &quot;</span> <span class="o">+</span> <span class="n">iswindows64</span><span class="p">()</span> <span class="o">+</span> <span class="n">nl</span>
@@ -419,7 +438,7 @@
 </div>
 </div>
 <div class="section" id="windowsnl-function">
-<span id="index-12"></span><h2>Windowsnl() Function<a class="headerlink" href="#windowsnl-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Windowsnl() Function<a class="headerlink" href="#windowsnl-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the windows new line string using the Windowsnl() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">WindowsNL</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">CR</span><span class="o">+</span><span class="n">LF</span> <span class="o">=</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
@@ -445,7 +464,7 @@
 </div>
 </div>
 <div class="section" id="get-command-line-arguments">
-<span id="index-13"></span><h2>Get Command Line Arguments<a class="headerlink" href="#get-command-line-arguments" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Get Command Line Arguments<a class="headerlink" href="#get-command-line-arguments" title="Permalink to this headline">¶</a></h2>
 <p>We can get the command line arguments passed to the ring script using the sysargv variable.</p>
 <p>The sysargv variable is a list contains the command line parameters.</p>
 <p>Example</p>
@@ -486,7 +505,7 @@
 </div>
 </div>
 <div class="section" id="get-active-source-file-name">
-<span id="index-14"></span><h2>Get Active Source File Name<a class="headerlink" href="#get-active-source-file-name" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>Get Active Source File Name<a class="headerlink" href="#get-active-source-file-name" title="Permalink to this headline">¶</a></h2>
 <p>We can get the active source file name (<a href="#id1"><span class="problematic" id="id2">*</span></a>.ring) using the filename() function</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">filename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">active</span> <span class="n">source</span> <span class="n">file</span> <span class="n">name</span><span class="p">.</span>
@@ -511,7 +530,7 @@
 </div>
 </div>
 <div class="section" id="prevfilename-function">
-<span id="index-15"></span><h2>PrevFileName() Function<a class="headerlink" href="#prevfilename-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-17"></span><h2>PrevFileName() Function<a class="headerlink" href="#prevfilename-function" title="Permalink to this headline">¶</a></h2>
 <p>Using the PrevFileName() function we can get the previous active source file name.</p>
 <p>The previous file would be the file of the caller function, Or the file of the function
 that we called before calling PrevFileName().</p>
@@ -531,7 +550,7 @@ caller function is the main source file of the program or not.</p>
 </div>
 </div>
 <div class="section" id="currentdir-function">
-<span id="index-16"></span><h2>CurrentDir() Function<a class="headerlink" href="#currentdir-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-18"></span><h2>CurrentDir() Function<a class="headerlink" href="#currentdir-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the path of the current directory</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">CurrenDir</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">path</span> <span class="n">of</span> <span class="n">the</span> <span class="n">currect</span> <span class="n">directory</span>
@@ -539,7 +558,7 @@ caller function is the main source file of the program or not.</p>
 </div>
 </div>
 <div class="section" id="exefilename-function">
-<span id="index-17"></span><h2>ExeFileName() Function<a class="headerlink" href="#exefilename-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-19"></span><h2>ExeFileName() Function<a class="headerlink" href="#exefilename-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the Ring executable file name</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">exefilename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span> <span class="n">file</span> <span class="n">name</span>
@@ -547,7 +566,7 @@ caller function is the main source file of the program or not.</p>
 </div>
 </div>
 <div class="section" id="chdir-function">
-<span id="index-18"></span><h2>ChDir() Function<a class="headerlink" href="#chdir-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-20"></span><h2>ChDir() Function<a class="headerlink" href="#chdir-function" title="Permalink to this headline">¶</a></h2>
 <p>Change the current directory</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">ChDir</span><span class="p">(</span><span class="n">cNewPath</span><span class="p">)</span>
@@ -555,7 +574,7 @@ caller function is the main source file of the program or not.</p>
 </div>
 </div>
 <div class="section" id="exefolder-function">
-<span id="index-19"></span><h2>ExeFolder() Function<a class="headerlink" href="#exefolder-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-21"></span><h2>ExeFolder() Function<a class="headerlink" href="#exefolder-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the Ring executable file path</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">exefolder</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span> <span class="n">path</span>
@@ -563,7 +582,7 @@ caller function is the main source file of the program or not.</p>
 </div>
 </div>
 <div class="section" id="version-function">
-<span id="index-20"></span><h2>Version() Function<a class="headerlink" href="#version-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-22"></span><h2>Version() Function<a class="headerlink" href="#version-function" title="Permalink to this headline">¶</a></h2>
 <p>Return the Ring version</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">version</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">version</span>
@@ -575,7 +594,7 @@ caller function is the main source file of the program or not.</p>
 </div>
 </div>
 <div class="section" id="shutdown-function">
-<span id="index-21"></span><h2>Shutdown() Function<a class="headerlink" href="#shutdown-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-23"></span><h2>Shutdown() Function<a class="headerlink" href="#shutdown-function" title="Permalink to this headline">¶</a></h2>
 <p>Close the application</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">shutdown</span><span class="p">(</span><span class="n">nStatus</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Close</span> <span class="n">the</span> <span class="n">application</span>

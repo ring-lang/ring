@@ -11,6 +11,10 @@ In this chapter we are going to learn about the system functions
 
 * SysGet()
 
+* SysSet()
+
+* SysUnset()
+
 * IsMSDOS()
 
 * IsWindows()
@@ -85,6 +89,31 @@ Example:
 .. code-block:: ring
 
 	see sysget("path")		# print system path information
+
+.. index:: 
+	pair: System Functions; SysSet() Function
+
+SysSet() Function
+=================
+
+We can set environment variables using the SysSet() function
+
+.. code-block:: none
+
+	SysSet(cVariable, cValue) ---> Returns 1 for success and return 0 for failure
+
+.. index:: 
+	pair: System Functions; SysUnset() Function
+
+SysUnset() Function
+===================
+
+We can delete an environment variables using the SysUnset() function
+
+.. code-block:: none
+
+	SysUnset(cVariable) ---> Returns 1 for success and return 0 for failure
+
 
 
 .. index:: 
