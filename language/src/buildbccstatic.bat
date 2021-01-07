@@ -1,6 +1,6 @@
 set path=%path%;c:\pwct19\ssbuild\borland\bcc55\bin\
 bcc32 -tWM -d -6 -O2 -OS -Ov -Oi -Oc -I"../include" ring.c  ^
-ring_string.c ring_list.c ring_item.c ring_items.c ring_hashtable.c ring_state.c ring_scanner.c ring_parser.c ring_hashlib.c ring_vmgc.c ^
+ring_string.c ring_list.c ring_item.c ring_items.c ring_hashtable.c ring_general.c ring_state.c ring_scanner.c ring_parser.c ring_hashlib.c ring_vmgc.c ^
 ring_stmt.c ring_expr.c ring_codegen.c ring_vm.c ring_vmexpr.c ring_vmvars.c ^
 ring_vmlists.c ring_vmfuncs.c ring_api.c ring_vmoop.c ring_vmcui.c ^
 ring_vmtrycatch.c ring_vmstrindex.c ring_vmjump.c ring_vmduprange.c ^
