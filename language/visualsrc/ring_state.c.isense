@@ -77,7 +77,7 @@ Type: RingState
 Mark: ->
 RingState *
 RING_STATE_CHECKPRINTRULES
-RING_VERSION
+RING_STATE_VERSION
 Type: static int
 nRingStateDEBUGSEGFAULT
 Type: static int
