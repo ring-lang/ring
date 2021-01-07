@@ -2262,7 +2262,7 @@ void ring_vmlib_state_main ( void *pPointer )
 	argc = 2 ;
 	strcpy(argv[0],"ring");
 	strcpy(argv[1],cStr);
-	ring_execute(cStr,0,1,0,0,0,0,0,0,0,0,argc,argv);
+	ring_state_execute(cStr,0,1,0,0,0,0,0,0,0,0,argc,argv);
 	ring_state_free(((VM *) pPointer)->pRingState,argv[0]);
 	ring_state_free(((VM *) pPointer)->pRingState,argv[1]);
 }
