@@ -78,8 +78,6 @@ Mark: ->
 RingState *
 RING_STATE_CHECKPRINTRULES
 RING_VERSION
-GetCurrentDir
-GetCurrentDir
 Type: static int
 nRingStateDEBUGSEGFAULT
 Type: static int
@@ -88,8 +86,6 @@ ring_state_new
 Type: RingState *
 pRingState
 ring_state_delete
-ring_state_cgiheader
-ring_print_line
 ring_state_init
 Type: RingState *
 pRingState
@@ -113,23 +109,11 @@ ring_state_runfile
 ring_state_runobjectfile
 ring_state_runobjectstring
 ring_state_log
-ring_testallunits
-ring_showtime
-Type: time_t
-timer
-Type: char
-buffer[50]
-Type: struct tm*
-tm_info
-Type: clock_t
-myclock
+ring_state_cgiheader
 segfaultaction
-ring_issourcefile
-Type: int
-x
-ring_isobjectfile
-Type: int
-x
+ring_testallunits
+GetCurrentDir
+GetCurrentDir
 ring_fexists
 Type: FILE *
 fp
@@ -156,3 +140,19 @@ x,nSize
 ring_justfilename
 Type: int
 x,nSize,r
+ring_issourcefile
+Type: int
+x
+ring_isobjectfile
+Type: int
+x
+ring_print_line
+ring_showtime
+Type: time_t
+timer
+Type: char
+buffer[50]
+Type: struct tm*
+tm_info
+Type: clock_t
+myclock
