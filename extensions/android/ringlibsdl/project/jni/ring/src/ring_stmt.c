@@ -261,22 +261,22 @@ int ring_parser_stmt ( Parser *pParser )
 		if ( ring_parser_isliteral(pParser) ) {
 			/* Check File in the Ring/bin folder */
 			strcpy(cFileName,pParser->TokenText);
-			if ( ring_fexists(pParser->TokenText) == 0 ) {
-				ring_exefolder(cFileName);
+			if ( ring_general_fexists(pParser->TokenText) == 0 ) {
+				ring_general_exefolder(cFileName);
 				strcat(cFileName,pParser->TokenText);
-				if ( ring_fexists(cFileName) == 0 ) {
+				if ( ring_general_fexists(cFileName) == 0 ) {
 					/* Try ring/bin/load folder */
-					ring_exefolder(cFileName);
+					ring_general_exefolder(cFileName);
 					strcat(cFileName,"load/");
 					strcat(cFileName,pParser->TokenText);
-					if ( ring_fexists(cFileName) == 0 ) {
+					if ( ring_general_fexists(cFileName) == 0 ) {
 						strcpy(cFileName,pParser->TokenText);
 					}
 				}
 			}
 			else {
 				/* Add the current folder to the file name */
-				ring_currentdir(cFileName);
+				ring_general_currentdir(cFileName);
 				/* Be Sure that we don't already have the current folder in the file name */
 				if ( strlen(cFileName) < strlen(pParser->TokenText) ) {
 					nPathExist = 1 ;
@@ -312,7 +312,7 @@ int ring_parser_stmt ( Parser *pParser )
 				**  Check if we have the file after adding the folder - because we may have the file in a parent directory 
 				**  Like we are in myapp/myapp2 and the file exist in myapp folder 
 				*/
-				if ( ring_fexists(cFileName) == 0 ) {
+				if ( ring_general_fexists(cFileName) == 0 ) {
 					strcpy(cFileName,pParser->TokenText);
 				}
 			}
@@ -338,11 +338,11 @@ int ring_parser_stmt ( Parser *pParser )
 			/* No package at the start of the file */
 			pParser->ClassesMap = pParser->pRingState->pRingClassesMap ;
 			/* Save the Current Directory */
-			ring_currentdir(cCurrentDir);
+			ring_general_currentdir(cCurrentDir);
 			/* Read The File */
 			x = ring_scanner_readfile(pParser->pRingState,cFileName);
 			/* Restore the Current Directory */
-			ring_chdir(cCurrentDir);
+			ring_general_chdir(cCurrentDir);
 			/* Restore Load Again status */
 			if ( nLoadAgain ) {
 				pParser->pRingState->nLoadAgain-- ;
