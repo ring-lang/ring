@@ -6,6 +6,12 @@
 	void ring_vm_listfuncs_loadfunctions ( RingState *pRingState ) ;
 	/* List Functions */
 
+	void ring_vmlib_add ( void *pPointer ) ;
+
+	void ring_vmlib_del ( void *pPointer ) ;
+
+	void ring_vmlib_swap ( void *pPointer ) ;
+
 	void ring_vmlib_list ( void *pPointer ) ;
 
 	void ring_vmlib_find ( void *pPointer ) ;

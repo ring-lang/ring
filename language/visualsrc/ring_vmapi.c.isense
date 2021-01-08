@@ -128,16 +128,6 @@ pVM
 ring_vmlib_len
 Type: VM *
 pVM
-ring_vmlib_add
-Type: List *
-pList,*pList2
-Type: VM *
-pVM
-ring_vmlib_del
-Type: List *
-pList
-Type: double
-nNum1
 ring_vmlib_clock
 Type: clock_t
 nNum1
@@ -223,11 +213,6 @@ ring_vmlib_version
 ring_vmlib_clockspersecond
 ring_vmlib_prevfilename
 ring_vmlib_adddays_isleapyear
-ring_vmlib_swap
-Type: List *
-pList
-Type: int
-nNum1,nNum2,nSize
 ring_vmlib_shutdown
 ring_vmlib_srandom
 Type: int
@@ -464,48 +449,3 @@ lCase
 ring_vmlib_checkoverflow
 ring_vmlib_addsublistsbymove
 ring_vmlib_addsublistsbyfastcopy
-ringext_h
-RING_VM_LISTFUNCS
-RING_VM_REFMETA
-RING_VM_MATH
-RING_VM_FILE
-RING_VM_OS
-RING_VM_DLL
-RING_FILE
-RING_OPENFILE(x,y)
-RING_CLOSEFILE(x)
-RING_READCHAR(x,y,z)
-ring_vm_extension
-ring_vmdll_h
-LoadDLL(x)
-GetDLLFunc
-CloseDLL
-LpHandleType
-LoadDLL(x)
-GetDLLFunc
-CloseDLL
-LpHandleType
-ring_vm_dll_loadfunctions
-ring_vm_dll_loadlib
-Type: LpHandleType
-handle
-Type: const char *
-cDLL
-Type: loadlibfuncptr
-pFunc
-Type: VM *
-pVM
-Type: RingState *
-pRingState
-ring_vm_dll_closelib
-Type: LpHandleType
-handle
-Type: int
-nIndex
-Type: VM *
-pVM
-ring_vm_dll_closealllibs
-Type: int
-x
-Type: LpHandleType
-handle
