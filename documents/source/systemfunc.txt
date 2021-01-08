@@ -31,6 +31,8 @@ In this chapter we are going to learn about the system functions
 
 * IsAndroid()
 
+* GetArch()
+
 * Windowsnl()
 
 * Get Command Line Arguments
@@ -264,6 +266,49 @@ Output:
 	IsLinux()     --> 0
 	IsFreeBSD()   --> 0
 	IsAndroid()   --> 0
+
+
+.. index:: 
+	pair: System Functions; GetArch() Function
+
+GetArch() Function
+==================
+
+We can detect the architecture of the Ring executable using the GetArch() function
+
+Syntax:
+
+.. code-block:: none
+
+	GetArch() ---> cString (The name of the architecture of the Ring executable)
+
+Possible values are:
+
+.. code-block:: none
+
+    x86
+    x64
+    arm64
+    arm
+    unknown
+
+Example:
+
+.. code-block:: ring
+
+	switch getarch()
+	on "x86"
+	        ? "x86 32bit architecture"
+	on "x64"
+	        ? "x64 64bit architecture"
+	on "arm64"
+	        ? "ARM64 64bit architecture"
+	on "arm"
+	        ? "ARM 32bit architecture"
+	other
+	        ? "Unknown architecture"
+	off
+
 
 .. index:: 
 	pair: System Functions; Windowsnl() Function
