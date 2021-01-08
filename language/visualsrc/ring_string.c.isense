@@ -68,7 +68,7 @@ Type: char *
 cStr4
 Type: char *
 pOutput
-ring_strdup
+ring_string_strdup
 Type: char *
 cString
 Type: int

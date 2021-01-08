@@ -52,7 +52,7 @@ HashItem * ring_hashtable_newitem_gc ( void *pRingState,HashTable *pHashTable,co
 		exit(0);
 	}
 	/* Store Copy from The Key */
-	pItem->cKey = ring_strdup(pRingState,cKey) ;
+	pItem->cKey = ring_string_strdup(pRingState,cKey) ;
 	/* Item type will be determined from the caller */
 	pItem->nItemType = RING_HASHITEMTYPE_NOTYPE ;
 	pItem->pNext = NULL ;
