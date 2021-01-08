@@ -234,6 +234,10 @@ Quotes about Ring
 |	**"I see Ring a very useful and easy in PROGRAMMING IN REGIONAL LANGUAGE. I tried to program in my mother language Hindi ( India) using UNICODE It is working. No other language give me such an easy platform."**
 |		, Negi Manoj (India)
 
+|	**"I'm glad I could help improve the Ring language. It has good and yet easy to understand design and architecture. I believe it has big potential ahead."**
+|		, Mounir IDRASSI (Creator of VeraCrypt)
+
+
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
 
