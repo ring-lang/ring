@@ -105,7 +105,7 @@ Type: int
 x,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nPerformance,nSRC,nGenObj,nGenCObj,nWarn
 Type: char *
 cStr
-ring_execute
+ring_state_execute
 Type: RingState *
 pRingState
 ring_state_runfile
