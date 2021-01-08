@@ -83,8 +83,6 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("isspace",ring_vmlib_isspace);
 	ring_vm_funcregister("isupper",ring_vmlib_isupper);
 	ring_vm_funcregister("isxdigit",ring_vmlib_isxdigit);
-	/* Other Modules */
-	ring_vm_extension(pRingState);
 	/* Garbage Collector & Variable Pointer */
 	ring_vm_funcregister("callgc",ring_vmlib_callgc);
 	ring_vm_funcregister("varptr",ring_vmlib_varptr);
@@ -121,6 +119,10 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_state_new",ring_vmlib_state_new);
 	ring_vm_funcregister("ring_state_mainfile",ring_vmlib_state_mainfile);
 	ring_vm_funcregister("ring_state_filetokens",ring_vmlib_state_filetokens);
+	/* Performance */
+	ring_vm_funcregister("checkoverflow",ring_vmlib_checkoverflow);
+	ring_vm_funcregister("addsublistsbymove",ring_vmlib_addsublistsbymove);
+	ring_vm_funcregister("addsublistsbyfastcopy",ring_vmlib_addsublistsbyfastcopy);
 	/*
 	**  Ring See and Give 
 	**  We will use ringvm_see() and ringvm_give() to change the behavior of see and give 
@@ -130,10 +132,8 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ringvm_give",ring_vmlib_give);
 	ring_vm_funcregister("ring_see",ring_vmlib_see);
 	ring_vm_funcregister("ring_give",ring_vmlib_give);
-	/* Performance */
-	ring_vm_funcregister("checkoverflow",ring_vmlib_checkoverflow);
-	ring_vm_funcregister("addsublistsbymove",ring_vmlib_addsublistsbymove);
-	ring_vm_funcregister("addsublistsbyfastcopy",ring_vmlib_addsublistsbyfastcopy);
+	/* Other Modules */
+	ring_vm_extension(pRingState);
 }
 
 int ring_vm_api_islist ( void *pPointer,int x )
