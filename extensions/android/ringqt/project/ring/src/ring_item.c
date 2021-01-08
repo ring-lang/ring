@@ -153,14 +153,6 @@ RING_API void ring_itemarray_setdouble_gc ( void *pState,Item pList[], int index
 	pList[index].data.dNumber = number ;
 	pList[index].NumberFlag = ITEM_NUMBERFLAG_DOUBLE ;
 }
-#define ring_list_getint(pList,index) ( ring_list_getitem(pList,index)->data.iNumber )
-#define ring_list_getpointer(pList,index) ( ring_list_getitem(pList,index)->data.pPointer )
-#define ring_list_getfuncpointer(pList,index) ( ring_list_getitem(pList,index)->data.pFunc )
-#define ring_list_callfuncpointer(pList,index,x) ( ring_list_getitem(pList,index)->data.pFunc(x) )
-#define ring_list_getdouble(pList,index) ring_list_getitem(pList,index)->data.dNumber
-#define ring_list_getstring(pList,index) ( ring_string_get(ring_item_getstring(ring_list_getitem(pList,index))) )
-#define ring_list_getstringobject(pList,index) ( ring_item_getstring(ring_list_getitem(pList,index)) )
-#define ring_list_getstringsize(pList,index) ( ring_string_size(ring_item_getstring(ring_list_getitem(pList,index))) )
 /* String */
 
 RING_API void ring_itemarray_setstring_gc ( void *pState,Item pList[], int index ,const char *str )
