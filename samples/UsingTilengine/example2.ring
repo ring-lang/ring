@@ -16,7 +16,7 @@ TLN_Init(WIDTH, HEIGHT, 1,0,0)
 tilemap = TLN_LoadTilemap("assets/sonic/Sonic_md_fg1.tmx", NULL)
 
 /* setup the layer */
-TLN_SetLayer(0, NULLPOINTER(), tilemap)
+TLN_SetLayer(0, NULL, tilemap)
 TLN_SetBGColor(32,32,128)
 
 /* main loop */
