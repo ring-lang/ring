@@ -27,3 +27,14 @@ ring_vm_os_exefolder
 Type: char
 cDirPath[RING_PATHSIZE]
 ring_vm_os_getarch
+ring_vmlib_sysget
+Type: char *
+pData
+setenv
+Type: errno_t
+errcode
+Type: size_t
+envsize
+unsetenv
+ring_vmlib_sysset
+ring_vmlib_sysunset
