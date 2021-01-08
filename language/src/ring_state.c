@@ -182,31 +182,31 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 				nWarn = 1 ;
 				nRingStateDEBUGSEGFAULT = 1 ;
 			}
-			else if ( ( ring_issourcefile(argv[x]) || ring_isobjectfile(argv[x])) && nSRC == 0 ) {
+			else if ( ( ring_general_issourcefile(argv[x]) || ring_general_isobjectfile(argv[x])) && nSRC == 0 ) {
 				cStr = argv[x] ;
 				nSRC = 1 ;
 			}
 		}
 	}
 	if ( nPerformance ) {
-		ring_showtime();
+		ring_general_showtime();
 	}
 	srand(time(NULL));
 	/* Check Startup ring.ring */
-	if ( ring_fexists("ring.ring") && argc == 1 ) {
+	if ( ring_general_fexists("ring.ring") && argc == 1 ) {
 		ring_state_execute((char *) "ring.ring",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,argc,argv);
 		exit(0);
 	}
-	if ( ring_fexists("ring.ringo") && argc == 1 ) {
+	if ( ring_general_fexists("ring.ringo") && argc == 1 ) {
 		ring_state_execute((char *) "ring.ringo",nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,argc,argv);
 		exit(0);
 	}
 	/* Print Version */
 	if ( (argc == 1) || (cStr == NULL) ) {
-		ring_print_line();
+		ring_general_printline();
 		printf( "Ring version %s \n2013-2021, Mahmoud Fayed <msfclipper@yahoo.com>\n",RING_STATE_VERSION ) ;
 		puts("Usage : ring filename.ring [Options]");
-		ring_print_line();
+		ring_general_printline();
 		/* Options */
 		puts("-tokens   :  Print a list of tokens in the source code file");
 		puts("-rules    :  Print grammar rules applied on the tokens");
@@ -219,12 +219,12 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 		puts("-go       :  Generate object file");
 		puts("-geo      :  Generate embedded object file (C source code)");
 		puts("-w        :  Display Warnings");
-		ring_print_line();
+		ring_general_printline();
 		exit(0);
 	}
 	ring_state_execute(cStr,nCGI,nRun,nPrintIC,nPrintICFinal,nTokens,nRules,nIns,nGenObj,nGenCObj,nWarn,argc,argv);
 	if ( nPerformance ) {
-		ring_showtime();
+		ring_general_showtime();
 	}
 }
 
@@ -245,7 +245,7 @@ RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPri
 	pRingState->argc = argc ;
 	pRingState->argv = argv ;
 	ring_state_log(pRingState,"function ring_state_execute()");
-	if ( ring_issourcefile(cFileName) ) {
+	if ( ring_general_issourcefile(cFileName) ) {
 		ring_scanner_readfile(pRingState,cFileName);
 	}
 	else {

@@ -33,9 +33,9 @@ void ring_testallunits ( void )
 
 void ring_section ( const char *cTitle )
 {
-	ring_print_line();
+	ring_general_printline();
 	printf( "%s\n",cTitle ) ;
-	ring_print_line();
+	ring_general_printline();
 }
 
 void ring_string_test ( void )
