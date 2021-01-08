@@ -43,7 +43,9 @@ void ring_vm_os_iswindows ( void *pPointer )
 void ring_vm_os_iswindows64 ( void *pPointer )
 {
 	int lSystem64  ;
-	#ifdef _WIN32
+	#ifdef _WIN64
+		RING_API_RETNUMBER(1);
+	#elif _WIN32
 		HMODULE pModule  ;
 		lSystem64 = 0 ;
 		pModule = GetModuleHandle(TEXT("kernel32"));
