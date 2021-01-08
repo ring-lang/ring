@@ -20,6 +20,7 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("exefilename",ring_vm_os_exefilename);
 	ring_vm_funcregister("chdir",ring_vm_os_chdir);
 	ring_vm_funcregister("exefolder",ring_vm_os_exefolder);
+	ring_vm_funcregister("getarch",ring_vm_os_getarch);
 }
 
 void ring_vm_os_ismsdos ( void *pPointer )
@@ -43,7 +44,9 @@ void ring_vm_os_iswindows ( void *pPointer )
 void ring_vm_os_iswindows64 ( void *pPointer )
 {
 	int lSystem64  ;
-	#ifdef _WIN32
+	#ifdef _WIN64
+		RING_API_RETNUMBER(1);
+	#elif _WIN32
 		HMODULE pModule  ;
 		lSystem64 = 0 ;
 		pModule = GetModuleHandle(TEXT("kernel32"));
@@ -134,4 +137,19 @@ void ring_vm_os_exefolder ( void *pPointer )
 	char cDirPath[RING_PATHSIZE]  ;
 	ring_exefolder(cDirPath);
 	RING_API_RETSTRING(cDirPath);
+}
+
+void ring_vm_os_getarch ( void *pPointer )
+{
+	#if (defined(_M_X64) || defined(__x86_64__))
+		RING_API_RETSTRING("x64");
+	#elif (defined(_M_IX86) || defined(__i386__) || defined(__i386) || defined(_X86_) || defined(__I86__))
+		RING_API_RETSTRING("x86");
+	#elif (defined(__arm64__) || defined(__aarch64__) || defined(_M_ARM64))
+		RING_API_RETSTRING("arm64");
+	#elif (defined(__arm__) || defined(_M_ARM) || defined(__aarch32__))
+		RING_API_RETSTRING("arm");
+	#else
+		RING_API_RETSTRING("unknown");
+	#endif
 }
