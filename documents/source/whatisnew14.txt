@@ -551,6 +551,35 @@ We can delete an environment variables using the SysUnset() function
 
 	SysUnset(cVariable) ---> Returns 1 for success and return 0 for failure
 
+
+* GetArch() Function
+
+We can detect the architecture of the Ring executable using the GetArch() function
+
+Syntax:
+
+.. code-block:: none
+
+	GetArch() ---> cString (The name of the architecture of the Ring executable)
+
+Example:
+
+.. code-block:: ring
+
+	switch getarch()
+	on "x86"
+	        ? "x86 32bit architecture"
+	on "x64"
+	        ? "x64 64bit architecture"
+	on "arm64"
+	        ? "ARM64 64bit architecture"
+	on "arm"
+	        ? "ARM 32bit architecture"
+	other
+	        ? "Unknown architecture"
+	off
+
+
 .. index:: 
 	pair: What is new in Ring 1.14?; More Improvements
 

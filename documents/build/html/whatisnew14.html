@@ -685,6 +685,29 @@ SUM:                            53           1311            567           9078
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SysUnset(cVariable) ---&gt; Returns 1 for success and return 0 for failure
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>GetArch() Function</p></li>
+</ul>
+<p>We can detect the architecture of the Ring executable using the GetArch() function</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>GetArch() ---&gt; cString (The name of the architecture of the Ring executable)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">switch</span> <span class="n">getarch</span><span class="p">()</span>
+<span class="k">on</span> <span class="s">&quot;x86&quot;</span>
+        <span class="o">?</span> <span class="s">&quot;x86 32bit architecture&quot;</span>
+<span class="k">on</span> <span class="s">&quot;x64&quot;</span>
+        <span class="o">?</span> <span class="s">&quot;x64 64bit architecture&quot;</span>
+<span class="k">on</span> <span class="s">&quot;arm64&quot;</span>
+        <span class="o">?</span> <span class="s">&quot;ARM64 64bit architecture&quot;</span>
+<span class="k">on</span> <span class="s">&quot;arm&quot;</span>
+        <span class="o">?</span> <span class="s">&quot;ARM 32bit architecture&quot;</span>
+<span class="k">other</span>
+        <span class="o">?</span> <span class="s">&quot;Unknown architecture&quot;</span>
+<span class="k">off</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="more-improvements">
 <span id="index-15"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
