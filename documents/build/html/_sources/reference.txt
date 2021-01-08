@@ -79,7 +79,7 @@ Keywords Count : 49
 Language Functions
 ==================
 
-Functions Count : 232
+Functions Count : 233
 
 .. code-block:: ring
 
@@ -153,6 +153,7 @@ Functions Count : 232
 	ftell()
 	functions()
 	fwrite()
+	getarch()
 	getattribute()
 	getchar()
 	getpointer()
