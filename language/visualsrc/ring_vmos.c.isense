@@ -26,3 +26,4 @@ ring_vm_os_chdir
 ring_vm_os_exefolder
 Type: char
 cDirPath[RING_PATHSIZE]
+ring_vm_os_getarch

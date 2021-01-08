@@ -139,17 +139,17 @@ void ring_vm_os_exefolder ( void *pPointer )
 	RING_API_RETSTRING(cDirPath);
 }
 
-void ring_vm_os_getarch( void *pPointer )
+void ring_vm_os_getarch ( void *pPointer )
 {
-#if (defined(_M_X64) || defined(__x86_64__))
-	RING_API_RETSTRING("x64");
-#elif (defined(_M_IX86) || defined(__i386__) || defined(__i386) || defined(_X86_) || defined(__I86__))
-	RING_API_RETSTRING("x86");
-#elif (defined(__arm64__) || defined(__aarch64__) || defined(_M_ARM64))
-	RING_API_RETSTRING("arm64");
-#elif (defined(__arm__) || defined(_M_ARM) || defined(__aarch32__))
-	RING_API_RETSTRING("arm");
-#else
-	RING_API_RETSTRING("unknow");
-#endif
+	#if (defined(_M_X64) || defined(__x86_64__))
+		RING_API_RETSTRING("x64");
+	#elif (defined(_M_IX86) || defined(__i386__) || defined(__i386) || defined(_X86_) || defined(__I86__))
+		RING_API_RETSTRING("x86");
+	#elif (defined(__arm64__) || defined(__aarch64__) || defined(_M_ARM64))
+		RING_API_RETSTRING("arm64");
+	#elif (defined(__arm__) || defined(_M_ARM) || defined(__aarch32__))
+		RING_API_RETSTRING("arm");
+	#else
+		RING_API_RETSTRING("unknown");
+	#endif
 }
