@@ -76,8 +76,6 @@
 
 	void ring_vmlib_getchar ( void *pPointer ) ;
 
-	void ring_vmlib_system ( void *pPointer ) ;
-
 	void ring_vmlib_random ( void *pPointer ) ;
 
 	void ring_vmlib_timelist ( void *pPointer ) ;
@@ -93,8 +91,6 @@
 	void ring_vmlib_prevfilename ( void *pPointer ) ;
 
 	int ring_vmlib_adddays_isleapyear ( int nYear ) ;
-
-	void ring_vmlib_shutdown ( void *pPointer ) ;
 
 	void ring_vmlib_srandom ( void *pPointer ) ;
 	/* Check Data Type */

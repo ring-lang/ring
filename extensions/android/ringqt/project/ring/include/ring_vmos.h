@@ -32,6 +32,10 @@
 	void ring_vm_os_exefolder ( void *pPointer ) ;
 
 	void ring_vm_os_getarch ( void *pPointer ) ;
+
+	void ring_vmlib_system ( void *pPointer ) ;
+
+	void ring_vmlib_shutdown ( void *pPointer ) ;
 	/* Environment Variables */
 
 	void ring_vmlib_sysget ( void *pPointer ) ;

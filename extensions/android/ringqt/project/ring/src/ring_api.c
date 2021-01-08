@@ -27,7 +27,6 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("time",ring_vmlib_time);
 	ring_vm_funcregister("filename",ring_vmlib_filename);
 	ring_vm_funcregister("getchar",ring_vmlib_getchar);
-	ring_vm_funcregister("system",ring_vmlib_system);
 	ring_vm_funcregister("random",ring_vmlib_random);
 	ring_vm_funcregister("timelist",ring_vmlib_timelist);
 	ring_vm_funcregister("adddays",ring_vmlib_adddays);
@@ -35,7 +34,6 @@ RING_API void ring_vm_loadcfunctions ( RingState *pRingState )
 	ring_vm_funcregister("version",ring_vmlib_version);
 	ring_vm_funcregister("clockspersecond",ring_vmlib_clockspersecond);
 	ring_vm_funcregister("prevfilename",ring_vmlib_prevfilename);
-	ring_vm_funcregister("shutdown",ring_vmlib_shutdown);
 	ring_vm_funcregister("srandom",ring_vmlib_srandom);
 	/* Check Data Type */
 	ring_vm_funcregister("isstring",ring_vmlib_isstring);
@@ -666,20 +664,6 @@ void ring_vmlib_getchar ( void *pPointer )
 	RING_API_RETSTRING2(cStr,1);
 }
 
-void ring_vmlib_system ( void *pPointer )
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( RING_API_ISSTRING(1) ) {
-		system(RING_API_GETSTRING(1));
-	}
-	else {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-	}
-}
-
 void ring_vmlib_random ( void *pPointer )
 {
 	int nNum1,nNum2  ;
@@ -941,17 +925,6 @@ int ring_vmlib_adddays_isleapyear ( int nYear )
 		return 0 ;
 	}
 	return nYear % 4 == 0 ;
-}
-
-void ring_vmlib_shutdown ( void *pPointer )
-{
-	if ( RING_API_PARACOUNT == 1 ) {
-		if ( RING_API_ISNUMBER(1) ) {
-			exit(RING_API_GETNUMBER(1));
-			return ;
-		}
-	}
-	exit(0);
 }
 
 void ring_vmlib_srandom ( void *pPointer )

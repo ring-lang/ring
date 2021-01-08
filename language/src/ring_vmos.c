@@ -21,6 +21,8 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("chdir",ring_vm_os_chdir);
 	ring_vm_funcregister("exefolder",ring_vm_os_exefolder);
 	ring_vm_funcregister("getarch",ring_vm_os_getarch);
+	ring_vm_funcregister("system",ring_vmlib_system);
+	ring_vm_funcregister("shutdown",ring_vmlib_shutdown);
 	/* Environment Variables */
 	ring_vm_funcregister("sysget",ring_vmlib_sysget);
 	ring_vm_funcregister("sysset",ring_vmlib_sysset);
@@ -156,6 +158,31 @@ void ring_vm_os_getarch ( void *pPointer )
 	#else
 		RING_API_RETSTRING("unknown");
 	#endif
+}
+
+void ring_vmlib_system ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		system(RING_API_GETSTRING(1));
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+
+void ring_vmlib_shutdown ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT == 1 ) {
+		if ( RING_API_ISNUMBER(1) ) {
+			exit(RING_API_GETNUMBER(1));
+			return ;
+		}
+	}
+	exit(0);
 }
 /* Environment Variables */
 
