@@ -32,6 +32,13 @@
 	void ring_vm_os_exefolder ( void *pPointer ) ;
 
 	void ring_vm_os_getarch ( void *pPointer ) ;
+	/* Environment Variables */
+
+	void ring_vmlib_sysget ( void *pPointer ) ;
+
+	void ring_vmlib_sysset ( void *pPointer ) ;
+
+	void ring_vmlib_sysunset ( void *pPointer ) ;
 	/* Constants */
 	#define RING_VM_POINTER_LIBNAME "os"
 	#ifdef _WIN32

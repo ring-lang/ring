@@ -21,6 +21,10 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("chdir",ring_vm_os_chdir);
 	ring_vm_funcregister("exefolder",ring_vm_os_exefolder);
 	ring_vm_funcregister("getarch",ring_vm_os_getarch);
+	/* Environment Variables */
+	ring_vm_funcregister("sysget",ring_vmlib_sysget);
+	ring_vm_funcregister("sysset",ring_vmlib_sysset);
+	ring_vm_funcregister("sysunset",ring_vmlib_sysunset);
 }
 
 void ring_vm_os_ismsdos ( void *pPointer )
@@ -152,4 +156,84 @@ void ring_vm_os_getarch ( void *pPointer )
 	#else
 		RING_API_RETSTRING("unknown");
 	#endif
+}
+/* Environment Variables */
+
+void ring_vmlib_sysget ( void *pPointer )
+{
+	char *pData  ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		pData = getenv(RING_API_GETSTRING(1));
+		if ( pData != NULL ) {
+			RING_API_RETSTRING(pData);
+		}
+		else {
+			RING_API_RETSTRING("");
+		}
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
+}
+/* Visual C/C++ doesn't provide setenv() & unsetenv() functions */
+#ifdef _MSC_VER
+
+	int setenv ( const char *name, const char *value, int overwrite )
+	{
+		errno_t errcode = 0 ;
+		size_t envsize = 0 ;
+		if ( ! overwrite ) {
+			errcode = getenv_s(&envsize, NULL, 0, name);
+			if ( errcode || envsize ) {
+				return (int) errcode ;
+			}
+		}
+		return (int) _putenv_s(name, value) ;
+	}
+
+	int unsetenv ( const char *name )
+	{
+		return (int) _putenv_s(name, "") ;
+	}
+#endif
+
+void ring_vmlib_sysset ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( setenv (RING_API_GETSTRING(1),RING_API_GETSTRING(2),1) == 0 ) {
+		RING_API_RETNUMBER(1);
+	}
+	else {
+		RING_API_RETNUMBER(0);
+	}
+}
+
+void ring_vmlib_sysunset ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		if ( unsetenv(RING_API_GETSTRING(1)) == 0 ) {
+			RING_API_RETNUMBER(1);
+		}
+		else {
+			RING_API_RETNUMBER(0);
+		}
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+	}
 }

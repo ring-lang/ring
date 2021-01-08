@@ -247,13 +247,6 @@
 	void ring_vmlib_addsublistsbymove ( void *pPointer ) ;
 
 	void ring_vmlib_addsublistsbyfastcopy ( void *pPointer ) ;
-	/* Environment Variables */
-
-	void ring_vmlib_sysget ( void *pPointer ) ;
-
-	void ring_vmlib_sysset ( void *pPointer ) ;
-
-	void ring_vmlib_sysunset ( void *pPointer ) ;
 	/* API For C Functions */
 	#define RING_API_PARALIST (((VM *) pPointer)->pActiveMem)
 	#define RING_API_PARACOUNT (((VM *) pPointer)->nCFuncParaCount)
