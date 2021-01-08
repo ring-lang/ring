@@ -17,26 +17,26 @@
 #endif
 /* General Functions */
 
-int ring_fexists ( const char *cFileName ) ;
+int ring_general_fexists ( const char *cFileName ) ;
 
-int ring_currentdir ( char *cDirPath ) ;
+int ring_general_currentdir ( char *cDirPath ) ;
 
-int ring_exefilename ( char *cDirPath ) ;
+int ring_general_exefilename ( char *cDirPath ) ;
 
-int ring_chdir ( const char *cDir ) ;
+int ring_general_chdir ( const char *cDir ) ;
 
-void ring_exefolder ( char *cDirPath ) ;
+void ring_general_exefolder ( char *cDirPath ) ;
 
-void ring_switchtofilefolder ( char *cFileName ) ;
+void ring_general_switchtofilefolder ( char *cFileName ) ;
 
-int ring_justfilepath ( char *cFileName ) ;
+int ring_general_justfilepath ( char *cFileName ) ;
 
-void ring_justfilename ( char *cFileName ) ;
+void ring_general_justfilename ( char *cFileName ) ;
 
-int ring_issourcefile ( const char *cStr ) ;
+int ring_general_issourcefile ( const char *cStr ) ;
 
-int ring_isobjectfile ( const char *cStr ) ;
+int ring_general_isobjectfile ( const char *cStr ) ;
 
-RING_API void ring_print_line ( void ) ;
+RING_API void ring_general_printline ( void ) ;
 
-void ring_showtime ( void ) ;
+void ring_general_showtime ( void ) ;

@@ -5,7 +5,7 @@
 #include "ring.h"
 /* General Functions */
 
-int ring_fexists ( const char *cFileName )
+int ring_general_fexists ( const char *cFileName )
 {
 	FILE *fp  ;
 	fp = fopen(cFileName , "r" );
@@ -16,7 +16,7 @@ int ring_fexists ( const char *cFileName )
 	return 0 ;
 }
 
-int ring_currentdir ( char *cDirPath )
+int ring_general_currentdir ( char *cDirPath )
 {
 	int nSize  ;
 	nSize = RING_PATHSIZE ;
@@ -27,7 +27,7 @@ int ring_currentdir ( char *cDirPath )
 	return 0 ;
 }
 
-int ring_exefilename ( char *cDirPath )
+int ring_general_exefilename ( char *cDirPath )
 {
 	unsigned int nSize  ;
 	nSize = RING_PATHSIZE ;
@@ -47,7 +47,7 @@ int ring_exefilename ( char *cDirPath )
 	return 1 ;
 }
 
-int ring_chdir ( const char *cDir )
+int ring_general_chdir ( const char *cDir )
 {
 	#ifdef _WIN32
 		/* Windows only */
@@ -63,12 +63,12 @@ int ring_chdir ( const char *cDir )
 	#endif
 }
 
-void ring_exefolder ( char *cDirPath )
+void ring_general_exefolder ( char *cDirPath )
 {
 	char cDir[RING_PATHSIZE]  ;
 	char cDir2[RING_PATHSIZE]  ;
 	int x,x2,nSize  ;
-	ring_exefilename(cDir);
+	ring_general_exefilename(cDir);
 	nSize = strlen( cDir ) ;
 	strcpy(cDir2,"");
 	for ( x = nSize-1 ; x >= 0 ; x-- ) {
@@ -83,19 +83,19 @@ void ring_exefolder ( char *cDirPath )
 	strcpy(cDirPath,cDir2);
 }
 
-void ring_switchtofilefolder ( char *cFileName )
+void ring_general_switchtofilefolder ( char *cFileName )
 {
 	char cFileName2[RING_PATHSIZE]  ;
 	strcpy(cFileName2,cFileName);
-	if ( ring_justfilepath(cFileName2) ) {
-		ring_chdir(cFileName2);
+	if ( ring_general_justfilepath(cFileName2) ) {
+		ring_general_chdir(cFileName2);
 		/* Remove The Path from the file Name - Keep the File Name Only */
-		ring_justfilename(cFileName);
+		ring_general_justfilename(cFileName);
 		return ;
 	}
 }
 
-int ring_justfilepath ( char *cFileName )
+int ring_general_justfilepath ( char *cFileName )
 {
 	int x,nSize  ;
 	nSize = strlen( cFileName ) ;
@@ -108,7 +108,7 @@ int ring_justfilepath ( char *cFileName )
 	return 0 ;
 }
 
-void ring_justfilename ( char *cFileName )
+void ring_general_justfilename ( char *cFileName )
 {
 	int x,nSize,r  ;
 	nSize = strlen( cFileName ) ;
@@ -124,7 +124,7 @@ void ring_justfilename ( char *cFileName )
 	}
 }
 
-int ring_issourcefile ( const char *cStr )
+int ring_general_issourcefile ( const char *cStr )
 {
 	int x  ;
 	x = strlen(cStr) - 1 ;
@@ -136,7 +136,7 @@ int ring_issourcefile ( const char *cStr )
 	return 0 ;
 }
 
-int ring_isobjectfile ( const char *cStr )
+int ring_general_isobjectfile ( const char *cStr )
 {
 	int x  ;
 	x = strlen(cStr) - 1 ;
@@ -148,12 +148,12 @@ int ring_isobjectfile ( const char *cStr )
 	return 0 ;
 }
 
-RING_API void ring_print_line ( void )
+RING_API void ring_general_printline ( void )
 {
 	puts("===========================================================================");
 }
 
-void ring_showtime ( void )
+void ring_general_showtime ( void )
 {
 	time_t timer  ;
 	char buffer[50]  ;
@@ -163,9 +163,9 @@ void ring_showtime ( void )
 	tm_info = localtime(&timer);
 	strftime(buffer,50,"Date  : %Y/%m/%d Time : %H:%M:%S", tm_info);
 	printf( "\n" ) ;
-	ring_print_line();
+	ring_general_printline();
 	puts(buffer);
 	myclock = clock();
 	printf( "Clock : %ld \n", myclock ) ;
-	ring_print_line();
+	ring_general_printline();
 }
