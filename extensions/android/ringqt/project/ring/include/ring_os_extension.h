@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
-#ifndef ring_vmos_h
-	#define ring_vmos_h
+#ifndef ring_os_extension_h
+	#define ring_os_extension_h
 	/* Functions */
 
 	void ring_vm_os_loadfunctions ( RingState *pRingState ) ;

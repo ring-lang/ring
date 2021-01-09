@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
-#ifndef ring_vm_generallib_h
-	#define ring_vm_generallib_h
+#ifndef ring_generallib_extension_h
+	#define ring_generallib_extension_h
 
 	RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState ) ;
 	/*

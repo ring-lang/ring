@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
-#ifndef ring_vmdll_h
-	#define ring_vmdll_h
+#ifndef ring_dll_extension_h
+	#define ring_dll_extension_h
 	#ifdef _WIN32
 		#include <windows.h>
 		#define LoadDLL(x) LoadLibrary(x)

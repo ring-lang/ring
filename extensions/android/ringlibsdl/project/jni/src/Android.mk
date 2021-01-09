@@ -48,14 +48,14 @@ LOCAL_SRC_FILES := $(SDL_PATH)/src/main/android/SDL_android_main.c \
 	$(RING_PATH)/ring_vmexit.c \
 	$(RING_PATH)/ring_vmstackvars.c \
 	$(RING_PATH)/ring_vmstate.c \
-	$(RING_PATH)/ring_vmgenerallib.c \
-	$(RING_PATH)/ring_vmmath.c \
-	$(RING_PATH)/ring_vmfile.c \
-	$(RING_PATH)/ring_vmos.c \
-	$(RING_PATH)/ring_vmlistfuncs.c \
-	$(RING_PATH)/ring_vmrefmeta.c \
+	$(RING_PATH)/ring_generallib_extension.c \
+	$(RING_PATH)/ring_math_extension.c \
+	$(RING_PATH)/ring_file_extension.c \
+	$(RING_PATH)/ring_os_extension.c \
+	$(RING_PATH)/ring_list_extension.c \
+	$(RING_PATH)/ring_refmeta_extension.c \
 	$(RING_PATH)/ring_ext.c \
-	$(RING_PATH)/ring_vmdll.c \
+	$(RING_PATH)/ring_dll_extension.c \
 	$(RING_PATH)/ring_objfile.c \
 	$(RING_PATH)/ring_libsdl.c 
 

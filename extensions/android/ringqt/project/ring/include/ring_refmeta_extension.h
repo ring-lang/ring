@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
-#ifndef ring_vmrefmeta_h
-	#define ring_vmrefmeta_h
+#ifndef ring_refmeta_extension_h
+	#define ring_refmeta_extension_h
 	/* Functions */
 
 	void ring_vm_refmeta_loadfunctions ( RingState *pRingState ) ;

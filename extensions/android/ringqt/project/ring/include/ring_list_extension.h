@@ -1,6 +1,6 @@
 /* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
-#ifndef ring_vmlistfuncs_h
-	#define ring_vmlistfuncs_h
+#ifndef ring_list_extension_h
+	#define ring_list_extension_h
 	/* Load Functions */
 
 	void ring_vm_listfuncs_loadfunctions ( RingState *pRingState ) ;
