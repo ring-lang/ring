@@ -126,7 +126,7 @@
 	#ifndef RING_EXTENSION
 		#define RING_EXTENSION
 		#ifdef RING_VM_MATH
-			#include "ring_vmmath.h"
+			#include "ring_math_extension.h"
 		#endif
 		#ifdef RING_VM_FILE
 			#include "ring_vmfile.h"
