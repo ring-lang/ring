@@ -120,9 +120,11 @@
 	#include "ring_vm.h"
 	#include "ring_vmgc.h"
 	#include "ring_api.h"
+	#include "ring_vmgenerallib.h"
 	#include "ring_objfile.h"
 	/* Extensions Headers */
 	#ifndef RING_EXTENSION
+		#define RING_EXTENSION
 		#ifdef RING_VM_MATH
 			#include "ring_vmmath.h"
 		#endif

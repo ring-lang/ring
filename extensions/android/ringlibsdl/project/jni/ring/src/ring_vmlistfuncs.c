@@ -8,23 +8,23 @@
 void ring_vm_listfuncs_loadfunctions ( RingState *pRingState )
 {
 	/* Lists */
-	ring_vm_funcregister("add",ring_vmlib_add);
-	ring_vm_funcregister("del",ring_vmlib_del);
-	ring_vm_funcregister("swap",ring_vmlib_swap);
-	ring_vm_funcregister("list",ring_vmlib_list);
-	ring_vm_funcregister("find",ring_vmlib_find);
-	ring_vm_funcregister("min",ring_vmlib_min);
-	ring_vm_funcregister("max",ring_vmlib_max);
-	ring_vm_funcregister("insert",ring_vmlib_insert);
-	ring_vm_funcregister("sort",ring_vmlib_sort);
-	ring_vm_funcregister("reverse",ring_vmlib_reverse);
-	ring_vm_funcregister("binarysearch",ring_vmlib_binarysearch);
+	ring_vm_funcregister("add",ring_vm_listfuncs_add);
+	ring_vm_funcregister("del",ring_vm_listfuncs_del);
+	ring_vm_funcregister("swap",ring_vm_listfuncs_swap);
+	ring_vm_funcregister("list",ring_vm_listfuncs_list);
+	ring_vm_funcregister("find",ring_vm_listfuncs_find);
+	ring_vm_funcregister("min",ring_vm_listfuncs_min);
+	ring_vm_funcregister("max",ring_vm_listfuncs_max);
+	ring_vm_funcregister("insert",ring_vm_listfuncs_insert);
+	ring_vm_funcregister("sort",ring_vm_listfuncs_sort);
+	ring_vm_funcregister("reverse",ring_vm_listfuncs_reverse);
+	ring_vm_funcregister("binarysearch",ring_vm_listfuncs_binarysearch);
 	/* Instead of NewList() function from StdLib (Just to support Old Code until converting it to List() ) */
-	ring_vm_funcregister("newlist",ring_vmlib_list);
+	ring_vm_funcregister("newlist",ring_vm_listfuncs_list);
 }
 /* Functions */
 
-void ring_vmlib_add ( void *pPointer )
+void ring_vm_listfuncs_add ( void *pPointer )
 {
 	List *pList,*pList2  ;
 	VM *pVM  ;
@@ -53,7 +53,7 @@ void ring_vmlib_add ( void *pPointer )
 	}
 }
 
-void ring_vmlib_del ( void *pPointer )
+void ring_vm_listfuncs_del ( void *pPointer )
 {
 	List *pList  ;
 	double nNum1  ;
@@ -81,7 +81,7 @@ void ring_vmlib_del ( void *pPointer )
 	}
 }
 
-void ring_vmlib_swap ( void *pPointer )
+void ring_vm_listfuncs_swap ( void *pPointer )
 {
 	List *pList  ;
 	int nNum1,nNum2,nSize  ;
@@ -111,7 +111,7 @@ void ring_vmlib_swap ( void *pPointer )
 	}
 }
 
-void ring_vmlib_list ( void *pPointer )
+void ring_vm_listfuncs_list ( void *pPointer )
 {
 	List *pList, *pList2  ;
 	int x,y,nSize,nSize2  ;
@@ -245,7 +245,7 @@ void ring_vmlib_list ( void *pPointer )
 **  Find(List,ItemValue,nColumn,cProperty) ---> Item Index 
 */
 
-void ring_vmlib_find ( void *pPointer )
+void ring_vm_listfuncs_find ( void *pPointer )
 {
 	int nNum1,nColumn  ;
 	List *pList  ;
@@ -310,7 +310,7 @@ void ring_vmlib_find ( void *pPointer )
 	}
 }
 
-void ring_vmlib_min ( void *pPointer )
+void ring_vm_listfuncs_min ( void *pPointer )
 {
 	double nNum1  ;
 	List *pList  ;
@@ -368,7 +368,7 @@ void ring_vmlib_min ( void *pPointer )
 	}
 }
 
-void ring_vmlib_max ( void *pPointer )
+void ring_vm_listfuncs_max ( void *pPointer )
 {
 	double nNum1  ;
 	List *pList  ;
@@ -426,7 +426,7 @@ void ring_vmlib_max ( void *pPointer )
 	}
 }
 
-void ring_vmlib_insert ( void *pPointer )
+void ring_vm_listfuncs_insert ( void *pPointer )
 {
 	List *pList, *pList2  ;
 	int nPos  ;
@@ -461,7 +461,7 @@ void ring_vmlib_insert ( void *pPointer )
 }
 /* Quicksort Algorithm */
 
-void ring_vmlib_sort ( void *pPointer )
+void ring_vm_listfuncs_sort ( void *pPointer )
 {
 	List *pList, *pList2, *pList3  ;
 	int x,nParaCount,nColumn,nPos  ;
@@ -574,7 +574,7 @@ void ring_vmlib_sort ( void *pPointer )
 }
 /* Binary Search */
 
-void ring_vmlib_binarysearch ( void *pPointer )
+void ring_vm_listfuncs_binarysearch ( void *pPointer )
 {
 	List *pList, *pList2  ;
 	int x,nParaCount,nColumn  ;
@@ -647,7 +647,7 @@ void ring_vmlib_binarysearch ( void *pPointer )
 	}
 }
 
-void ring_vmlib_reverse ( void *pPointer )
+void ring_vm_listfuncs_reverse ( void *pPointer )
 {
 	List *pList,*pList2,*pList3  ;
 	int x  ;

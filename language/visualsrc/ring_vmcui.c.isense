@@ -16,7 +16,7 @@ Type: List *
 pVar
 Type: Item *
 pItem
-ring_vmlib_see
+ring_vm_generallib_see
 Type: char *
 cString
 Type: int

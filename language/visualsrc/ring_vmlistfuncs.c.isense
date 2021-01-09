@@ -1,5 +1,20 @@
 ring_vmlistfuncs_h
 ring_vm_listfuncs_loadfunctions
+ring_vmlib_add
+Type: List *
+pList,*pList2
+Type: VM *
+pVM
+ring_vmlib_del
+Type: List *
+pList
+Type: double
+nNum1
+ring_vmlib_swap
+Type: List *
+pList
+Type: int
+nNum1,nNum2,nSize
 ring_vmlib_list
 Type: List *
 pList, *pList2
@@ -52,18 +67,3 @@ Type: List *
 pList,*pList2,*pList3
 Type: int
 x
-ring_vmlib_add
-Type: List *
-pList,*pList2
-Type: VM *
-pVM
-ring_vmlib_del
-Type: List *
-pList
-Type: double
-nNum1
-ring_vmlib_swap
-Type: List *
-pList
-Type: int
-nNum1,nNum2,nSize

@@ -3,11 +3,7 @@
 
 void ring_vm_extension ( RingState *pRingState )
 {
-	/* Reflection and Meta-programming */
-	#if RING_VM_REFMETA
-		ring_vm_refmeta_loadfunctions(pRingState);
-	#endif
-	/* List Functions */
+	/* List */
 	#if RING_VM_LISTFUNCS
 		ring_vm_listfuncs_loadfunctions(pRingState);
 	#endif
@@ -26,5 +22,9 @@ void ring_vm_extension ( RingState *pRingState )
 	/* DLL */
 	#if RING_VM_DLL
 		ring_vm_dll_loadfunctions(pRingState);
+	#endif
+	/* Reflection and Meta-programming */
+	#if RING_VM_REFMETA
+		ring_vm_refmeta_loadfunctions(pRingState);
 	#endif
 }

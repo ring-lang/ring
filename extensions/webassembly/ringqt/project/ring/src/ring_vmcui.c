@@ -85,7 +85,7 @@ void ring_vm_give ( VM *pVM )
 }
 /* User Interface Functions (Another implementation) - Flexibile (We can replace functions in Ring Code) */
 
-void ring_vmlib_see ( void *pPointer )
+void ring_vm_generallib_see ( void *pPointer )
 {
 	char *cString  ;
 	int x  ;
@@ -120,7 +120,7 @@ void ring_vmlib_see ( void *pPointer )
 	fflush(stdout);
 }
 
-void ring_vmlib_give ( void *pPointer )
+void ring_vm_generallib_give ( void *pPointer )
 {
 	int x  ;
 	char cLine[256]  ;
