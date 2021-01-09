@@ -132,7 +132,7 @@
 			#include "ring_vmfile.h"
 		#endif
 		#ifdef RING_VM_OS
-			#include "ring_vmos.h"
+			#include "ring_os_extension.h"
 		#endif
 		#ifdef RING_VM_LISTFUNCS
 			#include "ring_vmlistfuncs.h"
