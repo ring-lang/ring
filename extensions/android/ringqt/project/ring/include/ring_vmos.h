@@ -33,16 +33,16 @@
 
 	void ring_vm_os_getarch ( void *pPointer ) ;
 
-	void ring_vmlib_system ( void *pPointer ) ;
+	void ring_vm_os_system ( void *pPointer ) ;
 
-	void ring_vmlib_shutdown ( void *pPointer ) ;
+	void ring_vm_os_shutdown ( void *pPointer ) ;
 	/* Environment Variables */
 
-	void ring_vmlib_sysget ( void *pPointer ) ;
+	void ring_vm_os_sysget ( void *pPointer ) ;
 
-	void ring_vmlib_sysset ( void *pPointer ) ;
+	void ring_vm_os_sysset ( void *pPointer ) ;
 
-	void ring_vmlib_sysunset ( void *pPointer ) ;
+	void ring_vm_os_sysunset ( void *pPointer ) ;
 	/* Constants */
 	#define RING_VM_POINTER_LIBNAME "os"
 	#ifdef _WIN32
