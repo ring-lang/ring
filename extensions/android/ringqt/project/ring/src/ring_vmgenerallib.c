@@ -1906,6 +1906,58 @@ void ring_vm_generallib_state_filetokens ( void *pPointer )
 	RING_API_RETLIST(pList);
 	pState->pRingFileTokens = ring_list_delete_gc(pState,pState->pRingFileTokens);
 }
+/* Ring See and Give */
+
+void ring_vm_generallib_see ( void *pPointer )
+{
+	char *cString  ;
+	int x  ;
+	char cStr[100]  ;
+	List *pList  ;
+	VM *pVM  ;
+	pVM = (VM *) pPointer ;
+	if ( RING_API_ISSTRING(1) ) {
+		cString = RING_API_GETSTRING(1) ;
+		if ( strlen(cString) != (unsigned int) RING_API_GETSTRINGSIZE(1) ) {
+			for ( x = 0 ; x < RING_API_GETSTRINGSIZE(1) ; x++ ) {
+				printf( "%c",cString[x] ) ;
+			}
+		}
+		else {
+			printf( "%s",cString ) ;
+		}
+	}
+	else if ( RING_API_ISNUMBER(1) ) {
+		ring_vm_numtostring(pVM,RING_API_GETNUMBER(1),cStr);
+		printf( "%s",cStr ) ;
+	}
+	else if ( RING_API_ISLIST(1) ) {
+		pList = RING_API_GETLIST(1);
+		if ( ring_vm_oop_isobject(pList) ) {
+			ring_vm_oop_printobj(pVM,pList);
+		}
+		else {
+			ring_list_print(pList);
+		}
+	}
+	fflush(stdout);
+}
+
+void ring_vm_generallib_give ( void *pPointer )
+{
+	int x  ;
+	char cLine[256]  ;
+	/* Get Input From the User and save it in the variable */
+	fgets(cLine , 256 , stdin );
+	/* Remove New Line */
+	for ( x = 0 ; x <= 255 ; x++ ) {
+		if ( cLine[x] == '\n' ) {
+			cLine[x] = '\0' ;
+			break ;
+		}
+	}
+	RING_API_RETSTRING(cLine);
+}
 /* Performance */
 
 void ring_vm_generallib_checkoverflow ( void *pPointer )

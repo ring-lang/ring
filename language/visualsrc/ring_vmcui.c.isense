@@ -26,7 +26,7 @@ Type: List *
 pList
 Type: VM *
 pVM
-ring_vmlib_give
+ring_vm_generallib_give
 Type: int
 x
 cLine
