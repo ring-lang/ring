@@ -138,7 +138,7 @@
 			#include "ring_vmlistfuncs.h"
 		#endif
 		#ifdef RING_VM_REFMETA
-			#include "ring_vmrefmeta.h"
+			#include "ring_refmeta_extension.h"
 		#endif
 		#ifdef RING_VM_DLL
 			#include "ring_vmdll.h"
