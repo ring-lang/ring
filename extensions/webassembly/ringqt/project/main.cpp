@@ -48,6 +48,7 @@ extern "C" {
 #include "ring/src/ring_vmstackvars.c"
 #include "ring/src/ring_vmstate.c"
 #include "ring/src/ring_api.c"
+#include "ring/src/ring_vmgenerallib.c"
 #include "ring/src/ring_vmmath.c"
 #include "ring/src/ring_vmfile.c"
 #include "ring/src/ring_general.c"
