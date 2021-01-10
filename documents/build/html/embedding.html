@@ -155,6 +155,7 @@
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using Sockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using Libui</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
@@ -304,8 +305,9 @@ Also we have functions to create new variables and get variables values.</p>
 <span class="n">List</span> <span class="o">*</span> <span class="nf">ring_state_findvar</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cStr</span> <span class="p">)</span> <span class="p">;</span>
 <span class="n">List</span> <span class="o">*</span> <span class="nf">ring_state_newvar</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cStr</span> <span class="p">)</span> <span class="p">;</span>
 <span class="kt">void</span> <span class="nf">ring_state_main</span> <span class="p">(</span> <span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="o">*</span><span class="n">argv</span><span class="p">[]</span> <span class="p">)</span> <span class="p">;</span>
-<span class="kt">void</span> <span class="nf">ring_state_runfile</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cFileName</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">int</span>  <span class="nf">ring_state_runfile</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cFileName</span> <span class="p">)</span> <span class="p">;</span>
 <span class="kt">void</span> <span class="nf">ring_state_runobjectfile</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cFileName</span> <span class="p">)</span> <span class="p">;</span>
+<span class="kt">void</span> <span class="nf">ring_state_runobjectstring</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">,</span><span class="kt">char</span> <span class="o">*</span><span class="n">cString</span><span class="p">,</span><span class="k">const</span> <span class="kt">char</span> <span class="o">*</span><span class="n">cFileName</span> <span class="p">)</span> <span class="p">;</span>
 </pre></div>
 </div>
 </div>
