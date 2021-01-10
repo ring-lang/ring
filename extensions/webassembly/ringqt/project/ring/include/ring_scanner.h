@@ -120,8 +120,6 @@
 
 	Scanner * ring_scanner_delete ( Scanner *pScanner ) ;
 
-	int ring_scanner_readfile ( RingState *pRingState,char *cFileName ) ;
-
 	void ring_scanner_readchar ( Scanner *pScanner,char c ) ;
 
 	void ring_scanner_keywords ( Scanner *pScanner ) ;
@@ -156,17 +154,11 @@
 
 	const char * ring_scanner_getkeywordtext ( const char *cStr ) ;
 
-	void ring_scanner_runobjfile ( RingState *pRingState,char *cFileName ) ;
-
-	RING_API void ring_scanner_runprogram ( RingState *pRingState ) ;
-
 	void ring_scanner_changekeyword ( Scanner *pScanner ) ;
 
 	void ring_scanner_changeoperator ( Scanner *pScanner ) ;
 
 	void ring_scanner_loadsyntax ( Scanner *pScanner ) ;
-
-	void ring_scanner_runobjstring ( RingState *pRingState,char *cString,const char *cFileName ) ;
 
 	void ring_scanner_readtwoparameters ( Scanner *pScanner,const char *cStr ) ;
 	/* MACRO */
