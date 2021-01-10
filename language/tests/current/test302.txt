@@ -1,3 +1,5 @@
 
-Line 4 Error (R1) : Can't divide by zero ! 
-in file B:\ring\language\tests\scripts\general/filenameinclassregion.ring 
+Can't open file natural/testloadpackage.ring 
+
+general/test117.ring Line (3) Error (C27) : Syntax Error!
+general/test117.ring errors count : 1 

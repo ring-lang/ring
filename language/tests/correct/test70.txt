@@ -1,11 +1,13 @@
-Setter!
-Test
-Setter!
+10
+20
+30
+10
+20
+30
 100
-Setter!
-wow
-2
-Setter!
-x: 10
-y: 20
-z: 30
+200
+300
+110
+Inside the Test() Method
+X = 110
+
