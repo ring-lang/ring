@@ -28,6 +28,7 @@ Ring 1.14 comes with the next features!
 * Better Handling For Numbers
 * Using CLOC (Count Lines of Code)
 * More Functions
+* Better Functions
 * More Improvements
 
 
@@ -579,6 +580,33 @@ Example:
 	        ? "Unknown architecture"
 	off
 
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Better Functions
+
+Better Functions
+================
+
+* Log() Function
+
+The functions is updated to support calculating the logarithm to any base
+
+Syntax:
+
+.. code-block:: none
+
+	Log(nNumber)	   --> logarithm of nNumber to the base of e
+	Log(nNumber,nBase) --> logarithm of nNumber to the base of nBase
+
+Example:
+
+.. code-block:: ring
+
+	? log(10)	# 2.30
+	? log(2)	# 0.69
+	? log(10,10)	# 1
+	? log(2,2)	# 1
+	? log(100,10)	# 2
 
 .. index:: 
 	pair: What is new in Ring 1.14?; More Improvements

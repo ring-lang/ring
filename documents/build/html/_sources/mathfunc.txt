@@ -29,7 +29,8 @@ sinh(x)			Returns the hyperbolic sine of x radians
 cosh(x)			Returns the hyperbolic cosine of x radians
 tanh(x)			Returns the hyperbolic tangent of x radians
 exp(x)			Returns the value of e raised to the xth power
-log(x)			Returns the natural logarithm of x
+log(x)			Returns the natural logarithm of x (the base of e)
+log(x,b)		Returns the logarithm of x to the base of b
 log10(x)		Returns the common logarithm (base-10 logarithm) of x
 ceil(x)			Returns the smallest integer value greater than or equal to x	
 floor(x)		Returns the largest integer value less than or equal to x
