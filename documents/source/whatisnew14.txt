@@ -591,6 +591,7 @@ More Improvements
 * Ring Compiler - Pass new lines after the access of the list items 
 * Ring Compiler - Pass new lines after the access of the object attribute
 * Ring Compiler - Support numbers of 97 digits 
+* Ring Compiler - Support Statement --> Expression --> '(' ')' 
 * Ring VM - Str2Hex() function - Better Performance 
 * Ring VM - Hex2Str() function - Better Performance 
 * Ring VM - SubStr() function - Better Code 
