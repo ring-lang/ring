@@ -109,8 +109,24 @@ ring_state_execute
 Type: RingState *
 pRingState
 ring_state_runfile
+Type: RING_FILE
+fp
+c
+Type: Scanner *
+pScanner
+Type: VM *
+pVM
+nCont,nRunVM,nFreeFilesList
+cStartup
+Type: int
+x,nSize
+Type: char
+cFileName2[200]
 ring_state_runobjectfile
 ring_state_runobjectstring
+ring_state_runprogram
+Type: VM *
+pVM
 ring_state_log
 ring_state_cgiheader
 ring_state_segfaultaction
