@@ -340,7 +340,7 @@ int ring_parser_stmt ( Parser *pParser )
 			/* Save the Current Directory */
 			ring_general_currentdir(cCurrentDir);
 			/* Read The File */
-			x = ring_scanner_readfile(pParser->pRingState,cFileName);
+			x = ring_state_runfile(pParser->pRingState,cFileName);
 			/* Restore the Current Directory */
 			ring_general_chdir(cCurrentDir);
 			/* Restore Load Again status */

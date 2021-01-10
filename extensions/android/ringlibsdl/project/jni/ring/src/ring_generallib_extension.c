@@ -1873,7 +1873,7 @@ void ring_vm_generallib_state_mainfile ( void *pPointer )
 	**  So we keep the VM to avoid the Crash 
 	*/
 	pRingState->nDontDeleteTheVM = 1 ;
-	ring_scanner_readfile(pRingState,cStr);
+	ring_state_runfile(pRingState,cStr);
 }
 
 void ring_vm_generallib_state_filetokens ( void *pPointer )
@@ -1897,7 +1897,7 @@ void ring_vm_generallib_state_filetokens ( void *pPointer )
 	}
 	pState->nOnlyTokens = 1 ;
 	pState->lNotCaseSensitive = lCase ;
-	ring_scanner_readfile(pState,cFile);
+	ring_state_runfile(pState,cFile);
 	pState->lNotCaseSensitive = 1 ;
 	pState->nOnlyTokens = 0 ;
 	/* Copy The List */

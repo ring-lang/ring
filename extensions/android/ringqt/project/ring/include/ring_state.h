@@ -3,7 +3,7 @@
 	#define ring_state_h
 	/* Data */
 	typedef struct RingState {
-		/* First use by ring_scanner_readfile */
+		/* First use by ring_state_runfile */
 		List *pRingFilesList  ;
 		List *pRingFilesStack  ;
 		/* First use by ring_parser_new */
@@ -81,11 +81,13 @@
 
 	RING_API void ring_state_execute ( char *cFileName, int nISCGI,int nRun,int nPrintIC,int nPrintICFinal,int nTokens,int nRules,int nIns,int nGenObj,int nGenCObj,int nWarn,int argc,char *argv[] ) ;
 
-	RING_API void ring_state_runfile ( RingState *pRingState,char *cFileName ) ;
+	RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName ) ;
 
 	RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName ) ;
 
 	RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName ) ;
+
+	RING_API void ring_state_runprogram ( RingState *pRingState ) ;
 
 	RING_API void ring_state_log ( RingState *pRingState,const char *cStr ) ;
 
