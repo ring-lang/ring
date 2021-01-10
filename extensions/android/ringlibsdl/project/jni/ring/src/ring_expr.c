@@ -867,11 +867,6 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		if ( pParser->nControlStructureExpr ) {
 			RING_PARSER_IGNORENEWLINE ;
 		}
-		/* Array Index & Object Dot */
-		x = ring_parser_mixer(pParser);
-		if ( x == 0 ) {
-			return 0 ;
-		}
 		return 1 ;
 	}
 	/* Factor --> Literal --> ':' Identifier */
@@ -961,6 +956,15 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 	/* Factor --> ( Expr ) */
 	if ( ring_parser_isoperator2(pParser,OP_FOPEN) ) {
 		ring_parser_nexttoken(pParser);
+		if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
+			ring_parser_nexttoken(pParser);
+			#if RING_PARSERTRACE
+				RING_STATE_CHECKPRINTRULES 
+				
+				puts("Rule : Factor --> '()'");
+			#endif
+			return 1 ;
+		}
 		x = pParser->nAssignmentFlag ;
 		pParser->nAssignmentFlag = 0 ;
 		if ( ring_parser_expr(pParser) ) {
