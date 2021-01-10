@@ -243,28 +243,28 @@ Func Filter alist,cFunc
 
 Func Split(cString, delimiter)
 
-    doubleSpace = "  "
-    singleSpace = " "
-    singleTab   = char(9)
+	doubleSpace = "  "
+	singleSpace = " "
+	singleTab   = char(9)
 	
-    if ( (delimiter = singleTab) or (delimiter = singleSpace) )
-        delimiter = singleSpace
-    ok
+	if ( (delimiter = singleTab) or (delimiter = singleSpace) )
+		delimiter = singleSpace
+	ok
 
-    if ( delimiter = singleSpace )
-        do
-            cString = substr(cstring, singleTab, singleSpace)   ### Replace Tab with Space
-        again substr(cString, singleTab)
+	if ( delimiter = singleSpace )
+		do
+			cString = substr(cstring, singleTab, singleSpace)   ### Replace Tab with Space
+		again substr(cString, singleTab)
 
-        do
-            cString = substr(cString, doubleSpace, singleSpace) ### Replace DoubleSpace with Space
-        again substr(cString, doubleSpace)
-    ok
+		do
+			cString = substr(cString, doubleSpace, singleSpace) ### Replace DoubleSpace with Space
+		again substr(cString, doubleSpace)
+	ok
 	
 	cString = trim(cString) ### Remove leading and trailing spaces
-    cStrList = str2list(substr(cString, delimiter, nl))
+	cStrList = str2list(substr(cString, delimiter, nl))
 
-return cStrList
+	return cStrList
 
 /*
 	Function Name	: SplitMany
@@ -288,7 +288,7 @@ Func SplitMany cString,cCharacters
 */
 
 Func Capitalized str
-       return substr(str,left(str,1),upper(left(str,1))) 
+	return substr(str,left(str,1),upper(left(str,1))) 
        
 /*
 	Function Name	: isspecial
@@ -298,10 +298,10 @@ Func Capitalized str
 */
 
 Func IsSpecial char
-       for c in "^'+-/\*~<>=@,%|&?!'"
-           if char = c return true ok
-       next
-       return false 
+	for c in "^'+-/\*~<>=@,%|&?!'"
+		if char = c return true ok
+	next
+	return false 
 
 /*
 	Function Name	: isvowel
@@ -311,10 +311,10 @@ Func IsSpecial char
 */
 
 Func IsVowel char
-       for c in "AEIOU"
-           if upper(char) = c return true ok
-       next
-       return false 
+	for c in "AEIOU"
+		if upper(char) = c return true ok
+	next
+	return false 
        
 /*
 	Function Name	: linecount
@@ -324,15 +324,15 @@ Func IsVowel char
 */       
        
 Func LineCount text
-     number = 0
-     fp = fopen(text,"r")
-     r = fgetc(fp)
-     while isstring(r)
-           r = fgetc(fp)
-           if r = char(10) number += 1 ok
-     end
-     fclose(fp)
-     return number
+	number = 0
+	fp = fopen(text,"r")
+	r = fgetc(fp)
+	while isstring(r)
+		r = fgetc(fp)
+		if r = char(10) number += 1 ok
+	end
+	fclose(fp)
+	return number
 
 /*
 	Function Name	: factorial
@@ -351,9 +351,9 @@ Func Factorial n if n = 0 return 1 else return n * factorial(n-1) ok
 */
 
 Func Fibonacci n
-    if n = 0 return 0 ok
-    if n = 1 return 1 ok 
-    if n > 1 return fibonacci(n-1) + fibonacci(n-2) ok
+	if n = 0 return 0 ok
+	if n = 1 return 1 ok 
+	if n > 1 return fibonacci(n-1) + fibonacci(n-2) ok
     
 /*
 	Function Name	: isprime
@@ -363,12 +363,12 @@ Func Fibonacci n
 */ 
 
 Func IsPrime num
-     if (num <= 1) return 0 ok
-     if (num % 2 = 0)  and (num != 2)  return 0 ok
-     for i = 3 to floor(num / 2) - 1 step 2
-         if (num % i = 0) return 0 ok
-     next
-     return 1
+	if (num <= 1) return 0 ok
+	if (num % 2 = 0)  and (num != 2)  return 0 ok
+	for i = 3 to floor(num / 2) - 1 step 2
+		if (num % i = 0) return 0 ok
+	next
+	return 1
      
 /*
 	Function Name	: sign
@@ -378,9 +378,9 @@ Func IsPrime num
 */	
 	
 Func Sign n
-     if n < 0 return -1 ok
-     if n = 0 return 0 ok
-     if n > 0 return 1 ok 
+	if n < 0 return -1 ok
+	if n = 0 return 0 ok
+	if n > 0 return 1 ok 
 
 /*
 	Function Name	: List2File
@@ -414,8 +414,8 @@ Func File2List cFileName
 */
 
 Func Endswith str, substr
-     str = trim(str)
-     if right(str, len(substr)) = substr return 1 else return 0 ok 
+	str = trim(str)
+	if right(str, len(substr)) = substr return 1 else return 0 ok 
      
 /*
 	Function Name	: Startwith
@@ -425,8 +425,8 @@ Func Endswith str, substr
 */
 
 Func Startswith str, substr
-     str = trim(str)
-     if left(str, len(substr)) = substr return 1 else return 0 ok   
+	str = trim(str)
+	if left(str, len(substr)) = substr return 1 else return 0 ok   
      
 /*
 	Function Name	: Gcd
@@ -436,12 +436,12 @@ Func Startswith str, substr
 */
 
 Func Gcd gcd, b
-       while b
-             c   = gcd
-             gcd = b
-             b   = c % b
-       end
-       return gcd
+	while b
+		c   = gcd
+		gcd = b
+		b   = c % b
+	end
+	return gcd
        
 /*
 	Function Name	: Lcm
@@ -451,8 +451,8 @@ Func Gcd gcd, b
 */     
 
 Func Lcm m,n
-     lcm = m*n / gcd(m,n)
-     return lcm
+	lcm = m*n / gcd(m,n)
+	return lcm
      
 /*
 	Function Name	: Sumlist
@@ -462,11 +462,11 @@ Func Lcm m,n
 */ 
 
 Func Sumlist bList
-     sum = 0
-     for n = 1 to len(bList)
-         sum += bList[n]
-     next
-     return sum	
+	sum = 0
+	for n = 1 to len(bList)
+		sum += bList[n]
+	next
+	return sum	
      
 /*
 	Function Name	: Prodlist
@@ -476,11 +476,11 @@ Func Sumlist bList
 */
 
 Func Prodlist bList
-     prod = 1
-     for n = 1 to len(bList)
-         prod *= bList[n]
-     next
-     return prod
+	prod = 1
+	for n = 1 to len(bList)
+		prod *= bList[n]
+	next
+	return prod
      
 /*
 	Function Name	: Evenorodd
@@ -490,8 +490,8 @@ Func Prodlist bList
 */     
 
 Func Evenorodd n 
-     if n % 2 = 1 return 1 ok
-     return 2
+	if n % 2 = 1 return 1 ok
+	return 2
      
 /*
 	Function Name	: Factors
@@ -501,12 +501,12 @@ Func Evenorodd n
 */  
 
 Func Factors n   
-     nArray = []
-     j = 0
-     for i = 1 to n
-         if n % i = 0 j = j + 1 add(nArray, i) ok
-     next
-     return nArray
+	nArray = []
+	j = 0
+	for i = 1 to n
+		if n % i = 0 j = j + 1 add(nArray, i) ok
+	next
+	return nArray
      
 /*
 	Function Name	: Palindrome
@@ -516,15 +516,15 @@ Func Factors n
 */  
 
 Func Palindrome aString
-     bString = ""
-     for i=len(aString) to 1 step -1
-         bString = bString + aString[i]
-     next
-     if aString = bString return 1 ok
-     return false
+	bString = ""
+	for i=len(aString) to 1 step -1
+		bString = bString + aString[i]
+	next
+	if aString = bString return 1 ok
+	return false
 
 Func IsPalindrome aString
-     return Palindrome(aString)
+	return Palindrome(aString)
      
 /*
 	Function Name	: Isleapyear
@@ -534,8 +534,8 @@ Func IsPalindrome aString
 */
 
 Func Isleapyear year
-     if (year % 400) = 0 return true 
-        but (year % 100) = 0 return false
+	if (year % 400) = 0 return true 
+	but (year % 100) = 0 return false
         but (year % 4) = 0 return true
         else return false ok  
         
@@ -547,17 +547,17 @@ Func Isleapyear year
 */   
 
 Func Binarydigits a
-	 cOutput = ""
-     n = 0
-     while pow(2,n+1) < a
-           n = n + 1
-     end
-     for i = n to 0 step -1
-         x = pow(2,i)
-         if a >= x cOutput += "1" a = a - x
-         else cOutput += "0" ok
-     next
-	 return cOutput
+	cOutput = ""
+	n = 0
+	while pow(2,n+1) < a
+		n = n + 1
+	end
+	for i = n to 0 step -1
+		x = pow(2,i)
+		if a >= x cOutput += "1" a = a - x
+		else cOutput += "0" ok
+	next
+	return cOutput
      
 /*
 	Function Name	: Matrixmulti
@@ -621,23 +621,23 @@ Func Matrixtrans matrix
 */
 
 Func Dayofweek date
-     year = number(substr(date,1,4))
-     month = number(substr(date,6,2))
-     day = number(substr(date,9,2))
-     mo = [4,0,0,3,5,1,3,6,2,4,0,2]
-     days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
-     if year < 2100 leap = year - 1900 else leap = year - 1904 ok
-     m = (((year-1900)%7) + floor(leap/4) + mo[month] + day) % 7
-     switch m
-            on 1 sday = days[4]
-            on 2 sday = days[5]
-            on 3 sday = days[6]
-            on 4 sday = days[7]
-            on 5 sday = days[1]
-            on 6 sday = days[2]
-            on 0 sday = days[3]
-     off
-     return sday 
+	year = number(substr(date,1,4))
+	month = number(substr(date,6,2))
+	day = number(substr(date,9,2))
+	mo = [4,0,0,3,5,1,3,6,2,4,0,2]
+	days = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"]
+	if year < 2100 leap = year - 1900 else leap = year - 1904 ok
+	m = (((year-1900)%7) + floor(leap/4) + mo[month] + day) % 7
+	switch m
+		on 1 sday = days[4]
+		on 2 sday = days[5]
+		on 3 sday = days[6]
+		on 4 sday = days[7]
+		on 5 sday = days[1]
+		on 6 sday = days[2]
+		on 0 sday = days[3]
+	off
+	return sday 
      
 /*
 	Function Name	: Fridays
@@ -647,15 +647,15 @@ Func Dayofweek date
 */  
 
 Func Fridays year1, year2
-     mo = [4,0,0,3,5,1,3,6,2,4,0,2]
-     for year = year1 to year2
-         if year < 2100 leap = year - 1900 else leap = year - 1904 ok
-         for month = 1 to 12
-             m = (((year-1900)%7) + floor(leap/4) + mo[month] + 13) % 7
-             if month < 10 smonth = "0" + month ok
-             if m = 2 see "" + year + "-" + smonth + "-" + "13 is friday" + nl ok
-         next
-     next
+	mo = [4,0,0,3,5,1,3,6,2,4,0,2]
+	for year = year1 to year2
+		if year < 2100 leap = year - 1900 else leap = year - 1904 ok
+		for month = 1 to 12
+			m = (((year-1900)%7) + floor(leap/4) + mo[month] + 13) % 7
+			if month < 10 smonth = "0" + month ok
+             		if m = 2 see "" + year + "-" + smonth + "-" + "13 is friday" + nl ok
+         	next
+     	next
      
 /*
 	Function Name	: Permutation
@@ -665,30 +665,30 @@ Func Fridays year1, year2
 */     
 
 Func Permutation a
-       elementcount = len(a)
-       if elementcount < 1 then return ok
-       pos = elementcount-1
-       while a[pos] >= a[pos+1] 
-               pos -= 1
-               if pos <= 0 permutationReverse(a, 1, elementcount)
-                  return ok
-       end
-       last = elementcount
-       while a[last] <= a[pos]
-               last -= 1
-       end
-       temp = a[pos]
-       a[pos] = a[last]
-       a[last] = temp
-       permutationReverse(a, pos+1, elementcount)
+	elementcount = len(a)
+	if elementcount < 1 then return ok
+	pos = elementcount-1
+	while a[pos] >= a[pos+1] 
+		pos -= 1
+		if pos <= 0 permutationReverse(a, 1, elementcount)
+		return ok
+	end
+	last = elementcount
+	while a[last] <= a[pos]
+		last -= 1
+	end
+	temp = a[pos]
+	a[pos] = a[last]
+	a[last] = temp
+	permutationReverse(a, pos+1, elementcount)
 
 Func permutationReverse a, first, last
-        while first < last
-                 temp = a[first]
-                 a[first] = a[last]
-                 a[last] = temp
-                 first += 1
-                 last -= 1
+	while first < last
+		temp = a[first]
+		a[first] = a[last]
+		a[last] = temp
+		first += 1
+		last -= 1
         end
    
 /*
@@ -733,13 +733,13 @@ Func IsMainSourceFile
 	output		: Position of substring. 
 */  	
 func Substring str,substr,n
-       newstr=right(str,len(str)-n+1)
-       nr = substr(newstr, substr)
-       if nr = 0
-          return 0
-       else
-          return n + nr -1
-       ok
+	newstr=right(str,len(str)-n+1)
+	nr = substr(newstr, substr)
+	if nr = 0
+		return 0
+	else
+		return n + nr -1
+	ok
        
 /*
 	Function Name	: Changestring
@@ -748,8 +748,8 @@ func Substring str,substr,n
 	output		: Result string. 
 */         
 func Changestring text, pos1, pos2, str
-       string = left(text,pos1-1) + str + substr(text, pos2+1)
-       return string
+	string = left(text,pos1-1) + str + substr(text, pos2+1)
+	return string
 
 
 /*
@@ -766,7 +766,6 @@ Func DirExists cDir
 	catch
 		return false
 	done
-
 
 /*
 	Function Name	: MakeDir
@@ -791,17 +790,17 @@ Func MakeDir cFolder
 */ 
 
 Func sortFirstSecond aList, ind
-        aList = sort(aList,ind)
-        for n=1 to len(alist)-1
-             for m=n to len(aList)-1 
-                   if ind = 1 nr = 2 else nr = 1 ok
-                   if alist[m+1][ind] = alist[m][ind] and alist[m+1][nr] < alist[m][nr]
-                      temp = alist[m+1]
-                      alist[m+1] = alist[m]
-                      alist[m] = temp ok
+	aList = sort(aList,ind)
+	for n=1 to len(alist)-1
+		for m=n to len(aList)-1 
+			if ind = 1 nr = 2 else nr = 1 ok
+			if alist[m+1][ind] = alist[m][ind] and alist[m+1][nr] < alist[m][nr]
+				temp = alist[m+1]
+				alist[m+1] = alist[m]
+				alist[m] = temp ok
              next
-       next
-       return aList
+	next
+	return aList
 
 Func Fsize(fh)
 	Fseek(fh,0,2)
@@ -819,70 +818,70 @@ Func Fsize(fh)
 
 Func EpochTime(Date, Time)
 
-    arrayDate = split(Date, "/")
-    arrayTime = split(Time, ":")
+	arrayDate = split(Date, "/")
+	arrayTime = split(Time, ":")
 
-    Year = arrayDate[3] ; Month  = arrayDate[2] ; Day    = arrayDate[1]
-    Hour = arrayTime[1] ; Minute = arrayTime[2] ; Second = arrayTime[3]
+	Year = arrayDate[3] ; Month  = arrayDate[2] ; Day    = arrayDate[1]
+	Hour = arrayTime[1] ; Minute = arrayTime[2] ; Second = arrayTime[3]
 
-    cDate1    = Day +"/"+ Month +"/"+ Year
-    cDate2    = "01/01/" + Year
-    DayOfYear = DiffDays( cDate1, cDate2)
+	cDate1    = Day +"/"+ Month +"/"+ Year
+	cDate2    = "01/01/" + Year
+	DayOfYear = DiffDays( cDate1, cDate2)
 
-    ### Formula
-    tm_sec  = Second    * 1
-    tm_min  = Minute    * 60
-    tm_hour = Hour      * 3600
-    tm_yday = DayOfYear * 86400
-    tm_year = Year      - 1900
+	### Formula
+	tm_sec  = Second    * 1
+	tm_min  = Minute    * 60
+	tm_hour = Hour      * 3600
+	tm_yday = DayOfYear * 86400
+	tm_year = Year      - 1900
 
-    tm_year1 =         ( tm_year -  70)          * 31536000
-    tm_year2 = ( floor(( tm_year -  69) /   4 )) * 86400
-    tm_year3 = ( floor(( tm_year -   1) / 100 )) * 86400
-    tm_year4 = ( floor(( tm_year + 299) / 400 )) * 86400
+	tm_year1 =         ( tm_year -  70)          * 31536000
+	tm_year2 = ( floor(( tm_year -  69) /   4 )) * 86400
+	tm_year3 = ( floor(( tm_year -   1) / 100 )) * 86400
+	tm_year4 = ( floor(( tm_year + 299) / 400 )) * 86400
 
-    ### Result
-    EpochSec = tm_sec + tm_min + tm_hour + tm_yday + tm_year1 + tm_year2 - tm_year3 + tm_year4
+	### Result
+	EpochSec = tm_sec + tm_min + tm_hour + tm_yday + tm_year1 + tm_year2 - tm_year3 + tm_year4
 
-return EpochSec
+	return EpochSec
 
 Func TrimLeft(cStr)
-  $tab   = char(09)
-  $space = char(32)
-  index  = 1
-      while cStr[index] = $space or cStr[index] = $tab
-            index++
-      end  
-  cStr = substr(cStr, index, len(cStr) - index + 1)
-return cStr     
+	$tab   = char(09)
+	$space = char(32)
+	index  = 1
+	while cStr[index] = $space or cStr[index] = $tab
+		index++
+	end  
+	cStr = substr(cStr, index, len(cStr) - index + 1)
+	return cStr     
 
 
 Func TrimRight(cStr)
-  $tab   = char(09)
-  $space = char(32)
-  index  = len(cStr)
-      while cStr[index] = $space or cStr[index] = $tab
-            index--
-      end    
-  cStr = substr(cStr, 1, index)
-return cStr     
+	$tab   = char(09)
+	$space = char(32)
+	index  = len(cStr)
+	while cStr[index] = $space or cStr[index] = $tab
+		index--
+	end    
+	cStr = substr(cStr, 1, index)
+	return cStr     
 
 
 Func TrimAll(cStr)
-  $tab   = char(09)
-  $space = char(32)
-  $empty = ""
-    cStr = substr(cStr, $space, $empty)
-    cStr = substr(cStr, $tab,   $empty)
-return cStr
+	$tab   = char(09)
+	$space = char(32)
+	$empty = ""
+	cStr = substr(cStr, $space, $empty)
+	cStr = substr(cStr, $tab,   $empty)
+	return cStr
 
 /*
    Remove NewLine chars
 */
 
 Func chomp(cStr)
-   cStr = substr(cStr, nl, "" )
-return cStr
+	cStr = substr(cStr, nl, "" )
+	return cStr
 
 
 /*
@@ -892,9 +891,9 @@ return cStr
 */
 
 Func SystemCmd(cmd)
-   System(cmd + "> cmd.txt")
-   cStr = read("cmd.txt")
-return cStr
+	System(cmd + "> cmd.txt")
+	cStr = read("cmd.txt")
+	return cStr
 
 /*
 	Get a List of all files in a directory and it's sub directories 
