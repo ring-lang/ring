@@ -382,19 +382,8 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 		/* Run the Program */
 		#if RING_RUNVM
 			if ( nRunVM == 1 ) {
-				/* Add return to the end of the program */
-				ring_scanner_addreturn(pRingState);
-				if ( pRingState->nPrintIC ) {
-					ring_parser_icg_showoutput(pRingState->pRingGenCode,1);
-				}
-				if ( ! pRingState->nRun ) {
-					return 1 ;
-				}
-				pVM = ring_vm_new(pRingState);
-				ring_vm_start(pRingState,pVM);
-				if ( ! pRingState->nDontDeleteTheVM ) {
-					ring_vm_delete(pVM);
-				}
+				ring_state_runprogram(pRingState);
+				return 1 ;
 			}
 		#endif
 		/* Display Generated Code */
@@ -446,7 +435,9 @@ RING_API void ring_state_runprogram ( RingState *pRingState )
 	}
 	pVM = ring_vm_new(pRingState);
 	ring_vm_start(pRingState,pVM);
-	ring_vm_delete(pVM);
+	if ( ! pRingState->nDontDeleteTheVM ) {
+		ring_vm_delete(pVM);
+	}
 	/* Display Generated Code */
 	if ( pRingState->nPrintICFinal ) {
 		ring_parser_icg_showoutput(pRingState->pRingGenCode,2);
