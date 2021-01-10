@@ -592,6 +592,7 @@ More Improvements
 * Ring Compiler - Pass new lines after the access of the object attribute
 * Ring Compiler - Support numbers of 97 digits 
 * Ring Compiler - Support Statement --> Expression --> '(' ')' 
+* Ring Compiler - Support Statement --> Expression --> '(' Expression ')' '.' Attribute|Method
 * Ring VM - Str2Hex() function - Better Performance 
 * Ring VM - Hex2Str() function - Better Performance 
 * Ring VM - SubStr() function - Better Code 
