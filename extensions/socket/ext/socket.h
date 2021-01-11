@@ -62,6 +62,10 @@ void ring_vm_socket_gethostbyname(void *pPointer);
 void ring_vm_socket_gethostbyaddr(void *pPointer);
 void ring_vm_socket_getservbyname(void *pPointer);
 void ring_vm_socket_getservbyport(void *pPointer);
+void ring_vm_socket_ntohs(void *pPointer);
+void ring_vm_socket_ntohl(void *pPointer);
+void ring_vm_socket_htonl(void *pPointer);
+void ring_vm_socket_htons(void *pPointer);
 
 RING_API void ringlib_init(RingState *pRingState);
 
