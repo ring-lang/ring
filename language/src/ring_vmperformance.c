@@ -299,6 +299,11 @@ void ring_vm_loadfuncp ( VM *pVM )
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->cFileName);
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(5));
 	ring_list_addint_gc(pVM->pRingState,pList,RING_VM_IR_READIVALUE(6));
+	/* Store List information */
+	ring_list_addint_gc(pVM->pRingState,pList,pVM->nListStart);
+	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
+	pVM->nListStart = 0 ;
+	pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
 	ring_vm_saveloadaddressscope(pVM);
 }
 /* For Loop Optimization When Step = 1 */
