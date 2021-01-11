@@ -333,5 +333,6 @@ aTests = [
 	[ :name = "General Tests (Part 142)", :Command = "ring general/numberandstring2.ring" ],
 	[ :name = "General Tests (Part 143)", :Command = "ring general/pathtype.ring" ],
 	[ :name = "General Tests (Part 144)", :Command = "ring general/hexadecimal.ring" ],
-	[ :name = "General Tests (Part 145)", :Command = "ring general/logfunction.ring" ]
+	[ :name = "General Tests (Part 145)", :Command = "ring general/logfunction.ring" ],
+	[ :name = "General Tests (Part 146)", :Command = "ring general/test136.ring" ]
 ]
