@@ -68,11 +68,6 @@ void ring_vm_socket_init(void *pPointer) {
         return;
     }
 
-    if(setsockopt(sock->sockfd,SOL_SOCKET,SO_REUSEADDR,&opt,sizeof(opt))) {
-        RING_API_ERROR("Setsockopt Failed");
-        return;
-    }
-
 #endif  
     
     RING_API_RETCPOINTER(sock,RING_VM_POINTER_SOCKET);
@@ -480,7 +475,7 @@ void ring_vm_socket_gethostname(void *pPointer) {
 }
 
 void ring_vm_socket_getservbyname(void *pPointer) {
-    if(RING_API_PARACOUNT != 1) {
+    if(RING_API_PARACOUNT < 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return;
     }
@@ -491,7 +486,17 @@ void ring_vm_socket_getservbyname(void *pPointer) {
     }
 
     char *servName = RING_API_GETSTRING(1);
+    char *proto = "tcp";
     struct servent *s;
+
+    if(RING_API_PARACOUNT == 2) {
+        if(RING_API_ISSTRING(2)) 
+            proto = RING_API_GETSTRING(2);
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+            return;
+        }
+    }
 
 #ifdef win
 
@@ -503,7 +508,7 @@ void ring_vm_socket_getservbyname(void *pPointer) {
 
 #endif
 
-    if(s = getservbyname(servName,"tcp")) {
+    if(s = getservbyname(servName,proto)) {
         RING_API_RETNUMBER(ntohs(s->s_port));
     }
 
@@ -514,7 +519,7 @@ void ring_vm_socket_getservbyname(void *pPointer) {
 }
 
 void ring_vm_socket_getservbyport(void *pPointer) {
-    if(RING_API_PARACOUNT != 1) {
+    if(RING_API_PARACOUNT < 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return;
     }
@@ -525,7 +530,17 @@ void ring_vm_socket_getservbyport(void *pPointer) {
     }
 
     int port = RING_API_GETNUMBER(1);
+    char *proto = "tcp";
     struct servent *s;
+
+    if(RING_API_PARACOUNT == 2) {
+        if(RING_API_ISSTRING(2)) 
+            proto = RING_API_GETSTRING(2);
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+            return;
+        }
+    }
 
 #ifdef win
 
@@ -537,7 +552,7 @@ void ring_vm_socket_getservbyport(void *pPointer) {
 
 #endif
 
-    if(s = getservbyport(htons(port),"tcp")) {
+    if(s = getservbyport(htons(port),proto)) {
         RING_API_RETSTRING(s->s_name);
     }
 
@@ -545,6 +560,66 @@ void ring_vm_socket_getservbyport(void *pPointer) {
         RING_API_ERROR("getservbyport Failed");
         return;
     }
+}
+
+void ring_vm_socket_ntohl(void *pPointer) {
+    if(RING_API_PARACOUNT != 1) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return;
+    }
+
+    if(!RING_API_ISNUMBER(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    int n = (int) RING_API_GETNUMBER(1);
+    RING_API_RETNUMBER((int) ntohl(n));
+}
+
+void ring_vm_socket_ntohs(void *pPointer) {
+    if(RING_API_PARACOUNT != 1) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return;
+    }
+
+    if(!RING_API_ISNUMBER(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    int n = (int) RING_API_GETNUMBER(1);
+    RING_API_RETNUMBER((int) ntohs(n));
+}
+
+void ring_vm_socket_htonl(void *pPointer) {
+    if(RING_API_PARACOUNT != 1) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return;
+    }
+
+    if(!RING_API_ISNUMBER(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    int n = (int) RING_API_GETNUMBER(1);
+    RING_API_RETNUMBER((int) htonl(n));
+}
+
+void ring_vm_socket_htons(void *pPointer) {
+    if(RING_API_PARACOUNT != 1) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return;
+    }
+
+    if(!RING_API_ISNUMBER(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    int n = (int) RING_API_GETNUMBER(1);
+    RING_API_RETNUMBER((int) htons(n));
 }
 
 
@@ -564,6 +639,10 @@ RING_API void ringlib_init(RingState *pRingState) {
     ring_vm_funcregister("gethostname",ring_vm_socket_gethostname);
     ring_vm_funcregister("getservbyname",ring_vm_socket_getservbyname);
     ring_vm_funcregister("getservbyport",ring_vm_socket_getservbyport);
+    ring_vm_funcregister("ntohs",ring_vm_socket_ntohs);
+    ring_vm_funcregister("ntohl",ring_vm_socket_ntohl);
+    ring_vm_funcregister("htonl",ring_vm_socket_htonl);
+    ring_vm_funcregister("htons",ring_vm_socket_htons);
 }
 
 
