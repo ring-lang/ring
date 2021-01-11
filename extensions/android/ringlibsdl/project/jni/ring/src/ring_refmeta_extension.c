@@ -625,6 +625,7 @@ void ring_vm_refmeta_addattribute ( void *pPointer )
 		pList = RING_API_GETLIST(1) ;
 		if ( ring_vm_oop_isobject(pList) ) {
 			pList = ring_list_getlist(pList,RING_OBJECT_OBJECTDATA);
+			((VM *) pPointer)->nInClassRegion++ ;
 			if ( RING_API_ISSTRING(2) ) {
 				cStr = RING_API_GETSTRING(2) ;
 				ring_string_lower(cStr);
@@ -643,8 +644,11 @@ void ring_vm_refmeta_addattribute ( void *pPointer )
 				}
 			}
 			else {
+				((VM *) pPointer)->nInClassRegion-- ;
 				RING_API_ERROR(RING_API_BADPARATYPE);
+				return ;
 			}
+			((VM *) pPointer)->nInClassRegion-- ;
 		}
 		else {
 			RING_API_ERROR(RING_API_BADPARATYPE);
