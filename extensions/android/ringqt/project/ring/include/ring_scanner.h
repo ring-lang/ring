@@ -114,6 +114,34 @@
 		OP_BITNOT ,
 		OP_XOR 
 	} SCANNER_OPERATOR ;
+	/*
+	**  Constants 
+	**  General 
+	*/
+	#define RING_SCANNER_TOKENTYPE 1
+	#define RING_SCANNER_TOKENVALUE 2
+	/* Scanner Tokens Types */
+	#define SCANNER_TOKEN_KEYWORD 0
+	#define SCANNER_TOKEN_OPERATOR 1
+	#define SCANNER_TOKEN_LITERAL 2
+	#define SCANNER_TOKEN_NUMBER 3
+	#define SCANNER_TOKEN_IDENTIFIER 4
+	#define SCANNER_TOKEN_ENDLINE 5
+	#define SCANNER_TOKEN_NOTOKEN 6
+	/* Scanner States */
+	#define SCANNER_STATE_GENERAL 0
+	#define SCANNER_STATE_LITERAL 1
+	#define SCANNER_STATE_COMMENT 2
+	#define SCANNER_STATE_MLCOMMENT 3
+	#define SCANNER_STATE_CHANGEKEYWORD 4
+	#define SCANNER_STATE_CHANGEOPERATOR 5
+	#define SCANNER_STATE_LOADSYNTAX 6
+	/* Change Ring Keyword/Operator */
+	#define RING_SCANNER_CHANGERINGKEYWORD 47
+	#define RING_SCANNER_CHANGERINGOPERATOR 48
+	#define RING_SCANNER_LOADSYNTAX 49
+	/* MACRO */
+	#define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem_gc(pScanner->pRingState,pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
 	/* Functions */
 
 	Scanner * ring_scanner_new ( RingState *pRingState ) ;
@@ -161,32 +189,4 @@
 	void ring_scanner_loadsyntax ( Scanner *pScanner ) ;
 
 	void ring_scanner_readtwoparameters ( Scanner *pScanner,const char *cStr ) ;
-	/* MACRO */
-	#define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem_gc(pScanner->pRingState,pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
-	/*
-	**  Constants 
-	**  General 
-	*/
-	#define RING_SCANNER_TOKENTYPE 1
-	#define RING_SCANNER_TOKENVALUE 2
-	/* Scanner Tokens Types */
-	#define SCANNER_TOKEN_KEYWORD 0
-	#define SCANNER_TOKEN_OPERATOR 1
-	#define SCANNER_TOKEN_LITERAL 2
-	#define SCANNER_TOKEN_NUMBER 3
-	#define SCANNER_TOKEN_IDENTIFIER 4
-	#define SCANNER_TOKEN_ENDLINE 5
-	#define SCANNER_TOKEN_NOTOKEN 6
-	/* Scanner States */
-	#define SCANNER_STATE_GENERAL 0
-	#define SCANNER_STATE_LITERAL 1
-	#define SCANNER_STATE_COMMENT 2
-	#define SCANNER_STATE_MLCOMMENT 3
-	#define SCANNER_STATE_CHANGEKEYWORD 4
-	#define SCANNER_STATE_CHANGEOPERATOR 5
-	#define SCANNER_STATE_LOADSYNTAX 6
-	/* Change Ring Keyword/Operator */
-	#define RING_SCANNER_CHANGERINGKEYWORD 47
-	#define RING_SCANNER_CHANGERINGOPERATOR 48
-	#define RING_SCANNER_LOADSYNTAX 49
 #endif

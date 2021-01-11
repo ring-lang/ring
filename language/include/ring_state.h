@@ -63,6 +63,13 @@
 		/* Flag (Not Case Sensitive) */
 		unsigned int lNotCaseSensitive : 1  ;
 	} RingState ;
+	/* Constants */
+	#define RING_STATE_VERSION "1.14"
+	/* MACRO */
+	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
+	/* General Options (Only for ring_state_main()) */
+	static int nRingStateDEBUGSEGFAULT  ;
+	static int nRingStateCGI  ;
 	/* Functions */
 
 	RING_API RingState * ring_state_new ( void ) ;
@@ -94,10 +101,4 @@
 	void ring_state_cgiheader ( RingState *pRingState ) ;
 
 	void ring_state_segfaultaction ( int sig ) ;
-	/* MACRO */
-	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
-	#define RING_STATE_VERSION "1.14"
-	/* General Options (Only for ring_state_main()) */
-	static int nRingStateDEBUGSEGFAULT  ;
-	static int nRingStateCGI  ;
 #endif

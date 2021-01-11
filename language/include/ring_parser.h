@@ -86,6 +86,14 @@
 	#define RING_PARSER_ERROR_EXPRESSIONISEXPECTED "Error (C28) : Expression is expected!"
 	#define RING_PARSER_WARNING_EXITOUTSIDELOOP "Warning (W6) : Using the EXIT command outside loop!"
 	#define RING_PARSER_WARNING_LOOPOUTSIDELOOP "Warning (W7) : Using the LOOP command outside loop"
+	/* Constants */
+	#define RING_PARSER_NUMBERLENGTH 97
+	/* MACRO */
+	#define RING_PARSER_IGNORENEWLINE while(ring_parser_epslion(pParser));
+	#define RING_PARSER_PASSNEWLINE while(ring_parser_passepslion(pParser));
+	#define RING_PARSER_CURRENTTOKEN pParser->ActiveToken
+	#define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode)
+	#define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->ActiveToken == pParser->TokensCount ) break ;
 	/* Functions */
 
 	int ring_parser_start ( List *pTokens,RingState *pRingState ) ;
@@ -179,11 +187,4 @@
 	void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod ) ;
 
 	int ring_parser_gencallringvmsee ( Parser *pParser ) ;
-	/* MACRO */
-	#define RING_PARSER_IGNORENEWLINE while(ring_parser_epslion(pParser));
-	#define RING_PARSER_PASSNEWLINE while(ring_parser_passepslion(pParser));
-	#define RING_PARSER_CURRENTTOKEN pParser->ActiveToken
-	#define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode)
-	#define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->ActiveToken == pParser->TokensCount ) break ;
-	#define RING_PARSER_NUMBERLENGTH 97
 #endif

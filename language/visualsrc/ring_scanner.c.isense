@@ -133,20 +133,6 @@ ring_scanner_new
 Type: Scanner *
 pScanner
 ring_scanner_delete
-ring_scanner_readfile
-Type: RING_FILE
-fp
-c
-Type: Scanner *
-pScanner
-Type: VM *
-pVM
-nCont,nRunVM,nFreeFilesList
-cStartup
-Type: int
-x,nSize
-Type: char
-cFileName2[200]
 ring_scanner_readchar
 Type: char
 cStr[2]
@@ -204,11 +190,6 @@ pList
 Type: char *
 cString
 ring_scanner_getkeywordtext
-ring_scanner_runobjfile
-ring_scanner_runobjstring
-ring_scanner_runprogram
-Type: VM *
-pVM
 ring_scanner_changekeyword
 Type: char *
 cStr

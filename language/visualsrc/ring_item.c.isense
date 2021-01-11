@@ -68,14 +68,6 @@ ring_item_settype_gc
 ring_itemarray_setint_gc
 ring_itemarray_setpointer_gc
 ring_itemarray_setdouble_gc
-ring_list_getint(pList,index)
-ring_list_getpointer(pList,index)
-ring_list_getfuncpointer(pList,index)
-ring_list_callfuncpointer(pList,index,x)
-ring_list_getdouble(pList,index)
-ring_list_getstring(pList,index)
-ring_list_getstringobject(pList,index)
-ring_list_getstringsize(pList,index)
 ring_itemarray_setstring_gc
 ring_itemarray_setstring2_gc
 ring_item_setstring_gc

@@ -4,16 +4,11 @@
 
 int ring_vm_loadfunc ( VM *pVM )
 {
-	if ( pVM->lInsideEval ) {
-		/*
-		**  In this case we are using eval("somefunction()") 
-		**  We don't use optimization, it's not required because the code will not be executed again 
-		*/
-		return ring_vm_loadfunc2(pVM,RING_VM_IR_READC,0) ;
-	}
-	else {
-		return ring_vm_loadfunc2(pVM,RING_VM_IR_READC,1) ;
-	}
+	/*
+	**  When pVM->lInsideEval == 1 In this case we are using eval("somefunction()") 
+	**  We don't use optimization, it's not required because the code will not be executed again 
+	*/
+	return ring_vm_loadfunc2(pVM,RING_VM_IR_READC, ! pVM->lInsideEval ) ;
 }
 
 int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )

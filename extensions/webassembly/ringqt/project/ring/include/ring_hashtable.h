@@ -17,6 +17,10 @@
 		int nLinkedLists  ;
 		int nRebuildSize  ;
 	} HashTable ;
+	/* Constants */
+	#define RING_HASHITEMTYPE_NOTYPE 0
+	#define RING_HASHITEMTYPE_NUMBER 1
+	#define RING_HASHITEMTYPE_POINTER 2
 	/* Functions */
 
 	HashTable * ring_hashtable_new_gc ( void *pRingState ) ;
@@ -42,10 +46,6 @@
 	void ring_hashtable_print ( HashTable *pHashTable ) ;
 
 	void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable ) ;
-	/* Macro */
-	#define RING_HASHITEMTYPE_NOTYPE 0
-	#define RING_HASHITEMTYPE_NUMBER 1
-	#define RING_HASHITEMTYPE_POINTER 2
 	/* Functions without the State pointer */
 
 	HashTable * ring_hashtable_new ( void ) ;

@@ -1,10 +1,14 @@
 /* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_objfile_h
 	#define ring_objfile_h
-	/*
-	**  Data 
-	**  Functions 
-	*/
+	/* Constants */
+	/* Object File Source */
+	#define RING_OBJFILE_READFROMFILE 1
+	#define RING_OBJFILE_READFROMSTRING 2
+	/* Embedded Object */
+	#define RING_OBJFILE_ITEMSPERFUNCTION 1000
+	#define RING_OBJFILE_ITEMSPERFUNCTION2 100
+	/* Functions */
 
 	void ring_objfile_writefile ( RingState *pRingState ) ;
 
@@ -31,11 +35,4 @@
 	void ring_objfile_writeCfile ( RingState *pRingState ) ;
 
 	int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate,int nFunction,int nItemsPerFunction ) ;
-	/* MACRO */
-	/* Object File Source */
-	#define RING_OBJFILE_READFROMFILE 1
-	#define RING_OBJFILE_READFROMSTRING 2
-	/* Embedded Object */
-	#define RING_OBJFILE_ITEMSPERFUNCTION 1000
-	#define RING_OBJFILE_ITEMSPERFUNCTION2 100
 #endif

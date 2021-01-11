@@ -14,6 +14,24 @@
 		struct Items *pItemsBlock  ;
 		char lCopyByRef  ;
 	} List ;
+	/* Constants */
+	#define RING_VM_LISTOFOBJS_FINDSTRING 1
+	#define RING_VM_LISTOFOBJS_FINDNUMBER 0
+	/* Macro */
+	#define ring_list_isdouble(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_DOUBLE)
+	#define ring_list_isint(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_INT )
+	#define ring_list_deletelastitem(x) ring_list_deleteitem(x,ring_list_getsize(x))
+	#define ring_list_gethashtable(x) (x->pHashTable)
+	#define ring_list_getint(pList,index) ( ring_list_getitem(pList,index)->data.iNumber )
+	#define ring_list_getpointer(pList,index) ( ring_list_getitem(pList,index)->data.pPointer )
+	#define ring_list_getfuncpointer(pList,index) ( ring_list_getitem(pList,index)->data.pFunc )
+	#define ring_list_callfuncpointer(pList,index,x) ( ring_list_getitem(pList,index)->data.pFunc(x) )
+	#define ring_list_getdouble(pList,index) ring_list_getitem(pList,index)->data.dNumber
+	#define ring_list_getstring(pList,index) ( ring_string_get(ring_item_getstring(ring_list_getitem(pList,index))) )
+	#define ring_list_getstringobject(pList,index) ( ring_item_getstring(ring_list_getitem(pList,index)) )
+	#define ring_list_getstringsize(pList,index) ( ring_string_size(ring_item_getstring(ring_list_getitem(pList,index))) )
+	#define ring_list_getsize(x) (x->nSize)
+	#define ring_list_deletelastitem_gc(s,x) ring_list_deleteitem_gc(s,x,ring_list_getsize(x))
 	/*
 	**  Functions 
 	**  Main List Functions 
@@ -149,23 +167,6 @@
 	RING_API void ring_list_swaptwolists ( List *pList1, List *pList2 ) ;
 
 	RING_API void ring_list_copy_tohighlevel_gc ( void *pState,List *pNewList, List *pList ) ;
-	/* Macro */
-	#define ring_list_isdouble(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_DOUBLE)
-	#define ring_list_isint(pList,index) ( ring_list_getitem(pList,index)->NumberFlag == ITEM_NUMBERFLAG_INT )
-	#define ring_list_deletelastitem(x) ring_list_deleteitem(x,ring_list_getsize(x))
-	#define ring_list_gethashtable(x) (x->pHashTable)
-	#define ring_list_getint(pList,index) ( ring_list_getitem(pList,index)->data.iNumber )
-	#define ring_list_getpointer(pList,index) ( ring_list_getitem(pList,index)->data.pPointer )
-	#define ring_list_getfuncpointer(pList,index) ( ring_list_getitem(pList,index)->data.pFunc )
-	#define ring_list_callfuncpointer(pList,index,x) ( ring_list_getitem(pList,index)->data.pFunc(x) )
-	#define ring_list_getdouble(pList,index) ring_list_getitem(pList,index)->data.dNumber
-	#define ring_list_getstring(pList,index) ( ring_string_get(ring_item_getstring(ring_list_getitem(pList,index))) )
-	#define ring_list_getstringobject(pList,index) ( ring_item_getstring(ring_list_getitem(pList,index)) )
-	#define ring_list_getstringsize(pList,index) ( ring_string_size(ring_item_getstring(ring_list_getitem(pList,index))) )
-	#define ring_list_getsize(x) (x->nSize)
-	#define RING_VM_LISTOFOBJS_FINDSTRING 1
-	#define RING_VM_LISTOFOBJS_FINDNUMBER 0
-	#define ring_list_deletelastitem_gc(s,x) ring_list_deleteitem_gc(s,x,ring_list_getsize(x))
 	/* Define functions without RingState * */
 
 	RING_API List * ring_list_new ( int nSize ) ;
