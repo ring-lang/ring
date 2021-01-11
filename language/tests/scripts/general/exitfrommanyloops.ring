@@ -1,3 +1,5 @@
+# This test program is submitted to Ring Group by Ilir Liburn
+
 str = "test"
 size = len(str)
 for c = 1 to size step 1
