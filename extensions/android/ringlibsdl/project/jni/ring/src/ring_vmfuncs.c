@@ -213,10 +213,10 @@ void ring_vm_call2 ( VM *pVM )
 	ring_vm_restoreloadaddressscope(pVM);
 	pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 	/* Restore List Status */
-	pVM->nListStart = ring_list_getint(pList,RING_FUNCCL_LISTSTARTBEFORECALL) ;
-	if ( pVM->pNestedLists != ring_list_getpointer(pList,RING_FUNCCL_NESTEDLISTSBEFORECALL) ) {
+	pVM->nListStart = ring_list_getint(pList,RING_FUNCCL_LISTSTART) ;
+	if ( pVM->pNestedLists != ring_list_getpointer(pList,RING_FUNCCL_NESTEDLISTS) ) {
 		pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
-		pVM->pNestedLists = (List *) ring_list_getpointer(pList,RING_FUNCCL_NESTEDLISTSBEFORECALL) ;
+		pVM->pNestedLists = (List *) ring_list_getpointer(pList,RING_FUNCCL_NESTEDLISTS) ;
 	}
 	/* Calling Method from brace */
 	if ( ring_list_getsize(pList) >= RING_FUNCCL_METHODORFUNC ) {
@@ -233,9 +233,7 @@ void ring_vm_call2 ( VM *pVM )
 	pVM->nFuncExecute = 0 ;
 	/* Call Function */
 	if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
-		/* Store List information to allow calling function from list item and creating lists from that funct */
-		ring_list_addint_gc(pVM->pRingState,pList,pVM->nListStart);
-		ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
+		/* Clear List/Nested Lists State */
 		pVM->nListStart = 0 ;
 		pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
 		pVM->nPC = ring_list_getint(pList,RING_FUNCCL_PC) ;
