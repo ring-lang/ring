@@ -76,6 +76,11 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 			}
 			/* Line Number */
 			ring_list_addint_gc(pVM->pRingState,pList3,pVM->nLineNumber);
+			/* Store List information */
+			ring_list_addint_gc(pVM->pRingState,pList3,pVM->nListStart);
+			ring_list_addpointer_gc(pVM->pRingState,pList3,pVM->pNestedLists);
+			pVM->nListStart = 0 ;
+			pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
 			if ( (strcmp(cStr,"main") != 0 ) && (pVM->nCallMethod != 1) && (y != 2) && (nPerformance == 1) ) {
 				/*
 				**  We check that we will convert Functions only, not methods 
@@ -142,6 +147,11 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
 		ring_list_addint_gc(pVM->pRingState,pList2,0);
 		/* Line Number */
 		ring_list_addint_gc(pVM->pRingState,pList2,pVM->nLineNumber);
+		/* Store List information */
+		ring_list_addint_gc(pVM->pRingState,pList2,pVM->nListStart);
+		ring_list_addpointer_gc(pVM->pRingState,pList2,pVM->pNestedLists);
+		pVM->nListStart = 0 ;
+		pVM->pNestedLists = ring_list_new_gc(pVM->pRingState,0);
 		/* Add nLoadAddressScope to aAddressScope */
 		ring_vm_saveloadaddressscope(pVM);
 		return 1 ;
@@ -202,6 +212,12 @@ void ring_vm_call2 ( VM *pVM )
 	/* Restore nLoadAddressScope from aAddressScope */
 	ring_vm_restoreloadaddressscope(pVM);
 	pList = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+	/* Restore List Status */
+	pVM->nListStart = ring_list_getint(pList,RING_FUNCCL_LISTSTARTBEFORECALL) ;
+	if ( pVM->pNestedLists != ring_list_getpointer(pList,RING_FUNCCL_NESTEDLISTSBEFORECALL) ) {
+		pVM->pNestedLists = ring_list_delete_gc(pVM->pRingState,pVM->pNestedLists);
+		pVM->pNestedLists = (List *) ring_list_getpointer(pList,RING_FUNCCL_NESTEDLISTSBEFORECALL) ;
+	}
 	/* Calling Method from brace */
 	if ( ring_list_getsize(pList) >= RING_FUNCCL_METHODORFUNC ) {
 		/* The first test to be sure it's not a C Function Call */
