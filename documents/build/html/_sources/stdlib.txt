@@ -1094,31 +1094,6 @@ Example:
 	ok
 
 .. index:: 
-	pair: Stdlib Functions; direxists()
-
-DirExists() function
-====================
-
-Check if directory exists
-
-Syntax:
-
-.. code-block:: ring
-
-	DirExists(String) ---> True/False
-
-Example:
-
-.. code-block:: ring
-
-	Load "stdlib.ring"
-
-	see "Check dir : b:\ring " 
-	puts( DirExists("b:\ring") )
-	see "Check dir : C:\ring " 
-	Puts( DirExists("C:\ring") )
-
-.. index:: 
 	pair: Stdlib Functions; makedir()
 
 MakeDir() function
