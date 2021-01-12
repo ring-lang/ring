@@ -642,6 +642,7 @@ void ring_vm_file_dir ( void *pPointer )
 						}
 					}
 				} while (FindNextFile(hFind, &fdFile))  ;
+				FindClose(hFind);
 				RING_API_RETLIST(pList);
 			}
 			else {
