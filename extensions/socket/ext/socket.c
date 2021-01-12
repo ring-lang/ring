@@ -211,7 +211,7 @@ void ring_vm_socket_send(void *pPointer) {
     RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
     char *Msg = RING_API_GETSTRING(2);
     
-    send(sock->sockfd,Msg,strlen(Msg),0);
+    send(sock->sockfd,Msg,RING_API_GETSTRINGSIZE(2),0);
     
 }
 
@@ -230,9 +230,9 @@ void ring_vm_socket_sendto(void *pPointer) {
     char *Msg = RING_API_GETSTRING(2);
     int addr_len = sizeof(sock->addr);
 #ifdef win
-    sendto(sock->sockfd,Msg,strlen(Msg),0,(const struct sockaddr *) sock->addr,(socklen_t) addr_len);
+    sendto(sock->sockfd,Msg,RING_API_GETSTRINGSIZE(2),0,(const struct sockaddr *) sock->addr,(socklen_t) addr_len);
 #else
-    sendto(sock->sockfd,Msg,strlen(Msg),0,(const struct sockaddr *) &sock->addr,(socklen_t) addr_len);
+    sendto(sock->sockfd,Msg,RING_API_GETSTRINGSIZE(2),0,(const struct sockaddr *) &sock->addr,(socklen_t) addr_len);
 #endif
 
 }
