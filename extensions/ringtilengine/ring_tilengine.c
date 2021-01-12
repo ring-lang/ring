@@ -3053,32 +3053,6 @@ RING_FUNC(ring_TLN_SetBGPalette)
 }
 
 
-RING_FUNC(ring_TLN_SetRasterCallback)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	TLN_SetRasterCallback(* (TLN_VideoCallback *) RING_API_GETCPOINTER(1,"TLN_VideoCallback"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_VideoCallback"));
-}
-
-
-RING_FUNC(ring_TLN_SetFrameCallback)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	TLN_SetFrameCallback(* (TLN_VideoCallback *) RING_API_GETCPOINTER(1,"TLN_VideoCallback"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_VideoCallback"));
-}
-
-
 RING_FUNC(ring_TLN_SetRenderTarget)
 {
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -3508,19 +3482,6 @@ RING_FUNC(ring_TLN_DisableCRTEffect)
 	}
 	RING_API_IGNORECPOINTERTYPE ;
 	TLN_DisableCRTEffect();
-}
-
-
-RING_FUNC(ring_TLN_SetSDLCallback)
-{
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	TLN_SetSDLCallback(* (TLN_SDLCallback *) RING_API_GETCPOINTER(1,"TLN_SDLCallback"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"TLN_SDLCallback"));
 }
 
 
@@ -6006,6 +5967,110 @@ RING_FUNC(ring_TLN_DisablePaletteAnimation)
 	RING_API_RETNUMBER(TLN_DisablePaletteAnimation( (int ) RING_API_GETNUMBER(1)));
 }
 
+
+VM *pRingVMObject;
+
+static char cRasterCallback[256];
+static char cFrameCallback[256];
+static char cSDLCallback[256];
+
+static int nEventScanLine;
+static SDL_Event *pSDLEvent;
+
+static void RingTLN_RasterCallback(int scanline)
+{
+	nEventScanLine = scanline;
+	ring_vm_runcode(pRingVMObject,cRasterCallback) ;
+}
+
+static void RingTLN_FrameCallback(int scanline)
+{
+	nEventScanLine = scanline;
+	ring_vm_runcode(pRingVMObject,cFrameCallback) ;
+}
+
+static void RingTLN_SDLCallback(SDL_Event *pEvent)
+{
+	pSDLEvent = pEvent;
+	ring_vm_runcode(pRingVMObject,cSDLCallback) ;
+}
+
+RING_FUNC(ring_TLN_SetRasterCallback)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		if ( strlen(RING_API_GETSTRING(1)) > 255 )
+		{
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		strcpy(cRasterCallback, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		TLN_SetRasterCallback(RingTLN_RasterCallback);
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+}
+
+RING_FUNC(ring_TLN_SetFrameCallback)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		if ( strlen(RING_API_GETSTRING(1)) > 255 )
+		{
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		strcpy(cFrameCallback, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		TLN_SetFrameCallback(RingTLN_FrameCallback);
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+}
+
+RING_FUNC(ring_TLN_SetSDLCallback)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		if ( strlen(RING_API_GETSTRING(1)) > 255 )
+		{
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		strcpy(cSDLCallback, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		TLN_SetSDLCallback(RingTLN_SDLCallback);
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+}
+
+RING_FUNC(ring_TLN_GetScanLine)
+{
+	RING_API_RETNUMBER(nEventScanLine);
+}
+
+RING_FUNC(ring_TLN_GetSDLEvent)
+{
+	RING_API_RETCPOINTER(pSDLEvent,"SDL_Event *");
+}
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("tln_init",ring_TLN_Init);
@@ -6025,8 +6090,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("tln_disablebgcolor",ring_TLN_DisableBGColor);
 	ring_vm_funcregister("tln_setbgbitmap",ring_TLN_SetBGBitmap);
 	ring_vm_funcregister("tln_setbgpalette",ring_TLN_SetBGPalette);
-	ring_vm_funcregister("tln_setrastercallback",ring_TLN_SetRasterCallback);
-	ring_vm_funcregister("tln_setframecallback",ring_TLN_SetFrameCallback);
 	ring_vm_funcregister("tln_setrendertarget",ring_TLN_SetRenderTarget);
 	ring_vm_funcregister("tln_updateframe",ring_TLN_UpdateFrame);
 	ring_vm_funcregister("tln_setloadpath",ring_TLN_SetLoadPath);
@@ -6053,7 +6116,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("tln_enableblur",ring_TLN_EnableBlur);
 	ring_vm_funcregister("tln_enablecrteffect",ring_TLN_EnableCRTEffect);
 	ring_vm_funcregister("tln_disablecrteffect",ring_TLN_DisableCRTEffect);
-	ring_vm_funcregister("tln_setsdlcallback",ring_TLN_SetSDLCallback);
 	ring_vm_funcregister("tln_delay",ring_TLN_Delay);
 	ring_vm_funcregister("tln_getticks",ring_TLN_GetTicks);
 	ring_vm_funcregister("tln_getwindowwidth",ring_TLN_GetWindowWidth);
@@ -6182,6 +6244,11 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("tln_setanimationdelay",ring_TLN_SetAnimationDelay);
 	ring_vm_funcregister("tln_getavailableanimation",ring_TLN_GetAvailableAnimation);
 	ring_vm_funcregister("tln_disablepaletteanimation",ring_TLN_DisablePaletteAnimation);
+	ring_vm_funcregister("tln_setrastercallback",ring_TLN_SetRasterCallback);
+	ring_vm_funcregister("tln_setframecallback",ring_TLN_SetFrameCallback);
+	ring_vm_funcregister("tln_setsdlcallback",ring_TLN_SetSDLCallback);
+	ring_vm_funcregister("tln_getscanline",ring_TLN_GetScanLine);
+	ring_vm_funcregister("tln_getsdlevent",ring_TLN_GetSDLEvent);
 	ring_vm_funcregister("get_tilengine_ver_maj",ring_get_tilengine_ver_maj);
 	ring_vm_funcregister("get_tilengine_ver_min",ring_get_tilengine_ver_min);
 	ring_vm_funcregister("get_tilengine_ver_rev",ring_get_tilengine_ver_rev);

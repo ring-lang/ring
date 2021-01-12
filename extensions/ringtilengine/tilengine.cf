@@ -150,8 +150,6 @@ bool TLN_SetBGColorFromTilemap(TLN_Tilemap tilemap)
 void TLN_DisableBGColor(void)
 bool TLN_SetBGBitmap(TLN_Bitmap bitmap)
 bool TLN_SetBGPalette(TLN_Palette palette)
-void TLN_SetRasterCallback(TLN_VideoCallback)
-void TLN_SetFrameCallback(TLN_VideoCallback)
 void TLN_SetRenderTarget(uint8_t* data, int pitch)
 void TLN_UpdateFrame(int frame)
 void TLN_SetLoadPath(const char * path)
@@ -188,7 +186,6 @@ void TLN_DeleteWindow(void)
 void TLN_EnableBlur(bool mode)
 void TLN_EnableCRTEffect(TLN_Overlay overlay, uint8_t overlay_factor, uint8_t threshold, uint8_t v0, uint8_t v1, uint8_t v2, uint8_t v3, bool blur, uint8_t glow_factor)
 void TLN_DisableCRTEffect(void)
-void TLN_SetSDLCallback(TLN_SDLCallback)
 void TLN_Delay(uint32_t msecs)
 uint32_t TLN_GetTicks(void)
 int TLN_GetWindowWidth(void)
@@ -485,3 +482,131 @@ bool TLN_GetAnimationState(int index)
 bool TLN_SetAnimationDelay(int index, int frame, int delay)
 int  TLN_GetAvailableAnimation(void)
 bool TLN_DisablePaletteAnimation(int index)
+
+<comment>
+Callbacks Support
+
+typedef union SDL_Event SDL_Event;
+typedef void(*TLN_VideoCallback)(int scanline);
+typedef uint8_t(*TLN_BlendFunction)(uint8_t src, uint8_t dst);
+typedef void(*TLN_SDLCallback)(SDL_Event*);
+
+void TLN_SetRasterCallback(TLN_VideoCallback)
+void TLN_SetFrameCallback(TLN_VideoCallback)
+void TLN_SetSDLCallback(TLN_SDLCallback)
+</comment>
+
+<register>
+void TLN_SetRasterCallback(const char *cCode)
+void TLN_SetFrameCallback(const char *cCode)
+void TLN_SetSDLCallback(const char *cCode)
+int TLN_GetScanLine(void)
+SDL_Event *TLN_GetSDLEvent(void)
+</register>
+
+<code>
+
+VM *pRingVMObject;
+
+static char cRasterCallback[256];
+static char cFrameCallback[256];
+static char cSDLCallback[256];
+
+static int nEventScanLine;
+static SDL_Event *pSDLEvent;
+
+static void RingTLN_RasterCallback(int scanline)
+{
+	nEventScanLine = scanline;
+	ring_vm_runcode(pRingVMObject,cRasterCallback) ;
+}
+
+static void RingTLN_FrameCallback(int scanline)
+{
+	nEventScanLine = scanline;
+	ring_vm_runcode(pRingVMObject,cFrameCallback) ;
+}
+
+static void RingTLN_SDLCallback(SDL_Event *pEvent)
+{
+	pSDLEvent = pEvent;
+	ring_vm_runcode(pRingVMObject,cSDLCallback) ;
+}
+
+RING_FUNC(ring_TLN_SetRasterCallback) 
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		if ( strlen(RING_API_GETSTRING(1)) > 255 )
+		{
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		strcpy(cRasterCallback, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		TLN_SetRasterCallback(RingTLN_RasterCallback);
+	} 
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+}
+
+RING_FUNC(ring_TLN_SetFrameCallback) 
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		if ( strlen(RING_API_GETSTRING(1)) > 255 )
+		{
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		strcpy(cFrameCallback, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		TLN_SetFrameCallback(RingTLN_FrameCallback);
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+}
+
+RING_FUNC(ring_TLN_SetSDLCallback) 
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	if ( RING_API_ISSTRING(1) ) {
+		if ( strlen(RING_API_GETSTRING(1)) > 255 )
+		{
+			RING_API_ERROR(RING_API_BADPARATYPE);
+			return ;
+		}
+		strcpy(cSDLCallback, RING_API_GETSTRING(1) ) ;
+		pRingVMObject = (VM *) pPointer ;
+		TLN_SetSDLCallback(RingTLN_SDLCallback);
+	}
+	else {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+}
+
+RING_FUNC(ring_TLN_GetScanLine)
+{
+	RING_API_RETNUMBER(nEventScanLine);
+}
+
+RING_FUNC(ring_TLN_GetSDLEvent)
+{
+	RING_API_RETCPOINTER(pSDLEvent,"SDL_Event *");
+}
+</code>
