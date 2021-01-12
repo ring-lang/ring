@@ -751,22 +751,6 @@ func Changestring text, pos1, pos2, str
 	string = left(text,pos1-1) + str + substr(text, pos2+1)
 	return string
 
-
-/*
-	Function Name	: DirExists
-	Usage		: Check if directory exists
-	Parameters	: Path
-	output		: True/False
-*/         
-
-Func DirExists cDir
-	try
-		dir(cDir)
-		return true
-	catch
-		return false
-	done
-
 /*
 	Function Name	: MakeDir
 	Usage		: Make Directory
