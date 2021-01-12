@@ -891,9 +891,15 @@ Func chomp(cStr)
 */
 
 Func SystemCmd(cmd)
-	System(cmd + "> cmd.txt")
-	cStr = read("cmd.txt")
-	return cStr
+    System(cmd + "> cmd.txt")
+    cStr = read("cmd.txt")
+    # delete result file after get value
+    OSDeleteFile("cmd.txt")
+    if right(cStr,1) = nl
+        cStr = left(cStr,len(cStr)-1)
+    ok
+    
+    return cStr 
 
 /*
 	Get a List of all files in a directory and it's sub directories 
