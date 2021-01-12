@@ -17,6 +17,15 @@
 - gethostname()			->  return  <My Hostname>
 - getservbyname(service_name)   ->  return  <service port>
 - getservbyport(port)		->  return  <service name>
+# convert the unsigned short integer (16-bit) netshort from network byte order to host byte order 
+- ntohs(netshort)               ->  return  <hostshort>
+- htons(hostshort)              ->  return  <netshort>
+# convert the unsigned integer (32-bit) hostlong from host byte order to network byte order
+- htonl(hostlong)               ->  return  <netlong>
+- ntohl(netlong)                ->  return  <hostlong>
+# convert ip address into binary data in network byte order
+- inet_addr(ip)                 ->  return  <picked_address>
+- inet_ntoa(picked_address)     ->  return  <ip>
 
 ------------------------------------------------------------------------------------------
 

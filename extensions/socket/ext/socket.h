@@ -66,6 +66,8 @@ void ring_vm_socket_ntohs(void *pPointer);
 void ring_vm_socket_ntohl(void *pPointer);
 void ring_vm_socket_htonl(void *pPointer);
 void ring_vm_socket_htons(void *pPointer);
+void ring_vm_socket_inet_addr(void *pPointer);
+void ring_vm_socket_inet_ntoa(void *pPointer);
 
 RING_API void ringlib_init(RingState *pRingState);
 
