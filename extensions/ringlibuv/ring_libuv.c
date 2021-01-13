@@ -8544,9 +8544,7 @@ RING_FUNC(ring_uv_thread_create)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_BEFORENEWTHREAD ;
 	RING_API_RETNUMBER(uv_thread_create((uv_thread_t *) RING_API_GETCPOINTER(1,"uv_thread_t"),RING_API_GETCPOINTER(2,"uv_thread_cb"),(void *) RING_API_GETCPOINTER(3,"void")));
-	RING_API_AFTERNEWTHREAD ;
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uv_thread_cb"));
 }
@@ -8567,9 +8565,7 @@ RING_FUNC(ring_uv_thread_create_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_BEFORENEWTHREAD ;
 	RING_API_RETNUMBER(uv_thread_create((uv_thread_t *) RING_API_GETCPOINTER(1,"uv_thread_t"),RING_API_GETCPOINTER(2,"uv_thread_cb"),(void *) RING_API_GETCPOINTER(3,"void")));
-	RING_API_AFTERNEWTHREAD ;
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uv_thread_cb"));
 }

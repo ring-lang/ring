@@ -89,8 +89,6 @@
 	#define RING_API_GETCPOINTER2POINTER(x,y) (ring_vm_api_getcpointer2pointer((VM *) pPointer,x,y))
 	#define RING_API_RETMANAGEDCPOINTER(x,y,z) (ring_vm_api_retcpointer2((VM *) pPointer,(void *) x,y,z))
 	#define RING_API_RETLISTBYREF(x) ring_vm_api_retlist2((VM *) pPointer,x,1)
-	#define RING_API_BEFORENEWTHREAD ((VM *) pPointer)->lStopThisThread = 1;
-	#define RING_API_AFTERNEWTHREAD while( ((VM *) pPointer)->lStopThisThread ) ;
 	/* Constants/MACRO */
 	#define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
 	#define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"

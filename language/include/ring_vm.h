@@ -112,7 +112,7 @@
 		char lCheckOverFlow  ;
 		char lAddSubListsByMove  ;
 		char lAddSubListsByFastCopy  ;
-		char lStopThisThread  ;
+		int nStopThisThread  ;
 	} VM ;
 	typedef struct VMState {
 		int aNumbers[RING_VM_STATE_NUMBERS_COUNT]  ;

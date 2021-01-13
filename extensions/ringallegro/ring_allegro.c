@@ -5927,10 +5927,8 @@ RING_FUNC(ring_al_create_thread)
 	ring_list_addstring(pList,RING_API_GETSTRING(1));
 	ring_list_addpointer(pList,pPointer);
 	ring_vm_mutexfunctions((VM *) pPointer,al_create_mutex,al_lock_mutex,al_unlock_mutex,al_destroy_mutex);
-	RING_API_BEFORENEWTHREAD ;
 	pThread = al_create_thread(al_func_thread, pList);
 	al_start_thread(pThread);
-	RING_API_AFTERNEWTHREAD ;
 	RING_API_RETCPOINTER(pThread,"ALLEGRO_THREAD");	
 }
 
