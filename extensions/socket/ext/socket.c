@@ -622,6 +622,68 @@ void ring_vm_socket_htons(void *pPointer) {
     RING_API_RETNUMBER((int) htons(n));
 }
 
+void ring_vm_socket_inet_addr(void *pPointer) {
+    if(RING_API_PARACOUNT != 1) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return;
+    }
+
+    if(!RING_API_ISSTRING(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    const char *ip = RING_API_GETSTRING(1);
+    unsigned long address;
+
+#ifdef win
+    WSADATA d;
+    if(WSAStartup(MAKEWORD(2,2),&d) != 0) {
+        RING_API_ERROR("WSAStartup Failed");
+        return;
+    }
+#endif
+    if(strcmp(ip,"255.255.255.255") == 0) 
+        address = INADDR_BROADCAST; 
+    else {
+        address = inet_addr(ip);
+        if(address == INADDR_NONE) {
+            RING_API_ERROR("IP Address is not valid");
+            #ifdef win
+            WSACleanup();
+            #endif
+            return;
+        }
+
+        RING_API_RETSTRING2((char *) &address,sizeof(address));
+    }
+    
+}
+
+void ring_vm_socket_inet_ntoa(void *pPointer) {
+    if(RING_API_PARACOUNT != 1) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return;
+    }
+
+    if(!RING_API_ISSTRING(1)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    const char *address = RING_API_GETSTRING(1);
+
+#ifdef win
+    WSADATA d;
+    if(WSAStartup(MAKEWORD(2,2),&d) != 0) {
+        RING_API_ERROR("WSAStartup failed");
+        return;
+    }
+#endif
+
+    RING_API_RETSTRING(inet_ntoa(*((struct in_addr *) address)));
+}
+
 
 RING_API void ringlib_init(RingState *pRingState) {
     ring_vm_funcregister("socket",ring_vm_socket_init);
@@ -643,6 +705,8 @@ RING_API void ringlib_init(RingState *pRingState) {
     ring_vm_funcregister("ntohl",ring_vm_socket_ntohl);
     ring_vm_funcregister("htonl",ring_vm_socket_htonl);
     ring_vm_funcregister("htons",ring_vm_socket_htons);
+    ring_vm_funcregister("inet_addr",ring_vm_socket_inet_addr);
+    ring_vm_funcregister("inet_ntoa",ring_vm_socket_inet_ntoa);
 }
 
 
