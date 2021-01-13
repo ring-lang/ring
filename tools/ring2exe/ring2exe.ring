@@ -253,9 +253,14 @@ func GenerateBatchGeneral aPara,aOptions
 	cFileName = aPara[:file]
 	cFile = substr(cFileName," ","_")
 	# Generate Windows Batch (Visual C/C++)
-		cCode = "call "+exefolder()+"../language/src/locatevc.bat" + nl +
+		cBuildtarget = getarch()
+		if cBuildtarget = "unknown"
+			cBuildtarget = "x86"
+		ok
+		cCode = "setlocal" + nl + "call "+exefolder()+"../language/src/locatevc.bat " + cBuildtarget + nl +
 			"#{f3}" + nl +
-			'cl #{f1}.c #{f2} #{f4} -I"#{f6}..\language\include" -I"#{f6}../language/src/" /link #{f5} /OUT:#{f1}.exe' 
+			'cl /O2 #{f1}.c #{f2} #{f4} -I"#{f6}..\language\include" -I"#{f6}../language/src/" /link #{f5} /OUT:#{f1}.exe' + nl +
+			"endlocal" + nl 
 		cCode = substr(cCode,"#{f1}",cFile)
 		cCode = substr(cCode,"#{f2}",aPara[:ringlib][:windows])
 		# Resource File 
