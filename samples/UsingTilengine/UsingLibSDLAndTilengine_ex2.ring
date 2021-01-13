@@ -57,6 +57,8 @@ func main
 				SDL_Set_SDL_Rect_h(rectDest,height)
 
 				SDL_RenderCopy(ren,tex,rectSource,rectDest)
+				SDL_Destroy_SDL_Rect(rectSource)
+				SDL_Destroy_SDL_Rect(rectDest)
 				SDL_DestroyTexture(tex)
 
 			# Draw Rectangle using LibSDL 
