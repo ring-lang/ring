@@ -1,4 +1,10 @@
-call ..\..\language\src\locatevc.bat
-ring ring2exe.ring ring2exe.ring -static
-copy ring2exe.exe ..\..\bin\ring2exe.exe
+setlocal
+
+set RINGSCRIPTPATH=%~dp0
+set RINGEXEPATH="%RINGSCRIPTPATH%..\..\bin\ring.exe"
+
+%RINGEXEPATH% %RINGSCRIPTPATH%ring2exe.ring %RINGSCRIPTPATH%ring2exe.ring -static
+copy %RINGSCRIPTPATH%ring2exe.exe %RINGSCRIPTPATH%..\..\bin\ring2exe.exe
 cleartemp
+
+endloal
