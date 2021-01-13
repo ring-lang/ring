@@ -665,6 +665,7 @@ More Improvements
 * Ring VM - AddAttribute() - The default type of the new attribute will be a STRING 
 * Ring VM - Restore the step value when we use exit from more than one loop
 * Ring VM - Dir() function - Better Code
+* Ring VM - Better Code when working with many threads 
 * Ring Compiler/VM Source Code - Better Format
 * Ring Compiler/VM Source Code - Code Refactoring
 * RingPM - New Package: GUILib (Separate package for the GUILib classes)
