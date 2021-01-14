@@ -911,6 +911,7 @@ void ring_vm_returneval ( VM *pVM )
 	int aPara[3],nExtraSize  ;
 	ByteCode *pByteCode  ;
 	/* This function will always be called after each eval() execution */
+	ring_vm_mutexlock(pVM);
 	ring_vm_return(pVM);
 	aPara[0] = RING_VM_IR_READIVALUE(1) ;
 	aPara[1] = RING_VM_IR_READIVALUE(2) ;
@@ -954,6 +955,7 @@ void ring_vm_returneval ( VM *pVM )
 	**  When the GUI Main Loop Ends, we return to the Ring Main Loop 
 	*/
 	pVM->nEvalReturnPC = aPara[0] ;
+	ring_vm_mutexunlock(pVM);
 }
 
 void ring_vm_error2 ( VM *pVM,const char *cStr,const char *cStr2 )
@@ -1444,6 +1446,8 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 			ring_list_deleteitem(pState->vPoolManager.aBlocks,1);
 		}
 	}
+	/* Avoid deleting the Mutex */
+	pState->pVM->pMutex = NULL ;
 	/* Delete the RingState */
 	ring_state_delete(pState);
 }
