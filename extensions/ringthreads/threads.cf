@@ -1,0 +1,129 @@
+<ignorecpointertype>
+
+<code>
+/* Copyright (c) 2021 Mahmoud Fayed <msfclipper@yahoo.com> */
+
+#include "tinycthread/tinycthread.h"
+#include "tinycthread/tinycthread.c"
+</code>
+
+<constant>
+TIME_UTC
+TINYCTHREAD_VERSION_MAJOR
+TINYCTHREAD_VERSION_MINOR
+TINYCTHREAD_VERSION
+thrd_error
+thrd_success
+thrd_timedout
+thrd_busy
+thrd_nomem
+mtx_plain
+mtx_timed
+mtx_recursive
+</constant>
+
+<comment>
+once_flag
+ONCE_FLAG_INIT
+</comment>
+
+<struct>
+thrd_t
+mtx_t
+cnd_t
+</struct>
+
+<runcode>
+aNumberTypes + "size_t"
+aNumberTypes + "char"
+</runcode>
+
+int mtx_init(mtx_t *mtx, int type)
+void mtx_destroy(mtx_t *mtx)
+int mtx_lock(mtx_t *mtx)
+int mtx_timedlock(mtx_t *mtx, const struct timespec *ts)
+int mtx_trylock(mtx_t *mtx)
+int mtx_unlock(mtx_t *mtx)
+
+int cnd_init(cnd_t *cond)
+void cnd_destroy(cnd_t *cond)
+int cnd_signal(cnd_t *cond)
+int cnd_broadcast(cnd_t *cond)
+int cnd_wait(cnd_t *cond, mtx_t *mtx)
+int cnd_timedwait(cnd_t *cond, mtx_t *mtx, const struct timespec *ts)
+
+<register>
+int thrd_create(thrd_t *thr, const char *cEvent)
+<register>
+
+<code>
+
+mtx_t VM_Mutex;
+
+void *custom_mtx_init(void)
+{
+	mtx_init(&VM_Mutex,mtx_plain);
+	return &VM_Mutex;
+}
+
+int custom_thrd_start_t(void *arg)
+{
+	List *pList;
+	VM *pVM;
+	const char *cEvent;
+	if ( ((const char *) arg)[0] == '\0') 
+		return 0;
+
+	pList = (List *) arg;
+	cEvent = ring_list_getstring(pList,1);
+	pVM = (VM *) ring_list_getpointer(pList,2);	
+	ring_vm_runcodefromthread(pVM,cEvent);
+	ring_list_delete(pList);
+	return 0;
+}
+
+RING_FUNC(ring_thrd_create)
+{
+	List *pList;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	pList = ring_list_new(0);
+	ring_list_addstring(pList,RING_API_GETSTRING(2));
+	ring_list_addpointer(pList,pPointer);
+	ring_vm_mutexfunctions((VM *) pPointer,custom_mtx_init,mtx_lock,mtx_unlock,mtx_destroy);
+	RING_API_RETNUMBER(thrd_create( (thrd_t *) RING_API_GETCPOINTER(1,"thrd_t"),custom_thrd_start_t,pList ));
+}
+</code>
+
+thrd_t thrd_current(void)
+int thrd_detach(thrd_t thr)
+int thrd_equal(thrd_t thr0, thrd_t thr1)
+void thrd_exit(int res)
+int thrd_join(thrd_t thr, int *res)
+int thrd_sleep(const struct timespec *duration, struct timespec *remaining)
+void thrd_yield(void)
+
+<comment>
+typedef void (*tss_dtor_t)(void *val)
+int tss_create(tss_t *key, tss_dtor_t dtor)
+</comment>
+
+void tss_delete(tss_t key)
+void *tss_get(tss_t key)
+int tss_set(tss_t key, void *val)
+
+<comment>
+void call_once(once_flag *flag, void (*func)(void))
+</comment>
