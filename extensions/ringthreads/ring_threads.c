@@ -4,28 +4,6 @@
 
 #include "tinycthread/tinycthread.h"
 #include "tinycthread/tinycthread.c"
-
-VM *pThreadsLibVM = NULL ;
-
-List *pLibThreadsEvents = NULL ;
-
-int custom_thrd_start_t(void *arg)
-{
-	if ( ((const char *) arg)[0] != '\0')
-		ring_vm_runcode(pThreadsLibVM,(const char *) arg);
-	return 0;
-}
-
-void *RegisterEvent(const char *cEvent)
-{
-	if (pLibThreadsEvents == NULL)
-		pLibThreadsEvents = ring_list_new(0);
-
-	ring_list_addstring(pLibThreadsEvents,cEvent);
-	return (void *) ring_list_getstring(pLibThreadsEvents,ring_list_getsize(pLibThreadsEvents));
-}
-
-
 RING_FUNC(ring_get_time_utc)
 {
 	RING_API_RETNUMBER(TIME_UTC);
@@ -412,8 +390,34 @@ RING_FUNC(ring_cnd_timedwait)
 	RING_API_RETNUMBER(cnd_timedwait((cnd_t *) RING_API_GETCPOINTER(1,"cnd_t"),(mtx_t *) RING_API_GETCPOINTER(2,"mtx_t"),(struct timespec *) RING_API_GETCPOINTER(3,"struct timespec")));
 }
 
+
+mtx_t VM_Mutex;
+
+void *custom_mtx_init(void)
+{
+	mtx_init(&VM_Mutex,mtx_plain);
+	return &VM_Mutex;
+}
+
+int custom_thrd_start_t(void *arg)
+{
+	List *pList;
+	VM *pVM;
+	const char *cEvent;
+	if ( ((const char *) arg)[0] == '\0')
+		return 0;
+
+	pList = (List *) arg;
+	cEvent = ring_list_getstring(pList,1);
+	pVM = (VM *) ring_list_getpointer(pList,2);	
+	ring_vm_runcodefromthread(pVM,cEvent);
+	ring_list_delete(pList);
+	return 0;
+}
+
 RING_FUNC(ring_thrd_create)
 {
+	List *pList;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -428,10 +432,11 @@ RING_FUNC(ring_thrd_create)
 		return ;
 	}
 
-	if (pThreadsLibVM == NULL)
-		pThreadsLibVM = (VM *) pPointer;
-
-	RING_API_RETNUMBER(thrd_create( (thrd_t *) RING_API_GETCPOINTER(1,"thrd_t"),custom_thrd_start_t,RegisterEvent(RING_API_GETSTRING(2)) ));
+	pList = ring_list_new(0);
+	ring_list_addstring(pList,RING_API_GETSTRING(2));
+	ring_list_addpointer(pList,pPointer);
+	ring_vm_mutexfunctions((VM *) pPointer,custom_mtx_init,mtx_lock,mtx_unlock,mtx_destroy);
+	RING_API_RETNUMBER(thrd_create( (thrd_t *) RING_API_GETCPOINTER(1,"thrd_t"),custom_thrd_start_t,pList ));
 }
 
 RING_FUNC(ring_thrd_current)
