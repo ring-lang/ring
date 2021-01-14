@@ -213,8 +213,6 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lAddSubListsByMove = 0 ;
 	/* Add Sub Lists to Lists by Fast Copy */
 	pVM->lAddSubListsByFastCopy = 0 ;
-	/* A flag to stop/continue the execution of this thread (Stop/Continue the VM instructions exection) */
-	pVM->nStopThisThread = 0 ;
 	ring_state_log(pRingState,"function: ring_vm_new - end");
 	return pVM ;
 }
@@ -316,19 +314,16 @@ void ring_vm_mainloop ( VM *pVM )
 		if ( pVM->pRingState->nPrintInstruction ) {
 			do {
 				ring_vm_fetch2(pVM);
-				while(pVM->nStopThisThread) ;
 			} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 		}
 		else {
 			do {
 				ring_vm_fetch(pVM);
-				while(pVM->nStopThisThread) ; ;
 			} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 		}
 	#else
 		do {
 			ring_vm_fetch(pVM);
-			while(pVM->nStopThisThread) ;
 		} while (pVM->nPC <= ring_list_getsize(pVM->pCode))  ;
 	#endif
 }
@@ -1366,7 +1361,6 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	pState->pVM->pFuncMutexDestroy = pVM->pFuncMutexDestroy ;
 	pState->pVM->pFuncMutexLock = pVM->pFuncMutexLock ;
 	pState->pVM->pFuncMutexUnlock = pVM->pFuncMutexUnlock ;
-	pVM->nStopThisThread++ ;
 	/* Share the global scope between threads */
 	pItem = pState->pVM->pMem->pFirst->pValue ;
 	pState->pVM->pMem->pFirst->pValue = pVM->pMem->pFirst->pValue ;
@@ -1407,15 +1401,12 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_vm_loadcode(pState->pVM);
 	/* Avoid the call to the main function */
 	pState->pVM->nCallMainFunction = 1 ;
-	pVM->nStopThisThread-- ;
 	ring_vm_mutexunlock(pVM);
 	/* Run the code */
 	ring_state_runcode(pState,cStr);
 	/* Return Memory Pool Items to the Main Thread */
 	ring_vm_mutexlock(pVM);
-	pVM->nStopThisThread++ ;
 	ring_poolmanager_deleteblockfromsubthread(pState,pVM->pRingState);
-	pVM->nStopThisThread-- ;
 	ring_vm_mutexunlock(pVM);
 	/* Delete Code List */
 	ring_list_delete_gc(pState,pState->pVM->pCode);
