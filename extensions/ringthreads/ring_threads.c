@@ -4,6 +4,28 @@
 
 #include "tinycthread/tinycthread.h"
 #include "tinycthread/tinycthread.c"
+
+VM *pThreadsLibVM = NULL ;
+
+List *pLibThreadsEvents = NULL ;
+
+int custom_thrd_start_t(void *arg)
+{
+	if ( ((const char *) arg)[0] != '\0')
+		ring_vm_runcode(pThreadsLibVM,(const char *) arg);
+	return 0;
+}
+
+void *RegisterEvent(const char *cEvent)
+{
+	if (pLibThreadsEvents == NULL)
+		pLibThreadsEvents = ring_list_new(0);
+
+	ring_list_addstring(pLibThreadsEvents,cEvent);
+	return (void *) ring_list_getstring(pLibThreadsEvents,ring_list_getsize(pLibThreadsEvents));
+}
+
+
 RING_FUNC(ring_get_time_utc)
 {
 	RING_API_RETNUMBER(TIME_UTC);
