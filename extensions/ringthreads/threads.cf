@@ -53,6 +53,7 @@ ONCE_FLAG_INIT
 </comment>
 
 <struct>
+thrd_t
 mtx_t
 cnd_t
 </struct>

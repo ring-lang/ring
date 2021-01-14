@@ -86,6 +86,48 @@ RING_FUNC(ring_get_mtx_recursive)
 	RING_API_RETNUMBER(mtx_recursive);
 }
 
+RING_FUNC(ring_new_thrd_t)
+{
+	thrd_t *pMyPointer ;
+	pMyPointer = (thrd_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(thrd_t)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"thrd_t");
+}
+
+RING_FUNC(ring_new_managed_thrd_t)
+{
+	thrd_t *pMyPointer ;
+	pMyPointer = (thrd_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(thrd_t)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"thrd_t",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_thrd_t)
+{
+	thrd_t *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = RING_API_GETCPOINTER(1,"thrd_t");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_new_mtx_t)
 {
 	mtx_t *pMyPointer ;
@@ -556,6 +598,9 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_mtx_plain",ring_get_mtx_plain);
 	ring_vm_funcregister("get_mtx_timed",ring_get_mtx_timed);
 	ring_vm_funcregister("get_mtx_recursive",ring_get_mtx_recursive);
+	ring_vm_funcregister("new_thrd_t",ring_new_thrd_t);
+	ring_vm_funcregister("new_managed_thrd_t",ring_new_managed_thrd_t);
+	ring_vm_funcregister("destroy_thrd_t",ring_destroy_thrd_t);
 	ring_vm_funcregister("new_mtx_t",ring_new_mtx_t);
 	ring_vm_funcregister("new_managed_mtx_t",ring_new_managed_mtx_t);
 	ring_vm_funcregister("destroy_mtx_t",ring_destroy_mtx_t);
