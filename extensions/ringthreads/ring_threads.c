@@ -412,6 +412,27 @@ RING_FUNC(ring_cnd_timedwait)
 	RING_API_RETNUMBER(cnd_timedwait((cnd_t *) RING_API_GETCPOINTER(1,"cnd_t"),(mtx_t *) RING_API_GETCPOINTER(2,"mtx_t"),(struct timespec *) RING_API_GETCPOINTER(3,"struct timespec")));
 }
 
+RING_FUNC(ring_thrd_create)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	if (pThreadsLibVM == NULL)
+		pThreadsLibVM = (VM *) pPointer;
+
+	RING_API_RETNUMBER(thrd_create( (thrd_t *) RING_API_GETCPOINTER(1,"thrd_t"),custom_thrd_start_t,RegisterEvent(RING_API_GETSTRING(2)) ));
+}
 
 RING_FUNC(ring_thrd_current)
 {
@@ -576,6 +597,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("cnd_broadcast",ring_cnd_broadcast);
 	ring_vm_funcregister("cnd_wait",ring_cnd_wait);
 	ring_vm_funcregister("cnd_timedwait",ring_cnd_timedwait);
+	ring_vm_funcregister("thrd_create",ring_thrd_create);
 	ring_vm_funcregister("thrd_current",ring_thrd_current);
 	ring_vm_funcregister("thrd_detach",ring_thrd_detach);
 	ring_vm_funcregister("thrd_equal",ring_thrd_equal);
