@@ -7,4 +7,3 @@ else
 ok
 
 load "ring_threads.rh"
-
