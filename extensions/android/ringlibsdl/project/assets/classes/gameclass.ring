@@ -34,7 +34,7 @@ class game from gamebase
 
 	func seticon cIcon
 		icon = cIcon
-		gl_set_window_icon(display,icon)
+		gl_set_window_icon(display,oResources.LoadImage(icon))
 
 	func bracestart
 		nBracesCount++
