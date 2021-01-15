@@ -3,6 +3,16 @@
 **  Include Files 
 */
 #include "ring.h"
+#ifdef __MACH__
+	#include <mach/mach_time.h>
+	int clock_gettime(int clk_id, struct timespec* ts)
+	{
+		uint64_t nsec = mach_absolute_time();
+		ts->tv_sec = nsec / NANOSEC ;
+		ts->tv_nsec = nsec % NANOSEC;
+		return 0;
+	}
+#endif
 /* General Functions */
 
 int ring_general_fexists ( const char *cFileName )
@@ -168,4 +178,18 @@ void ring_general_showtime ( void )
 	myclock = clock();
 	printf( "Clock : %ld \n", myclock ) ;
 	ring_general_printline();
+}
+
+double ring_general_uptime ()
+{
+	#ifdef _WIN32
+		LARGE_INTEGER ElapsedMicroseconds;
+		QueryPerformanceCounter(&ElapsedMicroseconds);
+		return ElapsedMicroseconds.QuadPart;
+	#else
+		struct timespec ts;
+		clock_gettime(CLOCK_UPTIME, &ts);
+		/* Compensate to match 0.1 ms resolution on Windows */
+		return ( ( ts.tv_sec * NANOSEC ) + ( ts.tv_nsec ) ) / 100 ;
+	#endif
 }

@@ -43,11 +43,29 @@
 	void ring_vm_os_sysset ( void *pPointer ) ;
 
 	void ring_vm_os_sysunset ( void *pPointer ) ;
+
+	void ring_vm_os_uptime ( void *pPointer ) ;
+
+	void ring_vm_os_nofprocessors( void *pPointer ) ;
+	
 	/* Constants */
 	#define RING_VM_POINTER_LIBNAME "os"
 	#ifdef _WIN32
 		#include "windows.h"
 		typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
 		LPFN_ISWOW64PROCESS fnCheckWindows64  ;
+	#else
+		#if __MACH__
+			/* Mac OS X */
+			#include <mach-o/dyld.h>
+		#endif
+		#ifdef __FreeBSD__
+			#define CLOCK_UPTIME CLOCK_UPTIME_PRECISE
+		#else
+			#if !defined(CLOCK_MONOTONIC_RAW)
+				#define CLOCK_MONOTONIC_RAW 0
+			#endif
+			#define CLOCK_UPTIME CLOCK_MONOTONIC_RAW
+		#endif
 	#endif
 #endif

@@ -23,6 +23,8 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("getarch",ring_vm_os_getarch);
 	ring_vm_funcregister("system",ring_vm_os_system);
 	ring_vm_funcregister("shutdown",ring_vm_os_shutdown);
+	ring_vm_funcregister("uptime",ring_vm_os_uptime);
+	ring_vm_funcregister("nofprocessors",ring_vm_os_nofprocessors);
 	/* Environment Variables */
 	ring_vm_funcregister("sysget",ring_vm_os_sysget);
 	ring_vm_funcregister("sysset",ring_vm_os_sysset);
@@ -263,4 +265,20 @@ void ring_vm_os_sysunset ( void *pPointer )
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vm_os_uptime ( void *pPointer )
+{
+	RING_API_RETNUMBER(ring_general_uptime());
+}
+
+void ring_vm_os_nofprocessors ( void *pPointer )
+{
+#ifdef _WIN32
+	SYSTEM_INFO sysinfo;
+	GetSystemInfo(&sysinfo);
+	RING_API_RETNUMBER(sysinfo.dwNumberOfProcessors);
+#else
+	RING_API_RETNUMBER((double)sysconf(_SC_NPROCESSORS_ONLN));
+#endif
 }
