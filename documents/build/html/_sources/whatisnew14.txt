@@ -673,5 +673,6 @@ More Improvements
 * RingPM - New Package: CLOC (Count Lines of Code)
 * RingQtRuntime Package: Using GUILib & ObjectsLib packages
 * GameEngine - Add the delay function to the Graphics Library: gl_delay() function
+* GameEngine - Using the Resources Class when loading the Window Icon
 * RingOpenSSL - RandBytes() function - Better Code
 * RingZip - GetFileNameByIndex() function - Better Code
