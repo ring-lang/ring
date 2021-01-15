@@ -1,5 +1,7 @@
 
 - socket(Address Family , Connection type , proto = 0)  -> return <socket handler>
+- setsockopt(socket handler , level , option_name , value)
+- getsockopt(socket handler , level , option_name)  -> return <1> if option has been used or <0>
 - bind(socket handler , host , port)
 - listen(socket handler , backlog)
 - accept(socket handler)    -> return <connection handler>
@@ -24,18 +26,41 @@
 - htonl(hostlong)               ->  return  <netlong>
 - ntohl(netlong)                ->  return  <hostlong>
 # convert ip address into binary data in network byte order
-- inet_addr(ip)                 ->  return  <picked_address>
-- inet_ntoa(picked_address)     ->  return  <ip>
+- inet_addr(ip)                 ->  return  <packed_address>
+- inet_ntoa(packed_address)     ->  return  <ip>
 
 ------------------------------------------------------------------------------------------
+
+Protocol Families :
+                - PF_UNSPEC
+                - PF_UNIX
+                - PF_INET
+                - PF_INET6
+                - PF_INET6
+
 
 Address Family :   
                 - AF_INET       >>  mean use IPV4
                 - AF_INET6      >>  ........ IPV6
+                - AF_UNSPEC
+                - AF_LOCAL
+                - AF_UNIX
+                - PF_FILE
+
 
 Connection type :
                 - SOCK_STREAM   >>  mean use TCP Protocol
                 - SOCK_DGRAM    >>  ........ UDP ........
+                - SOCK_RAW
+                - SOCK_RDM
+                - SOCK_SEQPACKET
+
+Levels :
+                - IPPROTO_IP
+                - IPPROTO_TCP
+                - IPPROTO_UDP
+                - SOL_SOCKET
+                - SOL_SOCKET
 
 ------------------------------------------------------------------------------------------
 
