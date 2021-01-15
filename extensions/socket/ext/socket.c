@@ -74,6 +74,87 @@ void ring_vm_socket_init(void *pPointer) {
     
 }
 
+void ring_vm_socket_setsockopt(void *pPointer) {
+    if(RING_API_PARACOUNT != 4) 
+    {
+        RING_API_ERROR(RING_API_MISS4PARA);
+        return;
+    }
+
+    if(!RING_API_ISCPOINTER(1) && !RING_API_ISNUMBER(2) && !RING_API_ISNUMBER(3) && !RING_API_ISNUMBER(4))
+    {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    RING_SOCKET *sock;
+    int level, optname, value;
+
+#ifdef win
+    WSADATA data;
+	if (WSAStartup(MAKEWORD(2, 2), &data) != 0) {
+		RING_API_ERROR("WSAStartup failed");
+		return;
+	}
+#endif
+
+    sock = RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    level = RING_API_GETNUMBER(2);
+    optname = RING_API_GETNUMBER(3);
+    value = RING_API_GETNUMBER(4);
+
+    if(setsockopt(sock->sockfd,level,optname,(const char *)&value,sizeof(value))) 
+    {
+        RING_API_ERROR("Set Socket Option Failed");
+        #ifdef win
+            WSACleanup();
+        #endif
+        return;
+    }
+
+}
+
+void ring_vm_socket_getsockopt(void *pPointer) {
+    if(RING_API_PARACOUNT != 3) 
+    {
+        RING_API_ERROR(RING_API_MISS3PARA);
+        return;
+    }
+
+    if(!RING_API_ISCPOINTER(1) && !RING_API_ISNUMBER(2) && !RING_API_ISNUMBER(3))
+    {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    RING_SOCKET *sock;
+    int level, optname, valsize, buffer = 0;
+
+#ifdef win
+    WSADATA data;
+	if (WSAStartup(MAKEWORD(2, 2), &data) != 0) {
+		RING_API_ERROR("WSAStartup failed");
+		return;
+	}
+#endif
+
+    sock = RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    level = RING_API_GETNUMBER(2);
+    optname = RING_API_GETNUMBER(3);
+    valsize = sizeof(buffer);
+
+    if(getsockopt(sock->sockfd,level,optname,(char *)&buffer,&valsize)) 
+    {
+        RING_API_ERROR("Get Socket option Failed");
+        #ifdef win
+            WSACleanup();
+        #endif
+        return;
+    }
+
+    RING_API_RETNUMBER(buffer);
+}
+
 void ring_vm_socket_bind(void *pPointer) {
     if(RING_API_PARACOUNT != 3) {
         RING_API_ERROR(RING_API_MISS3PARA);
@@ -342,6 +423,7 @@ void ring_vm_socket_close(void *pPointer) {
 
 #ifdef win
     closesocket(sock->sockfd);
+    WSACleanup();
 #else
     close(sock->sockfd);
 #endif
@@ -687,6 +769,8 @@ void ring_vm_socket_inet_ntoa(void *pPointer) {
 
 RING_API void ringlib_init(RingState *pRingState) {
     ring_vm_funcregister("socket",ring_vm_socket_init);
+    ring_vm_funcregister("setsockopt",ring_vm_socket_setsockopt);
+    ring_vm_funcregister("getsockopt",ring_vm_socket_getsockopt);
     ring_vm_funcregister("bind",ring_vm_socket_bind);
     ring_vm_funcregister("listen",ring_vm_socket_listen);
     ring_vm_funcregister("accept",ring_vm_socket_accept);
@@ -706,7 +790,7 @@ RING_API void ringlib_init(RingState *pRingState) {
     ring_vm_funcregister("htonl",ring_vm_socket_htonl);
     ring_vm_funcregister("htons",ring_vm_socket_htons);
     ring_vm_funcregister("inet_addr",ring_vm_socket_inet_addr);
-    ring_vm_funcregister("inet_ntoa",ring_vm_socket_inet_ntoa);
+    ring_vm_funcregister("inet_ntoa",ring_vm_socket_inet_ntoa); 
 }
 
 
