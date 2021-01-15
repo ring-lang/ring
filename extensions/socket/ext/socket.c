@@ -17,7 +17,7 @@ void ring_vm_socket_init(void *pPointer) {
         return;
     } 
 
-    if(!RING_API_ISNUMBER(1) && !RING_API_ISNUMBER(2)) {
+    if(!(RING_API_ISNUMBER(1) && RING_API_ISNUMBER(2))) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
@@ -81,7 +81,7 @@ void ring_vm_socket_setsockopt(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISCPOINTER(1) && !RING_API_ISNUMBER(2) && !RING_API_ISNUMBER(3) && !RING_API_ISNUMBER(4))
+    if(!(RING_API_ISCPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) && RING_API_ISNUMBER(4)))
     {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
@@ -121,7 +121,7 @@ void ring_vm_socket_getsockopt(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISCPOINTER(1) && !RING_API_ISNUMBER(2) && !RING_API_ISNUMBER(3))
+    if(!(RING_API_ISCPOINTER(1) && RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3)))
     {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
@@ -161,7 +161,7 @@ void ring_vm_socket_bind(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISCPOINTER(1) && !RING_API_ISSTRING(2) && !RING_API_ISNUMBER(3)) {
+    if(!(RING_API_ISCPOINTER(1) && RING_API_ISSTRING(2) && RING_API_ISNUMBER(3))) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
@@ -284,7 +284,7 @@ void ring_vm_socket_send(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISCPOINTER(1) && !RING_API_ISSTRING(2)) {
+    if(!(RING_API_ISCPOINTER(1) && RING_API_ISSTRING(2))) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
@@ -302,7 +302,7 @@ void ring_vm_socket_sendto(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISCPOINTER(1) && !RING_API_ISSTRING(2)) {
+    if(!(RING_API_ISCPOINTER(1) && RING_API_ISSTRING(2))) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
@@ -324,7 +324,7 @@ void ring_vm_socket_recv(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISCPOINTER(1) && !RING_API_ISNUMBER(2)) {
+    if(!(RING_API_ISCPOINTER(1) && RING_API_ISNUMBER(2))) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
@@ -344,7 +344,7 @@ void ring_vm_socket_recvfrom(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISCPOINTER(1) && !RING_API_ISNUMBER(2)) {
+    if(!(RING_API_ISCPOINTER(1) && RING_API_ISNUMBER(2))) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
@@ -368,7 +368,7 @@ void ring_vm_socket_connect(void *pPointer) {
         return;
     }
 
-    if(!RING_API_ISCPOINTER(1) && !RING_API_ISSTRING(2) && !RING_API_ISNUMBER(3)) {
+    if(!(RING_API_ISCPOINTER(1) && RING_API_ISSTRING(2) && RING_API_ISNUMBER(3))) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
