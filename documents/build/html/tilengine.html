@@ -976,10 +976,156 @@ func lerp x,x0,x1,fx0,fx1
 </div>
 <p>Screen Shot:</p>
 <img alt="tilengine" src="_images/tilengine_shot9.png" />
+<p>Example (10):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>load &quot;tilengine.ring&quot;
+
+WIDTH    = 400
+HEIGHT = 240
+
+sky = [
+        [0x1B, 0x00, 0x8B],
+        [0x00, 0x74, 0xD7],
+        [0x24, 0x92, 0xDB],
+        [0x1F, 0x7F, 0xBE]
+]
+
+/* layers */
+LAYER_FOREGROUND = 0
+LAYER_BACKGROUND = 1
+MAX_LAYER = 2
+
+pos_foreground = 0
+pos_background = list(6)
+inc_background = list(6)
+speed = 0
+ypos = 0
+
+color = list(3)
+
+/* entry point */
+func main
+
+        /* setup engine */
+        TLN_Init (WIDTH,HEIGHT, MAX_LAYER, 0, 1)
+        TLN_SetRasterCallback (&quot;raster_callback()&quot;)
+        TLN_SetBGColor (0,128,238)
+
+        /* load resources*/
+        TLN_SetLoadPath (&quot;assets/sonic&quot;)
+        foreground = TLN_LoadTilemap (&quot;Sonic_md_fg1.tmx&quot;, NULL)
+        background = TLN_LoadTilemap (&quot;Sonic_md_bg1.tmx&quot;, NULL)
+        TLN_SetLayerTilemap (LAYER_FOREGROUND, foreground)
+        TLN_SetLayerTilemap (LAYER_BACKGROUND, background)
+        sp = TLN_LoadSequencePack (&quot;Sonic_md_seq.sqx&quot;)
+        sequence = TLN_FindSequence (sp, &quot;seq_water&quot;)
+
+        /* assign color sequence to various entries in palette */
+        palette = TLN_GetLayerPalette (LAYER_BACKGROUND)
+        TLN_SetPaletteAnimation (TLN_GetAvailableAnimation(), palette, sequence, true)
+
+        /* compute increments for variable background scrolling speeds */
+        inc_background[1] = 0.562f
+        inc_background[2] = 0.437f
+        inc_background[3] = 0.375f
+        inc_background[4] = 0.625f
+        inc_background[5] = 1.0f
+        inc_background[6] = 2.0f
+
+        /* startup display */
+        TLN_CreateWindow (NULL, 0)
+
+        /* main loop */
+        while TLN_ProcessWindow ()
+                if TLN_GetInput (INPUT_RIGHT)
+                        speed += 0.02
+                        if speed &gt; 1.0
+                                speed = 1.0f
+                        ok
+                elseif speed &gt; 0.0
+                        speed -= 0.02
+                        if speed &lt; 0.0
+                                speed = 0.0f
+                        ok
+                ok
+
+                if TLN_GetInput (INPUT_LEFT)
+                        speed -= 0.02
+                        if speed &lt; -1
+                                speed = -1
+                        ok
+                elseif speed &lt; 0
+                        speed += 0.02
+                        if speed &gt; 0
+                                speed = 0
+                        ok
+                ok
+
+                /* scroll */
+                pos_foreground += 3*speed
+                TLN_SetLayerPosition (LAYER_FOREGROUND, pos_foreground, ypos)
+                for c=1 to 6
+                        pos_background[c] += (inc_background[c] * speed)
+                next
+
+                /* render to window */
+                TLN_DrawFrame (0)
+        end
+
+        /* deinit */
+        TLN_DeleteTilemap (foreground)
+        TLN_DeleteTilemap (background)
+        TLN_DeleteSequencePack (sp)
+        TLN_Deinit ()
+
+/* raster callback (virtual HBLANK) */
+func raster_callback
+
+        line = TLN_GetScanLine()
+        pos =- 1
+
+        if line=0
+                pos = pos_background[1]
+        elseif line=32
+                pos = pos_background[2]
+        elseif line=48
+                pos = pos_background[3]
+        elseif line=64
+                pos = pos_background[4]
+        elseif line=112
+                pos = pos_background[5]
+        elseif line &gt;= 152
+                pos = lerp (line, 152,224, pos_background[5], pos_background[6])
+        ok
+
+        if pos != -1
+                TLN_SetLayerPosition (LAYER_BACKGROUND, pos, 0)
+        ok
+
+        /* background color gradients */
+        if line &lt; 112
+                InterpolateColor (line, 0,112, sky[1], sky[2], color)
+                TLN_SetBGColor (color[1], color[2], color[3])
+        elseif line &gt;= 144
+                InterpolateColor (line, 144,HEIGHT, sky[3], sky[4], color)
+                TLN_SetBGColor (color[1], color[2], color[3])
+        ok
+
+func InterpolateColor v,v1,v2,color1,color2,result
+        result[1] = lerp (v, v1,v2, color1[1], color2[1])
+        result[2] = lerp (v, v1,v2, color1[2], color2[2])
+        result[3] = lerp (v, v1,v2, color1[3], color2[3])
+
+/* linear interploation */
+func lerp x,x0,x1,fx0,fx1
+        return (fx0) + ((fx1) - (fx0))*((x) - (x0))/((x1) - (x0))
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="tilengine" src="_images/tilengine_shot10.png" />
 </div>
 <div class="section" id="using-libsdl-and-tilengine">
 <span id="index-3"></span><h2>Using LibSDL and Tilengine<a class="headerlink" href="#using-libsdl-and-tilengine" title="Permalink to this headline">¶</a></h2>
-<p>Example (10):</p>
+<p>Example (11):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;libsdl.ring&quot;</span>
 
@@ -1055,7 +1201,9 @@ func lerp x,x0,x1,fx0,fx1
                 <span class="n">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
-<p>Example (11):</p>
+<p>Screen Shot:</p>
+<img alt="tilengine" src="_images/tilengine_shot11.png" />
+<p>Example (12):</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
 <span class="k">load</span> <span class="s">&quot;libsdl.ring&quot;</span>
 
@@ -1147,6 +1295,8 @@ func lerp x,x0,x1,fx0,fx1
                 <span class="n">SDL_Quit</span><span class="p">()</span>
 </pre></div>
 </div>
+<p>Screen Shot:</p>
+<img alt="tilengine" src="_images/tilengine_shot12.png" />
 </div>
 <div class="section" id="reference">
 <span id="index-4"></span><h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
