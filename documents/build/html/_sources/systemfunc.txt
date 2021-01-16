@@ -554,3 +554,22 @@ Syntax:
 
 	shutdown(nStatus) ---> Close the application
 
+.. index:: 
+	pair: System Functions; NofProcessors() Function
+
+NofProcessors() Function
+========================
+
+We can detect the number of processors using the NofProcessors() Function
+
+Syntax:
+
+.. code-block:: none
+
+	NofProcessors() ---> nProcessors
+
+Example:
+
+.. code-block:: ring
+
+	? NofProcessors()

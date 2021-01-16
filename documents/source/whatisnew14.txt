@@ -611,6 +611,22 @@ Example:
 	off
 
 
+* NofProcessors() Function
+
+We can detect the number of processors using the NofProcessors() Function
+
+Syntax:
+
+.. code-block:: none
+
+	NofProcessors() ---> nProcessors
+
+Example:
+
+.. code-block:: ring
+
+	? NofProcessors()
+
 .. index:: 
 	pair: What is new in Ring 1.14?; Better Functions
 
