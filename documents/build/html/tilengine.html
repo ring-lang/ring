@@ -979,6 +979,174 @@ func lerp x,x0,x1,fx0,fx1
 </div>
 <div class="section" id="using-libsdl-and-tilengine">
 <span id="index-3"></span><h2>Using LibSDL and Tilengine<a class="headerlink" href="#using-libsdl-and-tilengine" title="Permalink to this headline">¶</a></h2>
+<p>Example (10):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;libsdl.ring&quot;</span>
+
+<span class="n">width</span>  <span class="o">=</span> <span class="mi">640</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">480</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="c"># Start Tilengine</span>
+                <span class="n">TLN_Init</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c"># Start LibSDL</span>
+                <span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s">&quot;Using LibSDL and Tilengine&quot;</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="mi">100</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="o">|</span><span class="n">SDL_WINDOW_OPENGL</span><span class="p">)</span>
+                <span class="n">ren</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
+
+        <span class="c"># Create the Surface in LibSDL that will be used by Tilengine for Drawing</span>
+                <span class="n">surface</span> <span class="o">=</span> <span class="n">SDL_CreateRGBSurface</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c"># Get the Surface Pixels pointer from the Surface Structure</span>
+                <span class="n">pixels</span> <span class="o">=</span> <span class="n">SDL_Get_SDL_Surface_Pixels</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+        <span class="c"># Pass the Pixels pointer to Tilengine</span>
+                <span class="n">TLN_SetRenderTarget</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+
+        <span class="c"># Using Tilengine</span>
+                <span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s">&quot;assets\sonic&quot;</span><span class="p">)</span>
+                <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+                <span class="n">TLN_SetLayerTilemap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
+
+        <span class="c"># Using LibSDL Events Loop</span>
+                <span class="n">oEvent</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Event</span><span class="p">()</span>
+
+                <span class="k">while</span> <span class="kp">true</span>
+
+                        <span class="c"># Using Tilengine to Update the Frame</span>
+                                        <span class="n">TLN_UpdateFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+                        <span class="c"># Draw Tilengine results using LibSDL</span>
+                        <span class="c"># ( Surface --&gt; Texture --&gt; Render)</span>
+                                <span class="n">tex</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span> <span class="n">surface</span><span class="p">);</span>
+                                <span class="n">SDL_RenderCopy2</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">)</span>
+                                <span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
+
+                        <span class="c"># Draw Rectangle using LibSDL</span>
+                                <span class="n">rect</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Rect</span><span class="p">()</span>
+                                <span class="n">SDL_Set_SDL_Rect_x</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">10</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_w</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_h</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                                <span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+                                <span class="n">SDL_RenderDrawRect</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
+                                <span class="n">SDL_Destroy_SDL_Rect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+
+                        <span class="c"># Display Results using LibSDL</span>
+                                <span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+
+                        <span class="c"># Check Events</span>
+
+                                        <span class="n">SDL_PollEvent</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
+                                        <span class="k">switch</span> <span class="n">SDL_Get_SDL_Event_Type</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
+                                                        <span class="k">on</span> <span class="n">SDL_Get_SDL_Quit</span><span class="p">()</span>
+                                                                        <span class="k">exit</span>
+                                                        <span class="k">on</span> <span class="n">SDL_Get_SDL_Keydown</span><span class="p">()</span>
+                                                                        <span class="n">Key</span> <span class="o">=</span> <span class="n">SDL_Get_SDL_Event_key_Keysym_Sym</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
+                                                                        <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k">exit</span> <span class="k">ok</span>
+                                        <span class="k">off</span>
+                <span class="k">end</span>
+
+        <span class="c"># End of Tilengine Usage</span>
+                <span class="n">TLN_Deinit</span><span class="p">()</span>
+
+        <span class="c"># End of LibSDL Usage</span>
+                <span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                <span class="n">SDL_Quit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Example (11):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;libsdl.ring&quot;</span>
+
+<span class="n">factor</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">width</span>  <span class="o">=</span> <span class="mi">400</span><span class="o">*</span><span class="n">factor</span>
+<span class="n">height</span> <span class="o">=</span> <span class="mi">220</span><span class="o">*</span><span class="n">factor</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="c"># Start Tilengine</span>
+                <span class="n">TLN_Init</span><span class="p">(</span><span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+
+        <span class="c"># Start LibSDL</span>
+                <span class="n">SDL_Init</span><span class="p">(</span><span class="n">SDL_INIT_EVERYTHING</span><span class="p">)</span>
+                <span class="n">win</span> <span class="o">=</span> <span class="n">SDL_CreateWindow</span><span class="p">(</span><span class="s">&quot;Using LibSDL and Tilengine&quot;</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="n">SDL_WINDOW_SHOWN</span><span class="o">|</span><span class="n">SDL_WINDOW_OPENGL</span><span class="p">)</span>
+                <span class="n">ren</span> <span class="o">=</span> <span class="n">SDL_CreateRenderer</span><span class="p">(</span><span class="n">win</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">SDL_RENDERER_ACCELERATED</span> <span class="o">|</span> <span class="n">SDL_RENDERER_PRESENTVSYNC</span> <span class="p">)</span>
+
+        <span class="c"># Create the Surface in LibSDL that will be used by Tilengine for Drawing</span>
+                <span class="n">surface</span> <span class="o">=</span> <span class="n">SDL_CreateRGBSurface</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="n">height</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+        <span class="c"># Get the Surface Pixels pointer from the Surface Structure</span>
+                <span class="n">pixels</span> <span class="o">=</span> <span class="n">SDL_Get_SDL_Surface_Pixels</span><span class="p">(</span><span class="n">surface</span><span class="p">)</span>
+        <span class="c"># Pass the Pixels pointer to Tilengine</span>
+                <span class="n">TLN_SetRenderTarget</span><span class="p">(</span><span class="n">pixels</span><span class="p">,</span> <span class="n">width</span> <span class="o">*</span> <span class="mi">4</span><span class="p">)</span>
+
+        <span class="c"># Using Tilengine</span>
+                <span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s">&quot;assets\sonic&quot;</span><span class="p">)</span>
+                <span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+                <span class="n">TLN_SetLayerTilemap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
+
+        <span class="c"># Using LibSDL Events Loop</span>
+                <span class="n">oEvent</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Event</span><span class="p">()</span>
+
+                <span class="k">while</span> <span class="kp">true</span>
+
+                        <span class="c"># Using Tilengine to Update the Frame</span>
+                                        <span class="n">TLN_UpdateFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+                        <span class="c"># Draw Tilengine results using LibSDL</span>
+                        <span class="c"># ( Surface --&gt; Texture --&gt; Render)</span>
+                                <span class="n">tex</span> <span class="o">=</span> <span class="n">SDL_CreateTextureFromSurface</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span> <span class="n">surface</span><span class="p">);</span>
+
+                                <span class="n">rectSource</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Rect</span><span class="p">()</span>
+                                <span class="n">SDL_Set_SDL_Rect_x</span><span class="p">(</span><span class="n">rectSource</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_y</span><span class="p">(</span><span class="n">rectSource</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_w</span><span class="p">(</span><span class="n">rectSource</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_h</span><span class="p">(</span><span class="n">rectSource</span><span class="p">,</span><span class="mi">220</span><span class="p">)</span>
+
+                                <span class="n">rectDest</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Rect</span><span class="p">()</span>
+                                <span class="n">SDL_Set_SDL_Rect_x</span><span class="p">(</span><span class="n">rectDest</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_y</span><span class="p">(</span><span class="n">rectDest</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_w</span><span class="p">(</span><span class="n">rectDest</span><span class="p">,</span><span class="n">width</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_h</span><span class="p">(</span><span class="n">rectDest</span><span class="p">,</span><span class="n">height</span><span class="p">)</span>
+
+                                <span class="n">SDL_RenderCopy</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">tex</span><span class="p">,</span><span class="n">rectSource</span><span class="p">,</span><span class="n">rectDest</span><span class="p">)</span>
+                                <span class="n">SDL_Destroy_SDL_Rect</span><span class="p">(</span><span class="n">rectSource</span><span class="p">)</span>
+                                <span class="n">SDL_Destroy_SDL_Rect</span><span class="p">(</span><span class="n">rectDest</span><span class="p">)</span>
+                                <span class="n">SDL_DestroyTexture</span><span class="p">(</span><span class="n">tex</span><span class="p">)</span>
+
+                        <span class="c"># Draw Rectangle using LibSDL</span>
+                                <span class="n">rect</span> <span class="o">=</span> <span class="n">SDL_New_SDL_Rect</span><span class="p">()</span>
+                                <span class="n">SDL_Set_SDL_Rect_x</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">40</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_y</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_w</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">230</span><span class="p">)</span>
+                                <span class="n">SDL_Set_SDL_Rect_h</span><span class="p">(</span><span class="n">rect</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                                <span class="n">SDL_SetRenderDrawColor</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">,</span><span class="mi">255</span><span class="p">)</span>
+                                <span class="n">SDL_RenderDrawRect</span><span class="p">(</span><span class="n">ren</span><span class="p">,</span><span class="n">rect</span><span class="p">)</span>
+                                <span class="n">SDL_Destroy_SDL_Rect</span><span class="p">(</span><span class="n">rect</span><span class="p">)</span>
+
+                        <span class="c"># Display Results using LibSDL</span>
+                                <span class="n">SDL_RenderPresent</span><span class="p">(</span><span class="n">ren</span><span class="p">)</span>
+
+                        <span class="c"># Check Events</span>
+
+                                        <span class="n">SDL_PollEvent</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
+                                        <span class="k">switch</span> <span class="n">SDL_Get_SDL_Event_Type</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
+                                                        <span class="k">on</span> <span class="n">SDL_Get_SDL_Quit</span><span class="p">()</span>
+                                                                        <span class="k">exit</span>
+                                                        <span class="k">on</span> <span class="n">SDL_Get_SDL_Keydown</span><span class="p">()</span>
+                                                                        <span class="n">Key</span> <span class="o">=</span> <span class="n">SDL_Get_SDL_Event_key_Keysym_Sym</span><span class="p">(</span><span class="n">oEvent</span><span class="p">)</span>
+                                                                        <span class="k">if</span> <span class="n">key</span> <span class="o">=</span> <span class="mi">27</span> <span class="k">exit</span> <span class="k">ok</span>
+                                        <span class="k">off</span>
+                <span class="k">end</span>
+
+        <span class="c"># End of Tilengine Usage</span>
+                <span class="n">TLN_Deinit</span><span class="p">()</span>
+
+        <span class="c"># End of LibSDL Usage</span>
+                <span class="n">SDL_DestroyWindow</span><span class="p">(</span><span class="n">win</span><span class="p">)</span>
+                <span class="n">SDL_Quit</span><span class="p">()</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="reference">
 <span id="index-4"></span><h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
