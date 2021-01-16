@@ -306,5 +306,5 @@ double ring_vm_os_getuptime ( void )
 
 void ring_vm_os_uptime ( void *pPointer )
 {
-	RING_API_RETNUMBER(ring_vm_os_calcuptime());
+	RING_API_RETNUMBER(ring_vm_os_getuptime());
 }
