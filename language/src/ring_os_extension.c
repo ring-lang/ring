@@ -268,34 +268,34 @@ void ring_vm_os_sysunset ( void *pPointer )
 
 void ring_vm_os_nofprocessors ( void *pPointer )
 {
-#ifdef _WIN32
-	SYSTEM_INFO sysinfo;
-	GetSystemInfo(&sysinfo);
-	RING_API_RETNUMBER(sysinfo.dwNumberOfProcessors);
-#else
-	RING_API_RETNUMBER((double)sysconf(_SC_NPROCESSORS_ONLN));
-#endif
+	#ifdef _WIN32
+		SYSTEM_INFO sysinfo  ;
+		GetSystemInfo(&sysinfo);
+		RING_API_RETNUMBER(sysinfo.dwNumberOfProcessors);
+	#else
+		RING_API_RETNUMBER((double)sysconf(_SC_NPROCESSORS_ONLN));
+	#endif
 }
 /* Mac OS doesn't provide clock_gettime function prior v. 10.12 */
 #if defined __MACH__ && __MAC_OS_X_VERSION_MIN_REQUIRED < 101200
 
-	int clock_gettime(int clk_id, struct timespec* ts)
+	int clock_gettime ( int clk_id, struct timespec* ts )
 	{
-		uint64_t nsec = mach_absolute_time();
+		uint64_t nsec = mach_absolute_time() ;
 		ts->tv_sec = nsec / NANOSEC ;
-		ts->tv_nsec = nsec % NANOSEC;
-		return 0;
+		ts->tv_nsec = nsec % NANOSEC; ;
+		return 0 ;
 	}
 #endif
 
-double ring_vm_os_uptime ()
+double ring_vm_os_uptime ( void )
 {
 	#ifdef _WIN32
-		LARGE_INTEGER ElapsedMicroseconds;
+		LARGE_INTEGER ElapsedMicroseconds  ;
 		QueryPerformanceCounter(&ElapsedMicroseconds);
-		return ElapsedMicroseconds.QuadPart;
+		return ElapsedMicroseconds.QuadPart ;
 	#else
-		struct timespec ts;
+		struct timespec ts  ;
 		clock_gettime(CLOCK_UPTIME, &ts);
 		/* Compensate to match 0.1 ms resolution on Windows */
 		return ( ( ts.tv_sec * NANOSEC ) + ( ts.tv_nsec ) ) / 100 ;
