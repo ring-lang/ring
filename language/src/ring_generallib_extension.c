@@ -121,8 +121,6 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_give",ring_vm_generallib_give);
 	/* Thread Safe */
 	ring_vm_funcregister("randomize",ring_vm_generallib_randomize);
-	/* Other Modules */
-	ring_vm_extension(pRingState);
 }
 /*
 **  Library Functions 
