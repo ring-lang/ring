@@ -158,7 +158,7 @@ int al_get_display_format(ALLEGRO_DISPLAY *display)
 int al_get_display_refresh_rate(ALLEGRO_DISPLAY *display)
 void al_set_window_title(ALLEGRO_DISPLAY *display, const char *title)
 void al_set_display_icon(ALLEGRO_DISPLAY *display, ALLEGRO_BITMAP *icon)
-void al_set_display_icons(ALLEGRO_DISPLAY *display,int num_icons, ALLEGRO_BITMAP *icons[])
+void al_set_display_icons(ALLEGRO_DISPLAY *display,int num_icons, ALLEGRO_BITMAP **icons)
 
 bool al_inhibit_screensaver(bool inhibit)
 
@@ -526,6 +526,11 @@ void *al_func_thread(ALLEGRO_THREAD *thread, void *pPointer)
 	return NULL;
 }
 
+void *al_func_detached_thread(void *pPointer) 
+{  
+	return al_func_thread(NULL,pPointer);
+}
+
 RING_FUNC(ring_al_create_thread)
 {
 	ALLEGRO_THREAD *pThread;
@@ -562,7 +567,7 @@ RING_FUNC(ring_al_run_detached_thread)
 	ring_list_addstring(pList,RING_API_GETSTRING(1));
 	ring_list_addpointer(pList,pPointer);
 	ring_vm_mutexfunctions((VM *) pPointer,al_create_mutex,al_lock_mutex,al_unlock_mutex,al_destroy_mutex);
-	al_run_detached_thread(al_func_thread, pList);
+	al_run_detached_thread(al_func_detached_thread, pList);
 }
 </code>
 
@@ -702,10 +707,10 @@ ALLEGRO_USTR *al_ustr_new_from_utf16(uint16_t const *s)
 size_t al_ustr_size_utf16(const ALLEGRO_USTR *us)
 size_t al_ustr_encode_utf16(const ALLEGRO_USTR *us, uint16_t *s,size_t n)
 size_t al_utf8_width(int c)
-size_t al_utf8_encode(char s[], int32_t c)
+size_t al_utf8_encode(char *s, int32_t c)
 size_t al_utf16_width(int c)
 <comment>
-size_t al_utf16_encode(uint16_t s[], int32_t c)
+size_t al_utf16_encode(uint16_t *s, int32_t c)
 </comment>
 
 <comment>
@@ -924,7 +929,7 @@ void al_draw_justified_textf(const ALLEGRO_FONT *f,ALLEGRO_COLOR color, float x1
 void al_get_text_dimensions(const ALLEGRO_FONT *f,char const *text,int *bbx, int *bby, int *bbw, int *bbh)
 void al_get_ustr_dimensions(const ALLEGRO_FONT *f,ALLEGRO_USTR const *ustr,int *bbx, int *bby, int *bbw, int *bbh)
 uint32_t al_get_allegro_font_version(void)
-ALLEGRO_FONT *al_grab_font_from_bitmap(ALLEGRO_BITMAP *bmp,int ranges_n, const int ranges[])
+ALLEGRO_FONT *al_grab_font_from_bitmap(ALLEGRO_BITMAP *bmp,int ranges_n, const int *ranges)
 ALLEGRO_FONT *al_load_bitmap_font(const char *fname)
 ALLEGRO_FONT *al_create_builtin_font(void)
 bool al_init_ttf_addon(void)
