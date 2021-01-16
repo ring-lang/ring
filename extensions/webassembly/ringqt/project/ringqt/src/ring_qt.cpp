@@ -59609,6 +59609,25 @@ RING_FUNC(ring_QComboBox_addItem)
 }
 
 
+RING_FUNC(ring_QComboBox_addItems)
+{
+	GComboBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
+	pObject->addItems(* (QStringList *) RING_API_GETCPOINTER(2,"QStringList"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QStringList"));
+}
+
+
 RING_FUNC(ring_QComboBox_completer)
 {
 	GComboBox *pObject ;
@@ -60595,6 +60614,27 @@ RING_FUNC(ring_QComboBox_setCurrentIndex)
 		return ;
 	}
 	pObject->setCurrentIndex( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_QComboBox_setCurrentText)
+{
+	GComboBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (GComboBox *) RING_API_GETCPOINTER(1,"QComboBox");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setCurrentText(RING_API_GETSTRING(2));
 }
 
 
@@ -142214,6 +142254,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtreewidgetitem_whatsthis",ring_QTreeWidgetItem_whatsThis);
 	ring_vm_funcregister("qtreewidgetitem_write",ring_QTreeWidgetItem_write);
 	ring_vm_funcregister("qcombobox_additem",ring_QComboBox_addItem);
+	ring_vm_funcregister("qcombobox_additems",ring_QComboBox_addItems);
 	ring_vm_funcregister("qcombobox_completer",ring_QComboBox_completer);
 	ring_vm_funcregister("qcombobox_count",ring_QComboBox_count);
 	ring_vm_funcregister("qcombobox_currentindex",ring_QComboBox_currentIndex);
@@ -142263,6 +142304,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcombobox_clear",ring_QComboBox_clear);
 	ring_vm_funcregister("qcombobox_clearedittext",ring_QComboBox_clearEditText);
 	ring_vm_funcregister("qcombobox_setcurrentindex",ring_QComboBox_setCurrentIndex);
+	ring_vm_funcregister("qcombobox_setcurrenttext",ring_QComboBox_setCurrentText);
 	ring_vm_funcregister("qcombobox_setedittext",ring_QComboBox_setEditText);
 	ring_vm_funcregister("qcombobox_setactivatedevent",ring_QComboBox_setactivatedEvent);
 	ring_vm_funcregister("qcombobox_setcurrentindexchangedevent",ring_QComboBox_setcurrentIndexChangedEvent);

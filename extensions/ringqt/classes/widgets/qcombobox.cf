@@ -34,6 +34,7 @@ RING_FUNC(ring_QComboBox_addItem)
 
 </code>
 
+void addItems(QStringList)
 QCompleter *completer(void)
 int count(void)
 int currentIndex(void)
@@ -96,6 +97,7 @@ QAbstractItemView *view(void)
 void clear(void)
 void clearEditText(void)
 void setCurrentIndex(int index)
+void setCurrentText(QString)
 void setEditText(QString)
 
 void setactivatedEvent(const char *)

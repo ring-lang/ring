@@ -13755,6 +13755,9 @@ Class QComboBox from QWidget
 	Func addItem P1,P2
 		return QComboBox_addItem(pObject,P1,P2)
 
+	Func addItems P1
+		return QComboBox_addItems(pObject,GetObjectPointerFromRingObject(P1))
+
 	Func completer 
 		pTempObj = new QCompleter
 		pTempObj.pObject = QComboBox_completer(pObject)
@@ -13913,6 +13916,9 @@ Class QComboBox from QWidget
 
 	Func setCurrentIndex P1
 		return QComboBox_setCurrentIndex(pObject,P1)
+
+	Func setCurrentText P1
+		return QComboBox_setCurrentText(pObject,P1)
 
 	Func setEditText P1
 		return QComboBox_setEditText(pObject,P1)
