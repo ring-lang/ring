@@ -10,6 +10,10 @@
 #else
 	#include <unistd.h>
 	#define GetCurrentDir getcwd
+	#if __MACH__
+		/* Mac OS X */
+		#include <mach-o/dyld.h>
+	#endif
 #endif
 /* General Functions */
 
@@ -36,10 +40,3 @@ int ring_general_isobjectfile ( const char *cStr ) ;
 RING_API void ring_general_printline ( void ) ;
 
 void ring_general_showtime ( void ) ;
-
-double ring_general_uptime ( void ) ;
-/* Constants */
-
-#define	MILISEC 1000
-#define	MICROSEC (MILISEC*MILISEC)
-#define NANOSEC (MICROSEC*MILISEC)
