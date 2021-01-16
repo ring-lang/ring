@@ -121,6 +121,7 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_give",ring_vm_generallib_give);
 	/* Thread Safe */
 	ring_vm_funcregister("randomize",ring_vm_generallib_randomize);
+	ring_vm_funcregister("uptime",ring_vm_generallib_uptime);
 	/* Other Modules */
 	ring_vm_extension(pRingState);
 }
@@ -345,7 +346,7 @@ void ring_vm_generallib_random ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 	}
 }
-/* 64 bit thread safe random generator using high precision timer as the seed on the Unix systems */
+/* 64 bit thread safe random generator using high precision timer as seed on the Unix systems */
 /* Or using Windows Security Features by the CRT having the _s ("secure") suffix since XP */
 /* This random generator doesn't require a seed to be given by the user */
 
@@ -370,7 +371,7 @@ void ring_vm_generallib_randomize ( void *pPointer )
 	}
 	else if ( RING_API_PARACOUNT == 1 ) {
 		if ( RING_API_ISNUMBER(1) ) {
-			nNum2 = RING_API_GETNUMBER(1) ;
+			nNum2 = RING_API_GETNUMBER(nNum1) ;
 			if ( nNum2 > 0 ) {
 				RING_API_RETNUMBER(nNum1 % ++nNum2);
 			}
@@ -2061,3 +2062,9 @@ void ring_vm_generallib_addsublistsbyfastcopy ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
+
+void ring_vm_generallib_uptime ( void *pPointer )
+{
+	RING_API_RETNUMBER(ring_vm_os_uptime());
+}
+
