@@ -687,6 +687,8 @@ More Improvements
 * RingPM - New Package: GUILib (Separate package for the GUILib classes)
 * RingPM - New Package: ObjectsLib (Separate package for the ObjectsLib classes)
 * RingPM - New Package: CLOC (Count Lines of Code)
+* RingQt - QCombobox Class - Added: setCurrentText() and addItems() methods
+* RingQt - Added: QLocale Class
 * RingQtRuntime Package: Using GUILib & ObjectsLib packages
 * GameEngine - Add the delay function to the Graphics Library: gl_delay() function
 * GameEngine - Using the Resources Class when loading the Window Icon
