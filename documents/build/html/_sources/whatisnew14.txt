@@ -23,6 +23,7 @@ Ring 1.14 comes with the next features!
 * Tilengine Extension
 * RingLibui Extension
 * Socket Extension
+* Threads Extension
 * Better RingOpenSSL
 * Better Performance For Strings
 * Better Handling For Numbers
@@ -314,6 +315,48 @@ Example (Client Code)
 
 	close(sock)
 	? "Socket connection closed"
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Threads Extension
+
+Threads Extension
+=================
+
+In Ring, We have threads using different extensions like RingQt, RingLibuv and RingAllegro
+
+In this release we provide a special extension for threads
+
+This will be useful if your application doesn't use the previous libraries
+
+Example:
+
+.. code-block:: ring
+
+	load "threads.ring"
+
+	func main
+
+		nThreads = 2
+		aList = list(nThreads)
+
+		for x=1 to nThreads
+			aList[x] = new_thrd_t()
+			thrd_create(aList[x],"Hello("+x+")")
+		next
+
+		for x=1 to nThreads
+			res= 0
+			thrd_join(aList[x],:res)
+		next
+
+		? :Done
+		shutdown()
+
+	func Hello x
+
+		for r=1 to 100
+			? "Message from the Hello("+x+") function"
+		next
 
 .. index:: 
 	pair: What is new in Ring 1.14?; Better RingOpenSSL
