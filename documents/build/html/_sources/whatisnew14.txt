@@ -25,11 +25,11 @@ Ring 1.14 comes with the next features!
 * Socket Extension
 * Threads Extension
 * Better RingOpenSSL
+* More Functions
+* Better Functions
 * Better Performance For Strings
 * Better Handling For Numbers
 * Using CLOC (Count Lines of Code)
-* More Functions
-* Better Functions
 * More Improvements
 
 
@@ -70,17 +70,12 @@ The samples are added to this folder:
 
 * https://github.com/ring-lang/ring/tree/master/samples/UsingArabic/HassounaCourse/WebDevelopment
 
-Screen Shots:
+Screen Shot:
 
 * Calculator Sample
 
 .. image:: hweb1.png
 	:alt: Web Sample 1
-
-* Employee Sample
-
-.. image:: hweb2.png
-	:alt: Web Sample 2
 
 .. index:: 
 	pair: What is new in Ring 1.14?; More Samples
@@ -160,25 +155,10 @@ Example:
 
 Screen Shots:
 
-.. image:: tilengine_shot1.png
-	:alt: tilengine
-
-.. image:: tilengine_shot2.png
-	:alt: tilengine
-
 .. image:: tilengine_shot3.png
 	:alt: tilengine
 
-.. image:: tilengine_shot4.png
-	:alt: tilengine
-
 .. image:: tilengine_shot5.png
-	:alt: tilengine
-
-.. image:: tilengine_shot6.png
-	:alt: tilengine
-
-.. image:: tilengine_shot7.png
 	:alt: tilengine
 
 .. image:: tilengine_shot8.png
@@ -244,19 +224,7 @@ Example:
 
 Screen Shots:
 
-.. image:: libui_3.png
-	:alt: RingLibui Screen Shot
-
 .. image:: libui_6.png
-	:alt: RingLibui Screen Shot
-
-.. image:: libui_7.png
-	:alt: RingLibui Screen Shot
-
-.. image:: libui_8.png
-	:alt: RingLibui Screen Shot
-
-.. image:: libui_13.png
 	:alt: RingLibui Screen Shot
 
 .. image:: libui_14.png
@@ -393,6 +361,116 @@ These functions compute the hash of large files/data without the need to load al
 	sha512init() -> SHA512_CTX
 	sha512update (SHA512_CTX, string) -> 1 for success or 0 for failure
 	sha512final (SHA512_CTX) -> string
+
+.. index:: 
+	pair: What is new in Ring 1.14?; More Functions
+
+More Functions
+==============
+
+* DirExists() Function
+
+.. code-block:: none
+
+	DirExists(cDirPath) ---> returns 1 if the directory exists
+
+* GetPathType() Function
+
+.. code-block:: none
+
+	GetPathType(cPath) ---> 0 if the path doesn't exists
+				1 if it corresponds to existing file
+				2 if it corresponds to existing directory
+				-1 if the path exists but has 
+				   an unknown type (e.g. a pipe)
+
+* SysSet() Function
+
+We can set environment variables using the SysSet() function
+
+.. code-block:: none
+
+	SysSet(cVariable, cValue) ---> Returns 1 for success and return 0 for failure
+
+* SysUnset() Function
+
+We can delete an environment variables using the SysUnset() function
+
+.. code-block:: none
+
+	SysUnset(cVariable) ---> Returns 1 for success and return 0 for failure
+
+
+* GetArch() Function
+
+We can detect the architecture of the Ring executable using the GetArch() function
+
+Syntax:
+
+.. code-block:: none
+
+	GetArch() ---> cString (The name of the architecture of the Ring executable)
+
+Example:
+
+.. code-block:: ring
+
+	switch getarch()
+	on "x86"
+	        ? "x86 32bit architecture"
+	on "x64"
+	        ? "x64 64bit architecture"
+	on "arm64"
+	        ? "ARM64 64bit architecture"
+	on "arm"
+	        ? "ARM 32bit architecture"
+	other
+	        ? "Unknown architecture"
+	off
+
+
+* NofProcessors() Function
+
+We can detect the number of processors using the NofProcessors() Function
+
+Syntax:
+
+.. code-block:: none
+
+	NofProcessors() ---> nProcessors
+
+Example:
+
+.. code-block:: ring
+
+	? NofProcessors()
+
+.. index:: 
+	pair: What is new in Ring 1.14?; Better Functions
+
+Better Functions
+================
+
+* Log() Function
+
+The functions is updated to support calculating the logarithm to any base
+
+Syntax:
+
+.. code-block:: none
+
+	Log(nNumber)	   --> logarithm of nNumber to the base of e
+	Log(nNumber,nBase) --> logarithm of nNumber to the base of nBase
+
+Example:
+
+.. code-block:: ring
+
+	? log(10)	# 2.30
+	? log(2)	# 0.69
+	? log(10,10)	# 1
+	? log(2,2)	# 1
+	? log(100,10)	# 2
 
 .. index:: 
 	pair: What is new in Ring 1.14?; Better Performance For Strings
@@ -586,116 +664,6 @@ Output:
 	-------------------------------------------------------------------------------
 	SUM:                            53           1311            567           9078
 	-------------------------------------------------------------------------------
-
-.. index:: 
-	pair: What is new in Ring 1.14?; More Functions
-
-More Functions
-==============
-
-* DirExists() Function
-
-.. code-block:: none
-
-	DirExists(cDirPath) ---> returns 1 if the directory exists
-
-* GetPathType() Function
-
-.. code-block:: none
-
-	GetPathType(cPath) ---> 0 if the path doesn't exists
-				1 if it corresponds to existing file
-				2 if it corresponds to existing directory
-				-1 if the path exists but has 
-				   an unknown type (e.g. a pipe)
-
-* SysSet() Function
-
-We can set environment variables using the SysSet() function
-
-.. code-block:: none
-
-	SysSet(cVariable, cValue) ---> Returns 1 for success and return 0 for failure
-
-* SysUnset() Function
-
-We can delete an environment variables using the SysUnset() function
-
-.. code-block:: none
-
-	SysUnset(cVariable) ---> Returns 1 for success and return 0 for failure
-
-
-* GetArch() Function
-
-We can detect the architecture of the Ring executable using the GetArch() function
-
-Syntax:
-
-.. code-block:: none
-
-	GetArch() ---> cString (The name of the architecture of the Ring executable)
-
-Example:
-
-.. code-block:: ring
-
-	switch getarch()
-	on "x86"
-	        ? "x86 32bit architecture"
-	on "x64"
-	        ? "x64 64bit architecture"
-	on "arm64"
-	        ? "ARM64 64bit architecture"
-	on "arm"
-	        ? "ARM 32bit architecture"
-	other
-	        ? "Unknown architecture"
-	off
-
-
-* NofProcessors() Function
-
-We can detect the number of processors using the NofProcessors() Function
-
-Syntax:
-
-.. code-block:: none
-
-	NofProcessors() ---> nProcessors
-
-Example:
-
-.. code-block:: ring
-
-	? NofProcessors()
-
-.. index:: 
-	pair: What is new in Ring 1.14?; Better Functions
-
-Better Functions
-================
-
-* Log() Function
-
-The functions is updated to support calculating the logarithm to any base
-
-Syntax:
-
-.. code-block:: none
-
-	Log(nNumber)	   --> logarithm of nNumber to the base of e
-	Log(nNumber,nBase) --> logarithm of nNumber to the base of nBase
-
-Example:
-
-.. code-block:: ring
-
-	? log(10)	# 2.30
-	? log(2)	# 0.69
-	? log(10,10)	# 1
-	? log(2,2)	# 1
-	? log(100,10)	# 2
 
 .. index:: 
 	pair: What is new in Ring 1.14?; More Improvements
