@@ -55,6 +55,40 @@ Example (2):
 
 .. code-block:: ring
 
+	load "tilengine.ring"
+
+	WIDTH  = 400
+	HEIGHT = 240
+
+	frame = 0
+
+	/* setup engine */
+	TLN_Init(WIDTH, HEIGHT, 1,0,0)
+
+	/* load layer */
+	tilemap = TLN_LoadTilemap("assets/sonic/Sonic_md_fg1.tmx", NULL)
+
+	/* setup the layer */
+	TLN_SetLayer(0, NULL, tilemap)
+	TLN_SetBGColor(32,32,128)
+
+	/* main loop */
+	TLN_CreateWindow(NULL, 0)
+	while TLN_ProcessWindow ()
+
+		/* scroll the layer, one pixel per frame */
+		TLN_SetLayerPosition (0, frame, 0)
+
+		/* render to the window */
+		TLN_DrawFrame (0)
+
+		frame++
+	end
+
+	/* release resources */
+	TLN_DeleteTilemap(tilemap)
+	TLN_Deinit()
+
 Screen Shot:
 
 .. image:: tilengine_shot2.png
@@ -65,6 +99,33 @@ Example (3):
 
 .. code-block:: ring
 
+	load "tilengine.ring"
+
+	/* engine init */
+	TLN_Init(640,480,0,0,1)
+
+	/* load resources */
+	TLN_SetLoadPath("assets/color")
+	background = TLN_LoadBitmap("beach.png")
+	palette    = TLN_GetBitmapPalette(background)
+	sp	   = TLN_LoadSequencePack("beach.sqx")
+	sequence   = TLN_FindSequence(sp, "beach")
+
+	/* setup */
+	TLN_SetBGBitmap(background)
+	TLN_SetPaletteAnimation(0, palette, sequence, true)
+
+	/* main loop */
+	TLN_CreateWindow(NULL, 0)
+	while(TLN_ProcessWindow())
+		TLN_DrawFrame(0)
+	end
+
+	TLN_DeleteBitmap(background)
+	TLN_DeleteSequencePack(sp)
+	TLN_Deinit()
+
+
 Screen Shot:
 
 .. image:: tilengine_shot3.png
@@ -73,6 +134,59 @@ Screen Shot:
 Example (4):
 
 .. code-block:: ring
+
+	load "tilengine.ring"
+
+	WIDTH = 400
+	HEIGHT=	240
+
+	LAYER_FOREGROUND = 0
+	LAYER_BACKGROUND = 1
+	MAX_LAYER = 2
+
+
+	player_x = -16
+	player_y = 160
+
+	/* basic setup */
+	TLN_Init(WIDTH, HEIGHT, MAX_LAYER,1,0)
+	TLN_SetBGColor(0, 96, 184)
+
+	/* load resources */
+	TLN_SetLoadPath("assets/smw")
+	foreground = TLN_LoadTilemap("smw_foreground.tmx", NULL)
+	background = TLN_LoadTilemap("smw_background.tmx", NULL)
+	TLN_SetLayerTilemap(LAYER_FOREGROUND, foreground)
+	TLN_SetLayerTilemap(LAYER_BACKGROUND, background)
+	TLN_SetLayerPosition(LAYER_FOREGROUND, 0,48)
+	TLN_SetLayerPosition(LAYER_BACKGROUND, 0,80)
+
+	/* setup sprite */
+	spriteset = TLN_LoadSpriteset("smw_sprite")
+	TLN_SetSpriteSet(0, spriteset)
+	TLN_SetSpritePicture(0, 0)
+	TLN_SetSpritePosition(0, player_x, player_y)
+
+	/* setup animations */
+	seq_walking = TLN_CreateSpriteSequence(NULL, spriteset, "walking", 6)
+	TLN_SetSpriteAnimation(0, seq_walking, 0)
+
+	/* main loop */
+	TLN_CreateWindow(NULL, 0)
+	while TLN_ProcessWindow()
+		player_x += 1
+		if player_x >= WIDTH
+			player_x = -16
+		ok
+		TLN_SetSpritePosition(0, player_x, player_y)
+		TLN_DrawFrame(0)
+	end
+
+	/* deinit */
+	TLN_DeleteTilemap(foreground)
+	TLN_DeleteTilemap(background)
+	TLN_Deinit()
+
 
 Screen Shot:
 
@@ -83,6 +197,88 @@ Example (5):
 
 .. code-block:: ring
 
+	load "tilengine.ring"
+
+	HRES = 424
+	VRES = 240
+
+	LAYER_PROPS_FRONT 	= 0
+	LAYER_FOREGROUND 	= 1
+	LAYER_PROPS 		= 2
+	LAYER_MIDDLEGROUND	= 3
+	LAYER_BACKGROUND	= 4
+	NUM_LAYERS		= 5
+
+	xworld = 0
+	oldx = -1
+
+	TLN_Init(HRES, VRES, NUM_LAYERS, 8, 0)
+
+	/* load assets */
+	TLN_SetLogLevel(TLN_LOG_ERRORS)
+	TLN_SetLoadPath("assets/forest")
+	foreground = TLN_LoadTilemap("map.tmx", "Main Layer")
+	middleground = TLN_LoadBitmap("middleground.png")
+	background = TLN_LoadBitmap("background.png")
+	atlas = TLN_LoadSpriteset("atlas.png")
+	props_list = TLN_LoadObjectList("map.tmx", NULL)
+
+	/* setup layers */
+	TLN_SetLayer(LAYER_FOREGROUND, NULL, foreground)
+	TLN_SetLayerBitmap(LAYER_MIDDLEGROUND, middleground)
+	TLN_SetLayerBitmap(LAYER_BACKGROUND, background)
+	width = TLN_GetLayerWidth(LAYER_FOREGROUND)
+	height = TLN_GetLayerHeight(LAYER_FOREGROUND)
+
+	/* objects layer: add back objects (behind sprites) */
+	TLN_SetLayerObjects(LAYER_PROPS, props_list, NULL)
+
+	/* sync props layer positions to main layer */
+	TLN_SetLayerParent(LAYER_PROPS_FRONT, LAYER_FOREGROUND)
+	TLN_SetLayerParent(LAYER_PROPS, LAYER_FOREGROUND)
+
+	/* create sprite sequences */
+	idle = TLN_CreateSpriteSequence(NULL, atlas, "player-idle/player-idle-", 6)
+	skip = TLN_CreateSpriteSequence(NULL, atlas, "player-skip/player-skip-", 6)
+
+	/* setup main player sprite */
+	xplayer = 48
+	yplayer = 144
+	TLN_ConfigSprite(0, atlas, 0)
+	TLN_SetSpriteAnimation(0, idle, 0)
+
+	/* create window & main loop */
+	TLN_CreateWindow(NULL, 0)
+	while TLN_ProcessWindow()
+		TLN_DrawFrame(0)
+
+		/* move 3 pixels right/left main layer */
+		if (TLN_GetInput(INPUT_LEFT) && xworld > 0)
+			xworld -= 3
+		elseif (TLN_GetInput(INPUT_RIGHT) && xworld < width - HRES)
+			xworld += 3
+		ok
+
+		/* update on change */
+		if xworld != oldx
+			TLN_SetLayerPosition(LAYER_FOREGROUND, xworld, 32)
+			TLN_SetLayerPosition(LAYER_MIDDLEGROUND, xworld / 2, 0)
+			TLN_SetLayerPosition(LAYER_BACKGROUND, xworld / 3, 0)
+			TLN_SetSpritePosition(0, xplayer - xworld, yplayer)
+			oldx = xworld
+		ok
+	end
+
+	/* release resources */
+	TLN_DeleteTilemap(foreground)
+	TLN_DeleteBitmap(middleground)
+	TLN_CloseResourcePack()
+	TLN_DeleteSpriteset(atlas)
+	TLN_DeleteObjectList(props_list)
+
+	TLN_DeleteWindow()
+	TLN_Deinit()
+
 Screen Shot:
 
 .. image:: tilengine_shot5.png
@@ -91,6 +287,133 @@ Screen Shot:
 Example (6):
 
 .. code-block:: ring
+
+	load "tilengine.ring"
+	load "sin.ring"
+
+	WIDTH		 = 400
+	HEIGHT		 = 240
+	FIXED_BITS	 = 16
+	LAYER_FOREGROUND = 0
+	LAYER_BACKGROUND = 1
+	MAX_LAYER	 = 2
+	MAP_HORIZON	 = 0
+	MAP_TRACK	 = 1
+	MAX_MAP		 = 2
+
+	road		 = NULL
+	x		 = NULL
+	y		 = NULL
+	angle		 = NULL
+
+	func main
+
+		/* setup engine */
+
+			TLN_Init (WIDTH,HEIGHT, MAX_LAYER, 0, 0)
+			TLN_SetRasterCallback ("raster_callback()")
+			TLN_SetBGColor (0,0,0)
+
+		/* load resources*/
+
+			TLN_SetLoadPath ("assets/smk")
+			road = TLN_LoadTilemap ("track1.tmx", NULL)
+			horizon = TLN_LoadTilemap ("track1_bg.tmx", NULL)
+
+		/* startup display */
+
+			TLN_CreateWindow (NULL, 0)
+			x = int2fix(-136)
+			y = int2fix(336)
+			s = 0
+			a = float2fix(0.2)
+			angle = 0
+			BuildSinTable ()
+
+		/* main loop */
+
+			while (TLN_ProcessWindow ())
+				TLN_SetLayerTilemap (LAYER_FOREGROUND, horizon)
+				TLN_SetLayerTilemap (LAYER_BACKGROUND, horizon)
+				TLN_SetLayerPosition (LAYER_FOREGROUND, lerp(angle*2, 0,360, 0,256), 24)
+				TLN_SetLayerPosition (LAYER_BACKGROUND, lerp(angle, 0,360, 0,256), 0)
+				TLN_ResetLayerMode (LAYER_BACKGROUND)
+
+				/* input */		
+
+					if (TLN_GetInput (INPUT_LEFT))
+						angle-=2
+					elseif (TLN_GetInput (INPUT_RIGHT))
+						angle+=2
+					ok
+
+					if (TLN_GetInput (INPUT_UP))
+						s += a
+						if (s > int2fix(2))
+							s = int2fix(2)
+						ok
+					elseif (s >= a)
+						s -= a
+					ok
+
+					if (TLN_GetInput (INPUT_DOWN))
+						s -= a
+						if (s < -int2fix(2))
+							s = -int2fix(2)
+						ok
+					elseif (s <= -a)
+						s += a
+					ok
+
+					if (s != 0)
+						angle = angle%360
+						if (angle < 0)
+							angle += 360
+						ok
+
+						x += CalcSin (angle, s)
+						y -= CalcCos (angle, s)
+					ok
+
+				/* render to window */
+
+					TLN_DrawFrame (0)
+		end
+
+		/* deinit */
+
+			TLN_DeleteTilemap (road)
+			TLN_DeleteTilemap (horizon)
+			TLN_DeleteWindow ()
+			TLN_Deinit ()
+
+
+	/* raster callback (virtual HBLANK) */
+
+	func raster_callback 
+
+		line = TLN_GETSCANLINE()
+
+		if (line = 24)
+			TLN_SetLayerTilemap (LAYER_BACKGROUND, road)
+			TLN_SetLayerPosition (LAYER_BACKGROUND, fix2int(x), fix2int(y))
+			TLN_DisableLayer (LAYER_FOREGROUND)
+		elseif (line >= 24)
+			s0 = float2fix (0.2)
+			s1 = float2fix (5.0)
+			s = lerp (line, 24,HEIGHT, s0,s1)
+			scale = fix2float (s)
+			TLN_SetLayerTransform (LAYER_BACKGROUND, angle, WIDTH/2, HEIGHT, scale, scale)
+		ok
+
+	func lerp x,x0,x1,fx0,fx1
+		return (fx0) + ((fx1) - (fx0)) * ((x) - (x0))/((x1) - (x0))
+
+	func float2fix f	return f * (1 << FIXED_BITS)
+	func int2fix i		return i << FIXED_BITS
+	func fix2int f		return f >> FIXED_BITS
+	func fix2float f	return f/(1 << FIXED_BITS)
+
 
 Screen Shot:
 
@@ -101,6 +424,89 @@ Example (7):
 
 .. code-block:: ring
 
+	load "tilengine.ring"
+	load "sin.ring"
+
+	WIDTH   =	320
+	HEIGHT  =	192
+	COLUMNS	= WIDTH/8 + 2
+
+	/* layers */
+	LAYER_FOREGROUND = 0
+	LAYER_BACKGROUND = 1
+	MAX_LAYER = 2
+
+	frame = 0
+	column = list(COLUMNS)
+
+	/* entry point */
+	func main
+
+		/* setup engine */
+
+			TLN_Init (WIDTH,HEIGHT, MAX_LAYER, 0, 5)
+			TLN_SetRasterCallback ("raster_callback()")
+			TLN_SetBGColor (0,0,0)
+
+		/* load resources*/
+
+			TLN_SetLoadPath ("assets/tf3")
+			foreground = TLN_LoadTilemap ("tf3_bg2.tmx", NULL)
+			background = TLN_LoadTilemap ("tf3_bg3.tmx", NULL)
+			TLN_SetLayerTilemap (LAYER_FOREGROUND, foreground)
+			TLN_SetLayerTilemap (LAYER_BACKGROUND, background)
+
+			BuildSinTable ()
+
+			# Convert the Column List to Array of Integers  	
+				intArray = "" for item in column intArray += int2Bytes(item) next 		
+
+			TLN_SetLayerColumnOffset (LAYER_BACKGROUND, :intArray)
+
+		/* main loop */
+
+			TLN_CreateWindow (NULL, 0)
+			while (TLN_ProcessWindow ())
+
+				/* scroll */
+
+					TLN_SetLayerPosition (LAYER_FOREGROUND, frame*3, 0)
+					TLN_SetLayerPosition (LAYER_BACKGROUND, frame, 0)
+
+				/* update column offset table */
+
+					for c=1 to COLUMNS
+						column[c] = CalcSin (frame*5 + c*20, 3)		
+					next
+
+				/* render to window */
+
+					TLN_DrawFrame (frame)
+					frame++
+
+			end
+
+			/* deinit */
+
+				TLN_DeleteTilemap (foreground)
+				TLN_DeleteTilemap (background)
+				TLN_Deinit ()
+
+	func raster_callback 
+
+		/* raster callback (virtual HBLANK) */
+
+			line = TLN_GetScanLine()
+			TLN_SetLayerPosition (LAYER_FOREGROUND, frame*2, CalcSin((frame+line)<<1, 8) + 8)
+			TLN_SetLayerPosition (LAYER_BACKGROUND, frame + CalcSin((frame + line)<<1, 10), 0)
+
+	func lerp x,x0,x1,fx0,fx1
+
+		/* linear interploation */
+
+			return (fx0) + ((fx1) - (fx0))*((x) - (x0))/((x1) - (x0))
+
+
 Screen Shot:
 
 .. image:: tilengine_shot7.png
@@ -110,6 +516,154 @@ Example (8):
 
 .. code-block:: ring
 
+	load "tilengine.ring"
+
+	WIDTH  = 400
+	HEIGHT = 240
+
+	sky = [
+		[0x1D, 0x44, 0x7B],
+		[0x7F, 0xA4, 0xD9],
+		[0x0B, 0x00, 0x4E],
+		[0xEB, 0x99, 0x9D]
+	]
+
+	sky_hi_r = 0
+	sky_hi_g = 0
+	sky_hi_b = 0
+	sky_lo_r = 0
+	sky_lo_g = 0
+	sky_lo_b = 0
+
+	frame = 0
+	xpos = 0
+	speed = 2
+	max_xpos = 4720
+
+	/* layers */
+		LAYER_FOREGROUND = 0
+		LAYER_BACKGROUND = 1
+		MAX_LAYER = 2
+
+
+	/* entry point */
+	func main 
+
+		/* setup engine */
+			TLN_Init (WIDTH, HEIGHT, 2,1,0)
+			TLN_SetBGColor (0,128,238)
+			TLN_SetRasterCallback ("raster_callback()")
+
+		/* load resources */
+			TLN_SetLoadPath ("assets/sotb")
+			foreground = TLN_LoadTilemap ("SOTB_fg.tmx", NULL)
+			background = TLN_LoadTilemap ("SOTB_bg.tmx", NULL)
+			TLN_SetLayerTilemap (LAYER_FOREGROUND, foreground)
+			TLN_SetLayerTilemap (LAYER_BACKGROUND, background)
+
+		spriteset = TLN_LoadSpriteset ("SOTB")
+		walk = TLN_CreateSpriteSequence (NULL, spriteset, "walk", 6)
+
+		TLN_SetSpriteSet (0, spriteset)
+		TLN_SetSpritePosition (0, 200,160)
+		TLN_SetSpriteAnimation (0, walk, 0)
+		
+		xpos = 2000
+
+		sky_hi_r = sky[1][1]
+		sky_hi_g = sky[1][2]
+		sky_hi_b = sky[1][3]
+		sky_lo_r = sky[2][1]
+		sky_lo_g = sky[2][2]
+		sky_lo_b = sky[2][3]
+
+		/* main loop */
+		TLN_CreateWindow (NULL, 0)
+		while (TLN_ProcessWindow ())
+		{
+			if (xpos < max_xpos)
+			{
+				xpos += speed
+				if (xpos >= max_xpos)
+				{
+					TLN_DisableSpriteAnimation (0)
+					TLN_SetSpritePicture (0, 0)
+				}
+			}
+				
+			/* sky gradient */
+			if (frame>=300 && frame<=900)
+			{
+				/* interpolate upper color */
+				sky_hi_r = lerp (frame, 300,900, sky[1][1], sky[3][1])
+				sky_hi_g = lerp (frame, 300,900, sky[1][2], sky[3][2])
+				sky_hi_b = lerp (frame, 300,900, sky[1][3], sky[3][3])
+
+				/* interpolate lower color */
+				sky_lo_r = lerp (frame, 300,900, sky[2][1], sky[4][1])
+				sky_lo_g = lerp (frame, 300,900, sky[2][2], sky[4][2])
+				sky_lo_b = lerp (frame, 300,900, sky[2][3], sky[4][3])
+			}
+
+			TLN_SetLayerPosition (LAYER_FOREGROUND, xpos, 0)
+
+			/* render to the window */
+			TLN_DrawFrame (frame)
+			frame++
+		}
+
+		/* release resources */
+		TLN_DeleteSequence(walk)
+		TLN_DeleteTilemap (foreground)
+		TLN_DeleteTilemap (background)
+		TLN_Deinit ()
+
+	func raster_callback
+
+		line = TLN_GetScanLine()
+		pos = 0
+
+		/* sky color */
+		if (line < 192)
+		{
+			//color = new RGB
+			/* interpolate between upper and lower color */
+			r = lerp (line, 0,191, sky_hi_r, sky_lo_r)
+			g = lerp (line, 0,191, sky_hi_g, sky_lo_g)
+			b = lerp (line, 0,191, sky_hi_b, sky_lo_b)
+			TLN_SetBGColor (r, g ,b)
+		}
+
+		/* background layer */
+		pos = -1
+		if (line = 0 || line = 24 || line = 64 || line = 88 || line = 96)
+			pos = lerp (line, 0,96, xpos*0.7 , xpos*0.2 )
+		elseif (line = 120)
+			pos = xpos/2
+		elseif (line = 208 || line = 216 || line = 224 || line = 232)
+			pos = lerp (line,208,232,xpos*1,xpos*2)
+		ok
+
+		if (pos != -1)
+			TLN_SetLayerPosition (LAYER_BACKGROUND, pos, 0)
+		ok
+
+		/* foreground layer */
+		pos = -1
+		if (line = 0)
+			pos = xpos
+		elseif (line = 216)
+			pos = xpos*3
+		ok
+		if (pos != -1)
+			TLN_SetLayerPosition (LAYER_FOREGROUND, pos, 0)
+		ok
+
+	func lerp x,x0,x1,fx0,fx1
+		/* linear interploation */
+		return (fx0 + (fx1-fx0)*(x-x0)/(x1-x0))
+
+
 Screen Shot:
 
 .. image:: tilengine_shot8.png
@@ -118,6 +672,106 @@ Screen Shot:
 Example (9):
 
 .. code-block:: ring
+
+	load "tilengine.ring"
+
+	WIDTH	 = 400
+	HEIGHT = 240
+
+	MIN_SCALE = 50
+	MAX_SCALE	= 200
+
+	/* RGB sky colors */
+	sky = [
+		[0x19, 0x54, 0x75],
+		[0x2C, 0xB0, 0xDC]
+	]
+
+	/* layers */
+	LAYER_FOREGROUND = 0
+	LAYER_BACKGROUND = 1
+	MAX_LAYER = 2
+
+	xpos=0 ypos=0 scale=0
+
+	/* entry point */
+	func main
+
+		/* setup engine */
+		TLN_Init (WIDTH, HEIGHT, MAX_LAYER,0,0)
+		TLN_SetBGColor (34,136,170)
+		TLN_SetRasterCallback ("raster_callback()")
+
+		/* load resources */
+		TLN_SetLoadPath ("assets/fox")
+		foreground = TLN_LoadTilemap ("psycho.tmx", NULL)
+		background = TLN_LoadTilemap ("rolo.tmx", NULL)
+		TLN_SetLayerTilemap (LAYER_FOREGROUND, foreground)
+		TLN_SetLayerTilemap (LAYER_BACKGROUND, background)
+		
+		/* initial values */
+		xpos = 0
+		ypos = 192
+		scale = 100
+		
+		/* main loop */
+		TLN_CreateWindow (NULL, 0)
+		while TLN_ProcessWindow ()
+			/* user input */
+			if TLN_GetInput (INPUT_LEFT)
+				xpos-- ok
+			if TLN_GetInput (INPUT_RIGHT)
+				xpos++ ok
+			if TLN_GetInput (INPUT_UP) && ypos > 0
+				ypos-- ok
+			if TLN_GetInput (INPUT_DOWN)
+				ypos++ ok
+			if TLN_GetInput (INPUT_A) && scale < MAX_SCALE
+				scale += 1 ok
+			if TLN_GetInput (INPUT_B) && scale > MIN_SCALE
+				scale -= 1 ok
+
+			/* calculate scale factor from fixed point base */
+			fgscale = scale/100.0f
+			bgscale = lerp(scale, MIN_SCALE,MAX_SCALE, 0.75,1.5)
+
+			/* scale dependant lower clipping */
+			maxy = 640 - (240*100/scale)
+			if ypos > maxy
+				ypos = maxy
+			ok
+			
+			/* update position */
+			bgypos = lerp(scale,MIN_SCALE,MAX_SCALE, 0,80)
+			TLN_SetLayerPosition (LAYER_FOREGROUND, xpos*2, ypos)
+			TLN_SetLayerPosition (LAYER_BACKGROUND, xpos, bgypos)
+			TLN_SetLayerScaling (LAYER_FOREGROUND, fgscale, fgscale)
+			TLN_SetLayerScaling (LAYER_BACKGROUND, bgscale, bgscale)
+
+			/* render to the window */
+			TLN_DrawFrame (0)
+		end
+
+		/* release resources */
+		TLN_DeleteTilemap (foreground)
+		TLN_DeleteTilemap (background)
+		TLN_Deinit ()
+
+
+	/* sky color gradient with raster effect */
+	func raster_callback
+		line = TLN_GetScanLine()
+		if line <= 152
+			r = lerp (line, 0,152, sky[1][1], sky[2][1])
+			g = lerp (line, 0,152, sky[1][2], sky[2][2])
+			b = lerp (line, 0,152, sky[1][3], sky[2][3])
+			TLN_SetBGColor (r, g, b)
+		ok
+
+	/* linear interploation */
+	func lerp x,x0,x1,fx0,fx1
+		return (fx0) + ((fx1) - (fx0))*((x) - (x0))/((x1) - (x0))
+
 
 Screen Shot:
 

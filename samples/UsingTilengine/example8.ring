@@ -4,7 +4,7 @@
 
 load "tilengine.ring"
 
-WIDTH	 = 400
+WIDTH  = 400
 HEIGHT = 240
 
 sky = [
