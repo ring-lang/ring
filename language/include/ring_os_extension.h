@@ -44,20 +44,21 @@
 
 	void ring_vm_os_sysunset ( void *pPointer ) ;
 
-	void ring_vm_os_nofprocessors( void *pPointer ) ;
+	void ring_vm_os_nofprocessors ( void *pPointer ) ;
 
-	double ring_vm_os_uptime ( ) ;
+	double ring_vm_os_calcuptime ( void ) ;
+
+	void ring_vm_os_uptime ( void *pPointer ) ;
 	/* Constants */
-
 	#define RING_VM_POINTER_LIBNAME "os"
 	#ifdef _WIN32
 		#include "windows.h"
 		typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
-		LPFN_ISWOW64PROCESS fnCheckWindows64  ;
+		static LPFN_ISWOW64PROCESS fnCheckWindows64  ;
 		#define ring_clock_gettime clock_gettime
 	#else
-		#define	MILISEC 1000
-		#define	MICROSEC (MILISEC*MILISEC)
+		#define MILISEC 1000
+		#define MICROSEC (MILISEC*MILISEC)
 		#define NANOSEC (MICROSEC*MILISEC)
 		#if __MACH__
 			/* Mac OS X */

@@ -194,6 +194,4 @@
 	/* Thread safe */
 
 	void ring_vm_generallib_randomize ( void *pPointer ) ;
-
-	void ring_vm_generallib_uptime ( void *pPointer ) ;
 #endif

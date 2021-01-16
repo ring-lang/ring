@@ -121,9 +121,6 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_give",ring_vm_generallib_give);
 	/* Thread Safe */
 	ring_vm_funcregister("randomize",ring_vm_generallib_randomize);
-	ring_vm_funcregister("uptime",ring_vm_generallib_uptime);
-	/* Other Modules */
-	ring_vm_extension(pRingState);
 }
 /*
 **  Library Functions 
@@ -325,7 +322,7 @@ void ring_vm_generallib_random ( void *pPointer )
 	int nNum1,nNum2  ;
 	nNum1 = rand() ;
 	#ifdef _MSC_VER
-		rand_s( &nNum2 );
+		rand_s(&nNum2);
 		nNum1 = (unsigned int) ( nNum2 * nNum1 ) >> 1 ;
 	#endif
 	if ( RING_API_PARACOUNT == 0 ) {
@@ -346,25 +343,33 @@ void ring_vm_generallib_random ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 	}
 }
-/* 64 bit thread safe random generator using high precision timer as seed on the Unix systems */
-/* Or using Windows Security Features by the CRT having the _s ("secure") suffix since XP */
-/* This random generator doesn't require a seed to be given by the user */
+/*
+**  Thread safe 
+**  64 bit thread safe random generator using high precision timer as seed on the Unix systems 
+**  Or using Windows Security Features by the CRT having the _s ("secure") suffix since XP 
+**  This random generator doesn't require a seed to be given by the user 
+*/
 
 void ring_vm_generallib_randomize ( void *pPointer )
 {
 	RING_UNSIGNEDLONGLONG nNum1,nNum2  ;
 	#if ! defined(_WIN32)
-		struct timespec ts;
+		struct timespec ts  ;
 		ring_clock_gettime(CLOCK_UPTIME, &ts);
 		/* Compensate to match 0.1 ms resolution on Windows */
 		nNum1 = ( ( ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / 100 ;
 		/* Randomize by using high precision timer */
-		nNum1 *= rand_r( (unsigned int *) &ts.tv_nsec );
+		#if defined(__ANDROID__)
+			RING_API_ERROR("The Randomize() function is not supported on Android");
+			return ;
+		#else
+			nNum1 *= rand_r( (unsigned int *) &ts.tv_nsec ) ;
+		#endif
 	#else
-		LARGE_INTEGER ElapsedMicroseconds;
+		LARGE_INTEGER ElapsedMicroseconds  ;
 		QueryPerformanceCounter(&ElapsedMicroseconds);
-		rand_s( &nNum2 );
-		nNum1 = ElapsedMicroseconds.QuadPart * nNum2;
+		rand_s(&nNum2);
+		nNum1 = ElapsedMicroseconds.QuadPart * nNum2 ;
 	#endif
 	if ( RING_API_PARACOUNT == 0 ) {
 		RING_API_RETNUMBER(nNum1);
@@ -2062,9 +2067,3 @@ void ring_vm_generallib_addsublistsbyfastcopy ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
-
-void ring_vm_generallib_uptime ( void *pPointer )
-{
-	RING_API_RETNUMBER(ring_vm_os_uptime());
-}
-

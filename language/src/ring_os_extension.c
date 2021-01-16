@@ -24,6 +24,7 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("system",ring_vm_os_system);
 	ring_vm_funcregister("shutdown",ring_vm_os_shutdown);
 	ring_vm_funcregister("nofprocessors",ring_vm_os_nofprocessors);
+	ring_vm_funcregister("uptime",ring_vm_os_uptime);
 	/* Environment Variables */
 	ring_vm_funcregister("sysget",ring_vm_os_sysget);
 	ring_vm_funcregister("sysset",ring_vm_os_sysset);
@@ -268,38 +269,41 @@ void ring_vm_os_sysunset ( void *pPointer )
 
 void ring_vm_os_nofprocessors ( void *pPointer )
 {
-#ifdef _WIN32
-	SYSTEM_INFO sysinfo;
-	GetSystemInfo(&sysinfo);
-	RING_API_RETNUMBER(sysinfo.dwNumberOfProcessors);
-#else
-	RING_API_RETNUMBER((double)sysconf(_SC_NPROCESSORS_ONLN));
-#endif
+	#ifdef _WIN32
+		SYSTEM_INFO sysinfo  ;
+		GetSystemInfo(&sysinfo);
+		RING_API_RETNUMBER(sysinfo.dwNumberOfProcessors);
+	#else
+		RING_API_RETNUMBER((double)sysconf(_SC_NPROCESSORS_ONLN));
+	#endif
 }
 /* Mac OS doesn't provide clock_gettime function prior v. 10.12 */
-/* We use custom function to get it running on all Mac systems */
+#if defined __MACH__ && __MAC_OS_X_VERSION_MIN_REQUIRED < 101200
 
-#if defined __MACH__
-
-	int ring_clock_gettime(int clk_id, struct timespec* ts)
+	int ring_clock_gettime ( int clk_id, struct timespec* ts )
 	{
-		uint64_t nsec = mach_absolute_time();
+		uint64_t nsec = mach_absolute_time() ;
 		ts->tv_sec = nsec / NANOSEC ;
-		ts->tv_nsec = nsec % NANOSEC;
-		return 0;
+		ts->tv_nsec = nsec % NANOSEC; ;
+		return 0 ;
 	}
 #endif
 
-double ring_vm_os_uptime ()
+double ring_vm_os_calcuptime ( void )
 {
 	#ifdef _WIN32
-		LARGE_INTEGER ElapsedMicroseconds;
+		LARGE_INTEGER ElapsedMicroseconds  ;
 		QueryPerformanceCounter(&ElapsedMicroseconds);
-		return ElapsedMicroseconds.QuadPart;
+		return ElapsedMicroseconds.QuadPart ;
 	#else
-		struct timespec ts;
+		struct timespec ts  ;
 		ring_clock_gettime(CLOCK_UPTIME, &ts);
 		/* Compensate to match 0.1 ms resolution on Windows */
 		return ( ( ts.tv_sec * NANOSEC ) + ( ts.tv_nsec ) ) / 100 ;
 	#endif
+}
+
+void ring_vm_os_uptime ( void *pPointer )
+{
+	RING_API_RETNUMBER(ring_vm_os_calcuptime());
 }
