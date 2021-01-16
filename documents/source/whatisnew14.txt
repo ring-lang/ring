@@ -690,5 +690,7 @@ More Improvements
 * RingQtRuntime Package: Using GUILib & ObjectsLib packages
 * GameEngine - Add the delay function to the Graphics Library: gl_delay() function
 * GameEngine - Using the Resources Class when loading the Window Icon
+* RingAllegro - Better Code
+* RingMurmurHash - Better Code
 * RingOpenSSL - RandBytes() function - Better Code
 * RingZip - GetFileNameByIndex() function - Better Code
