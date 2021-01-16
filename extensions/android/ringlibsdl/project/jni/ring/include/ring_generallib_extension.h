@@ -191,4 +191,7 @@
 	void ring_vm_generallib_addsublistsbymove ( void *pPointer ) ;
 
 	void ring_vm_generallib_addsublistsbyfastcopy ( void *pPointer ) ;
+	/* Thread safe */
+
+	void ring_vm_generallib_randomize ( void *pPointer ) ;
 #endif

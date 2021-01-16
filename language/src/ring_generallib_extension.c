@@ -361,7 +361,12 @@ void ring_vm_generallib_randomize ( void *pPointer )
 		/* Compensate to match 0.1 ms resolution on Windows */
 		nNum1 = ( ( ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / 100 ;
 		/* Randomize by using high precision timer */
-		nNum1 *= rand_r( (unsigned int *) &ts.tv_nsec ) ;
+		#if defined(__ANDROID__)
+			RING_API_ERROR("The Randomize() function is not supported on Android");
+			return ;
+		#else
+			nNum1 *= rand_r( (unsigned int *) &ts.tv_nsec ) ;
+		#endif
 	#else
 		LARGE_INTEGER ElapsedMicroseconds  ;
 		QueryPerformanceCounter(&ElapsedMicroseconds);
