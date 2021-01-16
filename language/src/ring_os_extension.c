@@ -277,9 +277,11 @@ void ring_vm_os_nofprocessors ( void *pPointer )
 #endif
 }
 /* Mac OS doesn't provide clock_gettime function prior v. 10.12 */
-#if defined __MACH__ && __MAC_OS_X_VERSION_MIN_REQUIRED < 101200
+/* We use custom function to get it running on all Mac systems */
 
-	int clock_gettime(int clk_id, struct timespec* ts)
+#if defined __MACH__
+
+	int ring_clock_gettime(int clk_id, struct timespec* ts)
 	{
 		uint64_t nsec = mach_absolute_time();
 		ts->tv_sec = nsec / NANOSEC ;
@@ -296,7 +298,7 @@ double ring_vm_os_uptime ()
 		return ElapsedMicroseconds.QuadPart;
 	#else
 		struct timespec ts;
-		clock_gettime(CLOCK_UPTIME, &ts);
+		ring_clock_gettime(CLOCK_UPTIME, &ts);
 		/* Compensate to match 0.1 ms resolution on Windows */
 		return ( ( ts.tv_sec * NANOSEC ) + ( ts.tv_nsec ) ) / 100 ;
 	#endif

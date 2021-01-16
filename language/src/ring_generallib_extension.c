@@ -355,7 +355,7 @@ void ring_vm_generallib_randomize ( void *pPointer )
 	RING_UNSIGNEDLONGLONG nNum1,nNum2  ;
 	#if ! defined(_WIN32)
 		struct timespec ts;
-		clock_gettime(CLOCK_UPTIME, &ts);
+		ring_clock_gettime(CLOCK_UPTIME, &ts);
 		/* Compensate to match 0.1 ms resolution on Windows */
 		nNum1 = ( ( ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / 100 ;
 		/* Randomize by using high precision timer */

@@ -54,6 +54,7 @@
 		#include "windows.h"
 		typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
 		LPFN_ISWOW64PROCESS fnCheckWindows64  ;
+		#define ring_clock_gettime clock_gettime
 	#else
 		#define	MILISEC 1000
 		#define	MICROSEC (MILISEC*MILISEC)
@@ -62,6 +63,8 @@
 			/* Mac OS X */
 			#include <mach-o/dyld.h>
 			#include <mach/mach_time.h>
+		#else
+			#define ring_clock_gettime clock_gettime
 		#endif
 		#ifdef __FreeBSD__
 			#define CLOCK_UPTIME CLOCK_UPTIME_PRECISE
