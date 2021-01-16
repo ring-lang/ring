@@ -4188,17 +4188,11 @@ Class QLocale
 	Func toDouble_2 P1,P2
 		return QLocale_toDouble_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
-	Func toDouble_3 P1,P2
-		return QLocale_toDouble_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
 	Func toFloat P1,P2
 		return QLocale_toFloat(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func toFloat_2 P1,P2
 		return QLocale_toFloat_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func toFloat_3 P1,P2
-		return QLocale_toFloat_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func toInt P1,P2
 		return QLocale_toInt(pObject,P1,GetObjectPointerFromRingObject(P2))
@@ -4206,26 +4200,17 @@ Class QLocale
 	Func toInt_2 P1,P2
 		return QLocale_toInt_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
-	Func toInt_3 P1,P2
-		return QLocale_toInt_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
 	Func toLong P1,P2
 		return QLocale_toLong(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func toLong_2 P1,P2
 		return QLocale_toLong_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
-	Func toLong_3 P1,P2
-		return QLocale_toLong_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
 	Func toLongLong P1,P2
 		return QLocale_toLongLong(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func toLongLong_2 P1,P2
 		return QLocale_toLongLong_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func toLongLong_3 P1,P2
-		return QLocale_toLongLong_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func toLower P1
 		return QLocale_toLower(pObject,P1)
@@ -4235,9 +4220,6 @@ Class QLocale
 
 	Func toShort_2 P1,P2
 		return QLocale_toShort_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func toShort_3 P1,P2
-		return QLocale_toShort_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func toString P1
 		return QLocale_toString(pObject,GetObjectPointerFromRingObject(P1))
@@ -4278,15 +4260,6 @@ Class QLocale
 	Func toString_13 P1,P2
 		return QLocale_toString_13(pObject,GetObjectPointerFromRingObject(P1),P2)
 
-	Func toString_14 P1,P2
-		return QLocale_toString_14(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func toString_15 P1,P2
-		return QLocale_toString_15(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func toString_16 P1,P2
-		return QLocale_toString_16(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
 	Func toString_17 P1,P2
 		return QLocale_toString_17(pObject,GetObjectPointerFromRingObject(P1),P2)
 
@@ -4312,17 +4285,11 @@ Class QLocale
 	Func toUInt_2 P1,P2
 		return QLocale_toUInt_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
-	Func toUInt_3 P1,P2
-		return QLocale_toUInt_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
 	Func toULong P1,P2
 		return QLocale_toULong(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func toULong_2 P1,P2
 		return QLocale_toULong_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func toULong_3 P1,P2
-		return QLocale_toULong_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func toULongLong P1,P2
 		return QLocale_toULongLong(pObject,P1,GetObjectPointerFromRingObject(P2))
@@ -4330,17 +4297,11 @@ Class QLocale
 	Func toULongLong_2 P1,P2
 		return QLocale_toULongLong_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
-	Func toULongLong_3 P1,P2
-		return QLocale_toULongLong_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
 	Func toUShort P1,P2
 		return QLocale_toUShort(pObject,P1,GetObjectPointerFromRingObject(P2))
 
 	Func toUShort_2 P1,P2
 		return QLocale_toUShort_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-
-	Func toUShort_3 P1,P2
-		return QLocale_toUShort_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 
 	Func toUpper P1
 		return QLocale_toUpper(pObject,P1)
