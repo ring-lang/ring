@@ -290,7 +290,7 @@ void ring_vm_os_nofprocessors ( void *pPointer )
 	}
 #endif
 
-double ring_vm_os_calcuptime ( void )
+double ring_vm_os_getuptime ( void )
 {
 	#ifdef _WIN32
 		LARGE_INTEGER ElapsedMicroseconds  ;

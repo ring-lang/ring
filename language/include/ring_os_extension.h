@@ -46,7 +46,7 @@
 
 	void ring_vm_os_nofprocessors ( void *pPointer ) ;
 
-	double ring_vm_os_calcuptime ( void ) ;
+	double ring_vm_os_getuptime ( void ) ;
 
 	void ring_vm_os_uptime ( void *pPointer ) ;
 	/* Constants */
