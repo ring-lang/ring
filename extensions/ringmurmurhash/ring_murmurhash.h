@@ -19,7 +19,7 @@ int is_bool(int tmp)
 
 #define INT2HEX(dest, val) sprintf(dest, "%x", val)
 
-#define LONG2HEX(dest, val) sprintf(dest, "%lx", val)
+#define LONG2HEX(dest, val) sprintf(dest , RING_UNSIGNEDLONGLONG_FORMAT , (RING_UNSIGNEDLONGLONG) val)
 
 #define MH_RETURN_INT(ret_val, ret_type) { \
     if (ret_type) { \
