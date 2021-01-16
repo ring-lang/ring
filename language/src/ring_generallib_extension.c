@@ -121,7 +121,6 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_give",ring_vm_generallib_give);
 	/* Thread Safe */
 	ring_vm_funcregister("randomize",ring_vm_generallib_randomize);
-	ring_vm_funcregister("uptime",ring_vm_generallib_uptime);
 	/* Other Modules */
 	ring_vm_extension(pRingState);
 }
@@ -2064,9 +2063,4 @@ void ring_vm_generallib_addsublistsbyfastcopy ( void *pPointer )
 	else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
-}
-
-void ring_vm_generallib_uptime ( void *pPointer )
-{
-	RING_API_RETNUMBER(ring_vm_os_uptime());
 }

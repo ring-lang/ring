@@ -24,6 +24,7 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("system",ring_vm_os_system);
 	ring_vm_funcregister("shutdown",ring_vm_os_shutdown);
 	ring_vm_funcregister("nofprocessors",ring_vm_os_nofprocessors);
+	ring_vm_funcregister("uptime",ring_vm_os_uptime);
 	/* Environment Variables */
 	ring_vm_funcregister("sysget",ring_vm_os_sysget);
 	ring_vm_funcregister("sysset",ring_vm_os_sysset);
@@ -288,7 +289,7 @@ void ring_vm_os_nofprocessors ( void *pPointer )
 	}
 #endif
 
-double ring_vm_os_uptime ( void )
+double ring_vm_os_calcuptime ( void )
 {
 	#ifdef _WIN32
 		LARGE_INTEGER ElapsedMicroseconds  ;
@@ -300,4 +301,9 @@ double ring_vm_os_uptime ( void )
 		/* Compensate to match 0.1 ms resolution on Windows */
 		return ( ( ts.tv_sec * NANOSEC ) + ( ts.tv_nsec ) ) / 100 ;
 	#endif
+}
+
+void ring_vm_os_uptime ( void *pPointer )
+{
+	RING_API_RETNUMBER(ring_vm_os_calcuptime());
 }

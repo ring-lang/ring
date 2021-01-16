@@ -46,7 +46,9 @@
 
 	void ring_vm_os_nofprocessors ( void *pPointer ) ;
 
-	double ring_vm_os_uptime ( void ) ;
+	double ring_vm_os_calcuptime ( void ) ;
+
+	void ring_vm_os_uptime ( void *pPointer ) ;
 	/* Constants */
 	#define RING_VM_POINTER_LIBNAME "os"
 	#ifdef _WIN32
