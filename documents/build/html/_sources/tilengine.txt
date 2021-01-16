@@ -13,6 +13,25 @@ The 2D retro graphics engine with raster effects
 
 Tilengine URL: https://github.com/megamarc/Tilengine
 
+Useful links (Original documentation for C programmers)
+
+* Getting started: https://github.com/ring-lang/Tilengine/blob/master/docs/quick_guide.md
+* Initialization: https://github.com/ring-lang/Tilengine/blob/master/docs/starting.md
+* Using the window: https://github.com/ring-lang/Tilengine/blob/master/docs/windowing.md
+* External rendering: https://github.com/ring-lang/Tilengine/blob/master/docs/rendering.md
+* Background layers: https://github.com/ring-lang/Tilengine/blob/master/docs/layers.md
+* Sprites: https://github.com/ring-lang/Tilengine/blob/master/docs/sprites.md
+
+Useful tools
+
+* Tiled Map Editor: https://www.mapeditor.org/
+* aseprite: https://www.aseprite.org/
+* Piskel: https://www.piskelapp.com/
+* GrafX2: http://grafx2.chez.com/
+
+Support
+
+* Tilengine Forum: http://www.tilengine.org/forum/
 
 .. index:: 
 	pair: tilengine; Getting Started 
