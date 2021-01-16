@@ -2667,6 +2667,7 @@ Parameters : QWidget *
 Parent Class : QWidget
 
 * void addItem(QString,int)
+* void addItems(QStringList)
 * QCompleter *completer(void)
 * int count(void)
 * int currentIndex(void)
@@ -2712,6 +2713,7 @@ Parent Class : QWidget
 * void clear(void)
 * void clearEditText(void)
 * void setCurrentIndex(int index)
+* void setCurrentText(QString)
 * void setEditText(QString)
 * void setactivatedEvent(const char *)
 * void setcurrentIndexChangedEvent(const char *)
@@ -3833,6 +3835,9 @@ Parent Class : QDialog
 * const char *getfilterSelectedEvent(void)
 * const char *geturlSelectedEvent(void)
 * const char *geturlsSelectedEvent(void)
+* void saveFileContent(QByteArray fileContent,QString fileNameHint)
+* void getOpenFileContent(const char *cFileTypes, const char *cCode)
+* List *FileContentList(void)
 
 .. index::
 	pair: RingQt Classes Reference; QFileInfo Class
@@ -12199,14 +12204,14 @@ Parent Class : QAbstractAxis
 * void setMin(qreal min)
 * void setMinorTickCount(int count)
 * void setRange(qreal min, qreal max)
-* void setTickAnchor(qreal anchor)
 * void setTickCount(int count)
+* void setTickAnchor(qreal anchor)
 * void setTickInterval(qreal insterval)
 * void setTickType(QValueAxis::TickType type)
 * qreal tickAnchor(void)
-* int tickCount(void)
 * qreal tickInterval(void)
 * QValueAxis::TickType tickType(void)
+* int tickCount(void)
 * void setlabelFormatChangedEvent(const char *)
 * void setmaxChangedEvent(const char *)
 * void setminChangedEvent(const char *)
