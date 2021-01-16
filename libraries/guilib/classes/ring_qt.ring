@@ -4083,11 +4083,6 @@ Class QLocale
 	Func bcp47Name 
 		return QLocale_bcp47Name(pObject)
 
-	Func collation 
-		pTempObj = new QLocale
-		pTempObj.pObject = QLocale_collation(pObject)
-		return pTempObj
-
 	Func country 
 		return QLocale_country(pObject)
 
@@ -4118,9 +4113,6 @@ Class QLocale
 
 	Func firstDayOfWeek 
 		return QLocale_firstDayOfWeek(pObject)
-
-	Func formattedDataSize P1,P2,P3
-		return QLocale_formattedDataSize(pObject,P1,P2,P3)
 
 	Func groupSeparator 
 		pTempObj = new QChar
@@ -4184,84 +4176,11 @@ Class QLocale
 	Func standaloneMonthName P1,P2
 		return QLocale_standaloneMonthName(pObject,P1,P2)
 
-	Func swap P1
-		return QLocale_swap(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func textDirection 
 		return QLocale_textDirection(pObject)
 
 	Func timeFormat P1
 		return QLocale_timeFormat(pObject,P1)
-
-	Func toCurrencyString P1,P2
-		return QLocale_toCurrencyString(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func toCurrencyString_2 P1,P2
-		return QLocale_toCurrencyString_2(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func toCurrencyString_3 P1,P2
-		return QLocale_toCurrencyString_3(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func toCurrencyString_4 P1,P2
-		return QLocale_toCurrencyString_4(pObject,P1,P2)
-
-	Func toCurrencyString_5 P1,P2
-		return QLocale_toCurrencyString_5(pObject,P1,P2)
-
-	Func toCurrencyString_6 P1,P2
-		return QLocale_toCurrencyString_6(pObject,P1,P2)
-
-	Func toCurrencyString_7 P1,P2
-		return QLocale_toCurrencyString_7(pObject,P1,P2)
-
-	Func toCurrencyString_8 P1,P2,P3
-		return QLocale_toCurrencyString_8(pObject,P1,P2,P3)
-
-	Func toCurrencyString_9 P1,P2
-		return QLocale_toCurrencyString_9(pObject,P1,P2)
-
-	Func toCurrencyString_10 P1,P2,P3
-		return QLocale_toCurrencyString_10(pObject,P1,P2,P3)
-
-	Func toDate P1,P2
-		pTempObj = new QDate
-		pTempObj.pObject = QLocale_toDate(pObject,P1,P2)
-		return pTempObj
-
-	Func toDate_2 P1,P2
-		pTempObj = new QDate
-		pTempObj.pObject = QLocale_toDate_2(pObject,P1,P2)
-		return pTempObj
-
-	Func toDate_3 P1,P2,P3
-		pTempObj = new QDate
-		pTempObj.pObject = QLocale_toDate_3(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
-	Func toDate_4 P1,P2,P3
-		pTempObj = new QDate
-		pTempObj.pObject = QLocale_toDate_4(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
-	Func toDateTime P1,P2
-		pTempObj = new QDateTime
-		pTempObj.pObject = QLocale_toDateTime(pObject,P1,P2)
-		return pTempObj
-
-	Func toDateTime_2 P1,P2
-		pTempObj = new QDateTime
-		pTempObj.pObject = QLocale_toDateTime_2(pObject,P1,P2)
-		return pTempObj
-
-	Func toDateTime_3 P1,P2,P3
-		pTempObj = new QDateTime
-		pTempObj.pObject = QLocale_toDateTime_3(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
-		return pTempObj
-
-	Func toDateTime_4 P1,P2,P3
-		pTempObj = new QDateTime
-		pTempObj.pObject = QLocale_toDateTime_4(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
-		return pTempObj
 
 	Func toDouble P1,P2
 		return QLocale_toDouble(pObject,P1,GetObjectPointerFromRingObject(P2))
