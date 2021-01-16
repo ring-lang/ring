@@ -1651,7 +1651,9 @@ Class QVariant
 		return QVariant_toLineF(pObject)
 
 	Func toLocale 
-		return QVariant_toLocale(pObject)
+		pTempObj = new QLocale
+		pTempObj.pObject = QVariant_toLocale(pObject)
+		return pTempObj
 
 	Func toLongLong P1
 		return QVariant_toLongLong(pObject,GetObjectPointerFromRingObject(P1))
@@ -3968,7 +3970,9 @@ Class QTextStream
 		return QTextStream_integerBase(pObject)
 
 	Func locale 
-		return QTextStream_locale(pObject)
+		pTempObj = new QLocale
+		pTempObj.pObject = QTextStream_locale(pObject)
+		return pTempObj
 
 	Func numberFlags 
 		return QTextStream_numberFlags(pObject)
@@ -4058,6 +4062,407 @@ Class QTextStream
 
 	Func string 
 		return QTextStream_string(pObject)
+
+Class QLocale
+
+	pObject
+
+	Func init P1
+		pObject = QLocale_new(P1)
+		return self
+
+	Func delete
+		pObject = QLocale_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func amText 
+		return QLocale_amText(pObject)
+
+	Func bcp47Name 
+		return QLocale_bcp47Name(pObject)
+
+	Func collation 
+		pTempObj = new QLocale
+		pTempObj.pObject = QLocale_collation(pObject)
+		return pTempObj
+
+	Func country 
+		return QLocale_country(pObject)
+
+	Func createSeparatedList P1
+		return QLocale_createSeparatedList(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func currencySymbol P1
+		return QLocale_currencySymbol(pObject,P1)
+
+	Func dateFormat P1
+		return QLocale_dateFormat(pObject,P1)
+
+	Func dateTimeFormat P1
+		return QLocale_dateTimeFormat(pObject,P1)
+
+	Func dayName P1,P2
+		return QLocale_dayName(pObject,P1,P2)
+
+	Func decimalPoint 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_decimalPoint(pObject)
+		return pTempObj
+
+	Func exponential 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_exponential(pObject)
+		return pTempObj
+
+	Func firstDayOfWeek 
+		return QLocale_firstDayOfWeek(pObject)
+
+	Func formattedDataSize P1,P2,P3
+		return QLocale_formattedDataSize(pObject,P1,P2,P3)
+
+	Func groupSeparator 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_groupSeparator(pObject)
+		return pTempObj
+
+	Func language 
+		return QLocale_language(pObject)
+
+	Func measurementSystem 
+		return QLocale_measurementSystem(pObject)
+
+	Func monthName P1,P2
+		return QLocale_monthName(pObject,P1,P2)
+
+	Func name 
+		return QLocale_name(pObject)
+
+	Func nativeCountryName 
+		return QLocale_nativeCountryName(pObject)
+
+	Func nativeLanguageName 
+		return QLocale_nativeLanguageName(pObject)
+
+	Func negativeSign 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_negativeSign(pObject)
+		return pTempObj
+
+	Func numberOptions 
+		return QLocale_numberOptions(pObject)
+
+	Func percent 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_percent(pObject)
+		return pTempObj
+
+	Func pmText 
+		return QLocale_pmText(pObject)
+
+	Func positiveSign 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_positiveSign(pObject)
+		return pTempObj
+
+	Func quoteString P1,P2
+		return QLocale_quoteString(pObject,P1,P2)
+
+	Func quoteString_2 P1,P2
+		return QLocale_quoteString_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func script 
+		return QLocale_script(pObject)
+
+	Func setNumberOptions P1
+		return QLocale_setNumberOptions(pObject,P1)
+
+	Func standaloneDayName P1,P2
+		return QLocale_standaloneDayName(pObject,P1,P2)
+
+	Func standaloneMonthName P1,P2
+		return QLocale_standaloneMonthName(pObject,P1,P2)
+
+	Func swap P1
+		return QLocale_swap(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func textDirection 
+		return QLocale_textDirection(pObject)
+
+	Func timeFormat P1
+		return QLocale_timeFormat(pObject,P1)
+
+	Func toCurrencyString P1,P2
+		return QLocale_toCurrencyString(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toCurrencyString_2 P1,P2
+		return QLocale_toCurrencyString_2(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toCurrencyString_3 P1,P2
+		return QLocale_toCurrencyString_3(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toCurrencyString_4 P1,P2
+		return QLocale_toCurrencyString_4(pObject,P1,P2)
+
+	Func toCurrencyString_5 P1,P2
+		return QLocale_toCurrencyString_5(pObject,P1,P2)
+
+	Func toCurrencyString_6 P1,P2
+		return QLocale_toCurrencyString_6(pObject,P1,P2)
+
+	Func toCurrencyString_7 P1,P2
+		return QLocale_toCurrencyString_7(pObject,P1,P2)
+
+	Func toCurrencyString_8 P1,P2,P3
+		return QLocale_toCurrencyString_8(pObject,P1,P2,P3)
+
+	Func toCurrencyString_9 P1,P2
+		return QLocale_toCurrencyString_9(pObject,P1,P2)
+
+	Func toCurrencyString_10 P1,P2,P3
+		return QLocale_toCurrencyString_10(pObject,P1,P2,P3)
+
+	Func toDate P1,P2
+		pTempObj = new QDate
+		pTempObj.pObject = QLocale_toDate(pObject,P1,P2)
+		return pTempObj
+
+	Func toDate_2 P1,P2
+		pTempObj = new QDate
+		pTempObj.pObject = QLocale_toDate_2(pObject,P1,P2)
+		return pTempObj
+
+	Func toDate_3 P1,P2,P3
+		pTempObj = new QDate
+		pTempObj.pObject = QLocale_toDate_3(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func toDate_4 P1,P2,P3
+		pTempObj = new QDate
+		pTempObj.pObject = QLocale_toDate_4(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func toDateTime P1,P2
+		pTempObj = new QDateTime
+		pTempObj.pObject = QLocale_toDateTime(pObject,P1,P2)
+		return pTempObj
+
+	Func toDateTime_2 P1,P2
+		pTempObj = new QDateTime
+		pTempObj.pObject = QLocale_toDateTime_2(pObject,P1,P2)
+		return pTempObj
+
+	Func toDateTime_3 P1,P2,P3
+		pTempObj = new QDateTime
+		pTempObj.pObject = QLocale_toDateTime_3(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func toDateTime_4 P1,P2,P3
+		pTempObj = new QDateTime
+		pTempObj.pObject = QLocale_toDateTime_4(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func toDouble P1,P2
+		return QLocale_toDouble(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toDouble_2 P1,P2
+		return QLocale_toDouble_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toDouble_3 P1,P2
+		return QLocale_toDouble_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toFloat P1,P2
+		return QLocale_toFloat(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toFloat_2 P1,P2
+		return QLocale_toFloat_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toFloat_3 P1,P2
+		return QLocale_toFloat_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toInt P1,P2
+		return QLocale_toInt(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toInt_2 P1,P2
+		return QLocale_toInt_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toInt_3 P1,P2
+		return QLocale_toInt_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toLong P1,P2
+		return QLocale_toLong(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toLong_2 P1,P2
+		return QLocale_toLong_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toLong_3 P1,P2
+		return QLocale_toLong_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toLongLong P1,P2
+		return QLocale_toLongLong(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toLongLong_2 P1,P2
+		return QLocale_toLongLong_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toLongLong_3 P1,P2
+		return QLocale_toLongLong_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toLower P1
+		return QLocale_toLower(pObject,P1)
+
+	Func toShort P1,P2
+		return QLocale_toShort(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toShort_2 P1,P2
+		return QLocale_toShort_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toShort_3 P1,P2
+		return QLocale_toShort_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toString P1
+		return QLocale_toString(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toString_2 P1
+		return QLocale_toString_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toString_3 P1
+		return QLocale_toString_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toString_4 P1
+		return QLocale_toString_4(pObject,P1)
+
+	Func toString_5 P1
+		return QLocale_toString_5(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toString_6 P1
+		return QLocale_toString_6(pObject,P1)
+
+	Func toString_7 P1
+		return QLocale_toString_7(pObject,P1)
+
+	Func toString_8 P1
+		return QLocale_toString_8(pObject,P1)
+
+	Func toString_9 P1,P2,P3
+		return QLocale_toString_9(pObject,P1,P2,P3)
+
+	Func toString_10 P1,P2,P3
+		return QLocale_toString_10(pObject,P1,P2,P3)
+
+	Func toString_11 P1,P2
+		return QLocale_toString_11(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toString_12 P1,P2
+		return QLocale_toString_12(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toString_13 P1,P2
+		return QLocale_toString_13(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toString_14 P1,P2
+		return QLocale_toString_14(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toString_15 P1,P2
+		return QLocale_toString_15(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toString_16 P1,P2
+		return QLocale_toString_16(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toString_17 P1,P2
+		return QLocale_toString_17(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toString_18 P1,P2
+		return QLocale_toString_18(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toString_19 P1,P2
+		return QLocale_toString_19(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func toTime P1,P2
+		pTempObj = new QTime
+		pTempObj.pObject = QLocale_toTime(pObject,P1,P2)
+		return pTempObj
+
+	Func toTime_2 P1,P2
+		pTempObj = new QTime
+		pTempObj.pObject = QLocale_toTime_2(pObject,P1,P2)
+		return pTempObj
+
+	Func toUInt P1,P2
+		return QLocale_toUInt(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toUInt_2 P1,P2
+		return QLocale_toUInt_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toUInt_3 P1,P2
+		return QLocale_toUInt_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toULong P1,P2
+		return QLocale_toULong(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toULong_2 P1,P2
+		return QLocale_toULong_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toULong_3 P1,P2
+		return QLocale_toULong_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toULongLong P1,P2
+		return QLocale_toULongLong(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toULongLong_2 P1,P2
+		return QLocale_toULongLong_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toULongLong_3 P1,P2
+		return QLocale_toULongLong_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toUShort P1,P2
+		return QLocale_toUShort(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func toUShort_2 P1,P2
+		return QLocale_toUShort_2(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toUShort_3 P1,P2
+		return QLocale_toUShort_3(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func toUpper P1
+		return QLocale_toUpper(pObject,P1)
+
+	Func uiLanguages 
+		pTempObj = new QStringList
+		pTempObj.pObject = QLocale_uiLanguages(pObject)
+		return pTempObj
+
+	Func weekdays 
+		return QLocale_weekdays(pObject)
+
+	Func zeroDigit 
+		pTempObj = new QChar
+		pTempObj.pObject = QLocale_zeroDigit(pObject)
+		return pTempObj
+
+	Func c 
+		pTempObj = new QLocale
+		pTempObj.pObject = QLocale_c(pObject)
+		return pTempObj
+
+	Func countryToString P1
+		return QLocale_countryToString(pObject,P1)
+
+	Func languageToString P1
+		return QLocale_languageToString(pObject,P1)
+
+	Func matchingLocales P1,P2,P3
+		return QLocale_matchingLocales(pObject,P1,P2,P3)
+
+	Func scriptToString P1
+		return QLocale_scriptToString(pObject,P1)
+
+	Func setDefault P1
+		return QLocale_setDefault(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func system 
+		pTempObj = new QLocale
+		pTempObj.pObject = QLocale_system(pObject)
+		return pTempObj
 
 Class QThread from QObject
 
@@ -11553,7 +11958,9 @@ Class QWidget from QObject
 		return QWidget_layoutDirection(pObject)
 
 	Func locale 
-		return QWidget_locale(pObject)
+		pTempObj = new QLocale
+		pTempObj.pObject = QWidget_locale(pObject)
+		return pTempObj
 
 	Func mapFrom P1,P2
 		pTempObj = new QPoint
@@ -24345,7 +24752,9 @@ Class QTextToSpeech from QObject
 		return pTempObj
 
 	Func locale 
-		return QTextToSpeech_locale(pObject)
+		pTempObj = new QLocale
+		pTempObj.pObject = QTextToSpeech_locale(pObject)
+		return pTempObj
 
 	Func pitch 
 		return QTextToSpeech_pitch(pObject)
@@ -28351,7 +28760,9 @@ Class QChart from QGraphicsWidget
 		return pTempObj
 
 	Func locale 
-		return QChart_locale(pObject)
+		pTempObj = new QLocale
+		pTempObj.pObject = QChart_locale(pObject)
+		return pTempObj
 
 	Func localizeNumbers 
 		return QChart_localizeNumbers(pObject)
