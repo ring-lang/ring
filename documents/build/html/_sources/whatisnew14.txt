@@ -166,6 +166,7 @@ Screen Shots:
 
 .. image:: tilengine_shot9.png
 	:alt: tilengine
+
 .. index:: 
 	pair: What is new in Ring 1.14?; RingLibui Extension
 

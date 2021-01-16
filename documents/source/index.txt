@@ -71,6 +71,7 @@ Contents:
    Using RingOpenGL and RingFreeGLUT for 3D Graphics <usingopengl>
    Using RingOpenGL and RingAllegro for 3D Graphics <usingopengl2>
    Demo Project - The Gold Magic 800 Game <goldmagic800>
+   Using Tilengine <tilengine>
    Performance Tips <performancetips>
    Command Line Options	<compiler>
    Distributing Ring Applications (Manual) <distribute>

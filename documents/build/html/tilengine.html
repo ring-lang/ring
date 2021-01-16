@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; Ring 1.14 documentation</title>
+  <title>RingTilengine Extension &mdash; Ring 1.14 documentation</title>
   
 
   
@@ -21,7 +21,6 @@
   
 
   
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -36,9 +35,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <script type="text/javascript" src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Performance Tips" href="performancetips.html" />
+    <link rel="prev" title="The Gold Magic 800 Game" href="goldmagic800.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -65,7 +65,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -83,7 +83,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
@@ -144,7 +144,11 @@
 <li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
-<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using Tilengine</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Tilengine</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
@@ -243,7 +247,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Search</li>
+      <li>RingTilengine Extension</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -260,23 +264,62 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="ringtilengine-extension">
+<span id="index-0"></span><h1>RingTilengine Extension<a class="headerlink" href="#ringtilengine-extension" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using the RingTilengine extension.</p>
+<p>This extension provides complete support for Tilengine</p>
+<p>The 2D retro graphics engine with raster effects</p>
+<p>Tilengine URL: <a class="reference external" href="https://github.com/megamarc/Tilengine">https://github.com/megamarc/Tilengine</a></p>
+<div class="section" id="getting-started">
+<span id="index-1"></span><h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
 
-  
-  <div id="search-results">
-  
-  </div>
+<span class="n">TLN_Init</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="mi">240</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">TLN_SetLoadPath</span><span class="p">(</span><span class="s">&quot;assets\sonic&quot;</span><span class="p">)</span>
+<span class="n">foreground</span> <span class="o">=</span> <span class="n">TLN_LoadTilemap</span> <span class="p">(</span><span class="s">&quot;Sonic_md_fg1.tmx&quot;</span><span class="p">,</span> <span class="kp">NULL</span><span class="p">)</span>
+<span class="n">TLN_SetLayerTilemap</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">foreground</span><span class="p">)</span>
+
+<span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="k">while</span> <span class="n">TLN_ProcessWindow</span><span class="p">()</span>
+        <span class="n">TLN_DrawFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="k">end</span>
+
+<span class="n">TLN_DeleteTilemap</span><span class="p">(</span><span class="n">foreground</span><span class="p">)</span>
+<span class="n">TLN_Deinit</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="tilengine" src="_images/tilengine_shot1.png" />
+</div>
+<div class="section" id="more-samples">
+<span id="index-2"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this headline">¶</a></h2>
+<p>Screen Shot:</p>
+<img alt="tilengine" src="_images/tilengine_shot2.png" />
+<img alt="tilengine" src="_images/tilengine_shot3.png" />
+<img alt="tilengine" src="_images/tilengine_shot4.png" />
+<img alt="tilengine" src="_images/tilengine_shot5.png" />
+<img alt="tilengine" src="_images/tilengine_shot6.png" />
+<img alt="tilengine" src="_images/tilengine_shot7.png" />
+<img alt="tilengine" src="_images/tilengine_shot8.png" />
+<img alt="tilengine" src="_images/tilengine_shot9.png" />
+</div>
+</div>
+
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="performancetips.html" class="btn btn-neutral float-right" title="Performance Tips" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="goldmagic800.html" class="btn btn-neutral float-left" title="The Gold Magic 800 Game" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -316,14 +359,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>

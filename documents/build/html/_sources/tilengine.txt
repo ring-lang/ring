@@ -1,0 +1,78 @@
+.. index:: 
+	single: tilengine; Introduction
+
+=======================
+RingTilengine Extension
+=======================
+
+In this chapter we will learn about using the RingTilengine extension.
+
+This extension provides complete support for Tilengine
+
+The 2D retro graphics engine with raster effects
+
+Tilengine URL: https://github.com/megamarc/Tilengine
+
+
+.. index:: 
+	pair: tilengine; Getting Started 
+
+Getting Started 
+===============
+
+Example (1):
+
+.. code-block:: ring
+
+	load "tilengine.ring"
+
+	TLN_Init(400, 240, 1, 0, 0)
+	TLN_SetLoadPath("assets\sonic")
+	foreground = TLN_LoadTilemap ("Sonic_md_fg1.tmx", NULL)
+	TLN_SetLayerTilemap(0, foreground)
+
+	TLN_CreateWindow(NULL, 0)
+	while TLN_ProcessWindow()
+		TLN_DrawFrame(0)
+	end
+
+	TLN_DeleteTilemap(foreground)
+	TLN_Deinit()
+
+Screen Shot:
+
+.. image:: tilengine_shot1.png
+	:alt: tilengine
+
+
+.. index:: 
+	pair: tilengine; More Samples
+
+More Samples
+============
+
+Screen Shot:
+
+.. image:: tilengine_shot2.png
+	:alt: tilengine
+
+.. image:: tilengine_shot3.png
+	:alt: tilengine
+
+.. image:: tilengine_shot4.png
+	:alt: tilengine
+
+.. image:: tilengine_shot5.png
+	:alt: tilengine
+
+.. image:: tilengine_shot6.png
+	:alt: tilengine
+
+.. image:: tilengine_shot7.png
+	:alt: tilengine
+
+.. image:: tilengine_shot8.png
+	:alt: tilengine
+
+.. image:: tilengine_shot9.png
+	:alt: tilengine
