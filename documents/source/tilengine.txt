@@ -51,28 +51,88 @@ Screen Shot:
 More Samples
 ============
 
+Example (2):
+
+.. code-block:: ring
+
 Screen Shot:
 
 .. image:: tilengine_shot2.png
 	:alt: tilengine
 
+
+Example (3):
+
+.. code-block:: ring
+
+Screen Shot:
+
 .. image:: tilengine_shot3.png
 	:alt: tilengine
+
+Example (4):
+
+.. code-block:: ring
+
+Screen Shot:
 
 .. image:: tilengine_shot4.png
 	:alt: tilengine
 
+Example (5):
+
+.. code-block:: ring
+
+Screen Shot:
+
 .. image:: tilengine_shot5.png
 	:alt: tilengine
+
+Example (6):
+
+.. code-block:: ring
+
+Screen Shot:
 
 .. image:: tilengine_shot6.png
 	:alt: tilengine
 
+Example (7):
+
+.. code-block:: ring
+
+Screen Shot:
+
 .. image:: tilengine_shot7.png
 	:alt: tilengine
+
+Example (8):
+
+.. code-block:: ring
+
+Screen Shot:
 
 .. image:: tilengine_shot8.png
 	:alt: tilengine
 
+Example (9):
+
+.. code-block:: ring
+
+Screen Shot:
+
 .. image:: tilengine_shot9.png
 	:alt: tilengine
+
+.. index:: 
+	pair: tilengine; Using LibSDL and Tilengine
+
+Using LibSDL and Tilengine
+==========================
+
+
+.. index:: 
+	pair: tilengine; Reference
+
+Reference
+=========
