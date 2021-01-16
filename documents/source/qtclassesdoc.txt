@@ -6140,7 +6140,6 @@ Parameters : QString
 * short toShort_2(QStringRef s, bool *ok)
 * QString toString(qlonglong i)
 * QString toString_2(qulonglong i)
-* QString toString_3(long i)
 * QString toString_4(short i)
 * QString toString_5(ushort i)
 * QString toString_6(int i)

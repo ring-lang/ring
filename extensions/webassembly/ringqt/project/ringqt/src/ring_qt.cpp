@@ -22664,25 +22664,6 @@ RING_FUNC(ring_QLocale_toString_2)
 }
 
 
-RING_FUNC(ring_QLocale_toString_3)
-{
-	QLocale *pObject ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QLocale *) RING_API_GETCPOINTER(1,"QLocale");
-	RING_API_RETSTRING(pObject->toString(* (long  *) RING_API_GETCPOINTER(2,"long")).toStdString().c_str());
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"long"));
-}
-
-
 RING_FUNC(ring_QLocale_toString_4)
 {
 	QLocale *pObject ;
@@ -142212,7 +142193,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qlocale_toshort_2",ring_QLocale_toShort_2);
 	ring_vm_funcregister("qlocale_tostring",ring_QLocale_toString);
 	ring_vm_funcregister("qlocale_tostring_2",ring_QLocale_toString_2);
-	ring_vm_funcregister("qlocale_tostring_3",ring_QLocale_toString_3);
 	ring_vm_funcregister("qlocale_tostring_4",ring_QLocale_toString_4);
 	ring_vm_funcregister("qlocale_tostring_5",ring_QLocale_toString_5);
 	ring_vm_funcregister("qlocale_tostring_6",ring_QLocale_toString_6);

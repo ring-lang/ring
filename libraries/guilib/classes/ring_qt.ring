@@ -4221,9 +4221,6 @@ Class QLocale
 	Func toString_2 P1
 		return QLocale_toString_2(pObject,GetObjectPointerFromRingObject(P1))
 
-	Func toString_3 P1
-		return QLocale_toString_3(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func toString_4 P1
 		return QLocale_toString_4(pObject,GetObjectPointerFromRingObject(P1))
 
