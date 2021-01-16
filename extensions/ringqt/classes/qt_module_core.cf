@@ -53,6 +53,7 @@
 <loadfile> core/qtextstream3.cf
 <loadfile> core/qtextstream4.cf
 <loadfile> core/qtextstream5.cf
+<loadfile> core/qlocale.cf
 
 <filter> sysget("RINGQT_WEBASSEMBLY") = ""
 <loadfile> core/qthread.cf
