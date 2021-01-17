@@ -1155,14 +1155,16 @@ void ring_vm_generallib_copy ( void *pPointer )
 			cStr = RING_API_GETSTRING(1) ;
 			nStrSize = RING_API_GETSTRINGSIZE(1) ;
 			nSize = RING_API_GETNUMBER(2) ;
-			/* Pre-allocated the return value on the stack */
-			RING_API_RETSTRINGSIZE(nSize * nStrSize);
-			cRetStr = ring_string_get(RING_API_GETSTRINGRAW);
-			nPos = 0 ;
-			/* Copy the input string nSize times */
-			for ( i = 1 ; i <= nSize ; i++ ) {
-				RING_MEMCPY(cRetStr+nPos,cStr,nStrSize);
-				nPos += nStrSize ;
+			if ( nSize > 0 ) {
+				/* Pre-allocated the return value on the stack */
+				RING_API_RETSTRINGSIZE(nSize * nStrSize);
+				cRetStr = ring_string_get(RING_API_GETSTRINGRAW);
+				nPos = 0 ;
+				/* Copy the input string nSize times */
+				for ( i = 1 ; i <= nSize ; i++ ) {
+					RING_MEMCPY(cRetStr+nPos,cStr,nStrSize);
+					nPos += nStrSize ;
+				}
 			}
 		}
 		else {
