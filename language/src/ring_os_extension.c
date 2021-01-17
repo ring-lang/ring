@@ -284,7 +284,7 @@ void ring_vm_os_nofprocessors ( void *pPointer )
 */
 #if defined __MACH__
 
-	int ring_clock_gettime ( int clk_id, struct timespec* ts )
+	int ring_vm_os_gettime ( int clk_id, struct timespec* ts )
 	{
 		uint64_t nsec = mach_absolute_time() ;
 		ts->tv_sec = nsec / NANOSEC ;
@@ -301,7 +301,7 @@ double ring_vm_os_getuptime ( void )
 		return ElapsedMicroseconds.QuadPart ;
 	#else
 		struct timespec ts  ;
-		ring_clock_gettime(CLOCK_UPTIME, &ts);
+		ring_vm_os_gettime(CLOCK_UPTIME, &ts);
 		/* Compensate to match 0.1 ms resolution on Windows */
 		return ( ( ts.tv_sec * NANOSEC ) + ( ts.tv_nsec ) ) / 100 ;
 	#endif
@@ -323,7 +323,7 @@ void ring_vm_os_randomize ( void *pPointer )
 	RING_UNSIGNEDLONGLONG nNum1,nNum2  ;
 	#if ! defined(_WIN32)
 		struct timespec ts  ;
-		ring_clock_gettime(CLOCK_UPTIME, &ts);
+		ring_vm_os_gettime(CLOCK_UPTIME, &ts);
 		/* Compensate to match 0.1 ms resolution on Windows */
 		nNum1 = ( ( ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / 100 ;
 		/* Randomize by using high precision timer */
