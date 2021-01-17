@@ -49,6 +49,8 @@
 	double ring_vm_os_getuptime ( void ) ;
 
 	void ring_vm_os_uptime ( void *pPointer ) ;
+
+	void ring_vm_os_randomize ( void *pPointer ) ;
 	/* Constants */
 	#define RING_VM_POINTER_LIBNAME "os"
 	#ifdef _WIN32
