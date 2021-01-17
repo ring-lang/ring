@@ -1,0 +1,174 @@
+.. index:: 
+	single: Threads; Introduction
+
+=================
+Threads Extension
+=================
+
+In this chapter we will learn about using the Threads extension.
+
+.. index:: 
+	pair: Threads; Creating Threads
+
+Creating Threads
+================
+
+Example (1):
+
+.. code-block:: ring
+
+	load "threads.ring"
+
+	func main
+
+		t = new_thrd_t()
+		thrd_create(t,"Hello()")
+		res = 0
+		thrd_join(t, :res)
+
+	func Hello
+
+		? "Message from the Hello() function"
+
+.. index:: 
+	pair: Threads; More Examples
+
+More Examples
+=============
+
+Example (2):
+
+.. code-block:: ring
+
+	load "threads.ring"
+
+	func main
+
+		t = new_thrd_t()
+		thrd_create(t,"Hello()")
+		res = 0
+		thrd_join(t, :res)
+
+		t2 = new_thrd_t()
+		thrd_create(t2,"Hello2()")
+		res2 = 0
+		thrd_join(t2, :res2)
+
+		? :done
+
+	func Hello
+
+		? "Message from the Hello() function"
+
+	func Hello2
+
+		? "Message from the Hello2() function"
+
+Example (3):
+
+.. code-block:: ring
+
+	load "threads.ring"
+
+	func main
+
+		nThreads = 2
+		aList = list(nThreads)
+
+		for x=1 to nThreads
+			aList[x] = new_thrd_t()
+			thrd_create(aList[x],"Hello("+x+")")
+		next
+
+		for x=1 to nThreads
+			res= 0
+			thrd_join(aList[x],:res)
+		next
+
+		? :Done
+
+		shutdown()
+
+	func Hello x
+
+		for r=1 to 100
+			? "Message from the Hello("+x+") function"
+		next
+
+Example (4):
+
+.. code-block:: ring
+
+	load "threads.ring"
+
+	func main
+
+		nThreads = 10
+		aList = list(nThreads)
+
+		for x=1 to nThreads
+			aList[x] = new_thrd_t()
+			thrd_create(aList[x],"Hello("+x+")")
+		next
+
+		for k=1 to nThreads
+			 ? "*** Before join: " + k + " *** "
+			 res = 0
+			 thrd_join(aList[K],:res)
+			 ? "*** After join: " + k + " *** "
+		next
+
+		? " ===== Done ========== "
+
+	func Hello x
+
+		for r=1 to 100
+			? "("+r+") Message from the Hello("+x+") function"
+		next
+
+.. index:: 
+	pair: Threads; Reference
+
+Reference
+=========
+
+Constants:
+
+* TIME_UTC
+* TINYCTHREAD_VERSION_MAJOR
+* TINYCTHREAD_VERSION_MINOR
+* TINYCTHREAD_VERSION
+* thrd_error
+* thrd_success
+* thrd_timedout
+* thrd_busy
+* thrd_nomem
+* mtx_plain
+* mtx_timed
+* mtx_recursive
+
+Functions:
+
+* int mtx_init(mtx_t *mtx, int type)
+* void mtx_destroy(mtx_t *mtx)
+* int mtx_lock(mtx_t *mtx)
+* int mtx_timedlock(mtx_t *mtx, const struct timespec *ts)
+* int mtx_trylock(mtx_t *mtx)
+* int mtx_unlock(mtx_t *mtx)
+* int cnd_init(cnd_t *cond)
+* void cnd_destroy(cnd_t *cond)
+* int cnd_signal(cnd_t *cond)
+* int cnd_broadcast(cnd_t *cond)
+* int cnd_wait(cnd_t *cond, mtx_t *mtx)
+* int cnd_timedwait(cnd_t *cond, mtx_t *mtx, const struct timespec *ts)
+* int thrd_create(thrd_t *thr, const char *cEvent)
+* thrd_t thrd_current(void)
+* int thrd_detach(thrd_t thr)
+* int thrd_equal(thrd_t thr0, thrd_t thr1)
+* void thrd_exit(int res)
+* int thrd_join(thrd_t thr, int *res)
+* int thrd_sleep(const struct timespec *duration, struct timespec *remaining)
+* void thrd_yield(void)
+* void tss_delete(tss_t key)
+* void *tss_get(tss_t key)
+* int tss_set(tss_t key, void *val)

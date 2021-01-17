@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Search &mdash; Ring 1.14 documentation</title>
+  <title>Threads Extension &mdash; Ring 1.14 documentation</title>
   
 
   
@@ -21,7 +21,6 @@
   
 
   
-    
   <!--[if lt IE 9]>
     <script src="_static/js/html5shiv.min.js"></script>
   <![endif]-->
@@ -36,9 +35,10 @@
     <script type="text/javascript" src="_static/js/theme.js"></script>
 
     
-    <script type="text/javascript" src="_static/searchtools.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="#" /> 
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="RingLibUI Extension" href="libui.html" />
+    <link rel="prev" title="Socket Extension" href="socket.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -65,7 +65,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="#" method="get">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -83,7 +83,7 @@
               
             
             
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="ringapps.html">Applications developed in a few hours</a></li>
 <li class="toctree-l1"><a class="reference internal" href="introduction.html">Introduction</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringnotepad.html">Using Ring Notepad</a></li>
@@ -156,7 +156,12 @@
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using RingThreads</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#creating-threads">Creating Threads</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-examples">More Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#reference">Reference</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
@@ -244,7 +249,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Search</li>
+      <li>Threads Extension</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -261,23 +266,174 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <noscript>
-  <div id="fallback" class="admonition warning">
-    <p class="last">
-      Please activate JavaScript to enable the search functionality.
-    </p>
-  </div>
-  </noscript>
+  <div class="section" id="threads-extension">
+<span id="index-0"></span><h1>Threads Extension<a class="headerlink" href="#threads-extension" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using the Threads extension.</p>
+<div class="section" id="creating-threads">
+<span id="index-1"></span><h2>Creating Threads<a class="headerlink" href="#creating-threads" title="Permalink to this headline">¶</a></h2>
+<p>Example (1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;threads.ring&quot;</span>
 
-  
-  <div id="search-results">
-  
-  </div>
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">t</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
+        <span class="n">thrd_create</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="s">&quot;Hello()&quot;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">thrd_join</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="p">:</span><span class="n">res</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">Hello</span>
+
+        <span class="o">?</span> <span class="s">&quot;Message from the Hello() function&quot;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="more-examples">
+<span id="index-2"></span><h2>More Examples<a class="headerlink" href="#more-examples" title="Permalink to this headline">¶</a></h2>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;threads.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">t</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
+        <span class="n">thrd_create</span><span class="p">(</span><span class="n">t</span><span class="p">,</span><span class="s">&quot;Hello()&quot;</span><span class="p">)</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">thrd_join</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="p">:</span><span class="n">res</span><span class="p">)</span>
+
+        <span class="n">t2</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
+        <span class="n">thrd_create</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span><span class="s">&quot;Hello2()&quot;</span><span class="p">)</span>
+        <span class="n">res2</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">thrd_join</span><span class="p">(</span><span class="n">t2</span><span class="p">,</span> <span class="p">:</span><span class="n">res2</span><span class="p">)</span>
+
+        <span class="o">?</span> <span class="p">:</span><span class="k">done</span>
+
+<span class="k">func</span> <span class="n">Hello</span>
+
+        <span class="o">?</span> <span class="s">&quot;Message from the Hello() function&quot;</span>
+
+<span class="k">func</span> <span class="n">Hello2</span>
+
+        <span class="o">?</span> <span class="s">&quot;Message from the Hello2() function&quot;</span>
+</pre></div>
+</div>
+<p>Example (3):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;threads.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">nThreads</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="n">nThreads</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nThreads</span>
+                <span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
+                <span class="n">thrd_create</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">]</span><span class="p">,</span><span class="s">&quot;Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;)&quot;</span><span class="p">)</span>
+        <span class="k">next</span>
+
+        <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nThreads</span>
+                <span class="n">res</span><span class="o">=</span> <span class="mi">0</span>
+                <span class="n">thrd_join</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">]</span><span class="p">,:</span><span class="n">res</span><span class="p">)</span>
+        <span class="k">next</span>
+
+        <span class="o">?</span> <span class="p">:</span><span class="k">Done</span>
+
+        <span class="n">shutdown</span><span class="p">()</span>
+
+<span class="k">func</span> <span class="n">Hello</span> <span class="n">x</span>
+
+        <span class="k">for</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
+                <span class="o">?</span> <span class="s">&quot;Message from the Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;) function&quot;</span>
+        <span class="k">next</span>
+</pre></div>
+</div>
+<p>Example (4):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;threads.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">nThreads</span> <span class="o">=</span> <span class="mi">10</span>
+        <span class="n">aList</span> <span class="o">=</span> <span class="kt">list</span><span class="p">(</span><span class="n">nThreads</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">x</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nThreads</span>
+                <span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">]</span> <span class="o">=</span> <span class="n">new_thrd_t</span><span class="p">()</span>
+                <span class="n">thrd_create</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="n">x</span><span class="o">]</span><span class="p">,</span><span class="s">&quot;Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;)&quot;</span><span class="p">)</span>
+        <span class="k">next</span>
+
+        <span class="k">for</span> <span class="n">k</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="n">nThreads</span>
+                 <span class="o">?</span> <span class="s">&quot;*** Before join: &quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s">&quot; *** &quot;</span>
+                 <span class="n">res</span> <span class="o">=</span> <span class="mi">0</span>
+                 <span class="n">thrd_join</span><span class="p">(</span><span class="n">aList</span><span class="o">[</span><span class="n">K</span><span class="o">]</span><span class="p">,:</span><span class="n">res</span><span class="p">)</span>
+                 <span class="o">?</span> <span class="s">&quot;*** After join: &quot;</span> <span class="o">+</span> <span class="n">k</span> <span class="o">+</span> <span class="s">&quot; *** &quot;</span>
+        <span class="k">next</span>
+
+        <span class="o">?</span> <span class="s">&quot; ===== Done ========== &quot;</span>
+
+<span class="k">func</span> <span class="n">Hello</span> <span class="n">x</span>
+
+        <span class="k">for</span> <span class="n">r</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">100</span>
+                <span class="o">?</span> <span class="s">&quot;(&quot;</span><span class="o">+</span><span class="n">r</span><span class="o">+</span><span class="s">&quot;) Message from the Hello(&quot;</span><span class="o">+</span><span class="n">x</span><span class="o">+</span><span class="s">&quot;) function&quot;</span>
+        <span class="k">next</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reference">
+<span id="index-3"></span><h2>Reference<a class="headerlink" href="#reference" title="Permalink to this headline">¶</a></h2>
+<p>Constants:</p>
+<ul class="simple">
+<li><p>TIME_UTC</p></li>
+<li><p>TINYCTHREAD_VERSION_MAJOR</p></li>
+<li><p>TINYCTHREAD_VERSION_MINOR</p></li>
+<li><p>TINYCTHREAD_VERSION</p></li>
+<li><p>thrd_error</p></li>
+<li><p>thrd_success</p></li>
+<li><p>thrd_timedout</p></li>
+<li><p>thrd_busy</p></li>
+<li><p>thrd_nomem</p></li>
+<li><p>mtx_plain</p></li>
+<li><p>mtx_timed</p></li>
+<li><p>mtx_recursive</p></li>
+</ul>
+<p>Functions:</p>
+<ul class="simple">
+<li><p>int mtx_init(mtx_t <a href="#id1"><span class="problematic" id="id2">*</span></a>mtx, int type)</p></li>
+<li><p>void mtx_destroy(mtx_t <a href="#id3"><span class="problematic" id="id4">*</span></a>mtx)</p></li>
+<li><p>int mtx_lock(mtx_t <a href="#id5"><span class="problematic" id="id6">*</span></a>mtx)</p></li>
+<li><p>int mtx_timedlock(mtx_t <a href="#id7"><span class="problematic" id="id8">*</span></a>mtx, const struct timespec <a href="#id9"><span class="problematic" id="id10">*</span></a>ts)</p></li>
+<li><p>int mtx_trylock(mtx_t <a href="#id11"><span class="problematic" id="id12">*</span></a>mtx)</p></li>
+<li><p>int mtx_unlock(mtx_t <a href="#id13"><span class="problematic" id="id14">*</span></a>mtx)</p></li>
+<li><p>int cnd_init(cnd_t <a href="#id15"><span class="problematic" id="id16">*</span></a>cond)</p></li>
+<li><p>void cnd_destroy(cnd_t <a href="#id17"><span class="problematic" id="id18">*</span></a>cond)</p></li>
+<li><p>int cnd_signal(cnd_t <a href="#id19"><span class="problematic" id="id20">*</span></a>cond)</p></li>
+<li><p>int cnd_broadcast(cnd_t <a href="#id21"><span class="problematic" id="id22">*</span></a>cond)</p></li>
+<li><p>int cnd_wait(cnd_t <a href="#id23"><span class="problematic" id="id24">*</span></a>cond, mtx_t <a href="#id25"><span class="problematic" id="id26">*</span></a>mtx)</p></li>
+<li><p>int cnd_timedwait(cnd_t <a href="#id27"><span class="problematic" id="id28">*</span></a>cond, mtx_t <a href="#id29"><span class="problematic" id="id30">*</span></a>mtx, const struct timespec <a href="#id31"><span class="problematic" id="id32">*</span></a>ts)</p></li>
+<li><p>int thrd_create(thrd_t <a href="#id33"><span class="problematic" id="id34">*</span></a>thr, const char <a href="#id35"><span class="problematic" id="id36">*</span></a>cEvent)</p></li>
+<li><p>thrd_t thrd_current(void)</p></li>
+<li><p>int thrd_detach(thrd_t thr)</p></li>
+<li><p>int thrd_equal(thrd_t thr0, thrd_t thr1)</p></li>
+<li><p>void thrd_exit(int res)</p></li>
+<li><p>int thrd_join(thrd_t thr, int <a href="#id37"><span class="problematic" id="id38">*</span></a>res)</p></li>
+<li><p>int thrd_sleep(const struct timespec <a href="#id39"><span class="problematic" id="id40">*</span></a>duration, struct timespec <a href="#id41"><span class="problematic" id="id42">*</span></a>remaining)</p></li>
+<li><p>void thrd_yield(void)</p></li>
+<li><p>void tss_delete(tss_t key)</p></li>
+<li><p>void <a href="#id43"><span class="problematic" id="id44">*</span></a>tss_get(tss_t key)</p></li>
+<li><p>int tss_set(tss_t key, void <a href="#id45"><span class="problematic" id="id46">*</span></a>val)</p></li>
+</ul>
+</div>
+</div>
+
 
            </div>
            
           </div>
           <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="libui.html" class="btn btn-neutral float-right" title="RingLibUI Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="socket.html" class="btn btn-neutral float-left" title="Socket Extension" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
   
 
   <hr/>
@@ -317,14 +473,7 @@
   
   
     
-  
-  <script type="text/javascript">
-    jQuery(function() { Search.loadIndex("searchindex.js"); });
-  </script>
-  
-  <script type="text/javascript" id="searchindexloader"></script>
    
-
 
 </body>
 </html>
