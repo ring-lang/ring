@@ -221,6 +221,7 @@ The Ring language comes with the next features
 * RingOpenGL Extension
 * RingFreeGLUT Extension
 * RingRayLib Extension
+* RingTilengine Extension
 * Create GUI Applications for Desktop and Mobile (Using the Qt Framework)
 * Comes with IDE contains the Code Editor (Ring Notepad) and the Form Designer
 * RingREPL (Read-Eval-Print-Loop)
@@ -228,6 +229,9 @@ The Ring language comes with the next features
 * Type Hints Library
 * Comes with Ring2EXE to distribute applications
 * RingLibuv Extension
+* RingLibui Extension
+* Sockets Extension
+* Threads Extension
 * No Global Interpreter (VM) lock (No GIL) - Better for threads and concurrency (Faster)
 * Comes with RingPM (Package Manager)
 * Many Samples and Applications
