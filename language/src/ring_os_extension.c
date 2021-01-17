@@ -277,8 +277,10 @@ void ring_vm_os_nofprocessors ( void *pPointer )
 		RING_API_RETNUMBER((double)sysconf(_SC_NPROCESSORS_ONLN));
 	#endif
 }
-/* Mac OS doesn't provide clock_gettime function prior v. 10.12 */
-/* Custom function is going to work on all Mac OS versions */
+/*
+**  Mac OS doesn't provide clock_gettime function prior v. 10.12 
+**  Custom function is going to work on all Mac OS versions 
+*/
 #if defined __MACH__
 
 	int ring_clock_gettime ( int clk_id, struct timespec* ts )
