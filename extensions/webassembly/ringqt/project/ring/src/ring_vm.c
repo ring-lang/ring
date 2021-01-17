@@ -1013,6 +1013,8 @@ RING_API void ring_vm_runcode ( VM *pVM,const char *cStr )
 	pVM->nSP = nSP ;
 	pVM->nFuncSP = nFuncSP ;
 	pVM->nLineNumber = nLineNumber ;
+	/* Call GC */
+	ring_vm_gc_deletetemplists(pVM);
 }
 
 void ring_vm_init ( RingState *pRingState )
