@@ -293,23 +293,20 @@ void ring_vm_os_nofprocessors ( void *pPointer )
 	}
 #endif
 
-double ring_vm_os_getuptime ( void )
+void ring_vm_os_uptime ( void *pPointer )
 {
+	double nTime  ;
 	#ifdef _WIN32
 		LARGE_INTEGER ElapsedMicroseconds  ;
 		QueryPerformanceCounter(&ElapsedMicroseconds);
-		return ElapsedMicroseconds.QuadPart ;
+		nTime = ElapsedMicroseconds.QuadPart ;
 	#else
 		struct timespec ts  ;
 		ring_vm_os_gettime(CLOCK_UPTIME, &ts);
 		/* Compensate to match 0.1 ms resolution on Windows */
-		return ( ( ts.tv_sec * NANOSEC ) + ( ts.tv_nsec ) ) / 100 ;
+		nTime = ( ( ts.tv_sec * NANOSEC ) + ( ts.tv_nsec ) ) / 100 ;
 	#endif
-}
-
-void ring_vm_os_uptime ( void *pPointer )
-{
-	RING_API_RETNUMBER(ring_vm_os_getuptime());
+	RING_API_RETNUMBER(nTime);
 }
 /*
 **  Thread safe 
