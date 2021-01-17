@@ -39,7 +39,7 @@ Protocol Families :
                 - PF_INET6
 
 
-Address Family :   
+Address Families :   
                 - AF_INET       >>  mean use IPV4
                 - AF_INET6      >>  ........ IPV6
                 - AF_UNSPEC
@@ -61,6 +61,23 @@ Levels :
                 - IPPROTO_UDP
                 - SOL_SOCKET
                 - SOL_SOCKET
+
+Option names :
+                - SO_DEBUG
+                - SO_ACCEPTCONN
+                - SO_BROADCAST
+                - SO_DONTROUTE
+                - SO_ERROR
+                - SO_KEEPALIVE
+                - SO_LINGER
+                - SO_OOBINLINE
+                - SO_RCVBUF
+                - SO_REUSEADDR
+                - SO_SNDBUF
+                - SO_TYPE
+                - SO_RCVLOWAT
+                - SO_SNDLOWAT
+                - SO_RCVTIMEO
 
 ------------------------------------------------------------------------------------------
 
