@@ -336,5 +336,6 @@ aTests = [
 	[ :name = "General Tests (Part 145)", :Command = "ring general/logfunction.ring" ],
 	[ :name = "General Tests (Part 146)", :Command = "ring general/test136.ring" ],
 	[ :name = "General Tests (Part 147)", :Command = "ring general/test137.ring" ],
-	[ :name = "General Tests (Part 148)", :Command = "ring general/exitfrommanyloops.ring" ]
+	[ :name = "General Tests (Part 148)", :Command = "ring general/exitfrommanyloops.ring" ],
+	[ :name = "General Tests (Part 149)", :Command = "ring general/test138.ring" ]
 ]
