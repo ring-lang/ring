@@ -694,7 +694,8 @@ More Improvements
 * Ring VM - Dir() function - Better Code
 * Ring VM - Copy() function - Better Code (Ignore Negative Numbers)
 * Ring VM - Restore the step value when we use exit from more than one loop
-* Ring VM - Better Code when working with many threads 
+* Ring VM - Better Code when working with many threads
+* Ring VM - Better Code when restoring the state after Try/Catch/Done 
 * Ring Compiler/VM Source Code - Better Format
 * Ring Compiler/VM Source Code - Code Refactoring
 * RingPM - New Package: GUILib (Separate package for the GUILib classes)
