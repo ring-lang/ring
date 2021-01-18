@@ -10,7 +10,7 @@
 - recv(connection handler OR socket handler if it the client , buffer)   -> return <data>
 - recvfrom(socket handler , buffer)     -> return <data>
 - connect(socket handler , host , port)    -> return <0> if successful
-- close(socket handler)
+- close(socket handler OR connection handler)
 
 ------------------------------------------------------------------------------------------
 
@@ -63,6 +63,25 @@ Levels :
                 - SOL_SOCKET
 
 Option names :
+                - IP_ADD_MEMBERSHIP
+                - IP_ADD_SOURCE_MEMBERSHIP
+                - IP_BLOCK_SOURCE
+                - IP_DROP_MEMBERSHIP
+                - IP_DROP_SOURCE_MEMBERSHIP
+                - IP_HDRINCL
+                - IP_MTU
+                - IP_MTU_DISCOVER
+                - IP_MULTICAST_LOOP
+                - IP_MULTICAST_TTL
+                - IP_OPTIONS
+                - IP_PKTINFO
+                - IP_RECVTOS
+                - IP_RECVTTL
+                - IP_TOS
+                - IP_TTL
+                - IP_UNBLOCK_SOURCE
+                - IP_UNICAST_IF
+                --------------------------
                 - SO_DEBUG
                 - SO_ACCEPTCONN
                 - SO_BROADCAST

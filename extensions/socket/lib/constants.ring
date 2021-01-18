@@ -43,6 +43,26 @@
     SO_DEBUG            = 1
 
     if isWindows
+        IP_ADD_MEMBERSHIP   = 12
+        IP_ADD_SOURCE_MEMBERSHIP = 15
+        IP_BLOCK_SOURCE     = 17
+        IP_DROP_MEMBERSHIP  = 13
+        IP_DROP_SOURCE_MEMBERSHIP = 16
+        IP_HDRINCL          = 2
+        IP_MTU              = 70
+        IP_MTU_DISCOVER     = 71
+        IP_MULTICAST_LOOP   = 11
+        IP_MULTICAST_TTL    = 10
+        IP_OPTIONS          = 1
+        IP_PKTINFO          = 19
+        IP_RECVTOS          = 40
+        IP_RECVTTL          = 21
+        IP_TOS              = 3
+        IP_TTL              = 4
+        IP_UNBLOCK_SOURCE   = 18
+        IP_UNICAST_IF       = 31
+
+
         SO_ACCEPTCONN       = dec("0x0002")
         SO_BROADCAST        = dec("0x0020")
         SO_DONTROUTE        = dec("0x0010")
@@ -58,6 +78,26 @@
         SO_SNDLOWAT         = dec("0x1003")
         SO_RCVTIMEO         = dec("0x1006")
     else
+        IP_ADD_MEMBERSHIP   = 35
+        IP_ADD_SOURCE_MEMBERSHIP = 39
+        IP_BLOCK_SOURCE     = 38
+        IP_DROP_MEMBERSHIP  = 36
+        IP_DROP_SOURCE_MEMBERSHIP = 40
+        IP_HDRINCL          = 3
+        IP_MTU              = 14
+        IP_MTU_DISCOVER     = 10
+        IP_MULTICAST_LOOP   = 34
+        IP_MULTICAST_TTL    = 33
+        IP_OPTIONS          = 4
+        IP_PKTINFO          = 8
+        IP_RECVTOS          = 13
+        IP_RECVTTL          = 12
+        IP_TOS              = 1
+        IP_TTL              = 2
+        IP_UNBLOCK_SOURCE   = 37
+        IP_UNICAST_IF       = 50
+
+
         SO_ACCEPTCONN       = 30
         SO_BROADCAST        = 6
         SO_DONTROUTE        = 5
