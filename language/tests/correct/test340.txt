@@ -1,0 +1,4 @@
+avoid raise!
+Line 11 Error : nMode not in the range 1:4 
+In raise() In function testmode() in file trycatch/test3.ring
+called from line 7  in file trycatch/test3.ring 

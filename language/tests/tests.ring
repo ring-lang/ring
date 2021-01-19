@@ -342,5 +342,6 @@ aTests = [
 	[ :name = "Exit and Loop (Part 3)", :Command = "ring exitandloop/test3.ring" ],
 	[ :name = "Exit and Loop (Part 4)", :Command = "ring exitandloop/test4.ring" ],
 	[ :name = "Try/Catch (Part 1)", :Command = "ring trycatch/test1.ring" ],
-	[ :name = "Try/Catch (Part 2)", :Command = "ring trycatch/test2.ring" ]
+	[ :name = "Try/Catch (Part 2)", :Command = "ring trycatch/test2.ring" ],
+	[ :name = "Try/Catch (Part 3)", :Command = "ring trycatch/test3.ring" ]
 ]
