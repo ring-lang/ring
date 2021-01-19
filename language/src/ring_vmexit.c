@@ -76,7 +76,7 @@ void ring_vm_exit ( VM *pVM,int nType )
 		**  If we have many nested loops with different step values 
 		**  Then when we exit from more than one loop we must restore the step value too 
 		*/
-		if ( (nType == 1) && (nStep > 1) ) {
+		if ( nStep > 1 ) {
 			for ( y = 2 ; y <= nStep ; y++ ) {
 				ring_vm_popstep(pVM);
 			}
