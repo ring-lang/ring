@@ -427,9 +427,7 @@ void ring_vm_socket_close(void *pPointer) {
 #else
     close(sock->sockfd);
 #endif
-    ring_state_free(((VM *) pPointer)->pRingState,sock);
     RING_API_SETNULLPOINTER(1);
-
 }
 
 void ring_vm_socket_gethostbyname(void *pPointer) {
