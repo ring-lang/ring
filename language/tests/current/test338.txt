@@ -1,2 +1,5 @@
-
-Can't open file general/exitandloop/test4.ring 
+len > 0
+exit 1
+len > 0
+exit 2
+done...
