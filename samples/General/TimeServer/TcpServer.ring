@@ -56,44 +56,50 @@ class TcpServer from ObjectControllerParent
   {
     display.append("Listen to port: " + port)
     sock = socket(AF_INET, SOCK_STREAM, 0)
-    bind(sock, host, port)
+    try {
+      bind(sock, host, port)
+    catch 
+      display.append(time() + ": Bind Error!")
+      return
+    }
     listen(sock, 5)
     accept_loop(sock)
   }
 
   func accept_loop(sock)
   {
-    client_sock = accept(sock)
-    display.append(time() + ": Accepted a connection!")
-    switch receive_loop(client_sock)
-    {
-      case "bye!"
-        display.append(time() + ": Stopping listener!")
-        new Local { close(client_sock) }
-      else
-	display.append(time() + ": The client disconnected!")
-        accept_loop(sock)
+    While True {
+      client_sock = accept(sock)
+      display.append(time() + ": Accepted a connection!")
+      switch receive_loop(client_sock)
+      {
+        case "bye!"
+          display.append(time() + ": Stopping listener!")
+          new local { close(client_sock) }
+          exit
+        else
+	  display.append(time() + ": The client disconnected!")
+      }
     }
   }
 
   func receive_loop(client_sock)
   {
-    switch recv(client_sock, 4)
-    {
-      case "time"
-        display.append(time() + ": Sending current time to client.")
-        send(client_sock, time())
-        return receive_loop(client_sock)
-      case "bye!"
-	display.append(time() + ": The client sent 'bye!' before disconnecting, that'll be my end!")
-        new Local { close(client_sock) }
-        return "bye!"
-      else
-	display.append(time() + ": The client signaled disconnection with his unintelligible request!")
-        new Local { close(client_sock) }
-        return "next"
+    while True {
+      switch recv(client_sock, 4)
+      {
+        case "time"
+          display.append(time() + ": Sending current time to client.")
+          send(client_sock, time())
+        case "bye!"
+	  display.append(time() + ": The client sent 'bye!' before disconnecting, that'll be my end!")
+          return "bye!"
+        else
+	  display.append(time() + ": The client signaled disconnection with his unintelligible request!")
+          return "next"
+      }
     }
   }
 }
 
-class Local
+class local 
