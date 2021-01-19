@@ -1,5 +1,2 @@
-len > 0
-exit 1
-len > 0
-exit 2
-done...
+  Test1 OK.
+  Test2 OK.

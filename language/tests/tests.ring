@@ -337,9 +337,9 @@ aTests = [
 	[ :name = "General Tests (Part 146)", :Command = "ring general/test136.ring" ],
 	[ :name = "General Tests (Part 147)", :Command = "ring general/test137.ring" ],
 	[ :name = "General Tests (Part 148)", :Command = "ring general/exitfrommanyloops.ring" ],
-	[ :name = "General Tests (Part 149)", :Command = "ring general/test138.ring" ],
 	[ :name = "Exit and Loop (Part 1)", :Command = "ring exitandloop/test1.ring" ],
 	[ :name = "Exit and Loop (Part 2)", :Command = "ring exitandloop/test2.ring" ],
 	[ :name = "Exit and Loop (Part 3)", :Command = "ring exitandloop/test3.ring" ],
-	[ :name = "Exit and Loop (Part 4)", :Command = "ring exitandloop/test4.ring" ]
+	[ :name = "Exit and Loop (Part 4)", :Command = "ring exitandloop/test4.ring" ],
+	[ :name = "Try/Catch (Part 1)", :Command = "ring trycatch/test1.ring" ]
 ]
