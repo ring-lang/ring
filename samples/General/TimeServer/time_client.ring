@@ -26,7 +26,14 @@ load "stdlibcore.ring"
 load "socket.ring"
 
 sock = socket(AF_INET, SOCK_STREAM)
-connect(sock, "127.0.0.1", 5051)
+
+Try {
+	connect(sock, "127.0.0.1", 5051)
+Catch 
+	? "No connection!"
+	return
+}
+
 ? "Enter 'time' to get the time or anything else to exit."
 
 while True
