@@ -28,19 +28,21 @@ load "socket.ring"
 sock = socket(AF_INET, SOCK_STREAM)
 connect(sock, "127.0.0.1", 5051)
 ? "Enter 'time' to get the time or anything else to exit."
-main_loop(sock)
 
-func main_loop(sock)
+func main
 {
-  switch getstring()
+  while True
   {
-    case "time"
-      send(sock, "time")
-      the_time = recv(sock, 1024)
-      ? "The time is " + the_time 
-      main_loop(sock)
-    else
-      send(sock, "bye!")
-      close(sock)
+    switch getstring()
+    {
+      case "time"
+        send(sock, "time")
+        the_time = recv(sock, 1024)
+        ? "The time is " + the_time 
+      else
+        send(sock, "bye!")
+        close(sock)
+        exit
+    }
   }
 }
