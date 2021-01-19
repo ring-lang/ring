@@ -42,7 +42,7 @@
 # Option names
     SO_DEBUG            = 1
 
-    if isWindows
+    if isWindows()
         IP_ADD_MEMBERSHIP   = 12
         IP_ADD_SOURCE_MEMBERSHIP = 15
         IP_BLOCK_SOURCE     = 17
