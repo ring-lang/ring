@@ -815,8 +815,12 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_WHILE) ) {
 		/*
 		**  Generate Code 
-		**  Mark for Exit command to go to outsize the loop 
+		**  Set Step Number - Since We have Exit/Loop commands controls a mix of (For/While/... loops) 
 		*/
+		ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+		ring_parser_icg_newoperanddouble(pParser,0.0);
+		ring_parser_icg_newoperation(pParser,ICO_STEPNUMBER);
+		/* Mark for Exit command to go to outsize the loop */
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
 		nMark1 = ring_parser_icg_newlabel(pParser);
@@ -860,6 +864,8 @@ int ring_parser_stmt ( Parser *pParser )
 				if ( pParser->nLoopFlag == 0 ) {
 					pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
 				}
+				/* POP Step */
+				ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
 				ring_parser_nexttoken(pParser);
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
@@ -877,8 +883,12 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_DO) ) {
 		/*
 		**  Generate Code 
-		**  Mark for Exit command to go to outsize the loop 
+		**  Set Step Number - Since We have Exit/Loop commands controls a mix of (For/While/... loops) 
 		*/
+		ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+		ring_parser_icg_newoperanddouble(pParser,0.0);
+		ring_parser_icg_newoperation(pParser,ICO_STEPNUMBER);
+		/* Mark for Exit command to go to outsize the loop */
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
 		nMark1 = ring_parser_icg_newlabel(pParser);
@@ -923,6 +933,8 @@ int ring_parser_stmt ( Parser *pParser )
 				if ( pParser->nLoopFlag == 0 ) {
 					pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
 				}
+				/* POP Step */
+				ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
 				pParser->nAssignmentFlag = 1 ;
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
