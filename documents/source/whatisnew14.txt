@@ -695,7 +695,8 @@ More Improvements
 * Ring VM - Copy() function - Better Code (Ignore Negative Numbers)
 * Ring VM - Restore the step value when we use exit from more than one loop
 * Ring VM - Better Code when working with many threads
-* Ring VM - Better Code when restoring the state after Try/Catch/Done 
+* Ring VM - Better Code when restoring the state after Try/Catch/Done
+* Ring VM - Better Code when using Raise() in nested calls after Try/Catch/Done 
 * Ring VM - Better format when printing instructions during execution
 * Ring Compiler/VM Source Code - Better Format
 * Ring Compiler/VM Source Code - Code Refactoring
