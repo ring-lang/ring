@@ -265,7 +265,7 @@
 	/* State */
 	#define RING_STATE_TRYCATCH 1
 	#define RING_STATE_EXIT 2
-	#define RING_STATE_RETURN 3
+	#define RING_STATE_LOOP 3
 	/* Memory */
 	#define RING_MEMORY_GLOBALSCOPE 1
 	/* List as Hash */
@@ -715,9 +715,11 @@
 
 	void ring_vm_savestate ( VM *pVM,List *pList ) ;
 
-	void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag ) ;
+	void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nType ) ;
 
 	void ring_vm_backstate ( VM *pVM,int x,List *pList ) ;
+
+	void ring_vm_backstate2 ( VM *pVM,int x,List *pList ) ;
 
 	void ring_vm_savestate2 ( VM *pVM,List *pList ) ;
 

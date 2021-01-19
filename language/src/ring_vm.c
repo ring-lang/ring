@@ -543,10 +543,10 @@ void ring_vm_execute ( VM *pVM )
 			ring_vm_popexitmark(pVM);
 			break ;
 		case ICO_EXIT :
-			ring_vm_exit(pVM,1);
+			ring_vm_exit(pVM,RING_STATE_EXIT);
 			break ;
 		case ICO_LOOP :
-			ring_vm_exit(pVM,2);
+			ring_vm_exit(pVM,RING_STATE_LOOP);
 			break ;
 		/* For Better Performance */
 		case ICO_PUSHP :

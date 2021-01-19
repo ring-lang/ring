@@ -65,7 +65,7 @@ void ring_vm_savestate ( VM *pVM,List *pList )
 	pVMState->aPointers[7] = ring_list_getpointer(pThis,RING_VAR_VALUE) ;
 }
 
-void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
+void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nType )
 {
 	List *pThis  ;
 	VMState *pVMState  ;
@@ -113,14 +113,16 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	ring_vm_backstate(pVM,pVMState->aNumbers[11],pVM->aScopeID);
 	pVM->nActiveScopeID = pVMState->aNumbers[12] ;
 	/* Loop/Exit Mark */
-	if ( nFlag != RING_STATE_EXIT ) {
+	if ( nType == RING_STATE_TRYCATCH ) {
 		ring_vm_backstate(pVM,pVMState->aNumbers[13],pVM->pExitMark);
 		ring_vm_backstate(pVM,pVMState->aNumbers[14],pVM->pLoopMark);
-		/* For Step */
-		ring_vm_backstate(pVM,pVMState->aNumbers[18],pVM->aForStep);
+	}
+	/* For Step */
+	if ( nType == RING_STATE_EXIT || nType == RING_STATE_LOOP ) {
+		ring_vm_backstate2(pVM,pVMState->aNumbers[18],pVM->aForStep);
 	}
 	/* Try/Catch/Done */
-	if ( nFlag != RING_STATE_TRYCATCH ) {
+	if ( nType != RING_STATE_TRYCATCH ) {
 		ring_vm_backstate(pVM,pVMState->aNumbers[15],pVM->pTry);
 	}
 	/* List Status */
@@ -281,6 +283,18 @@ void ring_vm_backstate ( VM *pVM,int x,List *pList )
 	if ( x < ring_list_getsize(pList) ) {
 		nLimit = ring_list_getsize(pList) ;
 		for ( y = x + 1 ; y <= nLimit ; y++ ) {
+			ring_list_deleteitem_gc(pVM->pRingState,pList,ring_list_getsize(pList));
+		}
+	}
+}
+/* Special case (STEP) when restore type is a RING_STATE_EXIT or RING_STATE_LOOP */
+
+void ring_vm_backstate2 ( VM *pVM,int x,List *pList )
+{
+	int nLimit,y  ;
+	if ( x < ring_list_getsize(pList) ) {
+		nLimit = ring_list_getsize(pList) ;
+		for ( y = x + 2 ; y <= nLimit ; y++ ) {
 			ring_list_deleteitem_gc(pVM->pRingState,pList,ring_list_getsize(pList));
 		}
 	}
