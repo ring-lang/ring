@@ -290,6 +290,9 @@
 	#define RING_VM_TRACEEVENT_ERROR 4
 	#define RING_VM_TRACEEVENT_BEFORECFUNC 5
 	#define RING_VM_TRACEEVENT_AFTERCFUNC 6
+	/* Loops */
+	#define RING_COMMANDTYPE_EXIT 1
+	#define RING_COMMANDTYPE_LOOP 2
 	/* Runtime Error Messages */
 	#define RING_VM_ERROR_DIVIDEBYZERO "Error (R1) : Can't divide by zero !"
 	#define RING_VM_ERROR_INDEXOUTOFRANGE "Error (R2) : Array Access (Index out of range) !"
