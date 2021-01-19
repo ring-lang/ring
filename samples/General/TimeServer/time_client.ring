@@ -22,8 +22,9 @@
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
 
-load "stdlib.ring"
+load "stdlibcore.ring"
 load "socket.ring"
+
 sock = socket(AF_INET, SOCK_STREAM)
 connect(sock, "127.0.0.1", 5051)
 ? "Enter 'time' to get the time or anything else to exit."
