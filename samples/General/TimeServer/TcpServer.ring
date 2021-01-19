@@ -58,6 +58,7 @@ class TcpServer from ObjectControllerParent
 
   func run_accept()
   {
+    display.append("Listen to port: " + port)
     sock = socket(AF_INET, SOCK_STREAM, 0)
     bind(sock, host, port)
     listen(sock, 5)
