@@ -81,7 +81,5 @@ class ServerWindow
   func listenClicked()
   {
 	CreateObject(:TcpServer,this.tcpServer)
-
-//    this.tcpServer.start()
   }
 }

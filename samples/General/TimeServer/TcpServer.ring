@@ -54,8 +54,6 @@ class TcpServer from ObjectControllerParent
   {
     accept_thread = new_uv_thread_t()
     uv_thread_create(accept_thread, Method(:run_accept))
-#    see "It's async!"
-#    uv_thread_join(accept_thread)
   }
 
   func run_accept()
