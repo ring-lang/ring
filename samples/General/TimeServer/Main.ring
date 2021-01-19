@@ -25,7 +25,7 @@
 load "stdlibcore.ring"
 load "guilib.ring"
 load "objectslib.ring"
-load "libuv.ring"
+load "threads.ring"
 load "socket.ring"
 load "TcpServer.ring"
 load "ServerWindow.ring"

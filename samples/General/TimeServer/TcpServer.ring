@@ -48,8 +48,8 @@ class TcpServer from ObjectControllerParent
 
   func start()
   {
-    accept_thread = new_uv_thread_t()
-    uv_thread_create(accept_thread, Method(:run_accept))
+    accept_thread = new_thrd_t()
+    thrd_create(accept_thread, Method(:run_accept))
   }
 
   func run_accept()
@@ -59,7 +59,6 @@ class TcpServer from ObjectControllerParent
     bind(sock, host, port)
     listen(sock, 5)
     accept_loop(sock)
-    destroy_uv_thread_t(accept_thread)
   }
 
   func accept_loop(sock)
