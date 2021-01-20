@@ -107,11 +107,33 @@ Starting from OpenGL 1.1 to OpenGL 4.6
 	
 ### Generate RingQt Source Code and Build
 
+Tested using Qt 5.12 and Qt 5.15
+
+For Qt 5.12
+
 	Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.6/
 	
 	cd ../extensions/ringqt
-	gencodeqt512.bat
-	buildqt512.bat
+	gencodeqt512_nobluetooth.bat
+	buildqt512_nobluetooth.bat
+
+To Copy the Qt runtime files to ring/bin folder
+
+	cd ring/extensions/ringqt/binupdate
+	installqt512.bat
+
+For Qt 5.15
+
+	Install Qt 5.15
+	cd ../extensions/ringqt
+	gencodeqt515_nobluetooth.bat
+	buildqt515_nobluetooth.bat
+
+To Copy the Qt runtime files to ring/bin folder
+
+	cd ring/extensions/ringqt/binupdate
+	installqt515.bat
+
 
 ### To be able to call ring from any folder 
 	
