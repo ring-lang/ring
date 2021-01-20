@@ -20,10 +20,10 @@ Ring 1.14 comes with the next features!
 * More Samples
 * Erlang B Formula
 * Customers Form
-* Tilengine Extension
+* RingTilengine Extension
 * RingLibui Extension
-* Socket Extension
-* Threads Extension
+* RingSockets Extension
+* RingThreads Extension
 * Better RingOpenSSL
 * More Functions
 * Better Functions
@@ -127,10 +127,10 @@ The Use Interface is provided in Arabic, English & French
 
 
 .. index:: 
-	pair: What is new in Ring 1.14?; Tilengine Extension
+	pair: What is new in Ring 1.14?; RingTilengine Extension
 
-Tilengine Extension
-===================
+RingTilengine Extension
+=======================
 
 This extension provides support for Tilengine - The 2D retro graphics engine with raster effects
 
@@ -238,10 +238,10 @@ Screen Shots:
 	:alt: RingLibui Screen Shot
 
 .. index:: 
-	pair: What is new in Ring 1.14?; Socket Extension
+	pair: What is new in Ring 1.14?; RingSockets Extension
 
-Socket Extension
-================
+RingSockets Extension
+=====================
 
 In Ring, We have sockets using different extensions like RingQt, RingLibuv and RingLibSDL
 
@@ -255,7 +255,7 @@ Example (Server Code)
 
 	# TCP SERVER
 
-	load "socket.ring" 
+	load "sockets.ring" 
 
 	sock = socket(AF_INET,SOCK_STREAM,0) 
 	bind(sock,"127.0.0.1",5050)
@@ -273,7 +273,7 @@ Example (Client Code)
 
 	# TCP Client
 
-	load "socket.ring" 
+	load "sockets.ring" 
 
 	sock = socket(AF_INET,SOCK_STREAM)
 	connect(sock,"127.0.0.1",5050)
@@ -286,10 +286,10 @@ Example (Client Code)
 	? "Socket connection closed"
 
 .. index:: 
-	pair: What is new in Ring 1.14?; Threads Extension
+	pair: What is new in Ring 1.14?; RingThreads Extension
 
-Threads Extension
-=================
+RingThreads Extension
+=====================
 
 In Ring, We have threads using different extensions like RingQt, RingLibuv and RingAllegro
 

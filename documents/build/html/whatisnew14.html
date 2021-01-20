@@ -198,10 +198,10 @@
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#erlang-b-formula">Erlang B Formula</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#customers-form">Customers Form</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#tilengine-extension">Tilengine Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringtilengine-extension">RingTilengine Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringlibui-extension">RingLibui Extension</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#socket-extension">Socket Extension</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#threads-extension">Threads Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringsockets-extension">RingSockets Extension</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringthreads-extension">RingThreads Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringopenssl">Better RingOpenSSL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-functions">More Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-functions">Better Functions</a></li>
@@ -292,10 +292,10 @@
 <li><p>More Samples</p></li>
 <li><p>Erlang B Formula</p></li>
 <li><p>Customers Form</p></li>
-<li><p>Tilengine Extension</p></li>
+<li><p>RingTilengine Extension</p></li>
 <li><p>RingLibui Extension</p></li>
-<li><p>Socket Extension</p></li>
-<li><p>Threads Extension</p></li>
+<li><p>RingSockets Extension</p></li>
+<li><p>RingThreads Extension</p></li>
 <li><p>Better RingOpenSSL</p></li>
 <li><p>More Functions</p></li>
 <li><p>Better Functions</p></li>
@@ -359,8 +359,8 @@
 <p>The Use Interface is provided in Arabic, English &amp; French</p>
 <img alt="erlangb" src="_images/customersapp.png" />
 </div>
-<div class="section" id="tilengine-extension">
-<span id="index-7"></span><h2>Tilengine Extension<a class="headerlink" href="#tilengine-extension" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ringtilengine-extension">
+<span id="index-7"></span><h2>RingTilengine Extension<a class="headerlink" href="#ringtilengine-extension" title="Permalink to this headline">¶</a></h2>
 <p>This extension provides support for Tilengine - The 2D retro graphics engine with raster effects</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tilengine.ring&quot;</span>
@@ -437,15 +437,15 @@
 <img alt="RingLibui Screen Shot" src="_images/libui_16.png" />
 <img alt="RingLibui Screen Shot" src="_images/libui_26.png" />
 </div>
-<div class="section" id="socket-extension">
-<span id="index-9"></span><h2>Socket Extension<a class="headerlink" href="#socket-extension" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ringsockets-extension">
+<span id="index-9"></span><h2>RingSockets Extension<a class="headerlink" href="#ringsockets-extension" title="Permalink to this headline">¶</a></h2>
 <p>In Ring, We have sockets using different extensions like RingQt, RingLibuv and RingLibSDL</p>
 <p>In this release we provide a special extension for sockets</p>
 <p>This will be useful if your application doesn’t use the previous libraries</p>
 <p>Example (Server Code)</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># TCP SERVER</span>
 
-<span class="k">load</span> <span class="s">&quot;socket.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;sockets.ring&quot;</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
@@ -461,7 +461,7 @@
 <p>Example (Client Code)</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># TCP Client</span>
 
-<span class="k">load</span> <span class="s">&quot;socket.ring&quot;</span>
+<span class="k">load</span> <span class="s">&quot;sockets.ring&quot;</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
 <span class="n">connect</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
@@ -475,8 +475,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="threads-extension">
-<span id="index-10"></span><h2>Threads Extension<a class="headerlink" href="#threads-extension" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="ringthreads-extension">
+<span id="index-10"></span><h2>RingThreads Extension<a class="headerlink" href="#ringthreads-extension" title="Permalink to this headline">¶</a></h2>
 <p>In Ring, We have threads using different extensions like RingQt, RingLibuv and RingAllegro</p>
 <p>In this release we provide a special extension for threads</p>
 <p>This will be useful if your application doesn’t use the previous libraries</p>

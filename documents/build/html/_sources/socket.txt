@@ -1,14 +1,14 @@
 .. index:: 
-	single: socket; Introduction
+	single: sockets; Introduction
 
-================
-Socket Extension
-================
+=====================
+RingSockets Extension
+=====================
 
-In this chapter we will learn about using the Socket extension.
+In this chapter we will learn about using the RingSockets extension.
 
 .. index:: 
-	pair: socket; TCP Server
+	pair: sockets; TCP Server
 
 TCP Server
 ==========
@@ -17,7 +17,7 @@ Example (TCP Server Code):
 
 .. code-block:: ring
 
-	load "socket.ring" 
+	load "sockets.ring" 
 
 	sock = socket(AF_INET,SOCK_STREAM,0) 
 	bind(sock,"127.0.0.1",5050)
@@ -32,7 +32,7 @@ Example (TCP Server Code):
 	? "socket connection closed"
 
 .. index:: 
-	pair: socket; TCP Client
+	pair: sockets; TCP Client
 
 TCP Client
 ==========
@@ -41,7 +41,7 @@ Example (TCP Client Code):
 
 .. code-block:: ring
 
-	load "socket.ring" 
+	load "sockets.ring" 
 
 	sock = socket(AF_INET,SOCK_STREAM)
 	connect(sock,"127.0.0.1",5050)
@@ -54,7 +54,7 @@ Example (TCP Client Code):
 	? "socket connection closed"
 
 .. index:: 
-	pair: socket; UDP Server
+	pair: sockets; UDP Server
 
 UDP Server
 ==========
@@ -63,7 +63,7 @@ Example (UDP Server Code):
 
 .. code-block:: ring
 
-	load 'socket.ring'
+	load 'sockets.ring'
 
 	sock = socket(AF_INET,SOCK_DGRAM)
 	bind(sock,"127.0.0.1",5050)
@@ -76,7 +76,7 @@ Example (UDP Server Code):
 	? "Socket connection closed"
 
 .. index:: 
-	pair: socket; UDP Client
+	pair: sockets; UDP Client
 
 UDP Client
 ==========
@@ -85,7 +85,7 @@ Example (UDP Client Code):
 
 .. code-block:: ring
 
-	load 'socket.ring'
+	load 'sockets.ring'
 
 	sock = socket(AF_INET,SOCK_DGRAM)
 	connect(sock,"127.0.0.1",5050)
@@ -96,7 +96,7 @@ Example (UDP Client Code):
 	? "Socket connection closed"
 
 .. index:: 
-	pair: socket; Functions
+	pair: sockets; Functions
 
 Functions
 =========
@@ -125,7 +125,7 @@ Example:
 
 .. code-block:: ring
 
-	load "socket.ring"
+	load "sockets.ring"
 
 	host = gethostbyname("google.com")
 	? host
