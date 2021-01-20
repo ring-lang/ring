@@ -23926,6 +23926,9 @@ Class QWebEngineView from QWidget
 	Func geturlChangedEvent 
 		return QWebEngineView_geturlChangedEvent(pObject)
 
+	Func print P1
+		return QWebEngineView_print(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QWebEnginePage from QObject
 
 	pObject
