@@ -161,8 +161,9 @@
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
-<li class="toctree-l1"><a class="reference internal" href="socket.html">Using Sockets</a></li>
-<li class="toctree-l1"><a class="reference internal" href="libui.html">Using Libui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
@@ -373,6 +374,7 @@
 
 <span class="o">/*</span> <span class="n">main</span> <span class="k">loop</span> <span class="o">*/</span>
 <span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">TLN_DisableCRTEffect</span><span class="p">()</span>
 <span class="k">while</span><span class="p">(</span><span class="n">TLN_ProcessWindow</span><span class="p">())</span>
         <span class="n">TLN_DrawFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="k">end</span>
@@ -493,6 +495,7 @@
 
 <span class="o">/*</span> <span class="n">create</span> <span class="n">window</span> <span class="o">&amp;</span> <span class="n">main</span> <span class="k">loop</span> <span class="o">*/</span>
 <span class="n">TLN_CreateWindow</span><span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+<span class="n">TLN_DisableCRTEffect</span><span class="p">()</span>
 <span class="k">while</span> <span class="n">TLN_ProcessWindow</span><span class="p">()</span>
         <span class="n">TLN_DrawFrame</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 
@@ -806,6 +809,7 @@
 
         <span class="o">/*</span> <span class="n">main</span> <span class="k">loop</span> <span class="o">*/</span>
         <span class="n">TLN_CreateWindow</span> <span class="p">(</span><span class="kp">NULL</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+        <span class="n">TLN_DisableCRTEffect</span><span class="p">()</span>
         <span class="k">while</span> <span class="p">(</span><span class="n">TLN_ProcessWindow</span> <span class="p">())</span>
         <span class="p">{</span>
                 <span class="k">if</span> <span class="p">(</span><span class="n">xpos</span> <span class="o">&lt;</span> <span class="n">max_xpos</span><span class="p">)</span>
@@ -937,6 +941,7 @@ func main
 
         /* main loop */
         TLN_CreateWindow (NULL, 0)
+        TLN_DisableCRTEffect()
         while TLN_ProcessWindow ()
                 /* user input */
                 if TLN_GetInput (INPUT_LEFT)
