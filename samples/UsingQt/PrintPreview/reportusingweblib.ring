@@ -64,10 +64,10 @@ class CustomersReportController
 			setoutputfilename("report.pdf")
 		}
 		oView {
-			web.print(printer1)
+			web.print(printer1,' system ("report.pdf") ')
 			web.show()
 		}
-		system ("report.pdf")
+		
 
 class CustomersReportView
 
