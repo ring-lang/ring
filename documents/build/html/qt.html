@@ -4776,7 +4776,7 @@ Also updated methods so the index start from 1 when we deal with the GUI control
         <span class="n">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
-<span class="k">class</span> <span class="n">CustomersReportController</span>
+<span class="k">class</span> <span class="n">CustomersReportController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
 
         <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">CustomersReportView</span>
 
@@ -4829,8 +4829,13 @@ Also updated methods so the index start from 1 when we deal with the GUI control
                         <span class="n">setoutputfilename</span><span class="p">(</span><span class="s">&quot;report.pdf&quot;</span><span class="p">)</span>
                 <span class="p">}</span>
                 <span class="n">oView</span> <span class="p">{</span>
-                        <span class="n">web</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">printer1</span><span class="p">,</span><span class="sc">&#39; system(&quot;report.pdf&quot;) &#39;</span><span class="p">)</span>
+                        <span class="n">web</span><span class="p">.</span><span class="n">print</span><span class="p">(</span><span class="n">printer1</span><span class="p">,</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">OpenPDF</span> <span class="p">)</span> <span class="p">)</span>
                         <span class="n">web</span><span class="p">.</span><span class="n">show</span><span class="p">()</span>
+                <span class="p">}</span>
+
+        <span class="k">func</span> <span class="n">OpenPDF</span>
+                <span class="k">new</span> <span class="n">QDesktopServices</span> <span class="p">{</span>
+                        <span class="n">OpenURL</span><span class="p">(</span><span class="k">new</span> <span class="n">qURL</span><span class="p">(</span><span class="s">&quot;report.pdf&quot;</span><span class="p">)</span> <span class="p">)</span>
                 <span class="p">}</span>
 
 <span class="k">class</span> <span class="n">CustomersReportView</span>
