@@ -23,7 +23,7 @@
 # POSSIBILITY OF SUCH DAMAGE.
 
 load "stdlibcore.ring"
-load "socket.ring"
+load "sockets.ring"
 
 sock = socket(AF_INET, SOCK_STREAM)
 
