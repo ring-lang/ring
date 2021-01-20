@@ -12712,7 +12712,7 @@ Parent Class : QObject
 * QUrl iconUrl(void)
 * QWebEnginePage * inspectedPage(void)
 * bool isAudioMuted(void)
-* void load_2(QWebEngineHttpRequest request)
+* void load_3(QWebEngineHttpRequest request)
 * void print(QPrinter *printer,QWebEngineCallback<bool>)
 * bool recentlyAudible(void)
 * QUrl requestedUrl(void)
@@ -12835,6 +12835,7 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+* void print(QPrinter *printer)
 
 .. index::
 	pair: RingQt Classes Reference; QWebView Class

@@ -12712,7 +12712,7 @@ Parent Class : QObject
 * QUrl iconUrl(void)
 * QWebEnginePage * inspectedPage(void)
 * bool isAudioMuted(void)
-* void load_2(QWebEngineHttpRequest request)
+* void load_3(QWebEngineHttpRequest request)
 * void print(QPrinter *printer,QWebEngineCallback<bool>)
 * bool recentlyAudible(void)
 * QUrl requestedUrl(void)
