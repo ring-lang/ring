@@ -7,7 +7,7 @@
 #define WIN32_LEAN_AND_MEAN
 
 #include "ring.h"
-#include "socket.h"
+#include "sockets.h"
 
 
 void ring_vm_socket_init(void *pPointer) {

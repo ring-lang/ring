@@ -1,4 +1,4 @@
-load "socket.ring"
+load "sockets.ring"
 
 host = gethostbyname("google.com")
 ? host

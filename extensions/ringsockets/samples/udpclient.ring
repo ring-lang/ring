@@ -1,4 +1,4 @@
-load 'socket.ring'
+load 'sockets.ring'
 
 sock = socket(AF_INET,SOCK_DGRAM)
 connect(sock,"127.0.0.1",5050)
