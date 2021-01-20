@@ -206,6 +206,7 @@ extern "C" {
 #include <QWebEngineView>
 #include <QWebEnginePage>
 #include <QWebEngineHistory>
+#include "gwebenginepage.h"
 </filter>
 
 

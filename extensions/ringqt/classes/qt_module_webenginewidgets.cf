@@ -4,5 +4,6 @@
 
 <filter> (sysget("RINGQT_ANDROID") = "" and sysget("RINGQT_NOWEBKIT") = "1")
 <loadfile> web/qwebengineview.cf
+<loadfile> web/qwebenginepage.cf
 </filter>
 
