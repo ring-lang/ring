@@ -26,8 +26,8 @@ bool isAudioMuted(void)
 bool isVisible(void)
 QWebEnginePage::LifecycleState lifecycleState(void)
 </comment>
-void load(QUrl url)
-void load@2(QWebEngineHttpRequest request)
+void load@2(QUrl url)
+void load@3(QWebEngineHttpRequest request)
 void print(QPrinter *printer,QWebEngineCallback<bool>)
 <comment>
 void printToPdf(QString filePath, QPageLayout pageLayout, QPageLayout::Portrait, QMarginsF)

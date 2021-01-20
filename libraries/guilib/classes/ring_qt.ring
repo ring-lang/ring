@@ -23996,11 +23996,11 @@ Class QWebEnginePage from QObject
 	Func isAudioMuted 
 		return QWebEnginePage_isAudioMuted(pObject)
 
-	Func load P1
-		return QWebEnginePage_load(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func load_2 P1
 		return QWebEnginePage_load_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func load_3 P1
+		return QWebEnginePage_load_3(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func print P1,P2
 		return QWebEnginePage_print(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
