@@ -230,8 +230,8 @@ The Ring language comes with the next features
 * Comes with Ring2EXE to distribute applications
 * RingLibuv Extension
 * RingLibui Extension
-* Sockets Extension
-* Threads Extension
+* RingSockets Extension
+* RingThreads Extension
 * No Global Interpreter (VM) lock (No GIL) - Better for threads and concurrency (Faster)
 * Comes with RingPM (Package Manager)
 * Many Samples and Applications
