@@ -12835,7 +12835,7 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
-* void print(QPrinter *printer)
+* void print(QPrinter *printer,const char *cCode)
 
 .. index::
 	pair: RingQt Classes Reference; QWebView Class
