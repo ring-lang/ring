@@ -30,8 +30,6 @@ GWebEnginePage::GWebEnginePage(QObject * parent,VM *pVM)  : QWebEnginePage(paren
 	strcpy(this->crecentlyAudibleChangedEvent,"");
 	strcpy(this->crecommendedStateChangedEvent,"");
 	strcpy(this->cregisterProtocolHandlerRequestedEvent,"");
-	strcpy(this->crenderProcessPidChangedEvent,"");
-	strcpy(this->crenderProcessTerminatedEvent,"");
 	strcpy(this->cscrollPositionChangedEvent,"");
 	strcpy(this->cselectClientCertificateEvent,"");
 	strcpy(this->cselectionChangedEvent,"");
@@ -61,8 +59,6 @@ GWebEnginePage::GWebEnginePage(QObject * parent,VM *pVM)  : QWebEnginePage(paren
 	QObject::connect(this, SIGNAL(recentlyAudibleChanged(bool)),this, SLOT(recentlyAudibleChangedSlot()));
 	QObject::connect(this, SIGNAL(recommendedStateChanged(QWebEnginePage::LifecycleState)),this, SLOT(recommendedStateChangedSlot()));
 	QObject::connect(this, SIGNAL(registerProtocolHandlerRequested(QWebEngineRegisterProtocolHandlerRequest)),this, SLOT(registerProtocolHandlerRequestedSlot()));
-	QObject::connect(this, SIGNAL(renderProcessPidChanged(qint64)),this, SLOT(renderProcessPidChangedSlot()));
-	QObject::connect(this, SIGNAL(renderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus,int)),this, SLOT(renderProcessTerminatedSlot()));
 	QObject::connect(this, SIGNAL(scrollPositionChanged(const QPointF)),this, SLOT(scrollPositionChangedSlot()));
 	QObject::connect(this, SIGNAL(selectClientCertificate(QWebEngineClientCertificateSelection)),this, SLOT(selectClientCertificateSlot()));
 	QObject::connect(this, SIGNAL(selectionChanged()),this, SLOT(selectionChangedSlot()));
@@ -213,18 +209,6 @@ void GWebEnginePage::setregisterProtocolHandlerRequestedEvent(const char *cStr)
 		strcpy(this->cregisterProtocolHandlerRequestedEvent,cStr);
 }
 
-void GWebEnginePage::setrenderProcessPidChangedEvent(const char *cStr)
-{
-	if (strlen(cStr)<100)
-		strcpy(this->crenderProcessPidChangedEvent,cStr);
-}
-
-void GWebEnginePage::setrenderProcessTerminatedEvent(const char *cStr)
-{
-	if (strlen(cStr)<100)
-		strcpy(this->crenderProcessTerminatedEvent,cStr);
-}
-
 void GWebEnginePage::setscrollPositionChangedEvent(const char *cStr)
 {
 	if (strlen(cStr)<100)
@@ -371,16 +355,6 @@ const char *GWebEnginePage::getrecommendedStateChangedEvent(void)
 const char *GWebEnginePage::getregisterProtocolHandlerRequestedEvent(void)
 {
 	return this->cregisterProtocolHandlerRequestedEvent;
-}
-
-const char *GWebEnginePage::getrenderProcessPidChangedEvent(void)
-{
-	return this->crenderProcessPidChangedEvent;
-}
-
-const char *GWebEnginePage::getrenderProcessTerminatedEvent(void)
-{
-	return this->crenderProcessTerminatedEvent;
 }
 
 const char *GWebEnginePage::getscrollPositionChangedEvent(void)
@@ -585,22 +559,6 @@ void GWebEnginePage::registerProtocolHandlerRequestedSlot()
 		return ;
 
 	ring_vm_runcode(this->pVM,this->cregisterProtocolHandlerRequestedEvent);
-}
-
-void GWebEnginePage::renderProcessPidChangedSlot()
-{
-	if (strcmp(this->crenderProcessPidChangedEvent,"")==0)
-		return ;
-
-	ring_vm_runcode(this->pVM,this->crenderProcessPidChangedEvent);
-}
-
-void GWebEnginePage::renderProcessTerminatedSlot()
-{
-	if (strcmp(this->crenderProcessTerminatedEvent,"")==0)
-		return ;
-
-	ring_vm_runcode(this->pVM,this->crenderProcessTerminatedEvent);
 }
 
 void GWebEnginePage::scrollPositionChangedSlot()

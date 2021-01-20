@@ -37,8 +37,8 @@ QWebEngineProfile * profile(void)
 bool recentlyAudible(void)
 <comment>
 QWebEnginePage::LifecycleState recommendedState(void)
-</comment>
 qint64 renderProcessPid(void)
+</comment>
 void replaceMisspelledWord(QString replacement)
 QUrl requestedUrl(void)
 void runJavaScript(QString scriptSource)
@@ -66,7 +66,9 @@ void setUrl(QUrl url)
 void setUrlRequestInterceptor(QWebEngineUrlRequestInterceptor *interceptor)
 </comment>
 void setView(QWidget *view)
+<comment>
 void setVisible(bool visible)
+</comment>
 void setWebChannel(QWebChannel *channel, uint worldId)
 void setWebChannel@2(QWebChannel *channel)
 void setZoomFactor(qreal factor)
@@ -106,8 +108,10 @@ void setquotaRequestedEvent(const char *)
 void setrecentlyAudibleChangedEvent(const char *)
 void setrecommendedStateChangedEvent(const char *)
 void setregisterProtocolHandlerRequestedEvent(const char *)
+<comment>
 void setrenderProcessPidChangedEvent(const char *)
 void setrenderProcessTerminatedEvent(const char *)
+</comment>
 void setscrollPositionChangedEvent(const char *)
 void setselectClientCertificateEvent(const char *)
 void setselectionChangedEvent(const char *)
@@ -140,8 +144,10 @@ const char *getquotaRequestedEvent(void)
 const char *getrecentlyAudibleChangedEvent(void)
 const char *getrecommendedStateChangedEvent(void)
 const char *getregisterProtocolHandlerRequestedEvent(void)
+<comment>
 const char *getrenderProcessPidChangedEvent(void)
 const char *getrenderProcessTerminatedEvent(void)
+</comment>
 const char *getscrollPositionChangedEvent(void)
 const char *getselectClientCertificateEvent(void)
 const char *getselectionChangedEvent(void)

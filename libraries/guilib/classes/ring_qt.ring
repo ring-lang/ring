@@ -24008,9 +24008,6 @@ Class QWebEnginePage from QObject
 	Func recentlyAudible 
 		return QWebEnginePage_recentlyAudible(pObject)
 
-	Func renderProcessPid 
-		return QWebEnginePage_renderProcessPid(pObject)
-
 	Func replaceMisspelledWord P1
 		return QWebEnginePage_replaceMisspelledWord(pObject,P1)
 
@@ -24062,9 +24059,6 @@ Class QWebEnginePage from QObject
 
 	Func setView P1
 		return QWebEnginePage_setView(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setVisible P1
-		return QWebEnginePage_setVisible(pObject,P1)
 
 	Func setWebChannel P1,P2
 		return QWebEnginePage_setWebChannel(pObject,GetObjectPointerFromRingObject(P1),P2)
@@ -24163,12 +24157,6 @@ Class QWebEnginePage from QObject
 	Func setregisterProtocolHandlerRequestedEvent P1
 		return QWebEnginePage_setregisterProtocolHandlerRequestedEvent(pObject,P1)
 
-	Func setrenderProcessPidChangedEvent P1
-		return QWebEnginePage_setrenderProcessPidChangedEvent(pObject,P1)
-
-	Func setrenderProcessTerminatedEvent P1
-		return QWebEnginePage_setrenderProcessTerminatedEvent(pObject,P1)
-
 	Func setscrollPositionChangedEvent P1
 		return QWebEnginePage_setscrollPositionChangedEvent(pObject,P1)
 
@@ -24252,12 +24240,6 @@ Class QWebEnginePage from QObject
 
 	Func getregisterProtocolHandlerRequestedEvent 
 		return QWebEnginePage_getregisterProtocolHandlerRequestedEvent(pObject)
-
-	Func getrenderProcessPidChangedEvent 
-		return QWebEnginePage_getrenderProcessPidChangedEvent(pObject)
-
-	Func getrenderProcessTerminatedEvent 
-		return QWebEnginePage_getrenderProcessTerminatedEvent(pObject)
 
 	Func getscrollPositionChangedEvent 
 		return QWebEnginePage_getscrollPositionChangedEvent(pObject)

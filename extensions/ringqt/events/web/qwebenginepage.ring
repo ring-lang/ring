@@ -93,14 +93,14 @@ aClasses + [
 					:slot = "registerProtocolHandlerRequestedSlot()" ,
 					:event = "registerProtocolHandlerRequested"
 				],
-				[ 	:signal = "renderProcessPidChanged(qint64)" ,
-					:slot = "renderProcessPidChangedSlot()" ,
-					:event = "renderProcessPidChanged"
-				],
-				[ 	:signal = "renderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus,int)" ,
-					:slot = "renderProcessTerminatedSlot()" ,
-					:event = "renderProcessTerminated"
-				],
+//				[ 	:signal = "renderProcessPidChanged(qint64)" ,
+//					:slot = "renderProcessPidChangedSlot()" ,
+//					:event = "renderProcessPidChanged"
+//				],
+//				[ 	:signal = "renderProcessTerminated(QWebEnginePage::RenderProcessTerminationStatus,int)" ,
+//					:slot = "renderProcessTerminatedSlot()" ,
+//					:event = "renderProcessTerminated"
+//				],
 				[ 	:signal = "scrollPositionChanged(const QPointF)" ,
 					:slot = "scrollPositionChangedSlot()" ,
 					:event = "scrollPositionChanged"
