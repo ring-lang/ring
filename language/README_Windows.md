@@ -16,83 +16,83 @@
 
 ### Build Ring2EXE 
 
-	cd ../../tools/ring2exe
+	cd ring/tools/ring2exe
 	buildring2exe.bat 
 
 ### Generate RingConsoleColors Source Code and Build 
 	
-	cd ../extensions/ringconsolecolors
+	cd ring/extensions/ringconsolecolors
 	gencode.bat
 	buildvc.bat
 
 ### Build RingInternet
 	
-	cd ../extensions/ringinternet
+	cd ring/extensions/ringinternet
 	buildvc.bat
 
 ### Generate RingLibCurl Source Code and Build 
 	
-	cd ../extensions/ringcurl
+	cd ring/extensions/ringcurl
 	gencode.bat
 	buildvc.bat
 
 ### Generate RingZip Source Code and Build 
 	
-	cd ../extensions/ringzip
+	cd ring/extensions/ringzip
 	gencode.bat
 	buildvc.bat
 
 ### Build RingPM
 
-	cd ../tools/ringpm
+	cd ring/tools/ringpm
 	buildringpm.bat 
 	
 ### Build RingODBC
 	
-	cd ../extensions/ringodbc
+	cd ring/extensions/ringodbc
 	buildvc.bat
 
 ### Build RingMySQL
 	
-	cd ../extensions/ringmysql
+	cd ring/extensions/ringmysql
 	buildvc.bat
 
 ### Build RingSQLite
 	
-	cd ../extensions/ringsqlite
+	cd ring/extensions/ringsqlite
 	buildvc.bat
 
 ### Build RingPostgreSQL
 	
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	gencode.bat
 	buildvc.bat
 
 ### Build RingOpenSSL
 	
-	cd ../extensions/ringopenssl
+	cd ring/extensions/ringopenssl
 	buildvc.bat
 
 ### Build RingMurmurHash
 	
-	cd ../extensions/ringmurmurhash
+	cd ring/extensions/ringmurmurhash
 	buildvc.bat
 	
 ### Generate RingAllegro Source Code and Build 
 	
-	cd ../extensions/ringallegro
+	cd ring/extensions/ringallegro
 	gencode.bat
 	buildvc.bat
 	
 ### Generate RingLibuv Source Code and Build 
 	
-	cd ../extensions/ringlibuv
+	cd ring/extensions/ringlibuv
 	gencode.bat
 	buildvc.bat
 
 ### Generate RingFreeGLUT Source Code and Build 
 	
-	cd ../extensions/ringfreeglut
+	cd ring/extensions/ringfreeglut
 	gencode.bat
 	buildvc.bat
 
@@ -101,7 +101,7 @@
 The ringopengl folder contains many sub folders for different OpenGL versions
 Starting from OpenGL 1.1 to OpenGL 4.6
 	
-	cd ../extensions/ringopengl/opengl21
+	cd ring/extensions/ringopengl/opengl21
 	gencode.bat
 	buildvc.bat
 	
@@ -113,7 +113,7 @@ For Qt 5.12
 
 	Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.6/
 	
-	cd ../extensions/ringqt
+	cd ring/extensions/ringqt
 	gencodeqt512_nobluetooth.bat
 	buildqt512_nobluetooth.bat
 
@@ -125,7 +125,7 @@ To Copy the Qt runtime files to ring/bin folder
 For Qt 5.15
 
 	Install Qt 5.15
-	cd ../extensions/ringqt
+	cd ring/extensions/ringqt
 	gencodeqt515_nobluetooth.bat
 	buildqt515_nobluetooth.bat
 
@@ -137,7 +137,7 @@ To Copy the Qt runtime files to ring/bin folder
 
 ### To be able to call ring from any folder 
 	
-	cd ../../bin
+	cd ring/bin
 	install.bat
 	
 #### Add Ring/bin to System path
@@ -152,5 +152,5 @@ To Copy the Qt runtime files to ring/bin folder
 	
 ### Run Ring Notepad
 	
-	cd tools/ringnotepad
+	cd ring/tools/ringnotepad
 	ring rnote.ring
