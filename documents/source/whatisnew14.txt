@@ -703,6 +703,7 @@ More Improvements
 * RingPM - New Package: GUILib (Separate package for the GUILib classes)
 * RingPM - New Package: ObjectsLib (Separate package for the ObjectsLib classes)
 * RingPM - New Package: CLOC (Count Lines of Code)
+* RingQt - QWebEngineView Class - Added: Print(QPrinter,cEventCode) Method
 * RingQt - QCombobox Class - Added: setCurrentText() and addItems() methods
 * RingQt - Added: QLocale Class
 * RingQtRuntime Package: Using GUILib & ObjectsLib packages
