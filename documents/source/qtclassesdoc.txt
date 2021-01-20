@@ -12686,6 +12686,109 @@ Parameters : void
 * QString genderName(QVoice::Gender gender)
 
 .. index::
+	pair: RingQt Classes Reference; QWebEnginePage Class
+
+QWebEnginePage Class
+====================
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebenginepage.html
+
+
+Parameters : QObject *
+
+
+Parent Class : QObject
+
+* QAction * action(QWebEnginePage::WebAction action)
+* QColor backgroundColor(void)
+* QSizeF contentsSize(void)
+* QWebEnginePage * devToolsPage(void)
+* void download(QUrl url, QString filename)
+* void findText(QString subString, QWebEnginePage::FindFlags options, QWebEngineCallback<bool> resultCallback)
+* bool hasSelection(void)
+* QWebEngineHistory * history(void)
+* QIcon icon(void)
+* QUrl iconUrl(void)
+* QWebEnginePage * inspectedPage(void)
+* bool isAudioMuted(void)
+* void load_2(QWebEngineHttpRequest request)
+* void print(QPrinter *printer,QWebEngineCallback<bool>)
+* bool recentlyAudible(void)
+* QUrl requestedUrl(void)
+* void runJavaScript(QString scriptSource)
+* void runJavaScript_2(QString scriptSource, quint32 worldId)
+* QPointF scrollPosition(void)
+* QString selectedText(void)
+* void setAudioMuted(bool muted)
+* void setBackgroundColor(QColor color)
+* void setContent(QByteArray data, QString mimeType, QUrl baseUrl)
+* void setDevToolsPage(QWebEnginePage *devToolsPage)
+* void setFeaturePermission(QUrl securityOrigin, QWebEnginePage::Feature feature, QWebEnginePage::PermissionPolicy policy)
+* void setHtml(QString html, QUrl baseUrl)
+* void setInspectedPage(QWebEnginePage *page)
+* void setWebChannel_2(QWebChannel *channel)
+* void setZoomFactor(qreal factor)
+* QWebEngineSettings * settings(void)
+* QString title(void)
+* QUrl url(void)
+* QWidget * view(void)
+* QWebChannel * webChannel(void)
+* qreal zoomFactor(void)
+* void setaudioMutedChangedEvent(const char *)
+* void setauthenticationRequiredEvent(const char *)
+* void setcontentsSizeChangedEvent(const char *)
+* void setfeaturePermissionRequestCanceledEvent(const char *)
+* void setfeaturePermissionRequestedEvent(const char *)
+* void setfindTextFinishedEvent(const char *)
+* void setfullScreenRequestedEvent(const char *)
+* void setgeometryChangeRequestedEvent(const char *)
+* void seticonChangedEvent(const char *)
+* void seticonUrlChangedEvent(const char *)
+* void setloadFinishedEvent(const char *)
+* void setloadProgressEvent(const char *)
+* void setloadStartedEvent(const char *)
+* void setpdfPrintingFinishedEvent(const char *)
+* void setprintRequestedEvent(const char *)
+* void setproxyAuthenticationRequiredEvent(const char *)
+* void setquotaRequestedEvent(const char *)
+* void setrecentlyAudibleChangedEvent(const char *)
+* void setrecommendedStateChangedEvent(const char *)
+* void setregisterProtocolHandlerRequestedEvent(const char *)
+* void setselectClientCertificateEvent(const char *)
+* void setselectionChangedEvent(const char *)
+* void settitleChangedEvent(const char *)
+* void seturlChangedEvent(const char *)
+* void setvisibleChangedEvent(const char *)
+* void setwindowCloseRequestedEvent(const char *)
+* const char *getaudioMutedChangedEvent(void)
+* const char *getauthenticationRequiredEvent(void)
+* const char *getcontentsSizeChangedEvent(void)
+* const char *getfeaturePermissionRequestCanceledEvent(void)
+* const char *getfeaturePermissionRequestedEvent(void)
+* const char *getfindTextFinishedEvent(void)
+* const char *getfullScreenRequestedEvent(void)
+* const char *getgeometryChangeRequestedEvent(void)
+* const char *geticonChangedEvent(void)
+* const char *geticonUrlChangedEvent(void)
+* const char *getloadFinishedEvent(void)
+* const char *getloadProgressEvent(void)
+* const char *getloadStartedEvent(void)
+* const char *getpdfPrintingFinishedEvent(void)
+* const char *getprintRequestedEvent(void)
+* const char *getproxyAuthenticationRequiredEvent(void)
+* const char *getquotaRequestedEvent(void)
+* const char *getrecentlyAudibleChangedEvent(void)
+* const char *getrecommendedStateChangedEvent(void)
+* const char *getregisterProtocolHandlerRequestedEvent(void)
+* const char *getselectClientCertificateEvent(void)
+* const char *getselectionChangedEvent(void)
+* const char *gettitleChangedEvent(void)
+* const char *geturlChangedEvent(void)
+* const char *getvisibleChangedEvent(void)
+* const char *getwindowCloseRequestedEvent(void)
+
+.. index::
 	pair: RingQt Classes Reference; QWebEngineView Class
 
 QWebEngineView Class
@@ -12746,22 +12849,6 @@ C++ Reference : http://doc.qt.io/qt-5/qwebview.html
 Parameters : QWidget *parent
 
 
-Parent Class : QWebEngineView
-
-
-.. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -12789,6 +12876,22 @@ Parent Class : QWidget
 * const char *getselectionChangedEvent(void)
 * const char *gettitleChangedEvent(void)
 * const char *geturlChangedEvent(void)
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
+Parent Class : QWebEngineView
+
 
 .. index::
 	pair: RingQt Classes Reference; QWidget Class
