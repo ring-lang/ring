@@ -2,16 +2,14 @@
 
 str = "test"
 
-# replace by /* to get last line printed
 ? "h in hybrid = new Hybrid(str)"
 hybrid = new Hybrid(str)
 for h in hybrid
 	? h
 next
 ? "------------------"
-? h[1] // just h prints NULL, while h[1] prints N ???
+? h[1] 
 ? "------------------"
-# replace by */ to get last line printed
 
 ? "i in lst = [0, 1, 2, 3]"
 lst = [0, 1, 2, 3]
@@ -21,7 +19,7 @@ i = i + 1
 next
 ? "------------------"
 ? lst
-? lst[1] // unless commented above, prints nothing because of the RetItemByReference
+? lst[1] 
 ? "------------------"
 
 class Hybrid
