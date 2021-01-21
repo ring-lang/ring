@@ -112,7 +112,7 @@ Ring 1.12 is released on January 25, 2020
 
 Ring 1.13 is released on September 15, 2020 
 
-Ring 1.14 will be released on January 25, 2021
+Ring 1.14 is under development!
 
 .. index:: 
 	pair: Introduction; Features
