@@ -1,2 +1,2 @@
-name: Gal
-name: Bert
+name: NULL
+name: NULL

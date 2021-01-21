@@ -1,5 +1,3 @@
 
-Can't open file syntaxerror.ring 
-
-general/test83.ring Line (2) Error (C27) : Syntax Error!
-general/test83.ring errors count : 1 
+general/test82.ring Line (17) Error (C7) : Error in list items
+general/test82.ring errors count : 1 
