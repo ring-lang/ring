@@ -353,6 +353,8 @@ Compiler Errors
 * Error (C25) : Trying to access the self reference after the object name
 * Error (C26) : Class redefinition, class is already defined!
 
+* Error (S1) : Literal not closed!
+
 * Warning (W1) : Duplication in file name
 * Warning (W2) : The Compiler command ChangeRingKeyword requires two words as parameters
 * Warning (W3) : Compiler command ChangeRingKeyword - Keyword not found !
