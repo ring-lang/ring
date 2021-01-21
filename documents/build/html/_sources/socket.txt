@@ -54,48 +54,6 @@ Example (TCP Client Code):
 	? "socket connection closed"
 
 .. index:: 
-	pair: sockets; UDP Server
-
-UDP Server
-==========
-
-Example (UDP Server Code):
-
-.. code-block:: ring
-
-	load 'sockets.ring'
-
-	sock = socket(AF_INET,SOCK_DGRAM)
-	bind(sock,"127.0.0.1",5050)
-
-	msg = recvfrom(sock,1024)
-	? "Client Say >> " + msg
-	sendto(sock,"Hello Client")
-	close(sock)
-
-	? "Socket connection closed"
-
-.. index:: 
-	pair: sockets; UDP Client
-
-UDP Client
-==========
-
-Example (UDP Client Code):
-
-.. code-block:: ring
-
-	load 'sockets.ring'
-
-	sock = socket(AF_INET,SOCK_DGRAM)
-	connect(sock,"127.0.0.1",5050)
-	sendto(sock,"Hello Server")
-	msg = recvfrom(sock,1024)
-	? "Server Say >> " + msg
-	close(sock)
-	? "Socket connection closed"
-
-.. index:: 
 	pair: sockets; Functions
 
 Functions
