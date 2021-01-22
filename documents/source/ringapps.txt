@@ -237,6 +237,8 @@ Quotes about Ring
 |	**"I'm glad I could help improve the Ring language. It has good and yet easy to understand design and architecture. I believe it has big potential ahead."**
 |		, Mounir IDRASSI (Creator of VeraCrypt)
 
+|	**"What I like most about Ring Lang is its ease to create complex applications in WebAssembly."**
+|		, Luis Lozad
 
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
