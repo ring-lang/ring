@@ -93,7 +93,13 @@ pItem
 ring_vm_gc_deleteitem_gc
 ring_vm_gc_killreference
 Type: List *
-pList
+pList, *pList2
+Type: Item *
+pItem
+Type: char *
+newstr
+Type: char
+cStr[2]
 ring_vm_gc_deletetemplists
 ring_vm_gc_newitemreference
 ring_vm_gc_freefunc
