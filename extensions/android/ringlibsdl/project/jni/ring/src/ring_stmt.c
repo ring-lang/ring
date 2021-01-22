@@ -231,7 +231,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nPathExist,nLoopOrExitCommand,nLoadAgain  ;
+	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nPathExist,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar  ;
 	String *pString  ;
 	List *pMark,*pMark2,*pMark3,*pList2  ;
 	double nNum1  ;
@@ -608,6 +608,9 @@ int ring_parser_stmt ( Parser *pParser )
 				}
 			}
 			else if ( ring_parser_iskeyword(pParser,K_IN) ) {
+				/* Add the reference to the (For-In Loop) variables */
+				nForInVarsCount = ring_list_getsize(pParser->pForInVars) + 1 ;
+				ring_list_addstring(pParser->pForInVars,ring_string_get(pString));
 				/* Generate Code */
 				sprintf( cStr , "n_sys_var_%d" , ring_parser_icg_instructionscount(pParser) ) ;
 				/* Mark for Exit command to go to outside the loop */
@@ -701,9 +704,14 @@ int ring_parser_stmt ( Parser *pParser )
 						/* POP Step */
 						ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
 						/* Remove Reference Value */
-						ring_parser_icg_newoperation(pParser,ICO_LOADAFIRST);
-						ring_parser_icg_newoperand(pParser,ring_string_get(pString));
-						ring_parser_icg_newoperation(pParser,ICO_KILLREFERENCE);
+						for ( nVar = nForInVarsCount ; nVar <= ring_list_getsize(pParser->pForInVars) ; nVar++ ) {
+							ring_parser_icg_newoperation(pParser,ICO_LOADAFIRST);
+							ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pForInVars,nVar));
+							ring_parser_icg_newoperation(pParser,ICO_KILLREFERENCE);
+						}
+						if ( nForInVarsCount == 1 ) {
+							ring_list_deleteallitems(pParser->pForInVars);
+						}
 						#if RING_PARSERTRACE
 						RING_STATE_CHECKPRINTRULES 
 						

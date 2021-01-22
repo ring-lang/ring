@@ -81,12 +81,14 @@ Parser * ring_parser_new ( List *pTokens,RingState *pRingState )
 	pParser->nLoopOrExitCommand = 0 ;
 	pParser->nCheckLoopAndExit = 1 ;
 	pParser->nLoopFlag = 0 ;
+	pParser->pForInVars = ring_list_new(0);
 	return pParser ;
 }
 
 Parser * ring_parser_delete ( Parser *pParser )
 {
 	assert(pParser != NULL);
+	pParser->pForInVars = ring_list_delete(pParser->pForInVars);
 	ring_state_free(pParser->pRingState,pParser);
 	return NULL ;
 }
