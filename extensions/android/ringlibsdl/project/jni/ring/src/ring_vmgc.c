@@ -84,6 +84,9 @@ void ring_vm_gc_killreference ( VM *pVM )
 	if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 		pList = (List *) RING_VM_STACK_READP ;
 		ring_vm_gc_checkupdatereference(pVM,pList);
+		/* Set variable value to NULL */
+		ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
+		ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE , "NULL");
 	}
 }
 

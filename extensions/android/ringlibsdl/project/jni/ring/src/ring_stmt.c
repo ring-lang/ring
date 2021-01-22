@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Grammar */
 
@@ -704,12 +704,6 @@ int ring_parser_stmt ( Parser *pParser )
 						ring_parser_icg_newoperation(pParser,ICO_LOADAFIRST);
 						ring_parser_icg_newoperand(pParser,ring_string_get(pString));
 						ring_parser_icg_newoperation(pParser,ICO_KILLREFERENCE);
-						ring_parser_icg_newoperation(pParser,ICO_PUSHC);
-						ring_parser_icg_newoperand(pParser,"NULL");
-						/* Before Equal ( = ) not += , -= ,... etc */
-						ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-						ring_parser_icg_newoperandint(pParser,0);
-						ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
 						#if RING_PARSERTRACE
 						RING_STATE_CHECKPRINTRULES 
 						
