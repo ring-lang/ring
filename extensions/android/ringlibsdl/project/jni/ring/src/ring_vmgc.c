@@ -87,6 +87,10 @@ void ring_vm_gc_killreference ( VM *pVM )
 	/* The (For In) Loop generate the ICO_KILLREFERENCE instruction that call this function */
 	if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 		pList = (List *) RING_VM_STACK_READP ;
+		/* Be sure that it's a Pointer */
+		if ( ring_list_getint(pList,RING_VAR_TYPE) != RING_VM_POINTER ) {
+			return ;
+		}
 		/* Get the Real Value that this reference points to */
 		switch ( ring_list_getint(pList,RING_VAR_PVALUETYPE) ) {
 			case RING_OBJTYPE_VARIABLE :
