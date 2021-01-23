@@ -695,6 +695,10 @@ void ring_vm_execute ( VM *pVM )
 		case ICO_SETGLOBALSCOPE :
 			ring_vm_setglobalscope(pVM);
 			break ;
+		/* Temp Lists */
+		case ICO_FREETEMPLISTS :
+			ring_vm_freetemplists(pVM);
+			break ;
 	}
 }
 

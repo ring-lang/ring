@@ -558,7 +558,11 @@ int ring_parser_stmt ( Parser *pParser )
 							RING_PARSER_ACCEPTSTATEMENTS ;
 							pParser->nLoopFlag-- ;
 							if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
-								/* Generate Code */
+								/*
+								**  Generate Code 
+								**  Free Temp Lists 
+								*/
+								ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
 								nMark3 = ring_parser_icg_newlabel(pParser);
 								/* Increment Jump */
 								ring_parser_icg_newoperation(pParser,ICO_INCJUMP);
@@ -675,7 +679,11 @@ int ring_parser_stmt ( Parser *pParser )
 					pParser->nLoopFlag-- ;
 					if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
 						ring_parser_nexttoken(pParser);
-						/* Generate Code */
+						/*
+						**  Generate Code 
+						**  Free Temp Lists 
+						*/
+						ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
 						nMark3 = ring_parser_icg_newlabel(pParser);
 						/* Increment Jump */
 						ring_parser_icg_newoperation(pParser,ICO_INCJUMP);
@@ -845,7 +853,11 @@ int ring_parser_stmt ( Parser *pParser )
 			RING_PARSER_ACCEPTSTATEMENTS ;
 			pParser->nLoopFlag-- ;
 			if ( ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
-				/* Generate Code */
+				/*
+				**  Generate Code 
+				**  Free Temp Lists 
+				*/
+				ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
 				nMark3 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_newoperation(pParser,ICO_JUMP);
 				ring_parser_icg_newoperandint(pParser,nMark1);
@@ -906,7 +918,11 @@ int ring_parser_stmt ( Parser *pParser )
 		RING_PARSER_ACCEPTSTATEMENTS ;
 		pParser->nLoopFlag-- ;
 		if ( ring_parser_iskeyword(pParser,K_AGAIN) ) {
-			/* Generate Code */
+			/*
+			**  Generate Code 
+			**  Free Temp Lists 
+			*/
+			ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			pParser->nAssignmentFlag = 0 ;

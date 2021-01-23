@@ -213,6 +213,7 @@
 	#define RING_FUNCCL_CALLERPC 12
 	#define RING_FUNCCL_FUNCEXE 13
 	#define RING_FUNCCL_STATE 14
+	#define RING_FUNCCL_TEMPMEMSIZEATSTART 15
 	/* pFunctionsMap ( Func Name , Position , File Name, Private Flag) */
 	#define RING_FUNCMAP_NAME 1
 	#define RING_FUNCMAP_PC 2
@@ -773,4 +774,7 @@
 	void ring_vm_setglobalscope ( VM *pVM ) ;
 
 	List * ring_vm_getglobalscope ( VM *pVM ) ;
+	/* Temp Lists */
+
+	void ring_vm_freetemplists ( VM *pVM ) ;
 #endif

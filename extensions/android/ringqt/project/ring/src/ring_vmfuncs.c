@@ -464,6 +464,8 @@ void ring_vm_newfunc ( VM *pVM )
 	if ( nSP < pVM->nSP ) {
 		ring_vm_error(pVM,RING_VM_ERROR_EXTRAPARAMETERSCOUNT);
 	}
+	/* Set the Temp. Memory size at start */
+	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(ring_list_getlist(pList,RING_FUNCCL_TEMPMEM)));
 	/* Support this in the method */
 	ring_vm_oop_setthethisvariable(pVM);
 	/* Trace */
@@ -618,4 +620,45 @@ List * ring_vm_prevtempmem ( VM *pVM )
 		}
 	}
 	return pList ;
+}
+
+void ring_vm_freetemplists ( VM *pVM )
+{
+	List *pTempMem  ;
+	int x,nStart  ;
+	nStart = 1 ;
+	/* Check that we are not in the class region */
+	if ( pVM->nInClassRegion ) {
+		/*
+		**  Because we may create a new object in the temp. memory 
+		**  To avoid deleting the object while it's under construction during class region code execution 
+		**  Example: new mytest   class test    x=1 while x < 10  x++ end 
+		*/
+		return ;
+	}
+	/* Get the current temp. list */
+	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
+		pTempMem = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
+		nStart = ring_list_getint(pTempMem,RING_FUNCCL_TEMPMEMSIZEATSTART) + 1 ;
+		pTempMem = ring_list_getlist(pTempMem,RING_FUNCCL_TEMPMEM) ;
+	}
+	else {
+		pTempMem = ring_list_newlist_gc(pVM->pRingState,pVM->pTempMem) ;
+	}
+	/* Delete Temp. Lists created during the function call */
+	if ( nStart == 1 ) {
+		/* No Temp. Lists are created before the code execution of the function */
+		ring_list_deleteallitems_gc(pVM->pRingState,pTempMem);
+	}
+	else {
+		/*
+		**  We start from nStart to avoid deleting any list passed by reference and exist in the temp. memory 
+		**  i.e. we have a situation like  f1(f2()) where f2() return a list that are passed to f1() 
+		**  So when this code is executed from f1() we have to avoid deleting this list 
+		**  Because if we deleted it, the function code may access it which means ---> Usage after delete 
+		*/
+		for ( x = nStart ; x <= ring_list_getsize(pTempMem) ; x++ ) {
+			ring_list_deleteitem_gc(pVM->pRingState,pTempMem,nStart);
+		}
+	}
 }
