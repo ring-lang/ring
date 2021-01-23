@@ -1,17 +1,7 @@
-Message from SetName() Function!
-Message from GetName() Function!
+10
+20
+test
 
-Mr. Mahmoud - Ring Programming Language
-
-Message from SetName() Function!
-Message from GetName() Function!
-
-Mr. Gal - Ring Programming Language
-Message from SetName() Function!
-Message from GetName() Function!
-
-Mr. Bert - Ring Programming Language
-Message from SetName() Function!
-Message from GetName() Function!
-
-Mr. Marino - Ring Programming Language
+Line 9 Error (R24) : Using uninitialized variable : x 
+In method test() in file general/test65.ring
+called from line 1  in file general/test65.ring 

@@ -1,5 +1,2 @@
-
-Can't open file natural/filenameinpara2.ring 
-
-general/test125.ring Line (1) Error (C27) : Syntax Error!
-general/test125.ring errors count : 1 
+Error (S1) In file: general/test114.ring 
+In Line (2) Literal not closed 

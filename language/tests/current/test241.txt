@@ -1,10 +1,3 @@
-one
-two
-thre
-else
-else
-else
-else
-else
-else
-else
+name: NULL
+address: NULL
+phone: NULL
