@@ -703,6 +703,7 @@ More Improvements
 * Ring VM - Support using the & Operator to return the String Character Reference 
 * Ring Compiler/VM Source Code - Better Format
 * Ring Compiler/VM Source Code - Code Refactoring
+* Ring Compiler/VM - New instruction: ICO_FREETEMPLISTS
 * RingPM - New Package: GUILib (Separate package for the GUILib classes)
 * RingPM - New Package: ObjectsLib (Separate package for the ObjectsLib classes)
 * RingPM - New Package: CLOC (Count Lines of Code)
