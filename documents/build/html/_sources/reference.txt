@@ -649,6 +649,7 @@ Operation			Description
 * ICO_FUNCEXE		Start executing function
 * ICO_ENDFUNCEXE	End function execution
 * ICO_ANONYMOUS		Anonymous function
+* ICO_FREETEMPLISTS	Delete temp. lists
 =======================	============================================================================
 
 (User Interface)
