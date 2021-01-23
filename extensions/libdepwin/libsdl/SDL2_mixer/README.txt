@@ -14,7 +14,7 @@ for documentation on this mixer library.
 The mixer can currently load Microsoft WAVE files and Creative Labs VOC
 files as audio samples, it can load FLAC files with libFLAC, it can load
 Ogg Vorbis files with Ogg Vorbis or Tremor libraries, it can load MP3 files
-using mpg123, SMPEG or libmad, and it can load MIDI files with Timidity,
+using mpg123 or libmad, and it can load MIDI files with Timidity,
 FluidSynth, and natively on Windows, Mac OSX, and Linux, and finally it can
 load the following file formats via ModPlug or MikMod: .MOD .S3M .IT .XM.
 

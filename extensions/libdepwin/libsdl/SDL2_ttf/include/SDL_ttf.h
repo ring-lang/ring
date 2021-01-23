@@ -1,6 +1,6 @@
 /*
   SDL_ttf:  A companion library to SDL for working with TrueType (tm) fonts
-  Copyright (C) 2001-2016 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 2001-2019 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -28,8 +28,8 @@
    Unicode is hard, we learn as we go, and we apologize for adding to the
    confusion. */
 
-#ifndef _SDL_TTF_H
-#define _SDL_TTF_H
+#ifndef SDL_TTF_H_
+#define SDL_TTF_H_
 
 #include "SDL.h"
 #include "begin_code.h"
@@ -43,7 +43,7 @@ extern "C" {
 */
 #define SDL_TTF_MAJOR_VERSION   2
 #define SDL_TTF_MINOR_VERSION   0
-#define SDL_TTF_PATCHLEVEL      14
+#define SDL_TTF_PATCHLEVEL      15
 
 /* This macro can be used to fill a version structure with the compile-time
  * version of the SDL_ttf library.
@@ -60,6 +60,18 @@ extern "C" {
 #define TTF_MINOR_VERSION   SDL_TTF_MINOR_VERSION
 #define TTF_PATCHLEVEL      SDL_TTF_PATCHLEVEL
 #define TTF_VERSION(X)      SDL_TTF_VERSION(X)
+
+/**
+ *  This is the version number macro for the current SDL_ttf version.
+ */
+#define SDL_TTF_COMPILEDVERSION \
+    SDL_VERSIONNUM(SDL_TTF_MAJOR_VERSION, SDL_TTF_MINOR_VERSION, SDL_TTF_PATCHLEVEL)
+
+/**
+ *  This macro will evaluate to true if compiled with SDL_ttf at least X.Y.Z.
+ */
+#define SDL_TTF_VERSION_ATLEAST(X, Y, Z) \
+    (SDL_TTF_COMPILEDVERSION >= SDL_VERSIONNUM(X, Y, Z))
 
 /* Make sure this is defined (only available in newer SDL versions) */
 #ifndef SDL_DEPRECATED
@@ -277,4 +289,6 @@ extern DECLSPEC int TTF_GetFontKerningSizeGlyphs(TTF_Font *font, Uint16 previous
 #endif
 #include "close_code.h"
 
-#endif /* _SDL_TTF_H */
+#endif /* SDL_TTF_H_ */
+
+/* vi: set ts=4 sw=4 expandtab: */

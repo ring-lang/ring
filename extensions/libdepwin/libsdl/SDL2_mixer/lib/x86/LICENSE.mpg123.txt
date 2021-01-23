@@ -1,3 +1,7 @@
+The source code to this library used with SDL_mixer can be found here:
+https://hg.libsdl.org/SDL_mixer/file/default/external
+---
+
 This is the file that contains the terms of use, copying, etc. for the mpg123 distribution package.
 
 Main message, to include in "About ..." boxes, etc:

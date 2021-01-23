@@ -1,5 +1,5 @@
 The source code to this library used with SDL_mixer can be found here:
-http://www.libsdl.org/projects/SDL_mixer/libs/
+https://hg.libsdl.org/SDL_image/file/default/external
 ---
 
 Copyright (c) 2002-2008 Xiph.org Foundation

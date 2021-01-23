@@ -1,3 +1,15 @@
+2.0.4:
+Ozkan Sezer - Wed, 10 Oct 2018 14:56:10
+ * Removed smpeg support for mp3 music, now that it's replaced by libmpg123
+Ozkan Sezer - Sun, 07 Oct 2018 08:50:02
+ * Fixed mp3 mad decoder to skip tags, which otherwise would lead to crashes
+Ozkan Sezer - Fri, 15 Jun 2018 05:32:56
+ * Added support for Opus music playback using opusfile library
+
+2.0.3:
+Sam Lantinga - Thu, Mar  1, 2018  9:06:58 AM
+ * Fixed regression where Mix_Init() would return 0 for available music formats
+
 2.0.2:
 Sam Lantinga - Fri Oct 20 22:04:50 PDT 2017
  * Implemented 24-bit and surround sound support for FLAC audio files
