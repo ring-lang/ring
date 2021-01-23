@@ -718,3 +718,4 @@ More Improvements
 * RingMurmurHash - Better Code
 * RingOpenSSL - RandBytes() function - Better Code
 * RingZip - GetFileNameByIndex() function - Better Code
+* RingLibSDL - Building using LibSDL version 2.0.14
