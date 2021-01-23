@@ -21,9 +21,6 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
-load "stdlib.ring"
-load "guilib.ring"
-load "TcpServer.ring"
 
 class ServerWindow
 {
@@ -81,7 +78,5 @@ class ServerWindow
   func listenClicked()
   {
 	CreateObject(:TcpServer,this.tcpServer)
-
-//    this.tcpServer.start()
   }
 }

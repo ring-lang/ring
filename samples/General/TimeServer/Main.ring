@@ -21,6 +21,14 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
+
+load "stdlibcore.ring"
+load "guilib.ring"
+load "objectslib.ring"
+load "threads.ring"
+load "sockets.ring"
+
+load "TcpServer.ring"
 load "ServerWindow.ring"
 
 new QApp

@@ -14,7 +14,7 @@ How to study this extension
 
 (1) Start by looking at the classes/qt.cf file.
 
-(2) Then look at events\qtevents.ring 
+(2) Then look at events/qtevents.ring 
 
 
 How to build this extension

@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Socket Extension &mdash; Ring 1.14 documentation</title>
+  <title>RingSockets Extension &mdash; Ring 1.14 documentation</title>
   
 
   
@@ -37,7 +37,7 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="RingLibUI Extension" href="libui.html" />
+    <link rel="next" title="Threads Extension" href="threads.html" />
     <link rel="prev" title="RingLibCurl Functions Reference" href="ringlibcurlfuncsdoc.html" /> 
 </head>
 
@@ -144,6 +144,7 @@
 <li class="toctree-l1"><a class="reference internal" href="usingopengl.html">Using RingOpenGL and RingFreeGLUT for 3D Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="usingopengl2.html">Using RingOpenGL and RingAllegro for 3D Graphics</a></li>
 <li class="toctree-l1"><a class="reference internal" href="goldmagic800.html">Demo Project - The Gold Magic 800 Game</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tilengine.html">Using RingTilengine</a></li>
 <li class="toctree-l1"><a class="reference internal" href="performancetips.html">Performance Tips</a></li>
 <li class="toctree-l1"><a class="reference internal" href="compiler.html">Command Line Options</a></li>
 <li class="toctree-l1"><a class="reference internal" href="distribute.html">Distributing Ring Applications (Manual)</a></li>
@@ -154,16 +155,15 @@
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Using Sockets</a><ul>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Using RingSockets</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#tcp-server">TCP Server</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tcp-client">TCP Client</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#udp-server">UDP Server</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#udp-client">UDP Client</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#functions">Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#constants">Constants</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="libui.html">Using Libui</a></li>
+<li class="toctree-l1"><a class="reference internal" href="threads.html">Using RingThreads</a></li>
+<li class="toctree-l1"><a class="reference internal" href="libui.html">Using RingLibui</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringzip.html">Using RingZip</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibzipfuncsdoc.html">RingLibZip Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringmurmurhashfuncsdoc.html">RingMurmurHash Functions Reference</a></li>
@@ -250,7 +250,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Socket Extension</li>
+      <li>RingSockets Extension</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -267,13 +267,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="socket-extension">
-<span id="index-0"></span><h1>Socket Extension<a class="headerlink" href="#socket-extension" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter we will learn about using the Socket extension.</p>
+  <div class="section" id="ringsockets-extension">
+<span id="index-0"></span><h1>RingSockets Extension<a class="headerlink" href="#ringsockets-extension" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about using the RingSockets extension.</p>
 <div class="section" id="tcp-server">
 <span id="index-1"></span><h2>TCP Server<a class="headerlink" href="#tcp-server" title="Permalink to this headline">¶</a></h2>
 <p>Example (TCP Server Code):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;socket.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;sockets.ring&quot;</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
@@ -292,7 +292,7 @@
 <div class="section" id="tcp-client">
 <span id="index-2"></span><h2>TCP Client<a class="headerlink" href="#tcp-client" title="Permalink to this headline">¶</a></h2>
 <p>Example (TCP Client Code):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;socket.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;sockets.ring&quot;</span>
 
 <span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_STREAM</span><span class="p">)</span>
 <span class="n">connect</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
@@ -306,40 +306,8 @@
 </pre></div>
 </div>
 </div>
-<div class="section" id="udp-server">
-<span id="index-3"></span><h2>UDP Server<a class="headerlink" href="#udp-server" title="Permalink to this headline">¶</a></h2>
-<p>Example (UDP Server Code):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="sc">&#39;socket.ring&#39;</span>
-
-<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
-<span class="n">bind</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
-
-<span class="n">msg</span> <span class="o">=</span> <span class="n">recvfrom</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Client Say &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
-<span class="n">sendto</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;Hello Client&quot;</span><span class="p">)</span>
-<span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
-
-<span class="o">?</span> <span class="s">&quot;Socket connection closed&quot;</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="udp-client">
-<span id="index-4"></span><h2>UDP Client<a class="headerlink" href="#udp-client" title="Permalink to this headline">¶</a></h2>
-<p>Example (UDP Client Code):</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="sc">&#39;socket.ring&#39;</span>
-
-<span class="n">sock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span><span class="n">SOCK_DGRAM</span><span class="p">)</span>
-<span class="n">connect</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span><span class="mi">5050</span><span class="p">)</span>
-<span class="n">sendto</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="s">&quot;Hello Server&quot;</span><span class="p">)</span>
-<span class="n">msg</span> <span class="o">=</span> <span class="n">recvfrom</span><span class="p">(</span><span class="n">sock</span><span class="p">,</span><span class="mi">1024</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Server Say &gt;&gt; &quot;</span> <span class="o">+</span> <span class="n">msg</span>
-<span class="n">close</span><span class="p">(</span><span class="n">sock</span><span class="p">)</span>
-<span class="o">?</span> <span class="s">&quot;Socket connection closed&quot;</span>
-</pre></div>
-</div>
-</div>
 <div class="section" id="functions">
-<span id="index-5"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>Functions<a class="headerlink" href="#functions" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are provided by this extension</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>socket(nAddressFamily, nConnectionType) -&gt; SocketHandle
 bind(pSocketHandle, cHost , nPort)
@@ -359,7 +327,7 @@ getservbyport(nPort) -&gt; cName
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;socket.ring&quot;</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;sockets.ring&quot;</span>
 
 <span class="n">host</span> <span class="o">=</span> <span class="n">gethostbyname</span><span class="p">(</span><span class="s">&quot;google.com&quot;</span><span class="p">)</span>
 <span class="o">?</span> <span class="n">host</span>
@@ -377,7 +345,7 @@ getservbyport(nPort) -&gt; cName
 </div>
 </div>
 <div class="section" id="constants">
-<span id="index-6"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>Constants<a class="headerlink" href="#constants" title="Permalink to this headline">¶</a></h2>
 <p>Address Family:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>AF_INET       #  mean use IPV4
 AF_INET6      #  ........ IPV6
@@ -399,7 +367,7 @@ SOCK_DGRAM    #  ........ UDP ........
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="libui.html" class="btn btn-neutral float-right" title="RingLibUI Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="threads.html" class="btn btn-neutral float-right" title="Threads Extension" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="ringlibcurlfuncsdoc.html" class="btn btn-neutral float-left" title="RingLibCurl Functions Reference" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>

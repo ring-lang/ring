@@ -1,5 +1,7 @@
 load "threads.ring"
 
+a = 100
+
 func main
 
 	nThreads = 10
@@ -7,7 +9,7 @@ func main
 
 	for x=1 to nThreads
 		aList[x] = new_thrd_t()
-		thrd_create(aList[x],"Hello("+x+")")
+		thrd_create(aList[x],"Hello(a+"+x+")")
 	next
 
 	for k=1 to nThreads

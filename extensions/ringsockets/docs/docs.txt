@@ -1,0 +1,103 @@
+
+- socket(Address Family , Connection type , proto = 0)  -> return <socket handler>
+- setsockopt(socket handler , level , option_name , value)
+- getsockopt(socket handler , level , option_name)  -> return <1> if option has been used or <0>
+- bind(socket handler , host , port)
+- listen(socket handler , backlog)
+- accept(socket handler)    -> return <connection handler>
+- send(connection handler OR socket handler if it the client  , "Your Message")
+- sendto(socket handler , "Your Message")
+- recv(connection handler OR socket handler if it the client , buffer)   -> return <data>
+- recvfrom(socket handler , buffer)     -> return <data>
+- connect(socket handler , host , port)    -> return <0> if successful
+- close(socket handler OR connection handler)
+
+------------------------------------------------------------------------------------------
+
+- gethostbyname(hostname)       ->  return  <IP Address>
+- gethostbyaddr(ip address)     ->  return  <List of host info>
+- gethostname()			->  return  <My Hostname>
+- getservbyname(service_name)   ->  return  <service port>
+- getservbyport(port)		->  return  <service name>
+# convert the unsigned short integer (16-bit) netshort from network byte order to host byte order 
+- ntohs(netshort)               ->  return  <hostshort>
+- htons(hostshort)              ->  return  <netshort>
+# convert the unsigned integer (32-bit) hostlong from host byte order to network byte order
+- htonl(hostlong)               ->  return  <netlong>
+- ntohl(netlong)                ->  return  <hostlong>
+# convert ip address into binary data in network byte order
+- inet_addr(ip)                 ->  return  <packed_address>
+- inet_ntoa(packed_address)     ->  return  <ip>
+
+------------------------------------------------------------------------------------------
+
+Protocol Families :
+                - PF_UNSPEC
+                - PF_UNIX
+                - PF_INET
+                - PF_INET6
+                - PF_INET6
+
+
+Address Families :   
+                - AF_INET       >>  mean use IPV4
+                - AF_INET6      >>  ........ IPV6
+                - AF_UNSPEC
+                - AF_LOCAL
+                - AF_UNIX
+                - PF_FILE
+
+
+Connection type :
+                - SOCK_STREAM   >>  mean use TCP Protocol
+                - SOCK_DGRAM    >>  ........ UDP ........
+                - SOCK_RAW
+                - SOCK_RDM
+                - SOCK_SEQPACKET
+
+Levels :
+                - IPPROTO_IP
+                - IPPROTO_TCP
+                - IPPROTO_UDP
+                - SOL_SOCKET
+                - SOL_SOCKET
+
+Option names :
+                - IP_ADD_MEMBERSHIP
+                - IP_ADD_SOURCE_MEMBERSHIP
+                - IP_BLOCK_SOURCE
+                - IP_DROP_MEMBERSHIP
+                - IP_DROP_SOURCE_MEMBERSHIP
+                - IP_HDRINCL
+                - IP_MTU
+                - IP_MTU_DISCOVER
+                - IP_MULTICAST_LOOP
+                - IP_MULTICAST_TTL
+                - IP_OPTIONS
+                - IP_PKTINFO
+                - IP_RECVTOS
+                - IP_RECVTTL
+                - IP_TOS
+                - IP_TTL
+                - IP_UNBLOCK_SOURCE
+                - IP_UNICAST_IF
+                --------------------------
+                - SO_DEBUG
+                - SO_ACCEPTCONN
+                - SO_BROADCAST
+                - SO_DONTROUTE
+                - SO_ERROR
+                - SO_KEEPALIVE
+                - SO_LINGER
+                - SO_OOBINLINE
+                - SO_RCVBUF
+                - SO_REUSEADDR
+                - SO_SNDBUF
+                - SO_TYPE
+                - SO_RCVLOWAT
+                - SO_SNDLOWAT
+                - SO_RCVTIMEO
+
+------------------------------------------------------------------------------------------
+
+You Can Take a Look on Samples Folder For More Info

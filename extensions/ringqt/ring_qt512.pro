@@ -27,6 +27,7 @@ SOURCES +=   \
     cpp/src/gslider.cpp \
     cpp/src/gdial.cpp \
     cpp/src/gwebengineview.cpp \
+    cpp/src/gwebenginepage.cpp \
     cpp/src/gcheckbox.cpp \
     cpp/src/gradiobutton.cpp \
     cpp/src/gbuttongroup.cpp \
@@ -122,6 +123,7 @@ HEADERS  += \
     cpp/include/gslider.h \
     cpp/include/gdial.h \
     cpp/include/gwebengineview.h \
+    cpp/include/gwebenginepage.h \
     cpp/include/gcheckbox.h \
     cpp/include/gradiobutton.h \
     cpp/include/gbuttongroup.h \
@@ -198,7 +200,7 @@ HEADERS  += \
     cpp/include/gmovie.h \
     cpp/include/gcolordialog.h \
     cpp/include/gfontdialog.h \
-    cpp/include/gfiledialog.h
+    cpp/include/gfiledialog.h 
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include

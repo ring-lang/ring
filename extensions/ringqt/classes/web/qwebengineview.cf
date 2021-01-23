@@ -45,6 +45,44 @@ const char *geturlChangedEvent(void)
 To support code based on old versions of Qt that provides QWebView
 </comment>
 
+<register>
+void print(QPrinter *printer,const char *cCode)
+</register>
+
+<code>
+RING_FUNC(ring_QWebEngineView_print)
+{
+	QWebEngineView *pObject ;
+	static char cCode[256];
+	if ( RING_API_PARACOUNT != 3 )  {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QWebEngineView *) RING_API_GETCPOINTER(1,"QWebEngineView");
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( strlen( RING_API_GETSTRING(3) ) > 255 ) {
+		RING_API_ERROR("The Event Code must be <= 255 characters");
+		return ;
+	}
+	strcpy(cCode,RING_API_GETSTRING(3));
+	pObject->page()->print((QPrinter *) RING_API_GETCPOINTER(2,"QPrinter"),[=](bool){
+		ring_vm_runcode( (VM *) pPointer, cCode ) ;
+	});
+}
+</code>
+
 <class>
 name: QWebView
 para: QWidget *parent

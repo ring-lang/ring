@@ -136,6 +136,7 @@ Example (3):
 
 	/* main loop */
 	TLN_CreateWindow(NULL, 0)
+	TLN_DisableCRTEffect()
 	while(TLN_ProcessWindow())
 		TLN_DrawFrame(0)
 	end
@@ -268,6 +269,7 @@ Example (5):
 
 	/* create window & main loop */
 	TLN_CreateWindow(NULL, 0)
+	TLN_DisableCRTEffect()
 	while TLN_ProcessWindow()
 		TLN_DrawFrame(0)
 
@@ -598,6 +600,7 @@ Example (8):
 
 		/* main loop */
 		TLN_CreateWindow (NULL, 0)
+		TLN_DisableCRTEffect()
 		while (TLN_ProcessWindow ())
 		{
 			if (xpos < max_xpos)
@@ -735,6 +738,7 @@ Example (9):
 		
 		/* main loop */
 		TLN_CreateWindow (NULL, 0)
+		TLN_DisableCRTEffect()
 		while TLN_ProcessWindow ()
 			/* user input */
 			if TLN_GetInput (INPUT_LEFT)

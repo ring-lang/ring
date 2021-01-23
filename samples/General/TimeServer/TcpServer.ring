@@ -21,10 +21,6 @@
 # CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
 # ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
 # POSSIBILITY OF SUCH DAMAGE.
-load "libuv.ring"
-load "guilib.ring"
-load "socket.ring"
-load "objectslib.ring"
 
 class TcpServer from ObjectControllerParent
 {
@@ -52,54 +48,58 @@ class TcpServer from ObjectControllerParent
 
   func start()
   {
-    accept_thread = new_uv_thread_t()
-    uv_thread_create(accept_thread, Method(:run_accept))
-#    see "It's async!"
-#    uv_thread_join(accept_thread)
+    accept_thread = new_thrd_t()
+    thrd_create(accept_thread, Method(:run_accept))
   }
 
   func run_accept()
   {
+    display.append("Listen to port: " + port)
     sock = socket(AF_INET, SOCK_STREAM, 0)
-    bind(sock, host, port)
+    try {
+      bind(sock, host, port)
+    catch 
+      display.append(time() + ": Bind Error!")
+      return
+    }
     listen(sock, 5)
     accept_loop(sock)
-    destroy_uv_thread_t(accept_thread)
   }
 
   func accept_loop(sock)
   {
-    client_sock = accept(sock)
-    display.append(time() + ": Accepted a connection!")
-    switch receive_loop(client_sock)
-    {
-      case "bye!"
-        display.append(time() + ": Stopping listener!")
-        new Local { close(client_sock) }
-      else
-	display.append(time() + ": The client disconnected!")
-        accept_loop(sock)
+    While True {
+      client_sock = accept(sock)
+      display.append(time() + ": Accepted a connection!")
+      switch receive_loop(client_sock)
+      {
+        case "bye!"
+          display.append(time() + ": Stopping listener!")
+          new local { close(client_sock) }
+          exit
+        else
+	  display.append(time() + ": The client disconnected!")
+      }
     }
   }
 
   func receive_loop(client_sock)
   {
-    switch recv(client_sock, 4)
-    {
-      case "time"
-        display.append(time() + ": Sending current time to client.")
-        send(client_sock, time())
-        return receive_loop(client_sock)
-      case "bye!"
-	display.append(time() + ": The client sent 'bye!' before disconnecting, that'll be my end!")
-        new Local { close(client_sock) }
-        return "bye!"
-      else
-	display.append(time() + ": The client signaled disconnection with his unintelligible request!")
-        new Local { close(client_sock) }
-        return "next"
+    while True {
+      switch recv(client_sock, 4)
+      {
+        case "time"
+          display.append(time() + ": Sending current time to client.")
+          send(client_sock, time())
+        case "bye!"
+	  display.append(time() + ": The client sent 'bye!' before disconnecting, that'll be my end!")
+          return "bye!"
+        else
+	  display.append(time() + ": The client signaled disconnection with his unintelligible request!")
+          return "next"
+      }
     }
   }
 }
 
-class Local
+class local 

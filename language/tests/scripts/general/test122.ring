@@ -14,4 +14,6 @@ func test2
 	list = 1:5
 	for x in list
 	next
-	? x	# Print NULL (for in kill the reference after the loop)
+	# Starting from Ring 1.14
+	# for in replace the reference with the value after the loop
+	? x		# Print 5 

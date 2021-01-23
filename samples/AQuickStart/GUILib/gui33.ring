@@ -35,9 +35,8 @@ func print
         printer1 = new qPrinter(0) {
                 setoutputformat(1)
                 setoutputfilename("test2.pdf")
-                myweb.print(printer1)
+                myweb.print(printer1,' system("test2.pdf") ')
                 myweb.show()
         }
 
         system ("test.pdf")
-        system ("test2.pdf")

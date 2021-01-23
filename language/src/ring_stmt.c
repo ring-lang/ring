@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Grammar */
 
@@ -231,7 +231,7 @@ int ring_parser_class ( Parser *pParser )
 
 int ring_parser_stmt ( Parser *pParser )
 {
-	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nPathExist,nLoopOrExitCommand,nLoadAgain  ;
+	int x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nPathExist,nLoopOrExitCommand,nLoadAgain,nForInVarsCount,nVar  ;
 	String *pString  ;
 	List *pMark,*pMark2,*pMark3,*pList2  ;
 	double nNum1  ;
@@ -608,6 +608,9 @@ int ring_parser_stmt ( Parser *pParser )
 				}
 			}
 			else if ( ring_parser_iskeyword(pParser,K_IN) ) {
+				/* Add the reference to the (For-In Loop) variables */
+				nForInVarsCount = ring_list_getsize(pParser->pForInVars) + 1 ;
+				ring_list_addstring(pParser->pForInVars,ring_string_get(pString));
 				/* Generate Code */
 				sprintf( cStr , "n_sys_var_%d" , ring_parser_icg_instructionscount(pParser) ) ;
 				/* Mark for Exit command to go to outside the loop */
@@ -701,15 +704,14 @@ int ring_parser_stmt ( Parser *pParser )
 						/* POP Step */
 						ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
 						/* Remove Reference Value */
-						ring_parser_icg_newoperation(pParser,ICO_LOADAFIRST);
-						ring_parser_icg_newoperand(pParser,ring_string_get(pString));
-						ring_parser_icg_newoperation(pParser,ICO_KILLREFERENCE);
-						ring_parser_icg_newoperation(pParser,ICO_PUSHC);
-						ring_parser_icg_newoperand(pParser,"NULL");
-						/* Before Equal ( = ) not += , -= ,... etc */
-						ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-						ring_parser_icg_newoperandint(pParser,0);
-						ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
+						for ( nVar = nForInVarsCount ; nVar <= ring_list_getsize(pParser->pForInVars) ; nVar++ ) {
+							ring_parser_icg_newoperation(pParser,ICO_LOADAFIRST);
+							ring_parser_icg_newoperand(pParser,ring_list_getstring(pParser->pForInVars,nVar));
+							ring_parser_icg_newoperation(pParser,ICO_KILLREFERENCE);
+						}
+						if ( nForInVarsCount == 1 ) {
+							ring_list_deleteallitems(pParser->pForInVars);
+						}
 						#if RING_PARSERTRACE
 						RING_STATE_CHECKPRINTRULES 
 						
@@ -815,8 +817,12 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_WHILE) ) {
 		/*
 		**  Generate Code 
-		**  Mark for Exit command to go to outsize the loop 
+		**  Set Step Number - Since We have Exit/Loop commands controls a mix of (For/While/... loops) 
 		*/
+		ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+		ring_parser_icg_newoperanddouble(pParser,0.0);
+		ring_parser_icg_newoperation(pParser,ICO_STEPNUMBER);
+		/* Mark for Exit command to go to outsize the loop */
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
 		nMark1 = ring_parser_icg_newlabel(pParser);
@@ -860,6 +866,8 @@ int ring_parser_stmt ( Parser *pParser )
 				if ( pParser->nLoopFlag == 0 ) {
 					pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
 				}
+				/* POP Step */
+				ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
 				ring_parser_nexttoken(pParser);
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
@@ -877,8 +885,12 @@ int ring_parser_stmt ( Parser *pParser )
 	if ( ring_parser_iskeyword(pParser,K_DO) ) {
 		/*
 		**  Generate Code 
-		**  Mark for Exit command to go to outsize the loop 
+		**  Set Step Number - Since We have Exit/Loop commands controls a mix of (For/While/... loops) 
 		*/
+		ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+		ring_parser_icg_newoperanddouble(pParser,0.0);
+		ring_parser_icg_newoperation(pParser,ICO_STEPNUMBER);
+		/* Mark for Exit command to go to outsize the loop */
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
 		nMark1 = ring_parser_icg_newlabel(pParser);
@@ -923,6 +935,8 @@ int ring_parser_stmt ( Parser *pParser )
 				if ( pParser->nLoopFlag == 0 ) {
 					pParser->nLoopOrExitCommand = nLoopOrExitCommand ;
 				}
+				/* POP Step */
+				ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
 				pParser->nAssignmentFlag = 1 ;
 				#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 

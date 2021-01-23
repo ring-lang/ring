@@ -1,0 +1,24 @@
+c in str step 1
+t
+s in substr(str,2) step 2
+e
+h in hybrid step 3
+t
+c in str step 1
+e
+s in substr(str,2) step 2
+e
+h in hybrid step 3
+t
+c in str step 1
+s
+s in substr(str,2) step 2
+e
+h in hybrid step 3
+t
+c in str step 1
+t
+s in substr(str,2) step 2
+e
+h in hybrid step 3
+t

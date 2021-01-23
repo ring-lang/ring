@@ -13,7 +13,7 @@ new qApp {
 	exec()
 }
 
-class CustomersReportController
+class CustomersReportController from WindowsControllerParent
 
 	oView = new CustomersReportView
 
@@ -64,11 +64,15 @@ class CustomersReportController
 			setoutputfilename("report.pdf")
 		}
 		oView {
-			web.print(printer1)
+			web.print(printer1, Method( :OpenPDF ))
 			web.show()
 		}
-		system ("report.pdf")
-
+	
+	func OpenPDF
+		new QDesktopServices { 
+			OpenURL(new qURL("report.pdf") ) 
+		} 
+	
 class CustomersReportView
 
 		win = new window() {

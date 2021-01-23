@@ -74,6 +74,7 @@ aTests = [
 	[ :name = "Testing Object Oriented Programming (Part 56)", :Command = "ring objectoriented/oop56.ring" ],
 	[ :name = "Testing Object Oriented Programming (Part 57)", :Command = "ring objectoriented/oop57.ring" ],
 	[ :name = "Testing Object Oriented Programming (Part 58)", :Command = "ring objectoriented/oop58.ring" ],
+	[ :name = "Testing Object Oriented Programming (Part 59)", :Command = "ring objectoriented/oop59.ring" ],
 	[ :name = "Object Attribute Setter (Part 1)", :Command = "ring setter/setter.ring" ],
 	[ :name = "Object Attribute Setter (Part 2)", :Command = "ring setter/setter2.ring" ],
 	[ :name = "Object Attribute Setter (Part 3)", :Command = "ring setter/setter3.ring" ],
@@ -336,5 +337,16 @@ aTests = [
 	[ :name = "General Tests (Part 145)", :Command = "ring general/logfunction.ring" ],
 	[ :name = "General Tests (Part 146)", :Command = "ring general/test136.ring" ],
 	[ :name = "General Tests (Part 147)", :Command = "ring general/test137.ring" ],
-	[ :name = "General Tests (Part 148)", :Command = "ring general/exitfrommanyloops.ring" ]
+	[ :name = "General Tests (Part 148)", :Command = "ring general/exitfrommanyloops.ring" ],
+	[ :name = "Exit and Loop (Part 1)", :Command = "ring exitandloop/test1.ring" ],
+	[ :name = "Exit and Loop (Part 2)", :Command = "ring exitandloop/test2.ring" ],
+	[ :name = "Exit and Loop (Part 3)", :Command = "ring exitandloop/test3.ring" ],
+	[ :name = "Exit and Loop (Part 4)", :Command = "ring exitandloop/test4.ring" ],
+	[ :name = "Try/Catch (Part 1)", :Command = "ring trycatch/test1.ring" ],
+	[ :name = "Try/Catch (Part 2)", :Command = "ring trycatch/test2.ring" ],
+	[ :name = "Try/Catch (Part 3)", :Command = "ring trycatch/test3.ring" ],
+	[ :name = "Try/Catch (Part 4)", :Command = "ring trycatch/test4.ring" ],
+	[ :name = "For-In Loop (Part 1)", :Command = "ring forinloop/test1.ring" ],
+	[ :name = "For-In Loop (Part 2)", :Command = "ring forinloop/test2.ring" ],
+	[ :name = "For-In Loop (Part 3)", :Command = "ring forinloop/test3.ring" ]
 ]

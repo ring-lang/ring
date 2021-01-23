@@ -20,72 +20,72 @@
 
 ### Build Ring2EXE 
 
-	cd ../../tools/ring2exe
+	cd ring/tools/ring2exe
 	sudo ./buildring2exe.sh		
 
 ### Generate RingConsoleColors Source Code and Build 
 	
-	cd ../extensions/ringconsolecolors
+	cd ring/extensions/ringconsolecolors
 	./gencode.sh
 	./buildgcc.sh
 
 ### Build RingInternet
 	
-	cd ../extensions/ringinternet
+	cd ring/extensions/ringinternet
 	./buildgcc.sh
 
 ### Generate RingLibCurl Source Code and Build 
 	
-	cd ../extensions/ringcurl
+	cd ring/extensions/ringcurl
 	./gencode.sh
 	./buildgcc.sh
 
 ### Generate RingZip Source Code and Build 
 	
-	cd ../extensions/ringzip
+	cd ring/extensions/ringzip
 	./gencode.sh
 	./buildgcc.sh
 	
 ### Build RingPM 
 
-	cd ../tools/ringpm
+	cd ring/tools/ringpm
 	sudo ./buildringpm.sh	
 
 ### Build RingODBC
 	
-	cd ../extensions/ringodbc
+	cd ring/extensions/ringodbc
 	./buildgcc.sh
 
 ### Build RingMySQL
 	
-	cd ../extensions/ringmysql
+	cd ring/extensions/ringmysql
 	./buildgccfedora.sh
 
 ### Build RingSQLite
 	
-	cd ../extensions/ringsqlite
+	cd ring/extensions/ringsqlite
 	./buildgcc.sh
 
 ### Generate RingPostgreSQL Source Code and Build 
 	
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	./gencode.sh
 	./buildgcc.sh
 
 ### Build RingOpenSSL
 	
-	cd ../extensions/ringopenssl
+	cd ring/extensions/ringopenssl
 	./buildgcc.sh
 
 ### Build RingMurmurHash
 	
-	cd ../extensions/ringmurmurhash
+	cd ring/extensions/ringmurmurhash
 	./buildgcc.sh	
 	
 
 ### Generate RingAllegro Source Code and Build 
 	
-	cd ../extensions/ringallegro
+	cd ring/extensions/ringallegro
 	./gencode.sh
 	./buildgcc.sh
 	
@@ -93,7 +93,7 @@
 
 We will build Libuv first
 
-	cd ../extensions/ringlibuv/libuv
+	cd ring/extensions/ringlibuv/libuv
 	sudo dnf install libtool m4 autoconf automake
 	sh autogen.sh
 	./configure
@@ -103,13 +103,13 @@ We will build Libuv first
 
 Then we will build RingLibuv
 	
-	cd ..
+	cd ring/extensions/ringlibuv
 	./gencode.sh
 	./buildgcc.sh
 
 ### Generate RingFreeGLUT Source Code and Build 
 	
-	cd ../extensions/ringfreeglut
+	cd ring/extensions/ringfreeglut
 	./gencode.sh
 	./buildgcc.sh
 
@@ -118,21 +118,21 @@ Then we will build RingLibuv
 The ringopengl folder contains many sub folders for different OpenGL versions
 Starting from OpenGL 1.1 to OpenGL 4.6
 	
-	cd ../extensions/ringopengl/opengl21
+	cd ring/extensions/ringopengl/opengl21
 	./gencode.sh
 	./buildgcc.sh
 
 ### Generate RingQt Source Code and Build
 	
-	cd ../extensions/ringqt
+	cd ring/extensions/ringqt
 	./gencode.sh
 	./buildgccfedora.sh
 
 ### To be able to call ring from any folder 
-	cd ../../bin
+	cd ring/bin
 	sudo ./install.sh
 	
 ### Run Ring Notepad
 	
-	cd tools/ringnotepad
+	cd ring/tools/ringnotepad
 	sudo ring rnote.ring

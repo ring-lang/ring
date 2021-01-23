@@ -54,6 +54,7 @@ TLN_SetSpriteAnimation(0, idle, 0)
 
 /* create window & main loop */
 TLN_CreateWindow(NULL, 0)
+TLN_DisableCRTEffect()
 while TLN_ProcessWindow()
 	TLN_DrawFrame(0)
 

@@ -6,6 +6,10 @@ void ring_vm_string_pushv ( VM *pVM )
 {
 	char *newstr  ;
 	char cStr[2]  ;
+	if ( (pVM->nRetItemRef>=1)  && (ring_vm_isstackpointertoobjstate(pVM)==1) ) {
+		pVM->nRetItemRef-- ;
+		return ;
+	}
 	newstr = (char *) RING_VM_STACK_READP ;
 	RING_VM_STACK_POP ;
 	cStr[0] = newstr[0] ;

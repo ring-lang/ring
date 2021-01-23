@@ -65,6 +65,7 @@ func main
 
 	/* main loop */
 	TLN_CreateWindow (NULL, 0)
+	TLN_DisableCRTEffect()
 	while (TLN_ProcessWindow ())
 	{
 		if (xpos < max_xpos)

@@ -4,7 +4,6 @@
 # Description: Sort list of items using a binary heap
 
 Load "stdlib.ring"
-Load "binary_heap.ring"
 	
 # Heap Sort class test
 if IsMainSourceFile()

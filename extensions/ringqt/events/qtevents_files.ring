@@ -58,6 +58,7 @@ load "serialport/qserialport.ring"
 #-------------------------------------------------------------------------#
 load "web/qwebview.ring"
 load "web/qwebengineview.ring"
+load "web/qwebenginepage.ring"
 #-------------------------------------------------------------------------#
 load "speech/qtexttospeech.ring"
 #-------------------------------------------------------------------------#

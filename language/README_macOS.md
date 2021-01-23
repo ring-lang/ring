@@ -21,35 +21,35 @@
 
 ### Build Ring2EXE 
 
-	cd ../../tools/ring2exe
+	cd ring/tools/ring2exe
 	sudo ./buildring2exe.sh	
 
 ### Generate RingConsoleColors Source Code and Build 
 	
-	cd ../extensions/ringconsolecolors
+	cd ring/extensions/ringconsolecolors
 	./gencode.sh
 	./buildclang.sh
 
 ### Build RingInternet
 	
-	cd ../extensions/ringinternet
+	cd ring/extensions/ringinternet
 	./buildclang.sh
 
 ### Generate RingLibCurl Source Code and Build 
 	
-	cd ../extensions/ringcurl
+	cd ring/extensions/ringcurl
 	./gencode.sh
 	./buildclang.sh
 
 ### Generate RingZip Source Code and Build 
 	
-	cd ../extensions/ringzip
+	cd ring/extensions/ringzip
 	./gencode.sh
 	./buildclang.sh
 
 ### Build RingPM
 
-	cd ../tools/ringpm
+	cd ring/tools/ringpm
 	sudo ./buildringpm.sh	
 	
 ### Build RingODBC
@@ -59,45 +59,45 @@
 
 ### Build RingMySQL
 	
-	cd ../extensions/ringmysql
+	cd ring/extensions/ringmysql
 	./buildclang.sh
 
 ### Build RingSQLite
 	
-	cd ../extensions/ringsqlite
+	cd ring/extensions/ringsqlite
 	./buildclang.sh
 
 ### Generate RingPostgreSQL Source Code and Build 
 	
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	./gencode.sh
 	./buildclang.sh
 
 ### Build RingOpenSSL
 	
-	cd ../extensions/ringopenssl
+	cd ring/extensions/ringopenssl
 	./buildclang.sh
 
 ### Build RingMurmurHash
 	
-	cd ../extensions/ringmurmurhash
+	cd ring/extensions/ringmurmurhash
 	./buildclang.sh
 	
 ### Generate RingAllegro Source Code and Build 
 	
-	cd ../extensions/ringallegro
+	cd ring/extensions/ringallegro
 	./gencode.sh
 	./buildclang.sh
 
 ### Generate RingLibuv Source Code and Build 
 	
-	cd ../extensions/ringlibuv
+	cd ring/extensions/ringlibuv
 	./gencode.sh
 	./buildclang.sh
 
 ### Generate RingFreeGLUT Source Code and Build 
 	
-	cd ../extensions/ringfreeglut
+	cd ring/extensions/ringfreeglut
 	./gencode.sh
 	./buildclang.sh
 
@@ -106,21 +106,21 @@
 The ringopengl folder contains many sub folders for different OpenGL versions
 Starting from OpenGL 1.1 to OpenGL 4.6
 	
-	cd ../extensions/ringopengl/opengl21
+	cd ring/extensions/ringopengl/opengl21
 	./gencode.sh
 	./buildclang.sh
 	
 ### Generate RingQt Source Code and Build
 	
-	cd ../extensions/ringqt
+	cd ring/extensions/ringqt
 	./gencodemac.sh
 	./buildclang.sh
 
 ### To be able to call ring from any folder 
-	cd ../../bin
+	cd ring/bin
 	sudo ./install.sh
 	
 ### Run Ring Notepad
 	
-	cd tools/ringnotepad
+	cd ring/tools/ringnotepad
 	ring rnote.ring

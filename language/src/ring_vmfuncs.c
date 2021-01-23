@@ -297,9 +297,9 @@ void ring_vm_call2 ( VM *pVM )
 			/*
 			**  We don't remove the function from call list because ring_vm_catch() do when restore state 
 			**  We don't delete the scope because ring_vm_catch() will do when restore state 
-			**  Restore ActiveMem 
+			**  We don't restore pActiveMem because it's managed correctly by state functions (Save/Restore) for Try/Catch 
+			**  Avoiding the pActiveMem restore here is important when we have raise() function called after try/catch 
 			*/
-			pVM->pActiveMem = pActiveMem ;
 			return ;
 		}
 		/* Function Output */

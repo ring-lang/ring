@@ -80,10 +80,55 @@ void ring_vm_gc_deleteitem_gc ( void *pState,Item *pItem )
 
 void ring_vm_gc_killreference ( VM *pVM )
 {
-	List *pList  ;
+	List *pList, *pList2  ;
+	Item *pItem  ;
+	char *newstr  ;
+	char cStr[2]  ;
+	/* The (For In) Loop generate the ICO_KILLREFERENCE instruction that call this function */
 	if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 		pList = (List *) RING_VM_STACK_READP ;
-		ring_vm_gc_checkupdatereference(pVM,pList);
+		/* Be sure that it's a Pointer */
+		if ( ring_list_getint(pList,RING_VAR_TYPE) != RING_VM_POINTER ) {
+			return ;
+		}
+		/* Get the Real Value that this reference points to */
+		switch ( ring_list_getint(pList,RING_VAR_PVALUETYPE) ) {
+			case RING_OBJTYPE_VARIABLE :
+				/* We know that this case will never happens according to how (For In) loop works */
+				break ;
+			case RING_OBJTYPE_LISTITEM :
+				pItem = (Item *) ring_list_getpointer(pList,RING_VAR_VALUE) ;
+				switch ( ring_item_gettype(pItem) ) {
+					case ITEMTYPE_STRING :
+						/* Set variable value to String */
+						ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
+						ring_list_setstring2_gc(pVM->pRingState,pList, RING_VAR_VALUE , ring_string_get( ring_item_getstring(pItem) ),ring_string_size(ring_item_getstring(pItem)));
+						break ;
+					case ITEMTYPE_NUMBER :
+						/* Set variable value to Number */
+						ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_NUMBER);
+						ring_list_setdouble_gc(pVM->pRingState,pList, RING_VAR_VALUE , ring_item_getnumber(pItem));
+						break ;
+					case ITEMTYPE_LIST :
+						/* Set variable value to List */
+						ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_LIST);
+						ring_list_setlist_gc(pVM->pRingState,pList, RING_VAR_VALUE);
+						pList2 = ring_list_getlist(pList, RING_VAR_VALUE);
+						ring_vm_list_copy(pVM,pList2,ring_item_getlist(pItem));
+						break ;
+				}
+				/* Delete Reference (Delete item using reference counting) */
+				ring_item_delete_gc(pVM->pRingState,pItem);
+				break ;
+			case RING_OBJTYPE_SUBSTRING :
+				newstr = (char *) ring_list_getpointer(pList,RING_VAR_VALUE) ;
+				cStr[0] = newstr[0] ;
+				cStr[1] = '\0' ;
+				/* Set variable value to String that equal the Character */
+				ring_list_setint_gc(pVM->pRingState,pList, RING_VAR_TYPE ,RING_VM_STRING);
+				ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE ,cStr);
+				break ;
+		}
 	}
 }
 

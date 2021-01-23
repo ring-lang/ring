@@ -1986,12 +1986,11 @@ In this example we will learn how to print to PDF file using QPrinter
 		printer1 = new qPrinter(0) {
 			setoutputformat(1)	
 			setoutputfilename("test2.pdf")
-			myweb.print(printer1)
+			myweb.print(printer1,' system("test2.pdf") ')
 			myweb.show()
 		}
 
 		system ("test.pdf")
-		system ("test2.pdf")
 
 .. index:: 
 	pair: Desktop, WebAssembly and Mobile Development; Using QPrintPreviewDialog
@@ -4586,7 +4585,7 @@ Example:
 		exec()
 	}
 
-	class CustomersReportController
+	class CustomersReportController from WindowsControllerParent
 
 		oView = new CustomersReportView
 
@@ -4639,10 +4638,14 @@ Example:
 				setoutputfilename("report.pdf")
 			}
 			oView {
-				web.print(printer1)
+				web.print(printer1, Method( :OpenPDF ) )
 				web.show()
 			}
-			system ("report.pdf")
+
+		func OpenPDF
+			new QDesktopServices { 
+				OpenURL(new qURL("report.pdf") ) 
+			} 
 
 	class CustomersReportView
 

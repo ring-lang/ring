@@ -52,6 +52,8 @@
 		char nCheckLoopAndExit  ;
 		/* Counter to know if we are inside a loop or not */
 		int nLoopFlag  ;
+		/* Required by (For In Loops) to kill the reference when we exit from many loops */
+		List *pForInVars  ;
 		/* Ring State */
 		RingState *pRingState  ;
 	} Parser ;

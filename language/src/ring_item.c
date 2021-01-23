@@ -105,6 +105,17 @@ RING_API void ring_item_settype_gc ( void *pState,Item *pItem,int ItemType )
 		*/
 		return ;
 	}
+	if ( (ItemType == ITEMTYPE_LIST) && (pItem->nType == ITEMTYPE_LIST) ) {
+		/*
+		**  If the current item type is a String and the new type is also a String - We do nothing 
+		**  In this case the item will contains the old data 
+		**  So when we set the item string again using the same size 
+		**  We don't need to free & allocate the memory many times 
+		**  Where we can use the same memory 
+		**  This is useful when we process large data files through blocks of fixed size 
+		*/
+		return ;
+	}
 	/* When we set the type we remove the current content at first */
 	ring_item_content_delete_gc(pState,pItem);
 	switch ( ItemType ) {

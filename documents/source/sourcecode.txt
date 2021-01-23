@@ -19,13 +19,13 @@ Building using Microsoft Windows
 
 Get the source code
 
-.. code-block:: ring
+.. code-block:: none
 
 	git clone http://github.com/ring-lang/ring.git
 
 Build Ring (Compiler/VM)
 
-.. code-block:: ring
+.. code-block:: none
 
 	cd ring/language/src
 	buildvc.bat
@@ -35,37 +35,37 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../../tools/ring2exe
+	cd ring/tools/ring2exe
 	buildring2exe.bat
 
 Generate RingConsoleColors Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringconsolecolors
+	cd ring/extensions/ringconsolecolors
 	gencode.bat
 	buildvc.bat
 
 Build RingInternet
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringinternet
+	cd ring/extensions/ringinternet
 	buildvc.bat
 
 Generate RingLibCurl Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringcurl
+	cd ring/extensions/ringcurl
 	gencode.bat
 	buildvc.bat
 
 Generate RingZip Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringzip
+	cd ring/extensions/ringzip
 	gencode.bat
 	buildvc.bat
 
@@ -74,73 +74,73 @@ Build RingPM
 
 .. code-block:: none
 
-	cd ../tools/ringpm
+	cd ring/tools/ringpm
 	buildringpm.bat
 
 Build RingODBC
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringodbc
+	cd ring/extensions/ringodbc
 	buildvc.bat
 
 Build RingMySQL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringmysql
+	cd ring/extensions/ringmysql
 	buildvc.bat
 
 Build RingSQLite
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringsqlite
+	cd ring/extensions/ringsqlite
 	buildvc.bat
 
 Build RingPostgreSQL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	gencode.bat
 	buildvc.bat
 
 Build RingOpenSSL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringopenssl
+	cd ring/extensions/ringopenssl
 	buildvc.bat
 
 Build RingMurmurHash
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringmurmurhash
+	cd ring/extensions/ringmurmurhash
 	buildvc.bat
 
 Generate RingAllegro Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringallegro
+	cd ring/extensions/ringallegro
 	gencode.bat
 	buildvc.bat
 
 Generate RingLibuv Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringlibuv
+	cd ring/extensions/ringlibuv
 	gencode.bat
 	buildvc.bat
 
 Generate RingFreeGLUT Source Code and Build 
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringfreeglut
+	cd ring/extensions/ringfreeglut
 	gencode.bat
 	buildvc.bat
 
@@ -150,40 +150,64 @@ The ringopengl folder contains many sub folders for different OpenGL versions
 
 Starting from OpenGL 1.1 to OpenGL 4.6
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringopengl/opengl21
+	cd ring/extensions/ringopengl/opengl21
 	gencode.bat
 	buildvc.bat
 
 Generate RingPostgreSQL Source Code and Build 
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	gencode.bat
 	buildvc.bat
 
-Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.6/
-
 Generate RingQt Source Code and Build
 
-.. code-block:: ring
+Tested using Qt 5.12 and Qt 5.15
 
-	cd ../extensions/ringqt
-	gencodeqt512.bat
-	buildqt512.bat
+For Qt 5.12 ( Install Qt 5.12 : https://download.qt.io/archive/qt/5.12/5.12.6/ )
+
+.. code-block:: none
+
+	cd ring/extensions/ringqt
+	gencodeqt512_nobluetooth.bat
+	buildqt512_nobluetooth.bat
+
+To Copy the Qt runtime files to ring/bin folder
+
+.. code-block:: none
+
+	cd ring/extensions/ringqt/binupdate
+	installqt512.bat
+
+For Qt 5.15 ( Install Qt 5.15 : https://www.qt.io/blog/qt-5.15-released )
+
+.. code-block:: none
+
+	cd ring/extensions/ringqt
+	gencodeqt515_nobluetooth.bat
+	buildqt515_nobluetooth.bat
+
+To Copy the Qt runtime files to ring/bin folder
+
+.. code-block:: none
+
+	cd ring/extensions/ringqt/binupdate
+	installqt515.bat
 
 To be able to call ring from any folder
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../../bin
+	cd ring/bin
 	install.bat
 
 Add Ring/bin to System path
 
-.. code-block:: ring
+.. code-block:: none
 
 	Hit "windows key".
 	Type "Edit the System environment variables"
@@ -195,9 +219,9 @@ Add Ring/bin to System path
 
 Run Ring Notepad
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd tools/ringnotepad
+	cd ring/tools/ringnotepad
 	ring rnote.ring
 
 .. index:: 
@@ -208,20 +232,20 @@ Building using Ubuntu Linux
 
 Get the source code
 
-.. code-block:: ring
+.. code-block:: none
 
 	git clone http://github.com/ring-lang/ring.git
 
 Install Libraries
 
-.. code-block:: ring
+.. code-block:: none
 
 	cd ring/language/src
 	./installdep.sh 
 
 Build Ring (Compiler/VM)
 
-.. code-block:: ring
+.. code-block:: none
 
 	sudo ./buildgcc.sh
 
@@ -229,37 +253,37 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../../tools/ring2exe
+	cd ring/tools/ring2exe
 	sudo ./buildring2exe.sh
 
 Generate RingConsoleColors Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringconsolecolors
+	cd ring/extensions/ringconsolecolors
 	./gencode.sh
 	./buildgcc.sh
 
 Build RingInternet
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringinternet
+	cd ring/extensions/ringinternet
 	./buildgcc.sh
 
 Generate RingLibCurl Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringcurl
+	cd ring/extensions/ringcurl
 	./gencode.sh
 	./buildgcc.sh
 
 Generate RingZip Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringzip
+	cd ring/extensions/ringzip
 	./gencode.sh
 	./buildgcc.sh
 
@@ -267,57 +291,57 @@ Build RingPM
 
 .. code-block:: none
 
-	cd ../tools/ringpm
+	cd ring/tools/ringpm
 	sudo ./buildringpm.sh
 
 Build RingODBC
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringodbc
+	cd ring/extensions/ringodbc
 	./buildgcc.sh
 
 Build RingMySQL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringmysql
+	cd ring/extensions/ringmysql
 	./buildgcc.sh
 
 Build RingSQLite
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringsqlite
+	cd ring/extensions/ringsqlite
 	./buildgcc.sh
 
 Build RingPostgreSQL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	gencode.sh
 	buildgcc.sh
 
 Build RingOpenSSL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringopenssl
+	cd ring/extensions/ringopenssl
 	./buildgcc.sh
 
 Build RingMurmurHash
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringmurmurhash
+	cd ring/extensions/ringmurmurhash
 	./buildgcc.sh
 
 Generate RingAllegro Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringallegro
+	cd ring/extensions/ringallegro
 	./gencode.sh
 	./buildgcc.sh
 
@@ -325,9 +349,9 @@ Generate RingLibuv Source Code and Build
 
 We will build Libuv first
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringlibuv/libuv
+	cd ring/extensions/ringlibuv/libuv
 	sudo apt-get install libtool m4 automake
 	sh autogen.sh
 	./configure
@@ -337,17 +361,17 @@ We will build Libuv first
 
 Then we will build RingLibuv
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ..
+	cd ring/extensions/ringlibuv
 	./gencode.sh
 	./buildgcc.sh
 
 Generate RingFreeGLUT Source Code and Build 
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringfreeglut
+	cd ring/extensions/ringfreeglut
 	./gencode.sh
 	./buildgcc.sh
 
@@ -357,40 +381,40 @@ The ringopengl folder contains many sub folders for different OpenGL versions
 
 Starting from OpenGL 1.1 to OpenGL 4.6
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringopengl/opengl21
+	cd ring/extensions/ringopengl/opengl21
 	gencode.sh
 	buildgcc.sh
 
 Generate RingPostgreSQL Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	./gencode.sh
 	./buildgcc.sh
 
 Generate RingQt Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringqt
+	cd ring/extensions/ringqt
 	./gencode.sh
 	./buildgcc.sh
 
 To be able to call ring from any folder
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../../bin
+	cd ring/bin
 	sudo ./install.sh
 
 Run Ring Notepad
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd tools/ringnotepad
+	cd ring/tools/ringnotepad
 	ring rnote.ring
 
 .. index:: 
@@ -401,20 +425,20 @@ Building using Fedora Linux
 
 Get the source code
 
-.. code-block:: ring
+.. code-block:: none
 
 	git clone http://github.com/ring-lang/ring.git
 
 Install Libraries
 
-.. code-block:: ring
+.. code-block:: none
 
 	cd ring/language/src
 	./installdepfedora.sh 
 
 Build Ring (Compiler/VM)
 
-.. code-block:: ring
+.. code-block:: none
 
 	sudo ./buildgcc.sh
 
@@ -422,37 +446,37 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../../tools/ring2exe
+	cd ring/tools/ring2exe
 	sudo ./buildring2exe.sh
 
 Generate RingConsoleColors Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringconsolecolors
+	cd ring/extensions/ringconsolecolors
 	./gencode.sh
 	./buildgcc.sh
 
 Build RingInternet
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringinternet
+	cd ring/extensions/ringinternet
 	./buildgcc.sh
 
 Generate RingLibCurl Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringcurl
+	cd ring/extensions/ringcurl
 	./gencode.sh
 	./buildgcc.sh
 
 Generate RingZip Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringzip
+	cd ring/extensions/ringzip
 	./gencode.sh
 	./buildgcc.sh
 
@@ -460,57 +484,57 @@ Build RingPM
 
 .. code-block:: none
 
-	cd ../tools/ringpm
+	cd ring/tools/ringpm
 	sudo ./buildringpm.sh
 
 Build RingODBC
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringodbc
+	cd ring/extensions/ringodbc
 	./buildgcc.sh
 
 Build RingMySQL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringmysql
+	cd ring/extensions/ringmysql
 	./buildgccfedora.sh
 
 Build RingSQLite
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringsqlite
+	cd ring/extensions/ringsqlite
 	./buildgcc.sh
 
 Build RingPostgreSQL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	gencode.sh
 	buildgcc.sh
 
 Build RingOpenSSL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringopenssl
+	cd ring/extensions/ringopenssl
 	./buildgcc.sh
 
 Build RingMurmurHash
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringmurmurhash
+	cd ring/extensions/ringmurmurhash
 	./buildgcc.sh
 
 Generate RingAllegro Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringallegro
+	cd ring/extensions/ringallegro
 	./gencode.sh
 	./buildgcc.sh
 
@@ -518,9 +542,9 @@ Generate RingLibuv Source Code and Build
 
 We will build Libuv first
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringlibuv/libuv
+	cd ring/extensions/ringlibuv/libuv
 	sudo dnf install libtool m4 autoconf automake
 	sh autogen.sh
 	./configure
@@ -530,17 +554,17 @@ We will build Libuv first
 
 Then we will build RingLibuv
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ..
+	cd ring/extensions/ringlibuv
 	./gencode.sh
 	./buildgcc.sh
 
 Generate RingFreeGLUT Source Code and Build 
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringfreeglut
+	cd ring/extensions/ringfreeglut
 	./gencode.sh
 	./buildgcc.sh
 
@@ -550,40 +574,40 @@ The ringopengl folder contains many sub folders for different OpenGL versions
 
 Starting from OpenGL 1.1 to OpenGL 4.6
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringopengl/opengl21
+	cd ring/extensions/ringopengl/opengl21
 	gencode.sh
 	buildgcc.sh
 
 Generate RingPostgreSQL Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	./gencode.sh
 	./buildgcc.sh
 
 Generate RingQt Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringqt
+	cd ring/extensions/ringqt
 	./gencode.sh
 	./buildgccfedora.sh
 
 To be able to call ring from any folder
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../../bin
+	cd ring/bin
 	sudo ./install.sh
 
 Run Ring Notepad
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd tools/ringnotepad
+	cd ring/tools/ringnotepad
 	ring rnote.ring
 
 
@@ -596,21 +620,21 @@ Building using MacOS X
 
 Get the source code
 
-.. code-block:: ring
+.. code-block:: none
 
 	git clone http://github.com/ring-lang/ring.git
 
 Install homebrew (follow the directions on homebrew's homepage).
 Install Libraries
 
-.. code-block:: ring
+.. code-block:: none
 
 	cd ring/language/src
 	./installdepmac.sh 
 
 Build Ring (Compiler/VM)
 
-.. code-block:: ring
+.. code-block:: none
 
 	./buildclang.sh
 
@@ -618,37 +642,37 @@ Build Ring2EXE
 
 .. code-block:: none
 
-	cd ../../tools/ring2exe
+	cd ring/tools/ring2exe
 	sudo ./buildring2exe.sh
 
 Generate RingConsoleColors Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringconsolecolors
+	cd ring/extensions/ringconsolecolors
 	./gencode.sh
 	./buildclang.sh
 
 Build RingInternet
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringinternet
+	cd ring/extensions/ringinternet
 	./buildclang.sh
 
 Generate RingLibCurl Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringcurl
+	cd ring/extensions/ringcurl
 	./gencode.sh
 	./buildclang.sh
 
 Generate RingZip Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringzip
+	cd ring/extensions/ringzip
 	./gencode.sh
 	./buildclang.sh
 
@@ -656,73 +680,73 @@ Build RingPM
 
 .. code-block:: none
 
-	cd ../tools/ringpm
+	cd ring/tools/ringpm
 	sudo ./buildringpm.sh
 
 Build RingODBC
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringodbc
+	cd ring/extensions/ringodbc
 	./buildclang.sh
 
 Build RingMySQL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringmysql
+	cd ring/extensions/ringmysql
 	./buildclang.sh
 
 Build RingSQLite
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringsqlite
+	cd ring/extensions/ringsqlite
 	./buildclang.sh
 
 Build RingPostgreSQL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	gencode.sh
 	buildclang.sh
 
 Build RingOpenSSL
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringopenssl
+	cd ring/extensions/ringopenssl
 	./buildclang.sh
 
 Build RingMurmurHash
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringmurmurhash
+	cd ring/extensions/ringmurmurhash
 	./buildclang.sh
 
 Generate RingAllegro Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringallegro
+	cd ring/extensions/ringallegro
 	./gencode.sh
 	./buildclang.sh
 
 Generate RingLibuv Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringlibuv
+	cd ring/extensions/ringlibuv
 	./gencode.sh
 	./buildclang.sh
 
 Generate RingFreeGLUT Source Code and Build 
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringfreeglut
+	cd ring/extensions/ringfreeglut
 	./gencode.sh
 	./buildclang.sh
 
@@ -731,40 +755,40 @@ Generate RingOpenGL Source Code and Build
 The ringopengl folder contains many sub folders for different OpenGL versions
 Starting from OpenGL 1.1 to OpenGL 4.6
 
-.. code-block:: ring
+.. code-block:: none
 	
-	cd ../extensions/ringopengl/opengl21
+	cd ring/extensions/ringopengl/opengl21
 	./gencode.sh
 	./buildclang.sh
 
 Generate RingPostgreSQL Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringpostgresql
+	cd ring/extensions/ringpostgresql
 	./gencode.sh
 	./buildclang.sh
 
 Generate RingQt Source Code and Build
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../extensions/ringqt
+	cd ring/extensions/ringqt
 	./gencodemac.sh
 	./buildclang.sh
 
 To be able to call ring from any folder
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd ../../bin
+	cd ring/bin
 	sudo ./install.sh
 
 Run Ring Notepad
 
-.. code-block:: ring
+.. code-block:: none
 
-	cd tools/ringnotepad
+	cd ring/tools/ringnotepad
 	sudo ring rnote.ring
 
 .. index:: 
@@ -773,9 +797,9 @@ Run Ring Notepad
 Building using CMake
 ====================
 
-Install libraries (MySQL Client, OpenSSL, LibCurl, Allegro 5 and Qt 5.5)
+This will build the Ring compiler and Ring Virtual Machine 
 
-.. code-block:: ring
+.. code-block:: none
 
 	cmake .
 	make

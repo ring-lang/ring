@@ -346,12 +346,14 @@ void ring_vm_fetch2 ( VM *pVM )
 	#if RING_VMSHOWOPCODE
 		if ( pVM->pRingState->nPrintInstruction ) {
 			ring_general_printline();
-			printf( "\nVM Pointer  : %p  " , (void *) pVM ) ;
-			printf( "\nOperation  : %s  " , RING_IC_OP[pVM->nOPCode] ) ;
-			printf( "\nPC         : %d  " ,pVM->nPC ) ;
-			printf( "\nLine Number    : %d  , File %s \n " ,pVM->nLineNumber,pVM->cFileName ) ;
+			printf( "VM Pointer    : %p  " , (void *) pVM ) ;
+			printf( "\nOperation     : %s  " , RING_IC_OP[pVM->nOPCode] ) ;
+			printf( "\nPC            : %d  " ,pVM->nPC ) ;
+			printf( "\nScopes Count  : %d  " ,ring_list_getsize(pVM->pMem) ) ;
+			printf( "\nScope Pointer : %p  " ,pVM->pActiveMem ) ;
+			printf( "\nFile Name     : %s \nLine Number   : %d\n" ,pVM->cFileName,pVM->nLineNumber ) ;
 			if ( (pVM->nOPCode == ICO_PUSHC) || (pVM->nOPCode == ICO_LOADADDRESS) || (pVM->nOPCode == ICO_LOADFUNC) ) {
-				printf( "\nData       : %s \n",RING_VM_IR_READC ) ;
+				printf( "Data          : %s \n",RING_VM_IR_READC ) ;
 			}
 		}
 	#endif
@@ -359,8 +361,7 @@ void ring_vm_fetch2 ( VM *pVM )
 	ring_vm_execute(pVM);
 	#if RING_VMSHOWOPCODE
 		if ( pVM->pRingState->nPrintInstruction ) {
-			printf( "\nSP (After) : %d  - FuncSP : %d \n LineNumber %d \n" , (int) pVM->nSP,pVM->nFuncSP,pVM->nLineNumber ) ;
-			ring_general_printline();
+			printf( "\nSP (After)    : %d  \nFuncSP        : %d \nLineNumber    : %d \n" , (int) pVM->nSP,pVM->nFuncSP,pVM->nLineNumber ) ;
 		}
 	#endif
 	if ( pVM->nSP > RING_VM_STACK_CHECKOVERFLOW ) {
@@ -543,10 +544,10 @@ void ring_vm_execute ( VM *pVM )
 			ring_vm_popexitmark(pVM);
 			break ;
 		case ICO_EXIT :
-			ring_vm_exit(pVM,1);
+			ring_vm_exit(pVM,RING_COMMANDTYPE_EXIT);
 			break ;
 		case ICO_LOOP :
-			ring_vm_exit(pVM,2);
+			ring_vm_exit(pVM,RING_COMMANDTYPE_LOOP);
 			break ;
 		/* For Better Performance */
 		case ICO_PUSHP :

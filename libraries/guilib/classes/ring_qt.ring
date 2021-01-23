@@ -23834,7 +23834,9 @@ Class QWebEngineView from QWidget
 		return QWebEngineView_load(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func page 
-		return QWebEngineView_page(pObject)
+		pTempObj = new QWebEnginePage
+		pTempObj.pObject = QWebEngineView_page(pObject)
+		return pTempObj
 
 	Func pageAction P1
 		pTempObj = new QAction
@@ -23923,6 +23925,345 @@ Class QWebEngineView from QWidget
 
 	Func geturlChangedEvent 
 		return QWebEngineView_geturlChangedEvent(pObject)
+
+	Func print P1,P2
+		return QWebEngineView_print(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+Class QWebEnginePage from QObject
+
+	pObject
+
+	Func init P1
+		pObject = QWebEnginePage_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QWebEnginePage_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func action P1
+		pTempObj = new QAction
+		pTempObj.pObject = QWebEnginePage_action(pObject,P1)
+		return pTempObj
+
+	Func backgroundColor 
+		pTempObj = new QColor
+		pTempObj.pObject = QWebEnginePage_backgroundColor(pObject)
+		return pTempObj
+
+	Func contentsSize 
+		return QWebEnginePage_contentsSize(pObject)
+
+	Func createStandardContextMenu 
+		pTempObj = new QMenu
+		pTempObj.pObject = QWebEnginePage_createStandardContextMenu(pObject)
+		return pTempObj
+
+	Func devToolsPage 
+		pTempObj = new QWebEnginePage
+		pTempObj.pObject = QWebEnginePage_devToolsPage(pObject)
+		return pTempObj
+
+	Func download P1,P2
+		return QWebEnginePage_download(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func findText P1,P2,P3
+		return QWebEnginePage_findText(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
+	Func hasSelection 
+		return QWebEnginePage_hasSelection(pObject)
+
+	Func history 
+		return QWebEnginePage_history(pObject)
+
+	Func icon 
+		pTempObj = new QIcon
+		pTempObj.pObject = QWebEnginePage_icon(pObject)
+		return pTempObj
+
+	Func iconUrl 
+		pTempObj = new QUrl
+		pTempObj.pObject = QWebEnginePage_iconUrl(pObject)
+		return pTempObj
+
+	Func inspectedPage 
+		pTempObj = new QWebEnginePage
+		pTempObj.pObject = QWebEnginePage_inspectedPage(pObject)
+		return pTempObj
+
+	Func isAudioMuted 
+		return QWebEnginePage_isAudioMuted(pObject)
+
+	Func load_2 P1
+		return QWebEnginePage_load_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func load_3 P1
+		return QWebEnginePage_load_3(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func print P1,P2
+		return QWebEnginePage_print(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+
+	Func profile 
+		return QWebEnginePage_profile(pObject)
+
+	Func recentlyAudible 
+		return QWebEnginePage_recentlyAudible(pObject)
+
+	Func replaceMisspelledWord P1
+		return QWebEnginePage_replaceMisspelledWord(pObject,P1)
+
+	Func requestedUrl 
+		pTempObj = new QUrl
+		pTempObj.pObject = QWebEnginePage_requestedUrl(pObject)
+		return pTempObj
+
+	Func runJavaScript P1
+		return QWebEnginePage_runJavaScript(pObject,P1)
+
+	Func runJavaScript_2 P1,P2
+		return QWebEnginePage_runJavaScript_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func save P1,P2
+		return QWebEnginePage_save(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func scrollPosition 
+		pTempObj = new QPointF
+		pTempObj.pObject = QWebEnginePage_scrollPosition(pObject)
+		return pTempObj
+
+	Func selectedText 
+		return QWebEnginePage_selectedText(pObject)
+
+	Func setAudioMuted P1
+		return QWebEnginePage_setAudioMuted(pObject,P1)
+
+	Func setBackgroundColor P1
+		return QWebEnginePage_setBackgroundColor(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setContent P1,P2,P3
+		return QWebEnginePage_setContent(pObject,GetObjectPointerFromRingObject(P1),P2,GetObjectPointerFromRingObject(P3))
+
+	Func setDevToolsPage P1
+		return QWebEnginePage_setDevToolsPage(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFeaturePermission P1,P2,P3
+		return QWebEnginePage_setFeaturePermission(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+
+	Func setHtml P1,P2
+		return QWebEnginePage_setHtml(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+	Func setInspectedPage P1
+		return QWebEnginePage_setInspectedPage(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setUrl P1
+		return QWebEnginePage_setUrl(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setView P1
+		return QWebEnginePage_setView(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setWebChannel P1,P2
+		return QWebEnginePage_setWebChannel(pObject,GetObjectPointerFromRingObject(P1),P2)
+
+	Func setWebChannel_2 P1
+		return QWebEnginePage_setWebChannel_2(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setZoomFactor P1
+		return QWebEnginePage_setZoomFactor(pObject,P1)
+
+	Func settings 
+		return QWebEnginePage_settings(pObject)
+
+	Func title 
+		return QWebEnginePage_title(pObject)
+
+	Func triggerAction P1,P2
+		return QWebEnginePage_triggerAction(pObject,P1,P2)
+
+	Func url 
+		pTempObj = new QUrl
+		pTempObj.pObject = QWebEnginePage_url(pObject)
+		return pTempObj
+
+	Func view 
+		pTempObj = new QWidget
+		pTempObj.pObject = QWebEnginePage_view(pObject)
+		return pTempObj
+
+	Func webChannel 
+		return QWebEnginePage_webChannel(pObject)
+
+	Func zoomFactor 
+		return QWebEnginePage_zoomFactor(pObject)
+
+	Func setaudioMutedChangedEvent P1
+		return QWebEnginePage_setaudioMutedChangedEvent(pObject,P1)
+
+	Func setauthenticationRequiredEvent P1
+		return QWebEnginePage_setauthenticationRequiredEvent(pObject,P1)
+
+	Func setcontentsSizeChangedEvent P1
+		return QWebEnginePage_setcontentsSizeChangedEvent(pObject,P1)
+
+	Func setfeaturePermissionRequestCanceledEvent P1
+		return QWebEnginePage_setfeaturePermissionRequestCanceledEvent(pObject,P1)
+
+	Func setfeaturePermissionRequestedEvent P1
+		return QWebEnginePage_setfeaturePermissionRequestedEvent(pObject,P1)
+
+	Func setfindTextFinishedEvent P1
+		return QWebEnginePage_setfindTextFinishedEvent(pObject,P1)
+
+	Func setfullScreenRequestedEvent P1
+		return QWebEnginePage_setfullScreenRequestedEvent(pObject,P1)
+
+	Func setgeometryChangeRequestedEvent P1
+		return QWebEnginePage_setgeometryChangeRequestedEvent(pObject,P1)
+
+	Func seticonChangedEvent P1
+		return QWebEnginePage_seticonChangedEvent(pObject,P1)
+
+	Func seticonUrlChangedEvent P1
+		return QWebEnginePage_seticonUrlChangedEvent(pObject,P1)
+
+	Func setlinkHoveredEvent P1
+		return QWebEnginePage_setlinkHoveredEvent(pObject,P1)
+
+	Func setloadFinishedEvent P1
+		return QWebEnginePage_setloadFinishedEvent(pObject,P1)
+
+	Func setloadProgressEvent P1
+		return QWebEnginePage_setloadProgressEvent(pObject,P1)
+
+	Func setloadStartedEvent P1
+		return QWebEnginePage_setloadStartedEvent(pObject,P1)
+
+	Func setpdfPrintingFinishedEvent P1
+		return QWebEnginePage_setpdfPrintingFinishedEvent(pObject,P1)
+
+	Func setprintRequestedEvent P1
+		return QWebEnginePage_setprintRequestedEvent(pObject,P1)
+
+	Func setproxyAuthenticationRequiredEvent P1
+		return QWebEnginePage_setproxyAuthenticationRequiredEvent(pObject,P1)
+
+	Func setquotaRequestedEvent P1
+		return QWebEnginePage_setquotaRequestedEvent(pObject,P1)
+
+	Func setrecentlyAudibleChangedEvent P1
+		return QWebEnginePage_setrecentlyAudibleChangedEvent(pObject,P1)
+
+	Func setrecommendedStateChangedEvent P1
+		return QWebEnginePage_setrecommendedStateChangedEvent(pObject,P1)
+
+	Func setregisterProtocolHandlerRequestedEvent P1
+		return QWebEnginePage_setregisterProtocolHandlerRequestedEvent(pObject,P1)
+
+	Func setscrollPositionChangedEvent P1
+		return QWebEnginePage_setscrollPositionChangedEvent(pObject,P1)
+
+	Func setselectClientCertificateEvent P1
+		return QWebEnginePage_setselectClientCertificateEvent(pObject,P1)
+
+	Func setselectionChangedEvent P1
+		return QWebEnginePage_setselectionChangedEvent(pObject,P1)
+
+	Func settitleChangedEvent P1
+		return QWebEnginePage_settitleChangedEvent(pObject,P1)
+
+	Func seturlChangedEvent P1
+		return QWebEnginePage_seturlChangedEvent(pObject,P1)
+
+	Func setvisibleChangedEvent P1
+		return QWebEnginePage_setvisibleChangedEvent(pObject,P1)
+
+	Func setwindowCloseRequestedEvent P1
+		return QWebEnginePage_setwindowCloseRequestedEvent(pObject,P1)
+
+	Func getaudioMutedChangedEvent 
+		return QWebEnginePage_getaudioMutedChangedEvent(pObject)
+
+	Func getauthenticationRequiredEvent 
+		return QWebEnginePage_getauthenticationRequiredEvent(pObject)
+
+	Func getcontentsSizeChangedEvent 
+		return QWebEnginePage_getcontentsSizeChangedEvent(pObject)
+
+	Func getfeaturePermissionRequestCanceledEvent 
+		return QWebEnginePage_getfeaturePermissionRequestCanceledEvent(pObject)
+
+	Func getfeaturePermissionRequestedEvent 
+		return QWebEnginePage_getfeaturePermissionRequestedEvent(pObject)
+
+	Func getfindTextFinishedEvent 
+		return QWebEnginePage_getfindTextFinishedEvent(pObject)
+
+	Func getfullScreenRequestedEvent 
+		return QWebEnginePage_getfullScreenRequestedEvent(pObject)
+
+	Func getgeometryChangeRequestedEvent 
+		return QWebEnginePage_getgeometryChangeRequestedEvent(pObject)
+
+	Func geticonChangedEvent 
+		return QWebEnginePage_geticonChangedEvent(pObject)
+
+	Func geticonUrlChangedEvent 
+		return QWebEnginePage_geticonUrlChangedEvent(pObject)
+
+	Func getlinkHoveredEvent 
+		return QWebEnginePage_getlinkHoveredEvent(pObject)
+
+	Func getloadFinishedEvent 
+		return QWebEnginePage_getloadFinishedEvent(pObject)
+
+	Func getloadProgressEvent 
+		return QWebEnginePage_getloadProgressEvent(pObject)
+
+	Func getloadStartedEvent 
+		return QWebEnginePage_getloadStartedEvent(pObject)
+
+	Func getpdfPrintingFinishedEvent 
+		return QWebEnginePage_getpdfPrintingFinishedEvent(pObject)
+
+	Func getprintRequestedEvent 
+		return QWebEnginePage_getprintRequestedEvent(pObject)
+
+	Func getproxyAuthenticationRequiredEvent 
+		return QWebEnginePage_getproxyAuthenticationRequiredEvent(pObject)
+
+	Func getquotaRequestedEvent 
+		return QWebEnginePage_getquotaRequestedEvent(pObject)
+
+	Func getrecentlyAudibleChangedEvent 
+		return QWebEnginePage_getrecentlyAudibleChangedEvent(pObject)
+
+	Func getrecommendedStateChangedEvent 
+		return QWebEnginePage_getrecommendedStateChangedEvent(pObject)
+
+	Func getregisterProtocolHandlerRequestedEvent 
+		return QWebEnginePage_getregisterProtocolHandlerRequestedEvent(pObject)
+
+	Func getscrollPositionChangedEvent 
+		return QWebEnginePage_getscrollPositionChangedEvent(pObject)
+
+	Func getselectClientCertificateEvent 
+		return QWebEnginePage_getselectClientCertificateEvent(pObject)
+
+	Func getselectionChangedEvent 
+		return QWebEnginePage_getselectionChangedEvent(pObject)
+
+	Func gettitleChangedEvent 
+		return QWebEnginePage_gettitleChangedEvent(pObject)
+
+	Func geturlChangedEvent 
+		return QWebEnginePage_geturlChangedEvent(pObject)
+
+	Func getvisibleChangedEvent 
+		return QWebEnginePage_getvisibleChangedEvent(pObject)
+
+	Func getwindowCloseRequestedEvent 
+		return QWebEnginePage_getwindowCloseRequestedEvent(pObject)
 
 Class QSerialPort from QIODevice
 

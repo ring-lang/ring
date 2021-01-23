@@ -1,0 +1,157 @@
+<class>
+name: QWebEnginePage
+para: QObject *
+parent: QObject
+codename: GWebEnginePage
+passvmpointer
+</class>
+
+QAction * action(QWebEnginePage::WebAction action)
+QColor backgroundColor(void)
+QSizeF contentsSize(void)
+<comment>
+QWebEngineContextMenuData contextMenuData(void)
+</comment>
+QMenu * createStandardContextMenu(void)
+QWebEnginePage * devToolsPage(void)
+void download(QUrl url, QString filename)
+void findText(QString subString, QWebEnginePage::FindFlags options, QWebEngineCallback<bool> resultCallback)
+bool hasSelection(void)
+QWebEngineHistory * history(void)
+QIcon icon(void)
+QUrl iconUrl(void)
+QWebEnginePage * inspectedPage(void)
+bool isAudioMuted(void)
+<comment>
+bool isVisible(void)
+QWebEnginePage::LifecycleState lifecycleState(void)
+</comment>
+void load@2(QUrl url)
+void load@3(QWebEngineHttpRequest request)
+void print(QPrinter *printer,QWebEngineCallback<bool>)
+<comment>
+void printToPdf(QString filePath, QPageLayout pageLayout, QPageLayout::Portrait, QMarginsF)
+void printToPdf@2(QWebEngineCallback<QByteArray > resultCallback, QPageLayout pageLayout, QPageLayout::Portrait, QMarginsF)
+</comment>
+QWebEngineProfile * profile(void)
+bool recentlyAudible(void)
+<comment>
+QWebEnginePage::LifecycleState recommendedState(void)
+qint64 renderProcessPid(void)
+</comment>
+void replaceMisspelledWord(QString replacement)
+QUrl requestedUrl(void)
+void runJavaScript(QString scriptSource)
+void runJavaScript@2(QString scriptSource, quint32 worldId)
+<comment>
+void runJavaScript@3(QString scriptSource, QWebEngineCallback<QVariant > resultCallback)
+void runJavaScript@4(QString scriptSource, quint32 worldId, QWebEngineCallback<QVariant > resultCallback)
+QWebEngineScriptCollection scripts(void)
+</comment>
+void save(QString filePath, QWebEngineDownloadItem::SavePageFormat format)
+QPointF scrollPosition(void)
+QString selectedText(void)
+void setAudioMuted(bool muted)
+void setBackgroundColor(QColor color)
+void setContent(QByteArray data, QString mimeType, QUrl baseUrl)
+void setDevToolsPage(QWebEnginePage *devToolsPage)
+void setFeaturePermission(QUrl securityOrigin, QWebEnginePage::Feature feature, QWebEnginePage::PermissionPolicy policy)
+void setHtml(QString html, QUrl baseUrl)
+void setInspectedPage(QWebEnginePage *page)
+<comment>
+void setLifecycleState(QWebEnginePage::LifecycleState state)
+</comment>
+void setUrl(QUrl url)
+<comment>
+void setUrlRequestInterceptor(QWebEngineUrlRequestInterceptor *interceptor)
+</comment>
+void setView(QWidget *view)
+<comment>
+void setVisible(bool visible)
+</comment>
+void setWebChannel(QWebChannel *channel, uint worldId)
+void setWebChannel@2(QWebChannel *channel)
+void setZoomFactor(qreal factor)
+QWebEngineSettings * settings(void)
+QString title(void)
+<comment>
+void toHtml(QWebEngineCallback<const QString &>)
+void toPlainText(QWebEngineCallback<const QString &>)
+</comment>
+void triggerAction(QWebEnginePage::WebAction action, bool checked)
+QUrl url(void)
+QWidget * view(void)
+QWebChannel * webChannel(void)
+qreal zoomFactor(void)
+
+void setaudioMutedChangedEvent(const char *)
+void setauthenticationRequiredEvent(const char *)
+void setcontentsSizeChangedEvent(const char *)
+void setfeaturePermissionRequestCanceledEvent(const char *)
+void setfeaturePermissionRequestedEvent(const char *)
+void setfindTextFinishedEvent(const char *)
+void setfullScreenRequestedEvent(const char *)
+void setgeometryChangeRequestedEvent(const char *)
+void seticonChangedEvent(const char *)
+void seticonUrlChangedEvent(const char *)
+<comment>
+void setlifecycleStateChangedEvent(const char *)
+</comment>
+void setlinkHoveredEvent(const char *)
+void setloadFinishedEvent(const char *)
+void setloadProgressEvent(const char *)
+void setloadStartedEvent(const char *)
+void setpdfPrintingFinishedEvent(const char *)
+void setprintRequestedEvent(const char *)
+void setproxyAuthenticationRequiredEvent(const char *)
+void setquotaRequestedEvent(const char *)
+void setrecentlyAudibleChangedEvent(const char *)
+void setrecommendedStateChangedEvent(const char *)
+void setregisterProtocolHandlerRequestedEvent(const char *)
+<comment>
+void setrenderProcessPidChangedEvent(const char *)
+void setrenderProcessTerminatedEvent(const char *)
+</comment>
+void setscrollPositionChangedEvent(const char *)
+void setselectClientCertificateEvent(const char *)
+void setselectionChangedEvent(const char *)
+void settitleChangedEvent(const char *)
+void seturlChangedEvent(const char *)
+void setvisibleChangedEvent(const char *)
+void setwindowCloseRequestedEvent(const char *)
+
+const char *getaudioMutedChangedEvent(void)
+const char *getauthenticationRequiredEvent(void)
+const char *getcontentsSizeChangedEvent(void)
+const char *getfeaturePermissionRequestCanceledEvent(void)
+const char *getfeaturePermissionRequestedEvent(void)
+const char *getfindTextFinishedEvent(void)
+const char *getfullScreenRequestedEvent(void)
+const char *getgeometryChangeRequestedEvent(void)
+const char *geticonChangedEvent(void)
+const char *geticonUrlChangedEvent(void)
+<comment>
+const char *getlifecycleStateChangedEvent(void)
+</comment>
+const char *getlinkHoveredEvent(void)
+const char *getloadFinishedEvent(void)
+const char *getloadProgressEvent(void)
+const char *getloadStartedEvent(void)
+const char *getpdfPrintingFinishedEvent(void)
+const char *getprintRequestedEvent(void)
+const char *getproxyAuthenticationRequiredEvent(void)
+const char *getquotaRequestedEvent(void)
+const char *getrecentlyAudibleChangedEvent(void)
+const char *getrecommendedStateChangedEvent(void)
+const char *getregisterProtocolHandlerRequestedEvent(void)
+<comment>
+const char *getrenderProcessPidChangedEvent(void)
+const char *getrenderProcessTerminatedEvent(void)
+</comment>
+const char *getscrollPositionChangedEvent(void)
+const char *getselectClientCertificateEvent(void)
+const char *getselectionChangedEvent(void)
+const char *gettitleChangedEvent(void)
+const char *geturlChangedEvent(void)
+const char *getvisibleChangedEvent(void)
+const char *getwindowCloseRequestedEvent(void)

@@ -45,6 +45,7 @@ func main
 	
 	/* main loop */
 	TLN_CreateWindow (NULL, 0)
+	TLN_DisableCRTEffect()
 	while TLN_ProcessWindow ()
 		/* user input */
 		if TLN_GetInput (INPUT_LEFT)

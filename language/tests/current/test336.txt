@@ -1,0 +1,12 @@
+c = 1 to size step 2
+1
+s = 1 to ssize step 1
+1
+h = 1 to hsize step 3
+1
+c = 1 to size step 2
+3
+s = 1 to ssize step 1
+1
+h = 1 to hsize step 3
+1
