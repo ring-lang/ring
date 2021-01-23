@@ -1409,40 +1409,6 @@ RING_FUNC(ring_sdl_set_sdl_surface_locked)
 	pMyPointer->locked = RING_API_GETNUMBER(2);
 }
 
-RING_FUNC(ring_sdl_get_sdl_surface_lock_data)
-{
-	SDL_Surface *pMyPointer ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA) ;
-		return ;
-	}
-	if ( ! RING_API_ISCPOINTER(1) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
-	RING_API_RETCPOINTER(pMyPointer->lock_data,"void");
-}
-
-RING_FUNC(ring_sdl_set_sdl_surface_lock_data)
-{
-	SDL_Surface *pMyPointer ;
-	if ( RING_API_PARACOUNT != 2 ) {
-		RING_API_ERROR(RING_API_MISS2PARA) ;
-		return ;
-	}
-	if ( ! RING_API_ISCPOINTER(1) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISCPOINTER(2) ) { 
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pMyPointer = RING_API_GETCPOINTER(1,"SDL_Surface");
-	pMyPointer->lock_data = (void *) RING_API_GETCPOINTER(2,"void");
-}
-
 RING_FUNC(ring_sdl_new_sdl_controlleraxisevent)
 {
 	SDL_ControllerAxisEvent *pMyPointer ;
@@ -19031,8 +18997,6 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("sdl_set_sdl_surface_userdata",ring_sdl_set_sdl_surface_userdata);
 	ring_vm_funcregister("sdl_get_sdl_surface_locked",ring_sdl_get_sdl_surface_locked);
 	ring_vm_funcregister("sdl_set_sdl_surface_locked",ring_sdl_set_sdl_surface_locked);
-	ring_vm_funcregister("sdl_get_sdl_surface_lock_data",ring_sdl_get_sdl_surface_lock_data);
-	ring_vm_funcregister("sdl_set_sdl_surface_lock_data",ring_sdl_set_sdl_surface_lock_data);
 	ring_vm_funcregister("sdl_new_sdl_controlleraxisevent",ring_sdl_new_sdl_controlleraxisevent);
 	ring_vm_funcregister("sdl_new_managed_sdl_controlleraxisevent",ring_sdl_new_managed_sdl_controlleraxisevent);
 	ring_vm_funcregister("sdl_destroy_sdl_controlleraxisevent",ring_sdl_destroy_sdl_controlleraxisevent);

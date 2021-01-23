@@ -89,7 +89,7 @@ SDL_Palette
 SDL_PixelFormat
 SDL_Point {x,y}
 SDL_Rect {x,y,w,h}
-SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels,void *userdata,locked,void *lock_data}
+SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels,void *userdata,locked}
 SDL_ControllerAxisEvent {type,timestamp,which,axis,value}
 SDL_ControllerButtonEvent
 SDL_ControllerDeviceEvent
