@@ -2076,6 +2076,10 @@ RING_FUNC(ring_curl_formadd_7)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
+	if ( ! RING_API_ISCPOINTER(6) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISNUMBER(7) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -2083,9 +2087,7 @@ RING_FUNC(ring_curl_formadd_7)
 	{
 		CURLFORMcode *pValue ; 
 		pValue = (CURLFORMcode *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(CURLFORMcode)) ;
-		*pValue = curl_formadd((struct curl_httppost **) RING_API_GETCPOINTER2POINTER(1,"struct curl_httppost"),(struct curl_httppost **) RING_API_GETCPOINTER2POINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),* (struct curl_forms  *) RING_API_GETCPOINTER(6,"struct curl_forms"), (CURLformoption)  (int) RING_API_GETNUMBER(7));
-	if (RING_API_ISCPOINTERNOTASSIGNED(6))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(6,"struct curl_forms"));
+		*pValue = curl_formadd((struct curl_httppost **) RING_API_GETCPOINTER2POINTER(1,"struct curl_httppost"),(struct curl_httppost **) RING_API_GETCPOINTER2POINTER(2,"struct curl_httppost"), (CURLformoption)  (int) RING_API_GETNUMBER(3),RING_API_GETSTRING(4), (CURLformoption)  (int) RING_API_GETNUMBER(5),(struct curl_forms *) RING_API_GETCPOINTER(6,"struct curl_forms"), (CURLformoption)  (int) RING_API_GETNUMBER(7));
 		RING_API_RETMANAGEDCPOINTER(pValue,"CURLFORMcode",ring_state_free);
 	}
 }

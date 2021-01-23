@@ -412,7 +412,7 @@ CURLFORMcode curl_formadd@3(struct curl_httppost **firstitem, struct curl_httppo
 CURLFORMcode curl_formadd@4(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, void *,CURLformoption, long , CURLformoption)
 CURLFORMcode curl_formadd@5(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, void *,CURLformoption, long , CURLformoption, const char* , CURLformoption)
 CURLFORMcode curl_formadd@6(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption, const char *,CURLformoption, void * , CURLformoption, long , CURLformoption)
-CURLFORMcode curl_formadd@7(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption,  struct curl_forms [], CURLformoption)
+CURLFORMcode curl_formadd@7(struct curl_httppost **firstitem, struct curl_httppost **lastitem, CURLformoption, const char *, CURLformoption,  struct curl_forms *, CURLformoption)
 
 void curl_formfree(struct curl_httppost * form)
 
