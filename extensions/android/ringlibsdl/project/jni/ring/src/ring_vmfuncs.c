@@ -582,10 +582,11 @@ void ring_vm_restoreloadaddressscope ( VM *pVM )
 
 void ring_vm_anonymous ( VM *pVM )
 {
-	const char *cStr  ;
+	char *cStr  ;
 	if ( RING_VM_STACK_ISSTRING ) {
 		cStr = RING_VM_STACK_READC ;
 		RING_VM_STACK_POP ;
+		ring_string_lower(cStr);
 		ring_vm_loadfunc2(pVM,cStr,0);
 	}
 	else {
