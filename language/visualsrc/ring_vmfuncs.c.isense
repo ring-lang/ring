@@ -49,3 +49,8 @@ Type: List *
 pList
 Type: int
 x
+ring_vm_freetemplists
+Type: List *
+pTempMem
+Type: int
+x,nStart

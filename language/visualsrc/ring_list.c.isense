@@ -28,6 +28,8 @@ struct List *
 Type: List
 Mark: ->
 List *
+RING_VM_LISTOFOBJS_FINDSTRING
+RING_VM_LISTOFOBJS_FINDNUMBER
 ring_list_isdouble(pList,index)
 ring_list_isint(pList,index)
 ring_list_deletelastitem(x)
@@ -41,8 +43,6 @@ ring_list_getstring(pList,index)
 ring_list_getstringobject(pList,index)
 ring_list_getstringsize(pList,index)
 ring_list_getsize(x)
-RING_VM_LISTOFOBJS_FINDSTRING
-RING_VM_LISTOFOBJS_FINDNUMBER
 ring_list_deletelastitem_gc(s,x)
 ring_list_new_gc
 Type: List *
