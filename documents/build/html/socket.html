@@ -318,7 +318,7 @@ sendto(pSocketHandle,cMessage)
 recv(pConnectionHandle|pSocketHandle,nBuffer) -&gt; cData
 recvfrom(pSocketHandle, nBuffer) -&gt; cData
 connect(pSocketHandle, cHost , nPort) -&gt; return &lt;0&gt; if successful
-close(pSocketHandle)
+close(pSocketHandle|pConnectionHandle)
 gethostbyname(cHostName) -&gt; cIPAddress
 gethostbyaddr(cIPAddress) -&gt; aListOfHostInfo
 gethostname() -&gt; cHostName

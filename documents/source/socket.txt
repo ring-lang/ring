@@ -72,7 +72,7 @@ The next functions are provided by this extension
 	recv(pConnectionHandle|pSocketHandle,nBuffer) -> cData
 	recvfrom(pSocketHandle, nBuffer) -> cData
 	connect(pSocketHandle, cHost , nPort) -> return <0> if successful
-	close(pSocketHandle)
+	close(pSocketHandle|pConnectionHandle)
 	gethostbyname(cHostName) -> cIPAddress
 	gethostbyaddr(cIPAddress) -> aListOfHostInfo
 	gethostname() -> cHostName
