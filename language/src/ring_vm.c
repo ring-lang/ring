@@ -1349,6 +1349,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	List *pList,*pList2,*pList3,*pList4,*pList5  ;
 	Item *pItem  ;
 	unsigned int nMemoryBlocksCount, x  ;
+	Items *pItems  ;
 	/* Create the RingState */
 	pState = ring_state_init();
 	/*
@@ -1372,8 +1373,31 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	/* Get Items for the Memory Pool From the Main Thread */
 	ring_poolmanager_newblockfromsubthread(pState,100000,pVM->pRingState);
 	/* Share Memory Blocks (Could be used for Lists in Global Scope) */
-	ring_list_copy(pState->vPoolManager.aBlocks,pVM->pRingState->vPoolManager.aBlocks);
-	nMemoryBlocksCount = ring_list_getsize(pState->vPoolManager.aBlocks) ;
+	nMemoryBlocksCount = ring_list_getsize(pVM->pRingState->vPoolManager.aBlocks) ;
+	/*
+	**  Thread Safe Code instead of ring_list_copy(pState->vPoolManager.aBlocks,pVM->pRingState->vPoolManager.aBlocks) 
+	**  Because the List structure contains (Cache) that we update when we access each item 
+	**  So we use the next code to avoid using/updating this cache 
+	*/
+	if ( nMemoryBlocksCount > 0 ) {
+		pItems = pVM->pRingState->vPoolManager.aBlocks->pFirst ;
+		while ( pItems != NULL ) {
+			/* Copy the Sub List - Each sub list contains two items [ Pointer, Pointer ] */
+			if ( pItems->pValue != NULL ) {
+				pList = ring_item_getlist(pItems->pValue) ;
+				if ( pList != NULL ) {
+					if ( (pList->pFirst != NULL) && (pList->pLast != NULL) ) {
+						if ( (pList->pFirst->pValue != NULL) && (pList->pLast->pValue != NULL) ) {
+							pList2 = ring_list_newlist(pState->vPoolManager.aBlocks);
+							ring_list_addpointer(pList2,ring_item_getpointer(pList->pFirst->pValue));
+							ring_list_addpointer(pList2,ring_item_getpointer(pList->pLast->pValue));
+						}
+					}
+				}
+			}
+			pItems = pItems->pNext ;
+		}
+	}
 	/* Save the state */
 	pList = pState->pVM->pCode ;
 	pList2 = pState->pVM->pFunctionsMap ;
