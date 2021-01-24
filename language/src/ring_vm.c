@@ -200,7 +200,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	/* File name in the class region */
 	pVM->cFileNameInClassRegion = NULL ;
 	/* Control Performance Instructions */
-	pVM->lUsePushPLocal = 0 ;
+	pVM->lUsePushPLocal = 1 ;
 	/* To know if we are inside eval() or not */
 	pVM->lInsideEval = 0 ;
 	/* Dynamic Libraries */
@@ -889,7 +889,9 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 		if ( x2 == 1 ) {
 			switch ( pItem->data.iNumber ) {
 				case ICO_PUSHPLOCAL :
-					pItem->data.iNumber = ICO_LOADADDRESS ;
+					if ( ! pVM->lUsePushPLocal ) {
+						pItem->data.iNumber = ICO_LOADADDRESS ;
+					}
 					break ;
 				case ICO_JUMPVARLPLENUM :
 					pItem->data.iNumber = ICO_JUMPVARLENUM ;

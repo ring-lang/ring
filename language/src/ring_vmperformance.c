@@ -17,18 +17,17 @@ void ring_vm_pushplocal ( VM *pVM )
 {
 	/* Check Scope Life Time */
 	if ( RING_VM_IR_READIVALUE(4) != pVM->nActiveScopeID ) {
-		RING_VM_IR_OPCODE = ICO_LOADADDRESS ;
-		ring_list_deliteminsidelist_gc(pVM->pRingState,pVM->aNewByteCodeItems,RING_VM_IR_ITEM(3));
-		ring_list_deliteminsidelist_gc(pVM->pRingState,pVM->aNewByteCodeItems,RING_VM_IR_ITEM(4));
-		#if RING_SHOWICFINAL
-			RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
-			ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-			ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-		#endif
-		pVM->nPC-- ;
-		return ;
+		if ( ring_vm_findvar(pVM, RING_VM_IR_READC ) == 0 ) {
+			ring_vm_newvar(pVM, RING_VM_IR_READC);
+			/* Support for private attributes */
+			ring_list_setint_gc(pVM->pRingState,(List *) RING_VM_STACK_READP,RING_VAR_PRIVATEFLAG,pVM->nPrivateFlag);
+		} 
+		ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_VM_STACK_READP);
+		ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(4),pVM->nActiveScopeID);
 	}
-	RING_VM_STACK_PUSHPVALUE(RING_VM_IR_READPVALUE(3)) ;
+	else {
+		RING_VM_STACK_PUSHPVALUE(RING_VM_IR_READPVALUE(3)) ;
+	}
 	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 	/* Update Scope Information */
 	if ( pVM->nLoadAddressScope  == RING_VARSCOPE_NOTHING ) {
