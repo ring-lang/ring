@@ -448,3 +448,16 @@ sudo ln -s "`pwd`/lib/libringraylib.so" /usr/lib64
 sudo cp extensions/ringraylib/src/linux_raylib-2.5/lib/libraylib.so.* /usr/lib
 sudo cp extensions/ringraylib/src/linux_raylib-2.5/lib/libraylib.so.* /usr/lib64
 fi
+
+# Make the RingSockets library ready for use directly
+
+if [ -f lib/libring_sockets.dylib ];
+then
+ln -s "`pwd`/lib/libring_sockets.dylib" /usr/local/lib
+fi
+
+if [ -f lib/libring_sockets.so ];
+then
+sudo ln -s "`pwd`/lib/libring_sockets.so" /usr/lib
+sudo ln -s "`pwd`/lib/libring_sockets.so" /usr/lib64
+fi
