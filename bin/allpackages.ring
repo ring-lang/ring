@@ -280,5 +280,8 @@ aAllPackagesInfo = [
 	],
 	:ringqtruntime = 	[
 		"ringqt"
+	],
+	:weblibtools = 	[
+		"weblib"
 	]
 ]
