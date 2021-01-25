@@ -27,8 +27,8 @@ void ring_vm_pushplocal ( VM *pVM )
 	}
 	else {
 		RING_VM_STACK_PUSHPVALUE(RING_VM_IR_READPVALUE(3)) ;
+		RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 	}
-	RING_VM_STACK_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 	/* Update Scope Information */
 	if ( pVM->nLoadAddressScope  == RING_VARSCOPE_NOTHING ) {
 		pVM->nLoadAddressScope = RING_VARSCOPE_LOCAL ;
