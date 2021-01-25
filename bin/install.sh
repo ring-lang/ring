@@ -487,4 +487,6 @@ if [ -f lib/libring_libui.so ];
 then
 sudo ln -s "`pwd`/lib/libring_libui.so" /usr/lib
 sudo ln -s "`pwd`/lib/libring_libui.so" /usr/lib64
+sudo cp extensions/ringlibui/linux/libui.so.* /usr/lib
+sudo cp extensions/ringlibui/linux/libui.so.* /usr/lib
 fi
