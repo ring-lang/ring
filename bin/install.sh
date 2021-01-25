@@ -480,6 +480,7 @@ fi
 if [ -f lib/libring_libui.dylib ];
 then
 ln -s "`pwd`/lib/libring_libui.dylib" /usr/local/lib
+cp extensions/ringlibui/macOS/libui.* /usr/local/lib
 fi
 
 if [ -f lib/libring_libui.so ];
