@@ -461,3 +461,16 @@ then
 sudo ln -s "`pwd`/lib/libring_sockets.so" /usr/lib
 sudo ln -s "`pwd`/lib/libring_sockets.so" /usr/lib64
 fi
+
+# Make the RingThreads library ready for use directly
+
+if [ -f lib/libring_threads.dylib ];
+then
+ln -s "`pwd`/lib/libring_threads.dylib" /usr/local/lib
+fi
+
+if [ -f lib/libring_threads.so ];
+then
+sudo ln -s "`pwd`/lib/libring_threads.so" /usr/lib
+sudo ln -s "`pwd`/lib/libring_threads.so" /usr/lib64
+fi
