@@ -1,42 +1,17 @@
 ﻿aDownload = [
-		["Ring 1.13 All Platforms",[			
+		["Ring 1.14 All Platforms",[			
 						 [
-							'Ring 1.13 For Windows (32bit and 64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.13/Fayed_Ring_1.13_Windows.exe/download" target="_blank">Download  (341 MB)</a>'						
+							'Ring 1.14 Documentation (PDF) ',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.14/Fayed_RingDoc_1.14.pdf/download" target="_blank">Download (41.4 MB)</a>'
 						 ],
 						 [
-							'Ring 1.13 For Ubuntu Linux (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.13/Fayed_Ring_1.13_Ubuntu.zip/download" target="_blank">Download  (384 MB)</a>'						
-						 ],
-						 [
-							'Ring 1.13 For Fedora Linux (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.13/Fayed_Ring_1.13_Fedora.zip/download" target="_blank">Download  (383 MB)</a>'						
-						 ],
-						 [
-							'Ring 1.13 For macOS (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.13/Fayed_Ring_1.13_macOS.zip/download" target="_blank">Download  (390 MB)</a>'						
-						 ],
-						 [
-							'Ring 1.13 (Light Release - Source Code - All Platforms) <br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.13/Fayed_Ring_1.13_LightRelease_SourceCode.zip/download" target="_blank">Download (681 KB) </a>'
-						 ],
-						 [
-							'Ring 1.13 (Light Release - Windows Binary) <br> ',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.13/Fayed_Ring_1.13_LightRelease_Windows_Binary.zip/download" target="_blank">Download (2.92 MB)</a>'
-						 ],					 
-						 [
-							'Ring 1.13 Documentation (PDF) ',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.13/Fayed_RingDoc_1.13.pdf/download" target="_blank">Download (35.9 MB)</a>'
-						 ],
-						 [
-							'Ring 1.13 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.13/Fayed_RingDoc_1.13.chm/download" target="_blank">Download (43.8 MB)</a>'							
+							'Ring 1.14 Documentation (CHM)',
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.14/Fayed_RingDoc_1.14.chm/download" target="_blank">Download (49.7 MB)</a>'							
 						 ],
 						 [
 							'Ring 1.12 Documentation (HTML)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.13/Fayed_RingDoc_1.13.zip/download" target="_blank">Download (44.4 MB)</a>'							
-						 ]
-						 
+							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.14/Fayed_RingDoc_1.14.zip/download" target="_blank">Download (50.3 MB)</a>'							
+						 ]						 
 			]
 		]
 ]
