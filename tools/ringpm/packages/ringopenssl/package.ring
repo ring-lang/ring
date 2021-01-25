@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.3",
+	:version = "1.0.4",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.3",
+			:version = "1.0.4",
 			:branch = "master"
 		]
 	],
@@ -34,6 +34,7 @@ aPackageInfo = [
 		"extensions/ringopenssl/openssllib.ring",
 		"extensions/ringopenssl/ring_vmopenssl.c",
 		"extensions/ringopenssl/ring_vmopenssl.h",
+		"extensions/ringopenssl/test_hash.ring",
 		"tools/ring2exe/libs/openssl.ring"
 	],
 	:windowsringfolderfiles = 	[
