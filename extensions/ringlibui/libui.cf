@@ -9,6 +9,10 @@
 #include <ui_windows.h>
 </filter>
 
+<filter> isMacOSX()
+<Cocoa/Cocoa.h>
+</filter>
+
 </code>
 
 <constant>
