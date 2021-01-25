@@ -474,3 +474,16 @@ then
 sudo ln -s "`pwd`/lib/libring_threads.so" /usr/lib
 sudo ln -s "`pwd`/lib/libring_threads.so" /usr/lib64
 fi
+
+# Make the RingLibUI library ready for use directly
+
+if [ -f lib/libring_libui.dylib ];
+then
+ln -s "`pwd`/lib/libring_libui.dylib" /usr/local/lib
+fi
+
+if [ -f lib/libring_libui.so ];
+then
+sudo ln -s "`pwd`/lib/libring_libui.so" /usr/lib
+sudo ln -s "`pwd`/lib/libring_libui.so" /usr/lib64
+fi
