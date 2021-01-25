@@ -277,5 +277,8 @@ aAllPackagesInfo = [
 	],
 	:socket = 	[
 
+	],
+	:ringqtruntime = 	[
+		"ringqt"
 	]
 ]
