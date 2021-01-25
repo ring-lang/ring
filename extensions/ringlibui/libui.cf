@@ -10,6 +10,10 @@
 #include <ui_windows.h>
 </filter>
 
+<filter> isMacOSX()
+#include <Cocoa/Cocoa.h>
+#include <ui_darwin.h>
+</filter>
 
 </code>
 
