@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -31,7 +31,18 @@ aPackageInfo = [
 		"extensions/libdepwin/libui/ui.h",
 		"extensions/libdepwin/libui/ui_windows.h",
 		"extensions/ringlibui/buildvc.bat",
+		"extensions/ringlibui/buildclang.sh",
+		"extensions/ringlibui/buildgcc.sh",
 		"extensions/ringlibui/gencode.bat",
+		"extensions/ringlibui/gencode.sh",
+		"extensions/ringlibui/linux/libui.so",
+		"extensions/ringlibui/linux/libui.so.O",
+		"extensions/ringlibui/linux/ui.h",
+		"extensions/ringlibui/linux/ui_unix.h",
+		"extensions/ringlibui/macOS/libui.A.dylib",
+		"extensions/ringlibui/macOS/libui.dylib",
+		"extensions/ringlibui/macOS/ui.h",
+		"extensions/ringlibui/macOS/ui_darwin.h",
 		"extensions/ringlibui/libui.cf",
 		"extensions/ringlibui/libui.dll",
 		"extensions/ringlibui/libui.ring",
