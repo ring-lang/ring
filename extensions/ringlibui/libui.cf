@@ -3,15 +3,17 @@
 <code>
 /* Copyright (c) 2020 Mahmoud Fayed <msfclipper@yahoo.com> */
 
+<filter> isMacOSX()
+#include <Cocoa/Cocoa.h>
+</filter>
+
+
 #include <ui.h>
 <filter> iswindows()
 #include <windows.h>
 #include <ui_windows.h>
 </filter>
 
-<filter> isMacOSX()
-<Cocoa/Cocoa.h>
-</filter>
 
 </code>
 
