@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Abdallah Elsharif",
 	:email = "elsharifabdallah53@gmail.com",
 	:license = "MIT License",
-	:version = "1.0.0",
-	:ringversion = "1.13",
+	:version = "1.0.1",
+	:ringversion = "1.14",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -24,19 +24,17 @@ aPackageInfo = [
 		"main.ring"
 	],
 	:ringfolderfiles = 	[
-		"bin/load/socket.ring",
-		"bin/socket.dll",
-		"extensions/socket/buildclang.sh",
-		"extensions/socket/buildgcc.sh",
-		"extensions/socket/buildvc.bat",
-		"extensions/socket/socket.ring",
-		"extensions/socket/lib/constants.ring",
-		"extensions/socket/ext/socket.c",
-		"extensions/socket/ext/socket.h",
-		"extensions/socket/samples/sample1.ring",
-		"extensions/socket/samples/sample2.ring",
-		"extensions/socket/samples/sample3.ring",
-		"extensions/socket/docs/docs.txt"
+		"bin/load/sockets.ring",
+		"bin/ring_sockets.dll",
+		"extensions/ringsockets/buildclang.sh",
+		"extensions/ringsockets/buildgcc.sh",
+		"extensions/ringsockets/buildvc.bat",
+		"extensions/ringsockets/sockets.ring",
+		"extensions/ringsockets/lib/constants.ring",
+		"extensions/ringsockets/ext/socket.c",
+		"extensions/ringsockets/ext/socket.h",
+		"extensions/ringsockets/docs/docs.txt",
+		"tools/ring2exe/libs/sockets.ring"
 	],
 	:windowsfiles = 	[
 
