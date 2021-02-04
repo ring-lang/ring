@@ -24,3 +24,4 @@ Ring 1.15 comes with the next features!
 More Improvements
 =================
 
+* Ring VM - Support converting NULL to Zero when we compare between Number and NULL
