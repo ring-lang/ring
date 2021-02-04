@@ -64,7 +64,7 @@
 		unsigned int lNotCaseSensitive : 1  ;
 	} RingState ;
 	/* Constants */
-	#define RING_STATE_VERSION "1.14"
+	#define RING_STATE_VERSION "1.15"
 	/* MACRO */
 	#define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
 	/* General Options (Only for ring_state_main()) */

@@ -76,8 +76,8 @@ struct RingState *
 Type: RingState
 Mark: ->
 RingState *
-RING_STATE_CHECKPRINTRULES
 RING_STATE_VERSION
+RING_STATE_CHECKPRINTRULES
 Type: static int
 nRingStateDEBUGSEGFAULT
 Type: static int
