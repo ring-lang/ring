@@ -972,6 +972,10 @@ double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 	double nResult  ;
 	char *cEndStr  ;
 	errno = 0 ;
+	/* Support converting NULL to Zero */
+	if ( strcmp(cStr,"") == 0 ) {
+		return 0.0 ;
+	}
 	nResult = strtod(cStr, &cEndStr);
 	if ( nResult == 0 && (errno != 0) ) {
 		if ( errno == ERANGE ) {
