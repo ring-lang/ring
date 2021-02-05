@@ -25,4 +25,5 @@ More Improvements
 =================
 
 * StdLib - List2Code() function - Support double quotation in list strings
+* StdLib - List2Code() function - Better Format - Add tabs before the items
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
