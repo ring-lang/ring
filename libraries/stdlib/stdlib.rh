@@ -39,3 +39,6 @@
 		:time_zone    = 20,
 		:percent_sign = 21
 	]
+
+# List2Code Tabs Counter 
+	List2CodeTabsCounter = 0

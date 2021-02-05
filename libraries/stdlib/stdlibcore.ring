@@ -1023,24 +1023,29 @@ func OSRenameFile cOldFile,cNewFile
 	Convert a Ring List to Ring source code 
 */
 func List2Code aList
-	cCode = "["+Windowsnl()
+	cTabs = Copy(Char(9),List2CodeTabsCounter)
+	cCode = cTabs+"["+Windowsnl()
 	lStart = True
+	List2CodeTabsCounter++
+	cTabs = Copy(Char(9),List2CodeTabsCounter)
 	for item in aList 
 		if !lStart 
-			cCode += ","
+			cCode += ","+Windowsnl()
 		else 
 			lStart = False
 		ok
 		if isString(item)
 			item = substr(item,'"','"+char(34)+"') 
-			cCode += '"' + item + '"' 
+			cCode += cTabs+'"' + item + '"' 
 		but isnumber(item)
-			cCode += (""+item)
+			cCode += (cTabs+""+item)
 		but islist(item)
 			cCode += List2Code(item)
 		ok
 	next
-	cCode += windowsnl()+"]"
+	List2CodeTabsCounter--
+	cTabs = Copy(Char(9),List2CodeTabsCounter)
+	cCode += windowsnl()+cTabs+"]"
 	return cCode
 
 
