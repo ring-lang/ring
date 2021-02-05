@@ -24,4 +24,5 @@ Ring 1.15 comes with the next features!
 More Improvements
 =================
 
+* StdLib - List2Code() function - Support double quotation in list strings
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
