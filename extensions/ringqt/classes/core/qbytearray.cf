@@ -4,6 +4,7 @@ para: void
 </class>
 
 QByteArray append(const char *str)
+QByteArray append@2(const char *str,int size)
 char at(int i)
 int capacity(void)
 void chop(int n)

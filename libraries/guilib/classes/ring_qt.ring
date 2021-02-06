@@ -540,6 +540,11 @@ Class QByteArray
 		pTempObj.pObject = QByteArray_append(pObject,P1)
 		return pTempObj
 
+	Func append_2 P1,P2
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_append_2(pObject,P1,P2)
+		return pTempObj
+
 	Func at P1
 		return QByteArray_at(pObject,P1)
 

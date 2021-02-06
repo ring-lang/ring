@@ -3288,6 +3288,36 @@ RING_FUNC(ring_QByteArray_append)
 }
 
 
+RING_FUNC(ring_QByteArray_append_2)
+{
+	QByteArray *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QByteArray *) RING_API_GETCPOINTER(1,"QByteArray");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		QByteArray *pValue ; 
+		pValue = new QByteArray() ;
+		*pValue = pObject->append(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QByteArray",ring_QByteArray_freefunc);
+	}
+}
+
+
 RING_FUNC(ring_QByteArray_at)
 {
 	QByteArray *pObject ;
@@ -141262,6 +141292,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qtimer_settimeoutevent",ring_QTimer_settimeoutEvent);
 	ring_vm_funcregister("qtimer_gettimeoutevent",ring_QTimer_gettimeoutEvent);
 	ring_vm_funcregister("qbytearray_append",ring_QByteArray_append);
+	ring_vm_funcregister("qbytearray_append_2",ring_QByteArray_append_2);
 	ring_vm_funcregister("qbytearray_at",ring_QByteArray_at);
 	ring_vm_funcregister("qbytearray_capacity",ring_QByteArray_capacity);
 	ring_vm_funcregister("qbytearray_chop",ring_QByteArray_chop);

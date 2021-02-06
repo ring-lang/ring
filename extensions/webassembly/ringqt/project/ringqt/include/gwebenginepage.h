@@ -41,8 +41,6 @@ class GWebEnginePage : public QWebEnginePage
     char crecentlyAudibleChangedEvent[RINGQT_EVENT_SIZE];
     char crecommendedStateChangedEvent[RINGQT_EVENT_SIZE];
     char cregisterProtocolHandlerRequestedEvent[RINGQT_EVENT_SIZE];
-    char crenderProcessPidChangedEvent[RINGQT_EVENT_SIZE];
-    char crenderProcessTerminatedEvent[RINGQT_EVENT_SIZE];
     char cscrollPositionChangedEvent[RINGQT_EVENT_SIZE];
     char cselectClientCertificateEvent[RINGQT_EVENT_SIZE];
     char cselectionChangedEvent[RINGQT_EVENT_SIZE];
@@ -79,8 +77,6 @@ class GWebEnginePage : public QWebEnginePage
     void setrecentlyAudibleChangedEvent(const char *cStr);
     void setrecommendedStateChangedEvent(const char *cStr);
     void setregisterProtocolHandlerRequestedEvent(const char *cStr);
-    void setrenderProcessPidChangedEvent(const char *cStr);
-    void setrenderProcessTerminatedEvent(const char *cStr);
     void setscrollPositionChangedEvent(const char *cStr);
     void setselectClientCertificateEvent(const char *cStr);
     void setselectionChangedEvent(const char *cStr);
@@ -111,8 +107,6 @@ class GWebEnginePage : public QWebEnginePage
     const char *getrecentlyAudibleChangedEvent(void);
     const char *getrecommendedStateChangedEvent(void);
     const char *getregisterProtocolHandlerRequestedEvent(void);
-    const char *getrenderProcessPidChangedEvent(void);
-    const char *getrenderProcessTerminatedEvent(void);
     const char *getscrollPositionChangedEvent(void);
     const char *getselectClientCertificateEvent(void);
     const char *getselectionChangedEvent(void);
@@ -145,8 +139,6 @@ class GWebEnginePage : public QWebEnginePage
     void recentlyAudibleChangedSlot();
     void recommendedStateChangedSlot();
     void registerProtocolHandlerRequestedSlot();
-    void renderProcessPidChangedSlot();
-    void renderProcessTerminatedSlot();
     void scrollPositionChangedSlot();
     void selectClientCertificateSlot();
     void selectionChangedSlot();
