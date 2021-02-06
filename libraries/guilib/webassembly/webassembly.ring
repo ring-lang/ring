@@ -4,7 +4,7 @@ func WebAssemblyUpload cFileType,cCode
 
 func WebAssemblyDownload cFileName,cStr
 	oTempBytes 	= new QByteArray()
-	oTempBytes.append(cStr)
+	oTempBytes.append_2(cStr,len(cStr))
 	oTempDialog = new QFileDialog(NULL) 
 	QFileDialog_SaveFileContent(oTempDialog.pObject,oTempBytes.pObject,cFileName)
 
