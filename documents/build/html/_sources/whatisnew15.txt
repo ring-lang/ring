@@ -26,4 +26,6 @@ More Improvements
 
 * StdLib - List2Code() function - Support double quotation in list strings
 * StdLib - List2Code() function - Better Format - Add tabs before the items
+* RingQt - QByteArray Class - Append() Method - Support Binary Data 
+* RingQt For WebAssembly - Download File - Support Binary File
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
