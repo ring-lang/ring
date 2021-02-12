@@ -348,3 +348,14 @@ T_FORMDESIGNER_SELOBJECTS_TITLE		= "Select Objects"
 T_FORMDESIGNER_SELOBJECTS_OBJECTS	= "Objects"
 T_FORMDESIGNER_SELOBJECTS_SELECT	= "Select"
 T_FORMDESIGNER_SELOBJECTS_CLOSE		= "Close"
+
+T_FORMDESIGNER_LANG_TITLE = "Programming Language"
+T_FORMDESIGNER_LANG_INFO  = "This application is developed using the Ring programming language"
+
+T_FORMDESIGNER_GUILIB_TITLE = "GUI Library"
+T_FORMDESIGNER_GUILIB_INFO  = "This application uses the Qt GUI Library through RingQt"
+
+T_FORMDESIGNER_ABOUT_TITLE = "About"
+T_FORMDESIGNER_ABOUT_INFO  = "This application developed using the Ring programming language" + nl +
+		"Ring Version : " + version() + nl +
+		"2018-2021, Mahmoud Fayed <msfclipper@yahoo.com>"

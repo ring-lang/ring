@@ -1326,18 +1326,16 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func LangAction
-		MsgBox("Programming Language",
-			"This application is developed using the Ring programming language")
+		MsgBox(T_FORMDESIGNER_LANG_TITLE, # "Programming Language"
+			T_FORMDESIGNER_LANG_INFO) # "This application is developed using the Ring programming language"
 
 	func GUIAction
-		MsgBox("GUI Library",
-			"This application uses the Qt GUI Library through RingQt")
+		MsgBox(T_FORMDESIGNER_GUILIB_TITLE, # "GUI Library"
+			T_FORMDESIGNER_GUILIB_INFO) # "This application uses the Qt GUI Library through RingQt"
 
 	func AboutAction
-		MsgBox("About",
-		"This application developed using the Ring programming language" + nl +
-		"Ring Version : " + version() + nl +
-		"2018-2021, Mahmoud Fayed <msfclipper@yahoo.com>")
+		MsgBox(T_FORMDESIGNER_ABOUT_TITLE, # "About"
+		T_FORMDESIGNER_ABOUT_INFO)
 
 	func HasParent 
 		oParent = oView.win.parentwidget()

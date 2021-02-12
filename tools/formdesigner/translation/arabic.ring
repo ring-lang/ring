@@ -351,3 +351,14 @@ T_FORMDESIGNER_SELOBJECTS_OBJECTS	= "الكائنات"
 T_FORMDESIGNER_SELOBJECTS_SELECT	= "إختيار"
 T_FORMDESIGNER_SELOBJECTS_CLOSE		= "إغلاق"
 
+
+T_FORMDESIGNER_LANG_TITLE = "لغة البرمجة"
+T_FORMDESIGNER_LANG_INFO  = "تم التطوير بإستخدام لغة البرمجة رينج"
+
+T_FORMDESIGNER_GUILIB_TITLE = "الواجهة الرسومية"
+T_FORMDESIGNER_GUILIB_INFO  = "تم التطوير باستخدام مكتبة Qt من خلال RingQt"
+
+T_FORMDESIGNER_ABOUT_TITLE = "حول البرنامج"
+T_FORMDESIGNER_ABOUT_INFO  = "تم التطوير بإستخدام لغة البرمجة ريند" + nl +
+		"إصدار الرينج : " + version() + nl +
+		"2018-2021, محمود سمير فايد <msfclipper@yahoo.com>"
