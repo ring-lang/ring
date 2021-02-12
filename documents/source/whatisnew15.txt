@@ -24,6 +24,7 @@ Ring 1.15 comes with the next features!
 More Improvements
 =================
 
+* Form Designer - Better Translation
 * StdLib - List2Code() function - Support double quotation in list strings
 * StdLib - List2Code() function - Better Format - Add tabs before the items
 * RingQt - QByteArray Class - Append() Method - Support Binary Data 
