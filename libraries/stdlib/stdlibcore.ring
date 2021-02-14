@@ -1035,8 +1035,9 @@ func List2Code aList
 			lStart = False
 		ok
 		if isString(item)
-			item = substr(item,'"','"+char(34)+"') 
-			cCode += cTabs+'"' + item + '"' 
+			item2 = item
+			item2 = substr(item2,'"','"+char(34)+"') 
+			cCode += cTabs+'"' + item2 + '"' 
 		but isnumber(item)
 			cCode += (cTabs+""+item)
 		but islist(item)
