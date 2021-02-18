@@ -30,3 +30,4 @@ More Improvements
 * RingQt - QByteArray Class - Append() Method - Support Binary Data 
 * RingQt For WebAssembly - Download File - Support Binary File
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
+* Ring Compiler - When Embedding Ring in Ring - Always keep Ring keywords (Not Case Sensitive) 
