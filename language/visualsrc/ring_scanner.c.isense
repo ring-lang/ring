@@ -151,6 +151,8 @@ Type: int
 nResult
 Type: char
 cStr[5]
+Type: char *
+cActiveStr
 ring_scanner_isnumber
 Type: unsigned int
 x,x2,lHex
