@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -25,16 +25,16 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"tools/editor/vscode/README.md",
-		"tools/editor/vscode/ring/.gitattributes",
-		"tools/editor/vscode/ring/.gitignore",
-		"tools/editor/vscode/ring/.vscode/launch.json",
-		"tools/editor/vscode/ring/.vscodeignore",
-		"tools/editor/vscode/ring/language-configuration.json",
-		"tools/editor/vscode/ring/package.json",
-		"tools/editor/vscode/ring/README.md",
-		"tools/editor/vscode/ring/syntaxes/ring.tmLanguage.json",
-		"tools/editor/vscode/ringinvscode.png"
+		"tools/editors/vscode/README.md",
+		"tools/editors/vscode/ring/.gitattributes",
+		"tools/editors/vscode/ring/.gitignore",
+		"tools/editors/vscode/ring/.vscode/launch.json",
+		"tools/editors/vscode/ring/.vscodeignore",
+		"tools/editors/vscode/ring/language-configuration.json",
+		"tools/editors/vscode/ring/package.json",
+		"tools/editors/vscode/ring/README.md",
+		"tools/editors/vscode/ring/syntaxes/ring.tmLanguage.json",
+		"tools/editors/vscode/ringinvscode.png"
 	],
 	:windowsfiles = 	[
 
