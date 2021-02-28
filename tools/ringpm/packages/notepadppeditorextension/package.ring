@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -25,10 +25,10 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"tools/editor/notepad_plus_plus/LICENSE.md",
-		"tools/editor/notepad_plus_plus/Readme.md",
-		"tools/editor/notepad_plus_plus/ScreenShot.png",
-		"tools/editor/notepad_plus_plus/Syntax/Ring.xml"
+		"tools/editors/notepad_plus_plus/LICENSE.md",
+		"tools/editors/notepad_plus_plus/Readme.md",
+		"tools/editors/notepad_plus_plus/ScreenShot.png",
+		"tools/editors/notepad_plus_plus/Syntax/Ring.xml"
 	],
 	:windowsfiles = 	[
 
