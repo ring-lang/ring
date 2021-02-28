@@ -2,14 +2,14 @@ aLockInfo = [
 	[
 		:name = "visualstudioeditorextension",
 		:branch = "master",
-		:version = "1.0.1",
+		:version = "1.0.2",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringzip",
 		:branch = "master",
-		:version = "1.0.2",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -23,14 +23,14 @@ aLockInfo = [
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.5",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "ringopenssl",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.4",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
