@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -25,9 +25,9 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"tools/editor/geany/filetypes.Ring.conf",
-		"tools/editor/geany/README.md",
-		"tools/editor/geany/Ring-geany.png"
+		"tools/editors/geany/filetypes.Ring.conf",
+		"tools/editors/geany/README.md",
+		"tools/editors/geany/Ring-geany.png"
 	],
 	:windowsfiles = 	[
 
