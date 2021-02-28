@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.1",
+	:version = "1.0.2",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.1",
+			:version = "1.0.2",
 			:branch = "master"
 		]
 	],
@@ -25,11 +25,11 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"tools/editor/sublimetext2/README.md",
-		"tools/editor/sublimetext2/Ring_SublimeText2.jpg",
-		"tools/editor/sublimetext2/Sublime_Text_2/ring.json-tmlanguage",
-		"tools/editor/sublimetext2/Sublime_Text_2/ring.sublime-build",
-		"tools/editor/sublimetext2/Sublime_Text_2/ring.tmlanguage"
+		"tools/editors/sublimetext2/README.md",
+		"tools/editors/sublimetext2/Ring_SublimeText2.jpg",
+		"tools/editors/sublimetext2/Sublime_Text_2/ring.json-tmlanguage",
+		"tools/editors/sublimetext2/Sublime_Text_2/ring.sublime-build",
+		"tools/editors/sublimetext2/Sublime_Text_2/ring.tmlanguage"
 	],
 	:windowsfiles = 	[
 
