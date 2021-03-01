@@ -245,7 +245,7 @@ func disableFrom aBtns,aBtnsList
 
 			}
 		next
-		exit(2)
+		exit
 	next
 
 func enableFrom aBtns,aBtnsList
@@ -260,7 +260,7 @@ func enableFrom aBtns,aBtnsList
 
 			} 
 		next
-		exit(2)
+		exit
 	next
 	
 # Fill the inputs from the table, and check the current index
