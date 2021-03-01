@@ -169,7 +169,7 @@ offset   = 20               # do not touch edge of window
             DrawUpdate()
 
             Sleep(0.5)
-            if ( dots =810 and  multiply =2 )  exit(2)  ok
+            if ( dots =810 and  multiply =2 )  exit 2 ok
             MonaLisa.fill(colorBlack)
 
         next
