@@ -8,5 +8,5 @@ func main
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
 	chdir(exefolder()+"/../applications/game2048")
-	system("ring 2048Game.ring")
+	system("ring game2048.ring")
 	chdir(cDir)
