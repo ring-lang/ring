@@ -15,8 +15,19 @@ List of changes and new features
 
 Ring 1.15 comes with the next features!
 
+* More Samples
 * More Improvements
 
+.. index:: 
+	pair: What is new in Ring 1.15?; More Samples
+
+More Samples
+============
+
+The next samples are added to the samples folder
+
+	*  samples/UsingRayLib/more/ex6_jump_player2D.ring
+	*  samples/UsingRayLib/more/ex7_jump_player3D.ring
 
 .. index:: 
 	pair: What is new in Ring 1.15?; More Improvements
