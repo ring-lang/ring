@@ -871,5 +871,9 @@ aTeam2 = [
 		  [
                     'Mounir IDRASSI',
                     'Tester'                    
-		  ]	    
+		  ],
+		  [
+                    'Azzeddine Remmal',
+                    'Tester'                    
+		  ]
 ]
