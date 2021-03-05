@@ -1,0 +1,276 @@
+.. index:: 
+     single: RingTilengine Functions Reference; Introduction
+
+=================================
+RingTilengine Functions Reference
+=================================
+
+
+Introduction
+============
+
+In this chapter we have a list of the supported functions by this extension 
+
+Reference
+=========
+
+* TILENGINE_VER_MAJ
+* TILENGINE_VER_MIN
+* TILENGINE_VER_REV
+* TILENGINE_HEADER_VERSION
+* FLAG_NONE
+* FLAG_FLIPX
+* FLAG_FLIPY
+* FLAG_ROTATE
+* FLAG_PRIORITY
+* FLAG_MASKED
+* BLEND_NONE
+* BLEND_MIX25
+* BLEND_MIX50
+* BLEND_MIX75
+* BLEND_ADD
+* BLEND_SUB
+* BLEND_MOD
+* BLEND_CUSTOM
+* MAX_BLEND
+* BLEND_MIX
+* TLN_OVERLAY_NONE
+* TLN_OVERLAY_SHADOWMASK
+* TLN_OVERLAY_APERTURE
+* TLN_OVERLAY_SCANLINES
+* TLN_OVERLAY_CUSTOM
+* TLN_MAX_OVERLAY
+* PLAYER1
+* PLAYER2
+* PLAYER3
+* PLAYER4
+* INPUT_NONE
+* INPUT_UP
+* INPUT_DOWN
+* INPUT_LEFT
+* INPUT_RIGHT
+* INPUT_BUTTON1
+* INPUT_BUTTON2
+* INPUT_BUTTON3
+* INPUT_BUTTON4
+* INPUT_BUTTON5
+* INPUT_BUTTON6
+* INPUT_START
+* INPUT_QUIT
+* INPUT_CRT
+* INPUT_P1
+* INPUT_P2
+* INPUT_P3
+* INPUT_P4
+* INPUT_A
+* INPUT_B
+* INPUT_C
+* INPUT_D
+* INPUT_E
+* INPUT_F
+* CWF_FULLSCREEN
+* CWF_VSYNC
+* CWF_S1
+* CWF_S2
+* CWF_S3
+* CWF_S4
+* CWF_S5
+* TLN_ERR_OK
+* TLN_ERR_OUT_OF_MEMORY
+* TLN_ERR_IDX_LAYER
+* TLN_ERR_IDX_SPRITE
+* TLN_ERR_IDX_ANIMATION
+* TLN_ERR_IDX_PICTURE
+* TLN_ERR_REF_TILESET
+* TLN_ERR_REF_TILEMAP
+* TLN_ERR_REF_SPRITESET
+* TLN_ERR_REF_PALETTE
+* TLN_ERR_REF_SEQUENCE
+* TLN_ERR_REF_SEQPACK
+* TLN_ERR_REF_BITMAP
+* TLN_ERR_NULL_POINTER
+* TLN_ERR_FILE_NOT_FOUND
+* TLN_ERR_WRONG_FORMAT
+* TLN_ERR_WRONG_SIZE
+* TLN_ERR_UNSUPPORTED
+* TLN_ERR_REF_LIST
+* TLN_MAX_ERR
+* TLN_LOG_NONE
+* TLN_LOG_ERRORS
+* TLN_LOG_VERBOSE
+* TLN_Engine TLN_Init(int hres, int vres, int numlayers, int numsprites, int numanimations)
+* void TLN_Deinit(void)
+* bool TLN_DeleteContext(TLN_Engine context)
+* bool TLN_SetContext(TLN_Engine context)
+* TLN_Engine TLN_GetContext(void)
+* int TLN_GetWidth(void)
+* int TLN_GetHeight(void)
+* uint32_t TLN_GetNumObjects(void)
+* uint32_t TLN_GetUsedMemory(void)
+* uint32_t TLN_GetVersion(void)
+* int TLN_GetNumLayers(void)
+* int TLN_GetNumSprites(void)
+* void TLN_SetBGColor(uint8_t r, uint8_t g, uint8_t b)
+* bool TLN_SetBGColorFromTilemap(TLN_Tilemap tilemap)
+* void TLN_DisableBGColor(void)
+* bool TLN_SetBGBitmap(TLN_Bitmap bitmap)
+* bool TLN_SetBGPalette(TLN_Palette palette)
+* void TLN_SetRenderTarget(uint8_t* data, int pitch)
+* void TLN_UpdateFrame(int frame)
+* void TLN_SetLoadPath(const char * path)
+* void TLN_SetCustomBlendFunction(TLN_BlendFunction)
+* void TLN_SetLogLevel(TLN_LogLevel log_level)
+* bool TLN_OpenResourcePack(const char * filename, const char * key)
+* void TLN_CloseResourcePack(void)
+* void TLN_SetLastError(TLN_Error error)
+* TLN_Error TLN_GetLastError(void)
+* const char *TLN_GetErrorString(TLN_Error error)
+* bool TLN_CreateWindow(const char * overlay, int flags)
+* bool TLN_CreateWindowThread(const char * overlay, int flags)
+* void TLN_SetWindowTitle(const char * title)
+* bool TLN_ProcessWindow(void)
+* bool TLN_IsWindowActive(void)
+* bool TLN_GetInput(TLN_Input id)
+* void TLN_EnableInput(TLN_Player player, bool enable)
+* void TLN_AssignInputJoystick(TLN_Player player, int index)
+* void TLN_DefineInputKey(TLN_Player player, TLN_Input input, uint32_t keycode)
+* void TLN_DefineInputButton(TLN_Player player, TLN_Input input, uint8_t joybutton)
+* void TLN_DrawFrame(int frame)
+* void TLN_WaitRedraw(void)
+* void TLN_DeleteWindow(void)
+* void TLN_EnableBlur(bool mode)
+* void TLN_EnableCRTEffect(TLN_Overlay overlay, uint8_t overlay_factor, uint8_t threshold, uint8_t v0, uint8_t v1, uint8_t v2, uint8_t v3, bool blur, uint8_t glow_factor)
+* void TLN_DisableCRTEffect(void)
+* void TLN_Delay(uint32_t msecs)
+* uint32_t TLN_GetTicks(void)
+* int TLN_GetWindowWidth(void)
+* int TLN_GetWindowHeight(void)
+* TLN_Spriteset TLN_CreateSpriteset(TLN_Bitmap bitmap, TLN_SpriteData* data, int num_entries)
+* TLN_Spriteset TLN_LoadSpriteset(const char * name)
+* TLN_Spriteset TLN_CloneSpriteset(TLN_Spriteset src)
+* bool TLN_GetSpriteInfo(TLN_Spriteset spriteset, int entry, TLN_SpriteInfo* info)
+* TLN_Palette TLN_GetSpritesetPalette(TLN_Spriteset spriteset)
+* int TLN_FindSpritesetSprite(TLN_Spriteset spriteset, const char * name)
+* bool TLN_SetSpritesetData(TLN_Spriteset spriteset, int entry, TLN_SpriteData* data, void* pixels, int pitch)
+* bool TLN_DeleteSpriteset(TLN_Spriteset Spriteset)
+* TLN_Tileset TLN_CreateTileset(int numtiles, int width, int height, TLN_Palette palette, TLN_SequencePack sp, TLN_TileAttributes* attributes)
+* TLN_Tileset TLN_CreateImageTileset(int numtiles, TLN_TileImage* images)
+* TLN_Tileset TLN_LoadTileset(const char * filename)
+* TLN_Tileset TLN_CloneTileset(TLN_Tileset src)
+* bool TLN_SetTilesetPixels(TLN_Tileset tileset, int entry, uint8_t* srcdata, int srcpitch)
+* int TLN_GetTileWidth(TLN_Tileset tileset)
+* int TLN_GetTileHeight(TLN_Tileset tileset)
+* int TLN_GetTilesetNumTiles(TLN_Tileset tileset)
+* TLN_Palette TLN_GetTilesetPalette(TLN_Tileset tileset)
+* TLN_SequencePack TLN_GetTilesetSequencePack(TLN_Tileset tileset)
+* bool TLN_DeleteTileset(TLN_Tileset tileset)
+* TLN_Tilemap TLN_CreateTilemap(int rows, int cols, TLN_Tile tiles, uint32_t bgcolor, TLN_Tileset tileset)
+* TLN_Tilemap TLN_LoadTilemap(const char * filename, const char * layername)
+* TLN_Tilemap TLN_CloneTilemap(TLN_Tilemap src)
+* int TLN_GetTilemapRows(TLN_Tilemap tilemap)
+* int TLN_GetTilemapCols(TLN_Tilemap tilemap)
+* TLN_Tileset TLN_GetTilemapTileset(TLN_Tilemap tilemap)
+* bool TLN_GetTilemapTile(TLN_Tilemap tilemap, int row, int col, TLN_Tile tile)
+* bool TLN_SetTilemapTile(TLN_Tilemap tilemap, int row, int col, TLN_Tile tile)
+* bool TLN_CopyTiles(TLN_Tilemap src, int srcrow, int srccol, int rows, int cols, TLN_Tilemap dst, int dstrow, int dstcol)
+* bool TLN_DeleteTilemap(TLN_Tilemap tilemap)
+* TLN_Palette TLN_CreatePalette(int entries)
+* TLN_Palette TLN_LoadPalette(const char * filename)
+* TLN_Palette TLN_ClonePalette(TLN_Palette src)
+* bool TLN_SetPaletteColor(TLN_Palette palette, int color, uint8_t r, uint8_t g, uint8_t b)
+* bool TLN_MixPalettes(TLN_Palette src1, TLN_Palette src2, TLN_Palette dst, uint8_t factor)
+* bool TLN_AddPaletteColor(TLN_Palette palette, uint8_t r, uint8_t g, uint8_t b, uint8_t start, uint8_t num)
+* bool TLN_SubPaletteColor(TLN_Palette palette, uint8_t r, uint8_t g, uint8_t b, uint8_t start, uint8_t num)
+* bool TLN_ModPaletteColor(TLN_Palette palette, uint8_t r, uint8_t g, uint8_t b, uint8_t start, uint8_t num)
+* uint8_t* TLN_GetPaletteData(TLN_Palette palette, int index)
+* bool TLN_DeletePalette(TLN_Palette palette)
+* TLN_Bitmap TLN_CreateBitmap(int width, int height, int bpp)
+* TLN_Bitmap TLN_LoadBitmap(const char * filename)
+* TLN_Bitmap TLN_CloneBitmap(TLN_Bitmap src)
+* uint8_t* TLN_GetBitmapPtr(TLN_Bitmap bitmap, int x, int y)
+* int TLN_GetBitmapWidth(TLN_Bitmap bitmap)
+* int TLN_GetBitmapHeight(TLN_Bitmap bitmap)
+* int TLN_GetBitmapDepth(TLN_Bitmap bitmap)
+* int TLN_GetBitmapPitch(TLN_Bitmap bitmap)
+* TLN_Palette TLN_GetBitmapPalette(TLN_Bitmap bitmap)
+* bool TLN_SetBitmapPalette(TLN_Bitmap bitmap, TLN_Palette palette)
+* bool TLN_DeleteBitmap(TLN_Bitmap bitmap)
+* TLN_ObjectList TLN_CreateObjectList(void)
+* bool TLN_AddTileObjectToList(TLN_ObjectList list, uint16_t id, uint16_t gid, uint16_t flags, int x, int y)
+* TLN_ObjectList TLN_LoadObjectList(const char * filename, const char * layername)
+* TLN_ObjectList TLN_CloneObjectList(TLN_ObjectList src)
+* int TLN_GetListNumObjects(TLN_ObjectList list)
+* bool TLN_GetListObject(TLN_ObjectList list, TLN_ObjectInfo* info)
+* bool TLN_DeleteObjectList(TLN_ObjectList list)
+* bool TLN_SetLayer(int nlayer, TLN_Tileset tileset, TLN_Tilemap tilemap)
+* bool TLN_SetLayerTilemap(int nlayer, TLN_Tilemap tilemap)
+* bool TLN_SetLayerBitmap(int nlayer, TLN_Bitmap bitmap)
+* bool TLN_SetLayerPalette(int nlayer, TLN_Palette palette)
+* bool TLN_SetLayerPosition(int nlayer, int hstart, int vstart)
+* bool TLN_SetLayerScaling(int nlayer, float xfactor, float yfactor)
+* bool TLN_SetLayerAffineTransform(int nlayer, TLN_Affine *affine)
+* bool TLN_SetLayerTransform(int layer, float angle, float dx, float dy, float sx, float sy)
+* bool TLN_SetLayerPixelMapping(int nlayer, TLN_PixelMap* table)
+* bool TLN_SetLayerBlendMode(int nlayer, TLN_Blend mode, uint8_t factor)
+* bool TLN_SetLayerColumnOffset(int nlayer, int* offset)
+* bool TLN_SetLayerClip(int nlayer, int x1, int y1, int x2, int y2)
+* bool TLN_DisableLayerClip(int nlayer)
+* bool TLN_SetLayerMosaic(int nlayer, int width, int height)
+* bool TLN_DisableLayerMosaic(int nlayer)
+* bool TLN_ResetLayerMode(int nlayer)
+* bool TLN_SetLayerObjects(int nlayer, TLN_ObjectList objects, TLN_Tileset tileset)
+* bool TLN_SetLayerPriority(int nlayer, bool enable)
+* bool TLN_SetLayerParent(int nlayer, int parent)
+* bool TLN_DisableLayerParent(int nlayer)
+* bool TLN_DisableLayer(int nlayer)
+* TLN_Palette TLN_GetLayerPalette(int nlayer)
+* bool TLN_GetLayerTile(int nlayer, int x, int y, TLN_TileInfo* info)
+* int  TLN_GetLayerWidth(int nlayer)
+* int  TLN_GetLayerHeight(int nlayer)
+* bool TLN_ConfigSprite(int nsprite, TLN_Spriteset spriteset, uint32_t flags)
+* bool TLN_SetSpriteSet(int nsprite, TLN_Spriteset spriteset)
+* bool TLN_SetSpriteFlags(int nsprite, uint32_t flags)
+* bool TLN_EnableSpriteFlag(int nsprite, uint32_t flag, bool enable)
+* bool TLN_SetSpritePosition(int nsprite, int x, int y)
+* bool TLN_SetSpritePicture(int nsprite, int entry)
+* bool TLN_SetSpritePalette(int nsprite, TLN_Palette palette)
+* bool TLN_SetSpriteBlendMode(int nsprite, TLN_Blend mode, uint8_t factor)
+* bool TLN_SetSpriteScaling(int nsprite, float sx, float sy)
+* bool TLN_ResetSpriteScaling(int nsprite)
+* int  TLN_GetSpritePicture(int nsprite)
+* int  TLN_GetAvailableSprite(void)
+* bool TLN_EnableSpriteCollision(int nsprite, bool enable)
+* bool TLN_GetSpriteCollision(int nsprite)
+* bool TLN_GetSpriteState(int nsprite, TLN_SpriteState* state)
+* bool TLN_SetFirstSprite(int nsprite)
+* bool TLN_SetNextSprite(int nsprite, int next)
+* bool TLN_EnableSpriteMasking(int nsprite, bool enable)
+* void TLN_SetSpritesMaskRegion(int top_line, int bottom_line)
+* bool TLN_SetSpriteAnimation(int nsprite, TLN_Sequence sequence, int loop)
+* bool TLN_DisableSpriteAnimation(int nsprite)
+* bool TLN_DisableSprite(int nsprite)
+* TLN_Palette TLN_GetSpritePalette(int nsprite)
+* TLN_Sequence TLN_CreateSequence(const char * name, int target, int num_frames, TLN_SequenceFrame* frames)
+* TLN_Sequence TLN_CreateCycle(const char * name, int num_strips, TLN_ColorStrip* strips)
+* TLN_Sequence TLN_CreateSpriteSequence(const char * name, TLN_Spriteset spriteset, const char * basename, int delay)
+* TLN_Sequence TLN_CloneSequence(TLN_Sequence src)
+* bool TLN_GetSequenceInfo(TLN_Sequence sequence, TLN_SequenceInfo* info)
+* bool TLN_DeleteSequence(TLN_Sequence sequence)
+* TLN_SequencePack TLN_CreateSequencePack(void)
+* TLN_SequencePack TLN_LoadSequencePack(const char * filename)
+* TLN_Sequence TLN_GetSequence(TLN_SequencePack sp, int index)
+* TLN_Sequence TLN_FindSequence(TLN_SequencePack sp, const char * name)
+* int TLN_GetSequencePackCount(TLN_SequencePack sp)
+* bool TLN_AddSequenceToPack(TLN_SequencePack sp, TLN_Sequence sequence)
+* bool TLN_DeleteSequencePack(TLN_SequencePack sp)
+* bool TLN_SetPaletteAnimation(int index, TLN_Palette palette, TLN_Sequence sequence, bool blend)
+* bool TLN_SetPaletteAnimationSource(int index, TLN_Palette)
+* bool TLN_GetAnimationState(int index)
+* bool TLN_SetAnimationDelay(int index, int frame, int delay)
+* int  TLN_GetAvailableAnimation(void)
+* bool TLN_DisablePaletteAnimation(int index)
+* void TLN_SetRasterCallback(const char *cCode)
+* void TLN_SetFrameCallback(const char *cCode)
+* void TLN_SetSDLCallback(const char *cCode)
+* int TLN_GetScanLine(void)
+* SDL_Event *TLN_GetSDLEvent(void)

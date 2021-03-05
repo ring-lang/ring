@@ -1,0 +1,1 @@
+ring gendoc.ring
