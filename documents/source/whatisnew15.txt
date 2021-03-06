@@ -28,6 +28,7 @@ The next samples are added to the samples folder
 
 	*  samples/UsingRayLib/more/ex6_jump_player2D.ring
 	*  samples/UsingRayLib/more/ex7_jump_player3D.ring
+	*  samples/UsingArabic/WriteArabicFile/usingQFile.ring
 
 .. index:: 
 	pair: What is new in Ring 1.15?; More Improvements
