@@ -4,7 +4,7 @@ load "guilib.ring"
 
 oFile = new QFile()
 oFile.setFileName("مرحبا.txt")
-oFile.open_3(QIODevice_ReadOnly | QIODevice_WriteOnly)
+oFile.open_3(QIODevice_ReadWrite)
 
 cString = "السلام عليكم"
 nSize = len(cString)
