@@ -26,7 +26,8 @@ More Samples
 
 The next samples are added to the samples folder
 
-	*  samples/UsingArabic/WriteArabicFile/usingQFile.ring
+	*  samples/UsingArabic/WriteArabicFile/using_QFile_write.ring
+	*  samples/UsingArabic/WriteArabicFile/using_QFile_read.ring
 	*  samples/UsingRayLib/more/ex6_jump_player2D.ring
 	*  samples/UsingRayLib/more/ex7_jump_player3D.ring
 	*  samples/UsingRayLib/more/ex8_Aiming_at_3D_moving_targets.ring
