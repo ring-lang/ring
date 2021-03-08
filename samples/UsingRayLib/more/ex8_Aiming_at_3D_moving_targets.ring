@@ -1,29 +1,28 @@
- #=====================#
+#================================#
 # Aiming at 3d moving targets                    
-#=====================#
+#================================#
 #--------- 08-02-2021
 # Author : Azzeddine Remmal    
-#=====================#
+#================================#
+
 load "raylib.ring"
 
+screenWidth = 640
+screenHeight = 360
 
+// can't query this so track it.
+fullScreen = false
 
- screenWidth = 640
- screenHeight = 360
-
-	// can't query this so track it.
- 	fullScreen = false
-
-	 path = [Vector3(-20,2,20),Vector3(20,12,15),Vector3(20,2,-15),Vector3(-20,8,-14) ]
-	start = Vector3(0.0,0.0,0.0)
-	ond = Vector3(0.0,0.0,0.0)
-	velocity = 0
+path = [Vector3(-20,2,20),Vector3(20,12,15),Vector3(20,2,-15),Vector3(-20,8,-14) ]
+start = Vector3(0.0,0.0,0.0)
+ond = Vector3(0.0,0.0,0.0)
+velocity = 0
 
 // given a start and end point calculate frame increment
 // to move between the points at the given velocity
 // i.e. create a velocity vector
 Func calcInc  start,ond,velocity
-	 v = Vector3Subtract(ond, start)
+	v = Vector3Subtract(ond, start)
 	v = Vector3Normalize(v)
 	v = Vector3Scale(v, velocity)
 	return v
@@ -31,58 +30,52 @@ Func calcInc  start,ond,velocity
 
 Func main
 
+	// Initialization
+	//--------------------------------------------------------------------------------------
+	InitWindow(screenWidth, screenHeight, "raylib - Aiming at 3d moving targets")
 
+	// Define the camera to look into our 3d world
+	camera = Camera3D(0.0, 20.0, -40.0,
+			  0.0, 0.0, 0.0,
+			  0.0, 1.0, 0.0, 
+			  45.0, CAMERA_PERSPECTIVE )  
 
- 
-    // Initialization
-    //--------------------------------------------------------------------------------------
-    InitWindow(screenWidth, screenHeight, "raylib - Aiming at 3d moving targets")
-
-    // Define the camera to look into our 3d world
-         camera = Camera3D(	0.0, 20.0, -40.0,
-			         0.0, 0.0, 0.0,
-			          0.0, 1.0, 0.0, 
-			            45.0, CAMERA_PERSPECTIVE )  
-
+	frame = 0 // frame counter
+	ang = 0 // camera rotation
     
+	targetSpeed = 0.2
+	shotSpeed = 0.6
+    
+	// could build these vectors into a struct...
+	targetPos = path[1]
+	targetDest = path[2]
+	targetInc = calcInc(targetPos, targetDest, targetSpeed)
+	lastTarget = Vector3(0.0,0.0,0.0) // so velocity vector can be calculated
+	targetPathPos = 1
+    
+	shootWait = 10
+	shotActive = false
+	shotStart= Vector3(0.0,0.0,0.0)
+	shotPos= Vector3(0.0,0.0,0.0)
+	shotDest= Vector3(0.0,0.0,0.0)
+	shotInc= Vector3(0.0,0.0,0.0)
 
-    
-     frame = 0 // frame counter
-     ang = 0 // camera rotation
-    
-     targetSpeed = 0.2
-     shotSpeed = 0.6
-    
-    // could build these vectors into a struct...
-     targetPos = path[1]
-     targetDest = path[2]
-     targetInc = calcInc(targetPos, targetDest, targetSpeed)
-     lastTarget = Vector3(0.0,0.0,0.0) // so velocity vector can be calculated
-     targetPathPos = 1
-    
-     shootWait = 10
-     shotActive = false
-     shotStart= Vector3(0.0,0.0,0.0)
-     shotPos= Vector3(0.0,0.0,0.0)
-     shotDest= Vector3(0.0,0.0,0.0)
-     shotInc= Vector3(0.0,0.0,0.0)
+	SetTargetFPS(60)               // Set  to run at 60 frames-per-second
+	//--------------------------------------------------------------------------------------
 
-    SetTargetFPS(60)               // Set  to run at 60 frames-per-second
-    //--------------------------------------------------------------------------------------
-
-    // Main game loop
-    while !WindowShouldClose()   // Detect window close button or ESC key
+	// Main game loop
+	while !WindowShouldClose()   // Detect window close button or ESC key
     
         // Update
         //----------------------------------------------------------------------------------
 
-        frame ++
-        ang += 0.0025
+		frame ++
+		ang += 0.0025
 
 		camera.position.x = cos(ang) * 50.0
 		camera.position.z = sin(ang) * 50.0
 
-        UpdateCamera(camera)
+		UpdateCamera(camera)
         
                if IsKeyPressed(KEY_F)
 			ToggleFullscreen()
@@ -124,8 +117,7 @@ Func main
 
 			// update shot position
 			shotPos = Vector3Add(shotPos, shotInc)
-		ok	
-		
+		ok
 		
 		if !shotActive
 			if shootWait>0
@@ -137,20 +129,19 @@ Func main
 				shotPos = shotStart
 				
 				// vector to target and targets velocity vector
-				 totarget =  Vector3Subtract( targetPos, shotPos )
-				 targVel = Vector3Subtract( targetPos, lastTarget)
+				totarget =  Vector3Subtract( targetPos, shotPos )
+				targVel = Vector3Subtract( targetPos, lastTarget)
 
 				// quadratic terms
-				 a = Vector3DotProduct(targVel, targVel) - (shotSpeed * shotSpeed)
-				 b = 2.0 * Vector3DotProduct(targVel, totarget)
-				 c = Vector3DotProduct(totarget, totarget)
+				a = Vector3DotProduct(targVel, targVel) - (shotSpeed * shotSpeed)
+				b = 2.0 * Vector3DotProduct(targVel, totarget)
+				c = Vector3DotProduct(totarget, totarget)
 
 				// quadratic formular simplfied down to this...
-				 p = -b / (2.0 * a)
-				 q = sqrt((b * b) - 4.0 * a * c) / (2.0 * a)
+				p = -b / (2.0 * a)
+				q = sqrt((b * b) - 4.0 * a * c) / (2.0 * a)				
 				
-				
-				 t = p - q
+				t = p - q
 				
 				// target velocity  t + target pos = aim point (t = time or steps till hit)
 				targVel = Vector3Scale(targVel, t)
@@ -162,41 +153,38 @@ Func main
 
         // Draw
       
-        BeginDrawing()
+        	BeginDrawing()
 
-            ClearBackground(BLACK)
+			ClearBackground(BLACK)
 
-            BeginMode3D(camera)
+			BeginMode3D(camera)
 
-                DrawGrid(10, 10.0f)        // Draw a grid
+			DrawGrid(10, 10.0f)        // Draw a grid
                 
-                DrawLine3D( path[1], path[2], RED)
-                DrawLine3D( path[2], path[3], RED)
-                DrawLine3D( path[3], path[4], RED)
-                DrawLine3D( path[4], path[1], RED)
+			DrawLine3D(path[1], path[2], RED)
+                	DrawLine3D(path[2], path[3], RED)
+                	DrawLine3D(path[3], path[4], RED)
+                	DrawLine3D(path[4], path[1], RED)
                 
-                DrawSphere(targetPos, 0.8, WHITE)
-                if shotActive
-					DrawSphere(shotPos, 0.6, RED)
-					DrawSphere(shotDest, 0.6, GREEN)
-					DrawLine3D(shotStart, shotDest, BLUE)
-		ok
+                	DrawSphere(targetPos, 0.8, WHITE)
+                	if shotActive
+				DrawSphere(shotPos, 0.6, RED)
+				DrawSphere(shotDest, 0.6, GREEN)
+				DrawLine3D(shotStart, shotDest, BLUE)
+			ok
 
-            EndMode3D()
+			EndMode3D()
 
+			DrawFPS(10, 10)
 
+			DrawText("Frame %i"+ frame, 8, screenHeight-24, 20, WHITE)
+			DrawText("Press f to toggle fullscreen", 200, screenHeight-24, 20, WHITE)
 
-
-            DrawFPS(10, 10)
-
-            DrawText("Frame %i"+ frame, 8, screenHeight-24, 20, WHITE)
-            DrawText("Press f to toggle fullscreen", 200, screenHeight-24, 20, WHITE)
-
-        EndDrawing()
+        	EndDrawing()
       
-   end
+	end
 
-    // De-Initialization
+	// De-Initialization
 
-    CloseWindow()        // Close window and OpenGL context
+	CloseWindow()        // Close window and OpenGL context
   
