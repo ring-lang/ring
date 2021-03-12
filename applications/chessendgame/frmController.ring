@@ -22,6 +22,7 @@ class frmController from windowsControllerParent
 
 	oView.Win.showMaximized()
 
+	oView.chessTableWidget.setEditTriggers(False)
 	loadTheData()
 
 func loadTheData
