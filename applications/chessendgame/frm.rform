@@ -7,7 +7,7 @@ aObjectsList = [
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
-		 :WindowIcon =  "" , 
+		 :WindowIcon =  "images/WKnight.png" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  
 
