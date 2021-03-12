@@ -22,8 +22,10 @@ class frmController from windowsControllerParent
 
 	oView.Win.showMaximized()
 
+	oView.statusbar1.showmessage("Loading the data...",0)
 	oView.chessTableWidget.setEditTriggers(False)
 	loadTheData()
+	oView.statusbar1.showmessage("Records Count: " + (len(aList)-1),0)
 
 func loadTheData
 
