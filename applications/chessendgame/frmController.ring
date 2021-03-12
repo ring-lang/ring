@@ -1,4 +1,7 @@
+#=============================================#
 # Form/Window Controller - Source Code File
+# 2021, Mahmoud Fayed <msfclipper@yahoo.com>
+#=============================================#
 
 load "frmView.ring"
 load "data/dataset.ring"
