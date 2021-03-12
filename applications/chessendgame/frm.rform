@@ -101,7 +101,7 @@ aObjectsList = [
 		 :imagefile =  "images/WRWB.png"
 		]
 	],
-	[ :name = "WRBB7" , :id = 8 , :classname = "formdesigner_qimage" , :data = [
+	[ :name = "WRBB" , :id = 8 , :classname = "formdesigner_qimage" , :data = [
 		 :x = 1066 , : y = 483  , 
 		 :width =  50 , :height = 50 , 
 		 :textcolor =  "black" , 
