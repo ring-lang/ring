@@ -8,7 +8,13 @@ aObjectsList = [
 		 :windowflags =  "" , 
 		 :mainlayout =  "DataLayout" ,
 		 :WindowIcon =  "images/WKnight.png" , 
-		 :Menubar =  ""  ,
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'File' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Exit' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'closeapp' ,
+				:Children = [] ]] ]] ]"  ,
 		 :IndexType =  0  
 
 		]
@@ -54,6 +60,16 @@ aObjectsList = [
 		 :parent =  "win"  ,
 		 :LayoutType =  0,
 		 :LayoutObjects =  "ChessTableWidget"
+		]
+	],
+	[ :name = "Statusbar1" , :id = 4 , :classname = "formdesigner_qstatusbar" , :data = [
+		 :x = 244 , : y = 379  , 
+		 :width =  96 , :height = 15 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Message =  "Ready!"
 		]
 	]
 ]

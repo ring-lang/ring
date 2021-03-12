@@ -37,3 +37,6 @@ func loadTheData
 		ok
 	next  		
 	oView.win.blocksignals(False)
+
+func closeApp
+	oApp.Quit()
