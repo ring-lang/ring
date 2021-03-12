@@ -1,19 +1,19 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -217 , : y = 20  , 
+		 :x = 20 , : y = 20  , 
 		 :width =  847 , :height = 453 , 
 		 :title =  "Chess Endgame Data Set" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
-		 :mainlayout =  "" ,
+		 :mainlayout =  "DataLayout" ,
 		 :WindowIcon =  "images/WKnight.png" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  
 
 		]
 	],
-	[ :name = "TableWidget1" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
+	[ :name = "ChessTableWidget" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
 		 :x = 20 , : y = 50  , 
 		 :width =  780 , :height = 290 , 
 		 :textcolor =  "black" , 
@@ -26,7 +26,7 @@ aObjectsList = [
 		 :ColumnsWidth =  "",
 		 :HorizontalHeaderStyle =  "",
 		 :VerticalHeaderStyle =  "",
-		 :selectionbehavior =  0,
+		 :selectionbehavior =  1,
 		 :alternatingcolors =  0,
 		 :setcellActivatedEvent =  "",
 		 :setcellChangedEvent =  "",
@@ -43,6 +43,17 @@ aObjectsList = [
 		 :setitemEnteredEvent =  "",
 		 :setitemPressedEvent =  "",
 		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "DataLayout" , :id = 3 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 24 , : y = 361  , 
+		 :width =  139 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "ChessTableWidget"
 		]
 	]
 ]
