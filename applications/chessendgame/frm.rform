@@ -1,19 +1,19 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -724 , : y = 0  , 
+		 :x = -724 , : y = -91  , 
 		 :width =  1317 , :height = 586 , 
 		 :title =  "Chess Endgame Data Set" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "images/WKnight.png" , 
-		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'File' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'Exit' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'closeapp' ,
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'File' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Exit' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'closeapp' ,
 				:Children = [] ]] ]] ]"  ,
 		 :IndexType =  0  
 
@@ -71,64 +71,34 @@ aObjectsList = [
 		 :imagefile =  "images/chessboard.png"
 		]
 	],
-	[ :name = "WKWB" , :id = 5 , :classname = "formdesigner_qimage" , :data = [
+	[ :name = "WK" , :id = 5 , :classname = "formdesigner_qimage" , :data = [
 		 :x = 883 , : y = 483  , 
 		 :width =  50 , :height = 50 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
-		 :imagefile =  "images/WKWB.png"
+		 :imagefile =  "images/WK.png"
 		]
 	],
-	[ :name = "WKBB" , :id = 6 , :classname = "formdesigner_qimage" , :data = [
-		 :x = 946 , : y = 483  , 
+	[ :name = "WR" , :id = 7 , :classname = "formdesigner_qimage" , :data = [
+		 :x = 1003 , : y = 483  , 
 		 :width =  50 , :height = 50 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
-		 :imagefile =  "images/WKBB.png"
+		 :imagefile =  "images/WR.png"
 		]
 	],
-	[ :name = "WRWB" , :id = 7 , :classname = "formdesigner_qimage" , :data = [
-		 :x = 1006 , : y = 483  , 
-		 :width =  50 , :height = 50 , 
-		 :textcolor =  "black" , 
-		 :backcolor =  "" , 
-		 :font =  "Arial" , 
-		 :parent =  "win"  ,
-		 :imagefile =  "images/WRWB.png"
-		]
-	],
-	[ :name = "WRBB" , :id = 8 , :classname = "formdesigner_qimage" , :data = [
-		 :x = 1066 , : y = 483  , 
-		 :width =  50 , :height = 50 , 
-		 :textcolor =  "black" , 
-		 :backcolor =  "" , 
-		 :font =  "Arial" , 
-		 :parent =  "win"  ,
-		 :imagefile =  "images/WRBB.png"
-		]
-	],
-	[ :name = "BKWB" , :id = 9 , :classname = "formdesigner_qimage" , :data = [
+	[ :name = "BK" , :id = 9 , :classname = "formdesigner_qimage" , :data = [
 		 :x = 1126 , : y = 483  , 
 		 :width =  50 , :height = 50 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
-		 :imagefile =  "images/BKWB.png"
-		]
-	],
-	[ :name = "BKBB" , :id = 10 , :classname = "formdesigner_qimage" , :data = [
-		 :x = 1186 , : y = 483  , 
-		 :width =  50 , :height = 50 , 
-		 :textcolor =  "black" , 
-		 :backcolor =  "" , 
-		 :font =  "Arial" , 
-		 :parent =  "win"  ,
-		 :imagefile =  "images/BKBB.png"
+		 :imagefile =  "images/BK.png"
 		]
 	]
 ]

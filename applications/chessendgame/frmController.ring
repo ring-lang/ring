@@ -40,12 +40,9 @@ class frmController from windowsControllerParent
 	oView.statusbar1.showmessage("Records Count: " + (len(aList)-1),0)
 
 func hidePieces
-	oView.WKWB.hide()
-	oView.WKBB.hide()
-	oView.WRWB.hide()
-	oView.WRBB.hide()
-	oView.BKWB.hide()
-	oView.BKBB.hide()
+	oView.WK.hide()
+	oView.WR.hide()
+	oView.BK.hide()
 
 func loadTheData
 
@@ -76,56 +73,25 @@ func newSelection
 	}
 
 	# Draw the White King
-		BoxColor = BoxColor(WKFile,WKRank)
-		oView.WKWB.hide()
-		oView.WKBB.hide()
+		oView.WK.hide()
 		WKX = nBoardX + ( (WKFile-1) * 50)
 		WKY = nBoardY - ( WKRank * 50)
-		if BoxColor = "BB"
-			myobj = oView.WKBB
-		else 
-			myobj = oView.WKWB
-		ok
-		myobj.move(WKX,WKY)
-		myobj.show()
+		oView.WK.move(WKX,WKY)
+		oView.WK.show()
 
 	# Draw the White Rock
-		BoxColor = BoxColor(WRFile,WRRank)
-		oView.WRWB.hide()
-		oView.WRBB.hide()
+		oView.WR.hide()
 		WRX = nBoardX + ( (WRFile-1) * 50)
 		WRY = nBoardY - ( WRRank * 50)
-		if BoxColor = "BB"
-			myobj = oView.WRBB
-		else 
-			myobj = oView.WRWB
-		ok
-		myobj.move(WRX,WRY)
-		myobj.show()
+		oView.WR.move(WRX,WRY)
+		oView.WR.show()
 
 	# Draw the Black King
-		BoxColor = BoxColor(BKFile,BKRank)
-		oView.BKWB.hide()
-		oView.BKBB.hide()
+		oView.BK.hide()
 		BKX = nBoardX + ( (BKFile-1) * 50)
 		BKY = nBoardY - ( BKRank * 50)
-		if BoxColor = "BB"
-			myobj = oView.BKBB
-		else 
-			myobj = oView.BKWB
-		ok
-		myobj.move(BKX,BKY)
-		myobj.show()
-
-func BoxColor nFile,nRank 
-	# Even (Black Cell) - Odd (White Cell)
-		nSum = nFile + nRank 
-		if nSum % 2 = 0 
-			BoxColor = "BB" 
-		else 
-			BoxColor = "WB"
-		ok
-		return BoxColor 
+		oView.BK.move(BKX,BKY)
+		oView.BK.show()
 
 func closeApp
 	oApp.Quit()
