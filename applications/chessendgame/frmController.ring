@@ -40,6 +40,7 @@ class frmController from windowsControllerParent
 	oView.statusbar1.showmessage("Records Count: " + (len(aList)-1),0)
 
 func hidePieces
+
 	oView.WK.hide()
 	oView.WR.hide()
 	oView.BK.hide()
@@ -59,6 +60,7 @@ func loadTheData
 	oView.win.blocksignals(False)
 
 func newSelection 
+
 	nIndex = oView.ChessTableWidget.currentrow() + 1
 	WKFile = aFile2Rank[aList[nIndex][1]]
 	WKRank = aList[nIndex][2]
@@ -94,4 +96,5 @@ func newSelection
 		oView.BK.show()
 
 func closeApp
+
 	oApp.Quit()

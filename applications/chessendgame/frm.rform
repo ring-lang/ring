@@ -7,7 +7,7 @@ aObjectsList = [
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
-		 :WindowIcon =  "images/WKnight.png" , 
+		 :WindowIcon =  "images/chessboard.png" , 
 		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
 			         :Shortcut = '' , :Action = '' ,
 				:Children = [[ :Text = 'File' , :Image = '' ,
