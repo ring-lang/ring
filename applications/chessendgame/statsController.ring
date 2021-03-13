@@ -68,7 +68,6 @@ func WriteQMLfile cText,cText2,nValue,nValue2
 	ChartView {
 	    width: 600
 	    height: 600
-	    theme: ChartView.ChartThemeBrownSand
 	    antialiasing: true
 	
 	    PieSeries {
@@ -86,3 +85,11 @@ func WriteQMLfile cText,cText2,nValue,nValue2
 
 	write("hello.qml",cFileContent)
 	
+
+func NewSelection 
+	oQuick.setupdatesenabled(False)
+	nIndex = oView.statsTableWidget.currentrow() 
+	writeQMLfile(aStats[nIndex][1],"Other",aStats[nIndex][2],C_RECORDSCOUNT-aStats[nIndex][2])
+	oQuick.engine().clearcomponentcache()
+	oQuick.setSource(new qURL("hello.qml") )
+	oQuick.setupdatesenabled(True)
