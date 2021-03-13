@@ -20,8 +20,8 @@ class statsController from windowsControllerParent
 
 	oView = new statsView
 
-	C_RECORDSCOUNT = 28056
-
+	C_RECORDSCOUNT = len(aList)-1
+ 
 	aStats = []
 
 	# Window Properties 
