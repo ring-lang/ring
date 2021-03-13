@@ -20,29 +20,20 @@ class frmController from windowsControllerParent
 
 	oView = new frmView
 
-	aFile2Rank = [
-		:a = 1,
-		:b = 2,
-		:c = 3,
-		:d = 4,
-		:e = 5,
-		:f = 6,
-		:g = 7,
-		:h = 8
-	]
-
-	oView.Win.showMaximized()
-
 	# We need this to support closing the Application during data loading.
 		oFilter = new QAllEvents(oView.win)
 		oFilter.setCloseevent(Method(:CloseApp))
 		oView.win.installeventfilter(oFilter)
 
-	hidePieces()
-	oView.statusbar1.showmessage("Loading the data...",0)
-	oView.chessTableWidget.setEditTriggers(False)
-	loadTheData()
-	oView.statusbar1.showmessage("Records Count: " + (len(aList)-1),0)
+	# Window Properties 
+		oView.chessTableWidget.setEditTriggers(False)
+		hidePieces()
+		oView.Win.showMaximized()
+
+	# Load the Data
+		oView.statusbar1.showmessage("Loading the data...",0)
+		loadTheData()
+		oView.statusbar1.showmessage("Records Count: " + (len(aList)-1),0)
 
 func hidePieces
 
@@ -65,6 +56,18 @@ func loadTheData
 func newSelection 
 
 	nIndex = oView.ChessTableWidget.currentrow() + 1
+
+	aFile2Rank = [
+		:a = 1,
+		:b = 2,
+		:c = 3,
+		:d = 4,
+		:e = 5,
+		:f = 6,
+		:g = 7,
+		:h = 8
+	]
+
 	WKFile = aFile2Rank[aList[nIndex][1]]
 	WKRank = aList[nIndex][2]
 	WRFile = aFile2Rank[aList[nIndex][3]]
