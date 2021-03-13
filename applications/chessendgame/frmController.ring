@@ -26,8 +26,11 @@ class frmController from windowsControllerParent
 		oView.win.installeventfilter(oFilter)
 
 	# Window Properties 
-		oView.chessTableWidget.setEditTriggers(False)
-		oView.chessTableWidget.selectRow(0)
+		oView.chessTableWidget {
+			setEditTriggers(False)
+			selectRow(0)
+			setSelectionMode(QAbstractItemView_SingleSelection)
+		}
 		hidePieces()
 		oView.Win.showMaximized()
 
