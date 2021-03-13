@@ -20,6 +20,8 @@ class statsController from windowsControllerParent
 
 	oView = new statsView
 
+	C_RECORDSCOUNT = 28056
+
 	aStats = []
 
 	# Window Properties 
@@ -32,6 +34,12 @@ class statsController from windowsControllerParent
 	# Load the Data 
 		loadTheData()
 
+	# Chart Control 
+		oQuick = new qQuickWidget(oView.win) {
+			move(350,10)
+			engine().AddImportPath(exefolder()+"qml")
+			setSource(new qURL("hello.qml") )
+		}
 
 func loadTheData
 
@@ -47,3 +55,34 @@ func loadTheData
 			next 
 			oView.statsTableWidget.setItem(t,3, QTableWidgetItem_new(""+(aStats[t][2]/nMax*100)+"%") )
 		next 
+
+	writeQMLfile("Draw","Other",aStats["draw"],C_RECORDSCOUNT-aStats["draw"])
+
+func WriteQMLfile cText,cText2,nValue,nValue2
+	
+	cFileContent = `
+	
+	import QtQuick 2.0
+	import QtCharts 2.0
+	
+	ChartView {
+	    width: 600
+	    height: 600
+	    theme: ChartView.ChartThemeBrownSand
+	    antialiasing: true
+	
+	    PieSeries {
+	        id: pieSeries
+	        PieSlice { label: "#{f1}"; value: #{f3} }
+	        PieSlice { label: "#{f2}"; value: #{f4} }
+	    }
+	}
+	
+	`
+	cFileContent = substr(cFileContent,"#{f1}",cText)
+	cFileContent = substr(cFileContent,"#{f2}",cText2)
+	cFileContent = substr(cFileContent,"#{f3}",""+nValue)
+	cFileContent = substr(cFileContent,"#{f4}",""+nValue2)
+
+	write("hello.qml",cFileContent)
+	

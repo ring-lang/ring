@@ -1,8 +1,8 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 20 , : y = -132  , 
-		 :width =  546 , :height = 634 , 
+		 :x = -9 , : y = -39  , 
+		 :width =  1000 , :height = 634 , 
 		 :title =  "Statistics" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
