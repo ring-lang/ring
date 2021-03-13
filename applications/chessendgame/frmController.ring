@@ -93,5 +93,16 @@ func newSelection
 		myobj.move(WKX,WKY)
 		myobj.show()
 
+	# Draw the White Rock
+		oView.WRWB.hide()
+		oView.WRBB.hide()
+		WRX = nBoardX + ( (WRFile-1) * 50)
+		WRY = nBoardY - ( WRRank * 50)
+		cCode = "myobj = oView.WR"+BoxColor 
+		eval(cCode) 
+		myobj.move(WRX,WRY)
+		myobj.show()
+
+
 func closeApp
 	oApp.Quit()
