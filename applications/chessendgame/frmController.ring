@@ -63,12 +63,25 @@ func loadTheData
 
 func newSelection 
 	nIndex = oView.ChessTableWidget.currentrow() + 1
-	? aList[nIndex][1]
-	? aList[nIndex][2]
-	? aList[nIndex][3]
-	? aList[nIndex][4]
-	? aList[nIndex][5]
-	? aList[nIndex][6]
+	WKFile = aFile2Rank[aList[nIndex][1]]
+	WKRank = aList[nIndex][2]
+	WRFile = aFile2Rank[aList[nIndex][3]]
+	WRRank = aList[nIndex][4]
+	BKFile = aFile2Rank[aList[nIndex][5]]
+	BKRank = aList[nIndex][6]
+
+	oView.Board {
+		nBoardX = x() 
+		nBoardY = y() + height()
+	}
+
+	# Even (Black Cell) - Odd (White Cell)
+		nSum = WKFile + WKRank 
+		if nSum % 2 = 0 
+			BoxColor = "BB" 
+		else 
+			BoxColor = "WB"
+		ok
 
 func closeApp
 	oApp.Quit()
