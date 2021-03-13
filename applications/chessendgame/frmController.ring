@@ -38,7 +38,7 @@ class frmController from windowsControllerParent
 	# Load the Data
 		oView.statusbar1.showmessage("Loading the data...",0)
 		loadTheData()
-		oView.statusbar1.showmessage("Records Count: " + (len(aList)-1),0)
+		oView.statusbar1.showmessage("Records Count: " + (len(aDataSet)-1),0)
 
 func hidePieces
 
@@ -48,10 +48,10 @@ func hidePieces
 
 func loadTheData
 
-	nMax = len(aList)
+	nMax = len(aDataSet)
 	for t=2 to nMax
 		for m=1 to 7
-			oView.ChessTableWidget.setItem(t-1,m, QTableWidgetItem_new(""+aList[t][m]) )
+			oView.ChessTableWidget.setItem(t-1,m, QTableWidgetItem_new(""+aDataSet[t][m]) )
 		next 
 		if t % 100 = 0 
 			oApp.processevents()
@@ -74,12 +74,12 @@ func newSelection
 		:h = 8
 	]
 
-	WKFile = aFile2Rank[aList[nIndex][1]]
-	WKRank = aList[nIndex][2]
-	WRFile = aFile2Rank[aList[nIndex][3]]
-	WRRank = aList[nIndex][4]
-	BKFile = aFile2Rank[aList[nIndex][5]]
-	BKRank = aList[nIndex][6]
+	WKFile = aFile2Rank[aDataSet[nIndex][1]]
+	WKRank = aDataSet[nIndex][2]
+	WRFile = aFile2Rank[aDataSet[nIndex][3]]
+	WRRank = aDataSet[nIndex][4]
+	BKFile = aFile2Rank[aDataSet[nIndex][5]]
+	BKRank = aDataSet[nIndex][6]
 
 	oView.Board {
 		nBoardX = x() 

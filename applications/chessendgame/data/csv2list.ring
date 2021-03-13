@@ -21,7 +21,7 @@ func main
 		next
 		cStr = list2Str(aList)
 		cStr = update(cStr)
-		cData = "aList = [" + WindowsNL() + cStr + WindowsNL() + "]"
+		cData = "aDataSet = [" + WindowsNL() + cStr + WindowsNL() + "]"
 	# Write the Ring file 
 		? "Write the Ring file (dataset.ring)"
 		write ("dataset.ring",cData)
@@ -56,8 +56,8 @@ func update cStr
 		:sixteen,
 		"WhiteKingFile",
 		"WhiteKingRank",
-		"WhiteRockFile",
-		"WhiteRockRank",
+		"WhiteRookFile",
+		"WhiteRookRank",
 		"BlackKingFile",
 		"BlackKingRank",
 		"GameResult"

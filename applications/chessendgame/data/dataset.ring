@@ -1,5 +1,5 @@
-aList = [
-["WhiteKingFile","WhiteKingRank","WhiteRockFile","WhiteRockRank","BlackKingFile","BlackKingRank","GameResult"],
+aDataSet = [
+["WhiteKingFile","WhiteKingRank","WhiteRookFile","WhiteRookRank","BlackKingFile","BlackKingRank","GameResult"],
 ["a",1,"b",3,"c",2,"draw"],
 ["a",1,"c",1,"c",2,"draw"],
 ["a",1,"c",1,"d",1,"draw"],

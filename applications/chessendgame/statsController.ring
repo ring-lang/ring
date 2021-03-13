@@ -20,7 +20,7 @@ class statsController from windowsControllerParent
 
 	oView = new statsView
 
-	C_RECORDSCOUNT = len(aList)-1
+	C_RECORDSCOUNT = len(aDataSet)-1
  
 	aStats = []
 
@@ -44,9 +44,9 @@ class statsController from windowsControllerParent
 func loadTheData
 
 	# Count the Values 
-		nMax = len(aList)
+		nMax = len(aDataSet)
 		for t=2 to nMax
-			aStats[aList[t][7]] = 0 + aStats[aList[t][7]] + 1
+			aStats[aDataSet[t][7]] = 0 + aStats[aDataSet[t][7]] + 1
 		next 
 	# Add the data to the TableWidget 
 		for t=1 to len(aStats)
