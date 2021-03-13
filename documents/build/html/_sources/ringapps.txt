@@ -240,6 +240,9 @@ Quotes about Ring
 |	**"What I like most about Ring Lang is its ease to create complex applications in WebAssembly."**
 |		, Luis Lozad
 
+|	**"I just discovered Ring today and immediately liked it and decided to give it a try. As a senior JAVA / ADA and Python developer I am very curious about the multi-paradigm"**
+|		, Bertrand Pivaty
+
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
 
