@@ -27,6 +27,7 @@ class frmController from windowsControllerParent
 
 	# Window Properties 
 		oView.chessTableWidget.setEditTriggers(False)
+		oView.chessTableWidget.selectRow(0)
 		hidePieces()
 		oView.Win.showMaximized()
 
@@ -51,6 +52,7 @@ func loadTheData
 		if t % 100 = 0 
 			oApp.processevents()
 		ok
+		if t=2 newSelection() ok
 	next  		
 
 func newSelection 
