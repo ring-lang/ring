@@ -83,5 +83,15 @@ func newSelection
 			BoxColor = "WB"
 		ok
 
+	# Draw the White King
+		oView.WKWB.hide()
+		oView.WKBB.hide()
+		WKX = nBoardX + ( (WKFile-1) * 50)
+		WKY = nBoardY - ( WKRank * 50)
+		cCode = "myobj = oView.WK"+BoxColor 
+		eval(cCode) 
+		myobj.move(WKX,WKY)
+		myobj.show()
+
 func closeApp
 	oApp.Quit()
