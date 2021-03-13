@@ -53,7 +53,7 @@ func loadTheData
 		for m=1 to 7
 			oView.ChessTableWidget.setItem(t-1,m, QTableWidgetItem_new(""+aList[t][m]) )
 		next 
-		if t % 1000 = 0 
+		if t % 100 = 0 
 			oApp.processevents()
 		ok
 	next  		
@@ -75,25 +75,28 @@ func newSelection
 	}
 
 	# Draw the White King
-		oView.WK.hide()
-		WKX = nBoardX + ( (WKFile-1) * 50)
-		WKY = nBoardY - ( WKRank * 50)
-		oView.WK.move(WKX,WKY)
-		oView.WK.show()
+		oView.WK { 
+			WKX = nBoardX + ( (WKFile-1) * 50)
+			WKY = nBoardY - ( WKRank * 50)
+			move(WKX,WKY)
+			show()
+		}
 
 	# Draw the White Rock
-		oView.WR.hide()
-		WRX = nBoardX + ( (WRFile-1) * 50)
-		WRY = nBoardY - ( WRRank * 50)
-		oView.WR.move(WRX,WRY)
-		oView.WR.show()
+		oView.WR { 
+			WRX = nBoardX + ( (WRFile-1) * 50)
+			WRY = nBoardY - ( WRRank * 50)
+			move(WRX,WRY)
+			show()
+		}
 
 	# Draw the Black King
-		oView.BK.hide()
-		BKX = nBoardX + ( (BKFile-1) * 50)
-		BKY = nBoardY - ( BKRank * 50)
-		oView.BK.move(BKX,BKY)
-		oView.BK.show()
+		oView.BK { 
+			BKX = nBoardX + ( (BKFile-1) * 50)
+			BKY = nBoardY - ( BKRank * 50)
+			move(BKX,BKY)
+			show()
+		}
 
 func closeApp
 
