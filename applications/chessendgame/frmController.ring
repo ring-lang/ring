@@ -75,9 +75,8 @@ func newSelection
 		nBoardY = y() + height()
 	}
 
-	BoxColor = BoxColor(WKFile,WKRank)
-
 	# Draw the White King
+		BoxColor = BoxColor(WKFile,WKRank)
 		oView.WKWB.hide()
 		oView.WKBB.hide()
 		WKX = nBoardX + ( (WKFile-1) * 50)
@@ -88,6 +87,7 @@ func newSelection
 		myobj.show()
 
 	# Draw the White Rock
+		BoxColor = BoxColor(WRFile,WRRank)
 		oView.WRWB.hide()
 		oView.WRBB.hide()
 		WRX = nBoardX + ( (WRFile-1) * 50)
@@ -98,6 +98,7 @@ func newSelection
 		myobj.show()
 
 	# Draw the Black King
+		BoxColor = BoxColor(BKFile,BKRank)
 		oView.BKWB.hide()
 		oView.BKBB.hide()
 		BKX = nBoardX + ( (BKFile-1) * 50)
