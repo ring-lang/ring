@@ -5,6 +5,7 @@
 
 load "frmView.ring"
 load "data/dataset.ring"
+load "statsController.ring"
 
 import System.GUI
 
@@ -108,6 +109,10 @@ func newSelection
 			move(BKX,BKY)
 			show()
 		}
+
+func openStats
+	
+	openWindow(:statsController)
 
 func closeApp
 

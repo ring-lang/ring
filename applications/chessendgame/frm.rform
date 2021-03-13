@@ -1,19 +1,23 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -724 , : y = -91  , 
+		 :x = -724 , : y = 61  , 
 		 :width =  1317 , :height = 586 , 
 		 :title =  "Chess Endgame Data Set" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "images/chessboard.png" , 
-		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'File' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'Exit' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'closeapp' ,
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'File' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Exit' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'closeapp' ,
+				:Children = [] ]] ],[ :Text = 'Options' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Statistics' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'openStats' ,
 				:Children = [] ]] ]] ]"  ,
 		 :IndexType =  0  
 

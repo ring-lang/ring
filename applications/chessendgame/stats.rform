@@ -5,7 +5,7 @@ aObjectsList = [
 		 :width =  546 , :height = 634 , 
 		 :title =  "Statistics" , 
 		 :backcolor =  "" , 
-		 :windowflags =  "" , 
+		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "images/chessboard.png" , 
 		 :Menubar =  ""  ,
