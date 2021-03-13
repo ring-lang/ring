@@ -75,13 +75,7 @@ func newSelection
 		nBoardY = y() + height()
 	}
 
-	# Even (Black Cell) - Odd (White Cell)
-		nSum = WKFile + WKRank 
-		if nSum % 2 = 0 
-			BoxColor = "BB" 
-		else 
-			BoxColor = "WB"
-		ok
+	BoxColor = BoxColor(WKFile,WKRank)
 
 	# Draw the White King
 		oView.WKWB.hide()
@@ -112,6 +106,16 @@ func newSelection
 		eval(cCode) 
 		myobj.move(BKX,BKY)
 		myobj.show()
+
+func BoxColor nFile,nRank 
+	# Even (Black Cell) - Odd (White Cell)
+		nSum = nFile + nRank 
+		if nSum % 2 = 0 
+			BoxColor = "BB" 
+		else 
+			BoxColor = "WB"
+		ok
+		return BoxColor 
 
 func closeApp
 	oApp.Quit()
