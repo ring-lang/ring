@@ -94,7 +94,7 @@ func newSelection
 			show()
 		}
 
-	# Draw the White Rock
+	# Draw the White Rook
 		oView.WR { 
 			WRX = nBoardX + ( (WRFile-1) * 50)
 			WRY = nBoardY - ( WRRank * 50)
