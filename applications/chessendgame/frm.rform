@@ -8,12 +8,12 @@ aObjectsList = [
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "images/chessboard.png" , 
-		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'File' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'Exit' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'closeapp' ,
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'File' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Exit' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'closeapp' ,
 				:Children = [] ]] ]] ]"  ,
 		 :IndexType =  0  
 
@@ -81,7 +81,7 @@ aObjectsList = [
 		 :imagefile =  "images/WK.png"
 		]
 	],
-	[ :name = "WR" , :id = 7 , :classname = "formdesigner_qimage" , :data = [
+	[ :name = "WR" , :id = 6 , :classname = "formdesigner_qimage" , :data = [
 		 :x = 1003 , : y = 483  , 
 		 :width =  50 , :height = 50 , 
 		 :textcolor =  "black" , 
@@ -91,7 +91,7 @@ aObjectsList = [
 		 :imagefile =  "images/WR.png"
 		]
 	],
-	[ :name = "BK" , :id = 9 , :classname = "formdesigner_qimage" , :data = [
+	[ :name = "BK" , :id = 7 , :classname = "formdesigner_qimage" , :data = [
 		 :x = 1126 , : y = 483  , 
 		 :width =  50 , :height = 50 , 
 		 :textcolor =  "black" , 

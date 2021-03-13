@@ -33,6 +33,11 @@ class frmController from windowsControllerParent
 
 	oView.Win.showMaximized()
 
+	# We need this to support closing the Application during data loading.
+		oFilter = new QAllEvents(oView.win)
+		oFilter.setCloseevent(Method(:CloseApp))
+		oView.win.installeventfilter(oFilter)
+
 	hidePieces()
 	oView.statusbar1.showmessage("Loading the data...",0)
 	oView.chessTableWidget.setEditTriggers(False)
@@ -47,7 +52,6 @@ func hidePieces
 
 func loadTheData
 
-	oView.win.blocksignals(True)
 	nMax = len(aList)
 	for t=2 to nMax
 		for m=1 to 7
@@ -57,7 +61,6 @@ func loadTheData
 			oApp.processevents()
 		ok
 	next  		
-	oView.win.blocksignals(False)
 
 func newSelection 
 
