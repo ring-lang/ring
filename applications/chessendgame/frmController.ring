@@ -20,10 +20,20 @@ class frmController from windowsControllerParent
 
 	oView = new frmView
 
+	aFile2Rank = [
+		:a = 1,
+		:b = 2,
+		:c = 3,
+		:d = 4,
+		:e = 5,
+		:f = 6,
+		:g = 7,
+		:h = 8
+	]
+
 	oView.Win.showMaximized()
 
 	hidePieces()
-
 	oView.statusbar1.showmessage("Loading the data...",0)
 	oView.chessTableWidget.setEditTriggers(False)
 	loadTheData()
@@ -50,6 +60,15 @@ func loadTheData
 		ok
 	next  		
 	oView.win.blocksignals(False)
+
+func newSelection 
+	nIndex = oView.ChessTableWidget.currentrow() + 1
+	? aList[nIndex][1]
+	? aList[nIndex][2]
+	? aList[nIndex][3]
+	? aList[nIndex][4]
+	? aList[nIndex][5]
+	? aList[nIndex][6]
 
 func closeApp
 	oApp.Quit()

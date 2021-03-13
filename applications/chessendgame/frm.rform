@@ -1,19 +1,19 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = -724 , : y = -91  , 
+		 :x = -724 , : y = 0  , 
 		 :width =  1317 , :height = 586 , 
 		 :title =  "Chess Endgame Data Set" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
 		 :WindowIcon =  "images/WKnight.png" , 
-		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'File' , :Image = '' ,
-			         :Shortcut = '' , :Action = '' ,
-				:Children = [[ :Text = 'Exit' , :Image = '' ,
-			         :Shortcut = '' , :Action = 'closeapp' ,
+		 :Menubar =  "aMenuData = [ :Text = 'The Menubar' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'File' , :Image = '' ,
+			         :Shortcut = '' , :Action = '' ,
+				:Children = [[ :Text = 'Exit' , :Image = '' ,
+			         :Shortcut = '' , :Action = 'closeapp' ,
 				:Children = [] ]] ]] ]"  ,
 		 :IndexType =  0  
 
@@ -21,8 +21,8 @@ aObjectsList = [
 	],
 	[ :name = "ChessTableWidget" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
 		 :x = 27 , : y = 45  , 
-		 :width =  780 , :height = 529 , 
-		 :textcolor =  "black" , 
+		 :width =  755 , :height = 529 , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
@@ -41,7 +41,7 @@ aObjectsList = [
 		 :setcellEnteredEvent =  "",
 		 :setcellPressedEvent =  "",
 		 :setcurrentCellChangedEvent =  "",
-		 :setcurrentItemChangedEvent =  "",
+		 :setcurrentItemChangedEvent =  "NewSelection",
 		 :setitemActivatedEvent =  "",
 		 :setitemChangedEvent =  "",
 		 :setitemClickedEvent =  "",
@@ -54,16 +54,16 @@ aObjectsList = [
 	[ :name = "Statusbar1" , :id = 3 , :classname = "formdesigner_qstatusbar" , :data = [
 		 :x = 244 , : y = 379  , 
 		 :width =  96 , :height = 12 , 
-		 :textcolor =  "black" , 
+		 :textcolor =  "" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
 		 :parent =  "win"  ,
 		 :Message =  "Ready!"
 		]
 	],
-	[ :name = "Image1" , :id = 4 , :classname = "formdesigner_qimage" , :data = [
+	[ :name = "Board" , :id = 4 , :classname = "formdesigner_qimage" , :data = [
 		 :x = 859 , : y = 71  , 
-		 :width =  411 , :height = 400 , 
+		 :width =  400 , :height = 400 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
 		 :font =  "Arial" , 
