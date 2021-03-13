@@ -15,3 +15,10 @@ if IsMainSourceFile() {
 class statsController from windowsControllerParent
 
 	oView = new statsView
+
+	# Window Properties 
+		oView.statsTableWidget {
+			setEditTriggers(False)
+			selectRow(0)
+			setSelectionMode(QAbstractItemView_SingleSelection)
+		}

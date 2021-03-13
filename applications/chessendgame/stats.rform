@@ -13,7 +13,7 @@ aObjectsList = [
 
 		]
 	],
-	[ :name = "TableWidget1" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
+	[ :name = "StatsTableWidget" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
 		 :x = 12 , : y = 28  , 
 		 :width =  325 , :height = 564 , 
 		 :textcolor =  "black" , 
@@ -26,7 +26,7 @@ aObjectsList = [
 		 :ColumnsWidth =  "",
 		 :HorizontalHeaderStyle =  "",
 		 :VerticalHeaderStyle =  "",
-		 :selectionbehavior =  0,
+		 :selectionbehavior =  1,
 		 :alternatingcolors =  0,
 		 :setcellActivatedEvent =  "",
 		 :setcellChangedEvent =  "",
