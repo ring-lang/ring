@@ -103,6 +103,15 @@ func newSelection
 		myobj.move(WRX,WRY)
 		myobj.show()
 
+	# Draw the Black King
+		oView.BKWB.hide()
+		oView.BKBB.hide()
+		BKX = nBoardX + ( (BKFile-1) * 50)
+		BKY = nBoardY - ( BKRank * 50)
+		cCode = "myobj = oView.BK"+BoxColor 
+		eval(cCode) 
+		myobj.move(BKX,BKY)
+		myobj.show()
 
 func closeApp
 	oApp.Quit()
