@@ -81,8 +81,11 @@ func newSelection
 		oView.WKBB.hide()
 		WKX = nBoardX + ( (WKFile-1) * 50)
 		WKY = nBoardY - ( WKRank * 50)
-		cCode = "myobj = oView.WK"+BoxColor 
-		eval(cCode) 
+		if BoxColor = "BB"
+			myobj = oView.WKBB
+		else 
+			myobj = oView.WKWB
+		ok
 		myobj.move(WKX,WKY)
 		myobj.show()
 
@@ -92,8 +95,11 @@ func newSelection
 		oView.WRBB.hide()
 		WRX = nBoardX + ( (WRFile-1) * 50)
 		WRY = nBoardY - ( WRRank * 50)
-		cCode = "myobj = oView.WR"+BoxColor 
-		eval(cCode) 
+		if BoxColor = "BB"
+			myobj = oView.WRBB
+		else 
+			myobj = oView.WRWB
+		ok
 		myobj.move(WRX,WRY)
 		myobj.show()
 
@@ -103,8 +109,11 @@ func newSelection
 		oView.BKBB.hide()
 		BKX = nBoardX + ( (BKFile-1) * 50)
 		BKY = nBoardY - ( BKRank * 50)
-		cCode = "myobj = oView.BK"+BoxColor 
-		eval(cCode) 
+		if BoxColor = "BB"
+			myobj = oView.BKBB
+		else 
+			myobj = oView.BKWB
+		ok
 		myobj.move(BKX,BKY)
 		myobj.show()
 
