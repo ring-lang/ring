@@ -7,7 +7,7 @@ aObjectsList = [
 		 :backcolor =  "" , 
 		 :windowflags =  "" , 
 		 :mainlayout =  "" ,
-		 :WindowIcon =  "" , 
+		 :WindowIcon =  "images/chessboard.png" , 
 		 :Menubar =  ""  ,
 		 :IndexType =  0  
 
