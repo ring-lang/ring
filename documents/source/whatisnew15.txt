@@ -15,8 +15,26 @@ List of changes and new features
 
 Ring 1.15 comes with the next features!
 
+* Chess Endgame Application
 * More Samples
 * More Improvements
+
+
+.. index:: 
+	pair: What is new in Ring 1.15?; Chess Endgame Application
+
+Chess Endgame Application
+=========================
+
+Chess Endgame data set visualization 
+
+Screen Shots:
+
+.. image:: chessendgame1.png
+	:alt: chessendgame
+
+.. image:: chessendgame2.png
+	:alt: chessendgame
 
 .. index:: 
 	pair: What is new in Ring 1.15?; More Samples
