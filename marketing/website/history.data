@@ -1,4 +1,5 @@
 aNews = [
+  ["March 15, 2021",'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" target="_blank"> Chess Endgame Application </a>'],
   ["January 25, 2021",'<a href="doc1.14/whatisnew14.html" target="_blank"> Ring 1.14 Released!</a>'],
   ["January 5, 2021",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringtilengine" target="_blank"> RingTilengine Extension</a>'],
   ["December 28, 2020",'<a href="https://github.com/ring-lang/ring/tree/master/applications/erlangbformula" target="_blank"> Erlang B Formula</a>'],
