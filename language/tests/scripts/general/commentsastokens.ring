@@ -8,7 +8,7 @@ Multi-lines comment
 */
 
 # Print file tokens
-? ring_state_filetokens(s,"test.ring",true,true)
+? ring_state_filetokens(s,filename(),true,true)
 
 /*
 line 1
