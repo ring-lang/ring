@@ -67,6 +67,8 @@ nLoadAgain
 pLogFile
 Type: unsigned int
 lNotCaseSensitive : 1
+Type: unsigned int
+lCommentsAsTokens : 1
 END:
 Type: RingState
 struct RingState
