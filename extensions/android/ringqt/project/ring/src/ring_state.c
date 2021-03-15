@@ -53,6 +53,7 @@ RING_API RingState * ring_state_new ( void )
 	pRingState->nOnlyTokens = 0 ;
 	pRingState->pRingFileTokens = NULL ;
 	pRingState->lNotCaseSensitive = 1 ;
+	pRingState->lCommentsAsTokens = 0 ;
 	return pRingState ;
 }
 

@@ -62,6 +62,8 @@
 		FILE *pLogFile;
 		/* Flag (Not Case Sensitive) */
 		unsigned int lNotCaseSensitive : 1  ;
+		/* Flag (Comments As Tokens From Scanner) */
+		unsigned int lCommentsAsTokens : 1  ;
 	} RingState ;
 	/* Constants */
 	#define RING_STATE_VERSION "1.15"

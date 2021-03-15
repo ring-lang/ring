@@ -237,6 +237,9 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 				#if RING_SCANNEROUTPUT
 					printf( "\n Not TOKEN (Comment) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
 				#endif
+				if ( pScanner->pRingState->lCommentsAsTokens ) {
+					ring_scanner_addtoken(pScanner,SCANNER_TOKEN_COMMENT);
+				}
 				ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
 			}
 			else {
