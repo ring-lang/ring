@@ -73,6 +73,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 							if ( strcmp(ring_list_getstring(pList,2),"/") == 0 ) {
 								ring_list_deleteitem_gc(pScanner->pRingState,pScanner->Tokens,ring_list_getsize(pScanner->Tokens));
 								pScanner->state = SCANNER_STATE_MLCOMMENT ;
+								ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"/*");
 								#if RING_SCANNEROUTPUT
 									printf( "\nMultiline comments start, ignore /* \n" ) ;
 								#endif
@@ -243,11 +244,16 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 				ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
 			}
 			else {
-				ring_string_add_gc(pScanner->pRingState,pScanner->ActiveToken,cStr);
+				if ( pScanner->pRingState->lCommentsAsTokens ) {
+					ring_string_add_gc(pScanner->pRingState,pScanner->ActiveToken,cStr);
+				}
 			}
 			break ;
 		case SCANNER_STATE_MLCOMMENT :
 			/* Check Multiline Comment */
+			if ( pScanner->pRingState->lCommentsAsTokens ) {
+				ring_string_add_gc(pScanner->pRingState,pScanner->ActiveToken,cStr);
+			}
 			switch ( pScanner->cMLComment ) {
 				case 0 :
 					if ( strcmp(cStr,"*") == 0 ) {
@@ -261,6 +267,9 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 						#if RING_SCANNEROUTPUT
 							printf( "\nMultiline comments end \n" ) ;
 						#endif
+						if ( pScanner->pRingState->lCommentsAsTokens ) {
+							ring_scanner_addtoken(pScanner,SCANNER_TOKEN_COMMENT);
+						}
 						/* The next step is important to avoid storing * as identifier! */
 						ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
 					}
