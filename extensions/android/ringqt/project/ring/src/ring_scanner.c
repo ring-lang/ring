@@ -85,6 +85,7 @@ void ring_scanner_readchar ( Scanner *pScanner,char c )
 							if ( strcmp("/",ring_scanner_lasttokenvalue(pScanner)) ==  0 ) {
 								RING_SCANNER_DELETELASTTOKEN ;
 								pScanner->state = SCANNER_STATE_COMMENT ;
+								ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"//");
 								return ;
 							}
 						}
