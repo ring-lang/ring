@@ -536,6 +536,9 @@ int ring_scanner_checklasttoken ( Scanner *pScanner )
 	assert(pScanner != NULL);
 	if ( ring_list_getsize(pScanner->Tokens) == 0 ) {
 		if ( pScanner->state == SCANNER_STATE_COMMENT ) {
+			if ( pScanner->pRingState->lCommentsAsTokens ) {
+				ring_scanner_addtoken(pScanner,SCANNER_TOKEN_COMMENT);
+			}
 			return 1 ;
 		}
 	}
@@ -550,6 +553,11 @@ int ring_scanner_checklasttoken ( Scanner *pScanner )
 	}
 	else if ( pScanner->state ==SCANNER_STATE_GENERAL ) {
 		ring_scanner_checktoken(pScanner);
+	}
+	else if ( (pScanner->state == SCANNER_STATE_COMMENT) || (pScanner->state ==SCANNER_STATE_MLCOMMENT) ) {
+		if ( pScanner->pRingState->lCommentsAsTokens ) {
+			ring_scanner_addtoken(pScanner,SCANNER_TOKEN_COMMENT);
+		}
 	}
 	return 1 ;
 }
