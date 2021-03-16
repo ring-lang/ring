@@ -10,7 +10,7 @@ install:
  - if [[ "$TRAVIS_OS_NAME" == "linux" ]]; then sudo apt-get install -qq libcurl4-gnutls-dev openssl unixodbc unixodbc-dev libmysqlclient-dev liballegro5-dev liballegro-image5-dev liballegro-ttf5-dev liballegro-audio5-dev liballegro-acodec5-dev liballegro-dialog5-dev liballegro-physfs5-dev qt5-default qtbase5-dev qtmultimedia5-dev libqt5webkit5-dev libqt5serialport5-dev qtconnectivity5-dev qtdeclarative5-dev qtpositioning5-dev libqt5opengl5-dev libudev-dev mesa-common-dev freeglut3-dev ; fi
  
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew update ; fi
- - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt ; fi
+ - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew install qt@5 ; fi
  - if [[ "$TRAVIS_OS_NAME" == "osx" ]]; then brew link --force qt ; fi
  
 script: 
