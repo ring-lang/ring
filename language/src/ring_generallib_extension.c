@@ -106,6 +106,7 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_state_new",ring_vm_generallib_state_new);
 	ring_vm_funcregister("ring_state_mainfile",ring_vm_generallib_state_mainfile);
 	ring_vm_funcregister("ring_state_filetokens",ring_vm_generallib_state_filetokens);
+	ring_vm_funcregister("ring_state_stringtokens",ring_vm_generallib_state_stringtokens);
 	/* Performance */
 	ring_vm_funcregister("checkoverflow",ring_vm_generallib_checkoverflow);
 	ring_vm_funcregister("addsublistsbymove",ring_vm_generallib_addsublistsbymove);
@@ -1911,6 +1912,46 @@ void ring_vm_generallib_state_filetokens ( void *pPointer )
 	}
 	pState->lCommentsAsTokens = lComments ;
 	ring_state_runfile(pState,cFile);
+	pState->lNotCaseSensitive = 1 ;
+	pState->nOnlyTokens = 0 ;
+	pState->lCommentsAsTokens = 0 ;
+	/* Copy The List */
+	pList = RING_API_NEWLIST ;
+	ring_list_copy_tohighlevel_gc(((VM *) pPointer)->pRingState,pList,pState->pRingFileTokens);
+	RING_API_RETLIST(pList);
+	pState->pRingFileTokens = ring_list_delete_gc(pState,pState->pRingFileTokens);
+}
+
+void ring_vm_generallib_state_stringtokens ( void *pPointer )
+{
+	RingState *pState  ;
+	char *cString  ;
+	List *pList  ;
+	int lCase,lComments  ;
+	if ( RING_API_PARACOUNT < 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	pState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	cString = RING_API_GETSTRING(2);
+	/* Check the (Not Case Sensitive) feature */
+	lCase = 1 ;
+	if ( RING_API_PARACOUNT >= 3 ) {
+		if ( RING_API_ISNUMBER(3) ) {
+			lCase = (int) RING_API_GETNUMBER(3) ;
+		}
+	}
+	pState->lNotCaseSensitive = lCase ;
+	pState->nOnlyTokens = 1 ;
+	/* Check the (Comments As Tokens) feature */
+	lComments = 0 ;
+	if ( RING_API_PARACOUNT == 4 ) {
+		if ( RING_API_ISNUMBER(4) ) {
+			lComments = (int) RING_API_GETNUMBER(4) ;
+		}
+	}
+	pState->lCommentsAsTokens = lComments ;
+	ring_state_runstring(pState,cString);
 	pState->lNotCaseSensitive = 1 ;
 	pState->nOnlyTokens = 0 ;
 	pState->lCommentsAsTokens = 0 ;
