@@ -92,6 +92,8 @@
 
 	RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName ) ;
 
+	RING_API int ring_state_runstring ( RingState *pRingState,char *cString ) ;
+
 	RING_API void ring_state_runobjectfile ( RingState *pRingState,char *cFileName ) ;
 
 	RING_API void ring_state_runobjectstring ( RingState *pRingState,char *cString,const char *cFileName ) ;

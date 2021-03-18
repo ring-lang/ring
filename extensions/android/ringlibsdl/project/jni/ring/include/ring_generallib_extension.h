@@ -179,6 +179,8 @@
 	void ring_vm_generallib_state_mainfile ( void *pPointer ) ;
 
 	void ring_vm_generallib_state_filetokens ( void *pPointer ) ;
+
+	void ring_vm_generallib_state_stringtokens ( void *pPointer ) ;
 	/* Ring See and Give */
 
 	void ring_vm_generallib_see ( void *pPointer ) ;

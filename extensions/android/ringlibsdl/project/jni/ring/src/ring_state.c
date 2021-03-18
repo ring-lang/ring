@@ -473,3 +473,107 @@ void ring_state_segfaultaction ( int sig )
 	}
 	exit(0);
 }
+
+RING_API int ring_state_runstring ( RingState *pRingState,char *cString )
+{
+	signed char c  ;
+	Scanner *pScanner  ;
+	VM *pVM  ;
+	int nCont,nRunVM,nFreeFilesList = 0 ;
+	int x  ;
+	const char *cFileName = "runstring" ;
+	ring_state_log(pRingState,"function ring_state_runstring()");
+	/* Check file */
+	if ( pRingState->pRingFilesList == NULL ) {
+		pRingState->pRingFilesList = ring_list_new_gc(pRingState,0);
+		pRingState->pRingFilesStack = ring_list_new_gc(pRingState,0);
+		ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
+		ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
+		nFreeFilesList = 1 ;
+	}
+	else {
+		if ( ring_list_findstring(pRingState->pRingFilesList,cFileName,0) == 0 ) {
+			ring_list_addstring_gc(pRingState,pRingState->pRingFilesList,cFileName);
+			ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
+		}
+		else {
+			/* Be Sure that we are not using the (Load Again) command */
+			if ( ! pRingState->nLoadAgain ) {
+				if ( pRingState->nWarning ) {
+					printf( "\nWarning (W1) : Duplication in file name : %s \n",cFileName ) ;
+				}
+				return 1 ;
+			}
+			else {
+				ring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,cFileName);
+			}
+		}
+	}
+	/* Read String */
+	pScanner = ring_scanner_new(pRingState);
+	for ( x = 0 ; x < strlen(cString) ; x++ ) {
+		c = cString[x] ;
+		ring_scanner_readchar(pScanner,c);
+	}
+	nCont = ring_scanner_checklasttoken(pScanner);
+	/* Add Token "End of Line" to the end of any program */
+	ring_scanner_endofline(pScanner);
+	/* Print Tokens */
+	if ( pRingState->nPrintTokens ) {
+		ring_scanner_printtokens(pScanner);
+	}
+	/* Call Parser */
+	if ( (nCont == 1) && (pRingState->nOnlyTokens == 0) ) {
+		#if RING_PARSERTRACE
+			if ( pScanner->pRingState->nPrintRules ) {
+				printf( "\n" ) ;
+				ring_general_printline();
+				puts("Grammar Rules Used by The Parser ");
+				ring_general_printline();
+				printf( "\nRule : Program --> {Statement}\n\nLine 1\n" ) ;
+			}
+		#endif
+		nRunVM = ring_parser_start(pScanner->Tokens,pRingState);
+		#if RING_PARSERTRACE
+			if ( pScanner->pRingState->nPrintRules ) {
+				printf( "\n" ) ;
+				ring_general_printline();
+				printf( "\n" ) ;
+			}
+		#endif
+	}
+	else {
+		ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
+		/* Check if we need the tokens only */
+		if ( pRingState->nOnlyTokens ) {
+			pRingState->pRingFileTokens = pScanner->Tokens ;
+			pScanner->Tokens = NULL ;
+		}
+		ring_scanner_delete(pScanner);
+		return 0 ;
+	}
+	ring_scanner_delete(pScanner);
+	/* Files List */
+	ring_list_deleteitem_gc(pRingState,pRingState->pRingFilesStack,ring_list_getsize(pRingState->pRingFilesStack));
+	if ( nFreeFilesList ) {
+		/* Generate the Object File */
+		if ( pRingState->nGenObj ) {
+			ring_objfile_writefile(pRingState);
+		}
+		if ( pRingState->nGenCObj ) {
+			ring_objfile_writeCfile(pRingState);
+		}
+		/* Run the Program */
+		#if RING_RUNVM
+			if ( nRunVM == 1 ) {
+				ring_state_runprogram(pRingState);
+				return 1 ;
+			}
+		#endif
+		/* Display Generated Code */
+		if ( pRingState->nPrintICFinal ) {
+			ring_parser_icg_showoutput(pRingState->pRingGenCode,2);
+		}
+	}
+	return nRunVM ;
+}
