@@ -132,3 +132,12 @@ pVM
 ring_state_log
 ring_state_cgiheader
 ring_state_segfaultaction
+ring_state_runstring
+c
+Type: Scanner *
+pScanner
+Type: VM *
+pVM
+nCont,nRunVM,nFreeFilesList
+Type: int
+x
