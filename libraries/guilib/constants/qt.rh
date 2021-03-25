@@ -370,3 +370,9 @@ QDir_Modified		=	dec("080")
 QDir_Hidden		=	dec("100")
 QDir_System		=	dec("200")
 QDir_CaseSensitive	=	dec("800")
+
+QMessageBox_NoIcon	= 0
+QMessageBox_Question	= 4
+QMessageBox_Information	= 1
+QMessageBox_Warning	= 2
+QMessageBox_Critical	= 3
