@@ -107,6 +107,7 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
 	ring_vm_funcregister("ring_state_mainfile",ring_vm_generallib_state_mainfile);
 	ring_vm_funcregister("ring_state_filetokens",ring_vm_generallib_state_filetokens);
 	ring_vm_funcregister("ring_state_stringtokens",ring_vm_generallib_state_stringtokens);
+	ring_vm_funcregister("ring_state_scannererror",ring_vm_generallib_state_scannererror);
 	/* Performance */
 	ring_vm_funcregister("checkoverflow",ring_vm_generallib_checkoverflow);
 	ring_vm_funcregister("addsublistsbymove",ring_vm_generallib_addsublistsbymove);
@@ -1960,6 +1961,17 @@ void ring_vm_generallib_state_stringtokens ( void *pPointer )
 	ring_list_copy_tohighlevel_gc(((VM *) pPointer)->pRingState,pList,pState->pRingFileTokens);
 	RING_API_RETLIST(pList);
 	pState->pRingFileTokens = ring_list_delete_gc(pState,pState->pRingFileTokens);
+}
+
+void ring_vm_generallib_state_scannererror ( void *pPointer )
+{
+	RingState *pState  ;
+	if ( RING_API_PARACOUNT < 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	pState = (RingState *) RING_API_GETCPOINTER(1,"RINGSTATE") ;
+	RING_API_RETNUMBER(pState->nScannerError);
 }
 /* Ring See and Give */
 
