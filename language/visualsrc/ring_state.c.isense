@@ -69,6 +69,8 @@ Type: unsigned int
 lNotCaseSensitive : 1
 Type: unsigned int
 lCommentsAsTokens : 1
+Type: unsigned int
+nScannerError
 END:
 Type: RingState
 struct RingState
@@ -141,3 +143,5 @@ pVM
 nCont,nRunVM,nFreeFilesList
 Type: int
 x
+Type: const char *
+cFileName
