@@ -17031,6 +17031,9 @@ Class QMessageBox from QDialog
 	Func setEscapeButton P1
 		return QMessageBox_setEscapeButton(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func setIcon P1
+		return QMessageBox_setIcon(pObject,P1)
+
 	Func setIconPixmap P1
 		return QMessageBox_setIconPixmap(pObject,GetObjectPointerFromRingObject(P1))
 
