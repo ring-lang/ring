@@ -543,6 +543,10 @@ int ring_scanner_checklasttoken ( Scanner *pScanner )
 		}
 	}
 	if ( pScanner->state == SCANNER_STATE_LITERAL ) {
+		if ( pScanner->pRingState->nOnlyTokens ) {
+			pScanner->pRingState->nScannerError = 1 ;
+			return 0 ;
+		}
 		ring_state_cgiheader(pScanner->pRingState);
 		printf( "Error (S1) In file: %s \n",ring_list_getstring(pScanner->pRingState->pRingFilesList,ring_list_getsize(pScanner->pRingState->pRingFilesList)) ) ;
 		printf( "In Line (%d) Literal not closed \n",pScanner->nLiteralLine ) ;
