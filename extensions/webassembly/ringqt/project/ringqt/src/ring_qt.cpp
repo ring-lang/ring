@@ -77190,6 +77190,27 @@ RING_FUNC(ring_QMessageBox_setEscapeButton)
 }
 
 
+RING_FUNC(ring_QMessageBox_setIcon)
+{
+	QMessageBox *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QMessageBox *) RING_API_GETCPOINTER(1,"QMessageBox");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->setIcon( (QMessageBox::Icon)  (int) RING_API_GETNUMBER(2));
+}
+
+
 RING_FUNC(ring_QMessageBox_setIconPixmap)
 {
 	QMessageBox *pObject ;
@@ -144886,6 +144907,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qmessagebox_setdefaultbutton",ring_QMessageBox_setDefaultButton);
 	ring_vm_funcregister("qmessagebox_setdetailedtext",ring_QMessageBox_setDetailedText);
 	ring_vm_funcregister("qmessagebox_setescapebutton",ring_QMessageBox_setEscapeButton);
+	ring_vm_funcregister("qmessagebox_seticon",ring_QMessageBox_setIcon);
 	ring_vm_funcregister("qmessagebox_seticonpixmap",ring_QMessageBox_setIconPixmap);
 	ring_vm_funcregister("qmessagebox_setinformativetext",ring_QMessageBox_setInformativeText);
 	ring_vm_funcregister("qmessagebox_setstandardbuttons",ring_QMessageBox_setStandardButtons);
