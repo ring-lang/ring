@@ -9,6 +9,10 @@
 
 void ring_vm_newscope ( VM *pVM )
 {
+	if ( ring_list_getsize(pVM->pMem) == RING_VM_STACK_SIZE ) {
+		ring_vm_error(pVM,RING_VM_ERROR_STACKOVERFLOW);
+		exit(0);
+	}
 	pVM->pActiveMem = ring_list_newlist_gc(pVM->pRingState,pVM->pMem);
 	/* Save Local Scope Information */
 	pVM->nScopeID++ ;

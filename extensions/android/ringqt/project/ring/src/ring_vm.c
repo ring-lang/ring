@@ -1121,6 +1121,7 @@ void ring_vm_callclassinit ( VM *pVM )
 RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 {
 	int x,lFunctionCall  ;
+	char *cStr2  ;
 	List *pList  ;
 	const char *cFile  ;
 	const char *cOldFile  ;
@@ -1131,10 +1132,11 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 	/* Print Calling Information */
 	cOldFile = NULL ;
 	lFunctionCall = 0 ;
+	cStr = "" ;
 	for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
 		pList = ring_list_getlist(pVM->pFuncCallList,x);
 		/*
-		**  If we have ICO_LoadFunc but not ICO_CALL then we need to pass 
+		**  If we have ICO_LOADFUNC but not ICO_CALL then we need to pass 
 		**  ICO_LOADFUNC is executed, but still ICO_CALL is not executed! 
 		*/
 		if ( ring_list_getsize(pList) < RING_FUNCCL_CALLERPC ) {
@@ -1142,6 +1144,10 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			continue ;
 		}
 		if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
+			cStr2 = ring_list_getstring(pList,RING_FUNCCL_NAME) ;
+			if ( strcmp(cStr,cStr2) == 0 ) {
+				break ;
+			}
 			/*
 			**  Prepare Message 
 			**  In 
@@ -1155,7 +1161,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 				printf( "function " ) ;
 			}
 			/* Function Name */
-			printf( "%s",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
+			printf( "%s",cStr2 ) ;
 			/* Adding () */
 			printf( "() in file " ) ;
 			/* File Name */
@@ -1178,6 +1184,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 			printf( "In %s() ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
 		}
 		lFunctionCall = 1 ;
+		cStr = cStr2 ;
 	}
 	if ( lFunctionCall ) {
 		printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
