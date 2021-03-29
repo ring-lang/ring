@@ -1121,7 +1121,7 @@ void ring_vm_callclassinit ( VM *pVM )
 RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
 {
 	int x,lFunctionCall  ;
-	char *cStr2 ;
+	char *cStr2  ;
 	List *pList  ;
 	const char *cFile  ;
 	const char *cOldFile  ;

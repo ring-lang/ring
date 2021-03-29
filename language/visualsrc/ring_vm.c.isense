@@ -481,6 +481,8 @@ ring_vm_callclassinit
 ring_vm_showerrormessage
 Type: int
 x,lFunctionCall
+Type: char *
+cStr2
 Type: List *
 pList
 Type: const char *
