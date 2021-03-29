@@ -67,5 +67,6 @@ More Improvements
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
 * Ring VM - ring_state_stringtokens() function
 * Ring VM - ring_state_scannererror() function
+* Ring VM - Clear error message when we have infinite recursions
 * Ring Compiler - When Embedding Ring in Ring - Always keep Ring keywords (Not Case Sensitive) 
 * Ring Compiler - Scanner - Option (Comments as Tokens)
