@@ -243,6 +243,9 @@ Quotes about Ring
 |	**"I just discovered Ring today and immediately liked it and decided to give it a try. As a senior JAVA / ADA and Python developer I am very curious about the multi-paradigm"**
 |		, Bertrand Pivaty
 
+|	**"Wow, that is pretty amazing! It's not every day to hear about a new programming language that looks actually cool! Oh wow, didn't even see the VB-like features there. This has some real potential!"**
+|		, EternityForest (reddit)
+
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
 
