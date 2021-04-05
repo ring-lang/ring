@@ -58,6 +58,7 @@
 Ring is a practical general-purpose multi-paradigm language.
 The supported programming paradigms are Imperative, Procedural, Object-Oriented, Functional,
 Metaprogramming, Declarative programming using nested structures, and Natural programming.
+
 The language is portable (Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create
 Console, GUI, Web, Games, and Mobile applications. 
 
@@ -1010,7 +1011,11 @@ Also when we need more speed we can use C/C++ extensions!
 
 * Create 3D Games (OpenGL, FreeGLUT, RayLib, Qt3D, etc.)
 
+* Tilengine Extension (2D retro graphics engine with raster effects)
+
 * Create GUI Applications for Desktop, WebAssembly, and Mobile platforms (Using the Qt Framework)
+
+* Libui Extension (lightweight GUI Applications)
 
 ## More 
 
