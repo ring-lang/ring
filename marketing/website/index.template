@@ -9,10 +9,10 @@
       <div class="panel-heading"><h4>Introduction</h4></div>
       <div class="panel-body">
 		<p align="justify">
-			The Ring is an innovative and practical general-purpose multi-paradigm language.
+			The Ring is a practical general-purpose multi-paradigm language.
 			The supported programming paradigms are imperative, procedural, object-oriented, declarative using nested structures, functional, meta programming and natural programming.
 			The language is portable (Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create Console, GUI, Web, Games and Mobile applications.
-			The language is designed to be simple, small, flexible and fast.					
+			The language is designed to be simple, small and flexible. 					
 		</p>
 
 				
