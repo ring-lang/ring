@@ -60,6 +60,7 @@ The supported programming paradigms are Imperative, Procedural, Object-Oriented,
 Metaprogramming, Declarative programming using nested structures, and Natural programming.
 The language is portable (Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create
 Console, GUI, Web, Games, and Mobile applications. 
+
 The language is designed to be Simple, Small, and Flexible. 
 
 # Get Excited
