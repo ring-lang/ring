@@ -40,7 +40,7 @@
   * [No Global Interpreter (VM) Lock - No GIL](#no-global-interpreter-vm-lock---no-gil)
   * [Fast Enough For Many Applications](#fast-enough-for-many-applications)
 - [Features](#features)
-  * [Syntax](#innovative-1)
+  * [Syntax](#syntax)
   * [Powerful Implementation](#powerful-implementation)
   * [Simple](#simple-1)
   * [Dynamic](#dynamic)
@@ -64,9 +64,9 @@ The language is designed to be Simple, Small, and Flexible.
 
 # Get Excited
 
-The language comes with better support for Natural Language Programming and Declarative Programming. 
+Ring comes with better support for Natural Language Programming and Declarative Programming. 
 
-The innovation comes in supporting these paradigms with new practical techniques on top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). 
+The language support these paradigms with new practical techniques on top of Object-Oriented Programming and Functional Programming. No need to know anything about (Compilers and Parsing). 
 
 You get the language constructs ready for use to create domain-specific languages in a fraction of time. 
 
@@ -829,7 +829,7 @@ Also when we need more speed we can use C/C++ extensions!
 # Features
 
 
-## Innovative
+## Syntax
 
 * Compact Syntax
 
