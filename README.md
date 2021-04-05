@@ -2,7 +2,7 @@
 
 # Ring Programming Language
 
-## Innovative and practical general-purpose multi-paradigm language
+## Simple and flexible programming language for applications development
 
 | |*Resources*|*Operating System*|*Status*|
 |---|---|---|---|             																															 
@@ -14,7 +14,7 @@
 # Contents:
 
 - [Welcome to Ring](#welcome-to-ring)
-- [Innovative](#innovative)
+- [Get Excited!](#get-excited)
 - [Practical](#practical)
   * [Custom Styles And Modern Programming Paradigms](#custom-styles-and-modern-programming-paradigms)
   * [GUI Applications Development And RAD Tools](#gui-applications-development-and-rad-tools)
@@ -40,7 +40,7 @@
   * [No Global Interpreter (VM) Lock - No GIL](#no-global-interpreter-vm-lock---no-gil)
   * [Fast Enough For Many Applications](#fast-enough-for-many-applications)
 - [Features](#features)
-  * [Innovative](#innovative-1)
+  * [Syntax](#innovative-1)
   * [Powerful Implementation](#powerful-implementation)
   * [Simple](#simple-1)
   * [Dynamic](#dynamic)
@@ -55,14 +55,14 @@
 
 # Welcome to Ring
 
-Ring is an innovative and practical general-purpose multi-paradigm language.
+Ring is a practical general-purpose multi-paradigm language.
 The supported programming paradigms are Imperative, Procedural, Object-Oriented, Functional,
 Metaprogramming, Declarative programming using nested structures, and Natural programming.
 The language is portable (Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create
 Console, GUI, Web, Games, and Mobile applications. 
-The language is designed to be Simple, Small, Flexible, and Fast. 
+The language is designed to be Simple, Small, and Flexible. 
 
-# Innovative
+# Get Excited
 
 The language comes with better support for Natural Language Programming and Declarative Programming. 
 
@@ -167,7 +167,7 @@ We recorded the development time (21 hours of development includes explaining ea
 
 The language is simple, trying to be natural, encourage organization, and comes with transparent and visual implementation. 
 It comes with compact syntax and a group of features that enable the programmer to create natural interfaces and declarative domain-specific languages in a fraction of time. 
-It is very small, fast, and comes with a smart garbage collector that puts the memory under the programmer's control. 
+It is very small, flexible, and comes with a smart garbage collector that puts the memory under the programmer's control. 
 It supports many programming paradigms, comes with useful and practical libraries. 
 The language is designed for productivity and developing high-quality solutions that can scale.
 
@@ -178,7 +178,7 @@ The language is designed for productivity and developing high-quality solutions 
 
 * Productivity and developing high-quality solutions that can scale.
 
-* Small and fast language that can be embedded in C/C++ projects.
+* Small and flexible language that can be embedded in C/C++ projects.
 
 * Simple language that can be used in education and introducing Compiler/VM concepts.
 
