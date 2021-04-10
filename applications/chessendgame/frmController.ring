@@ -118,6 +118,15 @@ func openStats
 func openPrediction
 
 	openWindow(:predictionController)
+	nIndex = oView.ChessTableWidget.currentrow() + 1
+	lastWindow().oView { 
+		txtWKF.setText(aDataSet[nIndex][1])
+		txtWKR.setText(""+aDataSet[nIndex][2])
+		txtWRF.setText(aDataSet[nIndex][3])
+		txtWRR.setText(""+aDataSet[nIndex][4])
+		txtBKF.setText(aDataSet[nIndex][5])
+		txtBKR.setText(""+aDataSet[nIndex][6])
+	}
 
 func closeApp
 
