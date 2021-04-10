@@ -6,6 +6,7 @@
 load "frmView.ring"
 load "data/dataset.ring"
 load "statsController.ring"
+load "predictionController.ring"
 
 import System.GUI
 
@@ -113,6 +114,10 @@ func newSelection
 func openStats
 	
 	openWindow(:statsController)
+
+func openPrediction
+
+	openWindow(:predictionController)
 
 func closeApp
 
