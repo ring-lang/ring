@@ -1,8 +1,8 @@
 # Start Form Designer File
 aObjectsList = [
 	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
-		 :x = 20 , : y = 0  , 
-		 :width =  494 , :height = 595 , 
+		 :x = 20 , : y = -99  , 
+		 :width =  494 , :height = 594 , 
 		 :title =  "Prediction" , 
 		 :backcolor =  "" , 
 		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
@@ -13,9 +13,9 @@ aObjectsList = [
 
 		]
 	],
-	[ :name = "TextEdit1" , :id = 2 , :classname = "formdesigner_qtextedit" , :data = [
-		 :x = 5 , : y = 244  , 
-		 :width =  475 , :height = 283 , 
+	[ :name = "txtOutput" , :id = 2 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 69 , : y = 244  , 
+		 :width =  411 , :height = 273 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "white" , 
 		 :font =  "Arial" , 
@@ -30,8 +30,8 @@ aObjectsList = [
 		 :setundoAvailableEvent =  ""
 		]
 	],
-	[ :name = "Button1" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
-		 :x = 390 , : y = 530  , 
+	[ :name = "btnClose" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 390 , : y = 527  , 
 		 :width =  90 , :height = 34 , 
 		 :textcolor =  "black" , 
 		 :backcolor =  "" , 
@@ -223,6 +223,29 @@ aObjectsList = [
 		 :setitemEnteredEvent =  "",
 		 :setitemPressedEvent =  "",
 		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Label16" , :id = 17 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 13 , : y = 261  , 
+		 :width =  39 , :height = 21 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Output",
+		 :textalign =  0
+		]
+	],
+	[ :name = "btnClose17" , :id = 18 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 70 , : y = 527  , 
+		 :width =  150 , :height = 34 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Predict (Game Result)",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Predict"
 		]
 	]
 ]

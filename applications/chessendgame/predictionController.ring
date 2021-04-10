@@ -26,5 +26,8 @@ class predictionController from windowsControllerParent
 		listAlgorithm.setCurrentRow(1,QItemSelectionModel_Select)
 	}
 
+	func predict
+
+
 	func closeWindow 
 		oView.win.close()
