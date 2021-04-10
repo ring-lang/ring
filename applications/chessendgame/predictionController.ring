@@ -31,17 +31,37 @@ class predictionController from windowsControllerParent
 	func predict
 		switch oView.listAlgorithm.CurrentRow()
 		on 1
+			predictDecisionForest()
 		on 2
+			predictDecisionJungle()
 		on 3
 			predictMulticlassNeuralNetwork()
 		on 4
+			predictLogisticRegression()
 		off
+		predictGameResult()
+
+	func predictDecisionForest
+
+		my_URL = "https://ussouthcentral.services.azureml.net/workspaces/ed4a059d4bdd45da81d441bcd146f8f5/services/2d4f4c8aaf5046579e95c53a5967638e/execute?api-version=2.0&format=swagger"
+		my_api_key = '3UmdB2F2xfOvH9PdO98ewAMdady7f36HRimoqt6fsxTn3sjpEKQhN9zT75LPocOhn7rBayF/lFRVh0qXAS6OMQ==' 
+
+	func predictDecisionJungle
+
+		my_URL = "https://ussouthcentral.services.azureml.net/workspaces/ed4a059d4bdd45da81d441bcd146f8f5/services/2010be66531940ee887edef97c06208b/execute?api-version=2.0&format=swagger"
+		my_api_key = 'amKBSrusAWGSHNft86lhmXuLoCnjDEm55HXgdHsPUj3z+h6PcYD6vGk5yS7Jkdnljq3TEP39fNFoovwDL2gwcg==' 
+
 
 	func predictMulticlassNeuralNetwork
 
+		my_URL = "https://ussouthcentral.services.azureml.net/workspaces/ed4a059d4bdd45da81d441bcd146f8f5/services/55d686ab00804cabaebb72a231a4b56c/execute?api-version=2.0&format=swagger"
+		my_api_key = 'GPLQWdLPeo1QkQeFQpHjcrUOYMpIBeXxGu8HQ3KxT5kFJbqpSsfXj79diJBN2f/CuQFo2sHHpW4Mv+BghZv2lA==' 
+
+
+	func predictLogisticRegression
+
 		my_URL = "https://ussouthcentral.services.azureml.net/workspaces/ed4a059d4bdd45da81d441bcd146f8f5/services/0f79b953e2ae48dd8868195abdb5a787/execute?api-version=2.0&format=swagger"
 		my_api_key = 'yB5mc3WNBXLv7wKdAdD9MsXul5TluVszOOif8A8u0P7R+akPzhyjogCCqu4iHYxNAPx8q+pA5nyqv7lC0Jm9ug==' 
-		predictGameResult()
 
 
 	func predictGameResult
