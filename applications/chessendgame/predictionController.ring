@@ -25,10 +25,27 @@ class predictionController from windowsControllerParent
 		listAlgorithm.setCurrentRow(1,QItemSelectionModel_Select)
 	}
 
+
+	my_URL	my_api_key
+
 	func predict
+		switch oView.listAlgorithm.CurrentRow()
+		on 1
+		on 2
+		on 3
+			predictMulticlassNeuralNetwork()
+		on 4
+		off
+
+	func predictMulticlassNeuralNetwork
 
 		my_URL = "https://ussouthcentral.services.azureml.net/workspaces/ed4a059d4bdd45da81d441bcd146f8f5/services/0f79b953e2ae48dd8868195abdb5a787/execute?api-version=2.0&format=swagger"
 		my_api_key = 'yB5mc3WNBXLv7wKdAdD9MsXul5TluVszOOif8A8u0P7R+akPzhyjogCCqu4iHYxNAPx8q+pA5nyqv7lC0Jm9ug==' 
+		predictGameResult()
+
+
+	func predictGameResult
+
 		my_body = `{"Inputs": {"input1": [{"WhiteKingFile": "#{f1}", "WhiteKingRank": "#{f2}", "WhiteRockFile": "#{f3}", "WhiteRockRank": "#{f4}", "BlackKingFile": "#{f5}", "BlackKingRank": "#{f6}", "GameResult": ""}]}, "GlobalParameters": {}}`
 
 		oView {
