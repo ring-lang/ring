@@ -28,12 +28,17 @@ Chess Endgame Application
 
 Chess Endgame data set visualization 
 
+Also the application provides game result prediction using Microsoft Azure Machine Learning
+
 Screen Shots:
 
 .. image:: chessendgame1.png
 	:alt: chessendgame
 
 .. image:: chessendgame2.png
+	:alt: chessendgame
+
+.. image:: chessendgame3.png
 	:alt: chessendgame
 
 .. index:: 
