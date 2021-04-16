@@ -10,3 +10,5 @@ Data Set: https://archive.ics.uci.edu/ml/datasets/Chess+(King-Rook+vs.+King)
 ![chessendgame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/chessendgame/images/shot1.png)
 
 ![chessendgame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/chessendgame/images/shot2.png)
+
+![chessendgame](https://raw.githubusercontent.com/ring-lang/ring/master/applications/chessendgame/images/shot3.png)
