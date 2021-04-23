@@ -5230,7 +5230,7 @@ Class QPainter
 		return QPainter_worldMatrixEnabled(pObject)
 
 	Func worldTransform 
-		pTempObj = new QTransform
+		pTempObj = new QTransform 
 		pTempObj.pObject = QPainter_worldTransform(pObject)
 		return pTempObj
 
@@ -19421,7 +19421,7 @@ Class QLayout from QObject
 		return QLayout_update(pObject)
 
 	Func closestAcceptableSize P1,P2
-		pTempObj = new QSize
+		pTempObj = new QSize 
 		pTempObj.pObject = QLayout_closestAcceptableSize(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
 		return pTempObj
 
@@ -19866,7 +19866,7 @@ Class QListView from QAbstractItemView
 		return QListView_flow(pObject)
 
 	Func gridSize 
-		pTempObj = new QSize
+		pTempObj = new QSize 
 		pTempObj.pObject = QListView_gridSize(pObject)
 		return pTempObj
 
