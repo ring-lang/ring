@@ -66,6 +66,7 @@ More Improvements
 * Form Designer - Better Translation
 * StdLib - List2Code() function - Support double quotation in list strings
 * StdLib - List2Code() function - Better Format - Add tabs before the items
+* Code Generator for extensions - Function prototype - Trim spaces in the output type 
 * RingLibCurl - curl_easy_setopt() support passing (CURLLIST *) as the third parameter
 * RingQt - QMessageBox Class - setIcon() Method
 * RingQt - QByteArray Class - Append() Method - Support Binary Data 
