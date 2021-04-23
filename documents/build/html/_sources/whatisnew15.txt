@@ -69,6 +69,7 @@ More Improvements
 * RingLibCurl - curl_easy_setopt() support passing (CURLLIST *) as the third parameter
 * RingQt - QMessageBox Class - setIcon() Method
 * RingQt - QByteArray Class - Append() Method - Support Binary Data 
+* RingQt - QByteArray Class - Replace() Method - Multiple versions and better code
 * RingQt For WebAssembly - Download File - Support Binary File
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
 * Ring VM - ring_state_stringtokens() function
