@@ -1070,7 +1070,7 @@ Func GenMethodCodeCallFunc aList
 			lRetPointer = true
 			cCode += "RING_API_RETCPOINTER("
 		on C_TYPE_UNKNOWN
-			if ( find($aClassesList,aList[C_FUNC_OUTPUT],1) > 0 ) and ( find($aMallocClassesList,aList[C_FUNC_OUTPUT]) = 0 )
+			if ( find($aClassesList,trim(aList[C_FUNC_OUTPUT]),1) > 0 ) and ( find($aMallocClassesList,trim(aList[C_FUNC_OUTPUT])) = 0 )
 				cCode += "{" + nl + 
 				C_TABS_2 + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
 				C_TABS_2 + "pValue = new " + aList[C_FUNC_OUTPUT] + 
@@ -1098,7 +1098,7 @@ Func GenMethodCodeCallFunc aList
 
 	# Check before return list for any 
 		if len(aBeforeReturn) > 0
-			nIndex = find(aBeforeReturn,aList[C_FUNC_OUTPUT],C_BR_TYPENAME)
+			nIndex = find(aBeforeReturn,trim(aList[C_FUNC_OUTPUT]),C_BR_TYPENAME)
 			if nIndex > 0
 				cCode += aBeforeReturn[nIndex][C_BR_CODE]
 			ok
@@ -1361,11 +1361,11 @@ Func GenRingCode aList
 				cFuncOutput = substr(cFuncOutput,">","")
 			
 			lRetObj = false
-			if find($aClassesList,cFuncOutput,1) > 0
+			if find($aClassesList,trim(cFuncOutput),1) > 0
 				lRetObj = true
 				cCode += nl + C_TABS_2 + "pTempObj = new " + cFuncOutput + nl +
 					 C_TABS_2+"pTempObj.pObject = "
-			but find($aClassesList,GenPointerType(aFunc[C_FUNC_OUTPUT]),1) > 0
+			but find($aClassesList,GenPointerType(trim(aFunc[C_FUNC_OUTPUT])),1) > 0
 				lRetObj = true
 				cCode += nl + C_TABS_2 + "pTempObj = new " + GenPointerType(aFunc[C_FUNC_OUTPUT]) + nl +
 					 C_TABS_2+"pTempObj.pObject = "
