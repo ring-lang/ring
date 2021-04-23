@@ -638,6 +638,56 @@ Class QByteArray
 		pTempObj.pObject = QByteArray_replace(pObject,P1,P2,P3,P4)
 		return pTempObj
 
+	Func replace_2 P1,P2,P3
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_replace_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
+	Func replace_3 P1,P2,P3
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_replace_3(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func replace_4 P1,P2
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_replace_4(pObject,P1,P2)
+		return pTempObj
+
+	Func replace_5 P1,P2
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_replace_5(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func replace_6 P1,P2
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_replace_6(pObject,P1,P2)
+		return pTempObj
+
+	Func replace_7 P1,P2,P3,P4
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_replace_7(pObject,P1,P2,P3,P4)
+		return pTempObj
+
+	Func replace_8 P1,P2
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_replace_8(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func replace_9 P1,P2
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_replace_9(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func replace_10 P1,P2
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_replace_10(pObject,P1,GetObjectPointerFromRingObject(P2))
+		return pTempObj
+
+	Func replace_11 P1,P2
+		pTempObj = new QByteArray
+		pTempObj.pObject = QByteArray_replace_11(pObject,P1,P2)
+		return pTempObj
+
 	Func reserve P1
 		return QByteArray_reserve(pObject,P1)
 
