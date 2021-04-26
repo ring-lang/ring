@@ -192,7 +192,7 @@ Func std_fseek filehandle,noffset,nwhence
 	return fseek(filehandle,noffset,nwhence)
 
 Func std_ftell filehandle
-	return fteel(filehandle)
+	return ftell(filehandle)
 
 Func std_rewind filehandle
 	return rewind(filehandle)

@@ -61,7 +61,7 @@ Class file
 		return std_fseek(filehandle,noffset,nwhence)
 
 	Func tell 
-		return std_fteel(filehandle)
+		return std_ftell(filehandle)
 
 	Func rewind 
 		return std_rewind(filehandle)
