@@ -6,6 +6,7 @@ codename: GTabWidget
 passvmpointer
 </class>
 
+QTabBar *tabBar(void)
 int addTab(QWidget *page, QString)
 void clear(void)
 QWidget *cornerWidget(Qt::Corner corner)

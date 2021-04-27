@@ -14897,6 +14897,11 @@ Class QTabWidget from QWidget
 	Func ObjectPointer
 		return pObject
 
+	Func tabBar 
+		pTempObj = new QTabBar
+		pTempObj.pObject = QTabWidget_tabBar(pObject)
+		return pTempObj
+
 	Func addTab P1,P2
 		return QTabWidget_addTab(pObject,GetObjectPointerFromRingObject(P1),P2)
 
