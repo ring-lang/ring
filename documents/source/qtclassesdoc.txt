@@ -1798,6 +1798,7 @@ C++ Reference : http://doc.qt.io/qt-5/qbytearray.html
 Parameters : void
 
 * QByteArray append(const char *str)
+* QByteArray append_2(const char *str,int size)
 * char at(int i)
 * int capacity(void)
 * void chop(int n)
@@ -1822,7 +1823,17 @@ Parameters : void
 * void push_front(const char *str)
 * QByteArray remove(int pos, int len)
 * QByteArray repeated(int times)
-* QByteArray  replace(int pos, int len, const char *after, int alen)
+* QByteArray replace(int pos, int len, const char *after, int alen)
+* QByteArray replace_2(int pos, int len, QByteArray after)
+* QByteArray replace_3(int pos, int len, const char *after)
+* QByteArray replace_4(char before, const char *after)
+* QByteArray replace_5(char before, QByteArray after)
+* QByteArray replace_6(const char *before, const char *after)
+* QByteArray replace_7(const char *before, int bsize, const char *after, int asize)
+* QByteArray replace_8(const QByteArray before, QByteArray after)
+* QByteArray replace_9(const QByteArray before, const char *after)
+* QByteArray replace_10(const char *before, QByteArray after)
+* QByteArray replace_11(char before, char after)
 * void reserve(int size)
 * void resize(int size)
 * QByteArray right(int len)
@@ -6645,6 +6656,7 @@ Parent Class : QDialog
 * void setDefaultButton(QPushButton *button)
 * void setDetailedText(QString)
 * void setEscapeButton(QAbstractButton *button)
+* void setIcon(QMessageBox::Icon)
 * void setIconPixmap(QPixmap)
 * void setInformativeText(QString)
 * void setStandardButtons(QMessageBox::StandardButton buttons)
@@ -10511,6 +10523,7 @@ Parameters : QWidget *parent
 
 Parent Class : QWidget
 
+* QTabBar *tabBar(void)
 * int addTab(QWidget *page, QString)
 * void clear(void)
 * QWidget *cornerWidget(Qt::Corner corner)
