@@ -72,6 +72,7 @@ More Improvements
 * RingQt - QMessageBox Class - setIcon() Method
 * RingQt - QByteArray Class - Append() Method - Support Binary Data 
 * RingQt - QByteArray Class - Replace() Method - Multiple versions and better code
+* RingQt - QTabWidget Class - TabBar() Method
 * RingQt For WebAssembly - Download File - Support Binary File
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
 * Ring VM - ring_state_stringtokens() function
