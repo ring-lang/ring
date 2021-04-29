@@ -376,3 +376,10 @@ QMessageBox_Question	= 4
 QMessageBox_Information	= 1
 QMessageBox_Warning	= 2
 QMessageBox_Critical	= 3
+
+Qt_LeftToolBarArea  	= 0x1
+Qt_RightToolBarArea 	= 0x2
+Qt_TopToolBarArea   	= 0x4
+Qt_BottomToolBarArea	= 0x8
+Qt_AllToolBarAreas	= Qt_LeftToolBarArea | Qt_RightToolBarArea | Qt_TopToolBarArea | Qt_BottomToolBarArea
+Qt_NoToolBarArea	= 0
