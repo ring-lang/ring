@@ -7,12 +7,12 @@ Last Update: 2021.04.30
 
 - [Introduction](#introduction)
 - [The First Generation](#the-first-generation)
-  * [The Concept of the First Generation](#the-concept-of-the-first-generation)
-  * [The Disadvantages of the First Generation](#the-disadvantages-of-the-first-generation)
+  - [The Concept of the First Generation](#the-concept-of-the-first-generation)
+  - [The Disadvantages of the First Generation](#the-disadvantages-of-the-first-generation)
 - [The Second Generation](#the-second-generation)
-- [Improving the Implementation](#improving-the-implementation)
-  * [Web and Mobile versions](#web-and-mobile-versions)
-  * [Translation (Arabic Version)](#translation-arabic-version)
+  - [Improving the Implementation](#improving-the-implementation)
+    - [Web and Mobile versions](#web-and-mobile-versions)
+    - [Translation (Arabic Version)](#translation-arabic-version)
 - [The Release Date](#the-release-date)
 
 # Introduction 
@@ -171,9 +171,9 @@ I could be brave and say that after PWCT 2.0 development, I don't see any reason
 when developing Ring applications. The same could be applied for other textual programming languages when we 
 support them.
 
-# Improving the Implementation
+## Improving the Implementation
 
-## Web and Mobile versions
+### Web and Mobile versions
 
 We can use PWCT on Desktop, Web & Mobile platforms.
 
@@ -199,7 +199,7 @@ Using foldable smartphones and Tablets provide better experience.
 
 ![webandmobile](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/WebAndMobile.png)
 
-## Translation (Arabic Version)
+### Translation (Arabic Version)
 
 One of the advantages of using Visual Programming and GUI over textual code editors is the easy translation of these User Interfaces to other natural languages.
 
@@ -207,7 +207,7 @@ PWCT 2.0 will comes with an Arabic version, other languages could be added in th
 
 ![arabicversion](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Arabic.jpg)
 
-# The Release Date
+## The Release Date
 
 Since we already have the first generation of the product (PWCT 1.9) we decided that in
 the second generation we will focus on the quality and accept the high costs (Development Time).
