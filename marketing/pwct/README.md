@@ -103,6 +103,11 @@ Using the Time Dimension we can
 
 * Play programs as movies to learn how to create a program step by step
 
+![tm1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/tm1.png)
+
+![tm2](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/tm2.png)
+
+
 These updates were enough to attract hundered thousands of developers.
 
 # The Second Generation
