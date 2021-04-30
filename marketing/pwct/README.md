@@ -6,7 +6,7 @@ Last Update: 2021.04.30
 # Contents:
 
 - [Introduction](#introduction)
-- [The Concept](#the-concept)
+- [The Concept (The First Generation)](#the-concept-the-first-generation)
 - [The Second Generation](#the-second-generation)
 - [Web and Mobile versions](#web-and-mobile-versions)
 - [Translation (Arabic Version)](#translation-arabic-version)
@@ -31,7 +31,7 @@ developers all over the world.
 
 We used the first genertion (PWCT 1.9) to develop the Ring language Compiler and VM.
 
-# The Concept
+# The Concept (The First Generation)
 
 Fifteen years ago (In Dec. 2005) I started to think about developing PWCT.
 
