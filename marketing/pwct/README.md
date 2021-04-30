@@ -112,7 +112,7 @@ Using the Time Machine slider, we can move to the past and run the program befor
 ![tm2](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/tm2.png)
 
 
-These updates were enough to attract hundered thousands of developers.
+These updates were enough to attract hundered thousands of developers to download the product and try it!
 
 # The Second Generation
 
