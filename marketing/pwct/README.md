@@ -7,6 +7,7 @@ Last Update: 2021.04.30
 
 - [Introduction](#introduction)
 - [The Second Generation](#the-second-generation)
+- [The Concept](#the-concept)
 - [Web and Mobile versions](#web-and-mobile-versions)
 - [Translation (Arabic Version)](#translation-arabic-version)
 - [The Release Date](#the-release-date)
@@ -47,6 +48,10 @@ I could be brave and say that after PWCT 2.0, I don't see any reason to use a Te
 when developing Ring applications. The same could be applied for other programming languages when we 
 support them.
 
+# The Concept
+
+![concept](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Hello.png)
+
 # Web and Mobile versions
 
 We can use PWCT on Desktop, Web & Mobile platforms.
@@ -81,7 +86,7 @@ of these User Interfaces to other natural languages.
 
 PWCT 2.0 will comes with an Arabic version, other languages could be added in the future.
 
-![webandmobile](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Arabic.jpg)
+![arabicversion](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Arabic.jpg)
 
 # The Release Date
 
