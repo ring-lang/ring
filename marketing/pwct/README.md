@@ -6,8 +6,8 @@ Last Update: 2021.04.30
 # Contents:
 
 - [Introduction](#introduction)
-- [The Second Generation](#the-second-generation)
 - [The Concept](#the-concept)
+- [The Second Generation](#the-second-generation)
 - [Web and Mobile versions](#web-and-mobile-versions)
 - [Translation (Arabic Version)](#translation-arabic-version)
 - [The Release Date](#the-release-date)
@@ -30,23 +30,6 @@ We learned a lot of things from this generation based on feedback from thousands
 developers all over the world.
 
 We used the first genertion (PWCT 1.9) to develop the Ring language Compiler and VM.
-
-# The Second Generation
-
-The second generation (PWCT 2.0) is under development using the Ring programming language
-
-Our goal is to provide a more powerful version of the software that satisfy two conditions
-
-(1) To be an easy tool to start learning about real programming concepts
-
-(2) To be a better replacement for Textual Code Editors 
-
-In the first generation we tried to achive the same goals but, we did a lot of mistakes, we 
-learned from them and developed new ideas then we implemented these ideas in PWCT 2.0
-
-I could be brave and say that after PWCT 2.0 development, I don't see any reason to use a Textual Code Editor
-when developing Ring applications. The same could be applied for other textual programming languages when we 
-support them.
 
 # The Concept
 
@@ -117,6 +100,23 @@ Using the Time Dimension we can
 * Play programs as movies to learn how to create a program step by step
 
 These updates were enough to attract hundered thousands of developers.
+
+# The Second Generation
+
+The second generation (PWCT 2.0) is under development using the Ring programming language
+
+Our goal is to provide a more powerful version of the software that satisfy two conditions
+
+(1) To be an easy tool to start learning about real programming concepts
+
+(2) To be a better replacement for Textual Code Editors 
+
+In the first generation we tried to achive the same goals but, we did a lot of mistakes, we 
+learned from them and developed new ideas then we implemented these ideas in PWCT 2.0
+
+I could be brave and say that after PWCT 2.0 development, I don't see any reason to use a Textual Code Editor
+when developing Ring applications. The same could be applied for other textual programming languages when we 
+support them.
 
 # Web and Mobile versions
 
