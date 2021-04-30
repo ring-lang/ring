@@ -59,15 +59,30 @@ In 2007, The core idea was very simple (Goal Designer instead of Code Editor)
 We see this in the next screen shot, Instead of writing textual code directly, we follow
 a procedure of four simple steps
 
-(1) Select a component 
+1. Select a component 
 
-(2) Enter the data required for this component 
+2. Enter the data required for this component 
 
-(3) Interact with the steps tree (If you need this)
+3. Interact with the steps tree (If you need this)
 
-(4) Run the program
+4. Run the program
+
+The next diagram demonstrates what I wrote using a pen and paper to explain the idea to my
+friends.
 
 ![concept](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Hello.png)
+
+At that time, the advantages was very clear
+
+* Selecting components means we can explore the programming system and start using it without previous knowledge.
+
+* Separating data from instructions through the data-entry forms provide the ability for quick reuse 
+
+* Using a GUI to program means easy support for translation (Arabic, English, French, etc.)
+
+* No Syntax Errors (Happy experience for beginners)
+
+* The generated steps tree (instead of source code) provides a chance for Maximum Readability
 
 # Web and Mobile versions
 
