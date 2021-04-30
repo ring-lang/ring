@@ -6,6 +6,7 @@ Last Update: 2021.04.30
 # Contents:
 
 - [Introduction](#introduction)
+- [The Second Generation](#the-second-generation)
 - [Web and Mobile versions](#web-and-mobile-versions)
 - [Translation (Arabic Version)](#translation-arabic-version)
 - [The Release Date](#the-release-date)
@@ -28,6 +29,8 @@ We learned a lot of things from this generation based on feedback from thousands
 developers all over the world.
 
 We used the first genertion (PWCT 1.9) to develop the Ring language Compiler and VM.
+
+# The Second Generation
 
 The second generation (PWCT 2.0) is under development using the Ring programming language
 
