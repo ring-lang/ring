@@ -91,7 +91,11 @@ from 2009 to 2013, We improved the system with the next features
 
 6. Two modes (Syntax Directed Editor OR Free Editor + VPL Compiler)
 
-7. Adding the Time Dimension 
+7. Automatic Documentation (Generate HTML Files from Visual Programs)
+
+8. Optional automatic update of programs after components update 
+
+9. Adding the Time Dimension 
 
 Using the Time Dimension we can
 
