@@ -103,7 +103,11 @@ Using the Time Dimension we can
 
 * Play programs as movies to learn how to create a program step by step
 
+For example, the next program print numbers from 1 to 10 and print the Three message after the number 3.
+
 ![tm1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/tm1.png)
+
+Using the Time Machine slider, we can move to the past and run the program before adding the if statement that print the Three message.
 
 ![tm2](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/tm2.png)
 
