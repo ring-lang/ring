@@ -92,6 +92,21 @@ At that time, the advantages were very clear
 
 * The same component could generate different steps based on the data that we enter through data-entry forms 
 
+This design was enough to attract a few thouands of developers until 2009
+
+from 2009 to 2011, We improved the system with the next features 
+
+1. Using Keyboard Shortcuts to improve the writability 
+
+2. Improving a domain-specific language that are used for developing the components
+
+3. Supporting more programming languages in the code generation layer
+
+* Article (PWCT For C#) : https://www.codeproject.com/Articles/113731/Using-C-NET-through-Programming-Without-Coding-Tec
+
+* Article (PWCT For Python) : https://www.codeproject.com/Articles/693408/Using-Python-inside-Programming-Without-Coding-Tec
+
+
 # Web and Mobile versions
 
 We can use PWCT on Desktop, Web & Mobile platforms.
