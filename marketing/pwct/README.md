@@ -13,7 +13,7 @@ Last Update: 2021.04.30
   - [Improving the Implementation](#improving-the-implementation)
     - [Web and Mobile versions](#web-and-mobile-versions)
     - [Translation (Arabic Version)](#translation-arabic-version)
-- [The Release Date](#the-release-date)
+  - [The Release Date](#the-release-date)
 
 # Introduction 
 
