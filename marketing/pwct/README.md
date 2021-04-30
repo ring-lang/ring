@@ -106,9 +106,11 @@ from 2009 to 2013, We improved the system with the next features
 
 5. Adding the Time Dimension 
 
-5.1 Move to a point in the past and run the program
+Using the Time Dimension we can
 
-5.2 Play programs as movies to learn how to create a program step by step
+* Move to a point in the past during development and run the program
+
+* Play programs as movies to learn how to create a program step by step
 
 These updates were enough to attract hundered thousands of developers.
 
