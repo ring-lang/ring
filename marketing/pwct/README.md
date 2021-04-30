@@ -47,8 +47,11 @@ Most software developers uses the Desktop platforms and I belive that this is to
 better and practical. but we added the support to these platforms for two reasons
 
 1- We can easily support them (Thanks to the powerful Ring language & Qt framework)
+
 2- At some situations, these platforms are very useful. 
+
 2.1 - Some uses don't have desktop computers but have Mobile devices.
+
 2.2 - At some places we could have only our Mobile devices and some free time for programming.
 
 The Mobile screen is small, typing using the touch screen is slow
