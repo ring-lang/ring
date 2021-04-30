@@ -94,9 +94,11 @@ At that time, the advantages were very clear
 
 This design was enough to attract a few thouands of developers until 2009
 
-from 2009 to 2011, We improved the system with the next features 
+from 2009 to 2013, We improved the system with the next features 
 
 1. Using Keyboard Shortcuts to improve the writability 
+
+2. Adding Colors & Customization to the Steps Tree 
 
 2. Improving a domain-specific language that are used for developing the components
 
@@ -106,6 +108,13 @@ from 2009 to 2011, We improved the system with the next features
 
 * Article (PWCT For Python) : https://www.codeproject.com/Articles/693408/Using-Python-inside-Programming-Without-Coding-Tec
 
+4. Adding the Time Dimension 
+
+4.1 Move to a point in the past and run the program
+
+4.2 Play programs as movies to learn how to create a program step by step
+
+These updates were enough to attract hundered thousands of developers.
 
 # Web and Mobile versions
 
