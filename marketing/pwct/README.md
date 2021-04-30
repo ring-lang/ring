@@ -45,10 +45,27 @@ In the first generation we tried to do the same things, we did a lot of mistakes
 learned from them, we developed new ideas, and we implemented these ideas in PWCT 2.0
 
 I could be brave and say that after PWCT 2.0, I don't see any reason to use a Textual Code Editor
-when developing Ring applications. The same could be applied for other programming languages when we 
+when developing Ring applications. The same could be applied for other textual programming languages when we 
 support them.
 
 # The Concept
+
+Fifteen years ago (In Dec. 2005) I started to think about developing PWCT.
+
+I started with many ideas and I tested each idea through practical development
+
+In 2007, The core idea was very simple (Goal Designer instead of Code Editor)
+
+We see this in the next screen shot, Instead of writing textual code directly, we follow
+a procedure of four simple steps
+
+(1) Select a component 
+
+(2) Enter the data required for this component 
+
+(3) Interact with the steps tree (If you need this)
+
+(4) Run the program
 
 ![concept](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Hello.png)
 
