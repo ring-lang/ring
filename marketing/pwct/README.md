@@ -1,8 +1,9 @@
 Programming Without Coding Technology (PWCT) 2.0
 ================================================
 
-Posted: 30 April 2021
-Date last Updated: 1 May 2021
+* Posted: 30 April 2021
+
+* Date last Updated: 1 May 2021
 
 # Contents:
 
