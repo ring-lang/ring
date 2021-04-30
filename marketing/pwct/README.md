@@ -104,7 +104,11 @@ from 2009 to 2013, We improved the system with the next features
 
 4. Supporting more programming languages in the code generation layer
 
-5. Adding the Time Dimension 
+5. Show/Hide steps based on the context
+
+6. Two modes (Syntax Directed Editor OR Free Editor + VPL Compiler)
+
+7. Adding the Time Dimension 
 
 Using the Time Dimension we can
 
