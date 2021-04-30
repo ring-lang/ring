@@ -126,25 +126,31 @@ And Yes! some developers asked about improving the concept itself! (More innovat
 
 1. Some developers reported that using Code Editors is too much flexibile and faster in some situtations 
 
-2. Support importing the source code (Convert source code files to Visual Source Files)
+2. Slow performance when using large visual source files 
 
-3. Multiplatform support (Windows, Linux & macOS)
+3. Visual Source Files are database files (not textual) which is not good for Version Control software
 
-4. Support Web & Mobile development 
+4. Support importing the source code (Convert source code files to Visual Source Files)
 
-5. Support more programming languages
+5. Opening many files and quick nagivation
 
-6. Translation & Unicode 
+6. Multiplatform support (Windows, Linux & macOS)
 
-7. Opening many files and quick nagivation
+7. Support Web & Mobile development 
 
-8. Modern Form Designer
+8. Support more programming languages
 
-9. Support powerful libraries and frameworks
+9. Translation & Unicode 
 
-I started to think about all of this and how I can implement all of these features!
+10. Modern Form Designer
 
-I discovered that I need a new programming language (Ring) that could help me to do this 
+11. Support powerful libraries and frameworks
+
+12. More educational resources!
+
+I started to think about all of these issues and feature requests and how I can implement them.
+
+I discovered that I need a new programming language (Ring) that could help me to do all of this in an effient way
 
 # The Second Generation
 
