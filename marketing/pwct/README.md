@@ -111,6 +111,8 @@ Using the Time Machine slider, we can move to the past and run the program befor
 
 ![tm2](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/tm2.png)
 
+The previous screen shots uses PWCT 2.0 but, the same idea is implemented in the first generation of PWCT from 2011 (PWCT 1.8)
+
 
 These updates were enough to attract hundered thousands of developers to download the product and try it!
 
