@@ -173,6 +173,8 @@ support them.
 
 ## Improving the Implementation
 
+In the second generation of PWCT, we worked on solving all of the issues reported on the design of the first generation, Also we implemented most feature requests that are useful.  
+
 ### Web and Mobile versions
 
 We can use PWCT on Desktop, Web & Mobile platforms.
