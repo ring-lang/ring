@@ -41,10 +41,10 @@ Our goal is to provide a more powerful version of the software that satisfy two 
 
 (2) To be a better replacement for Textual Code Editors 
 
-In the first generation we tried to do the same things, we did a lot of mistakes, we 
-learned from them, we developed new ideas, and we implemented these ideas in PWCT 2.0
+In the first generation we tried to achive the same goals but, we did a lot of mistakes, we 
+learned from them and developed new ideas then we implemented these ideas in PWCT 2.0
 
-I could be brave and say that after PWCT 2.0, I don't see any reason to use a Textual Code Editor
+I could be brave and say that after PWCT 2.0 development, I don't see any reason to use a Textual Code Editor
 when developing Ring applications. The same could be applied for other textual programming languages when we 
 support them.
 
