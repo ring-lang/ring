@@ -7,6 +7,7 @@ Last Update: 2021.04.30
 
 - [Introduction](#introduction)
 - [The Concept (The First Generation)](#the-concept-the-first-generation)
+- [Disadvantages of the First Generation](#disadvantages-of-the-first-generation)
 - [The Second Generation](#the-second-generation)
 - [Web and Mobile versions](#web-and-mobile-versions)
 - [Translation (Arabic Version)](#translation-arabic-version)
@@ -113,8 +114,37 @@ Using the Time Machine slider, we can move to the past and run the program befor
 
 The previous screen shots uses PWCT 2.0 but, the same idea is implemented in the first generation of PWCT from 2011 (PWCT 1.8)
 
-
 These updates were enough to attract hundered thousands of developers to download the product and try it!
+
+# Disadvantages of the First Generation
+
+It's all about the implementation and the missing features!
+
+The concept is very good, that attracted many developers with different background and they started asking about many things!
+
+And Yes! some developers asked about improving the concept itself! (More innovation is required)
+
+1. Some developers reported that using Code Editors is too much flexibile and faster in some situtations 
+
+2. Support importing the source code (Convert source code files to Visual Source Files)
+
+3. Multiplatform support (Windows, Linux & macOS)
+
+4. Support Web & Mobile development 
+
+5. Support more programming languages
+
+6. Translation & Unicode 
+
+7. Opening many files and quick nagivation
+
+8. Modern Form Designer
+
+9. Support powerful libraries and frameworks
+
+I started to think about all of this and how I can implement all of these features!
+
+I discovered that I need a new programming language (Ring) that could help me to do this 
 
 # The Second Generation
 
