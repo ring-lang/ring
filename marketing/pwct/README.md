@@ -90,6 +90,8 @@ At that time, the advantages were very clear
 
 * Interaction with a tree (Steps Tree) provide the ability to control many nodes (Parent & Children) together (Faster)
 
+* The same component could generate different steps based on the data that we enter through data-entry forms 
+
 # Web and Mobile versions
 
 We can use PWCT on Desktop, Web & Mobile platforms.
