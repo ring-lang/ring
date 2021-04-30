@@ -8,6 +8,7 @@ Last Update: 2021.04.30
 - [Introduction](#introduction)
 - [Web and Mobile versions](#web-and-mobile-versions)
 - [Translation (Arabic Version)](#translation-arabic-version)
+- [The Release Date](#the-release-date)
 
 # Introduction 
 
@@ -79,6 +80,17 @@ PWCT 2.0 will comes with an Arabic version, other languages could be added in th
 
 ![webandmobile](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Arabic.jpg)
 
+# The Release Date
 
+Since we already have the first generation of the product (PWCT 1.9) we decided that in
+the second generation we will focus on the quality and accept the high costs (Development Time).
 
+Until now the product is usable and a lot of useful ideas are implemented and we are happy with
+the product, It's too much better than the first generation but, we are going to invest 
+more time to provide many useful resources around the software.
+
+Once we have a fixed release date we will update this document.
+
+The more we are investing our time in the development of this product, the more we save
+your time when you use it.
 
