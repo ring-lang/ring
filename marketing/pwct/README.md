@@ -84,6 +84,12 @@ At that time, the advantages were very clear
 
 * The generated steps tree (instead of source code) provides a chance for Maximum Readability
 
+* The generated steps could replace many lines of source code (Higher Abstraction)
+
+* The generated steps could be in many locations at the same time 
+
+* Interaction with a tree (Steps Tree) provide the ability to control many nodes (Parent & Children) together (Faster)
+
 # Web and Mobile versions
 
 We can use PWCT on Desktop, Web & Mobile platforms.
