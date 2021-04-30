@@ -67,8 +67,8 @@ a procedure of four simple steps
 
 4. Run the program
 
-The next diagram demonstrates what I wrote using a pen and paper to explain the idea to my
-friends.
+The next diagram demonstrates something similar to what I wrote using a pen and paper to explain the idea to my
+friends. (The diagram uses screen shots from PWCT 2.0 that doesn't exist at that time)
 
 ![concept](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Hello.png)
 
