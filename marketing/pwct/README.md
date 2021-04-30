@@ -7,8 +7,8 @@ Last Update: 2021.04.30
 
 - [Introduction](#introduction)
 - [The First Generation](#the-first-generation)
-  * [The Concept (The First Generation)](#the-concept-the-first-generation)
-  * [Disadvantages of the First Generation](#disadvantages-of-the-first-generation)
+  * [The Concept of the First Generation](#the-concept-of-the-first-generation)
+  * [The Disadvantages of the First Generation](#the-disadvantages-of-the-first-generation)
 - [The Second Generation](#the-second-generation)
 - [Improving the Implementation](#improving-the-implementation)
   * [Web and Mobile versions](#web-and-mobile-versions)
@@ -34,7 +34,7 @@ We used the first genertion (PWCT 1.9) to develop the Ring language Compiler and
 
 # The First Generation
 
-## The Concept (The First Generation)
+## The Concept of The First Generation
 
 Fifteen years ago (In Dec. 2005) I started to think about developing PWCT.
 
@@ -118,7 +118,7 @@ The previous screen shots uses PWCT 2.0 but, the same idea is implemented in the
 
 These updates were enough to attract hundered thousands of developers to download the product and try it!
 
-## Disadvantages of the First Generation
+## The Disadvantages of the First Generation
 
 It's all about the implementation and the missing features!
 
