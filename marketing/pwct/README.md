@@ -72,7 +72,7 @@ friends.
 
 ![concept](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Hello.png)
 
-At that time, the advantages was very clear
+At that time, the advantages were very clear
 
 * Selecting components means we can explore the programming system and start using it without previous knowledge.
 
