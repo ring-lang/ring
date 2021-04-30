@@ -9,8 +9,9 @@ Last Update: 2021.04.30
 - [The Concept (The First Generation)](#the-concept-the-first-generation)
 - [Disadvantages of the First Generation](#disadvantages-of-the-first-generation)
 - [The Second Generation](#the-second-generation)
-- [Web and Mobile versions](#web-and-mobile-versions)
-- [Translation (Arabic Version)](#translation-arabic-version)
+- [Improving the Implementation](#improving-the-implementation)
+  * [Web and Mobile versions](#web-and-mobile-versions)
+  * [Translation (Arabic Version)](#translation-arabic-version)
 - [The Release Date](#the-release-date)
 
 # Introduction 
@@ -167,7 +168,9 @@ I could be brave and say that after PWCT 2.0 development, I don't see any reason
 when developing Ring applications. The same could be applied for other textual programming languages when we 
 support them.
 
-# Web and Mobile versions
+# Improving the Implementation
+
+## Web and Mobile versions
 
 We can use PWCT on Desktop, Web & Mobile platforms.
 
@@ -193,7 +196,7 @@ Using foldable smartphones and Tablets provide better experience.
 
 ![webandmobile](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/WebAndMobile.png)
 
-# Translation (Arabic Version)
+## Translation (Arabic Version)
 
 One of the advantages of using Visual Programming and GUI over textual code editors is the easy translation of these User Interfaces to other natural languages.
 
