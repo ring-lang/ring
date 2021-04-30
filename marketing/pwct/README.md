@@ -100,19 +100,15 @@ from 2009 to 2013, We improved the system with the next features
 
 2. Adding Colors & Customization to the Steps Tree 
 
-2. Improving a domain-specific language that are used for developing the components
+3. Improving a domain-specific language that are used for developing the components
 
-3. Supporting more programming languages in the code generation layer
+4. Supporting more programming languages in the code generation layer
 
-* Article (PWCT For C#) : https://www.codeproject.com/Articles/113731/Using-C-NET-through-Programming-Without-Coding-Tec
+5. Adding the Time Dimension 
 
-* Article (PWCT For Python) : https://www.codeproject.com/Articles/693408/Using-Python-inside-Programming-Without-Coding-Tec
+5.1 Move to a point in the past and run the program
 
-4. Adding the Time Dimension 
-
-4.1 Move to a point in the past and run the program
-
-4.2 Play programs as movies to learn how to create a program step by step
+5.2 Play programs as movies to learn how to create a program step by step
 
 These updates were enough to attract hundered thousands of developers.
 
