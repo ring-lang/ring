@@ -3,6 +3,12 @@ Programming Without Coding Technology (PWCT) 2.0
 
 Last Update: 2021.04.30
 
+# Contents:
+
+- [Introduction](#introduction)
+- [Web and Mobile versions](#web-and-mobile-versions)
+- [Translation (Arabic Version)](#translation-arabic-version)
+
 # Introduction 
 
 In this folder we talk about the progress in PWCT 2.0 development.
