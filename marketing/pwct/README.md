@@ -146,9 +146,7 @@ Using foldable smartphones and Tablets provide better experience.
 
 # Translation (Arabic Version)
 
-One of the advantages of using Visual Programming and GUI over textual code editors is the easy translation
-
-of these User Interfaces to other natural languages.
+One of the advantages of using Visual Programming and GUI over textual code editors is the easy translation of these User Interfaces to other natural languages.
 
 PWCT 2.0 will comes with an Arabic version, other languages could be added in the future.
 
