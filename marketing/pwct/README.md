@@ -13,7 +13,7 @@ Last Update: 2021.04.30
 
 In this document we talk about the progress in PWCT 2.0 development.
 
-The document contains some news (Not a complete description for the product)
+This document contains some news (Not a complete description of the product)
 
 PWCT is a General-Purpose Visual Programming Language (http://pwct.org)
 
