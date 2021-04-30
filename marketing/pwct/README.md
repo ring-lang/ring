@@ -32,9 +32,9 @@ The second generation (PWCT 2.0) is under development using the Ring programming
 
 Our goal is to provide a more powerful version of the software that satisfy two conditions
 
-(1) To be the best tool to start learning about programming concepts
+(1) To be an easy tool to start learning about real programming concepts
 
-(2) To be a better replacement for textual code editors 
+(2) To be a better replacement for Textual Code Editors 
 
 In the first generation we tried to do the same things, we did a lot of mistakes, we 
 learned from them, we developed new ideas, and we implemented these ideas in PWCT 2.0
