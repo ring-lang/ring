@@ -182,7 +182,7 @@ better and practical. but we added the support to these platforms for two reason
 
 2- At some situations, these platforms are very useful. 
 
-2.1 - Some uses don't have desktop computers but have Mobile devices.
+2.1 - Some Users don't have Desktop computers but have Mobile devices.
 
 2.2 - At some places we could have only our Mobile devices and some free time for programming.
 
