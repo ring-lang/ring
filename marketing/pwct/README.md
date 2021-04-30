@@ -55,7 +55,9 @@ better and practical. but we added the support to these platforms for two reason
 2.2 - At some places we could have only our Mobile devices and some free time for programming.
 
 The Mobile screen is small, typing using the touch screen is slow
-compared to using a large keyboard. A lot of libraries doesn't exist on the these platforms.
+compared to using a large keyboard.
+
+Using foldable smartphones and Tablets provide better experience.
 
 ![webandmobile](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/WebAndMobile.png)
 
