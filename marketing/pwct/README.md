@@ -189,11 +189,13 @@ support them.
 
 ### Interactive Visualizations
 
-In the Goal Designer we can type some Ring code that create an object and a class.
+In the Goal Designer we can type Ring code directly and PWCT will do the visualization
+
+The next Ring code create an object and a class in one line.
 
 ![ft1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft1.png)
 
-We get the output in the steps tree 
+We get the visual output in the Steps Tree 
 
 ![ft2](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft2.png)
 
