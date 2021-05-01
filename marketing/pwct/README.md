@@ -14,6 +14,7 @@ Programming Without Coding Technology (PWCT) 2.0
 - [The Second Generation](#the-second-generation)
   - [Improving the Concept](#improving-the-concept)
     - [Interactive Visualizations](#interactive-visualizations)
+    - [Import Textual Source Code Files](#import-textual-source-code-files)
   - [Improving the Implementation](#improving-the-implementation)
     - [Web and Mobile versions](#web-and-mobile-versions)
     - [Translation (Arabic Version)](#translation-arabic-version)
@@ -222,6 +223,18 @@ We can call these functions
 So, if you are a Ring programmer and know how to write textual Code, You can reuse this knowledge and PWCT will not get in your way!
 
 ![ft8](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft8.png)
+
+### Import Textual Source Code Files
+
+PWCT 2.0 comes with Ring2PWCT that can import any textual source code file.
+
+We imported all of the Ring applications and samples
+
+For example the next screen shots for the Flappy Bird 3000 game
+
+![flappybird1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/flappybird1.png)
+
+![flappybird2](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/flappybird2.png)
 
 ## Improving the Implementation
 
