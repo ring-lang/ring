@@ -13,6 +13,7 @@ Programming Without Coding Technology (PWCT) 2.0
   - [The Disadvantages of the First Generation](#the-disadvantages-of-the-first-generation)
 - [The Second Generation](#the-second-generation)
   - [Improving the Concept](#improving-the-concept)
+    - [Interactive Visualizations](#interactive-visualizations)
   - [Improving the Implementation](#improving-the-implementation)
     - [Web and Mobile versions](#web-and-mobile-versions)
     - [Translation (Arabic Version)](#translation-arabic-version)
@@ -186,7 +187,7 @@ support them.
 
 3.2 - We can import textual source code files and complete projects written in Ring
 
-Example:
+### Interactive Visualizations
 
 In the Goal Designer we can type some Ring code that create an object and a class.
 
