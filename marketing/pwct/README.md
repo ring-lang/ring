@@ -12,6 +12,7 @@ Programming Without Coding Technology (PWCT) 2.0
   - [The Concept of the First Generation](#the-concept-of-the-first-generation)
   - [The Disadvantages of the First Generation](#the-disadvantages-of-the-first-generation)
 - [The Second Generation](#the-second-generation)
+  - [Improving the Concept](#improving-the-concept)
   - [Improving the Implementation](#improving-the-implementation)
     - [Web and Mobile versions](#web-and-mobile-versions)
     - [Translation (Arabic Version)](#translation-arabic-version)
@@ -172,6 +173,34 @@ learned from them and developed new ideas then we implemented these ideas in PWC
 I could be brave and say that after PWCT 2.0 development, I don't see any reason to use a Textual Code Editor
 when developing Ring applications. The same could be applied for other textual programming languages when we 
 support them.
+
+## Improving the Concept
+
+1. We designed the Ring language for high writability
+
+2. We designed PWCT for high readability 
+
+3. We supported using them together at the same time using (Ring2PWCT) 
+
+3.1 You can write Ring code directly and get the Visual Representation 
+
+3.2 You can import textual source code files and complete projects written in Ring
+
+![ft1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft1.png)
+
+![ft2](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft2.png)
+
+![ft3](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft3.png)
+
+![ft4](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft4.png)
+
+![ft5](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft5.png)
+
+![ft6](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft6.png)
+
+![ft7](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft7.png)
+
+![ft8](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft8.png)
 
 ## Improving the Implementation
 
