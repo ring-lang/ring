@@ -176,15 +176,15 @@ support them.
 
 ## Improving the Concept
 
-1. We designed the Ring language for high writability
+1- The Ring textual language is designed for high writability
 
-2. We designed PWCT for high readability 
+2- The PWCT visual language is designed for high readability 
 
-3. We supported using them together at the same time using (Ring2PWCT) 
+3- We can use them together at the same time using (Ring2PWCT) 
 
-3.1 You can write Ring code directly and get the Visual Representation 
+3.1 - We can write Ring code directly and get the Visual Representation 
 
-3.2 You can import textual source code files and complete projects written in Ring
+3.2 - We can import textual source code files and complete projects written in Ring
 
 ![ft1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft1.png)
 
