@@ -186,19 +186,37 @@ support them.
 
 3.2 - We can import textual source code files and complete projects written in Ring
 
+Example:
+
+In the Goal Designer we can type some Ring code that create an object and a class.
+
 ![ft1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft1.png)
+
+We get the output in the steps tree 
 
 ![ft2](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft2.png)
 
+We can continue and write more code, for example using a (For Loop) and (If statement)
+
 ![ft3](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft3.png)
+
+Again, we see the output in the steps tree 
 
 ![ft4](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft4.png)
 
+We can define three functions (one, two & three)
+
 ![ft5](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft5.png)
+
+The steps tree are updated 
 
 ![ft6](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft6.png)
 
+We can call these functions 
+
 ![ft7](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft7.png)
+
+So, if you are a Ring programmer and know how to write textual Code, You can reuse this knowledge and PWCT will not get in your way!
 
 ![ft8](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/ft8.png)
 
