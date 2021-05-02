@@ -35,7 +35,7 @@ Video about the First Generation (In 2013) : https://www.youtube.com/watch?v=wpx
 We learned a lot of things from this generation based on feedback from thousands of
 developers all over the world.
 
-We used the first genertion (PWCT 1.9) to develop the Ring language Compiler and VM.
+We used the first generation (PWCT 1.9) to develop the Ring language Compiler and VM.
 
 # The First Generation
 
