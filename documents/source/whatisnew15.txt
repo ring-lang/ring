@@ -57,6 +57,7 @@ The next samples are added to the samples folder
 	*  samples/UsingRayLib/more/ex9_jump_player3D_collision_detection.ring
 	*  samples/UsingRayLib/more/ex10_jump_player3D_long_way.ring
 	*  samples/UsingQt/String/QCharUnicodeValue.ring
+	*  samples/UsingQt/String/QCharUnicodeValue2.ring
 
 .. index:: 
 	pair: What is new in Ring 1.15?; More Improvements
