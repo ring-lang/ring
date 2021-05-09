@@ -18,11 +18,7 @@ class GameLevel
 		LevelStyle()
 		oGameCamera.GameLevelCameraView()
 
-		if nLevel > C_SHOW_ACTIVE_REGION_ONLY_AFTER_LEVEL
-			lShowActiveRegionOnly = True
-		else 
-			lShowActiveRegionOnly = False 
-		ok
+		lShowActiveRegionOnly = (nLevel > C_SHOW_ACTIVE_REGION_ONLY_AFTER_LEVEL)
 
 		cDrawingMode = :GamePlay
 		DrawLevel()
