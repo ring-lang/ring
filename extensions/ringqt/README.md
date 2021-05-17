@@ -35,6 +35,13 @@ How to build this extension using Qt 5.12.6
 
 (2) Build the extension : buildqt512.bat
 
+How to build this extension using Qt 5.15.0
+===========================================
+
+(1) Run the code generator : gencodeqt515_nobluetooth.bat
+
+(2) Build the extension : buildqt515_nobluetooth.bat
+
 
 Project Files
 =============
@@ -43,3 +50,13 @@ Project Files
 
 (2) ring_qt512.pro (Qt 5.12.6)
 
+Runtime Files
+=============
+
+The ring/bin folder must contains the Qt runtime files
+
+To copy Qt runtime files to ring/bin folder use one of the next batch files
+
+(1) ring/extensions/ringqt/binupdate/installqt512.bat  (For Qt 5.12)
+
+(2) ring/extensions/ringqt/binupdate/installqt515.bat (For Qt 5.15)
