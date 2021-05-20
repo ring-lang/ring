@@ -59,6 +59,12 @@ The next samples are added to the samples folder
 	*  samples/UsingQt/String/QCharUnicodeValue.ring
 	*  samples/UsingQt/String/QCharUnicodeValue2.ring
 
+
+Screen Shot:
+
+.. image:: jump3d.png
+	:alt: Jump3D
+
 .. index:: 
 	pair: What is new in Ring 1.15?; More Improvements
 
