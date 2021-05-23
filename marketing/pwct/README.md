@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 9 May 2021
+* Date last Updated: 23 May 2021
 
 # Contents:
 
@@ -16,6 +16,7 @@ Programming Without Coding Technology (PWCT) 2.0
     - [Interactive Visualizations](#interactive-visualizations)
     - [Import Textual Source Code Files](#import-textual-source-code-files)
   - [Improving the Implementation](#improving-the-implementation)
+    - [64-bit version](#64-bit-version)
     - [Open Many Files](#open-many-files)
     - [Web and Mobile versions](#web-and-mobile-versions)
     - [Translation (Arabic Version)](#translation-arabic-version)
@@ -240,6 +241,10 @@ For example the next screen shots for the Flappy Bird 3000 game
 ## Improving the Implementation
 
 In the second generation of PWCT, we worked on solving all of the reported problems in the design and implementation of the first generation. Also we implemented most feature requests that are useful and improve the flexibility of the product.  
+
+### 64-bit version
+
+PWCT 2.0 will comes with 64-bit version (no longer limited to ~4gb of memory)
 
 ### Open Many Files
 
