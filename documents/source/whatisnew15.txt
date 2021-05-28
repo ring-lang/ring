@@ -74,6 +74,7 @@ More Improvements
 * Form Designer - Better Translation
 * StdLib - List2Code() function - Support double quotation in list strings
 * StdLib - List2Code() function - Better Format - Add tabs before the items
+* StdLib - Split() function - Support using an empty string as delimiter
 * StdLib - StdFile Class - FTell() function - Better Code
 * Code Generator for extensions - Function prototype - Trim spaces in the output type 
 * RingLibCurl - curl_easy_setopt() support passing (CURLLIST *) as the third parameter
