@@ -243,6 +243,15 @@ Func Filter alist,cFunc
 
 Func Split(cString, delimiter)
 
+	# Support using an empty string as delimiter 
+		if delimiter = ""
+			aOutput = []
+			for cLetter in cString 
+				aOutput + cLetter 
+			next 
+			return aOutput 
+		ok
+
 	doubleSpace = "  "
 	singleSpace = " "
 	singleTab   = char(9)
