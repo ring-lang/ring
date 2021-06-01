@@ -7,8 +7,6 @@
 
 func main
 
-	t = 10
-
 	aList = [ 
 		func aPara {
 			? "test using global"
