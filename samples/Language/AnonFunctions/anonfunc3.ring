@@ -19,7 +19,7 @@ func main
 		, [
 			:name = "Ring",
 			:license = "MIT",
-			:version = "1.14"
+			:version = version()
 		]
 	]
 
