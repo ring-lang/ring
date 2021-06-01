@@ -1,10 +1,16 @@
-x = 100
+# Global Variables
+
+	x = 100
 
 func main
 
-	f = func {
-		? "test using global"
-		? x
-	}
+	# Define the Anonymous Function
 
-	call f()
+		f = func {
+			? "test using global"
+			? x
+		}
+
+	# Call the function
+
+		call f()
