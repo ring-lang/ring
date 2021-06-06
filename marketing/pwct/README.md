@@ -259,7 +259,7 @@ PWCT 2.0 support starting new interactions at any location in the steps tree (No
 
 The new steps will be inserted in the right location
 
-This feature is supporting while using components, Ring2PWCT or Paste operations
+This feature is supported while using components, Ring2PWCT and Paste operations
 
 ### Web and Mobile versions
 
