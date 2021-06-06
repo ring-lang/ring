@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 23 May 2021
+* Date last Updated: 6 June 2021
 
 # Contents:
 
@@ -18,6 +18,7 @@ Programming Without Coding Technology (PWCT) 2.0
   - [Improving the Implementation](#improving-the-implementation)
     - [64-bit version](#64-bit-version)
     - [Open Many Files](#open-many-files)
+    - [Inserting Steps](#inserting-steps)
     - [Web and Mobile versions](#web-and-mobile-versions)
     - [Translation (Arabic Version)](#translation-arabic-version)
   - [The Release Date](#the-release-date)
@@ -251,6 +252,14 @@ PWCT 2.0 will comes with 64-bit version (no longer limited to ~4gb of memory)
 PWCT 2.0 Support opening many visual source files at the same time
 
 ![manyfiles](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/openmanyfiles.png)
+
+### Inserting Steps
+
+PWCT 2.0 support starting new interactions at any location in the steps tree (Not just Start Here steps)
+
+The new steps will be inserted in the right location
+
+This feature is supporting while using components, Ring2PWCT or Paste operations
 
 ### Web and Mobile versions
 
