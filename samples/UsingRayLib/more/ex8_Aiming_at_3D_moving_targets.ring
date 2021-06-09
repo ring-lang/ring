@@ -1,9 +1,7 @@
-#================================#
-# Aiming at 3d moving targets                    
-#================================#
-#--------- 08-02-2021
-# Author : Azzeddine Remmal    
-#================================#
+#=====================================================#
+# Copyright (c) 2020  Ramon Santamaria (@raysan5)
+# Ported to RingRayLib by (Azzeddine Remmal) 
+#=====================================================#
 
 load "raylib.ring"
 
