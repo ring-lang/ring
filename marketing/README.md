@@ -3,9 +3,9 @@ Marketing Folder
 
 In this folder we have files related to the Ring language marketing
 
-(1) Ring Website
+(1) Ring Website (Generated using Ring code)
 
-(2) Presentation
+(2) Presentation (Microsoft PowerPoint file)
 
 (3) Graphics Files
 
