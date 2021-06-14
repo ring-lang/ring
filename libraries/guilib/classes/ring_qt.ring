@@ -31824,6 +31824,20 @@ Class QCompleter3 from QCompleter
 	Func ObjectPointer
 		return pObject
 
+Class QCompleter4 from QCompleter
+
+	pObject
+
+	Func init P1,P2
+		pObject = QCompleter4_new(GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
+		return self
+
+	Func delete
+		pObject = QCompleter4_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
 Class QScrollBar from QAbstractSlider
 
 	pObject
