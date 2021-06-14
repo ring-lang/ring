@@ -49,6 +49,7 @@ extern "C" {
 #include "gcolordialog.h"
 #include "gfontdialog.h"
 #include "gfiledialog.h"
+#include "mscompleter.h"
 #include <QtWidgets>
 
 
@@ -325,6 +326,7 @@ extern "C" {
 	void ring_QCompleter_freefunc(void *pState,void *pPointer);
 	void ring_QCompleter2_freefunc(void *pState,void *pPointer);
 	void ring_QCompleter3_freefunc(void *pState,void *pPointer);
+	void ring_QCompleter4_freefunc(void *pState,void *pPointer);
 	void ring_QMdiArea_freefunc(void *pState,void *pPointer);
 	void ring_QMdiSubWindow_freefunc(void *pState,void *pPointer);
 	void ring_QListView_freefunc(void *pState,void *pPointer);
@@ -135174,6 +135176,21 @@ RING_FUNC(ring_QCompleter3_new)
 	RING_API_RETCPOINTER(pObject,"QCompleter3");
 }
 
+RING_FUNC(ring_QCompleter4_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	MultiSelectCompleter *pObject = new MultiSelectCompleter(* (QStringList  *) RING_API_GETCPOINTER(1,"QStringList"),(QObject *) RING_API_GETCPOINTER(2,"QObject"));
+	RING_API_RETCPOINTER(pObject,"QCompleter4");
+}
+
 RING_FUNC(ring_QMdiArea_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -138773,6 +138790,23 @@ RING_FUNC(ring_QCompleter3_delete)
 	}
 }
 
+RING_FUNC(ring_QCompleter4_delete)
+{
+	MultiSelectCompleter *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (MultiSelectCompleter *) RING_API_GETCPOINTER(1,"MultiSelectCompleter");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QMdiArea_delete)
 {
 	QMdiArea *pObject ; 
@@ -141007,6 +141041,13 @@ void ring_QCompleter3_freefunc(void *pState,void *pPointer)
 {
 	QCompleter *pObject ; 
 	pObject = (QCompleter *) pPointer;
+	delete pObject ;
+}
+
+void ring_QCompleter4_freefunc(void *pState,void *pPointer)
+{
+	MultiSelectCompleter *pObject ; 
+	pObject = (MultiSelectCompleter *) pPointer;
 	delete pObject ;
 }
 
@@ -148180,6 +148221,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcompleter_new",ring_QCompleter_new);
 	ring_vm_funcregister("qcompleter2_new",ring_QCompleter2_new);
 	ring_vm_funcregister("qcompleter3_new",ring_QCompleter3_new);
+	ring_vm_funcregister("qcompleter4_new",ring_QCompleter4_new);
 	ring_vm_funcregister("qmdiarea_new",ring_QMdiArea_new);
 	ring_vm_funcregister("qmdisubwindow_new",ring_QMdiSubWindow_new);
 	ring_vm_funcregister("qlistview_new",ring_QListView_new);
@@ -148401,6 +148443,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qcompleter_delete",ring_QCompleter_delete);
 	ring_vm_funcregister("qcompleter2_delete",ring_QCompleter2_delete);
 	ring_vm_funcregister("qcompleter3_delete",ring_QCompleter3_delete);
+	ring_vm_funcregister("qcompleter4_delete",ring_QCompleter4_delete);
 	ring_vm_funcregister("qmdiarea_delete",ring_QMdiArea_delete);
 	ring_vm_funcregister("qmdisubwindow_delete",ring_QMdiSubWindow_delete);
 	ring_vm_funcregister("qlistview_delete",ring_QListView_delete);
