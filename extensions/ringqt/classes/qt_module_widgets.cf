@@ -68,6 +68,7 @@
 <loadfile> widgets/qcompleter.cf
 <loadfile> widgets/qcompleter2.cf
 <loadfile> widgets/qcompleter3.cf
+<loadfile> widgets/qcompleter4.cf
 <loadfile> widgets/qmdiarea.cf
 <loadfile> widgets/qmdisubwindow.cf
 <loadfile> widgets/qlistview.cf

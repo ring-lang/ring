@@ -49,6 +49,7 @@ SOURCES +=   \
     cpp/src/gdrag.cpp \
     cpp/src/ggraphicsscene.cpp \
     cpp/src/gmovie.cpp \
+    cpp/src/mscompleter.cpp \
     cpp/src/ring_qt.cpp
 
 HEADERS  += \
@@ -88,7 +89,8 @@ HEADERS  += \
     cpp/include/gtabbar.h \
     cpp/include/gdrag.h \
     cpp/include/ggraphicsscene.h \
-    cpp/include/gmovie.h 
+    cpp/include/gmovie.h \
+    cpp/include/mscompleter.h 
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include
