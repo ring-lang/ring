@@ -2809,6 +2809,19 @@ Parent Class : QCompleter
 
 
 .. index::
+	pair: RingQt Classes Reference; QCompleter4 Class
+
+QCompleter4 Class
+=================
+
+
+Parameters : QStringList list, QObject *parent
+
+
+Parent Class : QCompleter
+
+
+.. index::
 	pair: RingQt Classes Reference; QConeGeometry Class
 
 QConeGeometry Class
