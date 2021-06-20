@@ -246,6 +246,10 @@ Quotes about Ring
 |	**"Wow, that is pretty amazing! It's not every day to hear about a new programming language that looks actually cool! Oh wow, didn't even see the VB-like features there. This has some real potential!"**
 |		, EternityForest (reddit)
 
+|	**"I am a big fan of your works I look forward to contributing to some of your projects in the future."**
+|		, Adewale Azeez (Nigeria)
+
+
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
 
