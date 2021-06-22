@@ -387,5 +387,14 @@
 					'<a href="http://ring-lang-081.osdn.jp/docs-1.14/index.html" target="_blank">Ring Documentation</a>'
 				]
 			]
+	     ],
+	     ["Programming Languages influenced by Ring",[
+				[
+					'<a href="https://github.com/theratioproject/simple" target="_blank">Simple programming language</a>'
+				],
+				[
+					'<a href="https://www.dragon-lang.org/" target="_blank">Dragon programming language</a>'
+				]
+			]
 	     ]
 ]
