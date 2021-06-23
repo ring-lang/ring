@@ -87,6 +87,7 @@ More Improvements
 * RingQt - QByteArray Class - Replace() Method - Multiple versions and better code
 * RingQt - QTabWidget Class - TabBar() Method
 * RingQt - QCompleter4 Class
+* RingQt - QVector3D Class - Project() and UnProject() Methods
 * RingQt For WebAssembly - Download File - Support Binary File
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
 * Ring VM - ring_state_stringtokens() function
