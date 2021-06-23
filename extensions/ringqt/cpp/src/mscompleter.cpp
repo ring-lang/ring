@@ -19,6 +19,22 @@ MultiSelectCompleter::~MultiSelectCompleter()
 {
 }
 
+char MultiSelectCompleter::getsplitOperator( const QString& path ) const
+{
+    int  nLastPos = 0;
+    const char *cOperators = ",+-*/%(<>=&|!^";
+    char cSplitOperator = ',' ;
+   
+    for (int t = 0 ; t < strlen(cOperators) ; t++ ) {
+        int pos = path.lastIndexOf( cOperators[t] );
+        if ( pos >= nLastPos ) {
+            nLastPos = pos;
+            cSplitOperator = cOperators[t] ;
+        }
+    }
+    return cSplitOperator;
+}
+
 QString MultiSelectCompleter::pathFromIndex( const QModelIndex& index ) const
 {
     QString path = QCompleter::pathFromIndex( index );
@@ -31,22 +47,6 @@ QString MultiSelectCompleter::pathFromIndex( const QModelIndex& index ) const
        path = text.left( pos ) + cSplitOperartor + ' ' + QCompleter::pathFromIndex( index );
 
     return path;
-}
-
-char MultiSelectCompleter::getsplitOperator( const QString& path ) const
-{
-    int  nLastPos = 0;
-    char cOperators[8] = ",+-*/%(";
-    char cSplitOperator = ',' ;
-   
-    for (int t = 0 ; t < strlen(cOperators) ; t++ ) {
-        int pos = path.lastIndexOf( cOperators[t] );
-        if ( pos >= nLastPos ) {
-            nLastPos = pos;
-            cSplitOperator = cOperators[t] ;
-        }
-    }
-    return cSplitOperator;
 }
 
 QStringList MultiSelectCompleter::splitPath( const QString& path ) const
