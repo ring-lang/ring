@@ -12,9 +12,7 @@ float length(void)
 float lengthSquared(void)
 void normalize(void)
 QVector3D normalized(void)
-<comment>
 QVector3D project(QMatrix4x4 modelView, QMatrix4x4 projection, QRect viewport)
-</comment>
 void setX(float x)
 void setY(float y)
 void setZ(float z)
@@ -22,9 +20,7 @@ QPoint toPoint(void)
 QPointF toPointF(void)
 QVector2D toVector2D(void)
 QVector4D toVector4D(void)
-<comment>
 QVector3D unproject(QMatrix4x4 modelView, QMatrix4x4 projection, QRect viewport)
-</comment>
 float x(void)
 float y(void)
 float z(void)

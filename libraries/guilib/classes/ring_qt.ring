@@ -8262,6 +8262,11 @@ Class QVector3D
 		pTempObj.pObject = QVector3D_normalized(pObject)
 		return pTempObj
 
+	Func project P1,P2,P3
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector3D_project(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
+		return pTempObj
+
 	Func setX P1
 		return QVector3D_setX(pObject,P1)
 
@@ -8289,6 +8294,11 @@ Class QVector3D
 	Func toVector4D 
 		pTempObj = new QVector4D
 		pTempObj.pObject = QVector3D_toVector4D(pObject)
+		return pTempObj
+
+	Func unproject P1,P2,P3
+		pTempObj = new QVector3D
+		pTempObj.pObject = QVector3D_unproject(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3))
 		return pTempObj
 
 	Func x 
