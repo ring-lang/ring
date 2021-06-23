@@ -25,16 +25,11 @@ QString MultiSelectCompleter::pathFromIndex( const QModelIndex& index ) const
 
     QString text = static_cast<QLineEdit*>( widget() )->text();
 
-    int nLastPos = 0;
-    char cOperators[8] = ",+-*/%(";
-   
-    for (int t = 0 ; t < strlen(cOperators) ; t++ ) {
-        int pos = text.lastIndexOf( cOperators[t] );
-        if ( pos >= nLastPos ) {
-            nLastPos = pos;
-            path = text.left( pos ) + cOperators[t] + ' ' + QCompleter::pathFromIndex( index );
-        }
-    }
+    char cSplitOperartor = this->getsplitOperator(text) ;
+    int pos = text.lastIndexOf( cSplitOperartor );
+    if ( pos >= 0 ) 
+       path = text.left( pos ) + cSplitOperartor + ' ' + QCompleter::pathFromIndex( index );
+
     return path;
 }
 
