@@ -17,7 +17,7 @@ public:
     ~MultiSelectCompleter();
 
 public:
-    char cSplitOperator ;
+    char getsplitOperator( const QString& path ) const;
     QString pathFromIndex( const QModelIndex& index ) const;
     QStringList splitPath( const QString& path ) const;
 };
