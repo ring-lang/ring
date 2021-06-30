@@ -19,8 +19,8 @@ Programming Without Coding Technology (PWCT) 2.0
     - [64-bit version](#64-bit-version)
     - [Open Many Files](#open-many-files)
     - [Inserting Steps](#inserting-steps)
-    - [Web and Mobile versions](#web-and-mobile-versions)
     - [Auto-Complete](#auto-complete)
+    - [Web and Mobile versions](#web-and-mobile-versions)
     - [Translation (Arabic Version)](#translation-arabic-version)
   - [The Release Date](#the-release-date)
 
