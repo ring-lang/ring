@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2020 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 extern "C" {
 	#include "ring.h"
@@ -43778,6 +43778,34 @@ RING_FUNC(ring_QVector3D_normalized)
 }
 
 
+RING_FUNC(ring_QVector3D_project)
+{
+	QVector3D *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVector3D *) RING_API_GETCPOINTER(1,"QVector3D");
+	{
+		QVector3D *pValue ; 
+		pValue = new QVector3D() ;
+		*pValue = pObject->project(* (QMatrix4x4  *) RING_API_GETCPOINTER(2,"QMatrix4x4"),* (QMatrix4x4  *) RING_API_GETCPOINTER(3,"QMatrix4x4"),* (QRect  *) RING_API_GETCPOINTER(4,"QRect"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMatrix4x4"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QMatrix4x4"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QRect"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVector3D",ring_QVector3D_freefunc);
+	}
+}
+
+
 RING_FUNC(ring_QVector3D_setX)
 {
 	QVector3D *pObject ;
@@ -43925,6 +43953,34 @@ RING_FUNC(ring_QVector3D_toVector4D)
 		pValue = new QVector4D() ;
 		*pValue = pObject->toVector4D();
 		RING_API_RETMANAGEDCPOINTER(pValue,"QVector4D",ring_QVector4D_freefunc);
+	}
+}
+
+
+RING_FUNC(ring_QVector3D_unproject)
+{
+	QVector3D *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QVector3D *) RING_API_GETCPOINTER(1,"QVector3D");
+	{
+		QVector3D *pValue ; 
+		pValue = new QVector3D() ;
+		*pValue = pObject->unproject(* (QMatrix4x4  *) RING_API_GETCPOINTER(2,"QMatrix4x4"),* (QMatrix4x4  *) RING_API_GETCPOINTER(3,"QMatrix4x4"),* (QRect  *) RING_API_GETCPOINTER(4,"QRect"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QMatrix4x4"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QMatrix4x4"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"QRect"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"QVector3D",ring_QVector3D_freefunc);
 	}
 }
 
@@ -47830,6 +47886,11 @@ RING_FUNC(ring_QApp_keyboardModifiers)
 		return ;
 	}
 	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
+}
+
+RING_FUNC(ring_QApp_clipboard)
+{
+	RING_API_RETCPOINTER(qApp->clipboard(),"QClipboard");
 }
 
 
@@ -143598,6 +143659,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvector3d_lengthsquared",ring_QVector3D_lengthSquared);
 	ring_vm_funcregister("qvector3d_normalize",ring_QVector3D_normalize);
 	ring_vm_funcregister("qvector3d_normalized",ring_QVector3D_normalized);
+	ring_vm_funcregister("qvector3d_project",ring_QVector3D_project);
 	ring_vm_funcregister("qvector3d_setx",ring_QVector3D_setX);
 	ring_vm_funcregister("qvector3d_sety",ring_QVector3D_setY);
 	ring_vm_funcregister("qvector3d_setz",ring_QVector3D_setZ);
@@ -143605,6 +143667,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qvector3d_topointf",ring_QVector3D_toPointF);
 	ring_vm_funcregister("qvector3d_tovector2d",ring_QVector3D_toVector2D);
 	ring_vm_funcregister("qvector3d_tovector4d",ring_QVector3D_toVector4D);
+	ring_vm_funcregister("qvector3d_unproject",ring_QVector3D_unproject);
 	ring_vm_funcregister("qvector3d_x",ring_QVector3D_x);
 	ring_vm_funcregister("qvector3d_y",ring_QVector3D_y);
 	ring_vm_funcregister("qvector3d_z",ring_QVector3D_z);
@@ -143797,6 +143860,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qapp_stylefusioncustom",ring_QApp_styleFusionCustom);
 	ring_vm_funcregister("qapp_closeallwindows",ring_QApp_closeAllWindows);
 	ring_vm_funcregister("qapp_keyboardmodifiers",ring_QApp_keyboardModifiers);
+	ring_vm_funcregister("qapp_clipboard",ring_QApp_clipboard);
 	ring_vm_funcregister("qwidget_acceptdrops",ring_QWidget_acceptDrops);
 	ring_vm_funcregister("qwidget_accessibledescription",ring_QWidget_accessibleDescription);
 	ring_vm_funcregister("qwidget_accessiblename",ring_QWidget_accessibleName);
