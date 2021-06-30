@@ -111,7 +111,7 @@ Also, using the same source code we can distribute our applications for Desktop,
 
 We believe in Games as a nice way to encourage people to learn to program.
 Ring comes with many game programming libraries in the standard library.
-Ring provides native support for Allegro, LibSDL, RayLib, OpenGL, and Qt3D libraries.
+Ring provides native support for Allegro, LibSDL, RayLib, OpenGL, FreeGLUT, Tilengine and Qt3D libraries.
 Also, Ring comes with a simple game engine for 2D game development using Declarative Programming.
 
 ![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/ringdemo13.png)
