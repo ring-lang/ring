@@ -143,6 +143,11 @@ ok
 
 $globals = []
 
+# Allow methods to return objects of these types that have classes without init() methods
+# I.e. classes that uses (nonew) in their definition like QClipboard in RingQt
+
+$aNoNewClassesException = []  
+
 Func Main
 	if len(sysargv) < 3
 		See "Input : filename.cf is missing!" + nl
@@ -1323,10 +1328,11 @@ Func GenRingCode aList
 						if $aClassesList[nIndex][C_CLASSESLIST_PARENT] != ""
 							cCode += " from " + $aClassesList[nIndex][C_CLASSESLIST_PARENT]
 						ok
+						cCode += nl+nl+
+						C_TABS_1 + "pObject" + nl + nl
+						
 						if $aClassesList[nIndex][C_CLASSESLIST_NONEW] = false
-						  cCode += nl+nl+
-						  C_TABS_1 + "pObject" + nl + nl +
-						  C_TABS_1 + "Func init " + 
+						  cCode += C_TABS_1 + "Func init " + 
 						  GenRingCodeParaList(ParaList($aClassesList[nIndex][C_CLASSESLIST_PARA])) + nl +
 						  C_TABS_2 + "pObject = " + cClassName + "_new(" + 
 						  GenRingCodeParaListUse(ParaList($aClassesList[nIndex][C_CLASSESLIST_PARA])) +")"+nl+
@@ -1336,7 +1342,9 @@ Func GenRingCode aList
 						  C_TABS_1 + "Func ObjectPointer" + nl +
 						  C_TABS_2 + "return pObject" + nl 					
 						else
-							del($aClassesList,nIndex)
+							if ! find ($aNoNewClassesException,cClassName)
+								del($aClassesList,nIndex)
+							ok
 						ok
 					else
 						cCode += nl + nl
