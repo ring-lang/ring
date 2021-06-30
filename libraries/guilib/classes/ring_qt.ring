@@ -1603,6 +1603,10 @@ Class QDate
 		return QDate_shortMonthName(pObject,P1)
 
 Class QTextCodec
+
+	pObject
+
+
 	Func codecForName P1
 		return QTextCodec_codecForName(P1)
 
@@ -3363,6 +3367,10 @@ Class QDateTime
 		return pTempObj
 
 Class QCoreApplication from QObject
+
+	pObject
+
+
 	Func installNativeEventFilter P1
 		return QCoreApplication_installNativeEventFilter(GetObjectPointerFromRingObject(P1))
 
@@ -3567,6 +3575,10 @@ Class QFile from QFileDevice
 		return QFile_symLinkTarget_2(pObject,P1)
 
 Class QFileDevice from QIODevice
+
+	pObject
+
+
 	Func error 
 		return QFileDevice_error()
 
@@ -3598,6 +3610,10 @@ Class QFileDevice from QIODevice
 		return QFileDevice_unsetError()
 
 Class QStandardPaths
+
+	pObject
+
+
 	Func displayName P1
 		return QStandardPaths_displayName(P1)
 
@@ -4724,6 +4740,10 @@ Class QMutexLocker
 		return QMutexLocker_unlock(pObject)
 
 Class QDesktopServices
+
+	pObject
+
+
 	Func openUrl P1
 		return QDesktopServices_openUrl(GetObjectPointerFromRingObject(P1))
 
@@ -8846,53 +8866,57 @@ Class QDragMoveEvent from QDropEvent
 		return QDragMoveEvent_ignore_2(pObject)
 
 Class QClipboard
+
+	pObject
+
+
 	Func clear P1
-		return QClipboard_clear(P1)
+		return QClipboard_clear(pObject,P1)
 
 	Func image P1
 		pTempObj = new QImage
-		pTempObj.pObject = QClipboard_image(P1)
+		pTempObj.pObject = QClipboard_image(pObject,P1)
 		return pTempObj
 
 	Func mimeData P1
 		pTempObj = new QMimeData
-		pTempObj.pObject = QClipboard_mimeData(P1)
+		pTempObj.pObject = QClipboard_mimeData(pObject,P1)
 		return pTempObj
 
 	Func ownsClipboard 
-		return QClipboard_ownsClipboard()
+		return QClipboard_ownsClipboard(pObject)
 
 	Func ownsFindBuffer 
-		return QClipboard_ownsFindBuffer()
+		return QClipboard_ownsFindBuffer(pObject)
 
 	Func ownsSelection 
-		return QClipboard_ownsSelection()
+		return QClipboard_ownsSelection(pObject)
 
 	Func pixmap P1
 		pTempObj = new QPixmap
-		pTempObj.pObject = QClipboard_pixmap(P1)
+		pTempObj.pObject = QClipboard_pixmap(pObject,P1)
 		return pTempObj
 
 	Func setImage P1,P2
-		return QClipboard_setImage(GetObjectPointerFromRingObject(P1),P2)
+		return QClipboard_setImage(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func setMimeData P1,P2
-		return QClipboard_setMimeData(GetObjectPointerFromRingObject(P1),P2)
+		return QClipboard_setMimeData(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func setPixmap P1,P2
-		return QClipboard_setPixmap(GetObjectPointerFromRingObject(P1),P2)
+		return QClipboard_setPixmap(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func setText P1,P2
-		return QClipboard_setText(P1,P2)
+		return QClipboard_setText(pObject,P1,P2)
 
 	Func supportsFindBuffer 
-		return QClipboard_supportsFindBuffer()
+		return QClipboard_supportsFindBuffer(pObject)
 
 	Func supportsSelection 
-		return QClipboard_supportsSelection()
+		return QClipboard_supportsSelection(pObject)
 
 	Func text P1
-		return QClipboard_text(P1)
+		return QClipboard_text(pObject,P1)
 
 Class QMovie from QObject
 
@@ -10601,6 +10625,10 @@ Class QOpenGLPaintDevice from QPaintDevice
 		return pTempObj
 
 Class QPaintDevice
+
+	pObject
+
+
 	Func colorCount 
 		return QPaintDevice_colorCount()
 
@@ -11633,6 +11661,10 @@ Class QOpenGLTexture
 		return QOpenGLTexture_hasFeature(pObject,P1)
 
 Class QApp from QGuiApplication
+
+	pObject
+
+
 	Func exec 
 		return QApp_exec()
 
@@ -11662,6 +11694,11 @@ Class QApp from QGuiApplication
 
 	Func keyboardModifiers 
 		return QApp_keyboardModifiers()
+
+	Func clipboard 
+		pTempObj = new QClipboard
+		pTempObj.pObject = QApp_clipboard()
+		return pTempObj
 
 Class QWidget from QObject
 
@@ -21162,6 +21199,10 @@ Class QOpenGLWidget from QWidget
 		return QOpenGLWidget_updateBehavior(pObject)
 
 Class QTest
+
+	pObject
+
+
 	Func qsleep P1
 		return QTest_qsleep(P1)
 
@@ -23590,6 +23631,10 @@ Class QGeoAreaMonitorInfo
 		return QGeoAreaMonitorInfo_setPersistent(pObject,P1)
 
 Class QGeoAreaMonitorSource from QObject
+
+	pObject
+
+
 	Func sourceName 
 		return QGeoAreaMonitorSource_sourceName()
 
@@ -23852,6 +23897,10 @@ Class QGeoSatelliteInfo
 		return QGeoSatelliteInfo_signalStrength(pObject)
 
 Class QGeoSatelliteInfoSource
+
+	pObject
+
+
 	Func sourceName 
 		return QGeoSatelliteInfoSource_sourceName()
 
@@ -28227,6 +28276,10 @@ Class QBarSet from QObject
 		return QBarSet_getvaluesRemovedEvent(pObject)
 
 Class QAreaLegendMarker from QLegendMarker
+
+	pObject
+
+
 	Func series 
 		pTempObj = new QAreaSeries
 		pTempObj.pObject = QAreaLegendMarker_series()
@@ -28236,6 +28289,10 @@ Class QAreaLegendMarker from QLegendMarker
 		return QAreaLegendMarker_type()
 
 Class QBarLegendMarker from QLegendMarker
+
+	pObject
+
+
 	Func barset 
 		pTempObj = new QBarSet
 		pTempObj.pObject = QBarLegendMarker_barset()
@@ -28245,6 +28302,10 @@ Class QBarLegendMarker from QLegendMarker
 		return QBarLegendMarker_series()
 
 Class QBoxPlotLegendMarker from QLegendMarker
+
+	pObject
+
+
 	Func series 
 		pTempObj = new QBoxPlotSeries
 		pTempObj.pObject = QBoxPlotLegendMarker_series()
@@ -28509,6 +28570,10 @@ Class QBoxSet from QObject
 		return QBoxSet_getvaluesChangedEvent(pObject)
 
 Class QCandlestickLegendMarker from QLegendMarker
+
+	pObject
+
+
 	Func series 
 		pTempObj = new QCandlestickSeries
 		pTempObj.pObject = QCandlestickLegendMarker_series()
@@ -29781,6 +29846,10 @@ Class QHorizontalStackedBarSeries from QAbstractBarSeries
 		return QHorizontalStackedBarSeries_type(pObject)
 
 Class QLegend from QGraphicsWidget
+
+	pObject
+
+
 	Func alignment 
 		return QLegend_alignment()
 
@@ -31223,6 +31292,10 @@ Class QValueAxis from QAbstractAxis
 		return QValueAxis_gettickTypeChangedEvent(pObject)
 
 Class QXYLegendMarker from QLegendMarker
+
+	pObject
+
+
 	Func series 
 		pTempObj = new QXYSeries
 		pTempObj.pObject = QXYLegendMarker_series()

@@ -15,6 +15,7 @@ void styleFusionBlack(void)
 void styleFusionCustom(QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor)
 void closeAllWindows(void)
 Qt::KeyboardModifiers keyboardModifiers(void)
+QClipboard *clipboard(void)
 </register>
 
 <code>
@@ -139,6 +140,11 @@ RING_FUNC(ring_QApp_keyboardModifiers)
 		return ;
 	}
 	RING_API_RETNUMBER( (double) qApp->keyboardModifiers() );
+}
+
+RING_FUNC(ring_QApp_clipboard)
+{
+	RING_API_RETCPOINTER(qApp->clipboard(),"QClipboard");
 }
 
 </code>

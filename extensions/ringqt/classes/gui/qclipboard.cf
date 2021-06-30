@@ -1,3 +1,5 @@
+$aNoNewClassesException + "QClipboard"
+
 <class>
 name: QClipboard
 nonew
