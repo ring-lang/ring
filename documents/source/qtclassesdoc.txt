@@ -836,6 +836,7 @@ Parent Class : QGuiApplication
 * void styleFusionCustom(QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor)
 * void closeAllWindows(void)
 * Qt::KeyboardModifiers keyboardModifiers(void)
+* QClipboard *clipboard(void)
 
 .. index::
 	pair: RingQt Classes Reference; QAreaLegendMarker Class
@@ -12564,12 +12565,16 @@ Parameters : float,float,float
 * float lengthSquared(void)
 * void normalize(void)
 * QVector3D normalized(void)
+* QVector3D project(QMatrix4x4 modelView, QMatrix4x4 projection, QRect viewport)
+* void setX(float x)
 * void setY(float y)
 * void setZ(float z)
 * QPoint toPoint(void)
 * QPointF toPointF(void)
 * QVector2D toVector2D(void)
 * QVector4D toVector4D(void)
+* QVector3D unproject(QMatrix4x4 modelView, QMatrix4x4 projection, QRect viewport)
+* float x(void)
 * float y(void)
 * float z(void)
 * QVector3D crossProduct(QVector3D v1, QVector3D v2)
