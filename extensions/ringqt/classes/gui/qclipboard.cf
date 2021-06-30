@@ -1,4 +1,6 @@
+<runcode>
 $aNoNewClassesException + "QClipboard"
+</runcode>
 
 <class>
 name: QClipboard
