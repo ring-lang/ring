@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 6 June 2021
+* Date last Updated: 30 June 2021
 
 # Contents:
 
@@ -20,6 +20,7 @@ Programming Without Coding Technology (PWCT) 2.0
     - [Open Many Files](#open-many-files)
     - [Inserting Steps](#inserting-steps)
     - [Web and Mobile versions](#web-and-mobile-versions)
+    - [Auto-Complete](#auto-complete)
     - [Translation (Arabic Version)](#translation-arabic-version)
   - [The Release Date](#the-release-date)
 
@@ -260,6 +261,13 @@ PWCT 2.0 support starting new interactions at any location in the steps tree (No
 The new steps will be inserted in the right location
 
 This feature is supported while using components, Ring2PWCT and Paste operations
+
+### Auto-Complete
+
+In PWCT 2.0 Interaction Pages, we have better usability through default values, search in listboxes and better 
+auto-complete.
+
+![autocomplete](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/autocomplete.png)
 
 ### Web and Mobile versions
 
