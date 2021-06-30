@@ -65,6 +65,7 @@ The next samples are added to the samples folder
 	*  samples/UsingQt/String/QCharUnicodeValue.ring
 	*  samples/UsingQt/String/QCharUnicodeValue2.ring
 	*  samples/UsingQt/Clipboard/QTextEditClipboard.ring
+	*  samples/UsingQt/Clipboard/UsingQClipboard.ring
 
 Screen Shot:
 
