@@ -15841,6 +15841,271 @@ RING_FUNC(ring_QString2_fill)
 }
 
 
+RING_FUNC(ring_QString2_localeAwareCompare)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->localeAwareCompare(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_QString2_leftJustified)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->leftJustified( (int ) RING_API_GETNUMBER(2),* (QChar  *) RING_API_GETCPOINTER(3,"QChar"), (bool ) RING_API_GETNUMBER(4)).toStdString().c_str());
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QChar"));
+}
+
+
+RING_FUNC(ring_QString2_rightJustified)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->rightJustified( (int ) RING_API_GETNUMBER(2),* (QChar  *) RING_API_GETCPOINTER(3,"QChar"), (bool ) RING_API_GETNUMBER(4)).toStdString().c_str());
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QChar"));
+}
+
+
+RING_FUNC(ring_QString2_section_1)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->section(* (QChar  *) RING_API_GETCPOINTER(2,"QChar"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (QString::SectionFlags  *) RING_API_GETCPOINTER(5,"QString::SectionFlags")).toStdString().c_str());
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QChar"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QString::SectionFlags"));
+}
+
+
+RING_FUNC(ring_QString2_section_2)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->section(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (QString::SectionFlags  *) RING_API_GETCPOINTER(5,"QString::SectionFlags")).toStdString().c_str());
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QString::SectionFlags"));
+}
+
+
+RING_FUNC(ring_QString2_section_3)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->section(* (QRegExp  *) RING_API_GETCPOINTER(2,"QRegExp"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (QString::SectionFlags  *) RING_API_GETCPOINTER(5,"QString::SectionFlags")).toStdString().c_str());
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRegExp"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QString::SectionFlags"));
+}
+
+
+RING_FUNC(ring_QString2_section_4)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 5 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->section(* (QRegularExpression  *) RING_API_GETCPOINTER(2,"QRegularExpression"), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4),* (QString::SectionFlags  *) RING_API_GETCPOINTER(5,"QString::SectionFlags")).toStdString().c_str());
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"QRegularExpression"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"QString::SectionFlags"));
+}
+
+
+RING_FUNC(ring_QString2_simplified)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	RING_API_RETSTRING(pObject->simplified().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QString2_toCaseFolded)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	RING_API_RETSTRING(pObject->toCaseFolded().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QString2_trimmed)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	RING_API_RETSTRING(pObject->trimmed().toStdString().c_str());
+}
+
+
+RING_FUNC(ring_QString2_truncate)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->truncate( (int ) RING_API_GETNUMBER(2));
+}
+
+
 RING_FUNC(ring_QStringRef_appendTo)
 {
 	QStringRef *pObject ;
@@ -142332,6 +142597,17 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qstring2_isnull",ring_QString2_isNull);
 	ring_vm_funcregister("qstring2_resize",ring_QString2_resize);
 	ring_vm_funcregister("qstring2_fill",ring_QString2_fill);
+	ring_vm_funcregister("qstring2_localeawarecompare",ring_QString2_localeAwareCompare);
+	ring_vm_funcregister("qstring2_leftjustified",ring_QString2_leftJustified);
+	ring_vm_funcregister("qstring2_rightjustified",ring_QString2_rightJustified);
+	ring_vm_funcregister("qstring2_section_1",ring_QString2_section_1);
+	ring_vm_funcregister("qstring2_section_2",ring_QString2_section_2);
+	ring_vm_funcregister("qstring2_section_3",ring_QString2_section_3);
+	ring_vm_funcregister("qstring2_section_4",ring_QString2_section_4);
+	ring_vm_funcregister("qstring2_simplified",ring_QString2_simplified);
+	ring_vm_funcregister("qstring2_tocasefolded",ring_QString2_toCaseFolded);
+	ring_vm_funcregister("qstring2_trimmed",ring_QString2_trimmed);
+	ring_vm_funcregister("qstring2_truncate",ring_QString2_truncate);
 	ring_vm_funcregister("qstringref_appendto",ring_QStringRef_appendTo);
 	ring_vm_funcregister("qstringref_at",ring_QStringRef_at);
 	ring_vm_funcregister("qstringref_clear",ring_QStringRef_clear);
