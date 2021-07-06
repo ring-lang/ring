@@ -10262,6 +10262,17 @@ Parameters : void
 * bool isNull(void)
 * void resize(int size)
 * QString fill(QChar ch, int size)
+* int localeAwareCompare( QString other)
+* QString leftJustified(int width, QChar fill, bool truncate)
+* QString rightJustified(int width, QChar fill, bool truncate)
+* QString section_1(QChar sep, int start, int end, QString::SectionFlags flags)
+* QString section_2(QString sep, int start, int end, QString::SectionFlags flags)
+* QString section_3(QRegExp reg, int start, int end, QString::SectionFlags flags)
+* QString section_4(QRegularExpression re, int start, int end, QString::SectionFlags flags)
+* QString simplified(void)
+* QString toCaseFolded(void)
+* QString trimmed(void)
+* void truncate(int position)
 
 .. index::
 	pair: RingQt Classes Reference; QStringList Class
