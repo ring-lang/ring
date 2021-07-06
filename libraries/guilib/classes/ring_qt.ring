@@ -3011,6 +3011,39 @@ Class QString2
 	Func fill P1,P2
 		return QString2_fill(pObject,GetObjectPointerFromRingObject(P1),P2)
 
+	Func localeAwareCompare P1
+		return QString2_localeAwareCompare(pObject,P1)
+
+	Func leftJustified P1,P2,P3
+		return QString2_leftJustified(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func rightJustified P1,P2,P3
+		return QString2_rightJustified(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
+
+	Func section_1 P1,P2,P3,P4
+		return QString2_section_1(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func section_2 P1,P2,P3,P4
+		return QString2_section_2(pObject,P1,P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func section_3 P1,P2,P3,P4
+		return QString2_section_3(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func section_4 P1,P2,P3,P4
+		return QString2_section_4(pObject,GetObjectPointerFromRingObject(P1),P2,P3,GetObjectPointerFromRingObject(P4))
+
+	Func simplified 
+		return QString2_simplified(pObject)
+
+	Func toCaseFolded 
+		return QString2_toCaseFolded(pObject)
+
+	Func trimmed 
+		return QString2_trimmed(pObject)
+
+	Func truncate P1
+		return QString2_truncate(pObject,P1)
+
 Class QStringRef
 
 	pObject
