@@ -1117,7 +1117,7 @@ Func GenMethodCodeCallFunc aList
 	ok
 	cCode +=  ";" + nl
 	
-	cCode += GenFuncCodeFreeNotAssignedPointers(aList)
+	cCode += GenMethodCodeFreeNotAssignedPointers(aList)
 
 	if lUNKNOWN 	# Generate code to convert struct to struct *
 		if lObject and $lAddFreeFunctions
@@ -1132,6 +1132,24 @@ Func GenMethodCodeCallFunc aList
 	ok
 	# Accept int values, when the C function take int * as parameter
 	cCode += GenFuncCodeGetIntValues(aList)
+	return cCode
+
+Func GenMethodCodeFreeNotAssignedPointers aList
+	cCode = ""
+	aPara = aList[C_FUNC_PARA]
+	nCount = ParaCount(aPara)
+	if nCount > 0
+		nMax = len(aPara)
+		for t = 1 to nMax
+			x = aPara[t]
+			t++ # avoid the object pointer
+			if VarTypeID(x) = C_TYPE_UNKNOWN
+				cCode += C_TABS_1 + "if (RING_API_ISCPOINTERNOTASSIGNED(" + t + "))" + nl
+				cCode += C_TABS_2 + "ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER("+t+',"'+GenPointerType(x)+'"));' + nl
+			ok
+			t-- # Ignore the effect of avoiding the object pointer
+		next
+	ok
 	return cCode
 
 Func GenMethodCodeGetParaValues aList
