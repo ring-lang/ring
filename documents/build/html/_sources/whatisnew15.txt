@@ -83,8 +83,9 @@ More Improvements
 * StdLib - List2Code() function - Better Format - Add tabs before the items
 * StdLib - Split() function - Support using an empty string as delimiter
 * StdLib - StdFile Class - FTell() function - Better Code
-* Code Generator for extensions - Function prototype - Trim spaces in the output type 
+* Code Generator for Extensions - Function prototype - Trim spaces in the output type 
 * Code Generator for Extensions - Return objects of types that have classes without init
+* Code Generator for Extensions - Correct parameter number when freeing unassigned pointers 
 * RingLibCurl - curl_easy_setopt() support passing (CURLLIST *) as the third parameter
 * RingQt - QMessageBox Class - setIcon() Method
 * RingQt - QByteArray Class - Append() Method - Support Binary Data 
