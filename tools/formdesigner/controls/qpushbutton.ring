@@ -60,6 +60,7 @@ class FormDesigner_QPushButton from QPushButton
 					DisplayButtonImage(oDesigner,cValue)
 				case C_AFTERCOMMON+2  	# Click Event
 					setClickEventCode(cValue)
+					oDesigner.NewEventName(cValue)
 			}
 		}
 
