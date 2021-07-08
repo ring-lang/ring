@@ -1390,4 +1390,10 @@ class FormDesignerController from WindowsControllerParent
 		)
 		OpenFile( WebAssemblyUploadedFileName() )
 
-
+	func NewEventName cEventName
+		if trim(cEventName) = NULL { return }
+		if IsParent() {
+			if isMethod(Parent(),:NewEventName) {
+				Parent().NewEventName(cEventName)
+			}
+		}
