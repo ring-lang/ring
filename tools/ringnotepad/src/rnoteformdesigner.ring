@@ -21,3 +21,19 @@ class RNoteFormDesigner
 
 	func ClearActiveFormFile
 		cFormFile = ""
+
+	func NewEventName cFunctionName 
+		cStr = textedit1.toPlainText()	
+		nPos = substr(cStr,"func " + cFunctionName)
+		if nPos = 0
+			cStr += WindowsNL() + 
+				Tab + "func " + cFunctionName + WindowsNL() +
+				Tab + Tab + "oView {" + WindowsNL() +
+				Tab + Tab + Tab + WindowsNL() + 
+				Tab + Tab + "}" + WindowsNL()
+			textedit1.setPlainText(cStr)
+		else
+			oCursor = textedit1.textcursor()
+			oCursor.setposition(nPos,0)
+			textedit1.settextcursor(oCursor) 			
+		ok
