@@ -23,12 +23,23 @@ class RNoteFormDesigner
 		cFormFile = ""
 
 	func NewEventName cFunctionName 
+		cFunctionName = trim(cFunctionName)
 		# Be sure that we have saved form file 
 			if FormDesigner().ActiveFileName() = "" return ok
 		# Be sure that the Controller class source code is opened
 			if cActiveFileName != substr(FormDesigner().ActiveFileName(),".rform","Controller.ring")
 				return 
 			ok
+		# Be sure that the event code doesn't contains (, ', ", ` and spaces
+			if substr(cFunctionName," ") or 			
+			   substr(cFunctionName,"'") or 
+			   substr(cFunctionName,'"') or 
+			   substr(cFunctionName,"`") or 
+			   substr(cFunctionName,"(")
+				return 
+			ok
+
+
 		# Be sure that the event code doesn't exist before 
 			cStr = textedit1.toPlainText()	
 			nPos = substr(cStr,"func " + cFunctionName)
