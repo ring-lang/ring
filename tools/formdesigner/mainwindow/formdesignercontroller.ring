@@ -1397,3 +1397,6 @@ class FormDesignerController from WindowsControllerParent
 				Parent().NewEventName(cEventName)
 			}
 		}
+
+	func ActiveFileName
+		return oFile.cFileName
