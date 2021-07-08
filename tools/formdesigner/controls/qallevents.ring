@@ -350,6 +350,11 @@ class FormDesigner_QAllEvents from QLabel
 				case C_AFTERCOMMON+28
 					setPaintEventCode(cValue)
 			}
+			if (nRow >= C_AFTERCOMMON+1 ) and 
+			   (nRow <= C_AFTERCOMMON+28 ) {
+					oDesigner.NewEventName(cValue)
+			}
+
 		}
 		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))

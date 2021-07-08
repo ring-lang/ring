@@ -165,6 +165,10 @@ class FormDesigner_QListWidget from QLineEdit
 				case C_AFTERCOMMON+11
 					setitemSelectionChangedEventCode(cValue)
 			}
+			if (nRow >= C_AFTERCOMMON+2 ) and 
+			   (nRow <= C_AFTERCOMMON+11 ) {
+					oDesigner.NewEventName(cValue)
+			}
 		}
 		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))

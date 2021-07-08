@@ -86,6 +86,10 @@ class FormDesigner_QWebView from QLineEdit
 				case C_AFTERCOMMON+4
 					seturlChangedEventCode(cValue)
 			}
+			if (nRow >= C_AFTERCOMMON+1 ) and 
+			   (nRow <= C_AFTERCOMMON+4 ) {
+					oDesigner.NewEventName(cValue)
+			}
 		}
 		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))

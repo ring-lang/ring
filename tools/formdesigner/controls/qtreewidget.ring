@@ -269,8 +269,12 @@ class FormDesigner_QTreeWidget from QLineEdit
 					setitemPressedEventCode(cValue)
 				case C_AFTERCOMMON+20
 					setitemSelectionChangedEventCode(cValue)
-
 			}
+			if (nRow >= C_AFTERCOMMON+3 ) and 
+			   (nRow <= C_AFTERCOMMON+20 ) {
+					oDesigner.NewEventName(cValue)
+			}
+
 		}
 		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))

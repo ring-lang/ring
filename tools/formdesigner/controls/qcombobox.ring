@@ -97,6 +97,11 @@ class FormDesigner_QComboBox from QComboBox
 				case C_AFTERCOMMON+5
 					sethighlightedEventCode(cValue)
 			}
+			if (nRow >= C_AFTERCOMMON+2 ) and 
+			   (nRow <= C_AFTERCOMMON+5 ) {
+					oDesigner.NewEventName(cValue)
+			}
+
 		}
 		# Set the object name
 			clear() AddItem(oDesigner.oModel.GetObjectName(self),0)

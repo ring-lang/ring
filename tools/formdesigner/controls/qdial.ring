@@ -83,6 +83,7 @@ class FormDesigner_QDial from QDial
 					setValueValue(cValue)
 				case C_AFTERCOMMON+4
 					setvalueChangedEventCode(cValue)
+					oDesigner.NewEventName(cValue)
 			}
 		}
 

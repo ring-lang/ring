@@ -85,6 +85,7 @@ class FormDesigner_QSpinBox from QLineEdit
 					setValueValue(cValue)
 				case C_AFTERCOMMON+4
 					setvalueChangedEventCode(cValue)
+					oDesigner.NewEventName(cValue)
 			}
 		}
 		# Set the object name

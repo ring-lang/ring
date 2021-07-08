@@ -316,6 +316,10 @@ class FormDesigner_QTableWidget from QLineEdit
 				case C_AFTERCOMMON+22
 					setitemSelectionChangedEventCode(cValue)
 			}
+			if (nRow >= C_AFTERCOMMON+8 ) and 
+			   (nRow <= C_AFTERCOMMON+22 ) {
+					oDesigner.NewEventName(cValue)
+			}
 		}
 		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))

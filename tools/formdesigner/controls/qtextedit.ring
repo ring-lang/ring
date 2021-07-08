@@ -122,6 +122,10 @@ class FormDesigner_QTextEdit from QLineEdit
 				case C_AFTERCOMMON+7
 					setundoAvailableEventCode(cValue)
 			}
+			if (nRow >= C_AFTERCOMMON+1 ) and 
+			   (nRow <= C_AFTERCOMMON+7 ) {
+					oDesigner.NewEventName(cValue)
+			}
 		}
 		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))

@@ -87,6 +87,10 @@ class FormDesigner_QCheckBox from QCheckBox
 				case C_AFTERCOMMON+5
 					settoggledEventCode(cValue)
 			}
+			if (nRow >= C_AFTERCOMMON+1 ) and 
+			   (nRow <= C_AFTERCOMMON+5 ) {
+					oDesigner.NewEventName(cValue)
+			}
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount

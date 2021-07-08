@@ -75,7 +75,10 @@ class FormDesigner_QRadioButton from QRadioButton
 					setreleasedEventCode(cValue)
 				case C_AFTERCOMMON+4
 					settoggledEventCode(cValue)
-
+			}
+			if (nRow >= C_AFTERCOMMON+1 ) and 
+			   (nRow <= C_AFTERCOMMON+4 ) {
+					oDesigner.NewEventName(cValue)
 			}
 		}
 

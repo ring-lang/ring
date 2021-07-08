@@ -51,6 +51,7 @@ class FormDesigner_QTimer from QLabel
 				setIntervalValue(cValue)
 			case C_AFTERCOMMON + 1
 				setTimeOutValue(cValue)
+				oDesigner.NewEventName(cValue)
 		}
 		# Set the object name
 			setText(oDesigner.oModel.GetObjectName(self))

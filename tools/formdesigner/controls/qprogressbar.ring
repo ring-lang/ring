@@ -111,7 +111,7 @@ class FormDesigner_QProgressbar from QLineEdit
 					setValueValue(cValue)
 				case C_AFTERCOMMON+5
 					setvalueChangedEventCode(cValue)
-
+					oDesigner.NewEventName(cValue)
 			}
 		}
 		# Set the object name

@@ -167,6 +167,10 @@ class FormDesigner_QSlider from QSlider
 				case C_AFTERCOMMON+10
 					setvalueChangedEventCode(cValue)
 			}
+			if (nRow >= C_AFTERCOMMON+5 ) and 
+			   (nRow <= C_AFTERCOMMON+10 ) {
+					oDesigner.NewEventName(cValue)
+			}
 		}
 
 	func ObjectDataAsString oDesigner,nTabsCount
