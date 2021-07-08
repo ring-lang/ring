@@ -23,17 +23,21 @@ class RNoteFormDesigner
 		cFormFile = ""
 
 	func NewEventName cFunctionName 
-		cStr = textedit1.toPlainText()	
-		nPos = substr(cStr,"func " + cFunctionName)
+		# Be sure that we have saved form file 
+			if FormDesigner().ActiveFileName() = "" return ok
+		# Be sure that the Controller class source code is opened
+			if cActiveFileName != substr(FormDesigner().ActiveFileName(),".rform","Controller.ring")
+				return 
+			ok
+		# Be sure that the event code doesn't exist before 
+			cStr = textedit1.toPlainText()	
+			nPos = substr(cStr,"func " + cFunctionName)
 		if nPos = 0
-			cStr += WindowsNL() + 
-				Tab + "func " + cFunctionName + WindowsNL() +
-				Tab + Tab + "oView {" + WindowsNL() +
-				Tab + Tab + Tab + WindowsNL() + 
-				Tab + Tab + "}" + WindowsNL()
-			textedit1.setPlainText(cStr)
-		else
-			oCursor = textedit1.textcursor()
-			oCursor.setposition(nPos,0)
-			textedit1.settextcursor(oCursor) 			
+			# Create the Event Code
+				cStr += WindowsNL() + 
+					Tab + "func " + cFunctionName + WindowsNL() +
+					Tab + Tab + "oView {" + WindowsNL() +
+					Tab + Tab + Tab + WindowsNL() + 
+					Tab + Tab + "}" + WindowsNL()
+				textedit1.setPlainText(cStr)
 		ok
