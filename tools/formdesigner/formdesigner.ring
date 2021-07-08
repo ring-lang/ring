@@ -23,6 +23,7 @@
 
 	The Parent Application can use the next methods in the Form Designer 
 		OpenFile(cFormFileName)
+		ActiveFileName() --> cFormFileName
 		SaveIfOnlyFileIsOpened()
 
 */
