@@ -5,7 +5,8 @@ codename: QString
 managed
 </class>
 
-QString append( QString  str)
+QString append(QString  str)
+QString append@2(QChar ch)
 QByteArray toUtf8(void)
 QByteArray toLatin1(void)
 QByteArray toLocal8Bit(void)

@@ -2914,6 +2914,9 @@ Class QString2
 	Func append P1
 		return QString2_append(pObject,P1)
 
+	Func append_2 P1
+		return QString2_append_2(pObject,GetObjectPointerFromRingObject(P1))
+
 	Func toUtf8 
 		pTempObj = new QByteArray
 		pTempObj.pObject = QString2_toUtf8(pObject)

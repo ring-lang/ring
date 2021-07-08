@@ -15211,6 +15211,25 @@ RING_FUNC(ring_QString2_append)
 }
 
 
+RING_FUNC(ring_QString2_append_2)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	RING_API_RETSTRING(pObject->append(* (QChar  *) RING_API_GETCPOINTER(2,"QChar")).toStdString().c_str());
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"QChar"));
+}
+
+
 RING_FUNC(ring_QString2_toUtf8)
 {
 	QString *pObject ;
@@ -142570,6 +142589,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpoint_x",ring_QPoint_x);
 	ring_vm_funcregister("qpoint_y",ring_QPoint_y);
 	ring_vm_funcregister("qstring2_append",ring_QString2_append);
+	ring_vm_funcregister("qstring2_append_2",ring_QString2_append_2);
 	ring_vm_funcregister("qstring2_toutf8",ring_QString2_toUtf8);
 	ring_vm_funcregister("qstring2_tolatin1",ring_QString2_toLatin1);
 	ring_vm_funcregister("qstring2_tolocal8bit",ring_QString2_toLocal8Bit);
