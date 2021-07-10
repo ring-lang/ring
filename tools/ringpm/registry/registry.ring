@@ -658,5 +658,9 @@ aPackagesRegistry = [
         [ :name = "erlangbformula",
           :description = "Erlang B Formula package for the Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "Chess3d_Qt3D",
+          :description = "Chess 3D game in Ring language",
+          :ProviderUserName = "azzeddine2017"
         ]
 ]
