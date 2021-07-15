@@ -315,7 +315,7 @@ void ring_vm_generallib_getchar ( void *pPointer )
 	cStr[0] = getchar() ;
 	RING_API_RETSTRING2(cStr,1);
 }
-/* 32 bit thread unsafe random generator using the seed (srand) */
+/* 31 bit thread unsafe random generator using the seed (srand) */
 
 void ring_vm_generallib_random ( void *pPointer )
 {
@@ -323,7 +323,7 @@ void ring_vm_generallib_random ( void *pPointer )
 	nNum1 = rand() ;
 	#ifdef _MSC_VER
 		rand_s(&nNum2);
-		nNum1 = (unsigned int) ( nNum2 * nNum1 ) >> 1 ;
+		nNum1 |= ( nNum2 & 0xFFFF ) << 15 ;
 	#endif
 	if ( RING_API_PARACOUNT == 0 ) {
 		RING_API_RETNUMBER(nNum1);
