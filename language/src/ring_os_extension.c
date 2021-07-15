@@ -317,12 +317,13 @@ void ring_vm_os_uptime ( void *pPointer )
 
 void ring_vm_os_randomize ( void *pPointer )
 {
-	RING_UNSIGNEDLONGLONG nNum1,nNum2 ;
+	RING_UNSIGNEDLONGLONG nNum1,nNum2  ;
+	unsigned int nNum  ;
 	#if ! defined(_WIN32)
 		struct timespec ts  ;
 		ring_vm_os_gettime(CLOCK_UPTIME, &ts);
 		/* Compensate to match 0.1 ms resolution on Windows */
-		nNum1 = ( ( (RING_ULONGLONG)ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / CENTISEC ;
+		nNum1 = ( ( (RING_ULONGLONG) ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / CENTISEC ;
 		/* Randomize by using high precision timer */
 		#if defined(__ANDROID__)
 			RING_API_ERROR("The Randomize() function is not supported on Android");
@@ -333,7 +334,6 @@ void ring_vm_os_randomize ( void *pPointer )
 	#else
 		LARGE_INTEGER ElapsedMicroseconds  ;
 		QueryPerformanceCounter(&ElapsedMicroseconds);
-		unsigned int nNum ;
 		rand_s(&nNum);
 		nNum1 = (RING_UNSIGNEDLONGLONG ) nNum | ( ElapsedMicroseconds.QuadPart << 32 ) ;
 	#endif
