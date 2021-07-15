@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.15 comes with the next features!
 
 * Chess Endgame Application
+* Better Ring Notepad 
 * More Samples
 * More Improvements
 
@@ -40,6 +41,25 @@ Screen Shots:
 
 .. image:: chessendgame3.png
 	:alt: chessendgame
+
+
+.. index:: 
+	pair: What is new in Ring 1.15?; Better Ring Notepad 
+
+Better Ring Notepad 
+===================
+
+(1) Automatic generation for the Event Function
+
+In the Form Designer, When we determine the name of the Event Function 
+
+.. image:: autoevent1.png
+	:alt: autoevent1
+
+Ring Notepad will generate the function code automatically
+
+.. image:: autoevent2.png
+	:alt: autoevent2
 
 .. index:: 
 	pair: What is new in Ring 1.15?; More Samples
