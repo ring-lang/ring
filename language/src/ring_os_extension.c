@@ -310,40 +310,42 @@ void ring_vm_os_uptime ( void *pPointer )
 }
 /*
 **  Thread safe 
-**  64 bit thread safe random generator using high precision timer as seed on the Unix systems 
+**  53 bit thread safe random generator using high precision timer as seed on the Unix systems 
 **  Or using Windows Security Features by the CRT having the _s ("secure") suffix since XP 
 **  This random generator doesn't require a seed to be given by the user 
 */
 
 void ring_vm_os_randomize ( void *pPointer )
 {
-	RING_UNSIGNEDLONGLONG nNum1,nNum2  ;
+	RING_UNSIGNEDLONGLONG nNum1,nNum2 ;
 	#if ! defined(_WIN32)
 		struct timespec ts  ;
 		ring_vm_os_gettime(CLOCK_UPTIME, &ts);
 		/* Compensate to match 0.1 ms resolution on Windows */
-		nNum1 = ( ( ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / 100 ;
+		nNum1 = ( ( (RING_ULONGLONG)ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / CENTISEC ;
 		/* Randomize by using high precision timer */
 		#if defined(__ANDROID__)
 			RING_API_ERROR("The Randomize() function is not supported on Android");
 			return ;
 		#else
-			nNum1 *= rand_r( (unsigned int *) &ts.tv_nsec ) ;
+			nNum1 = rand_r( (unsigned int *) &ts.tv_nsec ) | ( num1 << 32 ) ;
 		#endif
 	#else
 		LARGE_INTEGER ElapsedMicroseconds  ;
 		QueryPerformanceCounter(&ElapsedMicroseconds);
-		rand_s(&nNum2);
-		nNum1 = ElapsedMicroseconds.QuadPart * nNum2 ;
+		unsigned int nNum ;
+		rand_s(&nNum);
+		nNum1 = (RING_UNSIGNEDLONGLONG ) nNum | ( ElapsedMicroseconds.QuadPart << 32 ) ;
 	#endif
 	if ( RING_API_PARACOUNT == 0 ) {
-		RING_API_RETNUMBER(nNum1);
+		/* Double have Integer precision up to 2^53 */
+		RING_API_RETNUMBER(nNum1 & 0x001FFFFFFFFFFFFF);
 	}
 	else if ( RING_API_PARACOUNT == 1 ) {
 		if ( RING_API_ISNUMBER(1) ) {
-			nNum2 = RING_API_GETNUMBER(nNum1) ;
+			nNum2 = RING_API_GETNUMBER(1) ;
 			if ( nNum2 > 0 ) {
-				RING_API_RETNUMBER(nNum1 % ++nNum2);
+				RING_API_RETNUMBER((nNum1 & 0x001FFFFFFFFFFFFF) % ++nNum2);
 			}
 		}
 		else {
