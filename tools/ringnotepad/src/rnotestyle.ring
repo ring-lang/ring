@@ -86,7 +86,7 @@ class RNoteStyle
 			]
 			aStyleColors = aCustomStyleColors
 			aTextColor = [255,255,255]
-			aBackColor = [0,0,132]
+			aBackColor = [0,0,167]
 			oApp.StylefusionCustom(
 				new qColor() { setrgb(0,0,132,255) },
 				new qColor() { setrgb(255,255,255,255) },
