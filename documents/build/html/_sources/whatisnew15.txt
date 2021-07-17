@@ -17,6 +17,7 @@ Ring 1.15 comes with the next features!
 
 * Chess Endgame Application
 * Better Ring Notepad 
+* Better RingQt
 * More Samples
 * More Improvements
 
@@ -60,6 +61,73 @@ Ring Notepad will generate the function code automatically
 
 .. image:: autoevent2.png
 	:alt: autoevent2
+
+
+.. index:: 
+	pair: What is new in Ring 1.15?; Better RingQt
+
+Better RingQt
+=============
+
+* QMessageBox Class - setIcon() Method
+* QByteArray Class - Append() Method - Support Binary Data 
+* QByteArray Class - Replace() Method - Multiple versions and better code
+* QTabWidget Class - TabBar() Method
+* QCompleter4 Class
+* QVector3D Class - Project() and UnProject() Methods
+* QApp Class - Clipboard() method 
+* QString2 Class - More Methods
+* RingQt For WebAssembly - Download File - Support Binary File
+
+Example (Using Clipboard):
+
+.. code-block:: ring
+
+	load "guilib.ring"
+	
+	oApp = new qapp {
+
+		w = new qWidget() {
+			setWindowTitle("Using Clipboard - Press CTRL+V")
+			resize(400,100)
+			new qlineedit(w) {
+				move(10,10)
+				resize(200,30)
+			}
+			show()
+		}
+
+		oApp.clipboard().setText("I Love Ring Programming!",0)
+		
+		exec()
+	}
+
+Screen Shot:
+
+.. image:: usingclipboard.png
+	:alt: usingclipboard
+
+Example (Using Strings):
+
+.. code-block:: ring
+
+	load "guilib.ring"
+	
+	o1 = new QString2()
+	o1.append("Ring")
+	
+	oChar = new QChar(61)
+	? o1.leftJustified(20,oChar,False)
+	? o1.rightJustified(20,oChar,False)
+
+Output:
+
+.. code-block:: none
+
+	Ring================
+	================Ring
+
+
 
 .. index:: 
 	pair: What is new in Ring 1.15?; More Samples
@@ -108,15 +176,6 @@ More Improvements
 * Code Generator for Extensions - Correct parameter number when freeing unassigned pointers 
 * RingLibCurl - curl_easy_setopt() support passing (CURLLIST *) as the third parameter
 * RingLibUV - Better Code (When using threads)
-* RingQt - QMessageBox Class - setIcon() Method
-* RingQt - QByteArray Class - Append() Method - Support Binary Data 
-* RingQt - QByteArray Class - Replace() Method - Multiple versions and better code
-* RingQt - QTabWidget Class - TabBar() Method
-* RingQt - QCompleter4 Class
-* RingQt - QVector3D Class - Project() and UnProject() Methods
-* RingQt - QApp Class - Clipboard() method 
-* RingQt - QString2 Class - More Methods
-* RingQt For WebAssembly - Download File - Support Binary File
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
 * Ring VM - ring_state_stringtokens() function
 * Ring VM - ring_state_scannererror() function
