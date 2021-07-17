@@ -8,7 +8,7 @@ load "guilib.ring"
 	cValue = mystring.mid(4,1)
 	? "Character: " + cValue
 
-# Using normar Ring functions
+# Using normal Ring functions
 	? isalpha(cValue)
 	? isdigit(cValue)
 
