@@ -13,6 +13,6 @@ In this folder we have files related to the Ring language marketing
 
 (5) Course Files
 
-(6) Chess 3D Development
+(6) Chess 3D (Qt3D Sample)
 
 (7) PWCT Development
