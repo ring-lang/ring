@@ -282,6 +282,10 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" target="_blank">Chess Endgame Application</a>',
 		'<img src="chessendgame1.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/marketing/chess3d/README.md" target="_blank">Chess 3D (Qt3D Sample)</a>',
+		'<img src="chess3dshot2.png" width="100%">'
 	]
 
 	]
