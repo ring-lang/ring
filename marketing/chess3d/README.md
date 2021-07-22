@@ -3,11 +3,11 @@ Chess 3D (Qt3D Sample)
 
 * Posted: 22 July 2021
 
+* Developer: Ezzedine Ramal
+
 # Introduction 
 
 Chess 3D is an example about using Qt3D 
-
-Developer: Ezzedine Ramal
 
 We can install it using the Ring Package Manager
 
