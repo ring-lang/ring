@@ -19,6 +19,7 @@ Ring 1.15 comes with the next features!
 * Chess 3D (Qt3D Sample)
 * Better Ring Notepad 
 * Better RingQt
+* Better RingLibCurl
 * More Samples
 * More Improvements
 
@@ -92,7 +93,6 @@ Ring Notepad will generate the function code automatically
 .. image:: autoevent2.png
 	:alt: autoevent2
 
-
 .. index:: 
 	pair: What is new in Ring 1.15?; Better RingQt
 
@@ -157,8 +157,28 @@ Output:
 	Ring================
 	================Ring
 
+.. index:: 
+	pair: What is new in Ring 1.15?; Better RingLibCurl
 
+Better RingLibCurl
+==================
 
+* curl_easy_setopt() support passing (CURLLIST *) as the third parameter
+
+Example (From ChessEndGame Application)
+
+URL: https://github.com/ring-lang/ring/blob/master/applications/chessendgame/predictionController.ring#L67
+
+.. code-block:: ring
+
+	# Header
+	mylist = curl_slist_append(null,'accept-encoding: identity')
+	mylist = curl_slist_append(mylist,'authorization: Bearer ' + my_api_key )
+	mylist = curl_slist_append(mylist,'connection: close')
+	mylist = curl_slist_append(mylist,'content-length: ' + len(my_body) )
+	mylist = curl_slist_append(mylist,'content-type: application/json')
+	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, mylist)
+	
 .. index:: 
 	pair: What is new in Ring 1.15?; More Samples
 
@@ -205,7 +225,6 @@ More Improvements
 * Code Generator for Extensions - Function prototype - Trim spaces in the output type 
 * Code Generator for Extensions - Return objects of types that have classes without init
 * Code Generator for Extensions - Correct parameter number when freeing unassigned pointers 
-* RingLibCurl - curl_easy_setopt() support passing (CURLLIST *) as the third parameter
 * RingLibUV - Better Code (When using threads)
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
 * Ring VM - ring_state_stringtokens() function

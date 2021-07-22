@@ -198,6 +198,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#chess-3d-qt3d-sample">Chess 3D (Qt3D Sample)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ring-notepad">Better Ring Notepad</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringqt">Better RingQt</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringlibcurl">Better RingLibCurl</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples">More Samples</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -282,6 +283,7 @@
 <li><p>Chess 3D (Qt3D Sample)</p></li>
 <li><p>Better Ring Notepad</p></li>
 <li><p>Better RingQt</p></li>
+<li><p>Better RingLibCurl</p></li>
 <li><p>More Samples</p></li>
 <li><p>More Improvements</p></li>
 </ul>
@@ -375,8 +377,25 @@ ringpm run Chess3D-Qt3D
 </pre></div>
 </div>
 </div>
+<div class="section" id="better-ringlibcurl">
+<span id="index-6"></span><h2>Better RingLibCurl<a class="headerlink" href="#better-ringlibcurl" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>curl_easy_setopt() support passing (CURLLIST <a href="#id1"><span class="problematic" id="id2">*</span></a>) as the third parameter</p></li>
+</ul>
+<p>Example (From ChessEndGame Application)</p>
+<p>URL: <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/applications/chessendgame/predictionController.ring#L67">https://github.com/ring-lang/ring/blob/master/applications/chessendgame/predictionController.ring#L67</a></p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="c"># Header</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="kp">null</span><span class="p">,</span><span class="sc">&#39;accept-encoding: identity&#39;</span><span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="sc">&#39;authorization: Bearer &#39;</span> <span class="o">+</span> <span class="n">my_api_key</span> <span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="sc">&#39;connection: close&#39;</span><span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="sc">&#39;content-length: &#39;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">my_body</span><span class="p">)</span> <span class="p">)</span>
+<span class="n">mylist</span> <span class="o">=</span> <span class="n">curl_slist_append</span><span class="p">(</span><span class="n">mylist</span><span class="p">,</span><span class="sc">&#39;content-type: application/json&#39;</span><span class="p">)</span>
+<span class="n">curl_easy_setopt</span><span class="p">(</span><span class="n">curl</span><span class="p">,</span> <span class="n">CURLOPT_HTTPHEADER</span><span class="p">,</span> <span class="n">mylist</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="more-samples">
-<span id="index-6"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this headline">¶</a></h2>
+<span id="index-7"></span><h2>More Samples<a class="headerlink" href="#more-samples" title="Permalink to this headline">¶</a></h2>
 <p>The next samples are added to the samples folder</p>
 <blockquote>
 <div><ul class="simple">
@@ -404,7 +423,7 @@ ringpm run Chess3D-Qt3D
 <img alt="Jump3D" src="_images/jump3d.png" />
 </div>
 <div class="section" id="more-improvements">
-<span id="index-7"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Form Designer - Better Translation</p></li>
 <li><p>StdLib - List2Code() function - Support double quotation in list strings</p></li>
@@ -414,7 +433,6 @@ ringpm run Chess3D-Qt3D
 <li><p>Code Generator for Extensions - Function prototype - Trim spaces in the output type</p></li>
 <li><p>Code Generator for Extensions - Return objects of types that have classes without init</p></li>
 <li><p>Code Generator for Extensions - Correct parameter number when freeing unassigned pointers</p></li>
-<li><p>RingLibCurl - curl_easy_setopt() support passing (CURLLIST <a href="#id1"><span class="problematic" id="id2">*</span></a>) as the third parameter</p></li>
 <li><p>RingLibUV - Better Code (When using threads)</p></li>
 <li><p>Ring VM - Support converting NULL to Zero when we compare between Number and NULL</p></li>
 <li><p>Ring VM - ring_state_stringtokens() function</p></li>
