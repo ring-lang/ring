@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.15 comes with the next features!
 
 * Chess Endgame Application
+* Chess 3D (Qt3D Sample)
 * Better Ring Notepad 
 * Better RingQt
 * More Samples
@@ -43,6 +44,35 @@ Screen Shots:
 .. image:: chessendgame3.png
 	:alt: chessendgame
 
+
+.. index:: 
+	pair: What is new in Ring 1.15?; Chess 3D (Qt3D Sample)
+
+Chess 3D (Qt3D Sample)
+======================
+
+It's not a complete chess game, It's an example about using Qt3D
+
+* We can move the board
+
+* Select a Piece and move it
+
+The sample doesn't implement all of the chess rules 
+
+To Install the sample using the Ring Package Manager
+
+.. code-block:: none
+
+	ringpm install Chess3D-Qt3D
+	ringpm run Chess3D-Qt3D
+
+Screen Shots:
+
+.. image:: chess3dshot1.png
+	:alt: chess3dshot1
+
+.. image:: chess3dshot2.png
+	:alt: chess3dshot2
 
 .. index:: 
 	pair: What is new in Ring 1.15?; Better Ring Notepad 
