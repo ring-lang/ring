@@ -1,11 +1,13 @@
-Chess 3D (Using Qt3D)
-=====================
+Chess 3D (Qt3D Sample)
+======================
 
 * Posted: 22 July 2021
 
 # Introduction 
 
-Chess 3D is an example about using Qt3D by Ezzedine Ramal
+Chess 3D is an example about using Qt3D 
+
+Developer: Ezzedine Ramal
 
 We can install it using the Ring Package Manager
 
@@ -14,10 +16,9 @@ We can install it using the Ring Package Manager
 
 # Screen Shots
 
-![shot1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/chess3d/images/chess3d-shot1.png)
+![shot1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/chess3d/images/chess3dshot1.png)
 
-![shot1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/chess3d/images/chess3d-shot2.png)
-
+![shot1](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/chess3d/images/chess3dshot2.png)
 
 # Notes
 
