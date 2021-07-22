@@ -3,7 +3,7 @@ Chess 3D (Qt3D Sample)
 
 * Posted: 22 July 2021
 
-* Developer: Ezzedine Ramal (https://github.com/azzeddine2017/Chess3d-Qt3D)
+* Developer: Azzedine Ramal (https://github.com/azzeddine2017/Chess3d-Qt3D)
 
 # Introduction 
 
