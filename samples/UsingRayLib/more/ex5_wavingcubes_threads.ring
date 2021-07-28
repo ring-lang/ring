@@ -97,9 +97,9 @@ while !WindowShouldClose()
 
 end
 
-// uv_mutex_destroy(mute)
-// uv_sem_destroy(child)
-// uv_sem_destroy(parent)
+uv_mutex_destroy(mute)
+uv_sem_destroy(child)
+uv_sem_destroy(parent)
 
 CloseWindow()
 Shutdown()
