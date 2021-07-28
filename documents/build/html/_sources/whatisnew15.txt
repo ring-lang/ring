@@ -226,6 +226,7 @@ More Improvements
 * Code Generator for Extensions - Return objects of types that have classes without init
 * Code Generator for Extensions - Correct parameter number when freeing unassigned pointers 
 * RingLibUV - Better Code (When using threads)
+* Ring VM - Better Code (When terminating threads)
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
 * Ring VM - ring_state_stringtokens() function
 * Ring VM - ring_state_scannererror() function
