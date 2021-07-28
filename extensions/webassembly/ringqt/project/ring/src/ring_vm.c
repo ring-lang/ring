@@ -1440,10 +1440,9 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_vm_mutexunlock(pVM);
 	/* Run the code */
 	ring_state_runcode(pState,cStr);
-	/* Return Memory Pool Items to the Main Thread */
 	ring_vm_mutexlock(pVM);
+	/* Return Memory Pool Items to the Main Thread */
 	ring_poolmanager_deleteblockfromsubthread(pState,pVM->pRingState);
-	ring_vm_mutexunlock(pVM);
 	/* Delete Code List */
 	ring_list_delete_gc(pState,pState->pVM->pCode);
 	ring_list_delete_gc(pState,pState->pVM->pFunctionsMap);
@@ -1473,6 +1472,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 			ring_list_deleteitem(pState->vPoolManager.aBlocks,1);
 		}
 	}
+	ring_vm_mutexunlock(pVM);
 	/* Avoid deleting the Mutex */
 	pState->pVM->pMutex = NULL ;
 	/* Delete the RingState */
