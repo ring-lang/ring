@@ -140,6 +140,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#window-flags">Window Flags</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#entering-items">Entering Items</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-layouts">Using Layouts</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#objects-order-and-layouts">Objects Order and Layouts</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-samples-and-tests">More Samples and Tests</a></li>
 </ul>
 </li>
@@ -336,6 +337,12 @@
 <li><p>Just type the method name in the event property.</p></li>
 </ol>
 <img alt="Form Designer - Event Method" src="_images/fdeventmethod.png" />
+<p>This will add the next code to the Controller Class</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">CloseWindow</span>
+        <span class="n">oView</span> <span class="p">{</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
 <p>(2) Then write the method code in the
 controller class.</p>
 <img alt="Form Designer - Event Code" src="_images/fdeventcode.png" />
@@ -388,8 +395,20 @@ controller class.</p>
 <li><p>From the layout properties determine the controls and the layout type.</p></li>
 </ol>
 </div>
+<div class="section" id="objects-order-and-layouts">
+<span id="index-11"></span><h2>Objects Order and Layouts<a class="headerlink" href="#objects-order-and-layouts" title="Permalink to this headline">¶</a></h2>
+<p>All the objects that are added to a layout must comes first!</p>
+<p>If we have a form that contains two buttons and a Layout</p>
+<p>Then adding a third button after creating the layout requires changing the objects order</p>
+<p>We can open the (Objects Order) window using a button from the (Properties) window</p>
+<img alt="Layout Objects Order" src="_images/layoutobjsshot1.png" />
+<p>Then we can select the (Button3) and click (Move Up)</p>
+<img alt="Layout Objects Order" src="_images/layoutobjsshot2.png" />
+<p>Then we close the (Objects Order) window</p>
+<img alt="Layout Objects Order" src="_images/layoutobjsshot3.png" />
+</div>
 <div class="section" id="more-samples-and-tests">
-<span id="index-11"></span><h2>More Samples and Tests<a class="headerlink" href="#more-samples-and-tests" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>More Samples and Tests<a class="headerlink" href="#more-samples-and-tests" title="Permalink to this headline">¶</a></h2>
 <p>Check the folder : ring/samples/UsingFormDesigner</p>
 <p>Online : <a class="reference external" href="https://github.com/ring-lang/ring/tree/master/samples/UsingFormDesigner">https://github.com/ring-lang/ring/tree/master/samples/UsingFormDesigner</a></p>
 </div>

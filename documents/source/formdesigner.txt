@@ -97,6 +97,15 @@ Events Code
 .. image:: fdeventmethod.png
 	:alt: Form Designer - Event Method
 
+This will add the next code to the Controller Class
+
+
+.. code-block:: ring
+
+	func CloseWindow
+		oView {
+		}
+
 (2) Then write the method code in the
 controller class.
 
@@ -190,6 +199,33 @@ Using Layouts
 
 (3) From the layout properties determine the controls and the layout type.
 
+
+.. index:: 
+	pair: Form Designer; Objects Order and Layouts
+
+Objects Order and Layouts
+=========================
+
+All the objects that are added to a layout must comes first!
+
+If we have a form that contains two buttons and a Layout
+
+Then adding a third button after creating the layout requires changing the objects order
+
+We can open the (Objects Order) window using a button from the (Properties) window 
+
+.. image:: layoutobjsshot1.png
+	:alt: Layout Objects Order
+
+Then we can select the (Button3) and click (Move Up) 
+
+.. image:: layoutobjsshot2.png
+	:alt: Layout Objects Order
+
+Then we close the (Objects Order) window 
+
+.. image:: layoutobjsshot3.png
+	:alt: Layout Objects Order
 
 .. index:: 
 	pair: Form Designer; More Samples and Tests
