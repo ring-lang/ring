@@ -52,13 +52,17 @@ Screen Shots:
 Chess 3D (Qt3D Sample)
 ======================
 
-It's not a complete chess game, It's an example about using Qt3D
+It's an example about using Qt3D
 
 * We can move the board
 
 * Select a Piece and move it
 
-The sample doesn't implement all of the chess rules 
+* Castle - King Rook side
+
+* En-Passant capture
+
+* Pawn promotion to Queen
 
 To Install the sample using the Ring Package Manager
 
