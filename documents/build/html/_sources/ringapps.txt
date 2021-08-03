@@ -250,6 +250,10 @@ Quotes about Ring
 |		, Adewale Azeez (Nigeria)
 
 
+|	**"I am a software development manager working in a Canadian Firm. I have been around for 25 years playing with different Programming languages like Python, Perl, VB, C#, Java, REBOL, Euphoria etc. Thanks a lot for the wonderful software and the great documentations"**
+|		, Lijo Joseph (Canada)
+
+
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
 
