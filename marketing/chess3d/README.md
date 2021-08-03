@@ -3,19 +3,23 @@ Chess 3D (Qt3D Sample)
 
 * Posted: 22 July 2021
 
+* Date last Updated: 3 August 2021
+
 * Developer: Azzedine Ramal (https://github.com/azzeddine2017/Chess3d-Qt3D)
 
 # Introduction 
 
 Chess 3D is an example about using Qt3D 
 
-The sample doesn't implement all of the chess rules 
-
-It's not a complete chess game, It's an example about using Qt3D
-
 * We can move the board
 
 * Select a Piece and move it
+
+* Castle - King Rook side
+
+* En-Passant capture 
+
+* Pawn promotion to Queen
 
 # Install
 
