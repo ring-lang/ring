@@ -20,6 +20,7 @@ Ring 1.15 comes with the next features!
 * Better Ring Notepad 
 * Better RingQt
 * Better RingLibCurl
+* Heroku (Better support)
 * More Samples
 * More Improvements
 
@@ -182,6 +183,20 @@ URL: https://github.com/ring-lang/ring/blob/master/applications/chessendgame/pre
 	mylist = curl_slist_append(mylist,'content-length: ' + len(my_body) )
 	mylist = curl_slist_append(mylist,'content-type: application/json')
 	curl_easy_setopt(curl, CURLOPT_HTTPHEADER, mylist)
+
+.. index:: 
+	pair: What is new in Ring 1.15?; Heroku (Better support)
+
+Heroku (Better support)
+=======================
+
+From Ring 1.8 We can run Ring Web Applications in the Cloud using Heroku
+
+In Ring 1.15 We updated the packages to use a modern Ring version
+
+Also to avoid all of the reported problems during installation
+
+URL: https://github.com/ring-lang/RingWebAppOnHeroku
 	
 .. index:: 
 	pair: What is new in Ring 1.15?; More Samples
@@ -214,6 +229,7 @@ Screen Shot:
 
 .. image:: jump3d.png
 	:alt: Jump3D
+
 
 .. index:: 
 	pair: What is new in Ring 1.15?; More Improvements
