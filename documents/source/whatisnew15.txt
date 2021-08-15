@@ -240,6 +240,7 @@ More Improvements
 =================
 
 * Form Designer - Better Translation
+* Customers Application - New translation file (Portuguese Language)
 * StdLib - List2Code() function - Support double quotation in list strings
 * StdLib - List2Code() function - Better Format - Add tabs before the items
 * StdLib - Split() function - Support using an empty string as delimiter
