@@ -401,18 +401,6 @@ func gameOver
 		next
 	ok
 
-func randomList aInput
-
-	aOutput = []
-	while len(aInput) > 1
-		nIndex = random(len(aInput)-1)
-		nIndex++
-		aOutput + aInput[nIndex]
-		del(aInput,nIndex)
-	end
-	aOutput + aInput[1]
-	return aOutput
-
 func closeGame
 
 	win.close()

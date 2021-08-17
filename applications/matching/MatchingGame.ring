@@ -242,18 +242,6 @@ func closeGame
 
 	win.close()
 
-func randomList aInput
-
-	aOutput = []
-	while len(aInput) > 1
-		nIndex = random(len(aInput)-1)
-		nIndex++
-		aOutput + aInput[nIndex]
-		del(aInput,nIndex)
-	end
-	aOutput + aInput[1]
-	return aOutput
-
 func countryClick nr1
 
 	numCountry++

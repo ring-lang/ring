@@ -154,16 +154,5 @@ func IncreaseScore
 	score++
 	labelShowScore.settext(string(score))
 
-func RandomList aInput
-	aOutput = []
-	while len(aInput) > 1
-		nIndex = random(len(aInput)-1)
-		nIndex++
-		aOutput + aInput[nIndex]
-		del(aInput,nIndex)
-	end
-	aOutput + aInput[1]
-	return aOutput
-
 func CloseApp
 	win.close()

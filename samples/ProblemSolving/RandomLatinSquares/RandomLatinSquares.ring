@@ -29,26 +29,6 @@ Func main
 return
 
 //===================================================
-// Scramble the numbers in the List
-// Uniq random picks, then shorten list by each pick
-
-Func RandomList(aInput)
-
-    aOutput = []
-
-    while len(aInput) > 1
-        nIndex = random(len(aInput)-1)
-        nIndex++
-
-        aOutput + aInput[nIndex]
-        del(aInput,nIndex)
-    end
-
-    aOutput + aInput[1]
-
-return aOutput
-
-//===================================================
 // Generate Rows of data. Put them in the 2DArray
 
 Func GenerateRows(aInput)
