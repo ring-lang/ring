@@ -42,3 +42,7 @@
 
 # List2Code Tabs Counter 
 	List2CodeTabsCounter = 0
+
+# Parameters
+	C_ERROR_EXPECTLIST = "Error: Bad parameter type - The function expect a list!"
+	C_ERROR_EMPTYLIST  = "Error: No items in the list"

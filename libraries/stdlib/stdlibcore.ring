@@ -883,16 +883,15 @@ Func chomp(cStr)
    See "SystemCmd: whoami ====="+ nl + cYou +nl
 */
 
-Func SystemCmd(cmd)
-    System(cmd + "> cmd.txt")
-    cStr = read("cmd.txt")
-    # delete result file after get value
-    OSDeleteFile("cmd.txt")
-    if right(cStr,1) = nl
-        cStr = left(cStr,len(cStr)-1)
-    ok
-    
-    return cStr 
+func SystemCmd(cmd)
+	System(cmd + "> cmd.txt")
+	cStr = read("cmd.txt")
+	# delete result file after get value
+	OSDeleteFile("cmd.txt")
+	if right(cStr,1) = nl
+		cStr = left(cStr,len(cStr)-1)
+	ok
+	return cStr 
 
 /*
 	Get a List of all files in a directory and it's sub directories 
@@ -1032,6 +1031,7 @@ func OSRenameFile cOldFile,cNewFile
 	Convert a Ring List to Ring source code 
 */
 func List2Code aList
+	if ! isList(aList) raise(C_ERROR_EXPECTLIST) return ok
 	cTabs = Copy(Char(9),List2CodeTabsCounter)
 	cCode = cTabs+"["+Windowsnl()
 	lStart = True
@@ -1114,6 +1114,8 @@ func IsListContainsItems aParent,aChild
 */
 
 func RandomList(aInput)
+	if ! isList(aInput) raise(C_ERROR_EXPECTLIST) return ok
+	if len(aInput) <= 0  raise(C_ERROR_EMPTYLIST) return ok
 	aOutput = []
 	while len(aInput) > 1
 		# Get Random Item 
@@ -1133,6 +1135,6 @@ func RandomList(aInput)
 */
 
 func RandomItem aList 
-    if ! isList(aList) raise("Error: The function expect a list!") return ok
-    if len(aList) <= 0  raise("Error: No items in the list") return ok
-    return aList[ random( len(aList) - 1 ) + 1 ]
+	if ! isList(aList) raise(C_ERROR_EXPECTLIST) return ok
+	if len(aList) <= 0  raise(C_ERROR_EMPTYLIST) return ok
+	return aList[ random( len(aList) - 1 ) + 1 ]
