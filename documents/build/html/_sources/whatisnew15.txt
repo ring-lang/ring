@@ -121,14 +121,33 @@ Example:
 	aList = 1:5
 	? RandomList(aList)
 
-(2) List2Code() function -
+(2) RandomItem() function
+
+Pick an item from a list (Random Choice)
+
+Syntax:
+
+.. code-block:: none
+
+	RandomItem(aList) --> Item 
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	aList = 1:5
+	? RandomItem(aList)
+
+(3) List2Code() function
 
 * Support double quotation in list strings
 * Better Format - Add tabs before the items
 
-(3) StdLib - Split() function - Support using an empty string as delimiter
+(4) StdLib - Split() function - Support using an empty string as delimiter
 
-(4) StdLib - StdFile Class - FTell() function - Better Code
+
+(5) StdLib - StdFile Class - FTell() function - Better Code
 
 .. index:: 
 	pair: What is new in Ring 1.15?; Better RingQt
