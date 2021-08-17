@@ -1096,7 +1096,6 @@ func ASCIIList2Str aList
 func timeInfo( item )
         return timelist()[ aTimeInfoMap[item] ]
 
-
 /*
 	Check that the number is between two numbers 
 */
@@ -1107,4 +1106,24 @@ func IsBetween x, min, max return (x >= min) AND (x <= max)
 	Check that a List contains a group of items in another list
 */
 func IsListContainsItems aParent,aChild
-     for item in aChild if not find(aParent,item) return false ok next return True
+	for item in aChild if not find(aParent,item) return false ok next return True
+
+/*
+	Get List as Input
+	Return the same list but change the items order to be Random
+*/
+
+func RandomList(aInput)
+	aOutput = []
+	while len(aInput) > 1
+		# Get Random Item 
+			nIndex = random(len(aInput)-1)
+			nIndex++
+		# Add the selected item to the aOutput list
+			aOutput + aInput[nIndex]
+		# Remove the selected item from the original list
+			del(aInput,nIndex)
+	end
+	# Add the last item 	
+		aOutput + aInput[1]
+	return aOutput
