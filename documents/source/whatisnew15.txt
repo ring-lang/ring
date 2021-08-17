@@ -17,7 +17,8 @@ Ring 1.15 comes with the next features!
 
 * Chess Endgame Application
 * Chess 3D (Qt3D Sample)
-* Better Ring Notepad 
+* Better Ring Notepad
+* Better StdLib 
 * Better RingQt
 * Better RingLibCurl
 * Heroku (Better support)
@@ -97,6 +98,29 @@ Ring Notepad will generate the function code automatically
 
 .. image:: autoevent2.png
 	:alt: autoevent2
+
+.. index:: 
+	pair: What is new in Ring 1.15?; Better StdLib
+
+Better StdLib
+=============
+
+(1) RandomList() function
+
+Syntax:
+
+.. code-block:: none
+
+	RandomList(aList) --> List contains the same items using Random order
+
+(2) List2Code() function -
+
+* Support double quotation in list strings
+* Better Format - Add tabs before the items
+
+(3) StdLib - Split() function - Support using an empty string as delimiter
+
+(4) StdLib - StdFile Class - FTell() function - Better Code
 
 .. index:: 
 	pair: What is new in Ring 1.15?; Better RingQt
@@ -241,10 +265,6 @@ More Improvements
 
 * Form Designer - Better Translation
 * Customers Application - New translation file (Portuguese Language)
-* StdLib - List2Code() function - Support double quotation in list strings
-* StdLib - List2Code() function - Better Format - Add tabs before the items
-* StdLib - Split() function - Support using an empty string as delimiter
-* StdLib - StdFile Class - FTell() function - Better Code
 * Code Generator for Extensions - Function prototype - Trim spaces in the output type 
 * Code Generator for Extensions - Return objects of types that have classes without init
 * Code Generator for Extensions - Correct parameter number when freeing unassigned pointers 
