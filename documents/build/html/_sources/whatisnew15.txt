@@ -113,6 +113,14 @@ Syntax:
 
 	RandomList(aList) --> List contains the same items using Random order
 
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	aList = 1:5
+	? RandomList(aList)
+
 (2) List2Code() function -
 
 * Support double quotation in list strings
