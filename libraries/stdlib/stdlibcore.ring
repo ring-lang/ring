@@ -1127,3 +1127,12 @@ func RandomList(aInput)
 	# Add the last item 	
 		aOutput + aInput[1]
 	return aOutput
+
+/*
+	Pick an item from a list (Random Choice)
+*/
+
+func RandomItem aList 
+    if ! isList(aList) raise("Error: The function expect a list!") return ok
+    if len(aList) <= 0  raise("Error: No items in the list") return ok
+    return aList[ random( len(aList) - 1 ) + 1 ]
