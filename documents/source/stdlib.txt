@@ -1530,3 +1530,23 @@ Example:
 	? timeInfo(:date)
 	? timeInfo(:time)
 	? timeInfo(:hour_12)
+
+.. index:: 
+	pair: Stdlib Functions; RandomList()
+
+RandomList()
+============
+
+Syntax:
+
+.. code-block:: none
+
+	RandomList(aList) --> List contains the same items using Random order
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	aList = 1:5
+	? RandomList(aList)
