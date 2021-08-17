@@ -1550,3 +1550,25 @@ Example:
 	load "stdlib.ring"
 	aList = 1:5
 	? RandomList(aList)
+
+.. index:: 
+	pair: Stdlib Functions; RandomItem()
+
+RandomItem()
+============
+
+Pick an item from a list (Random Choice)
+
+Syntax:
+
+.. code-block:: none
+
+	RandomItem(aList) --> Item 
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	aList = 1:5
+	? RandomItem(aList)
