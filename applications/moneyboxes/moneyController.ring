@@ -1,6 +1,7 @@
 # Form/Window Controller - Source Code File
 
 load "moneyView.ring"
+load "stdlibcore.ring"
 
 import System.GUI
 
