@@ -191,16 +191,16 @@ func pRandom
 
 func keyPress x,y
 	flag++
-	if flag = 1
+	switch flag
+	on 1
 		x1 = x
 		y1 = y
-	ok
-	if flag = 2
+	on 2
 		x2 = x
 		y2 = y
 		flag = 0
 		pMove(x1,y1,x2,y2)
-	ok
+	off
         
 func pMove col1,row1,col2,row2
 	if col1!=0 and col2!=0 and row1!=0 and row2!=0 
