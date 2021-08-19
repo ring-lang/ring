@@ -124,9 +124,6 @@ func pbegin
 
 	for row = 2 to sizey
 		button[1][row].setstylesheet(C_BUTTONBLACKSTYLE)
-	next
-
-	for row = 2 to sizey
 		button[9][row].setstylesheet(C_BUTTONBLACKSTYLE)
 	next
 
