@@ -272,11 +272,3 @@ func pMove col1,row1,col2,row2
 			ok 
 		ok
 	ok 
-
-func msgBox text
-	m = new qMessageBox(win) {
-		setWindowTitle('2048 Game')
-		setText(text)
-		show()
-	}
-
