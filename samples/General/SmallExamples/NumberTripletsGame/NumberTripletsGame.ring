@@ -40,7 +40,7 @@ nScore	= 0
 
 button		= newlist(sizex,sizey)
 buttonsave	= newlist(sizex,sizey)
-LayoutButtonRow	= list(sizey+1)
+LayoutButtonRow	= list(sizey)
 moveleft	= []
 moveright	= []
 moveup		= []
@@ -76,7 +76,7 @@ app = new qApp {
 		installeventfilter(myfilter2)
 		winwidth = win.width()
 		winheight = win.height()
-		for n = 1 to sizey+1
+		for n = 1 to sizey
 			LayoutButtonRow[n] = new QHBoxLayout() {
 				setSpacing(C_LAYOUTSPACING) 
 			}
@@ -104,13 +104,13 @@ app = new qApp {
 			installeventfilter(myfilter4)
 			show()
 		}
-		LayoutButtonRow[sizey+1].AddWidget(newgame)
 		LayoutButtonMain = new QVBoxLayout() {
 			setSpacing(C_LAYOUTSPACING)
-			for n = 1 to sizey+1
+			for n = 1 to sizey
 				AddLayout(LayoutButtonRow[n])
 				win.show()
 			next
+			AddWidget(newGame)
 		}
 		win.setLayout(LayoutButtonMain)
 		win.show()
