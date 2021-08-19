@@ -68,7 +68,7 @@ app = new qApp {
 				button[n][m] = new QPushButton(win)
 			next
 		next
-		newgame = new qLabel(win) {
+		newgame = new QLabel(win) {
 			setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
 			setstylesheet(C_NEWGAMESTYLE)
 			settext('New Game')
@@ -76,11 +76,6 @@ app = new qApp {
 			myfilter4.setMouseButtonPressEvent("pbegin()")
 			installeventfilter(myfilter4)
 		}
-		myfilter3 = new qAllEvents(win) {
-		setMouseButtonPressEvent("keyPress()")}
-		installeventfilter(myfilter3)
-		myfilter2 = new qAllEvents(win) 
-		installeventfilter(myfilter2)
 		winwidth = win.width()
 		winheight = win.height()
 		for n = 1 to sizex
