@@ -63,11 +63,6 @@ app = new qApp {
 		ok
 		setstylesheet(C_WINDOWBACKGROUND)
 		move(490,100) 
-		for n = 1 to sizex
-			for m = 1 to sizey
-				button[n][m] = new QPushButton(win)
-			next
-		next
 		newgame = new QLabel(win) {
 			setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
 			setstylesheet(C_NEWGAMESTYLE)
@@ -76,8 +71,8 @@ app = new qApp {
 			myfilter4.setMouseButtonPressEvent("pbegin()")
 			installeventfilter(myfilter4)
 		}
-		winwidth = win.width()
-		winheight = win.height()
+		winwidth = width()
+		winheight = height()
 		for n = 1 to sizex
 			for m = 1 to sizey
 				button[n][m] = new QPushButton(win)
