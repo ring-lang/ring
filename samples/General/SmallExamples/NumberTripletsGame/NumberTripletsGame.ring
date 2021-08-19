@@ -178,7 +178,12 @@ func keyPress x,y
         
 func pMove col1,row1,col2,row2
 	if col1!=0 and col2!=0 and row1!=0 and row2!=0 
-		if col1=col2 and row2=row1+1 and col1%2=0
+		if ( col1=col2 and row2=row1+1 and col1%2=0 ) or
+		   ( col1=col2 and row2=row1-1 and col1%2=0 ) or 
+		   ( row1=row2 and col2=col1+1 and row1=1   ) or 
+		   ( row1=row2 and col2=col1-1 and row1=1   ) or 
+		   ( row1=row2 and col2=col1-1 and row1=1   )
+
 			temp = button[col1][row1].text()
 			if temp!= ""
 				button[col2][row2].setstylesheet(C_BUTTONREDSTYLE)
@@ -191,58 +196,4 @@ func pMove col1,row1,col2,row2
 				button[col1][row1].settext("") 
 			ok
 		ok   
-
-		if col1=col2 and row2=row1-1 and col1%2=0
-			temp = button[col1][row1].text()
-			if temp!= ""
-				button[col2][row2].setstylesheet(C_BUTTONREDSTYLE)
-				button[col2][row2].settext(temp)
-				if row1 = 1
-					button[col1][row1].setstylesheet(C_BUTTONTOP)              
-				else
-					button[col1][row1].setstylesheet(C_BUTTONSTYLE)
-				ok
-				button[col1][row1].settext("")
-			ok
-		ok
-		if row1=row2 and col2=col1+1 and row1=1
-			temp = button[col1][row1].text()
-			if temp!= ""
-				button[col2][row2].setstylesheet(C_BUTTONREDSTYLE)
-				button[col2][row2].settext(temp)
-				if row1 = 1
-					button[col1][row1].setstylesheet(C_BUTTONTOP)              
-				else
-					button[col1][row1].setstylesheet(C_BUTTONSTYLE)
-				ok
-				button[col1][row1].settext("")
-			ok
-		ok 
-		if row1=row2 and col2=col1-1 and row1=1 
-			temp = button[col1][row1].text()
-			if temp!= ""
-				button[col2][row2].setstylesheet(C_BUTTONREDSTYLE)
-				button[col2][row2].settext(temp)
-				if row1 = 1
-					button[col1][row1].setstylesheet(C_BUTTONTOP)              
-				else
-					button[col1][row1].setstylesheet(C_BUTTONSTYLE)
-				ok
-				button[col1][row1].settext("")
-			ok 
-		ok
-
-		if row1=row2 and col2=col1-1 and row1=1 
-			temp = button[col1][row1].text()
-			if temp!= ""
-				button[col2][row2].setstylesheet(C_BUTTONREDSTYLE)
-				button[col2][row2].settext(temp)
-				if row1 = 1
-					button[col1][row1].setstylesheet(C_BUTTONTOP)              
-				else
-					button[col1][row1].setstylesheet(C_BUTTONSTYLE)
-				ok
-				button[col1][row1].settext("")
-			ok 
-		ok
 	ok 
