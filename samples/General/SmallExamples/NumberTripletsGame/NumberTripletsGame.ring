@@ -88,25 +88,22 @@ app = new qApp {
 				button[n][m] = new QPushButton(win)
 			next
 		next
-		for n = 1 to sizey
-			LayoutButtonRow[n] = new QHBoxLayout() {
-				setSpacing(C_LAYOUTSPACING) 
-				for m = 1 to sizex
-					AddWidget(button[m][n])
-				next
-			}
-		next
 		LayoutButtonMain = new QVBoxLayout() {
 			setSpacing(C_LAYOUTSPACING)
 			for n = 1 to sizey
+				LayoutButtonRow[n] = new QHBoxLayout() {
+					setSpacing(C_LAYOUTSPACING) 
+					for m = 1 to sizex
+						AddWidget(button[m][n])
+					next
+				}
 				AddLayout(LayoutButtonRow[n])
 			next
 			AddWidget(newGame)
 		}
-		win.setLayout(LayoutButtonMain)
-		win.show()
-		pbegin()  
+		setLayout(LayoutButtonMain)
 		show()
+		pbegin()  
 	}
 	exec()
 }
