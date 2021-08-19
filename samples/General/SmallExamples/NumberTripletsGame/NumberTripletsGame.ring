@@ -243,7 +243,7 @@ func pMove col1,row1,col2,row2
 				else
 					button[col1][row1].setstylesheet(C_BUTTONSTYLE)
 				ok
-					button[col1][row1].settext("")
+				button[col1][row1].settext("")
 			ok 
 		ok
 	ok 
