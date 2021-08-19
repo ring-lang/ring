@@ -68,7 +68,14 @@ app = new qApp {
 				button[n][m] = new QPushButton(win)
 			next
 		next
-		newgame = new qLabel(win)
+		newgame = new qLabel(win) {
+			setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
+			setstylesheet(C_NEWGAMESTYLE)
+			settext('New Game')
+			myfilter4 = new qallevents(newgame)
+			myfilter4.setMouseButtonPressEvent("pbegin()")
+			installeventfilter(myfilter4)
+		}
 		myfilter3 = new qAllEvents(win) {
 		setMouseButtonPressEvent("keyPress()")}
 		installeventfilter(myfilter3)
@@ -76,39 +83,23 @@ app = new qApp {
 		installeventfilter(myfilter2)
 		winwidth = win.width()
 		winheight = win.height()
+		for n = 1 to sizex
+			for m = 1 to sizey
+				button[n][m] = new QPushButton(win)
+			next
+		next
 		for n = 1 to sizey
 			LayoutButtonRow[n] = new QHBoxLayout() {
 				setSpacing(C_LAYOUTSPACING) 
+				for m = 1 to sizex
+					AddWidget(button[m][n])
+				next
 			}
 		next
-		for n = 1 to sizex
-			for m = 1 to sizey
-				button[n][m] = new QPushButton(win) {
-					show()
-				}
-			next
-		next
-		for n = 1 to sizey
-			for m = 1 to sizex
-				LayoutButtonRow[n].AddWidget(button[m][n])
-				win.show()
-			next
-			LayoutButtonRow[n].setSpacing(C_LAYOUTSPACING)
-		next
-		newgame {
-			setalignment(Qt_AlignHCenter | Qt_AlignVCenter)
-			setstylesheet(C_NEWGAMESTYLE)
-			settext('New Game')
-			myfilter4 = new qallevents(newgame)
-			myfilter4.setMouseButtonPressEvent("pbegin()")
-			installeventfilter(myfilter4)
-			show()
-		}
 		LayoutButtonMain = new QVBoxLayout() {
 			setSpacing(C_LAYOUTSPACING)
 			for n = 1 to sizey
 				AddLayout(LayoutButtonRow[n])
-				win.show()
 			next
 			AddWidget(newGame)
 		}
