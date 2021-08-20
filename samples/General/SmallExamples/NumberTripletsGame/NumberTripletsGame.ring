@@ -1,4 +1,4 @@
-# Project : Game Color
+# Project : NUmber Tripéets Game
 # Date    : 19/08/2021-06:30:09
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
@@ -25,30 +25,17 @@ C_EMPTYBUTTONSTYLE      = 'border-radius:17px;color:black; background-color: whi
 C_BUTTONBLACKSTYLE      = 'border-radius:17px;color:black; background-color: black ;' + C_BUTTONFONTSIZE
 
 C_LAYOUTSPACING		= 10
-C_PLAYERSCORE		= 'Player Score :  '
 
 sizex	= 9
 sizey	= 5
-limit	= 2
-num	= 0
 flag	= 0
 x1	= 0
 x2	= 0
 y1	= 0
 y2	= 0
-nScore	= 0
 
 button		= newlist(sizex,sizey)
-buttonsave	= newlist(sizex,sizey)
 LayoutButtonRow	= list(sizey)
-moveleft	= []
-moveright	= []
-moveup		= []
-movedown	= []
-myfilter2	= null
-myfilter3	= null
-winheight	= 0
-winwidth	= 0
 
 app = new qApp {
 	StyleFusion()
@@ -71,8 +58,6 @@ app = new qApp {
 			myfilter4.setMouseButtonPressEvent("pbegin()")
 			installeventfilter(myfilter4)
 		}
-		winwidth = width()
-		winheight = height()
 		for n = 1 to sizex
 			for m = 1 to sizey
 				button[n][m] = new QPushButton(win)
@@ -196,4 +181,4 @@ func pMove col1,row1,col2,row2
 				button[col1][row1].settext("") 
 			ok
 		ok   
-	ok 
+	ok
