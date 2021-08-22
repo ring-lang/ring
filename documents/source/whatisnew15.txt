@@ -263,7 +263,8 @@ The next samples are added to the samples folder
 	*  samples/Language/AnonFunctions/anonfunc4.ring
 	*  samples/Language/AnonFunctions/anonfunclib.ring
 	*  samples/Language/Numbers/powfunc.ring
-	*  samples/General/SmallExamples/NumberTripletsGame/NumberTripletsGame.ring
+	*  samples/General/NumberTripletsGame/NumberTripletsGame.ring
+	*  samples/General/Elevator/elevator.ring
 	*  samples/General/SmallExamples/ParametersOrder/parametersorder.ring
 	*  samples/UsingArabic/WriteArabicFile/using_QFile_write.ring
 	*  samples/UsingArabic/WriteArabicFile/using_QFile_read.ring
