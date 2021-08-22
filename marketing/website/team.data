@@ -4,39 +4,39 @@
 					'<img src="fayed.jpg" width="150" height="170">'
 				  ],
 				  [
-					'Gal Zsolt (CalmoSoft)<br/>Software Developer (Samples Master)',
-					'<img src="GalZsolt.png" width="150" height="170">'
-				  ],
-				  [
 					'Bert Mariani<br/>Software Developer (Applications Master)',
 					'<img src="UmbertoMariani.png" width="150" height="170">'
 				  ],
-				  [
-                    			'José Rosado<br/>Software Developer',
-					'<img src="jose.jpg" width="150" height="170">'
+  				  [
+					'Ahmed Hassouna<br/>Software Developer (Training Master)',
+					'<img src="AhmedHassouna.jpg" width="150" height="170">'
+				  ],
+		  		  [
+                    			'Mansour Ayouni<br/>Software Developer (Writing Master)',
+		    			'<img src="mansour.jpg" width="150" height="170">'
                   		  ],
 				  [
-                    			'Marino Esteban<br/>Software Developer',
-					'<img src="marino.jpg" width="150" height="170">'
-                  		  ]
+					'Majdi Sobain<br/>Software Developer (Extensions Master)',
+					'<img src="majdi.jpg" width="150" height="170">'
+				  ],
+				  [
+					'Gal Zsolt (CalmoSoft)<br/>Software Developer (Samples Master)',
+					'<img src="GalZsolt.png" width="150" height="170">'
+				  ]
 ]
 aManyThanks = [
 				  [
 					'Prof. Dr. Atif M. Alamri',
 					'<img src="dratif.png" width="150" height="170">'
 				  ],
-  				  [
-					'Ahmed Hassouna',
-					'<img src="AhmedHassouna.jpg" width="150" height="170">'
-				  ],
-		  		  [
-                    			'Mansour Ayouni',
-		    			'<img src="mansour.jpg" width="150" height="170">'
+				  [
+                    			'José Rosado',
+					'<img src="jose.jpg" width="150" height="170">'
                   		  ],
 				  [
-					'Majdi Sobain',
-					'<img src="majdi.jpg" width="150" height="170">'
-				  ],
+                    			'Marino Esteban',
+					'<img src="marino.jpg" width="150" height="170">'
+                  		  ],
 				  [
 					'Mona Kamel',
 					'<img src="mona.png" width="150" height="170">'
@@ -65,6 +65,24 @@ aManyThanks = [
                     			'Ahmed Baryyan',
 		    			'<img src="ahmedbarayan1.jpg" width="150" height="170">'
                   		  ]
+]
+aTopContributors = [
+		  [
+                    'Mounir IDRASSI (Creator of VeraCrypt)',
+                    'Performance Master'                    
+		  ],
+		  [
+                    'Ilir Liburn',
+                    'Ring VM Master'                    
+                  ],
+		  [
+                    'Azzeddine Remmal',
+                    'Qt3D Master'                    
+		  ],
+		  [
+                    'Ahmad Zakaria',
+                    'RayLib Master'                    
+		  ]
 ]
 aTeam2 = [
 				  [
@@ -849,16 +867,8 @@ aTeam2 = [
                     'Tester'                    
                   ],
 		  [
-                    'Ilir Liburn',
-                    'Tester'                    
-                  ],
-		  [
                     'Matthias Schuster',
 		    'Tester'
-		  ],
-		  [
-                    'Ahmad Zakaria',
-                    'Tester'                    
 		  ],
 		  [
                     'Tawfik Yasser',
@@ -866,14 +876,6 @@ aTeam2 = [
 		  ],
 		  [
                     'Abdallah Mohamed Elsharif',
-                    'Tester'                    
-		  ],
-		  [
-                    'Mounir IDRASSI',
-                    'Tester'                    
-		  ],
-		  [
-                    'Azzeddine Remmal',
                     'Tester'                    
 		  ]
 ]
