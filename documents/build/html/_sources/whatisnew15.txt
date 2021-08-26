@@ -278,6 +278,7 @@ The next samples are added to the samples folder
 	*  samples/UsingQt/String/QStringJustified.ring
 	*  samples/UsingQt/Clipboard/QTextEditClipboard.ring
 	*  samples/UsingQt/Clipboard/UsingQClipboard.ring
+	*  samples/UsingQt/Time/timemillisecond.ring
 	*  samples/UsingWebLib/PathInfo/pathinfo.ring
 
 Screen Shot:
