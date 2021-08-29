@@ -306,5 +306,6 @@ More Improvements
 * Ring VM - ring_state_scannererror() function
 * Ring VM - Clear error message when we have infinite recursions
 * Ring VM - Random() & Randomize() Functions - Better Code!
+* Ring Compiler - Do-Again Loop - Avoid unnecessary JUMP instruction when using (Loop) command
 * Ring Compiler - When Embedding Ring in Ring - Always keep Ring keywords (Not Case Sensitive) 
 * Ring Compiler - Scanner - Option (Comments as Tokens)
