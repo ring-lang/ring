@@ -41,7 +41,7 @@ pList
 ring_vm_saveloadaddressscope
 ring_vm_restoreloadaddressscope
 ring_vm_anonymous
-Type: const char *
+Type: char *
 cStr
 ring_vm_isstackpointertoobjstate
 ring_vm_prevtempmem

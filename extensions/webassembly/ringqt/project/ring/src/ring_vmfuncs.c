@@ -644,7 +644,7 @@ void ring_vm_freetemplists ( VM *pVM )
 		pTempMem = ring_list_getlist(pTempMem,RING_FUNCCL_TEMPMEM) ;
 	}
 	else {
-		pTempMem = ring_list_newlist_gc(pVM->pRingState,pVM->pTempMem) ;
+		return ;
 	}
 	/* Delete Temp. Lists created during the function call */
 	if ( nStart == 1 ) {
