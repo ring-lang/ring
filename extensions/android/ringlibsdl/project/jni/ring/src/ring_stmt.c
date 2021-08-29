@@ -850,6 +850,7 @@ int ring_parser_stmt ( Parser *pParser )
 				**  Free Temp Lists 
 				*/
 				ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
+				ring_parser_icg_newoperandint(pParser,0);
 				nMark3 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_newoperation(pParser,ICO_JUMP);
 				ring_parser_icg_newoperandint(pParser,nMark1);
@@ -915,6 +916,7 @@ int ring_parser_stmt ( Parser *pParser )
 			**  Free Temp Lists 
 			*/
 			ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
+			ring_parser_icg_newoperandint(pParser,0);
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			pParser->nAssignmentFlag = 0 ;

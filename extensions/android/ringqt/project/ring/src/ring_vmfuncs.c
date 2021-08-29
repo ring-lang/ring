@@ -640,8 +640,11 @@ void ring_vm_freetemplists ( VM *pVM )
 	/* Get the current temp. list */
 	if ( ring_list_getsize(pVM->pFuncCallList) > 0 ) {
 		pTempMem = ring_list_getlist(pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList)) ;
-		nStart = ring_list_getint(pTempMem,RING_FUNCCL_TEMPMEMSIZEATSTART) + 1 ;
 		pTempMem = ring_list_getlist(pTempMem,RING_FUNCCL_TEMPMEM) ;
+		if ( RING_VM_IR_READI == 0 ) {
+			RING_VM_IR_READI = ring_list_getsize(pTempMem) + 1 ;
+		}
+		nStart = RING_VM_IR_READI ;
 	}
 	else {
 		return ;
