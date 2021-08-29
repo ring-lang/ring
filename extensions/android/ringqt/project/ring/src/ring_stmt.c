@@ -933,7 +933,7 @@ int ring_parser_stmt ( Parser *pParser )
 					/* Set Exit Mark */
 					ring_parser_icg_addoperandint(pParser,pMark3,nMark2);
 					/* Set Loop Mark */
-					ring_parser_icg_addoperandint(pParser,pMark3,nMark3);
+					ring_parser_icg_addoperandint(pParser,pMark3,nMark1);
 					/* End Loop (Remove Exit Mark) */
 					ring_parser_icg_newoperation(pParser,ICO_POPEXITMARK);
 				}
