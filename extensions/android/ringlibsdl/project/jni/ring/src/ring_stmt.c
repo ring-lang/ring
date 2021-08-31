@@ -826,6 +826,9 @@ int ring_parser_stmt ( Parser *pParser )
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
 		nMark1 = ring_parser_icg_newlabel(pParser);
+		/* Free Temp Lists */
+		ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
+		ring_parser_icg_newoperandint(pParser,0);
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
 		pParser->nAssignmentFlag = 0 ;
@@ -845,12 +848,7 @@ int ring_parser_stmt ( Parser *pParser )
 			RING_PARSER_ACCEPTSTATEMENTS ;
 			pParser->nLoopFlag-- ;
 			if ( ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
-				/*
-				**  Generate Code 
-				**  Free Temp Lists 
-				*/
-				ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
-				ring_parser_icg_newoperandint(pParser,0);
+				/* Generate Code */
 				nMark3 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_newoperation(pParser,ICO_JUMP);
 				ring_parser_icg_newoperandint(pParser,nMark1);
@@ -899,6 +897,9 @@ int ring_parser_stmt ( Parser *pParser )
 		ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
 		nMark1 = ring_parser_icg_newlabel(pParser);
+		/* Free Temp Lists */
+		ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
+		ring_parser_icg_newoperandint(pParser,0);
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 
@@ -911,12 +912,7 @@ int ring_parser_stmt ( Parser *pParser )
 		RING_PARSER_ACCEPTSTATEMENTS ;
 		pParser->nLoopFlag-- ;
 		if ( ring_parser_iskeyword(pParser,K_AGAIN) ) {
-			/*
-			**  Generate Code 
-			**  Free Temp Lists 
-			*/
-			ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
-			ring_parser_icg_newoperandint(pParser,0);
+			/* Generate Code */
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			pParser->nAssignmentFlag = 0 ;
