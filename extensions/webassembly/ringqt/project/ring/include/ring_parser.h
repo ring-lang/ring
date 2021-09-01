@@ -189,4 +189,6 @@
 	void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod ) ;
 
 	int ring_parser_gencallringvmsee ( Parser *pParser ) ;
+
+	void ring_parser_genfreetemplists ( Parser *pParser ) ;
 #endif

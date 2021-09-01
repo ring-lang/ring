@@ -39,3 +39,4 @@ ring_parser_bracesandend
 ring_parser_gencallringvmsee
 Type: int
 x,nFlag
+ring_parser_genfreetemplists

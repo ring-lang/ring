@@ -555,6 +555,8 @@ int ring_parser_stmt ( Parser *pParser )
 							/* Save Loop|Exit commands status */
 							nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
 							pParser->nLoopFlag++ ;
+							/* Free Temp Lists */
+							ring_parser_genfreetemplists(pParser);
 							RING_PARSER_ACCEPTSTATEMENTS ;
 							pParser->nLoopFlag-- ;
 							if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
@@ -671,6 +673,8 @@ int ring_parser_stmt ( Parser *pParser )
 					/* Save Loop|Exit commands status */
 					nLoopOrExitCommand = pParser->nLoopOrExitCommand ;
 					pParser->nLoopFlag++ ;
+					/* Free Temp Lists */
+					ring_parser_genfreetemplists(pParser);
 					RING_PARSER_ACCEPTSTATEMENTS ;
 					pParser->nLoopFlag-- ;
 					if ( ring_parser_iskeyword(pParser,K_NEXT) || ring_parser_iskeyword(pParser,K_END) || ring_parser_csbraceend(pParser) ) {
@@ -827,8 +831,7 @@ int ring_parser_stmt ( Parser *pParser )
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
 		nMark1 = ring_parser_icg_newlabel(pParser);
 		/* Free Temp Lists */
-		ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
-		ring_parser_icg_newoperandint(pParser,0);
+		ring_parser_genfreetemplists(pParser);
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
 		pParser->nAssignmentFlag = 0 ;
@@ -898,8 +901,7 @@ int ring_parser_stmt ( Parser *pParser )
 		pMark3 = ring_parser_icg_getactiveoperation(pParser);
 		nMark1 = ring_parser_icg_newlabel(pParser);
 		/* Free Temp Lists */
-		ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
-		ring_parser_icg_newoperandint(pParser,0);
+		ring_parser_genfreetemplists(pParser);
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 
@@ -912,7 +914,6 @@ int ring_parser_stmt ( Parser *pParser )
 		RING_PARSER_ACCEPTSTATEMENTS ;
 		pParser->nLoopFlag-- ;
 		if ( ring_parser_iskeyword(pParser,K_AGAIN) ) {
-			/* Generate Code */
 			ring_parser_nexttoken(pParser);
 			RING_PARSER_IGNORENEWLINE ;
 			pParser->nAssignmentFlag = 0 ;
@@ -1569,4 +1570,19 @@ int ring_parser_gencallringvmsee ( Parser *pParser )
 	ring_parser_icg_newoperation(pParser,ICO_NOOP);
 	ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 	return x ;
+}
+
+void ring_parser_genfreetemplists ( Parser *pParser )
+{
+	/* Using the Free Temp Lists instruction */
+	ring_parser_icg_newoperation(pParser,ICO_FREETEMPLISTS);
+	/* The number of temp variables before calling the instruction for the first time */
+	ring_parser_icg_newoperandint(pParser,0);
+	/*
+	**  The Scope ID of the Current Function 
+	**  Each time Ring VM call a function, we get a new Scope ID 
+	**  We cache this Scope ID, If it's changed this means we have a new function call 
+	**  In this case we refresh the number of temp. variables 
+	*/
+	ring_parser_icg_newoperandint(pParser,0);
 }
