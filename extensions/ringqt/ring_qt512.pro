@@ -202,7 +202,7 @@ HEADERS  += \
     cpp/include/gcolordialog.h \
     cpp/include/gfontdialog.h \
     cpp/include/gfiledialog.h \
-    cpp/include/mscompleter.h \
+    cpp/include/mscompleter.h
 
 INCLUDEPATH += ../../language/include
 INCLUDEPATH += cpp/include
