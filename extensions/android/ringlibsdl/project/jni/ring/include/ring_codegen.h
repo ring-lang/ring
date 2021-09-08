@@ -161,6 +161,8 @@
 	#define ring_parser_icg_setlastoperation(pParser,x) ring_list_setint_gc(pParser->pRingState,pParser->ActiveGenCodeList,1,x)
 	#define ring_parser_icg_instructionscount(pParser) ring_list_getsize(pParser->GenCode)
 	#define ring_parser_icg_getoperationlist(pParser,x) ring_list_getlist(pParser->GenCode,x)
+	#define RING_PARSER_ICG_OPERATIONCODE 1
+	#define ring_parser_icg_getoperationbeforelastoperation(pParser) ring_list_getint(ring_parser_icg_getoperationlist(pParser,ring_parser_icg_instructionscount(pParser)-1),RING_PARSER_ICG_OPERATIONCODE)
 	/*
 	**  Functions 
 	**  Generate Intermediate Code 

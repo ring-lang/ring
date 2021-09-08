@@ -641,8 +641,16 @@ int ring_parser_stmt ( Parser *pParser )
 					/* Generate Code */
 					nEnd = ring_parser_icg_instructionscount(pParser) ;
 					/* Note (nEnd-1) , -1 to remove instruction PushV (avoid error with for x in string) */
-					if ( ring_parser_icg_getlastoperation(pParser) == ICO_PUSHV ) {
-						nEnd-- ;
+					switch ( ring_parser_icg_getlastoperation(pParser) ) {
+						case ICO_PUSHV :
+							nEnd-- ;
+							break ;
+						case ICO_NEWLINE :
+							/* Check the instruction before ICO_NEWLINE - It could be ICO_PUSHV */
+							if ( ring_parser_icg_getoperationbeforelastoperation(pParser) == ICO_PUSHV ) {
+								nEnd -= 2 ;
+							}
+							break ;
 					}
 					ring_parser_icg_newoperation(pParser,ICO_CALL);
 					/* Generate 0 For Operator OverLoading */
