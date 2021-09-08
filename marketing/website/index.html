@@ -19,6 +19,13 @@
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <script src="js/jquery.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
+	<script>
+		$(document).ready(function() {
+			$('#whyring').on('shown.bs.collapse', function () {
+				this.scrollIntoView();
+			});
+		});
+	</script>
 
 </head>
 <body>
@@ -37,7 +44,7 @@
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav">
           <li><a href="index.html#">Home</a></li>
-		  <li><a href="index.html#why">Why?</a></li>
+		  <li><a href="index.html#whyring" data-toggle="collapse">Why?</a></li>
           <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Download<span class="caret"></span></a>
             <ul class="dropdown-menu">
 		  <li><a href="download.html">Download Ring 1.14</a></li>
