@@ -66,14 +66,12 @@
 
 </div>
 
-
-
-
 <br>
 
 
+
 <a href="#innovative" class="btn btn-default" data-toggle="collapse" style="width:100%">Get Excited!</a>
-  <div id="innovative" class="panel-group collapse in">
+  <div id="innovative" class="panel-group collapse">
     <div class="panel panel-primary">
       <div class="panel-heading"><h4>Quick Introduction</h4></div>
       <div class="panel-body">
@@ -100,7 +98,7 @@
 
 
  <a href="#practical" class="btn btn-default" data-toggle="collapse" style="width:100%">Practical</a>
-  <div id="practical" class="panel-group collapse in">
+  <div id="practical" class="panel-group collapse">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Libraries and Tools</h4></div>
       <div class="panel-body">
@@ -638,7 +636,7 @@
  
 
 <a  id="why" href="#whyring" class="btn btn-default" data-toggle="collapse" style="width:100%">Why Ring?</a>
-<div id="whyring" class="panel-group collapse in">
+<div id="whyring" class="panel-group collapse">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Why Ring?</h4></div>
       <div class="panel-body">
@@ -1331,7 +1329,7 @@ aWords = ["hello","it","is","me"]
   
 <a href="#implementation" class="btn btn-default" data-toggle="collapse" style="width:100%">Implementation</a>
 
-<div id="implementation" class="panel-group collapse in">
+<div id="implementation" class="panel-group collapse">
 
 <div class="panel panel-default">
       <div class="panel-heading"><h4>Implementation</h4></div>
@@ -1520,7 +1518,7 @@ aList = "nice"
 		</div>
 	
 
-  <div id="fastenough" class="panel-group collapse in">
+  <div id="fastenough" class="panel-group collapse">
     <div class="panel panel-primary">
       <div class="panel-heading"><h4>Fast Enough For Many Applications</h4></div>
       <div class="panel-body">
@@ -1621,7 +1619,7 @@ aList = "nice"
    
 
 <a href="#features" class="btn btn-default" data-toggle="collapse" style="width:100%">Features</a>
-  <div id="features" class="panel-group collapse in">
+  <div id="features" class="panel-group collapse">
     <div class="panel panel-default">
       <div class="panel-heading"><h4>Features</h4></div>
       <div class="panel-body">
@@ -1850,12 +1848,11 @@ aList = "nice"
     </div>  
   </div>
 
-  
+
 <br><br>
 
-
 </div>
-<div id = "ringbook" class="container-fluid" style="color:white ; background: linear-gradient(to bottom, rgb(30, 32, 42) 0%, rgb(50, 52, 62) 47%, rgb(60, 62, 72) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
+<div id = "ringbook" class="container-fluid" style="color:white ; background: linear-gradient(to bottom, rgb(30, 32, 42) 0%, rgb(50, 52, 62) 47%, rgb(60, 62, 72) 50%) repeat scroll 0% 0% ; margin-bottom: 0%;">
 <div class="container" style=" margin-bottom: 2%;">
 <br> <br>
 	<div class="row">
@@ -1881,7 +1878,7 @@ aList = "nice"
 		
 		<div class="col-md-3 hidden-xs">
 			<div style="padding-left:5%">
-				<br> <br> <br>
+				<br>
 				<a href="https://www.apress.com/gp/book/9781484258323">
 				<img src="ringbookbyapress.png" width="250" height="370">
 				</a>
@@ -1890,19 +1887,18 @@ aList = "nice"
 	
 		<div class="col-md-9 hidden-xs ">
 			<div style="padding-left:5%">
+				<br><br>
 				<h1>Beginning Ring Programming<h1>
 				<h2>From Novice to Professional</h2>
+				<br>
+				<h3>
 				<p align=”justify” >
-				Gain a gentle introduction to the world of Ring programming with clarity as a first concern using a lot of practical examples. The first part lays the foundations of the language and its basic features (data types, control structures, functions, and classes). The unique way to rigorously structure Ring programs is also explained. 
-				</p><p align="justify">
-				Then, in the second part you’ll discover Ring inputs, outputs, and what is in between. You’ll use the basic constructs of computer logic (sequence, selection, and iteration) to build simple and complex logic flows. You’ll go over the common mistakes that lead to code complexity, by example, and cover several strategies to solve them (refactoring, code cleansing, and good variable naming). Then, you’ll see a visual illustration of how Ring deals with scopes at the local, object, and global levels.
-				</p><p align="justify">
-				In part three, you’ll play with two artifacts vital to Ring programming: functions and objects. You’ll learn how they can be composed to solve a problem and how advanced programming paradigms, such as declarative and natural, are beautifully implemented on top of them. As part of the discussion, you’ll also work on game programming. You’ll learn how you design your game declaratively, in Ring code, just as if you were designing it in visual software.
-				</p><p align="justify">
-				Finally, the author lays out how programming can be understood in a gamified context. You will be told the truth about how gaming can be a better metaphor to achieve mastery of Ring programming.
-				</p><p align="justify">
-				This book is for those who are passionate about writing beautiful, expressive, and learnable code. It has been designed so you can enjoy a beginner-friendly set of knowledge about Ring, and benefit from a one-stop collection of lessons learned from real-world, customer-facing programming projects.
+				Gain a gentle introduction to the world of Ring programming with clarity as a first concern using a lot of practical examples.
 				</p>
+				<p align="justify">
+				Enjoy a beginner-friendly set of knowledge about Ring, and benefit from a one-stop collection of lessons learned from real-world, customer-facing programming projects.
+				</p>
+				</h3>
 			</div>
 		</div>
 		<br>
@@ -1911,5 +1907,52 @@ aList = "nice"
 	</div>
 </div>
 </div>
+
+</div>
+<div id = "ringlibs" class="container-fluid" style="color:black;background-color:white; margin-bottom: 0%;">
+<div class="container" style=" margin-bottom: 2%;">
+<br> <br>
+	<div class="row">
+	
+	
+		<div class="col-md-12 hidden-xs">
+			<div style="padding-left:5%">
+				<h1>Batteries Included</h1>
+				<h2>
+				Ring comes with many high quality bindings for popular libraries
+				</h2>
+			</div>
+		</div>
+		<div class="col-md-12 hidden-xs" > 
+			<div>
+				<br> <br> <br>
+				<img src="libs.png">
+			</div>
+		</div>	
+
+		<div class="col-md-12 visible-xs">
+			<div style="padding-left:5%">
+				<h3>Batteries Included</h3>
+				<h4>
+				Ring comes with many high quality bindings for popular libraries
+				</h4>
+			</div>
+		</div>
+
+		<div class="col-md-12 visible-xs" >
+			<div>
+				<br> <br> <br>
+				<img src="libs.png" width="100%" height="330">
+			</div>
+		</div>	
+
+		<br>
+
+
+	</div>
+</div>
+</div>
+
+
 <div class="container" style="display: none;">  
   
