@@ -304,7 +304,7 @@ More Improvements
 * Ring VM - Support converting NULL to Zero when we compare between Number and NULL
 * Ring VM - ring_state_stringtokens() function
 * Ring VM - ring_state_scannererror() function
-* Ring VM - Clear error message when we have infinite recursions
+* Ring VM - Clean error message when we have infinite recursions
 * Ring VM - Random() & Randomize() Functions - Better Code!
 * Ring VM - ICO_FREETEMPLISTS Instruction - Better Implementation
 * Ring Compiler - For-In Loop - Always access string characters by reference
