@@ -95,6 +95,8 @@ void ring_vm_oop_newobj ( VM *pVM )
 					ring_list_setpointer_gc(pVM->pRingState,pSelf,RING_VAR_VALUE,pItem);
 				}
 				ring_list_setint_gc(pVM->pRingState,pSelf,RING_VAR_PVALUETYPE ,nType);
+				/* Save the State */
+				ring_vm_savestate3(pVM);
 				/* Jump to Class INIT Method */
 				ring_vm_blockflag2(pVM,pVM->nPC);
 				/* Execute Parent Classes Init first */
@@ -105,8 +107,6 @@ void ring_vm_oop_newobj ( VM *pVM )
 				else {
 					pVM->nPC = nClassPC ;
 				}
-				/* Save the State */
-				ring_vm_savestate3(pVM);
 				/* Set Object State as the Current Scope */
 				pVM->pActiveMem = pList3 ;
 				/* Prepare to Make Object State & Methods visible while executing the INIT method */
@@ -235,8 +235,6 @@ void ring_vm_oop_setscope ( VM *pVM )
 	ring_vm_restorestate3(pVM);
 	/* After init methods */
 	ring_vm_oop_aftercallmethod(pVM);
-	/* Disable NULL variables (To be class attributes) */
-	pVM->nInClassRegion-- ;
 	/* POP Class Package */
 	ring_vm_oop_popclasspackage(pVM);
 }
