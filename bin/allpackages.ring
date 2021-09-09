@@ -119,7 +119,8 @@ aAllPackagesInfo = [
 		"spaceshootergame",
 		"ringrepl",
 		"webassemblyringqt",
-		"erlangbformula"
+		"erlangbformula",
+		"Chess3d-Qt3D"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -199,7 +200,8 @@ aAllPackagesInfo = [
 		"nimgame",
 		"eightqueensgame",
 		"ringrepl",
-		"erlangbformula"
+		"erlangbformula",
+		"Chess3d-Qt3D"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -283,5 +285,14 @@ aAllPackagesInfo = [
 	],
 	:weblibtools = 	[
 		"weblib"
-	]
+	],
+	["Chess3d-Qt3D" ,	[
+
+	] ],
+	["chess3d-qt3d" ,	[
+
+	] ],
+	["Chess3D-Qt3D" ,	[
+
+	] ]
 ]
