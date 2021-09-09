@@ -22,6 +22,12 @@ Type: List *
 pThis
 Type: VMState *
 pVMState
+ring_vm_savestate3
+Type: List *
+pList, *pThis
+ring_vm_restorestate3
+Type: List *
+pList, *pThis
 ring_vm_backstate
 Type: int
 nLimit,y

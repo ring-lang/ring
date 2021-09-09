@@ -22,8 +22,6 @@ pClass,*pList
 Type: int
 x
 ring_vm_oop_setscope
-Type: List *
-pList, *pThis
 ring_vm_oop_isobject
 ring_vm_oop_getobj
 Type: List *
