@@ -5302,6 +5302,12 @@ Class QPainter
 	Func drawPolyline P1
 		return QPainter_drawPolyline(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func drawHSVFList P1
+		return QPainter_drawHSVFList(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func drawRGBFList P1
+		return QPainter_drawRGBFList(pObject,GetObjectPointerFromRingObject(P1))
+
 Class QPicture
 
 	pObject
