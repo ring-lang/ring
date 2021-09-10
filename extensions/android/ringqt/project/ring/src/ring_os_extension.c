@@ -318,7 +318,6 @@ void ring_vm_os_uptime ( void *pPointer )
 void ring_vm_os_randomize ( void *pPointer )
 {
 	RING_UNSIGNEDLONGLONG nNum1,nNum2  ;
-	unsigned int nNum  ;
 	#if ! defined(_WIN32)
 		struct timespec ts  ;
 		ring_vm_os_gettime(CLOCK_UPTIME, &ts);
@@ -333,9 +332,10 @@ void ring_vm_os_randomize ( void *pPointer )
 		#endif
 	#else
 		LARGE_INTEGER ElapsedMicroseconds  ;
+		unsigned int nNum  ;
 		QueryPerformanceCounter(&ElapsedMicroseconds);
-		rand_s(&nNum1);
-		nNum1 = (RING_UNSIGNEDLONGLONG ) nNum1 | ( ElapsedMicroseconds.QuadPart << 32 ) ;
+		rand_s(&nNum);
+		nNum1 = (RING_UNSIGNEDLONGLONG ) nNum | ( ElapsedMicroseconds.QuadPart << 32 ) ;
 	#endif
 	if ( RING_API_PARACOUNT == 0 ) {
 		/* Double have Integer precision up to 2^53 */
