@@ -27227,8 +27227,8 @@ RING_FUNC(ring_QPainter_drawConvexPolygon)
 	QPainter *pObject ;
 	List *pList,*pList2;
 	int x,nSize;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
@@ -27258,8 +27258,8 @@ RING_FUNC(ring_QPainter_drawPoints)
 	QPainter *pObject ;
 	List *pList,*pList2;
 	int x,nSize;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
@@ -27289,8 +27289,8 @@ RING_FUNC(ring_QPainter_drawPolyline)
 	QPainter *pObject ;
 	List *pList,*pList2;
 	int x,nSize;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
@@ -27313,6 +27313,61 @@ RING_FUNC(ring_QPainter_drawPolyline)
 	}
 	pObject->drawPolyline(points, nSize);
 	delete [] points;
+}
+
+void ring_QPainter_drawList(void *pPointer,int nType) {
+	QPainter *pObject;
+	QColor oColor;
+	QPen oPen;
+	List *pList,*pList2;
+	int x,nSize;
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QPainter *) RING_API_GETCPOINTER(1,"QPainter");
+	pList = (List *) RING_API_GETLIST(2);
+	nSize = ring_list_getsize(pList);
+	for (x=1 ; x <= nSize ; x++) {
+		pList2 = ring_list_getlist(pList,x);
+		switch (nType) {
+			case 1:
+				oColor.setHsvF((float) ring_list_getdouble(pList2,3),
+				(float) ring_list_getdouble(pList2,4),
+				(float) ring_list_getdouble(pList2,5),
+				(float) ring_list_getdouble(pList2,6));
+				break;
+			case 2:
+				oColor.setRgbF((float) ring_list_getdouble(pList2,3),
+				(float) ring_list_getdouble(pList2,4),
+				(float) ring_list_getdouble(pList2,5),
+				(float) ring_list_getdouble(pList2,6));
+				break;
+		}
+		oPen.setColor(oColor);
+		pObject->setPen(oPen);
+		pObject->drawPoint( ring_list_getdouble(pList2,1),
+			    ring_list_getdouble(pList2,2));	
+	}
+}
+
+RING_FUNC(ring_QPainter_drawHSVFList)
+{
+	ring_QPainter_drawList(pPointer,1);
+}
+
+RING_FUNC(ring_QPainter_drawRGBFList)
+{
+	ring_QPainter_drawList(pPointer,2);
 }
 
 
@@ -143141,6 +143196,8 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qpainter_drawconvexpolygon",ring_QPainter_drawConvexPolygon);
 	ring_vm_funcregister("qpainter_drawpoints",ring_QPainter_drawPoints);
 	ring_vm_funcregister("qpainter_drawpolyline",ring_QPainter_drawPolyline);
+	ring_vm_funcregister("qpainter_drawhsvflist",ring_QPainter_drawHSVFList);
+	ring_vm_funcregister("qpainter_drawrgbflist",ring_QPainter_drawRGBFList);
 	ring_vm_funcregister("qpicture_boundingrect",ring_QPicture_boundingRect);
 	ring_vm_funcregister("qpicture_data",ring_QPicture_data);
 	ring_vm_funcregister("qpicture_isnull",ring_QPicture_isNull);
