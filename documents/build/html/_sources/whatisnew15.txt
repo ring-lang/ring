@@ -282,6 +282,8 @@ The next samples are added to the samples folder
 	*  samples/UsingQt/Clipboard/UsingQClipboard.ring
 	*  samples/UsingQt/Time/timemillisecond.ring
 	*  samples/UsingWebLib/PathInfo/pathinfo.ring
+	*  samples/Drawing/ColorWheel/ColorWheel-Animate.ring
+	*  samples/Drawing/ColorWheel/ColorWheel-FastDraw.ring
 
 Screen Shot:
 
