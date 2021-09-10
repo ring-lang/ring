@@ -134,7 +134,7 @@ RING_FUNC(ring_QPainter_drawConvexPolygon)
 	QPainter *pObject ;
 	List *pList,*pList2;
 	int x,nSize;
-	if ( RING_API_PARACOUNT != 3 ) {
+	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
@@ -165,7 +165,7 @@ RING_FUNC(ring_QPainter_drawPoints)
 	QPainter *pObject ;
 	List *pList,*pList2;
 	int x,nSize;
-	if ( RING_API_PARACOUNT != 3 ) {
+	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
@@ -196,7 +196,7 @@ RING_FUNC(ring_QPainter_drawPolyline)
 	QPainter *pObject ;
 	List *pList,*pList2;
 	int x,nSize;
-	if ( RING_API_PARACOUNT != 3 ) {
+	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
 	}
