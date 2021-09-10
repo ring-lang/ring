@@ -7,4 +7,4 @@ set RINGEXEPATH="%RINGSCRIPTPATH%..\..\bin\ring.exe"
 copy %RINGSCRIPTPATH%ring2exe.exe %RINGSCRIPTPATH%..\..\bin\ring2exe.exe
 cleartemp
 
-endloal
+endlocal
