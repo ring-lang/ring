@@ -162,6 +162,7 @@ Better RingQt
 * QByteArray Class - Replace() Method - Multiple versions and better code
 * QTabWidget Class - TabBar() Method
 * QVector3D Class - Project() and UnProject() Methods
+* QPainter Class - DrawHSVFList() and DrawRGBFList() Methods
 * RingQt For WebAssembly - Download File - Support Binary File
 * QCompleter4 Class
 
