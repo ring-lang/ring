@@ -45,8 +45,6 @@ func colorWheel
 	aList	= []
 	pi	= 3.14
 	radius	= 150
-	color	= new QColor() 
-	pen1	= new QPen()
 	for i = 1 to xWidth
 		p = pow(i-radius,2)
 		for j = 1 to yHeight
