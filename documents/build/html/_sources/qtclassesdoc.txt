@@ -8189,6 +8189,8 @@ Parameters : void
 * void drawConvexPolygon(List *pPoints)
 * void drawPoints(List *pPoints)
 * void drawPolyline(List *pPoints)
+* void drawHSVFList(List *pPoints)
+* void drawRGBFList(List *pPoints)
 
 .. index::
 	pair: RingQt Classes Reference; QPainter2 Class
@@ -10234,7 +10236,8 @@ QString2 Class
 
 Parameters : void
 
-* QString append( QString  str)
+* QString append(QString  str)
+* QString append_2(QChar ch)
 * QByteArray toUtf8(void)
 * QByteArray toLatin1(void)
 * QByteArray toLocal8Bit(void)
