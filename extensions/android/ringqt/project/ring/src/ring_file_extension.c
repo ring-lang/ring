@@ -174,9 +174,9 @@ void ring_vm_file_tempname ( void *pPointer )
 		/* Windows */
 		#ifdef _MSC_VER
 			/* Visual C/C++ */
-			char _tmpfile[20]  ;
+			char _tmpfile[L_tmpnam_s]  ;
 			errno_t error  ;
-			error = tmpnam_s(_tmpfile,20);
+			error = tmpnam_s(_tmpfile,L_tmpnam_s);
 			if ( error ) {
 				RING_API_ERROR(RING_VM_ERROR_TEMPFILENAME);
 			}
