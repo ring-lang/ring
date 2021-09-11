@@ -5,7 +5,6 @@
 
 load "guilib.ring"
  
-paint	= null
 xWidth	= 300
 yHeight	= 300
  
