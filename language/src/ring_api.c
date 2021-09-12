@@ -340,22 +340,23 @@ RING_API void ring_vm_api_retcpointer ( void *pPointer,void *pGeneral,const char
 
 RING_API void ring_vm_api_retlist2 ( void *pPointer,List *pList,int lRef )
 {
-	List *pList2,*pList3  ;
+	List *pRealList,*pTempMem,*pVariableList  ;
 	VM *pVM  ;
 	pVM = (VM *) pPointer ;
-	pList2 = ring_vm_prevtempmem(pVM);
-	pList3 = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pList2);
-	ring_list_setint_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_TYPE,RING_VM_LIST);
-	ring_list_setlist_gc(((VM *) pPointer)->pRingState,pList3,RING_VAR_VALUE);
-	pList2 = ring_list_getlist(pList3,RING_VAR_VALUE);
+	pTempMem = ring_vm_prevtempmem(pVM);
+	pVariableList = ring_vm_newvar2(pVM,RING_TEMP_VARIABLE,pTempMem);
+	ring_list_setint_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_TYPE,RING_VM_LIST);
+	ring_list_setlist_gc(((VM *) pPointer)->pRingState,pVariableList,RING_VAR_VALUE);
+	pRealList = ring_list_getlist(pVariableList,RING_VAR_VALUE);
 	/* Copy the list */
 	if ( lRef == 0 ) {
-		ring_vm_list_copy((VM *) pPointer,pList2,pList);
+		ring_vm_list_copy((VM *) pPointer,pRealList,pList);
 	}
 	else {
-		ring_list_swaptwolists(pList,pList2);
-		pList2->lCopyByRef = 1 ;
+		ring_list_swaptwolists(pList,pRealList);
+		/* We set the lCopyByRef Flag for the Container (Variable) - Not for the Inner List */
+		pVariableList->lCopyByRef = 1 ;
 	}
-	RING_API_PUSHPVALUE(pList3);
+	RING_API_PUSHPVALUE(pVariableList);
 	RING_API_OBJTYPE = RING_OBJTYPE_VARIABLE ;
 }
