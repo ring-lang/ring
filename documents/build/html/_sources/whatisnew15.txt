@@ -312,6 +312,7 @@ More Improvements
 * Ring VM - Random() & Randomize() Functions - Better Code!
 * Ring VM - ICO_FREETEMPLISTS Instruction - Better Implementation
 * Ring VM - ICO_NEWOBJ/ICO_SETSCOPE - State Management - Better Code!
+* Ring VM - RING_API_RETLISTBYREF - Better Code!
 * Ring Compiler - For-In Loop - Always access string characters by reference
 * Ring Compiler - Do-Again Loop - Avoid unnecessary JUMP instruction when using (Loop) command
 * Ring Compiler - When Embedding Ring in Ring - Always keep Ring keywords (Not Case Sensitive) 
