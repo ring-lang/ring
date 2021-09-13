@@ -1222,6 +1222,10 @@ void ring_vm_generallib_substr ( void *pPointer )
 				RING_API_RETSTRING2(cStr2,nSize-nNum1+1);
 				return ;
 			}
+			else {
+				RING_API_ERROR("Error in second parameter value, The number is outside the allowed range!");
+				return ;
+			}
 		}
 		else if ( RING_API_ISSTRING(2) ) {
 			cStr2 = RING_API_GETSTRING(2) ;
