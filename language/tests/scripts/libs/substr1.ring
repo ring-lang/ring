@@ -1,3 +1,5 @@
+cStr = "test"
+
 ? "Using ? substr(cStr,100)"
 try
 	? substr(cStr, 100)
