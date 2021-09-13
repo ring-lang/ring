@@ -1248,17 +1248,27 @@ void ring_vm_generallib_substr ( void *pPointer )
 		if ( RING_API_ISNUMBER(2) && RING_API_ISNUMBER(3) ) {
 			nNum1 = RING_API_GETNUMBER(2) ;
 			nNum2 = RING_API_GETNUMBER(3) ;
-			if ( (nNum1 > 0) && ( (nNum1+nNum2-1) <= nSize ) ) {
-				cString = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nNum2);
-				if ( cString == NULL ) {
-					RING_API_ERROR(RING_OOM);
+			if ( (nNum1 > 0) && ( nNum1 <= nSize ) ) {
+				if ( (nNum2 > 0) && ( (nNum1+nNum2-1) <= nSize ) ) {
+					cString = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nNum2);
+					if ( cString == NULL ) {
+						RING_API_ERROR(RING_OOM);
+						return ;
+					}
+					for ( x = 0 ; x < nNum2 ; x++ ) {
+						cString[x] = cStr[((int) nNum1) + x - 1 ] ;
+					}
+					RING_API_RETSTRING2(cString,nNum2);
+					ring_state_free(((VM *) pPointer)->pRingState,cString);
+				}
+				else {
+					RING_API_ERROR("Error in third parameter value, The number is outside the allowed range!");
 					return ;
 				}
-				for ( x = 0 ; x < nNum2 ; x++ ) {
-					cString[x] = cStr[((int) nNum1) + x - 1 ] ;
-				}
-				RING_API_RETSTRING2(cString,nNum2);
-				ring_state_free(((VM *) pPointer)->pRingState,cString);
+			}
+			else {
+				RING_API_ERROR("Error in second parameter value, The number is outside the allowed range!");
+				return ;
 			}
 		}
 		else if ( RING_API_ISSTRING(2) && RING_API_ISSTRING(3) ) {
