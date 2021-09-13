@@ -14,8 +14,8 @@
 # Contents:
 
 - [Welcome to Ring](#welcome-to-ring)
-- [Batteries Included!](#batteries-included)
 - [Get Excited!](#get-excited)
+- [Batteries Included!](#batteries-included)
 - [Practical](#practical)
   * [Custom Styles And Modern Programming Paradigms](#custom-styles-and-modern-programming-paradigms)
   * [GUI Applications Development And RAD Tools](#gui-applications-development-and-rad-tools)
@@ -65,12 +65,6 @@ Console, GUI, Web, Games, and Mobile applications.
 
 The language is designed to be Simple, Small, and Flexible. 
 
-# Batteries Included
-
-Ring comes with many high quality bindings for popular libraries 
-
-![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/libs.png)
-
 # Get Excited
 
 Ring comes with better support for Natural Language Programming and Declarative Programming. 
@@ -88,6 +82,12 @@ You get the language constructs ready for use to create domain-specific language
 * [Natural Language Programming](https://www.codeproject.com/Articles/1138605/Natural-Language-Programming-in-the-Ring-Programmi)
 
 * [Natural Language Programming Library](https://www.codeproject.com/Articles/1200766/Using-the-Natural-Language-Programming-Library-NLP)
+
+# Batteries Included
+
+Ring comes with many high quality bindings for popular libraries 
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/libs.png)
 
 # Practical
 
