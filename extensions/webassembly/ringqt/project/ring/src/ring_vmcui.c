@@ -30,7 +30,7 @@ void ring_vm_see ( VM *pVM )
 				ring_vm_oop_printobj(pVM,pList);
 			}
 			else {
-				ring_list_print(pList);
+				ring_list_print2(pList,pVM->nDecimals);
 			}
 		}
 		else if ( RING_VM_STACK_OBJTYPE ==RING_OBJTYPE_LISTITEM ) {
@@ -40,7 +40,7 @@ void ring_vm_see ( VM *pVM )
 				ring_vm_oop_printobj(pVM,pList);
 			}
 			else {
-				ring_list_print(pList);
+				ring_list_print2(pList,pVM->nDecimals);
 			}
 		}
 	}

@@ -2025,7 +2025,7 @@ void ring_vm_generallib_see ( void *pPointer )
 			ring_vm_oop_printobj(pVM,pList);
 		}
 		else {
-			ring_list_print(pList);
+			ring_list_print2(pList, ((VM *)pPointer)->nDecimals);
 		}
 	}
 	fflush(stdout);

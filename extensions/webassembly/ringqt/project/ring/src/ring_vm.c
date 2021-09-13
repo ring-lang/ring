@@ -1095,7 +1095,7 @@ void ring_vm_printstack ( VM *pVM )
 				printf( "(Pointer) : %p  \n",RING_VM_STACK_READP ) ;
 				if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 					printf( "(Pointer Type) : Variable \n" ) ;
-					ring_list_print((List *) RING_VM_STACK_READP);
+					ring_list_print2((List *) RING_VM_STACK_READP,pVM->nDecimals);
 				}
 				else if ( RING_VM_STACK_OBJTYPE ==RING_OBJTYPE_LISTITEM ) {
 					printf( "(Pointer Type) : ListItem \n" ) ;

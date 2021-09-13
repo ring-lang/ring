@@ -98,10 +98,17 @@ RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
 
 RING_API void ring_list_print ( List *pList )
 {
+	ring_list_print2(pList,2);
+}
+
+RING_API void ring_list_print2 ( List *pList,int nDecimals )
+{
 	int x,t,nSize  ;
 	double y  ;
 	const char *cStr  ;
 	List *pList2  ;
+	char cOptions[10]  ;
+	char cString[100]  ;
 	assert(pList != NULL);
 	/* Print Items */
 	if ( ring_list_getsize(pList) < 0 ) {
@@ -123,7 +130,9 @@ RING_API void ring_list_print ( List *pList )
 					printf( "%.0f\n",y ) ;
 				}
 				else {
-					printf( "%.2f\n",y ) ;
+					sprintf(cOptions , "%s%df" , "%.",nDecimals);
+					snprintf(cString , 100, cOptions , y);
+					printf("%s\n",cString);
 				}
 			}
 			else if ( ring_list_isint(pList,x) ) {
