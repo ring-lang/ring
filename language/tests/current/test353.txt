@@ -1,5 +1,5 @@
 Using ? substr(cStr,100)
-Error in second parameter value, The number is outside the allowed range!
+
 Using ? substr(cStr,-1)
-Error in second parameter value, The number is outside the allowed range!
+
 done
