@@ -1207,6 +1207,9 @@ void ring_vm_generallib_substr ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
+		if ( nSize == 0 ) {
+			return ;
+		}
 	}
 	else {
 		RING_API_ERROR("Error in first parameter, Function requires string !");
@@ -1297,6 +1300,10 @@ void ring_vm_generallib_substr ( void *pPointer )
 	if ( nTransform > 0 ) {
 		cStr2 = RING_API_GETSTRING(2) ;
 		nSize2 = RING_API_GETSTRINGSIZE(2) ;
+		if ( nSize2 == 0 ) {
+			RING_API_ERROR("Error in second parameter value!");
+			return ;
+		}
 		/* Search */
 		if ( nTransform == 1 ) {
 			cString = ring_string_find2(cStr,nSize,cStr2,nSize2) ;
