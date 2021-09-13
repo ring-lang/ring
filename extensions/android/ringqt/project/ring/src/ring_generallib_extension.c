@@ -1207,9 +1207,6 @@ void ring_vm_generallib_substr ( void *pPointer )
 	if ( RING_API_ISSTRING(1) ) {
 		cStr = RING_API_GETSTRING(1) ;
 		nSize = RING_API_GETSTRINGSIZE(1) ;
-		if ( nSize == 0 ) {
-			return ;
-		}
 	}
 	else {
 		RING_API_ERROR("Error in first parameter, Function requires string !");
