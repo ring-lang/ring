@@ -58,6 +58,7 @@ x
 Type: List *
 pNewList2
 ring_list_print
+ring_list_print2
 Type: int
 x,t,nSize
 Type: double
@@ -66,6 +67,10 @@ Type: const char *
 cStr
 Type: List *
 pList2
+Type: char
+cOptions[10]
+Type: char
+cString[100]
 ring_list_deleteallitems_gc
 Type: Items *
 pItems,*pItemsNext

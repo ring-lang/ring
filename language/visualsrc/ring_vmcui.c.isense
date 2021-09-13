@@ -16,17 +16,3 @@ Type: List *
 pVar
 Type: Item *
 pItem
-ring_vm_generallib_see
-Type: char *
-cString
-Type: int
-x
-cStr
-Type: List *
-pList
-Type: VM *
-pVM
-ring_vm_generallib_give
-Type: int
-x
-cLine

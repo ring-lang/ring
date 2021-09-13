@@ -51,6 +51,8 @@
 
 	RING_API void ring_list_print ( List *pList ) ;
 
+	RING_API void ring_list_print2 ( List *pList,int nDecimals ) ;
+
 	RING_API int ring_list_gettype ( List *pList, int index ) ;
 	/* int */
 
