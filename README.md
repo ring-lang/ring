@@ -14,6 +14,7 @@
 # Contents:
 
 - [Welcome to Ring](#welcome-to-ring)
+- [Batteries Included!](#batteries-included)
 - [Get Excited!](#get-excited)
 - [Practical](#practical)
   * [Custom Styles And Modern Programming Paradigms](#custom-styles-and-modern-programming-paradigms)
@@ -63,6 +64,12 @@ The language is portable (Windows, Linux, macOS, Android, WebAssembly, etc.) and
 Console, GUI, Web, Games, and Mobile applications. 
 
 The language is designed to be Simple, Small, and Flexible. 
+
+# Batteries Included
+
+Ring comes with many high quality bindings for popular libraries 
+
+![ScreenShot](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/website/libs.png)
 
 # Get Excited
 
