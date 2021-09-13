@@ -309,7 +309,7 @@ More Improvements
 * Ring VM - ring_state_scannererror() function
 * Ring VM - Clean error message when we have infinite recursions
 * Ring VM - TempName() Function - Better Code!
-* Ring VM - SubStr() Function - Error message when parameter value is outside the allowed range
+* Ring VM - SubStr() Function - Better Code!
 * Ring VM - Random() & Randomize() Functions - Better Code!
 * Ring VM - ICO_FREETEMPLISTS Instruction - Better Implementation
 * Ring VM - ICO_NEWOBJ/ICO_SETSCOPE - State Management - Better Code!
