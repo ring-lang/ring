@@ -427,3 +427,20 @@ void ring_vm_cleansetpropertylist ( VM *pVM )
 		ring_list_deleteitem_gc(pVM->pRingState,pVM->aSetProperty,ring_list_getsize(pVM->aSetProperty));
 	}
 }
+
+int ring_vm_isoperationaftersublist ( VM *pVM )
+{
+	int nOPCode  ;
+	if ( pVM->nListStart > 0 ) {
+		pVM->nPC -= 2 ;
+		RING_VM_IR_LOAD ;
+		nOPCode = RING_VM_IR_OPCODE ;
+		pVM->nPC += 2 ;
+		RING_VM_IR_LOAD ;
+		if ( nOPCode == ICO_LISTEND ) {
+			ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
+			return 1 ;
+		}
+	}
+	return 0 ;
+}

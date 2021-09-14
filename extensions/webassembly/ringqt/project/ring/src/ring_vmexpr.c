@@ -282,6 +282,8 @@ void ring_vm_equal ( VM *pVM )
 	String *cStr1,*cStr2  ;
 	double nNum1,nNum2  ;
 	char cStr3[100]  ;
+	/* Clear error message when we have something like [ "1" = "one" ] - Don't pass the error */
+	RING_LISTHASH_PREVENTOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISSTRING ) {
 		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		RING_VM_STACK_POP ;
