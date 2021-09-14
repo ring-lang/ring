@@ -319,3 +319,4 @@ More Improvements
 * Ring Compiler - Do-Again Loop - Avoid unnecessary JUMP instruction when using (Loop) command
 * Ring Compiler - When Embedding Ring in Ring - Always keep Ring keywords (Not Case Sensitive) 
 * Ring Compiler - Scanner - Option (Comments as Tokens)
+* Ring Compiler - Hexadecimal Numbers - Support many zeros in the start of the number
