@@ -579,9 +579,8 @@ void ring_vm_notequal ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISSTRING ) {
 			cStr2 = RING_VM_STACK_GETSTRINGRAW ;
-			ring_vm_numtostring(pVM,nNum1,cStr3);
 			/* Compare */
-			if ( strcmp(ring_string_get(cStr2),cStr3) == 0 ) {
+			if ( ring_vm_stringtonum(pVM,ring_string_get(cStr2)) == nNum1 ) {
 				RING_VM_STACK_FALSE ;
 			}
 			else {
