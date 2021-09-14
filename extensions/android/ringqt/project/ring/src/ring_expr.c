@@ -616,7 +616,6 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 	char lSetProperty,lequal,nBeforeEqual  ;
 	char cFuncName[100]  ;
 	char cKeyword[100]  ;
-	char cNumber[100]  ;
 	/* Set Identifier Flag - is 1 when we have Factor -->Identifier */
 	*nFlag = 0 ;
 	pAssignmentPointerPos = NULL ;

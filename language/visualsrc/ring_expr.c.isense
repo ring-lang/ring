@@ -41,6 +41,8 @@ Type: char
 cFuncName[100]
 Type: char
 cKeyword[100]
+Type: char
+cNumber[100]
 ring_parser_mixer
 Type: int
 x,nCallMethod,nStatus,nFlag,nNew
