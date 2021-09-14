@@ -22,6 +22,7 @@ Ring 1.15 comes with the next features!
 * Better RingQt
 * Better RingLibCurl
 * Heroku (Better support)
+* Using ':' then Numbers
 * More Samples
 * More Improvements
 
@@ -249,7 +250,35 @@ In Ring 1.15 We updated the packages to use a modern Ring version
 Also to avoid all of the reported problems during installation
 
 URL: https://github.com/ring-lang/RingWebAppOnHeroku
-	
+
+.. index:: 
+	pair: What is new in Ring 1.15?; Using ':' then Numbers
+
+Using ':' then Numbers
+======================
+
+Ring 1.15 support using ':' then Numbers to define literals
+
+Example:
+
+.. code-block:: ring
+
+	? Type( :1234 )
+
+	aList = [ :1 = "One", 
+		  :2 = "Two"]
+
+	? aList[:1]
+	? aList[:2]
+
+Output:
+
+.. code-block:: none
+
+	STRING
+	One
+	Two
+
 .. index:: 
 	pair: What is new in Ring 1.15?; More Samples
 
