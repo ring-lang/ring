@@ -18,3 +18,5 @@ aList = [
 
 ? aList[:1]
 ? aList[:2]
+
+? 1:5

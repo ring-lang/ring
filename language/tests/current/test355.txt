@@ -1,5 +1,14 @@
-Using ? substr(cStr,100)
+test
+test
+1
+123253
+one
+two
+one
+two
+1
+2
+3
+4
+5
 
-Using ? substr(cStr,-1)
-
-done
