@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2019 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
 #include "ring.h"
 /* Functions */
 
@@ -427,7 +427,7 @@ void ring_scanner_addtoken ( Scanner *pScanner,int type )
 	/* Add Token Type */
 	ring_list_addint_gc(pScanner->pRingState,pList,type);
 	/* Add Token Text */
-	ring_list_addstring_gc(pScanner->pRingState,pList,ring_string_get(pScanner->ActiveToken));
+	ring_list_addstring_gc(pScanner->pRingState,pList,ring_scanner_processtoken(pScanner,type));
 	/* Add Token Index */
 	ring_list_addint_gc(pScanner->pRingState,pList,pScanner->nTokenIndex);
 	pScanner->nTokenIndex = 0 ;
@@ -498,11 +498,18 @@ int ring_scanner_isnumber ( char *cStr )
 	for ( x = 0 ; x < strlen(cStr) ; x++ ) {
 		/* Accept Hexadecimal values */
 		if ( (x == 0) && (strlen(cStr) > 2) ) {
-			/* Support 0x */
-			if ( (cStr[0] == '0') && ( (cStr[1] == 'x') || (cStr[1] == 'X') ) ) {
-				lHex = 1 ;
-				x++ ;
-				continue ;
+			if ( cStr[0] == '0' ) {
+				x2 = x ;
+				/* Support Many Zeros */
+				while ( (cStr[x2] == '0') && x2 < strlen(cStr) - 1 ) {
+					x2++ ;
+				}
+				/* Support 0x */
+				if ( (cStr[x2] == 'x') || (cStr[x2] == 'X') ) {
+					lHex = 1 ;
+					x = x2+1 ;
+					continue ;
+				}
 			}
 		}
 		if ( lHex ) {
@@ -935,4 +942,31 @@ void ring_scanner_readtwoparameters ( Scanner *pScanner,const char *cStr )
 			}
 		}
 	}
+}
+
+const char * ring_scanner_processtoken ( Scanner *pScanner,int nType )
+{
+	char *pStart, *pChar  ;
+	int t,nPos,nSize  ;
+	pStart = ring_string_get(pScanner->ActiveToken);
+	if ( nType == SCANNER_TOKEN_NUMBER ) {
+		/* Remove Many Zeros in the Start */
+		pChar = pStart ;
+		nSize = strlen(pChar) ;
+		nPos = 0 ;
+		if ( nSize > 0 ) {
+			if ( pChar[0] == '0' ) {
+				for ( t = 1 ; t < nSize ; t++ ) {
+					if ( ( pChar[t-1] == '0') && (pChar[t] == '0') ) {
+						nPos++ ;
+					}
+					if ( (pChar[t] == 'x' ) || (pChar[t] == 'X') ) {
+						break ;
+					}
+				}
+				pStart += nPos ;
+			}
+		}
+	}
+	return pStart ;
 }

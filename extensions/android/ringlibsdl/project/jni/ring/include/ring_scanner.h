@@ -190,4 +190,6 @@
 	void ring_scanner_loadsyntax ( Scanner *pScanner ) ;
 
 	void ring_scanner_readtwoparameters ( Scanner *pScanner,const char *cStr ) ;
+
+	const char * ring_scanner_processtoken ( Scanner *pScanner,int nType ) ;
 #endif
