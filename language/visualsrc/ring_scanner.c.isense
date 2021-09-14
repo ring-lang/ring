@@ -228,3 +228,8 @@ Type: int
 x,nSize,nSpaces
 Type: char *
 cString
+ring_scanner_processtoken
+Type: char *
+pStart, *pChar
+Type: int
+t,nPos,nSize
