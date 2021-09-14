@@ -153,7 +153,7 @@
 
 	void ring_scanner_keywords ( Scanner *pScanner ) ;
 
-	void ring_scanner_addtoken ( Scanner *pScanner,int type ) ;
+	void ring_scanner_addtoken ( Scanner *pScanner,int nType ) ;
 
 	void ring_scanner_checktoken ( Scanner *pScanner ) ;
 
@@ -169,7 +169,7 @@
 
 	const char * ring_scanner_lasttokenvalue ( Scanner *pScanner ) ;
 
-	void ring_scanner_floatmark ( Scanner *pScanner,int type ) ;
+	void ring_scanner_floatmark ( Scanner *pScanner,int nType ) ;
 
 	void ring_scanner_endofline ( Scanner *pScanner ) ;
 

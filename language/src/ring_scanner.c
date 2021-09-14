@@ -419,19 +419,19 @@ void ring_scanner_keywords ( Scanner *pScanner )
 	ring_list_genhashtable_gc(pScanner->pRingState,pScanner->Keywords);
 }
 
-void ring_scanner_addtoken ( Scanner *pScanner,int type )
+void ring_scanner_addtoken ( Scanner *pScanner,int nType )
 {
 	List *pList  ;
 	assert(pScanner != NULL);
 	pList = ring_list_newlist_gc(pScanner->pRingState,pScanner->Tokens);
 	/* Add Token Type */
-	ring_list_addint_gc(pScanner->pRingState,pList,type);
+	ring_list_addint_gc(pScanner->pRingState,pList,nType);
 	/* Add Token Text */
-	ring_list_addstring_gc(pScanner->pRingState,pList,ring_scanner_processtoken(pScanner,type));
+	ring_list_addstring_gc(pScanner->pRingState,pList,ring_scanner_processtoken(pScanner,nType));
 	/* Add Token Index */
 	ring_list_addint_gc(pScanner->pRingState,pList,pScanner->nTokenIndex);
 	pScanner->nTokenIndex = 0 ;
-	ring_scanner_floatmark(pScanner,type);
+	ring_scanner_floatmark(pScanner,nType);
 	ring_string_set_gc(pScanner->pRingState,pScanner->ActiveToken,"");
 }
 
@@ -641,19 +641,19 @@ const char * ring_scanner_lasttokenvalue ( Scanner *pScanner )
 	return "" ;
 }
 
-void ring_scanner_floatmark ( Scanner *pScanner,int type )
+void ring_scanner_floatmark ( Scanner *pScanner,int nType )
 {
 	List *pList  ;
 	String *pString  ;
 	assert(pScanner != NULL);
 	switch ( pScanner->FloatMark ) {
 		case 0 :
-			if ( type == SCANNER_TOKEN_NUMBER ) {
+			if ( nType == SCANNER_TOKEN_NUMBER ) {
 				pScanner->FloatMark = 1 ;
 			}
 			break ;
 		case 1 :
-			if ( (type == SCANNER_TOKEN_OPERATOR) && ( strcmp(ring_string_get(pScanner->ActiveToken) , "." ) == 0  ) ) {
+			if ( (nType == SCANNER_TOKEN_OPERATOR) && ( strcmp(ring_string_get(pScanner->ActiveToken) , "." ) == 0  ) ) {
 				pScanner->FloatMark = 2 ;
 			}
 			else {
@@ -661,7 +661,7 @@ void ring_scanner_floatmark ( Scanner *pScanner,int type )
 			}
 			break ;
 		case 2 :
-			if ( type == SCANNER_TOKEN_NUMBER ) {
+			if ( nType == SCANNER_TOKEN_NUMBER ) {
 				pList = ring_list_getlist(pScanner->Tokens,ring_list_getsize(pScanner->Tokens));
 				pString = ring_string_new_gc(pScanner->pRingState,ring_list_getstring(pList,2)) ;
 				ring_list_deleteitem_gc(pScanner->pRingState,pScanner->Tokens,ring_list_getsize(pScanner->Tokens));
