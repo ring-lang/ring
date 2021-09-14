@@ -296,8 +296,7 @@ void ring_vm_equal ( VM *pVM )
 		}
 		else if ( RING_VM_STACK_ISNUMBER ) {
 			nNum1 = RING_VM_STACK_READN ;
-			ring_vm_numtostring(pVM,nNum1,cStr3);
-			if ( strcmp(ring_string_get(cStr1),cStr3) == 0 ) {
+			if ( ring_vm_stringtonum(pVM,ring_string_get(cStr1)) == nNum1 ) {
 				RING_VM_STACK_TRUE ;
 			}
 			else {
