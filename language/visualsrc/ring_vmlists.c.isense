@@ -56,3 +56,5 @@ ring_vm_cleansetpropertylist
 ring_vm_isoperationaftersublist
 Type: int
 nOPCode
+Type: List *
+pParent, *pSub, *pVar

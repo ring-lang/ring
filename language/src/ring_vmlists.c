@@ -431,7 +431,7 @@ void ring_vm_cleansetpropertylist ( VM *pVM )
 int ring_vm_isoperationaftersublist ( VM *pVM )
 {
 	int nOPCode  ;
-	List *pList, *pVar  ;
+	List *pParent, *pSub, *pVar  ;
 	if ( pVM->nListStart > 0 ) {
 		pVM->nPC -= 2 ;
 		RING_VM_IR_LOAD ;
@@ -439,14 +439,19 @@ int ring_vm_isoperationaftersublist ( VM *pVM )
 		pVM->nPC += 2 ;
 		RING_VM_IR_LOAD ;
 		if ( nOPCode == ICO_LISTEND ) {
-			pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
+			/* Get the Parent List */
+			pParent = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
+			/* Get the Sub List */
+			pSub = ring_list_getlist(pParent,ring_list_getsize(pParent));
 			/* Create a Temp. variable for the sub list */
 			ring_vm_createtemplist(pVM);
 			pVar = (List *) RING_VM_STACK_READP ;
 			ring_list_setint_gc(pVM->pRingState,pVar, RING_VAR_TYPE ,RING_VM_LIST);
 			ring_list_setlist_gc(pVM->pRingState,pVar, RING_VAR_VALUE);
 			ring_list_deleteallitems_gc(pVM->pRingState,ring_list_getlist(pVar,RING_VAR_VALUE));
-			ring_vm_list_copy(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),pList);
+			ring_vm_list_copy(pVM,ring_list_getlist(pVar,RING_VAR_VALUE),pSub);
+			/* Delete the sub list from the Parent List */
+			ring_list_deleteitem_gc(pVM->pRingState,pParent,ring_list_getsize(pParent));
 			return 1 ;
 		}
 	}
