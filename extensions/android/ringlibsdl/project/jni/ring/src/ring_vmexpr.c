@@ -20,6 +20,7 @@ void ring_vm_sum ( VM *pVM )
 	**  list + string/number ---> add item to the list 
 	**  list1 + list2 ---> add list2 items to list 1 
 	*/
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISSTRING ) {
 		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		RING_VM_STACK_POP ;
@@ -79,6 +80,7 @@ void ring_vm_sub ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -121,6 +123,7 @@ void ring_vm_mul ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -165,6 +168,7 @@ void ring_vm_div ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -213,6 +217,7 @@ void ring_vm_mod ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -260,6 +265,7 @@ void ring_vm_mod ( VM *pVM )
 void ring_vm_neg ( VM *pVM )
 {
 	double nNum1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		RING_VM_STACK_SETNVALUE((RING_VM_STACK_READN)*(-1));
 	}
@@ -343,6 +349,7 @@ void ring_vm_lessequal ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -391,6 +398,7 @@ void ring_vm_less ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -439,6 +447,7 @@ void ring_vm_greater ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -487,6 +496,7 @@ void ring_vm_greaterequal ( VM *pVM )
 {
 	double nNum1=0,nNum2=0  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -536,6 +546,7 @@ void ring_vm_notequal ( VM *pVM )
 	String *cStr1,*cStr2  ;
 	double nNum1,nNum2  ;
 	char cStr3[100]  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISSTRING ) {
 		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
 		RING_VM_STACK_POP ;
@@ -604,6 +615,7 @@ void ring_vm_and ( VM *pVM )
 {
 	double nNum1,nNum2  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -646,6 +658,7 @@ void ring_vm_or ( VM *pVM )
 {
 	double nNum1,nNum2  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -687,6 +700,7 @@ void ring_vm_or ( VM *pVM )
 void ring_vm_not ( VM *pVM )
 {
 	double nNum1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		if ( RING_VM_STACK_READN != 0 ) {
 			RING_VM_STACK_SETNVALUE(0.0);
@@ -715,6 +729,7 @@ void ring_vm_bitand ( VM *pVM )
 {
 	double nNum1,nNum2  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -757,6 +772,7 @@ void ring_vm_bitor ( VM *pVM )
 {
 	double nNum1,nNum2  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -800,6 +816,7 @@ void ring_vm_bitshl ( VM *pVM )
 	double nNum1,nNum2  ;
 	String *cStr1  ;
 	int nNum3  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -846,6 +863,7 @@ void ring_vm_bitshr ( VM *pVM )
 {
 	double nNum1,nNum2  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -886,6 +904,7 @@ void ring_vm_bitxor ( VM *pVM )
 {
 	double nNum1,nNum2  ;
 	String *cStr1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		nNum1 = RING_VM_STACK_READN ;
 		RING_VM_STACK_POP ;
@@ -927,6 +946,7 @@ void ring_vm_bitxor ( VM *pVM )
 void ring_vm_bitnot ( VM *pVM )
 {
 	double nNum1  ;
+	RING_LIST_CHECKOPERATIONONSUBLIST ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		RING_VM_STACK_SETNVALUE(~ (int) RING_VM_STACK_READN);
 	}
