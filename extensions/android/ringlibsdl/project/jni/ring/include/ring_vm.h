@@ -269,11 +269,11 @@
 	#define RING_STATE_RETURN 3
 	/* Memory */
 	#define RING_MEMORY_GLOBALSCOPE 1
-	/* List as Hash */
+	/* Lists & List as Hash */
 	#define RING_LISTHASH_KEY 1
 	#define RING_LISTHASH_VALUE 2
 	#define RING_LISTHASH_SIZE 2
-	#define RING_LISTHASH_PREVENTOPERATIONONSUBLIST ( ring_vm_isoperationaftersublist(pVM) )
+	#define RING_LIST_CHECKOPERATIONONSUBLIST ( ring_vm_isoperationaftersublist(pVM) )
 	/* C Pointer List (inside Variable Value) */
 	#define RING_CPOINTER_POINTER 1
 	#define RING_CPOINTER_TYPE 2
