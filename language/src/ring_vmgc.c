@@ -87,6 +87,7 @@ void ring_vm_gc_killreference ( VM *pVM )
 	/* The (For In) Loop generate the ICO_KILLREFERENCE instruction that call this function */
 	if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
 		pList = (List *) RING_VM_STACK_READP ;
+		RING_VM_STACK_POP ;
 		/* Be sure that it's a Pointer */
 		if ( ring_list_getint(pList,RING_VAR_TYPE) != RING_VM_POINTER ) {
 			return ;
@@ -129,7 +130,6 @@ void ring_vm_gc_killreference ( VM *pVM )
 				ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE ,cStr);
 				break ;
 		}
-		RING_VM_STACK_POP ;
 	}
 }
 
