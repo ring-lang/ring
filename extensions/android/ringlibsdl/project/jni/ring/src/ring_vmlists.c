@@ -84,15 +84,12 @@ void ring_vm_listitem ( VM *pVM )
 	Item *pItem  ;
 	pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
 	if ( RING_VM_STACK_ISSTRING ) {
-		cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+		ring_list_addstring_gc(pVM->pRingState,pList, RING_VM_STACK_READC);
 		RING_VM_STACK_POP ;
-		ring_list_addstring_gc(pVM->pRingState,pList, ring_string_get(cStr1));
-		ring_string_delete_gc(pVM->pRingState,cStr1);
 	}
 	else if ( RING_VM_STACK_ISNUMBER ) {
-		nNum1 = RING_VM_STACK_READN ;
+		ring_list_adddouble_gc(pVM->pRingState,pList, RING_VM_STACK_READN);
 		RING_VM_STACK_POP ;
-		ring_list_adddouble_gc(pVM->pRingState,pList, nNum1);
 	}
 	else if ( RING_VM_STACK_ISPOINTER ) {
 		/* We use a Temp. list (pList4) to support adding the list to itself by value */
