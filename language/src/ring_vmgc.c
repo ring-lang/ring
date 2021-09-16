@@ -129,6 +129,7 @@ void ring_vm_gc_killreference ( VM *pVM )
 				ring_list_setstring_gc(pVM->pRingState,pList, RING_VAR_VALUE ,cStr);
 				break ;
 		}
+		RING_VM_STACK_POP ;
 	}
 }
 
