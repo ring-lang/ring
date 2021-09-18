@@ -254,6 +254,8 @@ void ring_vm_freestack ( VM *pVM )
 	pVM->pAssignment = NULL ;
 	/* Clear Load Address Scope Information */
 	pVM->nLoadAddressScope = RING_VARSCOPE_NOTHING ;
+	/* Clear the Exit Command flag */
+	pVM->lExitFlag = 0 ;
 	/* In the class region */
 	if ( pVM->nInClassRegion ) {
 		/*

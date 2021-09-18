@@ -213,6 +213,8 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->lAddSubListsByMove = 0 ;
 	/* Add Sub Lists to Lists by Fast Copy */
 	pVM->lAddSubListsByFastCopy = 0 ;
+	/* A Flag that the Exit command is used to terminate the (For-In) Loop */
+	pVM->lExitFlag = 0 ;
 	ring_state_log(pRingState,"function: ring_vm_new - end");
 	return pVM ;
 }

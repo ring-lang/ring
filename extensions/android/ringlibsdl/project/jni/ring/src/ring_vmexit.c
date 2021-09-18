@@ -41,6 +41,7 @@ void ring_vm_exit ( VM *pVM,int nType )
 	/* Set Active List */
 	if ( nType == RING_COMMANDTYPE_EXIT ) {
 		pActiveList = pVM->pExitMark ;
+		pVM->lExitFlag = 1 ;
 	}
 	else {
 		pActiveList = pVM->pLoopMark ;
