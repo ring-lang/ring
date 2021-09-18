@@ -346,6 +346,7 @@ More Improvements
 * Ring VM - Respect Decimals() function when printing numbers inside Lists & Objects
 * Ring VM - Convert the String to a Number when using (=) or (!=) operators
 * Ring Compiler - For-In Loop - Always access string characters by reference
+* Ring Compiler - For-In Loop - The iterator value after the loop is processed
 * Ring Compiler - Do-Again Loop - Avoid unnecessary JUMP instruction when using (Loop) command
 * Ring Compiler - When Embedding Ring in Ring - Always keep Ring keywords (Not Case Sensitive) 
 * Ring Compiler - Scanner - Option (Comments as Tokens)
