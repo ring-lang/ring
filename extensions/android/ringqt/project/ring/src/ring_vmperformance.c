@@ -312,6 +312,12 @@ void ring_vm_incpjumpstep1 ( VM *pVM )
 {
 	List *pVar  ;
 	double nNum1  ;
+	/* Be sure that the Step is one */
+	if ( ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep)) != 1.0 ) {
+		RING_VM_IR_OPCODE = ICO_INCPJUMP ;
+		ring_vm_incpjump(pVM);
+		return ;
+	}
 	pVar = (List *) RING_VM_IR_READP ;
 	/* We Don't Check Data Type */
 	nNum1 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
@@ -325,6 +331,12 @@ void ring_vm_jumpvarplenumstep1 ( VM *pVM )
 	List *pVar  ;
 	double nNum1  ;
 	pVar = (List *) RING_VM_IR_READP ;
+	/* Be sure that the Step is one */
+	if ( ring_list_getdouble(pVM->aForStep,ring_list_getsize(pVM->aForStep)) != 1.0 ) {
+		RING_VM_IR_OPCODE = ICO_JUMPVARPLENUM ;
+		ring_vm_jumpvarplenum(pVM);
+		return ;
+	}
 	/* We don't Check Data type */
 	nNum1 = ring_list_getdouble(pVar,RING_VAR_VALUE) ;
 	if ( nNum1 > RING_VM_IR_READDVALUE(2) ) {
