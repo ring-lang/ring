@@ -1,7 +1,5 @@
 two
-g
-three
-3
+
 
 2
 m

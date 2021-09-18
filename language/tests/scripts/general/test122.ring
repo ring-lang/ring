@@ -16,4 +16,4 @@ func test2
 	next
 	# Starting from Ring 1.14
 	# for in replace the reference with the value after the loop
-	? x		# Print 5 
+	? x		# Print 6 
