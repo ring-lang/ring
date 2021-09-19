@@ -14,6 +14,4 @@ func test2
 	list = 1:5
 	for x in list
 	next
-	# Starting from Ring 1.14
-	# for in replace the reference with the value after the loop
-	? x		# Print 6 
+	? x		# Empty String
