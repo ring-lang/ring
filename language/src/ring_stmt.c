@@ -594,6 +594,8 @@ int ring_parser_stmt ( Parser *pParser )
 								}
 								/* POP Step */
 								ring_parser_icg_newoperation(pParser,ICO_POPSTEP);
+								/* Be more sure that (For-Loop) execution doesn't have any effects on the state */
+								ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 								ring_parser_nexttoken(pParser);
 								#if RING_PARSERTRACE
 								RING_STATE_CHECKPRINTRULES 
@@ -724,6 +726,8 @@ int ring_parser_stmt ( Parser *pParser )
 						if ( nForInVarsCount == 1 ) {
 							ring_list_deleteallitems(pParser->pForInVars);
 						}
+						/* Be more sure that (For-Loop) execution doesn't have any effects on the state */
+						ring_parser_icg_newoperation(pParser,ICO_FREESTACK);
 						#if RING_PARSERTRACE
 						RING_STATE_CHECKPRINTRULES 
 						

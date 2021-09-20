@@ -11,7 +11,7 @@ x,nMark1,nMark2,nMark3,nStart,nEnd,nPerformanceLocations,nFlag,nLoadPackage,nPat
 Type: String *
 pString
 Type: List *
-pMark,*pMark2,*pMark3,*pList2,*pBeforeLastOperation
+pMark,*pMark2,*pMark3,*pList2
 Type: double
 nNum1
 cStr
