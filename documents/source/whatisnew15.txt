@@ -293,6 +293,8 @@ The next samples are added to the samples folder
 	*  samples/Language/AnonFunctions/anonfunc4.ring
 	*  samples/Language/AnonFunctions/anonfunclib.ring
 	*  samples/Language/Numbers/powfunc.ring
+	*  samples/Language/Strings/trim.ring
+	*  samples/Language/Strings/trim2.ring
 	*  samples/Language/Loops/loopcommand.ring
 	*  samples/General/NumberTripletsGame/NumberTripletsGame.ring
 	*  samples/General/Elevator/elevator.ring
