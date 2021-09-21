@@ -15,6 +15,7 @@ List of changes and new features
 
 Ring 1.15 comes with the next features!
 
+* New Arabic Book 
 * Chess Endgame Application
 * Chess 3D (Qt3D Sample)
 * Better Ring Notepad
@@ -26,6 +27,19 @@ Ring 1.15 comes with the next features!
 * More Samples
 * More Improvements
 
+
+.. index:: 
+	pair: What is new in Ring 1.15?; New Arabic Book
+
+New Arabic Book
+===============
+
+We have a new printed book (Written in Arabic Language)
+
+The Book is a about building a project using Ring to analysis the Arabic Poetry
+
+.. image:: arabicbook.jpg
+	:alt: arabicbook
 
 .. index:: 
 	pair: What is new in Ring 1.15?; Chess Endgame Application
