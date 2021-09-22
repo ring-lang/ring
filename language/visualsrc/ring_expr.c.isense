@@ -47,7 +47,7 @@ x,nCallMethod,nStatus,nFlag,nNew
 ring_parser_gencall
 ring_parser_ppmm
 Type: int
-nLastOperation,nMark
+nLastOperation,nMark,nMode,nValue
 Type: List *
 pMark
 ring_parser_gencallbracemethod
