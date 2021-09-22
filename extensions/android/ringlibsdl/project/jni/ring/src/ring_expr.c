@@ -1335,8 +1335,13 @@ int ring_parser_ppmm ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		switch ( nLastOperation ) {
 			case ICO_LOADADDRESS :
-				nMode = 1 ;
-				nValue = 1.0 ;
+				if ( pParser->nBraceFlag ) {
+					nMode = 1 ;
+					nValue = 1.0 ;
+				}
+				else {
+					nMode = 3 ;
+				}
 				break ;
 			case ICO_LOADSUBADDRESS :
 				nMode = 2 ;
@@ -1350,8 +1355,13 @@ int ring_parser_ppmm ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		switch ( nLastOperation ) {
 			case ICO_LOADADDRESS :
-				nMode = 1 ;
-				nValue = -1.0 ;
+				if ( pParser->nBraceFlag ) {
+					nMode = 1 ;
+					nValue = -1.0 ;
+				}
+				else {
+					nMode = 4 ;
+				}
 				break ;
 			case ICO_LOADSUBADDRESS :
 				nMode = 2 ;
