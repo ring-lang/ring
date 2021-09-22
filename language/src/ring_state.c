@@ -188,6 +188,10 @@ RING_API void ring_state_main ( int argc, char *argv[] )
 				cStr = argv[x] ;
 				nSRC = 1 ;
 			}
+			else {
+				ring_general_printline();
+				printf( "WARNING: Unrecognized option: %s\n",argv[x] ) ;
+			}
 		}
 	}
 	if ( nPerformance ) {
