@@ -1326,10 +1326,9 @@ void ring_parser_gencall ( Parser *pParser,int nCallMethod )
 
 int ring_parser_ppmm ( Parser *pParser )
 {
-	int nLastOperation,nMark1,nMark2,nStart  ;
+	int nLastOperation,nMark  ;
 	List *pMark  ;
 	nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
-	nMark1 = ring_parser_icg_newlabel(pParser);
 	pMark = ring_parser_icg_getactiveoperation(pParser);
 	/* ++ & -- */
 	if ( ring_parser_isoperator(pParser,"++") ) {
@@ -1348,11 +1347,12 @@ int ring_parser_ppmm ( Parser *pParser )
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
 				ring_parser_icg_newoperandint(pParser,0);
-				nMark2 = ring_parser_icg_newlabel(pParser);
+				nMark = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_addoperandint(pParser,pMark,nMark2);
+				ring_parser_icg_addoperandint(pParser,pMark,nMark);
+				/* Keep the value on the Stack (Maybe required in expressions) */
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				break ;
 			case ICO_LOADSUBADDRESS :
@@ -1368,10 +1368,10 @@ int ring_parser_ppmm ( Parser *pParser )
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
 				ring_parser_icg_newoperandint(pParser,0);
-				nMark2 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperandint(pParser,0);
+				/* Keep the Value on the Stack (Maybe required in expressions) */
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				break ;
 			default :
@@ -1402,11 +1402,12 @@ int ring_parser_ppmm ( Parser *pParser )
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
 				ring_parser_icg_newoperandint(pParser,0);
-				nMark2 = ring_parser_icg_newlabel(pParser);
+				nMark = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_addoperandint(pParser,pMark,nMark2);
+				ring_parser_icg_addoperandint(pParser,pMark,nMark);
+				/* Keep the value on the Stack (Maybe required in Expressions) */
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				break ;
 			case ICO_LOADSUBADDRESS :
@@ -1422,10 +1423,10 @@ int ring_parser_ppmm ( Parser *pParser )
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
 				ring_parser_icg_newoperandint(pParser,0);
-				nMark2 = ring_parser_icg_newlabel(pParser);
 				ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperandint(pParser,0);
+				/* Keep the Value on the Stack (Maybe required in expressions) */
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				break ;
 			default :
