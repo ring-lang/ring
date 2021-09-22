@@ -41,13 +41,15 @@ Type: char
 cFuncName[100]
 Type: char
 cKeyword[100]
-Type: char
-cNumber[100]
 ring_parser_mixer
 Type: int
 x,nCallMethod,nStatus,nFlag,nNew
 ring_parser_gencall
 ring_parser_ppmm
+Type: int
+nLastOperation,nMark1,nMark2,nStart,lFlag
+Type: List *
+pMark
 ring_parser_gencallbracemethod
 Type: int
 nMark1
