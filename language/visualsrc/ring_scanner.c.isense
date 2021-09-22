@@ -232,4 +232,4 @@ ring_scanner_processtoken
 Type: char *
 pStart, *pChar
 Type: int
-t,nPos,nSize
+t,nPos,nSize,lXExist
