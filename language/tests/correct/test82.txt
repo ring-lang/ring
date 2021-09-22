@@ -1,1 +1,2 @@
-hello world from test function!
+10
+5

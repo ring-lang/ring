@@ -82,6 +82,7 @@ aTests = [
 	[ :name = "Object Attribute Setter (Part 5)", :Command = "ring setter/setter5.ring" ],
 	[ :name = "Object Attribute Setter (Part 6)", :Command = "ring setter/setter6.ring" ],
 	[ :name = "Object Attribute Setter (Part 7)", :Command = "ring setter/setter7.ring" ],
+	[ :name = "Object Attribute Setter (Part 8)", :Command = "ring setter/setter8.ring" ],
 	[ :name = "Eval() Function (Part 1)", :Command = "ring eval/eval1.ring" ],
 	[ :name = "Eval() Function (Part 2)", :Command = "ring eval/eval2.ring" ],
 	[ :name = "Eval() Function (Part 3)", :Command = "ring eval/eval3.ring" ],
