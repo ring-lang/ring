@@ -1,6 +1,4 @@
-getter
 setter
-getter
 nice
 getter
 setter
