@@ -369,3 +369,4 @@ More Improvements
 * Ring Compiler - When Embedding Ring in Ring - Always keep Ring keywords (Not Case Sensitive) 
 * Ring Compiler - Scanner - Option (Comments as Tokens)
 * Ring Compiler - Hexadecimal Numbers - Support many zeros in the start of the number
+* Ring Compiler - Support Setter/Getter when using (++) and (--) operators
