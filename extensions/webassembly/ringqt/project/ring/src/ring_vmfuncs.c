@@ -456,13 +456,18 @@ void ring_vm_newfunc ( VM *pVM )
 				}
 			}
 			else {
+				pVM->cFileName = pVM->cPrevFileName ;
+				ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 				ring_vm_error(pVM,RING_VM_ERROR_LESSPARAMETERSCOUNT);
-				break ;
+				return ;
 			}
 		}
 	}
 	if ( nSP < pVM->nSP ) {
+		pVM->cFileName = pVM->cPrevFileName ;
+		ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
 		ring_vm_error(pVM,RING_VM_ERROR_EXTRAPARAMETERSCOUNT);
+		return ;
 	}
 	/* Set the Temp. Memory size at start */
 	ring_list_addint_gc(pVM->pRingState,pList,ring_list_getsize(ring_list_getlist(pList,RING_FUNCCL_TEMPMEM)));
