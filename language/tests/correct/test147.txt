@@ -1,15 +1,3 @@
-hello
-f2
-mmm....
-great
-how are you
-f3
- iam here 
- iam here 2
-coutput
-pvar
-ntabs
- iam here 3 
- iam here 4 
-great
- iam here 5 
+
+Line 4 Error (R27) : Using private attribute from outside the class : salary 
+in file private/private.ring 

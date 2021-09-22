@@ -1,2 +1,6 @@
-amr
-wow
+NUMBER
+STRING
+NUMBER
+
+Line 14 Error (R24) : Using uninitialized variable : 1412f13 
+in file general/test107.ring 

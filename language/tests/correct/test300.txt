@@ -1,10 +1,3 @@
-nice
-name: 10
-x: 10
-y: 20
-z: 30
-x: 10
-y: 20
-z: 30
+hello
 7
-10
+test

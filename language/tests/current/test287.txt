@@ -1,3 +1,4 @@
-
-Line 8 Object does not support operator overloading 
-In raise() in file general/test87.ring 
+top: 10
+left: 10
+width: 400
+height: 400

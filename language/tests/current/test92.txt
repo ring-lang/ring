@@ -1,3 +1,5 @@
+welcome
 
-Line 7 Error (R12) : error in property name, property not found! : t 
-in file self/self8.ring 
+Line 12 Error (R31) : Trying to destory the object using the self reference  
+In method f1() in file self/self6.ring
+called from line 2  in file self/self6.ring 

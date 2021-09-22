@@ -1,1 +1,1 @@
-nice
+Enter Number (1) :Enter Number (2) :The Sum : 7

@@ -1,3 +1,9 @@
-name: NULL
-address: NULL
-phone: NULL
+100
+200
+300
+x: 10
+y: 20
+z: 30
+100
+200
+300

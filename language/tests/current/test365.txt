@@ -1,10 +1,9 @@
-1.22000
-1.50000
-1.22000
+Using ? substr(cStr,100, 1)
 
-x: 10.22000
-mylist: [This Attribute Contains A List]
+Using ? substr(cStr, -1, 4)
 
-1.20000
-1.40000
+Using ? substr(cStr, 1, 1000)
 
+Using ? substr(cStr, 1, -1)
+
+done

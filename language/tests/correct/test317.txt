@@ -1,5 +1,4 @@
+Hello
 
-Can't open file natural/testloadpackage.ring 
-
-general/test117.ring Line (3) Error (C27) : Syntax Error!
-general/test117.ring errors count : 1 
+Line 4 Error (R24) : Using uninitialized variable : noobject 
+in file general/test115.ring 

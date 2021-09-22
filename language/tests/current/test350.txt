@@ -1,0 +1,20 @@
+Red.R = 255
+red = (255, 0, 0)
+green = (0, 255, 0)
+blue = (0, 0, 255)
+black = (0, 0, 0)
+white = (255, 255, 255)
+
+r: 255
+g: 255
+b: 255
+tostring: NULL
+
+OBJECT
+r
+g
+b
+tostring
+
+255
+white.R = 255

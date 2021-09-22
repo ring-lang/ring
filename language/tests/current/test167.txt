@@ -1,7 +1,2 @@
-
-	Hello, World!
-
-	
-	Hello from the Test function
-
-	
+0
+1

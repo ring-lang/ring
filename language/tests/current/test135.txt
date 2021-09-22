@@ -1,3 +1,9 @@
-0
+NULL
+NULL
 1
-Wow, we get error here!
+1
+0
+0
+name: My Application
+version: 1.0
+

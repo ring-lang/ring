@@ -1,11 +1,7 @@
-mahmoud
-samir
-ahmed
-ibrahim
-mohammed
-list after sort
-ahmed
-ibrahim
-mahmoud
-mohammed
-samir
+x: 100
+y: 200
+z: 300
+x: 50
+y: 150
+z: 250
+I have 2 points!

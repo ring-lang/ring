@@ -1,1 +1,7 @@
-6
+1
+top
+left
+width
+height
+100
+print

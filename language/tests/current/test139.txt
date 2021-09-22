@@ -1,1 +1,2 @@
-nice
+init
+good

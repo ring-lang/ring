@@ -1,7 +1,5 @@
-STRING
-
-STRING
-
-STRING
-
-Done
+te
+t
+1
+2
+3

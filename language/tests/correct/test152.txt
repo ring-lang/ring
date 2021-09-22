@@ -1,0 +1,10 @@
+point class
+20
+point class
+10
+point class
+20
+we must get runtime error (using private attribute)!
+
+Line 6 Error (R27) : Using private attribute from outside the class : number 
+in file private/private6.ring 

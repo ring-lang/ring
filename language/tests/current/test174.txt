@@ -1,13 +1,7 @@
-hello
+pobject: NULL
+x: 30
+y: 40
+z: 50
+pobject: NULL
 x: 10
 y: 20
-z: 30
-x: 100
-y: 200
-z: 300
-x: 1000
-y: 2000
-z: 3000
-x: 1000
-y: 2000
-z: 3000

@@ -1,3 +1,6 @@
-
-Line 3 Error in parameter, NULL pointer! 
-In fclose() in file null/null3.ring 
+1
+1
+1
+1
+1
+0

@@ -1,5 +1,13 @@
-before class
-
-Line 16 Error (R9) : Using exit command outside loops  
-In method test() in file new/new9.ring
-called from line 11  in file new/new9.ring 
+hello
+x: 10
+y: 20
+z: 30
+x: 100
+y: 200
+z: 300
+x: 1000
+y: 2000
+z: 3000
+x: 1000
+y: 2000
+z: 3000

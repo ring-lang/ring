@@ -1,3 +1,5 @@
-Instruction : I want window
-Using : and
-Instruction : Window Title = hello world
+before class
+
+Line 16 Error (R9) : Using exit command outside loops  
+In method test() in file new/new9.ring
+called from line 11  in file new/new9.ring 

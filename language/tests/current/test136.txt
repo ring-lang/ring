@@ -1,7 +1,3 @@
-wow
-wow3
-wow5
-init
-nice
-wow4
-wow2
+
+Line 3 Error in parameter, NULL pointer! 
+In fclose() in file null/null3.ring 

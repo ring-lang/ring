@@ -1,3 +1,2 @@
-welcome
-10
-done
+init myfontclass
+init mycontrol
