@@ -1369,7 +1369,7 @@ int ring_parser_ppmm ( Parser *pParser )
 		case 1 :
 			/* Code Generation */
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-			/* Duplicate LoadAddress */
+			/* Duplicate the address two times, one for the assignment (x = x+1) and one to keep the value on the stack */
 			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
 			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
@@ -1390,7 +1390,7 @@ int ring_parser_ppmm ( Parser *pParser )
 		case 2 :
 			/* Code Generation */
 			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-			/* Duplicate Instructions starting from  LoadAddress */
+			/* Duplicate the address two times, One for the assignment (x=x+1) and one to  keep the value on the Stack */
 			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
 			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
 			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
