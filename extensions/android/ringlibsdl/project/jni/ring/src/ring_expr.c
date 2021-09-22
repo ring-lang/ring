@@ -1339,7 +1339,8 @@ int ring_parser_ppmm ( Parser *pParser )
 				/* Code Generation */
 				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
 				/* Duplicate LoadAddress */
-				ring_parser_icg_duplicate(pParser,nMark1-1,nMark1-1);
+				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHN);
 				ring_parser_icg_newoperanddouble(pParser,1.0);
@@ -1352,20 +1353,14 @@ int ring_parser_ppmm ( Parser *pParser )
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_addoperandint(pParser,pMark,nMark2);
-				/* Keep the value on the Stack (Maybe required in expressions) */
-				ring_parser_icg_duplicate(pParser,nMark1-1,nMark1-1);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				break ;
 			case ICO_LOADSUBADDRESS :
-				/* Code Generation (Part 1) */
-				nStart = nMark1-1 ;
-				while ( (ring_parser_icg_getoperationatpos(pParser,nStart) != ICO_LOADADDRESS) && (ring_parser_icg_getoperationatpos(pParser,nStart) != ICO_FREESTACK) ) {
-					nStart-- ;
-				}
 				/* Code Generation (Part 2) */
 				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
 				/* Duplicate Instructions starting from  LoadAddress */
-				ring_parser_icg_duplicate(pParser,nStart,nMark1-1);
+				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHN);
 				ring_parser_icg_newoperanddouble(pParser,1.0);
@@ -1377,8 +1372,6 @@ int ring_parser_ppmm ( Parser *pParser )
 				ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperandint(pParser,0);
-				/* Keep the Value on the Stack (Maybe required in expressions) */
-				ring_parser_icg_duplicate(pParser,nStart,nMark1-1);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				break ;
 			default :
@@ -1400,7 +1393,8 @@ int ring_parser_ppmm ( Parser *pParser )
 				/* Code Generation */
 				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
 				/* Duplicate LoadAddress */
-				ring_parser_icg_duplicate(pParser,nMark1-1,nMark1-1);
+				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHN);
 				ring_parser_icg_newoperanddouble(pParser,-1.0);
@@ -1413,20 +1407,14 @@ int ring_parser_ppmm ( Parser *pParser )
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_addoperandint(pParser,pMark,nMark2);
-				/* Keep the value on the Stack (Maybe required in Expressions) */
-				ring_parser_icg_duplicate(pParser,nMark1-1,nMark1-1);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				break ;
 			case ICO_LOADSUBADDRESS :
-				/* Code Generation (Part 1) */
-				nStart = nMark1-1 ;
-				while ( (ring_parser_icg_getoperationatpos(pParser,nStart) != ICO_LOADADDRESS) && (ring_parser_icg_getoperationatpos(pParser,nStart) != ICO_FREESTACK) ) {
-					nStart-- ;
-				}
 				/* Code Generation (Part 2) */
 				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
 				/* Duplicate Instructions starting from  LoadAddress */
-				ring_parser_icg_duplicate(pParser,nStart,nMark1-1);
+				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHN);
 				ring_parser_icg_newoperanddouble(pParser,-1.0);
@@ -1438,8 +1426,6 @@ int ring_parser_ppmm ( Parser *pParser )
 				ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
 				ring_parser_icg_newoperandint(pParser,0);
 				ring_parser_icg_newoperandint(pParser,0);
-				/* Keep the Value on the Stack (Maybe required in expressions) */
-				ring_parser_icg_duplicate(pParser,nStart,nMark1-1);
 				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
 				break ;
 			default :
