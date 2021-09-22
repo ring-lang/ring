@@ -1359,7 +1359,7 @@ int ring_parser_ppmm ( Parser *pParser )
 			case ICO_LOADSUBADDRESS :
 				/* Code Generation (Part 1) */
 				nStart = nMark1-1 ;
-				while ( ring_parser_icg_getoperationatpos(pParser,nStart) != ICO_LOADADDRESS ) {
+				while ( (ring_parser_icg_getoperationatpos(pParser,nStart) != ICO_LOADADDRESS) && (ring_parser_icg_getoperationatpos(pParser,nStart) != ICO_FREESTACK) ) {
 					nStart-- ;
 				}
 				/* Code Generation (Part 2) */
@@ -1420,7 +1420,7 @@ int ring_parser_ppmm ( Parser *pParser )
 			case ICO_LOADSUBADDRESS :
 				/* Code Generation (Part 1) */
 				nStart = nMark1-1 ;
-				while ( ring_parser_icg_getoperationatpos(pParser,nStart) != ICO_LOADADDRESS ) {
+				while ( (ring_parser_icg_getoperationatpos(pParser,nStart) != ICO_LOADADDRESS) && (ring_parser_icg_getoperationatpos(pParser,nStart) != ICO_FREESTACK) ) {
 					nStart-- ;
 				}
 				/* Code Generation (Part 2) */
