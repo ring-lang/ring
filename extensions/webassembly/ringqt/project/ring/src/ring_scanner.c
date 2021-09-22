@@ -947,7 +947,7 @@ void ring_scanner_readtwoparameters ( Scanner *pScanner,const char *cStr )
 const char * ring_scanner_processtoken ( Scanner *pScanner,int nType )
 {
 	char *pStart, *pChar  ;
-	int t,nPos,nSize  ;
+	int t,nPos,nSize,lXExist  ;
 	pStart = ring_string_get(pScanner->ActiveToken);
 	if ( nType == SCANNER_TOKEN_NUMBER ) {
 		/* Remove Many Zeros in the Start */
@@ -956,15 +956,19 @@ const char * ring_scanner_processtoken ( Scanner *pScanner,int nType )
 		nPos = 0 ;
 		if ( nSize > 0 ) {
 			if ( pChar[0] == '0' ) {
+				lXExist = 0 ;
 				for ( t = 1 ; t < nSize ; t++ ) {
 					if ( ( pChar[t-1] == '0') && (pChar[t] == '0') ) {
 						nPos++ ;
 					}
 					if ( (pChar[t] == 'x' ) || (pChar[t] == 'X') ) {
+						lXExist = 1 ;
 						break ;
 					}
 				}
-				pStart += nPos ;
+				if ( lXExist ) {
+					pStart += nPos ;
+				}
 			}
 		}
 	}
