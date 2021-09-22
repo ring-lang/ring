@@ -1326,7 +1326,7 @@ void ring_parser_gencall ( Parser *pParser,int nCallMethod )
 
 int ring_parser_ppmm ( Parser *pParser )
 {
-	int nLastOperation,nMark  ;
+	int nLastOperation,nMark,nMode,nValue  ;
 	List *pMark  ;
 	nLastOperation = ring_parser_icg_getlastoperation(pParser) ;
 	pMark = ring_parser_icg_getactiveoperation(pParser);
@@ -1335,113 +1335,99 @@ int ring_parser_ppmm ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		switch ( nLastOperation ) {
 			case ICO_LOADADDRESS :
-				/* Code Generation */
-				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-				/* Duplicate LoadAddress */
-				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-				ring_parser_icg_newoperation(pParser,ICO_PUSHN);
-				ring_parser_icg_newoperanddouble(pParser,1.0);
-				ring_parser_icg_newoperation(pParser,ICO_SUM);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-				ring_parser_icg_newoperandint(pParser,0);
-				nMark = ring_parser_icg_newlabel(pParser);
-				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_addoperandint(pParser,pMark,nMark);
-				/* Keep the value on the Stack (Maybe required in expressions) */
-				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+				nMode = 1 ;
+				nValue = 1.0 ;
 				break ;
 			case ICO_LOADSUBADDRESS :
-				/* Code Generation (Part 2) */
-				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-				/* Duplicate Instructions starting from  LoadAddress */
-				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-				ring_parser_icg_newoperation(pParser,ICO_PUSHN);
-				ring_parser_icg_newoperanddouble(pParser,1.0);
-				ring_parser_icg_newoperation(pParser,ICO_SUM);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperandint(pParser,0);
-				/* Keep the Value on the Stack (Maybe required in expressions) */
-				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+				nMode = 2 ;
+				nValue = 1.0 ;
 				break ;
 			default :
-				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_PLUSPLUS);
-				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-				#if RING_PARSERTRACE
-					RING_STATE_CHECKPRINTRULES 
-					
-					puts("Rule : PlusPlus --> '++'");
-				#endif
+				nMode = 3 ;
 		}
-		return 1 ;
 	}
 	else if ( ring_parser_isoperator(pParser,"--") ) {
 		ring_parser_nexttoken(pParser);
 		switch ( nLastOperation ) {
 			case ICO_LOADADDRESS :
-				/* Code Generation */
-				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-				/* Duplicate LoadAddress */
-				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-				ring_parser_icg_newoperation(pParser,ICO_PUSHN);
-				ring_parser_icg_newoperanddouble(pParser,-1.0);
-				ring_parser_icg_newoperation(pParser,ICO_SUM);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-				ring_parser_icg_newoperandint(pParser,0);
-				nMark = ring_parser_icg_newlabel(pParser);
-				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_addoperandint(pParser,pMark,nMark);
-				/* Keep the value on the Stack (Maybe required in Expressions) */
-				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+				nMode = 1 ;
+				nValue = -1.0 ;
 				break ;
 			case ICO_LOADSUBADDRESS :
-				/* Code Generation (Part 2) */
-				ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
-				/* Duplicate Instructions starting from  LoadAddress */
-				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-				ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
-				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-				ring_parser_icg_newoperation(pParser,ICO_PUSHN);
-				ring_parser_icg_newoperanddouble(pParser,-1.0);
-				ring_parser_icg_newoperation(pParser,ICO_SUM);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
-				ring_parser_icg_newoperandint(pParser,0);
-				ring_parser_icg_newoperandint(pParser,0);
-				/* Keep the Value on the Stack (Maybe required in expressions) */
-				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+				nMode = 2 ;
+				nValue = -1.0 ;
 				break ;
 			default :
-				/* Generate Code */
-				ring_parser_icg_newoperation(pParser,ICO_MINUSMINUS);
-				ring_parser_icg_newoperation(pParser,ICO_PUSHV);
-				#if RING_PARSERTRACE
-					RING_STATE_CHECKPRINTRULES 
-					
-					puts("Rule : MinusMinus --> '--'");
-				#endif
+				nMode = 4 ;
 		}
-		return 1 ;
 	}
-	return 0 ;
+	else {
+		return 0 ;
+	}
+	/* Code Generation */
+	switch ( nMode ) {
+		case 1 :
+			/* Code Generation */
+			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
+			/* Duplicate LoadAddress */
+			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+			ring_parser_icg_newoperanddouble(pParser,nValue);
+			ring_parser_icg_newoperation(pParser,ICO_SUM);
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
+			ring_parser_icg_newoperandint(pParser,0);
+			nMark = ring_parser_icg_newlabel(pParser);
+			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_addoperandint(pParser,pMark,nMark);
+			/* Keep the value on the Stack (Maybe required in expressions) */
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			break ;
+		case 2 :
+			/* Code Generation */
+			ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENTPOINTER);
+			/* Duplicate Instructions starting from  LoadAddress */
+			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+			ring_parser_icg_newoperation(pParser,ICO_DUPLICATE);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHN);
+			ring_parser_icg_newoperanddouble(pParser,nValue);
+			ring_parser_icg_newoperation(pParser,ICO_SUM);
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperation(pParser,ICO_BEFOREEQUAL);
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperation(pParser,ICO_SETPROPERTY);
+			ring_parser_icg_newoperandint(pParser,0);
+			ring_parser_icg_newoperandint(pParser,0);
+			/* Keep the Value on the Stack (Maybe required in expressions) */
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			break ;
+		case 3 :
+			/* Generate Code */
+			ring_parser_icg_newoperation(pParser,ICO_PLUSPLUS);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			#if RING_PARSERTRACE
+				RING_STATE_CHECKPRINTRULES 
+				
+				puts("Rule : PlusPlus --> '++'");
+			#endif
+			break ;
+		case 4 :
+			/* Generate Code */
+			ring_parser_icg_newoperation(pParser,ICO_MINUSMINUS);
+			ring_parser_icg_newoperation(pParser,ICO_PUSHV);
+			#if RING_PARSERTRACE
+				RING_STATE_CHECKPRINTRULES 
+				
+				puts("Rule : MinusMinus --> '--'");
+			#endif
+			break ;
+	}
+	return 1 ;
 }
 
 void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod )
