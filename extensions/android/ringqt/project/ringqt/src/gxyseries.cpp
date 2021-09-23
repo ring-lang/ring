@@ -63,104 +63,172 @@ void GXYSeries::geteventparameters(void)
  
 void GXYSeries::setclickedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cclickedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setcolorChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->ccolorChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setdoubleClickedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cdoubleClickedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::sethoveredEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->choveredEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpenChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpenChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpointAddedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpointAddedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpointLabelsClippingChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpointLabelsClippingChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpointLabelsColorChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpointLabelsColorChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpointLabelsFontChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpointLabelsFontChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpointLabelsFormatChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpointLabelsFormatChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpointLabelsVisibilityChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpointLabelsVisibilityChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpointRemovedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpointRemovedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpointReplacedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpointReplacedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpointsRemovedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpointsRemovedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpointsReplacedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpointsReplacedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setpressedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cpressedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GXYSeries::setreleasedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->creleasedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
  

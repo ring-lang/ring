@@ -37,26 +37,42 @@ void GComboBox::geteventparameters(void)
  
 void GComboBox::setactivatedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cactivatedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GComboBox::setcurrentIndexChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->ccurrentIndexChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GComboBox::seteditTextChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->ceditTextChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GComboBox::sethighlightedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->chighlightedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
  

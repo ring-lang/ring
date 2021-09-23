@@ -41,38 +41,62 @@ void GVBoxPlotModelMapper::geteventparameters(void)
  
 void GVBoxPlotModelMapper::setfirstBoxSetColumnChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cfirstBoxSetColumnChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GVBoxPlotModelMapper::setfirstRowChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cfirstRowChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GVBoxPlotModelMapper::setlastBoxSetColumnChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->clastBoxSetColumnChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GVBoxPlotModelMapper::setmodelReplacedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cmodelReplacedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GVBoxPlotModelMapper::setrowCountChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->crowCountChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GVBoxPlotModelMapper::setseriesReplacedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cseriesReplacedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
  

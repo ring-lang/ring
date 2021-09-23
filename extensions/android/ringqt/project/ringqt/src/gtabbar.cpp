@@ -35,20 +35,32 @@ void GTabBar::geteventparameters(void)
  
 void GTabBar::setcurrentChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->ccurrentChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GTabBar::settabCloseRequestedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->ctabCloseRequestedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GTabBar::settabMovedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->ctabMovedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
  

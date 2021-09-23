@@ -39,32 +39,52 @@ void GDateTimeAxis::geteventparameters(void)
  
 void GDateTimeAxis::setformatChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cformatChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GDateTimeAxis::setmaxChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cmaxChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GDateTimeAxis::setminChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->cminChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GDateTimeAxis::setrangeChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->crangeChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
 void GDateTimeAxis::settickCountChangedEvent(const char *cStr)
 {
-	if (strlen(cStr)<100)
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
 		strcpy(this->ctickCountChangedEvent,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
 }
 
  
