@@ -2,7 +2,6 @@ aLibrary = [:name = :libcurl ,
 	 :title = "RingLibCurl",
 	 :windowsfiles = [
 			"ring_libcurl.dll",
-			"ring_internet.dll",
 			"libcurl.dll"
 	 ],
 	 :linuxfiles = [
