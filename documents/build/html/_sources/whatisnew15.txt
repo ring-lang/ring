@@ -180,6 +180,8 @@ Better RingQt
 * QPainter Class - DrawHSVFList() and DrawRGBFList() Methods
 * RingQt For WebAssembly - Download File - Support Binary File
 * QCompleter4 Class
+* Event Code size changed from 99 characters to 255 characters
+* Clear Error Message if the Event Code is larger than the allowed size
 
 Example (Using Clipboard):
 
