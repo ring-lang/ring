@@ -120,7 +120,8 @@ aAllPackagesInfo = [
 		"ringrepl",
 		"webassemblyringqt",
 		"erlangbformula",
-		"Chess3d-Qt3D"
+		"Chess3d-Qt3D",
+		"chessendgame"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -201,7 +202,8 @@ aAllPackagesInfo = [
 		"eightqueensgame",
 		"ringrepl",
 		"erlangbformula",
-		"Chess3d-Qt3D"
+		"Chess3d-Qt3D",
+		"chessendgame"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -288,5 +290,8 @@ aAllPackagesInfo = [
 	],
 	["Chess3D-Qt3D" ,	[
 
-	] ]
+	] ],
+	:chessendgame = 	[
+
+	]
 ]
