@@ -662,5 +662,9 @@ aPackagesRegistry = [
 	[ :name = "Chess3D-Qt3D",
           :description = "Chess3D in Ring language",
           :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "chessendgame",
+          :description = "ChessEndGame package for the Ring programming language",
+          :ProviderUserName = "ringpackages"
         ]
 ]
