@@ -228,9 +228,13 @@ void <T_CLASSNAME>::geteventparameters(void)
 		cSetEvents += "
 void "+aClass[:name]+"::set"+aEvent[:event]+"Event(const char *cStr)
 {
-	if (strlen(cStr)<100)
-		strcpy(this->c"+aEvent[:event]+"Event,cStr);
-}" + nl
+	if ( strlen(cStr) < RINGQT_EVENT_SIZE )
+		strcpy(this->c"+aEvent[:event]+'Event,cStr);
+	else {
+		printf("\nEvent Code: %s\n",cStr);
+		ring_vm_error(this->pVM,RINGQT_EVENT_SIZE_ERROR);
+	}
+}' + nl
 
 		# Get Events
 		cGetEvents += "
