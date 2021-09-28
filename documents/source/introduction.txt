@@ -116,6 +116,8 @@ Ring 1.14 is released on January 25, 2021
 
 Ring 1.15 is released on September 24, 2021 
 
+Ring 1.16 is under development!
+
 .. index:: 
 	pair: Introduction; Features
 
@@ -246,7 +248,7 @@ The Ring Programming Language
 
 http://ring-lang.net/
 
-Version 1.15
+Version 1.16
 
 The MIT License (MIT)
 
