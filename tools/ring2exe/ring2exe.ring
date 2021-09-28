@@ -367,7 +367,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 					ok
 					if islist(aLibrary[:windowsfiles])
 						for cLibFile in aLibrary[:windowsfiles]
-							custom_OSCopyFile("",exefolder()+"\"+cLibFile)
+							custom_OSCopyFile(exefolder(),cLibFile)
 						next
 					ok
 				else 
@@ -385,7 +385,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 					ok
 					if islist(aLibrary[:windowsfiles])
 						for cLibFile in aLibrary[:windowsfiles]
-							custom_OSCopyFile("",exefolder()+"\"+cLibFile)
+							custom_OSCopyFile(exefolder(),cLibFile)
 						next
 					ok
 				ok
@@ -727,11 +727,7 @@ func custom_OSCopyFile cBaseFolder,cFile
 		cFolder = left(cFolder,len(cFolder)-1)
 		OSCreateOpenFolder(cFolder)
 	ok
-	if cBaseFolder != ""
-		OSCopyFile(cBaseFolder+"/"+cFile)
-	else
-		OSCopyFile(cFile)
-	ok
+	OSCopyFile(cBaseFolder+"/"+cFile)
 	chdir(cDir)
 
 
