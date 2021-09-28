@@ -367,7 +367,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 					ok
 					if islist(aLibrary[:windowsfiles])
 						for cLibFile in aLibrary[:windowsfiles]
-							OSCopyFile(exefolder()+"\"+cLibFile)
+							custom_OSCopyFile("",exefolder()+"\"+cLibFile)
 						next
 					ok
 				else 
@@ -385,7 +385,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 					ok
 					if islist(aLibrary[:windowsfiles])
 						for cLibFile in aLibrary[:windowsfiles]
-							OSCopyFile(exefolder()+"\"+cLibFile)
+							custom_OSCopyFile("",exefolder()+"\"+cLibFile)
 						next
 					ok
 				ok
@@ -715,17 +715,25 @@ func CheckQtResourceFile cBaseFolder,cFileName,aOptions
 		next
 		for cFile in aFiles 
 			msg("Copy File : " + cFile)
-			cDir = currentdir()
-			cFolder = justfilepath(cFile)
-			if cFolder != ""
-				# Remove last / in the path
-					cFolder = left(cFolder,len(cFolder)-1)
-				OSCreateOpenFolder(cFolder)
-			ok
-			OSCopyFile(cBaseFolder+"/"+cFile)
-			chdir(cDir)
+			custom_OSCopyFile(cBaseFolder,cFile)
 		next
 	ok
+
+func custom_OSCopyFile cBaseFolder,cFile
+	cDir = currentdir()
+	cFolder = justfilepath(cFile)
+	if cFolder != ""
+		# Remove last / in the path
+		cFolder = left(cFolder,len(cFolder)-1)
+		OSCreateOpenFolder(cFolder)
+	ok
+	if cBaseFolder != ""
+		OSCopyFile(cBaseFolder+"/"+cFile)
+	else
+		OSCopyFile(cFile)
+	ok
+	chdir(cDir)
+
 
 
 func CheckNoCCompiler cBaseFolder,cFileName 
