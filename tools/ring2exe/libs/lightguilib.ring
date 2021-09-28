@@ -17,11 +17,12 @@ aLibrary = [:name = :lightguilib ,
 		"api-ms-win-core-winrt-l1-1-0.dll",
 		"api-ms-win-core-winrt-string-l1-1-0.dll",
 		"concrt140.dll",
-		"libgcc_s_dw2-1.dll"
+		"libgcc_s_dw2-1.dll",
+		"platforms\qwindows.dll",
+		"styles\qwindowsvistastyle.dll",
+		"styles\qwindowsvistastyled.dll"
 	 ] ,
 	 :windowsfolders = [
-		"platforms",
-		"styles"
 	 ],
 	 :linuxfiles = [
 		"libringqt_light.so"
