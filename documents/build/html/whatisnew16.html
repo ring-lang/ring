@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Using the Form Designer &mdash; Ring 1.16 documentation</title>
+  <title>What is new in Ring 1.16? &mdash; Ring 1.16 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
     
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Graphics Programming using RingQt3D" href="qt3d.html" />
-    <link rel="prev" title="Desktop, WebAssembly and Mobile Development using RingQt" href="qt.html" /> 
+    <link rel="next" title="Using Other Code Editors" href="codeeditors.html" />
+    <link rel="prev" title="What is new in Ring 1.15?" href="whatisnew15.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -129,21 +129,7 @@
 <li class="toctree-l1"><a class="reference internal" href="stdlib.html">Stdlib Functions</a></li>
 <li class="toctree-l1"><a class="reference internal" href="stdlibclasses.html">Stdlib Classes</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qt.html">Desktop, WebAssembly and Mobile development using RingQt</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Using the Form Designer</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#the-designer-windows">The Designer Windows</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-toolbox">The Toolbox</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#the-properties">The Properties</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#running-forms">Running Forms</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#events-code">Events Code</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#keyboard-shortcuts">Keyboard Shortcuts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#menubar-designer">Menubar Designer</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#window-flags">Window Flags</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#entering-items">Entering Items</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#using-layouts">Using Layouts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#objects-order-and-layouts">Objects Order and Layouts</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#more-samples-and-tests">More Samples and Tests</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="formdesigner.html">Using the Form Designer</a></li>
 <li class="toctree-l1"><a class="reference internal" href="qt3d.html">Graphics Programming using RingQt3D</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringqtobjects.html">Objects Library for RingQt Application</a></li>
 <li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
@@ -207,7 +193,11 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew13.html">Release Notes: Version 1.13</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew14.html">Release Notes: Version 1.14</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
-<li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.16</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -260,7 +250,7 @@
     
       <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Using the Form Designer</li>
+      <li>What is new in Ring 1.16?</li>
     
     
       <li class="wy-breadcrumbs-aside">
@@ -277,141 +267,18 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="using-the-form-designer">
-<span id="index-0"></span><h1>Using the Form Designer<a class="headerlink" href="#using-the-form-designer" title="Permalink to this headline">¶</a></h1>
-<p>In this chapter we will learn about using the Form Designer.</p>
-<p>We can run the From Designer from Ring Notepad</p>
-<p>From the Menubar in Ring Notepad - View Menu - We can Show/Hide the Form Designer window.</p>
-<img alt="Form Designer - Inside Ring Notepad" src="_images/rnotefd.png" />
-<p>Also we can run the Form Designer in another window.</p>
-<p>From the Ring Notepad - Tools Menu - Select the Form Designer.</p>
-<img alt="Form Desigenr" src="_images/formdesigner.png" />
-<div class="section" id="the-designer-windows">
-<span id="index-1"></span><h2>The Designer Windows<a class="headerlink" href="#the-designer-windows" title="Permalink to this headline">¶</a></h2>
+  <div class="section" id="what-is-new-in-ring-1-16">
+<span id="index-0"></span><h1>What is new in Ring 1.16?<a class="headerlink" href="#what-is-new-in-ring-1-16" title="Permalink to this headline">¶</a></h1>
+<p>In this chapter we will learn about the changes and new features in Ring 1.16 release.</p>
+<div class="section" id="list-of-changes-and-new-features">
+<span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Ring 1.16 comes with the next features!</p>
 <ul class="simple">
-<li><p>Toolbox : To select controls to be added to the window.</p></li>
-<li><p>Properties : To set the properties of the active window or controls.</p></li>
-<li><p>Design Region : To select, move and resize the window and the controls.</p></li>
+<li><p>More Improvements</p></li>
 </ul>
 </div>
-<div class="section" id="the-toolbox">
-<span id="index-2"></span><h2>The Toolbox<a class="headerlink" href="#the-toolbox" title="Permalink to this headline">¶</a></h2>
-<p>We have many buttons.</p>
-<ul class="simple">
-<li><p>Lock : We can use it to draw many controls of the same type quickly.</p></li>
-<li><p>Select : We can use it to select a control in the Design Region</p></li>
-<li><p>Controls Buttons : Select a control to be added to the window.</p></li>
-</ul>
-</div>
-<div class="section" id="the-properties">
-<span id="index-3"></span><h2>The Properties<a class="headerlink" href="#the-properties" title="Permalink to this headline">¶</a></h2>
-<ul class="simple">
-<li><p>When we select the window or one control, We will have the selected object properties.</p></li>
-<li><p>Also In the properties window we have a combobox to select the active control.</p></li>
-<li><p>Some properties provide a button next to the property value. We can click on the button to get more options.</p></li>
-<li><p>When we select more than one control, We will have options for multi-selection</p></li>
-</ul>
-<img alt="Form Designer - Multiple-Selection" src="_images/fdms.png" />
-</div>
-<div class="section" id="running-forms">
-<span id="index-4"></span><h2>Running Forms<a class="headerlink" href="#running-forms" title="Permalink to this headline">¶</a></h2>
-<p>When we save the form file (<a href="#id1"><span class="problematic" id="id2">*</span></a>.rform), The Form Designer will create two Ring files</p>
-<ul class="simple">
-<li><p>The Controller Class</p></li>
-<li><p>The View Class</p></li>
-</ul>
-<p>For example, if the form file is helloworld.rform</p>
-<p>The form designer will generate two files</p>
-<ul class="simple">
-<li><p>helloworldcontroller.ring</p></li>
-<li><p>helloworldview.ring</p></li>
-</ul>
-<p>To run the program, Open the controller class file then click the Run button (CTRL+F5)</p>
-<div class="admonition tip">
-<p class="admonition-title">Tip</p>
-<p>When you open a form using Ring Notepad, the controller class will be opened automatically, So we can press (CTRL+F5) or click on the Run button while the form designer window is active.</p>
-</div>
-</div>
-<div class="section" id="events-code">
-<span id="index-5"></span><h2>Events Code<a class="headerlink" href="#events-code" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>Just type the method name in the event property.</p></li>
-</ol>
-<img alt="Form Designer - Event Method" src="_images/fdeventmethod.png" />
-<p>This will add the next code to the Controller Class</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">CloseWindow</span>
-        <span class="n">oView</span> <span class="p">{</span>
-        <span class="p">}</span>
-</pre></div>
-</div>
-<p>(2) Then write the method code in the
-controller class.</p>
-<img alt="Form Designer - Event Code" src="_images/fdeventcode.png" />
-<p>In this example we write</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">CloseWindow</span>
-        <span class="n">oView</span><span class="p">.</span><span class="n">win</span><span class="p">.</span><span class="n">close</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>Where inside the controller class, We uses the oView object to access the form.</p>
-<p>Another Example :</p>
-<img alt="Form Designer - Say Hello" src="_images/fdsayhello1.png" />
-<p>The Event Code</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">func</span> <span class="n">SayHello</span>
-        <span class="n">oView</span> <span class="p">{</span>
-                <span class="n">LineEdit2</span><span class="p">.</span><span class="n">setText</span><span class="p">(</span><span class="s">&quot;Hello &quot;</span><span class="o">+</span> <span class="n">LineEdit1</span><span class="p">.</span><span class="n">text</span><span class="p">()</span> <span class="p">)</span>
-        <span class="p">}</span>
-</pre></div>
-</div>
-</div>
-<div class="section" id="keyboard-shortcuts">
-<span id="index-6"></span><h2>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this headline">¶</a></h2>
-<p>After selecting one or group of controls</p>
-<ul class="simple">
-<li><p>Use the Arrows (Up, Down, Left and Right) to move them around.</p></li>
-<li><p>Shift + the Arrows (Up, Down, Left and Right) to Resize the controls.</p></li>
-<li><p>Del button to delete the controls.</p></li>
-<li><p>CTRL+SHIFT+V to Duplicate the controls.</p></li>
-</ul>
-</div>
-<div class="section" id="menubar-designer">
-<span id="index-7"></span><h2>Menubar Designer<a class="headerlink" href="#menubar-designer" title="Permalink to this headline">¶</a></h2>
-<p>From the Window properties we can open the Menubar Designer</p>
-<img alt="Form Designer - Menubar Designer" src="_images/menubardesigner.png" />
-</div>
-<div class="section" id="window-flags">
-<span id="index-8"></span><h2>Window Flags<a class="headerlink" href="#window-flags" title="Permalink to this headline">¶</a></h2>
-<p>From the Window properties we can open the Window Flags window.</p>
-<img alt="Form Designer - Window Flags" src="_images/windowflags.png" />
-</div>
-<div class="section" id="entering-items">
-<span id="index-9"></span><h2>Entering Items<a class="headerlink" href="#entering-items" title="Permalink to this headline">¶</a></h2>
-<p>For some controls like the List Widget we can enter items separated by comma ‘,’</p>
-<img alt="Form Designer - List Items" src="_images/fdlistitems.png" />
-</div>
-<div class="section" id="using-layouts">
-<span id="index-10"></span><h2>Using Layouts<a class="headerlink" href="#using-layouts" title="Permalink to this headline">¶</a></h2>
-<ol class="arabic simple">
-<li><p>To use layouts, At first add the layout control to the window.</p></li>
-<li><p>Use the window “Set Layout” property to determine the main layout.</p></li>
-<li><p>From the layout properties determine the controls and the layout type.</p></li>
-</ol>
-</div>
-<div class="section" id="objects-order-and-layouts">
-<span id="index-11"></span><h2>Objects Order and Layouts<a class="headerlink" href="#objects-order-and-layouts" title="Permalink to this headline">¶</a></h2>
-<p>All the objects that are added to a layout must comes first!</p>
-<p>If we have a form that contains two buttons and a Layout</p>
-<p>Then adding a third button after creating the layout requires changing the objects order</p>
-<p>We can open the (Objects Order) window using a button from the (Properties) window</p>
-<img alt="Layout Objects Order" src="_images/layoutobjsshot1.png" />
-<p>Then we can select the (Button3) and click (Move Up)</p>
-<img alt="Layout Objects Order" src="_images/layoutobjsshot2.png" />
-<p>Then we close the (Objects Order) window</p>
-<img alt="Layout Objects Order" src="_images/layoutobjsshot3.png" />
-</div>
-<div class="section" id="more-samples-and-tests">
-<span id="index-12"></span><h2>More Samples and Tests<a class="headerlink" href="#more-samples-and-tests" title="Permalink to this headline">¶</a></h2>
-<p>Check the folder : ring/samples/UsingFormDesigner</p>
-<p>Online : <a class="reference external" href="https://github.com/ring-lang/ring/tree/master/samples/UsingFormDesigner">https://github.com/ring-lang/ring/tree/master/samples/UsingFormDesigner</a></p>
+<div class="section" id="more-improvements">
+<span id="index-2"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 </div>
 </div>
 
@@ -423,10 +290,10 @@ controller class.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="qt3d.html" class="btn btn-neutral float-right" title="Graphics Programming using RingQt3D" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="codeeditors.html" class="btn btn-neutral float-right" title="Using Other Code Editors" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="qt.html" class="btn btn-neutral float-left" title="Desktop, WebAssembly and Mobile Development using RingQt" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="whatisnew15.html" class="btn btn-neutral float-left" title="What is new in Ring 1.15?" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
