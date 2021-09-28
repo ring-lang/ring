@@ -6,7 +6,7 @@
 
 QT       += core gui testlib widgets
 
-TARGET = ringqt
+TARGET = ringqt_light
 TEMPLATE = lib
 
 DEFINES -= UNICODE
@@ -53,7 +53,7 @@ SOURCES +=   \
     cpp/src/gfontdialog.cpp \
     cpp/src/gfiledialog.cpp \
     cpp/src/mscompleter.cpp \
-    cpp/src/ring_qt.cpp
+    cpp/src/ring_qt_light.cpp
 
 HEADERS  += \
     cpp/include/gpushbutton.h \
