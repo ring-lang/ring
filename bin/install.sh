@@ -128,6 +128,19 @@ sudo ln -s "`pwd`/lib/libringqt.so" /usr/lib
 sudo ln -s "`pwd`/lib/libringqt.so" /usr/lib64
 fi
 
+# Make the RingQt (Light) library ready for use directly
+	
+if [ -f lib/libringqt_light.dylib ];
+then
+ln -s "`pwd`/lib/libringqt_light.dylib" /usr/local/lib
+fi
+
+if [ -f lib/libringqt_light.so ];
+then
+sudo ln -s "`pwd`/lib/libringqt_light.so" /usr/lib
+sudo ln -s "`pwd`/lib/libringqt_light.so" /usr/lib64
+fi
+
 # Make the RingLibCurl library ready for use directly
 
 if [ -f lib/libring_libcurl.dylib ];
