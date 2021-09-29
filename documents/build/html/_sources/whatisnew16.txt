@@ -24,4 +24,5 @@ More Improvements
 =================
 
 * Ring2EXE - Display usage information
-* Ring2EXE - Create folders when copying files 
+* Ring2EXE - Support Creating folders when copying files 
+* Ring Compiler - Don't display (Unrecognized Option) if we have a source code file
