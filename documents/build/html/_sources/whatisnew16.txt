@@ -23,3 +23,5 @@ Ring 1.16 comes with the next features!
 More Improvements
 =================
 
+* Ring2EXE - Display usage information
+* Ring2EXE - Create folders when copying files 
