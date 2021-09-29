@@ -748,6 +748,12 @@ class RNoteMainWindow
 						addaction(oAction)
 						addseparator()
 						oAction = new qAction(this.win1) {
+							settext("Ring2EXE (Distribute Light RingQt Application - Using [QtCore, QtGui, QtWidgets])")
+							setclickEvent(Method("Distribute(9)"))
+						}
+						addaction(oAction)
+						addseparator()
+						oAction = new qAction(this.win1) {
 							settext("Ring2EXE (Prepare Qt Project - Distribute for Mobile Devices)")
 							setclickEvent(Method("Distribute(7)"))
 						}

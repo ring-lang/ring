@@ -26,7 +26,8 @@ class RNoteDistribute
 				cPara += ",-dist,-allruntime,-gui,-mobileqt"
 			on 8	# qt project (WebAssembly)
 				cPara += ",-dist,-allruntime,-gui,-webassemblyqt"
-
+			on 9	# light guilib (QtCore, QtGui & QtWidgets)
+				cPara += ",-dist,-gui,-lightguilib"
 		off
 		oDockOutputWindow { show() raise() }		
 		oProcessEditbox.setplaintext("")
