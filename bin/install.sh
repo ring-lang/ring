@@ -6,18 +6,25 @@
 if [ -f ../lib/libring.dylib ];
 then
 ln -sf "`pwd`/ring" /usr/local/bin/ring
+xattr -d com.apple.quarantine /usr/local/bin/ring
 
 ln -sf "`pwd`/ring2exe" /usr/local/bin/ring2exe
+xattr -d com.apple.quarantine /usr/local/bin/ring2exe
 
 ln -sf "`pwd`/folder2qrc" /usr/local/bin/folder2qrc
+xattr -d com.apple.quarantine /usr/local/bin/folder2qrc
 
 ln -sf "`pwd`/ringpm" /usr/local/bin/ringpm
+xattr -d com.apple.quarantine /usr/local/bin/ringpm
 
 ln -sf "`pwd`/ringrepl" /usr/local/bin/ringrepl
+xattr -d com.apple.quarantine /usr/local/bin/ringrepl
 
 cd ..
 
 ln -sf "`pwd`/lib/libring.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring.dylib
+
 fi
 
 if [ -f ../lib/libring.so ];
@@ -42,6 +49,7 @@ fi
 if [ -f lib/libring_odbc.dylib ];
 then
 ln -sf "`pwd`/lib/libring_odbc.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_odbc.dylib
 fi
 
 if [ -f lib/libring_odbc.so ];
@@ -55,6 +63,7 @@ fi
 if [ -f lib/libring_mysql.dylib ];
 then
 ln -sf "`pwd`/lib/libring_mysql.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_mysql.dylib
 fi
 
 if [ -f lib/libring_mysql.so ];
@@ -68,6 +77,7 @@ fi
 if [ -f lib/libring_sqlite.dylib ];
 then
 ln -sf "`pwd`/lib/libring_sqlite.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_sqlite.dylib
 fi
 
 if [ -f lib/libring_sqlite.so ];
@@ -81,6 +91,7 @@ fi
 if [ -f lib/libring_internet.dylib ];
 then
 ln -sf "`pwd`/lib/libring_internet.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_internet.dylib
 fi
 
 if [ -f lib/libring_internet.so ];
@@ -94,6 +105,7 @@ fi
 if [ -f lib/libring_openssl.dylib ];
 then
 ln -sf "`pwd`/lib/libring_openssl.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_openssl.dylib
 fi
 
 if [ -f lib/libring_openssl.so ];
@@ -107,6 +119,7 @@ fi
 if [ -f lib/libringallegro.dylib ];
 then
 ln -sf "`pwd`/lib/libringallegro.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libringallegro.dylib
 fi
 
 if [ -f lib/libringallegro.so ];
@@ -120,6 +133,7 @@ fi
 if [ -f lib/libringqt.dylib ];
 then
 ln -sf "`pwd`/lib/libringqt.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libringqt.dylib
 fi
 
 if [ -f lib/libringqt.so ];
@@ -133,6 +147,7 @@ fi
 if [ -f lib/libringqt_light.dylib ];
 then
 ln -sf "`pwd`/lib/libringqt_light.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libringqt_light.dylib
 fi
 
 if [ -f lib/libringqt_light.so ];
@@ -146,6 +161,7 @@ fi
 if [ -f lib/libring_libcurl.dylib ];
 then
 ln -sf "`pwd`/lib/libring_libcurl.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_libcurl.dylib
 fi
 
 if [ -f lib/libring_libcurl.so ];
@@ -159,6 +175,7 @@ fi
 if [ -f lib/libring_libzip.dylib ];
 then
 ln -sf "`pwd`/lib/libring_libzip.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_libzip.dylib
 fi
 
 if [ -f lib/libring_libzip.so ];
@@ -172,6 +189,7 @@ fi
 if [ -f lib/libring_freeglut.dylib ];
 then
 ln -sf "`pwd`/lib/libring_freeglut.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_freeglut.dylib
 fi
 
 if [ -f lib/libring_freeglut.so ];
@@ -185,6 +203,7 @@ fi
 if [ -f lib/libring_opengl11.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl11.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl11.dylib
 fi
 
 if [ -f lib/libring_opengl11.so ];
@@ -197,6 +216,7 @@ fi
 if [ -f lib/libring_opengl12.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl12.dylib" /usr/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl12.dylib
 fi
 
 if [ -f lib/libring_opengl12.so ];
@@ -208,6 +228,7 @@ fi
 if [ -f lib/libring_opengl13.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl13.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl13.dylib
 fi
 
 if [ -f lib/libring_opengl13.so ];
@@ -219,6 +240,7 @@ fi
 if [ -f lib/libring_opengl14.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl14.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl14.dylib
 fi
 
 if [ -f lib/libring_opengl14.so ];
@@ -230,6 +252,7 @@ fi
 if [ -f lib/libring_opengl15.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl15.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl15.dylib
 fi
 
 if [ -f lib/libring_opengl15.so ];
@@ -241,6 +264,7 @@ fi
 if [ -f lib/libring_opengl20.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl20.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl20.dylib
 fi
 
 if [ -f lib/libring_opengl20.so ];
@@ -252,6 +276,7 @@ fi
 if [ -f lib/libring_opengl21.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl21.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl21.dylib
 fi
 
 if [ -f lib/libring_opengl21.so ];
@@ -263,6 +288,7 @@ fi
 if [ -f lib/libring_opengl30.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl30.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl30.dylib
 fi
 
 if [ -f lib/libring_opengl30.so ];
@@ -274,6 +300,7 @@ fi
 if [ -f lib/libring_opengl31.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl31.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl31.dylib
 fi
 
 if [ -f lib/libring_opengl31.so ];
@@ -285,6 +312,7 @@ fi
 if [ -f lib/libring_opengl32.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl32.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl32.dylib
 fi
 
 if [ -f lib/libring_opengl32.so ];
@@ -296,6 +324,7 @@ fi
 if [ -f lib/libring_opengl33.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl33.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl33.dylib
 fi
 
 if [ -f lib/libring_opengl33.so ];
@@ -307,6 +336,7 @@ fi
 if [ -f lib/libring_opengl40.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl40.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl40.dylib
 fi
 
 if [ -f lib/libring_opengl40.so ];
@@ -318,6 +348,7 @@ fi
 if [ -f lib/libring_opengl41.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl41.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl41.dylib
 fi
 
 if [ -f lib/libring_opengl41.so ];
@@ -329,6 +360,7 @@ fi
 if [ -f lib/libring_opengl42.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl42.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl42.dylib
 fi
 
 if [ -f lib/libring_opengl42.so ];
@@ -340,6 +372,7 @@ fi
 if [ -f lib/libring_opengl43.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl43.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl43.dylib
 fi
 
 if [ -f lib/libring_opengl43.so ];
@@ -351,6 +384,7 @@ fi
 if [ -f lib/libring_opengl44.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl44.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl44.dylib
 fi
 
 if [ -f lib/libring_opengl44.so ];
@@ -362,6 +396,7 @@ fi
 if [ -f lib/libring_opengl45.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl45.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl45.dylib
 fi
 
 if [ -f lib/libring_opengl45.so ];
@@ -373,6 +408,7 @@ fi
 if [ -f lib/libring_opengl46.dylib ];
 then
 ln -sf "`pwd`/lib/libring_opengl46.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_opengl46.dylib
 fi
 
 if [ -f lib/libring_opengl46.so ];
@@ -386,6 +422,7 @@ fi
 if [ -f lib/libring_murmurhash.dylib ];
 then
 ln -sf "`pwd`/lib/libring_murmurhash.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_murmurhash.dylib
 fi
 
 if [ -f lib/libring_murmurhash.so ];
@@ -399,6 +436,7 @@ fi
 if [ -f lib/libring_uv.dylib ];
 then
 ln -sf "`pwd`/lib/libring_uv.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_uv.dylib
 fi
 
 if [ -f lib/libring_uv.so ];
@@ -412,6 +450,7 @@ fi
 if [ -f lib/libring_pgsql.dylib ];
 then
 ln -sf "`pwd`/lib/libring_pgsql.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_pgsql.dylib
 fi
 
 if [ -f lib/libring_pgsql.so ];
@@ -425,6 +464,7 @@ fi
 if [ -f lib/libring_consolecolors.dylib ];
 then
 ln -sf "`pwd`/lib/libring_consolecolors.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_consolecolors.dylib
 fi
 
 if [ -f lib/libring_consolecolors.so ];
@@ -438,6 +478,7 @@ fi
 if [ -f lib/libringsdl.dylib ];
 then
 ln -sf "`pwd`/lib/libringsdl.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libringsdl.dylib
 fi
 
 if [ -f lib/libringsdl.so ];
@@ -451,7 +492,9 @@ fi
 if [ -f lib/libringraylib.dylib ];
 then
 ln -sf "`pwd`/lib/libringraylib.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libringraylib.dylib
 cp extensions/ringraylib/src/macOS_raylib-2.5/lib/libraylib.* /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libraylib.*
 fi
 
 if [ -f lib/libringraylib.so ];
@@ -467,6 +510,7 @@ fi
 if [ -f lib/libring_sockets.dylib ];
 then
 ln -sf "`pwd`/lib/libring_sockets.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_sockets.dylib
 fi
 
 if [ -f lib/libring_sockets.so ];
@@ -480,6 +524,7 @@ fi
 if [ -f lib/libring_threads.dylib ];
 then
 ln -sf "`pwd`/lib/libring_threads.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_threads.dylib
 fi
 
 if [ -f lib/libring_threads.so ];
@@ -493,7 +538,9 @@ fi
 if [ -f lib/libring_libui.dylib ];
 then
 ln -sf "`pwd`/lib/libring_libui.dylib" /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libring_libui.dylib
 cp extensions/ringlibui/macOS/libui.* /usr/local/lib
+xattr -d com.apple.quarantine /usr/local/lib/libui.*
 fi
 
 if [ -f lib/libring_libui.so ];
