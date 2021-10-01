@@ -129,15 +129,15 @@ func Main
 		see "Usage : ring2exe filename.ring [Options]" + nl
 		drawline()
 		see RemoveTabs("
-		-keep       	 : Don't delete Temp. Files
-		-static     	 : Don't use ring.dll/ring.so/ring.dylib
-		-gui        	 : Build GUI Application (Hide the Console Window)
-		-dist	    	 : Prepare application for distribution 
-		-allruntime 	 : Include all libraries in distribution
-		-mobileqt	 : Prepare Qt Project for Mobile 
-		-webassemblyqt	 : Prepare Qt Project for WebAssembly 
-		-<library>	 : Include <library> in distribution
-		-no<library>   	 : Don't include <library> in distribution ")
+		-keep            : Don't delete Temp. Files
+		-static          : Don't use ring.dll/ring.so/ring.dylib
+		-gui             : Build GUI Application (Hide the Console Window)
+		-dist            : Prepare application for distribution 
+		-allruntime      : Include all libraries in distribution
+		-mobileqt        : Prepare Qt Project for Mobile 
+		-webassemblyqt   : Prepare Qt Project for WebAssembly 
+		-<library>       : Include <library> in distribution
+		-no<library>     : Don't include <library> in distribution ")
 		drawline()
 	ok
 
