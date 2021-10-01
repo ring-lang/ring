@@ -19,7 +19,7 @@ MyApp = New qApp {
                         setclickevent("pHello()")
                 }
 
-                btn1 = new qpushbutton(win1) {
+                btn2 = new qpushbutton(win1) {
                         setGeometry(150,200,100,30)
                         settext("Close")
                         setclickevent("pClose()")
