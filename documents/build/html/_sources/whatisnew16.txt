@@ -15,7 +15,19 @@ List of changes and new features
 
 Ring 1.16 comes with the next features!
 
+* More Samples
 * More Improvements
+
+
+.. index:: 
+	pair: What is new in Ring 1.16?; More Samples
+
+More Samples
+============
+
+The next samples are added to the samples folder
+
+	* samples/UsingQt/MDIWindows/mdi_windows.ring
 
 .. index:: 
 	pair: What is new in Ring 1.16?; More Improvements
@@ -23,6 +35,7 @@ Ring 1.16 comes with the next features!
 More Improvements
 =================
 
+* Sample: samples/AQuickStart/GUILib/gui1.ring - Better Code
 * macOS - install.sh - Force creation of symlinks in case they already exist 
 * macOS - install.sh - Remove quarantine flag
 * macOS - uninstall.sh - Delete symlinks from /usr/local accordingly 
