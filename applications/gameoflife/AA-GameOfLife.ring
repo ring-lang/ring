@@ -16,7 +16,7 @@
 ###-----------------------------------------------------------------------------
 
 load "stdlibcore.ring"
-load "guilib.ring"
+load "lightguilib.ring"
 
 PatternType = "Glider"		### 1,2
 timeDelay	= 200		    ### 1=millisecs	 1000=second
