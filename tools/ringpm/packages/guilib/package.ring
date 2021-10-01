@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.9",
-	:ringversion = "1.13",
+	:version = "1.0.10",
+	:ringversion = "1.15",
 	:versions = 	[
 		[
-			:version = "1.0.9",
+			:version = "1.0.10",
 			:branch = "master"
 		]
 	],
@@ -25,9 +25,12 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"bin/load/guilib.ring",
+		"bin/load/lightguilib.ring",
 		"libraries/guilib/classes/ring_qt.ring",
+		"libraries/guilib/classes/ring_qt_light.ring",
 		"libraries/guilib/constants/qt.rh",
 		"libraries/guilib/guilib.ring",
+		"libraries/guilib/lightguilib.ring",
 		"libraries/guilib/modernlib/appclass.ring",
 		"libraries/guilib/modernlib/comboboxclass.ring",
 		"libraries/guilib/modernlib/commonfunctions.ring",
