@@ -23,6 +23,9 @@ Ring 1.16 comes with the next features!
 More Improvements
 =================
 
+* macOS - install.sh - Force creation of symlinks in case they already exist 
+* macOS - install.sh - Remove quarantine flag
+* macOS - uninstall.sh - Delete symlinks from /usr/local accordingly 
 * RingNotepad - Distribute Menu - Add Option: Light RingQt Application 
 * Ring2EXE - Display usage information
 * Ring2EXE - Support Creating folders when copying files 
