@@ -5,8 +5,8 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.15",
-	:ringversion = "1.14",
+	:version = "1.0.16",
+	:ringversion = "1.15",
 	:versions = 	[
 		[
 			:version = "1.0.15",
@@ -35,7 +35,8 @@ aPackageInfo = [
 		"README.md"
 	],
 	:ringfolderfiles = 	[
-		"tools/ring2exe/libs/qt.ring"
+		"tools/ring2exe/libs/qt.ring",
+		"tools/ring2exe/libs/lightguilib.ring"
 	],
 	:windowsfiles = 	[
 
@@ -47,7 +48,8 @@ aPackageInfo = [
 
 	],
 	:windowsringfolderfiles = 	[
-		"bin/ringqt.dll"
+		"bin/ringqt.dll",
+		"bin/ringqt_light.dll"
 	],
 	:linuxringfolderfiles = 	[
 
