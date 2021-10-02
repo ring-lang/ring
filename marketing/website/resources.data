@@ -292,22 +292,22 @@
 	],
 	["Online Applications (WebAssembly)",[
 				[
-					'<a href="web/formdesigner/project.html" target="_blank">The Form Designer</a>'
-				],
-				[
 					'<a href="web/matching/project.html" target="_blank">The Matching Game</a>'
-				],
-				[
-					'<a href="web/pairs/project.html" target="_blank">The Pairs Game</a>'
 				],
 				[
 					'<a href="web/othello/project.html" target="_blank">The Othello Game</a>'
 				],
 				[
+					'<a href="web/gameoflife/project.html" target="_blank">The Game of Life</a>'
+				],
+				[
+					'<a href="web/pairs/project.html" target="_blank">The Pairs Game</a>'
+				],
+				[
 					'<a href="web/word/project.html" target="_blank">The Word Game</a>'
 				],
 				[
-					'<a href="web/gameoflife/project.html" target="_blank">The Game of Life</a>'
+					'<a href="web/formdesigner/project.html" target="_blank">The Form Designer</a>'
 				]
 	]
 	],
@@ -325,22 +325,16 @@
 					'<a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank">Ring Group (Many Useful Topics)</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=QABSHg4zY6M&feature=emb_title" target="_blank">Introduction (What is Ring?)</a>'
-				],
-				[
 					'<a href="https://www.youtube.com/watch?v=7BqoQldx0Pk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=2" target="_blank">Video Tutorials (Getting Started!)</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6MquWkCeft8&list=PLpQiqjcu7CuH063yQeQi0LQcbV4dynHgw&index=1" target="_blank">Video Tutorials (Short Movies)</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=3NS_AmVYhjU&list=PLpQiqjcu7CuGUnhKlYJUk1RpNQkVcaCP-&index=1" target="_blank">Video Tutorials (Answers to some Questions)</a>'
 				],
 				[
 					'<a href="https://www.rangakrish.com/index.php/2021/08/07/first-encounter-with-the-ring-programming-language/" target="_blank">Article: First Encounter with the Ring Programming Language</a>'
 				],
 				[
-					'<a href="https://ringlang.wordpress.com" target="_blank">Thinking in the Ring programming language </a>'
+					'<a href="https://www.rangakrish.com/index.php/2021/08/21/loop-command-in-ring-programming-language/" target="_blank">Article: Loop Command in Ring Programming Language</a>'
+				],
+				[
+					'<a href="https://www.rangakrish.com/index.php/2021/09/04/ring-language-dynamic-behavior-of-classes-and-objects/" target="_blank">Article: Dynamic Behavior of Classes and Objects</a>'
 				]
 			]
 	     ],
@@ -349,19 +343,10 @@
 					'<a href="https://ringprogramming4arab.wordpress.com/%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D9%88%D9%8A-2/" target="_blank">Blog: Ring Programming for Arab</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=uSv5rJp6snw&list=PLgc0fyJgivssosIJu4kJGk5avIjaMzYHK" target="_blank">Arabic Video Tutorials (Ring Basics)</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">Arabic Video Tutorials (Mastering Ring)</a>'
-				],
-				[
 					'<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">Arabic Video Tutorials (Ring Lectures)</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=bxVFEH3lgfU&list=PLpQiqjcu7CuFfKz4WYANZCLQTzPESpl6a" target="_blank">Introduction to Desktop and Mobile development</a>'
-				],
-				[
-					'<a href="https://www.youtube.com/watch?v=EDyrgo-0BIg&index=1&list=PLpQiqjcu7CuFiv-Fa8M8wx-MrKvLmMnbn" target="_blank">Developing the Ring Package Manager (RingPM)</a>'
+					'<a href="https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">Arabic Video Tutorials (Mastering Ring)</a>'
 				],
 				[
 					'<a href="https://www.youm7.com/story/2016/1/11/%D9%81%D9%89-25-%D9%8A%D9%86%D8%A7%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A8%D9%84-%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D9%85%D9%88%D8%A7%D8%B5%D9%81%D8%A7%D8%AA-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-%D9%85%D9%86/2532713" target="_blank">Introducing Ring by Youm7</a>'
