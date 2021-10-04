@@ -958,6 +958,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 		ring_parser_nexttoken(pParser);
 		if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
 			ring_parser_nexttoken(pParser);
+			RING_PARSER_IGNORENEWLINE ;
 			#if RING_PARSERTRACE
 				RING_STATE_CHECKPRINTRULES 
 				
@@ -971,6 +972,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
 			pParser->nAssignmentFlag = x ;
 			if ( ring_parser_isoperator2(pParser,OP_FCLOSE) ) {
 				ring_parser_nexttoken(pParser);
+				RING_PARSER_IGNORENEWLINE ;
 				#if RING_PARSERTRACE
 					RING_STATE_CHECKPRINTRULES 
 					
@@ -1241,6 +1243,7 @@ int ring_parser_mixer ( Parser *pParser )
 					ring_parser_nexttoken(pParser);
 					/* Generate Code */
 					ring_parser_gencall(pParser,nCallMethod);
+					RING_PARSER_IGNORENEWLINE ;
 					x = ring_parser_mixer(pParser);
 					return x ;
 				}
