@@ -23,6 +23,7 @@ aLibrary = [:name = :lightguilib ,
 		"styles\qwindowsvistastyled.dll"
 	 ] ,
 	 :windowsfolders = [
+		"imageformats"
 	 ],
 	 :linuxfiles = [
 		"libringqt_light.so"
