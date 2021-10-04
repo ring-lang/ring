@@ -48,9 +48,9 @@ For example, Distributing (Game of Life) using this option provides : target/win
 .. image:: lightguilib.png
 	:alt: lightguilib
 
-* Size : 30 MB (Uncompressed)
-* Size : 11 MB (zip)
-* Size : 8 MB (exe) compressed using 7zip
+* Size : 35 MB (Uncompressed)
+* Size : 13 MB (zip)
+* Size : 9 MB (exe) compressed using 7zip
 
 So we can distribute these GUI applications using an installer less than 10 MB
 
