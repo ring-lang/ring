@@ -1,5 +1,7 @@
-Using ? substr(cStr,100)
+t
+e
+s
+t
+data: test
 
-Using ? substr(cStr,-1)
-
-done
+Done
