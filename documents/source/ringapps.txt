@@ -51,7 +51,7 @@ Quotes about Ring
 |	**"Thank you for this awesome language and wonderful ready to use Qt binding."**
 |		, Martial FAESSEL
 
-|	**"I think it's great what the does for the community of developers and novice programming."**
+|	**"I think it's great what he does for the community of developers and novice programming."**
 |		, Marino Esteban 
 
 |	**"Ring is just awesome. The language is so cool and fluent. I am sure it's going to be BIG."**
