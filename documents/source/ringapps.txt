@@ -27,7 +27,7 @@ Quotes about Ring
 |	**"Very nice approach for a new language."**
 |		, Matth Moestl (Austria)
 
-|	**"Very interesting! I will keep an eye on it.!"**
+|	**"Very interesting! I will keep an eye on it!"**
 |		, Eslipak (Argentina)
 
 |	**"I'd like to see some benchmarks. Otherwise, at first glance, it looks really promising."**
@@ -51,7 +51,7 @@ Quotes about Ring
 |	**"Thank you for this awesome language and wonderful ready to use Qt binding."**
 |		, Martial FAESSEL
 
-|	**"I think it's great what he does for the community of developers and novice programming."**
+|	**"I think it's great what the does for the community of developers and novice programming."**
 |		, Marino Esteban 
 
 |	**"Ring is just awesome. The language is so cool and fluent. I am sure it's going to be BIG."**
@@ -332,7 +332,7 @@ Samples in this book
 
 The next samples are developed in a few hours and we will introduce them through this book.
 
-The next screen shot for he Ring Notepad application
+The next screen shot for the Ring Notepad application
 
 .. image:: ringnotepad_screenshot.png
 	:alt: Ring Application
