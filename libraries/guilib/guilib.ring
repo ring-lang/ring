@@ -4,6 +4,8 @@
 		return
 	ok
 
+C_USING_GUILIB = True
+
 # Load the DLL files 
 	if iswindows()
 		LoadLib("ringqt.dll")
