@@ -26,8 +26,12 @@ class FormDesignerCodeGenerator
 					"# Date : " + date() + nl +
 					"# Time : " + time() + nl + nl
 		# Write general code to show the window
-			cOutput += 'Load "stdlibcore.ring"' + nl +
-					'Load "guilib.ring"' + nl + nl 
+			cOutput += 'Load "stdlibcore.ring"' + nl
+			if oDesigner.oModel.FormObject().GUILibraryValue() = 0 {
+				cOutput += 'Load "guilib.ring"' + nl + nl 
+			else
+				cOutput += 'Load "lightguilib.ring"' + nl + nl 
+			}
 			if lIndexStartFrom1 {
 					cOutput += 'import System.GUI' + nl + nl 
 					cOutput += "if IsMainSourceFile() { " + nl 
