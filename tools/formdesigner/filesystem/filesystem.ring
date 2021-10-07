@@ -344,6 +344,11 @@ class FormDesignerFileSystem from ObjectsParent
 							else 
 								setIndexTypeValue(0)
 							}
+							if itemdata[:GUILibrary] != NULL {
+								setGUILibraryValue(itemdata[:GUILibrary])
+							else 
+								setGUILibraryValue(0)
+							}
 							show()
 						}
 					case :FormDesigner_QLabel
