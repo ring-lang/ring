@@ -1,3 +1,9 @@
+# Check if Light GUILib is used in the same project!
+	if isGlobal(:C_USING_LIGHTGUILIB)
+		? "Warning: Trying to load GUILib while LightGUILib is already used! - Operation Canceled"
+		return
+	ok
+
 # Load the DLL files 
 	if iswindows()
 		LoadLib("ringqt.dll")

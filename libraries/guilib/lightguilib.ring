@@ -1,3 +1,5 @@
+C_USING_LIGHTGUILIB = True
+
 # Load the DLL files 
 	if iswindows()
 		LoadLib("ringqt_light.dll")
