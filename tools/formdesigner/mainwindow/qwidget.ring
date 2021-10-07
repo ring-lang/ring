@@ -20,6 +20,8 @@ class FormDesigner_QWidget from QWidget
 
 	nIndexType = 0
 
+	nGUILibrary = 0
+
 	# For Mobile Devices 
 		nClockValue = 0
 		nClocksCount = clockspersecond() / 4
@@ -27,6 +29,12 @@ class FormDesigner_QWidget from QWidget
 	func init
 		super.init()
 		return self
+
+	func GUILibraryValue
+		return nGUILibrary
+
+	func SetGUILibraryValue Value
+		nGUILibrary = Value
 
 	func IndexTypeValue
 		return nIndexType
@@ -92,6 +100,10 @@ class FormDesigner_QWidget from QWidget
 				[T_FORMDESIGNER_ATTRIBUTE_STARTFROM1, 			# "Start from 1"
 				T_FORMDESIGNER_ATTRIBUTE_STARTFROM0] 			# "Start from 0"
 				)
+		oDesigner.oView.AddPropertyCombobox(T_FORMDESIGNER_ATTRIBUTE_GUILIBRARY, # "GUI Library"
+				[T_FORMDESIGNER_ATTRIBUTE_GUILIB, 			# "GUILib"
+				T_FORMDESIGNER_ATTRIBUTE_LIGHTGUILIB] 			# "Light GUILib"
+				)
 
 	func UpdateProperties oDesigner,nRow,nCol,cValue
 		if nCol = 1 {
@@ -126,12 +138,20 @@ class FormDesigner_QWidget from QWidget
 
 	func ComboItemAction oDesigner,nRow
 		nIndexTypePos = 10
-		if nRow = nIndexTypePos  {		
-			oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nIndexTypePos,1)
-			oCombo = new qCombobox
-			oCombo.pObject = oWidget.pObject
-			nIndex = oCombo.CurrentIndex()
-			setIndexTypeValue(nIndex)
+		nGUILibraryPos = 11
+		Switch nRow { 
+			on nIndexTypePos  
+				oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nIndexTypePos,1)
+				oCombo = new qCombobox
+				oCombo.pObject = oWidget.pObject
+				nIndex = oCombo.CurrentIndex()
+				setIndexTypeValue(nIndex)
+			on nGUILibraryPos
+				oWidget = oDesigner.oView.oPropertiesTable.cellwidget(nGUILibraryPos,1)
+				oCombo = new qCombobox
+				oCombo.pObject = oWidget.pObject
+				nIndex = oCombo.CurrentIndex()
+				setGUILibraryValue(nIndex)
 		}
 
 	func DisplayProperties oDesigner
@@ -163,6 +183,13 @@ class FormDesigner_QWidget from QWidget
 			oCombo.pObject = oWidget.pObject
 			oCombo.BlockSignals(True)
 			oCombo.setCurrentIndex(IndexTypeValue())
+			oCombo.BlockSignals(False)
+		# GUI Library
+			oWidget = oPropertiesTable.cellwidget(11,1)
+			oCombo = new qCombobox
+			oCombo.pObject = oWidget.pObject
+			oCombo.BlockSignals(True)
+			oCombo.setCurrentIndex(GUILibraryValue())
 			oCombo.BlockSignals(False)
 		oPropertiesTable.Blocksignals(False)
 
@@ -277,7 +304,8 @@ class FormDesigner_QWidget from QWidget
 		cOutput += cTabs + ' :mainlayout =  "#{f8}" ,' + nl
 		cOutput += cTabs + ' :WindowIcon =  "#{f9}" , ' + nl
 		cOutput += cTabs + ' :Menubar =  "#{f10}"  ,' + nl
-		cOutput += cTabs + ' :IndexType =  #{f11}  ' + nl
+		cOutput += cTabs + ' :IndexType =  #{f11}  ,' + nl
+		cOutput += cTabs + ' :GUILibrary =  #{f12}  ' + nl
 		cOutput = substr(cOutput,"#{f1}",""+parentwidget().x())
 		cOutput = substr(cOutput,"#{f2}",""+parentwidget().y())
 		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
@@ -289,6 +317,7 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f9}",WindowIconValue())
 		cOutput = substr(cOutput,"#{f10}",MenubarValue())
 		cOutput = substr(cOutput,"#{f11}",""+IndexTypeValue())
+		cOutput = substr(cOutput,"#{f12}",""+GUILibraryValue())
 		return cOutput
 
 	func GenerateCode oDesigner
