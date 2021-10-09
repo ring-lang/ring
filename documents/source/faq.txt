@@ -38,7 +38,7 @@ So I created Ring because it was the best way to achieve this goal.
 Supernova was just a test of the idea, it helped getting a better view of the advantages and
 the disadvantages of the idea. And After testing the new ideas you are provided with something
 practical. So now we have Ring after Supernova. A story that is maybe similar to having Python 
-after ABC.Where Python avoids the problems of ABC, but keeps the advantages of ABC. Also, Ring
+after ABC. Where Python avoids the problems of ABC, but keeps the advantages of ABC. Also, Ring
 learns from Ruby and ROR's story. The language power could appear in frameworks better than the
 direct usage as a general purpose language. Also Ring comes with a clear goal/motivation; 
 (Creating a new version of the PWCT Software) something that was learned from the design the 
@@ -78,7 +78,7 @@ I agree that each programmer/developer has the freedom to form his opinions abou
 including programming languages. Ring is not an exception but you may miss the idea behind the 
 language. It is innovative and may help you to think differently about how to solve your problems.
 Maybe this is not clear to many programmers because It is a practical language and includes many
-features known to programmers and when a programmer looks at the language they maight think that 
+features known to programmers and when a programmer looks at the language they might think that 
 nothing new because it's familiar. I created Ring to solve problems in a different way. Where I
 will start programming just by describing the software using new natural interfaces that I will
 implement later when I move from the design stage to the implementation stage. 
