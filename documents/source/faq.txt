@@ -596,7 +596,7 @@ In Ring 1.1 and later versions All of this is just an option.
 
 You can use 'Put' and 'Get' instead of 'See' and 'Give'
 
-You can use 'elseif' and 'end' insetad of 'But' and 'Ok'
+You can use 'elseif' and 'end' instead of 'But' and 'Ok'
 
 It's your choice. In Ring we have syntax flexibility where we provide more than one style.
 
