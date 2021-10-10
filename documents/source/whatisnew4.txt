@@ -325,7 +325,7 @@ The web library is updated
 
 (2) Error (DataLib-1) : Can't connect to the database server!
 
-* Better Template() function - can accept NULL instead of object as the second paramter.
+* Better Template() function - can accept NULL instead of object as the second parameter.
 
 .. code-block:: ring
 
