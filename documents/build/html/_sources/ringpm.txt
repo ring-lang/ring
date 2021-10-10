@@ -425,7 +425,7 @@ The package description file contains the package information defined in the lis
 Attribute		Description
 =======================	=================================================================================
 Name			Package Name
-Description		Package Desciption
+Description		Package Description
 Folder			The Folder Name (Will be created in ring/ringpm/packages)
 Developer		The Package Developer Name  
 Email			The Package Developer Email

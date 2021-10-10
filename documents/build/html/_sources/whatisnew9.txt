@@ -525,7 +525,7 @@ Better Code Generator for Extensions
 
 	<loadfile> filename.cf
 
-This is useful to separate the extension configuraition file to many files
+This is useful to separate the extension configuration file to many files
 
 Example:
 
@@ -551,7 +551,7 @@ The file : qt_module_network.cf in the RingQt Extension
 
 Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.
 
-So the Garabage Collector will manage these C pointers.
+So the Garbage Collector will manage these C pointers.
 
 Example
 
@@ -596,7 +596,7 @@ More Improvements
 (25) Ring Notepad - Find Previous Feature.
 (26) Ring Notepad - Default Style. 
 (27) Ring Notepad - Support using Non-English language (Like Arabic) in file names.
-(28) Form Designer - Nice Aliginment for Toolbox Icons.
+(28) Form Designer - Nice Alignment for Toolbox Icons.
 (29) Form Desginer - QAllEvents Class - Mouse Double Click Event.
 (30) Find in Files - Replace and Replace All options.
 (31) Qt Class Converter is updated for better conversion results.

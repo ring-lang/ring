@@ -72,11 +72,11 @@ The next samples are added to the samples folder
 More Improvements
 =================
 
+* Better Documentation 
 * Sample: samples/AQuickStart/GUILib/gui1.ring - Better Code
 * macOS - install.sh - Force creation of symlinks in case they already exist 
 * macOS - install.sh - Remove quarantine flag
 * macOS - uninstall.sh - Delete symlinks from /usr/local accordingly 
-* RingNotepad - Distribute Menu - Add Option: Light RingQt Application 
 * Ring2EXE - Display usage information
 * Ring2EXE - Support Creating folders when copying files 
 * Ring Compiler - Don't display (Unrecognized Option) if we have a source code file
