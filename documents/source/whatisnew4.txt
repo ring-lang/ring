@@ -23,7 +23,7 @@ Ring 1.4  comes with many new features
 * Better StdLib
 * Better WebLib
 * Better RingQt
-* Qt Class Convertor
+* Qt Class Converter
 
 .. index:: 
 	pair: What is new in Ring 1.4?; Change: Basic Extensions are separated from RingVM
@@ -429,9 +429,9 @@ The next classes are added to RingQt
 * QSerialPortInfo
 
 .. index:: 
-	pair: What is new in Ring 1.4?; Qt Class Convertor
+	pair: What is new in Ring 1.4?; Qt Class Converter
 
-Qt Class Convertor
+Qt Class Converter
 ==================
 
 Ring 1.4 comes with a simple tool that help in porting Qt classes to RingQt.
@@ -443,7 +443,7 @@ Online : https://github.com/ring-lang/ring/tree/master/extensions/ringqt/convert
 Screen Shot: 
 
 .. image:: qtclassconvertor.png
-	:alt: Qt Class convertor to RingQt
+	:alt: Qt Class converter to RingQt
 
 .. index:: 
 	pair: What is new in Ring 1.4?; What is new in Ring 1.4.1?
