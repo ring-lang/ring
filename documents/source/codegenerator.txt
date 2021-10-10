@@ -1218,7 +1218,7 @@ Starting from Ring 1.9 the code generator support the <loadfile> command.
 
 	<loadfile> filename.cf
 
-This is useful to separate the extension configuraition file to many files
+This is useful to separate the extension configuration file to many files
 
 Example:
 
@@ -1250,7 +1250,7 @@ Starting from Ring 1.9 the code generator support the <managed> option when defi
 
 Using this option, the generator will use RING_API_RETMANAGEDCPOINTER() to return the C pointer.
 
-So the Garabage Collector will manage these C pointers.
+So the Garbage Collector will manage these C pointers.
 
 Example
 
