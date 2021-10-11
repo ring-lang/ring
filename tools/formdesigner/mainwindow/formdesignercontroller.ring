@@ -1028,11 +1028,32 @@ class FormDesignerController from WindowsControllerParent
 			oObject.oCorners.Refresh(oObject)
 		}
 
-	func MSHorSpacingMakeEqual
+
+	func SortObjectsByX
 		aObjects = oModel.GetSelectedObjects()
+		# Sort the list of objects by X value 	
+			aSortedObjects = []
+			for item in aObjects {
+				oObject = item[2]
+				aSortedObjects + [item, oObject.X()]
+			}
+			return sort(aSortedObjects,2)
+
+	func SortObjectsByY
+		aObjects = oModel.GetSelectedObjects()
+		# Sort the list of objects by Y value 	
+			aSortedObjects = []
+			for item in aObjects {
+				oObject = item[2]
+				aSortedObjects + [item, oObject.Y()]
+			}
+			return sort(aSortedObjects,2)
+
+	func MSHorSpacingMakeEqual
+		aSortedObjects	= SortObjectsByX()
 		nLastLeft = 0
-		for x = 1 to len(aObjects) {
-			item = aObjects[x]
+		for x = 1 to len(aSortedObjects) {
+			item = aSortedObjects[x][1]
 			oObject = item[2]
 			if x = 1 {
 				nLastLeft = oObject.x() + oObject.Width() + 10
@@ -1044,28 +1065,28 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSHorSpacingIncrease
-		aObjects = oModel.GetSelectedObjects()
-		for x = 2 to len(aObjects) {
-			item = aObjects[x]
+		aSortedObjects	= SortObjectsByX()
+		for x = 2 to len(aSortedObjects) {
+			item = aSortedObjects[x][1]
 			oObject = item[2]
 			oObject.move( oObject.x() + (10*(x-1)) , oObject.y() )
 			oObject.oCorners.Refresh(oObject)
 		}
 
 	func MSHorSpacingDecrease
-		aObjects = oModel.GetSelectedObjects()
-		for x = 2 to len(aObjects) {
-			item = aObjects[x]
+		aSortedObjects	= SortObjectsByX()
+		for x = 2 to len(aSortedObjects) {
+			item = aSortedObjects[x][1]
 			oObject = item[2]
 			oObject.move( oObject.x() - (10*(x-1)) , oObject.y() )
 			oObject.oCorners.Refresh(oObject)
 		}
 
 	func MSVerSpacingMakeEqual
-		aObjects = oModel.GetSelectedObjects()
+		aSortedObjects	= SortObjectsByY()
 		nLastTop = 0
-		for x = 1 to len(aObjects) {
-			item = aObjects[x]
+		for x = 1 to len(aSortedObjects) {
+			item = aSortedObjects[x][1]
 			oObject = item[2]
 			if x = 1 {
 				nLastTop = oObject.y() + oObject.Height() + 10
@@ -1077,18 +1098,18 @@ class FormDesignerController from WindowsControllerParent
 		}
 
 	func MSVerSpacingIncrease
-		aObjects = oModel.GetSelectedObjects()
-		for x = 2 to len(aObjects) {
-			item = aObjects[x]
+		aSortedObjects	= SortObjectsByY()
+		for x = 2 to len(aSortedObjects) {
+			item = aSortedObjects[x][1]
 			oObject = item[2]
 			oObject.move(oObject.x() , oObject.y() + (10*(x-1))  )
 			oObject.oCorners.Refresh(oObject)
 		}
 
 	func MSVerSpacingDecrease
-		aObjects = oModel.GetSelectedObjects()
-		for x = 2 to len(aObjects) {
-			item = aObjects[x]
+		aSortedObjects	= SortObjectsByY()
+		for x = 2 to len(aSortedObjects) {
+			item = aSortedObjects[x][1]
 			oObject = item[2]
 			oObject.move(oObject.x() , oObject.y() - (10*(x-1))  )
 			oObject.oCorners.Refresh(oObject)
