@@ -78,6 +78,7 @@ More Improvements
 * macOS - install.sh - Remove quarantine flag
 * macOS - uninstall.sh - Delete symlinks from /usr/local accordingly
 * Form Designer - Set the Button Event (If it's Empty) from the Button Text 
+* Form Designer - Order the controls based on the position (Not the Creation Order)
 * Ring2EXE - Display usage information
 * Ring2EXE - Support Creating folders when copying files 
 * Ring Compiler - Don't display (Unrecognized Option) if we have a source code file
