@@ -55,6 +55,7 @@ class FormDesigner_QPushButton from QPushButton
 			switch nRow {
 				case C_AFTERCOMMON
 					setText(cValue)
+					CreateEventCodeFromButtonText(oDesigner,cValue)
 				case C_AFTERCOMMON+1
 					setBtnImageValue(cValue)
 					DisplayButtonImage(oDesigner,cValue)
@@ -63,6 +64,15 @@ class FormDesigner_QPushButton from QPushButton
 					oDesigner.NewEventName(cValue)
 			}
 		}
+
+	func CreateEventCodeFromButtonText oDesigner,cValue 
+		if cClickEvent = NULL {
+			cValue = substr(trim(cValue)," ","")
+			setClickEventCode(cValue)
+			oDesigner.NewEventName(cValue)
+			oDesigner.oView.oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(clickeventcode())
+		}
+
 
 	func DialogButtonAction oDesigner,nRow
 		CommonDialogButtonAction(oDesigner,nRow)
