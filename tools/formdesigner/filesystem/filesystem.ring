@@ -260,7 +260,7 @@ class FormDesignerFileSystem from ObjectsParent
 		return cFileContent 
 
 	func SaveFormToFile oDesigner
-			write(cFileName,FormFileContent(oDesigner))
+			write(FileNameEncoding(cFileName),FormFileContent(oDesigner))
 		# Generate Code
 			oGenerator.Generate(oDesigner,cFileName)
 
@@ -310,7 +310,7 @@ class FormDesignerFileSystem from ObjectsParent
 		# Create New Form 
 			PrepareTheForm(oDesigner)
 		# Load the Form Data
-			eval(read(cFileName))
+			eval(read(FileNameEncoding(cFileName)))
 		# Create Objects
 			CreateFormObjects(oDesigner,aObjectsList)
 		# Enable Updates
@@ -492,3 +492,11 @@ class FormDesignerFileSystem from ObjectsParent
 			oDesigner.AddObjectsToCombo()
 		# Object Properties
 			oDesigner.ObjectProperties()
+
+	func FileNameEncoding cFileName
+		if isWindows()
+			oString = new qString2()
+			oString.Append(cFileName)
+			return oString.tolocal8bit().data()
+		ok
+		return cFileName

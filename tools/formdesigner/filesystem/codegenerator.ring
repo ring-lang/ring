@@ -60,6 +60,7 @@ class FormDesignerCodeGenerator
 		# Add the End of file
 			cOutput += "# End of the Generated Source Code File..."
 			cOutput = substr(cOutput,nl,WindowsNL())
+			cSourceFileName = oDesigner.oFile.FileNameEncoding(cSourceFileName)
 			write(cSourceFileName,cOutput)
 		# Write the Controller Source File
 			cSourceFileName = substr(cFormFileName,".rform","Controller.ring")
@@ -94,6 +95,7 @@ class #{f2} from windowsControllerParent
 				cOutput = substr(cOutput,"#{f5}","qApp")
 			}
 			cOutput = substr(cOutput,nl,WindowsNL())
+			cSourceFileName = oDesigner.oFile.FileNameEncoding(cSourceFileName)
 			write(cSourceFileName,cOutput)
 
 	func GenerateControllerClassInParent oDesigner,cSourceFileName
