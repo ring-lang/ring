@@ -13,7 +13,7 @@ In this chapter we are going to learn how to deal with lists.
 Create Lists
 ============
 
-We can create new lists by defining the list items inside square bracts.
+We can create new lists by defining the list items inside square brackets.
 
 Example:
 
@@ -560,8 +560,8 @@ Example:
 .. index:: 
 	pair: Lists; Passing Parameters or Arguments Using List
 
-Passing Parameters or Argumnents Using List
-===========================================
+Passing Parameters or Arguments Using List
+==========================================
 	
 This type of lists is very good for passing parameters to functions
 Where the order of parameters will not be important (we can change the order).
@@ -585,10 +585,10 @@ Example:
 .. index:: 
 	pair: Lists; Passing Parameters Arguments Using List Array
 
-Passing Parameters or Argumnents Using List Array
-=================================================
+Passing Parameters or Arguments Using List Array
+================================================
 	
-Passing Arguments or Parmameters to a Function in an array format
+Passing Arguments or Parameters to a Function in an array format
 
 Example:
 
@@ -720,7 +720,7 @@ Example:
 
         ###-----------------------------------------------------------------------
         ### Recursive Create a Dimension Array
-        ### Call by passing an array of dimesions: dimList = [2,3,4,5]
+        ### Call by passing an array of dimensions: dimList = [2,3,4,5]
         ### Drop the first entry every iteration call, making newParms
         ###
         ### Example:
@@ -780,5 +780,3 @@ Output
 	two
 	three
 	four
-
-
