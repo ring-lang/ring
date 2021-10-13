@@ -452,9 +452,9 @@
 
 	void ring_vm_neg ( VM *pVM ) ;
 
-	char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr ) ;
+	RING_API char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr ) ;
 
-	double ring_vm_stringtonum ( VM *pVM,const char *cStr ) ;
+	RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr ) ;
 
 	void ring_vm_expr_ppoo ( VM *pVM,const char *cStr ) ;
 

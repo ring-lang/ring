@@ -961,7 +961,7 @@ void ring_vm_bitnot ( VM *pVM )
 }
 /* Conversion */
 
-char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
+RING_API char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 {
 	char cOptions[10]  ;
 	int nNum2  ;
@@ -986,7 +986,7 @@ char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
 	return cStr ;
 }
 
-double ring_vm_stringtonum ( VM *pVM,const char *cStr )
+RING_API double ring_vm_stringtonum ( VM *pVM,const char *cStr )
 {
 	double nResult  ;
 	char *cEndStr  ;
