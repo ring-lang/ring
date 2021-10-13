@@ -56179,10 +56179,10 @@ RING_FUNC(ring_QTextEdit_setactivelinecolor)
 	extras << highlight;
 	editor->setExtraSelections( extras );
 }
-
 RING_FUNC(ring_QListWidget_addItem)
 {
 	GListWidget *pObject ;
+	char cStr[100]  ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -56193,13 +56193,18 @@ RING_FUNC(ring_QListWidget_addItem)
 		return ;
 	}
 	pObject = (GListWidget *) RING_API_GETCPOINTER(1,"QListWidget");
-	if ( ! RING_API_ISSTRING(2) ) {
+	if ( ( ! RING_API_ISSTRING(2) ) && ( ! RING_API_ISNUMBER(2) ) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject->addItem(RING_API_GETSTRING(2));
+	if ( RING_API_ISSTRING(2) )
+		pObject->addItem(RING_API_GETSTRING(2));
+	else {
+		ring_vm_numtostring((VM *) pPointer, RING_API_GETNUMBER(2),cStr);
+		pObject->addItem(cStr);
+	}
+		
 }
-
 
 RING_FUNC(ring_QListWidget_count)
 {
