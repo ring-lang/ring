@@ -44,7 +44,7 @@ We can discover new packages using the Search command
 
 Using this command we can search in the RingPM Registry (Packages Index)
 
-The RingPM Registry is a local copy of all registred packages.
+The RingPM Registry is a local copy of all registered packages.
 
 .. code-block:: none
 
@@ -77,7 +77,7 @@ Example:
 Updating the RingPM Registry
 ============================
 
-The RingPM Registry is a local copy of all registred packages.
+The RingPM Registry is a local copy of all registered packages.
 
 We can update the local copy using the Refresh command
 
@@ -608,7 +608,7 @@ The package definition file for the Ring Notepad package
 The RingPM Registry File
 ========================
 
-The RingPM Registry is a local copy of all registred packages.
+The RingPM Registry is a local copy of all registered packages.
 
 .. code-block:: ring
 
