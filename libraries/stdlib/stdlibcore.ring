@@ -374,7 +374,7 @@ Func Fibonacci n
 Func IsPrime num
 	if (num <= 1) return 0 ok
 	if (num % 2 = 0)  and (num != 2)  return 0 ok
-	for i = 3 to floor(num / 2) - 1 step 2
+	for i = 2 to sqrt(num)
 		if (num % i = 0) return 0 ok
 	next
 	return 1
