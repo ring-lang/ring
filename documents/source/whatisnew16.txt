@@ -80,6 +80,7 @@ More Improvements
 * Form Designer - Set the Button Event (If it's Empty) from the Button Text 
 * Form Designer - Order the controls based on the position (Not the Creation Order)
 * Form Designer - File System - File Name Encoding 
+* StdLib - IsPrime() Function - Better Code
 * RingQt - QListWidget Class - AddItem() Method - Convert Number to String
 * Ring2EXE - Display usage information
 * Ring2EXE - Support Creating folders when copying files 
