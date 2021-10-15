@@ -11,10 +11,10 @@ struct String *
 Type: String
 Mark: ->
 String *
+RING_LOOP_THRESHOLD
 ring_string_tolower(x)
 ring_string_toupper(x)
 ring_string_get(x)
-RING_LOOP_THRESHOLD
 RING_MEMCPY(cStrDest,cStrSrc,nSize)
 ring_string_new_gc
 Type: int
