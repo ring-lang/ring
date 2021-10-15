@@ -305,7 +305,7 @@ void ring_vm_equal ( VM *pVM )
 			nNum1 = RING_VM_STACK_READN ;
 			if ( ring_vm_stringtonum(pVM,ring_string_get(cStr1)) == nNum1 ) {
 				/* Check whether zero is result of non decimal or hexadecimal value */
-				if( nNum1 == 0 && ring_string_get(cStr1)[0] != '\0' && sscanf(ring_string_get(cStr1),"%lf",&nNum2) != 1 ) {
+				if ( nNum1 == 0 && ring_string_get(cStr1)[0] != '\0' && sscanf(ring_string_get(cStr1),"%lf",&nNum2) != 1 ) {
 					RING_VM_STACK_FALSE ;
 				}
 				else {
@@ -336,7 +336,7 @@ void ring_vm_equal ( VM *pVM )
 		else if ( RING_VM_STACK_ISSTRING ) {
 			if ( ring_vm_stringtonum(pVM,RING_VM_STACK_READC) == nNum1 ) {
 				/* Check whether zero is result of non decimal or hexadecimal value */
-				if( nNum1 == 0 && RING_VM_STACK_READC[0] != '\0' && sscanf(RING_VM_STACK_READC,"%lf",&nNum2) != 1 ) {
+				if ( nNum1 == 0 && RING_VM_STACK_READC[0] != '\0' && sscanf(RING_VM_STACK_READC,"%lf",&nNum2) != 1 ) {
 					RING_VM_STACK_FALSE ;
 				}
 				else {
@@ -578,7 +578,7 @@ void ring_vm_notequal ( VM *pVM )
 			/* Compare */
 			if ( nNum1 == nNum2 ) {
 				/* Check whether zero is result of non decimal or hexadecimal value */
-				if( nNum1 == 0 && ring_string_get(cStr1)[0] != '\0' && sscanf(ring_string_get(cStr1),"%lf",&nNum2) != 1 ) {
+				if ( nNum1 == 0 && ring_string_get(cStr1)[0] != '\0' && sscanf(ring_string_get(cStr1),"%lf",&nNum2) != 1 ) {
 					RING_VM_STACK_TRUE ;
 				}
 				else {
@@ -612,7 +612,7 @@ void ring_vm_notequal ( VM *pVM )
 			/* Compare */
 			if ( ring_vm_stringtonum(pVM,ring_string_get(cStr2)) == nNum1 ) {
 				/* Check whether zero is result of non decimal or hexadecimal value */
-				if( nNum1 == 0 && ring_string_get(cStr2)[0] != '\0' && sscanf(ring_string_get(cStr2),"%lf",&nNum2) != 1 ) {
+				if ( nNum1 == 0 && ring_string_get(cStr2)[0] != '\0' && sscanf(ring_string_get(cStr2),"%lf",&nNum2) != 1 ) {
 					RING_VM_STACK_TRUE ;
 				}
 				else {
