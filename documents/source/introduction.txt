@@ -140,7 +140,7 @@ The Ring language comes with the next features
 * Using braces { } we can access objects and use attributes/methods as variables/functions
 * Transparent Implementation (See the Tokens, Grammar, and Byte Code for each program) 
 * Visual Implementation - Developed using Visual Programming (PWCT) 
-* Writen in ANSI C (The code is generated + Looks identical to Handwritten Code)
+* Written in ANSI C (The code is generated + Looks identical to Handwritten Code)
 * A small language
 	* The compiler + The Virtual Machine (20,000 lines of C code)
 	* The other 500,000 lines of code are related to libraries!
