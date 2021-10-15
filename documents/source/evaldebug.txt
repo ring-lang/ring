@@ -51,7 +51,7 @@ Output:
 .. code-block:: ring
 
 	Catch!
-	Error (R1) : Cann't divide by zero !
+	Error (R1) : Can't divide by zero !
 
 
 .. index:: 
