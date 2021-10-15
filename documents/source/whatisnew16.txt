@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.16 comes with the next features!
 
 * Light GUILib 
+* Better Load Command
 * More Samples
 * More Improvements
 
@@ -55,6 +56,21 @@ For example, Distributing (Game of Life) using this option provides : target/win
 So we can distribute these GUI applications using an installer less than 10 MB
 
 .. tip:: if you need something smaller than that (1 MB) then switch to other libraries like LibUI
+
+
+.. index:: 
+	pair: What is new in Ring 1.16?; Better Load Command 
+
+Better Load Command 
+===================
+
+In Ring 1.16, The Load command support using UTF-8 in the file name.
+
+Example:
+
+.. code-block:: ring
+
+	load "مرحبا.ring"
 
 .. index:: 
 	pair: What is new in Ring 1.16?; More Samples
