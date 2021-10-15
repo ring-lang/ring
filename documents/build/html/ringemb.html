@@ -385,7 +385,7 @@ we provide functions for embedding Ring in Ring programs without sharing the sta
         <span class="c"># But we can pass C pointers like win.pObject</span>
                 <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;x&quot;</span><span class="p">,</span><span class="n">win</span><span class="p">.</span><span class="n">pObject</span><span class="p">)</span>
         <span class="c"># Now we create the object again but using the same C pointer</span>
-        <span class="c"># So we have access to the Same window in the parent Ring enviroment</span>
+        <span class="c"># So we have access to the Same window in the parent Ring environment</span>
                 <span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">pState</span><span class="p">,</span><span class="s">&quot;</span>
                         <span class="k">new</span> <span class="n">qWidget</span> <span class="p">{</span>
                                 <span class="n">pObject</span> <span class="o">=</span> <span class="n">x</span>
