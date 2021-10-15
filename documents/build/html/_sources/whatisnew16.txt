@@ -17,6 +17,7 @@ Ring 1.16 comes with the next features!
 
 * Light GUILib 
 * Better Load Command
+* Nested methods call in separate lines
 * More Samples
 * More Improvements
 
@@ -72,6 +73,54 @@ Example:
 
 	load "مرحبا.ring"
 
+
+.. index:: 
+	pair: What is new in Ring 1.16?; Nested methods call in separate lines
+
+Nested methods call in separate lines
+=====================================
+
+In Ring 1.16, the Compiler support adding new lines after the method call and before the dot operator
+
+Example:
+
+.. code-block:: ring
+
+	myobj = new Start
+	myobj.one()
+	     .two()
+	     .three()
+	     .go()
+
+	class start
+		func one
+			? "One"
+			return new one
+
+
+	class one 
+		func two
+			? "Two"
+			return new two
+
+	class two
+		func three
+			? "Three"
+			return new three
+
+	class three
+		func go
+			? "Go!"
+
+Output:
+
+.. code-block:: ring
+
+	One
+	Two
+	Three
+	Go!
+
 .. index:: 
 	pair: What is new in Ring 1.16?; More Samples
 
@@ -101,4 +150,3 @@ More Improvements
 * Ring2EXE - Display usage information
 * Ring2EXE - Support Creating folders when copying files 
 * Ring Compiler - Don't display (Unrecognized Option) if we have a source code file
-* Ring Compiler - Nested methods calls in separate lines
