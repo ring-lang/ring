@@ -7,6 +7,7 @@
 	/* Windows only */
 	#include <direct.h>
 	#define GetCurrentDir _getcwd
+	#include <windows.h>
 #else
 	#include <unistd.h>
 	#define GetCurrentDir getcwd
@@ -40,3 +41,5 @@ int ring_general_isobjectfile ( const char *cStr ) ;
 RING_API void ring_general_printline ( void ) ;
 
 void ring_general_showtime ( void ) ;
+
+RING_FILE ring_custom_fopen ( const char*filename, const char*mode ) ;

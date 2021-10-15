@@ -42,3 +42,12 @@ Type: struct tm*
 tm_info
 Type: clock_t
 myclock
+ring_custom_fopen
+Type: RING_FILE
+fp
+Type: int
+nLen1,nLen2,nFileNameSize,nModeSize
+Type: wchar_t
+cPath[MAX_PATH]
+Type: wchar_t
+cWMode[MAX_PATH]

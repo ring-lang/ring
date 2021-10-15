@@ -302,11 +302,21 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	}
 	/* Switch To File Folder */
 	strcpy(cFileName2,cFileName);
-	fp = RING_OPENFILE(cFileName , "r");
-	/* Avoid switching if it's the first file */
-	if ( nFreeFilesList == 0 ) {
-		ring_general_switchtofilefolder(cFileName2);
-	}
+	#ifdef _WIN32
+		if ( nFreeFilesList == 0 ) {
+			fp = ring_custom_fopen(cFileName , "r");
+			ring_general_switchtofilefolder(cFileName2);
+		}
+		else {
+			fp = RING_OPENFILE(cFileName , "r");
+		}
+	#else
+		fp = RING_OPENFILE(cFileName , "r");
+		/* Avoid switching if it's the first file */
+		if ( nFreeFilesList == 0 ) {
+			ring_general_switchtofilefolder(cFileName2);
+		}
+	#endif
 	/* Read File */
 	if ( fp==NULL ) {
 		printf( "\nCan't open file %s \n",cFileName ) ;
