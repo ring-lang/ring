@@ -4,4 +4,5 @@
 int main ( int argc, char *argv[] )
 {
 	ring_state_main(argc,argv);
+	return 0 ;
 }
