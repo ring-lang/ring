@@ -372,6 +372,7 @@ aTests = [
 	[ :name = "General Tests (Part 163)", :Command = "ring general/test145.ring" ],
 	[ :name = "General Tests (Part 164)", :Command = "ring general/test146.ring" ],
 	[ :name = "General Tests (Part 165)", :Command = "ring general/test147.ring" ],
+	[ :name = "General Tests (Part 166)", :Command = "ring general/test148.ring" ],
 	[ :name = "Standard Functions (Part 1)", :Command = "ring libs/substr1.ring" ],
 	[ :name = "Standard Functions (Part 2)", :Command = "ring libs/substr2.ring" ],
 	[ :name = "Standard Functions (Part 3)", :Command = "ring libs/substr3.ring" ],
