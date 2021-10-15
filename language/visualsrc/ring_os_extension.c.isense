@@ -1,0 +1,70 @@
+ring_os_extension_h
+RING_VM_POINTER_LIBNAME
+Type: static LPFN_ISWOW64PROCESS
+fnCheckWindows64
+ring_vm_os_gettime
+MILISEC
+MICROSEC
+NANOSEC
+ring_vm_os_gettime
+CLOCK_UPTIME
+CLOCK_MONOTONIC_RAW
+CLOCK_UPTIME
+ring_vm_os_loadfunctions
+ring_vm_os_ismsdos
+ring_vm_os_iswindows
+ring_vm_os_iswindows64
+Type: int
+lSystem64
+Type: HMODULE
+pModule
+ring_vm_os_isunix
+ring_vm_os_ismacosx
+ring_vm_os_islinux
+ring_vm_os_isfreebsd
+ring_vm_os_isandroid
+ring_vm_os_windowsnl
+ring_vm_os_currentdir
+Type: char
+cDirPath[RING_PATHSIZE]
+ring_vm_os_exefilename
+Type: char
+cDirPath[RING_PATHSIZE]
+ring_vm_os_chdir
+ring_vm_os_exefolder
+Type: char
+cDirPath[RING_PATHSIZE]
+ring_vm_os_getarch
+ring_vm_os_system
+ring_vm_os_shutdown
+ring_vm_os_sysget
+Type: char *
+pData
+setenv
+Type: errno_t
+errcode
+Type: size_t
+envsize
+unsetenv
+ring_vm_os_sysset
+ring_vm_os_sysunset
+ring_vm_os_nofprocessors
+Type: SYSTEM_INFO
+sysinfo
+ring_vm_os_gettime
+ring_vm_os_uptime
+Type: double
+nTime
+Type: LARGE_INTEGER
+ElapsedMicroseconds
+Type: struct timespec
+ts
+ring_vm_os_randomize
+Type: RING_UNSIGNEDLONGLONG
+nNum1,nNum2
+Type: struct timespec
+ts
+Type: LARGE_INTEGER
+ElapsedMicroseconds
+Type: unsigned int
+nNum

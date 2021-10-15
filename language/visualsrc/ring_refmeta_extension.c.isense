@@ -1,0 +1,290 @@
+ring_refmeta_extension_h
+ring_vm_refmeta_loadfunctions
+ring_vm_refmeta_locals
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2, *pList3
+ring_vm_refmeta_globals
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2, *pList3
+ring_vm_refmeta_functions
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+ring_vm_refmeta_cfunctions
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+ring_vm_refmeta_islocal
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+Type: char *
+cStr
+ring_vm_refmeta_isglobal
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+Type: char *
+cStr
+ring_vm_refmeta_isfunction
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+Type: char *
+cStr
+ring_vm_refmeta_iscfunction
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+Type: char *
+cStr
+ring_vm_refmeta_packages
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+ring_vm_refmeta_ispackage
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+Type: char *
+cStr
+ring_vm_refmeta_classes
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+ring_vm_refmeta_isclass
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+Type: char *
+cStr
+ring_vm_refmeta_packageclasses
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2, *pList3
+Type: char *
+cStr
+ring_vm_refmeta_ispackageclass
+Type: VM *
+pVM
+Type: int
+x
+Type: List *
+pList, *pList2
+Type: char *
+cStr, *cStr2
+ring_vm_refmeta_classname
+Type: List *
+pList
+Type: char *
+cStr
+ring_vm_refmeta_objectid
+Type: List *
+pList
+Type: char
+cStr[100]
+ring_vm_refmeta_attributes
+Type: List *
+pList, *pList2
+Type: int
+x
+ring_vm_refmeta_methods
+Type: List *
+pList, *pList2
+Type: int
+x
+ring_vm_refmeta_isattribute
+Type: List *
+pList
+Type: int
+x
+Type: char *
+cStr
+ring_vm_refmeta_ismethod
+Type: List *
+pList
+Type: char *
+cStr
+ring_vm_refmeta_isprivateattribute
+Type: List *
+pList
+Type: int
+x
+Type: char *
+cStr
+ring_vm_refmeta_isprivatemethod
+Type: List *
+pList
+Type: int
+x
+Type: char *
+cStr
+ring_vm_refmeta_addattribute
+Type: List *
+pList, *pList2
+Type: char *
+cStr
+Type: int
+x
+ring_vm_refmeta_addmethod
+Type: List *
+pList, *pList2, *pList3
+Type: char *
+cStr
+Type: int
+x
+Type: VM *
+pVM
+ring_vm_refmeta_getattribute
+Type: List *
+pList
+Type: char *
+cStr
+Type: int
+x
+ring_vm_refmeta_setattribute
+Type: List *
+pList
+Type: char *
+cStr
+Type: int
+x
+ring_vm_refmeta_mergemethods
+Type: int
+x
+Type: List *
+pList, *pList2, *pList3
+Type: VM *
+pVM
+Type: char *
+cStr, *cStr2
+ring_vm_refmeta_packagename
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmfileslist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_refmeta_ringvmcalllist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_refmeta_ringvmmemorylist
+Type: VM *
+pVM
+Type: List *
+pList, *pList2
+ring_vm_refmeta_ringvmfunctionslist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_refmeta_ringvmclasseslist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_refmeta_ringvmpackageslist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_refmeta_ringvmcfunctionslist
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_refmeta_ringvmsettrace
+Type: VM *
+pVM
+Type: char *
+cStr
+ring_vm_refmeta_ringvmtracedata
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_refmeta_ringvmtraceevent
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmtracefunc
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmscopescount
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmevalinscope
+Type: VM *
+pVM
+Type: List *
+pActiveMem,*pState
+Type: const char *
+cStr
+Type: int
+nScope,nSize
+Type: Items *
+pLastItem
+Type: Items *
+pNextItem
+ring_vm_refmeta_ringvmpasserror
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmhideerrormsg
+Type: VM *
+pVM
+ring_vm_refmeta_ringvmcallfunc
+Type: VM *
+pVM
+Type: String *
+pString
+ring_vm_refmeta_ringvminfo
+Type: VM *
+pVM
+Type: List *
+pList
+ring_vm_refmeta_ringvmgenarray
+Type: VM *
+pVM

@@ -1,0 +1,69 @@
+ring_list_extension_h
+ring_vm_listfuncs_loadfunctions
+ring_vm_listfuncs_add
+Type: List *
+pList,*pList2
+Type: VM *
+pVM
+ring_vm_listfuncs_del
+Type: List *
+pList
+Type: double
+nNum1
+ring_vm_listfuncs_swap
+Type: List *
+pList
+Type: int
+nNum1,nNum2,nSize
+ring_vm_listfuncs_list
+Type: List *
+pList, *pList2
+Type: int
+x,y,nSize,nSize2
+Type: Items *
+pItems
+Type: Item *
+pItem
+Type: VM *
+pVM
+ring_vm_listfuncs_find
+Type: int
+nNum1,nColumn
+Type: List *
+pList
+ring_vm_listfuncs_min
+Type: double
+nNum1
+Type: List *
+pList
+Type: int
+x
+ring_vm_listfuncs_max
+Type: double
+nNum1
+Type: List *
+pList
+Type: int
+x
+ring_vm_listfuncs_insert
+Type: List *
+pList, *pList2
+Type: int
+nPos
+ring_vm_listfuncs_sort
+Type: List *
+pList, *pList2, *pList3
+Type: int
+x,nParaCount,nColumn,nPos
+Type: char *
+cAttribute
+ring_vm_listfuncs_binarysearch
+Type: List *
+pList, *pList2
+Type: int
+x,nParaCount,nColumn
+ring_vm_listfuncs_reverse
+Type: List *
+pList,*pList2,*pList3
+Type: int
+x

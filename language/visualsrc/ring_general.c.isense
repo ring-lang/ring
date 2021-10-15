@@ -1,0 +1,44 @@
+GetCurrentDir
+GetCurrentDir
+ring_general_fexists
+Type: FILE *
+fp
+ring_general_currentdir
+Type: int
+nSize
+ring_general_exefilename
+Type: unsigned int
+nSize
+ring_general_chdir
+ring_general_exefolder
+Type: char
+cDir[RING_PATHSIZE]
+Type: char
+cDir2[RING_PATHSIZE]
+Type: int
+x,x2,nSize
+ring_general_switchtofilefolder
+Type: char
+cFileName2[RING_PATHSIZE]
+ring_general_justfilepath
+Type: int
+x,nSize
+ring_general_justfilename
+Type: int
+x,nSize,r
+ring_general_issourcefile
+Type: int
+x
+ring_general_isobjectfile
+Type: int
+x
+ring_general_printline
+ring_general_showtime
+Type: time_t
+timer
+Type: char
+buffer[50]
+Type: struct tm*
+tm_info
+Type: clock_t
+myclock

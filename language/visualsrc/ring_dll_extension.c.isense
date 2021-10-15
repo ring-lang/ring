@@ -1,0 +1,33 @@
+ring_dll_extension_h
+LoadDLL(x)
+GetDLLFunc
+CloseDLL
+LpHandleType
+LoadDLL(x)
+GetDLLFunc
+CloseDLL
+LpHandleType
+ring_vm_dll_loadfunctions
+ring_vm_dll_loadlib
+Type: LpHandleType
+handle
+Type: const char *
+cDLL
+Type: loadlibfuncptr
+pFunc
+Type: VM *
+pVM
+Type: RingState *
+pRingState
+ring_vm_dll_closelib
+Type: LpHandleType
+handle
+Type: int
+nIndex
+Type: VM *
+pVM
+ring_vm_dll_closealllibs
+Type: int
+x
+Type: LpHandleType
+handle
