@@ -9,7 +9,7 @@ db_con  = NULL
 func mysql_connect_now()
    db_con = mysql_init()
    if mysql_connect( db_con , db_host , db_user , db_pass , db_name ) = 0
-      see "Cann't connect" + NL
+      see "Can't connect" + NL
       see "Error: " + mysql_error(db_con) + NL
       mysql_close(db_con)
       return 0

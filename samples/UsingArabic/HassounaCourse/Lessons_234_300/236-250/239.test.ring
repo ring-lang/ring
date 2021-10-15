@@ -3,7 +3,7 @@ load "mysqllib.ring"
 con = mysql_init()
 
 if mysql_connect( con , "localhost" , "root" , "" , 'mydbfromring' ) = 0
-   see "Cann't connect" + NL
+   see "Can't connect" + NL
    see "Error: " + mysql_error(con) + NL
    mysql_close(con)
    bye

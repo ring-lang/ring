@@ -4,7 +4,7 @@ con = mysql_init()
 
 See "Connect" + nl
 if mysql_connect(con,"localhost","root","root") = 0
-        see "Cann't connect" + nl
+        see "Can't connect" + nl
         see "Error : " + mysql_error(con) + nl
         mysql_close(con)
         bye
