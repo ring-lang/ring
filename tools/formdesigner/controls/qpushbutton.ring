@@ -67,7 +67,7 @@ class FormDesigner_QPushButton from QPushButton
 
 	func CreateEventCodeFromButtonText oDesigner,cValue 
 		if cClickEvent = NULL {
-			cValue = substr(trim(cValue)," ","")
+			cValue = substr(trim(cValue)," ","_")
 			setClickEventCode(cValue)
 			oDesigner.NewEventName(cValue)
 			oDesigner.oView.oPropertiesTable.item(C_AFTERCOMMON+2,1).settext(clickeventcode())
