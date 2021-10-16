@@ -16,7 +16,7 @@ Introduction
 
 ZeroLib is a simple library written in Ring.
 
-The library provideds classes for Lists and String where the index starts from 0.
+The library provide classes for Lists and String where the index starts from 0.
 
 
 .. index:: 
