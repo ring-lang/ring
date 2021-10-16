@@ -140,6 +140,6 @@ func InterpolateColor v,v1,v2,color1,color2,result
 	result[2] = lerp (v, v1,v2, color1[2], color2[2])
 	result[3] = lerp (v, v1,v2, color1[3], color2[3])
 
-/* linear interploation */
+/* linear interpolation */
 func lerp x,x0,x1,fx0,fx1
 	return (fx0) + ((fx1) - (fx0))*((x) - (x0))/((x1) - (x0))
