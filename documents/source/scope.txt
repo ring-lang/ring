@@ -57,7 +57,7 @@ In this region (class region - after the class name and before methods) we have
 
 .. note:: Since the local scope in the class region point also to the object scope in this region, we can use nested braces and still have access to the object scope of the class through the local scope.
 
-.. tip :: You can create windows and controls as attibutes by defining them in this region.
+.. tip :: You can create windows and controls as attributes by defining them in this region.
 	
 .. tip :: In the class region if you created objects and used braces {} to access them then using self.attribute inside braces will use the class (not the object that you access) because you have access to the class through the local scope.
 
@@ -490,7 +490,7 @@ In this case if you want to read an attribute you have to copy the Self object b
 if you want to modify an attribute you have to the copy from local variable to the object attribute after using
 Braces. 
 
-This case happens when you want to read/modify attribute insead braces. 
+This case happens when you want to read/modify attribute instead braces. 
 
 .. code-block:: ring
 
