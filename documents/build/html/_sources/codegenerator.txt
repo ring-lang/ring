@@ -206,7 +206,7 @@ to get the structure ALLEGRO_EVENT members (type, keyboard.keycode, mouse.x, mou
 Determine Structure Members Types
 =================================
 
-You can determine the pointer name before the strucuture member name.
+You can determine the pointer name before the structure member name.
 
 Example:
 
@@ -315,7 +315,7 @@ Example:
 	aNumberTypes + "al_fixed"
 	</runcode>
 
-The previoud line of code add the string "al_fixed" to the list aNumberTypes, This list contains 
+The previous line of code add the string "al_fixed" to the list aNumberTypes, This list contains 
 types that can be considered as numbers when the code generator find it in the function prototype.
 
 .. index:: 
@@ -483,7 +483,7 @@ to create 2D games!
 Threads Support
 ===============
 
-Next, another part of the configutaiton file, it's important because we can learn from it how to add
+Next, another part of the configuration file, it's important because we can learn from it how to add
 threads to our Ring applications by using a threads library.
 
 The idea is using ring_vm_mutexfunctions() and ring_vm_runcodefromthread() to execute Ring code.
@@ -1275,7 +1275,7 @@ You can learn from the next examples
 * RingQt : https://github.com/ring-lang/ring/blob/master/extensions/ringqt/classes/qt.cf
 * RingLibSDL : https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/libsdl.cf
 
-After modifing the configuration file, You will need to generate the code, You can learn from
+After modifying the configuration file, You will need to generate the code, You can learn from
 the next examples
 
 * RingAllegro : https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.bat

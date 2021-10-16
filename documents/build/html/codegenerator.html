@@ -455,7 +455,7 @@ to get the structure ALLEGRO_EVENT members (type, keyboard.keycode, mouse.x, mou
 </div>
 <div class="section" id="determine-structure-members-types">
 <span id="index-7"></span><h2>Determine Structure Members Types<a class="headerlink" href="#determine-structure-members-types" title="Permalink to this headline">¶</a></h2>
-<p>You can determine the pointer name before the strucuture member name.</p>
+<p>You can determine the pointer name before the structure member name.</p>
 <p>Example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>SDL_Surface {flags,SDL_PixelFormat *format,w,h,pitch,void *pixels}
 </pre></div>
@@ -537,7 +537,7 @@ inside &lt;code&gt; and &lt;/code&gt;. This function call the exit() function fr
 <span class="o">&lt;/</span><span class="n">runcode</span><span class="o">&gt;</span>
 </pre></div>
 </div>
-<p>The previoud line of code add the string “al_fixed” to the list aNumberTypes, This list contains
+<p>The previous line of code add the string “al_fixed” to the list aNumberTypes, This list contains
 types that can be considered as numbers when the code generator find it in the function prototype.</p>
 </div>
 <div class="section" id="enum-and-numbers">
@@ -674,7 +674,7 @@ code distribution.</p>
 </div>
 <div class="section" id="threads-support">
 <span id="index-16"></span><h2>Threads Support<a class="headerlink" href="#threads-support" title="Permalink to this headline">¶</a></h2>
-<p>Next, another part of the configutaiton file, it’s important because we can learn from it how to add
+<p>Next, another part of the configuration file, it’s important because we can learn from it how to add
 threads to our Ring applications by using a threads library.</p>
 <p>The idea is using ring_vm_mutexfunctions() and ring_vm_runcodefromthread() to execute Ring code.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">&lt;</span><span class="n">comment</span><span class="o">&gt;</span>
@@ -1422,7 +1422,7 @@ QString findExecutable(QString executableName, QStringList paths))
 <li><p>RingQt : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringqt/classes/qt.cf">https://github.com/ring-lang/ring/blob/master/extensions/ringqt/classes/qt.cf</a></p></li>
 <li><p>RingLibSDL : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/libsdl.cf">https://github.com/ring-lang/ring/blob/master/extensions/ringsdl/libsdl.cf</a></p></li>
 </ul>
-<p>After modifing the configuration file, You will need to generate the code, You can learn from
+<p>After modifying the configuration file, You will need to generate the code, You can learn from
 the next examples</p>
 <ul class="simple">
 <li><p>RingAllegro : <a class="reference external" href="https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.bat">https://github.com/ring-lang/ring/blob/master/extensions/ringallegro/gencode.bat</a></p></li>
