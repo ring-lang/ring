@@ -1243,15 +1243,15 @@ Output:
 	pair: Reflection and Meta-programming; packagename()
 
 packagename() Function
-====================
+======================
 		
-We can know the package name of the latest sucessful import command using the packagename() function
+We can know the package name of the latest successful import command using the packagename() function
 
 Syntax:
 
 .. code-block:: ring
 
-	packagename() --> Returns the package name of the latest sucessful import
+	packagename() --> Returns the package name of the latest successful import
 
 
 Example:
