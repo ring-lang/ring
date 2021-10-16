@@ -56,7 +56,7 @@ It handles various invalid moves, invalid jumps, and must jumps.
 
 The squares are colored to reflect errors.
 
-The Sqaures are colored to show source and destination of the move or jump.
+The squares are colored to show source and destination of the move or jump.
 
 .. image:: checkersgame.png
 	:alt: Checkers Game
