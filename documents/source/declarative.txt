@@ -233,7 +233,7 @@ Output:
 Declarative Programming on the top of Object-Oriented
 =====================================================
 
-The next features enable us to build and use declartive programming environment using nested structures on the top of object oriented 
+The next features enable us to build and use declarative programming environment using nested structures on the top of object oriented 
 
 * using {} to access the object attributes and methods
 * BraceEnd() Method
@@ -244,7 +244,7 @@ Example:
 
 .. code-block:: ring
 
-	# Declartive Programming (Nested Structures)
+	# Declarative Programming (Nested Structures)
 
 	Screen() 
 	{
@@ -299,9 +299,9 @@ Output:
 	I have 2 points!
 
 .. index:: 
-	pair: Declarative Programming; More Beatiful Code
+	pair: Declarative Programming; More Beautiful Code
 
-More beautiful Code
+More Beautiful Code
 ===================
 
 We can get better results and a more beautiful code when we can avoid writing () after the method name
@@ -310,7 +310,7 @@ This feature is not provided directly by the Ring language because there is a di
 and object attributes. We can get a similar effect on the syntax of the code when we define a getter method for
 the object attribute. For example instead of defining the point() method. we will define the point attribute then
 the getpoint() method that will be executed once you try to get the value of the point attribute.
-since we write the variable name direcly without () we can write point instead of point() and the method getpoint()
+since we write the variable name directly without () we can write point instead of point() and the method getpoint()
 will create the object and return the object reference for us.
 
 Example:
