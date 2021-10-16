@@ -129,7 +129,7 @@ For macOS:
 Grant Ring files execution permission
 =====================================
 
-In linux and Mac operating systems ring files cannot be run properly using CGI until we grant them executable permission. You can do that using the properties section of your prefered File manager or you can do it using Terminal as follow:
+In Linux and Mac operating systems ring files cannot be run properly using CGI until we grant them executable permission. You can do that using the properties section of your preferred File manager or you can do it using Terminal as follow:
 
 .. code-block:: none
 
