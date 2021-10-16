@@ -196,7 +196,7 @@ Ring contains only 4 types that represent the program data
 These types are (String, Number, List & Object)
 
 The idea is to have many use cases for each type which increase the flexibility and the ability
-to write functions that are more usable in different situtations.
+to write functions that are more usable in different situations.
 
 The String type is used to represent:
 * One character
@@ -333,7 +333,7 @@ After the object access using { } if the class contains a method called BraceEnd
 	TimeForFun = new journey
 	# The first surprise!
 	TimeForFun {
-		Hello it is me		# What a beatiful programming world!
+		Hello it is me		# What a beautiful programming world!
 	}
 	# Our Class
 	Class journey

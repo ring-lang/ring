@@ -52,7 +52,7 @@ Note (You have to select a unique name for your application)
 
 	cd MyApp	
 
-(5) Clone this projet using Git (Don't forget the dot in the end to clone in the current directory)
+(5) Clone this project using Git (Don't forget the dot in the end to clone in the current directory)
 
 .. code-block:: none
 
@@ -148,7 +148,7 @@ To run it : http://testring.herokuapp.com/ringapp/helloworld2.ring
 Application Database
 ====================
 
-When you depoly the application, Everything will works directly!
+When you deploy the application, Everything will works directly!
 
 No change is required, but in practice, You will need to update the next files to use your database
 

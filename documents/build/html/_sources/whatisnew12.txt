@@ -267,7 +267,7 @@ More Samples are added to RingRayLib
 	* Collision Area
 	* Bezier Lines
 	* Images Generation
-	* Fiften Puzzle Game
+	* Fifteen Puzzle Game
 	* Cubic Map
 
 Screen Shot:
@@ -325,4 +325,4 @@ More Improvements
 * Ring Compiler : Added file buildclang.bat for building on Windows using Clang compiler
 * Ring VM - Internal hash function is updated
 * Ring VM - Better Code for setting pVM->aSetProperty when creating new objects
-* Ring VM - Better Code for state managment
+* Ring VM - Better Code for state management
