@@ -597,7 +597,7 @@ More Improvements
 (26) Ring Notepad - Default Style. 
 (27) Ring Notepad - Support using Non-English language (Like Arabic) in file names.
 (28) Form Designer - Nice Alignment for Toolbox Icons.
-(29) Form Desginer - QAllEvents Class - Mouse Double Click Event.
+(29) Form Designer - QAllEvents Class - Mouse Double Click Event.
 (30) Find in Files - Replace and Replace All options.
 (31) Qt Class Converter is updated for better conversion results.
 (32) More samples are added to ring/samples/other folder.
