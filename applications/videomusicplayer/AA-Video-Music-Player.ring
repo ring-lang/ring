@@ -631,7 +631,7 @@ return
 
 
 ###-----------------------------------
-### Fuction TimerMan
+### Function TimerMan
 
 Func pTime
 
