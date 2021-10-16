@@ -316,7 +316,7 @@ func message(msg)
 return
 
 ###================================================================
-### Keyboard -- allow ONLY Digits Dot and Fuctions * / - + ^ v ! %
+### Keyboard -- allow ONLY Digits Dot and Functions * / - + ^ v ! %
 ### Erase last Alpha char and restore edit1.text
 ###
 
