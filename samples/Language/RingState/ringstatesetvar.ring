@@ -45,7 +45,7 @@ func test
 	# But we can pass C pointers like win.pObject
 		ring_state_setvar(pState,"x",win.pObject)
 	# Now we create the object again but using the same C pointer
-	# So we have access to the Same window in the parent Ring enviroment
+	# So we have access to the Same window in the parent Ring environment
 		ring_state_runcode(pState,"
 			new qWidget {
 				pObject = x
