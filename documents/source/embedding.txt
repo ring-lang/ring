@@ -20,7 +20,7 @@ Ring State
 ==========
 
 The idea is to use the ring_state_init() to create new state for the Ring Language
-then call the ring_state_runcode() function to execut Ring code using the same state.
+then call the ring_state_runcode() function to execute Ring code using the same state.
 When we are done, we call the ring_state_delete() to free the memory.
 
 Example:
