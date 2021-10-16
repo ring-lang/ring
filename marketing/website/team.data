@@ -82,6 +82,10 @@ aTopContributors = [
 		  [
                     'Ahmad Zakaria',
                     'RayLib Master'                    
+		  ],
+		  [
+                    'isVowel / GreenWing',
+                    'Translation Master'                    
 		  ]
 ]
 aTeam2 = [
