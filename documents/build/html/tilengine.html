@@ -740,7 +740,7 @@
 
 <span class="k">func</span> <span class="n">lerp</span> <span class="n">x</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">fx0</span><span class="p">,</span><span class="n">fx1</span>
 
-        <span class="o">/*</span> <span class="n">linear</span> <span class="n">interploation</span> <span class="o">*/</span>
+        <span class="o">/*</span> <span class="n">linear</span> <span class="n">interpolation</span> <span class="o">*/</span>
 
                 <span class="k">return</span> <span class="p">(</span><span class="n">fx0</span><span class="p">)</span> <span class="o">+</span> <span class="p">((</span><span class="n">fx1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">fx0</span><span class="p">))</span><span class="o">*</span><span class="p">((</span><span class="n">x</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span><span class="o">/</span><span class="p">((</span><span class="n">x1</span><span class="p">)</span> <span class="o">-</span> <span class="p">(</span><span class="n">x0</span><span class="p">))</span>
 </pre></div>
@@ -893,7 +893,7 @@
         <span class="k">ok</span>
 
 <span class="k">func</span> <span class="n">lerp</span> <span class="n">x</span><span class="p">,</span><span class="n">x0</span><span class="p">,</span><span class="n">x1</span><span class="p">,</span><span class="n">fx0</span><span class="p">,</span><span class="n">fx1</span>
-        <span class="o">/*</span> <span class="n">linear</span> <span class="n">interploation</span> <span class="o">*/</span>
+        <span class="o">/*</span> <span class="n">linear</span> <span class="n">interpolation</span> <span class="o">*/</span>
         <span class="k">return</span> <span class="p">(</span><span class="n">fx0</span> <span class="o">+</span> <span class="p">(</span><span class="n">fx1</span><span class="o">-</span><span class="n">fx0</span><span class="p">)</span><span class="o">*</span><span class="p">(</span><span class="n">x</span><span class="o">-</span><span class="n">x0</span><span class="p">)</span><span class="o">/</span><span class="p">(</span><span class="n">x1</span><span class="o">-</span><span class="n">x0</span><span class="p">))</span>
 </pre></div>
 </div>
@@ -996,7 +996,7 @@ func raster_callback
                 TLN_SetBGColor (r, g, b)
         ok
 
-/* linear interploation */
+/* linear interpolation */
 func lerp x,x0,x1,fx0,fx1
         return (fx0) + ((fx1) - (fx0))*((x) - (x0))/((x1) - (x0))
 </pre></div>
@@ -1142,7 +1142,7 @@ func InterpolateColor v,v1,v2,color1,color2,result
         result[2] = lerp (v, v1,v2, color1[2], color2[2])
         result[3] = lerp (v, v1,v2, color1[3], color2[3])
 
-/* linear interploation */
+/* linear interpolation */
 func lerp x,x0,x1,fx0,fx1
         return (fx0) + ((fx1) - (fx0))*((x) - (x0))/((x1) - (x0))
 </pre></div>

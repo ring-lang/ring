@@ -900,7 +900,7 @@ use self.attribute and self.method()
 
 Check the "Scope Rules" chapter to know about the conflict between the global variable name and the attribute name
 
-Whay this may happens?
+What this may happens?
 
 Because 
 

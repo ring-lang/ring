@@ -479,7 +479,7 @@ Meta-Programming.
 We can run the From Designer from Ring Notepad
 
 .. image:: rnotefd.png
-	:alt: Form Designer - Inside Ring Notepad
+	:alt: Form Desigenr - Inside Ring Notepad
 
 Also we can run the Form Designer in another window.
 

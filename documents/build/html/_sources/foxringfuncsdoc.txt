@@ -30,7 +30,7 @@ FoxRing functions
 +-----------------------+-----------------------------------------------------------------------------------------------+
 | 			| of another character expression.								|
 +-----------------------+-----------------------------------------------------------------------------------------------+
-| frAtC()		| Searches a character expression for the ocurrence of another character expression without 	|
+| frAtC()		| Searches a character expression for the occurrence of another character expression without 	|
 +-----------------------+-----------------------------------------------------------------------------------------------+
 | 			| regard for the case of these two expressions.							|
 +-----------------------+-----------------------------------------------------------------------------------------------+
@@ -114,7 +114,7 @@ FoxRing functions
 +-----------------------+-----------------------------------------------------------------------------------------------+
 | frStuff()		| Returns a new character string replaced by a specified number of 				|
 +-----------------------+-----------------------------------------------------------------------------------------------+
-| 			| characteres in a character expression with another character expression.			|
+| 			| characters in a character expression with another character expression.			|
 +-----------------------+-----------------------------------------------------------------------------------------------+
 | frSubStr()		| Returns a character string from the given character expression, 				|
 +-----------------------+-----------------------------------------------------------------------------------------------+
@@ -803,7 +803,7 @@ frBetween() function
 	 *		: Specifies the higher value in the range.
 	 *		:
 	 * Returns	: <luReturnValue>
-	 *		: Returns a logical oder null value. 
+	 *		: Returns a logical order null value. 
 
 .. index:: 
      pair: FoxRing Functions Reference; frSetSeparatorTo() function
@@ -820,7 +820,7 @@ frSetSeparatorTo() function
 	 *		: Specifies the character for the numeric place separator. 
 	 *		:
 	 *		: Use frSetSeparatorTo() to change the numeric place 
-	 *		: separator from de default, for example space " " or a comma ",".
+	 *		: separator from default, for example space " " or a comma ",".
 	 *		: Issue frSetSeparatorTo(Null) to reset the value to its default.
 	 *		:
 	 * Returns	: None
@@ -872,7 +872,7 @@ frVarType() function
 	 * Description	: Returns the data type of an expression.
 	 *		:
 	 * Arguments   	: <tuExpression>
-	 *		: Expecifies the expression for which the data type is returned.
+	 *		: Specifies the expression for which the data type is returned.
 	 *		:  frVartype() returns a
 	 *		: single character indicating the data type of the expression. 
 	 *		: The following table lists the characteres that frVarType() 
