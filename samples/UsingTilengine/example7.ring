@@ -80,6 +80,6 @@ func raster_callback
 
 func lerp x,x0,x1,fx0,fx1
 
-	/* linear interploation */
+	/* linear interpolation */
 
 		return (fx0) + ((fx1) - (fx0))*((x) - (x0))/((x1) - (x0))
