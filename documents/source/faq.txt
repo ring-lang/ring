@@ -358,10 +358,10 @@ In one sentence I created 4 objects (The window and the three buttons) and added
 to the window. The idea of natural programming is to get many things done like that.
 
 .. index:: 
-	pair: Frequently Asked Questions; Why is Ring largely focussed on UI creation?
+	pair: Frequently Asked Questions; Why is Ring largely focused on UI creation?
 
-Why is Ring largely focussed on UI creation?
-============================================
+Why is Ring largely focused on UI creation?
+===========================================
 
 Yes UI creation is one of the important things in the language features because it is designed
 to create a visual programming tool, But the language is a multi-paradigm language where we can
