@@ -99,7 +99,7 @@ Useful things to remember
 (3) Using Timers we can easily get the control back and check for more things to do.
 
 Also when our callback function is busy with doing time consuming operations, we can call the ProcessEvents() method from the qApp class
-to avoid stoping the GUI.
+to avoid stopping the GUI.
 
 .. code-block:: ring
 
@@ -980,7 +980,7 @@ The application during the runtime
 	pair: Desktop, WebAssembly and Mobile Development; Using QDateEdit
 
 Using QDateEdit
-==================
+===============
 
 In this example we will learn about using the QDateEdit class
 
@@ -1010,7 +1010,7 @@ The application during the runtime
 	
 
 Using QDial
-==================
+===========
 
 In this example we will learn about using the QDial class
 
@@ -1194,7 +1194,7 @@ Another Example:
 	pair: Desktop, WebAssembly and Mobile Development; Using QRadioButton and QButtonGroup
 	
 Using QRadioButton and QButtonGroup
-====================================
+===================================
 
 In this example we will learn about using the QRadioButton and QButtonGroup classes
 
@@ -1826,7 +1826,7 @@ In this example we will learn about displaying and scaling an image so that it l
 
 
 	###------------------------------------------------------
-	### Fuction TimerMan: calling interval 100 milliseconds
+	### Function TimerMan: calling interval 100 milliseconds
 
 	func pTime
 
