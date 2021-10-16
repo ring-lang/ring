@@ -98,6 +98,6 @@ func raster_callback
 		TLN_SetBGColor (r, g, b)
 	ok
 
-/* linear interploation */
+/* linear interpolation */
 func lerp x,x0,x1,fx0,fx1
 	return (fx0) + ((fx1) - (fx0))*((x) - (x0))/((x1) - (x0))
