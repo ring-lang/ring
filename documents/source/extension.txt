@@ -570,7 +570,7 @@ This function returns table columns information.
 		}
 	}
 
-Lists are of type List, in the previoud function we declared two pointers of type List
+Lists are of type List, in the previous function we declared two pointers of type List
 using List *pList, *pList2;
 	
 .. note:: The function uses RING_API_NEWLIST to create new list instead of ring_list_new()
