@@ -388,7 +388,7 @@ Syntax:
 
 .. code-block:: ring
 
-	IsXdigit(value) ---> 1 if the value is a hexdecimal digit character or 0 if not	
+	IsXdigit(value) ---> 1 if the value is a hexadecimal digit character or 0 if not	
 
 Example:
 
