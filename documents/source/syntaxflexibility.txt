@@ -499,7 +499,7 @@ Using 'put' and 'get' as 'see' and 'give'
 
 We can replace the 'see' keyword with the 'put' keyword.
 
-Also we can replacew the 'give' keyword with the 'get' keyword.
+Also we can replace the 'give' keyword with the 'get' keyword.
 
 Example:
 
