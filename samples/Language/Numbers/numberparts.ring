@@ -79,7 +79,7 @@ func decimalPart(nNumber,nRound)
 	ok
 
 func getActiveRound()
-	nTemp = 12.1	# Any number but shoud contain decimals
+	nTemp = 12.1	# Any number but should contain decimals
 	str = "" + nTemp
 	
 	nSepPos = len(str)
