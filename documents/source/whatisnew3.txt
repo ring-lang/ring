@@ -484,4 +484,4 @@ We can run the From Designer from Ring Notepad
 Also we can run the Form Designer in another window.
 
 .. image:: formdesigner.png
-	:alt: Form Desigenr
+	:alt: Form Designer
