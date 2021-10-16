@@ -998,7 +998,7 @@ isprint(vValue)				1 if the value occupies a printing position or 0 if not
 ispunct(vValue)				1 if the value is a punctuation character or 0 if not
 isspace(vValue)				1 if the value is a white-space or 0 if not
 isupper(vValue)				1 if the value is an uppercase alphabetic letter or 0 if not
-isxdigit(vValue)			1 if the value is a hexdecimal digit character or 0 if not
+isxdigit(vValue)			1 if the value is a hexadecimal digit character or 0 if not
 ===========================	======================================================================
 
 example:
