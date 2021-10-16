@@ -1411,7 +1411,7 @@ class frFunctions {
 	 *			: Specifies the higher value in the range.
 	 *			:
 	 * Returns		: <luReturnValue>
-	 *			: Returns a logical oder null value. 
+	 *			: Returns a logical order null value. 
 	 *			: 
 	 * Author	 	: Jar C 29.01.2018
 	 */
@@ -1521,7 +1521,7 @@ class frFunctions {
 	 * Arguments   		: <tuExpression>
 	 *			: Specifies the character for the numeric place separator. 
 	 *			:
-	 *			: Use frSetSeparatorTo() to change the numeric place separator from de default, for example space " " or a comma ",".
+	 *			: Use frSetSeparatorTo() to change the numeric place separator from default, for example space " " or a comma ",".
 	 *			: Issue frSetSeparatorTo(Null) to reset the value to its default.
 	 *			:
 	 * Returns		: None
@@ -1701,9 +1701,9 @@ class frFunctions {
 	 * Description		: Returns the data type of an expression.
 	 *			:
 	 * Arguments   		: <tuExpression>
-	 *			: Expecifies the expression for which the data type is returned. frVartype() returns a
+	 *			: Specifies the expression for which the data type is returned. frVartype() returns a
 	 *			: single character indicating the data type of the expression. 
-	 *			: The following table lists the characteres that frVarType() returns for each data type.
+	 *			: The following table lists the characters that frVarType() returns for each data type.
 	 *			:
 	 *			: -------------------	---------------------------------------------------------------
 	 *			: Return Value		Data Type
