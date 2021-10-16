@@ -17,7 +17,7 @@
 	we can put comments between <comment> and </comment>
 	The record no. 4 is used for defining functions to create/destroy
 	struct. used for <struct> and </struct>
-	We can put function start when we generate function for strucutres
+	We can put function start when we generate function for structures
 	between <funcstart> and </funcstart>
 	We can execute ring code during code generation by using
 	<runcode> and </runcode>
