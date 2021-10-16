@@ -13,7 +13,7 @@ a2DFinal  = newlist(size,size)
 //===================================================
 Func main
 
-	for i = 1 to repeat							// Multiple Latin Sqaures
+	for i = 1 to repeat							// Multiple Latin Squares
 		aList  = 1:size
     	aList2 = RandomList(aList)
 
