@@ -145,7 +145,7 @@ To Copy the Qt runtime files to ring/bin folder
 	Hit "windows key".
 	Type "Edit the System environment variables"
 	Select "Advanced" tab.
-	Click on "Enviroment Variables..."
+	Click on "Environment Variables..."
 	Double click on "Path"
 	Add at the end the new path separated by semicolon. 
 		;C:\Ring\Bin
