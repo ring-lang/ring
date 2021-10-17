@@ -18,6 +18,8 @@ Ring 1.16 comes with the next features!
 * Light GUILib 
 * Better Load Command
 * Nested methods call in separate lines
+* Better Installation Scripts
+* Better Documentation
 * More Samples
 * More Improvements
 
@@ -73,7 +75,6 @@ Example:
 
 	load "مرحبا.ring"
 
-
 .. index:: 
 	pair: What is new in Ring 1.16?; Nested methods call in separate lines
 
@@ -122,6 +123,26 @@ Output:
 	Go!
 
 .. index:: 
+	pair: What is new in Ring 1.16?; Better Installation Scripts
+
+Better Installation Scripts
+===========================
+
+Ring 1.16 comes with better installation scripts on Linux and macOS
+
+* install.sh - Force creation of symlinks in case they already exist 
+* install.sh - Remove quarantine flag
+* uninstall.sh - Delete symlinks from /usr/local accordingly
+
+.. index:: 
+	pair: What is new in Ring 1.16?; Better Documentation
+
+Better Documentation
+====================
+
+All of the documentation chapters are revised and improved
+
+.. index:: 
 	pair: What is new in Ring 1.16?; More Samples
 
 More Samples
@@ -137,11 +158,7 @@ The next samples are added to the samples folder
 More Improvements
 =================
 
-* Better Documentation 
 * Sample: samples/AQuickStart/GUILib/gui1.ring - Better Code
-* macOS - install.sh - Force creation of symlinks in case they already exist 
-* macOS - install.sh - Remove quarantine flag
-* macOS - uninstall.sh - Delete symlinks from /usr/local accordingly
 * Form Designer - Set the Button Event (If it's Empty) from the Button Text 
 * Form Designer - Order the controls based on the position (Not the Creation Order)
 * Form Designer - File System - File Name Encoding 
