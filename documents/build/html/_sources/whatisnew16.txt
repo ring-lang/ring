@@ -20,7 +20,7 @@ Ring 1.16 comes with the next features!
 * Nested methods call in separate lines
 * Better Installation Scripts
 * Better Documentation
-* More Samples
+* MDI Windows Sample
 * More Improvements
 
 .. index:: 
@@ -143,14 +143,17 @@ Better Documentation
 All of the documentation chapters are revised and improved
 
 .. index:: 
-	pair: What is new in Ring 1.16?; More Samples
+	pair: What is new in Ring 1.16?; MDI Windows Sample
 
-More Samples
-============
+MDI Windows Sample
+==================
 
-The next samples are added to the samples folder
+The next sample is added to the samples folder
 
 	* samples/UsingQt/MDIWindows/mdi_windows.ring
+
+.. image:: mdiwindowssample.png
+	:alt: mdiwindowssample
 
 .. index:: 
 	pair: What is new in Ring 1.16?; More Improvements
