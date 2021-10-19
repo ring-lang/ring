@@ -209,7 +209,7 @@ Class GameLogic from GraphicsAppBase
                 ok
             ok
         next
-        //horzintal
+        //horizontal
         for h=1 to 3
             if lst[h]!=0 and lst[h+3]!=0 and lst[h+6]!=0
                 if lst[h]=lst[h+3] and lst[h+3]=lst[h+6]
