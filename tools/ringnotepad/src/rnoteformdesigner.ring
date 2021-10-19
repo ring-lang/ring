@@ -27,7 +27,7 @@ class RNoteFormDesigner
 		# Be sure that we have saved form file 
 			if FormDesigner().ActiveFileName() = "" return ok
 		# Be sure that the Controller class source code is opened
-			if cActiveFileName != substr(FormDesigner().ActiveFileName(),".rform","Controller.ring")
+			if lower(cActiveFileName) != lower(substr(FormDesigner().ActiveFileName(),".rform","Controller.ring"))
 				return 
 			ok
 		# Be sure that the event code doesn't contains (, ', ", ` and spaces
