@@ -171,4 +171,5 @@ More Improvements
 * RingQt - More Qt constants are defined 
 * Ring2EXE - Display usage information
 * Ring2EXE - Support Creating folders when copying files 
+* Ring VM - ring_vm_error() - Better Code
 * Ring Compiler - Don't display (Unrecognized Option) if we have a source code file
