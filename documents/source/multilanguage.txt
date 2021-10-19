@@ -38,7 +38,7 @@ Form Designer Translation
 
 You will find the form designer application in the ring/applications/formdesigner folder
 
-The files used for translation are stored in the ring/applications/formdesinger/translation folder
+The files used for translation are stored in the ring/applications/formdesigner/translation folder
 
 You will find two files
 
