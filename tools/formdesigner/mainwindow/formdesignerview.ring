@@ -767,7 +767,7 @@ Class FormDesignerView from WindowsViewParent
 				AddWidget(oBtnObjectsOrder)
 			}
 			this.oPropertiesTable = new qTableWidget(this.oProperties) {
-				this.PreparePropertiesTable(self)
+				this.PreparePropertiesTable(self)				
 			}
 			oLayout2 = new qVBoxLayout() {
 				AddLayout(oLayout1)
@@ -966,7 +966,7 @@ Class FormDesignerView from WindowsViewParent
 		oPropertiesTable.insertrow(nRow)
 		# Property Name
 			item = new qTableWidgetItem(cItem)
-			item.setFlags(False)	# Can't Edit the Item
+			item.setFlags(Qt_ItemIsSelectable | Qt_ItemIsEnabled)	
 			oPropertiesTable.setItem(nRow,0,item)
 		# Property Value
 			item = new qTableWidgetItem("")
@@ -995,7 +995,7 @@ Class FormDesignerView from WindowsViewParent
 		oPropertiesTable.insertrow(nRow)
 		# Property Name
 			item = new qTableWidgetItem(cItem)
-			item.setFlags(False)	# Can't Edit the Item
+			item.setFlags(Qt_ItemIsSelectable | Qt_ItemIsEnabled)
 			oPropertiesTable.setItem(nRow,0,item)
 		# Combobox
 			oCombo = new qCombobox(oPropertiesTable) {
