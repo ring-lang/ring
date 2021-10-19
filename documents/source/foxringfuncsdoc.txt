@@ -875,7 +875,7 @@ frVarType() function
 	 *		: Specifies the expression for which the data type is returned.
 	 *		:  frVartype() returns a
 	 *		: single character indicating the data type of the expression. 
-	 *		: The following table lists the characteres that frVarType() 
+	 *		: The following table lists the characters that frVarType() 
 	 *		: returns for each data type.
 	 *		:
 	 *		: -------------------	-------------------------------------
