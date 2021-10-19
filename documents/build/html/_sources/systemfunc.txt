@@ -475,7 +475,7 @@ Syntax:
 
 .. code-block:: ring
 
-	CurrenDir() ---> String contains the path of the currect directory 
+	CurrentDir() ---> String contains the path of the current directory 
 
 .. index:: 
 	pair: System Functions; ExeFileName() Function

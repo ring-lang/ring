@@ -19,7 +19,7 @@ Also we can run the Form Designer in another window.
 From the Ring Notepad - Tools Menu - Select the Form Designer.
 
 .. image:: formdesigner.png
-	:alt: Form Desigenr
+	:alt: Form Designer
 
 .. index:: 
 	pair: Form Designer; The Designer Windows
