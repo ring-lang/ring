@@ -1,6 +1,6 @@
 one
 two
-thre
+three
 else
 else
 else
