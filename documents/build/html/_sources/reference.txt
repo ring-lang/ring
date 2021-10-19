@@ -643,7 +643,7 @@ Operation			Description
 * ICO_LOADFUNC		Find function
 * ICO_CALL		Call function
 * ICO_RETURN		Return from function
-* ICO_RETNULL		Return NULl from function
+* ICO_RETNULL		Return NULL from function
 * ICO_RETFROMEVAL	Return after eval() 
 * ICO_RETITEMREF	Return the list item reference - not the value
 * ICO_NEWFUNC		Start new function

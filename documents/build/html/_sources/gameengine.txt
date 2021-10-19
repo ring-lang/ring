@@ -165,7 +165,7 @@ sprite 			Create new Sprite object and add it to the game objects.
 text 			Create new Text object and add it to the game objects.
 animate 		Create new Animate object and add it to the game objects.
 sound 			Create new Sound object and add it to the game objects.
-map			Create new Map object and add it ot the game objects.
+map			Create new Map object and add it to the game objects.
 ================	=================================================================================
 
 .. index:: 
