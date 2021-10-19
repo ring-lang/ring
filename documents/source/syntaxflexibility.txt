@@ -525,7 +525,7 @@ Example (1) :
 		switch x 
 		case 1 put "one" + nl
 		case 2 put "two" + nl
-		case 3 put "thre" + nl
+		case 3 put "three" + nl
 		else put "else" + nl
 		end
 	end
@@ -538,7 +538,7 @@ Example (2) :
 		switch x {
 		case 1 put "one" + nl
 		case 2 put "two" + nl
-		case 3 put "thre" + nl
+		case 3 put "three" + nl
 		else put "else" + nl
 		}
 	}
