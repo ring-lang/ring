@@ -713,16 +713,19 @@ RING_API void ring_vm_error ( VM *pVM,const char *cStr )
 	}
 	pVM->nActiveError = 1 ;
 	/* Check BraceError() */
-	if ( (ring_list_getsize(pVM->pObjState) > 0) && (ring_vm_oop_callmethodinsideclass(pVM) == 0 ) && (pVM->nCallMethod == 0) ) {
-		if ( ring_vm_findvar(pVM,"self") ) {
-			pList = ring_vm_oop_getobj(pVM);
-			RING_VM_STACK_POP ;
-			if ( ring_vm_oop_isobject(pList) ) {
-				if ( ring_vm_oop_ismethod(pVM, pList,"braceerror") ) {
-					ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_vm_getglobalscope(pVM),6),3,cStr);
-					ring_vm_runcode(pVM,"braceerror()");
-					pVM->nActiveError = 0 ;
-					return ;
+	if ( ring_list_getsize(pVM->pObjState) > 0 ) {
+		fflush(stdout);
+		if ( (ring_vm_oop_callmethodinsideclass(pVM) == 0 ) && (pVM->nCallMethod == 0) ) {
+			if ( ring_vm_findvar(pVM,"self") ) {
+				pList = ring_vm_oop_getobj(pVM);
+				RING_VM_STACK_POP ;
+				if ( ring_vm_oop_isobject(pList) ) {
+					if ( ring_vm_oop_ismethod(pVM, pList,"braceerror") ) {
+						ring_list_setstring_gc(pVM->pRingState,ring_list_getlist(ring_vm_getglobalscope(pVM),6),3,cStr);
+						ring_vm_runcode(pVM,"braceerror()");
+						pVM->nActiveError = 0 ;
+						return ;
+					}
 				}
 			}
 		}
