@@ -21,7 +21,7 @@ In this chapter we are going to learn about the classes in the stdlib.ring
 * Debug Class
 * DataType Class
 * Conversion Class
-* ODBC CLass
+* ODBC Class
 * MySQL Class
 * SQLite Class
 * PostgreSQL Class
