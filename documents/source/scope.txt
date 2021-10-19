@@ -653,7 +653,7 @@ In this region we have access to the global scope and the local scope will point
 
 Three Scopes
 
-* Global Scope ---> Gloabl Scope
+* Global Scope ---> Global Scope
 * Object Scope ---> Object Scope
 * Local Scope  ---> Object Scope
 
@@ -686,7 +686,7 @@ Output:
 	name: NULL
 
 The problem in the previous example is that the Class account contains an attribute called "name"
-and the Friend class contains an attribue called "name" also.
+and the Friend class contains an attribute called "name" also.
 
 If you tried using self.name inside braces you will get the same result!
 
