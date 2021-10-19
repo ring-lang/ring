@@ -5,14 +5,14 @@ cp folder2qrc $PWD/../../bin/folder2qrc
 if [ -f ../../lib/libring.dylib ];
 then
 cd ../../bin
-echo "`pwd`/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/local/bin/folder2qrc
+ln -sf "`pwd`/folder2qrc" /usr/local/bin/folder2qrc
 chmod +x /usr/local/bin/folder2qrc
 fi
 
 if [ -f ../../lib/libring.so ];
 then
 cd ../../bin
-sudo echo "`pwd`/folder2qrc \$1 \$2 \$3 \$4 \$5 \$6 \$7" > /usr/bin/folder2qrc
+sudo ln -sf "`pwd`/folder2qrc" /usr/bin/folder2qrc
 sudo chmod +x /usr/bin/folder2qrc
 fi
 
