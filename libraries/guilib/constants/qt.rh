@@ -383,3 +383,15 @@ Qt_TopToolBarArea   	= 0x4
 Qt_BottomToolBarArea	= 0x8
 Qt_AllToolBarAreas	= Qt_LeftToolBarArea | Qt_RightToolBarArea | Qt_TopToolBarArea | Qt_BottomToolBarArea
 Qt_NoToolBarArea	= 0
+
+
+Qt_NoItemFlags		= 0	
+Qt_ItemIsSelectable	= 1	
+Qt_ItemIsEditable	= 2	
+Qt_ItemIsDragEnabled	= 4	
+Qt_ItemIsDropEnabled	= 8	
+Qt_ItemIsUserCheckable	= 16	
+Qt_ItemIsEnabled	= 32	
+Qt_ItemIsAutoTristate	= 64	
+Qt_ItemNeverHasChildren	= 128	
+Qt_ItemIsUserTristate	= 256	
