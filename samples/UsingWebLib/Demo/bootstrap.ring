@@ -80,7 +80,7 @@ Func testbootstrap2
 					classname = "col-sm-4"
 					Button {  classname = "btn btn-default btn-lg" text("default") }
 					Button {  classname = "btn btn-primary btn-md" text("primary") }
-					Button {  classname = "btn btn-sucess btn-sm"  text("sucess") }
+					Button {  classname = "btn btn-success btn-sm" text("success") }
 					Button {  classname = "btn btn-info btn-xs"    text("info") }
 					Button {  classname = "btn btn-warning"        text("warning") }
 					Button {  classname = "btn btn-danger"	       text("danger") }
@@ -91,7 +91,7 @@ Func testbootstrap2
 					classname = "col-sm-4"
 					Button {  classname = "btn btn-default btn-block" text("default") }
 					Button {  classname = "btn btn-primary btn-block" text("primary") }
-					Button {  classname = "btn btn-sucess btn-block"  text("sucess") }
+					Button {  classname = "btn btn-success btn-block" text("success") }
 					Button {  classname = "btn btn-info btn-block"    text("info") }
 					Button {  classname = "btn btn-warning btn-block" text("warning") }
 					Button {  classname = "btn btn-danger btn-block"  text("danger") }
@@ -283,9 +283,9 @@ Func testbootstrap3
 				</button>
 			
 						
-				<button class = "btn btn-sucess btn-sm" style="">
+				<button class = "btn btn-success btn-sm" style="">
 						
-					sucess
+					success
 				
 				</button>
 			
@@ -337,9 +337,9 @@ Func testbootstrap3
 				</button>
 			
 						
-				<button class = "btn btn-sucess btn-block" style="">
+				<button class = "btn btn-success btn-block" style="">
 						
-					sucess
+					success
 				
 				</button>
 			
