@@ -761,70 +761,37 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_PUSHC</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_PUSHC</p></td>
 <td><p>Add string from the IR to the stack</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_PUSHN</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_PUSHN</p></td>
 <td><p>Add number from the IR to the stack</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_PUSHV</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_PUSHV</p></td>
 <td><p>Replace VP in the stack[nSize] with the variable value</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_LOADADDRESS</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_LOADADDRESS</p></td>
 <td><p>Read variable name from the IR, push VP to the stack</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_ASSIGNMENT</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_ASSIGNMENT</p></td>
 <td><p>Stack[nSize-1] VV = Stack[nSize] VV , POP Stack[nSize]</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_INC</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_INC</p></td>
 <td><p>Increment Number in Stack[nSize] by 1</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_LOADAPUSHV</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_LOADAPUSHV</p></td>
 <td><p>The same as ICO_LOADADDRESS then ICO_PUSHV</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_NEWLINE</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_NEWLINE</p></td>
 <td><p>Store new line number (debug info)</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_FREESTACK</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_FREESTACK</p></td>
 <td><p>Remove all items from the stack , nSize = 0</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_FILENAME</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_FILENAME</p></td>
 <td><p>Store the source code file name (debug info)</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_FREELOADASCOPE</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_FREELOADASCOPE</p></td>
 <td><p>Free the Scope List of the current Expression</p></td>
 </tr>
 </tbody>
@@ -841,40 +808,22 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_JUMP</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_JUMP</p></td>
 <td><p>Set PC to new value from the IR</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_JUMPZERO</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_JUMPZERO</p></td>
 <td><p>If Stack[nSize] is a number = 0 then Set PC to new value from the IR</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_JUMPFOR</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_JUMPFOR</p></td>
 <td><p>End of for loop</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_JUMPONE</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_JUMPONE</p></td>
 <td><p>If Stack[nSize] is a number = 1 then Set PC to new value from the IR</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_JUMPZERO2</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_JUMPZERO2</p></td>
 <td><p>As ICO_JUMPZERO but add 1 to the stack (required for many ‘AND’ conditions)</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_JUMPONE2</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_JUMPONE2</p></td>
 <td><p>As ICO_JUMPONE but add 1 to the stack (required for many ‘OR’ conditions)</p></td>
 </tr>
 </tbody>
@@ -891,40 +840,22 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_LESSEQUAL</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_LESSEQUAL</p></td>
 <td><p>If stack[nSize-1] &lt;= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_EQUAL</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_EQUAL</p></td>
 <td><p>If stack[nSize-1] = stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_LESS</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_LESS</p></td>
 <td><p>If stack[nSize-1] &lt; stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_GREATER</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_GREATER</p></td>
 <td><p>If stack[nSize-1] &gt; stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_GREATEREQUAL</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_GREATEREQUAL</p></td>
 <td><p>If stack[nSize-1] &gt;= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_NOTEQUAL</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_NOTEQUAL</p></td>
 <td><p>If stack[nSize-1] != stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0</p></td>
 </tr>
 </tbody>
@@ -941,52 +872,28 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_SUM</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_SUM</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_SUB</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_SUB</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_MUL</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_MUL</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_DIV</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_DIV</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_MOD</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_MOD</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_NEG</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_NEG</p></td>
 <td><p>Stack[nSize] = - Stack[nSize-1]</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_PLUSPLUS</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_PLUSPLUS</p></td>
 <td><p>Stack[nSize] = Stack[nSize] + 1</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_MINUSMINUS</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_MINUSMINUS</p></td>
 <td><p>Stack[nSize] = Stack[nSize] - 1</p></td>
 </tr>
 </tbody>
@@ -1003,22 +910,13 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_AND</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_AND</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] &amp;&amp; Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_OR</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_OR</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] || Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_NOT</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_NOT</p></td>
 <td><p>Stack[nSize]   = ! Stack[nSize]</p></td>
 </tr>
 </tbody>
@@ -1035,28 +933,16 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_LISTSTART</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_LISTSTART</p></td>
 <td><p>Start New List in Temp. Memory</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_LISTITEM</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_LISTITEM</p></td>
 <td><p>Add List Item</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_LISTEND</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_LISTEND</p></td>
 <td><p>End List</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_LOADINDEXADDRESS</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_LOADINDEXADDRESS</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] VV [ Stack[nSize] ] , POP stack[nSize]</p></td>
 </tr>
 </tbody>
@@ -1073,76 +959,40 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_LOADFUNC</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_LOADFUNC</p></td>
 <td><p>Find function</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_CALL</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_CALL</p></td>
 <td><p>Call function</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_RETURN</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_RETURN</p></td>
 <td><p>Return from function</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_RETNULL</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_RETNULL</p></td>
 <td><p>Return NULL from function</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_RETFROMEVAL</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_RETFROMEVAL</p></td>
 <td><p>Return after eval()</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_RETITEMREF</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_RETITEMREF</p></td>
 <td><p>Return the list item reference - not the value</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_NEWFUNC</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_NEWFUNC</p></td>
 <td><p>Start new function</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_BLOCKFLAG</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_BLOCKFLAG</p></td>
 <td><p>Flag to determine where to jump later (after ICO_RETURN)</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_FUNCEXE</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_FUNCEXE</p></td>
 <td><p>Start executing function</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_ENDFUNCEXE</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_ENDFUNCEXE</p></td>
 <td><p>End function execution</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_ANONYMOUS</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_ANONYMOUS</p></td>
 <td><p>Anonymous function</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_FREETEMPLISTS</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_FREETEMPLISTS</p></td>
 <td><p>Delete temp. lists</p></td>
 </tr>
 </tbody>
@@ -1159,16 +1009,10 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_PRINT</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_PRINT</p></td>
 <td><p>Print value to the standard output</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_GIVE</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_GIVE</p></td>
 <td><p>Get input from the keyboard</p></td>
 </tr>
 </tbody>
@@ -1185,34 +1029,19 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_BYE</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_BYE</p></td>
 <td><p>End execution of VM</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_EXITMARK</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_EXITMARK</p></td>
 <td><p>Place to exit to from a loop</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_POPEXITMARK</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_POPEXITMARK</p></td>
 <td><p>Remove exit mark</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_EXIT</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_EXIT</p></td>
 <td><p>Break from one loop or more</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_LOOP</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_LOOP</p></td>
 <td><p>Continue to next loop</p></td>
 </tr>
 </tbody>
@@ -1229,82 +1058,43 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_PUSHP</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_PUSHP</p></td>
 <td><p>Push pointer to the stack</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_INCP</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_INCP</p></td>
 <td><p>Increment variable value using pointer</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_PUSHPV</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_PUSHPV</p></td>
 <td><p>Push value of variable using variable pointer</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_INCJUMP</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_INCJUMP</p></td>
 <td><p>Increment then jump</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_INCPJUMP</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_INCPJUMP</p></td>
 <td><p>Increment using pointer then jump</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_JUMPVARLENUM</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_JUMPVARLENUM</p></td>
 <td><p>Jump if variable value is &lt;= numeric value</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_JUMPVARPLENUM</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_JUMPVARPLENUM</p></td>
 <td><p>Jump if variable value (using pointer) &lt;= numeric value</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_LOADFUNCP</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_LOADFUNCP</p></td>
 <td><p>Push function pointer</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_PUSHPLOCAL</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_PUSHPLOCAL</p></td>
 <td><p>Push pointer to local variable</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_INCLPJUMP</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_INCLPJUMP</p></td>
 <td><p>Increment value using pointer to local variable then jump</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_JUMPVARLPLENUM</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_JUMPVARLPLENUM</p></td>
 <td><p>Jump if the variable value (using pointer) &lt;= numeric value</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_INCPJUMPSTEP1</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_INCPJUMPSTEP1</p></td>
 <td><p>Increment value using variable pointer then jump (for loop step = 1)</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_JUMPVARPLENUMSTEP1</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_JUMPVARPLENUMSTEP1</p></td>
 <td><p>Increment value using variable pointer then jump (for loop step = 1)</p></td>
 </tr>
 </tbody>
@@ -1321,16 +1111,10 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_TRY</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_TRY</p></td>
 <td><p>Start try region</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_DONE</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_DONE</p></td>
 <td><p>End try region</p></td>
 </tr>
 </tbody>
@@ -1347,16 +1131,10 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_DUPLICATE</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_DUPLICATE</p></td>
 <td><p>Duplicate stack value</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_RANGE</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_RANGE</p></td>
 <td><p>Create list from value to value</p></td>
 </tr>
 </tbody>
@@ -1373,82 +1151,43 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_NEWOBJ</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_NEWOBJ</p></td>
 <td><p>Create new object, get class name from the IR, push object pointer to the stack.</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_SETSCOPE</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_SETSCOPE</p></td>
 <td><p>Called after creating new object, set the active scope to be the object scope.</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_LOADSUBADDRESS</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_LOADSUBADDRESS</p></td>
 <td><p>Get object attribute, push the pointer to the stack.</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_LOADMETHOD</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_LOADMETHOD</p></td>
 <td><p>Find object method</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_AFTERCALLMETHOD</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_AFTERCALLMETHOD</p></td>
 <td><p>Used after calling a method - normal case</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_AFTERCALLMETHOD2</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_AFTERCALLMETHOD2</p></td>
 <td><p>Used after calling a method - second case</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_NEWCLASS</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_NEWCLASS</p></td>
 <td><p>Start new class region</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_BRACESTART</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_BRACESTART</p></td>
 <td><p>Open brace</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_BRACEEND</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_BRACEEND</p></td>
 <td><p>End brace</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_IMPORT</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_IMPORT</p></td>
 <td><p>Import package</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_PRIVATE</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_PRIVATE</p></td>
 <td><p>start private attributes region</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_SETPROPERTY</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_SETPROPERTY</p></td>
 <td><p>set attribute value - check for setter.</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_CALLCLASSINIT</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_CALLCLASSINIT</p></td>
 <td><p>call class init() method.</p></td>
 </tr>
 </tbody>
@@ -1465,28 +1204,16 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_SETREFERENCE</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_SETREFERENCE</p></td>
 <td><p>Copy by reference</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_KILLREFERENCE</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_KILLREFERENCE</p></td>
 <td><p>Remove reference</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_ASSIGNMENTPOINTER</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_ASSIGNMENTPOINTER</p></td>
 <td><p>Determine the left side variable</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_BEFOREEQUAL</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_BEFOREEQUAL</p></td>
 <td><p>Determine operators like += , -= , … etc</p></td>
 </tr>
 </tbody>
@@ -1503,40 +1230,22 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_BITAND</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_BITAND</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] &amp; Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_BITOR</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_BITOR</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_BITXOR</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_BITXOR</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_BITNOT</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_BITNOT</p></td>
 <td><p>Stack[nSize] = ! Stack[nSize]</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_BITSHL</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_BITSHL</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] &lt;&lt; Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_BITSHR</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_BITSHR</p></td>
 <td><p>Stack[nSize-1] = Stack[nSize-1] &gt;&gt; Stack[nSize] , POP stack[nSize]</p></td>
 </tr>
 </tbody>
@@ -1553,22 +1262,13 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_STEPNUMBER</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_STEPNUMBER</p></td>
 <td><p>Determine step number in for loop</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_POPSTEP</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_POPSTEP</p></td>
 <td><p>POP step number from steps stack</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_LOADAFIRST</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_LOADAFIRST</p></td>
 <td><p>Load the first address of variable name</p></td>
 </tr>
 </tbody>
@@ -1585,22 +1285,13 @@
 </tr>
 </thead>
 <tbody>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_NEWGLOBALSCOPE</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_NEWGLOBALSCOPE</p></td>
 <td><p>Start new custom global scope - used by ‘load package’ command</p></td>
 </tr>
-<tr class="row-odd"><td><ul class="simple">
-<li><p>ICO_ENDGLOBALSCOPE</p></li>
-</ul>
-</td>
+<tr class="row-odd"><td><p>ICO_ENDGLOBALSCOPE</p></td>
 <td><p>End of custom global scope - used by ‘load package’ command</p></td>
 </tr>
-<tr class="row-even"><td><ul class="simple">
-<li><p>ICO_SETGLOBALSCOPE</p></li>
-</ul>
-</td>
+<tr class="row-even"><td><p>ICO_SETGLOBALSCOPE</p></td>
 <td><p>Set the current global scope</p></td>
 </tr>
 </tbody>

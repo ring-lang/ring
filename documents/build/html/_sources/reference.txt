@@ -560,17 +560,17 @@ Definitions :-
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_PUSHC 		Add string from the IR to the stack
-* ICO_PUSHN 		Add number from the IR to the stack
-* ICO_PUSHV 		Replace VP in the stack[nSize] with the variable value 
-* ICO_LOADADDRESS 	Read variable name from the IR, push VP to the stack
-* ICO_ASSIGNMENT 	Stack[nSize-1] VV = Stack[nSize] VV , POP Stack[nSize]
-* ICO_INC 		Increment Number in Stack[nSize] by 1
-* ICO_LOADAPUSHV	The same as ICO_LOADADDRESS then ICO_PUSHV
-* ICO_NEWLINE		Store new line number (debug info)
-* ICO_FREESTACK		Remove all items from the stack , nSize = 0
-* ICO_FILENAME		Store the source code file name (debug info)
-* ICO_FREELOADASCOPE	Free the Scope List of the current Expression
+ICO_PUSHC 		Add string from the IR to the stack
+ICO_PUSHN 		Add number from the IR to the stack
+ICO_PUSHV 		Replace VP in the stack[nSize] with the variable value 
+ICO_LOADADDRESS 	Read variable name from the IR, push VP to the stack
+ICO_ASSIGNMENT		Stack[nSize-1] VV = Stack[nSize] VV , POP Stack[nSize]
+ICO_INC 		Increment Number in Stack[nSize] by 1
+ICO_LOADAPUSHV		The same as ICO_LOADADDRESS then ICO_PUSHV
+ICO_NEWLINE		Store new line number (debug info)
+ICO_FREESTACK		Remove all items from the stack , nSize = 0
+ICO_FILENAME		Store the source code file name (debug info)
+ICO_FREELOADASCOPE	Free the Scope List of the current Expression
 =======================	============================================================================
 
 (Jump)
@@ -578,12 +578,12 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_JUMP		Set PC to new value from the IR 
-* ICO_JUMPZERO		If Stack[nSize] is a number = 0 then Set PC to new value from the IR 
-* ICO_JUMPFOR		End of for loop
-* ICO_JUMPONE		If Stack[nSize] is a number = 1 then Set PC to new value from the IR 
-* ICO_JUMPZERO2		As ICO_JUMPZERO but add 1 to the stack (required for many 'AND' conditions)
-* ICO_JUMPONE2		As ICO_JUMPONE but add 1 to the stack (required for many 'OR' conditions)
+ICO_JUMP		Set PC to new value from the IR 
+ICO_JUMPZERO		If Stack[nSize] is a number = 0 then Set PC to new value from the IR 
+ICO_JUMPFOR		End of for loop
+ICO_JUMPONE		If Stack[nSize] is a number = 1 then Set PC to new value from the IR 
+ICO_JUMPZERO2		As ICO_JUMPZERO but add 1 to the stack (required for many 'AND' conditions)
+ICO_JUMPONE2		As ICO_JUMPONE but add 1 to the stack (required for many 'OR' conditions)
 =======================	============================================================================
 
 (Compare)
@@ -591,12 +591,12 @@ Operation			Description
 =======================	==========================================================================================================
 Operation			Description
 =======================	==========================================================================================================
-* ICO_LESSEQUAL		If stack[nSize-1] <= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
-* ICO_EQUAL		If stack[nSize-1] = stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
-* ICO_LESS		If stack[nSize-1] < stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
-* ICO_GREATER		If stack[nSize-1] > stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
-* ICO_GREATEREQUAL	If stack[nSize-1] >= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
-* ICO_NOTEQUAL		If stack[nSize-1] != stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_LESSEQUAL		If stack[nSize-1] <= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_EQUAL		If stack[nSize-1] = stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_LESS		If stack[nSize-1] < stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_GREATER		If stack[nSize-1] > stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_GREATEREQUAL	If stack[nSize-1] >= stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
+ICO_NOTEQUAL		If stack[nSize-1] != stack[nSize] , POP stack[nSize], set Stack[nSize-1] = 1 else set Stack[nSize-1] = 0
 =======================	==========================================================================================================
 
 (Math)
@@ -604,14 +604,14 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_SUM		Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]
-* ICO_SUB		Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]
-* ICO_MUL		Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]
-* ICO_DIV		Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]
-* ICO_MOD		Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]
-* ICO_NEG		Stack[nSize] = - Stack[nSize-1]
-* ICO_PLUSPLUS		Stack[nSize] = Stack[nSize] + 1
-* ICO_MINUSMINUS	Stack[nSize] = Stack[nSize] - 1
+ICO_SUM			Stack[nSize-1] = Stack[nSize-1] + Stack[nSize] , POP stack[nSize]
+ICO_SUB			Stack[nSize-1] = Stack[nSize-1] - Stack[nSize] , POP stack[nSize]
+ICO_MUL			Stack[nSize-1] = Stack[nSize-1] * Stack[nSize] , POP stack[nSize]
+ICO_DIV			Stack[nSize-1] = Stack[nSize-1] / Stack[nSize] , POP stack[nSize]
+ICO_MOD			Stack[nSize-1] = Stack[nSize-1] % Stack[nSize] , POP stack[nSize]
+ICO_NEG			Stack[nSize] = - Stack[nSize-1]
+ICO_PLUSPLUS		Stack[nSize] = Stack[nSize] + 1
+ICO_MINUSMINUS		Stack[nSize] = Stack[nSize] - 1
 =======================	============================================================================
 
 (Logic)
@@ -619,9 +619,9 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_AND		Stack[nSize-1] = Stack[nSize-1] && Stack[nSize] , POP stack[nSize]
-* ICO_OR		Stack[nSize-1] = Stack[nSize-1] || Stack[nSize] , POP stack[nSize]
-* ICO_NOT		Stack[nSize]   = ! Stack[nSize]  
+ICO_AND			Stack[nSize-1] = Stack[nSize-1] && Stack[nSize] , POP stack[nSize]
+ICO_OR			Stack[nSize-1] = Stack[nSize-1] || Stack[nSize] , POP stack[nSize]
+ICO_NOT			Stack[nSize]   = ! Stack[nSize]  
 =======================	============================================================================
 
 (Lists)
@@ -629,10 +629,10 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_LISTSTART		Start New List in Temp. Memory
-* ICO_LISTITEM		Add List Item
-* ICO_LISTEND		End List
-* ICO_LOADINDEXADDRESS	Stack[nSize-1] = Stack[nSize-1] VV [ Stack[nSize] ] , POP stack[nSize]
+ICO_LISTSTART		Start New List in Temp. Memory
+ICO_LISTITEM		Add List Item
+ICO_LISTEND		End List
+ICO_LOADINDEXADDRESS	Stack[nSize-1] = Stack[nSize-1] VV [ Stack[nSize] ] , POP stack[nSize]
 =======================	============================================================================
 
 (Functions)
@@ -640,18 +640,18 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_LOADFUNC		Find function
-* ICO_CALL		Call function
-* ICO_RETURN		Return from function
-* ICO_RETNULL		Return NULL from function
-* ICO_RETFROMEVAL	Return after eval() 
-* ICO_RETITEMREF	Return the list item reference - not the value
-* ICO_NEWFUNC		Start new function
-* ICO_BLOCKFLAG		Flag to determine where to jump later (after ICO_RETURN)
-* ICO_FUNCEXE		Start executing function
-* ICO_ENDFUNCEXE	End function execution
-* ICO_ANONYMOUS		Anonymous function
-* ICO_FREETEMPLISTS	Delete temp. lists
+ICO_LOADFUNC		Find function
+ICO_CALL		Call function
+ICO_RETURN		Return from function
+ICO_RETNULL		Return NULL from function
+ICO_RETFROMEVAL		Return after eval() 
+ICO_RETITEMREF		Return the list item reference - not the value
+ICO_NEWFUNC		Start new function
+ICO_BLOCKFLAG		Flag to determine where to jump later (after ICO_RETURN)
+ICO_FUNCEXE		Start executing function
+ICO_ENDFUNCEXE		End function execution
+ICO_ANONYMOUS		Anonymous function
+ICO_FREETEMPLISTS	Delete temp. lists
 =======================	============================================================================
 
 (User Interface)
@@ -659,8 +659,8 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_PRINT		Print value to the standard output
-* ICO_GIVE		Get input from the keyboard
+ICO_PRINT		Print value to the standard output
+ICO_GIVE		Get input from the keyboard
 =======================	============================================================================
 
 (End Program/Loop)
@@ -668,11 +668,11 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_BYE		End execution of VM
-* ICO_EXITMARK		Place to exit to from a loop	
-* ICO_POPEXITMARK	Remove exit mark
-* ICO_EXIT		Break from one loop or more 
-* ICO_LOOP		Continue to next loop 
+ICO_BYE			End execution of VM
+ICO_EXITMARK		Place to exit to from a loop	
+ICO_POPEXITMARK		Remove exit mark
+ICO_EXIT		Break from one loop or more 
+ICO_LOOP		Continue to next loop 
 =======================	============================================================================
 
 (For Better Performance)
@@ -680,19 +680,19 @@ Operation			Description
 ========================	============================================================================
 Operation			Description
 ========================	============================================================================
-* ICO_PUSHP			Push pointer to the stack
-* ICO_INCP			Increment variable value using pointer
-* ICO_PUSHPV			Push value of variable using variable pointer
-* ICO_INCJUMP			Increment then jump
-* ICO_INCPJUMP			Increment using pointer then jump
-* ICO_JUMPVARLENUM		Jump if variable value is <= numeric value
-* ICO_JUMPVARPLENUM		Jump if variable value (using pointer) <= numeric value 
-* ICO_LOADFUNCP			Push function pointer
-* ICO_PUSHPLOCAL		Push pointer to local variable
-* ICO_INCLPJUMP			Increment value using pointer to local variable then jump
-* ICO_JUMPVARLPLENUM		Jump if the variable value (using pointer) <= numeric value
-* ICO_INCPJUMPSTEP1	 	Increment value using variable pointer then jump (for loop step = 1)
-* ICO_JUMPVARPLENUMSTEP1	Increment value using variable pointer then jump (for loop step = 1)
+ICO_PUSHP			Push pointer to the stack
+ICO_INCP			Increment variable value using pointer
+ICO_PUSHPV			Push value of variable using variable pointer
+ICO_INCJUMP			Increment then jump
+ICO_INCPJUMP			Increment using pointer then jump
+ICO_JUMPVARLENUM		Jump if variable value is <= numeric value
+ICO_JUMPVARPLENUM		Jump if variable value (using pointer) <= numeric value 
+ICO_LOADFUNCP			Push function pointer
+ICO_PUSHPLOCAL			Push pointer to local variable
+ICO_INCLPJUMP			Increment value using pointer to local variable then jump
+ICO_JUMPVARLPLENUM		Jump if the variable value (using pointer) <= numeric value
+ICO_INCPJUMPSTEP1	 	Increment value using variable pointer then jump (for loop step = 1)
+ICO_JUMPVARPLENUMSTEP1		Increment value using variable pointer then jump (for loop step = 1)
 ========================	============================================================================
 
 (Try-Catch-Done)
@@ -700,8 +700,8 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_TRY		Start try region
-* ICO_DONE		End try region
+ICO_TRY			Start try region
+ICO_DONE		End try region
 =======================	============================================================================
 
 (Duplicate and Range)
@@ -709,8 +709,8 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_DUPLICATE		Duplicate stack value
-* ICO_RANGE		Create list from value to value
+ICO_DUPLICATE		Duplicate stack value
+ICO_RANGE		Create list from value to value
 =======================	============================================================================
 
 (OOP)
@@ -718,19 +718,19 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_NEWOBJ		Create new object, get class name from the IR, push object pointer to the stack.
-* ICO_SETSCOPE		Called after creating new object, set the active scope to be the object scope.
-* ICO_LOADSUBADDRESS	Get object attribute, push the pointer to the stack.
-* ICO_LOADMETHOD	Find object method 
-* ICO_AFTERCALLMETHOD	Used after calling a method - normal case
-* ICO_AFTERCALLMETHOD2  Used after calling a method - second case
-* ICO_NEWCLASS		Start new class region
-* ICO_BRACESTART	Open brace
-* ICO_BRACEEND		End brace
-* ICO_IMPORT		Import package
-* ICO_PRIVATE		start private attributes region
-* ICO_SETPROPERTY	set attribute value - check for setter.	
-* ICO_CALLCLASSINIT	call class init() method.
+ICO_NEWOBJ		Create new object, get class name from the IR, push object pointer to the stack.
+ICO_SETSCOPE		Called after creating new object, set the active scope to be the object scope.
+ICO_LOADSUBADDRESS	Get object attribute, push the pointer to the stack.
+ICO_LOADMETHOD		Find object method 
+ICO_AFTERCALLMETHOD	Used after calling a method - normal case
+ICO_AFTERCALLMETHOD2	Used after calling a method - second case
+ICO_NEWCLASS		Start new class region
+ICO_BRACESTART		Open brace
+ICO_BRACEEND		End brace
+ICO_IMPORT		Import package
+ICO_PRIVATE		start private attributes region
+ICO_SETPROPERTY		set attribute value - check for setter.	
+ICO_CALLCLASSINIT	call class init() method.
 =======================	============================================================================
 
 (Other)
@@ -738,10 +738,10 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_SETREFERENCE	Copy by reference
-* ICO_KILLREFERENCE	Remove reference
-* ICO_ASSIGNMENTPOINTER Determine the left side variable
-* ICO_BEFOREEQUAL	Determine operators like += , -= , ... etc
+ICO_SETREFERENCE	Copy by reference
+ICO_KILLREFERENCE	Remove reference
+ICO_ASSIGNMENTPOINTER 	Determine the left side variable
+ICO_BEFOREEQUAL		Determine operators like += , -= , ... etc
 =======================	============================================================================
 
 (Bitwise Operators)
@@ -749,12 +749,12 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_BITAND		Stack[nSize-1] = Stack[nSize-1] & Stack[nSize] , POP stack[nSize]
-* ICO_BITOR		Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]
-* ICO_BITXOR		Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
-* ICO_BITNOT		Stack[nSize] = ! Stack[nSize] 
-* ICO_BITSHL		Stack[nSize-1] = Stack[nSize-1] << Stack[nSize] , POP stack[nSize]
-* ICO_BITSHR		Stack[nSize-1] = Stack[nSize-1] >> Stack[nSize] , POP stack[nSize]
+ICO_BITAND		Stack[nSize-1] = Stack[nSize-1] & Stack[nSize] , POP stack[nSize]
+ICO_BITOR		Stack[nSize-1] = Stack[nSize-1] | Stack[nSize] , POP stack[nSize]
+ICO_BITXOR		Stack[nSize-1] = Stack[nSize-1] ^ Stack[nSize] , POP stack[nSize]
+ICO_BITNOT		Stack[nSize] = ! Stack[nSize] 
+ICO_BITSHL		Stack[nSize-1] = Stack[nSize-1] << Stack[nSize] , POP stack[nSize]
+ICO_BITSHR		Stack[nSize-1] = Stack[nSize-1] >> Stack[nSize] , POP stack[nSize]
 =======================	============================================================================
 
 (For Step)
@@ -762,9 +762,9 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_STEPNUMBER	Determine step number in for loop
-* ICO_POPSTEP		POP step number from steps stack
-* ICO_LOADAFIRST	Load the first address of variable name 
+ICO_STEPNUMBER		Determine step number in for loop
+ICO_POPSTEP		POP step number from steps stack
+ICO_LOADAFIRST		Load the first address of variable name 
 =======================	============================================================================
 
 (Custom Global Scope)
@@ -772,8 +772,8 @@ Operation			Description
 =======================	============================================================================
 Operation			Description
 =======================	============================================================================
-* ICO_NEWGLOBALSCOPE	Start new custom global scope - used by 'load package' command
-* ICO_ENDGLOBALSCOPE	End of custom global scope - used by 'load package' command
-* ICO_SETGLOBALSCOPE	Set the current global scope 
+ICO_NEWGLOBALSCOPE	Start new custom global scope - used by 'load package' command
+ICO_ENDGLOBALSCOPE	End of custom global scope - used by 'load package' command
+ICO_SETGLOBALSCOPE	Set the current global scope 
 =======================	============================================================================
 
