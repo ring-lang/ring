@@ -2024,22 +2024,22 @@ Example:
 		new qMenu(win) {
 			oAction = new qAction(win) {
 				settext("new")
-				SetCLickevent("See :New")
+				setClickEvent("See :New")
 			}
 			addaction(oAction)
 			oAction = new qAction(win) {
 				settext("open")
-				SetCLickevent("See :Open")
+				setClickEvent("See :Open")
 			}
 			addaction(oAction)
 			oAction = new qAction(win) {
 				settext("save")
-				SetCLickevent("See :Save")
+				setClickEvent("See :Save")
 			}
 			addaction(oAction)
 			oAction = new qAction(win) {
 				settext("close")
-				SetCLickevent("See :Close")
+				setClickEvent("See :Close")
 			}
 			addaction(oAction)
 			oCursor  = new qCursor()
