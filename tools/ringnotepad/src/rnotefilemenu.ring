@@ -93,8 +93,13 @@ class RNoteFileMenu
 		aCode = str2list(cCode)
 		cFileName = FileNameEncoding(cFileName)
 		fp = fopen(cFileName,"wb")
+		if isWindows()
+			aLineFeed = char(13)+char(10)
+		else
+			aLineFeed = char(10)
+		ok
 		for cLine in aCode
-			fwrite(fp,cLine+char(13)+char(10))
+			fwrite(fp,cLine+aLineFeed)
 		next
 		fclose(fp)
 
