@@ -153,8 +153,30 @@ The Code Runner Extension added support for the Ring programming language
 .. image:: coderunner.png
 	:alt: coderunner
 
+After installing Code Runner
+
+It's recommended to modify this file : 
+
+C:/Users/YOURUSERNAME/.vscode/extensions/formulahendry.code-runner-0.11.6/package.json
+
+Set the property (code-runner.fileDirectoryAsCwd) to (True)
+
+So Code Runner can move to the file directory when we run it using (Ctrl+Alt+N)
+
+.. code-block:: none
+
+	"code-runner.fileDirectoryAsCwd": {
+		"type": "boolean",
+		"default": true,
+		"description": "Whether to use the directory of the file to be executed as the working directory.",
+		"scope": "resource"
+	},
+
+
 .. tip:: Check ring/tools/editors/vscode folder to support Ring in VSCode
 
+.. image:: tetrisvscode.png
+	:alt: tetrisvscode
 
 .. index:: 
 	pair: What is new in Ring 1.16?; Zero and Strings

@@ -382,10 +382,24 @@ fopen()
 <p>If you are using Microsoft Visual Studio Code, We have good news for you!</p>
 <p>The Code Runner Extension added support for the Ring programming language</p>
 <img alt="coderunner" src="_images/coderunner.png" />
+<p>After installing Code Runner</p>
+<p>It’s recommended to modify this file :</p>
+<p>C:/Users/YOURUSERNAME/.vscode/extensions/formulahendry.code-runner-0.11.6/package.json</p>
+<p>Set the property (code-runner.fileDirectoryAsCwd) to (True)</p>
+<p>So Code Runner can move to the file directory when we run it using (Ctrl+Alt+N)</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&quot;code-runner.fileDirectoryAsCwd&quot;: {
+        &quot;type&quot;: &quot;boolean&quot;,
+        &quot;default&quot;: true,
+        &quot;description&quot;: &quot;Whether to use the directory of the file to be executed as the working directory.&quot;,
+        &quot;scope&quot;: &quot;resource&quot;
+},
+</pre></div>
+</div>
 <div class="admonition tip">
 <p class="admonition-title">Tip</p>
 <p>Check ring/tools/editors/vscode folder to support Ring in VSCode</p>
 </div>
+<img alt="tetrisvscode" src="_images/tetrisvscode.png" />
 </div>
 <div class="section" id="zero-and-strings">
 <span id="index-6"></span><h2>Zero and Strings<a class="headerlink" href="#zero-and-strings" title="Permalink to this headline">¶</a></h2>
