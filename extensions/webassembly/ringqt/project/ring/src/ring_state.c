@@ -273,6 +273,7 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	char cStartup[30]  ;
 	int x,nSize  ;
 	char cFileName2[200]  ;
+	char cCurrentDir[RING_PATHSIZE]  ;
 	ring_state_log(pRingState,"function ring_state_runfile()");
 	/* Check file */
 	if ( pRingState->pRingFilesList == NULL ) {
@@ -302,21 +303,10 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	}
 	/* Switch To File Folder */
 	strcpy(cFileName2,cFileName);
-	#ifdef _WIN32
-		if ( nFreeFilesList == 0 ) {
-			fp = ring_custom_fopen(cFileName , "r");
-			ring_general_switchtofilefolder(cFileName2);
-		}
-		else {
-			fp = RING_OPENFILE(cFileName , "r");
-		}
-	#else
-		fp = RING_OPENFILE(cFileName , "r");
-		/* Avoid switching if it's the first file */
-		if ( nFreeFilesList == 0 ) {
-			ring_general_switchtofilefolder(cFileName2);
-		}
-	#endif
+	fp = ring_custom_fopen(cFileName , "r");
+	if ( nFreeFilesList == 0 ) {
+		ring_general_switchtofilefolder(cFileName2);
+	}
 	/* Read File */
 	if ( fp==NULL ) {
 		printf( "\nCan't open file %s \n",cFileName ) ;
