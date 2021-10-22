@@ -104,10 +104,13 @@ class RNoteFileMenu
 		fclose(fp)
 
 	func FileNameEncoding cFileName
-		if isWindows()
-			oString = new qString2()
-			oString.Append(cFileName)
-			return oString.tolocal8bit().data()
+	    # Starting from Ring 1.16 - We don't need this function
+		if number(version()) <= 1.15
+			if isWindows()
+				oString = new qString2()
+				oString.Append(cFileName)
+				return oString.tolocal8bit().data()
+			ok
 		ok
 		return cFileName
 
