@@ -17,7 +17,8 @@ Ring 1.16 comes with the next features!
 
 * Light GUILib 
 * UTF-8 File Names in Microsoft Windows
-* Nested methods call in separate lines
+* Nested Methods Call in Separate Lines
+* Zero and Strings
 * Better Installation Scripts
 * Better Documentation
 * MDI Windows Sample
@@ -91,9 +92,9 @@ Example:
 	? read("مرحبا.txt")
 
 .. index:: 
-	pair: What is new in Ring 1.16?; Nested methods call in separate lines
+	pair: What is new in Ring 1.16?; Nested Methods Call in Separate Lines
 
-Nested methods call in separate lines
+Nested Methods Call in Separate Lines
 =====================================
 
 In Ring 1.16, the Compiler support adding new lines after the method call and before the dot operator
@@ -136,6 +137,66 @@ Output:
 	Two
 	Three
 	Go!
+
+.. index:: 
+	pair: What is new in Ring 1.16?; Zero and Strings
+
+Zero and Strings
+================
+
+From Ring 1.0, the language do implicit conversion between numbers and strings
+
+This is useful when we mix them in some situations like printing something on the screen
+
+.. code-block:: ring
+
+	x = 10		# Number
+	? "x = " + x 	# x converted from Number to String 
+
+Also we can do arithmetic operations
+
+.. code-block:: ring
+
+	x = "10"	# String
+	? 5 + x		# x converted from String to Number
+
+The question is What happens if x content is not a number?
+
+The answer : The result of the conversion will be (Zero)
+
+.. code-block:: ring
+
+	x = "Test"	# String - The content is not a number
+	? 5 + x		# print (5) - x converted from String to Number (Zero)
+
+The other operators like "=" and "!=" do the conversion too
+
+Starting from Ring 1.16, They will be careful when we compare things to Zero
+
+Example: 
+
+.. code-block:: ring
+
+	x = "Test"
+	? 0 = x		# The result will be FALSE
+	? 0 != x	# The result will be TRUE
+
+This is useful when we compare between values inside Empty Lists and Strings 
+
+.. code-block:: ring
+
+	aList = list(10)	# 10 items - Each item is Zero
+	? aList[1] + 5		# print (5)
+	? aList[1] = "Test"	# False
+	? aList[1] = 0		# True
+
+The other values (Not Zero) will follow the normal conversion rules
+
+.. code-block:: ring
+
+	x = "5"
+	? 5  = x	# True
+	? 6 != x	# True
 
 .. index:: 
 	pair: What is new in Ring 1.16?; Better Installation Scripts
