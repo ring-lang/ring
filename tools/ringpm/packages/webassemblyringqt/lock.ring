@@ -2,14 +2,14 @@ aLockInfo = [
 	[
 		:name = "webassemblyringqt",
 		:branch = "master",
-		:version = "1.0.2",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.11",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -17,6 +17,27 @@ aLockInfo = [
 		:name = "ringopenssl",
 		:branch = "master",
 		:version = "1.0.4",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "ringcurl",
+		:branch = "master",
+		:version = "1.0.6",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "codegen",
+		:branch = "master",
+		:version = "1.0.8",
+		:providerusername = "ringpackages",
+		:providerwebsite = ""
+	],
+	[
+		:name = "internetlib",
+		:branch = "master",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -31,13 +52,6 @@ aLockInfo = [
 		:name = "codegen",
 		:branch = "master",
 		:version = "1.0.4",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "internetlib",
-		:branch = "master",
-		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
