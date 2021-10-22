@@ -116,7 +116,7 @@ Ring 1.14 is released on January 25, 2021
 
 Ring 1.15 is released on September 24, 2021 
 
-Ring 1.16 is under development!
+Ring 1.16 is released on October 23, 2021
 
 .. index:: 
 	pair: Introduction; Features
