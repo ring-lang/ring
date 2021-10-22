@@ -3,6 +3,9 @@
 **  Include Files 
 */
 #include "ring.h"
+#ifdef _WIN32
+	#include <windows.h>
+#endif
 /* General Functions */
 
 int ring_general_fexists ( const char *cFileName )

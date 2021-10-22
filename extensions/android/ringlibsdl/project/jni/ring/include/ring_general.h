@@ -7,7 +7,6 @@
 	/* Windows only */
 	#include <direct.h>
 	#define GetCurrentDir _getcwd
-	#include <windows.h>
 #else
 	#include <unistd.h>
 	#define GetCurrentDir getcwd
