@@ -71,11 +71,7 @@ UTF-8 File Names in Microsoft Windows
 
 In Ring 1.16, The Load command support using UTF-8 in the file name.
 
-Example:
-
-.. code-block:: ring
-
-	load "مرحبا.ring"
+For example, We can write Arabic letters in the File Name!
 
 Also the next functions support this feature
 
@@ -84,13 +80,6 @@ Also the next functions support this feature
 	read()
 	write()
 	fopen()
-
-Example:
-
-.. code-block:: ring
-
-	write("مرحبا.txt","Hello, World!")
-	? read("مرحبا.txt")
 
 .. index:: 
 	pair: What is new in Ring 1.16?; Nested Methods Call in Separate Lines
