@@ -18,6 +18,7 @@ Ring 1.16 comes with the next features!
 * Light GUILib 
 * UTF-8 File Names in Microsoft Windows
 * Nested Methods Call in Separate Lines
+* Code Runner Extension support Ring
 * Zero and Strings
 * Better Installation Scripts
 * Better Documentation
@@ -137,6 +138,23 @@ Output:
 	Two
 	Three
 	Go!
+
+
+.. index:: 
+	pair: What is new in Ring 1.16?; Code Runner Extension support Ring
+
+Code Runner Extension support Ring
+==================================
+
+If you are using Microsoft Visual Studio Code, We have good news for you!
+
+The Code Runner Extension added support for the Ring programming language
+
+.. image:: coderunner.png
+	:alt: coderunner
+
+.. tip:: Check ring/tools/editors/vscode folder to support Ring in VSCode
+
 
 .. index:: 
 	pair: What is new in Ring 1.16?; Zero and Strings
