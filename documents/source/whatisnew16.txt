@@ -16,7 +16,7 @@ List of changes and new features
 Ring 1.16 comes with the next features!
 
 * Light GUILib 
-* Better Load Command
+* UTF-8 File Names in Microsoft Windows
 * Nested methods call in separate lines
 * Better Installation Scripts
 * Better Documentation
@@ -62,10 +62,10 @@ So we can distribute these GUI applications using an installer less than 10 MB
 
 
 .. index:: 
-	pair: What is new in Ring 1.16?; Better Load Command 
+	pair: What is new in Ring 1.16?; UTF-8 File Names in Microsoft Windows
 
-Better Load Command 
-===================
+UTF-8 File Names in Microsoft Windows
+=====================================
 
 In Ring 1.16, The Load command support using UTF-8 in the file name.
 
@@ -74,6 +74,21 @@ Example:
 .. code-block:: ring
 
 	load "مرحبا.ring"
+
+Also the next functions support this feature
+
+.. code-block:: none
+
+	read()
+	write()
+	fopen()
+
+Example:
+
+.. code-block:: ring
+
+	write("مرحبا.txt","Hello, World!")
+	? read("مرحبا.txt")
 
 .. index:: 
 	pair: What is new in Ring 1.16?; Nested methods call in separate lines
