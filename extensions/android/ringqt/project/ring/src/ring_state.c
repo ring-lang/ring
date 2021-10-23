@@ -303,9 +303,12 @@ RING_API int ring_state_runfile ( RingState *pRingState,char *cFileName )
 	}
 	/* Switch To File Folder */
 	strcpy(cFileName2,cFileName);
-	fp = ring_custom_fopen(cFileName , "r");
 	if ( nFreeFilesList == 0 ) {
+		fp = ring_custom_fopen(cFileName , "r");
 		ring_general_switchtofilefolder(cFileName2);
+	}
+	else {
+		fp = RING_OPENFILE(cFileName , "r");
 	}
 	/* Read File */
 	if ( fp==NULL ) {
