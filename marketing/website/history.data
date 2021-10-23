@@ -1,4 +1,5 @@
 aNews = [
+  ["October 23, 2021",'<a href="doc1.16/whatisnew16.html" target="_blank"> Ring 1.16 Released!</a>'],
   ["October 4, 2021",'<a href="http://ring-lang-081.osdn.jp/docs-1.15/index.html" target="_blank"> Ring 1.15 Documentation (Japanese)</a>'],
   ["September 24, 2021",'<a href="doc1.15/whatisnew15.html" target="_blank"> Ring 1.15 Released!</a>'],
   ["August 20, 2021",'<a href="https://www.youtube.com/watch?v=jdgzpQbcHGQ&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT&index=402" target="_blank"> Over 400 videos about Ring in Hassouna Academy'],
