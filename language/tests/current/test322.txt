@@ -1,1 +1,1 @@
-B:\ring\language\tests\scripts\general/filenameinclassregion2.ring
+True
