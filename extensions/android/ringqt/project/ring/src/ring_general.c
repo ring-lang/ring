@@ -40,6 +40,11 @@ int ring_general_exefilename ( char *cDirPath )
 	#elif __MACH__
 		/* Mac OS X */
 		_NSGetExecutablePath(cDirPath,&nSize);
+		char *cCorrectPath = realpath(cDirPath,NULL) ;
+		if ( cCorrectPath != NULL ) {
+			strncpy(cDirPath,cCorrectPath,nSize) ;
+			free(cCorrectPath) ;
+		}
 	#elif __linux__
 		/* readlink() doesn't null terminate */
 		memset(cDirPath,0,nSize);
