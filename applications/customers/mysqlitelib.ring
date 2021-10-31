@@ -18,7 +18,7 @@ func check_con
 
 	if not lConnected
 		see aLANGUAGE[:ERROR]+nl+
-		aLANGUAGE[:USE] + " 'sqlite_connect_now()' in file main.ing"
+		aLANGUAGE[:USE] + " 'sqlite_connect_now()' in file main.ring"
 		return 0
 	ok
 
@@ -78,7 +78,7 @@ func sqlite_gener_id
 func getClCount
 	return sqlite_get("SELECT COUNT(*) FROM clients")[1][1][2]
 
-# fill the current table from a database table and inisialize currentrow to 0
+# fill the current table from a database table and initialize current row to 0
 func sqlite_fill_table oTable,select
 
 	if not check_con() bye ok
