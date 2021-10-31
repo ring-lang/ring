@@ -686,7 +686,7 @@ return enumNew
 Func Memo()
     win2 = new qWidget() 
     {
-        setwindowtitle("History Of Ring Calcuator")
+        setwindowtitle("History Of Ring Calculator")
         setwindowmodality(false)
         setparent(win1)
         setwinicon(self,"images/calc.png")
