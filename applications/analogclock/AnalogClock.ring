@@ -265,5 +265,5 @@ return
 
 func analogClock
         oScaledImage = image.scaled(WinWidth-16 , WinHeight-38 ,0,0)
-        imageClock.setpixmap(oScaledImage)   ### Size-H, Siz-V, Aspect, Transform
+        imageClock.setpixmap(oScaledImage)   ### Size-H, Size-V, Aspect, Transform
 return
