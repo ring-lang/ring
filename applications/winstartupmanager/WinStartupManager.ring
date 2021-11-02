@@ -1,7 +1,7 @@
 /*
 App Name	: Win Startup Manager
 Description	: This application let you control Windows startup programs entries by Adding, Editing, or Deleting them
-Auther 	: Majdi Sobain <Majdi.Sobain@Gmail.com>
+Author 	: Majdi Sobain <Majdi.Sobain@Gmail.com>
 
 			(c) 2017
 */
@@ -209,7 +209,7 @@ Func EditProgram ID, aname, apath, ausers
 			Done
 			CloseKey()
 		}
-	else		# if the place of entry save changed		Note: if program deactive place will not change
+	else		# if the place of entry save changed		Note: if program deactivate place will not change
 		# Delete previous entry
 		New RCRegistry {
 			Try
@@ -319,7 +319,7 @@ Func ImportEntries
 	inPutLst = Read(cName)
 	if not substr(inPutLst, "\Run]") AND not substr(inPutLst, "WinStartupManager")
 		new qMessageBox(WinObj.oView.win) {
-					Warning(self, "Invalid Backup", "You have seleceted an invalid backup.", QMessageBox_OK, QMessageBox_NoButton)
+					Warning(self, "Invalid Backup", "You have selected an invalid backup.", QMessageBox_OK, QMessageBox_NoButton)
 			}
 		return 0
 	ok
