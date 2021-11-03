@@ -1,7 +1,7 @@
 /*
-  Application:My first application.
-  Auther:Abdulwahab Benkher.
-   Date:2018.9.28
+  Application : My first application.
+  Author      : Abdulwahab Benkher.
+  Date        : 2018.9.28
 
 */
 
