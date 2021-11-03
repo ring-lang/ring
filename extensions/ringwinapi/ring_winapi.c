@@ -39,7 +39,7 @@ Ext. Rules : There are some rules that have been followed in here to make this l
 /*
 Function Name : rwaGetErrorMsg
 Func. Purpose : Return System error message
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 LPSTR rwaGetErrorMsg(LONG ErrorId , LPTSTR pMsg, size_t pMsgsize){
     LPSTR pBuffer = NULL;
@@ -67,7 +67,7 @@ LPSTR rwaGetErrorMsg(LONG ErrorId , LPTSTR pMsg, size_t pMsgsize){
 /*
 Function Name : IsRunAsAdmin
 Func. Purpose : Return (1) if current program is elevated, (0) if not, or (-1) if there's error during checking
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : Created with help from SpaceWorm's post at http://www.cplusplus.com/forum/windows/101207/
 */
 char IsRunAsAdmin(){
@@ -132,7 +132,7 @@ Function Name : rwaIsRunAsAdmin
 Func. Purpose : Check whether this process (ring.exe) is running as administrator or not
 Func. Params  : () Nothing
 Func. Return  : True or False
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 RING_FUNC(ring_winapi_rwaisrunasadmin) {
 	
@@ -166,7 +166,7 @@ Func. Purpose : Elevate to ask administrator rights for the process
 Func. Params  : Either (String exepath) for running a particular app as administrator
 				/Or/   (String exepath, String params) to run a particular app with some parameters
 Func. Return  : Nothing
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : Created with help from SpaceWorm's post at http://www.cplusplus.com/forum/windows/101207/
 */
 RING_FUNC(ring_winapi_rwaelevate) {
@@ -244,7 +244,7 @@ Function Name : rShellExecute
 Func. Purpose : Execute\Open an application or file with specific action
 Func. Params  : (HWND hwnd, LPCSTR lpOperation, LPCSTR lpFile, LPCSTR lpParameters, LPCSTR lpDirectory, INT nShowCmd)
 Func. Return  : the value that returned by ShellExecute() function
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 RING_FUNC(ring_winapi_rshellexecute) {
 	HWND hwnd = NULL;
@@ -312,7 +312,7 @@ Function Name : rwaIsWow64Process
 Func. Purpose : Check whether this process (ring.exe) is a Wow64 process or not
 Func. Params  : () Nothing
 Func. Return  : (1) if True or (0) if False or (-1) if function failed
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 RING_FUNC(ring_winapi_rwaiswow64process) {
 	typedef BOOL (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL);
@@ -357,7 +357,7 @@ Function Name : rwaUserSID
 Func. Purpose : Return User SID
 Func. Params  : Either (HANDLE handle) of a process /Or/ () Nothing for the current process
 Func. Return  : User SID in a string format
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : Created with help from Rose's post at http://www.codeexperts.com/showthread.php?1220-Getting-a-user-SID-in-term-of-string-from-a-process-handle-process-id
 */
 RING_FUNC(ring_winapi_rwausersid) { 
@@ -422,7 +422,7 @@ Func. Purpose : Return user name according to the passed process
 				Note: if no parameter passed it will retrieve current user name
 Func. Params  : Either (HANDLE handle) of a process /Or/ () Nothing for the current process
 Func. Return  : User name in a string format
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/windows/desktop/aa379166(v=vs.85).aspx
 Minimum supported Win client\server : XP(Desktop_apps)\Server2003(Desktop_apps)
 */
@@ -501,7 +501,7 @@ Func. Purpose : Return the string error message from the passed error code
 Func. Params  : Either (Number ID) to return a message in English
 				/Or/ (Number ID, BOOL allowlocale) to return a message in the user locale
 Func. Return  : Error message
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 */
 RING_FUNC(ring_winapi_rwasyserrormsg) {
 	BOOL allowlocale = FALSE;
@@ -569,7 +569,7 @@ Function Name : rGetLastError
 Func. Purpose : Return the last error code
 Func. Params  : ---
 Func. Return  : Error code
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/ms679360.aspx
 Minimum supported Win client\server\phone : XP\Server2003\Phone8
 */
@@ -589,7 +589,7 @@ Function Name : rWow64EnableWow64FsRedirection
 Func. Purpose : Enable or Disable file system redirection under Wow64 environment
 Func. Params  : True for enabling and False for disabling
 Func. Return  : True if succeed or False if not
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/aa365744.aspx
 Minimum supported Win client\server : Vista(Desktop_apps)\Server2003(Desktop_apps)
 */
@@ -618,7 +618,7 @@ Func. Return  : Pointer to data that should be passed to rwaRevertWow64FsRedirec
 				if you want to re-enable redirection
 				Note: This function must not be used with rWow64EnableWow64FsRedirection() function
 					at the same time
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/aa365743.aspx
 Minimum supported Win client\server :  XP_Pro_x64(Desktop_apps)\Server2003SP1(Desktop_apps)
 */
@@ -650,7 +650,7 @@ Func. Params  : Pointer to data that has been created by rwaDisableWow64FsRedire
 Func. Return  : True if revert file system redirection succeed or False if not
 				Note: This function must not be used with rWow64EnableWow64FsRedirection() function
 					at the same time
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/aa365743.aspx
 Minimum supported Win client\server :  XP_Pro_x64(Desktop_apps)\Server2003SP1(Desktop_apps)
 */
@@ -685,7 +685,7 @@ Function Name : rwaEnvirVarString
 Func. Purpose : Return the string value of system environment variables
 Func. Params  : string contains a system environment variables
 Func. Return  : String value of system environment variables
-Func. Auther  : Majdi Sobain <MajdiSobain@Gmail.com>
+Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/windows/desktop/ms724265(v=vs.85).aspx
 Minimum supported Win client\server : Win2000Pro(Desktop_apps)\Server2000(Desktop_apps)
 */

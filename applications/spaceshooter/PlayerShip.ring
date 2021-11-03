@@ -84,7 +84,7 @@ class PlayerShip from Ship
  				screenWidth * 0.8, screenHeight * 0.9, 20, GRAY)
 		
 		elseif powerShotActive		
-			DrawText("MEAG SHOT: " + ceil(5 - _powerTimer),
+			DrawText("MEGA SHOT: " + ceil(5 - _powerTimer),
  				screenWidth * 0.8, screenHeight * 0.9, 20, GRAY)
 		ok
 
