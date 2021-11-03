@@ -5,8 +5,8 @@
 
 #test 8
 mystring="welcome to ring programing language "
-mystring2='auther string'
-mystring3=`auther string`
+mystring2='author string'
+mystring3=`author string`
 mystring4=:Welcome
 chrachter ="A"
 multiString="
