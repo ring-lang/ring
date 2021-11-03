@@ -1,7 +1,7 @@
 /*
-  Application:Sum two numbers (version3).
-  Auther:Abdulwahab Benkher.
-   Date:2018.9.28
+  Application : Sum two numbers (version3).
+  Author      : Abdulwahab Benkher.
+  Date        : 2018.9.28
 
 */
 see "number1: " give number1
