@@ -1,4 +1,4 @@
-Sizteen Puzzle Game
+Sixteen Puzzle Game
 ===================
 
 Developed using Ring and RingQt.
