@@ -1,4 +1,7 @@
-// author : CalmoSoft
+# Project : CalmoSoft Sixteen Puzzle Game 
+# Date    : ---
+# Author  : Gal Zsolt (CalmoSoft)
+# Email   : ---
 
 load "guilib.ring"
 load "stdlib.ring"
