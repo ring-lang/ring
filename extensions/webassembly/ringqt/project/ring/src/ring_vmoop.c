@@ -11,7 +11,7 @@
 **  We don't check the True value, we just check that the size of the list is 4 
 **  used in ring_vmfuncs , function ring_vm_loadfunc2() 
 **  used in ring_vmvars , function ring_vm_findvar2() 
-**  pBraceObject : The list that represent the object directly (not varaible/list item) 
+**  pBraceObject : The list that represent the object directly (not variable/list item) 
 **  aBraceObjects ( pBraceObject, nSP, nListStart, pNestedLists) 
 **  aSetProperty ( Object Pointer , Type (Variable/ListItem)  , Property Name, Property Variable , nBeforeEqual) 
 */

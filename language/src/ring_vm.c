@@ -80,7 +80,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	pVM->aBraceObjects = ring_list_new_gc(pVM->pRingState,0);
 	/* Used by BraceStart, BraceEnd & FreeStack */
 	pVM->nInsideBraceFlag = 0 ;
-	/* Variable scope, where is the varaible (when we use findvar) */
+	/* Variable scope, where is the variable (when we use findvar) */
 	pVM->nVarScope = RING_VARSCOPE_NOTHING ;
 	/* Flag used by Try/Catch to tell C-API that catch happens! */
 	pVM->nActiveCatch = 0 ;

@@ -167,7 +167,7 @@ void ring_vm_gc_deletetemplists ( VM *pVM )
 	**  Function Goal 
 	**  When we return Lists/Pointers from functions we create variable called ring_sys_temp 
 	**  This variable is created in the caller temp. memory instead of the active function scope 
-	**  This is necessary because the function scope will be deleted and we need the varaible 
+	**  This is necessary because the function scope will be deleted and we need the variable 
 	**  This is important because we may assign the variable to variable name 
 	**  The problem happens when we have a loop that uses f1(f2()) 
 	**  and f2() return a lists/pointer 

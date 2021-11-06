@@ -4,7 +4,7 @@
 **  Variables 
 **  Memory is a List and each item inside the list is another List (Represent Scope) 
 **  The Variable is a List contains ( Name , Type , Value , [Pointer Type] ) 
-**  When we find varaible or create new varaible we push variable pointer to the stack 
+**  When we find variable or create new variable we push variable pointer to the stack 
 */
 
 void ring_vm_newscope ( VM *pVM )
@@ -238,7 +238,7 @@ void ring_vm_newvar ( VM *pVM,const char *cStr )
 List * ring_vm_newvar2 ( VM *pVM,const char *cStr,List *pParent )
 {
 	List *pList  ;
-	/* This function is called by all of the other functions that create new varaibles */
+	/* This function is called by all of the other functions that create new variables */
 	pList = ring_list_newlist_gc(pVM->pRingState,pParent);
 	ring_list_addstring_gc(pVM->pRingState,pList,cStr);
 	/* Determine Type based on Region */
