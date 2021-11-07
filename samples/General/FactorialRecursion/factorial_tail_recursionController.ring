@@ -57,8 +57,12 @@ facApp = new qApp {
 }
 
 func calcFac n
-
+     if n < 251
 	lblRes.setText(String(fact(n)))
+     else
+        lblRes.setText("")
+        return
+     ok
 
 func fact x 
 
