@@ -61,7 +61,6 @@ func calcFac n
 	lblRes.setText(String(fact(n)))
      else
         lblRes.setText("")
-        return
      ok
 
 func fact x 
