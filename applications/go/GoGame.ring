@@ -1,6 +1,6 @@
 # Project : CalmoSoft Simple Go Game
 # Date    : 28/10/2019
-# Update  : 17/13/2019
+# Update  : 17/12/2019
 # Author  : Gal Zsolt (~ CalmoSoft ~), Bert Mariani
 # Fix     : 24/10/2021  rgb -> fbga
 
@@ -1023,8 +1023,8 @@ return
 ###=====================================
 ### Pick a Empty Square 1..81
 ### Visit Neighbours
-###      - Touches Blank AND White  = FREE
-###      - Touches ONLY Black      = BlackTerrritory
+###      - Touchs Blank AND White  = FREE
+###      - Touches ONLY Black      = BlackTerritory
 ###      - Touches ONLY White      = WhiteTerritory
 ###
 ### aCheckNeighbour = [][]         ### 2D
