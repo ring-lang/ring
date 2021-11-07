@@ -16,7 +16,7 @@ func AssertError(testCode, testNum, whenMsg)
 	  	? "  Test" + testNum + " OK."
 	else
 		msg = "Must raise error when " + whenMsg
-		raise(TestTarget + " Test" + testNum + " faild: " + nl + msg)
+		raise(TestTarget + " Test" + testNum + " failed: " + nl + msg)
 	end
 
 Class AnyClass
