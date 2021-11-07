@@ -191,10 +191,10 @@ app = new qApp
                         setSizePolicy(1,1)
                     }
                     
-                    LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add HORZ BOTTON
+                    LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add Horizontal Button
                next
                
-               LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of ButtonS
+               LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of Buttons
             next
 
             ###------------------------------------------------              
@@ -323,7 +323,7 @@ Func PLAY()
 return         
 
 ###=================================================
-// Display  Gun and Target, Mirrors and Empty
+// Display Gun and Target, Mirrors and Empty
 // Based on aSq Array contents
 
 Func MapSqToImage()
@@ -531,7 +531,7 @@ Func CheckMirror(Row,Col)
    //===========
    
    //------------------------------
-   // EMPTY SQ  -- Add  Horz -  or Vert |  Line
+   // EMPTY SQ  -- Add Horz -  or Vert |  Line
    
    if Tilt = '0'   
        // Horizontal Line
@@ -564,7 +564,8 @@ Func CheckMirror(Row,Col)
    
    //-------------------------------------
    // ONE Mirror Backward  \ \ \ \ \
-   // CLK: N->E  E->S  S->W  W->N      CounterCLK: N<-E  E<-S  S<-W  W<-N 
+   // Clock        : N->E  E->S  S->W  W->N
+   // Counter-Clock: N<-E  E<-S  S<-W  W<-N 
    
    if Tilt = '\'   
    
@@ -573,16 +574,16 @@ Func CheckMirror(Row,Col)
       if Dir = 'W' OR Dir = 'S' 
          aSq[Row][Col] = 'b'
                
-         if  Dir = 'W'  Dir =  'N'           // clkwise
-         but Dir = 'S'  Dir =  'E'    ok     // couterclk
+         if  Dir = 'W'  Dir =  'N'           // Clockwise
+         but Dir = 'S'  Dir =  'E'    ok     // Counter-Clock
       
         // \q  Down NE
         
       but Dir = 'N' OR Dir = 'E' 
          aSq[Row][Col] = 'q'  
       
-         if  Dir = 'N'  Dir =  'W'           // couterclk
-         but Dir = 'E'  Dir =  'S'    ok     // clkwise
+         if  Dir = 'N'  Dir =  'W'           // Counter-Clock
+         but Dir = 'E'  Dir =  'S'    ok     // Clockwise
 
       ok
    ok 
@@ -597,8 +598,8 @@ Func CheckMirror(Row,Col)
       if Dir = 'E' OR Dir = 'S' 
          aSq[Row][Col] = 'd'
          
-         if  Dir = 'E'  Dir =  'N'            // couterclk
-         but Dir = 'S'  Dir =  'W'    ok      // clkwise
+         if  Dir = 'E'  Dir =  'N'            // Counter-Clock
+         but Dir = 'S'  Dir =  'W'    ok      // Clockwise
 
          
       // /p Down  NW
@@ -606,8 +607,8 @@ Func CheckMirror(Row,Col)
       but Dir = 'N' OR Dir = 'W' 
          aSq[Row][Col] = 'p'
          
-         if  Dir = 'N'  Dir =  'E'             // clkwise
-         but Dir = 'W'  Dir =  'S'    ok       // couterclk
+         if  Dir = 'N'  Dir =  'E'             // Clockwise
+         but Dir = 'W'  Dir =  'S'    ok       // Counter-Clock
          
       ok
    ok
@@ -616,7 +617,8 @@ Func CheckMirror(Row,Col)
 
    //------------------------------------------
    // TWO Mirror Backward Dn -----q\ q\ q\ q\ q\
-   // CLK: N->E  E->S  S->W  W->N      CounterCLK: N<-E  E<-S  S<-W  W<-N 
+   // Clock        : N->E  E->S  S->W  W->N
+   // Counter-Clock: N<-E  E<-S  S<-W  W<-N 
    
    if Tilt = 'q'  
    
@@ -626,16 +628,16 @@ Func CheckMirror(Row,Col)
          aSq[Row][Col] = 'X'
       ok 
       
-         if  Dir = 'S'  Dir =  'E'             // couterclk
-         but Dir = 'W'  Dir =  'N'             // clkwise
+         if  Dir = 'S'  Dir =  'E'             // Counter-Clock
+         but Dir = 'W'  Dir =  'N'             // Clockwise
          
-         but Dir = 'N'  Dir =  'W'             // path aready taken
-         but Dir = 'E'  Dir =  'S'    ok       // path aready taken
+         but Dir = 'N'  Dir =  'W'             // path already taken
+         but Dir = 'E'  Dir =  'S'    ok       // path already taken
 
    ok
    
    //-----------------------------------------
-    // TWO Mirror Backward Up -----\b \b \b \b \b
+   // TWO Mirror Backward Up -----\b \b \b \b \b
    
    if Tilt = 'b'   
    
@@ -645,19 +647,20 @@ Func CheckMirror(Row,Col)
          aSq[Row][Col] = 'X'
       ok
       
-         if  Dir = 'E'  Dir =  'S'                 // clkwise
-         but Dir = 'N'  Dir =  'W'                 // couterclk
+         if  Dir = 'E'  Dir =  'S'                 // Clockwise
+         but Dir = 'N'  Dir =  'W'                 // Counter-Clock
 
-         but  Dir = 'S'  Dir =  'E'                // path aready taken
-         but Dir = 'W'  Dir =  'N'    ok           // path aready taken
+         but  Dir = 'S'  Dir =  'E'                // path already taken
+         but Dir = 'W'  Dir =  'N'    ok           // path already taken
 
     ok
     
     //===========
    
    //-----------------------------------------
-    // Mirror Forward Up -----d/ d/ d/ d/ d/
-   // CLK: N->E  E->S  S->W  W->N      CounterCLK: N<-E  E<-S  S<-W  W<-N 
+   // Mirror Forward Up -----d/ d/ d/ d/ d/
+   // Clock        : N->E  E->S  S->W  W->N
+   // Counter-Clock: N<-E  E<-S  S<-W  W<-N 
    
    if Tilt = 'd'   
    
@@ -667,11 +670,11 @@ Func CheckMirror(Row,Col)
          aSq[Row][Col] = 'Z'
       ok 
       
-         if  Dir = 'W'  Dir =  'S'                  // couterclk
-         but Dir = 'N'  Dir =  'E'                  // clkwise
+         if  Dir = 'W'  Dir =  'S'                  // Counter-Clock
+         but Dir = 'N'  Dir =  'E'                  // Clockwise
          
-          but Dir = 'E'  Dir =  'N'                  // path aready taken
-         but Dir = 'S'  Dir =  'W'    ok            // path aready taken   
+          but Dir = 'E'  Dir =  'N'                 // path already taken
+         but Dir = 'S'  Dir =  'W'    ok            // path already taken   
       
    ok 
 
@@ -686,11 +689,11 @@ Func CheckMirror(Row,Col)
          aSq[Row][Col] = 'Z'  
       ok
       
-         if  Dir = 'S'  Dir =  'W'                  // clkwise
-         but Dir = 'E'  Dir =  'N'                  // couterclk
+         if  Dir = 'S'  Dir =  'W'                  // Clockwise
+         but Dir = 'E'  Dir =  'N'                  // Counter-Clock
          
-         but Dir = 'N'  Dir =  'E'                  // path aready taken
-         but Dir = 'W'  Dir =  'S'    ok            // path aready taken
+         but Dir = 'N'  Dir =  'E'                  // path already taken
+         but Dir = 'W'  Dir =  'S'    ok            // path already taken
          
    ok 
    
@@ -700,7 +703,8 @@ Func CheckMirror(Row,Col)
 
    //-----------------------------------------
    // Mirror X Backward ----- X X X X X 
-   // CLK: N->E  E->S  S->W  W->N      CounterCLK: N<-E  E<-S  S<-W  W<-N 
+   // Counter      : N->E  E->S  S->W  W->N
+   // Counter-Clock: N<-E  E<-S  S<-W  W<-N 
    
    if Tilt = 'X'   
    
@@ -708,10 +712,10 @@ Func CheckMirror(Row,Col)
        
          aSq[Row][Col] = 'X'
                
-         if  Dir = 'E'  Dir =  'S'                  // clkwise
-         but Dir = 'N'  Dir =  'W'                  // conterclk
-         but Dir = 'S'  Dir =  'E'                  // couterclk
-         but Dir = 'W'  Dir =  'N'    ok            // clkwise
+         if  Dir = 'E'  Dir =  'S'                  // Clockwise
+         but Dir = 'N'  Dir =  'W'                  // Counter-Clock
+         but Dir = 'S'  Dir =  'E'                  // Counter-Clock
+         but Dir = 'W'  Dir =  'N'    ok            // Clockwise
           
    ok 
 
@@ -724,10 +728,10 @@ Func CheckMirror(Row,Col)
         
          aSq[Row][Col] = 'Z'  
       
-         if  Dir = 'E'  Dir =  'N'                  // counterclk
-         but Dir = 'S'  Dir =  'W'                  // clkwise
-         but Dir = 'N'  Dir =  'E'                  // clkwise
-         but Dir = 'W'  Dir =  'S'    ok            // couterclk
+         if  Dir = 'E'  Dir =  'N'                  // Counter-Clock
+         but Dir = 'S'  Dir =  'W'                  // Clockwise
+         but Dir = 'N'  Dir =  'E'                  // Clockwise
+         but Dir = 'W'  Dir =  'S'    ok            // Counter-Clock
 
    ok 
    
@@ -791,7 +795,7 @@ Func UserLeftMouse(Row,Col)
             Button[DestX][DestY] { setStyleSheet(C_ButtonPickStyle) }    ### Yellow New Source 
             SrcX = DestX  SrcY = DestY                                   ### Change Dest to Src 
             
-            SrcDest = 'D'                                                ### Look for New Destinaltion
+            SrcDest = 'D'                                                ### Look for New Destination
             return
         ok          
     ok

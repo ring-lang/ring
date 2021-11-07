@@ -208,7 +208,7 @@ Func DrawWidget()
          Radio3 = new qRadioButton(win) { setText("13")  setToggledEvent("RadioBtnToggled()") }
          Radio4 = new qRadioButton(win) { setText("19")  setToggledEvent("RadioBtnToggled()") }
 
-         Radio5 = new qRadioButton(win) { setText("Ter")  setClickedEvent("RadioBtnClicked()") }  ### ===>>> Territoty
+         Radio5 = new qRadioButton(win) { setText("Ter")  setClickedEvent("RadioBtnClicked()") }  ### ===>>> Territory
 
          NewGame   = new QPushButton(win)
          {
@@ -1224,7 +1224,7 @@ Func FillDotOwner(Owner)
       Visit = aCheckNeighbour[i][3]
       Liberty = aLiberty[SQ]
 
-      if Liberty = Dot                 ### Libery = 0  need to be inspaected
+      if Liberty = Dot                 ### Liberty = 0  need to be inspected
          See "FillDotOwner: SQ "+SQ +" "+ RC +" "+ Owner +nl
          aDotSquare[SQ] = Owner
       else

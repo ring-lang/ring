@@ -266,7 +266,7 @@ func ShowCell aCell
 
 	# Check if we are outside the screen 
 		if IsOutsideTheScreen(aCell) return ok
-	# Dispaly the block 
+	# Display the block 
 		aLevel[aCell[1]][aCell[2]] = C_BLOCK
 
 func IsOutsideTheScreen aCell 
@@ -282,7 +282,7 @@ func IsOutsideTheScreen aCell
 	
 func UpdateGameMap oGame
 
-	# Move the Map Data from the aLevel list to the Map Object (For Dispaly)
+	# Move the Map Data from the aLevel list to the Map Object (For Display)
 		oGame.find(:Map).aMap = aLevel
 
 func DisplayGameOver oGame 

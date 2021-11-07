@@ -12,7 +12,7 @@
 #   FuncSubtract    - Depends on FuncAdd. Uses Additive Subtract
 #   FuncCompare     - Compare numbers. returns: Greater 1, Equal 0, Less -1
 #   FuncDivide      - Depends on FuncSubtract, FuncAdd, FuncCompare
-#   FuncMultiply    - Depends on FuncAdd and Funcompare
+#   FuncMultiply    - Depends on FuncAdd and FunCompare
 #   FuncPower       - Depends on FuncMultiply 
 #
 #   FuncDecimalToBinary
@@ -116,7 +116,7 @@ Func BigNumber_testClass()
     
     ###--------------------------------------------
 
-    See "Finished Calculatiions "+ nl   
+    See "Finished Calculations "+ nl   
 return
 
 Func BigNumber_testFunctions() 
@@ -195,7 +195,7 @@ Func BigNumber_testFunctions()
     a3 = FuncPower(a1, a2)      ; See a3 +nl+nl
      
         
-    See "Finished Calculatiions "+ nl   
+    See "Finished Calculations "+ nl   
 return
         
 ###========================================================
@@ -456,7 +456,7 @@ func FuncDivide(num1,num2)
         Pad = Pad - 1
         num2  = Left(num2, len(num2)  - 1)
  
-        #SEE nl +"NextLoop: "+nl+ "Pad: "+ Pad +" N1: "+ num1 +" Padd-N2: "+ num2  +" Count: "+ count +" Q3: "+ q3 +nl      
+        #SEE nl +"NextLoop: "+nl+ "Pad: "+ Pad +" N1: "+ num1 +" Pad-N2: "+ num2  +" Count: "+ count +" Q3: "+ q3 +nl      
     next
 
         ### Remove leading Zero from Q3-Quotient
