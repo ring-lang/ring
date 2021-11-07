@@ -84,7 +84,7 @@ func ShowResult nIndex,aTest
 			see "- Etat: "
 			if read(cFileNameCorrect) = read(cFileNameCurr)
 				see "PASS"
-			else see "FAILD !"
+			else see "FAILED !"
 			ok
 	ok
 
