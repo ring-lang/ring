@@ -183,7 +183,7 @@ mywin = new qapp{
 				ok
 			}
 			/*
-			 * Option to allow the histyory to load on open into shortened list
+			 * Option to allow the history to load on open into shortened list
 			 */
 			loadhistorycheckbox = new qcheckbox(settingspage){
 				value = xmlopenread(filenames[:settingsfilename], xmlcontent[:settingselement])
@@ -198,7 +198,7 @@ mywin = new qapp{
 			 */
 			apikeysubmit = new qpushbutton(settingspage){settext(bactions[:storekey]) setclickevent(events[:fsetapikey])}
 			/*
-			 * Setup and set a Layout for our widget WIndow
+			 * Setup and set a Layout for our widget Window
 			 */
 			layout1 = new qvboxlayout() {
 				addwidget(apikeyinfolabel)
