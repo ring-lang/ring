@@ -1231,8 +1231,8 @@ int ring_parser_stmt ( Parser *pParser )
 		#endif
 		return ring_parser_namedotname(pParser) ;
 	}
-	/* Statement --> epslion */
-	if ( ring_parser_epslion(pParser) ) {
+	/* Statement --> epsilon */
+	if ( ring_parser_epsilon(pParser) ) {
 		return 1 ;
 	}
 	/* Statement --> Expr */
@@ -1289,13 +1289,13 @@ int ring_parser_paralist ( Parser *pParser )
 		ring_parser_nexttoken(pParser);
 		nStart = 1 ;
 	}
-	/* ParaList --> Epslion */
+	/* ParaList --> epsilon */
 	if ( ring_parser_isendline(pParser) || (nStart && ring_parser_isoperator2(pParser,OP_FCLOSE) ) ) {
 		ring_parser_nexttoken(pParser);
 		#if RING_PARSERTRACE
 		RING_STATE_CHECKPRINTRULES 
 		
-		puts("Rule : ParaList --> Epslion ");
+		puts("Rule : ParaList --> Epsilon ");
 		#endif
 		return 1 ;
 	}
@@ -1398,7 +1398,7 @@ int ring_parser_list ( Parser *pParser )
 	return 0 ;
 }
 
-int ring_parser_epslion ( Parser *pParser )
+int ring_parser_epsilon ( Parser *pParser )
 {
 	if ( ring_parser_isendline(pParser) ) {
 		/* Generate Code */
@@ -1422,7 +1422,7 @@ int ring_parser_epslion ( Parser *pParser )
 	return 0 ;
 }
 
-int ring_parser_passepslion ( Parser *pParser )
+int ring_parser_passepsilon ( Parser *pParser )
 {
 	/* used after factor - identifier to allow {  } in new line */
 	if ( ring_parser_isendline(pParser) ) {

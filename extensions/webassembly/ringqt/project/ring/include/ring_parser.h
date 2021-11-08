@@ -91,8 +91,8 @@
 	/* Constants */
 	#define RING_PARSER_NUMBERLENGTH 97
 	/* MACRO */
-	#define RING_PARSER_IGNORENEWLINE while(ring_parser_epslion(pParser));
-	#define RING_PARSER_PASSNEWLINE while(ring_parser_passepslion(pParser));
+	#define RING_PARSER_IGNORENEWLINE while(ring_parser_epsilon(pParser));
+	#define RING_PARSER_PASSNEWLINE while(ring_parser_passepsilon(pParser));
 	#define RING_PARSER_CURRENTTOKEN pParser->ActiveToken
 	#define RING_PARSER_OPERATIONID ring_list_getsize(pParser->GenCode)
 	#define RING_PARSER_ACCEPTSTATEMENTS while ( ring_parser_stmt(pParser) ) if ( pParser->ActiveToken == pParser->TokensCount ) break ;
@@ -141,9 +141,9 @@
 
 	int ring_parser_list ( Parser *pParser ) ;
 
-	int ring_parser_epslion ( Parser *pParser ) ;
+	int ring_parser_epsilon ( Parser *pParser ) ;
 
-	int ring_parser_passepslion ( Parser *pParser ) ;
+	int ring_parser_passepsilon ( Parser *pParser ) ;
 
 	int ring_parser_namedotname ( Parser *pParser ) ;
 
