@@ -82,7 +82,7 @@ Func Draw
                 $symbol = lineedit1.text()
 				arrayPricesL = []					### Clear list
 				
-				returnCode = FetchData($symbol)		### FETCH DATA for this sysmbol
+				returnCode = FetchData($symbol)		### FETCH DATA for this symbol
 				
 				if returnCode = "BAD"
 					see "Bad Ticker " + returnCode +nl
