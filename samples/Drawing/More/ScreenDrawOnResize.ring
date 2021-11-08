@@ -110,7 +110,7 @@ Func Draw
                               " --- LT " +  WinLeft + "-"   + WinTop  + " --- RB " + WinRight + "-" + WinBottom  + nl
                               
   
-  #     ##-----------------------------
+        ###-----------------------------
         ### PEN Colors
         
         p1 = new qpicture()
@@ -129,8 +129,8 @@ Func Draw
                 ###---------------------
                 ### Draw Line Chart
 
-                drawline(        1 ,         1 , BoxWidth ,         1 )     ### WinTop line horizonal
-                drawline(        1 ,         1 ,        1 , BoxHeight )     ### WinLeft Line vetical
+                drawline(        1 ,         1 , BoxWidth ,         1 )     ### WinTop line horizontal
+                drawline(        1 ,         1 ,        1 , BoxHeight )     ### WinLeft Line vertical
                 
                 drawline(        1 , BoxHeight , BoxWidth , BoxHeight )     ### Bottom Line horizontal
                 drawline( BoxWidth ,         1 , BoxWidth , BoxHeight )     ### WinRight Line vertical
