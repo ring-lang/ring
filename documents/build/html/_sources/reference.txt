@@ -482,9 +482,9 @@ Statement ---> 'loop'
 
 Statement ---> <Expr>
 
-Statement ---> epslion
+Statement ---> epsilon
 
-ParaList ---> epslion
+ParaList ---> epsilon
 
 ParaList ---> ['('] <Identifier> [{ ',' <Identifier> }] [')']
 
