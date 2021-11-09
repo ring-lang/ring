@@ -254,8 +254,8 @@ MyApp = New qapp
                 SendMsg(msg)
             ok
 
-            ###---------------------------------------
-            ### PlayList plays sequential mmedia files
+            ###--------------------------------------
+            ### PlayList plays sequential media files
 
 
             playlist = new qMediaPlayList()
@@ -923,7 +923,7 @@ Func pPlayList
 ##============================================================
 
 ###--------------------------------------------------------------
-### FileType for Music and Video in  CL\Users\name\Music  Videos
+### FileType for Music and Video in  C:\Users\name\Music  Videos
 ###
 ### fileType = [".avi", ".mp4", ".mpg", ".mkv", ".wmv", ".mp3", ".wav", ".aac", ".ogg", ".wma", ".flac" ]
 ### UserPath = "C:\Users\Umberto\Videos"    ### <<<== Search this path
@@ -1098,7 +1098,7 @@ func pDelete()
     win2.setWindowTitle("DELETED: " + nbrOfItems +" Cur: " + curItemNbr +" : " + curValue )
 
 ###----------------------------------------
-### Select highlited item in PlayList
+### Select highlighted item in PlayList
 ### Save as SelectedRow and SelectedValue
 
 func pSelect()
