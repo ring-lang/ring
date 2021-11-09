@@ -138,7 +138,7 @@ app = new qApp
 
 ###---------------------------------------------------------------------------
 ### Layout the Grid Square, Create the Arrays
-### workWidget items need to be made Global. Mke available toother functions
+### workWidget items need to be made Global. Make available to other functions
 
 Func DrawWidget()
      
@@ -272,7 +272,7 @@ Func DrawWidget()
                         setSizePolicy(1,1)                                  
                     }
                     
-                ### Widget - Add HORZ BOTTON
+                ### Widget - Add Horizontal Button
                     LayoutButtonRow[Row].AddWidget(aButton[Row][Col])   
             next
             odd++
@@ -455,7 +455,7 @@ return
 
 ###==============================================================
 ### CheckJumpMove by Selected Piece  0=BAD  1-Good selection
-### User MUST Jump. Did he selecta Proper Piece FROM-SQ
+### User MUST Jump. Did he select a Proper Piece FROM-SQ
     
 Func CheckJumpMove(Piece, Row, Col)
     
@@ -536,7 +536,7 @@ if FlagStartMove = 0
             
             ###------------------------------------------------------------------
             ### StartMove = 0 Check if MUST JUMP move to be made. FlagJumpFromSQ
-            ### User MUST Jump. Did he selecta Proper Piece FROM-SQ
+            ### User MUST Jump. Did he select a Proper Piece FROM-SQ
             
             FlagSelectedJumpFromSQ = CheckJumpMove(PickedPiece, Row, Col)
             
@@ -581,7 +581,7 @@ if FlagStartMove = 1
                 aButton[Row][Col] { setStyleSheet(C_ButtonPickStyle) }      ### Yellow the FROM-SQUARE  
                 RestoreSquareColor(FromRow, FromCol)                        ### Changed Mind - FROM SQUARE - Un-Yellow
                             
-                FromRow = Row                                               ### New FROM PickedPiece Coord
+                FromRow = Row                                               ### New FROM PickedPiece Coordinate
                 FromCol = Col
                                 
                 FlagStartMove = 1                                           ### SECOND MOVE is Next
@@ -694,9 +694,9 @@ if FlagStartMove = 1
                         
                     else
                         
-                        if MustJ >= 1 AND FlagStartMove = 1                 ### MORE than One Jump Possib;e
+                        if MustJ >= 1 AND FlagStartMove = 1                 ### MORE than One Jump Possible
                             
-                            FromRow = Row                                   ### New FROM PickedPiece Coord
+                            FromRow = Row                                   ### New FROM PickedPiece Coordinate
                             FromCol = Col
                                 if PickedPiece[1] = "B"  TurnColor = "Black"  else  TurnColor = "White"  ok
                                 
@@ -1139,7 +1139,7 @@ return FlagValidJump
 ###--------------------------------------------
 ### Promote Pawn if on Other Side BP v=10
 ### Turn Pawn into KING
-### Update aArry and Image on Board
+### Update Array and Image on Board
         
 Func PromotePawn(Piece, oldH, oldV, h, v)
         
