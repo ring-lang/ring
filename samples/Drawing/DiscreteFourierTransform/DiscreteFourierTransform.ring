@@ -5829,7 +5829,7 @@ MyApp = new qApp
      win = new qWidget()
      {
           setWindowTitle("Discrete Fourier Transform")
-          setGeometry(xPos, yPos, xWidth, yHeight)   ### Window Pos and Size
+          setGeometry(xPos, yPos, xWidth, yHeight)   ### Window Position and Size
 
           myfilter = new qallevents(win)
 
@@ -5856,7 +5856,7 @@ MyApp = new qApp
                 daVinci = new qpainter()
                 {
                     begin(MonaLisa)
-                    translate(200,300)            ### TRANSLATE CO-ORD x,y   0,0    MAPS TO 300,300
+                    translate(200,300)            ### TRANSLATE COORDINATE x,y   0,0    MAPS TO 300,300
                     #endpaint()                   ### This will Stop the Painting
                 }
 
@@ -5887,7 +5887,7 @@ MyApp = new qApp
           {
                 setGeometry(240, 2, 100, 20)
                 setOrientation(Qt_Horizontal)
-                setTickInterval(10)                          // Count of Anble  1...10
+                setTickInterval(10)                          // Count of Angle  1...10
                 setValue(1)
                 setValueChangedEvent("eventSliderGoAroundFigure()")
           }
@@ -5952,11 +5952,11 @@ return
 Func pPress
      win.setWindowTitle("Press: Top " + initX +"-" +initY +" Bottom "+ finalX +"-" +finalY )
 
-     initX = myfilter.getglobalx()      ### Screen co-ord, NOT Canvas
-     initY = myfilter.getglobaly()      ### Screen co-ord, NOT Canvas
+     initX = myfilter.getglobalx()      ### Screen coordinate, NOT Canvas
+     initY = myfilter.getglobaly()      ### Screen coordinate, NOT Canvas
 
-     //initX = myfilter.getx()              ### Screen co-ord, NOT Canvas
-     //initY = myfilter.gety()              ### Screen co-ord, NOT Canvas
+     //initX = myfilter.getx()              ### Screen coordinate, NOT Canvas
+     //initY = myfilter.gety()              ### Screen coordinate, NOT Canvas
 
      ### Change Pen Color
      if  counter % 3 = 0     daVinci.setpen(penRed)     curPen = penRed
@@ -5977,7 +5977,7 @@ return
 Func pRelease
      win.setWindowTitle("Press: Top " + initX +"-" +initY +" Bottom "+ finalX +"-" +finalY +" Width "+ (finalX-initX) + " Height "+ (finalY-initY) )
 
-     finalX = myfilter.getglobalx()             ### Screen co-ord, NOT Canvas
+     finalX = myfilter.getglobalx()             ### Screen coordinate, NOT Canvas
      finalY = myfilter.getglobaly()
 
      pDrawObjects()
@@ -5992,7 +5992,7 @@ return
 Func pMove
      win.setWindowTitle("Press: Top " + initX +"-" +initY +" Bottom "+ finalX +"-" +finalY +" Width "+ (finalX-initX) + " Height "+ (finalY-initY) )
 
-     finalX = myfilter.getglobalx()         ### Screen co-ord, NOT Canvas getx()  gety()
+     finalX = myfilter.getglobalx()         ### Screen coordinate, NOT Canvas getx()  gety()
      finalY = myfilter.getglobaly()
 
      pDrawObjects()
@@ -6040,7 +6040,7 @@ return
 
 ###===============================================
 ###===============================================
-### Sin() = Vertical     Cos() - Horzontal
+### Sin() = Vertical     Cos() - Horizontal
 //
 // See "Sin(15) radians = " + sin(15)                =>  0.65
 // See "Sin(15) degree  = " + sin(15 * 3.14/180) =>  0.26
@@ -6115,7 +6115,7 @@ Func pDrawObjects()
 
             xH     = 1      yH     = 1
             prevXH = 1      prevYH = 1
-            horz   = 500    vert   = 150   // Draw Horz circle offsets
+            horz   = 500    vert   = 150   // Draw Horizontal circle offsets
             piH    = 500    piV    = 200   // Draw PI offsets
 
             //----------------------------
