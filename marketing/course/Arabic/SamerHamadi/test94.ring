@@ -19,7 +19,7 @@ myobj = new person { name = "ibrahim" address = "Egypt" phone = "22344" }
 
 ? myobj
 
-class person name adress phone
+class person name address phone
 	func print
 		see "Name    :" + name    + nl +
 	 	    "Address :" + address + nl +
