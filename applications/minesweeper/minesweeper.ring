@@ -20,8 +20,8 @@ nMines	= 24	  ### Number of Mines
 nScore	= 0		  ### Player Score
 nClicks = 0		  ### Clicks played
 
-h		= 0		 ### H-coord of Cell
-v		= 0		 ### V-coord of Cell
+h		= 0		 ### Horizontal coordinate of Cell
+v		= 0		 ### Vertical coordinate of Cell
 
 
 ###----------------------------------------------------------
@@ -89,7 +89,7 @@ app = new qApp
 
 ###---------------------------------------------------------------------------
 ### Layout the Grid Square, Create the Arrays
-### workWidget items need to be made Global. Mke available toother functions
+### workWidget items need to be made Global. Make available to other functions
 
 Func DrawWidget()
 #See "DrawWidget: "+ nl
@@ -222,7 +222,7 @@ Func DrawWidget()
 						
 					}
 					
-					LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	### Widget - Add HORZ BOTTON
+					LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	### Widget - Add HORIZONTAL BUTTON
 			   next
 			   
 			   LayoutButtonMain.AddLayout(LayoutButtonRow[Row])		### Layout - Add ROW of BUTTONS
@@ -392,7 +392,7 @@ Func Play(h,v)
 
 			 TitleScore.setText(""+ nScore) 
 			TitleClicks.setText(""+ nClicks)
-			 TitleMines.setText(""+ nMines)	### Random generates ovlapping Mines
+			 TitleMines.setText(""+ nMines)	### Random generates overlapping Mines
 
 		ok
 
@@ -421,7 +421,7 @@ Func Play(h,v)
 			if ignoreMines.isChecked()
 				return					### Continue Play
 			else
-				ShowMines()				### Show rest of Mine positons
+				ShowMines()				### Show rest of Mine positions
 		 ok
 
 		ok
