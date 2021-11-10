@@ -11,7 +11,7 @@
 	Functions  	----> Pass Function as Para .
 	Pure Functions	 ----> Don't Modify The State .
 	(First-Class) 	 	 Return Function as Value Store in Variable .
-	Recusion		----> Function Call Itself 
+	Recursion		----> Function Call Itself 
 				 	 (Loop | Control Structure)
 	Lazy Evaluation ----> Expressions in Function Parameters Evaluated 
 					 Only When Usage .
