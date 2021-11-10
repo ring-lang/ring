@@ -19,8 +19,8 @@ func main
 
 	GameObject = new Game
 	Ball = new PongBall { x = GameObject.screen_w/2 y = GameObject.screen_h/2 }
-	Paddle = new PongPaddle { mouseControle = false y = GameObject.screen_h/2 - height/2 }
-	PaddleBot = new PongPaddle { botControle = true y = GameObject.screen_h/2 - height/2 x = GameObject.screen_w - ( Paddle.x + Paddle.width ) color = GE_COLOR_RED }
+	Paddle = new PongPaddle { mouseControl = false y = GameObject.screen_h/2 - height/2 }
+	PaddleBot = new PongPaddle { botControl = true y = GameObject.screen_h/2 - height/2 x = GameObject.screen_w - ( Paddle.x + Paddle.width ) color = GE_COLOR_RED }
 
 	GameRunning = true
 	GameOver = False
@@ -68,13 +68,13 @@ func main
 				}
 			}
 			mouse = func GameObject,Self,nType,aMouseList {
-				if Paddle.mouseControle = true and GameRunning = true
+				if Paddle.mouseControl = true and GameRunning = true
 					Paddle.Move(aMouseList[GE_MOUSE_Y], GameObject)
 				ok
 			}
 			keypress = func GameObject,Self,nKey {
 				Self {
-					if Paddle.mouseControle = false and GameRunning = true
+					if Paddle.mouseControl = false and GameRunning = true
 
 						if nkey = key_up
 							Paddle.y = clamp(Paddle.y-Paddle.playerSpeed, 0, Paddle.y)
