@@ -39,7 +39,7 @@ GL_EVENT_FINGER_DOWN = SDL_FINGERDOWN
 GL_EVENT_FINGER_UP = SDL_FINGERUP
 GL_EVENT_FINGER_MOTION = SDL_FINGERMOTION
 
-# render 
+# Render 
 SDL_win = NULL
 SDL_ren = NULL
 SDL_target = NULL
@@ -49,7 +49,7 @@ SDL_event = NULL
 SDL_FPS = 1000 / 30
 SDL_CLOCK = clock()
 
-#other
+# Other
 sdl_v1=0
 sdl_v2=0
 sdl_v3=0
@@ -57,7 +57,7 @@ sdl_v4=0
 SDL_event_queue = null
 SDL_NEVENT = 0
 
-#android
+# Android
 GL_AC_BACK = SDLK_AC_BACK
 
 func gl_start_playing
