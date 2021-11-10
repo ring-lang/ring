@@ -35,8 +35,8 @@ sizeX	= 800 sizeY	= 600	### Size of Window
 hSize	= 40				### Size of array, Display -2 -2 smaller left-right
 vSize	= 40				### Size of array, Display -2 -2 smaller top-bottom
 
-h		= 0					### H-coord of Cell
-v		= 0					### V-coord of Cell
+h		= 0					### Horizontal coordinate of Cell
+v		= 0					### Vertical coordinate of Cell
 
 ###---------------------------------------------------------- 
 ### Global so other functions can access the workWidget items
@@ -99,7 +99,7 @@ app = new qApp
 
 ###---------------------------------------------------------------------------
 ### Layout the Grid Square, Create the Arrays
-### workWidget items need to be made Global. Mke available toother functions
+### workWidget items need to be made Global. Make available to other functions
 
 Func DrawWidget()
 #See "DrawWidget: "+ nl
@@ -161,7 +161,7 @@ Func DrawWidget()
 						
 					}
 					
-					LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	### Widget - Add HORZ BOTTON
+					LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	### Widget - Add HORIZONTAL BUTTON
 				next
 			   
 				LayoutButtonMain.AddLayout(LayoutButtonRow[Row])		### Layout - Add ROW of BUTTONS
@@ -605,7 +605,7 @@ Func SliderSpeedMove()
 
 	sliderPos = SliderSpeed.value()				### 0 - 100 
 	
-	timeDelay  = 1000 - (sliderPos * 10) 		### Slow 1-100 Fast	 => 10-1000 millesec - FLIP
+	timeDelay  = 1000 - (sliderPos * 10) 		### Slow 1-100 Fast	 => 10-1000 milli-seconds - FLIP
 	#See "timeDelay: "+ timeDelay +nl
 	TimerMan.setInterval(timeDelay)			### 1000 = 1 sec
 	
@@ -632,9 +632,9 @@ Func SliderSizeMove()
 	See "cellSize: "+ cellSize +nl
 	
 	aArray	= newList(hSize, vSize)			### Internal Array with Letters
-	bArray	= newList(hSize, vSize)			### Working Array - Live and Expoired
-	pArray	= newList((hSize * vSize), 2)	### Populated Array - Coord h and v
-	qArray	= newList((hSize * vSize), 2)	### Populated Array - Coord h and v
+	bArray	= newList(hSize, vSize)			### Working Array - Live and Exploded
+	pArray	= newList((hSize * vSize), 2)	### Populated Array - Coordinate h and v
+	qArray	= newList((hSize * vSize), 2)	### Populated Array - Coordinate h and v
 		
 	aButton = newlist(hSize, vSize)			### Button Array with Display Colors
 		
@@ -824,7 +824,7 @@ if patternType = "Tumbler"
 ok
 
 ###------------------------------------------------------
-### This Multi=pattren is TOO BIG for the Smaller Grids
+### This Multi=pattern is TOO BIG for the Smaller Grids
 ### Check Limits
 
 if patternType = "GosperGliderGun"
