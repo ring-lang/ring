@@ -1,5 +1,5 @@
 /*
-**	Application	: Ring lessons - Functional Programming - Recusion.
+**	Application	: Ring lessons - Functional Programming - Recursion.
 **	Author		: Osama Ballan .
 **	Date			: 2018 - 01 - 22 .
 */
