@@ -5,8 +5,8 @@
 */
 
 class PongPaddle
-	mouseControle = true
-	botControle = false
+	mouseControl = true
+	botControl = false
 	botSpeed = 10
 	playerSpeed = 10
 
@@ -19,7 +19,7 @@ class PongPaddle
 	color = GE_COLOR_GREEN
 	
 	func Move yMouse, oGame
-		if botControle = false
+		if botControl = false
 			y = clamp(yMouse - height/2, 0, oGame.screen_h - height)
 		else
 			for counter = 1 to botSpeed
