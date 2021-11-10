@@ -22,8 +22,8 @@ sizeX  = 840 sizeY  = 820       ### Size of Window
 
 hSize = 9   ### Size of array, Display -4 smaller
 vSize = 9   ### Size of array, Display -4 smaller
-hPos  = 0   ### H-coord of Cell
-vPos  = 0   ### V-coord of Cell
+hPos  = 0   ### Horizontal　coordinate of Cell
+vPos  = 0   ### Vertical coordinate of Cell
 
 
 ###----------------------------------------------------------
@@ -49,7 +49,7 @@ OldRow = 0
 OldCol = 0
 nMoves = 0
 gNbrRightClick = 99 ### RightMouse-SelectMenu-Nbr
-gcountIter = 0                  // iterationen
+gcountIter = 0                  // iteration
 
 aSQColor = [
     [0,0,0, 1,1,1, 0,0,0],
@@ -195,7 +195,7 @@ app = new qApp
 
 ###---------------------------------------------------------------------------
 ### Layout the Grid Square, Create the Arrays
-### workWidget items need to be made Global. Mke available toother functions
+### workWidget items need to be made Global. Make available to other functions
 
 Func DrawWidget()
 
@@ -590,15 +590,16 @@ Func CountSQFilled()
 
 return count
 
-###=====================================------------------
-### Check DUPLICATES - Use dupArray to identify  dup SQ
+###============================================
+### Check DUPLICATES - Use dupArray to identify
+### duplicate Square (SQ)
 ###
 
 Func CheckDuplicates(Row,Col)
 
     //See "CheckDup: LastPlay: "+Row +"-"+ Col +nl
 
-    dupArray = zeroArray    ### Clear Dups before starting
+    dupArray = zeroArray    ### Clear Duplicates before starting
     RestoreSQColors()       ### Erase Red SQ
 
     for h = 1 to 9
@@ -695,8 +696,8 @@ Func CheckDupCol(Col)
 
 return FlagDup
 
-###=====================================
-### Chech for Dup in each of 9 Rgions
+###==========================================
+### Check for Duplicates in each of 9 Regions
 ### regionArray[
 ###    [1,1,1,2,2,2,3,3,3],
 ###    [1,1,1,2,2,2,3,3,3],
@@ -851,7 +852,7 @@ Func Hint(Row,Col)
             next
 
             if k = 1                            ### ONLY ONE - Unique Nbr found
-                return uniqNbr                  ### return UniqueNbr value 1..9 else 0 meand NONE found
+                return uniqNbr                  ### return UniqueNbr value 1..9 else 0 means NONE found
             ok
             
          
@@ -1018,7 +1019,7 @@ return
 ###         In the List of  EMPTY SQUARES - Possible Nbr Array
 ###         Count ALL the Possible Hints
 ###             if there is a UNIQUE Hint.
-###                 Identify the SQ Row / Col with ethe Unique nbr
+###                 Identify the SQ Row / Col with either Unique nbr
 ###                 Insert it into the Square
 ###
 
@@ -1090,7 +1091,7 @@ Func SolveForNumber(Row, Col)
         //See "REG After RegionForNbr: "   ShowArray(RegionForNbr)   See nl
         
         ### Count EACH-NBR in RegionForNbr position
-        ### If it occurs ONCE - Insert iton position.
+        ### If it occurs ONCE - Insert it on position.
         ### nbrCount ==  0 0 3 0 0 1 1 2 0 --  Position = Nbr
 
             for h = 1 to 9
@@ -1322,7 +1323,7 @@ Func SolveaHintsArray()
                                     for p = 1 to 9
                                         for q = 1 to 9                              ### Diff staring SQuare
                                         
-                                            curRegion = regionArray[p][q]           ### Region-ID 1..9  for this SQ co-ord      
+                                            curRegion = regionArray[p][q]           ### Region-ID 1..9  for this SQ coordinate
                                     
                                             if curRegion = RegionID                 ### HINTS in THIS REGION -- fill line into Region Box
                                                         
@@ -1503,19 +1504,19 @@ return
 // Nestor Kuka --- Code 2019-05-21
 
 
-? "Inputt:"
-    prnt(sudoku)                // vorlage
+? "Input:"
+    prnt(sudoku)                // template
 
 //----------------------------------------------------- MAIN
 ?  "Start: " +Time()
-    solveBrut(sudoku)               // finde loesung 
+    solveBrut(sudoku)               // find a solution 
 ?  "Stop.: " +Time()            //(+/- 20 sec)
 
 //-----------------------------------------------------
-? nl+nl+"Ouputt:"               // resultat
+? nl+nl+"Ouput:"               // result at
 prnt(sudoku)                    // show result
 
-//****************  funktionen  **********************
+//****************  Function  **********************
 // print  I/O       (thanks BM)
 
 Func prnt(sudoku)
