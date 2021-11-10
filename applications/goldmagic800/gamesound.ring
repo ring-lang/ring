@@ -9,7 +9,7 @@ class GameSound
 
 	lSoundFilesLoaded = False
 
-	BackGroundMusic BackGoundSampleID
+	BackGroundMusic BackGroundSampleID
 	lMusic = False 
 
 	PointSound  PointSampleID
@@ -63,15 +63,15 @@ class GameSound
 			PlayBackGroundMusic()
 			lMusic = False 
 		else 
-			al_stop_sample(BackGoundSampleID)
+			al_stop_sample(BackGroundSampleID)
 		ok
 
 
 	func PlayBackGroundMusic
 
 		if lMusic = False 
-			BackGoundSampleID = al_new_allegro_sample_id()
-			al_play_sample(BackGroundMusic, 1.0, 0.0,1.0,ALLEGRO_PLAYMODE_LOOP,BackGoundSampleID)
+			BackGroundSampleID = al_new_allegro_sample_id()
+			al_play_sample(BackGroundMusic, 1.0, 0.0,1.0,ALLEGRO_PLAYMODE_LOOP,BackGroundSampleID)
 			lMusic = True 
 		ok
 
