@@ -17,7 +17,7 @@ if iswindows()
 	system("cls")
 ok
 
-# quiz chars
+# quiz characters
 chars = [['j', 'f'], ['c', 'k'], ['d', 'k'], ['e', 'o']]
 
 # select quiz chars
@@ -25,10 +25,10 @@ k = random(len(chars) - 1) + 1
 CHAR_ONE = chars[k][1]
 CHAR_TWO = chars[k][2]
 
-sentanceLength = random(20) + 20
+sentenceLength = random(20) + 20
 
 # generate quiz text
-text = generateString(sentanceLength, chars[k])
+text = generateString(sentenceLength, chars[k])
 
 # game variables
 textSize = 0
@@ -56,14 +56,14 @@ while !WindowShouldClose()
 		timer += GetFrameTime()
 	ok
 
-	DrawText("Type this sentance with out looking at your keyboard", 10, 10, 26, RED)
+	DrawText("Type this sentence with out looking at your keyboard", 10, 10, 26, RED)
 	DrawText("TIME: " + timer, 500, 50, 26, RED)
-	DrawText("SENTANCE:", 10, 50, 26, RED)
+	DrawText("SENTENCE:", 10, 50, 26, RED)
 	DrawText("ERRORS: " + error, 300, 45, 26, RED)
 	DrawText("Press R To Restart", 280, 300, 25, BLUE)
 	DrawText(text, 10, 100, textSize, RED)
 
-	# Check if the user click the sentance chars
+	# Check if the user click the sentence characters
 	if IsKeyReleased(CHAR_ONE_KEY)
 		letters = letters + CHAR_ONE
 		lastKey = CHAR_ONE_KEY
@@ -96,8 +96,8 @@ while !WindowShouldClose()
 		CHAR_TWO = chars[k][2]
 		CHAR_ONE_KEY = keys[CHAR_ONE]
 		CHAR_TWO_KEY = keys[CHAR_TWO]
-		sentanceLength = 40
-		text = generateString(sentanceLength, chars[K])
+		sentenceLength = 40
+		text = generateString(sentenceLength, chars[K])
 		letters = ""
 		started = False
 		lastKey = 0
@@ -157,7 +157,7 @@ end
 
 CloseWindow()
 
-# Function to generate string using a list of chars
+# Function to generate string using a list of characters
 func generateString length, letters
 	text = ""
 	stringLength = random(4) + 1
