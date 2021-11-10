@@ -7,17 +7,17 @@
 
 
 DropX =   50 
-DropY = -100      // Init Drop Down From Sky to Stock
+DropY = -100      // Initial Drop Down From Sky to Stock
 
 DiskNbr    = [0,0,0,0,1]     // false, true          Disk  1,2,3,4,5
 DiskMove   = [0,0,0,0,1]     // Which is active Disk,  1=active
 DiskH      =  45
 DiskDir    = [0,0,0,0]       // Up Left Right Down
 
-StickPos   = [50,300,550]    // Stick Horz Position  Stick A,B,C
+StickPos   = [50,300,550]    // Stick Horizontal Position  Stick A,B,C
 StickBase  =  100            // Where to draw Tower vertical point
 StickVert  = [480,480,480]   // Stacked Vertical Height of Disks
-HorzLine   =  100            // Travel Horizonal Line L-R
+HorzLine   =  100            // Travel Horizontal Line L-R
 
 GE_TYPE_1 = 1
 GE_TYPE_2 = 1
