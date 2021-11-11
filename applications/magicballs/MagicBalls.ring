@@ -21,7 +21,7 @@
 // Func pathTF = pathSrcDest( myBalls01, x,y,s,t)   Return True/False
 // Func UserLeftMouse(Row,Col)            Return -
 // Func Play()                            Return -
-// Func Func BallsToZeroOne(myBalls)      Return myBalls01
+// Func BallsToZeroOne(myBalls)      Return myBalls01
 
 
 load "stdlib.ring"
@@ -95,7 +95,7 @@ ballColors = [ "images/red.png",
 emptyColor = "images/empty.png"
 
 RandomColorCount = [0,0,0,0,0,0]    // How many of each color generated
-ScoreColorCount  = [0,0,0,0,0]      // How many of each color in a row,col,diag detectrd
+ScoreColorCount  = [0,0,0,0,0]      // How many of each color in a row,col,diag detected
 
 ###=====================================================
 
@@ -136,10 +136,10 @@ app = new qApp
                         setSizePolicy(1,1)
                     }
                     
-                    LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add HORZ BOTTON
+                    LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add HORIZONTAL BUTTON
                next
                
-               LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of ButtonS
+               LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of Buttons
             next
 
             ###------------------------------------------------              
@@ -204,7 +204,7 @@ Func UserLeftMouse(Row,Col)
             Button[DestX][DestY] { setStyleSheet(C_ButtonPickStyle) }    ### Yellow New Source 
             SrcX = DestX  SrcY = DestY                                   ### Change Dest to Src 
             
-            SrcDest = 'D'                                                ### Look for New Destinaltion
+            SrcDest = 'D'                                                ### Look for New Destination
             return
         ok          
     ok
@@ -399,7 +399,7 @@ return  sqrNbr
 
 //---------------------------------------------------
 // RandomBall pick a Ball Color 1..6
-// Red, Yellow, Orange, Green, Ble, Black
+// Red, Yellow, Orange, Green, Blue, Black
 
 Func RandomBallColor()
 
@@ -486,7 +486,7 @@ Func CheckLineOfColors(mySquare)
          colorNbr = mySquare[i][j]             // Color to test
          
          for k = 1 to inLine                   
-               if mySquare[i+k][j] = colorNbr  // Row dowm
+               if mySquare[i+k][j] = colorNbr  // Row down
                   count++
                ok 
          next
