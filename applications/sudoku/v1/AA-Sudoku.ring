@@ -1477,7 +1477,7 @@ Func RemoveHintDigits(Type,h,v,k,FindNbr)
 return
 
 ###==========================================================
-### Clicked on Sove by BrutForce
+### Clicked on Solve by BrutForce
 ### Insert Nbr as RED to show difference
 
 Func BrutForce()
