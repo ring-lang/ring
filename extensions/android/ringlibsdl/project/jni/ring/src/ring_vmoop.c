@@ -419,7 +419,7 @@ void ring_vm_oop_parentmethods ( VM *pVM,List *pList )
 			for ( x = 1 ; x <= ring_vm_oop_visibleclassescount(pVM) ; x++ ) {
 				pList4 = ring_vm_oop_visibleclassitem(pVM,x);
 				cClassName2 = ring_list_getstring(pList4,1) ;
-				/* Prev. Step must be before Next. step - We check the name include the pacakge */
+				/* Prev. Step must be before Next. step - We check the name include the package */
 				pList4 = ring_vm_oop_checkpointertoclassinpackage(pVM,pList4);
 				if ( pList4 == NULL ) {
 					continue ;
