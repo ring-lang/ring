@@ -15,7 +15,45 @@ List of changes and new features
 
 Ring 1.17 comes with the next features!
 
- * More Improvements
+* TokensLib Library
+* More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.17; TokensLib Library
+
+TokensLib Library
+=================
+
+Using this library we can get Ring tokens from source code files or strings.
+
+Example:
+
+.. code-block:: ring
+
+	load "tokenslib.ring"
+
+	func main
+		oTokens = new RingTokens {
+			fromFile("hello.ring")
+			PrintTokens()
+			? Copy("=",50)
+			fromString("? 1+1")
+			PrintTokens()
+		}
+
+Output:
+
+.. code-block:: none
+
+	Keyword     : SEE
+	Literal     : Hello, World!
+	EndLine
+	==================================================
+	Operator    : ? (23)
+	Number      : 1
+	Operator    : + (1)
+	Number      : 1
+	EndLine
 
 .. index:: 
 	pair: What is new in Ring  1.17; More Improvements
