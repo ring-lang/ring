@@ -7,7 +7,7 @@ What is new in Ring ?.??
 
 In this chapter we will learn about the changes and new features in Ring ?.?? release.
 
-Release date: TBA (2022?)
+Release date: TBA (2023.01?)
 
 .. index:: 
 	pair: What is new in Ring 1.16?; List of changes and new features
