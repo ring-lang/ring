@@ -3,7 +3,7 @@
 # Author: Gal Zsolt & Mansour Ayouni 
 #==============================================================================#
 
-# Alert: Somtimes this method will not return the correct output
+# Alert: Sometimes this method will not return the correct output
 #	 This happens because of the environment 
 #	 And is limited by the limits of computer representation of
 #	 floating point numbers
@@ -11,7 +11,7 @@
 
 func main
 	# Testing the function
-	decimals(2)		# Unsensitive to the default setting of decimals
+	decimals(2)		# Insensitive to the default setting of decimals
 	n = 5.1945
 	? NbrOfDecimals(n)	# Gives 4
 
@@ -27,6 +27,6 @@ func NbrOfDecimals(n)
 				return nNbrOfDecimals
 			ok
 		else
-			raise("Acceeding the maximum number of 9 decimals!")
+			raise("Acceding the maximum number of 9 decimals!")
 		ok
 	end
