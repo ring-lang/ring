@@ -11,7 +11,7 @@ class InstallCommand
 	cPackageVersion = ""
 	lUpdate	    	= False
 
-	# Where we have our pacakge 
+	# Where we have our package 
 		lLocalPackages	   = True 
 		cPackagesLocations = exefolder()+"../tools/ringpm/local"
 	
