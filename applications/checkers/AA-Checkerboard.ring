@@ -464,7 +464,7 @@ Func CheckJumpMove(Piece, Row, Col)
             MustJ = MustJump() 
             //See "0-CheckJumpMove MustJ: "+ MustJ +" "+ Piece +"-"+ Row +"-"+ Col +nl 
             
-            if MustJ >= 1 AND FlagStartMove = 0  // AND PreviousMoveJump = 1                ### MORE than One Jump Possibe for START MOVE
+            if MustJ >= 1 AND FlagStartMove = 0  // AND PreviousMoveJump = 1                ### MORE than One Jump Possible for START MOVE
                     //See "0-MJ: "+ MustJ +" StartMove: "+ FlagStartMove  +nl
                 
                     for i = 1 to len(aArrayMustJump) 
