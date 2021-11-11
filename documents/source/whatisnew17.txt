@@ -1,0 +1,32 @@
+.. index:: 
+	single: What is new in Ring ?.??; Introduction
+
+=========================
+What is new in Ring ?.??
+=========================
+
+In this chapter we will learn about the changes and new features in Ring ?.?? release.
+
+Release date: TBA (2023.01?)
+
+.. index:: 
+	pair: What is new in Ring 1.16?; List of changes and new features
+
+List of changes and new features
+================================
+
+Ring ?.?? comes with the next features!
+
+ * Overhauled and inspected for Ring sample codes (2021/11/11: Now working).
+
+
+Comming soon....
+
+
+.. index:: 
+	pair: What is new in Ring  ?.??; More Improvements
+
+More Improvements
+=================
+
+Comming soon....
