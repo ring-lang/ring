@@ -49,7 +49,7 @@ class StackArray
 			tail--
 			return value
 		else raise("Error: Can't pop from empty stack") ok
-	# Function to pop n itme from the stack, return the items with new list
+	# Function to pop n time from the stack, return the items with new list
 	func pops times
 		canceled = []
 		for i = 1 to times
