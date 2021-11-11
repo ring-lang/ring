@@ -7,12 +7,12 @@
 # Verify using site: 
 # https://www.calculator.net/big-number-calculator.html?cx=12345&cy=24&cp=1&co=divide
 #
-# Funcions:
+# Functions:
 #   FuncAdd         - The BASE block
 #   FuncSubtract    - Depends on FuncAdd. Uses Additive Subtract
 #   FuncCompare     - Compare numbers. returns: Greater 1, Equal 0, Less -1
 #   FuncDivide      - Depends on FuncSubtract, FuncAdd, FuncCompare
-#   FuncMultiply    - Depends on FuncAdd and FunCompare
+#   FuncMultiply    - Depends on FuncAdd and FuncCompare
 #   FuncPower       - Depends on FuncMultiply 
 #
 #   FuncDecimalToBinary
@@ -785,7 +785,7 @@ class BigNumber
                 on "%"
 
                     answer = FuncCompare( aData, dataInfo )
-                     ### ? nl+"AnswerString - FunCompare aData, dataInfo: " ? answer  
+                     ### ? nl+"AnswerString - FuncCompare aData, dataInfo: " ? answer  
 
                      ### result = self,  is Object
                      result.aData = answer          
