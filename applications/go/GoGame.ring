@@ -23,6 +23,7 @@ oldColMove = 99   ### Flag set on MouseRelease
 aSquare    = list(Size2)    ### "." Dot=Empty B=Black W=White  K=BlackCapture  H=WhiteCapture
 aLiberty   = list(Size2)    ### 0,1,2,3,4,5
 aDotSquare = list(Size2)    ### Dots Capture = Free, All-Black-Nbor, All-White-Nbor, Mixed-B-W-Nbor
+                            ### (Memo: Nbr(s)/nbor means NeighBouR in CalmoSoft's naming convention)
 
 aCheckNeighbour = [][]      ### 2D List  SQ Visit Liberty
 
@@ -321,10 +322,10 @@ Func DrawWidget()
                                      setSizePolicy(1,1)
                                    }
 
-                LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add HORZ BOTTON
+                LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add HORIZONTAL BUTTON
             next
 
-            LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of ButtonS
+            LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of Buttons
         next
 
         ###---------------------------------------------
@@ -462,7 +463,7 @@ Func pRelease
          if Row > Size  Row = Size ok
          if Col > Size  Col = Size ok
 
-    oldRowMove = 99  ### Flag set on Mouse Move Release. Prevent Illigal Move on Occupied Square
+    oldRowMove = 99  ### Flag set on Mouse Move Release. Prevent Illegal Move on Occupied Square
     oldColMove = 99  ### Flag set on Mouse Move Release
 
     pPlay(Row,Col)                           ### Out New Stone (circle) in Square
@@ -1023,7 +1024,7 @@ return
 ###=====================================
 ### Pick a Empty Square 1..81
 ### Visit Neighbours
-###      - Touchs Blank AND White  = FREE
+###      - Touches Blank AND White  = FREE
 ###      - Touches ONLY Black      = BlackTerritory
 ###      - Touches ONLY White      = WhiteTerritory
 ###
