@@ -54,7 +54,7 @@ oApp = new QApp {
 
 		# Great, we've finished designing the MDI area of
 		# our workspace/ Let's tell to our QMainWindow to
-		# popultae its central region with it:
+		# populate its central region with it:
 		setCentralWidget(mdiArea)
 
 		# Now, our design is ready, let's tell to RingQt to
