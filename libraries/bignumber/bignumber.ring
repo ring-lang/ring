@@ -267,7 +267,7 @@ Func FuncSubtract(num1, num2)
     ###------------------------------------------------------
     ### Use additive subtract method
     # 
-    # Use Complement 10 on rightmost non-zero, then compliment 9 going left. righmost 0 do NOT touch
+    # Use Complement 10 on rightmost non-zero, then compliment 9 going left. rightmost 0 do NOT touch
     # Remove leftmost 1
     #              v---   Big   Comp    Rem 1  |   Swap  Comp    Rem 1 Change Sign |
     #     0123456789000   9876   9876          |   1234   5432                     | 9876  9876
