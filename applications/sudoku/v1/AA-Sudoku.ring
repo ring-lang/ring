@@ -1604,13 +1604,13 @@ return [true, row, column]
 //           false otherwise.
 
 Func solveBrut(sudoku)
-    gcountIter = gcountIter + 1                                 // iterations    
-    solved      = isSolved(sudoku)             // true / false 2te: row   3te: col 
+    gcountIter = gcountIter + 1                // iterations
+    solved      = isSolved(sudoku)             // true / false 2te: row   3te: col
         solv_       = solved[1] 
         row         = solved[2]                // problem on last row/col in sudoku
         column      = solved[3]
 
-    //? nl+ "Test-Outputt Iter-No.: "+ gcountIter +" "+ solved[1] +" "+ solved[2] +"-"+ solved[3]  + prnt(sudoku)      // per iteration
+    //? nl+ "Test-Output Iter-No.: "+ gcountIter +" "+ solved[1] +" "+ solved[2] +"-"+ solved[3]  + prnt(sudoku)      // per iteration
 
     //----------------------------  thanks BM
     if solv_ 
