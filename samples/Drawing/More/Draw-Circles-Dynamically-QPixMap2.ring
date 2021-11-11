@@ -91,7 +91,7 @@ New qapp {
 
             lineEdit1 = new qlineedit(win1) {
                 setGeometry( (DrawHorzSize / 2) -70 , DrawVertSize +60, 50, 20 )
-                settext( "198" )                   ### <<<< Inital Value
+                settext( "198" )                   ### <<<< Initial Value
             }
 
             new qpushbutton(win1)
@@ -148,13 +148,13 @@ Func DrawStart()
     for i = 1 to nbrOfCircles           ### Clear array
         arrayCol[i] = [0,0,0,0]
     next
-    arrayCol[1] = [0,0,1,1]             ### Reserve first entry to prevent ovelap of first circle
+    arrayCol[1] = [0,0,1,1]             ### Reserve first entry to prevent overlap of first circle
 
 
     positionCollisionTable = 1          ### Pointer to arrayOfCollisions[]
     Count  = 1                          ### Limit of iterations to calculated collisions.
 
-    CirclesDrawn = 0                    ### Number of curcles drawn so far
+    CirclesDrawn = 0                    ### Number of circles drawn so far
 
     daVinci.setBrush(brushS)            ### Brush - Solid, Blue
     daVinci.drawRect(0,0,500,400)       ### Draw Rectangle - To Empty -- clear Canvas
@@ -236,7 +236,7 @@ Func CollisionDetection ()
     rad    = random(radSize)
 
     for i = 1 to nbrOfCircles
-        if arrayCol[i][1] = 0                   ### Reach emply slot in Collision Table
+        if arrayCol[i][1] = 0                   ### Reach empty slot in Collision Table
 
             ### Empty slot
             HorzC  = (horz + ( rad / 2) )
