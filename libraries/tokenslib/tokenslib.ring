@@ -10,15 +10,13 @@ class RingTokens
 	cFileName
 	aTokens = []
 
-	func setFileName cFile 
+	func fromFile cFile 
 		cFileName = cFile
-
-	func Start 
 		pState = ring_state_new()
 		aTokens = ring_state_filetokens(pState,cFileName)
 		ring_state_delete(pState)
 
-	func setString cStr
+	func fromString cStr
 		pState = ring_state_new()
 		aTokens = ring_state_stringtokens(pState,cStr)
 		ring_state_delete(pState)
