@@ -10,7 +10,7 @@ see "len of trimed(j) is : " + len(trim(j)) + nl         #This gives non trimmed
 
 see 'trimed J is : "' + trim(j) + '"' + nl           #This shows non trimmed j
 
-see "len of trimed(j2) is : " + len(trim(j2)) + nl       #This addes 1 on actual len
+see "len of trimed(j2) is : " + len(trim(j2)) + nl       #This added 1 on actual len
 
 see 'trimed J2 is : "' + trim(j2) + '"' + nl         #This add space on j2
 
