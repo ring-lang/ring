@@ -2,7 +2,7 @@
 # Inviting the RingQt library
 load "guilib.ring"
 
-# Creating an QApp object to hold your holle app
+# Creating an QApp object to hold your whole app
 oApp = new QApp {
 
 	# Creating a main workspace for your app, where you wan design
