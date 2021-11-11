@@ -7,7 +7,7 @@
 # New Language ---> [ Programming ] - New Solutions ]
 # Programming ----> Management ( Complexitily ) 
 # Software ----> (Size) ----> Up
-# Ring ---> ( Genenal Purpose ) Natural | Declartive
+# Ring ---> ( Genenal Purpose ) Natural | Declarative
 # OOP - Functional
 
 new program {
