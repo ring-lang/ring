@@ -21,7 +21,7 @@
 // Func pathTF = pathSrcDest( myBalls01, x,y,s,t)   Return True/False
 // Func UserLeftMouse(Row,Col)            Return -
 // Func Play()                            Return -
-// Func Func BallsToZeroOne(myBalls)      Return myBalls01
+// Func BallsToZeroOne(myBalls)      Return myBalls01
 
 
 load "stdlib.ring"
