@@ -2,7 +2,7 @@
 			Modifications have comments started with *** or *****
 			Debugging was on Dev-C++ 5.11 and MSVC++ 10.0
 
-	All credit goes to the auther <Stuart Konen> and his CodeProject article on : 
+	All credit goes to the author <Stuart Konen> and his CodeProject article on : 
 	http://www.codeproject.com/Articles/8953/Registry-Wrapper-Class-CRegistry
 -------------------------------------------------------------------------------------*/	
 
@@ -67,7 +67,7 @@ typedef	std::string tstring;
 #define CREG_AUTOOPEN	2
 #define CREG_NOCACHE	4
 
-/* CRegistry Behaivor flags */
+/* CRegistry behaviour flags */
 
 #define CREG_LOADING	8
 
@@ -106,8 +106,8 @@ typedef	std::string tstring;
 
 
 /*** This definition has been caught as an error during debugging on Dev-C++ so
- *** has been clarified by seperation of the macro into two well  
- *** formated [REGENTRY_SETLOADINGp()] and [REGENTRY_SETLOADINGm()] with modification in the macros of call.  
+ *** has been clarified by separation of the macro into two well  
+ *** formatted [REGENTRY_SETLOADINGp()] and [REGENTRY_SETLOADINGm()] with modification in the macros of call.  
 
 #define REGENTRY_SETLOADINGp() \
 	__cregOwner->__dwFlags += CREG_LOADING 
@@ -176,13 +176,13 @@ public:
 	void		Close();
 	bool		Refresh();	
 
-	// *** remove static from decleration of KeyExists
+	// *** remove static from declaration of KeyExists
 	LONG		KeyExists(LPCTSTR lpszRegPath, HKEY hRootKey = HKEY_LOCAL_MACHINE);
 	LONG		SubKeyExists(LPCTSTR lpszSub);	
 	
 	void		DeleteKey();
 
-	// *** new added to help delete keys in XP compatibilty
+	// *** new added to help delete keys in XP compatibility
 	void		OpenParentnDelete(HKEY Rootkey, LPTSTR SubKEy);
 
 	/*	***	The next lines ended by //*** has been redefined with explicit data types	*/	
