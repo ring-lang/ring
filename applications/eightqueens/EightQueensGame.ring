@@ -215,7 +215,7 @@ Func DrawWidget()
                                                 resize(bwidth,bheight)	
 					}
 					
-				        ### Widget - Add HORZ BOTTON
+				        ### Widget - Add HORIZONTAL BUTTON
 					LayoutButtonRow[Row].AddWidget(Button[Row][Col])	
 			next
                         if size % 2 = 0
@@ -293,7 +293,7 @@ func newWindow(newSize)
                                                 resize(bwidth,bheight)	
 					}
 					
-				        ### Widget - Add HORZ BOTTON
+				        ### Widget - Add HORIZONTAL BUTTON
 					LayoutButtonRow[Row].AddWidget(Button[Row][Col])	
 			next
                         if size % 2 = 0
