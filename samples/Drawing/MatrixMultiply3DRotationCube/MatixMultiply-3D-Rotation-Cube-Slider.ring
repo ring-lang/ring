@@ -635,7 +635,7 @@ Func DoDraw(C)
   
    if ShapeType = "ShapeSolid"
       daVinci.setBrush(brushSY)
-      daVinci.drawPolygon( [ [C[5][1], C[5][2]], [C[8][1], C[8][2]], [C[4][1], C[4][2]], [C[1][1], C[1][2]] ], 0)  // Yello 14 85
+      daVinci.drawPolygon( [ [C[5][1], C[5][2]], [C[8][1], C[8][2]], [C[4][1], C[4][2]], [C[1][1], C[1][2]] ], 0)  // Yellow 14 85
 
       daVinci.setBrush(brushSR)
       daVinci.drawPolygon( [ [C[1][1], C[1][2]], [C[4][1], C[4][2]], [C[3][1], C[3][2]], [C[2][1], C[2][2]] ], 0)  // Red   12 34
@@ -670,7 +670,7 @@ Func DoDraw(C)
  
   if ShapeType = "ShapeSolidTriangle"
       daVinci.setBrush(brushSY)
-      daVinci.drawPolygon( [ [C[1][1], C[1][2]], [C[2][1], C[2][2]], [C[3][1], C[3][2]] ], 0)  // Yello 14 85
+      daVinci.drawPolygon( [ [C[1][1], C[1][2]], [C[2][1], C[2][2]], [C[3][1], C[3][2]] ], 0)  // Yellow 14 85
 
       daVinci.setBrush(brushSR)
       daVinci.drawPolygon( [ [C[1][1], C[1][2]], [C[3][1], C[3][2]], [C[4][1], C[4][2]] ], 0)  // Red   12 34
