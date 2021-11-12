@@ -10,5 +10,5 @@ number1 = number(number1)
 number2 = number(number2)
 see "Sum: "  see number1 + number2
 
-# String + { String / Number} ......> String
-# Number + { String / Number} ......> Number
+# String + { String / Number } ......> String
+# Number + { String / Number } ......> Number
