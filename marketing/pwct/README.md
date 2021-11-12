@@ -3,7 +3,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 * Posted: 30 April 2021
 
-* Date last Updated: 30 June 2021
+* Date last Updated: 13 November 2021
 
 # Contents:
 
@@ -21,6 +21,7 @@ Programming Without Coding Technology (PWCT) 2.0
     - [Inserting Steps](#inserting-steps)
     - [Auto-Complete](#auto-complete)
     - [Web and Mobile versions](#web-and-mobile-versions)
+    - [Dark Theme](#dark-theme)
     - [Translation (Arabic Version)](#translation-arabic-version)
   - [The Release Date](#the-release-date)
 
@@ -294,6 +295,12 @@ compared to using a large keyboard.
 Using foldable smartphones and Tablets provide better experience.
 
 ![webandmobile](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/WebAndMobile.png)
+
+### Dark Theme
+
+PWCT 2.0 comes with many themes include the Dark Theme.
+
+![dark](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/darktheme.png)
 
 ### Translation (Arabic Version)
 
