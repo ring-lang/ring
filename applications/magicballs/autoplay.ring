@@ -83,7 +83,7 @@ ballColors = [ "images/red.png",
 emptyColor = "images/empty.png"
 
 RandomColorCount = [0,0,0,0,0]    // How many of each color generated
-ScoreColorCount  = [0,0,0,0,0]    // How many of each color in a row,col,diag detectrd
+ScoreColorCount  = [0,0,0,0,0]    // How many of each color in a row,col,diag detected
 
 ###=====================================================
 
@@ -125,10 +125,10 @@ app = new qApp
                         setSizePolicy(1,1)
                     }
                     
-                    LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add HORZ BOTTON
+                    LayoutButtonRow[Row].AddWidget(Button[Row][Col])    ### Widget - Add HORIZONTAL BUTTON
                next
                
-               LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of ButtonS
+               LayoutButtonMain.AddLayout(LayoutButtonRow[Row])         ### Layout - Add ROW of Buttons
             next
 
             ###------------------------------------------------              
@@ -368,7 +368,7 @@ Func CheckLineOfColors(mySquare)
          count    = 1
          colorNbr = mySquare[i][j]             // Color to test
          
-         for k = 1 to inLine                  
+         for k = 1 to inLine
                if mySquare[i][j+k] = colorNbr  // Col right
                   count++
                ok 
@@ -385,14 +385,14 @@ Func CheckLineOfColors(mySquare)
    //----------------------
    // COLS  Down->InPlace
    
-   for i = 1 to Rows - inLine 
-      for j = 1 to Cols                                   
+   for i = 1 to Rows - inLine
+      for j = 1 to Cols
          
          count    = 1
          colorNbr = mySquare[i][j]             // Color to test
          
-         for k = 1 to inLine                   
-               if mySquare[i+k][j] = colorNbr  // Row dowm
+         for k = 1 to inLine
+               if mySquare[i+k][j] = colorNbr  // Row down
                   count++
                ok 
          next
