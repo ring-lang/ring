@@ -4,7 +4,7 @@
 Load "gamelib.ring"
 
 BoardDim = 398
-SquarePostions = [[0,0],2,3,4,5,6,7,8,9]
+SquarePositions = [[0,0],2,3,4,5,6,7,8,9]
 SquareDim = 0
 Moves = 0
 Squares = ["square",1]
@@ -45,15 +45,15 @@ al_register_event_source(event_queue, al_get_keyboard_event_source())
 squaredim = (boarddim - 8) / 3
 boardx = al_get_display_width(display) /2 - boarddim /2
 boardy = al_get_display_height(display) /2 - boarddim /2
-SquarePostions[1] = [boardx +2 , boardy +2]
-SquarePostions[2] = [boardx + squaredim + 4, boardy +2]
-SquarePostions[3] = [boardx + squaredim * 2 + 6, boardy +2]
-SquarePostions[4] = [boardx +2 , boardy + squaredim + 4]
-SquarePostions[5] = [boardx + squaredim + 4, boardy + squaredim + 4]
-SquarePostions[6] = [boardx + squaredim * 2 + 6, boardy + squaredim + 4]
-SquarePostions[7] = [boardx +2 , boardy + squaredim * 2 + 6]
-SquarePostions[8] = [boardx + squaredim + 4, boardy + squaredim * 2 + 6]
-SquarePostions[9] = [boardx + squaredim * 2 + 6, boardy + squaredim * 2 + 6]
+SquarePositions[1] = [boardx +2 , boardy +2]
+SquarePositions[2] = [boardx + squaredim + 4, boardy +2]
+SquarePositions[3] = [boardx + squaredim * 2 + 6, boardy +2]
+SquarePositions[4] = [boardx +2 , boardy + squaredim + 4]
+SquarePositions[5] = [boardx + squaredim + 4, boardy + squaredim + 4]
+SquarePositions[6] = [boardx + squaredim * 2 + 6, boardy + squaredim + 4]
+SquarePositions[7] = [boardx +2 , boardy + squaredim * 2 + 6]
+SquarePositions[8] = [boardx + squaredim + 4, boardy + squaredim * 2 + 6]
+SquarePositions[9] = [boardx + squaredim * 2 + 6, boardy + squaredim * 2 + 6]
 
 # CreateSquares ==========================
 squares = list(9)
@@ -106,7 +106,7 @@ next
 al_set_target_bitmap(al_get_backbuffer(display))
 al_draw_bitmap(board,al_get_display_width(display) / 2 - boarddim /2,al_get_display_height(display) / 2 - boarddim / 2,0)
 for s in squares
-	al_draw_bitmap(s[1],SquarePostions[s[2]][1],SquarePostions[s[2]][2],0)
+	al_draw_bitmap(s[1],SquarePositions[s[2]][1],SquarePositions[s[2]][2],0)
 next
 al_flip_display()
 
@@ -119,8 +119,8 @@ while true
 		mouse_x = al_get_allegro_event_mouse_x(ev)
 		mouse_y = al_get_allegro_event_mouse_y(ev)
 		for cursqr = 1 to 9
-			dx = mouse_x - SquarePostions[cursqr][1]
-			dy = mouse_y - SquarePostions[cursqr][2]
+			dx = mouse_x - SquarePositions[cursqr][1]
+			dy = mouse_y - SquarePositions[cursqr][2]
 			if dx < squaredim and dx > 0 
 				if dy < squaredim and dy > 0
 					ns = CheckNearSpace(cursqr)
@@ -194,8 +194,8 @@ end
 
 func ExSquarePosition filled,spaced
 	al_set_target_bitmap(al_get_backbuffer(display))
-	al_draw_bitmap(squares[find(squares,filled,2)][1],SquarePostions[squares[9][2]][1],SquarePostions[squares[9][2]][2],0)
-	al_draw_bitmap(squares[9][1],SquarePostions[filled][1],SquarePostions[filled][2],0)
+	al_draw_bitmap(squares[find(squares,filled,2)][1],SquarePositions[squares[9][2]][1],SquarePositions[squares[9][2]][2],0)
+	al_draw_bitmap(squares[9][1],SquarePositions[filled][1],SquarePositions[filled][2],0)
 	squares[9][2] = filled
 	squares[find(squares,filled,2)][2] = spaced
 	moves += 1
