@@ -20,8 +20,8 @@ sizeX  = 800 sizeY	= 820		### Size of Window
 hSize	= 8 +2 +2	### Size of array, Display -4 smaller
 vSize	= 8 +2 +2	### Size of array, Display -4 smaller
 
-h	= 0	### Horizontal Coordinate of Cell
-v	= 0	### Vertical Coordinate of Cell
+h	= 0	### Horizontal coordinate of Cell
+v	= 0	### Vertical coordinate of Cell
 
 
 ###----------------------------------------------------------
@@ -222,7 +222,7 @@ Func DrawWidget()
 						setSizePolicy(1,1)									
 					}
 					
-				### Widget - Add HORZ BOTTON
+				### Widget - Add HORIZONTAL BUTTON
 					LayoutButtonRow[Row].AddWidget(aButton[Row][Col])	
 			next
 			odd++
