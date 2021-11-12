@@ -409,7 +409,7 @@ Func DrawWidget()
                             installeventfilter(myfilter)
                     }
 
-                ### Widget - Add HORZ BOTTON
+                ### Widget - Add HORIZONTAL BUTTON
                     LayoutButtonRow[Row].AddWidget(aButton[Row][Col])
 
             next
