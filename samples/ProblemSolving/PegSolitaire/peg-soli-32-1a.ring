@@ -13,11 +13,11 @@ Load "stdlib.ring"
 // so that move() doesn't need to check the board boundaries.
 // Periods represent illegal fields, x are pegs, and o are holes.
 
-// clasic:
+// classic:
 b = "..........................xxx........xxx......xxxxxxx....xxxoxxx....xxxxxxx......xxx........xxx.........................."
 
 /*
-clasic:
+classic:
 ...........
 ...........
 ....xxx....
