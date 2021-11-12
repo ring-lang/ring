@@ -21,21 +21,21 @@ n = 123456789.12345
 ? integerPart(n)	# Gives 123456789
 ? getActiveRound()	# Gives 0, because the integerPart has set the active round to 0
 
-? n	# Gives only the intger part of n (123456789), because the round has been set to 0
+? n	# Gives only the integer part of n (123456789), because the round has been set to 0
 ? decimalPart(n,5)	# Now, we pass the n value but by specifying 5 as number of decimals
 			# Then we get 0.12345
 
 ? getActiveRound()	# Actually, the active round has been set to 5
 
-// NB: In all code you would write, you should get the active round befor you do anything
-// so you are not suprised when they have changed elswhere.
+// NB: In all code you would write, you should get the active round before you do anything
+// so you are not surprised when they have changed elsewhere.
 
 func integerPart(nNumber)
 	// Transforming the number to a string
 	str = "" + nNumber
 
 	// Walking through the string, from left to right, harvesting
-	// the caracters until we confront "."
+	// the characters until we confront "."
 	cTemp = ""
 	for c in str
 		if c = "." exit ok
@@ -50,14 +50,14 @@ func integerPart(nNumber)
 	return nRes
 
 func decimalPart(nNumber,nRound)
-	// Same logic as for integerpart() but start walking at the "." sperator+1
+	// Same logic as for integerpart() but start walking at the "." separator + 1
 	decimals(nRound)
 	str = "" +nNumber
 	cTemp = "0."
 
 	nSepPos = 0
 
-	// Getting the position of "." sperator+1
+	// Getting the position of "." separator + 1
 	for i=1 to len(str)
 		if str[i] = "."
 			nSepPos = i
@@ -84,7 +84,7 @@ func getActiveRound()
 	
 	nSepPos = len(str)
 
-	// Getting the position of "." sperator+1
+	// Getting the position of "." separator + 1
 	for i=1 to len(str)
 		if str[i] = "."
 			nSepPos = i
