@@ -11,7 +11,7 @@ Puts("Test CopyArray(), N=5000, 7000, 9000 ")
 Puts("")
 
 ###-------------------------------
-### Build a Matix size: n x n X 3
+### Build a Matrix size: n x n X 3
 ###-------------------------------
 
 n = 1000
@@ -111,7 +111,7 @@ See Tab +" --- End copy.... array: "+ n  +" Time-msec: "+ diffTime +nl
 
 ###-----------------------------------------------------------------------
 ### Recursive Create a Dimension Array
-### Call by passing an array of dimesions: dimList = [2,3,4,5]
+### Call by passing an array of dimensions: dimList = [2,3,4,5]
 ### Drop the first entry every iteration call, making newParms
 ###
 ### Example:
