@@ -101,13 +101,13 @@ class BinaryHeap
 	array = []
 	n = 0
 
-	# Function to swim the new value to the corrent position in the heap (bottom -> top)
+	# Function to swim the new value to the current position in the heap (bottom -> top)
 	func swim k
 		while k > 1 and (array[floor(k/2)] < array[k])
 			swap(array, floor(k/2), k)
 			k = floor(k / 2)
 		end
-	# Function to sink a value to the corrent position in the heap (top -> bottom) 
+	# Function to sink a value to the current position in the heap (top -> bottom) 
 	func sink k
 		while k * 2 <= n
 			j = k * 2
