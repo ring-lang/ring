@@ -70,7 +70,7 @@ next
 See nl +"=== Finished Recursive ===" +nl+nl
 
 ###-------------------------------------------------------
-### Func FibR(p) Fibonacci Recusrsive call. p = iterations
+### Func FibR(p) Fibonacci Recursive call. p = iterations
 
 Func FibR(p)
 	if ( p <= 2 )
