@@ -11,7 +11,7 @@
 
 
 //========================================
-//Globals 
+// Globals 
 	RangeA = "0000007F"  // Less than  < A < B < C < D
 	RangeB = "000007FF"
 	RangeC = "0000FFFF"
@@ -231,7 +231,7 @@ Func Hex2Utf(HexNbr)
 	//-----------------------------
 
 	elseif  Dec(HexNbr) > Dec("1FFFFF") 
-		return "00"								// Exceeeds Hex Value 
+		return "00"								// Exceeds Hex Value 
 		
 	//-----------------------------
    ok
