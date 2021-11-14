@@ -61,7 +61,7 @@ func main
 
 		// Check player collision (we simplify to 2D collision detection)
 		playerPos = Vector2( camera.position.x, camera.position.z )
-		playerRadius = 0.1	// Collision radius (player is modelled as a cilinder for collision)
+		playerRadius = 0.1	// Collision radius (player is modelled as a cylinder for collision)
 		playerCellX = (playerPos.x - mapPosition.x + 0.5)
 		playerCellY = (playerPos.y - mapPosition.z + 0.5)
 
