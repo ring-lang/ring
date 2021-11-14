@@ -4,8 +4,8 @@
 
 load "stdlib.ring"
 
-size      = 10					// Size of Matrix .. Display formats upto 99
-repeat    = 3					// Number of Marix to Generate
+size      = 10					// Size of Matrix .. Display formats up to 99
+repeat    = 3					// Number of Matrix to Generate
 a2DSquare = newlist(size,size)
 a2DFinal  = newlist(size,size)
 
