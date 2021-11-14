@@ -76,7 +76,7 @@ RING_FUNC(ring_mandel)
 				if (a + b > 4 )
 				{
 				   break;
-				}                                // Beyond boudary limts +-2
+				}                                // Beyond boundary limits +-2
 
 				zI = 2 * zR * zI + pointI ;      // Vertical-imaginary + Step
 				zR = a - b + pointR ;            // Horizontal-real
@@ -121,7 +121,7 @@ RING_API void ringlib_init(RingState *pRingState)
                 if (a + b > 4 )
                 {
                    break;
-                }                                // Beyond boudary limts +-2
+                }                                // Beyond boundary limits +-2
 
                 zI = 2 * zR * zI + pointI ;      // Vertical-imaginary + Step
                 zR = a - b + pointR ;            // Horizontal-real
