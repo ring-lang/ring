@@ -1438,7 +1438,7 @@ class frFunctions {
 	
 	/*
 	 * Syntax		: lcReturnValue = frSetCentury(tcStatus)
-	 * Description		: Returns the current value of the century format and sets a new one when especified.
+	 * Description		: Returns the current value of the century format and sets a new one when specified.
 	 * 			:
 	 * Arguments		: <tcStatus>
 	 *			: Specifies the century status. 
@@ -1467,7 +1467,7 @@ class frFunctions {
 
 	/*
 	 * Syntax		: lcReturnValue = frSetDate(tcDateFormat)
-	 * Description		: Returns the current value of the date format and sets a new one when especified
+	 * Description		: Returns the current value of the date format and sets a new one when specified.
 	 * 			:
 	 * Arguments		: <tcDateFormat>
 	 *			: Specifies the date format 
@@ -2159,7 +2159,7 @@ class DateClass {
 
 	/*
 	 * Return day of the week Monday ...... Sunday 
-	 * Case tlType <> True return the abreviation
+	 * Case tlType <> True return the abbreviation
 	 */
 	func cDayOfWeek(tlType) {
 	
