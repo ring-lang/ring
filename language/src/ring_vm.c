@@ -890,7 +890,7 @@ void ring_vm_tobytecode ( VM *pVM,int x )
 	for ( x2 = 1 ; x2 <= ring_list_getsize(pIR) ; x2++ ) {
 		pItem = ring_list_getitem(pIR,x2) ;
 		pByteCode->aData[x2-1] = pItem ;
-		/* Avoid Performance Instuctions (Happens when called from New Thread) */
+		/* Avoid Performance Instructions (Happens when called from New Thread) */
 		if ( x2 == 1 ) {
 			switch ( pItem->data.iNumber ) {
 				case ICO_PUSHPLOCAL :
