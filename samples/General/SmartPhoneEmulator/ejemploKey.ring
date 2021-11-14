@@ -173,7 +173,7 @@ func pPress moj
 	txtM = txt.toHtml() + "<img src = 'p', hight=14, width=14>";
      txt.setHtml(txtM);
 
-// Class that handle the panel in witch the buttons are located
+// Class that handle the panel in which the buttons are located
 class Teclado from qwidget { 
 	panel lab myEvent btn dat   
 
