@@ -429,7 +429,7 @@ class Cube
 	
 		glBindBuffer(GL_ARRAY_BUFFER, vbo_id)
 			glBufferData(GL_ARRAY_BUFFER, cube_size, NULL, GL_STATIC_DRAW)
-			// copy vertices starting from 0 offest to VRAM
+			// copy vertices starting from 0 offset to VRAM
 			glBufferSubData(GL_ARRAY_BUFFER, 0, vert_len, vertices)
 			// copy normals after vertices to VRAM
 			glBufferSubData(GL_ARRAY_BUFFER, vert_len, norm_len, normals)
