@@ -197,7 +197,7 @@ ShapePI = [
            
 ShapeType =  "ShapeCube"			  
 ShapeLen  =  len(ShapePI)					
-Corners   =  ShapePI        //  Biggest Shape, Use for Cube and Triable
+Corners   =  ShapePI        //  Biggest Shape, Use for Cube and Triangle
 
 ###-----------------
 
@@ -756,5 +756,3 @@ Func DisplayMatrix(M)
 return
 
 //----------------------------
-
-
