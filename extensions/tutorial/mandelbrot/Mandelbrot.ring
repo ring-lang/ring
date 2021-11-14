@@ -54,8 +54,8 @@ decimals(12)
     
 ###-------------------------------
 ### Mouse Pressed Points
-    nX = 0          #= myfilter.getglobalx()        ### Screen co-ord, NOT Canvas
-    ny = 0          #= myfilter.getglobaly()        ### Screen co-ord, NOT Canvas   
+    nX = 0          #= myfilter.getglobalx()        ### Screen coordinate, NOT Canvas
+    ny = 0          #= myfilter.getglobaly()        ### Screen coordinate, NOT Canvas   
     
 ###---------------------------
 ### Mouse Move OLD Points
@@ -64,7 +64,7 @@ decimals(12)
     
 ###-------------------------------
 ### Mouse Release Points
-    fX = 0          #= myfilter.getglobalx()            ### Screen co-ord, NOT Canvas
+    fX = 0          #= myfilter.getglobalx()            ### Screen coordinate, NOT Canvas
     fY = 0          #= myfilter.getglobaly()
     
 ###-----------------------------------------
@@ -364,7 +364,7 @@ Func Draw()
                 a = zR * zR                     ###  zR^2  - horizontal-real
                 b = zI * zI                     ###  zI^2  - vertical-imaginary
 
-                if a + b > 4 exit ok            ### Beyond boudary limts +-2 
+                if a + b > 4 exit ok            ### Beyond boundary limits +-2 
 
                 zI = 2 * zR * zI + pointI       ### Vertical-imaginary + Step
                 zR = a - b + pointR             ### Horizontal-real
@@ -434,8 +434,8 @@ return
 
 Func pPress
     
-    nX = myfilter.getx() -8         ### Screen co-ord, Canvas = myfilter.globalx()
-    ny = myfilter.gety() -8 -30     ### Screen co-ord, NOT Canvas
+    nX = myfilter.getx() -8         ### Screen coordinate, Canvas = myfilter.globalx()
+    ny = myfilter.gety() -8 -30     ### Screen coordinate, NOT Canvas
     
     win1.setWindowTitle("Press: Top: "+ nX +"-"+ nY +" Bot:"+ fX +"-" +fY )
 
@@ -453,13 +453,13 @@ return
 Func pMove
 
 
-    fX = myfilter.getx() -8         ### Screen co-ord, NOT Canvas
+    fX = myfilter.getx() -8         ### Screen coordinate, NOT Canvas
     fY = myfilter.gety() -8 -30  
     
     xWidth  = fX - nX
     yHeight = fY - nY
     
-    fX = nX + yHeight   ### make square. = height lenght
+    fX = nX + yHeight   ### make square. = height length
 
     win1.setWindowTitle("Move: Top:"+ nX +"-"+ nY +" Bot: "+ fX +"-"+ fY +" Width:"+ (xWidth) +" Height:"+ (yHeight) )
     
@@ -477,7 +477,7 @@ return
 Func pRelease
 
 
-    fX = myfilter.getx() -8         ### Screen co-ord, NOT Canvas
+    fX = myfilter.getx() -8         ### Screen coordinate, NOT Canvas
     fY = myfilter.gety() -8 -30  
     
     xWidth  = fX - nX
@@ -607,8 +607,3 @@ Func CalculateZoom()
 return
 
 ###-----------------------------------------
-
-
-
-
-
