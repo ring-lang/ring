@@ -59,7 +59,7 @@ New qapp {
                 
                 lineEdit1 = new qlineedit(win1) {
                         setGeometry( (horzSize / 2) -70 , vertSize +60, 50, 20 )
-                        settext( "150" )                  ### <<<< Inital Value
+                        settext( "150" )                  ### <<<< Initial Value
                 }
 
                 new qpushbutton(win1) 
@@ -123,7 +123,7 @@ Func draw nr
                     Status = Count % 5000
                     
                     if Status = 0
-                        See "Count: "+ Count +" Cicles: "+ posCol +nl
+                        See "Count: "+ Count +" Circles: "+ posCol +nl
                     ok
                 
                     if Count > CountMax
