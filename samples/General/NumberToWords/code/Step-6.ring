@@ -3,7 +3,7 @@
 
 // s: with graphic UI  (n2w-Gr)
 
-// efective (netto) approximately 30 lines of code for an arbitrary number of words.
+// effective (cost) approximately 30 lines of code for an arbitrary number of words.
 // currently limited by tsds ["vigintillion"] (can be traced)
 // File: C:\ring\Ring17\RingSamples\src\n2w03c.ring
 // Datum: 20.02.2018 (Revised: 23.12.2019)
