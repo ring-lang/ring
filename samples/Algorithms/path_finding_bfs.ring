@@ -156,7 +156,7 @@ class Grid
 	func getNeighbor i, j
 		if isValidIndex(i, j) return object2pointer(grid[i][j]) ok
 		return null
-	# Function to creat a chain of nodes from a node to the startNode (used after find a path)
+	# Function to create a chain of nodes from a node to the startNode (used after find a path)
 	func path endPointer
 		list = []
 		list + endPointer
