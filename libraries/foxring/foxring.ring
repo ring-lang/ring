@@ -2239,7 +2239,7 @@ class DateClass {
 		return lnRet
 	}
 	
-	// Return the number of days in year preceeding first day of month
+	// Return the number of days in year preceding first day of month
 	func _DaysBeforeMonth(tnYear, tnMonth) {
 	
 		lnToAdd = 0
