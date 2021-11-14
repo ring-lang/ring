@@ -162,7 +162,7 @@ VM * ring_vm_new ( RingState *pRingState )
 	*/
 	pVM->nCallClassInit = 0 ;
 	/*
-	**  Flag to avoid deleteing Byte Code using Return From Eval() 
+	**  Flag to avoid deleting Byte Code using Return From Eval() 
 	**  When we use eval() then inside eval we uses eval for setter/getter/operator overloading 
 	**  Then deleting byte code will cause a problem in setter/getter/operator overloading 
 	**  In this case we set this flag to avoid the delete operation and solve the problem 
@@ -1368,7 +1368,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	**  Flag that we are running from thread 
 	**  We check this flag when generating hash tables of lists (for functions or scope) 
 	**  In this case we generate the hash table without the memory pool 
-	**  Because the memory of the current memory pool of this state will be deleted when deleteing the state 
+	**  Because the memory of the current memory pool of this state will be deleted when deleting the state 
 	**  And the lists of the hash table will be needed to be used by the main VM 
 	*/
 	pState->lRunFromThread = 1 ;
@@ -1456,7 +1456,7 @@ RING_API void ring_vm_runcodefromthread ( VM *pVM,const char *cStr )
 	ring_list_delete_gc(pState,pState->pVM->pCFunctionsList);
 	/* Restore the first scope - global scope */
 	pState->pVM->pMem->pFirst->pValue = pItem ;
-	/* Avoid deleteing the shared lists and the Mutex */
+	/* Avoid deleting the shared lists and the Mutex */
 	pState->pVM->pCode = pList ;
 	pState->pVM->pFunctionsMap = pList2 ;
 	pState->pVM->pClassesMap = pList3 ;
