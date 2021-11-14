@@ -167,7 +167,7 @@ def pAvanza
 	str = " "
 	txt.settext(str)
 
-// funtion to add image to a qTextedit
+// function to add image to a qTextedit
 func pPress moj
 	p = '"'+elist[moj]+'"' see p+nl
 	txtM = txt.toHtml() + "<img src = 'p', hight=14, width=14>";
