@@ -14,7 +14,7 @@ maxNbr = 25
 Func main()
 
    //-------------------------------------------
-	// START with a rnadom List with Holes in it
+	// START with a random List with Holes in it
 	
    See "Random aList: "+nl   display1D(aList)
 
