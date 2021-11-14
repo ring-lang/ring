@@ -213,7 +213,7 @@ Func DrawWidget()
 						setSizePolicy(1,1)
 						
 							###-------------------------------------------------
-							### For Right Mouse Click - oes NOT show depression
+							### For Right Mouse Click - does NOT show depression
 							myfilter = new qAllEvents(workWidget) 
 							{
 								setContextMenuEvent( "myMenu(	" + string(Row) + "," + string(Col) + ")  " )  ### CLICK CELL ===>>>>
