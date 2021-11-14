@@ -29,7 +29,7 @@ MaxR = 1.18000000
                 a = zR * zR                  ###  zR^2  - horizontal-real
                 b = zI * zI                   ###  zI^2  - vertical-imaginary
 
-                if a + b > 4 exit ok            ### Beyond boudary limts +-2 
+                if a + b > 4 exit ok            ### Beyond boundary limits +-2 
 
                 zI = 2 * zR * zI + pointI       ### Vertical-imaginary + Step
                 zR = a - b + pointR             ### Horizontal-real
