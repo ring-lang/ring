@@ -95,7 +95,7 @@ aSQColor = [
     [0,0,0, 1,1,1, 0,0,0],
     [0,0,0, 1,1,1, 0,0,0] ]
 
-### Default intial puzzle to display
+### Default initial puzzle to display
 aArray =[
     [0,6,0, 0,0,0, 0,0,7],
     [1,0,7, 0,2,9, 0,0,0],
@@ -1427,7 +1427,7 @@ Func SolveaHintsArray()
                                     for p = 1 to 9
                                         for q = 1 to 9                              ### Diff staring SQuare
                                         
-                                            curRegion = regionArray[p][q]           ### Region-ID 1..9  for this SQ co-ord      
+                                            curRegion = regionArray[p][q]           ### Region-ID 1..9  for this SQ coordinate      
                                     
                                             if curRegion = RegionID                 ### HINTS in THIS REGION -- fill line into Region Box
                                                         
