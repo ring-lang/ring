@@ -169,7 +169,7 @@ class frFunctions {
 
 
 		// Jar 02.10.2018 
-		// At moment tnFDow isn´t used
+		// At moment tnFDow isn't used
 		tnFDoW = this.frSetIfEmpty(tnFDoW, 2)		
 
 		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
@@ -196,7 +196,7 @@ class frFunctions {
 	func frCDoW(tdDate, tnFDoW) {
 
 		// Jar 02.10.2018 
-		// At moment tnFDow isn´t used
+		// At moment tnFDow isn't used
 		tnFDoW = this.frSetIfEmpty(tnFDoW, 2)		
 
 		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
@@ -222,7 +222,7 @@ class frFunctions {
 	func frCDoWShort(tdDate, tnFDoW) {
 
 		// Jar 02.10.2018 
-		// At moment tnFDow isn´t used
+		// At moment tnFDow isn't used
 		tnFDoW = this.frSetIfEmpty(tnFDoW, 2)		
 		oDt = this._GetDateObject(tdDate.nYear, tdDate.nMonth, tdDate.nDay)
 		return oDt.cShortDayOfWeek
@@ -710,7 +710,7 @@ class frFunctions {
 	func frFile(tcFileName, tnFlag) {
 
 		// Jar 18.02.2018 
-		// At moment tnFlag isn´t used
+		// At moment tnFlag isn't used
 
 		return Fexists(tcFileName)	
 	}
@@ -1736,7 +1736,7 @@ class frFunctions {
 				else
 					if lcExpressionType = this._ring_object_type {
 					
-						// if it´s a object we need to check if it's date or datetime object
+						// if it's a object we need to check if it's date or datetime object
 						if this._IsPorperty(tuExpression, "cClassType") {
 							lcRet = tuExpression.cClassType
 						else
