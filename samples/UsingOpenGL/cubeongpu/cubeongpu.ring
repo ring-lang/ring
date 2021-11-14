@@ -178,7 +178,7 @@ func main
 	glutKeyboardFunc(:regularKeys)
 	glutCloseFunc(:leave)
  
-	// initialize glew for externsions
+	// initialize glew for extensions
 	glewInit()
 
 	// set lights, buffers, etc
