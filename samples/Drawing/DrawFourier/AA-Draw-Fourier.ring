@@ -353,13 +353,13 @@ Func pDrawObjects()
 								y -= radius * sin(radian)  				// Sin() Vertical Y								
 							ok
 					else
-							See "Error: Unknow Wave Name: "+ WaveType +nl
+							See "Error: Unknown Wave Name: "+ WaveType +nl
 							return
 					ok			
 					
 					 
 				daVinci.setpen(penYellow)				
-				daVinci.drawLine(oldX, -oldY, X, -Y)		// From oldCircle center to newCircle cemter
+				daVinci.drawLine(oldX, -oldY, X, -Y)		// From oldCircle center to newCircle center
 				
 				daVinci.setpen(curPen)
 				DrawCircle(oldX, -oldY, radius)
