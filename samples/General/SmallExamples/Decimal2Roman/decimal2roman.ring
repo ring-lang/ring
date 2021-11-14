@@ -7,7 +7,7 @@ decimal2roman(3549)
 ? ""
  
 def decimal2roman(num)
-	// descending ()is more eficient)
+	// descending () is more efficient.
     decimal = [1000,900,500,400,100,90,50,40,10,9,5,4,1] //base values 
     symbol = ["M","CM","D","CD","C","XC","L","XL","X","IX","V","IV","I"] //roman symbols
     
