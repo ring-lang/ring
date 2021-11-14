@@ -171,7 +171,7 @@ return false
 
 //==================================================  
 // This is the Evaluation function 
-// Assign points to diffrent results
+// Assign points to different results
 // Check who won. Assign +- 10 points
 
 Func evaluate(b)
@@ -244,6 +244,3 @@ return
 //======================================
 ////////////////////////////////////////
 //======================================
-
-
-
