@@ -490,7 +490,7 @@ int ring_parser_stmt ( Parser *pParser )
 			return 0 ;
 		}
 	}
-	/* Statement --> For Identifier = Expr to Expr {Statement} Next  |  For Identifier in Expr { Statement */
+	/* Statement --> For Identifier = Expr to Expr {Statement} Next  |  For Identifier in Expr {Statement } */
 	if ( ring_parser_iskeyword(pParser,K_FOR) ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;

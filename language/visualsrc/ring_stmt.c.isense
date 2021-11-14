@@ -25,8 +25,8 @@ nStart
 Type: const char *
 cToken
 ring_parser_list
-ring_parser_epslion
-ring_parser_passepslion
+ring_parser_epsilon
+ring_parser_passepsilon
 ring_parser_namedotname
 Type: String *
 pString

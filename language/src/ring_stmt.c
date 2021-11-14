@@ -36,7 +36,7 @@ int ring_parser_class ( Parser *pParser )
 			/* Add class pointer to generated code */
 			ring_parser_icg_newoperandpointer(pParser,pList);
 			ring_parser_nexttoken(pParser);
-			/* [From Identifer] */
+			/* [From Identifier] */
 			if ( ring_parser_iskeyword(pParser,K_FROM) || ring_parser_isoperator2(pParser,OP_RANGE) || ring_parser_isoperator2(pParser,OP_LESS) ) {
 				ring_parser_nexttoken(pParser);
 				if ( ring_parser_namedotname(pParser) ) {
@@ -490,7 +490,7 @@ int ring_parser_stmt ( Parser *pParser )
 			return 0 ;
 		}
 	}
-	/* Statement --> For Identifier = Expr to Expr {Statement} Next  |  For Identifier in Expr {Statemen */
+	/* Statement --> For Identifier = Expr to Expr {Statement} Next  |  For Identifier in Expr {Statement } */
 	if ( ring_parser_iskeyword(pParser,K_FOR) ) {
 		ring_parser_nexttoken(pParser);
 		RING_PARSER_IGNORENEWLINE ;
