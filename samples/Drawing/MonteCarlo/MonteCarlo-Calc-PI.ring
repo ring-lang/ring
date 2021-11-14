@@ -30,7 +30,7 @@ ballLimit = 100000  # 100k
 PI        = 1
 
 ###================================================
-### Drawing costants
+### Drawing constants
 
 flag = 0
 
@@ -135,7 +135,7 @@ MyApp = new qApp
 ###==============================================================
 
 ###==============================================================
-### Calculate if ramdom point falls inside or outside the Circle 
+### Calculate if random point falls inside or outside the Circle 
 
 Func MonteCarlo()
 
@@ -222,8 +222,8 @@ return
 Func pPress
     //win.setWindowTitle("Press: Top " + nX +"-" +nY +" Bottom "+ fX +"-" +fY  +" Width "+ (rad2) )
     
-    nX = myfilter.getglobalx()      ### Screen co-ord, NOT Canvas
-    ny = myfilter.getglobaly()      ### Screen co-ord, NOT Canvas
+    nX = myfilter.getglobalx()      ### Screen coordinate, NOT Canvas
+    ny = myfilter.getglobaly()      ### Screen coordinate, NOT Canvas
 
     ### Change Pen Color
     if  counter % 3 = 0  daVinci.setpen(penRed)
@@ -243,7 +243,7 @@ return
 Func pRelease
     //win.setWindowTitle("Press: Top " + nX +"-" +nY +" Bottom "+ fX +"-" +fY +" Width "+ (rad2) )
 	 
-    fX = myfilter.getglobalx()          ### Screen co-ord, NOT Canvas
+    fX = myfilter.getglobalx()          ### Screen coordinate, NOT Canvas
     fY = myfilter.getglobaly()
 
     pDrawObjects()                      ### Circle and Square combo
@@ -259,7 +259,7 @@ return
 Func pMove
     //win.setWindowTitle("Press: Top " + nX +"-" +nY +" Bottom "+ fX +"-" +fY +" Width "+ (rad2)  )
 
-    fX = myfilter.getglobalx()      ### Screen co-ord, NOT Canvas
+    fX = myfilter.getglobalx()      ### Screen coordinate, NOT Canvas
     fY = myfilter.getglobaly()
 
     pDrawObjects()                  ### Circle and Square combo
