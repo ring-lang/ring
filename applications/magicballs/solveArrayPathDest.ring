@@ -47,7 +47,7 @@ Func pathSrcDest(aSquare,x,y,s,t)
     mySquare = aSquare         // Working Copy 
     
     //-------------------------------------
-    // Fexable: Find size of 2D Array => Rows x Cols
+    // Fixable: Find size of 2D Array => Rows x Cols
     Rows = len(mySquare)       // Size: 10     Rows
     Cols = len(mySquare[1])    // Size[1]: 10  Row-1 Cols
 
@@ -149,9 +149,3 @@ Func CheckResult()
 return 
 
 //===========================================
-
-
-
-
-
-
