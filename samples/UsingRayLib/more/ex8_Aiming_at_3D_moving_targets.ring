@@ -135,7 +135,7 @@ Func main
 				b = 2.0 * Vector3DotProduct(targVel, totarget)
 				c = Vector3DotProduct(totarget, totarget)
 
-				// quadratic formular simplfied down to this...
+				// quadratic formula simplified down to this...
 				p = -b / (2.0 * a)
 				q = sqrt((b * b) - 4.0 * a * c) / (2.0 * a)				
 				
