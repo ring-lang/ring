@@ -21,8 +21,8 @@ sizeX  = 840 sizeY  = 820       ### Size of Window
 hSize   = 8 +2 +2   ### Size of array, Display -4 smaller
 vSize   = 8 +2 +2   ### Size of array, Display -4 smaller
 
-h   = 0 ### H-coord of Cell
-v   = 0 ### V-coord of Cell
+h   = 0 ### Horizontal coordinate of Cell
+v   = 0 ### Vertical coordinate of Cell
 
 
 ###----------------------------------------------------------
@@ -94,8 +94,8 @@ oKing     = new QPixmap(King)
 bWidth    = oKing.width()         ### 50 
 bHeight   = oKing.height()        ### 50
 
-nMoves    = 0   ### Source  Move =2 by Black  =3 by White
-oldNMoves = 9   ### Dest.   Move =2 by Black  =3 by While
+nMoves    = 0   ### Source        Move =2 by Black  =3 by White
+oldNMoves = 9   ### Destination   Move =2 by Black  =3 by While
 oldH   = 0
 oldV   = 0
 
