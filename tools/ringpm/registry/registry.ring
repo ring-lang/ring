@@ -666,5 +666,9 @@ aPackagesRegistry = [
 	[ :name = "chessendgame",
           :description = "ChessEndGame package for the Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "csvlib",
+          :description = "CSVLib library for the Ring programming language",
+          :ProviderUserName = "ringpackages"
         ]
 ]
