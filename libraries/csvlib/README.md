@@ -3,6 +3,10 @@ CSVLib Library
 
 Using this library we can generate and read CSV Files
 
+# install
+
+	ringpm install csvlib from ringpackages
+
 # Functions
 
 	List2CSV(aList) --> cCSVString
