@@ -15,8 +15,36 @@ List of changes and new features
 
 Ring 1.17 comes with the next features!
 
+* CSVLib Library
 * TokensLib Library
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.17; CSVLib Library
+
+CSVLib Library
+==============
+
+Using this library we can generate and read CSV files 
+
+Example:
+
+.. code-block:: ring
+
+	load "csvlib.ring"
+
+	aList = [ ["number", "square" ] ]
+
+	for t=1 to 10
+		aList + [ t, t*t ]
+	next
+	
+	write( "squares.csv", list2CSV(aList) )
+
+Output:
+
+.. image:: squarestable.png
+	:alt: squarestable
 
 .. index:: 
 	pair: What is new in Ring  1.17; TokensLib Library

@@ -196,6 +196,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.17</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#csvlib-library">CSVLib Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tokenslib-library">TokensLib Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
@@ -276,12 +277,31 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.17 comes with the next features!</p>
 <ul class="simple">
+<li><p>CSVLib Library</p></li>
 <li><p>TokensLib Library</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </div>
+<div class="section" id="csvlib-library">
+<span id="index-2"></span><h2>CSVLib Library<a class="headerlink" href="#csvlib-library" title="Permalink to this headline">¶</a></h2>
+<p>Using this library we can generate and read CSV files</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;csvlib.ring&quot;</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="o">[</span><span class="s">&quot;number&quot;</span><span class="p">,</span> <span class="s">&quot;square&quot;</span> <span class="o">]</span> <span class="o">]</span>
+
+<span class="k">for</span> <span class="n">t</span><span class="o">=</span><span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+        <span class="n">aList</span> <span class="o">+</span> <span class="o">[</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span> <span class="o">]</span>
+<span class="k">next</span>
+
+<span class="n">write</span><span class="p">(</span> <span class="s">&quot;squares.csv&quot;</span><span class="p">,</span> <span class="n">list2CSV</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span> <span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<img alt="squarestable" src="_images/squarestable.png" />
+</div>
 <div class="section" id="tokenslib-library">
-<span id="index-2"></span><h2>TokensLib Library<a class="headerlink" href="#tokenslib-library" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>TokensLib Library<a class="headerlink" href="#tokenslib-library" title="Permalink to this headline">¶</a></h2>
 <p>Using this library we can get Ring tokens from source code files or strings.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tokenslib.ring&quot;</span>
@@ -310,7 +330,7 @@ EndLine
 </div>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-3"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Many documents and samples are revised (Better English)</p></li>
 </ul>
