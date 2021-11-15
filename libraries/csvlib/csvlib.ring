@@ -51,6 +51,9 @@ func CSVLib_test
 #============================================================================#
 
 func List2CSV aList 
+	if ! isList(aList) {
+		raise("Bad parameter type! - The List2CSV() function expect a List")
+	}
 	return List2CSV_Process(aList,0)
 
 func List2CSV_Process aList,nStart
@@ -102,6 +105,9 @@ func List2CSV_Process aList,nStart
 #============================================================================#
 
 func CSV2List cString
+	if ! isString(cString) {
+		raise("Bad parameter type! - The CSV2List() function expect a String")
+	}
 	aList = []
 	aLines = str2list(cString)
 	for cLine in aLines step 1 { 
