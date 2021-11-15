@@ -15,7 +15,7 @@ Using this library we can generate and read CSV Files
 
 	write( "squares.csv", list2CSV(aList) )
 
-# Screen Shot
+# Output
 
 ![squarestable](https://raw.githubusercontent.com/ring-lang/ring/master/documents/source/squarestable.png)
 
