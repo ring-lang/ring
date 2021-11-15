@@ -1,7 +1,7 @@
 load "csvlib.ring"
 
 if ! fexists("squares.csv")
-	? "The file squares.csv doesn't exist! - Run squaresTable.ring to create it"
+	? "The file squares.csv doesn't exist! - Run writeSquaresTable.ring to create it"
 	return
 ok
 
