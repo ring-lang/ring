@@ -24,4 +24,31 @@ Using this library we can generate and read CSV Files
 
 ![squarestable](https://raw.githubusercontent.com/ring-lang/ring/master/documents/source/squarestable.png)
 
+# Example (2)
 
+	load "csvlib.ring"
+
+	if ! fexists("squares.csv")
+		? "The file squares.csv doesn't exist! - Run squaresTable.ring to create it"
+		return
+	ok
+	
+	aList = CSV2List( read("squares.csv") )
+	
+	for subList in aList 
+		? "" + subList[1] + " - " + subList[2]
+	next
+
+# Output
+
+	number - square
+	1 - 1
+	2 - 4
+	3 - 9
+	4 - 16
+	5 - 25
+	6 - 36
+	7 - 49
+	8 - 64
+	9 - 81
+	10 - 100
