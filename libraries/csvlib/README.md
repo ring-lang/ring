@@ -3,6 +3,11 @@ CSVLib Library
 
 Using this library we can generate and read CSV Files
 
+# Functions
+
+	List2CSV(aList) --> cCSVString
+	CSV2List(cCSVString) --> aList
+
 # Example
 
 	load "csvlib.ring"
