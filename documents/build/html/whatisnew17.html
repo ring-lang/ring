@@ -304,6 +304,35 @@ CSV2List(cCSVString) --&gt; aList
 </div>
 <p>Output:</p>
 <img alt="squarestable" src="_images/squarestable.png" />
+<p>Example (2)</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;csvlib.ring&quot;</span>
+
+<span class="k">if</span> <span class="o">!</span> <span class="n">fexists</span><span class="p">(</span><span class="s">&quot;squares.csv&quot;</span><span class="p">)</span>
+        <span class="o">?</span> <span class="s">&quot;The file squares.csv doesn&#39;t exist! - Run squaresTable.ring to create it&quot;</span>
+        <span class="k">return</span>
+<span class="k">ok</span>
+
+<span class="n">aList</span> <span class="o">=</span> <span class="n">CSV2List</span><span class="p">(</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;squares.csv&quot;</span><span class="p">)</span> <span class="p">)</span>
+
+<span class="k">for</span> <span class="n">subList</span> <span class="k">in</span> <span class="n">aList</span>
+        <span class="o">?</span> <span class="s">&quot;&quot;</span> <span class="o">+</span> <span class="n">subList</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span> <span class="o">+</span> <span class="s">&quot; - &quot;</span> <span class="o">+</span> <span class="n">subList</span><span class="o">[</span><span class="mi">2</span><span class="o">]</span>
+<span class="k">next</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>number - square
+1 - 1
+2 - 4
+3 - 9
+4 - 16
+5 - 25
+6 - 36
+7 - 49
+8 - 64
+9 - 81
+10 - 100
+</pre></div>
+</div>
 </div>
 <div class="section" id="tokenslib-library">
 <span id="index-3"></span><h2>TokensLib Library<a class="headerlink" href="#tokenslib-library" title="Permalink to this headline">¶</a></h2>
