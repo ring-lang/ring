@@ -47,7 +47,7 @@ Folder : ring/tools/editors/geany
 * Run Geany editor
 * Click on "Tools -> configuration files -> filetypes_extensions.conf"  menu
 * Add this line "Ring=*.ring;" without quotes after [Extensions]
-* In unbuntu copy file "filetypes.Ring.conf" to folder "/home/USERNAME/filetypes.Ring.conf"
+* In Ubuntu copy file "filetypes.Ring.conf" to folder "/home/USERNAME/filetypes.Ring.conf"
 * You can run your files by pressing F5 button
 
 .. image:: editor2.png
