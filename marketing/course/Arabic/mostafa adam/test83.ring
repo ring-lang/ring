@@ -17,7 +17,7 @@
 # ringsqllite 
 load "Sqlitelib.ring"
 
-# sqlite_init() ---> c pbj
+# sqlite_init() ---> C object
 # sqlite_open(obj, "file.db")		# Open file or create it 
 # sqlite_execute(obj, "sql statement")	
 # sqlite_close(obj)			# To close 
