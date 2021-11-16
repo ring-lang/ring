@@ -278,7 +278,7 @@ The next screen shot for the Mobile & Web versions
 
 The Web version uses (Qt For WebAssembly) and the Mobile version uses (Qt for Android)
 
-Most software developers uses the Desktop platforms and I belive that this is too much
+Most software developers uses the Desktop platforms and I believe that this is too much
 better and practical. but we added the support to these platforms for two reasons
 
 1- We can easily support them (Thanks to the powerful Ring language & Qt framework)
