@@ -1,5 +1,5 @@
 /*
-	name	:	Darsh Adam
+	Name	:	Darsh Adam
 	Lesson	:	test31.ring
 	Date 	:	16/12/2017
 */
@@ -19,7 +19,7 @@ for x = 1 to 20
 	if x = 15 
 		? x   # to show number befor Exit 
 		exit 
-	end		# onther way to end if statment 
+	end		# another way to end if statement 
 	? x 
 next 
 
