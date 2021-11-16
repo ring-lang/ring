@@ -1,10 +1,10 @@
 /*		Application : Variables (strings)
-		author      : Mahmoud Hassan
+		Author      : Mahmoud Hassan
 		Date        : 18-12-2017
 */
-#strings types string,number,list,object,c opject) 
+# Strings types: string, number, list, object, c object) 
 mystring="Welcome"
-mystring2='this is onther string'
+mystring2='this is another string'
 mystring3=`more string`
 mystring4= : Welcome
 mystring5="A"
