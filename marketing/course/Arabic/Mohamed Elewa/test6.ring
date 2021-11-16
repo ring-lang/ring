@@ -1,5 +1,5 @@
 /*
-	Application	: Sum tow numbers (version 3)
+	Application	: Sum two numbers (version 3)
 	Author		: Mohamed Elewa
  	Data		: 2017.12.25
 */
