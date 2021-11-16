@@ -15,7 +15,7 @@ Features
 
 - Automatically activates on files with the `.ring` extension
 
-- Folding for `if but else ok` statement and `{ }`
+- Folding for `if but else ok` statements and `{ }`
 
 Instructions
 ============
