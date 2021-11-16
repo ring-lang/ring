@@ -1,6 +1,6 @@
 /*  
- **      Application : Opject
- **      name        : Abdelrahman Adam
+ **      Application : Object
+ **      Name        : Abdelrahman Adam
  **      Date        : 20\12\2017 
 */ 
 #======================================================
@@ -10,7 +10,7 @@
 #test28
 
 oPerson = new person  {    Name  =   "mahmoud"
-			 		Jop      =   "Programer"
+			 		Jop      =   "Programmer"
 					Country=   "Egypt"
 
 }
