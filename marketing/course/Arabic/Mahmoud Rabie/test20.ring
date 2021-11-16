@@ -1,15 +1,16 @@
+# ============================================
 /*
 
    	Application         :Variables (Lists)
-   	author                :Mahmoud Rabie 
-	Date                   :2017/12/23  
+   	Author              :Mahmoud Rabie 
+	Date                :2017/12/23  
 */
 
-#===============================================================
+# ============================================
 aList = [ 
     
-           :name       = "Mahmoud rabie",
-           :job         = "programer",
+           :name      = "Mahmoud rabie",
+           :job       = "Programmer",
            : country  = "Egypt"
 
 
@@ -21,7 +22,7 @@ aList = [
 aList = [ 
     
            ["name"     ,   "Mahmoud rabie"],
-           ["job"        ,   "programer"],
+           ["job"      ,   "Programmer"],
            [" country" ,   "Egypt"]
 
 
