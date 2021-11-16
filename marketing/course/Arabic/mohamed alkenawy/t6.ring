@@ -1,7 +1,7 @@
 /*
       Application  : Using stdlib
       Author       : mohamed alkenawy 
-      data         : 10/12/2017
+      Date         : 10/12/2017
 */
 
 load "stdlib.ring"
