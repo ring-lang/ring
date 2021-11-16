@@ -1,4 +1,4 @@
-Video Muisc Player Application
+Video Music Player Application
 ==============================
 
 Developed using Ring and RingQt
