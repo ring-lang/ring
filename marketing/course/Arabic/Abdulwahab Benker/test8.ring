@@ -1,12 +1,12 @@
 /*
-  Application:Variables(Strings).
-  Auther:Abdulwahab Benkher.
-   Date:2018.9.28
+  Application: Variables (Strings).
+  Author     : Abdulwahab Benkher.
+  Date       : 2018.9.28
 
 */
 # variables Types(strings,numbers,list,object, c object)
-myString1 = "welcometo my applicastion"
-myString2 = 'samsung is best company'
+myString1 = "welcometo my application"
+myString2 = 'Ring is best language'
 myString3 = `man and woman`
 myString4 = :Welcome           # welcome  you can use  lower case here.
 mycharacter5 = "A"
