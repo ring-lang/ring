@@ -88,7 +88,7 @@ At that time, the advantages were very clear
 
 * The same component could generate different steps based on the data that we enter through data-entry forms 
 
-This design was enough to attract a few thouands of developers until 2009
+This design was enough to attract a few thousands of developers until 2009
 
 from 2009 to 2013, We improved the system with the next features 
 
@@ -126,7 +126,7 @@ Using the Time Machine slider, we can move to the past and run the program befor
 
 The previous screen shots uses PWCT 2.0 but, the same idea is implemented in the first generation of PWCT from 2011 (PWCT 1.8)
 
-These updates were enough to attract hundered thousands of developers to download the product and try it!
+These updates were enough to attract hundred thousands of developers to download the product and try it!
 
 ## The Disadvantages of the First Generation
 
@@ -136,7 +136,7 @@ The concept is very good, that attracted many developers with different backgrou
 
 And Yes! some developers asked about improving the concept itself! (More innovation is required)
 
-1. Some developers reported that using Code Editors is too much flexibile and faster in some situtations 
+1. Some developers reported that using Code Editors is too much flexible and faster in some situations 
 
 2. Slow performance when using large visual source files 
 
@@ -144,7 +144,7 @@ And Yes! some developers asked about improving the concept itself! (More innovat
 
 4. Support importing the source code (Convert source code files to Visual Source Files)
 
-5. Opening many files and quick nagivation
+5. Opening many files and quick navigation
 
 6. Multiplatform support (Windows, Linux & macOS)
 
@@ -174,7 +174,7 @@ Our goal is to provide a more powerful version of the software that satisfy two 
 
 (2) To be a better replacement for Textual Code Editors 
 
-In the first generation we tried to achive the same goals but, we did a lot of mistakes, we 
+In the first generation we tried to achieve the same goals but, we did a lot of mistakes, we 
 learned from them and developed new ideas then we implemented these ideas in PWCT 2.0
 
 I could be brave and say that after PWCT 2.0 development, I don't see any reason to use a Textual Code Editor
