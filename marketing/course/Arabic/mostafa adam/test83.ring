@@ -1,5 +1,5 @@
 /*
-	name	:	Darsh Adam
+	Name	:	Darsh Adam
 	Lesson	:	Ring Lessons.ring
 	Date 	:	24/12/2017
 */
@@ -8,17 +8,17 @@
 			# Ring Lessons 
 #=====================================================
 
-# ODBC ( connect - Darabase - ODBC driver ) 
+# ODBC ( connect - database - ODBC driver ) 
 # mysql
 # sqlite 
-# GUI framwork (Qt) - database calsses
+# GUI framework (Qt) - Database classes
 #=====================================================
 
 # ringsqllite 
 load "Sqlitelib.ring"
 
-# sqlite_init()---> c pbj
-# sqlite_open(obj,"file.db")		# open file or cearte it 
-# sqlite_execute(obj,"sql statment")	
+# sqlite_init() ---> c pbj
+# sqlite_open(obj, "file.db")		# Open file or create it 
+# sqlite_execute(obj, "sql statement")	
 # sqlite_close(obj)			# To close 
 #=====================================================
