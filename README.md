@@ -341,7 +341,7 @@ Ring contains only 4 types that represent the program data
 These types are (String, Number, List & Object)
 
 The idea is to have many use cases for each type which increase the flexibility and the ability
-to write functions that are more usable in different situtations.
+to write functions that are more usable in different situations.
 
 The String type is used to represent:
 * One character
@@ -584,7 +584,7 @@ The first instruction is : I want window
 
 The second instruction is : Window title = Expression
 
-Also, keywords that can be ignored like the ‘the’ keyword
+Also, keywords that can be ignored like the **the** keyword
 
 ```ring
 new App
@@ -799,7 +799,7 @@ If we have a reference to a variable (when we pass objects and lists to function
 
 ## No Global Interpreter (VM) Lock - No GIL
 
-When we use threads in Ring applications, We don’t have a global interpreter (VM) lock (No GIL)
+When we use threads in Ring applications, We don't have a global interpreter (VM) lock (No GIL)
 
 So threads can work in parallel and execute Ring instructions at the same time
 
