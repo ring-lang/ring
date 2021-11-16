@@ -1,6 +1,6 @@
 /*
  * Application: Sum two numbers (version 1).
- * Auther     : Abdulwahab Benkher.
+ * Author     : Abdulwahab Benkher.
  * Date       : 2018.9.28
  */
 
