@@ -17,8 +17,8 @@ func main()
 	cString = List2str(aList)
 	? cString
 	
-	# Statment -> Expression -> List
-		["one","tow","three"]
+	# Statement -> Expression -> List
+		["one", "two", "three"]
 	
 	cString = "NULL"
 	? isnull(cString)
