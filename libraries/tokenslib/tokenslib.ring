@@ -24,8 +24,11 @@ class RingTokens
 	func GetTokens
 		return aTokens
 
-	func PrintTokens 
-		for aToken in aTokens {
+	func PrintTokens
+		printTokensList(aTokens)
+
+	func PrintTokensList aList 
+		for aToken in aList {
 			switch aToken[C_TOKENTYPE] {
 			case C_KEYWORD 
 				? Width("Keyword",C_WIDTH) + ": "  +
