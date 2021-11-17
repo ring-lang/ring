@@ -4,7 +4,7 @@
 #==================================#
 
 load "mysqlitelib.ring"
-load "degitClock.ring"
+load "digital_clock.ring"
 
 nRowIndex = 0
 nNumber	  = 3

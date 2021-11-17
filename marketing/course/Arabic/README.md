@@ -211,7 +211,7 @@
 		<td>12</td>
 		<td>
 			نكمل تعرفنا على مفاهيم ال Object Oriented المختلفة مثل الوراثة Inheritance والتركيب Composition وغيرها من مفاهيم ال OOP ثم نتعرف على نقطة من نقاط تميز لغة ال Ring 
-			فى دعم ال Declarative Programming فى صورة ال Nested Stuctures اعتمادا على ال Classes مما يعطى مرونة كبيرة فى اللغة فى عمل لغات متخصصة Domain Specific Languages
+			فى دعم ال Declarative Programming فى صورة ال Nested Structures اعتمادا على ال Classes مما يعطى مرونة كبيرة فى اللغة فى عمل لغات متخصصة Domain Specific Languages
 			تشبه فى شكلها العام لغات مثل QML و REBOL 
 		</td>
 		<td>

@@ -1,13 +1,14 @@
+# ===================================================
 /*
 
    	Application         :Object
-   	author                :Mahmoud Rabie 
-	Date                   :2017/12/24  
+   	Author              :Mahmoud Rabie 
+	Date                :2017/12/24  
 */
 
-#===============================================================
-oMahmoud =new person {
-name = "mahmoud" country = "Egypt" Job = "programer"
+# ===================================================
+oMahmoud = new person {
+name = "mahmoud" country = "Egypt" Job = "Programmer"
 }
 ? oMahmoud 
 ? type(oMahmoud)
