@@ -12,6 +12,8 @@
 load "tokenslib.ring"
 load "stdlibcore.ring"
 
+#============================================================================#
+
 func Json2List cJson
 
 	# Get the Tokens
@@ -83,7 +85,6 @@ func JsonTokens2RingTokens aList
 	next
 	return aList
 
-
 func RingTokens2Code aList 
 	cCode = ""
 	for nIndex = 1 to len(aList) 
@@ -95,11 +96,15 @@ func RingTokens2Code aList
 				cCode += Char(34) + aToken[C_TOKENVALUE] + Char(34)
 			on C_NUMBER
 				cCode += aToken[C_TOKENVALUE] 
+			on C_IDENTIFIER
+				if trim(Upper(aToken[C_TOKENVALUE])) = "NULL"
+					cCode += Char(34) + Char(34)
+				ok
 		off
 	next
 	return cCode
 
-
+#============================================================================#
 
 func List2JSON aList 
 	cOutput = "{" + nl
@@ -156,3 +161,5 @@ func List2JSON_process aList,nTabs
 		cOutput += nl
 	next
 	return cOutput 
+
+#============================================================================#
