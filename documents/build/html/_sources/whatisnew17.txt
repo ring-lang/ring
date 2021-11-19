@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.17 comes with the next features!
 
 * CSVLib Library
+* JSONLib Library
 * TokensLib Library
 * More Improvements
 
@@ -87,6 +88,22 @@ Output:
 	8 - 64
 	9 - 81
 	10 - 100
+
+.. index:: 
+	pair: What is new in Ring  1.17; JSONLib Library
+
+JSONLib Library
+===============
+
+Using this library we can generate and read JSON files 
+
+Functions:
+
+.. code-block:: none
+
+	List2JSON(aList) --> cJSONString
+	JSON2List(cJSONString) --> aList
+
 
 .. index:: 
 	pair: What is new in Ring  1.17; TokensLib Library
