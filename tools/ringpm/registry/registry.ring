@@ -670,5 +670,10 @@ aPackagesRegistry = [
 	[ :name = "csvlib",
           :description = "CSVLib library for the Ring programming language",
           :ProviderUserName = "ringpackages"
+        ],
+	[ :name = "jsonlib",
+          :description = "JSONLib library for the Ring programming language",
+          :ProviderUserName = "ringpackages"
         ]
+
 ]
