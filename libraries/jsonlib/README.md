@@ -3,6 +3,10 @@ JSONLib Library
 
 Using this library we can generate and read JSON Files
 
+# install
+
+	ringpm install jsonlib from ringpackages
+
 # Functions
 
 	List2JSON(aList) --> cJSONString
