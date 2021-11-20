@@ -30,7 +30,7 @@
 		ICO_LOADSUBADDRESS ,
 		ICO_LOADINDEXADDRESS ,
 		ICO_LOADAPUSHV ,
-		/* Comparsion operators */
+		/* Comparison operators */
 		ICO_EQUAL ,
 		ICO_LESS ,
 		ICO_GREATER ,
