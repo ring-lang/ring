@@ -431,7 +431,7 @@ Output:
 	value : 5
 
 .. index:: 
-	pair: Natural Language Programming; Real Natual Code
+	pair: Natural Language Programming; Real Natural Code
 
 Real Natural Code
 =================
