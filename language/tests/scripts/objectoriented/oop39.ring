@@ -54,7 +54,7 @@ class point x y
 
 	func operator cOperator,cPara
 		see "operator overloading works fine" + nl
-		see "paramters : " 
+		see "parameters : " 
 		see cPara see nl
 		see "operator : " + cOperator + nl
 		return self
