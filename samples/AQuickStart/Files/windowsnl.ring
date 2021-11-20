@@ -12,4 +12,4 @@ if iswindows()
         cStr = substr(cStr,nl,windowsnl())
 ok
 
-write("ouput.txt",cStr)
+write("output.txt",cStr)
