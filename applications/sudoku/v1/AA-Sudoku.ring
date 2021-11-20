@@ -1513,7 +1513,7 @@ return
 ?  "Stop.: " +Time()            //(+/- 20 sec)
 
 //-----------------------------------------------------
-? nl+nl+"Ouput:"               // result at
+? nl+nl+"Output:"               // resultant
 prnt(sudoku)                    // show result
 
 //****************  Function  **********************
