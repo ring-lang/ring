@@ -142,7 +142,7 @@ void ring_vm_restorestate ( VM *pVM,List *pList,int nPos,int nFlag )
 	pVM->nNOAssignment = pVMState->aNumbers[26] ;
 	pVM->nFuncExecute2 = pVMState->aNumbers[27] ;
 	pVM->nCallClassInit = pVMState->aNumbers[28] ;
-	/* We restore the global scope befor the This variable, because This use global scope */
+	/* We restore the global scope before the This variable, because This use global scope */
 	pVM->nCurrentGlobalScope = pVMState->aNumbers[31] ;
 	pVM->lNoSetterMethod = pVMState->aNumbers[32] ;
 	/* Restore This variable */
@@ -281,7 +281,7 @@ void ring_vm_savestate3 ( VM *pVM )
 	/* Save the State (Used by ICO_NEWOBJ Instruction) */
 	pList = ring_list_newlist_gc(pVM->pRingState,pVM->aScopeNewObj);
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pActiveMem);
-	/* Store List information to allow calling function from list item and creating lists from that funct */
+	/* Store List information to allow calling function from list item and creating lists from that function */
 	ring_list_addint_gc(pVM->pRingState,pList,pVM->nListStart);
 	ring_list_addpointer_gc(pVM->pRingState,pList,pVM->pNestedLists);
 	pVM->nListStart = 0 ;
