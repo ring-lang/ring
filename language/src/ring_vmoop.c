@@ -6,7 +6,7 @@
 **  Packages List ( Package Name , Classes List ) 
 **  Object ( is a list of two items , (1) Class Pointer  (2) Object Data  ) 
 **  pVM->aScopeNewObj : (1) Previous scope (2) nListStart (3) pNestedLists (4) nSP 
-**  pVM->pObjState  (  [ Pointer to Scope, Pointer to Methods , Pointer to Classs, Optional True) 
+**  pVM->pObjState  (  [ Pointer to Scope, Pointer to Methods , Pointer to Class, Optional True) 
 **  The optional True used with LoadMethod so we can Know that we are inside class method during RT 
 **  We don't check the True value, we just check that the size of the list is 4 
 **  used in ring_vmfuncs , function ring_vm_loadfunc2() 
