@@ -1,6 +1,6 @@
-/* Application :Sum Tow Number()
- * Author :Omar Bsher
- * Date  2017/12/09
+/* Application :Sum Two Number()
+ * Author      : Omar Bsher
+ * Date        : 2017/12/09
 */
 
 put "Enter number1:" get number1
