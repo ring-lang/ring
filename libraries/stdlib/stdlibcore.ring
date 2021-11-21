@@ -187,7 +187,7 @@ func JustFileName cFile
 	Function Name	: value
 	Usage		: create a copy from a list or object
 	Parameters	: the list or the object
-	output		: the new copy of the list or the object
+	Output		: the new copy of the list or the object
 */
 Func Value vlistorobj
 	vlistorobj2 = vlistorobj
@@ -207,7 +207,7 @@ Func Times ncount,f
 	Function Name	: map
 	Usage		: execute a Function on each list item
 	Parameters	: the list and the Function as string
-	output		: new list after applying the Function to each item
+	Output		: new list after applying the Function to each item
 */
 Func Map alist,cFunc
 	alist2 = alist
@@ -221,7 +221,7 @@ Func Map alist,cFunc
 	Function Name	: filter
 	Usage		: execute a Function on each list item to filter items
 	Parameters	: the list and the Function as string
-	output		: new list after filtering the items using the Function
+	Output		: new list after filtering the items using the Function
 */
 Func Filter alist,cFunc
 	alist2 = []
@@ -238,7 +238,7 @@ Func Filter alist,cFunc
 	Usage		: convert string words to list items
 	Parameters	: the string to be converted , the delimiter
 			: delimiter can be char of choice. Example: " "  or  ","   or  "|" 
-	output		: new list 
+	Output		: new list 
 */
 
 Func Split(cString, delimiter)
@@ -280,7 +280,7 @@ Func Split(cString, delimiter)
 	Usage		: convert string words to list items
 	Parameters	: the string to be converted , the delimiter characters
 			: delimiter can be many characters written in one string or List 
-	output		: new list 
+	Output		: new list 
 */
 
 Func SplitMany cString,cCharacters
@@ -293,7 +293,7 @@ Func SplitMany cString,cCharacters
 	Function Name	: capitalized
 	Usage		: return a copy with the first letter capitalized
 	Parameters	: string to capitalize
-	output		: capitalized string
+	Output		: capitalized string
 */
 
 Func Capitalized str
@@ -303,7 +303,7 @@ Func Capitalized str
 	Function Name	: isspecial
 	Usage		: check whether a character is special or not
 	Parameters	: the character to be tested
-	output		: the result of the test (0,1)
+	Output		: the result of the test (0,1)
 */
 
 Func IsSpecial char
@@ -316,7 +316,7 @@ Func IsSpecial char
 	Function Name	: isvowel
 	Usage		: check whether a character is vowel or not
 	Parameters	: the character to be tested
-	output		: the result of the test (0,1)
+	Output		: the result of the test (0,1)
 */
 
 Func IsVowel char
@@ -329,7 +329,7 @@ Func IsVowel char
 	Function Name	: linecount
 	Usage		: return the lines count in a text file.
 	Parameters	: string contains the file name
-	output		: the number of lines (lines count).
+	Output		: the number of lines (lines count).
 */       
        
 Func LineCount text
@@ -347,7 +347,7 @@ Func LineCount text
 	Function Name	: factorial
 	Usage		: return the factorial of a number.
 	Parameters	: number for factorial.
-	output		: factorial of a number.
+	Output		: factorial of a number.
 */
 
 Func Factorial n if n = 0 return 1 else return n * factorial(n-1) ok
@@ -356,7 +356,7 @@ Func Factorial n if n = 0 return 1 else return n * factorial(n-1) ok
 	Function Name	: fibonacci
 	Usage		: return the fibonacci number.
 	Parameters	: number for fibonacci.
-	output		: fibonacci number.
+	Output		: fibonacci number.
 */
 
 Func Fibonacci n
@@ -368,7 +368,7 @@ Func Fibonacci n
 	Function Name	: isprime
 	Usage		: check whether a number is prime or not
 	Parameters	: the number to be tested
-	output		: the result of the test (0,1)
+	Output		: the result of the test (0,1)
 */ 
 
 Func IsPrime num
@@ -383,7 +383,7 @@ Func IsPrime num
 	Function Name	: sign
 	Usage		: returns an integer value indicating the sign of a number.
 	Parameters	: the number to be tested.
-	output		: the result of the test (-1,0,1).
+	Output		: the result of the test (-1,0,1).
 */	
 	
 Func Sign n
@@ -395,7 +395,7 @@ Func Sign n
 	Function Name	: List2File
 	Usage		: Write list items to text file (each item in new line).
 	Parameters	: The list to be written and the file name.
-	output		: No Output
+	Output		: No Output
 */	
 
 Func List2File aList,cFileName
@@ -408,7 +408,7 @@ Func List2File aList,cFileName
 	Function Name	: File2List
 	Usage		: Read text file and convert lines to list items
 	Parameters	: The file name.
-	output		: The new list.
+	Output		: The new list.
 */	
 Func File2List cFileName
 	cStr = read(cFileName)
@@ -419,7 +419,7 @@ Func File2List cFileName
 	Function Name	: Endswith
 	Usage		: Returns true if the given string ends with the specified substring. Trailing white spaces are ignored.
 	Parameters	: The original and substring
-	output		: Returns the result of search (0,1)
+	Output		: Returns the result of search (0,1)
 */
 
 Func Endswith str, substr
@@ -430,7 +430,7 @@ Func Endswith str, substr
 	Function Name	: Startwith
 	Usage		: Returns true if the given string starts with the specified substring. Leading white spaces are ignored.
 	Parameters	: The original and substring
-	output		: Returns the result of search (0,1)
+	Output		: Returns the result of search (0,1)
 */
 
 Func Startswith str, substr
@@ -441,7 +441,7 @@ Func Startswith str, substr
 	Function Name	: Gcd
 	Usage		: Finding of the greatest common divisor of two integers.
 	Parameters	: Two integers for gcd.
-	output		: The greatest common divisor.
+	Output		: The greatest common divisor.
 */
 
 Func Gcd gcd, b
@@ -456,7 +456,7 @@ Func Gcd gcd, b
 	Function Name	: Lcm
 	Usage		: Compute the least common multiple of two integers.
 	Parameters	: Two integers to compute.
-	output		: The least common multiple.
+	Output		: The least common multiple.
 */     
 
 Func Lcm m,n
@@ -467,7 +467,7 @@ Func Lcm m,n
 	Function Name	: Sumlist
 	Usage		: Compute the sum of a list of integers.
 	Parameters	: List to compute
-	output		: Sum of a list.
+	Output		: Sum of a list.
 */ 
 
 Func Sumlist bList
@@ -481,7 +481,7 @@ Func Sumlist bList
 	Function Name	: Prodlist
 	Usage		: Compute the product of a list of integers.
 	Parameters	: List to compute
-	output		: Product of a list.
+	Output		: Product of a list.
 */
 
 Func Prodlist bList
@@ -495,7 +495,7 @@ Func Prodlist bList
 	Function Name	: Evenorodd
 	Usage		: Test whether an integer is even or odd.
 	Parameters	: Integer to test.
-	output		: Result of test (1=odd 2=even).
+	Output		: Result of test (1=odd 2=even).
 */     
 
 Func Evenorodd n 
@@ -506,7 +506,7 @@ Func Evenorodd n
 	Function Name	: Factors
 	Usage		: Compute the factors of a positive integer.
 	Parameters	: Integer to compute.
-	output		: Result of compute.
+	Output		: Result of compute.
 */  
 
 Func Factors n   
@@ -521,7 +521,7 @@ Func Factors n
 	Function Name	: Palindrome
 	Usage		: Check if a sequence of characters is a palindrome or not. 
 	Parameters	: Characters to check.
-	output		: Result of check.
+	Output		: Result of check.
 */  
 
 Func Palindrome aString
@@ -539,7 +539,7 @@ Func IsPalindrome aString
 	Function Name	: Isleapyear
 	Usage		: Check whether a given year is a leap year in the Gregorian calendar. 
 	Parameters	: Year to check.
-	output		: Result of check.
+	Output		: Result of check.
 */
 
 Func Isleapyear year
@@ -552,7 +552,7 @@ Func Isleapyear year
 	Function Name	: Binarydigits
 	Usage		: Compute the sequence of binary digits for a given non-negative integer. 
 	Parameters	: Integer to compute.
-	output		: Result of compute.
+	Output		: Result of compute.
 */   
 
 Func Binarydigits a
@@ -572,7 +572,7 @@ Func Binarydigits a
 	Function Name	: Matrixmulti
 	Usage		: Multiply two matrices together. 
 	Parameters	: Two matrices to multiply.
-	output		: Result of multiply.
+	Output		: Result of multiply.
 */     
 
 Func Matrixmulti A, B
@@ -608,7 +608,7 @@ Func Matrixmulti A, B
 	Function Name	: Matrixtrans
 	Usage		: Transpose an arbitrarily sized rectangular Matrix. 
 	Parameters	: Two matrices to transpose.
-	output		: Result of transpose.
+	Output		: Result of transpose.
 */     
 
 Func Matrixtrans matrix
@@ -626,7 +626,7 @@ Func Matrixtrans matrix
 	Function Name	: Dayofweek
 	Usage		: Return the day of the week of given date. (yyyy-mm-dd)
 	Parameters	: Date to compute.
-	output		: The day of the week.
+	Output		: The day of the week.
 */
 
 Func Dayofweek date
@@ -652,7 +652,7 @@ Func Dayofweek date
 	Function Name	: Fridays
 	Usage		: Fridays the 13th between start and end year.
 	Parameters	: Start and end year.
-	output		: Dates of Fridays on 13th.
+	Output		: Dates of Fridays on 13th.
 */  
 
 Func Fridays year1, year2
@@ -670,7 +670,7 @@ Func Fridays year1, year2
 	Function Name	: Permutation
 	Usage		: Generates all permutations of n different numerals.
 	Parameters	: List of numerals to generate.
-	output		: Permutations of numerals.
+	Output		: Permutations of numerals.
 */     
 
 Func Permutation a
@@ -704,7 +704,7 @@ Func permutationReverse a, first, last
 	Function Name	: Sleep
 	Usage		: Sleep for the given amount of time.
 	Parameters	: Time for sleep.
-	output		: Result of sleeping.
+	Output		: Result of sleeping.
 */          
      
 Func Sleep x
@@ -716,7 +716,7 @@ Func Sleep x
 	Function Name	: Readline
 	Usage		: Read a file line by line.
 	Parameters	: File to read.
-	output		: Result of reading.
+	Output		: Result of reading.
 */      
       
 Func Readline fp
@@ -729,8 +729,8 @@ Func Readline fp
 /*
 	Function Name	: IsMainSourceFile
 	Usage		: Check if the current file is the main source file
-	Parameters	: No Paramters 
-	output		: True/False 
+	Parameters	: No Parameters 
+	Output		: True/False 
 */      
 Func IsMainSourceFile
 	return Prevfilename() = ringvm_fileslist()[1]
@@ -739,7 +739,7 @@ Func IsMainSourceFile
 	Function Name	: Substring
 	Usage		: Return a position of a substring starting from a given position in a string.
 	Parameters	: String, substring, position. 
-	output		: Position of substring. 
+	Output		: Position of substring. 
 */  	
 func Substring str,substr,n
 	newstr=right(str,len(str)-n+1)
@@ -754,7 +754,7 @@ func Substring str,substr,n
 	Function Name	: Changestring
 	Usage		: Change substring from given position for given position with a substring.
 	Parameters	: Original string, position, length, substring
-	output		: Result string. 
+	Output		: Result string. 
 */         
 func Changestring text, pos1, pos2, str
 	string = left(text,pos1-1) + str + substr(text, pos2+1)
@@ -779,7 +779,7 @@ Func MakeDir cFolder
 	Function Name	: sortFirstSecond
 	Usage		: Sort a list on first or second index
 	Parameters	: list to sort
-	output          : sorted list 
+	Output          : sorted list 
 */ 
 
 Func sortFirstSecond aList, ind
