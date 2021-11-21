@@ -10,8 +10,9 @@ See "Sum1 = " + number1 + number2 + nl
    Enter Number2 : 3
    Sum = 53
 */
+
 /*
- Note That + Here Is A Concatenation Operator Not Plus Operator.
+ Note: That + Here Is A Concatenation Operator Not Plus Operator.
  If You Want To Make Summation, Split Statement 
 */
 See "Sum2 = " See number1 + number2 + nl
@@ -23,7 +24,8 @@ See "Sum2 = " See number1 + number2 + nl
    Sum = 53
    Sum = 53		
 */
-/* Note That It Still Not The Desired Result Becuase,
+
+/* Note: That It Still Not The Desired Result Because,
    Give Receive Data From User Then Put It In A String Variable.
    To Solve This Problem, Convert String Variabls To Numbers
 */
