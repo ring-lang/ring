@@ -597,7 +597,7 @@ func WriteClassFiles
 		write(cEventsFile,oView.QteventsOutputTE.toplaintext())
 	ok
 
-	msginfo("Writing Files","Opeartion done!")
+	msginfo("Writing Files","Operation done!")
 
 
 func openEnumFile
