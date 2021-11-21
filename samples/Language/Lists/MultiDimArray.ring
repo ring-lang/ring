@@ -104,7 +104,7 @@ Func newArray(dimArray)
 return aList
 
 //===========================================
-/* OUTPUT  [3,4,6]  3 Bocks, 4 Rows, 6 Cols
+/* OUTPUT  [3,4,6]  3 Blocks, 4 Rows, 6 Cols
 
 Populate
 Print
