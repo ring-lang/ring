@@ -61,10 +61,10 @@ rwaElevate("C:\Windows\explorer.exe")	#The path of the executable file should be
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Function Name : rShellExecute
-Func. Type	  : 
+Func. Type    : 
 Func. Purpose : Execute\Open an application or file with specific action
 Func. Params  : (HWND hwnd, String lpOperation, String lpFile, String lpParameters, String lpDirectory, INT nShowCmd)
-Func. Return  : the value that returned by ShellExecute() function
+Func. Return  : The value that returned by ShellExecute() function
 Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 
  - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
@@ -80,10 +80,10 @@ rShellExecute(NULL, "Open", "C:\Windows\notepad.exe", CurrentDir() + "\rnote.rin
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Function Name : rShellExecuteResult
-Func. Type	  : This is local ring function created in "winapi.ring"
-Func. Purpose : it is a good function to reveal the code returned by rShellExecute()
+Func. Type    : This is local ring function created in "winapi.ring"
+Func. Purpose : It is a good function to reveal the code returned by rShellExecute()
 Func. Params  : ( RetID ) is the code that has been returned by rShellExecute() function
-Func. Return  : a string containing the interpretaion of the code returned by rShellExecute()
+Func. Return  : a string containing the interpretation of the code returned by rShellExecute()
 Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 
  - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
@@ -269,7 +269,7 @@ ok
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 Function Name : rwaEnvirVarString
 Func. Purpose : Return the string value of system environment variables
-Func. Params  : string contains a system environment variables
+Func. Params  : String contains a system environment variables
 Func. Return  : String value of system environment variables
 Func. Author  : Majdi Sobain <MajdiSobain@Gmail.com>
 Func. Source  : https://msdn.microsoft.com/en-us/library/windows/desktop/ms724265(v=vs.85).aspx
