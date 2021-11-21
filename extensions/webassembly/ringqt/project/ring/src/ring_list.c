@@ -28,7 +28,7 @@ RING_API List * ring_list_new2_gc ( void *pState,List *pList,int nSize )
 		for ( x = 2 ; x <= nSize ; x++ ) {
 			pItems = ring_items_new_gc(pState);
 			if ( pItems == NULL ) {
-				printf( "OUT OF MEMEORY \n  " ) ;
+				printf( "OUT OF MEMORY \n  " ) ;
 				exit(0);
 			}
 			pItemsLast->pNext = pItems ;

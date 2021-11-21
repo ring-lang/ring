@@ -1303,7 +1303,7 @@ int ring_parser_paralist ( Parser *pParser )
 	if ( ring_parser_isidentifier(pParser) ) {
 		cToken = pParser->TokenText ;
 		ring_parser_nexttoken(pParser);
-		/* Support Type Identifiter */
+		/* Support Type Identifier */
 		if ( nStart && ring_parser_isidentifier(pParser) ) {
 			cToken = pParser->TokenText ;
 			ring_parser_nexttoken(pParser);
@@ -1321,7 +1321,7 @@ int ring_parser_paralist ( Parser *pParser )
 			if ( ring_parser_isidentifier(pParser) ) {
 				cToken = pParser->TokenText ;
 				ring_parser_nexttoken(pParser);
-				/* Support Type Identifiter */
+				/* Support Type Identifier */
 				if ( nStart && ring_parser_isidentifier(pParser) ) {
 					cToken = pParser->TokenText ;
 					ring_parser_nexttoken(pParser);

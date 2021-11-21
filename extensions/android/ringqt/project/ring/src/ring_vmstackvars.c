@@ -596,7 +596,7 @@ void ring_vm_assignmentpointer ( VM *pVM )
 			return ;
 		}
 		if ( ring_vm_oop_isobject(pList)  && (ring_list_getsize(pVM->pObjState) > 0 ) ) {
-			/* We loop to prevent passing self to function that destory the self */
+			/* We loop to prevent passing self to function that destroy the self */
 			for ( x = 1 ; x <= ring_list_getsize(pVM->pObjState) ; x++ ) {
 				pList2 = ring_list_getlist(pVM->pObjState,x);
 				if ( ring_list_getpointer(pList,RING_OBJECT_OBJECTDATA) == ring_list_getpointer(pList2,RING_OBJSTATE_SCOPE) ) {
