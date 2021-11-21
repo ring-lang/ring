@@ -4,7 +4,7 @@
 
 
 # ====== Usage Sample =========
-x = GenerateEnum("Aliignment", [
+x = GenerateEnum("Alignment", [
 	:Left = 1,
 	:Right = 2,
 	:Center = 3])
@@ -21,7 +21,7 @@ func GenerateEnum(Name, lstEnumValues)
       raise("Enum must contain members")
    end
 
-#================template================================
+# =============== Template ==============================
    enumTemp = "
 %EnumName% = new %EnumName%Enum
 
@@ -43,16 +43,16 @@ class %EnumName%Enum
       return [%list%]
 "
 
-#============eval=================
-		 members = ""
-	    cases = ""
+# ============ Eval =================
+       members = ""
+       cases = ""
        names = ""
        values = ""
        list = ""
 
-	  	 if type(lstEnumValues[1]) != "LIST"
+       if type(lstEnumValues[1]) != "LIST"
           lstEnumValues = FixEnumList(lstEnumValues)
-	    end
+       end
 
        For v in lstEnumValues
 			  value=""
