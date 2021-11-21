@@ -99,7 +99,7 @@ RING_FUNC(ring_al_run_main)
 int al_init(void)
 
 <comment>
-configuration files
+Configuration files
 </comment>
 
 <runcode>
@@ -296,7 +296,7 @@ ALLEGRO_DISPLAY_MODE *al_get_display_mode(int index, ALLEGRO_DISPLAY_MODE *mode)
 int al_get_num_display_modes(void)
 
 <comment>
-Graphincs routines
+Graphics routines
 </comment>
 
 ALLEGRO_COLOR al_map_rgb(unsigned char r, unsigned char g, unsigned char b)
