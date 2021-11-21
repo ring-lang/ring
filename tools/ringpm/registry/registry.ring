@@ -212,7 +212,7 @@ aPackagesRegistry = [
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "employee",
-	  :description = "Empoyee application for the Ring programming language",
+	  :description = "Employee application for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
 	],
 	[ :name = "fifteenpuzzle",
