@@ -55,7 +55,7 @@ Func TestPost
 		divstart([:style=cDivStyle])
 			checkbox([ :name = "check1", :Value = "important", :status = "checked", :text ="important customer" ])
 			newline()
-			checkbox([ :name = "check2", :Value = "remind" , :text = "Remind me later about this cutomer" ])
+			checkbox([ :name = "check2", :Value = "remind" , :text = "Remind me later about this customer" ])
 			ButtonLink([ :value = "Add", :link = website , :style = stylegradient(20) ] )
 			Button([ :value = "Edit" , :onclick = "alert('edit')" , :style = stylegradient(34) ])
 			Button([ :value = "Find" , :onclick = "alert('find')" , :style = stylegradient(36) ])
