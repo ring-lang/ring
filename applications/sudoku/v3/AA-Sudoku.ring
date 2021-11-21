@@ -494,8 +494,6 @@ return
 ###
 
 Func GenPuzzle()
-
-
     
     ###--------------------------------------------------------
     ### Check User selected which GEN-Puzzle  Levelon the Drop-Down List
@@ -513,7 +511,7 @@ Func GenPuzzle()
      difficulty = comboPuzzleGen.currentText()  ### <<<=== From DropDown ComboBox
          
      if     difficulty = "GenPuzzle"  Level = 3 
-        but difficulty = "Geginner"   Level = 1  
+        but difficulty = "Beginner"   Level = 1  
         but difficulty = "Easy"       Level = 2 
         but difficulty = "Medium"     Level = 3 
         but difficulty = "Hard"       Level = 4 
