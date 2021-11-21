@@ -722,7 +722,7 @@ Func GenTabs x
 	return copy(char(9),x)
 
 Func ParaCount aList
-	# get list of paramters, return parameters count
+	# get list of parameters, return parameters count
 	if len(aList) > 1
 		return len(aList)
 	else
