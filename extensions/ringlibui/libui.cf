@@ -418,7 +418,7 @@ RING_FUNC(ring_uiUninit)
 {
 	aLibUIEvents = ring_list_delete(aLibUIEvents);
 	// Calling uiUninit() lead to CRASH (A bug in libui itself)
-	// Also it's not necessary to call it before closing the applicaiton
+	// Also it's not necessary to call it before closing the application
 	// uiUninit();
 }
 
