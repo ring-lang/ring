@@ -1,6 +1,6 @@
 ### Project : Mandelbrot Set
 ### Date    : 2019/03-18
-###  Madelbrot - Colorized and Animated
+###  Mandelbrot - Colorized and Animated
 ###  2019-02-25  Bert Mariani
 ###
 ###  MyApp.ProcessEvents()  ###<<< EXEC the Draw MonaLisa between each step of array sorting
