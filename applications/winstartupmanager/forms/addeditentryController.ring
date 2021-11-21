@@ -67,7 +67,7 @@ Func OkAction
 			ok
 			if usr = itm[5]
 				new qMessageBox(oView.win) {
-					qmb = Warning(self, "Similar program", "This program's entry cannot be added\edited becuase there's similar program entry already present" + nl + "Do you want to discard changes?", QMessageBox_Yes , QMessageBox_No)
+					qmb = Warning(self, "Similar program", "This program's entry cannot be added\edited because there's similar program entry already present" + nl + "Do you want to discard changes?", QMessageBox_Yes , QMessageBox_No)
 					}
 				if qmb = qMessageBox_Yes
 					oView.win.Close()
