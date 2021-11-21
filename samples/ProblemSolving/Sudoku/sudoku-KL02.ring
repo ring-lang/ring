@@ -118,7 +118,7 @@ return false
 
 /*
 SUDOKU is SOLVED: 
-Ouput:
+Output:
 
  1 4 5 3 2 7 6 9 8 
  8 3 9 6 5 4 1 2 7 
