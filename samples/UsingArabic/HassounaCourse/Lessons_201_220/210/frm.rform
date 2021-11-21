@@ -47,7 +47,7 @@ aObjectsList = [
 		 :backcolor =  "" , 
 		 :font =  "MS Shell Dlg 2,20,-1,5,75,0,0,0,0,0" , 
 		 :parent =  "win"  ,
-		 :text =  "Chcek",
+		 :text =  "Check",
 		 :BtnImage =  "",
 		 :setClickEvent =  "test"
 		]
