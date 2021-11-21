@@ -46,7 +46,7 @@ Func PrepareWin wintitle, name, path, args, ausers, ProActiv
 Func OkAction
 	if oView.NameLE.Text() = "" or substr(oView.NameLE.Text(), "\")
 		new qMessageBox(oView.win) {
-				qmb = Warning(self, "Invalid program name", "This program's entry cannot be added\edited becuase the name is empty or conatins \ character" + nl + "Do you want to discard changes?", QMessageBox_Yes , QMessageBox_No)
+				qmb = Warning(self, "Invalid program name", "This program's entry cannot be added\edited because the name is empty or conatins \ character" + nl + "Do you want to discard changes?", QMessageBox_Yes , QMessageBox_No)
 				}
 		if qmb = qMessageBox_Yes
 			oView.win.Close()
@@ -88,7 +88,7 @@ Func OkAction
 	ok
 	if not fExists(trim(rwaEnvirVarString(lapath))) 
 		new qMessageBox(oView.win) {
-				qmb = Warning(self, "Not Complete", "This program's entry cannot be added\edited becuase the path is incorrect" + nl + "Do you want to discard changes?", QMessageBox_Yes , QMessageBox_No)
+				qmb = Warning(self, "Not Complete", "This program's entry cannot be added\edited because the path is incorrect" + nl + "Do you want to discard changes?", QMessageBox_Yes , QMessageBox_No)
 				}
 		if qmb = qMessageBox_Yes
 			oView.win.Close()
