@@ -1,6 +1,6 @@
 ### Project : Mandelbrot Set
 ### Date    : 2019/03-18
-###  Madelbrot - Colorized and Animated
+###  Mandelbrot - Colorized and Animated
 ###  2019-02-25  Bert Mariani
 ###
 ###  MyApp.ProcessEvents()  ###<<< EXEC the Draw MonaLisa between each step of array sorting
@@ -111,7 +111,7 @@ decimals(12)
     aList = newList(width,height)   ### Save X-Y Mandelbrot Point Values here
 
 ###--------------------------------------------
-### Madelbrot Min-Max Ranges: 
+### Mandelbrot Min-Max Ranges: 
 ### I = Imaginary=Vertical  R - Real=Horizontal
 
     minI = -2.00    
