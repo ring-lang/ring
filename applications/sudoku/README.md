@@ -23,6 +23,6 @@ How to play
 
      - Colors - When there is a conflict with a Number inserted in a Square in a Row/Column/Region
                      The current Square selected will be colored Yellow and the other Squares in Red
-                     Clear the offending number in the Square by selectiing a "0" with the Right-Mouse drop down.
+                     Clear the offending number in the Square by selecting a "0" with the Right-Mouse drop down.
 
 ![Sudoku](https://github.com/ring-lang/ring/blob/master/applications/sudoku/sudoku.jpg)
