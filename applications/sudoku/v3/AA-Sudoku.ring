@@ -496,7 +496,7 @@ return
 Func GenPuzzle()
     
     ###--------------------------------------------------------
-    ### Check User selected which GEN-Puzzle  Levelon the Drop-Down List
+    ### Check User selected which GEN-Puzzle  Level on the Drop-Down List
     ###       aListDifficulty = ["GenPuzzle","Beginner","Easy","Medium","Hard","Extreme"]
     ###
     // Difficulty levels would vary from number of filled in squares
