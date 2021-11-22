@@ -7,14 +7,14 @@
 # Database
 
 # ODBC (Connect - Database - ODBC Driver)
-# MYSql
+# MySQL
 # SQLite
-# GUI Framework (QT) - Database Classes
+# GUI Framework (Qt) - Database Classes
 #================================================
 
 load "odbclib.ring"
 
-# Connect/Dicconnect
+# Connect/Disconnect
 # Execute
 # Transaction (Commit)
 # Save/Restore Binary Data (Images)
