@@ -344,7 +344,7 @@ CSV2List(cCSVString) --&gt; aList
 JSON2List(cJSONString) --&gt; aList
 </pre></div>
 </div>
-<p>Example:</p>
+<p>Example (1):</p>
 <p>File: sample.json</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
   &quot;firstName&quot;: &quot;John&quot;,
@@ -368,9 +368,7 @@ JSON2List(cJSONString) --&gt; aList
 
 func main
 
-        cJSON = read(&quot;sample.json&quot;)
-
-        aList = Json2List(cJSON)
+        aList = JSON2List( read(&quot;sample.json&quot;) )
 
         ? aList[:FirstName]
         ? aList[:LastName]
@@ -391,6 +389,26 @@ home
 212 555-1234
 fax
 646 555-4567
+</pre></div>
+</div>
+<p>Example (2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;jsonlib.ring&quot;</span>
+
+<span class="k">func</span> <span class="n">main</span>
+
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[</span>
+                <span class="p">:</span><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;Ring&quot;</span><span class="p">,</span>
+                <span class="p">:</span><span class="n">year</span> <span class="o">=</span> <span class="mi">2016</span>
+        <span class="o">]</span>
+
+        <span class="o">?</span> <span class="n">List2JSON</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+        &quot;name&quot;: &quot;Ring&quot;,
+        &quot;year&quot;: 2016
+}
 </pre></div>
 </div>
 </div>

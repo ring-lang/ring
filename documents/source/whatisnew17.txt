@@ -105,7 +105,7 @@ Functions:
 	JSON2List(cJSONString) --> aList
 
 
-Example:
+Example (1):
 
 File: sample.json
 
@@ -135,9 +135,7 @@ Ring Code:
 	
 	func main
 	
-		cJSON = read("sample.json")
-	
-		aList = Json2List(cJSON)
+		aList = JSON2List( read("sample.json") )
 	
 		? aList[:FirstName]
 		? aList[:LastName]
@@ -161,6 +159,29 @@ Output:
 	fax
 	646 555-4567
 
+Example (2):
+
+.. code-block:: ring
+
+	load "jsonlib.ring"
+	
+	func main
+	
+		aList = [
+			:name = "Ring",
+			:year = 2016
+		]
+	
+		? List2JSON(aList)
+
+Output:
+
+.. code-block:: none
+
+	{
+	        "name": "Ring",
+	        "year": 2016
+	}
 
 .. index:: 
 	pair: What is new in Ring  1.17; TokensLib Library
