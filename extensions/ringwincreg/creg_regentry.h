@@ -2,7 +2,7 @@
 			Modifications have comments started with *** or *****
 			Debugging was on Dev-C++ 5.11 and MSVC++ 10.0
 
-	All credit goes to the auther <Stuart Konen> and his CodeProject article on : 
+	All credit goes to the author <Stuart Konen> and his CodeProject article on : 
 	http://www.codeproject.com/Articles/8953/Registry-Wrapper-Class-CRegistry
 -------------------------------------------------------------------------------------*/	
 
