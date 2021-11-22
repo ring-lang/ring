@@ -14,7 +14,11 @@ load "stdlibcore.ring"
 
 #============================================================================#
 
-func Json2List cJson
+func JSON2List cJSON
+
+	if ! isString(cJSON) {
+		raise("Bad parameter type! - The JSON2List() function expect a String")
+	}
 
 	# Get the Tokens
 		oTokens = new RingTokens {
@@ -34,7 +38,7 @@ func Json2List cJson
 	return aJson2List_TempList
 
 
-func JsonTokens2RingTokens aList
+func JSONTokens2RingTokens aList
 	for nIndex = 1 to len(aList) 
 		aToken = aList[nIndex]
 		switch aToken[C_TOKENTYPE] 
@@ -107,6 +111,9 @@ func RingTokens2Code aList
 #============================================================================#
 
 func List2JSON aList 
+	if ! isList(aList) {
+		raise("Bad parameter type! - The List2JSON() function expect a List")
+	}
 	cOutput = "{" + nl
 	cOutput += List2JSON_process(aList,1)
 	cOutput += "}"
