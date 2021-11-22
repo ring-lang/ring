@@ -517,7 +517,7 @@ Class Objects2Reg
 					AddToInputList(wcrlResList, wcrvv, "-L--", obj, objectName)
 				On "OBJECT"
 					If ClassName(wcrvv) = ClassName(obj) 
-						See "Warning : Theres ignored object recursion. Object Recursion will end in overflow problems"
+						See "Warning : There's ignored object recursion. Object Recursion will end in overflow problems"
 					Ok
 					wcrvnObjEntName = objectName + "-o" + wcrvObjNum
 					Add(wcrlResList, "-O--" + wcrva + " = '" + wcrvnObjEntName + "'" )
@@ -549,7 +549,7 @@ Class Objects2Reg
 					AddToInputList(ResLst, currentlist[wcrii], prefix + "-L--", CurrObj, ObName) 
 				On "OBJECT"
 					If ClassName(currentlist[wcrii]) = ClassName(CurrObj) 
-						See "Warning : Theres ignored object recursion. Object Recursion will end in overflow problems" 
+						See "Warning : There's ignored object recursion. Object Recursion will end in overflow problems" 
 					Ok
 					wcrvnObjEntName = ObName + "-l" + String(Len(prefix)/4) + "o" + wcrvObjNum
 					Add(ResLst, prefix + "-O--" + wcrvnObjEntName )
