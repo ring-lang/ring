@@ -44,7 +44,7 @@ decimals(12)
     aList = newList(width,height)   ### Save X-Y Mandelbrot Point Values here
 
 ###--------------------------------------------
-### Madelbrot Min-Max Ranges: 
+### Mandelbrot Min-Max Ranges: 
 ### I = Imaginary=Vertical  R - Real=Horizontal
 
     minI = -2.00    
