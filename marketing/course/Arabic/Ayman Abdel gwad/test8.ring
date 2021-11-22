@@ -1,4 +1,4 @@
-/*       Application      : variables (strings)
+/*       Application    : variables (strings)
          Author         : ayman bassuony
          Date           : 2018/01/06
 */
