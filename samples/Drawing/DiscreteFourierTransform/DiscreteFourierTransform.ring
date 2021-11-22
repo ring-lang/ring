@@ -6299,8 +6299,8 @@ Func FindCirclePoint(x,y,radius,Angle)
 
     radian = Angle * gDegree
 
-    x =  cos(radian)    // Cos() Horz X
-    y =  sin(radian)    // Sin() Vert Y
+    x =  cos(radian)    // Cos() - Horizontal X
+    y =  sin(radian)    // Sin() - Vertical Y
 
     XPos =  x * radius
     YPos =  y * radius
@@ -6361,7 +6361,7 @@ Func TestFourier()
   fourierY = dft(y)
 
 /*
-   See "Return BigX Fournier: "+nl
+   See "Return BigX Fourier: "+nl
    for i = 1 to len(fourierY)
       See "i: "+ i
       for j = 1 to 5
