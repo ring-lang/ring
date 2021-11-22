@@ -1,10 +1,10 @@
-/*       applicton      : variables (strings)
-         author         : ayman bassuony
-         date           : 2018/01/06
+/*       Application    : variables (strings)
+         Author         : ayman bassuony
+         Date           : 2018/01/06
 */
 
 
-mystring = " welcome to the first programing language "
+mystring = " Welcome to the first programming language "
 mystring2 = ' another string1 '
 mystring3 = ` another string2 `
 mystring4 =:welcome
