@@ -105,6 +105,63 @@ Functions:
 	JSON2List(cJSONString) --> aList
 
 
+Example:
+
+File: sample.json
+
+.. code-block:: none
+
+	{
+	  "firstName": "John",
+	  "lastName": "Smith", 
+	  "age": 20,
+	  "address": {
+		"streetAddress": "21 2nd Street",
+		"city": "New York",
+		"state": "NY",
+		"postalCode": "10021"
+	  },
+	  "phoneNumbers": [
+		{ "type": "home", "number": "212 555-1234" },
+		{ "type": "fax", "number": "646 555-4567" }
+	  ]
+	}
+
+Ring Code:
+
+.. code-block:: none
+
+	load "jsonlib.ring"
+	
+	func main
+	
+		cJSON = read("sample.json")
+	
+		aList = Json2List(cJSON)
+	
+		? aList[:FirstName]
+		? aList[:LastName]
+		? aList[:Age]
+		? aList[:Address][:city]
+		? aList[:phoneNumbers][1][:Type]
+		? aList[:phoneNumbers][1][:Number]
+		? aList[:phoneNumbers][2][:Type]
+		? aList[:phoneNumbers][2][:Number]
+
+Output:
+
+.. code-block:: none
+
+	John
+	Smith
+	20
+	New York
+	home
+	212 555-1234
+	fax
+	646 555-4567
+
+
 .. index:: 
 	pair: What is new in Ring  1.17; TokensLib Library
 

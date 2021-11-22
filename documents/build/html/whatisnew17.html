@@ -344,6 +344,55 @@ CSV2List(cCSVString) --&gt; aList
 JSON2List(cJSONString) --&gt; aList
 </pre></div>
 </div>
+<p>Example:</p>
+<p>File: sample.json</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>{
+  &quot;firstName&quot;: &quot;John&quot;,
+  &quot;lastName&quot;: &quot;Smith&quot;,
+  &quot;age&quot;: 20,
+  &quot;address&quot;: {
+        &quot;streetAddress&quot;: &quot;21 2nd Street&quot;,
+        &quot;city&quot;: &quot;New York&quot;,
+        &quot;state&quot;: &quot;NY&quot;,
+        &quot;postalCode&quot;: &quot;10021&quot;
+  },
+  &quot;phoneNumbers&quot;: [
+        { &quot;type&quot;: &quot;home&quot;, &quot;number&quot;: &quot;212 555-1234&quot; },
+        { &quot;type&quot;: &quot;fax&quot;, &quot;number&quot;: &quot;646 555-4567&quot; }
+  ]
+}
+</pre></div>
+</div>
+<p>Ring Code:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>load &quot;jsonlib.ring&quot;
+
+func main
+
+        cJSON = read(&quot;sample.json&quot;)
+
+        aList = Json2List(cJSON)
+
+        ? aList[:FirstName]
+        ? aList[:LastName]
+        ? aList[:Age]
+        ? aList[:Address][:city]
+        ? aList[:phoneNumbers][1][:Type]
+        ? aList[:phoneNumbers][1][:Number]
+        ? aList[:phoneNumbers][2][:Type]
+        ? aList[:phoneNumbers][2][:Number]
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>John
+Smith
+20
+New York
+home
+212 555-1234
+fax
+646 555-4567
+</pre></div>
+</div>
 </div>
 <div class="section" id="tokenslib-library">
 <span id="index-4"></span><h2>TokensLib Library<a class="headerlink" href="#tokenslib-library" title="Permalink to this headline">¶</a></h2>
