@@ -4,10 +4,10 @@
 */
 
 # Object Oriented Programming (OOP)
-# Machin [ CPU ( CU - ALU - Registers) - Mem - I/O ]
-# Opertating System [ Process Management - MM - File System - Drivers]
+# Machine [ CPU ( CU - ALU - Registers) - Memory - I/O ]
+# Operating System [ Process Management - Memory Management - File System - Drivers]
 # Programming Language ( Abstraction )
-# Programming Paradim (Imperative Programming - Do this then do that )
+# Programming Paradigm (Imperative Programming - Do this then do that )
 #		       Procedural
 #                      Functional Programming 
 #                      OOP - Declarative - Natural - Meta Programming) 
@@ -16,13 +16,13 @@
 # OOP - Basic Idea
  
 /*			Software
-	[Computer]	[Computer]	[Copmuter]
+	[Computer]	[Computer]	[Computer]
 	[Data-Methods]------[
 			Message
 	[Object]	[Object]	[Object]	[Data-Methods]------[
 			Message
-				Prof - Alan Kay(Smalltak - GUI)
-	(1) Comunication between Objects(only using Messages)
+				Prof - Alan Kay(Smalltalk - GUI)
+	(1) Communication between Objects(only using Messages)
 	(2) Object( Data - Method ) - Separate Data
 		[     State is the Evil     ]
 	Data    ----> Girl ( You need to protect)
@@ -30,7 +30,7 @@
 
 	* Class (Definition) = Attributes(Data) + Methods
 	--------> Many Objects(Instance)
-	Classes Based OOP ---> Java -C# -C++ -Ring -Roby -Python
+	Classes Based OOP ---> Java - C# - C++ -Ring - Ruby -Python
 	* Objects ( Properties - values )- Copy Object
 	[Prototype Based OOP] ---->Self - Java Script
 
@@ -43,9 +43,8 @@
 			Child - Parents
 						Animals
 					       Cat - Dog
-	* Coposition ( Object - Contain Other Object )
+	* Composition ( Object - Contain Other Object )
 			Rectangle (2 Objects (Points))	
 
 
 /*
-				
