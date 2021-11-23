@@ -1,10 +1,10 @@
 /*
       Application  : Using stdlib
-      Author       : mohamed alkenawy 
+      Author       : Mohamed Alkenawy 
       Date         : 10/12/2017
 */
 
 load "stdlib.ring"
-print("hello worled\n welcome to my app\n what is your name ?")
+print("Hello world\n Welcome to my application\n What is your name ?")
 name = getstring()
 print("hello #{name}")
