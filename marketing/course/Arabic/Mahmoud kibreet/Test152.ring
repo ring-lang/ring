@@ -5,8 +5,8 @@
 */
 
 /*
-	Varaible Scopes
-		Three Scops
+	Variable Scopes
+		Three Scopes
 			[1] Global Scope
 			[2] Object Scope
 			[3] Local Scope
@@ -14,19 +14,19 @@
 */
 
 /*
-	When are write the varaible name
+	When are write the variable name
 		(Search)----> Found (Use)
 			Not Found
-		Assigment = ----> Define
+		Assignment = ----> Define
 		Class region ----> Define
 		Expression = ---- Error
 */
 
 /*
-	Search for varaibles
+	Search for variables
 		[1] Search in the local scope
 		[2] Search in the object scope
-				Inside brases {}
+				Inside braces {}
 				Inside methods
 				Inside class region
 		[3] Search in the global scope 
@@ -36,13 +36,13 @@
 new person { test() }
 
 class person 
-	# undefined varsibles ---- > new attributes
+	# undefined variables ---- > new attributes
 
 	# we global scope
 	# we object scope (self.)
 	# we have local scope is the same as object scope
 
-mypoint = new point { 	# brases change object scope
+mypoint = new point { 	# braces change object scope
 	x = 10 y = 10
 	salary = "xxxxx"
 	? self
