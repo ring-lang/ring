@@ -4,7 +4,7 @@
 	Date		: 05/04/2018
 */
 
-# Oriented Object Programming (OOP)
+# Object Oriented Programming (OOP)
 # Machine [ CPU (CU - ALU - Registers) - Memory -I/O ]
 # Operating System [ Process Management - Memory Management - File System - Drivers ]
 # Programming Language ( Abstraction )
