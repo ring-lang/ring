@@ -26,10 +26,6 @@
 ]
 aManyThanks = [
 				  [
-					'Prof. Dr. Atif M. Alamri',
-					'<img src="dratif.png" width="150" height="170">'
-				  ],
-				  [
                     			'José Rosado',
 					'<img src="jose.jpg" width="150" height="170">'
                   		  ],
@@ -37,14 +33,6 @@ aManyThanks = [
                     			'Marino Esteban',
 					'<img src="marino.jpg" width="150" height="170">'
                   		  ],
-				  [
-					'Mona Kamel',
-					'<img src="mona.png" width="150" height="170">'
-				  ],
-				  [
-					'Hebat Alla Ismail',
-					'<img src="heba.jpg" width="150" height="170">'
-				  ],
   				  [
 					'Abdelrahman Mahmoud',
 					'<img src="abdelrahman.jpg" width="150" height="170">'
@@ -53,14 +41,6 @@ aManyThanks = [
                     			'Amin Najah',
 					'<img src="amine.jpg" width="150" height="170">'
                   		  ],				  
-				  [
-					'Nouran M. Radwan',
-					'<img src="nouran.png" width="150" height="170">'
-				  ],				  
-				  [
-                    			'Heba Omran',
-					'<img src="hebaomran.png" width="150" height="170">'
-                  		  ],
 		  		  [
                     			'Ahmed Baryyan',
 		    			'<img src="ahmedbarayan1.jpg" width="150" height="170">'
