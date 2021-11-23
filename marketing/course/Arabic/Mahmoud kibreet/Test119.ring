@@ -4,21 +4,21 @@
           Date        : 2018.02.02
 */
 
-# Functional Programmig Paradigm
+# Functional Programming Paradigm
 
 /*
 
-		Data   ----> Dont Modiyfy the data 
+		Data   ----> Don't Modify the data 
 				In same location
 		Functions ----> Pass function as para.
 		(First-Class) 	Return Function as value
-				Store in Varaible
-		Pure ----> 	Dont modify the state
+				Store in Variable
+		Pure ----> 	Don't modify the state
 		Functions 
 		Recursion ----> function all itself
 
 				(Loops|Control structure)
-		Lazy Evaluation ----> Expresstions in function parameters
+		Lazy Evaluation ----> Expressions in function parameters
 				Evaluated only on using
 		........
 				Other Ideas
@@ -34,6 +34,6 @@
 
 	(3) thread safe
 
-	(4) Foucs - Separate - Easy Debugging
+	(4) Focus - Separate - Easy Debugging
 
 */
