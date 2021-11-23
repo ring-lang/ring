@@ -9,8 +9,8 @@ cString = "Welcome To The Ring Programming Language (ring)"
 
 ? cstring
 
-? substr(cstring,16,4)			#get Number Of Characters
-? substr(cstring,"Ring")		#get Position of substrstring
-? substr(cstring,"Ring","***Ring***")	#replace substring
-#Not case sinsetive
-            ? substr(cstring,"Ring","***Ring***",true)	#replace substring
+? substr(cstring,16,4)			# Get number of characters
+? substr(cstring,"Ring")		# Get Position of substring
+? substr(cstring,"Ring","***Ring***")	# Replace substring
+# Not case sensitive
+            ? substr(cstring,"Ring","***Ring***",true)	# Replace substring
