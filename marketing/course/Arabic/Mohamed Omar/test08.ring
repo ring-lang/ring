@@ -1,7 +1,7 @@
 /*
-       Application :Vatiables (Strings)
-       Author      :Mohamed Omar  
-       Date        :2017/12/17
+       Application : Variables (Strings)
+       Author      : Mohamed Omar  
+       Date        : 2017/12/17
 */
 
 # Variable types (String, Number, List, object, cObject)
