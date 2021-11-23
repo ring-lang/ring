@@ -8,7 +8,7 @@ load "stdlib.ring"
 // print() -> Function In stdlib Library
 print("Hello World" + "\n")
 print("Welcome In My Program\nWhats Your Name?\n")
-// Receieve Data From User
+// Receive Data From User
 name = getstring();
 // Display Data To User
 print("Hello #{name}")
