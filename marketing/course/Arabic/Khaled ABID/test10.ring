@@ -1,12 +1,12 @@
 /*
-	Application	: Variables (Strings) - Vesion 3
+	Application	: Variables (Strings) - Version 3
 	Author		: Khaled ABID
 	Date		: 18/12/2017
 */
 
 # Variable Types (String, Number, List, Object, C Object)
 
-# String (Character, Array of characters, ML Arrray, Bianary Data)
+# String (Character, Array of characters, ML Array, Binary Data)
 
 # NULL
 
