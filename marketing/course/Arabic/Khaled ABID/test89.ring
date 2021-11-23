@@ -4,9 +4,9 @@
 	Date		: 05/04/2018
 */
 
-# Oriented Object Programming (OOP)
+# Object Oriented Programming (OOP)
 # Machine [ CPU (CU - ALU - Registers) - Memory -I/O ]
-# Oparating  System [ Process Management - MmryMngmnt - File System - Drivers ]
+# Operating System [ Process Management - Memory Management - File System - Drivers ]
 # Programming Language ( Abstraction )
 # 	Programming Paradigm ( Imperative - Do this then Do that
 #			Procedural 
@@ -25,7 +25,7 @@
 	[Data,Methods]--------[
 			Message
 				Prof. Alan Kay (Smalltalk) - GUI
-	(1) Communiction between Objects (Only using messages) (fnctn cde)
+	(1) Communication between Objects (Only using messages) (function code)
 	(2) Object (Data + Methods) - Separate Data
 			[State is the Evil]
 
@@ -37,14 +37,14 @@
 		[Class Based OOP] --- Java C# C++ Ring Ruby Python
 
 	* Objects (Properties - Values) - Copy Object
-		[Prototyped Based OOP] --- Self  -JavaScript
+		[Prototype Based OOP] --- Self  -JavaScript
 
-	* Poly. ----> Same Interface (Methods) ---> for Different objcts
+	* Polymorphism ----> Same Interface (Methods) ---> for Different objects
 
 		execute() 		---> SQLite
 		execute() 		---> MySQL
 
-	* Inhiritance 
+	* Inheritance 
 		Child ----> Parents 
 					Humans
 					Employee
@@ -53,7 +53,7 @@
 					Animals
 					Cat	Dog
 	
-	* composition (Object - Contains other objects)
+	* Composition (Object - Contains other objects)
 
 		Rectangle (2 Objects (Point))
 */
