@@ -7,8 +7,8 @@
 #=====================================================
 			# Ring Lessons 
 #=====================================================
-new myFclass {		# inter the Class
-	sayhello()	# Call the class methoud
+new myFclass {		# Enter the Class
+	sayhello()	# Call the class method
 }
 
 class myFclass
