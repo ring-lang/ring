@@ -1,6 +1,6 @@
 # ------------ Variables (Strings) ------------
-# Variavle Types (String, Number, List, Object, C Object).
-#Ways To Type String (& Character) :
+# Variable Types (String, Number, List, Object, C Object).
+# Ways To Type String (& Character) :
 firstWay = "Double Quotes"
 secondWay = 'Single Quotes'
 thirdWay = `Grave Accent`
