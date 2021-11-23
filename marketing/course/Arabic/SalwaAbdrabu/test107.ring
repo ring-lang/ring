@@ -29,4 +29,4 @@ func bracestart
 func braceerror
 		
 func braceend
-		? "Googbye!"
+		? "Goodbye!"
