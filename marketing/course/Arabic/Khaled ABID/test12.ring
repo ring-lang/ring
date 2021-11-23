@@ -1,5 +1,5 @@
 /*
-**	Application	: Variables (Numbers) - vesion 2
+**	Application	: Variables (Numbers) - version 2
 **	Author		: Khaled ABID
 **	Date		: 18/12/2017
 */
@@ -15,6 +15,6 @@
 
 	# Operators
 	mystring2 = "" + x		# string + number -> string	
-	mystring2 = 0 + mystring	# number + string -> number 
+	mystring2 =  0 + mystring	# number + string -> number 
 
 # Performance (operators faster than functions)
