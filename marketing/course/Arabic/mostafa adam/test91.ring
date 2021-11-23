@@ -7,7 +7,7 @@
 #=====================================================
 			# Ring Lessons 
 #=====================================================
-new myFclass {		#  Embedded the Class
+new myFclass {		# Embedded the Class
 	sayhello()	# Call the class method
 }
 
