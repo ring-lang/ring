@@ -4,7 +4,7 @@
 	Date		: 2019/10/15
 */
 
-# Control Strucures
+# Control Structures
 
 for x = 1 to 10
 	for y = 1 to 10
@@ -17,8 +17,8 @@ next
 
 ? "Done"
 
-# Condtition (And Or Not)
-# Condtition (&& || !)
+# Condition (And Or Not)
+# Condition (&& || !)
 
 x = 10
 y = 20
@@ -30,5 +30,3 @@ ok
 if x = 10 or y = 10
 	? "Second"
 ok
-
-
