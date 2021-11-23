@@ -1,5 +1,5 @@
 /*
-	Application	: Variables (Strings) - Vesion 2
+	Application	: Variables (Strings) - Version 2
 	Author		: Khaled ABID
 	Date		: 18/12/2017
 */
