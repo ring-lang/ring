@@ -6,4 +6,4 @@
   Date       :  18.12.2017  
 */
 
-see "Entzr your name :" give Name ? "HI !" + Name  
+see "Enter your name :" give Name ? "Hi! " + Name
