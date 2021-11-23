@@ -9,14 +9,14 @@
 	* Data           ----> Don't Modify The Data In 
 		                 The Same Location
 
-	* Functionas     ----> Pass Function As Parameter
-	  (first - Class)      Rerurn Function As Value
+	* Functions     ----> Pass Function As Parameter
+	  (first - Class)      Return Function As Value
 		               Store In Variable
 
 	* Pure Function  ----> Don't Modify The State
 
 	* Recursion       ---> Functional Call Itself
-			      (Loops | Control Structrue)
+			      (Loops | Control Structure)
 
 	* Lazy Evaluation ---> Expression In Function
 			       Parameters Evaluation
@@ -31,7 +31,7 @@
 /*	
 	:====== Advantages :========
 
-	(1) The same input --> function --> the same outpute 
+	(1) The same input --> function --> the same output 
 				catch result (output)
 
 	(2) Parallel Execution For Functions 
