@@ -4,21 +4,21 @@
           Date               :2018.02.02
           Application Number :1
 */ 
-#variable Types (string, number, list, object, c object)
+# Variable types (string, number, list, object, c object)
 
-? exefilename()  # ring.exe (consol) - ringw.exe(GUI)
+? exefilename()  # ring.exe (console) - ringw.exe(GUI)
 
 # Binary Data (memory - bytes (8-bit) )
 # cpu - memory word - 32bit (4 bytes) (4*8 bits)
 
-#memory ( Data - Code )
+# memory ( Data - Code )
 
 # binary data   -----> usage (8-bit)
 # text              -----> 7-bit
 
-# file (texe or binary)
+# file (text or binary)
 # text (*.txt)
-#binary (*.exe, *.jpg, etc)
+# binary (*.exe, *.jpg, etc)
 
 ? read("test 9.ring")
 
@@ -29,5 +29,3 @@ write("myfile.exe", mystring)
 ? "Done"
 
 // ? mystring
-
-
