@@ -1,12 +1,12 @@
 /*
-**	Application		: Functions .
-**	Author		: Osama Ballan .
-**	Date			: 2018 - 01 - 07 .
+**  Application : Functions
+**  Author      : Osama Ballan
+**  Date        : 2018 - 01 - 07
 */
 
 # Statements (Commands, Load ... )
 # Functions
-# packages and Classes
+# Packages and Classes
 
 x = "one"
 ? X		# Not Case Sensitive (Basic ...)
@@ -20,10 +20,8 @@ x = 10 y = "20"
 ? x + y		# Weakly Typed (Perl , PHP , ...)
 
 # goto (c) - Control Structure
-# Linux (Kernal) - goto
+# Linux (Kernel) - goto
 # Ruby - goto
 func test1
 FUNC test2
 Func test3
-
-
