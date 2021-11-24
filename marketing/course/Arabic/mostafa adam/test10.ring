@@ -16,8 +16,6 @@ mystring3="NULL"
 see isNULL(MYSTRING3)
 
 
-// if i write { mystring4=بدون قيمة } the program willnot Run
+// if i write { mystring4=بدون قيمة } the program will not Run
 
 //mystring6
-
-

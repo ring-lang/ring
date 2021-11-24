@@ -1,12 +1,12 @@
 /*
-	Name	:	Darsh Adam
+	Author	:	Darsh Adam
 	Lesson	:	test31.ring
 	Date 	:	16/12/2017
 */
 		// if , For , While 
 
 #=====================================================
-	/* Codition ----> True \ False */
+	/* Condition ----> True \ False */
 #=====================================================
 
 for x = 1 to 20 
@@ -17,7 +17,7 @@ for x = 1 to 20
 		? "four" loop
 	ok
 	if x = 15 
-		? x   # to show number befor Exit 
+		? x   # to show number before Exit 
 		exit 
 	end		# another way to end if statement 
 	? x 
