@@ -8,8 +8,8 @@
 
 	mynumber1 = 1		# integer
 	mynumber2 = 1.25	# double, float
-	mynumber3 = true	# boolean - 1
-	mynumber4 = false	# boolean - 0
+	mynumber3 = true	# boolean - equivalent of 1
+	mynumber4 = false	# boolean - equivalent of 0
 #----------------------------------------------------------
 # display data
 	? mynumber1
