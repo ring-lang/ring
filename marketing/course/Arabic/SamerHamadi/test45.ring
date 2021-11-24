@@ -7,12 +7,12 @@
 
 # Ring
 # string | number ----> pass by value 
-# list   | object ----> pass by referance
+# list   | object ----> pass by reference
+
 func main
 	aList = 1:10
 	test(aList)
 	? aList
 
 func test aList
-	
 	aList[1] = :one
