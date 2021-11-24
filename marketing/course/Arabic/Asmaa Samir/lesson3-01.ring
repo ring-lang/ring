@@ -1,20 +1,20 @@
 /*
-     App:variables(strings)-version2
-     Author:Asmaa Samir
-     Date: 18-12-2017
+     Application : variables(strings) - version2
+     Author        : Asmaa Samir
+     Date           : 18-12-2017
 */
 
 /*
-  compiler and virtual machine are found in exe file called ring.exe
+  Compiler and virtual machine are found in exe file called ring.exe
   I can Get this file using exefilename() function
   each app(code)has its .exe file , say my current file will called lesson3-01.exe
-  ring.exe will work in case of console(command window) will appear first then app will work after that
-  ringw.exe will work in case GUI(Run GUI App)
+  ring.exe  will work in case of console(command window) will appear first then application will work after that
+  ringw.exe will work in case GUI (Run GUI application)
 */
 ?exefilename()
 /*
-cpu of 32bit-->its memory word =4 byte(4*8)bit
-cpu of 64bit-->its memory word=8 byte(8*8)bit
+32bit CPU --> Its memory word = 4 byte(4*8)bit
+64bit CPU --> Its memory word = 8 byte(8*8)bit
 --------------------
 file is saved in memory (binary or text)where 
 binary data use all 8 bits but 
@@ -35,9 +35,9 @@ we can not used uninitialized variable in ring.
 
 */
 
-? read(`lesson3-01.ring`)  # display content of cuurent file
-mystr=read(exefilename())
-?mystr
-write(`myfile.exe`,mystr)
-?"Done"
+?  read(`lesson3-01.ring`)  # display content of current file
+mystr = read(exefilename())
+? mystr
+write(`myfile.exe`, mystr)
+? "Done"
 isnull(mystr)
