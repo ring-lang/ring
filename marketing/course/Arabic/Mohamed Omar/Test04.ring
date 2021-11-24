@@ -1,8 +1,8 @@
 /*
-       Application : Sum two numbers
-       Author      : Mohamed Omar  
-       Date        : 2017/12/17
-*/
+ * Application : Sum two numbers
+ * Author      : Mohamed Omar  
+ * Date        : 2017/12/17
+ */
 
 see "Enter number1: "   give number1
 see "Enter number2: "   give number2
