@@ -1,7 +1,7 @@
 /*  
  **      Application : Strings Function
- **      name        : Abdelrahman Adam
- **      Date        : 20\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        : 20/12/2017 
 */ 
 #======================================================
 
