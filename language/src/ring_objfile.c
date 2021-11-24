@@ -727,7 +727,7 @@ int ring_objfile_writelistcode ( List *pList,FILE *fCode,int nList,int lSeparate
 {
 	List *pList2  ;
 	int x,x2,x3,nMax  ;
-	char cList[7]  ;
+	char cList[20]  ;
 	char *cString  ;
 	char cFileName[400]  ;
 	sprintf( cList , "pList%d" , nList+1 ) ;
