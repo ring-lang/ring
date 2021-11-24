@@ -7,11 +7,12 @@
 
 # Ring
 # string | number ----> pass by value 
-# list   | object ----> pass by referance
+# list   | object ----> pass by reference
+
 func main
 	aList = 1:10
 	
-	aList2 = aList     #copy by value
+	aList2 = aList     # copy by value
 
 	aList[1] = "one"
 
