@@ -1,7 +1,7 @@
 /*
- * Application: This my first Application
- * Author : Mohamed Omar
- * Date   : --/--/----
+ * Application : This my first Application
+ * Author      : Mohamed Omar
+ * Date        : --/--/----
  */
 
 see "Hello, Welcome to my first program" +nl 
