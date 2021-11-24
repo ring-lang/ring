@@ -1,10 +1,11 @@
-/*                 application:fu nctions  -ascii table
-                    author:heba atef 
-       */
-?char(77)
-?ASCII("H")
+/*
+ * Application : Functions - ASCII table
+ * Author      : Heba Atef
+ */
 
-for x=0 to 255
-?"code:"+x+ "character" + char(x)
+? char(77)
+? ASCII("H")
 
+for x = 0 to 255
+	? "Code:" + x + "Character" + char(x)
 next
