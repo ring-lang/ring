@@ -1,14 +1,14 @@
 /*
-**	Application	: Ring lessons - Natural | Declarative .
-**	Author		: Osama Ballan .
-**	Date			: 2018 - 01 - 20 .
+**	Application	: Ring lessons - Natural | Declarative
+**	Author		: Osama Ballan
+**	Date			: 2018 - 01 - 20
 */
 
 /*
 ** New language   ----> [ Programming - New Solution ]
 ** Programming    ----> Management [ Complexity ]
 ** Software [Size] ----> UP
-** Ring (General Porpuse) ----> Natural | Declarative 
+** Ring (General Purpose) ----> Natural | Declarative 
 					OOP - Functional
 */
 new program {
