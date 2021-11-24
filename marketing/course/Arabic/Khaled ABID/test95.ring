@@ -19,7 +19,7 @@ Class Point
 		  " Y : " + y
 
 	func getx
-		? "Messege from GetX()"
+		? "Message from GetX()"
 		return x
 
 	func setx value
