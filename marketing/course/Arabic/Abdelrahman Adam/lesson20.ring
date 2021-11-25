@@ -11,7 +11,7 @@
 
 aList = [
 	:Name             = "  Abdelrahman Adam ",
-	:Job              = "  Lab technetium "  ,
+	:Job              = "  Lab technician "  ,
 	:favoritepastime  = "  Programming "     ,
 	:Country          = "  Egypt "            
 
