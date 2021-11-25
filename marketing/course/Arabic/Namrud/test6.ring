@@ -1,8 +1,8 @@
 /*
  * Application : Using stdlib
  * Author      : Hossam Hassan
- * Data        : 2019.7.3 
-*/
+ * Data        : 2019.7.3
+ */
 
 load "stdlib.ring"
 
