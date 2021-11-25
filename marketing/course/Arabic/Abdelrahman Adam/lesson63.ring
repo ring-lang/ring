@@ -1,7 +1,7 @@
 /*  
- **      Application : Ring  Lessons
+ **      Application : Ring Lessons
  **      Author      : Abdelrahman Adam
- **      Date        :  22/12/2017 
+ **      Date        : 22/12/2017 
 */ 
 #======================================================
 
