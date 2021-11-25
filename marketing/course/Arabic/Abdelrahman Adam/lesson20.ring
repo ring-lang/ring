@@ -19,10 +19,10 @@ aList = [
 ? aList
 
 aList2 = [
-	[ "Name "            , "  Abdelrahman Adam "] ,
-	[ "Job"              , "  Lab technician "  ] ,
-	[ "favorite pastime" , "  Programming "     ] ,
-	[ "Country "         , "  Egypt "           ]  
+	[ "Name "            , "  Abdelrahman Adam " ] ,
+	[ "Job"              , "  Lab technician "   ] ,
+	[ "favorite pastime" , "  Programming "      ] ,
+	[ "Country "         , "  Egypt "            ]  
 ]
 
 ? aList2
