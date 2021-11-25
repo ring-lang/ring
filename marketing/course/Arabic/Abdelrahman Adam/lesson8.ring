@@ -1,14 +1,14 @@
-/*     Application : variables
+/*     Application : Variables
        Author      : Abdelrahman Adam
        Date        : 19/12/2017 
 */
 
 # test 8
-mystring = "welcome to ring programming language "
-mystring2 = 'another string'
-mystring3 = `another string`
-mystring4 = :Welcome
-character  = "A"
+mystring   = "Welcome to Ring programming language "
+mystring2   = 'Another string'
+mystring3   = `Another string`
+mystring4   = :Welcome
+character   = "A"
 multiString = "
      one
      two
