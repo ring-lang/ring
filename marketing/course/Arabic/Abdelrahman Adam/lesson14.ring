@@ -1,25 +1,25 @@
 /*  
  **      Application : variables (lists) , version2
- **      name        : Abdelrahman Adam
+ **      Author      : Abdelrahman Adam
  **      Date        : 20\12\2017 
 */ 
 #======================================================
 
 # variables type ( string , number , list , object , cobject )
 
-#test14
+# test14
 
-		mylist = [	2017 ,[1,2,3,4,5],
-		["Egypt","KSA",
+		mylist = [	2017, [ 1 , 2 , 3 , 4 , 5 ],
+		[ "Egypt", "KSA",
 		"USA" ], 2005,
-		["one","two",
-		"three"],
-		2011]
+		[ "one", "two",
+		"three" ],
+		2011 ]
 
-		?myLIST
+		? myLIST
 
-		?mylist [3]
+		? mylist [3]
 
-		?mylist [3][2]
+		? mylist [3][2]
 
-		?mylist [3][2][3]
+		? mylist [3][2][3]
