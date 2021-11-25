@@ -1,6 +1,6 @@
 /**
- * Application Ring learning
- * Autheur     : Zaghdoudi Chokri
+ * Application : Ring learning
+ * Author      : Zaghdoudi Chokri
  * Date        : 02/09/2020
 */
 # =====================================
