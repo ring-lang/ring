@@ -5,7 +5,7 @@
  */
 
 See "Enter Your name: "
-give  Name
+give Name
 See "Welcome And Hello  "  + Name
 
 #     Input ----> Processing ----> Output
