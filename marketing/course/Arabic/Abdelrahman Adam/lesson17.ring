@@ -1,20 +1,20 @@
 /*  
- **      Application : variables ( strings ) , Date & Time
- **      name        : Abdelrahman Adam
- **      Date        : 20\12\2017 
+ **      Application : variables ( strings ), Date & Time
+ **      Author      : Abdelrahman Adam
+ **      Date        : 20/12/2017 
 */ 
-#======================================================
+#========================================================
 
 # variables type ( string , number , list , object , cobject )
 
-#test17
+# test17
 
-cDate =Date()   
+cDate = Date()   
 ? cDate    
 cTime = Time()	
-?cTime
+? cTime
 
-cDate2 = Adddays(cDate , 6)
-?cDate2
+cDate2 = addDays(cDate, 6)
+? cDate2
 
-? diffdays(cDate2,cDate)
+? diffDays(cDate2, cDate)
