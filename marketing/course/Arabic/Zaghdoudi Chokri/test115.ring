@@ -21,7 +21,7 @@
 			le même endroit.
 
 			Functions
-				[Fist-Class] --->
+				[First-Class] --->
 					- Passer la 
 					fonction comme 
 					parametre.
