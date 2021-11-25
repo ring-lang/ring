@@ -1,7 +1,7 @@
 /*  
  **      Application : variables (lists), version4
- **      Author        : Abdelrahman Adam
- **      Date        : 20\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        : 20/12/2017 
 */ 
 #======================================================
 
