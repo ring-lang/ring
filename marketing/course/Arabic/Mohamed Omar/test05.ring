@@ -1,12 +1,12 @@
 /*
- * Application : Sum two numbers(v.3)
+ * Application : Sum two numbers (v.2)
  * Author      : Mohamed Omar  
  * Date        : 2017/12/17
  */
 
-put  "Enter number1 :"   get number1
-put  "Enter number2 :"   get number2
-put  "Sum:"  + (0 + number1 + number2)
+see  "Enter number 1: "   give number1
+see  "Enter number 2: "   give number2
+see  "Sum: " + (0 + number1 + number2)
 
 # String + { String/Number } ......> String
 # Number + { String/Number } ......> Number
