@@ -6,7 +6,7 @@
 
 See "Enter Your name: "
 give Name
-See "Welcome And Hello  "  + Name
+See "Welcome And Hello " + Name
 
 #     Input ----> Processing ----> Output
 #     Data  ----> Transform  ----> Data 
