@@ -1,6 +1,6 @@
 /*  
  **      Application : variables (lists), version3
- **      name        : Abdelrahman Adam
+ **      Author      : Abdelrahman Adam
  **      Date        : 20/12/2017 
 */ 
 #======================================================
