@@ -1,7 +1,7 @@
 /*  
  **      Application : Ring  Lessons
- **      name         : Abdelrahman Adam
- **      Date          :  22\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        :  22/12/2017 
 */ 
 #======================================================
 
@@ -12,9 +12,9 @@
 ?	iswindows64()
 ?	isandroid()
 
-?currentdir()
+? currentdir()
 cDir = currentdir()
 chdir("c:\ring")
-?currentdir()
+? currentdir()
 chdir(cDir)
-?currentdir()
+? currentdir()
