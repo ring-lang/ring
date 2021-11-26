@@ -1,7 +1,7 @@
 /*  
  **      Application : Functions & scope & pass by value & pass by reference
- **      name        : Abdelrahman Adam
- **      Date        : 22\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        : 22/12/2017 
 */ 
 #======================================================
 
