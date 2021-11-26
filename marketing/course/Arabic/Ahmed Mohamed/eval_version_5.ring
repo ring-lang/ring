@@ -7,7 +7,7 @@
 func main
 
 	while true
-		? "Enter experssion : " give cExper
+		? "Enter expression : " give cExper
 		if left(lower(trim(cExper)), 4) = "exit"
 			exit
 		ok
