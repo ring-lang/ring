@@ -4,15 +4,11 @@
 **	Date   		: 08/03/2018
 */
 ####################################################################
-# Variables types(String, Number, List, Objet, c object)
+# Variables types(String, Number, List, Object, c object)
 
-# + - / *
-?100 + 200
-?1000 / 100
-?200 * 5
-?1000 - 250
-?100 % 7
-
-
-
-
+# Arithmetic Operators: + - / *
+? 100 + 200
+? 1000 / 100
+? 200 * 5
+? 1000 - 250
+? 100 % 7
