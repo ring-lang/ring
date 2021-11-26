@@ -1,7 +1,7 @@
 /*  
  **      Application : Functions
- **      name        : Abdelrahman Adam
- **      Date        : 22\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        : 22/12/2017 
 */ 
 #======================================================
 
@@ -13,7 +13,7 @@ func one
 		? "one"
 
 func two
-		?"two"
+		? "two"
 
 func three
-		?"three"
+		? "three"
