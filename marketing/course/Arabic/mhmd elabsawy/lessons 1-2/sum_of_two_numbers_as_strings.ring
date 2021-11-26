@@ -8,5 +8,5 @@
 
 see 'Enter first  number please: '; give x 
 see 'Enter second number please: '; give y
-sum = x + y
+sum = x + y    # string concatenation by + operator
 see sum
