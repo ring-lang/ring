@@ -10,10 +10,10 @@
 # Statements -->  Keywords + Expression
 
 see      "Hello World!"
-#Keyword  Expression 
+# Keyword  Expression 
 
-# Statement ----> 'See' <Exprestion>
-# Statement ----> <Exprestion>
+# Statement ----> 'See' <Expression>
+# Statement ---->       <Expression>
 
 "Hello World!"
 12
