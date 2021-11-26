@@ -1,14 +1,14 @@
 /*  
  **      Application : Functions & scope & pass by value & pass by reference
- **      name        : Abdelrahman Adam
- **      Date        : 22\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        : 22/12/2017 
 */ 
 #======================================================
 
 func main
 		aList=1:10
 		test(aList)
-		?aList
+		? aList
 
 func test  aList
 		aList[1]= :one
