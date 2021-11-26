@@ -1,7 +1,7 @@
 /* 
-	Application  : print , get info and sum two number (2).
-	Author       : Walid Ahmed .
-	Date         :12/10/2017.
+	Application  : print , get info and sum two number (2)
+	Author       : Walid Ahmed
+	Date         : 12/10/2017
 */
  
 load "stdlib.ring"
