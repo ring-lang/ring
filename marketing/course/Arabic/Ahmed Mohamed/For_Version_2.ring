@@ -4,7 +4,7 @@
 	Date		: 2019/10/15
 */
 
-# Control Strucures
+# Control Structures
 # While For If
 
 # 1 - Statement
