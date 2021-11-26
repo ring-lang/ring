@@ -1,7 +1,7 @@
 /*
  * Application : sum_of_two_numbers1
- * Author        : mhmd elabsawy
- * Date           : --/--/----
+ * Author      : mhmd elabsawy
+ * Date        : --/--/----
  * 
  * see = out, give = in better انا دماغي لفت هههههههه
 */
