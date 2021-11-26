@@ -4,6 +4,6 @@
 # Date        : 02.01.2018                  #  
 #############################################
 load "stdlib.ring"
-print("hello, World!\nWelcame to my firt app\nWat is your name?")
+print("Hello, World!\nWelcome to my first application\nWhat is your name?")
 name = getstring()
-print("Hello #{name}")
+print("Hello #{ name }")
