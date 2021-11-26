@@ -6,7 +6,7 @@
 
 x = "one"
 
-? X 			          # ----Not Case Sensitive (BASIC - 
+? X 			          # ----Not Case Sensitive (BASIC)
 # ----1
 aList = [1,2,3]
 
