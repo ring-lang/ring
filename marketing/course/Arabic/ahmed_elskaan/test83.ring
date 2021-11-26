@@ -1,5 +1,5 @@
 /*
-**	Application Name : Natual programming;
+**	Application Name : Natural programming;
 **	Author           : Ahmed Elskaan;
 **	Date             : 2017-12-25;		
 */
@@ -22,8 +22,3 @@ class prog
 			nSum += nNumber
 		next
 		? "Sum: " + nSum
-
-
-
-
-
