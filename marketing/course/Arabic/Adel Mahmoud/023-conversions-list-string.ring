@@ -1,12 +1,12 @@
 /*
-**	Application		:Convertions (list-string)
+**	Application		:Conversions (list-string)
 **	Author			:Adel Mahmoud
 **	Date			:2018.01.28
 */
 
 #=========================================================
 #	   1	2     3     4	  5
-aList = [:one,:two,:three,:four,:five]
+aList = [ :one, :two, :three, :four, :five ]
 
 ? len(aList) + nl
 ? aList
@@ -21,5 +21,3 @@ aList2 = str2list(cString)
 
 
 #=========================================================
-
-
