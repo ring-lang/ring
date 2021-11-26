@@ -1,10 +1,10 @@
 /*
-	Application	: Control Strucures
+	Application	: Control Structures
 	Author		: Ahmed Mohamed
 	Date		: 2019/10/15
 */
 
-# Control Strucures
+# Control Structures
 # While For If
 
 # 1 - Statement
@@ -103,15 +103,3 @@ for x = 1 to 10 step 2 {
 for x = 10 to 1 step -1 {
 	? x
 }
-
-
-
-
-
-
-
-
-
-
-
-
