@@ -1,5 +1,5 @@
 /* 
-	application  : print , get info and sum two number (1)
+	Application  : print , get info and sum two number (1)
 	Author       : Walid Ahmed 
 	Date         : 12/10/20
 */
