@@ -4,7 +4,7 @@
 **	Date   		: 08/03/2018
 */
 ####################################################################
-# Variables types(String, Number, List, Objet, c object)
+# Variables types(String, Number, List, Object, c object)
 
 aList = [:one, :two, :three, :four]
 
@@ -17,4 +17,3 @@ cstr = list2str(aList)
 
 cstr2 = str2list(cstr)
 ? len(cstr2)
-
