@@ -1,9 +1,11 @@
 /*  
  **      Application : Ring Lessons
- **      name         : Abdelrahman Adam
- **      Date          :  22/12/2017 
+ **      name        : Abdelrahman Adam
+ **      Date        :  22/12/2017 
 */ 
 #======================================================
+
+# test62
 
 myFiles = dir("E:\ComputerApp\Ring1.6\Lesson7\")
 aList = []
@@ -13,7 +15,7 @@ for aFile	in	myFiles
 		ok
 next
 
-#Sort
+# Sort
 aList = sort(aList)
 
 # print file as list
