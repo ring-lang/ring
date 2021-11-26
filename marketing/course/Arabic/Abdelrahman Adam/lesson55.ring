@@ -1,23 +1,23 @@
 /*  
- **      Application : load library 
- **      name        : Abdelrahman Adam
- **      Date        : 22\12\2017 
+ **      Application : load library
+ **      Author      : Abdelrahman Adam
+ **      Date        : 22/12/2017 
 */ 
 #======================================================
 
 x = "welcome"
 
-?X					#not case senestivity
+?X					# not case sensitivity
 
 aList = [1,2,3,4]
-?aList[1]				#begin 1
+?aList[1]				# begin 1
 
 aList2 = aList			#Deep cope
 
 x = 10    y = "5"
-?  x + y				#weakly type
+?  x + y				# weakly type
 
-#style
+# style
 func test1
 Func test2
 FUNC test3
