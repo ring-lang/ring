@@ -7,7 +7,7 @@
 
 # variables type ( string , number , list , object , cobject )
 
-#test22
+# test22
 
 aList = [
 	:Name            = "  Abdelrahman Adam ",
