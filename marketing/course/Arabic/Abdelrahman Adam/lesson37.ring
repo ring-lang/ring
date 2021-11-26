@@ -7,7 +7,7 @@
 
 # test37
 x = 1
-do	#at least   :    one time
+do	# at least   :    one time
 	? "welcome !"
 
 again x > 10
