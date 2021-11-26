@@ -1,10 +1,10 @@
- /*         
-                     ِِApplication      : variables	(strings)
-                     Author              : Ahmed Younis
-                    Date                   : 2017.12.11
-*/
+/*
+ * Application : Variables (Strings)
+ * Author      : Ahmed Younis
+ * Date        : 2017.12.11
+ */
 
-#VARIAbles TYPES (STRING, NUMBER, LIST, OBJECT, C OBJECT)
+# VARIABLES TYPES (STRING, NUMBER, LIST, OBJECT, C OBJECT)
 
 # STRINGS  TYPES	
 # علامات التنصيص تكون للجمل
