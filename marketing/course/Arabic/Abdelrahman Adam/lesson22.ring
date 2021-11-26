@@ -14,7 +14,7 @@ aList = [
 	:Job             = "  Lab technician "  ,
 	:favoritepastime = "  Programming "     ,
 	:Country         = "  Egypt "           ,
-	:City			 = "  Cairo"             
+	:City            = "  Cairo"             
 ]
 
 ? "Size  : "  + len(aList)
