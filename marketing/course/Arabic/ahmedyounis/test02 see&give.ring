@@ -1,6 +1,6 @@
 
 #A- Input مدخلات من المستخدم ------->  Processing بيحصل------->output مخرجات
-//B- Data -------> Transferorm -------> data     اغلب البرامج بتاخد بيانات وتقوم بتحويلها من تفاعل المستخدم معها
+//B- Data -------> transform -------> data     اغلب البرامج بتاخد بيانات وتقوم بتحويلها من تفاعل المستخدم معها
 #C- ممكن المدخلات input تكون من خلال keyboard, mouse, files from hard-disk, network ...etc
 //D- المخرجات بتكون من خلال  screen, printing, files, ....
 #E- التعليقات comments 
