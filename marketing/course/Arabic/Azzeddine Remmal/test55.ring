@@ -1,12 +1,8 @@
 #####################################
-# Application  :  Functions
-# Author        : Azzeddine Remmal            
-# Date           : 08.01.2018                  
+# Application  : Functions
+# Author       : Azzeddine Remmal            
+# Date         : 08.01.2018                  
 ####################################
-
-
-
-
 
 x = "one"
 
@@ -30,7 +26,7 @@ x=10 y="10"
 
 #-----------------------Memory 
 
-#-----------------------Naming Convension 
+#-----------------------Naming Convention 
 
 #-----------------------Style 
 
