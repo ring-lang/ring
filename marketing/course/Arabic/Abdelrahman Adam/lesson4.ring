@@ -1,6 +1,6 @@
 /*     Application : Sum two Numbers
        Author      : Abdelrahman Adam
-       Date        : 19\12\2017 
+       Date        : 19/12/2017 
 */
 
 #test 4
