@@ -7,7 +7,7 @@
 
 func main
 		aList=1:10
-		aList2 = aList       #cop by value
+		aList2 = aList       # copy by value
 		alist [1] = "one"
-?aList[1]
-?aList2[1] 
+? aList[1]
+? aList2[1] 
