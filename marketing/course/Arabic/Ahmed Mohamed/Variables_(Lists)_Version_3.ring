@@ -1,5 +1,5 @@
 /*
-	Application	: Variables (Lists) - Version 2
+	Application	: Variables (Lists) - Version 3
 	Author		: Ahmed Mohamed
 	Date		: 2019/10/14
 */
@@ -10,7 +10,7 @@
 aList = [
 	
 	:name 		= "Ahmed Mohamed",
-	:jop 		= "Developer",
+	:job 		= "Developer",
 	:country 	= "Egypt",
 	:city		= "Alexandria"
 ]
