@@ -7,14 +7,14 @@
 
 /*
 
-	Reflection & Metaprograming
+	Reflection & Meta-programming
 
 */
 
 /*
 
 	Dynamic Behavior(Application)
-		At the desig level
+		At the design level
 
 	Connect Database 
 			----> Tables + columns
@@ -26,7 +26,3 @@
 	Address
 
 */
-
-
-
-
