@@ -1,6 +1,7 @@
-/*     app:for looooop   ,,while
-
-
+/*
+ * Application : loop (for, while)
+ * Author      : heba atef
+ * Date        : 25.12.2017
 */
 
 for x=1 to 10 
