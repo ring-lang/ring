@@ -6,7 +6,7 @@
 
 
 # Project   ----> Files (*.ring)
-# Programe  ----> Statements
+# Program  ----> Statements
 # Statement ----> Keywords + Expressions
 
 see "Hello , World!"
