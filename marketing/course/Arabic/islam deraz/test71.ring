@@ -9,7 +9,7 @@
 func main
 
 while true
-	? "Enter Expresion: " give cExpr
+	? "Enter Expression: " give cExpr
 
 	if lower(trim(cExpr)) = "exit"
 		exit
