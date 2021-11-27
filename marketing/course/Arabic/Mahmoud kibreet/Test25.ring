@@ -6,7 +6,7 @@
 
 # Variable Types (String , Number , List , Object , C Object)
 
-cString = "welcome to the Ring programe language (ring)"
+cString = "welcome to the Ring program language (ring)"
 
 ? cString
 
