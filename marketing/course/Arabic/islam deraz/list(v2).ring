@@ -1,7 +1,7 @@
 /*
-**          Application        		:Variables (lists version 2)
-**          Author               		:Islam Deraz
-**          Date                      	:2018.02.03
+**          Application        	:Variables (lists version 2)
+**          Author              :Islam Deraz
+**          Date                :2018.02.03
 **          Application Number 	:6
 */ 
 
@@ -9,7 +9,7 @@
 
 # strings		--->characters, array of characters, binary, ML, NULL
 # numbers		--->int, float|double, boolean(true|false)
-# list			--->array, list, nested list, Multy Dimension array, hash|dictionary
+# list			--->array, list, nested list, Multi-Dimensional array, hash|dictionary
 
 mylist =[
 		"one",
