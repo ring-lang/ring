@@ -1,4 +1,4 @@
-# ------------ Handling Errorrs ------------
+# ------------ Handling Errors ------------
 # Style 1
 try
 	1 / 0
