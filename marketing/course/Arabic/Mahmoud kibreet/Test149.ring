@@ -5,15 +5,15 @@
 */
 
 /*
-	Varaible Scopes
-		Three Scops
+	Variable Scopes
+		Three Scopes
 			[1] Global Scope
 			[2] Object Scope
 			[3] Local Scope
 
 */
 
-# Conflict between the class|object attribute and local varaible
+# Conflict between the class|object attribute and local variable
 
 new test {
 	mytest()
