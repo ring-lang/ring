@@ -27,7 +27,7 @@ See "Sum2 = " See number1 + number2 + nl
 
 /* Note: That It Still Not The Desired Result Because,
    Give Receive Data From User Then Put It In A String Variable.
-   To Solve This Problem, Convert String Variabls To Numbers
+   To Solve This Problem, Convert String Variables To Numbers
 */
 Number1 = number(number1)
 Number2 = number(number2)
