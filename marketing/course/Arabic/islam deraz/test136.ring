@@ -7,7 +7,7 @@
 load "stdlib.ring"
 /*
 
-	Reflection & Metaprograming
+	Reflection & Meta-programming
 
 */
 
