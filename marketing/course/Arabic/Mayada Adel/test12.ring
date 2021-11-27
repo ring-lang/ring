@@ -1,6 +1,6 @@
 # ------------ Variables (Lists) Part 1 ------------
 /*
- * List(Array, List, Nested List, Multi Dimentional Array,
+ * List(Array, List, Nested List, Multi Dimensional Array,
    Hash Table, Dictionary)
 */
 # Way 1 
@@ -16,6 +16,6 @@
 # Array Length
   ? "Array Length : " + len(myList)
 
-# Mixed Type In List Is Available 
+# Mix Typed In List Is Available 
 myList3 = ["Mayada", True, 2] 
 ? myList3
