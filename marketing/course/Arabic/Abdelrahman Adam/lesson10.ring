@@ -1,6 +1,6 @@
 /*     Application : variables (strings)
        Author      : Abdelrahman Adam
-       Date        : 20\12\2017 
+       Date        : 20/12/2017 
 */
 # variables type ( string , number , list , object , cobject )
 # test 10
