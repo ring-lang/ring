@@ -17,12 +17,12 @@
 # Conflict between Global variable and local variable
 
 x=10 y=20		# x,y are global variables
-nSum= x+y		# nSum is global varaible
+nSum= x+y		# nSum is global variable
 ? sum(5,6)
 ? nSum
 
 func sum x,y		# x,y are global variables
-	nSum = x+y	# nSum is expecteed to be local !
+	nSum = x+y	# nSum is expected to be local !
 	return nSum
 
 
