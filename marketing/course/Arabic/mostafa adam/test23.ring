@@ -1,10 +1,10 @@
 /*
-	name 		: Mostafa Abdullah Adam 
-	App 		: Test 23 (Convertion between lists&strings) 
+	Application	: Test 23 (Conversion between lists & strings) 
+	Author 		: Mostafa Abdullah Adam 
 	Date 		: 2017-12-13 
 */ 
 #=======================================================
-     // Variables types (str , num, (list) , obj , c obj )
+     // Variables types (strings , number, (list) , object , c object )
 #=======================================================
 
 		#===============================#
