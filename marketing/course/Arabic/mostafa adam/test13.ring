@@ -4,11 +4,11 @@
 	Date 		: 2017-12-11 
 */ 
 #=======================================================
-     // Variables types ( str , num , list , obj , c obj )
+     // Variables types ( string , number , list , obj , c obj )
 #=======================================================
 
 		#===============================#
-		//List -----> Aray , list , ...etc 
+		//List -----> Array , list , ...etc 
 		      #==================#
 
 
