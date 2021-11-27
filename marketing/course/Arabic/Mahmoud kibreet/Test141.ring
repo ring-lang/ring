@@ -5,21 +5,21 @@
 */
 
 /*
-	Varaible Scopes
-		Three Scops
+	Variable Scopes
+		Three Scopes
 			[1] Global Scope
 			[2] Object Scope
 			[3] Local Scope
 
 */
 
-# Lexical Scoping (Scope of varaible is based on location)
+# Lexical Scoping (Scope of variable is based on location)
 
 
-x = 10                   # Global Varaible
+x = 10                   # Global Variable
 
 func main 
-	y = 10		# Local Varaible
+	y = 10		# Local Variable
 	? 10
 	test()
 	? y
