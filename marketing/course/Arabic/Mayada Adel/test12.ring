@@ -16,6 +16,6 @@
 # Array Length
   ? "Array Length : " + len(myList)
 
-# Mix Typee In List Is Available 
+# Mixed Type In List Is Available 
 myList3 = ["Mayada", True, 2] 
 ? myList3
