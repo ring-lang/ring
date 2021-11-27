@@ -16,10 +16,9 @@
 	Recursion -->   Function call itself
 			(loops|control structure)
 	Lazy Evaluation --> Expressions in function para.
-				Evaluated onlyin usage
+				Evaluated only in usage
 
 		other ideas
 	 
 
 */
-
