@@ -44,7 +44,7 @@
 
 	* Class (Definition) = Attributes(Data) + Methods
 		----> Many objects (Instances)
-	[Class based OOP]---Java c++ c# Ring Python Ruby
+	[Class based OOP]---Java c++ C# Ring Python Ruby
 
 	*Objects (Properties - Values) - Copy object
 		[Prototype based OOP] ---- Self - Javascript
