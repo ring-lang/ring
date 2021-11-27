@@ -25,7 +25,7 @@ class Natural
 		? "Hello, World!"
 
 	func bracestart 
-		? "Wellcome to my new command!"
+		? "Welcome to my new command!"
 
 	func braceend
 		? "Goodbye!"
