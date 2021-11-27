@@ -6,10 +6,10 @@
 */
 
 # project  ----> files (*.ring)
-# programe ----> statements
+# program ----> statements
 # statement ---> keywords + expressions
 
-see "Hello world!" +nl
+see "Hello world!" + nl
 # keyword + expressions
 
 # statement ----> 'see' <expression>
@@ -39,9 +39,9 @@ next
 tab = char(9) + char(9)
 ? "one" + tab + "two" + tab + "three"
 
-nl =windowsnl()       # char(13)+char(10)
-cstring= "Hello" + nl + "How are you" + nl 
-write("mytest.txt",cstring)
+nl = windowsnl()       # char(13)+char(10)
+cstring = "Hello" + nl + "How are you" + nl 
+write("mytest.txt" ,cstring)
 system("notepad mytest.txt")
 
 #==========================================
