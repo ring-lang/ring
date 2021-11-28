@@ -7,12 +7,12 @@
 load "stdlib.ring"
 
 /*
-Reflection Metaprogramming
+Reflection Meta-programming
 */
 
 /*
-dynamic Behavior (Application)
-	At the Design Leval
+Dynamic Behavior (Application)
+	At the Design Level
 
 	Connect Database
 			-------> Tables + Columns
