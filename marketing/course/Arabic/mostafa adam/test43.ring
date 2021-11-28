@@ -9,7 +9,7 @@
 #=====================================================
 
 ? "Hello , World ! " 
-x = 10	# public ( $ PWCT Stile)
+x = 10	# public ( $ PWCT Style)
 def main
 	?"Welcome to Ring - Language " 
 	one()
