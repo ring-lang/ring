@@ -10,5 +10,5 @@ call f1()
 
 func mytest
 	return func {
-		? "welcom"
+		? "Welcome"
 }
