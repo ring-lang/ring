@@ -30,4 +30,4 @@ func hello
 func exitapp 
 	# bye
 	Exit
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================
