@@ -6,7 +6,7 @@
 
 # variables Types (String, Number, List, Object, C object)
 
-mystring  = "Welcome to the Ring programing language"
+mystring  = "Welcome to the Ring programming language"
 mystring2 = 'Another string'
 mystring3 = `Another string`
 mystring4 = :Welcome 			# welcome
