@@ -32,7 +32,7 @@
 		f1()
 		f2()
 
-	(3) thread safe
+	(3) Thread safe
 
 	(4) Focus - Separate - Easy Debugging
 
