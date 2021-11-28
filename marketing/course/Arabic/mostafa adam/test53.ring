@@ -9,6 +9,6 @@
 #=====================================================
 
 func test 
-	? " Call func from another file"
+	? " Call function from another file"
 
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================
