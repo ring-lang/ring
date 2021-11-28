@@ -11,7 +11,7 @@ MyString2 = 'Another String'
 MyString3 = `Another String`
 MyString4 = :Welcome			# welcome
 
-MyCharcter = "A"
+MyCharacter = "A"
 
 MyMLString = "
 	one two
@@ -20,4 +20,4 @@ MyMLString = "
 
 ? MyString	# see ..... +nl
 ? MyString2 ? MystrinG3 ? mYstring4
-? myChArcter ? MyMLString
+? MyChAracter ? MyMLString
