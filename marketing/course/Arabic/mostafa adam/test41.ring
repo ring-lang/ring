@@ -12,9 +12,9 @@
 
 func main
 	x = 10
-	?" Welcom to Ring - lang " 
+	?" Welcome to Ring - language " 
 	one()
 
 func one 
 	? x 
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================
