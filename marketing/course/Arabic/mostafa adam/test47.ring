@@ -1,7 +1,7 @@
 /*
-	name	:	Darsh Adam
-	Lesson	:	test47.ring
-	Date 	:	16/12/2017
+	Application : test47.ring
+	Author      : Darsh Adam
+	Date        : 16/12/2017
 */
 
 #=====================================================
@@ -9,7 +9,7 @@
 #=====================================================
 /*
 	String | Number ----> pass by Value 
-	List | Object 	----> pass by refrance 
+	List | Object 	----> pass by reference 
 */
 #====================================================
 
@@ -21,4 +21,4 @@ func main
 	? alist[1]
 	? alist2[1]
 	
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================
