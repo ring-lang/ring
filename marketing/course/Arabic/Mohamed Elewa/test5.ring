@@ -5,5 +5,5 @@
 */
 
 See "Enter number1 : " Give Number1
-See "Entet number2 : " Give Number2
+See "Enter number2 : " Give Number2
 See "Sum : " + (0 + Number1 + Number2)
