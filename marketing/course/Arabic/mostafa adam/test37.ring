@@ -1,12 +1,12 @@
 /*
 	name	:	Darsh Adam
-	Lesson	:	test35.ring
+	Lesson	:	test37.ring
 	Date 	:	16/12/2017
 */
 		// if , For , While 
 
 #=====================================================
-	/* Codition ----> True \ False */
+	/* Condition ----> True \ False */
 #=====================================================
 
 x= 1 
