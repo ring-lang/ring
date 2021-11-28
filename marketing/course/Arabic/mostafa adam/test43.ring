@@ -1,7 +1,7 @@
 /*
-	name	:	Darsh Adam
-	Lesson	:	test43.ring
-	Date 	:	16/12/2017
+	Application : test42.ring
+	Author      : Darsh Adam
+	Date        : 16/12/2017
 */
 
 #=====================================================
@@ -11,9 +11,9 @@
 ? "Hello , World ! " 
 x = 10	# public ( $ PWCT Stile)
 def main
-	?"Welcom to Ring - lang " 
+	?"Welcome to Ring - Language " 
 	one()
 
 def one 
 	? x 
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================
