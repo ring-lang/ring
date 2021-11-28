@@ -9,7 +9,7 @@
 #=====================================================
 /*
 	String | Number ----> pass by Value 
-	List | Object 	----> pass by refrance 
+	List | Object 	----> pass by reference 
 */
 #====================================================
 
@@ -23,4 +23,4 @@ func main
 func sum x,y
 	return x+y
 	
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================
