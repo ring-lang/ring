@@ -9,7 +9,7 @@
 #=====================================================
 /*
 	String | Number ----> pass by Value 
-	List | Object 	----> pass by refrance 
+	List | Object 	----> pass by reference 
 */
 #====================================================
 
@@ -23,4 +23,4 @@ func dec nnum
 	if nnum = 0 return end 
 	dec(nnum-1)
 	
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================
