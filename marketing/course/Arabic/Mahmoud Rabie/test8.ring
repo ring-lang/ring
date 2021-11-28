@@ -4,7 +4,7 @@
    	author         :Mahmoud Rabie 
 	Date           :2017/12/11 "today is my birthday" 
 */
-mystring = "Welcome to ring programing language"
+mystring = "Welcome to ring programming language"
 mystring2 = 'Another string'
 mystring3 = `Another string`
 mystring4 = :Welcome 
@@ -13,7 +13,7 @@ mymlstring = "
  	one two 
 	three four 
 "
-? mystring			# see........ =nl 
+? mystring			# see........ = nl 
 ? mystring2 ? mystring3 ? mystring4 
 ? mycharacter
 ? mymlstring 
