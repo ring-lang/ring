@@ -11,12 +11,12 @@ mystring2= '2 way '
 mystring3 = `3 way`
 mystring4 = :myname
 
-mycharcter= "A"
+mycharacter = "A"
 mylongstring = "line1
 line 2 
 line 3 
 "
 
 ?mystring  	?mystring2 	?mystring3	?mystring4
-?mycharcter		# ? = see "any thing "+ nl
+?mycharacter		# ? = see "any thing "+ nl
 ?mylongstring
