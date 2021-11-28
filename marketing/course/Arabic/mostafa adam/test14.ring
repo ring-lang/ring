@@ -4,7 +4,7 @@
 	Date 		: 2017-12-11 
 */ 
 #=======================================================
-     // Variables types ( string , number , list , obj , c obj )
+// Variables types ( string , number , list , object , c object )
 #=======================================================
 
 		#===============================#
