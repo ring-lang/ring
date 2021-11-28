@@ -1,6 +1,6 @@
 /*
 	name	:	Darsh Adam
-	Lesson	:	test31.ring
+	Lesson	:	test32.ring
 	Date 	:	16/12/2017
 */
 		// if , For , While 
