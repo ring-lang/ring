@@ -1,15 +1,16 @@
 /*
-	name	:	Darsh Adam
-	Lesson	:	test46.ring
-	Date 	:	16/12/2017
+	Application : test46.ring
+	Author      : Darsh Adam
+	Date        : 16/12/2017
 */
+
 
 #=====================================================
 			# Functions
 #=====================================================
 /*
 	String | Number ----> pass by Value 
-	List | Object 	----> pass by refrance 
+	List | Object 	----> pass by reference 
 */
 #====================================================
 
@@ -20,4 +21,4 @@ func main
 
 func test alist2
 	alist2[2] = :two
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================
