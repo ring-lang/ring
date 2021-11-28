@@ -12,7 +12,7 @@
 "hello,world!"
 12
 #=============================================
-see "welcom"+nl
+see "Welcome" + nl
 
 ?"hello"
 
@@ -27,9 +27,7 @@ next
 tab=char(9)+char(9)
 ? "one" + tab + "two" + tab + "three"
 #============================================
-nl=windowsnl()
-cstring= "hallo" + nl + "how are you" + nl
+nl = windowsnl()
+cstring = "hello" + nl + "how are you" + nl
 write("mytest.text",cstring)
 system("notepade mytest.txt")
-
-
