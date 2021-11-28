@@ -6,7 +6,7 @@
 		// if , For , While 
 
 #=====================================================
-	/* Codition ----> True \ False */
+	/* Condition ----> True \ False */
 #=====================================================
 
 for x = 1 to 10 
@@ -20,8 +20,8 @@ next
 
 ? " Done "
 
-# condetion ( and   or   not)
-# condetion (  &&   ||     !) 
+# condition ( and   or   not)
+# condition (  &&   ||     !) 
 
 
 
