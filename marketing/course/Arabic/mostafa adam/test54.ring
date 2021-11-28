@@ -8,7 +8,7 @@
 			# Memory 
 #=====================================================
 
-#statements (command , load , .....) 
+# statements (command , load , .....) 
 # functions 
 # packages and classes 
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================
