@@ -1,7 +1,7 @@
 /*
-	name	:	Darsh Adam
-	Lesson	:	test45.ring
-	Date 	:	16/12/2017
+	Application : test45.ring
+	Author      : Darsh Adam
+	Date        : 16/12/2017
 */
 
 #=====================================================
@@ -9,13 +9,13 @@
 #=====================================================
 
 ? "Hello , World ! " 
-x = 10	# public ( $ PWCT Stile)
+x = 10	# public ( $ PWCT Style)
 func main { 
-	?"Welcom to Ring - lang " 
+	?"Welcome to Ring - Language " 
 	one()
 } 
 
 func one {
 	? x 
 }
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================
