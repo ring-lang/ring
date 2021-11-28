@@ -6,7 +6,7 @@
 		// if , For , While 
 
 #=====================================================
-	/* Codition ----> True \ False */
+	/* Condition ----> True \ False */
 #=====================================================
 
 try 
@@ -26,7 +26,7 @@ catch	? "Error"
 end
 
 
-? " contenue"
+? " continue"
 
 // 1/0
 
