@@ -1,6 +1,6 @@
 /*     Application : Hello , world (See Command)
        Author      : Abdelrahman Adam
-       Date        : --\--\----
+       Date        : --/--/----
 */
 
 see "Hello , world"
