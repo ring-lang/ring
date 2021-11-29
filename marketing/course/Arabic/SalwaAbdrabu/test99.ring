@@ -11,7 +11,7 @@ o1 = new person {
 
 o2 = new employee {
 	name = "Ahmed" country = "Egypt" 
-	salary = "xxx" job = "devloper"
+	salary = "xxx" job = "developer"
 	print()
 }
 ? o1
@@ -24,5 +24,3 @@ class person
 
 class employee from person
 		job  salary
- 
-	
