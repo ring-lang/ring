@@ -3,7 +3,7 @@
  * Application       : variables string,Date & Time
  * Auther            : Hany Ibrahim Ahmed
  * Date              : 19/12/2017
-*/
+ */
 # variables types (string, number, list, object, c object)
 ? date()
 cdate = date()
