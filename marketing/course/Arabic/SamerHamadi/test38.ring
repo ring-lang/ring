@@ -5,7 +5,7 @@
 */
 #================================================================
 
-# cotrol structures
+# control structures
 
 for x = 1 to 10 
 	for y = 1 to 10
