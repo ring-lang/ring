@@ -1,11 +1,11 @@
 /*
-**	Application		: Control Structure  .
+**	Application	: Control Structure  .
 **	Author		: Osama Ballan .
-**	Date			: 2018 - 01 - 06 .
+**	Date		: 2018 - 01 - 06 .
 */
 
 # Control Structures
-# For (Exit Nestead Loop's)
+# For (Exit Nested Loops)
 
 for x = 1 to 10
 	for y = 1 to 10
