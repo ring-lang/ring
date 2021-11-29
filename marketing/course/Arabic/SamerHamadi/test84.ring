@@ -9,7 +9,7 @@ load "odbclib.ring"
 
 # Connect/Disconnect 
 # Excute Query (SQL)
-# Transaction (comit)
+# Transaction (commit)
 # Save/Restore binary data (images)
 
 oODBC = odbc_init()
