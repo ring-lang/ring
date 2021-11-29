@@ -1,5 +1,5 @@
 /*
-**	Application Name : SQLLite;
+**	Application Name : SQLite;
 **	Author           : Ahmed Elskaan;
 **	Date             : 2017-12-22;		
 */
@@ -35,3 +35,4 @@ next
 sqlite_close(oSQLite)
 
 #========
+ 
