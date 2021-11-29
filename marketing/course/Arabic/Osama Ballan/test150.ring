@@ -1,5 +1,5 @@
 /*
-**	Application	: Ring lessons - Scope - (Advices) .
+**	Application	: Ring lessons - Scope - (Advises) .
 **	Author		: Osama Ballan .
 **	Date			: 2018 - 01 - 25 .
 */
