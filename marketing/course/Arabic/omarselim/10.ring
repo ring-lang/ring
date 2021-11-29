@@ -1,4 +1,4 @@
-#ringsqllite
+# RingSQLite
 
 load "sqlitelib.ring"
 
