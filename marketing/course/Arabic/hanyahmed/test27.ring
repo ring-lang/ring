@@ -4,7 +4,7 @@
  * Author            : Hany Ibrahim Ahmed
  * Date              : 20/12/2017
  */
-# variables types (string,number,list,object,c object)
+# variables types (string, number, list, object, c object)
 
 alist = [
     [ "mohamed", 100],
