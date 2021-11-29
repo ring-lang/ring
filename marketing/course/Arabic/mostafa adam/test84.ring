@@ -9,12 +9,12 @@
 #=====================================================
 
 # ODBC ( connect - Database - ODBC driver ) 
-# mysql
-# sqlite 
+# MySQL
+# SQLite 
 # GUI framework (Qt) - Database classes
 #=====================================================
 
-# ringsqllite 
+# RingSQLite 
 load "Sqlitelib.ring"
 
 # sqlite_init()---> c object
