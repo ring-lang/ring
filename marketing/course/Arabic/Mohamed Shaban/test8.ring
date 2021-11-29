@@ -5,7 +5,7 @@
 # ===========================================================
 # Variables Types  ( String, Number, list, Object, C Object )
 
-mynuber  = 1
-mynuber2 = 1.25
-mynuber3 = (true)
-mynuber4 = (false)
+mynumber  = 1
+mynumber2 = 1.25
+mynumber3 = (true)
+mynumber4 = (false)
