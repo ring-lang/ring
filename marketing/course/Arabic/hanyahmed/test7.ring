@@ -4,7 +4,7 @@
  * Author            : Hany Ibrahim Ahmed
  * Date              : 17/12/2017
  */
-# variables types (string,number,list,object,c object)
+# variables types (string, number, list, object, c object)
 mystring  = "Welcome to the ring programming language"
 mystring2 = 'another string'
 mystring3 = `another string`
