@@ -16,9 +16,8 @@ func main
 	fclose(fp)
 	editfile($nLines) ?$nLines
 func editfile $nLines
-#the eval command will take aline.
+#the eval command will take a line.
 	$nLines[2]="**	Application: pass by reference in list"
-	$nLines[1]="/*"  #eval line replaced by /*
+	$nLines[1]="/*"  # eval line replaced by /*
 	cStrings=list2str($nLines)	
 	write(newfilename,cStrings)
-
