@@ -15,8 +15,8 @@ load "sqlitelib.ring"
 
 # sqlite_init() 
 # sqlite_open(object, "file.db")
-# sqllite_excute(object, "sql statement")
-#sqlite_close()
+# sqllite_execute(object, "sql statement")
+# sqlite_close()
 #========================================
 
 oSQLite = sqlite_init()
