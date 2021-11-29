@@ -1,10 +1,11 @@
 /*
-aplication: welcome_someone_stlib
-author: mhmd elabsawy
-
+ * Application : welcome_someone_stlib
+ * Author      : mhmd elabsawy
+ * Date        : --/--/----
 */
 
 load "stdlib.ring"
-print('hello\nenter your name')
-name= getstring()
-print('hello #{name}')
+
+print('Hello\nEnter your name')
+name = getstring()
+print('Hello, #{ name }')

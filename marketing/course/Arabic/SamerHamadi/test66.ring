@@ -5,7 +5,7 @@
 */
 #================================================================
 
-# eval()          ----> excute Ring code stored in a string
+# eval()          ----> execute Ring code stored in a string
 
 ? "welcome to the Ring language"
 while true

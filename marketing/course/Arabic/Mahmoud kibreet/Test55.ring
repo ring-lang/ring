@@ -6,7 +6,7 @@
 
 x = "one"
 
-? X              # Not Case Sensitive (Basic -
+? X              # Not Case Sensitive (Basic , ...)
 
 aList = [1,2,3]
 
@@ -26,7 +26,7 @@ x = 10 y = "10"
 
 # Memory
 
-# Naming Convension
+# Naming Convention
 
 
 

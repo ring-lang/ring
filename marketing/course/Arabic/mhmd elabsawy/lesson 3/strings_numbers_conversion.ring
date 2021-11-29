@@ -1,5 +1,5 @@
 /*
-++ app name: strings_numbers_convertion
+++ app name: strings_numbers_conversion
 ++ author  : mhmd elabsawy
 */
 #-------------------------------------------------------------

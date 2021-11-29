@@ -6,10 +6,10 @@
 
 # Database
  
-# ODBC (Conect - Database ODBC Driver)
+# ODBC (Connect - Database ODBC Driver)
 # MySQL 
 # SQLite 
-# GUI Framework (QT) - Database Classes 
+# GUI Framework (Qt) - Database Classes 
 #======================================
 
 # RingSQLite 
@@ -21,5 +21,3 @@ Load "SQLiteLib.ring"
 	# sqlite_execute(object,"SQL Statement")-->
 	# sqlite_close(object)
 #===================================================
-
-

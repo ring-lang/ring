@@ -1,12 +1,12 @@
 /*
-aplication: welcome_someone
-author: mhmd elabsawy
-
+ * Application : welcome_someone
+ * Author      : mhmd elabsawy
+ * Date        : --/--/----
 */
 
-see 'welcome to' + nl 
-see 'my first app' + nl
-see 'enter your name:'
+see 'Welcome to' + nl 
+see 'My first application' + nl
+see 'Enter your name:'
 give name
-see 'welcome ' +name
+see 'Welcome ' + name
 

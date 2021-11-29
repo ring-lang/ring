@@ -77,6 +77,6 @@ end
 try 
  1/0
 catch 
-	?"erroe not divid zero"
+	? "error not divide zero"
 
 done 

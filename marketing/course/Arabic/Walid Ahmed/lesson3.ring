@@ -1,6 +1,6 @@
 /*
-	Authour 	: Walid Ahmed 
 	Application	: simple log in form 
+	Author  	: Walid Ahmed 
 	Date 		: 11/12/2017
 */
 data=[]

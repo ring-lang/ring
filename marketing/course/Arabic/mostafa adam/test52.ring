@@ -1,7 +1,7 @@
 /*
-	name	:	Darsh Adam
-	Lesson	:	test52.ring
-	Date 	:	16/12/2017
+	Application : test52.ring
+	Author      : Darsh Adam
+	Date        : 16/12/2017
 */
 
 #=====================================================
@@ -16,4 +16,4 @@ load "test53.ring"
 
 test()
 
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================

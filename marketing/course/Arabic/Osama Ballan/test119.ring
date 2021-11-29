@@ -1,7 +1,7 @@
 /*
 **	Application	: Ring lessons - Functional Programming.
 **	Author		: Osama Ballan .
-**	Date			: 2018 - 01 - 22 .
+**	Date		: 2018 - 01 - 22 .
 */
 
 # Functional Programming Paradigm .
@@ -17,7 +17,7 @@
 					 Only When Usage .
 */
 /* 
-# 	Adventages : 
+# 	Advantages : 
 	(1) The same Input ----> Function ----> The same output .
 		Cache Result (Output)
 	(2) parallel Execution For Functions

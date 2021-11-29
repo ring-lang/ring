@@ -4,24 +4,24 @@
           Date               :2018.02.12
           Application Number :1
 */ 
-#variable Types (string, number, list, object, c object)
+# variable Types (string, number, list, object, c object)
 
 
  # 
 
-? "Wellcome" 
+? "Welcome" 
 ? "Enter your name: " 
 give Name 
 ? "Hello " +Name 
 
-? "Enter your Bornday: " 
+? "Enter your Born-day: " 
 give nday
  
 
-? "Enter your Bornmonth: " 
+? "Enter your Born-month: " 
 give nmonth
 
-? "Enter your Bornyear: " 
+? "Enter your Born-year: " 
 give nyear
 
 ? "Enter the current day: " 
@@ -111,7 +111,3 @@ see "the year is: " +nyear3 +nl
 see "the month is: " +nmonth3 +nl
 end
 */
-
-
-
-

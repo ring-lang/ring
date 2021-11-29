@@ -6,7 +6,7 @@
 
 # New Language ----> [Programming - New Solutions]
 
-# Programming  ----> Mangements (Complexity)
+# Programming  ----> Managements (Complexity)
 
 # Software (Size) ----> Up
 

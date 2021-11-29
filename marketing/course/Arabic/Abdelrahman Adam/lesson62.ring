@@ -1,22 +1,24 @@
 /*  
- **      Application : Ring  Lessons
- **      name         : Abdelrahman Adam
- **      Date          :  22\12\2017 
+ **      Application : Ring Lessons
+ **      name        : Abdelrahman Adam
+ **      Date        : 22/12/2017
 */ 
 #======================================================
+
+# test62
 
 myFiles = dir("E:\ComputerApp\Ring1.6\Lesson7\")
 aList = []
 for aFile	in	myFiles
-		if right(afile[1],5)=".ring"	
+		if right(afile[1],5) = ".ring"	
 			aList + aFile[1]
 		ok
 next
 
-#Sort
+# Sort
 aList = sort(aList)
 
-#print file as list
+# print file as list
 x = 1
 for afile in aList		
 			?"("+ x+ ")" + aFile

@@ -12,7 +12,7 @@
 load "openssllib.ring"
 
 ? "Enter String : " give cstr
-	ckey=""			# 16 byt
+	ckey=""			# 16 bytes
 	for x=0 to 15
 		ckey += char(x)
 	next
@@ -24,6 +24,3 @@ load "openssllib.ring"
 cstr = encrypt(cstr,ckey,civ)
 ? "Cipher text : " + cstr
 ? "Plain  text : " + decrypt(cstr,ckey,civ)
-
-
-

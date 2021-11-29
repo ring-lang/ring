@@ -1,7 +1,7 @@
 /*
-	name	:	Darsh Adam
-	Lesson	:	test49.ring
-	Date 	:	16/12/2017
+	Application : test49.ring
+	Author      : Darsh Adam
+	Date        : 16/12/2017
 */
 
 #=====================================================
@@ -9,7 +9,7 @@
 #=====================================================
 /*
 	String | Number ----> pass by Value 
-	List | Object 	----> pass by refrance 
+	List | Object 	----> pass by reference 
 */
 #====================================================
 
@@ -23,4 +23,4 @@ func dec nnum
 	if nnum = 0 return end 
 	dec(nnum-1)
 	
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================

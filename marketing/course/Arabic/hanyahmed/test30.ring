@@ -1,20 +1,20 @@
 /*
-*application       object
-*auther            : Hany Ibrahim Ahmed
-*Date              : 22/12/2017
-*/
-# variables types (string,number,list,object,c object) 
-# Project---->files(*.ring)
-# program---->statements
-# statement----->keyword+expressions
+ * Application       : Object
+ * Author            : Hany Ibrahim Ahmed
+ * Date              : 22/12/2017
+ */
+# Variables types (string, number, list, object, c object) 
+# Project ----> Files (*.ring)
+# program ----> Statements
+# Statement --> Keyword + Expressions
  
 #=============================================
 "hello,world!"
 12
 #=============================================
-see "welcom"+nl
+see "Welcome" + nl
 
-?"hello"
+? "hello"
 
 ? "one" + tab + "two" + tab + "three"
 
@@ -27,9 +27,7 @@ next
 tab=char(9)+char(9)
 ? "one" + tab + "two" + tab + "three"
 #============================================
-nl=windowsnl()
-cstring= "hallo" + nl + "how are you" + nl
-write("mytest.text",cstring)
+nl = windowsnl()
+cstring = "hello" + nl + "how are you" + nl
+write("mytest.text", cstring)
 system("notepade mytest.txt")
-
-

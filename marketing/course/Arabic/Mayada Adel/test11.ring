@@ -1,5 +1,5 @@
 # ------------ Variables (Numbers) Part 2 ------------
-# Convertion
+# Conversion
   x = 95
    # Way 1 
      myString  = string(x)          # Number To String

@@ -1,16 +1,12 @@
 #####################################
-# Application  :  Functions
-# Author        : Azzeddine Remmal            
-# Date           : 08.01.2018                  
+# Application  : Functions
+# Author       : Azzeddine Remmal            
+# Date         : 08.01.2018                  
 ####################################
-
-
-
-
 
 x = "one"
 
-? X 			          # ----Not Case Sensitive (BASIC - 
+? X 			          # ----Not Case Sensitive (BASIC)
 # ----1
 aList = [1,2,3]
 
@@ -30,7 +26,7 @@ x=10 y="10"
 
 #-----------------------Memory 
 
-#-----------------------Naming Convension 
+#-----------------------Naming Convention 
 
 #-----------------------Style 
 

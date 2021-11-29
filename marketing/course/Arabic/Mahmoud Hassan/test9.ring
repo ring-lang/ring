@@ -10,7 +10,7 @@ mystring4= : Welcome
 mystring5="A"
 mystring6= "  How are you 
 today
-okee"
+okay"
 ? mystring
 ? mystring2 ? mystring4 ? mystring5 ? mystring6
 see mystring6

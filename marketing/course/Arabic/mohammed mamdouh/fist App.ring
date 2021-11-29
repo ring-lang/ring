@@ -4,7 +4,7 @@
 	Date		: 02-09-2019
 */
 
-See "Helloe, Welcom to my first Application" +nl
+See "Hello, Welcome to my first Application" + nl
 see "Please, Enter your Name:"
 Give Name
-see "welcome, Mr." + Name	
+see "Welcome, Mr." + Name	

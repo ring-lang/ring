@@ -4,7 +4,7 @@
 # Date        : 02.01.2018                  #  
 #############################################
 
-Mystring = "Welcome to the Ring programing laguage"
+Mystring  = "Welcome to the Ring programming language"
 Mystring1 ='متغيير نصي آخر'
 Mystring2 =`مرحبا بكم في لغة البرمجة الرينج`
 

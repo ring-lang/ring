@@ -1,7 +1,7 @@
 /*
-	name	:	Darsh Adam
-	Lesson	:	test48.ring
-	Date 	:	16/12/2017
+	Application : test48.ring
+	Author      : Darsh Adam
+	Date        : 16/12/2017
 */
 
 #=====================================================
@@ -9,7 +9,7 @@
 #=====================================================
 /*
 	String | Number ----> pass by Value 
-	List | Object 	----> pass by refrance 
+	List | Object 	----> pass by reference 
 */
 #====================================================
 
@@ -23,4 +23,4 @@ func main
 func sum x,y
 	return x+y
 	
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================

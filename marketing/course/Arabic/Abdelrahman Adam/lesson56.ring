@@ -1,7 +1,7 @@
 /*  
  **      Application : clock & clockspersecond
- **      name        : Abdelrahman Adam
- **      Date        : 22\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        : 22/12/2017 
 */ 
 #======================================================
 

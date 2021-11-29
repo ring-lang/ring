@@ -7,7 +7,7 @@
 mystring = "بسم الله الرحمن الرحيم"
 mystring2 ='الحمد لله رب العالمين'
 mystring3 =`Hello`
-mystring4 = :wellcome
+mystring4 = :Welcome
 mycharacter ="e"
 
 mymlstring = "

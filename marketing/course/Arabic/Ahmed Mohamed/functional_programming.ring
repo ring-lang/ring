@@ -20,7 +20,7 @@
 	Recursion ---> Function Call itself
 			(Loops|Control Structure)
 	
-	Lazy Evaluation ---> Experssions In Functions Parameters
+	Lazy Evaluation ---> Expressions In Functions Parameters
 				Evaluation Only On Usage
 
 	...............
@@ -40,7 +40,7 @@
 
 	(3) Thread Safe
 
-	(4) Foucs -- Separate - Easy Debugging
+	(4) Focus -- Separate - Easy Debugging
 
 	
 */

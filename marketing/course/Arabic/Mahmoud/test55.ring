@@ -26,7 +26,7 @@ x=10 y="10"
 
 # Memory 
 
-# Naming Convension 
+# Naming Convention 
 
 # Style 
 

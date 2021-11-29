@@ -4,11 +4,11 @@
 **	Date   		: 08/03/2018
 */
 ####################################################################
-# Variables types(String, Number, List, Objet, c object)
+# Variables types(String, Number, List, Object, c object)
 
 ? Date() 
 ? time()
-			// Ring Language Not Case Sensetive important
+			// Ring Language Not Case Sensitive important
 cDate = date()
 cdate1 = "08/10/2017"        # This is a practical Example to make 
 			     # The first date of Last period for Gynecologist
@@ -22,13 +22,3 @@ cDays = addDays(cdate1, 280) # Magnificent
 
 cDays2 = diffdays(cdate2, cdate1)
 see cDays2 ? " Days"
-
-
-
-
-
-
-
-
-
-

@@ -5,7 +5,7 @@
 */
 #================================================================
 
-# cotrol structures
+# control structures
 # while for if
 
 # 1- statement
@@ -14,7 +14,7 @@
 # .........
 # .........
 
-# condetion    ------> true|false
+# condition    ------> true|false
 
 aList = [:one,:two,:three]
 

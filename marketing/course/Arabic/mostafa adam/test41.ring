@@ -1,7 +1,7 @@
 /*
-	name	:	Darsh Adam
-	Lesson	:	test41.ring
-	Date 	:	16/12/2017
+	Application : test42.ring
+	Author      : Darsh Adam
+	Date        : 16/12/2017
 */
 
 #=====================================================
@@ -12,9 +12,9 @@
 
 func main
 	x = 10
-	?" Welcom to Ring - lang " 
+	?" Welcome to Ring - language " 
 	one()
 
 func one 
 	? x 
-#========================Enf Of Lesson====================
+#========================End Of Lesson====================

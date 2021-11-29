@@ -6,8 +6,7 @@
 
 load "stdlib.ring"
 
-print("Hello, World!\n Welcom to my first app!\n What is your name?")
-
-
+print("Hello, World!\n Welcome to my first application!\n What is your name?")
 name = getstring()
-print("welcom #{name}")
+
+print("Welcome #{name}")

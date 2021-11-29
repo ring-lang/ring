@@ -15,9 +15,9 @@ Trace(:PassError)
 Trace(:Debugger)
 #Trace(:LineByLine)
 #NoBreakPoints()
-?1/0					# by Trace(:Debugger)/passerror we can continue exe.
+?1/0					# by Trace(:Debugger)/PassError we can continue execute.
 ? "Give name:" Give name ? "Hello "+name
-BreakPoint()				# breake code output 
+BreakPoint()				# break code output 
 
 func main	
 new person{msg("inside method")}
@@ -28,7 +28,7 @@ func msg data{
 	?data
 	return new person2
 }
-func print data			            # it is afunc.
+func print data			            # it is a function
 	?"hello in func print()"
 	?data
 	return data
@@ -47,7 +47,7 @@ Class person
 		print("A")		    # search in the methods firstly
 		
 		NEW local{
-				print("S")  # escape from class scope ,so print func not method
+				print("S")  # escape from class scope ,so print function not method
 		}
 class local
 

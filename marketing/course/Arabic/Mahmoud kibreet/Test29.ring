@@ -8,7 +8,7 @@
 
 # Ring (Compiler + VM) + Libraries (GUI , Games , Web , etc)
 
-# Labraries (Ring --- C --- C++ )
+# Libraries (Ring --- C --- C++ )
 
 # Web --> Ring
 # GUI --> C++ (Qt + RingQt) + Ring Classes

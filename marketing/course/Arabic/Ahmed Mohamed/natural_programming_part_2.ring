@@ -5,9 +5,9 @@
 */
 
 # New Language ---> [ Programming ] - New Solutions ]
-# Programming ----> Management ( Complexitily ) 
-# Software ----> (Size) ----> Up
-# Ring ---> ( Genenal Purpose ) Natural | Declarative
+# Programming ----> Management ( Complexity ) 
+# Software ----> ( Size ) ----> Up
+# Ring ---> ( General Purpose ) Natural | Declarative
 # OOP - Functional
 
 new program {
@@ -20,4 +20,3 @@ class program
 	
 	func braceExprEval value
 		? value
-		

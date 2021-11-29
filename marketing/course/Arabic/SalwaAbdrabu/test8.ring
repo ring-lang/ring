@@ -4,7 +4,7 @@
 */
 
 #Variables Type( String, Number, List, Object, C Object )
-myString  = "Welcom To The Ring Programming Language"
+myString  = "Welcome To The Ring Programming Language"
 myString2 = 'Another String'
 myString3 = `Another String`
 myString4 = :WElcome		# welcome

@@ -7,14 +7,14 @@
 
 // Project ---> Files (*.ring)
 // Program ---> Statement
-// Statement ---> Keyword + Experssions
+// Statement ---> Keyword + Expressions
 
 see "Hello World" + nl
-// Keyword Experssion
+// Keyword Expression
 
-// Statement ---> "see" <Experssion>
+// Statement ---> "see" <Expression>
 
-// Statement ---> <Experssion>
+// Statement ---> <Expression>
 
 "Hello World"
 12345
@@ -56,6 +56,3 @@ cString = "Hello" + nl + "How are you" + nl
 
 write("myTest.txt", cString)
 system("notepad myTest.txt");
-
-
-

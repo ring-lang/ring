@@ -5,7 +5,7 @@
 */
 ####################################################################
 
-#list --->  Array, List, Nested List, MD List, Hash|Dict
+# list --->  Array, List, Nested List, MD List, Hash|Dict
 # Adding elements to an empty List
 
 # Using of "+" Operator
@@ -19,12 +19,5 @@
 ** Sum Numbers(Convert to Numbers)
 	---> Number + String
 ** Add Items to List     
-	---> List + (Srting|Number|List)
+	---> List + (String|Number|List)
 */ 
-
-
-
-
-
-
-

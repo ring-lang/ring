@@ -10,7 +10,7 @@ o1 = new Person {
 }
 
 o2 = new Employee {
-	name = "Mahmoud" country = "KSA" jop = "Developer"
+	name = "Mahmoud" country = "KSA" job = "Developer"
 	salary = "xxxxx"
 	print()
 }
@@ -23,4 +23,4 @@ class Person name country
 		? "Name : " + name;	
 
 class employee from Person
-	jop salary
+	job salary

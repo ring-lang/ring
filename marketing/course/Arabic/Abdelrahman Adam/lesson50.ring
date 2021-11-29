@@ -1,7 +1,7 @@
 /*  
  **      Application : Functions 
- **      name        : Abdelrahman Adam
- **      Date        : 22\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        : 22/12/2017 
 */ 
 #======================================================
 
@@ -16,15 +16,15 @@ func main
 			switch cOption
 				on "1" hello()
 				on "2" closeApplication()
-				other ?"bad number"
+				other ? "bad number"
 			off
 		
 		end
-			 ?"thanks !"
+			 ?" thanks !"
 
 func hello
-		see "enter your name : "	give cName
+		see "Enter your name : "	give cName
 		? "hello " + cname
 
 func closeApplication
-		exit						#we can exit from the loop
+		exit						# we can exit from the loop

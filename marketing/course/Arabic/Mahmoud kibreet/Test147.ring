@@ -5,15 +5,15 @@
 */
 
 /*
-	Varaible Scopes
-		Three Scops
+	Variable Scopes
+		Three Scopes
 			[1] Global Scope
 			[2] Object Scope
 			[3] Local Scope
 
 */
 
-# Conflict between the global varaible and clas attribute 
+# Conflict between the global variable and class attribute 
 
 $x = 100
 

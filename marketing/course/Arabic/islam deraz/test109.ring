@@ -13,7 +13,7 @@
 
 */
 
-? "Wellcome!"
+? "Welcome!"
 give message
 new Natural {
 		eval(message)		

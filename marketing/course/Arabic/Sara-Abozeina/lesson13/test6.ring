@@ -1,5 +1,5 @@
 /*
-**	Application:define lines to be executed {even it is in the commentation area}
+**	Application:define lines to be executed {even it is in the comment area}
 **	Author	   :Sara Abozeina
 **	Date       :2017.12.25
 */
@@ -7,7 +7,7 @@
 Load "stdlib.ring"
 $nLines=[]  
 eval("?'Enter no of start read line' Give $nStart")
-eval("?'Enter no of end read line' Give $nend")
+eval("?'Enter no of end read line' Give $nEnd")
 new natural{
 		goto
 }

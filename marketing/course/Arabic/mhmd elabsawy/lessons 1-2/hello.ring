@@ -1,4 +1,7 @@
-/* application: helloworld
-author: mhmd elabsawy
+/*
+ * Application : helloworld
+ * Author      : mhmd elabsawy
+ * Date        : --/--/----
 */
-see ('helloworld');
+
+see ('Hello, world!');

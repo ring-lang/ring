@@ -4,11 +4,11 @@
 	Date 		: 2017-12-11 
 */ 
 #=======================================================
-     // Variables types ( str , num , list , obj , c obj )
+// Variables types ( string , number , list , object , c object )
 #=======================================================
 
 		#===============================#
-		//List -----> Aray , list , ...etc 
+		//List -----> Array , list , ...etc 
 		      #==================#
 mylist= []
 add(mylist,"darsh")

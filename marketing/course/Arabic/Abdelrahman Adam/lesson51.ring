@@ -1,12 +1,12 @@
 /*  
  **      Application : Functions 
- **      name        : Abdelrahman Adam
- **      Date        : 22\12\2017 
+ **      Author      : Abdelrahman Adam
+ **      Date        : 22/12/2017 
 */ 
 #======================================================
-#memory
+# memory
 
 func main
-		aList=1:100
+		aList = 1:100
 		? aList
 		aList = NULL

@@ -7,11 +7,11 @@
 # Database
 
 # ODBC (Connect - Database - ODBC Driver)
-# MYSql
+# MySQL
 # SQLite
-# GUI Framework (QT) - Database Classes
+# GUI Framework (Qt) - Database Classes
 #==============================================
-# RingSQLlite
+# RingSQLite
 
 load "sqlitelib.ring"
 

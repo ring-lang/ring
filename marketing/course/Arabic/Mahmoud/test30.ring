@@ -10,10 +10,10 @@
 # Statement ----> Keywords + Expressions 
 
 see "Hello, World!" + nl
-# Keword Expression 
+# Keyword Expression 
 
 # Statement ----> 'See' <Expression> 
-# Statement ----> <Expresssion>
+# Statement ----> <Expressions>
 
 "Hello, World!"
 12
@@ -34,7 +34,7 @@ next
 
 #================================================
 # NL, TAB & CR ------> Variables 
-TAB = CHAR(9)+CHAR(9)
+TAB = CHAR(9) + CHAR(9)
 ? "ONE" + Tab + "TWO" + Tab + "THREE"
 
 nl = Windowsnl()	# char(13) + char(10)

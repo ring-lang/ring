@@ -1,11 +1,10 @@
-/*        app:oop
-            author:heba atef
-            date:3.1.2018
+/*
+ * Application : Object Oriented programming (OOP)
+ * Author      : heba atef
+ * Date        : 3.1.2018
 */
 
-#object oriented programing(oop)
-
-myobj=new myfirstclass
+myobj = new myfirstclass
 
 myjob.sayhello()
 
@@ -14,4 +13,3 @@ class myfirstclass
 
      func sayhello
               ?  "hello,world"
-         

@@ -1,4 +1,7 @@
+/*
+ * Application : Calling function from another file
+ * Author      : heba atef
+ * Date        : ----.----.----
+*/
 
-func test 
-
-?"calling funct from another file"
+? "Calling function from another file"

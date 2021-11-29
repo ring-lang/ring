@@ -4,10 +4,10 @@
 **	Date   		: 08/03/2018
 */
 ####################################################################
-# Variables types(String, Number, List, Objet, c object)
+# Variables types (String, Number, List, Object, c object)
 /*
-** Ring (compilerr + vm) + libraries(GUI, Games, Web)
+** Ring (compiler + VM) + libraries (GUI, Games, Web)
 ** Libraries (Ring, C, C++)
 ** Web --->  Ring
-** GUI ---> C++(Qt + RingQt) + Ring Classes
-** functions ---> C   (Pointer)
+** GUI ---> C++ (Qt + RingQt) + Ring Classes
+** Functions ---> C   (Pointer)

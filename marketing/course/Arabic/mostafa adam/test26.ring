@@ -4,7 +4,7 @@
 	Date 		: 2017-12-13 
 */ 
 #=======================================================
-     // Variables types (str , num, list , obj , c obj )
+     // Variables types (string , number, list , obj , c obj )
 #=======================================================
 
 		#===============================#
@@ -17,10 +17,10 @@ del(alist,5)
 alist + "egypt"
 alist + "Ksa"
 alist + "Wardan"
-? "Wardan posation : " + find(alist,"Wardan")
+? "Wardan position : " + find(alist,"Wardan")
 
 //------------------------------------------------------
-alist= [
+alist = [
 	["Darh"		,100],
 	["Abdo"		,200],
 	["Mahmoud"	,300],

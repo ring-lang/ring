@@ -11,7 +11,7 @@
 (3)self for attributes 
 */
 ######
-$name="B"				# $is a sol.
+$name="B"				# $ is a sol.
 func main				# main to avoid conflict
 
 new addpersons{
@@ -32,4 +32,4 @@ Class addpersons
 Class person
 	self.name="A"  self.age="XXX" 	# self is sol.
 	func print
-		?name	
+		? name	
