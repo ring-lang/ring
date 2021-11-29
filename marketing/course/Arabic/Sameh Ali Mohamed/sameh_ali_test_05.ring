@@ -1,10 +1,6 @@
-#application>>  :strings (version 6)
+#application>>  :strings (version 5)
 #author      >>  :sameh ali 
 #date       >>  :2/02/2018
-
-
-
-
 
 mystring = "welcome to the ring app!"
 mystring2 = :welcome
@@ -18,5 +14,5 @@ mymlstring = "one
 
 two three four"
 
-?mystring
-?mystring2 ?mystring3 
+? mystring
+? mystring2 ?mystring3 
