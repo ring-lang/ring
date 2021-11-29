@@ -7,11 +7,11 @@
 
 ? timelist()
 ? timelist()[2]
-?timelist()[4]
+? timelist()[4]
 # String
 /*
 	"c"
-	"Array Of Charactors"
+	"Array Of Characters"
 	"
 		ML Strings
 	"
