@@ -5,8 +5,6 @@
 */
 
 
-Load "lib/constants.ring"
-
 if iswindows()
         LoadLib("ring_sockets.dll")
 but ismacosx()
@@ -14,3 +12,5 @@ but ismacosx()
 else
         LoadLib("libring_sockets.so")
 ok
+
+Load "lib/constants.ring"

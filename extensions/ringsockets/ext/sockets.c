@@ -6,7 +6,6 @@
 
 #define WIN32_LEAN_AND_MEAN
 
-#include "ring.h"
 #include "sockets.h"
 
 
@@ -789,6 +788,67 @@ RING_API void ringlib_init(RingState *pRingState) {
     ring_vm_funcregister("htons",ring_vm_socket_htons);
     ring_vm_funcregister("inet_addr",ring_vm_socket_inet_addr);
     ring_vm_funcregister("inet_ntoa",ring_vm_socket_inet_ntoa); 
+
+
+    /* Constants */
+
+    ring_vm_funcregister("get_pf_unspec",ring_vm_socket_constant_pf_unspec);
+    ring_vm_funcregister("get_pf_local",ring_vm_socket_constant_pf_local);
+    ring_vm_funcregister("get_pf_unix",ring_vm_socket_constant_pf_unix);
+    ring_vm_funcregister("get_pf_file",ring_vm_socket_constant_pf_file);
+    ring_vm_funcregister("get_pf_inet",ring_vm_socket_constant_pf_inet);
+    ring_vm_funcregister("get_pf_inet6",ring_vm_socket_constant_pf_inet6);
+
+    ring_vm_funcregister("get_af_unspec",ring_vm_socket_constant_af_unspec);
+    ring_vm_funcregister("get_af_local",ring_vm_socket_constant_af_local);
+    ring_vm_funcregister("get_af_unix",ring_vm_socket_constant_af_unix);
+    ring_vm_funcregister("get_af_inet",ring_vm_socket_constant_af_inet);
+    ring_vm_funcregister("get_af_inet6",ring_vm_socket_constant_af_inet6);
+
+    ring_vm_funcregister("get_sock_stream",ring_vm_socket_constant_sock_stream);
+    ring_vm_funcregister("get_sock_dgram",ring_vm_socket_constant_sock_dgram);
+    ring_vm_funcregister("get_sock_raw",ring_vm_socket_constant_sock_raw);
+    ring_vm_funcregister("get_sock_rdm",ring_vm_socket_constant_sock_rdm);
+    ring_vm_funcregister("get_sock_seqpacket",ring_vm_socket_constant_sock_seqpacket);
+
+    ring_vm_funcregister("get_ipproto_ip",ring_vm_socket_constant_ipproto_ip);
+    ring_vm_funcregister("get_ipproto_tcp",ring_vm_socket_constant_ipproto_tcp);
+    ring_vm_funcregister("get_ipproto_udp",ring_vm_socket_constant_ipproto_udp);
+    ring_vm_funcregister("get_sol_socket",ring_vm_socket_constant_sol_socket);
+
+    ring_vm_funcregister("get_so_debug",ring_vm_socket_constant_so_debug);
+    ring_vm_funcregister("get_ip_add_membership",ring_vm_socket_constant_ip_add_membership);
+    ring_vm_funcregister("get_ip_add_source_membership",ring_vm_socket_constant_ip_add_source_membership);
+    ring_vm_funcregister("get_ip_block_source",ring_vm_socket_constant_ip_block_source);
+    ring_vm_funcregister("get_ip_drop_membership",ring_vm_socket_constant_ip_drop_membership);
+    ring_vm_funcregister("get_ip_drop_source_membership",ring_vm_socket_constant_ip_drop_source_membership);
+    ring_vm_funcregister("get_ip_hdrincl",ring_vm_socket_constant_ip_hdrincl);
+    ring_vm_funcregister("get_ip_mtu",ring_vm_socket_constant_ip_mtu);
+    ring_vm_funcregister("get_ip_mtu_discover",ring_vm_socket_constant_ip_mtu_discover);
+    ring_vm_funcregister("get_ip_multicast_loop",ring_vm_socket_constant_ip_multicast_loop);
+    ring_vm_funcregister("get_ip_multicast_ttl",ring_vm_socket_constant_ip_multicast_ttl);
+    ring_vm_funcregister("get_ip_options",ring_vm_socket_constant_ip_options);
+    ring_vm_funcregister("get_ip_pktinfo",ring_vm_socket_constant_ip_pktinfo);
+    ring_vm_funcregister("get_ip_recvtos",ring_vm_socket_constant_ip_recvtos);
+    ring_vm_funcregister("get_ip_recvttl",ring_vm_socket_constant_ip_recvttl);
+    ring_vm_funcregister("get_ip_tos",ring_vm_socket_constant_ip_tos);
+    ring_vm_funcregister("get_ip_ttl",ring_vm_socket_constant_ip_ttl);
+    ring_vm_funcregister("get_ip_unblock_source",ring_vm_socket_constant_ip_unblock_source);
+    ring_vm_funcregister("get_ip_unicast_if",ring_vm_socket_constant_ip_unicast_if);
+    ring_vm_funcregister("get_so_acceptconn",ring_vm_socket_constant_so_acceptconn);
+    ring_vm_funcregister("get_so_broadcast",ring_vm_socket_constant_so_broadcast);
+    ring_vm_funcregister("get_so_dontroute",ring_vm_socket_constant_so_dontroute);
+    ring_vm_funcregister("get_so_error",ring_vm_socket_constant_so_error);
+    ring_vm_funcregister("get_so_keepalive",ring_vm_socket_constant_so_keepalive);
+    ring_vm_funcregister("get_so_linger",ring_vm_socket_constant_so_linger);
+    ring_vm_funcregister("get_so_oobinline",ring_vm_socket_constant_so_oobinline);
+    ring_vm_funcregister("get_so_rcvbuf",ring_vm_socket_constant_so_rcvbuf);
+    ring_vm_funcregister("get_so_reuseaddr",ring_vm_socket_constant_so_reuseaddr);
+    ring_vm_funcregister("get_so_sndbuf",ring_vm_socket_constant_so_sndbuf);
+    ring_vm_funcregister("get_so_type",ring_vm_socket_constant_so_type);
+    ring_vm_funcregister("get_so_rcvlowat",ring_vm_socket_constant_so_rcvlowat);
+    ring_vm_funcregister("get_so_sndlowat",ring_vm_socket_constant_so_sndlowat);
+    ring_vm_funcregister("get_so_rcvtimeo",ring_vm_socket_constant_so_rcvtimeo);
 }
 
 

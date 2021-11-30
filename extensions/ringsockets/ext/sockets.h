@@ -1,7 +1,7 @@
 #ifndef ring_socket_h
 #define ring_socket_h
 
-
+#include "constants.h"
 #include <stdlib.h>
 #include <string.h>
 
@@ -45,6 +45,9 @@
 
     } RING_SOCKET;
 #endif
+
+
+#include "ring.h"
 
 
 void ring_vm_socket_init(void *pPointer);
