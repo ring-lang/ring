@@ -36,16 +36,13 @@ Protocol Families :
                 - PF_UNIX
                 - PF_INET
                 - PF_INET6
-                - PF_INET6
 
 
 Address Families :   
                 - AF_INET       >>  mean use IPV4
                 - AF_INET6      >>  ........ IPV6
                 - AF_UNSPEC
-                - AF_LOCAL
                 - AF_UNIX
-                - PF_FILE
 
 
 Connection type :
@@ -59,7 +56,6 @@ Levels :
                 - IPPROTO_IP
                 - IPPROTO_TCP
                 - IPPROTO_UDP
-                - SOL_SOCKET
                 - SOL_SOCKET
 
 Option names :
