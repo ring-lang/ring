@@ -6,15 +6,12 @@
 
 # Protocol Families
     PF_UNSPEC       = get_PF_UNSPEC()
-    PF_LOCAL        = get_PF_LOCAL()
     PF_UNIX         = get_PF_UNIX()
-    PF_FILE         = get_PF_FILE()
     PF_INET         = get_PF_INET()
     PF_INET6        = get_PF_INET6()
 
 # Address Families
     AF_UNSPEC       = get_AF_UNSPEC()
-    AF_LOCAL        = get_AF_LOCAL()
     AF_UNIX         = get_AF_UNIX()
     AF_INET         = get_AF_INET()
     AF_INET6        = get_AF_INET6()

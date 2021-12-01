@@ -6,15 +6,12 @@
 
 /* Protocol Families */
 void ring_vm_socket_constant_pf_unspec(void *pPointer);
-void ring_vm_socket_constant_pf_local(void *pPointer);
 void ring_vm_socket_constant_pf_unix(void *pPointer);
-void ring_vm_socket_constant_pf_file(void *pPointer);
 void ring_vm_socket_constant_pf_inet(void *pPointer);
 void ring_vm_socket_constant_pf_inet6(void *pPointer);
 
 /* Address Families */
 void ring_vm_socket_constant_af_unspec(void *pPointer);
-void ring_vm_socket_constant_af_local(void *pPointer);
 void ring_vm_socket_constant_af_unix(void *pPointer);
 void ring_vm_socket_constant_af_inet(void *pPointer);
 void ring_vm_socket_constant_af_inet6(void *pPointer);

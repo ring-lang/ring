@@ -6,19 +6,9 @@ void ring_vm_socket_constant_pf_unspec(void *pPointer)
     RING_API_RETNUMBER(PF_UNSPEC);
 }
 
-void ring_vm_socket_constant_pf_local(void *pPointer)
-{
-    RING_API_RETNUMBER(PF_LOCAL);
-}
-
 void ring_vm_socket_constant_pf_unix(void *pPointer)
 {
     RING_API_RETNUMBER(PF_UNIX);
-}
-
-void ring_vm_socket_constant_pf_file(void *pPointer)
-{
-    RING_API_RETNUMBER(PF_FILE);
 }
 
 void ring_vm_socket_constant_pf_inet(void *pPointer)
@@ -34,11 +24,6 @@ void ring_vm_socket_constant_pf_inet6(void *pPointer)
 void ring_vm_socket_constant_af_unspec(void *pPointer)
 {
     RING_API_RETNUMBER(AF_UNSPEC);
-}
-
-void ring_vm_socket_constant_af_local(void *pPointer)
-{
-    RING_API_RETNUMBER(AF_LOCAL);
 }
 
 void ring_vm_socket_constant_af_unix(void *pPointer)

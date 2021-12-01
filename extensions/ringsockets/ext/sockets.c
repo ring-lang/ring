@@ -793,14 +793,11 @@ RING_API void ringlib_init(RingState *pRingState) {
     /* Constants */
 
     ring_vm_funcregister("get_pf_unspec",ring_vm_socket_constant_pf_unspec);
-    ring_vm_funcregister("get_pf_local",ring_vm_socket_constant_pf_local);
     ring_vm_funcregister("get_pf_unix",ring_vm_socket_constant_pf_unix);
-    ring_vm_funcregister("get_pf_file",ring_vm_socket_constant_pf_file);
     ring_vm_funcregister("get_pf_inet",ring_vm_socket_constant_pf_inet);
     ring_vm_funcregister("get_pf_inet6",ring_vm_socket_constant_pf_inet6);
 
     ring_vm_funcregister("get_af_unspec",ring_vm_socket_constant_af_unspec);
-    ring_vm_funcregister("get_af_local",ring_vm_socket_constant_af_local);
     ring_vm_funcregister("get_af_unix",ring_vm_socket_constant_af_unix);
     ring_vm_funcregister("get_af_inet",ring_vm_socket_constant_af_inet);
     ring_vm_funcregister("get_af_inet6",ring_vm_socket_constant_af_inet6);
