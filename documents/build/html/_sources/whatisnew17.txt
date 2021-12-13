@@ -227,3 +227,4 @@ More Improvements
 =================
 
 * Many documents and samples are revised (Better English)
+* RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.18
