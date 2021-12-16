@@ -228,3 +228,4 @@ More Improvements
 
 * Many documents and samples are revised (Better English)
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.18
+* RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
