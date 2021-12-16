@@ -1,10 +1,10 @@
 Rem Simple Batch File to copy ring DLL files and libraries to the bin folder
-Rem 2016-2020, Mahmoud Fayed <msfclipper@yahoo.com>
+Rem 2016-2021, Mahmoud Fayed <msfclipper@yahoo.com>
 
 cd ..
 
 copy lib\*.dll bin
-copy extensions\libdepwin\allegro5.2.4\bin\*.dll bin
+copy extensions\libdepwin\allegro5.2.7.1\bin\*.dll bin
 copy extensions\libdepwin\freeglut\bin\*.dll bin
 copy extensions\libdepwin\glew\bin\Release\Win32\*.dll bin
 copy extensions\libdepwin\libcurl\bin\*.dll bin
