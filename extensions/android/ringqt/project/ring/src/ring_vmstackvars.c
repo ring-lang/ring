@@ -6,7 +6,11 @@ void ring_vm_pushv ( VM *pVM )
 {
 	List *pList  ;
 	if ( pVM->nSP <= pVM->nFuncSP ) {
-		/* Happens after using EVAL() in this case we avoid PUSHV */
+		/*
+		**  Happens after using EVAL() in this case we avoid PUSHV 
+		**  Add Output Value (if Eval() parameter (Code to be executed) miss the Return <Expr> command) 
+		*/
+		RING_VM_STACK_PUSHCVALUE("") ;
 		return ;
 	}
 	switch ( RING_VM_STACK_OBJTYPE ) {
