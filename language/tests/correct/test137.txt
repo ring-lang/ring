@@ -1,3 +1,9 @@
+NULL
+NULL
+1
+1
+0
+0
+name: My Application
+version: 1.0
 
-Line 3 Error in parameter, NULL pointer! 
-In fclose() in file null/null3.ring 

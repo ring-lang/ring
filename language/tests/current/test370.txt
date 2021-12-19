@@ -1,5 +1,20 @@
-Using ? substr(cStr,100)
-
-Using ? substr(cStr,-1)
-
-done
+One
+One
+Two
+One
+Two
+Three
+One
+Two
+Three
+Go!
+**********
+One
+Two
+Three
+Go!
+**********
+One
+Two
+Three
+Go!
