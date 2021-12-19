@@ -89,7 +89,7 @@ pList2
 Type: int
 x,x2,x3,nMax
 Type: char
-cList[7]
+cList[20]
 Type: char *
 cString
 Type: char

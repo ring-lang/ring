@@ -691,7 +691,7 @@ void ring_objfile_writeCfile ( RingState *pRingState )
 	fprintf( fCode , "\tring_list_addstring_gc(pRingState,pRingState->pRingFilesStack,\"%so\");  \n",ring_list_getstring(pRingState->pRingFilesList,1)  ) ;
 	fprintf( fCode , "\tloadRingCode(pRingState);  \n"  ) ;
 	fprintf( fCode , "\tring_objfile_updateclassespointers(pRingState);  \n"  ) ;
-	fprintf( fCode , "\tring_scanner_runprogram(pRingState);  \n"  ) ;
+	fprintf( fCode , "\tring_state_runprogram(pRingState);  \n"  ) ;
 	fprintf( fCode , "\tring_state_delete(pRingState);  \n"  ) ;
 	fprintf( fCode , "\treturn 0;  \n"  ) ;
 	fprintf( fCode , "}\n\n"  ) ;
