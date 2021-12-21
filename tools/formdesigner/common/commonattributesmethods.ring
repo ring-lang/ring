@@ -15,7 +15,7 @@ class CommonAttributesMethods
 		AddAttribute(self,:cBackColor)
 		AddAttribute(self,:cFontProperty)
 		AddAttribute(self,:cCurrentParentName)
-		cTextColor = "black"
+		cTextColor = ""
 		cBackColor = ""
 		cFontProperty = "Arial"
 		cCurrentParentName = "win"
