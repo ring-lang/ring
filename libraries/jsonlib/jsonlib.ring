@@ -20,6 +20,9 @@ func JSON2List cJSON
 		raise("Bad parameter type! - The JSON2List() function expect a String")
 	}
 
+	# convert \" to '
+		cJSON = substr(cJSON,'\"',"'")
+
 	# Get the Tokens
 		oTokens = new RingTokens {
 			fromString(cJson)
