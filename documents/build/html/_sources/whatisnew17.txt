@@ -229,6 +229,7 @@ More Improvements
 * Many documents and samples are revised (Better English)
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.18
 * RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
+* RingLibCurl - Better support for Ring2EXE
 * Ring Object File - ring_objfile_writeCfile() - Better Code
 * Eval() Function - return NULL if the Return command is not used
 * Form Designer - Default TextColor is Empty (Better when changing styles)
