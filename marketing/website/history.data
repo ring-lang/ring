@@ -1,4 +1,5 @@
 aNews = [
+  ["December 24, 2021",'<a href="https://groups.google.com/g/ring-lang/c/TPvu2E5fCM4/m/oL7JMepBBQAJ" target="_blank"> Ring2A (Accelerated Ring VM)</a>'],
   ["November 20, 2021",'<a href="https://github.com/ring-lang/ring/blob/master/libraries/jsonlib" target="_blank"> JSONLib Library</a>'],
   ["November 15, 2021",'<a href="https://github.com/ring-lang/ring/blob/master/libraries/csvlib" target="_blank"> CSVLib Library</a>'],
   ["November 13, 2021",'<a href="https://github.com/ring-lang/ring/blob/master/marketing/pwct/README.md#dark-theme" target="_blank"> PWCT 2.0 (Under Development) - Dark Theme</a>'],
