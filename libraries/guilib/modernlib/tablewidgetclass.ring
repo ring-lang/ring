@@ -79,11 +79,11 @@ package System.GUI
 
 		func addList aList
 			if ! isList(aList)
-				raise("Bad parameter type - The addList() method expect a List!")
+				? "Bad parameter type - The addList() method expect a List!"
 				return
 			ok
 			if ! isList(aList[1])
-				raise("Bad parameter type - The List is not a Table!")
+				? "Bad parameter type - The List is not a Table!"
 				return
 			ok
 			nRows = len(aList)
@@ -105,7 +105,7 @@ package System.GUI
 						but isNumber(vValue)
 							oItem = new QTableWidgetItem(""+vValue)
 						else
-							raise("Bad parameter type - The List is not a Table!")
+							? "Bad parameter type - The List is not a Table!"
 							return
 						ok
 						setItem(nRowStart+nRow,nCol,oItem)
