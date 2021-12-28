@@ -1,0 +1,50 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = 20 , : y = 20  , 
+		 :width =  459 , :height = 549 , 
+		 :title =  "Adding Ring List to TableWidget" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "TableWidget1" , :id = 2 , :classname = "formdesigner_qtablewidget" , :data = [
+		 :x = 14 , : y = 13  , 
+		 :width =  429 , :height = 506 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :RowCount =  "",
+		 :ColumnCount =  "0",
+		 :HorizontalHeaders =  "",
+		 :ColumnsWidth =  "",
+		 :HorizontalHeaderStyle =  "",
+		 :VerticalHeaderStyle =  "",
+		 :selectionbehavior =  1,
+		 :alternatingcolors =  0,
+		 :setcellActivatedEvent =  "",
+		 :setcellChangedEvent =  "",
+		 :setcellClickedEvent =  "",
+		 :setcellDoubleClickedEvent =  "",
+		 :setcellEnteredEvent =  "",
+		 :setcellPressedEvent =  "",
+		 :setcurrentCellChangedEvent =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	]
+]
+# End Form Designer File
