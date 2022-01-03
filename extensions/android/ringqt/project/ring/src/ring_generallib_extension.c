@@ -1664,7 +1664,7 @@ void ring_vm_generallib_pointer2string ( void *pPointer )
 void ring_vm_generallib_setpointer ( void *pPointer )
 {
 	List *pList  ;
-	uintptr_t nNum  ;
+	RING_UNSIGNEDINTEGERPOINTER nNum  ;
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
@@ -1687,7 +1687,7 @@ void ring_vm_generallib_setpointer ( void *pPointer )
 void ring_vm_generallib_getpointer ( void *pPointer )
 {
 	List *pList  ;
-	uintptr_t nNum  ;
+	RING_UNSIGNEDINTEGERPOINTER nNum  ;
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);

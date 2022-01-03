@@ -25,7 +25,7 @@
 		#define RING_SETBINARY 0
 	#endif
 	/* Using ANSI C */
-	#if ULLONG_MAX
+	#ifdef ULLONG_MAX
 		#define RING_ANSI_C 0
 	#else
 		#define RING_ANSI_C 1
@@ -39,6 +39,7 @@
 		#define RING_UNSIGNEDLONGLONG_FORMAT "%lx"
 		#define RING_LONGLONG_LOWVALUE -2147483647L -1
 		#define RING_LONGLONG_HIGHVALUE 2147483647L
+		#define RING_UNSIGNEDINTEGERPOINTER unsigned int
 	#else
 		#define RING_LONGLONG long long
 		#define RING_UNSIGNEDLONGLONG unsigned long long
@@ -46,6 +47,7 @@
 		#define RING_UNSIGNEDLONGLONG_FORMAT "%llx"
 		#define RING_LONGLONG_LOWVALUE -9007199254740991LL
 		#define RING_LONGLONG_HIGHVALUE 9007199254740991LL
+		#define RING_UNSIGNEDINTEGERPOINTER uintptr_t
 	#endif
 	/*
 	**  DLL/So 
