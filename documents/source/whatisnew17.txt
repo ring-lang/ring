@@ -233,4 +233,5 @@ More Improvements
 * RingLibCurl - Better support for Ring2EXE
 * Ring Object File - ring_objfile_writeCfile() - Better Code
 * Eval() Function - return NULL if the Return command is not used
+* SetPointer()/GetPointer() functions - Better Code
 * Form Designer - Default TextColor is Empty (Better when changing styles)
