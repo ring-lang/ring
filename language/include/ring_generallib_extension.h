@@ -1,9 +1,10 @@
 /* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
 #ifndef ring_generallib_extension_h
 	#define ring_generallib_extension_h
-	#if !defined(_WIN32)
+	#ifndef _WIN32
 		#include <stdint.h>
 	#endif
+
 	RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState ) ;
 	/*
 	**  Library Functions 
