@@ -227,6 +227,7 @@ More Improvements
 =================
 
 * Many documents and samples are revised (Better English)
+* Many applications are updated to use LightGUILib 
 * Calendar application - Better code to detect the current year
 * Added: samples/Drawing/Mandelbrot/Mandelbrot_Fast.ring
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.18
