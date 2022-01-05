@@ -15,11 +15,31 @@ List of changes and new features
 
 Ring 1.17 comes with the next features!
 
+* Citations Prediction
 * CSVLib Library
 * JSONLib Library
 * TokensLib Library
 * Better GUILib
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.17; Citations Prediction
+
+Citations Prediction
+====================
+
+An applicaiton to predict the research paper citations using title, abstract or authors.
+
+The applications uses Microsoft Azure Machine Learning for the Models
+
+The Models are trained using a Dataset for a specific domain and specific journal
+
+This application comes with 3 samples to see how it works!
+
+It's an example about using Ring, RingQt, RingLibCurl and JSONLib
+
+.. image:: predictionapp1.png
+	:alt: citations
 
 .. index:: 
 	pair: What is new in Ring  1.17; CSVLib Library
