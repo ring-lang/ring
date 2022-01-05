@@ -11,4 +11,8 @@ The ML Models are trained using a Dataset for a specific domain
 
 This application comes with 3 samples only, Just to see how it works!
 
+# Screen Shots
+
+![citationsprediction](https://raw.githubusercontent.com/ring-lang/ring/master/applications/citationsprediction/images/predictionapp1.png)
+
 
