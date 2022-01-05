@@ -18,6 +18,7 @@ Ring 1.17 comes with the next features!
 * CSVLib Library
 * JSONLib Library
 * TokensLib Library
+* Better GUILib
 * More Improvements
 
 .. index:: 
@@ -219,6 +220,51 @@ Output:
 	Operator    : + (1)
 	Number      : 1
 	EndLine
+
+
+.. index:: 
+	pair: What is new in Ring  1.17; Better GUILib
+
+Better GUILib
+=============
+
+* Added: AddList() method to the TableWidget class 
+
+.. tip:: TableWidget class is a subclass of QTableWidget class
+
+.. note:: To use TableWidget class, import system.gui after loading guilib.ring or lightguilib.ring
+
+Example:
+
+Source code: https://github.com/ring-lang/ring/tree/master/samples/UsingQt/TableWidget/AddRingList
+
+.. code-block:: ring
+
+
+	class addRingListController from windowsControllerParent
+
+		oView = new addRingListView
+
+		aList = [["one","two"],
+			 ["three","four"],
+			 ["five","six"],
+			 [7,8],
+			 ["I","Love","Ring","Programming"]]
+		
+		oView.tablewidget1.addList(aList)
+
+		aList = [["Number","Square"]]
+		for t = 1 to 10
+			aList + [ t, t*t]
+		next
+
+		oView.tablewidget1.addList(aList)
+
+Screen Shot:
+
+.. image:: addlisttotablewidget.png
+	:alt: addlisttotablewidget
+
 
 .. index:: 
 	pair: What is new in Ring  1.17; More Improvements
