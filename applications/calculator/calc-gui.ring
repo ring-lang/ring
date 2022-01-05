@@ -11,7 +11,7 @@
 import System.GUI
 
 # Load Ring Libraries
-    Load "guilib.ring"
+    Load "lightguilib.ring"
     Load "stdlib.ring"
 
 UserIcons = CurrentDir() +"/"

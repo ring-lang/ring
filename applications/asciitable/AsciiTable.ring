@@ -4,7 +4,7 @@
 # Author  : Gal Zsolt (~ CalmoSoft ~)
 # Email   : quiwox@gmail.com
 
-load "guilib.ring"
+load "lightguilib.ring"
 
 size  = 16
 table = null
