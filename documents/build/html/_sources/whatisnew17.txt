@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.17 comes with the next features!
 
 * Citations Prediction
+* Merge Two Files 
 * CSVLib Library
 * JSONLib Library
 * TokensLib Library
@@ -40,6 +41,20 @@ It's an example about using Ring, RingQt, RingLibCurl and JSONLib
 
 .. image:: predictionapp1.png
 	:alt: citations
+
+
+.. index:: 
+	pair: What is new in Ring  1.17; Merge Two Files
+
+Merge Two Files
+===============
+
+An application to merge two text files line by line
+
+Development Time : 30 minutes (Includes user interface design, coding, testing and distribution)
+
+.. image:: mergetwofiles.png
+	:alt: merge
 
 .. index:: 
 	pair: What is new in Ring  1.17; CSVLib Library
