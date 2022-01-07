@@ -51,7 +51,7 @@ Merge Two Files
 
 An application to merge two text files line by line
 
-Development Time : 30 minutes (Includes user interface design, coding, testing and distribution)
+Development Time: 30 minutes (Includes user interface design, coding, testing and distribution)
 
 .. image:: mergetwofiles.png
 	:alt: merge
