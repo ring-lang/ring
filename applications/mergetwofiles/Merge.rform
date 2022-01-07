@@ -1,0 +1,193 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = -283 , : y = -169  , 
+		 :width =  869 , :height = 627 , 
+		 :title =  "Merge Two Files Line By Line" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "images\merge.png" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 17 , : y = 10  , 
+		 :width =  87 , :height = 41 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "The First File",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtFile1" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 111 , : y = 13  , 
+		 :width =  634 , :height = 35 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 4 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 748 , : y = 11  , 
+		 :width =  112 , :height = 41 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Select",
+		 :BtnImage =  "",
+		 :setClickEvent =  "SelectFirst"
+		]
+	],
+	[ :name = "Label4" , :id = 5 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 17 , : y = 213  , 
+		 :width =  87 , :height = 41 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "The Second File",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtFile2" , :id = 6 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 111 , : y = 216  , 
+		 :width =  634 , :height = 37 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Button6" , :id = 7 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 748 , : y = 214  , 
+		 :width =  112 , :height = 41 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Select",
+		 :BtnImage =  "",
+		 :setClickEvent =  "SelectSecond"
+		]
+	],
+	[ :name = "txtFile1Content" , :id = 8 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 111 , : y = 57  , 
+		 :width =  635 , :height = 145 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "txtFile2Content" , :id = 9 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 111 , : y = 265  , 
+		 :width =  635 , :height = 145 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Button3" , :id = 10 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 748 , : y = 426  , 
+		 :width =  112 , :height = 49 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Merge",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Merge"
+		]
+	],
+	[ :name = "txtMerge" , :id = 11 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 111 , : y = 426  , 
+		 :width =  635 , :height = 165 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Button11" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 748 , : y = 485  , 
+		 :width =  112 , :height = 49 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "SaveFile",
+		 :BtnImage =  "",
+		 :setClickEvent =  "savethefile"
+		]
+	],
+	[ :name = "Button12" , :id = 13 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 748 , : y = 544  , 
+		 :width =  112 , :height = 49 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Close",
+		 :BtnImage =  "",
+		 :setClickEvent =  "CloseApp"
+		]
+	],
+	[ :name = "Statusbar1" , :id = 14 , :classname = "formdesigner_qstatusbar" , :data = [
+		 :x = 8 , : y = 473  , 
+		 :width =  76 , :height = 43 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :Message =  "2022, Mahmoud Fayed"
+		]
+	]
+]
+# End Form Designer File
