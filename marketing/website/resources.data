@@ -288,6 +288,10 @@
 		'<img src="chess3dshot2.png" width="100%">'
 	],
 	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/citationsprediction" target="_blank">Citations Prediction Application</a>',
+		'<img src="predictionapp1.png" width="100%">'
+	],
+	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/mergetwofiles" target="_blank">Merge Two Files (Line by Line)</a>',
 		'<img src="mergetwofiles.png" width="100%">'
 	]
