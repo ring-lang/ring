@@ -286,8 +286,11 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/marketing/chess3d/README.md" target="_blank">Chess 3D (Qt3D Sample)</a>',
 		'<img src="chess3dshot2.png" width="100%">'
+	],
+	[
+		'<a href="https://github.com/ring-lang/ring/blob/master/applications/mergetwofiles" target="_blank">Merge Two Files (Line by Line)</a>',
+		'<img src="mergetwofiles.png" width="100%">'
 	]
-
 	]
 	],
 	["Online Applications (WebAssembly)",[
