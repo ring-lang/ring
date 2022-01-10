@@ -17,6 +17,7 @@ Ring 1.17 comes with the next features!
 
 * Citations Prediction
 * Merge Two Files 
+* Poetry Analysis 
 * CSVLib Library
 * JSONLib Library
 * TokensLib Library
@@ -55,6 +56,22 @@ Development Time: 30 minutes (Includes user interface design, coding, testing an
 
 .. image:: mergetwofiles.png
 	:alt: merge
+
+
+.. index:: 
+	pair: What is new in Ring  1.17; Poetry Analysis
+
+Poetry Analysis
+===============
+
+An application to analysis the Arabic poetry
+
+The application is over 4000 lines of Ring code
+
+The source code is explained in a printed book about the subject
+
+.. image:: poetryanalysis.png
+	:alt: arabicpoetry
 
 .. index:: 
 	pair: What is new in Ring  1.17; CSVLib Library
