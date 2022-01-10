@@ -1,9 +1,11 @@
 Arabic Poetry Analysis Application
 ==================================
 
-Developed using Ring & RingQt.
+Developed using Ring & RingQt (Over 4,000 lines of Ring Code)
 
 Developer: Mohamed Ghanem
+
+Video about the Book: https://www.youtube.com/watch?v=LpJfwuKU4sY
 
 # Screen Shot
 
