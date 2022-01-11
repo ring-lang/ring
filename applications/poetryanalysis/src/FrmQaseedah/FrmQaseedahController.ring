@@ -31,6 +31,8 @@ class frmQaseedahController from windowsControllerParent
 
 	win.setlayoutdirection(1)
 
+	txtQaseedah.setText("هلّا سألْت القوم يا ابنة مالكٍ"+nl+"إن كنْت جاهلةً بما لمْ تعْلمي")
+
 	Func btnExecute_Click()
 		results = new Analyzer(txtQaseedah.ToPlainText())	
 		cmbBohoor.Clear()
