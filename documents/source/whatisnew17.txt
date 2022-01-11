@@ -332,6 +332,7 @@ More Improvements
 * RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
 * RingLibCurl - Better support for Ring2EXE
 * Ring Object File - ring_objfile_writeCfile() - Better Code
-* Eval() Function - return NULL if the Return command is not used
+* Eval() function - Return NULL if the Return command is not used
 * SetPointer()/GetPointer() functions - Better Code
+* Fexists() function - Support UTF-8 file names
 * Form Designer - Default TextColor is Empty (Better when changing styles)
