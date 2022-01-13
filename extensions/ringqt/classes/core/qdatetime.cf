@@ -6,6 +6,7 @@ para: void
 <filter> sysget("RINGQT_QT6") = ""
 uint toTime_t(void)
 QDateTime fromTime_t(uint seconds)
+void setTime_t(uint seconds)
 </filter>
 
 QDateTime addDays(int ndays)
@@ -23,7 +24,6 @@ void setDate(QDate date)
 void setMSecsSinceEpoch(qint64 msecs)
 void setTime(QTime time)
 void setTimeSpec(Qt::TimeSpec spec)
-void setTime_t(uint seconds)
 QTime time(void)
 Qt::TimeSpec timeSpec(void)
 QDateTime toLocalTime(void)
