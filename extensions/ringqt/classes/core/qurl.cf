@@ -47,7 +47,9 @@ QString toString(int options)
 QString url(int options)
 </comment>
 QString toLocalFile(void)
+<filter> sysget("RINGQT_QT6") = ""
 QString topLevelDomain(QUrl::ComponentFormattingOption options)
+</filter>
 QString userInfo(QUrl::ComponentFormattingOption options)
 QString userName(QUrl::ComponentFormattingOption options)
 QUrl fromLocalFile(QString)
