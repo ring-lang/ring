@@ -3,6 +3,10 @@ name: QPainter
 para: void
 </class>
 
+<filter> sysget("RINGQT_QT6") = ""
+void initFrom(QWidget *widget)
+</filter>
+
 QBrush background(void)
 int backgroundMode(void)
 bool begin(QPaintDevice *device)
@@ -43,7 +47,6 @@ void fillRect(int x, int y, int width, int height, QBrush)
 QFont font(void)
 QFontInfo fontInfo(void)
 bool hasClipping(void)
-void initFrom(QWidget *widget)
 bool isActive(void)
 int layoutDirection(void)
 double opacity(void)
