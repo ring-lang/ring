@@ -3,10 +3,13 @@ name: QImage
 para: void
 </class>
 
+<filter> sysget("RINGQT_QT6") = ""
+int byteCount(void)
+</filter>
+
 bool allGray(void)
 int bitPlaneCount(void)
 uchar *bits(void)
-int byteCount(void)
 int bytesPerLine(void)
 qint64 cacheKey(void)
 QRgb color(int i)
