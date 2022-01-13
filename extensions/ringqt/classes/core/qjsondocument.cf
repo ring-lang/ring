@@ -3,21 +3,24 @@ name: QJsonDocument
 para: void
 </class>
 
+<filter> sysget("RINGQT_QT6") = ""
+const char * rawData(int * size)
+QByteArray toBinaryData(void)
+QJsonDocument fromBinaryData( QByteArray  data, QJsonDocument::DataValidation validation)
+QJsonDocument fromRawData( char * data, int size, QJsonDocument::DataValidation validation)
+</filter>
+
 QJsonArray array(void)
 bool isArray(void)
 bool isEmpty(void)
 bool isNull(void)
 bool isObject(void)
 QJsonObject object(void)
-const char * rawData(int * size)
 void setArray(QJsonArray  array)
 void setObject(QJsonObject  object)
-QByteArray toBinaryData(void)
 QByteArray toJson(QJsonDocument::JsonFormat format)
 QVariant toVariant(void)
 
-QJsonDocument fromBinaryData( QByteArray  data, QJsonDocument::DataValidation validation)
 QJsonDocument fromJson( QByteArray  json, QJsonParseError * error)
-QJsonDocument fromRawData( char * data, int size, QJsonDocument::DataValidation validation)
 QJsonDocument fromVariant( QVariant  variant)
 
