@@ -3,6 +3,10 @@ name: QMatrix4x4
 para: qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal
 </class>
 
+<filter> sysget("RINGQT_QT6") = ""
+QMatrix toAffine(void)
+</filter>
+
 QVector4D column(int index)
 qreal * constData(void)
 <comment>
@@ -41,7 +45,6 @@ void scale@4(qreal factor)
 void setColumn(int index, QVector4D value)
 void setRow(int index, QVector4D value)
 void setToIdentity(void)
-QMatrix toAffine(void)
 <comment>
 QGenericMatrix<N, M, qreal> toGenericMatrix(void)
 </comment>
