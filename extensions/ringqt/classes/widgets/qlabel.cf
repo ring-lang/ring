@@ -4,6 +4,16 @@ para: QWidget *
 parent: QWidget
 </class>
 
+<filter> sysget("RINGQT_QT6") = ""
+QPicture *picture(void)
+QPixmap *pixmap(void)
+</filter>
+
+<filter> sysget("RINGQT_QT6") = "1"
+QPicture picture(void)
+QPixmap pixmap(void)
+</filter>
+
 int alignment(void)
 QWidget *buddy(void)
 bool hasScaledContents(void)
@@ -12,8 +22,6 @@ int indent(void)
 int margin(void)
 QMovie *movie(void)
 bool openExternalLinks(void)
-QPicture *picture(void)
-QPixmap *pixmap(void)
 QString selectedText(void)
 int selectionStart(void)
 void setAlignment(Qt::AlignmentFlag)
