@@ -3,6 +3,10 @@ name: QRegion
 para: void
 </class>
 
+<filter> sysget("RINGQT_QT6") = ""
+QVector<QRect> rects(void)
+</filter>
+
 QRect boundingRect(void)
 bool contains(QPoint p)
 bool contains@2(QRect r)
@@ -13,7 +17,6 @@ bool intersects@2(QRect rect)
 bool isEmpty(void)
 bool isNull(void)
 int rectCount(void)
-QVector<QRect> rects(void)
 void setRects(QRect *rects, int number)
 QRegion subtracted(QRegion r)
 void swap(QRegion other)
