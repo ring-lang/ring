@@ -3,12 +3,15 @@ name: QBrush
 para: void
 </class>
 
+<filter> sysget("RINGQT_QT6") = ""
+QMatrix matrix(void)
+void setMatrix(QMatrix)
+</filter>
+
 QColor color(void)
 QGradient *gradient(void)
 bool isOpaque(void)
-QMatrix matrix(void)
 void setColor(QColor)
-void setMatrix(QMatrix)
 void setStyle(Qt::BrushStyle style)
 void setTexture(QPixmap)
 void setTextureImage(QImage)
