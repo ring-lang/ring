@@ -55,7 +55,7 @@ QSize size(void)
 void swap(QImage)
 QString text(QString)
 QStringList textKeys(void)
-QImage transformed(QMatrix, Qt::TransformationMode mode)
+QImage transformed(QTransform *, Qt::TransformationMode mode)
 bool valid(int x, int y)
 int width(void)
 
