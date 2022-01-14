@@ -10,7 +10,7 @@ int primaryScreen(void)
 int screenCount(void)
 </filter>
 
-QRect availableGeometry(int screen)
+QRect availableGeometry(QWidget *)
 QWidget *screen(int screen)
-QRect screenGeometry(int screen)
+QRect screenGeometry(QWidget *)
 int screenNumber(QWidget *widget)
