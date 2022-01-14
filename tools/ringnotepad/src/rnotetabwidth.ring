@@ -20,4 +20,4 @@ class RNoteTabWidth
 		oTFont.fromstring(cFont)
 		oFontMetrics = new QFontMetrics(oTFont)
 		nSpaceWidth = oFontMetrics.horizontalAdvance(" ",1)
-		textedit1.setTabStopWidth(nTabSpaces*nSpaceWidth)
+		textedit1.setTabStopDistance(nTabSpaces*nSpaceWidth)
