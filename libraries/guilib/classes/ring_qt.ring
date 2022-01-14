@@ -333,6 +333,9 @@ Class QUrl
 	Func ObjectPointer
 		return pObject
 
+	Func topLevelDomain P1
+		return QUrl_topLevelDomain(pObject,P1)
+
 	Func authority P1
 		return QUrl_authority(pObject,P1)
 
@@ -430,9 +433,6 @@ Class QUrl
 
 	Func toLocalFile 
 		return QUrl_toLocalFile(pObject)
-
-	Func topLevelDomain P1
-		return QUrl_topLevelDomain(pObject,P1)
 
 	Func userInfo P1
 		return QUrl_userInfo(pObject,P1)
@@ -939,6 +939,11 @@ Class QFileInfo
 	Func ObjectPointer
 		return pObject
 
+	Func created 
+		pTempObj = new QDateTime
+		pTempObj.pObject = QFileInfo_created(pObject)
+		return pTempObj
+
 	Func absoluteDir 
 		pTempObj = new QDir
 		pTempObj.pObject = QFileInfo_absoluteDir(pObject)
@@ -970,11 +975,6 @@ Class QFileInfo
 
 	Func completeSuffix 
 		return QFileInfo_completeSuffix(pObject)
-
-	Func created 
-		pTempObj = new QDateTime
-		pTempObj.pObject = QFileInfo_created(pObject)
-		return pTempObj
 
 	Func dir 
 		pTempObj = new QDir
@@ -1095,6 +1095,9 @@ Class QStringList
 	Func ObjectPointer
 		return pObject
 
+	Func swap P1,P2
+		return QStringList_swap(pObject,P1,P2)
+
 	Func join P1
 		return QStringList_join(pObject,P1)
 
@@ -1206,9 +1209,6 @@ Class QStringList
 
 	Func startsWith P1
 		return QStringList_startsWith(pObject,P1)
-
-	Func swap P1,P2
-		return QStringList_swap(pObject,P1,P2)
 
 	Func takeAt P1
 		return QStringList_takeAt(pObject,P1)
@@ -1431,6 +1431,15 @@ Class QTime
 	Func ObjectPointer
 		return pObject
 
+	Func elapsed 
+		return QTime_elapsed(pObject)
+
+	Func restart 
+		return QTime_restart(pObject)
+
+	Func start 
+		return QTime_start(pObject)
+
 	Func addMSecs P1
 		pTempObj = new QTime
 		pTempObj.pObject = QTime_addMSecs(pObject,P1)
@@ -1440,9 +1449,6 @@ Class QTime
 		pTempObj = new QTime
 		pTempObj.pObject = QTime_addSecs(pObject,P1)
 		return pTempObj
-
-	Func elapsed 
-		return QTime_elapsed(pObject)
 
 	Func hour 
 		return QTime_hour(pObject)
@@ -1465,9 +1471,6 @@ Class QTime
 	Func msecsTo P1
 		return QTime_msecsTo(pObject,GetObjectPointerFromRingObject(P1))
 
-	Func restart 
-		return QTime_restart(pObject)
-
 	Func second 
 		return QTime_second(pObject)
 
@@ -1476,9 +1479,6 @@ Class QTime
 
 	Func setHMS P1,P2,P3,P4
 		return QTime_setHMS(pObject,P1,P2,P3,P4)
-
-	Func start 
-		return QTime_start(pObject)
 
 	Func toString P1
 		return QTime_toString(pObject,P1)
@@ -1511,6 +1511,18 @@ Class QDate
 
 	Func ObjectPointer
 		return pObject
+
+	Func longDayName P1
+		return QDate_longDayName(pObject,P1)
+
+	Func longMonthName P1
+		return QDate_longMonthName(pObject,P1)
+
+	Func shortDayName P1
+		return QDate_shortDayName(pObject,P1)
+
+	Func shortMonthName P1
+		return QDate_shortMonthName(pObject,P1)
 
 	Func addDays P1
 		pTempObj = new QDate
@@ -1589,18 +1601,6 @@ Class QDate
 
 	Func isLeapYear P1
 		return QDate_isLeapYear(pObject,P1)
-
-	Func longDayName P1
-		return QDate_longDayName(pObject,P1)
-
-	Func longMonthName P1
-		return QDate_longMonthName(pObject,P1)
-
-	Func shortDayName P1
-		return QDate_shortDayName(pObject,P1)
-
-	Func shortMonthName P1
-		return QDate_shortMonthName(pObject,P1)
 
 Class QTextCodec
 
@@ -2595,6 +2595,24 @@ Class QJsonDocument
 	Func ObjectPointer
 		return pObject
 
+	Func rawData P1
+		return QJsonDocument_rawData(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func toBinaryData 
+		pTempObj = new QByteArray
+		pTempObj.pObject = QJsonDocument_toBinaryData(pObject)
+		return pTempObj
+
+	Func fromBinaryData P1,P2
+		pTempObj = new QJsonDocument
+		pTempObj.pObject = QJsonDocument_fromBinaryData(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func fromRawData P1,P2,P3
+		pTempObj = new QJsonDocument
+		pTempObj.pObject = QJsonDocument_fromRawData(pObject,P1,P2,P3)
+		return pTempObj
+
 	Func array 
 		pTempObj = new QJsonArray
 		pTempObj.pObject = QJsonDocument_array(pObject)
@@ -2617,19 +2635,11 @@ Class QJsonDocument
 		pTempObj.pObject = QJsonDocument_object(pObject)
 		return pTempObj
 
-	Func rawData P1
-		return QJsonDocument_rawData(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func setArray P1
 		return QJsonDocument_setArray(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setObject P1
 		return QJsonDocument_setObject(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func toBinaryData 
-		pTempObj = new QByteArray
-		pTempObj.pObject = QJsonDocument_toBinaryData(pObject)
-		return pTempObj
 
 	Func toJson P1
 		pTempObj = new QByteArray
@@ -2641,19 +2651,9 @@ Class QJsonDocument
 		pTempObj.pObject = QJsonDocument_toVariant(pObject)
 		return pTempObj
 
-	Func fromBinaryData P1,P2
-		pTempObj = new QJsonDocument
-		pTempObj.pObject = QJsonDocument_fromBinaryData(pObject,GetObjectPointerFromRingObject(P1),P2)
-		return pTempObj
-
 	Func fromJson P1,P2
 		pTempObj = new QJsonDocument
 		pTempObj.pObject = QJsonDocument_fromJson(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2))
-		return pTempObj
-
-	Func fromRawData P1,P2,P3
-		pTempObj = new QJsonDocument
-		pTempObj.pObject = QJsonDocument_fromRawData(pObject,P1,P2,P3)
 		return pTempObj
 
 	Func fromVariant P1
@@ -2911,6 +2911,26 @@ Class QString2
 	Func ObjectPointer
 		return pObject
 
+	Func split P1,P2,P3
+		pTempObj = new QStringList
+		pTempObj.pObject = QString2_split(pObject,P1,P2,P3)
+		return pTempObj
+
+	Func split_2 P1,P2,P3
+		pTempObj = new QStringList
+		pTempObj.pObject = QString2_split_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
+		return pTempObj
+
+	Func split_3 P1,P2
+		pTempObj = new QStringList
+		pTempObj.pObject = QString2_split_3(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
+	Func split_4 P1,P2
+		pTempObj = new QStringList
+		pTempObj.pObject = QString2_split_4(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
 	Func append P1
 		return QString2_append(pObject,P1)
 
@@ -2930,26 +2950,6 @@ Class QString2
 	Func toLocal8Bit 
 		pTempObj = new QByteArray
 		pTempObj.pObject = QString2_toLocal8Bit(pObject)
-		return pTempObj
-
-	Func split P1,P2,P3
-		pTempObj = new QStringList
-		pTempObj.pObject = QString2_split(pObject,P1,P2,P3)
-		return pTempObj
-
-	Func split_2 P1,P2,P3
-		pTempObj = new QStringList
-		pTempObj.pObject = QString2_split_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
-		return pTempObj
-
-	Func split_3 P1,P2
-		pTempObj = new QStringList
-		pTempObj.pObject = QString2_split_3(pObject,GetObjectPointerFromRingObject(P1),P2)
-		return pTempObj
-
-	Func split_4 P1,P2
-		pTempObj = new QStringList
-		pTempObj.pObject = QString2_split_4(pObject,GetObjectPointerFromRingObject(P1),P2)
 		return pTempObj
 
 	Func unicode 
@@ -3274,6 +3274,17 @@ Class QDateTime
 	Func ObjectPointer
 		return pObject
 
+	Func toTime_t 
+		return QDateTime_toTime_t(pObject)
+
+	Func fromTime_t P1
+		pTempObj = new QDateTime
+		pTempObj.pObject = QDateTime_fromTime_t(pObject,P1)
+		return pTempObj
+
+	Func setTime_t P1
+		return QDateTime_setTime_t(pObject,P1)
+
 	Func addDays P1
 		pTempObj = new QDateTime
 		pTempObj.pObject = QDateTime_addDays(pObject,P1)
@@ -3331,9 +3342,6 @@ Class QDateTime
 	Func setTimeSpec P1
 		return QDateTime_setTimeSpec(pObject,P1)
 
-	Func setTime_t P1
-		return QDateTime_setTime_t(pObject,P1)
-
 	Func time 
 		pTempObj = new QTime
 		pTempObj.pObject = QDateTime_time(pObject)
@@ -3360,9 +3368,6 @@ Class QDateTime
 		pTempObj = new QDateTime
 		pTempObj.pObject = QDateTime_toTimeSpec(pObject,P1)
 		return pTempObj
-
-	Func toTime_t 
-		return QDateTime_toTime_t(pObject)
 
 	Func toUTC 
 		pTempObj = new QDateTime
@@ -3395,11 +3400,6 @@ Class QDateTime
 	Func fromString_2 P1,P2
 		pTempObj = new QDateTime
 		pTempObj.pObject = QDateTime_fromString_2(pObject,P1,P2)
-		return pTempObj
-
-	Func fromTime_t P1
-		pTempObj = new QDateTime
-		pTempObj.pObject = QDateTime_fromTime_t(pObject,P1)
 		return pTempObj
 
 Class QCoreApplication from QObject
@@ -4593,6 +4593,9 @@ Class QProcess from QIODevice
 	Func ObjectPointer
 		return pObject
 
+	Func start_2 P1,P2
+		return QProcess_start_2(pObject,P1,P2)
+
 	Func arguments 
 		pTempObj = new QStringList
 		pTempObj.pObject = QProcess_arguments(pObject)
@@ -4673,9 +4676,6 @@ Class QProcess from QIODevice
 
 	Func start P1,P2,P3
 		return QProcess_start(pObject,P1,GetObjectPointerFromRingObject(P2),P3)
-
-	Func start_2 P1,P2
-		return QProcess_start_2(pObject,P1,P2)
 
 	Func start_3 P1
 		return QProcess_start_3(pObject,P1)
@@ -4838,6 +4838,11 @@ Class QPixmap
 	Func ObjectPointer
 		return pObject
 
+	Func transformed P1,P2
+		pTempObj = new QPixmap
+		pTempObj.pObject = QPixmap_transformed(pObject,GetObjectPointerFromRingObject(P1),P2)
+		return pTempObj
+
 	Func copy P1,P2,P3,P4
 		pTempObj = new QPixmap
 		pTempObj.pObject = QPixmap_copy(pObject,P1,P2,P3,P4)
@@ -4969,11 +4974,6 @@ Class QPixmap
 		pTempObj.pObject = QPixmap_toImage(pObject)
 		return pTempObj
 
-	Func transformed P1,P2
-		pTempObj = new QPixmap
-		pTempObj.pObject = QPixmap_transformed(pObject,GetObjectPointerFromRingObject(P1),P2)
-		return pTempObj
-
 	Func transformed_2 P1,P2
 		pTempObj = new QPixmap
 		pTempObj.pObject = QPixmap_transformed_2(pObject,GetObjectPointerFromRingObject(P1),P2)
@@ -4997,9 +4997,6 @@ Class QPixmap
 		pTempObj.pObject = QPixmap_trueMatrix(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
 		return pTempObj
 
-	Func trueMatrix_2 P1,P2,P3
-		return QPixmap_trueMatrix_2(pObject,GetObjectPointerFromRingObject(P1),P2,P3)
-
 Class QPainter
 
 	pObject
@@ -5013,6 +5010,9 @@ Class QPainter
 
 	Func ObjectPointer
 		return pObject
+
+	Func initFrom P1
+		return QPainter_initFrom(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func background 
 		pTempObj = new QBrush
@@ -5153,9 +5153,6 @@ Class QPainter
 
 	Func hasClipping 
 		return QPainter_hasClipping(pObject)
-
-	Func initFrom P1
-		return QPainter_initFrom(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func isActive 
 		return QPainter_isActive(pObject)
@@ -5740,6 +5737,24 @@ Class QFont
 	Func ObjectPointer
 		return pObject
 
+	Func setRawMode P1
+		return QFont_setRawMode(pObject,P1)
+
+	Func setRawName P1
+		return QFont_setRawName(pObject,P1)
+
+	Func rawMode 
+		return QFont_rawMode(pObject)
+
+	Func rawName 
+		return QFont_rawName(pObject)
+
+	Func lastResortFamily 
+		return QFont_lastResortFamily(pObject)
+
+	Func lastResortFont 
+		return QFont_lastResortFont(pObject)
+
 	Func bold 
 		return QFont_bold(pObject)
 
@@ -5776,12 +5791,6 @@ Class QFont
 	Func key 
 		return QFont_key(pObject)
 
-	Func lastResortFamily 
-		return QFont_lastResortFamily(pObject)
-
-	Func lastResortFont 
-		return QFont_lastResortFont(pObject)
-
 	Func letterSpacing 
 		return QFont_letterSpacing(pObject)
 
@@ -5799,12 +5808,6 @@ Class QFont
 
 	Func pointSizeF 
 		return QFont_pointSizeF(pObject)
-
-	Func rawMode 
-		return QFont_rawMode(pObject)
-
-	Func rawName 
-		return QFont_rawName(pObject)
 
 	Func resolve P1
 		pTempObj = new QFont
@@ -5846,12 +5849,6 @@ Class QFont
 
 	Func setPointSizeF P1
 		return QFont_setPointSizeF(pObject,P1)
-
-	Func setRawMode P1
-		return QFont_setRawMode(pObject,P1)
-
-	Func setRawName P1
-		return QFont_setRawName(pObject,P1)
 
 	Func setStretch P1
 		return QFont_setStretch(pObject,P1)
@@ -5943,6 +5940,12 @@ Class QBrush
 	Func ObjectPointer
 		return pObject
 
+	Func matrix 
+		return QBrush_matrix(pObject)
+
+	Func setMatrix P1
+		return QBrush_setMatrix(pObject,GetObjectPointerFromRingObject(P1))
+
 	Func color 
 		pTempObj = new QColor
 		pTempObj.pObject = QBrush_color(pObject)
@@ -5956,14 +5959,8 @@ Class QBrush
 	Func isOpaque 
 		return QBrush_isOpaque(pObject)
 
-	Func matrix 
-		return QBrush_matrix(pObject)
-
 	Func setColor P1
 		return QBrush_setColor(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setMatrix P1
-		return QBrush_setMatrix(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func setStyle P1
 		return QBrush_setStyle(pObject,P1)
@@ -6703,6 +6700,9 @@ Class QImage
 	Func ObjectPointer
 		return pObject
 
+	Func byteCount 
+		return QImage_byteCount(pObject)
+
 	Func allGray 
 		return QImage_allGray(pObject)
 
@@ -6711,9 +6711,6 @@ Class QImage
 
 	Func bits 
 		return QImage_bits(pObject)
-
-	Func byteCount 
-		return QImage_byteCount(pObject)
 
 	Func bytesPerLine 
 		return QImage_bytesPerLine(pObject)
@@ -6876,11 +6873,6 @@ Class QImage
 	Func textKeys 
 		pTempObj = new QStringList
 		pTempObj.pObject = QImage_textKeys(pObject)
-		return pTempObj
-
-	Func transformed P1,P2
-		pTempObj = new QImage
-		pTempObj.pObject = QImage_transformed(pObject,GetObjectPointerFromRingObject(P1),P2)
 		return pTempObj
 
 	Func valid P1,P2
@@ -7084,6 +7076,12 @@ Class QFontMetrics
 	Func ObjectPointer
 		return pObject
 
+	Func width P1,P2
+		return QFontMetrics_width(pObject,P1,P2)
+
+	Func width_2 P1
+		return QFontMetrics_width_2(pObject,GetObjectPointerFromRingObject(P1))
+
 	Func ascent 
 		return QFontMetrics_ascent(pObject)
 
@@ -7168,14 +7166,14 @@ Class QFontMetrics
 	Func underlinePos 
 		return QFontMetrics_underlinePos(pObject)
 
-	Func width P1,P2
-		return QFontMetrics_width(pObject,P1,P2)
-
-	Func width_2 P1
-		return QFontMetrics_width_2(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func xHeight 
 		return QFontMetrics_xHeight(pObject)
+
+	Func horizontalAdvance P1,P2
+		return QFontMetrics_horizontalAdvance(pObject,P1,P2)
+
+	Func horizontalAdvance_2 P1
+		return QFontMetrics_horizontalAdvance_2(pObject,GetObjectPointerFromRingObject(P1))
 
 Class QLinearGradient from QGradient
 
@@ -7270,14 +7268,14 @@ Class QCursor
 		pTempObj.pObject = QCursor_bitmap(pObject)
 		return pTempObj
 
-	Func hotSpot 
-		pTempObj = new QPoint
-		pTempObj.pObject = QCursor_hotSpot(pObject)
-		return pTempObj
-
 	Func mask 
 		pTempObj = new QBitmap
 		pTempObj.pObject = QCursor_mask(pObject)
+		return pTempObj
+
+	Func hotSpot 
+		pTempObj = new QPoint
+		pTempObj.pObject = QCursor_hotSpot(pObject)
 		return pTempObj
 
 	Func pixmap 
@@ -8128,6 +8126,9 @@ Class QRegion
 	Func ObjectPointer
 		return pObject
 
+	Func rects 
+		return QRegion_rects(pObject)
+
 	Func boundingRect 
 		pTempObj = new QRect
 		pTempObj.pObject = QRegion_boundingRect(pObject)
@@ -8163,9 +8164,6 @@ Class QRegion
 
 	Func rectCount 
 		return QRegion_rectCount(pObject)
-
-	Func rects 
-		return QRegion_rects(pObject)
 
 	Func setRects P1,P2
 		return QRegion_setRects(pObject,GetObjectPointerFromRingObject(P1),P2)
@@ -8591,6 +8589,9 @@ Class QMatrix4x4
 	Func ObjectPointer
 		return pObject
 
+	Func toAffine 
+		return QMatrix4x4_toAffine(pObject)
+
 	Func column P1
 		pTempObj = new QVector4D
 		pTempObj.pObject = QMatrix4x4_column(pObject,P1)
@@ -8713,9 +8714,6 @@ Class QMatrix4x4
 
 	Func setToIdentity 
 		return QMatrix4x4_setToIdentity(pObject)
-
-	Func toAffine 
-		return QMatrix4x4_toAffine(pObject)
 
 	Func toTransform 
 		pTempObj = new QTransform
@@ -11756,6 +11754,9 @@ Class QWidget from QObject
 	Func ObjectPointer
 		return pObject
 
+	Func getContentsMargins P1,P2,P3,P4
+		return QWidget_getContentsMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
 	Func acceptDrops 
 		return QWidget_acceptDrops(pObject)
 
@@ -11866,9 +11867,6 @@ Class QWidget from QObject
 		pTempObj = new QRect
 		pTempObj.pObject = QWidget_geometry(pObject)
 		return pTempObj
-
-	Func getContentsMargins P1,P2,P3,P4
-		return QWidget_getContentsMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
 
 	Func grab P1
 		pTempObj = new QPixmap
@@ -12453,6 +12451,16 @@ Class QLabel from QWidget
 	Func ObjectPointer
 		return pObject
 
+	Func picture 
+		pTempObj = new QPicture
+		pTempObj.pObject = QLabel_picture(pObject)
+		return pTempObj
+
+	Func pixmap 
+		pTempObj = new QPixmap
+		pTempObj.pObject = QLabel_pixmap(pObject)
+		return pTempObj
+
 	Func alignment 
 		return QLabel_alignment(pObject)
 
@@ -12480,16 +12488,6 @@ Class QLabel from QWidget
 
 	Func openExternalLinks 
 		return QLabel_openExternalLinks(pObject)
-
-	Func picture 
-		pTempObj = new QPicture
-		pTempObj.pObject = QLabel_picture(pObject)
-		return pTempObj
-
-	Func pixmap 
-		pTempObj = new QPixmap
-		pTempObj.pObject = QLabel_pixmap(pObject)
-		return pTempObj
 
 	Func selectedText 
 		return QLabel_selectedText(pObject)
@@ -12600,6 +12598,9 @@ Class QLineEdit from QWidget
 	Func ObjectPointer
 		return pObject
 
+	Func getTextMargins P1,P2,P3,P4
+		return QLineEdit_getTextMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
+
 	Func alignment 
 		return QLineEdit_alignment(pObject)
 
@@ -12654,9 +12655,6 @@ Class QLineEdit from QWidget
 
 	Func endtext P1
 		return QLineEdit_end(pObject,P1)
-
-	Func getTextMargins P1,P2,P3,P4
-		return QLineEdit_getTextMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
 
 	Func hasAcceptableInput 
 		return QLineEdit_hasAcceptableInput(pObject)
@@ -12868,6 +12866,18 @@ Class QTextEdit from QAbstractScrollArea
 	Func ObjectPointer
 		return pObject
 
+	Func setTabStopWidth P1
+		return QTextEdit_setTabStopWidth(pObject,P1)
+
+	Func tabStopWidth 
+		return QTextEdit_tabStopWidth(pObject)
+
+	Func setTabStopDistance P1
+		return QTextEdit_setTabStopDistance(pObject,P1)
+
+	Func tabStopDistance 
+		return QTextEdit_tabStopDistance(pObject)
+
 	Func acceptRichText 
 		return QTextEdit_acceptRichText(pObject)
 
@@ -12988,9 +12998,6 @@ Class QTextEdit from QAbstractScrollArea
 	Func setTabChangesFocus P1
 		return QTextEdit_setTabChangesFocus(pObject,P1)
 
-	Func setTabStopWidth P1
-		return QTextEdit_setTabStopWidth(pObject,P1)
-
 	Func setTextCursor P1
 		return QTextEdit_setTextCursor(pObject,GetObjectPointerFromRingObject(P1))
 
@@ -13005,9 +13012,6 @@ Class QTextEdit from QAbstractScrollArea
 
 	Func tabChangesFocus 
 		return QTextEdit_tabChangesFocus(pObject)
-
-	Func tabStopWidth 
-		return QTextEdit_tabStopWidth(pObject)
 
 	Func textBackgroundColor 
 		pTempObj = new QColor
@@ -13723,6 +13727,12 @@ Class QTreeWidget from QTreeView
 	Func ObjectPointer
 		return pObject
 
+	Func isFirstItemColumnSpanned P1
+		return QTreeWidget_isFirstItemColumnSpanned(pObject,GetObjectPointerFromRingObject(P1))
+
+	Func setFirstItemColumnSpanned P1,P2
+		return QTreeWidget_setFirstItemColumnSpanned(pObject,GetObjectPointerFromRingObject(P1),P2)
+
 	Func addTopLevelItem P1
 		return QTreeWidget_addTopLevelItem(pObject,GetObjectPointerFromRingObject(P1))
 
@@ -13759,9 +13769,6 @@ Class QTreeWidget from QTreeView
 		pTempObj.pObject = QTreeWidget_invisibleRootItem(pObject)
 		return pTempObj
 
-	Func isFirstItemColumnSpanned P1
-		return QTreeWidget_isFirstItemColumnSpanned(pObject,GetObjectPointerFromRingObject(P1))
-
 	Func itemAbove P1
 		pTempObj = new QTreeWidgetItem
 		pTempObj.pObject = QTreeWidget_itemAbove(pObject,GetObjectPointerFromRingObject(P1))
@@ -13793,9 +13800,6 @@ Class QTreeWidget from QTreeView
 
 	Func setCurrentItem P1,P2
 		return QTreeWidget_setCurrentItem(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func setFirstItemColumnSpanned P1,P2
-		return QTreeWidget_setFirstItemColumnSpanned(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func setHeaderItem P1
 		return QTreeWidget_setHeaderItem(pObject,GetObjectPointerFromRingObject(P1))
@@ -18446,28 +18450,28 @@ Class QDesktopWidget from QWidget
 	Func ObjectPointer
 		return pObject
 
-	Func availableGeometry P1
-		pTempObj = new QRect
-		pTempObj.pObject = QDesktopWidget_availableGeometry(pObject,P1)
-		return pTempObj
-
 	Func isVirtualDesktop 
 		return QDesktopWidget_isVirtualDesktop(pObject)
 
 	Func primaryScreen 
 		return QDesktopWidget_primaryScreen(pObject)
 
-	Func screen P1
-		pTempObj = new QWidget
-		pTempObj.pObject = QDesktopWidget_screen(pObject,P1)
-		return pTempObj
-
 	Func screenCount 
 		return QDesktopWidget_screenCount(pObject)
 
+	Func availableGeometry P1
+		pTempObj = new QRect
+		pTempObj.pObject = QDesktopWidget_availableGeometry(pObject,GetObjectPointerFromRingObject(P1))
+		return pTempObj
+
+	Func screen 
+		pTempObj = new QScreen
+		pTempObj.pObject = QDesktopWidget_screen(pObject)
+		return pTempObj
+
 	Func screenGeometry P1
 		pTempObj = new QRect
-		pTempObj.pObject = QDesktopWidget_screenGeometry(pObject,P1)
+		pTempObj.pObject = QDesktopWidget_screenGeometry(pObject,GetObjectPointerFromRingObject(P1))
 		return pTempObj
 
 	Func screenNumber P1
@@ -18685,6 +18689,18 @@ Class QPlainTextEdit from QAbstractScrollArea
 	Func ObjectPointer
 		return pObject
 
+	Func setTabStopWidth P1
+		return QPlainTextEdit_setTabStopWidth(pObject,P1)
+
+	Func tabStopWidth 
+		return QPlainTextEdit_tabStopWidth(pObject)
+
+	Func setTabStopDistance P1
+		return QPlainTextEdit_setTabStopDistance(pObject,P1)
+
+	Func tabStopDistance 
+		return QPlainTextEdit_tabStopDistance(pObject)
+
 	Func anchorAt P1
 		return QPlainTextEdit_anchorAt(pObject,GetObjectPointerFromRingObject(P1))
 
@@ -18805,9 +18821,6 @@ Class QPlainTextEdit from QAbstractScrollArea
 	Func setTabChangesFocus P1
 		return QPlainTextEdit_setTabChangesFocus(pObject,P1)
 
-	Func setTabStopWidth P1
-		return QPlainTextEdit_setTabStopWidth(pObject,P1)
-
 	Func setTextCursor P1
 		return QPlainTextEdit_setTextCursor(pObject,GetObjectPointerFromRingObject(P1))
 
@@ -18822,9 +18835,6 @@ Class QPlainTextEdit from QAbstractScrollArea
 
 	Func tabChangesFocus 
 		return QPlainTextEdit_tabChangesFocus(pObject)
-
-	Func tabStopWidth 
-		return QPlainTextEdit_tabStopWidth(pObject)
 
 	Func textCursor 
 		pTempObj = new QTextCursor
@@ -20632,6 +20642,15 @@ Class QGraphicsView from QAbstractScrollArea
 	Func ObjectPointer
 		return pObject
 
+	Func matrix 
+		return QGraphicsView_matrix(pObject)
+
+	Func resetMatrix 
+		return QGraphicsView_resetMatrix(pObject)
+
+	Func setMatrix P1,P2
+		return QGraphicsView_setMatrix(pObject,GetObjectPointerFromRingObject(P1),P2)
+
 	Func alignment 
 		return QGraphicsView_alignment(pObject)
 
@@ -20759,9 +20778,6 @@ Class QGraphicsView from QAbstractScrollArea
 	Func mapToScene_6 P1,P2,P3,P4
 		return QGraphicsView_mapToScene_6(pObject,P1,P2,P3,P4)
 
-	Func matrix 
-		return QGraphicsView_matrix(pObject)
-
 	Func optimizationFlags 
 		return QGraphicsView_optimizationFlags(pObject)
 
@@ -20773,9 +20789,6 @@ Class QGraphicsView from QAbstractScrollArea
 
 	Func resetCachedContent 
 		return QGraphicsView_resetCachedContent(pObject)
-
-	Func resetMatrix 
-		return QGraphicsView_resetMatrix(pObject)
 
 	Func resetTransform 
 		return QGraphicsView_resetTransform(pObject)
@@ -20822,9 +20835,6 @@ Class QGraphicsView from QAbstractScrollArea
 
 	Func setInteractive P1
 		return QGraphicsView_setInteractive(pObject,P1)
-
-	Func setMatrix P1,P2
-		return QGraphicsView_setMatrix(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func setOptimizationFlag P1,P2
 		return QGraphicsView_setOptimizationFlag(pObject,P1,P2)
@@ -23217,6 +23227,21 @@ Class QSqlError
 	Func ObjectPointer
 		return pObject
 
+	Func number 
+		return QSqlError_number(pObject)
+
+	Func setNumber P1
+		return QSqlError_setNumber(pObject,P1)
+
+	Func setType P1
+		return QSqlError_setType(pObject,P1)
+
+	Func setDriverText P1
+		return QSqlError_setDriverText(pObject,P1)
+
+	Func setDatabaseText P1
+		return QSqlError_setDatabaseText(pObject,P1)
+
 	Func databaseText 
 		return QSqlError_databaseText(pObject)
 
@@ -23225,21 +23250,6 @@ Class QSqlError
 
 	Func isValid 
 		return QSqlError_isValid(pObject)
-
-	Func number 
-		return QSqlError_number(pObject)
-
-	Func setDatabaseText P1
-		return QSqlError_setDatabaseText(pObject,P1)
-
-	Func setDriverText P1
-		return QSqlError_setDriverText(pObject,P1)
-
-	Func setNumber P1
-		return QSqlError_setNumber(pObject,P1)
-
-	Func setType P1
-		return QSqlError_setType(pObject,P1)
 
 	Func text 
 		return QSqlError_text(pObject)
@@ -24589,6 +24599,9 @@ Class QSerialPortInfo
 	Func ObjectPointer
 		return pObject
 
+	Func isBusy 
+		return QSerialPortInfo_isBusy(pObject)
+
 	Func description 
 		return QSerialPortInfo_description(pObject)
 
@@ -24597,9 +24610,6 @@ Class QSerialPortInfo
 
 	Func hasVendorIdentifier 
 		return QSerialPortInfo_hasVendorIdentifier(pObject)
-
-	Func isBusy 
-		return QSerialPortInfo_isBusy(pObject)
 
 	Func isNull 
 		return QSerialPortInfo_isNull(pObject)
