@@ -11,6 +11,6 @@ int screenCount(void)
 </filter>
 
 QRect availableGeometry(QWidget *)
-QWidget *screen(int screen)
+QScreen *screen(void)
 QRect screenGeometry(QWidget *)
 int screenNumber(QWidget *widget)
