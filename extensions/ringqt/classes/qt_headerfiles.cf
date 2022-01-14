@@ -56,7 +56,6 @@ extern "C" {
 #include "gfiledialog.h"
 #include "mscompleter.h"
 #include <QtWidgets>
-#include <QDirModel>
 </filter>
 
 
