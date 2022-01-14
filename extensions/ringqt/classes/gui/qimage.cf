@@ -5,6 +5,7 @@ para: void
 
 <filter> sysget("RINGQT_QT6") = ""
 int byteCount(void)
+QImage transformed(QTransform *, Qt::TransformationMode mode)
 </filter>
 
 bool allGray(void)
@@ -55,7 +56,6 @@ QSize size(void)
 void swap(QImage)
 QString text(QString)
 QStringList textKeys(void)
-QImage transformed(QTransform *, Qt::TransformationMode mode)
 bool valid(int x, int y)
 int width(void)
 
