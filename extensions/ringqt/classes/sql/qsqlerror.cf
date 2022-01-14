@@ -3,14 +3,17 @@ name: QSqlError
 para: QString, QString, QSqlError::ErrorType
 </class>
 
+<filter> sysget("RINGQT_QT6") = ""
+int number(void)
+void setNumber(int number)
+void setType(QSqlError::ErrorType type)
+void setDriverText(QString)
+</filter>
+
 QString databaseText(void)
 QString driverText(void)
 bool isValid(void)
-int number(void)
 void setDatabaseText(QString)
-void setDriverText(QString)
-void setNumber(int number)
-void setType(QSqlError::ErrorType type)
 QString text(void)
 QSqlError::ErrorType type(void)
 
