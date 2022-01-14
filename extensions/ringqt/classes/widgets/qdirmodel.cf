@@ -1,9 +1,10 @@
+<filter> sysget("RINGQT_QT6") = ""
+
 <class>
 name: QDirModel
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
 QIcon fileIcon(QModelIndex)
 QFileInfo fileInfo(QModelIndex)
 QString fileName(QModelIndex)
