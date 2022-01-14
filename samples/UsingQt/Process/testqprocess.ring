@@ -17,7 +17,7 @@ func test
 	new qProcess(NULL) {
 		setprogram(exefilename())
 		aArg = new qStringList() {
-			Append(exefolder()+"../applications/fifteenpuzzle/CalmoSoftFifteenPuzzleGame.ring")
+			Append(exefolder()+"../applications/fifteenpuzzle/FifteenPuzzleGame.ring")
 		}
 		setArguments(aArg)
 		start_3(QIODevice_ReadWrite)
