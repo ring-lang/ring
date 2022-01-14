@@ -4,6 +4,10 @@ para: void
 managed
 </class>
 
+<filter> sysget("RINGQT_QT6") = ""
+void swap(int,int)
+</filter>
+
 QString join(QString)
 void sort(void)
 int removeDuplicates(void)
@@ -45,7 +49,6 @@ void replace(int,QString)
 void reserve(int)
 int size(void)
 bool startsWith(QString)
-void swap(int,int)
 QString takeAt(int)
 QString takeFirst(void)
 QString takeLast(void)
