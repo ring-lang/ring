@@ -3,8 +3,17 @@ name: QCursor
 para: void
 </class>
 
+<filter> sysget("RINGQT_QT6") = ""
+QBitmap *bitmap(void)
+QBitmap *mask(void)
+</filter>
+
+<filter> sysget("RINGQT_QT6") = "1"
 QBitmap bitmap(void)
 QBitmap mask(void)
+</filter>
+
+
 QPoint hotSpot(void)
 QPixmap pixmap(void)
 void setShape(Qt::CursorShape shape)
