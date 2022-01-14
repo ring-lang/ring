@@ -4,6 +4,12 @@ para: QWidget *
 parent: QAbstractScrollArea
 </class>
  
+<filter> sysget("RINGQT_QT6") = ""
+QMatrix matrix(void)
+void resetMatrix(void)
+void setMatrix(QMatrix matrix, bool combine)
+</filter>
+
 Qt::Alignment alignment(void)
 QBrush backgroundBrush(void)
 QGraphicsView::CacheMode cacheMode(void)
@@ -41,12 +47,10 @@ QPolygonF mapToScene@3(QPolygon polygon)
 QPainterPath mapToScene@4(QPainterPath path)
 QPointF mapToScene@5(int x, int y)
 QPolygonF mapToScene@6(int x, int y, int w, int h)
-QMatrix matrix(void)
 QGraphicsView::OptimizationFlags optimizationFlags(void)
 void render(QPainter *painter, QRectF target, QRect source, Qt::AspectRatioMode aspectRatioMode)
 QPainter::RenderHints renderHints(void)
 void resetCachedContent(void)
-void resetMatrix(void)
 void resetTransform(void)
 QGraphicsView::ViewportAnchor resizeAnchor(void)
 void rotate(qreal angle)
@@ -61,7 +65,6 @@ void setCacheMode(QGraphicsView::CacheMode mode)
 void setDragMode(QGraphicsView::DragMode mode)
 void setForegroundBrush(QBrush brush)
 void setInteractive(bool allowed)
-void setMatrix(QMatrix matrix, bool combine)
 void setOptimizationFlag(QGraphicsView::OptimizationFlag flag, bool enabled)
 void setOptimizationFlags(QGraphicsView::OptimizationFlags flags)
 void setRenderHint(QPainter::RenderHint hint, bool enabled)
