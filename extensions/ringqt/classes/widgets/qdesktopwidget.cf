@@ -4,10 +4,13 @@ para: void
 parent: QWidget
 </class>
 
-QRect availableGeometry(int screen)
+<filter> sysget("RINGQT_QT6") = ""
 bool isVirtualDesktop(void)
 int primaryScreen(void)
-QWidget *screen(int screen)
 int screenCount(void)
+</filter>
+
+QRect availableGeometry(int screen)
+QWidget *screen(int screen)
 QRect screenGeometry(int screen)
 int screenNumber(QWidget *widget)
