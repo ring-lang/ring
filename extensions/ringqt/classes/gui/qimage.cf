@@ -5,8 +5,11 @@ para: void
 
 <filter> sysget("RINGQT_QT6") = ""
 int byteCount(void)
-QImage transformed(QTransform *, Qt::TransformationMode mode)
 </filter>
+
+<comment>
+QImage transformed(QTransform *, Qt::TransformationMode mode)
+</comment>
 
 bool allGray(void)
 int bitPlaneCount(void)
