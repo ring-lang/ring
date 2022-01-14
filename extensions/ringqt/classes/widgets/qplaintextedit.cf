@@ -11,6 +11,9 @@ void setTabStopWidth(int width)
 int tabStopWidth(void)
 </filter>
 
+void setTabStopDistance(qreal width)
+qreal tabStopDistance(void)  
+
 QString anchorAt(QPoint pos)
 bool backgroundVisible(void)
 int blockCount(void)
