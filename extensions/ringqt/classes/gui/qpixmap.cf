@@ -4,14 +4,7 @@ name: QPixmap
 para: const char *
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
-QPixmap transformed(QTransform transform, Qt::TransformationMode mode)
-</filter>
-
-<filter> sysget("RINGQT_QT6") = "1"
 QPixmap transformed(QTransform *transform, Qt::TransformationMode mode)
-</filter>
-
 
 QPixmap copy(int x, int y, int width, int height)
 QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode) 

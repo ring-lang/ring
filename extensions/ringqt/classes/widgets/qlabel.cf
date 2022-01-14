@@ -4,16 +4,8 @@ para: QWidget *
 parent: QWidget
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
-QPicture *picture(void)
-QPixmap *pixmap(void)
-</filter>
-
-<filter> sysget("RINGQT_QT6") = "1"
 QPicture picture(void)
 QPixmap pixmap(void)
-</filter>
-
 int alignment(void)
 QWidget *buddy(void)
 bool hasScaledContents(void)
