@@ -1,5 +1,6 @@
 set RINGQT_WEBASSEMBLY=1
 set RINGQT_ANDROID=1
+set RINGQT_ANDROID_QT512=
 set RINGQT_QT512=1
 set RINGQT_QT515=1
 set RINGQT_NOSQL=1
@@ -21,6 +22,7 @@ copy cpp\include\*.h ..\..\webassembly\ringqt\project
 
 set RINGQT_WEBASSEMBLY=
 set RINGQT_ANDROID=
+set RINGQT_ANDROID_QT512=
 set RINGQT_QT512=
 set RINGQT_QT515=
 set RINGQT_NOSQL=
