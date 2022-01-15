@@ -4,6 +4,15 @@ para: QWidget *
 parent: QWidget
 </class>
 
+<comment>
+See: https://doc.qt.io/qt-5/qlabel.html#pixmap-1
+Previously, Qt provided a version of picture() which returned the 
+picture by-pointer. 
+That version is now deprecated. 
+To maintain compatibility with old code, you can explicitly differentiate 
+between the by-pointer function and the by-value function
+</comment>
+
 <filter> sysget("RINGQT_QT6") = ""
 QPicture *picture(void)
 QPixmap *pixmap(void)

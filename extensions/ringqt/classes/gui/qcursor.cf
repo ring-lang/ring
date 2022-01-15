@@ -3,6 +3,12 @@ name: QCursor
 para: void
 </class>
 
+<comment>
+See: https://doc.qt.io/qt-5/qcursor.html#bitmap-1
+Previously, Qt provided a version of bitmap() which returned the bitmap by-pointer.
+That version is now deprecated
+</comment>
+
 <filter> sysget("RINGQT_QT6") = ""
 QBitmap *bitmap(void)
 QBitmap *mask(void)
