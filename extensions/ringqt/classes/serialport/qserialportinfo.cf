@@ -3,7 +3,7 @@ name: QSerialPortInfo
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 bool isBusy(void)
 </filter>
 

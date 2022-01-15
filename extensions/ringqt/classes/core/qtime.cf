@@ -3,7 +3,7 @@ name: QTime
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 int elapsed(void)
 int restart(void)
 void start(void)

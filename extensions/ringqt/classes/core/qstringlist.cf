@@ -4,7 +4,7 @@ para: void
 managed
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 void swap(int,int)
 </filter>
 

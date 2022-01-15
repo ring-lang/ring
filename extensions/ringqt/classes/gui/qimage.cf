@@ -3,7 +3,7 @@ name: QImage
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 int byteCount(void)
 </filter>
 

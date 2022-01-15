@@ -1,4 +1,4 @@
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 
 <class>
 name: QDirModel

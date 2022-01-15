@@ -3,7 +3,7 @@ name: QJsonDocument
 para: void
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 const char * rawData(int * size)
 QByteArray toBinaryData(void)
 QJsonDocument fromBinaryData( QByteArray  data, QJsonDocument::DataValidation validation)

@@ -4,7 +4,7 @@ para: void
 parent: QObject
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 void getContentsMargins(int *left, int *top, int *right, int *bottom)
 </filter>
 

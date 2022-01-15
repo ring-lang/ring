@@ -6,7 +6,7 @@ codename: GTextEdit
 passvmpointer
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 void setTabStopWidth(int width)
 int tabStopWidth(void)  
 </filter>

@@ -3,7 +3,7 @@ name: QUrl
 para: QString
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 QString topLevelDomain(QUrl::ComponentFormattingOption options)
 </filter>
 

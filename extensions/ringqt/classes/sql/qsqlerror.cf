@@ -3,7 +3,7 @@ name: QSqlError
 para: QString, QString, QSqlError::ErrorType
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 int number(void)
 void setNumber(int number)
 void setType(QSqlError::ErrorType type)

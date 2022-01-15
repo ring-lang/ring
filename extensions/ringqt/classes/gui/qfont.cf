@@ -4,7 +4,7 @@ para: QString, int, int, bool
 managed
 </class>
 
-<filter> sysget("RINGQT_QT6") = ""
+<filter> sysget("RINGQT_QT515") = ""
 void setRawMode(bool enable)
 void setRawName(QString)
 bool rawMode(void)
