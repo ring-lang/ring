@@ -333,9 +333,6 @@ Class QUrl
 	Func ObjectPointer
 		return pObject
 
-	Func topLevelDomain P1
-		return QUrl_topLevelDomain(pObject,P1)
-
 	Func authority P1
 		return QUrl_authority(pObject,P1)
 
@@ -939,11 +936,6 @@ Class QFileInfo
 	Func ObjectPointer
 		return pObject
 
-	Func created 
-		pTempObj = new QDateTime
-		pTempObj.pObject = QFileInfo_created(pObject)
-		return pTempObj
-
 	Func absoluteDir 
 		pTempObj = new QDir
 		pTempObj.pObject = QFileInfo_absoluteDir(pObject)
@@ -1094,9 +1086,6 @@ Class QStringList
 
 	Func ObjectPointer
 		return pObject
-
-	Func swap P1,P2
-		return QStringList_swap(pObject,P1,P2)
 
 	Func join P1
 		return QStringList_join(pObject,P1)
@@ -1431,15 +1420,6 @@ Class QTime
 	Func ObjectPointer
 		return pObject
 
-	Func elapsed 
-		return QTime_elapsed(pObject)
-
-	Func restart 
-		return QTime_restart(pObject)
-
-	Func start 
-		return QTime_start(pObject)
-
 	Func addMSecs P1
 		pTempObj = new QTime
 		pTempObj.pObject = QTime_addMSecs(pObject,P1)
@@ -1511,18 +1491,6 @@ Class QDate
 
 	Func ObjectPointer
 		return pObject
-
-	Func longDayName P1
-		return QDate_longDayName(pObject,P1)
-
-	Func longMonthName P1
-		return QDate_longMonthName(pObject,P1)
-
-	Func shortDayName P1
-		return QDate_shortDayName(pObject,P1)
-
-	Func shortMonthName P1
-		return QDate_shortMonthName(pObject,P1)
 
 	Func addDays P1
 		pTempObj = new QDate
@@ -2595,24 +2563,6 @@ Class QJsonDocument
 	Func ObjectPointer
 		return pObject
 
-	Func rawData P1
-		return QJsonDocument_rawData(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func toBinaryData 
-		pTempObj = new QByteArray
-		pTempObj.pObject = QJsonDocument_toBinaryData(pObject)
-		return pTempObj
-
-	Func fromBinaryData P1,P2
-		pTempObj = new QJsonDocument
-		pTempObj.pObject = QJsonDocument_fromBinaryData(pObject,GetObjectPointerFromRingObject(P1),P2)
-		return pTempObj
-
-	Func fromRawData P1,P2,P3
-		pTempObj = new QJsonDocument
-		pTempObj.pObject = QJsonDocument_fromRawData(pObject,P1,P2,P3)
-		return pTempObj
-
 	Func array 
 		pTempObj = new QJsonArray
 		pTempObj.pObject = QJsonDocument_array(pObject)
@@ -3273,17 +3223,6 @@ Class QDateTime
 
 	Func ObjectPointer
 		return pObject
-
-	Func toTime_t 
-		return QDateTime_toTime_t(pObject)
-
-	Func fromTime_t P1
-		pTempObj = new QDateTime
-		pTempObj.pObject = QDateTime_fromTime_t(pObject,P1)
-		return pTempObj
-
-	Func setTime_t P1
-		return QDateTime_setTime_t(pObject,P1)
 
 	Func addDays P1
 		pTempObj = new QDateTime
@@ -4593,9 +4532,6 @@ Class QProcess from QIODevice
 	Func ObjectPointer
 		return pObject
 
-	Func start_2 P1,P2
-		return QProcess_start_2(pObject,P1,P2)
-
 	Func arguments 
 		pTempObj = new QStringList
 		pTempObj.pObject = QProcess_arguments(pObject)
@@ -5010,9 +4946,6 @@ Class QPainter
 
 	Func ObjectPointer
 		return pObject
-
-	Func initFrom P1
-		return QPainter_initFrom(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func background 
 		pTempObj = new QBrush
@@ -5737,24 +5670,6 @@ Class QFont
 	Func ObjectPointer
 		return pObject
 
-	Func setRawMode P1
-		return QFont_setRawMode(pObject,P1)
-
-	Func setRawName P1
-		return QFont_setRawName(pObject,P1)
-
-	Func rawMode 
-		return QFont_rawMode(pObject)
-
-	Func rawName 
-		return QFont_rawName(pObject)
-
-	Func lastResortFamily 
-		return QFont_lastResortFamily(pObject)
-
-	Func lastResortFont 
-		return QFont_lastResortFont(pObject)
-
 	Func bold 
 		return QFont_bold(pObject)
 
@@ -5939,12 +5854,6 @@ Class QBrush
 
 	Func ObjectPointer
 		return pObject
-
-	Func matrix 
-		return QBrush_matrix(pObject)
-
-	Func setMatrix P1
-		return QBrush_setMatrix(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func color 
 		pTempObj = new QColor
@@ -6700,9 +6609,6 @@ Class QImage
 	Func ObjectPointer
 		return pObject
 
-	Func byteCount 
-		return QImage_byteCount(pObject)
-
 	Func allGray 
 		return QImage_allGray(pObject)
 
@@ -7075,12 +6981,6 @@ Class QFontMetrics
 
 	Func ObjectPointer
 		return pObject
-
-	Func width P1,P2
-		return QFontMetrics_width(pObject,P1,P2)
-
-	Func width_2 P1
-		return QFontMetrics_width_2(pObject,GetObjectPointerFromRingObject(P1))
 
 	Func ascent 
 		return QFontMetrics_ascent(pObject)
@@ -8126,9 +8026,6 @@ Class QRegion
 	Func ObjectPointer
 		return pObject
 
-	Func rects 
-		return QRegion_rects(pObject)
-
 	Func boundingRect 
 		pTempObj = new QRect
 		pTempObj.pObject = QRegion_boundingRect(pObject)
@@ -8588,9 +8485,6 @@ Class QMatrix4x4
 
 	Func ObjectPointer
 		return pObject
-
-	Func toAffine 
-		return QMatrix4x4_toAffine(pObject)
 
 	Func column P1
 		pTempObj = new QVector4D
@@ -11754,9 +11648,6 @@ Class QWidget from QObject
 	Func ObjectPointer
 		return pObject
 
-	Func getContentsMargins P1,P2,P3,P4
-		return QWidget_getContentsMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-
 	Func acceptDrops 
 		return QWidget_acceptDrops(pObject)
 
@@ -12598,9 +12489,6 @@ Class QLineEdit from QWidget
 	Func ObjectPointer
 		return pObject
 
-	Func getTextMargins P1,P2,P3,P4
-		return QLineEdit_getTextMargins(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),GetObjectPointerFromRingObject(P3),GetObjectPointerFromRingObject(P4))
-
 	Func alignment 
 		return QLineEdit_alignment(pObject)
 
@@ -12865,12 +12753,6 @@ Class QTextEdit from QAbstractScrollArea
 
 	Func ObjectPointer
 		return pObject
-
-	Func setTabStopWidth P1
-		return QTextEdit_setTabStopWidth(pObject,P1)
-
-	Func tabStopWidth 
-		return QTextEdit_tabStopWidth(pObject)
 
 	Func setTabStopDistance P1
 		return QTextEdit_setTabStopDistance(pObject,P1)
@@ -13726,12 +13608,6 @@ Class QTreeWidget from QTreeView
 
 	Func ObjectPointer
 		return pObject
-
-	Func isFirstItemColumnSpanned P1
-		return QTreeWidget_isFirstItemColumnSpanned(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setFirstItemColumnSpanned P1,P2
-		return QTreeWidget_setFirstItemColumnSpanned(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func addTopLevelItem P1
 		return QTreeWidget_addTopLevelItem(pObject,GetObjectPointerFromRingObject(P1))
@@ -17494,98 +17370,6 @@ Class QFileDialog from QDialog
 	Func geturlsSelectedEvent 
 		return QFileDialog_geturlsSelectedEvent(pObject)
 
-Class QDirModel
-
-	pObject
-
-	Func init 
-		pObject = QDirModel_new()
-		return self
-
-	Func delete
-		pObject = QDirModel_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
-	Func fileIcon P1
-		pTempObj = new QIcon
-		pTempObj.pObject = QDirModel_fileIcon(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func fileInfo P1
-		pTempObj = new QFileInfo
-		pTempObj.pObject = QDirModel_fileInfo(pObject,GetObjectPointerFromRingObject(P1))
-		return pTempObj
-
-	Func fileName P1
-		return QDirModel_fileName(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func filePath P1
-		return QDirModel_filePath(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func filter 
-		return QDirModel_filter(pObject)
-
-	Func iconProvider 
-		return QDirModel_iconProvider(pObject)
-
-	Func index P1,P2
-		return QDirModel_index(pObject,P1,P2)
-
-	Func isDir P1
-		return QDirModel_isDir(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func isReadOnly 
-		return QDirModel_isReadOnly(pObject)
-
-	Func lazyChildCount 
-		return QDirModel_lazyChildCount(pObject)
-
-	Func mkdir P1,P2
-		return QDirModel_mkdir(pObject,GetObjectPointerFromRingObject(P1),P2)
-
-	Func nameFilters 
-		pTempObj = new QStringList
-		pTempObj.pObject = QDirModel_nameFilters(pObject)
-		return pTempObj
-
-	Func remove P1
-		return QDirModel_remove(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func resolveSymlinks 
-		return QDirModel_resolveSymlinks(pObject)
-
-	Func rmdir P1
-		return QDirModel_rmdir(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setFilter P1
-		return QDirModel_setFilter(pObject,P1)
-
-	Func setIconProvider P1
-		return QDirModel_setIconProvider(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setLazyChildCount P1
-		return QDirModel_setLazyChildCount(pObject,P1)
-
-	Func setNameFilters P1
-		return QDirModel_setNameFilters(pObject,GetObjectPointerFromRingObject(P1))
-
-	Func setReadOnly P1
-		return QDirModel_setReadOnly(pObject,P1)
-
-	Func setResolveSymlinks P1
-		return QDirModel_setResolveSymlinks(pObject,P1)
-
-	Func setSorting P1
-		return QDirModel_setSorting(pObject,P1)
-
-	Func sorting 
-		return QDirModel_sorting(pObject)
-
-	Func refresh P1
-		return QDirModel_refresh(pObject,GetObjectPointerFromRingObject(P1))
-
 Class QFontDialog from QDialog
 
 	pObject
@@ -18450,15 +18234,6 @@ Class QDesktopWidget from QWidget
 	Func ObjectPointer
 		return pObject
 
-	Func isVirtualDesktop 
-		return QDesktopWidget_isVirtualDesktop(pObject)
-
-	Func primaryScreen 
-		return QDesktopWidget_primaryScreen(pObject)
-
-	Func screenCount 
-		return QDesktopWidget_screenCount(pObject)
-
 	Func availableGeometry P1
 		pTempObj = new QRect
 		pTempObj.pObject = QDesktopWidget_availableGeometry(pObject,GetObjectPointerFromRingObject(P1))
@@ -18688,12 +18463,6 @@ Class QPlainTextEdit from QAbstractScrollArea
 
 	Func ObjectPointer
 		return pObject
-
-	Func setTabStopWidth P1
-		return QPlainTextEdit_setTabStopWidth(pObject,P1)
-
-	Func tabStopWidth 
-		return QPlainTextEdit_tabStopWidth(pObject)
 
 	Func setTabStopDistance P1
 		return QPlainTextEdit_setTabStopDistance(pObject,P1)
@@ -20641,15 +20410,6 @@ Class QGraphicsView from QAbstractScrollArea
 
 	Func ObjectPointer
 		return pObject
-
-	Func matrix 
-		return QGraphicsView_matrix(pObject)
-
-	Func resetMatrix 
-		return QGraphicsView_resetMatrix(pObject)
-
-	Func setMatrix P1,P2
-		return QGraphicsView_setMatrix(pObject,GetObjectPointerFromRingObject(P1),P2)
 
 	Func alignment 
 		return QGraphicsView_alignment(pObject)
@@ -23227,21 +22987,6 @@ Class QSqlError
 	Func ObjectPointer
 		return pObject
 
-	Func number 
-		return QSqlError_number(pObject)
-
-	Func setNumber P1
-		return QSqlError_setNumber(pObject,P1)
-
-	Func setType P1
-		return QSqlError_setType(pObject,P1)
-
-	Func setDriverText P1
-		return QSqlError_setDriverText(pObject,P1)
-
-	Func setDatabaseText P1
-		return QSqlError_setDatabaseText(pObject,P1)
-
 	Func databaseText 
 		return QSqlError_databaseText(pObject)
 
@@ -24598,9 +24343,6 @@ Class QSerialPortInfo
 
 	Func ObjectPointer
 		return pObject
-
-	Func isBusy 
-		return QSerialPortInfo_isBusy(pObject)
 
 	Func description 
 		return QSerialPortInfo_description(pObject)
