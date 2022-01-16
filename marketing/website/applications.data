@@ -72,6 +72,10 @@
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/winstartupmanager" target="_blank">Windows Startup Manager</a>',
 				'<img src="winstartupman.jpg" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/videomusicplayer" target="_blank">Video Music Player</a>',
+				'<img src="videomusicplayer.jpg" width="100%">'
 			]
 		]
 	],
@@ -175,10 +179,6 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory" target="_blank">Yahoo Stock Data</a>',
 		'<img src="getquotesmac.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/videomusicplayer" target="_blank">Video Music Player</a>',
-		'<img src="videomusicplayer.jpg" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe" target="_blank">TicTacToe</a>',
