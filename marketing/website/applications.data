@@ -46,20 +46,12 @@
 	["General Tools",
 		[
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/analogclock" target="_blank">Analog Clock</a>',
-				'<img src="analogclock.png" width="100%">'
-			],
-			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/desktopscreenshot" target="_blank">Desktop Screen Shot Application</a>',
 				'<img src="dssapp.png" width="100%">'
 			],
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/mergetwofiles" target="_blank">Merge Two Files (Line by Line)</a>',
 				'<img src="mergetwofiles.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">Stop Watch</a>',
-				'<img src="stopwatch.png" width="100%">'
 			],
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/calculator" target="_blank">Calculator</a>',
@@ -76,6 +68,26 @@
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/videomusicplayer" target="_blank">Video Music Player</a>',
 				'<img src="videomusicplayer.jpg" width="100%">'
+			]
+		]
+	],
+	["Date & Time",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/analogclock" target="_blank">Analog Clock</a>',
+				'<img src="analogclock.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">Stop Watch</a>',
+				'<img src="stopwatch.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
+				'<img src="calendar.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
+				'<img src="juliandaycalendar.png" width="100%">'
 			]
 		]
 	],
@@ -317,14 +329,6 @@
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/bmicalculator" target="_blank">BMI Caclculator application</a>',
 				'<img src="BMI.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
-				'<img src="calendar.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
-				'<img src="juliandaycalendar.png" width="100%">'
 			],
 			[
 				'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
