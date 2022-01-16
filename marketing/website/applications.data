@@ -1,4 +1,16 @@
-﻿aApplications = [ ["Applications",[
+﻿aApplications = [ 
+	["Arabic Applications",[
+		[
+			'<a href="https://github.com/ring-lang/werdy" target="_blank">Werdy Application</a>',
+			'<img src="werdy.png" width="100%">'
+		],
+		[
+			'<a href="https://github.com/ring-lang/ring/blob/master/applications/poetryanalysis" target="_blank">Arabic Poetry Analysis</a>',
+			'<img src="poetryanalysis.png" width="100%">'
+		]
+		]
+	],
+	["Applications",[
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" target="_blank">Ring Notepad</a>',
 		'<img src="ringnotepad.png" width="100%">'
@@ -94,10 +106,6 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/squarespuzzle" target="_blank">Squares Puzzle</a>',
 		'<img src="squarespuzzle.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/werdy" target="_blank">Werdy Application</a>',
-		'<img src="werdy.png" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/employee" target="_blank">Employee Data</a>',
@@ -286,10 +294,6 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/marketing/chess3d/README.md" target="_blank">Chess 3D (Qt3D Sample)</a>',
 		'<img src="chess3dshot2.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/poetryanalysis" target="_blank">Arabic Poetry Analysis</a>',
-		'<img src="poetryanalysis.png" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/citationsprediction" target="_blank">Citations Prediction Application</a>',
