@@ -79,7 +79,7 @@
 			]
 		]
 	],
-	["RingRayLib Applications",
+	["Using RayLib",
 		[
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/typingquiz" target="_blank">Typing Quiz</a>',
@@ -92,6 +92,22 @@
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/spaceshooter" target="_blank">Space Shooter Game</a>',
 				'<img src="spaceshootergame.png" width="100%">'
+			]
+		]
+	],
+	["Using OpenGL",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe3d" target="_blank">TicTacToe 3D</a>',
+				'<img src="tictactoe3d.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle3d" target="_blank">Fifteen Puzzle 3D Game</a>',
+				'<img src="fifteen3d.png" width="100%">'
+			],
+			[
+				'<a href="https://store.steampowered.com/app/939200/Gold_Magic_800/" target="_blank">Gold Magic 800</a>',
+				'<img src="goldmagic800.png" width="100%">'
 			]
 		]
 	],
@@ -111,14 +127,6 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/cards" target="_blank">The Cards Game</a>',
 		'<img src="cards.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe3d" target="_blank">TicTacToe 3D</a>',
-		'<img src="tictactoe3d.png" width="100%">'
-	],
-	[
-		'<a href="https://store.steampowered.com/app/939200/Gold_Magic_800/" target="_blank">Gold Magic 800</a>',
-		'<img src="goldmagic800.png" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" target="_blank">Gold Magic 800 Level Editor</a>',
@@ -175,10 +183,6 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/weighthistory" target="_blank">Weight History</a>',
 		'<img src="weighthistory.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle3d" target="_blank">Fifteen Puzzle 3D Game</a>',
-		'<img src="fifteen3d.png" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">Stop Watch</a>',
