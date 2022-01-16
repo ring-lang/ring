@@ -1,5 +1,5 @@
 ﻿aApplications = [ 
-	["Development Tools",
+	["Development Tools (GUI)",
 		[
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" target="_blank">Ring Notepad</a>',
@@ -22,20 +22,24 @@
 				'<img src="string2constant.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen" target="_blank">Code Generator for extensions</a>',
-				'<img src="codegen.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ring2exe" target="_blank">Ring2EXE</a>',
-				'<img src="ring2exe.png" width="100%">'
-			],
-			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" target="_blank">Qt Class Converter</a>',
 				'<img src="qtconverter.png" width="100%">'
 			],
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" target="_blank">Gold Magic 800 Level Editor</a>',
 				'<img src="gm800le.png" width="100%">'
+			]
+		]
+	],
+	["Development Tools (Console)",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen" target="_blank">Code Generator for extensions</a>',
+				'<img src="codegen.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ring2exe" target="_blank">Ring2EXE</a>',
+				'<img src="ring2exe.png" width="100%">'
 			]
 		]
 	],
