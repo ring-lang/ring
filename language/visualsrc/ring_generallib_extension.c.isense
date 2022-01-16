@@ -264,7 +264,7 @@ nNum
 ring_vm_generallib_getpointer
 Type: List *
 pList
-Type: uintptr_t
+Type: RING_UNSIGNEDINTEGERPOINTER
 nNum
 ring_vm_generallib_memcpy
 Type: void *

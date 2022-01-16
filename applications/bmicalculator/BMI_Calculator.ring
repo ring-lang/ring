@@ -5,7 +5,7 @@
 #--------------------------------#
 
 
-load "guilib.ring"
+load "lightguilib.ring"
 load "sqlitelib.ring"
 
 win2 = null

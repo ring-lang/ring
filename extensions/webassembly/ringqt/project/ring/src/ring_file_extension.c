@@ -45,13 +45,32 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
 
 int ring_fexists_general ( const char *cFileName )
 {
-	struct stat sb  ;
-	if ( stat(cFileName, &sb) == 0 ) {
-		if ( S_ISREG(sb.st_mode) ) {
-			/* Path exists and it is a regular file */
-			return 1 ;
+	#ifdef _WIN32
+		/* Windows Only */
+		struct _stat sb  ;
+		wchar_t cPath[MAX_PATH]  ;
+		int nLen1,nFileNameSize  ;
+		nFileNameSize = strlen(cFileName) ;
+		nLen1 = MultiByteToWideChar(CP_UTF8, 0, cFileName, nFileNameSize, cPath, nFileNameSize) ;
+		if ( nLen1 >= MAX_PATH ) {
+			return 0 ;
 		}
-	}
+		cPath[nLen1] = L'\0' ;
+		if ( _wstat(cPath, &sb) == 0 ) {
+			if ( S_ISREG(sb.st_mode) ) {
+				/* Path exists and it is a regular file */
+				return 1 ;
+			}
+		}
+	#else
+		struct stat sb  ;
+		if ( stat(cFileName, &sb) == 0 ) {
+			if ( S_ISREG(sb.st_mode) ) {
+				/* Path exists and it is a regular file */
+				return 1 ;
+			}
+		}
+	#endif
 	return 0 ;
 }
 

@@ -3,6 +3,10 @@ name: QUrl
 para: QString
 </class>
 
+<filter> sysget("RINGQT_QT515") = ""
+QString topLevelDomain(QUrl::ComponentFormattingOption options)
+</filter>
+
 <comment>
 QUrl adjusted(int options)
 </comment>
@@ -47,7 +51,6 @@ QString toString(int options)
 QString url(int options)
 </comment>
 QString toLocalFile(void)
-QString topLevelDomain(QUrl::ComponentFormattingOption options)
 QString userInfo(QUrl::ComponentFormattingOption options)
 QString userName(QUrl::ComponentFormattingOption options)
 QUrl fromLocalFile(QString)

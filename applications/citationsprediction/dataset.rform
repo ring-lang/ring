@@ -1,0 +1,96 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = -323 , : y = 24  , 
+		 :width =  842 , :height = 427 , 
+		 :title =  "DataSet Rows" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "" , 
+		 :mainlayout =  "Layout2" ,
+		 :WindowIcon =  "images/prediction.png" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "Button1" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 560 , : y = 361  , 
+		 :width =  124 , :height = 38 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Select",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Select"
+		]
+	],
+	[ :name = "Button3" , :id = 3 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 694 , : y = 361  , 
+		 :width =  124 , :height = 38 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Close",
+		 :BtnImage =  "",
+		 :setClickEvent =  "Close"
+		]
+	],
+	[ :name = "TableWidget1" , :id = 4 , :classname = "formdesigner_qtablewidget" , :data = [
+		 :x = 13 , : y = 18  , 
+		 :width =  812 , :height = 333 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :RowCount =  "",
+		 :ColumnCount =  "4",
+		 :HorizontalHeaders =  "Title,Authors,Abstract,Total Citations",
+		 :ColumnsWidth =  "180,150,350,100",
+		 :HorizontalHeaderStyle =  "",
+		 :VerticalHeaderStyle =  "",
+		 :selectionbehavior =  1,
+		 :alternatingcolors =  0,
+		 :setcellActivatedEvent =  "",
+		 :setcellChangedEvent =  "",
+		 :setcellClickedEvent =  "",
+		 :setcellDoubleClickedEvent =  "",
+		 :setcellEnteredEvent =  "",
+		 :setcellPressedEvent =  "",
+		 :setcurrentCellChangedEvent =  "",
+		 :setcurrentItemChangedEvent =  "",
+		 :setitemActivatedEvent =  "",
+		 :setitemChangedEvent =  "",
+		 :setitemClickedEvent =  "",
+		 :setitemDoubleClickedEvent =  "select",
+		 :setitemEnteredEvent =  "",
+		 :setitemPressedEvent =  "",
+		 :setitemSelectionChangedEvent =  ""
+		]
+	],
+	[ :name = "Layout1" , :id = 5 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 372 , : y = 360  , 
+		 :width =  139 , :height = 35 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  1,
+		 :LayoutObjects =  "Button1,Button3"
+		]
+	],
+	[ :name = "Layout2" , :id = 6 , :classname = "formdesigner_qlayout" , :data = [
+		 :x = 241 , : y = 360  , 
+		 :width =  108 , :height = 37 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :LayoutType =  0,
+		 :LayoutObjects =  "TableWidget1,Layout1"
+		]
+	]
+]
+# End Form Designer File

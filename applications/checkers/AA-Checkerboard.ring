@@ -2,8 +2,8 @@
 ### Author:  Bert Mariani
 ### Date:    2019-04-10
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 load "CheckerPuzzles.ring"     ### A File with Checker Puzzles to Solve  
 
 ###-------------------

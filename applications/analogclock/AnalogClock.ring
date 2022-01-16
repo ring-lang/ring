@@ -4,7 +4,7 @@
 ### 2017-03-28  Bert Mariani
 ###-----------------------------------------
 
-Load "guilib.ring"
+Load "lightguilib.ring"
 
 colorRed     = new qcolor() { setrgb( 255,0,0,255 ) }
 penRed       = new qpen()   { setcolor(colorRed)  setwidth(2) }

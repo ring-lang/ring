@@ -6,6 +6,14 @@ codename: GPlainTextEdit
 passvmpointer
 </class>
 
+<filter> sysget("RINGQT_QT515") = ""
+void setTabStopWidth(int width)
+int tabStopWidth(void)
+</filter>
+
+void setTabStopDistance(qreal width)
+qreal tabStopDistance(void)  
+
 QString anchorAt(QPoint pos)
 bool backgroundVisible(void)
 int blockCount(void)
@@ -67,13 +75,11 @@ void setPlaceholderText(QString placeholderText)
 
 void setReadOnly(bool ro)
 void setTabChangesFocus(bool b)
-void setTabStopWidth(int width)
 void setTextCursor(QTextCursor cursor)
 void setTextInteractionFlags(Qt::TextInteractionFlags flags)
 void setUndoRedoEnabled(bool enable)
 void setWordWrapMode(QTextOption::WrapMode policy)
 bool tabChangesFocus(void)
-int tabStopWidth(void)
 QTextCursor textCursor(void)
 Qt::TextInteractionFlags textInteractionFlags(void)
 QString toPlainText(void)

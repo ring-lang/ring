@@ -15,10 +15,63 @@ List of changes and new features
 
 Ring 1.17 comes with the next features!
 
+* Citations Prediction
+* Merge Two Files 
+* Poetry Analysis 
 * CSVLib Library
 * JSONLib Library
 * TokensLib Library
+* Better GUILib
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.17; Citations Prediction
+
+Citations Prediction
+====================
+
+An applicaiton to predict the research paper citations using title, abstract or authors.
+
+The applications uses Microsoft Azure Machine Learning for the Models
+
+The Models are trained using a Dataset for a specific domain and specific journal
+
+This application comes with 3 samples to see how it works!
+
+It's an example about using Ring, RingQt, RingLibCurl and JSONLib
+
+.. image:: predictionapp1.png
+	:alt: citations
+
+
+.. index:: 
+	pair: What is new in Ring  1.17; Merge Two Files
+
+Merge Two Files
+===============
+
+An application to merge two text files line by line
+
+Development Time: 30 minutes (Includes user interface design, coding, testing and distribution)
+
+.. image:: mergetwofiles.png
+	:alt: merge
+
+
+.. index:: 
+	pair: What is new in Ring  1.17; Poetry Analysis
+
+Poetry Analysis
+===============
+
+An application to analysis the Arabic poetry
+
+The application is over 4000 lines of Ring code
+
+The source code is explained in a printed book about the subject
+
+.. image:: poetryanalysis.png
+	:alt: arabicpoetry
 
 .. index:: 
 	pair: What is new in Ring  1.17; CSVLib Library
@@ -220,6 +273,51 @@ Output:
 	Number      : 1
 	EndLine
 
+
+.. index:: 
+	pair: What is new in Ring  1.17; Better GUILib
+
+Better GUILib
+=============
+
+* Added: AddList() method to the TableWidget class 
+
+.. tip:: TableWidget class is a subclass of QTableWidget class
+
+.. note:: To use TableWidget class, import system.gui after loading guilib.ring or lightguilib.ring
+
+Example:
+
+Source code: https://github.com/ring-lang/ring/tree/master/samples/UsingQt/TableWidget/AddRingList
+
+.. code-block:: ring
+
+
+	class addRingListController from windowsControllerParent
+
+		oView = new addRingListView
+
+		aList = [["one","two"],
+			 ["three","four"],
+			 ["five","six"],
+			 [7,8],
+			 ["I","Love","Ring","Programming"]]
+		
+		oView.tablewidget1.addList(aList)
+
+		aList = [["Number","Square"]]
+		for t = 1 to 10
+			aList + [ t, t*t]
+		next
+
+		oView.tablewidget1.addList(aList)
+
+Screen Shot:
+
+.. image:: addlisttotablewidget.png
+	:alt: addlisttotablewidget
+
+
 .. index:: 
 	pair: What is new in Ring  1.17; More Improvements
 
@@ -227,10 +325,14 @@ More Improvements
 =================
 
 * Many documents and samples are revised (Better English)
+* Many applications are updated to use LightGUILib 
+* Calendar application - Better code to detect the current year
 * Added: samples/Drawing/Mandelbrot/Mandelbrot_Fast.ring
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.18
 * RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
 * RingLibCurl - Better support for Ring2EXE
 * Ring Object File - ring_objfile_writeCfile() - Better Code
-* Eval() Function - return NULL if the Return command is not used
+* Eval() function - Return NULL if the Return command is not used
+* SetPointer()/GetPointer() functions - Better Code
+* Fexists() function - Support UTF-8 file names
 * Form Designer - Default TextColor is Empty (Better when changing styles)

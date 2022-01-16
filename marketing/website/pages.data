@@ -24,7 +24,9 @@ aPages = ["index.template","download.template",
 	  "download12.template",	
 	  "download11.template",	
 	  "download1.template",	
-          "news.template","resources.template",
+          "news.template",
+	  "resources.template",
+	  "applications.template",
           "team.template"]
 
 # We need aDownload as a Global Variable

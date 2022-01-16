@@ -2,16 +2,16 @@
 ### Author:	 Bert Mariani
 ### Date:	 2018-10-14
 
-load "stdlib.ring"
-load "guilib.ring"
+load "stdlibcore.ring"
+load "lightguilib.ring"
 load "ChessPuzzles.ring"	### A File with Chess Puzzles to Solve	
 
 ###-------------------
 ### Track Moves
 
-  TurnColor		 = "White"		### "Black"
- IgnoreTurnColor =	False		### False <<=== Normal turns
-#IgnoreTurnColor =	True		### True  <<=== Debug and Testing
+TurnColor	 = "White"		### "Black"
+IgnoreTurnColor  = False		### False <<=== Normal turns
+#IgnoreTurnColor = True		### True  <<=== Debug and Testing
 
 ###-------------------
 ### WINDOW SIZE

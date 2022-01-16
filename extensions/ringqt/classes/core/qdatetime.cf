@@ -3,6 +3,12 @@ name: QDateTime
 para: void
 </class>
 
+<filter> sysget("RINGQT_QT515") = ""
+uint toTime_t(void)
+QDateTime fromTime_t(uint seconds)
+void setTime_t(uint seconds)
+</filter>
+
 QDateTime addDays(int ndays)
 QDateTime addMSecs(qint64 msecs)
 QDateTime addMonths(int nmonths)
@@ -18,7 +24,6 @@ void setDate(QDate date)
 void setMSecsSinceEpoch(qint64 msecs)
 void setTime(QTime time)
 void setTimeSpec(Qt::TimeSpec spec)
-void setTime_t(uint seconds)
 QTime time(void)
 Qt::TimeSpec timeSpec(void)
 QDateTime toLocalTime(void)
@@ -26,7 +31,6 @@ qint64 toMSecsSinceEpoch(void)
 QString toString(QString format)
 QString toString@2(Qt::DateFormat format)
 QDateTime toTimeSpec(Qt::TimeSpec specification)
-uint toTime_t(void)
 QDateTime toUTC(void)
 QDateTime currentDateTime(void)
 QDateTime currentDateTimeUtc(void)
@@ -34,4 +38,3 @@ qint64 currentMSecsSinceEpoch(void)
 QDateTime fromMSecsSinceEpoch(qint64 msecs)
 QDateTime fromString(QString string, Qt::DateFormat format)
 QDateTime fromString@2(QString string, QString format)
-QDateTime fromTime_t(uint seconds)

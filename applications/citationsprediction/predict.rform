@@ -1,0 +1,176 @@
+# Start Form Designer File
+aObjectsList = [
+	[ :name = "Window" , :id = 1 , :classname = "formdesigner_qwidget" , :data = [
+		 :x = -80 , : y = -64  , 
+		 :width =  904 , :height = 559 , 
+		 :title =  "Research Paper Citations - Prediction Application using Natural Language Processing (NLP)" , 
+		 :backcolor =  "" , 
+		 :windowflags =  "Qt_Window | Qt_WindowTitleHint | Qt_WindowCloseButtonHint | Qt_CustomizeWindowHint" , 
+		 :mainlayout =  "" ,
+		 :WindowIcon =  "images/prediction.png" , 
+		 :Menubar =  ""  ,
+		 :IndexType =  0  ,
+		 :GUILibrary =  0  
+
+		]
+	],
+	[ :name = "Label1" , :id = 2 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 21 , : y = 24  , 
+		 :width =  38 , :height = 28 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Title",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtTitle" , :id = 3 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 75 , : y = 22  , 
+		 :width =  808 , :height = 34 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label2" , :id = 4 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 21 , : y = 63  , 
+		 :width =  38 , :height = 28 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Authors",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtAuthors" , :id = 5 , :classname = "formdesigner_qlineedit" , :data = [
+		 :x = 75 , : y = 65  , 
+		 :width =  808 , :height = 30 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setTextChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :seteditingFinishedEvent =  "",
+		 :setreturnPressedEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextEditedEvent =  ""
+		]
+	],
+	[ :name = "Label3" , :id = 6 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 21 , : y = 106  , 
+		 :width =  48 , :height = 28 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Abstract",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtAbstract" , :id = 7 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 75 , : y = 105  , 
+		 :width =  808 , :height = 241 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Button1" , :id = 8 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 641 , : y = 491  , 
+		 :width =  117 , :height = 36 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Predict ",
+		 :BtnImage =  "",
+		 :setClickEvent =  "predict"
+		]
+	],
+	[ :name = "Button8" , :id = 9 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 763 , : y = 491  , 
+		 :width =  117 , :height = 36 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Close",
+		 :BtnImage =  "",
+		 :setClickEvent =  "closeApp"
+		]
+	],
+	[ :name = "Label9" , :id = 10 , :classname = "formdesigner_qlabel" , :data = [
+		 :x = 21 , : y = 361  , 
+		 :width =  48 , :height = 28 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Output",
+		 :textalign =  0
+		]
+	],
+	[ :name = "txtOutput" , :id = 11 , :classname = "formdesigner_qtextedit" , :data = [
+		 :x = 75 , : y = 360  , 
+		 :width =  808 , :height = 121 , 
+		 :textcolor =  "black" , 
+		 :backcolor =  "white" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "",
+		 :setcopyAvailableEvent =  "",
+		 :setcurrentCharFormatChangedEvent =  "",
+		 :setcursorPositionChangedEvent =  "",
+		 :setredoAvailableEvent =  "",
+		 :setselectionChangedEvent =  "",
+		 :settextChangedEvent =  "",
+		 :setundoAvailableEvent =  ""
+		]
+	],
+	[ :name = "Button11" , :id = 12 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 75 , : y = 490  , 
+		 :width =  117 , :height = 36 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Select",
+		 :BtnImage =  "",
+		 :setClickEvent =  "select"
+		]
+	],
+	[ :name = "Button12" , :id = 13 , :classname = "formdesigner_qpushbutton" , :data = [
+		 :x = 200 , : y = 490  , 
+		 :width =  117 , :height = 36 , 
+		 :textcolor =  "" , 
+		 :backcolor =  "" , 
+		 :font =  "Arial" , 
+		 :parent =  "win"  ,
+		 :text =  "Clear",
+		 :BtnImage =  "",
+		 :setClickEvent =  "clear"
+		]
+	]
+]
+# End Form Designer File

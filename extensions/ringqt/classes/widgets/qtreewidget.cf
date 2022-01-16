@@ -6,6 +6,11 @@ codename: GTreeWidget
 passvmpointer
 </class>
 
+<filter> sysget("RINGQT_QT515") = ""
+bool isFirstItemColumnSpanned( QTreeWidgetItem *item)
+void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
+</filter>
+
 void addTopLevelItem(QTreeWidgetItem *item)
 void closePersistentEditor(QTreeWidgetItem *item, int column)
 int columnCount(void)
@@ -16,7 +21,6 @@ QTreeWidgetItem *headerItem(void)
 int indexOfTopLevelItem(QTreeWidgetItem *item)
 void insertTopLevelItem(int index, QTreeWidgetItem *item)
 QTreeWidgetItem *invisibleRootItem(void)
-bool isFirstItemColumnSpanned( QTreeWidgetItem *item)
 QTreeWidgetItem *itemAbove(QTreeWidgetItem *item)
 QTreeWidgetItem *itemAt(int x, int y)
 QTreeWidgetItem *itemBelow(QTreeWidgetItem *item)
@@ -25,7 +29,6 @@ void openPersistentEditor(QTreeWidgetItem *item, int column)
 void removeItemWidget(QTreeWidgetItem *item, int column)
 void setColumnCount(int columns)
 void setCurrentItem(QTreeWidgetItem * item, QItemSelectionModel::SelectionFlag column)
-void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
 void setHeaderItem(QTreeWidgetItem *item)
 void setHeaderLabel(QString)
 void setHeaderLabels(QStringList)

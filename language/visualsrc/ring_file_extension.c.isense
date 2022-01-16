@@ -19,6 +19,12 @@ S_ISDIR(m)
 stat _stat
 ring_vm_file_loadfunctions
 ring_fexists_general
+Type: struct _stat
+sb
+Type: wchar_t
+cPath[MAX_PATH]
+Type: int
+nLen1,nFileNameSize
 Type: struct stat
 sb
 ring_direxists
