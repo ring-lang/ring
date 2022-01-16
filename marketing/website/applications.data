@@ -151,8 +151,12 @@
 			]
 		]
 	],
-	["Using OpenGL",
+	["Using Allegro & OpenGL",
 		[
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/squarespuzzle" target="_blank">Squares Puzzle</a>',
+				'<img src="squarespuzzle.png" width="100%">'
+			],
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe3d" target="_blank">TicTacToe 3D</a>',
 				'<img src="tictactoe3d.png" width="100%">'
@@ -283,6 +287,51 @@
 			]
 		]
 	],
+	["General Applications",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/mycoffee" target="_blank">MyCoffee (Web Application)</a>',
+				'<img src="mycoffee.png" width="100%">'
+			],
+
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory" target="_blank">Yahoo Stock Data</a>',
+				'<img src="getquotesmac.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/erlangbformula" target="_blank">Erlang B Formula</a>',
+				'<img src="erlangbformula.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/employee" target="_blank">Employee Data</a>',
+				'<img src="empapp.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/weighthistory" target="_blank">Weight History</a>',
+				'<img src="weighthistory.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/asciitable" target="_blank">ASCII Table application</a>',
+				'<img src="asciitable.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/bmicalculator" target="_blank">BMI Caclculator application</a>',
+				'<img src="BMI.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
+				'<img src="calendar.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
+				'<img src="juliandaycalendar.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
+				'<img src="numtostr.jpg" width="100%">'
+			]
+		]
+	],
 	["Arabic Applications",
 		[
 			[
@@ -294,53 +343,6 @@
 				'<img src="poetryanalysis.png" width="100%">'
 			]
 		]
-	],
-	["General Applications",[
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory" target="_blank">Yahoo Stock Data</a>',
-		'<img src="getquotesmac.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
-		'<img src="numtostr.jpg" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/squarespuzzle" target="_blank">Squares Puzzle</a>',
-		'<img src="squarespuzzle.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/employee" target="_blank">Employee Data</a>',
-		'<img src="empapp.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/weighthistory" target="_blank">Weight History</a>',
-		'<img src="weighthistory.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/asciitable" target="_blank">ASCII Table application</a>',
-		'<img src="asciitable.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/bmicalculator" target="_blank">BMI Caclculator application</a>',
-		'<img src="BMI.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
-		'<img src="calendar.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
-		'<img src="juliandaycalendar.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/erlangbformula" target="_blank">Erlang B Formula</a>',
-		'<img src="erlangbformula.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/mycoffee" target="_blank">MyCoffee (Web Application)</a>',
-		'<img src="mycoffee.png" width="100%">'
-	]
-	]
 	],
 	["Online Applications (WebAssembly)",[
 				[
