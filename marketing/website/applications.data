@@ -79,6 +79,18 @@
 			]
 		]
 	],
+	["GUI for Microsoft Azure Machine Learning Models",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" target="_blank">Chess Endgame Application</a>',
+				'<img src="chessendgame1.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/citationsprediction" target="_blank">Citations Prediction Application</a>',
+				'<img src="predictionapp1.png" width="100%">'
+			]
+		]
+	],
 	["Using Ring Game Engine for 2D Games",
 		[
 			[
@@ -323,14 +335,6 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/mycoffee" target="_blank">MyCoffee (Web Application)</a>',
 		'<img src="mycoffee.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" target="_blank">Chess Endgame Application</a>',
-		'<img src="chessendgame1.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/citationsprediction" target="_blank">Citations Prediction Application</a>',
-		'<img src="predictionapp1.png" width="100%">'
 	]
 	]
 	],
