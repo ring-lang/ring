@@ -1,4 +1,40 @@
 ﻿aApplications = [ 
+	["Development Tools",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" target="_blank">Ring Notepad</a>',
+				'<img src="ringnotepad.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/formdesigner" target="_blank">Ring Form Designer</a>',
+				'<img src="ringformdesigner.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/findinfiles" target="_blank">Find in files</a>',
+				'<img src="findinfiles.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringrepl" target="_blank">Ring REPL</a>',
+				'<img src="ringrepl.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/string2constant" target="_blank">String To Constant</a>',
+				'<img src="string2constant.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen" target="_blank">Code Generator for extensions</a>',
+				'<img src="codegen.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ring2exe" target="_blank">Ring2EXE</a>',
+				'<img src="ring2exe.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" target="_blank">Qt Class Converter</a>',
+				'<img src="qtconverter.png" width="100%">'
+			]
+		]
+	],
 	["RingRayLib Applications",
 		[
 			[
@@ -28,18 +64,6 @@
 		]
 	],
 	["General Applications",[
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" target="_blank">Ring Notepad</a>',
-		'<img src="ringnotepad.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/tools/formdesigner" target="_blank">Ring Form Designer</a>',
-		'<img src="ringformdesigner.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/tools/findinfiles" target="_blank">Find in files</a>',
-		'<img src="findinfiles.png" width="100%">'
-	],
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/cards" target="_blank">The Cards Game</a>',
 		'<img src="cards.png" width="100%">'
@@ -101,20 +125,8 @@
 		'<img src="newcalc2.png" width="100%">'
 	],
 	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringrepl" target="_blank">Ring REPL</a>',
-		'<img src="ringrepl.png" width="100%">'
-	],
-	[
 		'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
 		'<img src="numtostr.jpg" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen" target="_blank">Code Generator for extensions</a>',
-		'<img src="codegen.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/tools/ring2exe" target="_blank">Ring2EXE</a>',
-		'<img src="ring2exe.png" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/sixteenpuzzle" target="_blank">Sixteen Puzzle</a>',
@@ -135,14 +147,6 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle3d" target="_blank">Fifteen Puzzle 3D Game</a>',
 		'<img src="fifteen3d.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" target="_blank">Qt Class Converter</a>',
-		'<img src="qtconverter.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/tools/string2constant" target="_blank">String To Constant</a>',
-		'<img src="string2constant.png" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">Stop Watch</a>',
