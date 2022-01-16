@@ -1,0 +1,49 @@
+﻿  <%  eval(read("applications.data"))  %>
+
+  <div id="applications" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Applications developed using Ring <span class="badge"><%= len(aApplications) %></span></h4></div>
+      <div class="panel-body">
+
+	    <% nIDNumber = 0 %>
+		<% for aGroup in aApplications %>
+		<% nIDNumber++ %>
+	    <%= '<div class="panel panel-primary" id="section'+nIDNumber+'">'%>
+		      <div class="panel-heading"><%= aGroup[1] %> <span class="badge"><%= len(aGroup[2]) %></span></div>
+		      <div class="panel-body">
+
+			<table class="table table-striped">
+
+				<% if len(aGroup[2][1]) = 2  %>
+					<thead>
+				  		<tr>
+							<th width="70%">Description  </th>
+							<th width="30%">Photo </th>
+				  		</tr>
+					</thead>
+				<% ok %>
+
+				<tbody>
+				<% for aItem in aGroup[2] %>
+				  <tr>
+					<% for aData in aItem %>
+						 <th>
+							<%= aData %>
+						 </th>
+					<% next %>
+				  </tr>
+				<% next %>
+				</tbody>
+			</table>
+
+ 	       	      </div>
+	        </div>  
+
+		<% next %>
+
+       </div>
+     </div>  
+  </div>  
+
+
+
