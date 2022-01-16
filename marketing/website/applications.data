@@ -175,6 +175,114 @@
 			]
 		]
 	],
+	["Games using Qt",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/cards" target="_blank">The Cards Game</a>',
+				'<img src="cards.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle" target="_blank">Fifteen Puzzle Game</a>',
+				'<img src="fifteen2.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe" target="_blank">TicTacToe</a>',
+				'<img src="tictactoe.jpg" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/chess" target="_blank">Chess Game</a>',
+				'<img src="chessgame.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/gameoflife" target="_blank">Game of Life</a>',
+				'<img src="gameoflife.jpg" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/knighttour" target="_blank">Knight Tour</a>',
+				'<img src="knighttour.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/minesweeper" target="_blank">Minesweeper</a>',
+				'<img src="minesweeper.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/sumpuzzlegame" target="_blank">Sum Puzzle</a>',
+				'<img src="sumpuzzle.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/othellogame" target="_blank">Othello Game</a>',
+				'<img src="othello.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/sudoku" target="_blank">Sudoku Game</a>',
+				'<img src="sudoku.jpg" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/checkers" target="_blank">Checkers Game</a>',
+				'<img src="checkersgame.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/tesseragame" target="_blank">Tessera Game</a>',
+				'<img src="tesseragame.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/magicballs" target="_blank">Magic Balls Game</a>',
+				'<img src="magicballs.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/laser" target="_blank">Laser Game</a>',
+				'<img src="lasergame2.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/go" target="_blank">Go Game</a>',
+				'<img src="go.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/nimgame" target="_blank">Nim Game</a>',
+				'<img src="nimgame.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/pairs" target="_blank">Pairs Game</a>',
+				'<img src="pairsgame.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/lottery" target="_blank">Lottery Game</a>',
+				'<img src="lotterygame.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/wordgame" target="_blank">Word Game</a>',
+				'<img src="wordgame2.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/eightqueens" target="_blank">Eight Queens Game</a>',
+				'<img src="eightqueensgame.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/questions" target="_blank">Questions Game</a>',
+				'<img src="questionsgame.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneycase" target="_blank">MoneyCase Game</a>',
+				'<img src="moneycase.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneyboxes" target="_blank">MoneyBoxes Game</a>',
+				'<img src="moneyboxes.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/rockpaperscissors" target="_blank">Rock Paper Scissors Game</a>',
+				'<img src="rockgame.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/matching" target="_blank">Matching Game</a>',
+				'<img src="matchinggame.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/sixteenpuzzle" target="_blank">Sixteen Puzzle</a>',
+				'<img src="sixteenpuzzle.jpg" width="100%">'
+			]
+		]
+	],
 	["Arabic Applications",
 		[
 			[
@@ -189,28 +297,12 @@
 	],
 	["General Applications",[
 	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/cards" target="_blank">The Cards Game</a>',
-		'<img src="cards.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle" target="_blank">Fifteen Puzzle Game</a>',
-		'<img src="fifteen2.png" width="100%">'
-	],
-	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory" target="_blank">Yahoo Stock Data</a>',
 		'<img src="getquotesmac.png" width="100%">'
 	],
 	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe" target="_blank">TicTacToe</a>',
-		'<img src="tictactoe.jpg" width="100%">'
-	],
-	[
 		'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
 		'<img src="numtostr.jpg" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/blob/master/applications/sixteenpuzzle" target="_blank">Sixteen Puzzle</a>',
-		'<img src="sixteenpuzzle.jpg" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/squarespuzzle" target="_blank">Squares Puzzle</a>',
@@ -225,42 +317,6 @@
 		'<img src="weighthistory.png" width="100%">'
 	],
 	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/chess" target="_blank">Chess Game</a>',
-		'<img src="chessgame.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/gameoflife" target="_blank">Game of Life</a>',
-		'<img src="gameoflife.jpg" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/knighttour" target="_blank">Knight Tour</a>',
-		'<img src="knighttour.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/minesweeper" target="_blank">Minesweeper</a>',
-		'<img src="minesweeper.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/sumpuzzlegame" target="_blank">Sum Puzzle</a>',
-		'<img src="sumpuzzle.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/othellogame" target="_blank">Othello Game</a>',
-		'<img src="othello.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/sudoku" target="_blank">Sudoku Game</a>',
-		'<img src="sudoku.jpg" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/checkers" target="_blank">Checkers Game</a>',
-		'<img src="checkersgame.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/tesseragame" target="_blank">Tessera Game</a>',
-		'<img src="tesseragame.png" width="100%">'
-	],
-	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/asciitable" target="_blank">ASCII Table application</a>',
 		'<img src="asciitable.png" width="100%">'
 	],
@@ -269,64 +325,12 @@
 		'<img src="BMI.png" width="100%">'
 	],
 	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/go" target="_blank">Go Game</a>',
-		'<img src="go.png" width="100%">'
-	],
-	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
 		'<img src="calendar.png" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
 		'<img src="juliandaycalendar.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/magicballs" target="_blank">Magic Balls Game</a>',
-		'<img src="magicballs.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/laser" target="_blank">Laser Game</a>',
-		'<img src="lasergame2.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/questions" target="_blank">Questions Game</a>',
-		'<img src="questionsgame.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneycase" target="_blank">MoneyCase Game</a>',
-		'<img src="moneycase.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/moneyboxes" target="_blank">MoneyBoxes Game</a>',
-		'<img src="moneyboxes.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/rockpaperscissors" target="_blank">Rock Paper Scissors Game</a>',
-		'<img src="rockgame.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/matching" target="_blank">Matching Game</a>',
-		'<img src="matchinggame.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/nimgame" target="_blank">Nim Game</a>',
-		'<img src="nimgame.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/pairs" target="_blank">Pairs Game</a>',
-		'<img src="pairsgame.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/lottery" target="_blank">Lottery Game</a>',
-		'<img src="lotterygame.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/wordgame" target="_blank">Word Game</a>',
-		'<img src="wordgame2.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/eightqueens" target="_blank">Eight Queens Game</a>',
-		'<img src="eightqueensgame.png" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/erlangbformula" target="_blank">Erlang B Formula</a>',
