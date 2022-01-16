@@ -32,6 +32,10 @@
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" target="_blank">Qt Class Converter</a>',
 				'<img src="qtconverter.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" target="_blank">Gold Magic 800 Level Editor</a>',
+				'<img src="gm800le.png" width="100%">'
 			]
 		]
 	],
@@ -159,10 +163,6 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/cards" target="_blank">The Cards Game</a>',
 		'<img src="cards.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" target="_blank">Gold Magic 800 Level Editor</a>',
-		'<img src="gm800le.png" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/applications/fifteenpuzzle" target="_blank">Fifteen Puzzle Game</a>',
