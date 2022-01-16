@@ -1,16 +1,33 @@
 ﻿aApplications = [ 
-	["Arabic Applications",[
+	["RingRayLib Applications",
 		[
-			'<a href="https://github.com/ring-lang/werdy" target="_blank">Werdy Application</a>',
-			'<img src="werdy.png" width="100%">'
-		],
-		[
-			'<a href="https://github.com/ring-lang/ring/blob/master/applications/poetryanalysis" target="_blank">Arabic Poetry Analysis</a>',
-			'<img src="poetryanalysis.png" width="100%">'
-		]
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/typingquiz" target="_blank">Typing Quiz</a>',
+				'<img src="typingquiz.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong2" target="_blank">Pong2 Game</a>',
+				'<img src="pong2game.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/spaceshooter" target="_blank">Space Shooter Game</a>',
+				'<img src="spaceshootergame.png" width="100%">'
+			]
 		]
 	],
-	["Applications",[
+	["Arabic Applications",
+		[
+			[
+				'<a href="https://github.com/ring-lang/werdy" target="_blank">Werdy Application</a>',
+				'<img src="werdy.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/poetryanalysis" target="_blank">Arabic Poetry Analysis</a>',
+				'<img src="poetryanalysis.png" width="100%">'
+			]
+		]
+	],
+	["General Applications",[
 	[
 		'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" target="_blank">Ring Notepad</a>',
 		'<img src="ringnotepad.png" width="100%">'
@@ -266,18 +283,6 @@
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/eightqueens" target="_blank">Eight Queens Game</a>',
 		'<img src="eightqueensgame.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/typingquiz" target="_blank">Typing Quiz</a>',
-		'<img src="typingquiz.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong2" target="_blank">Pong2 Game</a>',
-		'<img src="pong2game.png" width="100%">'
-	],
-	[
-		'<a href="https://github.com/ring-lang/ring/tree/master/applications/spaceshooter" target="_blank">Space Shooter Game</a>',
-		'<img src="spaceshootergame.png" width="100%">'
 	],
 	[
 		'<a href="https://github.com/ring-lang/ring/tree/master/applications/erlangbformula" target="_blank">Erlang B Formula</a>',
