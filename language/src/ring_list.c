@@ -145,7 +145,7 @@ RING_API void ring_list_print2 ( List *pList,int nDecimals )
 				ring_vm_oop_printobj(NULL,pList2);
 			}
 			else {
-				ring_list_print(pList2);
+				ring_list_print2(pList2,nDecimals);
 			}
 		}
 		else if ( ring_list_ispointer(pList,x) ) {
