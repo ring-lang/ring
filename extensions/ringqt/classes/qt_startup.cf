@@ -1,5 +1,6 @@
 <libinitfunc> ring_qt_start
 
+<runcodenow> if sysget("RINGQT_CORE_ALONE") = "1" $globals[:AppType] = :Core  ok
 <runcodenow> if $globals[:AppType] = NULL  $globals[:AppType] = :Application  ok
 
 <code>
