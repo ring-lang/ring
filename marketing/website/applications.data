@@ -327,16 +327,16 @@
 	["Development Tools (Console)",
 		[
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen" target="_blank">Code Generator for extensions</a>',
-				'<img src="codegen.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringpm" target="_blank">Ring Package Manager</a>',
+				'<img src="cmddemo2.png" width="100%">'
 			],
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ring2exe" target="_blank">Ring2EXE</a>',
 				'<img src="ring2exe.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringpm" target="_blank">Ring Package Manager</a>',
-				'<img src="cmddemo2.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen" target="_blank">Code Generator for extensions</a>',
+				'<img src="codegen.png" width="100%">'
 			]
 		]
 	],
