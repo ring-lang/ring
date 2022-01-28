@@ -100,7 +100,7 @@ void ring_vm_listitem ( VM *pVM )
 			pList2 = ring_list_getlist(pList2,RING_VAR_VALUE);
 			pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
 			ring_vm_list_copy(pVM,pList4,pList2);
-			ring_vm_list_copy(pVM,pList3,pList4);
+			ring_list_swaptwolists(pList3,pList4);
 		}
 		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
 			pItem = (Item *) RING_VM_STACK_READP ;
@@ -108,7 +108,7 @@ void ring_vm_listitem ( VM *pVM )
 			pList2 = ring_item_getlist(pItem);
 			pList3 = ring_list_newlist_gc(pVM->pRingState,pList);
 			ring_vm_list_copy(pVM,pList4,pList2);
-			ring_vm_list_copy(pVM,pList3,pList4);
+			ring_list_swaptwolists(pList3,pList4);
 		}
 		ring_list_delete_gc(pVM->pRingState,pList4);
 	}
@@ -362,7 +362,7 @@ void ring_vm_listassignment ( VM *pVM )
 		else {
 			pTempList = ring_list_new_gc(pVM->pRingState,0);
 			ring_vm_list_copy(pVM,pTempList,pVar);
-			ring_vm_list_copy(pVM,pList,pTempList);
+			ring_list_swaptwolists(pList,pTempList);
 			/* Update self object Pointer */
 			if ( ring_vm_oop_isobject(pList) ) {
 				ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
