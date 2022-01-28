@@ -304,7 +304,7 @@ void ring_vm_listassignment ( VM *pVM )
 	Item *pItem  ;
 	String *cStr1, *pString  ;
 	double nNum1  ;
-	List *pList,*pVar  ;
+	List *pList,*pVar, *pTempList  ;
 	pVar = NULL ;
 	if ( (RING_VM_STACK_ISSTRING) && (pVM->nBeforeEqual <= 1) ) {
 		cStr1 = RING_VM_STACK_GETSTRINGRAW ;
@@ -360,11 +360,14 @@ void ring_vm_listassignment ( VM *pVM )
 			ring_list_swaptwolists(pList,pVar);
 		}
 		else {
-			ring_vm_list_copy(pVM,pList,pVar);
+			pTempList = ring_list_new_gc(pVM->pRingState,0);
+			ring_vm_list_copy(pVM,pTempList,pVar);
+			ring_vm_list_copy(pVM,pList,pTempList);
 			/* Update self object Pointer */
 			if ( ring_vm_oop_isobject(pList) ) {
 				ring_vm_oop_updateselfpointer(pVM,pList,RING_OBJTYPE_LISTITEM,pItem);
 			}
+			ring_list_delete_gc(pVM->pRingState,pTempList);
 		}
 	}
 	else {

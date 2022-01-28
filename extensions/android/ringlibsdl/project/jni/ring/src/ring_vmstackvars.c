@@ -328,15 +328,16 @@ void ring_vm_setreference ( VM *pVM )
 
 void ring_vm_list_copy ( VM *pVM,List *pNewList, List *pList )
 {
-	int x  ;
+	int x,nMax  ;
 	List *pNewList2  ;
 	Item *pItem  ;
 	assert(pList != NULL);
 	/* Copy Items */
-	if ( ring_list_getsize(pList) == 0 ) {
+	nMax = ring_list_getsize(pList) ;
+	if ( nMax == 0 ) {
 		return ;
 	}
-	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+	for ( x = 1 ; x <= nMax ; x++ ) {
 		if ( ring_list_isint(pList,x) ) {
 			ring_list_addint_gc(pVM->pRingState,pNewList,ring_list_getint(pList,x));
 		}
