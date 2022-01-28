@@ -112,7 +112,7 @@ void ring_vm_file_fopen ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) {
-		fp = ring_custom_fopen(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
+		fp = (FILE *) ring_custom_fopen(RING_API_GETSTRING(1),RING_API_GETSTRING(2));
 		RING_API_RETMANAGEDCPOINTER(fp,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
 	}
 	else {
@@ -714,7 +714,7 @@ void ring_vm_file_read ( void *pPointer )
 		return ;
 	}
 	if ( RING_API_ISSTRING(1) ) {
-		fp = ring_custom_fopen(RING_API_GETSTRING(1) , "rb");
+		fp = (FILE *) ring_custom_fopen(RING_API_GETSTRING(1) , "rb");
 		if ( fp == NULL ) {
 			RING_API_ERROR(RING_VM_ERROR_CANTOPENFILE);
 			return ;
@@ -746,7 +746,7 @@ void ring_vm_file_write ( void *pPointer )
 	}
 	if ( RING_API_ISSTRING(1) ) {
 		if ( RING_API_ISSTRING(2) ) {
-			fp = ring_custom_fopen(RING_API_GETSTRING(1) , "w+b");
+			fp = (FILE *) ring_custom_fopen(RING_API_GETSTRING(1) , "w+b");
 			if ( fp == NULL ) {
 				RING_API_ERROR(RING_VM_ERROR_CANTOPENFILE);
 				return ;
