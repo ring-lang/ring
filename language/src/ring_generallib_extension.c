@@ -1675,15 +1675,15 @@ void ring_vm_generallib_setpointer ( void *pPointer )
 		return ;
 	}
 	pList = RING_API_GETLIST(1) ;
-	nNum = RING_API_GETNUMBER(2) ;
 	/* Pointer even address can fit into 2^53-2^54 range of the double */
 	#if RING_ANSI_C
 	#else
-		if ( nNum > ( RING_LONGLONG_HIGHVALUE * 2 ) ) {
+		if ( RING_API_GETNUMBER(2) > ( RING_LONGLONG_HIGHVALUE * 2 ) ) {
 			RING_API_ERROR(RING_API_BADPARARANGE);
 			return ;
 		}
 	#endif
+	nNum = RING_API_GETNUMBER(2) ;
 	ring_list_setpointer(pList,RING_CPOINTER_POINTER,(void *) nNum);
 }
 
@@ -1701,15 +1701,7 @@ void ring_vm_generallib_getpointer ( void *pPointer )
 		return ;
 	}
 	pList = RING_API_GETLIST(1) ;
-	nNum = (uintptr_t) ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
-	/* Pointer even address can fit into 2^53-2^54 range of the double */
-	#if RING_ANSI_C
-	#else
-		if ( nNum > ( RING_LONGLONG_HIGHVALUE * 2 ) ) {
-			RING_API_ERROR(RING_API_BADPARARANGE);
-			return ;
-		}
-	#endif
+	nNum = (RING_UNSIGNEDINTEGERPOINTER) ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
 	RING_API_RETNUMBER(nNum);
 }
 
