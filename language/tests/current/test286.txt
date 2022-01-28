@@ -1,3 +1,20 @@
-
-general/test82.ring Line (17) Error (C7) : Error in list items
-general/test82.ring errors count : 1 
+========================================
+test method
+f1 function
+f2 function
+f3 method
+========================================
+========================================
+test2 method
+f1 function
+f2 function
+f3 method
+========================================
+========================================
+test2 function
+f1 function
+f2 function
+f3 method
+f3 method
+f3 method
+========================================

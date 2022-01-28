@@ -1,4 +1,4 @@
-Start
-Message From Test
-Test Output
-End
+ B1: ABCD
+ B2: EFGH
+ B3: IJKL
+ B4: MNOP

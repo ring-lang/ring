@@ -1,3 +1,5 @@
-Class-Company-CurCmp: AMZN | Amazon | Cloud | 
-Label-String-Symbol : JACK
-
+10
+20
+test
+10
+20

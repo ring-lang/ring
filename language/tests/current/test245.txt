@@ -1,8 +1,6 @@
-if statement..
+Hello
+How are you?
+Welcome to Ring
 one
-for loop..
-12345678910
-switch...
-one
-try catch...
-catching error
+two
+three

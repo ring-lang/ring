@@ -208,6 +208,11 @@ aTests = [
 	[ :name = "For-In Loop (Part 4)", :Command = "ring forinloop/test4.ring" ],
 	[ :name = "For-In Loop (Part 5)", :Command = "ring forinloop/test5.ring" ],
 	[ :name = "For-In Loop (Part 6)", :Command = "ring forinloop/test6.ring" ],
+	[ :name = "Standard Functions (Part 1)", :Command = "ring libs/substr1.ring" ],
+	[ :name = "Standard Functions (Part 2)", :Command = "ring libs/substr2.ring" ],
+	[ :name = "Standard Functions (Part 3)", :Command = "ring libs/substr3.ring" ],
+	[ :name = "Standard Functions (Part 4)", :Command = "ring libs/decimals.ring" ],
+	[ :name = "Arabic File Name", :Command = "ring arabic/test.ring" ],
 	[ :name = "General Tests (Part 1)", :Command = "ring general/test.ring" ],
 	[ :name = "General Tests (Part 2)", :Command = "ring general/test2.ring" ],
 	[ :name = "General Tests (Part 3)", :Command = "ring general/test3.ring" ],
@@ -373,10 +378,5 @@ aTests = [
 	[ :name = "General Tests (Part 163)", :Command = "ring general/test145.ring" ],
 	[ :name = "General Tests (Part 164)", :Command = "ring general/test146.ring" ],
 	[ :name = "General Tests (Part 165)", :Command = "ring general/test147.ring" ],
-	[ :name = "General Tests (Part 166)", :Command = "ring general/test148.ring" ],
-	[ :name = "Standard Functions (Part 1)", :Command = "ring libs/substr1.ring" ],
-	[ :name = "Standard Functions (Part 2)", :Command = "ring libs/substr2.ring" ],
-	[ :name = "Standard Functions (Part 3)", :Command = "ring libs/substr3.ring" ],
-	[ :name = "Standard Functions (Part 4)", :Command = "ring libs/decimals.ring" ],
-	[ :name = "Arabic File Name", :Command = "ring arabic/test.ring" ]
+	[ :name = "General Tests (Part 166)", :Command = "ring general/test148.ring" ]
 ]

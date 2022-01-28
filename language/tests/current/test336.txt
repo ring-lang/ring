@@ -1,7 +1,6 @@
--6
--4
--6
--6
--7
--8
+Start the test!
+Let us try having an error
 
+Line 1 Error (R24) : Using uninitialized variable : x 
+in file Ring_EmbeddedCode 
+End of test!

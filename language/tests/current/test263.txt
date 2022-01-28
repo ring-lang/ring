@@ -1,2 +1,8 @@
-welcome
-Welcome
+if statement..
+one
+for loop..
+12345678910
+switch...
+one
+try catch...
+catching error

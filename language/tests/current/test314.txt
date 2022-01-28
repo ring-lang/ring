@@ -1,2 +1,2 @@
-Welcome!
-Hi!
+NUMBER
+1000001

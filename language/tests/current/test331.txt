@@ -1,6 +1,5 @@
-Start the test!
-Let us try having an error
+10
+6
+10
 
-Line 1 Error (R24) : Using uninitialized variable : x 
-in file Ring_EmbeddedCode 
-End of test!
+10

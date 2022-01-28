@@ -1,7 +1,5 @@
-Handle Error!
-Message :Error (R3) : Calling Function without definition !: test
-x: 10
-y: 20
-z: 30
-Done
-mmm...
+10
+20
+test
+10
+20

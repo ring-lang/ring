@@ -1,1 +1,3 @@
-false
+name: NULL
+address: NULL
+phone: NULL
