@@ -336,4 +336,5 @@ More Improvements
 * Eval() function - Return NULL if the Return command is not used
 * SetPointer()/GetPointer() functions - Better Code
 * Fexists() function - Support UTF-8 file names
+* Ring VM - Better code when copying lists
 * Form Designer - Default TextColor is Empty (Better when changing styles)
