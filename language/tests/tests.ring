@@ -378,5 +378,6 @@ aTests = [
 	[ :name = "General Tests (Part 163)", :Command = "ring general/test145.ring" ],
 	[ :name = "General Tests (Part 164)", :Command = "ring general/test146.ring" ],
 	[ :name = "General Tests (Part 165)", :Command = "ring general/test147.ring" ],
-	[ :name = "General Tests (Part 166)", :Command = "ring general/test148.ring" ]
+	[ :name = "General Tests (Part 166)", :Command = "ring general/test148.ring" ],
+	[ :name = "General Tests (Part 167)", :Command = "ring general/addlisttolistitem.ring" ]
 ]
