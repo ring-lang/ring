@@ -2,12 +2,29 @@
 This is a list of major changes in SDL's version history.
 
 ---------------------------------------------------------------------------
+2.0.20:
+---------------------------------------------------------------------------
+
+General:
+* SDL_RenderGeometryRaw() takes a pointer to SDL_Color, not int. You can cast color data in SDL_PIXELFORMAT_RGBA32 format (SDL_PIXELFORMAT_ABGR8888 on little endian systems) for this parameter.
+* Improved accuracy of horizontal and vertical line drawing when using OpenGL or OpenGLES
+* Added the hint SDL_HINT_RENDER_LINE_METHOD to control the method of line drawing used, to select speed, correctness, and compatibility.
+
+Windows:
+* Fixed size of custom cursors
+
+Linux:
+* Fixed hotplug controller detection, broken in 2.0.18
+
+
+---------------------------------------------------------------------------
 2.0.18:
 ---------------------------------------------------------------------------
 
 General:
 * The SDL wiki documentation and development headers are automatically kept in sync
 * Each function has information about in which version of SDL it was introduced
+* SDL-specific CMake options are now prefixed with 'SDL_'. Be sure to update your CMake build scripts accordingly!
 * Added the hint SDL_HINT_APP_NAME to let SDL know the name of your application for various places it might show up in system information
 * Added SDL_RenderGeometry() and SDL_RenderGeometryRaw() to allow rendering of arbitrary shapes using the SDL 2D render API
 * Added SDL_SetTextureUserData() and SDL_GetTextureUserData() to associate application data with an SDL texture
