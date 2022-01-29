@@ -1,0 +1,41 @@
+ <div id="download" class="panel-group">
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Download <span class="badge"><%= len(aDownload) %></span></h4></div>
+      <div class="panel-body">
+
+
+	    <% for aGroup in aDownload %>
+
+	    <div class="panel panel-primary">
+	      <div class="panel-heading"><%= aGroup[1] %> <span class="badge"> <%=len(aGroup[2]) %></span> </div>
+	      <div class="panel-body">
+
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th width="90%">Description  </th>
+					<th width="10%">File Size </th>
+				  </tr>
+				</thead>
+				<tbody>
+				  <% for aItem in aGroup[2]%>
+				  <tr>
+					<% for x in aItem %>
+						<th><%= x %></th>
+					<% next %>
+					
+				  </tr>
+				  <% next %>
+
+				</tbody>
+			</table>
+				
+	      </div>
+	     </div>  
+
+	    <% next %>
+
+
+      </div>
+     </div>  
+  </div>

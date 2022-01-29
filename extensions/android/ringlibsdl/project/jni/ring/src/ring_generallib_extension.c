@@ -1228,7 +1228,7 @@ void ring_vm_generallib_substr ( void *pPointer )
 			nSize2 = RING_API_GETSTRINGSIZE(2) ;
 			cStr3 = ring_string_find2(cStr,nSize,cStr2,nSize2);
 			if ( cStr3 != NULL ) {
-				nNum1 = ((RING_LONGLONG) cStr3) - ((RING_LONGLONG) cStr) + 1 ;
+				nNum1 = ((RING_UNSIGNEDINTEGERPOINTER) cStr3) - ((RING_UNSIGNEDINTEGERPOINTER) cStr) + 1 ;
 			}
 			else {
 				nNum1 = 0.0 ;
@@ -1304,7 +1304,7 @@ void ring_vm_generallib_substr ( void *pPointer )
 		nMark = 0 ;
 		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
 		while ( cString != NULL ) {
-			nPos = (unsigned int)(((RING_LONGLONG) cString) - ((RING_LONGLONG) cStr) + 1) ;
+			nPos = (RING_UNSIGNEDINTEGERPOINTER)(((RING_UNSIGNEDINTEGERPOINTER) cString) - ((RING_UNSIGNEDINTEGERPOINTER) cStr) + 1) ;
 			/* Add SubString to pString */
 			ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr+nMark,nPos-1-nMark);
 			ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr3,RING_API_GETSTRINGSIZE(3));
@@ -1675,12 +1675,15 @@ void ring_vm_generallib_setpointer ( void *pPointer )
 		return ;
 	}
 	pList = RING_API_GETLIST(1) ;
-	nNum = RING_API_GETNUMBER(2) ;
 	/* Pointer even address can fit into 2^53-2^54 range of the double */
-	if ( nNum > ( RING_LONGLONG_HIGHVALUE * 2 ) ) {
-		RING_API_ERROR(RING_API_BADPARARANGE);
-		return ;
-	}
+	#if RING_ANSI_C
+	#else
+		if ( RING_API_GETNUMBER(2) > ( RING_LONGLONG_HIGHVALUE * 2 ) ) {
+			RING_API_ERROR(RING_API_BADPARARANGE);
+			return ;
+		}
+	#endif
+	nNum = RING_API_GETNUMBER(2) ;
 	ring_list_setpointer(pList,RING_CPOINTER_POINTER,(void *) nNum);
 }
 
@@ -1698,12 +1701,7 @@ void ring_vm_generallib_getpointer ( void *pPointer )
 		return ;
 	}
 	pList = RING_API_GETLIST(1) ;
-	nNum = (uintptr_t) ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
-	/* Pointer even address can fit into 2^53-2^54 range of the double */
-	if ( nNum > ( RING_LONGLONG_HIGHVALUE * 2 ) ) {
-		RING_API_ERROR(RING_API_BADPARARANGE);
-		return ;
-	}
+	nNum = (RING_UNSIGNEDINTEGERPOINTER) ring_list_getpointer(pList,RING_CPOINTER_POINTER) ;
 	RING_API_RETNUMBER(nNum);
 }
 

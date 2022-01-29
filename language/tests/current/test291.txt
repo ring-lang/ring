@@ -1,3 +1,3 @@
 
-Line 8 Object does not support operator overloading 
-In raise() in file general/test87.ring 
+general/test82.ring Line (17) Error (C7) : Error in list items
+general/test82.ring errors count : 1 

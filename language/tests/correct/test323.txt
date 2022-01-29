@@ -1,1 +1,2 @@
-True
+Error (S1) In file: general/test114.ring 
+In Line (2) Literal not closed 

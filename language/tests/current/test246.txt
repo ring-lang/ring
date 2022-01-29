@@ -1,1 +1,3 @@
-other
+Global   : 5
+Instance : 10
+Local    : 15

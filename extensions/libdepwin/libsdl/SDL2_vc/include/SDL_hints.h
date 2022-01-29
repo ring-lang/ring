@@ -1,6 +1,6 @@
 /*
   Simple DirectMedia Layer
-  Copyright (C) 1997-2021 Sam Lantinga <slouken@libsdl.org>
+  Copyright (C) 1997-2022 Sam Lantinga <slouken@libsdl.org>
 
   This software is provided 'as-is', without any express or implied
   warranty.  In no event will the authors be held liable for any damages
@@ -1058,6 +1058,19 @@ extern "C" {
  *  will result in undefined behavior.
  */
 #define SDL_HINT_RENDER_BATCHING  "SDL_RENDER_BATCHING"
+
+/**
+ *  \brief  A variable controlling how the 2D render API renders lines
+ *
+ *  This variable can be set to the following values:
+ *    "0"     - Use the default line drawing method (Bresenham's line algorithm as of SDL 2.0.20)
+ *    "1"     - Use the driver point API using Bresenham's line algorithm (correct, draws many points)
+ *    "2"     - Use the driver line API (occasionally misses line endpoints based on hardware driver quirks, was the default before 2.0.20)
+ *    "3"     - Use the driver geometry API (correct, draws thicker diagonal lines)
+ *
+ *  This variable should be set when the renderer is created.
+ */
+#define SDL_HINT_RENDER_LINE_METHOD "SDL_RENDER_LINE_METHOD"
 
 /**
  *  \brief  A variable controlling whether to enable Direct3D 11+'s Debug Layer.

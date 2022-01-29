@@ -121,7 +121,8 @@ aAllPackagesInfo = [
 		"webassemblyringqt",
 		"erlangbformula",
 		"Chess3d-Qt3D",
-		"chessendgame"
+		"chessendgame",
+		"jsonlib"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -293,5 +294,8 @@ aAllPackagesInfo = [
 	] ],
 	:chessendgame = 	[
 
+	],
+	:tokenslib = 	[
+		"jsonlib"
 	]
 ]

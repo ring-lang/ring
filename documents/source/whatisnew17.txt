@@ -327,12 +327,14 @@ More Improvements
 * Many documents and samples are revised (Better English)
 * Many applications are updated to use LightGUILib 
 * Calendar application - Better code to detect the current year
+* JulianDayCalendar application - Better code to detect the current year
 * Added: samples/Drawing/Mandelbrot/Mandelbrot_Fast.ring
-* RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.18
+* RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20
 * RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
 * RingLibCurl - Better support for Ring2EXE
 * Ring Object File - ring_objfile_writeCfile() - Better Code
 * Eval() function - Return NULL if the Return command is not used
 * SetPointer()/GetPointer() functions - Better Code
 * Fexists() function - Support UTF-8 file names
+* Ring VM - Better code when copying lists
 * Form Designer - Default TextColor is Empty (Better when changing styles)

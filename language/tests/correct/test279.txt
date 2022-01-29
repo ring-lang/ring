@@ -1,6 +1,5 @@
+Handle Error!
+Message :Error (R24) : Using uninitialized variable : test
+add attribute
+done
 10
-20
-30
-100
-200
-300

@@ -62,7 +62,7 @@ RING_API List * ring_list_delete_gc ( void *pState,List *pList )
 
 RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
 {
-	int x  ;
+	int x,nMax  ;
 	List *pNewList2  ;
 	assert(pList != NULL);
 	/*
@@ -70,10 +70,11 @@ RING_API void ring_list_copy_gc ( void *pState,List *pNewList, List *pList )
 	**  if you want to add a list to another one, create new list in the target then copy to it 
 	**  Copy Items 
 	*/
-	if ( ring_list_getsize(pList) == 0 ) {
+	nMax = ring_list_getsize(pList) ;
+	if ( nMax == 0 ) {
 		return ;
 	}
-	for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
+	for ( x = 1 ; x <= nMax ; x++ ) {
 		if ( ring_list_isint(pList,x) ) {
 			ring_list_addint_gc(pState,pNewList,ring_list_getint(pList,x));
 		}
@@ -145,7 +146,7 @@ RING_API void ring_list_print2 ( List *pList,int nDecimals )
 				ring_vm_oop_printobj(NULL,pList2);
 			}
 			else {
-				ring_list_print(pList2);
+				ring_list_print2(pList2,nDecimals);
 			}
 		}
 		else if ( ring_list_ispointer(pList,x) ) {

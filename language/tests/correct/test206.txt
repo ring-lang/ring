@@ -1,9 +1,9 @@
-1
-2
-3
-1
-2
-3
-wwow
-wwow
-wwow
+Using ? substr(cStr,100, 1)
+
+Using ? substr(cStr, -1, 4)
+
+Using ? substr(cStr, 1, 1000)
+
+Using ? substr(cStr, 1, -1)
+
+done

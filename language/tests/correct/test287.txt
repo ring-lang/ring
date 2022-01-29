@@ -1,5 +1,7 @@
-
-Can't open file syntaxerror.ring 
-
-general/test83.ring Line (2) Error (C27) : Syntax Error!
-general/test83.ring errors count : 1 
+========================================
+test method
+f1 function
+f2 function
+f3 method
+f3 function
+========================================

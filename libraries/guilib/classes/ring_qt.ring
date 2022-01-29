@@ -31351,20 +31351,6 @@ Class QSize
 	Func ObjectPointer
 		return pObject
 
-Class QDateEdit from QDateTimeEdit
-
-	pObject
-
-	Func init P1
-		pObject = QDateEdit_new(GetObjectPointerFromRingObject(P1))
-		return self
-
-	Func delete
-		pObject = QDateEdit_delete(pObject)
-
-	Func ObjectPointer
-		return pObject
-
 Class QVariant2 from QVariant
 
 	pObject
@@ -31669,6 +31655,20 @@ Class QFrame3 from QFrame
 
 	Func delete
 		pObject = QFrame3_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+Class QDateEdit from QDateTimeEdit
+
+	pObject
+
+	Func init P1
+		pObject = QDateEdit_new(GetObjectPointerFromRingObject(P1))
+		return self
+
+	Func delete
+		pObject = QDateEdit_delete(pObject)
 
 	Func ObjectPointer
 		return pObject

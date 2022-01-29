@@ -1,2 +1,7 @@
-Using ? substr(cStr,"", "nice")
-Error in second parameter value!
+t
+e
+s
+t
+data: test
+
+Done

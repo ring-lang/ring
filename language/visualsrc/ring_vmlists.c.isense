@@ -39,7 +39,7 @@ cStr1, *pString
 Type: double
 nNum1
 Type: List *
-pList,*pVar
+pList,*pVar, *pTempList
 ring_vm_listgetvalue
 Type: int
 x

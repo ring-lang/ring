@@ -35,6 +35,7 @@
 <loadfile> widgets/qspinbox.cf
 <loadfile> widgets/qabstractslider.cf
 <loadfile> widgets/qslider.cf
+<loadfile> core/qdateedit.cf
 <loadfile> widgets/qdatetimeedit.cf
 <loadfile> widgets/qabstractspinbox.cf
 <loadfile> widgets/qdial.cf

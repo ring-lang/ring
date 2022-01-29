@@ -36,7 +36,7 @@ Type: void *
 pPointer
 ring_vm_list_copy
 Type: int
-x
+x,nMax
 Type: List *
 pNewList2
 Type: Item *

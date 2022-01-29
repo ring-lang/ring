@@ -5,7 +5,6 @@
 <loadfile> core/qobject.cf
 <loadfile> core/qsize.cf
 <loadfile> core/qdir.cf
-<loadfile> core/qdateedit.cf
 <loadfile> core/qurl.cf
 <loadfile> core/qevent.cf
 <loadfile> core/qtimer.cf

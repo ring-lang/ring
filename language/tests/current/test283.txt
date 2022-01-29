@@ -1,5 +1,3 @@
-NUMBER
-STRING
-LIST
-OBJECT
-file
+10
+20
+30

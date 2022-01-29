@@ -1,12 +1,4 @@
-one = test:get_one()
-okkkkkkkkkkkkk
-Func GetObjectPointerFromRingObject pObj
-     if isobject(pObj)
-	if isattribute(pObj,'pObject')
-		return pObj.pObject
-	else 
-		raise('Error, The parameter is not a GUI object!')
-	ok
-     ok	
-     return pObj		
+Hello
 
+Line 4 Error (R24) : Using uninitialized variable : noobject 
+in file general/test115.ring 

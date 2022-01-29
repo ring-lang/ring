@@ -1,96 +1,4 @@
 ﻿aApplications = [ 
-	["Development Tools (GUI)",
-		[
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" target="_blank">Ring Notepad</a>',
-				'<img src="ringnotepad.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/tools/formdesigner" target="_blank">Ring Form Designer</a>',
-				'<img src="ringformdesigner.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/tools/findinfiles" target="_blank">Find in files</a>',
-				'<img src="findinfiles.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringrepl" target="_blank">Ring REPL</a>',
-				'<img src="ringrepl.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/tools/string2constant" target="_blank">String To Constant</a>',
-				'<img src="string2constant.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" target="_blank">Qt Class Converter</a>',
-				'<img src="qtconverter.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" target="_blank">Gold Magic 800 Level Editor</a>',
-				'<img src="gm800le.png" width="100%">'
-			]
-		]
-	],
-	["Development Tools (Console)",
-		[
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen" target="_blank">Code Generator for extensions</a>',
-				'<img src="codegen.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ring2exe" target="_blank">Ring2EXE</a>',
-				'<img src="ring2exe.png" width="100%">'
-			]
-		]
-	],
-	["General Tools",
-		[
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/analogclock" target="_blank">Analog Clock</a>',
-				'<img src="analogclock.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/desktopscreenshot" target="_blank">Desktop Screen Shot Application</a>',
-				'<img src="dssapp.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/mergetwofiles" target="_blank">Merge Two Files (Line by Line)</a>',
-				'<img src="mergetwofiles.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">Stop Watch</a>',
-				'<img src="stopwatch.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/calculator" target="_blank">Calculator</a>',
-				'<img src="newcalc2.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/urlshortener" target="_blank">Google URL Shortener</a>',
-				'<img src="urlapp.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/winstartupmanager" target="_blank">Windows Startup Manager</a>',
-				'<img src="winstartupman.jpg" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/videomusicplayer" target="_blank">Video Music Player</a>',
-				'<img src="videomusicplayer.jpg" width="100%">'
-			]
-		]
-	],
-	["GUI for Microsoft Azure Machine Learning Models",
-		[
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" target="_blank">Chess Endgame Application</a>',
-				'<img src="chessendgame1.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/citationsprediction" target="_blank">Citations Prediction Application</a>',
-				'<img src="predictionapp1.png" width="100%">'
-			]
-		]
-	],
 	["Using Ring Game Engine for 2D Games",
 		[
 			[
@@ -138,24 +46,24 @@
 	["Using RayLib",
 		[
 			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/typingquiz" target="_blank">Typing Quiz</a>',
-				'<img src="typingquiz.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/spaceshooter" target="_blank">Space Shooter Game</a>',
+				'<img src="spaceshootergame.png" width="100%">'
 			],
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/pong2" target="_blank">Pong2 Game</a>',
 				'<img src="pong2game.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/spaceshooter" target="_blank">Space Shooter Game</a>',
-				'<img src="spaceshootergame.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/typingquiz" target="_blank">Typing Quiz</a>',
+				'<img src="typingquiz.png" width="100%">'
 			]
 		]
 	],
 	["Using Allegro & OpenGL",
 		[
 			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/squarespuzzle" target="_blank">Squares Puzzle</a>',
-				'<img src="squarespuzzle.png" width="100%">'
+				'<a href="https://store.steampowered.com/app/939200/Gold_Magic_800/" target="_blank">Gold Magic 800</a>',
+				'<img src="goldmagic800.png" width="100%">'
 			],
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe3d" target="_blank">TicTacToe 3D</a>',
@@ -166,16 +74,80 @@
 				'<img src="fifteen3d.png" width="100%">'
 			],
 			[
-				'<a href="https://store.steampowered.com/app/939200/Gold_Magic_800/" target="_blank">Gold Magic 800</a>',
-				'<img src="goldmagic800.png" width="100%">'
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/squarespuzzle" target="_blank">Squares Puzzle</a>',
+				'<img src="squarespuzzle.png" width="100%">'
 			]
 		]
 	],
 	["Using Qt3D",
 		[
 			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/samples/UsingQt3D" target="_blank">Using Qt3D</a>',
+				'<img src="ringdemo13.png" width="100%">'
+			],
+			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/marketing/chess3d/README.md" target="_blank">Chess 3D (Qt3D Sample)</a>',
 				'<img src="chess3dshot2.png" width="100%">'
+			]
+		]
+	],
+	["General Tools",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/desktopscreenshot" target="_blank">Desktop Screen Shot Application</a>',
+				'<img src="dssapp.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/mergetwofiles" target="_blank">Merge Two Files (Line by Line)</a>',
+				'<img src="mergetwofiles.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/calculator" target="_blank">Calculator</a>',
+				'<img src="newcalc2.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/urlshortener" target="_blank">Google URL Shortener</a>',
+				'<img src="urlapp.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/winstartupmanager" target="_blank">Windows Startup Manager</a>',
+				'<img src="winstartupman.jpg" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/videomusicplayer" target="_blank">Video Music Player</a>',
+				'<img src="videomusicplayer.jpg" width="100%">'
+			]
+		]
+	],
+	["Date & Time",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/analogclock" target="_blank">Analog Clock</a>',
+				'<img src="analogclock.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/stopwatch" target="_blank">Stop Watch</a>',
+				'<img src="stopwatch.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
+				'<img src="calendar.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
+				'<img src="juliandaycalendar.png" width="100%">'
+			]
+		]
+	],
+	["GUI for Microsoft Azure Machine Learning Models",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" target="_blank">Chess Endgame Application</a>',
+				'<img src="chessendgame1.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/citationsprediction" target="_blank">Citations Prediction Application</a>',
+				'<img src="predictionapp1.png" width="100%">'
 			]
 		]
 	],
@@ -319,16 +291,56 @@
 				'<img src="BMI.png" width="100%">'
 			],
 			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/calendar" target="_blank">Calendar application</a>',
-				'<img src="calendar.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/juliandaycalendar" target="_blank">Julian Day Calendar application</a>',
-				'<img src="juliandaycalendar.png" width="100%">'
-			],
-			[
 				'<a href="https://github.com/AbdelrahmanGIT/RingSamples/blob/master/src/ConvertNumbersToString.ring" target="_blank">Convert Numbers To String</a>',
 				'<img src="numtostr.jpg" width="100%">'
+			]
+		]
+	],
+	["Development Tools (GUI)",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringnotepad" target="_blank">Ring Notepad</a>',
+				'<img src="ringnotepad.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/formdesigner" target="_blank">Ring Form Designer</a>',
+				'<img src="ringformdesigner.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/findinfiles" target="_blank">Find in files</a>',
+				'<img src="findinfiles.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringrepl" target="_blank">Ring REPL</a>',
+				'<img src="ringrepl.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/tools/string2constant" target="_blank">String To Constant</a>',
+				'<img src="string2constant.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringqt/converter" target="_blank">Qt Class Converter</a>',
+				'<img src="qtconverter.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/goldmagic800/editor" target="_blank">Gold Magic 800 Level Editor</a>',
+				'<img src="gm800le.png" width="100%">'
+			]
+		]
+	],
+	["Development Tools (Console)",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ringpm" target="_blank">Ring Package Manager</a>',
+				'<img src="cmddemo2.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/tools/ring2exe" target="_blank">Ring2EXE</a>',
+				'<img src="ring2exe.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen" target="_blank">Code Generator for extensions</a>',
+				'<img src="codegen.png" width="100%">'
 			]
 		]
 	],
