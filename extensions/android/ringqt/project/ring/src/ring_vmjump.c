@@ -14,6 +14,11 @@ void ring_vm_jumpzero ( VM *pVM )
 			ring_vm_jump(pVM);
 		}
 	}
+	else if ( RING_VM_STACK_ISSTRING ) {
+		if ( strcmp(RING_VM_STACK_READC,"") == 0 ) {
+			ring_vm_jump(pVM);
+		}
+	}
 	RING_VM_STACK_POP ;
 }
 
