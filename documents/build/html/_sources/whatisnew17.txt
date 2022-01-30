@@ -338,4 +338,5 @@ More Improvements
 * Fexists() function - Support UTF-8 file names
 * Ring VM - Better code when copying lists
 * Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero
+* Ring VM - The result of using the Not (!) operator then List will be False
 * Form Designer - Default TextColor is Empty (Better when changing styles)
