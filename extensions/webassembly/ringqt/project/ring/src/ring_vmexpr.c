@@ -1139,6 +1139,12 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 			return ;
 		}
 	}
+	else if ( strcmp(cStr,"not") == 0 ) {
+		if ( ring_vm_oop_isobject(pList) == 0 ) {
+			RING_VM_STACK_SETNVALUE(0.0);
+			return ;
+		}
+	}
 	if ( ring_vm_oop_isobject(pList) == 1 ) {
 		/* Operator Overloading */
 		ring_vm_oop_operatoroverloading(pVM,pList,cStr,RING_OOPARA_NUMBER,"",nNum1,NULL,0);
