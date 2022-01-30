@@ -337,4 +337,5 @@ More Improvements
 * SetPointer()/GetPointer() functions - Better Code
 * Fexists() function - Support UTF-8 file names
 * Ring VM - Better code when copying lists
+* Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero
 * Form Designer - Default TextColor is Empty (Better when changing styles)
