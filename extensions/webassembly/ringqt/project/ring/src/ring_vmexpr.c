@@ -1112,6 +1112,14 @@ void ring_vm_expr_ppoo ( VM *pVM,const char *cStr )
 		}
 	}
 	else {
+		if ( strcmp(cStr,"=") == 0 ) {
+			RING_VM_STACK_SETNVALUE(0.0);
+			return ;
+		}
+		else if ( strcmp(cStr,"!=") == 0 ) {
+			RING_VM_STACK_SETNVALUE(1.0);
+			return ;
+		}
 		ring_vm_error(pVM,RING_VM_ERROR_BADVALUES);
 	}
 }
