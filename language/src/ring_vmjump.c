@@ -92,6 +92,12 @@ void ring_vm_jumpone2 ( VM *pVM )
 			return ;
 		}
 	}
+	else if ( RING_VM_STACK_ISSTRING ) {
+		if ( strcmp(RING_VM_STACK_READC,"") != 0 ) {
+			ring_vm_jump(pVM);
+			return ;
+		}
+	}
 	RING_VM_STACK_POP ;
 	RING_VM_STACK_PUSHNVALUE(0);
 }
@@ -101,6 +107,12 @@ void ring_vm_jumpzero2 ( VM *pVM )
 	/* Add 1, required for jump in many 'AND' in conditions */
 	if ( RING_VM_STACK_ISNUMBER ) {
 		if ( RING_VM_STACK_READN  == 0 ) {
+			ring_vm_jump(pVM);
+			return ;
+		}
+	}
+	else if ( RING_VM_STACK_ISSTRING ) {
+		if ( strcmp(RING_VM_STACK_READC,"") == 0 ) {
 			ring_vm_jump(pVM);
 			return ;
 		}
