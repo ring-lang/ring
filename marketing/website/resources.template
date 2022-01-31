@@ -1,4 +1,4 @@
-﻿  <%  eval(read("applications.data"))  %>
+  <%  eval(read("applications.data"))  %>
 
   <div id="applications" class="panel-group">
     <div class="panel panel-default">
@@ -8,7 +8,11 @@
 	    <% nIDNumber = 0 %>
 		<% for aGroup in aApplications %>
 		<% nIDNumber++ %>
-	    <%= '<div class="panel panel-primary" id="section'+nIDNumber+'">'%>
+
+		<%= '<a href="#section'+nIDNumber+'" class="btn btn-default" data-toggle="collapse" style="width:100%">'+aGroup[1]+
+		' ('+len(aGroup[2])+') </a>'%>
+
+	    <%= '<div class="panel panel-primary collapse" id="section'+nIDNumber+'">'%>
 		      <div class="panel-heading"><%= aGroup[1] %> <span class="badge"><%= len(aGroup[2]) %></span></div>
 		      <div class="panel-body">
 
