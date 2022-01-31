@@ -1,4 +1,28 @@
-﻿aApplications = [ 
+aApplications = [ 
+	["Arabic Applications",
+		[
+			[
+				'<a href="https://github.com/ring-lang/werdy" target="_blank">Werdy Application</a>',
+				'<img src="werdy.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/poetryanalysis" target="_blank">Arabic Poetry Analysis</a>',
+				'<img src="poetryanalysis.png" width="100%">'
+			]
+		]
+	],
+	["GUI for Machine Learning Models",
+		[
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" target="_blank">Chess Endgame Application</a>',
+				'<img src="chessendgame1.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/citationsprediction" target="_blank">Citations Prediction Application</a>',
+				'<img src="predictionapp1.png" width="100%">'
+			]
+		]
+	],
 	["Using Ring Game Engine for 2D Games",
 		[
 			[
@@ -139,18 +163,6 @@
 			]
 		]
 	],
-	["GUI for Microsoft Azure Machine Learning Models",
-		[
-			[
-				'<a href="https://github.com/ring-lang/ring/tree/master/applications/chessendgame" target="_blank">Chess Endgame Application</a>',
-				'<img src="chessendgame1.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/citationsprediction" target="_blank">Citations Prediction Application</a>',
-				'<img src="predictionapp1.png" width="100%">'
-			]
-		]
-	],
 	["Games using Qt",
 		[
 			[
@@ -259,13 +271,16 @@
 			]
 		]
 	],
-	["General Applications",
+	["Web Applications",
 		[
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/mycoffee" target="_blank">MyCoffee (Web Application)</a>',
 				'<img src="mycoffee.png" width="100%">'
-			],
-
+			]
+		]
+	],
+	["General Applications",
+		[
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/getquoteshistory" target="_blank">Yahoo Stock Data</a>',
 				'<img src="getquotesmac.png" width="100%">'
@@ -341,18 +356,6 @@
 			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/extensions/codegen" target="_blank">Code Generator for extensions</a>',
 				'<img src="codegen.png" width="100%">'
-			]
-		]
-	],
-	["Arabic Applications",
-		[
-			[
-				'<a href="https://github.com/ring-lang/werdy" target="_blank">Werdy Application</a>',
-				'<img src="werdy.png" width="100%">'
-			],
-			[
-				'<a href="https://github.com/ring-lang/ring/blob/master/applications/poetryanalysis" target="_blank">Arabic Poetry Analysis</a>',
-				'<img src="poetryanalysis.png" width="100%">'
 			]
 		]
 	],
