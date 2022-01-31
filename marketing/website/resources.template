@@ -58,9 +58,16 @@
 
   <%  eval(read("resources.data"))  %>
 
+  <% nResourcesCount = 0 
+	 for aGroup in aResources
+		nResourcesCount += len(aGroup[2]) 
+	 next 
+  %>
+
+
   <div id="resources" class="panel-group">
     <div class="panel panel-default">
-      <div class="panel-heading"><h4>Resources <span class="badge"><%= len(aResources) %></span></h4></div>
+      <div class="panel-heading"><h4>Resources <span class="badge"><%= nResourcesCount %></span></h4></div>
       <div class="panel-body">
 
 	    <% nIDNumber = 0 %>
