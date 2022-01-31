@@ -36,7 +36,8 @@ aAllPackagesInfo = [
 		"libdepwin_pgsql",
 		"qt515runtime",
 		"qt515qmlruntime",
-		"webassemblyringqt"
+		"webassemblyringqt",
+		"libdepwin_allegro5271"
 	],
 	:ringopenssl = 	[
 		"stdlib"
