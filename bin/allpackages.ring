@@ -28,7 +28,6 @@ aAllPackagesInfo = [
 		"androidringqt",
 		"visualstudioeditorextension",
 		"ringsamples",
-		"libdepwin_allegro524",
 		"libdepwin_glew",
 		"libdepwin_libsdl",
 		"libdepwin_mysql",
@@ -298,5 +297,8 @@ aAllPackagesInfo = [
 	],
 	:tokenslib = 	[
 		"jsonlib"
+	],
+	:libdepwin_allegro524 = 	[
+
 	]
 ]
