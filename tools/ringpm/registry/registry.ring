@@ -678,6 +678,10 @@ aPackagesRegistry = [
 	[ :name = "jsonlib",
           :description = "JSONLib library for the Ring programming language",
           :ProviderUserName = "ringpackages"
-        ]
+        ],
+	[ :name = "libdepwin_allegro5271",
+	  :description = "LibDepWin_Allegro5271 package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	]
 
 ]
