@@ -1,8 +1,14 @@
   <%  eval(read("applications.data"))  %>
 
+  <% nAppsCount = 0 
+	 for aGroup in aApplications 
+		nAppsCount += len(aGroup[2]) 
+	 next 
+  %>
+
   <div id="applications" class="panel-group">
     <div class="panel panel-default">
-      <div class="panel-heading"><h4>Applications developed using Ring <span class="badge"><%= len(aApplications) %></span></h4></div>
+      <div class="panel-heading"><h4>Applications developed using Ring <span class="badge"><%= nAppsCount %></span></h4></div>
       <div class="panel-body">
 
 	    <% nIDNumber = 0 %>
