@@ -276,7 +276,12 @@ aApplications = [
 			[
 				'<a href="https://github.com/ring-lang/ring/tree/master/applications/mycoffee" target="_blank">MyCoffee (Web Application)</a>',
 				'<img src="mycoffee.png" width="100%">'
+			],
+			[
+				'<a href="https://github.com/ring-lang/ring/tree/master/marketing/website" target="_blank">Ring Website (Generated HTML Files)</a>',
+				'<img src="ringwebsite.png" width="100%">'
 			]
+
 		]
 	],
 	["General Applications",
