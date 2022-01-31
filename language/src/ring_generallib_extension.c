@@ -1228,7 +1228,7 @@ void ring_vm_generallib_substr ( void *pPointer )
 			nSize2 = RING_API_GETSTRINGSIZE(2) ;
 			cStr3 = ring_string_find2(cStr,nSize,cStr2,nSize2);
 			if ( cStr3 != NULL ) {
-				nNum1 = ((RING_UNSIGNEDINTEGERPOINTER) cStr3) - ((RING_UNSIGNEDINTEGERPOINTER) cStr) + 1 ;
+				nNum1 = (RING_LONGLONG)(cStr3 - cStr + 1) ;
 			}
 			else {
 				nNum1 = 0.0 ;
@@ -1304,7 +1304,7 @@ void ring_vm_generallib_substr ( void *pPointer )
 		nMark = 0 ;
 		pString = ring_string_new_gc(((VM *) pPointer)->pRingState,"");
 		while ( cString != NULL ) {
-			nPos = (RING_UNSIGNEDINTEGERPOINTER)(((RING_UNSIGNEDINTEGERPOINTER) cString) - ((RING_UNSIGNEDINTEGERPOINTER) cStr) + 1) ;
+			nPos = (RING_LONGLONG)(cString - cStr + 1) ;
 			/* Add SubString to pString */
 			ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr+nMark,nPos-1-nMark);
 			ring_string_add2_gc(((VM *) pPointer)->pRingState,pString,cStr3,RING_API_GETSTRINGSIZE(3));
