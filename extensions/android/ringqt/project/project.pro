@@ -215,6 +215,7 @@ HEADERS  += \
 	ringqt/include/mscompleter.h 
 
 CONFIG += warn_off
+CONFIG += -Wno-deprecated
 
 RESOURCES = project.qrc
 
