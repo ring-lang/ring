@@ -7,6 +7,6 @@ func main
 	? "See the folder : ring/applications/citationsprediction"
 	? copy("=",C_LINESIZE)
 	cDir = currentdir()
-	chdir(exefolder()+"/../applications/citationspredictiton")
+	chdir(exefolder()+"/../applications/citationsprediction")
 	system("ring predictController.ring")
 	chdir(cDir)
