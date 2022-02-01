@@ -280,7 +280,9 @@ Output:
 Better GUILib
 =============
 
-* Added: AddList() method to the TableWidget class 
+(1) Many deprecated methods are removed from RingQt 
+
+(2) Added: AddList() method to the TableWidget class 
 
 .. tip:: TableWidget class is a subclass of QTableWidget class
 
@@ -316,7 +318,6 @@ Screen Shot:
 
 .. image:: addlisttotablewidget.png
 	:alt: addlisttotablewidget
-
 
 .. index:: 
 	pair: What is new in Ring  1.17; More Improvements
