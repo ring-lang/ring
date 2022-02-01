@@ -1,0 +1,92 @@
+.. index:: 
+	Single: Using CSVLib;  Introduction
+
+============
+Using CSVLib
+============
+
+In this chapter we will learn how to use the CSVLib library.
+
+
+.. index:: 
+	pair: Using CSVLib; Introduction
+
+Introduction
+============
+
+CSVLib is a simple library written in Ring.
+
+The library provide functions to read and write CSV Files.
+
+
+.. index:: 
+	pair: Using CSVLib; Functions
+
+Functions
+=========
+
+The library comes with the next functions
+
+.. code-block:: none
+
+	List2CSV(aList) --> cCSVString
+	CSV2List(cCSVString) --> aList
+
+.. index:: 
+	pair: Using CSVLib; Examples
+
+Examples
+========
+
+Example(1)
+
+.. code-block:: ring
+
+	load "csvlib.ring"
+
+	aList = [ ["number", "square" ] ]
+
+	for t=1 to 10
+		aList + [ t, t*t ]
+	next
+	
+	write( "squares.csv", list2CSV(aList) )
+
+Output:
+
+.. image:: squarestable.png
+	:alt: squarestable
+
+
+Example (2)
+
+.. code-block:: ring
+
+	load "csvlib.ring"
+
+	if ! fexists("squares.csv")
+		? "The file squares.csv doesn't exist! - Run writeSquaresTable.ring to create it"
+		return
+	ok
+	
+	aList = CSV2List( read("squares.csv") )
+	
+	for subList in aList 
+		? "" + subList[1] + " - " + subList[2]
+	next
+
+Output:
+
+.. code-block:: none
+
+	number - square
+	1 - 1
+	2 - 4
+	3 - 9
+	4 - 16
+	5 - 25
+	6 - 36
+	7 - 49
+	8 - 64
+	9 - 81
+	10 - 100
