@@ -1,85 +1,85 @@
 ﻿aResources = [ 
 	["English Resources",[
 				[
-					'<a href="https://www.apress.com/gp/book/9781484258323" target="_blank">Apress: Beginning Ring Programming</a>'
+					'<a href="https://www.apress.com/gp/book/9781484258323" >Apress: Beginning Ring Programming</a>'
 				],
 				[
-					'<a href="https://rosettacode.org/wiki/Category:Ring" target="_blank">Ring Samples (Rosettacode)</a>'
+					'<a href="https://rosettacode.org/wiki/Category:Ring" >Ring Samples (Rosettacode)</a>'
 				],
 				[
-					'<a href="https://en.wikibooks.org/wiki/Ring" target="_blank">Ring in Wikibooks (Version 1.0)</a>'
+					'<a href="https://en.wikibooks.org/wiki/Ring" >Ring in Wikibooks (Version 1.0)</a>'
 				],
 				[
-					'<a href="https://groups.google.com/forum/#!forum/ring-lang" target="_blank">Ring Group (Many Useful Topics)</a>'
+					'<a href="https://groups.google.com/forum/#!forum/ring-lang" >Ring Group (Many Useful Topics)</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=7BqoQldx0Pk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=2" target="_blank">Video Tutorials (Getting Started!)</a>'
+					'<a href="https://www.youtube.com/watch?v=7BqoQldx0Pk&list=PL8SruvH85P0uA8ggijCQUR9tXAXF4bmtu&index=2" >Video Tutorials (Getting Started!)</a>'
 				],
 				[
-					'<a href="https://www.rangakrish.com/index.php/2021/08/07/first-encounter-with-the-ring-programming-language/" target="_blank">Article: First Encounter with the Ring Programming Language</a>'
+					'<a href="https://www.rangakrish.com/index.php/2021/08/07/first-encounter-with-the-ring-programming-language/" >Article: First Encounter with the Ring Programming Language</a>'
 				],
 				[
-					'<a href="https://www.rangakrish.com/index.php/2021/08/21/loop-command-in-ring-programming-language/" target="_blank">Article: Loop Command in Ring Programming Language</a>'
+					'<a href="https://www.rangakrish.com/index.php/2021/08/21/loop-command-in-ring-programming-language/" >Article: Loop Command in Ring Programming Language</a>'
 				],
 				[
-					'<a href="https://www.rangakrish.com/index.php/2021/09/04/ring-language-dynamic-behavior-of-classes-and-objects/" target="_blank">Article: Dynamic Behavior of Classes and Objects</a>'
+					'<a href="https://www.rangakrish.com/index.php/2021/09/04/ring-language-dynamic-behavior-of-classes-and-objects/" >Article: Dynamic Behavior of Classes and Objects</a>'
 				],
 				[
-					'<a href="https://dragon-ring-docs.github.io/" target="_blank">Dragon Web Framework</a>'
+					'<a href="https://dragon-ring-docs.github.io/" >Dragon Web Framework</a>'
 				],
 				[
-					'<a href="http://ring-wincreg.sourceforge.net/docs/" target="_blank">Ring_WinCReg’s documentation</a>'
+					'<a href="http://ring-wincreg.sourceforge.net/docs/" >Ring_WinCReg’s documentation</a>'
 				]
 			]
 	     ],
 	     ["Arabic Resources",[
 				[
-					'<a href="https://ringprogramming4arab.wordpress.com/%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D9%88%D9%8A-2/" target="_blank">Blog: Ring Programming for Arab</a>'
+					'<a href="https://ringprogramming4arab.wordpress.com/%D8%A7%D9%84%D9%85%D8%AD%D8%AA%D9%88%D9%8A-2/" >Blog: Ring Programming for Arab</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" target="_blank">Arabic Video Tutorials (Ring Lectures)</a>'
+					'<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC" >Arabic Video Tutorials (Ring Lectures)</a>'
 				],
 				[
-					'<a href="https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" target="_blank">Arabic Video Tutorials (Mastering Ring)</a>'
+					'<a href="https://www.youtube.com/watch?v=6VIHMyrEilw&list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT" >Arabic Video Tutorials (Mastering Ring)</a>'
 				],
 				[
-					'<a href="https://www.youm7.com/story/2016/1/11/%D9%81%D9%89-25-%D9%8A%D9%86%D8%A7%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A8%D9%84-%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D9%85%D9%88%D8%A7%D8%B5%D9%81%D8%A7%D8%AA-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-%D9%85%D9%86/2532713" target="_blank">Introducing Ring by Youm7</a>'
+					'<a href="https://www.youm7.com/story/2016/1/11/%D9%81%D9%89-25-%D9%8A%D9%86%D8%A7%D9%8A%D8%B1-%D8%A7%D9%84%D9%85%D9%82%D8%A8%D9%84-%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D9%85%D9%88%D8%A7%D8%B5%D9%81%D8%A7%D8%AA-%D8%B9%D8%A7%D9%84%D9%85%D9%8A%D8%A9-%D9%85%D9%86/2532713" >Introducing Ring by Youm7</a>'
 				],
 				[
-					'<a href="https://www.youm7.com/story/2016/11/23/%D8%A8%D8%AF%D8%A1-%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%AC%D9%8A%D9%84-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF-%D9%85%D9%86-%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A8%D8%AF%D9%88%D9%86-%D9%83%D9%88%D8%AF/2979508" target="_blank">Using Ring in PWCT 2.0 development</a>'
+					'<a href="https://www.youm7.com/story/2016/11/23/%D8%A8%D8%AF%D8%A1-%D8%AA%D8%B7%D9%88%D9%8A%D8%B1-%D8%A7%D9%84%D8%AC%D9%8A%D9%84-%D8%A7%D9%84%D8%AC%D8%AF%D9%8A%D8%AF-%D9%85%D9%86-%D8%AA%D9%82%D9%86%D9%8A%D8%A9-%D8%A7%D9%84%D8%A8%D8%B1%D9%85%D8%AC%D8%A9-%D8%A8%D8%AF%D9%88%D9%86-%D9%83%D9%88%D8%AF/2979508" >Using Ring in PWCT 2.0 development</a>'
 				],
 				[
-					'<a href="https://muslims-res.com/%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D8%A3%D9%8A%D8%AF%D9%8D-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%88%D9%84%D9%82%D8%A7%D8%A1-%D8%AD%D8%B5%D8%B1/" target="_blank">Introducing Ring by Researchers Website</a>'
+					'<a href="https://muslims-res.com/%D9%84%D8%BA%D8%A9-%D8%A8%D8%B1%D9%85%D8%AC%D9%8A%D8%A9-%D8%AC%D8%AF%D9%8A%D8%AF%D8%A9-%D8%A8%D8%A3%D9%8A%D8%AF%D9%8D-%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-%D9%88%D9%84%D9%82%D8%A7%D8%A1-%D8%AD%D8%B5%D8%B1/" >Introducing Ring by Researchers Website</a>'
 				],
 				[
-					'<a href="http://ring-lang.sourceforge.net/ref/ArabicBook_YourWayToProgramming_TalkAboutRing.pdf" target="_blank">Book: Your way to programming (talk about Ring)</a>'
+					'<a href="http://ring-lang.sourceforge.net/ref/ArabicBook_YourWayToProgramming_TalkAboutRing.pdf" >Book: Your way to programming (talk about Ring)</a>'
 				],
 				[
-					'<a href="http://bimarabia.com/download/BIMarabia_Arabic/BIMarabia27.pdf#page=8" target="_blank">Ring Review by BIMArabia</a>'
+					'<a href="http://bimarabia.com/download/BIMarabia_Arabic/BIMarabia27.pdf#page=8" >Ring Review by BIMArabia</a>'
 				],
 				[
-					'<a href="http://ring-lang.sourceforge.net/RingBasics_ArabicBook.pdf" target="_blank">Book: Ring Basics (Hassouna Academy)</a>'
+					'<a href="http://ring-lang.sourceforge.net/RingBasics_ArabicBook.pdf" >Book: Ring Basics (Hassouna Academy)</a>'
 				],
 				[
-					'<a href="http://ring-lang.sourceforge.net/ref/GhanemBookAboutRing.pdf" target="_blank">Book: Using Ring to analysis the Arabic Poetry</a>'
+					'<a href="http://ring-lang.sourceforge.net/ref/GhanemBookAboutRing.pdf" >Book: Using Ring to analysis the Arabic Poetry</a>'
 				]
 			]
 	     ],
 	     ["Japanese Resources",[
 				[
-					'<a href="http://ring-lang-081.osdn.jp/" target="_blank">Ring Website</a>'
+					'<a href="http://ring-lang-081.osdn.jp/" >Ring Website</a>'
 				],
 				[
-					'<a href="http://ring-lang-081.osdn.jp/docs-1.16/index.html" target="_blank">Ring Documentation</a>'
+					'<a href="http://ring-lang-081.osdn.jp/docs-1.16/index.html" >Ring Documentation</a>'
 				]
 			]
 	     ],
 	     ["Programming Languages influenced by Ring",[
 				[
-					'<a href="https://github.com/theratioproject/simple" target="_blank">Simple programming language</a>'
+					'<a href="https://github.com/theratioproject/simple" >Simple programming language</a>'
 				],
 				[
-					'<a href="https://www.dragon-lang.org/" target="_blank">Dragon programming language</a>'
+					'<a href="https://www.dragon-lang.org/" >Dragon programming language</a>'
 				]
 			]
 	     ]
