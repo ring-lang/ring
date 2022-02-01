@@ -686,6 +686,10 @@ aPackagesRegistry = [
 	[ :name = "citationsprediction",
 	  :description = "Citations Prediction application package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "mergetwofiles",
+	  :description = "Merge Two Files application package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
