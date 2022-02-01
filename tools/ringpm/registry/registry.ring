@@ -682,6 +682,10 @@ aPackagesRegistry = [
 	[ :name = "libdepwin_allegro5271",
 	  :description = "LibDepWin_Allegro5271 package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "citationsprediction",
+	  :description = "Citations Prediction application package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
