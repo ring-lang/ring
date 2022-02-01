@@ -124,7 +124,8 @@ aAllPackagesInfo = [
 		"Chess3d-Qt3D",
 		"chessendgame",
 		"jsonlib",
-		"CitationsPrediction"
+		"CitationsPrediction",
+		"mergetwofiles"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -207,7 +208,8 @@ aAllPackagesInfo = [
 		"erlangbformula",
 		"Chess3d-Qt3D",
 		"chessendgame",
-		"CitationsPrediction"
+		"CitationsPrediction",
+		"mergetwofiles"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
