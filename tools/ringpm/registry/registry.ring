@@ -690,6 +690,10 @@ aPackagesRegistry = [
 	[ :name = "mergetwofiles",
 	  :description = "Merge Two Files application package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "poetryanalysis",
+	  :description = "Poetry Analysis application package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 
 ]
