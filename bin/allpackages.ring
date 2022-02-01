@@ -19,7 +19,8 @@ aAllPackagesInfo = [
 	],
 	:ringcurl = 	[
 		"internetlib",
-		"stdlib"
+		"stdlib",
+		"CitationsPrediction"
 	],
 	:ringzip = 	[
 		"ringqt",
@@ -122,7 +123,8 @@ aAllPackagesInfo = [
 		"erlangbformula",
 		"Chess3d-Qt3D",
 		"chessendgame",
-		"jsonlib"
+		"jsonlib",
+		"CitationsPrediction"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -204,7 +206,8 @@ aAllPackagesInfo = [
 		"ringrepl",
 		"erlangbformula",
 		"Chess3d-Qt3D",
-		"chessendgame"
+		"chessendgame",
+		"CitationsPrediction"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -300,5 +303,11 @@ aAllPackagesInfo = [
 	],
 	:libdepwin_allegro524 = 	[
 
+	],
+	:csvlib = 	[
+		"CitationsPrediction"
+	],
+	:jsonlib = 	[
+		"CitationsPrediction"
 	]
 ]
