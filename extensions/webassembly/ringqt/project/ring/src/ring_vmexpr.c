@@ -1149,7 +1149,12 @@ void ring_vm_expr_npoo ( VM *pVM,const char *cStr,double nNum1 )
 	}
 	else if ( strcmp(cStr,"not") == 0 ) {
 		if ( ring_vm_oop_isobject(pList) == 0 ) {
-			RING_VM_STACK_SETNVALUE(0.0);
+			if ( ring_list_getsize(pList) == 0 ) {
+				RING_VM_STACK_SETNVALUE(1.0);
+			}
+			else {
+				RING_VM_STACK_SETNVALUE(0.0);
+			}
 			return ;
 		}
 	}

@@ -1,6 +1,6 @@
 One
-NOT NULL
 Two
+What
 Three
 Four
 Great!

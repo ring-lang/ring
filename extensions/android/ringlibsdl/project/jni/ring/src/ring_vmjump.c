@@ -9,6 +9,8 @@ void ring_vm_jump ( VM *pVM )
 
 void ring_vm_jumpzero ( VM *pVM )
 {
+	List *pList  ;
+	Item *pItem  ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		if ( RING_VM_STACK_READN  == 0 ) {
 			ring_vm_jump(pVM);
@@ -17,6 +19,22 @@ void ring_vm_jumpzero ( VM *pVM )
 	else if ( RING_VM_STACK_ISSTRING ) {
 		if ( strcmp(RING_VM_STACK_READC,"") == 0 ) {
 			ring_vm_jump(pVM);
+		}
+	}
+	else if ( RING_VM_STACK_ISPOINTER ) {
+		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+			pList = (List *) RING_VM_STACK_READP ;
+			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
+			if ( ring_list_getsize(pList) == 0 ) {
+				ring_vm_jump(pVM);
+			}
+		}
+		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
+			pItem = (Item *) RING_VM_STACK_READP ;
+			pList = ring_item_getlist(pItem) ;
+			if ( ring_list_getsize(pList) == 0 ) {
+				ring_vm_jump(pVM);
+			}
 		}
 	}
 	RING_VM_STACK_POP ;
@@ -70,6 +88,8 @@ void ring_vm_jumpfor ( VM *pVM )
 
 void ring_vm_jumpone ( VM *pVM )
 {
+	List *pList  ;
+	Item *pItem  ;
 	if ( RING_VM_STACK_ISNUMBER ) {
 		if ( RING_VM_STACK_READN  != 0 ) {
 			ring_vm_jump(pVM);
@@ -80,11 +100,29 @@ void ring_vm_jumpone ( VM *pVM )
 			ring_vm_jump(pVM);
 		}
 	}
+	else if ( RING_VM_STACK_ISPOINTER ) {
+		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+			pList = (List *) RING_VM_STACK_READP ;
+			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
+			if ( ring_list_getsize(pList) != 0 ) {
+				ring_vm_jump(pVM);
+			}
+		}
+		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
+			pItem = (Item *) RING_VM_STACK_READP ;
+			pList = ring_item_getlist(pItem) ;
+			if ( ring_list_getsize(pList) != 0 ) {
+				ring_vm_jump(pVM);
+			}
+		}
+	}
 	RING_VM_STACK_POP ;
 }
 
 void ring_vm_jumpone2 ( VM *pVM )
 {
+	List *pList  ;
+	Item *pItem  ;
 	/* Add 1, required for jump in many 'OR' in conditions */
 	if ( RING_VM_STACK_ISNUMBER ) {
 		if ( RING_VM_STACK_READN  != 0 ) {
@@ -98,12 +136,32 @@ void ring_vm_jumpone2 ( VM *pVM )
 			return ;
 		}
 	}
+	else if ( RING_VM_STACK_ISPOINTER ) {
+		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+			pList = (List *) RING_VM_STACK_READP ;
+			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
+			if ( ring_list_getsize(pList) != 0 ) {
+				ring_vm_jump(pVM);
+				return ;
+			}
+		}
+		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
+			pItem = (Item *) RING_VM_STACK_READP ;
+			pList = ring_item_getlist(pItem) ;
+			if ( ring_list_getsize(pList) != 0 ) {
+				ring_vm_jump(pVM);
+				return ;
+			}
+		}
+	}
 	RING_VM_STACK_POP ;
 	RING_VM_STACK_PUSHNVALUE(0);
 }
 
 void ring_vm_jumpzero2 ( VM *pVM )
 {
+	List *pList  ;
+	Item *pItem  ;
 	/* Add 1, required for jump in many 'AND' in conditions */
 	if ( RING_VM_STACK_ISNUMBER ) {
 		if ( RING_VM_STACK_READN  == 0 ) {
@@ -115,6 +173,24 @@ void ring_vm_jumpzero2 ( VM *pVM )
 		if ( strcmp(RING_VM_STACK_READC,"") == 0 ) {
 			ring_vm_jump(pVM);
 			return ;
+		}
+	}
+	else if ( RING_VM_STACK_ISPOINTER ) {
+		if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_VARIABLE ) {
+			pList = (List *) RING_VM_STACK_READP ;
+			pList = ring_list_getlist(pList,RING_VAR_VALUE) ;
+			if ( ring_list_getsize(pList) == 0 ) {
+				ring_vm_jump(pVM);
+				return ;
+			}
+		}
+		else if ( RING_VM_STACK_OBJTYPE == RING_OBJTYPE_LISTITEM ) {
+			pItem = (Item *) RING_VM_STACK_READP ;
+			pList = ring_item_getlist(pItem) ;
+			if ( ring_list_getsize(pList) == 0 ) {
+				ring_vm_jump(pVM);
+				return ;
+			}
 		}
 	}
 	RING_VM_STACK_POP ;
