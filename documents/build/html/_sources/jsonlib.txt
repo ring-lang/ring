@@ -1,0 +1,117 @@
+.. index:: 
+	Single: Using JSONLib;  Introduction
+
+=============
+Using JSONLib
+=============
+
+In this chapter we will learn how to use the JSONLib library.
+
+
+.. index:: 
+	pair: Using JSONLib; Introduction
+
+Introduction
+============
+
+JSONLib is a simple library written in Ring.
+
+The library provide functions to read and write JSON files.
+
+
+.. index:: 
+	pair: Using JSONLib; Functions
+
+Functions
+=========
+
+The library comes with the next functions
+
+.. code-block:: none
+
+	List2JSON(aList) --> cJSONString
+	JSON2List(cJSONString) --> aList
+
+.. index:: 
+	pair: Using JSONLib; Examples
+
+Examples
+========
+
+Example (1):
+
+File: sample.json
+
+.. code-block:: none
+
+	{
+	  "firstName": "John",
+	  "lastName": "Smith", 
+	  "age": 20,
+	  "address": {
+		"streetAddress": "21 2nd Street",
+		"city": "New York",
+		"state": "NY",
+		"postalCode": "10021"
+	  },
+	  "phoneNumbers": [
+		{ "type": "home", "number": "212 555-1234" },
+		{ "type": "fax", "number": "646 555-4567" }
+	  ]
+	}
+
+Ring Code:
+
+.. code-block:: none
+
+	load "jsonlib.ring"
+	
+	func main
+	
+		aList = JSON2List( read("sample.json") )
+	
+		? aList[:FirstName]
+		? aList[:LastName]
+		? aList[:Age]
+		? aList[:Address][:city]
+		? aList[:phoneNumbers][1][:Type]
+		? aList[:phoneNumbers][1][:Number]
+		? aList[:phoneNumbers][2][:Type]
+		? aList[:phoneNumbers][2][:Number]
+
+Output:
+
+.. code-block:: none
+
+	John
+	Smith
+	20
+	New York
+	home
+	212 555-1234
+	fax
+	646 555-4567
+
+Example (2):
+
+.. code-block:: ring
+
+	load "jsonlib.ring"
+	
+	func main
+	
+		aList = [
+			:name = "Ring",
+			:year = 2016
+		]
+	
+		? List2JSON(aList)
+
+Output:
+
+.. code-block:: none
+
+	{
+	        "name": "Ring",
+	        "year": 2016
+	}
