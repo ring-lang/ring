@@ -325,6 +325,8 @@ Screen Shot:
 More Improvements
 =================
 
+* Ring Notepad (Web Browser) - Support URLs without "http" in the start
+* Form Designer - Default TextColor is Empty (Better when changing styles)
 * Many documents and samples are revised (Better English)
 * Many applications are updated to use LightGUILib 
 * Calendar application - Better code to detect the current year
@@ -341,5 +343,3 @@ More Improvements
 * Ring VM - ICO_JUMPZ Instruction - Treat empty lists as Zero
 * Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero
 * Ring VM - The result of using the Not (!) operator then List will be False
-* Form Designer - Default TextColor is Empty (Better when changing styles)
-* Ring Notepad (Web Browser) - Support URLs without "http://" in the start
