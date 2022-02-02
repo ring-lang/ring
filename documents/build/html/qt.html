@@ -191,6 +191,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#the-difference-between-qt-and-ringqt">The Difference between Qt and RingQt</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#ringqt-classes-and-their-qt-documentation">RingQt Classes and their Qt Documentation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#new-classes-names-index-start-from-1">New Classes names - Index Start from 1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#tablewidget-addlist-method">TableWidget - AddList() Method</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#creating-reports-using-the-weblib-and-the-guilib">Creating Reports using the WebLib and the GUILib</a></li>
 </ul>
 </li>
@@ -218,6 +219,9 @@
 <li class="toctree-l1"><a class="reference internal" href="zerolib.html">ZeroLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="foxringfuncsdoc.html">FoxRing Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="socket.html">Using RingSockets</a></li>
@@ -4762,8 +4766,44 @@ Also updated methods so the index start from 1 when we deal with the GUI control
 <li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartController.ring">https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartController.ring</a></p></li>
 </ol>
 </div>
+<div class="section" id="tablewidget-addlist-method">
+<span id="index-64"></span><h2>TableWidget - AddList() Method<a class="headerlink" href="#tablewidget-addlist-method" title="Permalink to this headline">¶</a></h2>
+<p>Using this method we can add Ring List to the TableWidget</p>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>TableWidget class is a subclass of QTableWidget class</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To use TableWidget class, import system.gui after loading guilib.ring or lightguilib.ring</p>
+</div>
+<p>Example:</p>
+<p>Source code: <a class="reference external" href="https://github.com/ring-lang/ring/tree/master/samples/UsingQt/TableWidget/AddRingList">https://github.com/ring-lang/ring/tree/master/samples/UsingQt/TableWidget/AddRingList</a></p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="n">addRingListController</span> <span class="k">from</span> <span class="n">windowsControllerParent</span>
+
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">addRingListView</span>
+
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[[</span><span class="s">&quot;one&quot;</span><span class="p">,</span><span class="s">&quot;two&quot;</span><span class="o">]</span><span class="p">,</span>
+                 <span class="o">[</span><span class="s">&quot;three&quot;</span><span class="p">,</span><span class="s">&quot;four&quot;</span><span class="o">]</span><span class="p">,</span>
+                 <span class="o">[</span><span class="s">&quot;five&quot;</span><span class="p">,</span><span class="s">&quot;six&quot;</span><span class="o">]</span><span class="p">,</span>
+                 <span class="o">[</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="o">]</span><span class="p">,</span>
+                 <span class="o">[</span><span class="s">&quot;I&quot;</span><span class="p">,</span><span class="s">&quot;Love&quot;</span><span class="p">,</span><span class="s">&quot;Ring&quot;</span><span class="p">,</span><span class="s">&quot;Programming&quot;</span><span class="o">]]</span>
+
+        <span class="n">oView</span><span class="p">.</span><span class="n">tablewidget1</span><span class="p">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+
+        <span class="n">aList</span> <span class="o">=</span> <span class="o">[[</span><span class="s">&quot;Number&quot;</span><span class="p">,</span><span class="s">&quot;Square&quot;</span><span class="o">]]</span>
+        <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
+                <span class="n">aList</span> <span class="o">+</span> <span class="o">[</span> <span class="n">t</span><span class="p">,</span> <span class="n">t</span><span class="o">*</span><span class="n">t</span><span class="o">]</span>
+        <span class="k">next</span>
+
+        <span class="n">oView</span><span class="p">.</span><span class="n">tablewidget1</span><span class="p">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="addlisttotablewidget" src="_images/addlisttotablewidget.png" />
+</div>
 <div class="section" id="creating-reports-using-the-weblib-and-the-guilib">
-<span id="index-64"></span><h2>Creating Reports using the WebLib and the GUILib<a class="headerlink" href="#creating-reports-using-the-weblib-and-the-guilib" title="Permalink to this headline">¶</a></h2>
+<span id="index-65"></span><h2>Creating Reports using the WebLib and the GUILib<a class="headerlink" href="#creating-reports-using-the-weblib-and-the-guilib" title="Permalink to this headline">¶</a></h2>
 <p>The WebLib comes with a class called HtmlPage</p>
 <p>Using this class we can create reports quickly using WebLib &amp; GUILib together</p>
 <p>Example:</p>
