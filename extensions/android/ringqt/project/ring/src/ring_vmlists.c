@@ -34,6 +34,9 @@ void ring_vm_liststart ( VM *pVM )
 				}
 			}
 		}
+		else {
+			nCont = 1 ;
+		}
 		if ( (pVM->nFuncExecute > 0)  || ( nCont == 1 ) ) {
 			/* Create the Temp list */
 			ring_vm_createtemplist(pVM);

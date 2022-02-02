@@ -658,13 +658,11 @@ func DistributeForMobileQt cBaseFolder,cFileName,aOptions
 		OSDeleteFile("main.cpp")
 		OSCopyFile(cMainFile)
 	ok
-	msg("Copy Android, Ring and RingQt folders...")
+	msg("Copy Ring and RingQt folders...")
 	if isWindows()
-		OSCopyFolder(exefolder() + "..\extensions\android\ringqt\project\","android" )
 		OSCopyFolder(exefolder() + "..\extensions\android\ringqt\project\","ring" )
 		OSCopyFolder(exefolder() + "..\extensions\android\ringqt\project\","ringqt" )
 	else
-		OSCopyFolder(exefolder() + "../extensions/android/ringqt/project/","android" )
 		OSCopyFolder(exefolder() + "../extensions/android/ringqt/project/","ring" )
 		OSCopyFolder(exefolder() + "../extensions/android/ringqt/project/","ringqt" )
 	ok

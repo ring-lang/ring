@@ -19,7 +19,8 @@ aAllPackagesInfo = [
 	],
 	:ringcurl = 	[
 		"internetlib",
-		"stdlib"
+		"stdlib",
+		"CitationsPrediction"
 	],
 	:ringzip = 	[
 		"ringqt",
@@ -28,7 +29,6 @@ aAllPackagesInfo = [
 		"androidringqt",
 		"visualstudioeditorextension",
 		"ringsamples",
-		"libdepwin_allegro524",
 		"libdepwin_glew",
 		"libdepwin_libsdl",
 		"libdepwin_mysql",
@@ -36,7 +36,8 @@ aAllPackagesInfo = [
 		"libdepwin_pgsql",
 		"qt515runtime",
 		"qt515qmlruntime",
-		"webassemblyringqt"
+		"webassemblyringqt",
+		"libdepwin_allegro5271"
 	],
 	:ringopenssl = 	[
 		"stdlib"
@@ -122,7 +123,10 @@ aAllPackagesInfo = [
 		"erlangbformula",
 		"Chess3d-Qt3D",
 		"chessendgame",
-		"jsonlib"
+		"jsonlib",
+		"CitationsPrediction",
+		"mergetwofiles",
+		"poetryanalysis"
 	],
 	:ringallegro = 	[
 		"gameengine",
@@ -204,7 +208,10 @@ aAllPackagesInfo = [
 		"ringrepl",
 		"erlangbformula",
 		"Chess3d-Qt3D",
-		"chessendgame"
+		"chessendgame",
+		"CitationsPrediction",
+		"mergetwofiles",
+		"poetryanalysis"
 	],
 	:findinfiles = 	[
 		"ringnotepad"
@@ -297,5 +304,14 @@ aAllPackagesInfo = [
 	],
 	:tokenslib = 	[
 		"jsonlib"
+	],
+	:libdepwin_allegro524 = 	[
+
+	],
+	:csvlib = 	[
+		"CitationsPrediction"
+	],
+	:jsonlib = 	[
+		"CitationsPrediction"
 	]
 ]

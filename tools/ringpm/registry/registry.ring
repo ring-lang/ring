@@ -678,6 +678,22 @@ aPackagesRegistry = [
 	[ :name = "jsonlib",
           :description = "JSONLib library for the Ring programming language",
           :ProviderUserName = "ringpackages"
-        ]
+        ],
+	[ :name = "libdepwin_allegro5271",
+	  :description = "LibDepWin_Allegro5271 package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "citationsprediction",
+	  :description = "Citations Prediction application package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "mergetwofiles",
+	  :description = "Merge Two Files application package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "poetryanalysis",
+	  :description = "Poetry Analysis application package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
+	]
 
 ]

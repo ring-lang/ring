@@ -4559,8 +4559,49 @@ Example  (Uses the Form Designer)
 (2) https://github.com/ring-lang/ring/blob/master/samples/UsingFormDesigner/indexstart/indexstartController.ring 
 
 .. index:: 
-	pair: Desktop, WebAssembly and Mobile Development; Creating Reports using the WebLib and the GUILib
+	pair: Desktop, WebAssembly and Mobile Development; TableWidget - AddList() Method
 
+TableWidget - AddList() Method
+==============================
+
+Using this method we can add Ring List to the TableWidget
+
+.. tip:: TableWidget class is a subclass of QTableWidget class
+
+.. note:: To use TableWidget class, import system.gui after loading guilib.ring or lightguilib.ring
+
+Example:
+
+Source code: https://github.com/ring-lang/ring/tree/master/samples/UsingQt/TableWidget/AddRingList
+
+.. code-block:: ring
+
+	class addRingListController from windowsControllerParent
+
+		oView = new addRingListView
+
+		aList = [["one","two"],
+			 ["three","four"],
+			 ["five","six"],
+			 [7,8],
+			 ["I","Love","Ring","Programming"]]
+		
+		oView.tablewidget1.addList(aList)
+
+		aList = [["Number","Square"]]
+		for t = 1 to 10
+			aList + [ t, t*t]
+		next
+
+		oView.tablewidget1.addList(aList)
+
+Screen Shot:
+
+.. image:: addlisttotablewidget.png
+	:alt: addlisttotablewidget
+
+.. index:: 
+	pair: Desktop, WebAssembly and Mobile Development; Creating Reports using the WebLib and the GUILib
 
 Creating Reports using the WebLib and the GUILib 
 ================================================

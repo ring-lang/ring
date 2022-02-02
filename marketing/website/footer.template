@@ -110,7 +110,7 @@
 </div>
 
 <div class="container-fluid" style="text-align:center;color:black; height: 25px; background: transparent linear-gradient(to bottom, rgb(240, 249, 255) 0%, rgb(203, 235, 255) 47%, rgb(161, 219, 255) 100%) repeat scroll 0% 0% ; margin-bottom: 0%;">
-              <a href="https://github.com/ring-lang/ring" target="_blank">GitHub</a>
+              <a href="https://github.com/ring-lang/ring">GitHub</a>
               <a href="resources.html">Resources</a>
               <a href="team.html">Team</a>
 </div>

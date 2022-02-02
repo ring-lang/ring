@@ -77,9 +77,12 @@ Contents:
    Distributing Ring Applications (Manual) <distribute>
    Distributing Ring Applications using Ring2EXE <distribute_ring2exe>
    The Ring Package Manager (RingPM) <ringpm>
-   ZeroLib Functions Reference<zerolib>
+   ZeroLib Functions Reference <zerolib>
    FoxRing Functions Reference <foxringfuncsdoc>
    BigNumber Functions Reference <bignumber>
+   CSVLib Functions Reference <csvlib>
+   JSONLib Functions Reference <jsonlib>
+   TokensLib Functions Reference <tokenslib>
    Using RingLibCurl <libcurl>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>
    Using RingSockets <socket>

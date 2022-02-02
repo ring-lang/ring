@@ -280,7 +280,9 @@ Output:
 Better GUILib
 =============
 
-* Added: AddList() method to the TableWidget class 
+(1) Many deprecated methods are removed from RingQt 
+
+(2) Added: AddList() method to the TableWidget class 
 
 .. tip:: TableWidget class is a subclass of QTableWidget class
 
@@ -317,13 +319,14 @@ Screen Shot:
 .. image:: addlisttotablewidget.png
 	:alt: addlisttotablewidget
 
-
 .. index:: 
 	pair: What is new in Ring  1.17; More Improvements
 
 More Improvements
 =================
 
+* Ring Notepad (Web Browser) - Support URLs without "http" in the start
+* Form Designer - Default TextColor is Empty (Better when changing styles)
 * Many documents and samples are revised (Better English)
 * Many applications are updated to use LightGUILib 
 * Calendar application - Better code to detect the current year
@@ -337,4 +340,6 @@ More Improvements
 * SetPointer()/GetPointer() functions - Better Code
 * Fexists() function - Support UTF-8 file names
 * Ring VM - Better code when copying lists
-* Form Designer - Default TextColor is Empty (Better when changing styles)
+* Ring VM - ICO_JUMPZ Instruction - Treat empty lists as Zero
+* Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero
+* Ring VM - The result of using the Not (!) operator then List will be False
