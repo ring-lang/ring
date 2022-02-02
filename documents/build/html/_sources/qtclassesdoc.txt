@@ -1721,12 +1721,12 @@ C++ Reference : http://doc.qt.io/qt-5/qbrush.html
 
 Parameters : void
 
+* QMatrix matrix(void)
+* void setMatrix(QMatrix)
 * QColor color(void)
 * QGradient *gradient(void)
 * bool isOpaque(void)
-* QMatrix matrix(void)
 * void setColor(QColor)
-* void setMatrix(QMatrix)
 * void setStyle(Qt::BrushStyle style)
 * void setTexture(QPixmap)
 * void setTextureImage(QImage)
@@ -2986,9 +2986,9 @@ C++ Reference : http://doc.qt.io/qt-5/qcursor.html
 
 Parameters : void
 
-* QBitmap *bitmap(void)
+* QBitmap bitmap(void)
+* QBitmap mask(void)
 * QPoint hotSpot(void)
-* QBitmap *mask(void)
 * QPixmap pixmap(void)
 * void setShape(Qt::CursorShape shape)
 * Qt::CursorShape shape(void)
@@ -3032,6 +3032,10 @@ C++ Reference : http://doc.qt.io/qt-5/qdate.html
 
 Parameters : void
 
+* QString longDayName(int weekday)
+* QString longMonthName(int month)
+* QString shortDayName(int weekday)
+* QString shortMonthName(int month)
 * QDate addDays(int ndays)
 * QDate addMonths(int nmonths)
 * QDate addYears(int nyears)
@@ -3054,10 +3058,6 @@ Parameters : void
 * QDate fromJulianDay(int jd)
 * QDate fromString(QString, QString)
 * bool isLeapYear(int year)
-* QString longDayName(int weekday)
-* QString longMonthName(int month)
-* QString shortDayName(int weekday)
-* QString shortMonthName(int month)
 
 .. index::
 	pair: RingQt Classes Reference; QDateEdit Class
@@ -3087,6 +3087,9 @@ C++ Reference : http://doc.qt.io/qt-5/qdatetime.html
 
 Parameters : void
 
+* uint toTime_t(void)
+* QDateTime fromTime_t(uint seconds)
+* void setTime_t(uint seconds)
 * QDateTime addDays(int ndays)
 * QDateTime addMSecs(qint64 msecs)
 * QDateTime addMonths(int nmonths)
@@ -3102,7 +3105,6 @@ Parameters : void
 * void setMSecsSinceEpoch(qint64 msecs)
 * void setTime(QTime time)
 * void setTimeSpec(Qt::TimeSpec spec)
-* void setTime_t(uint seconds)
 * QTime time(void)
 * Qt::TimeSpec timeSpec(void)
 * QDateTime toLocalTime(void)
@@ -3110,7 +3112,6 @@ Parameters : void
 * QString toString(QString format)
 * QString toString_2(Qt::DateFormat format)
 * QDateTime toTimeSpec(Qt::TimeSpec specification)
-* uint toTime_t(void)
 * QDateTime toUTC(void)
 * QDateTime currentDateTime(void)
 * QDateTime currentDateTimeUtc(void)
@@ -3118,7 +3119,6 @@ Parameters : void
 * QDateTime fromMSecsSinceEpoch(qint64 msecs)
 * QDateTime fromString(QString string, Qt::DateFormat format)
 * QDateTime fromString_2(QString string, QString format)
-* QDateTime fromTime_t(uint seconds)
 
 .. index::
 	pair: RingQt Classes Reference; QDateTimeAxis Class
@@ -3258,12 +3258,12 @@ Parameters : void
 
 Parent Class : QWidget
 
-* QRect availableGeometry(int screen)
 * bool isVirtualDesktop(void)
 * int primaryScreen(void)
-* QWidget *screen(int screen)
 * int screenCount(void)
-* QRect screenGeometry(int screen)
+* QRect availableGeometry(QWidget *)
+* QScreen *screen(void)
+* QRect screenGeometry(QWidget *)
 * int screenNumber(QWidget *widget)
 
 .. index::
@@ -3876,6 +3876,7 @@ C++ Reference : http://doc.qt.io/qt-5/qfileinfo.html
 
 Parameters : void
 
+* QDateTime created(void)
 * QDir absoluteDir(void)
 * QString absoluteFilePath(void)
 * QString absolutePath(void)
@@ -3886,7 +3887,6 @@ Parameters : void
 * QString canonicalPath(void)
 * QString completeBaseName(void)
 * QString completeSuffix(void)
-* QDateTime created(void)
 * QDir dir(void)
 * bool exists(void)
 * QString fileName(void)
@@ -4006,6 +4006,12 @@ C++ Reference : http://doc.qt.io/qt-5/qfont.html
 
 Parameters : QString, int, int, bool
 
+* void setRawMode(bool enable)
+* void setRawName(QString)
+* bool rawMode(void)
+* QString rawName(void)
+* QString lastResortFamily(void)
+* QString lastResortFont(void)
 * bool bold(void)
 * int capitalization(void)
 * QString defaultFamily(void)
@@ -4018,16 +4024,12 @@ Parameters : QString, int, int, bool
 * bool italic(void)
 * bool kerning(void)
 * QString key(void)
-* QString lastResortFamily(void)
-* QString lastResortFont(void)
 * double letterSpacing(void)
 * int letterSpacingType(void)
 * bool overline(void)
 * int pixelSize(void)
 * int pointSize(void)
 * double pointSizeF(void)
-* bool rawMode(void)
-* QString rawName(void)
 * QFont resolve(QFont)
 * void setBold(bool enable)
 * void setCapitalization(QFont::Capitalization caps)
@@ -4041,8 +4043,6 @@ Parameters : QString, int, int, bool
 * void setPixelSize(int pixelSize)
 * void setPointSize(int pointSize)
 * void setPointSizeF(double pointSize)
-* void setRawMode(bool enable)
-* void setRawName(QString)
 * void setStretch(int factor)
 * void setStrikeOut(bool enable)
 * void setStyle(QFont::Style style)
@@ -4111,6 +4111,8 @@ C++ Reference : http://doc.qt.io/qt-5/qfontmetrics.html
 
 Parameters : QFont
 
+* int width( QString   text, int len )
+* int width_2(QChar ch)
 * int ascent(void)
 * int averageCharWidth(void)
 * QRect boundingRect(QChar ch)
@@ -4135,9 +4137,9 @@ Parameters : QFont
 * int strikeOutPos(void)
 * QRect tightBoundingRect( QString   text)
 * int underlinePos(void)
-* int width( QString   text, int len )
-* int width_2(QChar ch)
 * int xHeight(void)
+* int horizontalAdvance( QString   text, int len )
+* int horizontalAdvance_2(QChar ch)
 
 .. index::
 	pair: RingQt Classes Reference; QForwardRenderer Class
@@ -4675,6 +4677,9 @@ Parameters : QWidget *
 
 Parent Class : QAbstractScrollArea
 
+* QMatrix matrix(void)
+* void resetMatrix(void)
+* void setMatrix(QMatrix matrix, bool combine)
 * Qt::Alignment alignment(void)
 * QBrush backgroundBrush(void)
 * QGraphicsView::CacheMode cacheMode(void)
@@ -4712,12 +4717,10 @@ Parent Class : QAbstractScrollArea
 * QPainterPath mapToScene_4(QPainterPath path)
 * QPointF mapToScene_5(int x, int y)
 * QPolygonF mapToScene_6(int x, int y, int w, int h)
-* QMatrix matrix(void)
 * QGraphicsView::OptimizationFlags optimizationFlags(void)
 * void render(QPainter *painter, QRectF target, QRect source, Qt::AspectRatioMode aspectRatioMode)
 * QPainter::RenderHints renderHints(void)
 * void resetCachedContent(void)
-* void resetMatrix(void)
 * void resetTransform(void)
 * QGraphicsView::ViewportAnchor resizeAnchor(void)
 * void rotate(qreal angle)
@@ -4732,7 +4735,6 @@ Parent Class : QAbstractScrollArea
 * void setDragMode(QGraphicsView::DragMode mode)
 * void setForegroundBrush(QBrush brush)
 * void setInteractive(bool allowed)
-* void setMatrix(QMatrix matrix, bool combine)
 * void setOptimizationFlag(QGraphicsView::OptimizationFlag flag, bool enabled)
 * void setOptimizationFlags(QGraphicsView::OptimizationFlags flags)
 * void setRenderHint(QPainter::RenderHint hint, bool enabled)
@@ -5363,10 +5365,10 @@ C++ Reference : http://doc.qt.io/qt-5/qimage.html
 
 Parameters : void
 
+* int byteCount(void)
 * bool allGray(void)
 * int bitPlaneCount(void)
 * uchar *bits(void)
-* int byteCount(void)
 * int bytesPerLine(void)
 * qint64 cacheKey(void)
 * QRgb color(int i)
@@ -5412,7 +5414,6 @@ Parameters : void
 * void swap(QImage)
 * QString text(QString)
 * QStringList textKeys(void)
-* QImage transformed(QMatrix, Qt::TransformationMode mode)
 * bool valid(int x, int y)
 * int width(void)
 
@@ -5536,21 +5537,21 @@ C++ Reference : http://doc.qt.io/qt-5/qjsondocument.html
 
 Parameters : void
 
+* const char * rawData(int * size)
+* QByteArray toBinaryData(void)
+* QJsonDocument fromBinaryData( QByteArray  data, QJsonDocument::DataValidation validation)
+* QJsonDocument fromRawData( char * data, int size, QJsonDocument::DataValidation validation)
 * QJsonArray array(void)
 * bool isArray(void)
 * bool isEmpty(void)
 * bool isNull(void)
 * bool isObject(void)
 * QJsonObject object(void)
-* const char * rawData(int * size)
 * void setArray(QJsonArray  array)
 * void setObject(QJsonObject  object)
-* QByteArray toBinaryData(void)
 * QByteArray toJson(QJsonDocument::JsonFormat format)
 * QVariant toVariant(void)
-* QJsonDocument fromBinaryData( QByteArray  data, QJsonDocument::DataValidation validation)
 * QJsonDocument fromJson( QByteArray  json, QJsonParseError * error)
-* QJsonDocument fromRawData( char * data, int size, QJsonDocument::DataValidation validation)
 * QJsonDocument fromVariant( QVariant  variant)
 
 .. index::
@@ -5683,6 +5684,8 @@ Parameters : QWidget *
 
 Parent Class : QWidget
 
+* QPicture picture(void)
+* QPixmap pixmap(void)
 * int alignment(void)
 * QWidget *buddy(void)
 * bool hasScaledContents(void)
@@ -5691,8 +5694,6 @@ Parent Class : QWidget
 * int margin(void)
 * QMovie *movie(void)
 * bool openExternalLinks(void)
-* QPicture *picture(void)
-* QPixmap *pixmap(void)
 * QString selectedText(void)
 * int selectionStart(void)
 * void setAlignment(Qt::AlignmentFlag)
@@ -5860,6 +5861,7 @@ Parameters : QWidget *
 
 Parent Class : QWidget
 
+* void getTextMargins(int *left, int *top, int *right, int *bottom)
 * int alignment(void)
 * void backspace(void)
 * QCompleter *completer(void)
@@ -5877,7 +5879,6 @@ Parent Class : QWidget
 * bool dragEnabled(void)
 * int echoMode(void)
 * void end(bool mark) # In RingQt use : void endtext(bool mark)
-* void getTextMargins(int *left, int *top, int *right, int *bottom)
 * bool hasAcceptableInput(void)
 * bool hasFrame(void)
 * bool hasSelectedText(void)
@@ -6031,7 +6032,6 @@ Parameters : QWidget *
 Parent Class : QListView
 
 * void addItem(QString)
-* int count(void)
 * void editItem(QListWidgetItem *item)
 * bool isSortingEnabled(void)
 * QListWidgetItem *item(int row)
@@ -6345,6 +6345,7 @@ QMatrix4x4 Class
 
 Parameters : qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal
 
+* QMatrix toAffine(void)
 * QVector4D column(int index)
 * qreal * constData(void)
 * qreal * data_2(void)
@@ -6379,7 +6380,6 @@ Parameters : qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,qreal,q
 * void setColumn(int index, QVector4D value)
 * void setRow(int index, QVector4D value)
 * void setToIdentity(void)
-* QMatrix toAffine(void)
 * QTransform toTransform_2(qreal distanceToPlane)
 * void translate(QVector3D vector)
 * void translate_2(qreal x, qreal y)
@@ -8103,6 +8103,7 @@ C++ Reference : http://doc.qt.io/qt-5/qpainter.html
 
 Parameters : void
 
+* void initFrom(QWidget *widget)
 * QBrush background(void)
 * int backgroundMode(void)
 * bool begin(QPaintDevice *device)
@@ -8143,7 +8144,6 @@ Parameters : void
 * QFont font(void)
 * QFontInfo fontInfo(void)
 * bool hasClipping(void)
-* void initFrom(QWidget *widget)
 * bool isActive(void)
 * int layoutDirection(void)
 * double opacity(void)
@@ -8537,6 +8537,7 @@ C++ Reference : http://doc.qt.io/qt-5/qpixmap.html
 
 Parameters : const char *
 
+* QPixmap transformed(QTransform transform, Qt::TransformationMode mode)
 * QPixmap copy(int x, int y, int width, int height)
 * QPixmap scaled(int width, int height, Qt::AspectRatioMode aspectRatioMode, Qt::TransformationMode transformMode)
 * int width(void)
@@ -8572,13 +8573,11 @@ Parameters : const char *
 * QSize size(void)
 * void swap(QPixmap other)
 * QImage toImage(void)
-* QPixmap transformed(QTransform transform, Qt::TransformationMode mode)
-* QPixmap transformed_2(QMatrix matrix, Qt::TransformationMode mode)
+* QPixmap transformed_2(QTransform matrix, Qt::TransformationMode mode)
 * int defaultDepth(void)
 * QPixmap fromImage_2(QImage image, Qt::ImageConversionFlags flags)
 * QPixmap fromImageReader(QImageReader *imageReader, Qt::ImageConversionFlags flags)
 * QTransform trueMatrix(QTransform matrix, int width, int height)
-* QMatrix trueMatrix_2(QMatrix m, int w, int h)
 
 .. index::
 	pair: RingQt Classes Reference; QPixmap2 Class
@@ -8608,6 +8607,10 @@ Parameters : QWidget *
 
 Parent Class : QAbstractScrollArea
 
+* void setTabStopWidth(int width)
+* int tabStopWidth(void)
+* void setTabStopDistance(qreal width)
+* qreal tabStopDistance(void)
 * QString anchorAt(QPoint pos)
 * bool backgroundVisible(void)
 * int blockCount(void)
@@ -8644,13 +8647,11 @@ Parent Class : QAbstractScrollArea
 * void setOverwriteMode(bool overwrite)
 * void setReadOnly(bool ro)
 * void setTabChangesFocus(bool b)
-* void setTabStopWidth(int width)
 * void setTextCursor(QTextCursor cursor)
 * void setTextInteractionFlags(Qt::TextInteractionFlags flags)
 * void setUndoRedoEnabled(bool enable)
 * void setWordWrapMode(QTextOption::WrapMode policy)
 * bool tabChangesFocus(void)
-* int tabStopWidth(void)
 * QTextCursor textCursor(void)
 * Qt::TextInteractionFlags textInteractionFlags(void)
 * QString toPlainText(void)
@@ -8970,6 +8971,7 @@ Parameters : QObject *
 
 Parent Class : QIODevice
 
+* void start_2( QString  command, QIODevice::OpenMode mode )
 * QStringList arguments(void)
 * void closeReadChannel(QProcess::ProcessChannel channel)
 * void closeWriteChannel(void)
@@ -8995,7 +8997,6 @@ Parent Class : QIODevice
 * void setStandardOutputProcess(QProcess *destination)
 * void setWorkingDirectory( QString  dir)
 * void start( QString  program,  QStringList  arguments, QIODevice::OpenMode mode )
-* void start_2( QString  command, QIODevice::OpenMode mode )
 * void start_3(QIODevice::OpenMode mode )
 * QProcess::ProcessState state(void)
 * bool waitForFinished(int msecs )
@@ -9336,6 +9337,7 @@ C++ Reference : http://doc.qt.io/qt-5/qregion.html
 
 Parameters : void
 
+* QVector<QRect> rects(void)
 * QRect boundingRect(void)
 * bool contains(QPoint p)
 * bool contains_2(QRect r)
@@ -9346,7 +9348,6 @@ Parameters : void
 * bool isEmpty(void)
 * bool isNull(void)
 * int rectCount(void)
-* QVector<QRect> rects(void)
 * void setRects(QRect *rects, int number)
 * QRegion subtracted(QRegion r)
 * void swap(QRegion other)
@@ -9678,10 +9679,10 @@ C++ Reference : http://doc.qt.io/qt-5/qserialportinfo.html
 
 Parameters : void
 
+* bool isBusy(void)
 * QString description(void)
 * bool hasProductIdentifier(void)
 * bool hasVendorIdentifier(void)
-* bool isBusy(void)
 * bool isNull(void)
 * QString manufacturer(void)
 * QString portName(void)
@@ -9985,14 +9986,14 @@ C++ Reference : http://doc.qt.io/qt-5/qsqlerror.html
 
 Parameters : QString, QString, QSqlError::ErrorType
 
+* int number(void)
+* void setNumber(int number)
+* void setType(QSqlError::ErrorType type)
+* void setDriverText(QString)
+* void setDatabaseText(QString)
 * QString databaseText(void)
 * QString driverText(void)
 * bool isValid(void)
-* int number(void)
-* void setDatabaseText(QString)
-* void setDriverText(QString)
-* void setNumber(int number)
-* void setType(QSqlError::ErrorType type)
 * QString text(void)
 * QSqlError::ErrorType type(void)
 
@@ -10236,15 +10237,15 @@ QString2 Class
 
 Parameters : void
 
+* QStringList split( QString  sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
+* QStringList split_2(QChar sep, Qt::SplitBehavior behavior , Qt::CaseSensitivity cs )
+* QStringList split_3( QRegExp  rx, Qt::SplitBehavior behavior )
+* QStringList split_4( QRegularExpression  re, Qt::SplitBehavior behavior )
 * QString append(QString  str)
 * QString append_2(QChar ch)
 * QByteArray toUtf8(void)
 * QByteArray toLatin1(void)
 * QByteArray toLocal8Bit(void)
-* QStringList split( QString  sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
-* QStringList split_2(QChar sep, QString::SplitBehavior behavior , Qt::CaseSensitivity cs )
-* QStringList split_3( QRegExp  rx, QString::SplitBehavior behavior )
-* QStringList split_4( QRegularExpression  re, QString::SplitBehavior behavior )
 * QChar * unicode(void)
 * QString number(ulong n, int base)
 * int count(void)
@@ -10289,6 +10290,7 @@ C++ Reference : http://doc.qt.io/qt-5/qstringlist.html
 
 Parameters : void
 
+* void swap(int,int)
 * QString join(QString)
 * void sort(void)
 * int removeDuplicates(void)
@@ -10325,7 +10327,6 @@ Parameters : void
 * void reserve(int)
 * int size(void)
 * bool startsWith(QString)
-* void swap(int,int)
 * QString takeAt(int)
 * QString takeFirst(void)
 * QString takeLast(void)
@@ -11248,6 +11249,10 @@ Parameters : QWidget *
 
 Parent Class : QAbstractScrollArea
 
+* void setTabStopWidth(int width)
+* int tabStopWidth(void)
+* void setTabStopDistance(qreal width)
+* qreal tabStopDistance(void)
 * bool acceptRichText(void)
 * int alignment(void)
 * QString anchorAt(QPoint)
@@ -11284,13 +11289,11 @@ Parent Class : QAbstractScrollArea
 * void setOverwriteMode(bool overwrite)
 * void setReadOnly(bool)
 * void setTabChangesFocus(bool)
-* void setTabStopWidth(int width)
 * void setTextCursor(QTextCursor)
 * void setTextInteractionFlags(Qt::TextInteractionFlag flags)
 * void setUndoRedoEnabled(bool enable)
 * void setWordWrapMode(QTextOption::WrapMode policy)
 * bool tabChangesFocus(void)
-* int tabStopWidth(void)
 * QColor textBackgroundColor(void)
 * QColor textColor(void)
 * QTextCursor textCursor(void)
@@ -11610,9 +11613,11 @@ C++ Reference : http://doc.qt.io/qt-5/qtime.html
 
 Parameters : void
 
+* int elapsed(void)
+* int restart(void)
+* void start(void)
 * QTime addMSecs(int ms)
 * QTime addSecs(int s)
-* int elapsed(void)
 * int hour(void)
 * bool isNull(void)
 * bool isValid(void)
@@ -11620,11 +11625,9 @@ Parameters : void
 * int msec(void)
 * int msecsSinceStartOfDay(void)
 * int msecsTo(QTime)
-* int restart(void)
 * int second(void)
 * int secsTo(QTime)
 * bool setHMS(int h, int m, int s, int ms)
-* void start(void)
 * QString toString(QString)
 * QTime currentTime(void)
 * QTime fromMSecsSinceStartOfDay(int msecs)
@@ -11888,6 +11891,8 @@ Parameters : QWidget *
 
 Parent Class : QTreeView
 
+* bool isFirstItemColumnSpanned( QTreeWidgetItem *item)
+* void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
 * void addTopLevelItem(QTreeWidgetItem *item)
 * void closePersistentEditor(QTreeWidgetItem *item, int column)
 * int columnCount(void)
@@ -11898,7 +11903,6 @@ Parent Class : QTreeView
 * int indexOfTopLevelItem(QTreeWidgetItem *item)
 * void insertTopLevelItem(int index, QTreeWidgetItem *item)
 * QTreeWidgetItem *invisibleRootItem(void)
-* bool isFirstItemColumnSpanned( QTreeWidgetItem *item)
 * QTreeWidgetItem *itemAbove(QTreeWidgetItem *item)
 * QTreeWidgetItem *itemAt(int x, int y)
 * QTreeWidgetItem *itemBelow(QTreeWidgetItem *item)
@@ -11907,7 +11911,6 @@ Parent Class : QTreeView
 * void removeItemWidget(QTreeWidgetItem *item, int column)
 * void setColumnCount(int columns)
 * void setCurrentItem(QTreeWidgetItem * item, QItemSelectionModel::SelectionFlag column)
-* void setFirstItemColumnSpanned(QTreeWidgetItem *item, bool span)
 * void setHeaderItem(QTreeWidgetItem *item)
 * void setHeaderLabel(QString)
 * void setHeaderLabels(QStringList)
@@ -12038,6 +12041,7 @@ C++ Reference : http://doc.qt.io/qt-5/qurl.html
 
 Parameters : QString
 
+* QString topLevelDomain(QUrl::ComponentFormattingOption options)
 * void clear(void)
 * QString errorString(void)
 * QString fileName(QUrl::ComponentFormattingOption options)
@@ -12067,7 +12071,6 @@ Parameters : QString
 * void setUserInfo(QString, QUrl::ParsingMode mode)
 * void setUserName(QString, QUrl::ParsingMode mode)
 * void swap(QUrl)
-* QString topLevelDomain(QUrl::ComponentFormattingOption options)
 * QString userInfo(QUrl::ComponentFormattingOption options)
 * QString userName(QUrl::ComponentFormattingOption options)
 * QUrl fromLocalFile(QString)
@@ -12895,6 +12898,22 @@ C++ Reference : http://doc.qt.io/qt-5/qwebview.html
 Parameters : QWidget *parent
 
 
+Parent Class : QWebEngineView
+
+
+.. index::
+	pair: RingQt Classes Reference; QWebView Class
+
+QWebView Class
+==============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qwebview.html
+
+
+Parameters : QWidget *parent
+
+
 Parent Class : QWidget
 
 * QWebHistory *history(void)
@@ -12924,22 +12943,6 @@ Parent Class : QWidget
 * const char *geturlChangedEvent(void)
 
 .. index::
-	pair: RingQt Classes Reference; QWebView Class
-
-QWebView Class
-==============
-
-
-C++ Reference : http://doc.qt.io/qt-5/qwebview.html
-
-
-Parameters : QWidget *parent
-
-
-Parent Class : QWebEngineView
-
-
-.. index::
 	pair: RingQt Classes Reference; QWidget Class
 
 QWidget Class
@@ -12954,6 +12957,7 @@ Parameters : void
 
 Parent Class : QObject
 
+* void getContentsMargins(int *left, int *top, int *right, int *bottom)
 * bool acceptDrops(void)
 * QString accessibleDescription(void)
 * QString accessibleName(void)
@@ -12983,7 +12987,6 @@ Parent Class : QObject
 * QRect frameGeometry(void)
 * QSize frameSize(void)
 * QRect geometry(void)
-* void getContentsMargins(int *left, int *top, int *right, int *bottom)
 * QPixmap grab(QRect)
 * void grabGesture(Qt::GestureType gesture, Qt::GestureFlag flags)
 * void grabKeyboard(void)
