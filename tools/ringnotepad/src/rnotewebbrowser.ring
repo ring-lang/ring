@@ -5,7 +5,8 @@ class RNoteWebBrowser
 
 	func WebGo
 		cWebsite = oWBText.text()
-		if lower(left(cWebsite,4)) != "http"
+		if lower(left(cWebsite,4)) != "http" and 
+		   lower(left(cWebsite,5)) != "file:"
 			cWebsite = "http://" + cWebsite
 		ok
 		oWebView.LoadPage( new qurl( cWebSite ) )
