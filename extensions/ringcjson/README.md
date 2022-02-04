@@ -1,4 +1,4 @@
-# RingCJSON Extension (Under Development)
+# RingCJSON Extension
 
 ## Introduction
 
