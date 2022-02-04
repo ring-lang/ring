@@ -178,11 +178,14 @@ List *cJSON_ToRingList(cJSON *object)
 </register>
 
 <code>
+
+void cJSON_ProcessList(cJSON *pJSON,List *pOutputList);
+
 RING_FUNC(ring_cJSON_ToRingList)
 {
-	List *aOutput;
+	List *pOutputList;
 	cJSON *pJSON ;
-	aOutput = ring_list_new(0);
+	pOutputList = ring_list_new(0);
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -195,32 +198,46 @@ RING_FUNC(ring_cJSON_ToRingList)
 	// TODO: Implement the function
 	pJSON = RING_API_GETCPOINTER(1,"cJSON");
 	if (pJSON == NULL) {
-		RING_API_RETLIST(aOutput);		
+		RING_API_RETLIST(pOutputList);		
 		return ;
 	}
+	cJSON_ProcessList(pJSON,pOutputList);
+	RING_API_RETLIST(pOutputList);		
+}
+
+void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
+{
 	while ( pJSON != NULL) {
-		pJSON = pJSON->next;
 		switch ((pJSON->type) & 0xFF)
 		{
 			case cJSON_NULL:
+				printf("null\n");
 				break;
 			case cJSON_False:
+				printf("false\n");
 				break;
 			case cJSON_True:
+				printf("true\n");
 				break;
 			case cJSON_Number:
+				printf("number\n");
 				break;
 			case cJSON_Raw:
+				printf("raw\n");
 				break;
 			case cJSON_String:
+				ring_list_addstring(pOutputList,(unsigned char *) pJSON->valuestring);
 				break;
 			case cJSON_Array:
+				printf("array\n");
+				cJSON_ProcessList(pJSON->child,pOutputList);
 				break;
 			case cJSON_Object:
+				printf("object\n");
+				cJSON_ProcessList(pJSON->child,pOutputList);
 				break;
 		}
-
+		pJSON = pJSON->next;
 	}
-	RING_API_RETLIST(aOutput);		
 }
 </code>
