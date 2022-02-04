@@ -37,3 +37,4 @@ const char *cJSON_Version(void)
 void cJSON_InitHooks(cJSON_Hooks *hooks)
 
 cJSON *cJSON_Parse(const char *value)
+cJSON *cJSON_ParseWithLength(const char *value, size_t buffer_length)

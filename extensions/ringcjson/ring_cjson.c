@@ -119,11 +119,31 @@ RING_FUNC(ring_cJSON_Parse)
 	RING_API_RETCPOINTER(cJSON_Parse(RING_API_GETSTRING(1)),"cJSON");
 }
 
+
+RING_FUNC(ring_cJSON_ParseWithLength)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_ParseWithLength(RING_API_GETSTRING(1), (size_t ) RING_API_GETNUMBER(2)),"cJSON");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
 	ring_vm_funcregister("cjson_inithooks",ring_cJSON_InitHooks);
 	ring_vm_funcregister("cjson_parse",ring_cJSON_Parse);
+	ring_vm_funcregister("cjson_parsewithlength",ring_cJSON_ParseWithLength);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);
