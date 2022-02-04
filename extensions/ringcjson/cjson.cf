@@ -78,3 +78,7 @@ cJSON *cJSON_CreateString(const char *string)
 cJSON *cJSON_CreateRaw(const char *raw)
 cJSON *cJSON_CreateArray(void)
 cJSON *cJSON_CreateObject(void)
+
+cJSON *cJSON_CreateStringReference(const char *string)
+cJSON *cJSON_CreateObjectReference(const cJSON *child)
+cJSON *cJSON_CreateArrayReference(const cJSON *child)
