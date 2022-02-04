@@ -2051,29 +2051,27 @@ void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 		switch ((pJSON->type) & 0xFF)
 		{
 			case cJSON_NULL:
-				printf("null\n");
+				ring_list_addstring(pOutputList,"null");
 				break;
 			case cJSON_False:
-				printf("false\n");
+				ring_list_addstring(pOutputList,"false");
 				break;
 			case cJSON_True:
-				printf("true\n");
+				ring_list_addstring(pOutputList,"true");
 				break;
 			case cJSON_Number:
-				printf("number\n");
+				ring_list_adddouble(pOutputList,cJSON_GetNumberValue(pJSON));
 				break;
 			case cJSON_Raw:
-				printf("raw\n");
+				ring_list_addstring(pOutputList,"raw");
 				break;
 			case cJSON_String:
-				ring_list_addstring(pOutputList,(unsigned char *) pJSON->valuestring);
+				ring_list_addstring(pOutputList,cJSON_GetStringValue(pJSON));
 				break;
 			case cJSON_Array:
-				printf("array\n");
 				cJSON_ProcessList(pJSON->child,pOutputList);
 				break;
 			case cJSON_Object:
-				printf("object\n");
 				cJSON_ProcessList(pJSON->child,pOutputList);
 				break;
 		}
