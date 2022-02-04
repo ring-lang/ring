@@ -2076,7 +2076,6 @@ void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 				break;
 			case cJSON_Array:
 				pOutputList = ring_list_newlist(pOutputList);
-				pOutputList = ring_list_newlist(pOutputList);
 				cJSON_ProcessList(pJSON->child,pOutputList);
 				break;
 			case cJSON_Object:
