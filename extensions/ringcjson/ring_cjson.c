@@ -1457,6 +1457,36 @@ RING_FUNC(ring_cJSON_SetValuestring)
 	RING_API_RETSTRING(cJSON_SetValuestring((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2)));
 }
 
+
+RING_FUNC(ring_cJSON_malloc)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_malloc( (size_t ) RING_API_GETNUMBER(1)),"void");
+}
+
+
+RING_FUNC(ring_cJSON_free)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cJSON_free((void *) RING_API_GETCPOINTER(1,"void"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
@@ -1534,6 +1564,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("cjson_addarraytoobject",ring_cJSON_AddArrayToObject);
 	ring_vm_funcregister("cjson_setnumberhelper",ring_cJSON_SetNumberHelper);
 	ring_vm_funcregister("cjson_setvaluestring",ring_cJSON_SetValuestring);
+	ring_vm_funcregister("cjson_malloc",ring_cJSON_malloc);
+	ring_vm_funcregister("cjson_free",ring_cJSON_free);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);

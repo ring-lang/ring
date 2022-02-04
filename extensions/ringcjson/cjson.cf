@@ -86,9 +86,6 @@ cJSON *cJSON_CreateArrayReference(const cJSON *child)
 cJSON *cJSON_CreateIntArray(const int *numbers, int count)
 cJSON *cJSON_CreateFloatArray(const float *numbers, int count)
 cJSON *cJSON_CreateDoubleArray(const double *numbers, int count)
-<comment>
-cJSON *cJSON_CreateStringArray(const char *const *, int count)
-</comment>
 
 cJSON_bool cJSON_AddItemToArray(cJSON *array, cJSON *item)
 cJSON_bool cJSON_AddItemToObject(cJSON *object, const char *string, cJSON *item)
@@ -127,3 +124,13 @@ cJSON *cJSON_AddArrayToObject(cJSON * const object, const char * const name)
 
 double cJSON_SetNumberHelper(cJSON *object, double number)
 char *cJSON_SetValuestring(cJSON *object, const char *valuestring)
+
+void *cJSON_malloc(size_t size)
+void cJSON_free(void *object)
+
+<comment>
+cJSON *cJSON_CreateStringArray(const char *const *, int count)
+#define cJSON_SetIntValue(object, number) 
+#define cJSON_SetBoolValue(object, boolValue)
+#define cJSON_ArrayForEach(element, array)
+</comment>
