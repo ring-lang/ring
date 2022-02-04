@@ -602,13 +602,15 @@ RING_FUNC(ring_cJSON_GetObjectItem)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(cJSON_GetObjectItem(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),RING_API_GETSTRING(2)),"cJSON");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
+	RING_API_RETCPOINTER(cJSON_GetObjectItem((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2)),"cJSON");
 }
 
 
@@ -619,13 +621,15 @@ RING_FUNC(ring_cJSON_GetObjectItemCaseSensitive)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(cJSON_GetObjectItemCaseSensitive(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),RING_API_GETSTRING(2)),"cJSON");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
+	RING_API_RETCPOINTER(cJSON_GetObjectItemCaseSensitive((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2)),"cJSON");
 }
 
 
@@ -1432,11 +1436,15 @@ RING_FUNC(ring_cJSON_Compare)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETNUMBER(cJSON_Compare(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),* (const cJSON * const  *) RING_API_GETCPOINTER(2,"const cJSON * const"),* (const cJSON_bool  *) RING_API_GETCPOINTER(3,"const cJSON_bool")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"cJSON"));
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(cJSON_Compare((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON"),* (const cJSON_bool  *) RING_API_GETCPOINTER(3,"const cJSON_bool")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"cJSON_bool"));
 }

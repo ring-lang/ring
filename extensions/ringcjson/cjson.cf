@@ -53,8 +53,8 @@ void cJSON_Delete(cJSON *item)
 
 int cJSON_GetArraySize(const cJSON *array)
 cJSON *cJSON_GetArrayItem(const cJSON *array, int index)
-cJSON *cJSON_GetObjectItem(const cJSON * const object, const char *string)
-cJSON *cJSON_GetObjectItemCaseSensitive(const cJSON * const object, const char *string)
+cJSON *cJSON_GetObjectItem(const cJSON *object, const char *string)
+cJSON *cJSON_GetObjectItemCaseSensitive(const cJSON *object, const char *string)
 cJSON_bool cJSON_HasObjectItem(const cJSON *object, const char *string)
 const char *cJSON_GetErrorPtr(void)
 
@@ -111,7 +111,7 @@ cJSON_bool cJSON_ReplaceItemInObject(cJSON *object,const char *string,cJSON *new
 cJSON_bool cJSON_ReplaceItemInObjectCaseSensitive(cJSON *object,const char *string,cJSON *newitem)
 
 cJSON * cJSON_Duplicate(const cJSON *item, cJSON_bool recurse)
-cJSON_bool cJSON_Compare(const cJSON * const a, const cJSON * const b, const cJSON_bool case_sensitive)
+cJSON_bool cJSON_Compare(const cJSON *a, const cJSON *b, const cJSON_bool case_sensitive)
 
 void cJSON_Minify(char *json)
 
