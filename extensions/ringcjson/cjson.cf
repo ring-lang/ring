@@ -33,5 +33,5 @@ aNumberTypes + "char"
 </runcode>
 
 
-const char* cJSON_Version(void)
+const char *cJSON_Version(void)
 

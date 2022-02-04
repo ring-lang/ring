@@ -86,7 +86,7 @@ RING_FUNC(ring_cJSON_Version)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_Version(),"char");
+	RING_API_RETSTRING(cJSON_Version());
 }
 
 RING_API void ringlib_init(RingState *pRingState)
