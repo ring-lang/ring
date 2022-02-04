@@ -41,3 +41,11 @@ cJSON *cJSON_ParseWithLength(const char *value, size_t buffer_length)
 
 cJSON *cJSON_ParseWithOpts(const char *value, const char **return_parse_end, cJSON_bool require_null_terminated)
 cJSON *cJSON_ParseWithLengthOpts(const char *value, size_t buffer_length, const char **return_parse_end, cJSON_bool require_null_terminated)
+
+char *cJSON_Print(const cJSON *item)
+char *cJSON_PrintUnformatted(const cJSON *item)
+char *cJSON_PrintBuffered(const cJSON *item, int prebuffer, cJSON_bool fmt)
+cJSON_bool cJSON_PrintPreallocated(cJSON *item, char *buffer, const int length, const cJSON_bool format)
+void cJSON_Delete(cJSON *item)
+
+
