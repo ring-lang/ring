@@ -48,4 +48,10 @@ char *cJSON_PrintBuffered(const cJSON *item, int prebuffer, cJSON_bool fmt)
 cJSON_bool cJSON_PrintPreallocated(cJSON *item, char *buffer, const int length, const cJSON_bool format)
 void cJSON_Delete(cJSON *item)
 
+int cJSON_GetArraySize(const cJSON *array)
+cJSON *cJSON_GetArrayItem(const cJSON *array, int index)
+cJSON *cJSON_GetObjectItem(const cJSON * const object, const char * const string)
+cJSON *cJSON_GetObjectItemCaseSensitive(const cJSON * const object, const char * const string)
+cJSON_bool cJSON_HasObjectItem(const cJSON *object, const char *string)
+const char *cJSON_GetErrorPtr(void)
 

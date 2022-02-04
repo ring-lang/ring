@@ -278,6 +278,105 @@ RING_FUNC(ring_cJSON_Delete)
 	cJSON_Delete((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
 }
 
+
+RING_FUNC(ring_cJSON_GetArraySize)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(cJSON_GetArraySize((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
+}
+
+
+RING_FUNC(ring_cJSON_GetArrayItem)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_GetArrayItem((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (int ) RING_API_GETNUMBER(2)),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSON_GetObjectItem)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETCPOINTER(cJSON_GetObjectItem(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const")),"cJSON");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
+}
+
+
+RING_FUNC(ring_cJSON_GetObjectItemCaseSensitive)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETCPOINTER(cJSON_GetObjectItemCaseSensitive(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const")),"cJSON");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
+}
+
+
+RING_FUNC(ring_cJSON_HasObjectItem)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		cJSON_bool *pValue ; 
+		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
+		*pValue = cJSON_HasObjectItem((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_cJSON_GetErrorPtr)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETSTRING(cJSON_GetErrorPtr());
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
@@ -291,6 +390,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("cjson_printbuffered",ring_cJSON_PrintBuffered);
 	ring_vm_funcregister("cjson_printpreallocated",ring_cJSON_PrintPreallocated);
 	ring_vm_funcregister("cjson_delete",ring_cJSON_Delete);
+	ring_vm_funcregister("cjson_getarraysize",ring_cJSON_GetArraySize);
+	ring_vm_funcregister("cjson_getarrayitem",ring_cJSON_GetArrayItem);
+	ring_vm_funcregister("cjson_getobjectitem",ring_cJSON_GetObjectItem);
+	ring_vm_funcregister("cjson_getobjectitemcasesensitive",ring_cJSON_GetObjectItemCaseSensitive);
+	ring_vm_funcregister("cjson_hasobjectitem",ring_cJSON_HasObjectItem);
+	ring_vm_funcregister("cjson_geterrorptr",ring_cJSON_GetErrorPtr);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);
