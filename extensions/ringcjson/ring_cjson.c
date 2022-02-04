@@ -2047,9 +2047,13 @@ RING_FUNC(ring_cJSON_ToRingList)
 
 void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 {
+	List *pList;
 	while ( pJSON != NULL) {
-		if (pJSON->string != NULL)
+		if (pJSON->string != NULL) {
+			pList = pOutputList;
+			pOutputList = ring_list_newlist(pOutputList);
 			ring_list_addstring(pOutputList,pJSON->string);
+		}
 		switch ((pJSON->type) & 0xFF)
 		{
 			case cJSON_NULL:
@@ -2071,11 +2075,18 @@ void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 				ring_list_addstring(pOutputList,cJSON_GetStringValue(pJSON));
 				break;
 			case cJSON_Array:
+				pOutputList = ring_list_newlist(pOutputList);
+				pOutputList = ring_list_newlist(pOutputList);
 				cJSON_ProcessList(pJSON->child,pOutputList);
 				break;
 			case cJSON_Object:
+				if (pJSON->string != NULL)
+					pOutputList = ring_list_newlist(pOutputList);
 				cJSON_ProcessList(pJSON->child,pOutputList);
 				break;
+		}
+		if (pJSON->string != NULL) {
+			pOutputList = pList;
 		}
 		pJSON = pJSON->next;
 	}
