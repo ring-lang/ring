@@ -138,12 +138,60 @@ RING_FUNC(ring_cJSON_ParseWithLength)
 	RING_API_RETCPOINTER(cJSON_ParseWithLength(RING_API_GETSTRING(1), (size_t ) RING_API_GETNUMBER(2)),"cJSON");
 }
 
+
+RING_FUNC(ring_cJSON_ParseWithOpts)
+{
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_ParseWithOpts(RING_API_GETSTRING(1),(char **) RING_API_GETCPOINTER2POINTER(2,"char"),* (cJSON_bool  *) RING_API_GETCPOINTER(3,"cJSON_bool")),"cJSON");
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"cJSON_bool"));
+}
+
+
+RING_FUNC(ring_cJSON_ParseWithLengthOpts)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_ParseWithLengthOpts(RING_API_GETSTRING(1), (size_t ) RING_API_GETNUMBER(2),(char **) RING_API_GETCPOINTER2POINTER(3,"char"),* (cJSON_bool  *) RING_API_GETCPOINTER(4,"cJSON_bool")),"cJSON");
+	if (RING_API_ISCPOINTERNOTASSIGNED(4))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"cJSON_bool"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
 	ring_vm_funcregister("cjson_inithooks",ring_cJSON_InitHooks);
 	ring_vm_funcregister("cjson_parse",ring_cJSON_Parse);
 	ring_vm_funcregister("cjson_parsewithlength",ring_cJSON_ParseWithLength);
+	ring_vm_funcregister("cjson_parsewithopts",ring_cJSON_ParseWithOpts);
+	ring_vm_funcregister("cjson_parsewithlengthopts",ring_cJSON_ParseWithLengthOpts);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);

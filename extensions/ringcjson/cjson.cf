@@ -38,3 +38,6 @@ void cJSON_InitHooks(cJSON_Hooks *hooks)
 
 cJSON *cJSON_Parse(const char *value)
 cJSON *cJSON_ParseWithLength(const char *value, size_t buffer_length)
+
+cJSON *cJSON_ParseWithOpts(const char *value, const char **return_parse_end, cJSON_bool require_null_terminated)
+cJSON *cJSON_ParseWithLengthOpts(const char *value, size_t buffer_length, const char **return_parse_end, cJSON_bool require_null_terminated)
