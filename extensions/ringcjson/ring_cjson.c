@@ -73,6 +73,11 @@ RING_FUNC(ring_get_cjson_stringisconst)
 	RING_API_RETNUMBER(cJSON_StringIsConst);
 }
 
+RING_FUNC(ring_get_cjson_nesting_limit)
+{
+	RING_API_RETNUMBER(CJSON_NESTING_LIMIT);
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
@@ -89,4 +94,5 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_cjson_raw",ring_get_cjson_raw);
 	ring_vm_funcregister("get_cjson_isreference",ring_get_cjson_isreference);
 	ring_vm_funcregister("get_cjson_stringisconst",ring_get_cjson_stringisconst);
+	ring_vm_funcregister("get_cjson_nesting_limit",ring_get_cjson_nesting_limit);
 }

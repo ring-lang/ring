@@ -21,6 +21,7 @@ cJSON_Object
 cJSON_Raw
 cJSON_IsReference
 cJSON_StringIsConst
+CJSON_NESTING_LIMIT
 </constant>
 
 <struct>
