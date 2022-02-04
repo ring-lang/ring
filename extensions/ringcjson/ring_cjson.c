@@ -2021,7 +2021,7 @@ RING_FUNC(ring_cJSONUtils_SortObjectCaseSensitive)
 RING_FUNC(ring_cJSON_ToRingList)
 {
 	List *aOutput;
-	cJSON *pMyPointer ;
+	cJSON *pJSON ;
 	aOutput = ring_list_new(0);
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -2033,10 +2033,33 @@ RING_FUNC(ring_cJSON_ToRingList)
 		return ;
 	}
 	// TODO: Implement the function
-	pMyPointer = RING_API_GETCPOINTER(1,"cJSON");
-	if (pMyPointer == NULL) {
+	pJSON = RING_API_GETCPOINTER(1,"cJSON");
+	if (pJSON == NULL) {
 		RING_API_RETLIST(aOutput);		
 		return ;
+	}
+	while ( pJSON != NULL) {
+		pJSON = pJSON->next;
+		switch ((pJSON->type) & 0xFF)
+		{
+			case cJSON_NULL:
+				break;
+			case cJSON_False:
+				break;
+			case cJSON_True:
+				break;
+			case cJSON_Number:
+				break;
+			case cJSON_Raw:
+				break;
+			case cJSON_String:
+				break;
+			case cJSON_Array:
+				break;
+			case cJSON_Object:
+				break;
+		}
+
 	}
 	RING_API_RETLIST(aOutput);		
 }
