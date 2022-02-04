@@ -35,3 +35,5 @@ aNumberTypes + "char"
 
 const char *cJSON_Version(void)
 void cJSON_InitHooks(cJSON_Hooks *hooks)
+
+cJSON *cJSON_Parse(const char *value)
