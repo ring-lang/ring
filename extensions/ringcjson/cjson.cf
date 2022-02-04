@@ -25,6 +25,7 @@ CJSON_NESTING_LIMIT
 </constant>
 
 <struct>
+cJSON {cJSON *next, cJSON *prev, cJSON *child,type,char *valuestring,valueint,valuedouble}
 </struct>
 
 <runcode>
