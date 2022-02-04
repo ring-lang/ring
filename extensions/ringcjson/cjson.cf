@@ -7,6 +7,20 @@
 </code>
 
 <constant>
+CJSON_VERSION_MAJOR
+CJSON_VERSION_MINOR
+CJSON_VERSION_PATCH
+cJSON_Invalid
+cJSON_False
+cJSON_True
+cJSON_NULL
+cJSON_Number
+cJSON_String
+cJSON_Array
+cJSON_Object
+cJSON_Raw
+cJSON_IsReference
+cJSON_StringIsConst
 </constant>
 
 <struct>
