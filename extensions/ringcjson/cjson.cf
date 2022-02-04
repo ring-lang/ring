@@ -35,7 +35,6 @@ aNumberTypes + "char"
 aNumberTypes + "cJSON_bool"
 </runcode>
 
-
 const char *cJSON_Version(void)
 void cJSON_InitHooks(cJSON_Hooks *hooks)
 
@@ -137,6 +136,7 @@ void cJSON_SetBoolValue(cJSON *object, cJSON_bool boolValue)
 <register>
 cJSON *cJSON_CreateStringArray(const char *, int count)
 </register>
+
 <code>
 RING_FUNC(ring_cJSON_CreateStringArray)
 {
@@ -160,15 +160,38 @@ RING_FUNC(ring_cJSON_CreateStringArray)
 
 cJSON *cJSONUtils_GetPointer(cJSON *object, const char *pointer)
 cJSON *cJSONUtils_GetPointerCaseSensitive(cJSON *object, const char *pointer)
-cJSON * cJSONUtils_GeneratePatches(cJSON *from, cJSON *to)
-cJSON * cJSONUtils_GeneratePatchesCaseSensitive(cJSON *from, cJSON *to)
+cJSON *cJSONUtils_GeneratePatches(cJSON *from, cJSON *to)
+cJSON *cJSONUtils_GeneratePatchesCaseSensitive(cJSON *from, cJSON *to)
 void cJSONUtils_AddPatchToArray(cJSON *array, const char *operation, const char *path, const cJSON *value)
 int cJSONUtils_ApplyPatches(cJSON *object, const cJSON *patches)
 int cJSONUtils_ApplyPatchesCaseSensitive(cJSON *object, const cJSON *patches)
-cJSON * cJSONUtils_MergePatch(cJSON *target, const cJSON *patch)
-cJSON * cJSONUtils_MergePatchCaseSensitive(cJSON *target, const cJSON *patch)
-cJSON * cJSONUtils_GenerateMergePatch(cJSON *from, cJSON *to)
-cJSON * cJSONUtils_GenerateMergePatchCaseSensitive(cJSON *from, cJSON *to)
-char * cJSONUtils_FindPointerFromObjectTo(const cJSON *object, const cJSON *target)
+cJSON *cJSONUtils_MergePatch(cJSON *target, const cJSON *patch)
+cJSON *cJSONUtils_MergePatchCaseSensitive(cJSON *target, const cJSON *patch)
+cJSON *cJSONUtils_GenerateMergePatch(cJSON *from, cJSON *to)
+cJSON *cJSONUtils_GenerateMergePatchCaseSensitive(cJSON *from, cJSON *to)
+char *cJSONUtils_FindPointerFromObjectTo(const cJSON *object, const cJSON *target)
 void cJSONUtils_SortObject(cJSON *object)
 void cJSONUtils_SortObjectCaseSensitive(cJSON *object)
+
+<register>
+List *cJSON_ToRingList(cJSON *object)
+</register>
+
+<code>
+RING_FUNC(ring_cJSON_ToRingList)
+{
+	List *aOutput;
+	aOutput = ring_list_new(0);
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	// TODO: Implement the function
+	RING_API_RETLIST(aOutput);		
+}
+</code>

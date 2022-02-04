@@ -2018,6 +2018,22 @@ RING_FUNC(ring_cJSONUtils_SortObjectCaseSensitive)
 	cJSONUtils_SortObjectCaseSensitive((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
 }
 
+RING_FUNC(ring_cJSON_ToRingList)
+{
+	List *aOutput;
+	aOutput = ring_list_new(0);
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	// TODO: Implement the function
+	RING_API_RETLIST(aOutput);		
+}
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
@@ -2114,6 +2130,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("cjsonutils_findpointerfromobjectto",ring_cJSONUtils_FindPointerFromObjectTo);
 	ring_vm_funcregister("cjsonutils_sortobject",ring_cJSONUtils_SortObject);
 	ring_vm_funcregister("cjsonutils_sortobjectcasesensitive",ring_cJSONUtils_SortObjectCaseSensitive);
+	ring_vm_funcregister("cjson_toringlist",ring_cJSON_ToRingList);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);
