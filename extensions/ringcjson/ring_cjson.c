@@ -321,11 +321,13 @@ RING_FUNC(ring_cJSON_GetObjectItem)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_GetObjectItem(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_GetObjectItem(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),RING_API_GETSTRING(2)),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 }
 
 
@@ -336,11 +338,13 @@ RING_FUNC(ring_cJSON_GetObjectItemCaseSensitive)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_GetObjectItemCaseSensitive(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_GetObjectItemCaseSensitive(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),RING_API_GETSTRING(2)),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 }
 
 
@@ -1179,11 +1183,13 @@ RING_FUNC(ring_cJSON_AddNullToObject)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_AddNullToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_AddNullToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),RING_API_GETSTRING(2)),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 }
 
 
@@ -1194,11 +1200,13 @@ RING_FUNC(ring_cJSON_AddTrueToObject)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_AddTrueToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_AddTrueToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),RING_API_GETSTRING(2)),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 }
 
 
@@ -1209,11 +1217,13 @@ RING_FUNC(ring_cJSON_AddFalseToObject)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_AddFalseToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_AddFalseToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),RING_API_GETSTRING(2)),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 }
 
 
@@ -1224,11 +1234,13 @@ RING_FUNC(ring_cJSON_AddBoolToObject)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_AddBoolToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const"),* (const cJSON_bool  *) RING_API_GETCPOINTER(3,"const cJSON_bool")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_AddBoolToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),RING_API_GETSTRING(2),* (const cJSON_bool  *) RING_API_GETCPOINTER(3,"const cJSON_bool")),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"cJSON_bool"));
 }
@@ -1241,11 +1253,13 @@ RING_FUNC(ring_cJSON_AddNumberToObject)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_AddNumberToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const"),* (const double  *) RING_API_GETCPOINTER(3,"const double")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_AddNumberToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),RING_API_GETSTRING(2),* (const double  *) RING_API_GETCPOINTER(3,"const double")),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"double"));
 }
@@ -1258,13 +1272,17 @@ RING_FUNC(ring_cJSON_AddStringToObject)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_AddStringToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const"),* (const char * const  *) RING_API_GETCPOINTER(3,"const char * const")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_AddStringToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),RING_API_GETSTRING(2),RING_API_GETSTRING(3)),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"char"));
 }
 
 
@@ -1275,13 +1293,17 @@ RING_FUNC(ring_cJSON_AddRawToObject)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_AddRawToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const"),* (const char * const  *) RING_API_GETCPOINTER(3,"const char * const")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_AddRawToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),RING_API_GETSTRING(2),RING_API_GETSTRING(3)),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"char"));
 }
 
 
@@ -1292,11 +1314,13 @@ RING_FUNC(ring_cJSON_AddObjectToObject)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_AddObjectToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_AddObjectToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),RING_API_GETSTRING(2)),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 }
 
 
@@ -1307,11 +1331,13 @@ RING_FUNC(ring_cJSON_AddArrayToObject)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_AddArrayToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (const char * const  *) RING_API_GETCPOINTER(2,"const char * const")),"cJSON");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_AddArrayToObject(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),RING_API_GETSTRING(2)),"cJSON");
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"char"));
 }
 
 
