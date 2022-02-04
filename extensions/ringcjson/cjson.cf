@@ -34,4 +34,4 @@ aNumberTypes + "char"
 
 
 const char *cJSON_Version(void)
-
+void cJSON_InitHooks(cJSON_Hooks *hooks)

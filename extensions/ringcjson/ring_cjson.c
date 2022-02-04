@@ -89,9 +89,25 @@ RING_FUNC(ring_cJSON_Version)
 	RING_API_RETSTRING(cJSON_Version());
 }
 
+
+RING_FUNC(ring_cJSON_InitHooks)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cJSON_InitHooks((cJSON_Hooks *) RING_API_GETCPOINTER(1,"cJSON_Hooks"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
+	ring_vm_funcregister("cjson_inithooks",ring_cJSON_InitHooks);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);
