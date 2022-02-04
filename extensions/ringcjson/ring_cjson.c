@@ -154,9 +154,11 @@ RING_FUNC(ring_cJSON_ParseWithOpts)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(cJSON_ParseWithOpts(RING_API_GETSTRING(1),(char **) RING_API_GETCPOINTER2POINTER(2,"char"),* (cJSON_bool  *) RING_API_GETCPOINTER(3,"cJSON_bool")),"cJSON");
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"cJSON_bool"));
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_ParseWithOpts(RING_API_GETSTRING(1),(char **) RING_API_GETCPOINTER2POINTER(2,"char"), (cJSON_bool ) RING_API_GETNUMBER(3)),"cJSON");
 }
 
 
@@ -179,9 +181,11 @@ RING_FUNC(ring_cJSON_ParseWithLengthOpts)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(cJSON_ParseWithLengthOpts(RING_API_GETSTRING(1), (size_t ) RING_API_GETNUMBER(2),(char **) RING_API_GETCPOINTER2POINTER(3,"char"),* (cJSON_bool  *) RING_API_GETCPOINTER(4,"cJSON_bool")),"cJSON");
-	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"cJSON_bool"));
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_ParseWithLengthOpts(RING_API_GETSTRING(1), (size_t ) RING_API_GETNUMBER(2),(char **) RING_API_GETCPOINTER2POINTER(3,"char"), (cJSON_bool ) RING_API_GETNUMBER(4)),"cJSON");
 }
 
 
@@ -230,9 +234,11 @@ RING_FUNC(ring_cJSON_PrintBuffered)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(cJSON_PrintBuffered((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (int ) RING_API_GETNUMBER(2),* (cJSON_bool  *) RING_API_GETCPOINTER(3,"cJSON_bool")));
-	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"cJSON_bool"));
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(cJSON_PrintBuffered((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (int ) RING_API_GETNUMBER(2), (cJSON_bool ) RING_API_GETNUMBER(3)));
 }
 
 
@@ -251,16 +257,11 @@ RING_FUNC(ring_cJSON_PrintPreallocated)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_PrintPreallocated((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),* (const int  *) RING_API_GETCPOINTER(3,"const int"),* (const cJSON_bool  *) RING_API_GETCPOINTER(4,"const cJSON_bool"));
+	RING_API_RETNUMBER(cJSON_PrintPreallocated((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),* (const int  *) RING_API_GETCPOINTER(3,"const int"),* (const cJSON_bool  *) RING_API_GETCPOINTER(4,"const cJSON_bool")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"int"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"cJSON_bool"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
 }
 
 
@@ -358,12 +359,7 @@ RING_FUNC(ring_cJSON_HasObjectItem)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_HasObjectItem((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_HasObjectItem((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2)));
 }
 
 
@@ -419,12 +415,7 @@ RING_FUNC(ring_cJSON_IsInvalid)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_IsInvalid((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_IsInvalid((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
 }
 
 
@@ -439,12 +430,7 @@ RING_FUNC(ring_cJSON_IsFalse)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_IsFalse((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_IsFalse((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
 }
 
 
@@ -459,12 +445,7 @@ RING_FUNC(ring_cJSON_IsTrue)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_IsTrue((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_IsTrue((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
 }
 
 
@@ -479,12 +460,7 @@ RING_FUNC(ring_cJSON_IsBool)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_IsBool((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_IsBool((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
 }
 
 
@@ -499,12 +475,7 @@ RING_FUNC(ring_cJSON_IsNull)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_IsNull((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_IsNull((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
 }
 
 
@@ -519,12 +490,7 @@ RING_FUNC(ring_cJSON_IsNumber)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_IsNumber((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_IsNumber((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
 }
 
 
@@ -539,12 +505,7 @@ RING_FUNC(ring_cJSON_IsString)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_IsString((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_IsString((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
 }
 
 
@@ -559,12 +520,7 @@ RING_FUNC(ring_cJSON_IsArray)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_IsArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_IsArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
 }
 
 
@@ -579,12 +535,7 @@ RING_FUNC(ring_cJSON_IsObject)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_IsObject((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_IsObject((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
 }
 
 
@@ -599,12 +550,7 @@ RING_FUNC(ring_cJSON_IsRaw)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_IsRaw((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_IsRaw((cJSON *) RING_API_GETCPOINTER(1,"cJSON")));
 }
 
 
@@ -648,9 +594,11 @@ RING_FUNC(ring_cJSON_CreateBool)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	RING_API_RETCPOINTER(cJSON_CreateBool(* (cJSON_bool  *) RING_API_GETCPOINTER(1,"cJSON_bool")),"cJSON");
-	if (RING_API_ISCPOINTERNOTASSIGNED(1))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON_bool"));
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_CreateBool( (cJSON_bool ) RING_API_GETNUMBER(1)),"cJSON");
 }
 
 
@@ -839,12 +787,7 @@ RING_FUNC(ring_cJSON_AddItemToArray)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_AddItemToArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_AddItemToArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")));
 }
 
 
@@ -867,12 +810,7 @@ RING_FUNC(ring_cJSON_AddItemToObject)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_AddItemToObject((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_AddItemToObject((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON")));
 }
 
 
@@ -895,12 +833,7 @@ RING_FUNC(ring_cJSON_AddItemToObjectCS)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_AddItemToObjectCS((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_AddItemToObjectCS((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON")));
 }
 
 
@@ -919,12 +852,7 @@ RING_FUNC(ring_cJSON_AddItemReferenceToArray)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_AddItemReferenceToArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_AddItemReferenceToArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")));
 }
 
 
@@ -947,12 +875,7 @@ RING_FUNC(ring_cJSON_AddItemReferenceToObject)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_AddItemReferenceToObject((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_AddItemReferenceToObject((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON")));
 }
 
 
@@ -1106,12 +1029,7 @@ RING_FUNC(ring_cJSON_InsertItemInArray)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_InsertItemInArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (int ) RING_API_GETNUMBER(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_InsertItemInArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (int ) RING_API_GETNUMBER(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON")));
 }
 
 
@@ -1126,16 +1044,11 @@ RING_FUNC(ring_cJSON_ReplaceItemViaPointer)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_ReplaceItemViaPointer(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (cJSON * const  *) RING_API_GETCPOINTER(2,"cJSON * const"),(cJSON *) RING_API_GETCPOINTER(3,"cJSON"));
+	RING_API_RETNUMBER(cJSON_ReplaceItemViaPointer(* (cJSON * const  *) RING_API_GETCPOINTER(1,"cJSON * const"),* (cJSON * const  *) RING_API_GETCPOINTER(2,"cJSON * const"),(cJSON *) RING_API_GETCPOINTER(3,"cJSON")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
 }
 
 
@@ -1158,12 +1071,7 @@ RING_FUNC(ring_cJSON_ReplaceItemInArray)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_ReplaceItemInArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (int ) RING_API_GETNUMBER(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_ReplaceItemInArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (int ) RING_API_GETNUMBER(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON")));
 }
 
 
@@ -1186,12 +1094,7 @@ RING_FUNC(ring_cJSON_ReplaceItemInObject)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_ReplaceItemInObject((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_ReplaceItemInObject((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON")));
 }
 
 
@@ -1214,12 +1117,7 @@ RING_FUNC(ring_cJSON_ReplaceItemInObjectCaseSensitive)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_ReplaceItemInObjectCaseSensitive((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
+	RING_API_RETNUMBER(cJSON_ReplaceItemInObjectCaseSensitive((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),(cJSON *) RING_API_GETCPOINTER(3,"cJSON")));
 }
 
 
@@ -1234,9 +1132,11 @@ RING_FUNC(ring_cJSON_Duplicate)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETCPOINTER(cJSON_Duplicate((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),* (cJSON_bool  *) RING_API_GETCPOINTER(2,"cJSON_bool")),"cJSON");
-	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"cJSON_bool"));
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_Duplicate((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (cJSON_bool ) RING_API_GETNUMBER(2)),"cJSON");
 }
 
 
@@ -1247,18 +1147,13 @@ RING_FUNC(ring_cJSON_Compare)
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	{
-		cJSON_bool *pValue ; 
-		pValue = (cJSON_bool *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(cJSON_bool)) ;
-		*pValue = cJSON_Compare(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),* (const cJSON * const  *) RING_API_GETCPOINTER(2,"const cJSON * const"),* (const cJSON_bool  *) RING_API_GETCPOINTER(3,"const cJSON_bool"));
+	RING_API_RETNUMBER(cJSON_Compare(* (const cJSON * const  *) RING_API_GETCPOINTER(1,"const cJSON * const"),* (const cJSON * const  *) RING_API_GETCPOINTER(2,"const cJSON * const"),* (const cJSON_bool  *) RING_API_GETCPOINTER(3,"const cJSON_bool")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(1))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"cJSON"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"cJSON_bool"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"cJSON_bool",ring_state_free);
-	}
 }
 
 
@@ -1487,6 +1382,44 @@ RING_FUNC(ring_cJSON_free)
 	cJSON_free((void *) RING_API_GETCPOINTER(1,"void"));
 }
 
+
+RING_FUNC(ring_cJSON_SetIntValue)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cJSON_SetIntValue((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (double ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_cJSON_SetBoolValue)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cJSON_SetBoolValue((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (cJSON_bool ) RING_API_GETNUMBER(2));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
@@ -1566,6 +1499,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("cjson_setvaluestring",ring_cJSON_SetValuestring);
 	ring_vm_funcregister("cjson_malloc",ring_cJSON_malloc);
 	ring_vm_funcregister("cjson_free",ring_cJSON_free);
+	ring_vm_funcregister("cjson_setintvalue",ring_cJSON_SetIntValue);
+	ring_vm_funcregister("cjson_setboolvalue",ring_cJSON_SetBoolValue);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);

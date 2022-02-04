@@ -30,6 +30,7 @@ CJSON_NESTING_LIMIT
 <runcode>
 aNumberTypes + "size_t"
 aNumberTypes + "char"
+aNumberTypes + "cJSON_bool"
 </runcode>
 
 
@@ -128,9 +129,10 @@ char *cJSON_SetValuestring(cJSON *object, const char *valuestring)
 void *cJSON_malloc(size_t size)
 void cJSON_free(void *object)
 
+void cJSON_SetIntValue(cJSON *object, double number) 
+void cJSON_SetBoolValue(cJSON *object, cJSON_bool boolValue)
+
 <comment>
 cJSON *cJSON_CreateStringArray(const char *const *, int count)
-#define cJSON_SetIntValue(object, number) 
-#define cJSON_SetBoolValue(object, boolValue)
 #define cJSON_ArrayForEach(element, array)
 </comment>
