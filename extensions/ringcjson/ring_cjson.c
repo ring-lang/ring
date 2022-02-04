@@ -2021,17 +2021,23 @@ RING_FUNC(ring_cJSONUtils_SortObjectCaseSensitive)
 RING_FUNC(ring_cJSON_ToRingList)
 {
 	List *aOutput;
+	cJSON *pMyPointer ;
 	aOutput = ring_list_new(0);
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
 	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISPOINTER(1) ) {
+	if ( ! RING_API_ISCPOINTER(1) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
 	// TODO: Implement the function
+	pMyPointer = RING_API_GETCPOINTER(1,"cJSON");
+	if (pMyPointer == NULL) {
+		RING_API_RETLIST(aOutput);		
+		return ;
+	}
 	RING_API_RETLIST(aOutput);		
 }
 RING_API void ringlib_init(RingState *pRingState)
