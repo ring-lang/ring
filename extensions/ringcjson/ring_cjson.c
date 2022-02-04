@@ -3,6 +3,7 @@
 /* Copyright (c) 2022 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 #include "lib/cJSON.h"
+#include "lib/cJSON_Utils.h"
 RING_FUNC(ring_get_cjson_version_major)
 {
 	RING_API_RETNUMBER(CJSON_VERSION_MAJOR);
