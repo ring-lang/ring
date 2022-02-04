@@ -607,6 +607,119 @@ RING_FUNC(ring_cJSON_IsRaw)
 	}
 }
 
+
+RING_FUNC(ring_cJSON_CreateNull)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETCPOINTER(cJSON_CreateNull(),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSON_CreateTrue)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETCPOINTER(cJSON_CreateTrue(),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSON_CreateFalse)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETCPOINTER(cJSON_CreateFalse(),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSON_CreateBool)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETCPOINTER(cJSON_CreateBool(* (cJSON_bool  *) RING_API_GETCPOINTER(1,"cJSON_bool")),"cJSON");
+	if (RING_API_ISCPOINTERNOTASSIGNED(1))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(1,"cJSON_bool"));
+}
+
+
+RING_FUNC(ring_cJSON_CreateNumber)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISNUMBER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_CreateNumber( (double ) RING_API_GETNUMBER(1)),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSON_CreateString)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_CreateString(RING_API_GETSTRING(1)),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSON_CreateRaw)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_CreateRaw(RING_API_GETSTRING(1)),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSON_CreateArray)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETCPOINTER(cJSON_CreateArray(),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSON_CreateObject)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETCPOINTER(cJSON_CreateObject(),"cJSON");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
@@ -638,6 +751,15 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("cjson_isarray",ring_cJSON_IsArray);
 	ring_vm_funcregister("cjson_isobject",ring_cJSON_IsObject);
 	ring_vm_funcregister("cjson_israw",ring_cJSON_IsRaw);
+	ring_vm_funcregister("cjson_createnull",ring_cJSON_CreateNull);
+	ring_vm_funcregister("cjson_createtrue",ring_cJSON_CreateTrue);
+	ring_vm_funcregister("cjson_createfalse",ring_cJSON_CreateFalse);
+	ring_vm_funcregister("cjson_createbool",ring_cJSON_CreateBool);
+	ring_vm_funcregister("cjson_createnumber",ring_cJSON_CreateNumber);
+	ring_vm_funcregister("cjson_createstring",ring_cJSON_CreateString);
+	ring_vm_funcregister("cjson_createraw",ring_cJSON_CreateRaw);
+	ring_vm_funcregister("cjson_createarray",ring_cJSON_CreateArray);
+	ring_vm_funcregister("cjson_createobject",ring_cJSON_CreateObject);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);
