@@ -132,7 +132,25 @@ void cJSON_free(void *object)
 void cJSON_SetIntValue(cJSON *object, double number) 
 void cJSON_SetBoolValue(cJSON *object, cJSON_bool boolValue)
 
-<comment>
-cJSON *cJSON_CreateStringArray(const char *const *, int count)
-#define cJSON_ArrayForEach(element, array)
-</comment>
+<register>
+cJSON *cJSON_CreateStringArray(const char *, int count)
+</register>
+<code>
+RING_FUNC(ring_cJSON_CreateStringArray)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_CreateStringArray((const char *const *) RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)),"cJSON");
+}
+</code>

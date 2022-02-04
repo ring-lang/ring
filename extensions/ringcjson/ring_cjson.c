@@ -1420,6 +1420,23 @@ RING_FUNC(ring_cJSON_SetBoolValue)
 	cJSON_SetBoolValue((cJSON *) RING_API_GETCPOINTER(1,"cJSON"), (cJSON_bool ) RING_API_GETNUMBER(2));
 }
 
+RING_FUNC(ring_cJSON_CreateStringArray)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_CreateStringArray((const char *const *) RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)),"cJSON");
+}
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
@@ -1501,6 +1518,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("cjson_free",ring_cJSON_free);
 	ring_vm_funcregister("cjson_setintvalue",ring_cJSON_SetIntValue);
 	ring_vm_funcregister("cjson_setboolvalue",ring_cJSON_SetBoolValue);
+	ring_vm_funcregister("cjson_createstringarray",ring_cJSON_CreateStringArray);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);
