@@ -208,6 +208,8 @@ RING_FUNC(ring_cJSON_ToRingList)
 void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 {
 	while ( pJSON != NULL) {
+		if (pJSON->string != NULL)
+			ring_list_addstring(pOutputList,pJSON->string);
 		switch ((pJSON->type) & 0xFF)
 		{
 			case cJSON_NULL:
