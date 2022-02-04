@@ -78,8 +78,20 @@ RING_FUNC(ring_get_cjson_nesting_limit)
 	RING_API_RETNUMBER(CJSON_NESTING_LIMIT);
 }
 
+
+RING_FUNC(ring_cJSON_Version)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	RING_API_RETCPOINTER(cJSON_Version(),"char");
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
+	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);

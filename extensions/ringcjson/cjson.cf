@@ -32,3 +32,6 @@ aNumberTypes + "size_t"
 aNumberTypes + "char"
 </runcode>
 
+
+const char* cJSON_Version(void)
+
