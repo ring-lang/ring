@@ -156,3 +156,19 @@ RING_FUNC(ring_cJSON_CreateStringArray)
 	RING_API_RETCPOINTER(cJSON_CreateStringArray((const char *const *) RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)),"cJSON");
 }
 </code>
+
+
+cJSON *cJSONUtils_GetPointer(cJSON *object, const char *pointer)
+cJSON *cJSONUtils_GetPointerCaseSensitive(cJSON *object, const char *pointer)
+cJSON * cJSONUtils_GeneratePatches(cJSON *from, cJSON *to)
+cJSON * cJSONUtils_GeneratePatchesCaseSensitive(cJSON *from, cJSON *to)
+void cJSONUtils_AddPatchToArray(cJSON *array, const char *operation, const char *path, const cJSON *value)
+int cJSONUtils_ApplyPatches(cJSON *object, const cJSON *patches)
+int cJSONUtils_ApplyPatchesCaseSensitive(cJSON *object, const cJSON *patches)
+cJSON * cJSONUtils_MergePatch(cJSON *target, const cJSON *patch)
+cJSON * cJSONUtils_MergePatchCaseSensitive(cJSON *target, const cJSON *patch)
+cJSON * cJSONUtils_GenerateMergePatch(cJSON *from, cJSON *to)
+cJSON * cJSONUtils_GenerateMergePatchCaseSensitive(cJSON *from, cJSON *to)
+char * cJSONUtils_FindPointerFromObjectTo(const cJSON *object, const cJSON *target)
+void cJSONUtils_SortObject(cJSON *object)
+void cJSONUtils_SortObjectCaseSensitive(cJSON *object)

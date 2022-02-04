@@ -1744,6 +1744,272 @@ RING_FUNC(ring_cJSON_CreateStringArray)
 	}
 	RING_API_RETCPOINTER(cJSON_CreateStringArray((const char *const *) RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)),"cJSON");
 }
+
+RING_FUNC(ring_cJSONUtils_GetPointer)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSONUtils_GetPointer((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2)),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSONUtils_GetPointerCaseSensitive)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSONUtils_GetPointerCaseSensitive((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2)),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSONUtils_GeneratePatches)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSONUtils_GeneratePatches((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSONUtils_GeneratePatchesCaseSensitive)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSONUtils_GeneratePatchesCaseSensitive((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSONUtils_AddPatchToArray)
+{
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cJSONUtils_AddPatchToArray((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),RING_API_GETSTRING(2),RING_API_GETSTRING(3),(cJSON *) RING_API_GETCPOINTER(4,"cJSON"));
+}
+
+
+RING_FUNC(ring_cJSONUtils_ApplyPatches)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(cJSONUtils_ApplyPatches((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")));
+}
+
+
+RING_FUNC(ring_cJSONUtils_ApplyPatchesCaseSensitive)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(cJSONUtils_ApplyPatchesCaseSensitive((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")));
+}
+
+
+RING_FUNC(ring_cJSONUtils_MergePatch)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSONUtils_MergePatch((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSONUtils_MergePatchCaseSensitive)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSONUtils_MergePatchCaseSensitive((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSONUtils_GenerateMergePatch)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSONUtils_GenerateMergePatch((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSONUtils_GenerateMergePatchCaseSensitive)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSONUtils_GenerateMergePatchCaseSensitive((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")),"cJSON");
+}
+
+
+RING_FUNC(ring_cJSONUtils_FindPointerFromObjectTo)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(cJSONUtils_FindPointerFromObjectTo((cJSON *) RING_API_GETCPOINTER(1,"cJSON"),(cJSON *) RING_API_GETCPOINTER(2,"cJSON")));
+}
+
+
+RING_FUNC(ring_cJSONUtils_SortObject)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cJSONUtils_SortObject((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
+}
+
+
+RING_FUNC(ring_cJSONUtils_SortObjectCaseSensitive)
+{
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cJSONUtils_SortObjectCaseSensitive((cJSON *) RING_API_GETCPOINTER(1,"cJSON"));
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("cjson_version",ring_cJSON_Version);
@@ -1826,6 +2092,20 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("cjson_setintvalue",ring_cJSON_SetIntValue);
 	ring_vm_funcregister("cjson_setboolvalue",ring_cJSON_SetBoolValue);
 	ring_vm_funcregister("cjson_createstringarray",ring_cJSON_CreateStringArray);
+	ring_vm_funcregister("cjsonutils_getpointer",ring_cJSONUtils_GetPointer);
+	ring_vm_funcregister("cjsonutils_getpointercasesensitive",ring_cJSONUtils_GetPointerCaseSensitive);
+	ring_vm_funcregister("cjsonutils_generatepatches",ring_cJSONUtils_GeneratePatches);
+	ring_vm_funcregister("cjsonutils_generatepatchescasesensitive",ring_cJSONUtils_GeneratePatchesCaseSensitive);
+	ring_vm_funcregister("cjsonutils_addpatchtoarray",ring_cJSONUtils_AddPatchToArray);
+	ring_vm_funcregister("cjsonutils_applypatches",ring_cJSONUtils_ApplyPatches);
+	ring_vm_funcregister("cjsonutils_applypatchescasesensitive",ring_cJSONUtils_ApplyPatchesCaseSensitive);
+	ring_vm_funcregister("cjsonutils_mergepatch",ring_cJSONUtils_MergePatch);
+	ring_vm_funcregister("cjsonutils_mergepatchcasesensitive",ring_cJSONUtils_MergePatchCaseSensitive);
+	ring_vm_funcregister("cjsonutils_generatemergepatch",ring_cJSONUtils_GenerateMergePatch);
+	ring_vm_funcregister("cjsonutils_generatemergepatchcasesensitive",ring_cJSONUtils_GenerateMergePatchCaseSensitive);
+	ring_vm_funcregister("cjsonutils_findpointerfromobjectto",ring_cJSONUtils_FindPointerFromObjectTo);
+	ring_vm_funcregister("cjsonutils_sortobject",ring_cJSONUtils_SortObject);
+	ring_vm_funcregister("cjsonutils_sortobjectcasesensitive",ring_cJSONUtils_SortObjectCaseSensitive);
 	ring_vm_funcregister("get_cjson_version_major",ring_get_cjson_version_major);
 	ring_vm_funcregister("get_cjson_version_minor",ring_get_cjson_version_minor);
 	ring_vm_funcregister("get_cjson_version_patch",ring_get_cjson_version_patch);
