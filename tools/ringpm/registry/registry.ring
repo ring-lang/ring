@@ -694,6 +694,10 @@ aPackagesRegistry = [
 	[ :name = "poetryanalysis",
 	  :description = "Poetry Analysis application package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "Rosetta-Ring-Sample",
+	  :description = "Our Rosetta-Ring-Sample package using the Ring programming language",
+	  :ProviderUserName = "Azzeddine2017"
 	]
 
 ]
