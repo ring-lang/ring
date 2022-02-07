@@ -23,9 +23,8 @@ func JSON2List cJSON
 	oJSON = cJSON_Parse(cJSON)	
 
 	if isNULL(oJSON)
-		? "Parsing Error: "
-		? cJSON_GetErrorPtr()
-		raise("Can't parse the content")
+		raise("Parsing Error (JSONLib) : Can't parse the content " + nl +
+			cJSON_GetErrorPtr() )
 	ok
 
 	aList = cJSON_ToRingList(oJSON)
