@@ -230,9 +230,11 @@ void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 				ring_list_adddouble(pOutputList,cJSON_GetNumberValue(pJSON));
 				break;
 			case cJSON_Raw:
+				ring_list_addstring(pOutputList,pJSON->valuestring);
 				break;
 			case cJSON_String:
-				ring_list_addstring(pOutputList,cJSON_GetStringValue(pJSON));
+				if (pJSON->valuestring != NULL)
+					ring_list_addstring(pOutputList,cJSON_GetStringValue(pJSON));
 				break;
 			case cJSON_Array:
 				pOutputList = ring_list_newlist(pOutputList);
@@ -246,6 +248,9 @@ void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 			case cJSON_Object:
 				if (pJSON->string != NULL) {
 					pOutputList = ring_list_newlist(pOutputList);
+				} else {
+					pJSON = pJSON->child;
+					continue ;
 				}
 				cJSON_ProcessList(pJSON->child,pOutputList);
 				break;
