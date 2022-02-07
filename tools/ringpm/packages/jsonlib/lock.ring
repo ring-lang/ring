@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "jsonlib",
 		:branch = "master",
-		:version = "1.0.3",
+		:version = "1.0.5",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -80,13 +80,6 @@ aLockInfo = [
 		:name = "ringpostgresql",
 		:branch = "master",
 		:version = "1.0.3",
-		:providerusername = "ringpackages",
-		:providerwebsite = ""
-	],
-	[
-		:name = "tokenslib",
-		:branch = "master",
-		:version = "1.0.0",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]
