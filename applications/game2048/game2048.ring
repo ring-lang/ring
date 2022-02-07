@@ -57,6 +57,7 @@ app = new qApp {
           StyleFusion()
           processevents()
           win = new qWidget() {
+				  setWinIcon(win,"2048_logo.png")
                   setWindowTitle(C_GAMETITLE)
                   resize(600,700)
                   setminimumwidth(300)
