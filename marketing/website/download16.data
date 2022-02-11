@@ -2,39 +2,39 @@
 		["Ring 1.6 All Platforms",[
 						 [
 							'Ring 1.6 For Windows (32bit and 64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.6/Fayed_Ring_1.6_All_Platforms.exe/download" target="_blank">Download  (107 MB)</a>'						
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.6/Fayed_Ring_1.6_All_Platforms_Windows.exe">Download  (107 MB)</a>'						
 						 ],
 						 [
 							'Ring 1.6 For Ubuntu Linux (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.6/Fayed_Ring_1.6_All_Platforms_Ubuntu.zip/download" target="_blank">Download  (189 MB)</a>'						
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.6/Fayed_Ring_1.6_All_Platforms_Ubuntu.zip">Download  (189 MB)</a>'						
 						 ],	
 						 [
 							'Ring 1.6 For Fedora Linux (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.6/Fayed_Ring_1.6_All_Platforms_Fedora.zip/download" target="_blank">Download  (189 MB)</a>'						
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.6/Fayed_Ring_1.6_All_Platforms_Fedora.zip">Download  (189 MB)</a>'						
 						 ],							 
 						 [
 							'Ring 1.6 For macOS (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.6/Fayed_Ring_1.6_All_Platforms_macOS.zip/download" target="_blank">Download  (191 MB)</a>'						
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.6/Fayed_Ring_1.6_All_Platforms_macOS.zip">Download  (191 MB)</a>'						
 						 ],
 						 [
 							'Ring 1.6 (Light Release - Source Code - All Platforms) <br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.6/Fayed_Ring_1.6_LightRelease_SourceCode.zip/download" target="_blank">Download (145 KB) </a>'
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.6/Fayed_Ring_1.6_LightRelease_SourceCode.zip">Download (145 KB) </a>'
 						 ],
 						 [
 							'Ring 1.6 (Light Release - Windows Binary) <br> ',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.6/Fayed_Ring_1.6_LightRelease_Windows_Binary.zip/download" target="_blank">Download (512 KB)</a>'
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.6/Fayed_Ring_1.6_LightRelease_Windows_Binary.zip">Download (512 KB)</a>'
 						 ],
 						 [
 							'Ring 1.6 Documentation (PDF) ',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.6/Fayed_RingDoc_1.6.pdf/download" target="_blank">Download (18.6 MB)</a>'
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.6/Fayed_RingDoc_1.6.pdf">Download (18.6 MB)</a>'
 						 ],
 						 [
 							'Ring 1.6 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.6/Fayed_RingDoc_1.6.chm/download" target="_blank">Download (15.0 MB)</a>'							
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.6/Fayed_RingDoc_1.6.chm">Download (15.0 MB)</a>'							
 						 ],
 						 [
 							'Ring 1.6 Documentation (HTML)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.6/Fayed_RingDoc_1.6.zip/download" target="_blank">Download (15.2 MB)</a>'							
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.6/Fayed_RingDoc_1.6.zip">Download (15.2 MB)</a>'							
 						 ]
 						 
 			]
