@@ -51,3 +51,4 @@ Type: wchar_t
 cPath[MAX_PATH]
 Type: wchar_t
 cWMode[MAX_PATH]
+ring_general_addosfileseparator

@@ -301,11 +301,7 @@ int ring_parser_stmt ( Parser *pParser )
 					nPathExist = 0 ;
 				}
 				if ( nPathExist == 0 ) {
-					#ifdef _WIN32
-					strcat(cFileName,"\\");
-					#else
-					strcat(cFileName,"/");
-					#endif
+					ring_general_addosfileseparator(cFileName);
 				}
 				strcat(cFileName,pParser->TokenText);
 				/*

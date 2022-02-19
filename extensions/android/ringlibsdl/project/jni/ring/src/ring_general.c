@@ -210,3 +210,12 @@ RING_FILE ring_custom_fopen ( const char*cFileName, const char*cMode )
 		return RING_OPENFILE(cFileName, cMode) ;
 	#endif
 }
+
+void ring_general_addosfileseparator ( char *cFileName )
+{
+	#ifdef _WIN32
+		strcat(cFileName,"\\");
+	#else
+		strcat(cFileName,"/");
+	#endif
+}
