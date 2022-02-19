@@ -331,6 +331,20 @@ Screen Shot:
 .. image:: addlisttotablewidget.png
 	:alt: addlisttotablewidget
 
+
+(3) Added: AddList() method to the ListWidget class 
+
+.. tip:: ListWidget class is a subclass of QListWidget class
+
+.. note:: To use ListWidget class, import system.gui after loading guilib.ring or lightguilib.ring
+
+Example:
+
+.. code-block:: ring
+
+		aList = [ 1:10, "one", "two", "three"]
+		oView.listWidget1.addList(aList)
+
 .. index:: 
 	pair: What is new in Ring  1.17; More Improvements
 
