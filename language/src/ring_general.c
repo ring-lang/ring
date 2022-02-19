@@ -219,3 +219,25 @@ void ring_general_addosfileseparator ( char *cFileName )
 		strcat(cFileName,"/");
 	#endif
 }
+
+int ring_general_folderexistinfilename ( const char *cFolderName,const char *cFileName )
+{
+	int x  ;
+	if ( strlen(cFolderName) < strlen(cFileName) ) {
+		#ifdef _WIN32
+			for ( x = 0 ; (unsigned) x < strlen(cFolderName) ; x++ ) {
+				if ( ( tolower(cFolderName[x]) != tolower(cFileName[x]) ) ) {
+					return 0 ;
+				}
+			}
+		#else
+			for ( x = 0 ; (unsigned) x < strlen(cFolderName) ; x++ ) {
+				if ( cFolderName[x] != cFileName[x] ) {
+					return 0 ;
+				}
+			}
+		#endif
+		return 1 ;
+	}
+	return 0 ;
+}

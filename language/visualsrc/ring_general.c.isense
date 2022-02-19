@@ -52,3 +52,6 @@ cPath[MAX_PATH]
 Type: wchar_t
 cWMode[MAX_PATH]
 ring_general_addosfileseparator
+ring_general_folderexistinfilename
+Type: int
+x
