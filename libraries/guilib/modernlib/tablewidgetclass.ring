@@ -122,3 +122,19 @@ package System.GUI
 				aNewList + [item]
 			next
 			addList(aNewList)
+
+		func toList
+			aList = []
+			for nRow = 1 to rowCount()
+				aRow = []	
+				for nCol = 1 to columnCount()
+					oItem = item(nRow,nCol)
+					if ! isNULL(oItem.pObject)
+						aRow + item(nRow,nCol).text()
+					else
+						aRow + ""
+					ok
+				next
+				aList + aRow
+			next
+			return aList
