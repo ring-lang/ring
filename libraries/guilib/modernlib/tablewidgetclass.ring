@@ -83,7 +83,7 @@ package System.GUI
 				return
 			ok
 			if ! isList(aList[1])
-				? "Bad parameter type - The List is not a Table!"
+				AddListAsColumn(aList)
 				return
 			ok
 			nRows = len(aList)
@@ -115,3 +115,10 @@ package System.GUI
 				nRow++				
 			next
 			setcurrentcell(nRowStart+1,1)
+
+		func addListAsColumn aList
+			aNewList = []
+			for item in aList
+				aNewList + [item]
+			next
+			addList(aNewList)
