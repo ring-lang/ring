@@ -35,3 +35,9 @@ package System.GUI
 				ok
 			next
 
+		func toList 
+			aList = []
+			for t=1 to count()
+				aList + item(t).text()
+			next
+			return aList
