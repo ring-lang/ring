@@ -332,7 +332,16 @@ Screen Shot:
 	:alt: addlisttotablewidget
 
 
-(3) Added: AddList() method to the ListWidget class 
+(3) Added: toList() method to the tableWidget class 
+
+Example:
+
+.. code-block:: ring
+
+	aList = oView.tablewidget1.toList()
+	? aList
+
+(4) Added: AddList() method to the ListWidget class 
 
 .. tip:: ListWidget class is a subclass of QListWidget class
 
@@ -344,6 +353,15 @@ Example:
 
 		aList = [ 1:10, "one", "two", "three"]
 		oView.listWidget1.addList(aList)
+
+(5) Added: toList() method to the ListWidget class 
+
+Example:
+
+.. code-block:: ring
+
+	aList = oView.listwidget1.toList()
+	? aList
 
 .. index:: 
 	pair: What is new in Ring  1.17; More Improvements
