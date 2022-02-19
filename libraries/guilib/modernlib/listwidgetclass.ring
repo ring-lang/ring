@@ -26,7 +26,9 @@ package System.GUI
 				return
 			ok
 			for item in aList
-				if isString(item) or isNumber(item)
+				if isString(item) 
+					addItem(item)
+				but isNumber(item)
 					addItem(""+item)
 				but isList(item)
 					addList(item)
