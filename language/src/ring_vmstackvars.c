@@ -253,7 +253,6 @@ void ring_vm_newline ( VM *pVM )
 void ring_vm_freestack ( VM *pVM )
 {
 	int nSP  ;
-	List *pList  ;
 	/* Clear Assignment Pointer */
 	pVM->pAssignment = NULL ;
 	/* Clear Load Address Scope Information */
@@ -273,8 +272,7 @@ void ring_vm_freestack ( VM *pVM )
 		**  This feature is GREAT in the language where we can quickly move applications from 
 		**  Using procedural programming and global variables to Classes and Object Attributes 
 		*/
-		pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
-		nSP = ring_list_getint(pList,RING_ASCOPENEWOBJ_SP) ;
+		nSP = ring_vm_newobjectstackpointer(pVM) ;
 		if ( pVM->nSP > nSP + RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER ) {
 			pVM->nSP = nSP+RING_VM_FREE_STACK_IN_CLASS_REGION_AFTER ;
 		}

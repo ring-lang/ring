@@ -457,6 +457,13 @@ void ring_vm_restorestate3 ( VM *pVM )
 	ring_vm_backstate(pVM,ring_list_getint(pList,37),pVM->pFuncCallList);
 	ring_list_deleteitem_gc(pVM->pRingState,pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
 }
+
+int ring_vm_newobjectstackpointer ( VM *pVM )
+{
+	List *pList  ;
+	pList = ring_list_getlist(pVM->aScopeNewObj,ring_list_getsize(pVM->aScopeNewObj));
+	return ring_list_getint(pList,RING_ASCOPENEWOBJ_SP) ;
+}
 /* Return to a Specific position in the array, delete all items after that position */
 
 void ring_vm_backstate ( VM *pVM,int x,List *pList )

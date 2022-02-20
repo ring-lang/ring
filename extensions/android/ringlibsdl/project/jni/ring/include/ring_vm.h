@@ -735,6 +735,8 @@
 
 	void ring_vm_restorestate3 ( VM *pVM ) ;
 
+	int ring_vm_newobjectstackpointer ( VM *pVM ) ;
+
 	List * ring_vm_savestack ( VM *pVM ) ;
 
 	void ring_vm_restorestack ( VM *pVM,List *pList ) ;
