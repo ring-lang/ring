@@ -388,5 +388,6 @@ More Improvements
 * Ring VM - ICO_JUMPZ Instruction - Treat empty lists as Zero
 * Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero
 * Ring VM - The result of using the Not (!) operator then List will be False
+* Ring VM - State Management - Better Code - ring_vm_newobjectstackpointer() 
 * Ring Compiler - Better Code - Using ring_general_addosfileseparator()
 * Ring Compiler - Better Code - Using ring_general_folderexistinfilename()
