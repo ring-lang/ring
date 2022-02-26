@@ -698,6 +698,10 @@ aPackagesRegistry = [
 	[ :name = "Rosetta-Ring-Sample",
 	  :description = "Our Rosetta-Ring-Sample package using the Ring programming language",
 	  :ProviderUserName = "Azzeddine2017"
+	],
+	[ :name = "dogapi",
+	  :description = "Dog API client",
+	  :ProviderUserName = "thexxiv"
 	]
 
 ]
