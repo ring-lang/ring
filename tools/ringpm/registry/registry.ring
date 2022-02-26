@@ -702,6 +702,10 @@ aPackagesRegistry = [
 	[ :name = "dogapi",
 	  :description = "Dog API client",
 	  :ProviderUserName = "thexxiv"
+	],
+	[ :name = "regex",
+	  :description = "An easy to use pattern matching",
+	  :ProviderUserName = "thexxiv"
 	]
 
 ]
