@@ -377,6 +377,7 @@ More Improvements
 * JulianDayCalendar application - Better code to detect the current year
 * 2048 Game - Added window icon
 * Added: samples/Drawing/Mandelbrot/Mandelbrot_Fast.ring
+* Added: samples/AQuickStart/MySQL/mysql10.ring
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20
 * RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
 * RingLibCurl - Better support for Ring2EXE
