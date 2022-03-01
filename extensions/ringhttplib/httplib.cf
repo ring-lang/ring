@@ -13,6 +13,8 @@ extern "C" {
 }
 </code>
 
+<loadfile> classes/server.cf
+
 <constant>
 CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND
 CPPHTTPLIB_KEEPALIVE_MAX_COUNT

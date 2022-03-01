@@ -16,3 +16,33 @@ CPPHTTPLIB_COMPRESSION_BUFSIZ = get_CPPHTTPLIB_COMPRESSION_BUFSIZ()
 CPPHTTPLIB_THREAD_POOL_COUNT = get_CPPHTTPLIB_THREAD_POOL_COUNT()
 CPPHTTPLIB_RECV_FLAGS = get_CPPHTTPLIB_RECV_FLAGS()
 CPPHTTPLIB_LISTEN_BACKLOG = get_CPPHTTPLIB_LISTEN_BACKLOG()
+
+Func GetObjectPointerFromRingObject pObj
+     if isobject(pObj)
+	if isattribute(pObj,'pObject')
+		return pObj.pObject
+	else 
+		raise('Error, The parameter is not a GUI object!')
+	ok
+     ok	
+     return pObj		
+
+Class Server
+
+	pObject
+
+	Func init 
+		pObject = Server_new()
+		return self
+
+	Func delete
+		pObject = Server_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func listen P1,P2
+		return Server_listen(pObject,P1,P2)
+
+	Func listen_2 P1,P2,P3
+		return Server_listen_2(pObject,P1,P2,P3)
