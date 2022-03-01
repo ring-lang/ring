@@ -381,6 +381,8 @@ More Improvements
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20
 * RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
 * RingLibCurl - Better support for Ring2EXE
+* Code generator for extensions - Better output messages 
+* Code generator for extensions - Avoid generating the delete method twice 
 * Ring Object File - ring_objfile_writeCfile() - Better Code
 * Eval() function - Return NULL if the Return command is not used
 * SetPointer()/GetPointer() functions - Better Code
