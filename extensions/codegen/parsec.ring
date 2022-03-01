@@ -1446,17 +1446,9 @@ Func GenRingCodeParaListUse aPara
 	return cCode
 
 Func GenRingCodeFuncGetObjectPointer
-	return "
-Func GetObjectPointerFromRingObject pObj
-     if isobject(pObj)
-	if isattribute(pObj,'pObject')
-		return pObj.pObject
-	else 
-		raise('Error, The parameter is not a GUI object!')
-	ok
-     ok	
-     return pObj		
-"
+	return '
+load "codegenlib.ring"
+'
 
 Func GenRingCodeNewMethodName cClassName,cMethodName
 	nMax = len(aNewMethodName)
