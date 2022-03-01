@@ -1,4 +1,4 @@
-/* Copyright (c) 2013-2021 Mahmoud Fayed <msfclipper@yahoo.com> */
+/* Copyright (c) 2013-2022 Mahmoud Fayed <msfclipper@yahoo.com> */
 
 extern "C" {
 	#include "ring.h"
@@ -107,7 +107,6 @@ extern "C" {
 	void ring_QObject_freefunc(void *pState,void *pPointer);
 	void ring_QSize_freefunc(void *pState,void *pPointer);
 	void ring_QDir_freefunc(void *pState,void *pPointer);
-	void ring_QDateEdit_freefunc(void *pState,void *pPointer);
 	void ring_QUrl_freefunc(void *pState,void *pPointer);
 	void ring_QEvent_freefunc(void *pState,void *pPointer);
 	void ring_QTimer_freefunc(void *pState,void *pPointer);
@@ -257,6 +256,7 @@ extern "C" {
 	void ring_QSpinBox_freefunc(void *pState,void *pPointer);
 	void ring_QAbstractSlider_freefunc(void *pState,void *pPointer);
 	void ring_QSlider_freefunc(void *pState,void *pPointer);
+	void ring_QDateEdit_freefunc(void *pState,void *pPointer);
 	void ring_QDateTimeEdit_freefunc(void *pState,void *pPointer);
 	void ring_QAbstractSpinBox_freefunc(void *pState,void *pPointer);
 	void ring_QDial_freefunc(void *pState,void *pPointer);
@@ -121314,21 +121314,6 @@ RING_FUNC(ring_QDir_new)
 	RING_API_RETMANAGEDCPOINTER(pObject,"QDir",ring_QDir_freefunc);
 }
 
-RING_FUNC(ring_QDateEdit_new)
-{
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	QDateEdit *pObject = new QDateEdit((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
-	RING_API_RETCPOINTER(pObject,"QDateEdit");
-}
-
 RING_FUNC(ring_QUrl_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -123324,6 +123309,21 @@ RING_FUNC(ring_QSlider_new)
 	RING_API_RETCPOINTER(pObject,"QSlider");
 }
 
+RING_FUNC(ring_QDateEdit_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	QDateEdit *pObject = new QDateEdit((QWidget *) RING_API_GETCPOINTER(1,"QWidget"));
+	RING_API_RETCPOINTER(pObject,"QDateEdit");
+}
+
 RING_FUNC(ring_QDateTimeEdit_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -123995,23 +123995,6 @@ RING_FUNC(ring_QDir_delete)
 	if ( RING_API_ISCPOINTER(1) )
 	{
 		pObject = (QDir *) RING_API_GETCPOINTER(1,"QDir");
-		delete pObject ;
-		RING_API_SETNULLPOINTER(1);
-	}
-}
-
-RING_FUNC(ring_QDateEdit_delete)
-{
-	QDateEdit *pObject ; 
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( RING_API_PARACOUNT != 1 )
-	{
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	if ( RING_API_ISCPOINTER(1) )
-	{
-		pObject = (QDateEdit *) RING_API_GETCPOINTER(1,"QDateEdit");
 		delete pObject ;
 		RING_API_SETNULLPOINTER(1);
 	}
@@ -126346,6 +126329,23 @@ RING_FUNC(ring_QSlider_delete)
 	}
 }
 
+RING_FUNC(ring_QDateEdit_delete)
+{
+	QDateEdit *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (QDateEdit *) RING_API_GETCPOINTER(1,"QDateEdit");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_FUNC(ring_QDateTimeEdit_delete)
 {
 	QDateTimeEdit *pObject ; 
@@ -127095,13 +127095,6 @@ void ring_QDir_freefunc(void *pState,void *pPointer)
 {
 	QDir *pObject ; 
 	pObject = (QDir *) pPointer;
-	delete pObject ;
-}
-
-void ring_QDateEdit_freefunc(void *pState,void *pPointer)
-{
-	QDateEdit *pObject ; 
-	pObject = (QDateEdit *) pPointer;
 	delete pObject ;
 }
 
@@ -128061,6 +128054,13 @@ void ring_QSlider_freefunc(void *pState,void *pPointer)
 {
 	GSlider *pObject ; 
 	pObject = (GSlider *) pPointer;
+	delete pObject ;
+}
+
+void ring_QDateEdit_freefunc(void *pState,void *pPointer)
+{
+	QDateEdit *pObject ; 
+	pObject = (QDateEdit *) pPointer;
 	delete pObject ;
 }
 
@@ -134058,7 +134058,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qobject_new",ring_QObject_new);
 	ring_vm_funcregister("qsize_new",ring_QSize_new);
 	ring_vm_funcregister("qdir_new",ring_QDir_new);
-	ring_vm_funcregister("qdateedit_new",ring_QDateEdit_new);
 	ring_vm_funcregister("qurl_new",ring_QUrl_new);
 	ring_vm_funcregister("qevent_new",ring_QEvent_new);
 	ring_vm_funcregister("qtimer_new",ring_QTimer_new);
@@ -134196,6 +134195,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qspinbox_new",ring_QSpinBox_new);
 	ring_vm_funcregister("qabstractslider_new",ring_QAbstractSlider_new);
 	ring_vm_funcregister("qslider_new",ring_QSlider_new);
+	ring_vm_funcregister("qdateedit_new",ring_QDateEdit_new);
 	ring_vm_funcregister("qdatetimeedit_new",ring_QDateTimeEdit_new);
 	ring_vm_funcregister("qabstractspinbox_new",ring_QAbstractSpinBox_new);
 	ring_vm_funcregister("qdial_new",ring_QDial_new);
@@ -134242,7 +134242,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qobject_delete",ring_QObject_delete);
 	ring_vm_funcregister("qsize_delete",ring_QSize_delete);
 	ring_vm_funcregister("qdir_delete",ring_QDir_delete);
-	ring_vm_funcregister("qdateedit_delete",ring_QDateEdit_delete);
 	ring_vm_funcregister("qurl_delete",ring_QUrl_delete);
 	ring_vm_funcregister("qevent_delete",ring_QEvent_delete);
 	ring_vm_funcregister("qtimer_delete",ring_QTimer_delete);
@@ -134380,6 +134379,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qspinbox_delete",ring_QSpinBox_delete);
 	ring_vm_funcregister("qabstractslider_delete",ring_QAbstractSlider_delete);
 	ring_vm_funcregister("qslider_delete",ring_QSlider_delete);
+	ring_vm_funcregister("qdateedit_delete",ring_QDateEdit_delete);
 	ring_vm_funcregister("qdatetimeedit_delete",ring_QDateTimeEdit_delete);
 	ring_vm_funcregister("qabstractspinbox_delete",ring_QAbstractSpinBox_delete);
 	ring_vm_funcregister("qdial_delete",ring_QDial_delete);
