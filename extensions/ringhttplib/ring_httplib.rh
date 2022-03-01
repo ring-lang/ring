@@ -17,15 +17,7 @@ CPPHTTPLIB_THREAD_POOL_COUNT = get_CPPHTTPLIB_THREAD_POOL_COUNT()
 CPPHTTPLIB_RECV_FLAGS = get_CPPHTTPLIB_RECV_FLAGS()
 CPPHTTPLIB_LISTEN_BACKLOG = get_CPPHTTPLIB_LISTEN_BACKLOG()
 
-Func GetObjectPointerFromRingObject pObj
-     if isobject(pObj)
-	if isattribute(pObj,'pObject')
-		return pObj.pObject
-	else 
-		raise('Error, The parameter is not a GUI object!')
-	ok
-     ok	
-     return pObj		
+load "codegenlib.ring"
 
 Class Server
 
