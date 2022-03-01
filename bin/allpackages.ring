@@ -15,7 +15,8 @@ aAllPackagesInfo = [
 		"ringopengl21",
 		"ringopengl32",
 		"ringqt",
-		"ringlibsdl"
+		"ringlibsdl",
+		"guilib"
 	],
 	:ringcurl = 	[
 		"internetlib",
