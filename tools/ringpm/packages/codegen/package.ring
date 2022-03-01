@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.9",
+	:version = "1.0.10",
 	:ringversion = "1.10",
 	:versions = 	[
 		[
-			:version = "1.0.9",
+			:version = "1.0.10",
 			:branch = "master"
 		]
 	],
@@ -26,7 +26,10 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"extensions/codegen/gendoc.ring",
-		"extensions/codegen/parsec.ring"
+		"extensions/codegen/parsec.ring",
+		"extensions/codegen/codegenlib.ring",
+		"extensions/codegen/README.md",
+		"bin/load/codegenlib.ring"
 	],
 	:windowsfiles = 	[
 
