@@ -39,6 +39,12 @@ Class Server
 	Func listen_2 P1,P2,P3
 		return Server_listen_2(pObject,P1,P2,P3)
 
+	Func set_idle_interval P1
+		return Server_set_idle_interval(pObject,P1)
+
+	Func set_idle_interval_2 P1,P2
+		return Server_set_idle_interval_2(pObject,P1,P2)
+
 	Func set_payload_max_length P1
 		return Server_set_payload_max_length(pObject,P1)
 

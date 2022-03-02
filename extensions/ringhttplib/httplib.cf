@@ -42,5 +42,6 @@ CPPHTTPLIB_LISTEN_BACKLOG
 <runcode>
 aNumberTypes + "size_t"
 aNumberTypes + "char"
+aNumberTypes + "time_t"
 </runcode>
 
