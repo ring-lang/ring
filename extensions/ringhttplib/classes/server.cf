@@ -7,5 +7,11 @@ bool listen(const char *host, int port)
 bool listen@2(const char *host, int port, int socket_flags)
 
 
+bool bind_to_port(const char *host, int port)
+bool bind_to_port@2(const char *host, int port, int socket_flags)
+int bind_to_any_port(const char *host)
+int bind_to_any_port@2(const char *host, int socket_flags)
+bool listen_after_bind(void)
+
 bool is_running(void)
 void stop(void)

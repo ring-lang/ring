@@ -39,6 +39,21 @@ Class Server
 	Func listen_2 P1,P2,P3
 		return Server_listen_2(pObject,P1,P2,P3)
 
+	Func bind_to_port P1,P2
+		return Server_bind_to_port(pObject,P1,P2)
+
+	Func bind_to_port_2 P1,P2,P3
+		return Server_bind_to_port_2(pObject,P1,P2,P3)
+
+	Func bind_to_any_port P1
+		return Server_bind_to_any_port(pObject,P1)
+
+	Func bind_to_any_port_2 P1,P2
+		return Server_bind_to_any_port_2(pObject,P1,P2)
+
+	Func listen_after_bind 
+		return Server_listen_after_bind(pObject)
+
 	Func is_running 
 		return Server_is_running(pObject)
 

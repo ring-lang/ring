@@ -62,6 +62,123 @@ RING_FUNC(ring_Server_listen_2)
 }
 
 
+RING_FUNC(ring_Server_bind_to_port)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->bind_to_port(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_Server_bind_to_port_2)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->bind_to_port(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
+}
+
+
+RING_FUNC(ring_Server_bind_to_any_port)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->bind_to_any_port(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_Server_bind_to_any_port_2)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->bind_to_any_port(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3)));
+}
+
+
+RING_FUNC(ring_Server_listen_after_bind)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	RING_API_RETNUMBER(pObject->listen_after_bind());
+}
+
+
 RING_FUNC(ring_Server_is_running)
 {
 	Server *pObject ;
@@ -217,6 +334,11 @@ RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("server_listen",ring_Server_listen);
 	ring_vm_funcregister("server_listen_2",ring_Server_listen_2);
+	ring_vm_funcregister("server_bind_to_port",ring_Server_bind_to_port);
+	ring_vm_funcregister("server_bind_to_port_2",ring_Server_bind_to_port_2);
+	ring_vm_funcregister("server_bind_to_any_port",ring_Server_bind_to_any_port);
+	ring_vm_funcregister("server_bind_to_any_port_2",ring_Server_bind_to_any_port_2);
+	ring_vm_funcregister("server_listen_after_bind",ring_Server_listen_after_bind);
 	ring_vm_funcregister("server_is_running",ring_Server_is_running);
 	ring_vm_funcregister("server_stop",ring_Server_stop);
 	ring_vm_funcregister("server_new",ring_Server_new);
