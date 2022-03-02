@@ -61,6 +61,40 @@ RING_FUNC(ring_Server_listen_2)
 	RING_API_RETNUMBER(pObject->listen(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3), (int ) RING_API_GETNUMBER(4)));
 }
 
+
+RING_FUNC(ring_Server_is_running)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	RING_API_RETNUMBER(pObject->is_running());
+}
+
+
+RING_FUNC(ring_Server_stop)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject->stop();
+}
+
 RING_FUNC(ring_get_cpphttplib_keepalive_timeout_second)
 {
 	RING_API_RETNUMBER(CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND);
@@ -183,6 +217,8 @@ RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("server_listen",ring_Server_listen);
 	ring_vm_funcregister("server_listen_2",ring_Server_listen_2);
+	ring_vm_funcregister("server_is_running",ring_Server_is_running);
+	ring_vm_funcregister("server_stop",ring_Server_stop);
 	ring_vm_funcregister("server_new",ring_Server_new);
 	ring_vm_funcregister("server_delete",ring_Server_delete);
 	ring_vm_funcregister("get_cpphttplib_keepalive_timeout_second",ring_get_cpphttplib_keepalive_timeout_second);

@@ -38,3 +38,9 @@ Class Server
 
 	Func listen_2 P1,P2,P3
 		return Server_listen_2(pObject,P1,P2,P3)
+
+	Func is_running 
+		return Server_is_running(pObject)
+
+	Func stop 
+		return Server_stop(pObject)
