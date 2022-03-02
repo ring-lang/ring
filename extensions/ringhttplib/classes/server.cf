@@ -6,6 +6,9 @@ para: void
 bool listen(const char *host, int port)
 bool listen@2(const char *host, int port, int socket_flags)
 
+void set_write_timeout(time_t sec)
+void set_write_timeout@2(time_t sec, time_t usec)
+
 void set_idle_interval(time_t sec)
 void set_idle_interval@2(time_t sec, time_t usec)
 
