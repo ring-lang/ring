@@ -62,6 +62,46 @@ RING_FUNC(ring_Server_listen_2)
 }
 
 
+RING_FUNC(ring_Server_set_read_timeout)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject->set_read_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
+}
+
+
+RING_FUNC(ring_Server_set_read_timeout_2)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject->set_read_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"),* (time_t  *) RING_API_GETCPOINTER(3,"time_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(2))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
+	if (RING_API_ISCPOINTERNOTASSIGNED(3))
+		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"time_t"));
+}
+
+
 RING_FUNC(ring_Server_set_write_timeout)
 {
 	Server *pObject ;
@@ -435,6 +475,8 @@ RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("server_listen",ring_Server_listen);
 	ring_vm_funcregister("server_listen_2",ring_Server_listen_2);
+	ring_vm_funcregister("server_set_read_timeout",ring_Server_set_read_timeout);
+	ring_vm_funcregister("server_set_read_timeout_2",ring_Server_set_read_timeout_2);
 	ring_vm_funcregister("server_set_write_timeout",ring_Server_set_write_timeout);
 	ring_vm_funcregister("server_set_write_timeout_2",ring_Server_set_write_timeout_2);
 	ring_vm_funcregister("server_set_idle_interval",ring_Server_set_idle_interval);

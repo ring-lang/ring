@@ -39,6 +39,12 @@ Class Server
 	Func listen_2 P1,P2,P3
 		return Server_listen_2(pObject,P1,P2,P3)
 
+	Func set_read_timeout P1
+		return Server_set_read_timeout(pObject,P1)
+
+	Func set_read_timeout_2 P1,P2
+		return Server_set_read_timeout_2(pObject,P1,P2)
+
 	Func set_write_timeout P1
 		return Server_set_write_timeout(pObject,P1)
 
