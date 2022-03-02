@@ -39,6 +39,9 @@ Class Server
 	Func listen_2 P1,P2,P3
 		return Server_listen_2(pObject,P1,P2,P3)
 
+	Func set_file_extension_and_mimetype_mapping P1,P2
+		return Server_set_file_extension_and_mimetype_mapping(pObject,P1,P2)
+
 	Func set_tcp_nodelay P1
 		return Server_set_tcp_nodelay(pObject,P1)
 
