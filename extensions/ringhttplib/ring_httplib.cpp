@@ -62,6 +62,48 @@ RING_FUNC(ring_Server_listen_2)
 }
 
 
+RING_FUNC(ring_Server_set_tcp_nodelay)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_tcp_nodelay( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_Server_set_address_family)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_address_family( (int ) RING_API_GETNUMBER(2));
+}
+
+
 RING_FUNC(ring_Server_set_keep_alive_max_count)
 {
 	Server *pObject ;
@@ -515,6 +557,8 @@ RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("server_listen",ring_Server_listen);
 	ring_vm_funcregister("server_listen_2",ring_Server_listen_2);
+	ring_vm_funcregister("server_set_tcp_nodelay",ring_Server_set_tcp_nodelay);
+	ring_vm_funcregister("server_set_address_family",ring_Server_set_address_family);
 	ring_vm_funcregister("server_set_keep_alive_max_count",ring_Server_set_keep_alive_max_count);
 	ring_vm_funcregister("server_set_keep_alive_timeout",ring_Server_set_keep_alive_timeout);
 	ring_vm_funcregister("server_set_read_timeout",ring_Server_set_read_timeout);

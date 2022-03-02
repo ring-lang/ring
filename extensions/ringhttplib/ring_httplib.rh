@@ -39,6 +39,12 @@ Class Server
 	Func listen_2 P1,P2,P3
 		return Server_listen_2(pObject,P1,P2,P3)
 
+	Func set_tcp_nodelay P1
+		return Server_set_tcp_nodelay(pObject,P1)
+
+	Func set_address_family P1
+		return Server_set_address_family(pObject,P1)
+
 	Func set_keep_alive_max_count P1
 		return Server_set_keep_alive_max_count(pObject,P1)
 
