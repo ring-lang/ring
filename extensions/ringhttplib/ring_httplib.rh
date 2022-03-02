@@ -39,6 +39,18 @@ Class Server
 	Func listen_2 P1,P2,P3
 		return Server_listen_2(pObject,P1,P2,P3)
 
+	Func set_base_dir P1
+		return Server_set_base_dir(pObject,P1)
+
+	Func set_base_dir_2 P1,P2
+		return Server_set_base_dir_2(pObject,P1,P2)
+
+	Func set_mount_point P1,P2
+		return Server_set_mount_point(pObject,P1,P2)
+
+	Func set_mount_point_2 P1,P2,P3
+		return Server_set_mount_point_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+
 	Func remove_mount_point P1
 		return Server_remove_mount_point(pObject,P1)
 
