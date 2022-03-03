@@ -4,7 +4,7 @@ load "httplib.ring"
 oServer = new Server() 
 
 ? "Define /hi"
-oServer.wGet("/hi","mytest()")
+oServer.wGet("/hi",:mytest)
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)
@@ -12,5 +12,4 @@ oServer.listen("0.0.0.0", 8080)
 ? "End of program!"
 
 func mytest 
-	? 'New Request!'
 	oServer.response().set_content("Hello World!", "text/plain")
