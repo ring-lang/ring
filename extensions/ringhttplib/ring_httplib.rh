@@ -156,6 +156,9 @@ Class Response
 	Func get_header_value_count P1
 		return Response_get_header_value_count(pObject,P1)
 
+	Func has_header P1
+		return Response_has_header(pObject,P1)
+
 Class Request
 
 	pObject

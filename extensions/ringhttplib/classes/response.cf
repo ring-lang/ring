@@ -11,3 +11,10 @@ void set_redirect@2(const char *url, int status)
 
 void set_header(const char *key, const char *val)
 size_t get_header_value_count(const char *key)
+
+bool has_header(const char *key)
+
+<comment>
+char *get_header_value(const char *key)
+char *get_header_value@2(const char *key, size_t id)
+</comment>
