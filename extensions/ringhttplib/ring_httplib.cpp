@@ -8,6 +8,11 @@ extern "C" {
 	RING_API void ringlib_init(RingState *pRingState);
 }
 
+#define RINGHTTPLIB_RINGCODESIZE 512
+#define RINGHTTPLIB_MAXRINGCODE  511
+#define RINGHTTPLIB_ERRORINCODESIZE "The string that contains Ring code is larger than expected (Max. size = 511)"
+
+
 RING_FUNC(ring_Server_listen)
 {
 	Server *pObject ;
@@ -583,7 +588,7 @@ RING_FUNC(ring_Server_wget)
 {
 	Server *pObject ;
 	VM *pVMHTTPLib;
-	char cHTTPLibRingCode[512];
+	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
 	pVMHTTPLib = (VM *) pPointer;
 
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -605,8 +610,8 @@ RING_FUNC(ring_Server_wget)
 		return ;
 	}
 
-	if ( strlen(RING_API_GETSTRING(3)) > 511 ) {
-		RING_API_ERROR("The string that contains Ring code is larger than expected (Max. size = 511)");
+	if ( strlen(RING_API_GETSTRING(3)) > RINGHTTPLIB_MAXRINGCODE ) {
+		RING_API_ERROR(RINGHTTPLIB_ERRORINCODESIZE);
 		return;
 	}
 
