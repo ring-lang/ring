@@ -736,6 +736,52 @@ RING_FUNC(ring_Response_set_content_2)
 	pObject->set_content(RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3),RING_API_GETSTRING(4));
 }
 
+
+RING_FUNC(ring_Response_set_redirect)
+{
+	Response *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_redirect(RING_API_GETSTRING(2));
+}
+
+
+RING_FUNC(ring_Response_set_redirect_2)
+{
+	Response *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_redirect(RING_API_GETSTRING(2), (int ) RING_API_GETNUMBER(3));
+}
+
 RING_FUNC(ring_get_cpphttplib_keepalive_timeout_second)
 {
 	RING_API_RETNUMBER(CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND);
@@ -943,6 +989,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("server_request",ring_Server_request);
 	ring_vm_funcregister("response_set_content",ring_Response_set_content);
 	ring_vm_funcregister("response_set_content_2",ring_Response_set_content_2);
+	ring_vm_funcregister("response_set_redirect",ring_Response_set_redirect);
+	ring_vm_funcregister("response_set_redirect_2",ring_Response_set_redirect_2);
 	ring_vm_funcregister("server_new",ring_Server_new);
 	ring_vm_funcregister("response_new",ring_Response_new);
 	ring_vm_funcregister("request_new",ring_Request_new);

@@ -144,6 +144,12 @@ Class Response
 	Func set_content_2 P1,P2,P3
 		return Response_set_content_2(pObject,P1,P2,P3)
 
+	Func set_redirect P1
+		return Response_set_redirect(pObject,P1)
+
+	Func set_redirect_2 P1,P2
+		return Response_set_redirect_2(pObject,P1,P2)
+
 Class Request
 
 	pObject
