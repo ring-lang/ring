@@ -606,7 +606,7 @@ RING_FUNC(ring_Server_wget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -621,8 +621,10 @@ RING_FUNC(ring_Server_wget)
 		RING_API_ERROR(RINGHTTPLIB_ERRORINCODESIZE);
 		return;
 	}
+
 	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
 
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	pObject->Get(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
 		pObject->oRequest = &req;
 		pObject->oResponse = &res;
