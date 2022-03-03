@@ -150,6 +150,12 @@ Class Response
 	Func set_redirect_2 P1,P2
 		return Response_set_redirect_2(pObject,P1,P2)
 
+	Func set_header P1,P2
+		return Response_set_header(pObject,P1,P2)
+
+	Func get_header_value_count P1
+		return Response_get_header_value_count(pObject,P1)
+
 Class Request
 
 	pObject
