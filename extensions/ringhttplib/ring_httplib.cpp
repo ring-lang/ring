@@ -6,7 +6,6 @@ using namespace httplib;
 extern "C" {
 	#include "ring.h"
 	RING_API void ringlib_init(RingState *pRingState);
-	VM *pVMHTTPLib = NULL;
 }
 
 RING_FUNC(ring_Server_listen)
@@ -583,6 +582,9 @@ RING_FUNC(ring_Server_stop)
 RING_FUNC(ring_Server_wget)
 {
 	Server *pObject ;
+	VM *pVMHTTPLib;
+	char cHTTPLibRingCode[512];
+	pVMHTTPLib = (VM *) pPointer;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -602,12 +604,8 @@ RING_FUNC(ring_Server_wget)
 		return ;
 	}
 
-	if (pVMHTTPLib == NULL)
-		pVMHTTPLib = (VM *) pPointer;
-
-	char cHTTPLibRingCode[512];
 	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
-	pObject->Get(RING_API_GETSTRING(2), [cHTTPLibRingCode](const Request &, Response &res) {
+	pObject->Get(RING_API_GETSTRING(2), [pVMHTTPLib,cHTTPLibRingCode](const Request &, Response &res) {
 		ring_vm_runcode(pVMHTTPLib, cHTTPLibRingCode);
 	});
 }
