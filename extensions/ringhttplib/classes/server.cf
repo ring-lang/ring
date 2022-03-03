@@ -59,6 +59,7 @@ RING_FUNC(ring_Server_wget)
 	VM *pVMHTTPLib;
 	char cHTTPLibRingCode[512];
 	pVMHTTPLib = (VM *) pPointer;
+
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -76,6 +77,11 @@ RING_FUNC(ring_Server_wget)
 	if ( ! RING_API_ISSTRING(3) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
+	}
+
+	if ( strlen(RING_API_GETSTRING(3)) > 511 ) {
+		RING_API_ERROR("The string that contains Ring code is larger than expected (Max. size = 511)");
+		return;
 	}
 
 	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
