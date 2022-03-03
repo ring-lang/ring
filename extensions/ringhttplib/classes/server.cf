@@ -54,6 +54,39 @@ void wget(const char *pattern, const char *cCode)
 </register>
 
 <code>
+
+int ring_httplib_checkpara(void *pPointer) 
+{
+
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return 1;
+	}
+
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return 1;
+	}
+
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return 1;
+	}
+
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return 1;
+	}
+
+	// Check Ring Code size
+	if ( strlen(RING_API_GETSTRING(3)) > RINGHTTPLIB_MAXRINGCODE ) {
+		RING_API_ERROR(RINGHTTPLIB_ERRORINCODESIZE);
+		return 1;
+	}
+
+	return 0;
+}
+
 RING_FUNC(ring_Server_wget)
 {
 	RingServer *pObject ;
@@ -61,30 +94,9 @@ RING_FUNC(ring_Server_wget)
 	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
 	pVMHTTPLib = (VM *) pPointer;
 
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
-	}
 	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
 
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISSTRING(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-
-	// Get Ring Code
-	if ( strlen(RING_API_GETSTRING(3)) > RINGHTTPLIB_MAXRINGCODE ) {
-		RING_API_ERROR(RINGHTTPLIB_ERRORINCODESIZE);
-		return;
-	}
+	if (ring_httplib_checkpara(pPointer)) return ;
 
 	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
 
