@@ -26,6 +26,7 @@ class RingServer: public Server {
 
 <loadfile> classes/server.cf
 <loadfile> classes/response.cf
+<loadfile> classes/request.cf
 
 <constant>
 CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND

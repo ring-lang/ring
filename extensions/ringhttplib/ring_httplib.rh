@@ -119,6 +119,11 @@ Class Server
 		pTempObj.pObject = Server_response(pObject)
 		return pTempObj
 
+	Func request 
+		pTempObj = new Request
+		pTempObj.pObject = Server_request(pObject)
+		return pTempObj
+
 Class Response
 
 	pObject
@@ -135,3 +140,17 @@ Class Response
 
 	Func set_content P1,P2
 		return Response_set_content(pObject,P1,P2)
+
+Class Request
+
+	pObject
+
+	Func init 
+		pObject = Request_new()
+		return self
+
+	Func delete
+		pObject = Request_delete(pObject)
+
+	Func ObjectPointer
+		return pObject

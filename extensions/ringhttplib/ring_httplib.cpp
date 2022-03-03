@@ -663,6 +663,25 @@ RING_FUNC(ring_Server_response)
 
 }
 
+RING_FUNC(ring_Server_request)
+{
+	RingServer *pObject ;
+
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	RING_API_RETCPOINTER(pObject->oRequest,"request");
+
+}
+
 
 RING_FUNC(ring_Response_set_content)
 {
@@ -800,6 +819,17 @@ RING_FUNC(ring_Response_new)
 	RING_API_RETCPOINTER(pObject,"Response");
 }
 
+RING_FUNC(ring_Request_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	Request *pObject = new Request();
+	RING_API_RETCPOINTER(pObject,"Request");
+}
+
 RING_FUNC(ring_Server_delete)
 {
 	RingServer *pObject ; 
@@ -829,6 +859,23 @@ RING_FUNC(ring_Response_delete)
 	if ( RING_API_ISCPOINTER(1) )
 	{
 		pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_Request_delete)
+{
+	Request *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
 		delete pObject ;
 		RING_API_SETNULLPOINTER(1);
 	}
@@ -864,11 +911,14 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("server_stop",ring_Server_stop);
 	ring_vm_funcregister("server_wget",ring_Server_wget);
 	ring_vm_funcregister("server_response",ring_Server_response);
+	ring_vm_funcregister("server_request",ring_Server_request);
 	ring_vm_funcregister("response_set_content",ring_Response_set_content);
 	ring_vm_funcregister("server_new",ring_Server_new);
 	ring_vm_funcregister("response_new",ring_Response_new);
+	ring_vm_funcregister("request_new",ring_Request_new);
 	ring_vm_funcregister("server_delete",ring_Server_delete);
 	ring_vm_funcregister("response_delete",ring_Response_delete);
+	ring_vm_funcregister("request_delete",ring_Request_delete);
 	ring_vm_funcregister("get_cpphttplib_keepalive_timeout_second",ring_get_cpphttplib_keepalive_timeout_second);
 	ring_vm_funcregister("get_cpphttplib_keepalive_max_count",ring_get_cpphttplib_keepalive_max_count);
 	ring_vm_funcregister("get_cpphttplib_connection_timeout_second",ring_get_cpphttplib_connection_timeout_second);
