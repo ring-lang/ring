@@ -51,6 +51,7 @@ void stop(void)
 
 <register>
 void wget(const char *pattern, const char *cCode)
+const Response *response(void)
 </register>
 
 <code>
@@ -107,4 +108,24 @@ RING_FUNC(ring_Server_wget)
 		ring_vm_runcode(pVMHTTPLib, cHTTPLibRingCode);
 	});
 }
+
+RING_FUNC(ring_Server_response)
+{
+	RingServer *pObject ;
+
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	RING_API_RETCPOINTER(pObject->oResponse,"response");
+
+}
+
 </code>

@@ -113,3 +113,25 @@ Class Server
 
 	Func wget P1,P2
 		return Server_wget(pObject,P1,P2)
+
+	Func response 
+		pTempObj = new Response
+		pTempObj.pObject = Server_response(pObject)
+		return pTempObj
+
+Class Response
+
+	pObject
+
+	Func init 
+		pObject = Response_new()
+		return self
+
+	Func delete
+		pObject = Response_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func set_content P1,P2
+		return Response_set_content(pObject,P1,P2)

@@ -643,6 +643,51 @@ RING_FUNC(ring_Server_wget)
 		ring_vm_runcode(pVMHTTPLib, cHTTPLibRingCode);
 	});
 }
+
+RING_FUNC(ring_Server_response)
+{
+	RingServer *pObject ;
+
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	RING_API_RETCPOINTER(pObject->oResponse,"response");
+
+}
+
+
+RING_FUNC(ring_Response_set_content)
+{
+	Response *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_content(RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+}
+
 RING_FUNC(ring_get_cpphttplib_keepalive_timeout_second)
 {
 	RING_API_RETNUMBER(CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND);
@@ -744,6 +789,17 @@ RING_FUNC(ring_Server_new)
 	RING_API_RETCPOINTER(pObject,"Server");
 }
 
+RING_FUNC(ring_Response_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	Response *pObject = new Response();
+	RING_API_RETCPOINTER(pObject,"Response");
+}
+
 RING_FUNC(ring_Server_delete)
 {
 	RingServer *pObject ; 
@@ -756,6 +812,23 @@ RING_FUNC(ring_Server_delete)
 	if ( RING_API_ISCPOINTER(1) )
 	{
 		pObject = (RingServer *) RING_API_GETCPOINTER(1,"RingServer");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_Response_delete)
+{
+	Response *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
 		delete pObject ;
 		RING_API_SETNULLPOINTER(1);
 	}
@@ -790,8 +863,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("server_is_running",ring_Server_is_running);
 	ring_vm_funcregister("server_stop",ring_Server_stop);
 	ring_vm_funcregister("server_wget",ring_Server_wget);
+	ring_vm_funcregister("server_response",ring_Server_response);
+	ring_vm_funcregister("response_set_content",ring_Response_set_content);
 	ring_vm_funcregister("server_new",ring_Server_new);
+	ring_vm_funcregister("response_new",ring_Response_new);
 	ring_vm_funcregister("server_delete",ring_Server_delete);
+	ring_vm_funcregister("response_delete",ring_Response_delete);
 	ring_vm_funcregister("get_cpphttplib_keepalive_timeout_second",ring_get_cpphttplib_keepalive_timeout_second);
 	ring_vm_funcregister("get_cpphttplib_keepalive_max_count",ring_get_cpphttplib_keepalive_max_count);
 	ring_vm_funcregister("get_cpphttplib_connection_timeout_second",ring_get_cpphttplib_connection_timeout_second);

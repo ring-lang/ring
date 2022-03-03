@@ -1,0 +1,6 @@
+<class>
+name: Response
+para: void
+</class>
+
+void set_content(const char *s, const char *content_type)
