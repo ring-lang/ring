@@ -645,7 +645,7 @@ RING_FUNC(ring_Server_wget)
 		ringhttplibmtx.lock();
 		pObject->oRequest = &req;
 		pObject->oResponse = &res;
-		ring_vm_runcode(pVMHTTPLib, cHTTPLibRingCode);
+		ring_vm_callfunction(pVMHTTPLib, (char *) cHTTPLibRingCode);
 		ringhttplibmtx.unlock();
 	});
 }
