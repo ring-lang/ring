@@ -110,3 +110,6 @@ Class Server
 
 	Func stop 
 		return Server_stop(pObject)
+
+	Func wget P1,P2
+		return Server_wget(pObject,P1,P2)

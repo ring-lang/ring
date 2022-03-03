@@ -10,6 +10,8 @@ using namespace httplib;
 extern "C" {
 	#include "ring.h"
 	RING_API void ringlib_init(RingState *pRingState);
+	VM *pVMHTTPLib = NULL;
+	char cHTTPLibRingCode[512];
 }
 </code>
 
@@ -43,5 +45,9 @@ CPPHTTPLIB_LISTEN_BACKLOG
 aNumberTypes + "size_t"
 aNumberTypes + "char"
 aNumberTypes + "time_t"
+
+aEnumTypes + "HandlerResponse"
+aEnumTypes + "Error"
+aEnumTypes + "EncodingType"
 </runcode>
 

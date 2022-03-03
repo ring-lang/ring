@@ -6,6 +6,8 @@ using namespace httplib;
 extern "C" {
 	#include "ring.h"
 	RING_API void ringlib_init(RingState *pRingState);
+	VM *pVMHTTPLib = NULL;
+	char cHTTPLibRingCode[512];
 }
 
 RING_FUNC(ring_Server_listen)
@@ -579,6 +581,36 @@ RING_FUNC(ring_Server_stop)
 	pObject->stop();
 }
 
+RING_FUNC(ring_Server_wget)
+{
+	Server *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	if (pVMHTTPLib == NULL)
+		pVMHTTPLib = (VM *) pPointer;
+
+	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
+	pObject->Get(RING_API_GETSTRING(2), [](const Request &, Response &res) {
+		ring_vm_runcode(pVMHTTPLib, cHTTPLibRingCode);
+	});
+}
 RING_FUNC(ring_get_cpphttplib_keepalive_timeout_second)
 {
 	RING_API_RETNUMBER(CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND);
@@ -725,6 +757,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("server_listen_after_bind",ring_Server_listen_after_bind);
 	ring_vm_funcregister("server_is_running",ring_Server_is_running);
 	ring_vm_funcregister("server_stop",ring_Server_stop);
+	ring_vm_funcregister("server_wget",ring_Server_wget);
 	ring_vm_funcregister("server_new",ring_Server_new);
 	ring_vm_funcregister("server_delete",ring_Server_delete);
 	ring_vm_funcregister("get_cpphttplib_keepalive_timeout_second",ring_get_cpphttplib_keepalive_timeout_second);
