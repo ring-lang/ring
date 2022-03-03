@@ -7,6 +7,10 @@
 #include "httplib.h"
 using namespace httplib;
 
+#include <mutex>  
+
+std::mutex ringhttplibmtx;
+
 extern "C" {
 	#include "ring.h"
 	RING_API void ringlib_init(RingState *pRingState);

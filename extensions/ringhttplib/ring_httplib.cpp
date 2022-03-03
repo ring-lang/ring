@@ -3,6 +3,10 @@
 #include "httplib.h"
 using namespace httplib;
 
+#include <mutex>
+
+std::mutex ringhttplibmtx;
+
 extern "C" {
 	#include "ring.h"
 	RING_API void ringlib_init(RingState *pRingState);
@@ -638,9 +642,11 @@ RING_FUNC(ring_Server_wget)
 
 	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	pObject->Get(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
+		ringhttplibmtx.lock();
 		pObject->oRequest = &req;
 		pObject->oResponse = &res;
 		ring_vm_runcode(pVMHTTPLib, cHTTPLibRingCode);
+		ringhttplibmtx.unlock();
 	});
 }
 
