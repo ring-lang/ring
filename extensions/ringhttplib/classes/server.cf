@@ -79,12 +79,13 @@ RING_FUNC(ring_Server_wget)
 		return ;
 	}
 
+	// Get Ring Code
 	if ( strlen(RING_API_GETSTRING(3)) > RINGHTTPLIB_MAXRINGCODE ) {
 		RING_API_ERROR(RINGHTTPLIB_ERRORINCODESIZE);
 		return;
 	}
-
 	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
+
 	pObject->Get(RING_API_GETSTRING(2), [pVMHTTPLib,cHTTPLibRingCode](const Request &, Response &res) {
 		ring_vm_runcode(pVMHTTPLib, cHTTPLibRingCode);
 	});
