@@ -4,3 +4,4 @@ para: void
 </class>
 
 void set_content(const char *s, const char *content_type)
+void set_content@2(const char *s, size_t n, const char *content_type)
