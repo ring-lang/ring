@@ -13,3 +13,4 @@ oServer.listen("0.0.0.0", 8080)
 
 func mytest 
 	? 'New Request!'
+	oServer.response().set_content("Hello World!", "text/plain")
