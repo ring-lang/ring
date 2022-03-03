@@ -849,6 +849,153 @@ RING_FUNC(ring_Response_has_header)
 	RING_API_RETNUMBER(pObject->has_header(RING_API_GETSTRING(2)));
 }
 
+
+RING_FUNC(ring_Request_has_header)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->has_header(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_Request_get_header_value_count)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->get_header_value_count(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_Request_set_header)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_header(RING_API_GETSTRING(2),RING_API_GETSTRING(3));
+}
+
+
+RING_FUNC(ring_Request_has_param)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->has_param(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_Request_get_param_value_count)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->get_param_value_count(RING_API_GETSTRING(2)));
+}
+
+
+RING_FUNC(ring_Request_is_multipart_form_data)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	RING_API_RETNUMBER(pObject->is_multipart_form_data());
+}
+
+
+RING_FUNC(ring_Request_has_file)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETNUMBER(pObject->has_file(RING_API_GETSTRING(2)));
+}
+
 RING_FUNC(ring_get_cpphttplib_keepalive_timeout_second)
 {
 	RING_API_RETNUMBER(CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND);
@@ -1061,6 +1208,13 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("response_set_header",ring_Response_set_header);
 	ring_vm_funcregister("response_get_header_value_count",ring_Response_get_header_value_count);
 	ring_vm_funcregister("response_has_header",ring_Response_has_header);
+	ring_vm_funcregister("request_has_header",ring_Request_has_header);
+	ring_vm_funcregister("request_get_header_value_count",ring_Request_get_header_value_count);
+	ring_vm_funcregister("request_set_header",ring_Request_set_header);
+	ring_vm_funcregister("request_has_param",ring_Request_has_param);
+	ring_vm_funcregister("request_get_param_value_count",ring_Request_get_param_value_count);
+	ring_vm_funcregister("request_is_multipart_form_data",ring_Request_is_multipart_form_data);
+	ring_vm_funcregister("request_has_file",ring_Request_has_file);
 	ring_vm_funcregister("server_new",ring_Server_new);
 	ring_vm_funcregister("response_new",ring_Response_new);
 	ring_vm_funcregister("request_new",ring_Request_new);

@@ -172,3 +172,24 @@ Class Request
 
 	Func ObjectPointer
 		return pObject
+
+	Func has_header P1
+		return Request_has_header(pObject,P1)
+
+	Func get_header_value_count P1
+		return Request_get_header_value_count(pObject,P1)
+
+	Func set_header P1,P2
+		return Request_set_header(pObject,P1,P2)
+
+	Func has_param P1
+		return Request_has_param(pObject,P1)
+
+	Func get_param_value_count P1
+		return Request_get_param_value_count(pObject,P1)
+
+	Func is_multipart_form_data 
+		return Request_is_multipart_form_data(pObject)
+
+	Func has_file P1
+		return Request_has_file(pObject,P1)
