@@ -1,4 +1,3 @@
-load "threads.ring"
 load "httplib.ring"
 
 ? "Start the server..."
