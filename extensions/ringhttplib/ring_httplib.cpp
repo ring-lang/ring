@@ -12,10 +12,16 @@ extern "C" {
 #define RINGHTTPLIB_MAXRINGCODE  511
 #define RINGHTTPLIB_ERRORINCODESIZE "The string that contains Ring code is larger than expected (Max. size = 511)"
 
+class RingServer: public Server {
+	public:
+	const Request *oRequest;
+	const Response *oResponse;
+};
+
 
 RING_FUNC(ring_Server_listen)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -25,7 +31,7 @@ RING_FUNC(ring_Server_listen)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -40,7 +46,7 @@ RING_FUNC(ring_Server_listen)
 
 RING_FUNC(ring_Server_listen_2)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
@@ -50,7 +56,7 @@ RING_FUNC(ring_Server_listen_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -69,7 +75,7 @@ RING_FUNC(ring_Server_listen_2)
 
 RING_FUNC(ring_Server_set_base_dir)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -79,7 +85,7 @@ RING_FUNC(ring_Server_set_base_dir)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -90,7 +96,7 @@ RING_FUNC(ring_Server_set_base_dir)
 
 RING_FUNC(ring_Server_set_base_dir_2)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -100,7 +106,7 @@ RING_FUNC(ring_Server_set_base_dir_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -115,7 +121,7 @@ RING_FUNC(ring_Server_set_base_dir_2)
 
 RING_FUNC(ring_Server_set_mount_point)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -125,7 +131,7 @@ RING_FUNC(ring_Server_set_mount_point)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -140,7 +146,7 @@ RING_FUNC(ring_Server_set_mount_point)
 
 RING_FUNC(ring_Server_set_mount_point_2)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
@@ -150,7 +156,7 @@ RING_FUNC(ring_Server_set_mount_point_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -167,7 +173,7 @@ RING_FUNC(ring_Server_set_mount_point_2)
 
 RING_FUNC(ring_Server_remove_mount_point)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -177,7 +183,7 @@ RING_FUNC(ring_Server_remove_mount_point)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -188,7 +194,7 @@ RING_FUNC(ring_Server_remove_mount_point)
 
 RING_FUNC(ring_Server_set_file_extension_and_mimetype_mapping)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -198,7 +204,7 @@ RING_FUNC(ring_Server_set_file_extension_and_mimetype_mapping)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -213,7 +219,7 @@ RING_FUNC(ring_Server_set_file_extension_and_mimetype_mapping)
 
 RING_FUNC(ring_Server_set_tcp_nodelay)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -223,7 +229,7 @@ RING_FUNC(ring_Server_set_tcp_nodelay)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -234,7 +240,7 @@ RING_FUNC(ring_Server_set_tcp_nodelay)
 
 RING_FUNC(ring_Server_set_address_family)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -244,7 +250,7 @@ RING_FUNC(ring_Server_set_address_family)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -255,7 +261,7 @@ RING_FUNC(ring_Server_set_address_family)
 
 RING_FUNC(ring_Server_set_keep_alive_max_count)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -265,7 +271,7 @@ RING_FUNC(ring_Server_set_keep_alive_max_count)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -276,7 +282,7 @@ RING_FUNC(ring_Server_set_keep_alive_max_count)
 
 RING_FUNC(ring_Server_set_keep_alive_timeout)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -286,7 +292,7 @@ RING_FUNC(ring_Server_set_keep_alive_timeout)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	pObject->set_keep_alive_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
@@ -295,7 +301,7 @@ RING_FUNC(ring_Server_set_keep_alive_timeout)
 
 RING_FUNC(ring_Server_set_read_timeout)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -305,7 +311,7 @@ RING_FUNC(ring_Server_set_read_timeout)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	pObject->set_read_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
@@ -314,7 +320,7 @@ RING_FUNC(ring_Server_set_read_timeout)
 
 RING_FUNC(ring_Server_set_read_timeout_2)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -324,7 +330,7 @@ RING_FUNC(ring_Server_set_read_timeout_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	pObject->set_read_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"),* (time_t  *) RING_API_GETCPOINTER(3,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
@@ -335,7 +341,7 @@ RING_FUNC(ring_Server_set_read_timeout_2)
 
 RING_FUNC(ring_Server_set_write_timeout)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -345,7 +351,7 @@ RING_FUNC(ring_Server_set_write_timeout)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	pObject->set_write_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
@@ -354,7 +360,7 @@ RING_FUNC(ring_Server_set_write_timeout)
 
 RING_FUNC(ring_Server_set_write_timeout_2)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -364,7 +370,7 @@ RING_FUNC(ring_Server_set_write_timeout_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	pObject->set_write_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"),* (time_t  *) RING_API_GETCPOINTER(3,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
@@ -375,7 +381,7 @@ RING_FUNC(ring_Server_set_write_timeout_2)
 
 RING_FUNC(ring_Server_set_idle_interval)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -385,7 +391,7 @@ RING_FUNC(ring_Server_set_idle_interval)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	pObject->set_idle_interval(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
@@ -394,7 +400,7 @@ RING_FUNC(ring_Server_set_idle_interval)
 
 RING_FUNC(ring_Server_set_idle_interval_2)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -404,7 +410,7 @@ RING_FUNC(ring_Server_set_idle_interval_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	pObject->set_idle_interval(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"),* (time_t  *) RING_API_GETCPOINTER(3,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
@@ -415,7 +421,7 @@ RING_FUNC(ring_Server_set_idle_interval_2)
 
 RING_FUNC(ring_Server_set_payload_max_length)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -425,7 +431,7 @@ RING_FUNC(ring_Server_set_payload_max_length)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -436,7 +442,7 @@ RING_FUNC(ring_Server_set_payload_max_length)
 
 RING_FUNC(ring_Server_bind_to_port)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -446,7 +452,7 @@ RING_FUNC(ring_Server_bind_to_port)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -461,7 +467,7 @@ RING_FUNC(ring_Server_bind_to_port)
 
 RING_FUNC(ring_Server_bind_to_port_2)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 4 ) {
 		RING_API_ERROR(RING_API_MISS4PARA);
 		return ;
@@ -471,7 +477,7 @@ RING_FUNC(ring_Server_bind_to_port_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -490,7 +496,7 @@ RING_FUNC(ring_Server_bind_to_port_2)
 
 RING_FUNC(ring_Server_bind_to_any_port)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
 		RING_API_ERROR(RING_API_MISS2PARA);
 		return ;
@@ -500,7 +506,7 @@ RING_FUNC(ring_Server_bind_to_any_port)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -511,7 +517,7 @@ RING_FUNC(ring_Server_bind_to_any_port)
 
 RING_FUNC(ring_Server_bind_to_any_port_2)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
 		RING_API_ERROR(RING_API_MISS3PARA);
 		return ;
@@ -521,7 +527,7 @@ RING_FUNC(ring_Server_bind_to_any_port_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -536,7 +542,7 @@ RING_FUNC(ring_Server_bind_to_any_port_2)
 
 RING_FUNC(ring_Server_listen_after_bind)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -546,14 +552,14 @@ RING_FUNC(ring_Server_listen_after_bind)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	RING_API_RETNUMBER(pObject->listen_after_bind());
 }
 
 
 RING_FUNC(ring_Server_is_running)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -563,14 +569,14 @@ RING_FUNC(ring_Server_is_running)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	RING_API_RETNUMBER(pObject->is_running());
 }
 
 
 RING_FUNC(ring_Server_stop)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
 		return ;
@@ -580,13 +586,13 @@ RING_FUNC(ring_Server_stop)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	pObject->stop();
 }
 
 RING_FUNC(ring_Server_wget)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	VM *pVMHTTPLib;
 	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
 	pVMHTTPLib = (VM *) pPointer;
@@ -600,7 +606,7 @@ RING_FUNC(ring_Server_wget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -617,7 +623,9 @@ RING_FUNC(ring_Server_wget)
 	}
 	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
 
-	pObject->Get(RING_API_GETSTRING(2), [pVMHTTPLib,cHTTPLibRingCode](const Request &, Response &res) {
+	pObject->Get(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
+		pObject->oRequest = &req;
+		pObject->oResponse = &res;
 		ring_vm_runcode(pVMHTTPLib, cHTTPLibRingCode);
 	});
 }
@@ -718,13 +726,13 @@ RING_FUNC(ring_Server_new)
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
 	}
-	Server *pObject = new Server();
+	RingServer *pObject = new RingServer();
 	RING_API_RETCPOINTER(pObject,"Server");
 }
 
 RING_FUNC(ring_Server_delete)
 {
-	Server *pObject ; 
+	RingServer *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 1 )
 	{
@@ -733,7 +741,7 @@ RING_FUNC(ring_Server_delete)
 	}
 	if ( RING_API_ISCPOINTER(1) )
 	{
-		pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+		pObject = (RingServer *) RING_API_GETCPOINTER(1,"RingServer");
 		delete pObject ;
 		RING_API_SETNULLPOINTER(1);
 	}

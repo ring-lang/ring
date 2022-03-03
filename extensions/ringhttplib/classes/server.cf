@@ -1,6 +1,7 @@
 <class>
 name: Server
 para: void
+codename: RingServer
 </class>
 
 bool listen(const char *host, int port)
@@ -55,7 +56,7 @@ void wget(const char *pattern, const char *cCode)
 <code>
 RING_FUNC(ring_Server_wget)
 {
-	Server *pObject ;
+	RingServer *pObject ;
 	VM *pVMHTTPLib;
 	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
 	pVMHTTPLib = (VM *) pPointer;
@@ -69,7 +70,7 @@ RING_FUNC(ring_Server_wget)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Server *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -86,7 +87,9 @@ RING_FUNC(ring_Server_wget)
 	}
 	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
 
-	pObject->Get(RING_API_GETSTRING(2), [pVMHTTPLib,cHTTPLibRingCode](const Request &, Response &res) {
+	pObject->Get(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
+		pObject->oRequest = &req;
+		pObject->oResponse = &res;
 		ring_vm_runcode(pVMHTTPLib, cHTTPLibRingCode);
 	});
 }
