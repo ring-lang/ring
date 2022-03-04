@@ -4,9 +4,9 @@ load "httplib.ring"
 oServer = new Server() 
 
 ? "Define /one"
-oServer.wGet("/one",:one)
+oServer.route("/one",:one)
 ? "Define /two"
-oServer.wGet("/two",:two)
+oServer.route("/two",:two)
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)

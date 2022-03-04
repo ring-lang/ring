@@ -4,7 +4,7 @@ load "httplib.ring"
 
 oServer = new Server()  {
 
-	wGet("/hello",func {
+	route("/hello",func {
 		oServer.response().setContent("Hello, World!", "text/plain")
 	})
 

@@ -4,7 +4,7 @@ load "httplib.ring"
 oServer = new Server() 
 
 ? "Define /hi"
-oServer.wGet("/hi",:mytest)
+oServer.route("/hi",:mytest)
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)
