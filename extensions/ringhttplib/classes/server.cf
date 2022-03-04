@@ -1,5 +1,5 @@
 <class>
-name: Server
+name: HTTPLib_Server
 para: void
 codename: RingServer
 </class>
@@ -89,7 +89,7 @@ int ring_httplib_checkpara(void *pPointer)
 	return 0;
 }
 
-RING_FUNC(ring_Server_wget)
+RING_FUNC(ring_HTTPLib_Server_wget)
 {
 	RingServer *pObject ;
 	VM *pVMHTTPLib;
@@ -102,7 +102,7 @@ RING_FUNC(ring_Server_wget)
 
 	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
 
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	pObject->Get(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
 		ringhttplibmtx.lock();
 		pObject->oRequest = &req;
@@ -112,7 +112,7 @@ RING_FUNC(ring_Server_wget)
 	});
 }
 
-RING_FUNC(ring_Server_response)
+RING_FUNC(ring_HTTPLib_Server_response)
 {
 	RingServer *pObject ;
 
@@ -126,12 +126,12 @@ RING_FUNC(ring_Server_response)
 		return ;
 	}
 
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	RING_API_RETCPOINTER(pObject->oResponse,"response");
 
 }
 
-RING_FUNC(ring_Server_request)
+RING_FUNC(ring_HTTPLib_Server_request)
 {
 	RingServer *pObject ;
 
@@ -145,7 +145,7 @@ RING_FUNC(ring_Server_request)
 		return ;
 	}
 
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	RING_API_RETCPOINTER(pObject->oRequest,"request");
 
 }

@@ -23,7 +23,7 @@ class RingServer: public Server {
 };
 
 
-RING_FUNC(ring_Server_listen)
+RING_FUNC(ring_HTTPLib_Server_listen)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -35,7 +35,7 @@ RING_FUNC(ring_Server_listen)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -48,7 +48,7 @@ RING_FUNC(ring_Server_listen)
 }
 
 
-RING_FUNC(ring_Server_listen_2)
+RING_FUNC(ring_HTTPLib_Server_listen_2)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 4 ) {
@@ -60,7 +60,7 @@ RING_FUNC(ring_Server_listen_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -77,7 +77,7 @@ RING_FUNC(ring_Server_listen_2)
 }
 
 
-RING_FUNC(ring_Server_set_base_dir)
+RING_FUNC(ring_HTTPLib_Server_set_base_dir)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -89,7 +89,7 @@ RING_FUNC(ring_Server_set_base_dir)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -98,7 +98,7 @@ RING_FUNC(ring_Server_set_base_dir)
 }
 
 
-RING_FUNC(ring_Server_set_base_dir_2)
+RING_FUNC(ring_HTTPLib_Server_set_base_dir_2)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -110,7 +110,7 @@ RING_FUNC(ring_Server_set_base_dir_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -123,7 +123,7 @@ RING_FUNC(ring_Server_set_base_dir_2)
 }
 
 
-RING_FUNC(ring_Server_set_mount_point)
+RING_FUNC(ring_HTTPLib_Server_set_mount_point)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -135,7 +135,7 @@ RING_FUNC(ring_Server_set_mount_point)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -148,7 +148,7 @@ RING_FUNC(ring_Server_set_mount_point)
 }
 
 
-RING_FUNC(ring_Server_set_mount_point_2)
+RING_FUNC(ring_HTTPLib_Server_set_mount_point_2)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 4 ) {
@@ -160,7 +160,7 @@ RING_FUNC(ring_Server_set_mount_point_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -175,7 +175,7 @@ RING_FUNC(ring_Server_set_mount_point_2)
 }
 
 
-RING_FUNC(ring_Server_remove_mount_point)
+RING_FUNC(ring_HTTPLib_Server_remove_mount_point)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -187,7 +187,7 @@ RING_FUNC(ring_Server_remove_mount_point)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -196,7 +196,7 @@ RING_FUNC(ring_Server_remove_mount_point)
 }
 
 
-RING_FUNC(ring_Server_set_file_extension_and_mimetype_mapping)
+RING_FUNC(ring_HTTPLib_Server_set_file_extension_and_mimetype_mapping)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -208,7 +208,7 @@ RING_FUNC(ring_Server_set_file_extension_and_mimetype_mapping)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -221,7 +221,7 @@ RING_FUNC(ring_Server_set_file_extension_and_mimetype_mapping)
 }
 
 
-RING_FUNC(ring_Server_set_tcp_nodelay)
+RING_FUNC(ring_HTTPLib_Server_set_tcp_nodelay)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -233,7 +233,7 @@ RING_FUNC(ring_Server_set_tcp_nodelay)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -242,7 +242,7 @@ RING_FUNC(ring_Server_set_tcp_nodelay)
 }
 
 
-RING_FUNC(ring_Server_set_address_family)
+RING_FUNC(ring_HTTPLib_Server_set_address_family)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -254,7 +254,7 @@ RING_FUNC(ring_Server_set_address_family)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -263,7 +263,7 @@ RING_FUNC(ring_Server_set_address_family)
 }
 
 
-RING_FUNC(ring_Server_set_keep_alive_max_count)
+RING_FUNC(ring_HTTPLib_Server_set_keep_alive_max_count)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -275,7 +275,7 @@ RING_FUNC(ring_Server_set_keep_alive_max_count)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -284,7 +284,7 @@ RING_FUNC(ring_Server_set_keep_alive_max_count)
 }
 
 
-RING_FUNC(ring_Server_set_keep_alive_timeout)
+RING_FUNC(ring_HTTPLib_Server_set_keep_alive_timeout)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -296,14 +296,14 @@ RING_FUNC(ring_Server_set_keep_alive_timeout)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	pObject->set_keep_alive_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
 }
 
 
-RING_FUNC(ring_Server_set_read_timeout)
+RING_FUNC(ring_HTTPLib_Server_set_read_timeout)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -315,14 +315,14 @@ RING_FUNC(ring_Server_set_read_timeout)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	pObject->set_read_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
 }
 
 
-RING_FUNC(ring_Server_set_read_timeout_2)
+RING_FUNC(ring_HTTPLib_Server_set_read_timeout_2)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -334,7 +334,7 @@ RING_FUNC(ring_Server_set_read_timeout_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	pObject->set_read_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"),* (time_t  *) RING_API_GETCPOINTER(3,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
@@ -343,7 +343,7 @@ RING_FUNC(ring_Server_set_read_timeout_2)
 }
 
 
-RING_FUNC(ring_Server_set_write_timeout)
+RING_FUNC(ring_HTTPLib_Server_set_write_timeout)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -355,14 +355,14 @@ RING_FUNC(ring_Server_set_write_timeout)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	pObject->set_write_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
 }
 
 
-RING_FUNC(ring_Server_set_write_timeout_2)
+RING_FUNC(ring_HTTPLib_Server_set_write_timeout_2)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -374,7 +374,7 @@ RING_FUNC(ring_Server_set_write_timeout_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	pObject->set_write_timeout(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"),* (time_t  *) RING_API_GETCPOINTER(3,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
@@ -383,7 +383,7 @@ RING_FUNC(ring_Server_set_write_timeout_2)
 }
 
 
-RING_FUNC(ring_Server_set_idle_interval)
+RING_FUNC(ring_HTTPLib_Server_set_idle_interval)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -395,14 +395,14 @@ RING_FUNC(ring_Server_set_idle_interval)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	pObject->set_idle_interval(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
 }
 
 
-RING_FUNC(ring_Server_set_idle_interval_2)
+RING_FUNC(ring_HTTPLib_Server_set_idle_interval_2)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -414,7 +414,7 @@ RING_FUNC(ring_Server_set_idle_interval_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	pObject->set_idle_interval(* (time_t  *) RING_API_GETCPOINTER(2,"time_t"),* (time_t  *) RING_API_GETCPOINTER(3,"time_t"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
 		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"time_t"));
@@ -423,7 +423,7 @@ RING_FUNC(ring_Server_set_idle_interval_2)
 }
 
 
-RING_FUNC(ring_Server_set_payload_max_length)
+RING_FUNC(ring_HTTPLib_Server_set_payload_max_length)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -435,7 +435,7 @@ RING_FUNC(ring_Server_set_payload_max_length)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISNUMBER(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -444,7 +444,7 @@ RING_FUNC(ring_Server_set_payload_max_length)
 }
 
 
-RING_FUNC(ring_Server_bind_to_port)
+RING_FUNC(ring_HTTPLib_Server_bind_to_port)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -456,7 +456,7 @@ RING_FUNC(ring_Server_bind_to_port)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -469,7 +469,7 @@ RING_FUNC(ring_Server_bind_to_port)
 }
 
 
-RING_FUNC(ring_Server_bind_to_port_2)
+RING_FUNC(ring_HTTPLib_Server_bind_to_port_2)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 4 ) {
@@ -481,7 +481,7 @@ RING_FUNC(ring_Server_bind_to_port_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -498,7 +498,7 @@ RING_FUNC(ring_Server_bind_to_port_2)
 }
 
 
-RING_FUNC(ring_Server_bind_to_any_port)
+RING_FUNC(ring_HTTPLib_Server_bind_to_any_port)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -510,7 +510,7 @@ RING_FUNC(ring_Server_bind_to_any_port)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -519,7 +519,7 @@ RING_FUNC(ring_Server_bind_to_any_port)
 }
 
 
-RING_FUNC(ring_Server_bind_to_any_port_2)
+RING_FUNC(ring_HTTPLib_Server_bind_to_any_port_2)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -531,7 +531,7 @@ RING_FUNC(ring_Server_bind_to_any_port_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -544,7 +544,7 @@ RING_FUNC(ring_Server_bind_to_any_port_2)
 }
 
 
-RING_FUNC(ring_Server_listen_after_bind)
+RING_FUNC(ring_HTTPLib_Server_listen_after_bind)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -556,12 +556,12 @@ RING_FUNC(ring_Server_listen_after_bind)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	RING_API_RETNUMBER(pObject->listen_after_bind());
 }
 
 
-RING_FUNC(ring_Server_is_running)
+RING_FUNC(ring_HTTPLib_Server_is_running)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -573,12 +573,12 @@ RING_FUNC(ring_Server_is_running)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	RING_API_RETNUMBER(pObject->is_running());
 }
 
 
-RING_FUNC(ring_Server_stop)
+RING_FUNC(ring_HTTPLib_Server_stop)
 {
 	RingServer *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -590,7 +590,7 @@ RING_FUNC(ring_Server_stop)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	pObject->stop();
 }
 
@@ -627,7 +627,7 @@ int ring_httplib_checkpara(void *pPointer)
 	return 0;
 }
 
-RING_FUNC(ring_Server_wget)
+RING_FUNC(ring_HTTPLib_Server_wget)
 {
 	RingServer *pObject ;
 	VM *pVMHTTPLib;
@@ -640,7 +640,7 @@ RING_FUNC(ring_Server_wget)
 
 	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
 
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	pObject->Get(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
 		ringhttplibmtx.lock();
 		pObject->oRequest = &req;
@@ -650,7 +650,7 @@ RING_FUNC(ring_Server_wget)
 	});
 }
 
-RING_FUNC(ring_Server_response)
+RING_FUNC(ring_HTTPLib_Server_response)
 {
 	RingServer *pObject ;
 
@@ -664,12 +664,12 @@ RING_FUNC(ring_Server_response)
 		return ;
 	}
 
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	RING_API_RETCPOINTER(pObject->oResponse,"response");
 
 }
 
-RING_FUNC(ring_Server_request)
+RING_FUNC(ring_HTTPLib_Server_request)
 {
 	RingServer *pObject ;
 
@@ -683,7 +683,7 @@ RING_FUNC(ring_Server_request)
 		return ;
 	}
 
-	pObject = (RingServer *) RING_API_GETCPOINTER(1,"Server");
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
 	RING_API_RETCPOINTER(pObject->oRequest,"request");
 
 }
@@ -1092,7 +1092,7 @@ RING_FUNC(ring_get_cpphttplib_listen_backlog)
 	RING_API_RETNUMBER(CPPHTTPLIB_LISTEN_BACKLOG);
 }
 
-RING_FUNC(ring_Server_new)
+RING_FUNC(ring_HTTPLib_Server_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -1100,7 +1100,7 @@ RING_FUNC(ring_Server_new)
 		return ;
 	}
 	RingServer *pObject = new RingServer();
-	RING_API_RETCPOINTER(pObject,"Server");
+	RING_API_RETCPOINTER(pObject,"HTTPLib_Server");
 }
 
 RING_FUNC(ring_Response_new)
@@ -1125,7 +1125,7 @@ RING_FUNC(ring_Request_new)
 	RING_API_RETCPOINTER(pObject,"Request");
 }
 
-RING_FUNC(ring_Server_delete)
+RING_FUNC(ring_HTTPLib_Server_delete)
 {
 	RingServer *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
@@ -1178,35 +1178,35 @@ RING_FUNC(ring_Request_delete)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("server_listen",ring_Server_listen);
-	ring_vm_funcregister("server_listen_2",ring_Server_listen_2);
-	ring_vm_funcregister("server_set_base_dir",ring_Server_set_base_dir);
-	ring_vm_funcregister("server_set_base_dir_2",ring_Server_set_base_dir_2);
-	ring_vm_funcregister("server_set_mount_point",ring_Server_set_mount_point);
-	ring_vm_funcregister("server_set_mount_point_2",ring_Server_set_mount_point_2);
-	ring_vm_funcregister("server_remove_mount_point",ring_Server_remove_mount_point);
-	ring_vm_funcregister("server_set_file_extension_and_mimetype_mapping",ring_Server_set_file_extension_and_mimetype_mapping);
-	ring_vm_funcregister("server_set_tcp_nodelay",ring_Server_set_tcp_nodelay);
-	ring_vm_funcregister("server_set_address_family",ring_Server_set_address_family);
-	ring_vm_funcregister("server_set_keep_alive_max_count",ring_Server_set_keep_alive_max_count);
-	ring_vm_funcregister("server_set_keep_alive_timeout",ring_Server_set_keep_alive_timeout);
-	ring_vm_funcregister("server_set_read_timeout",ring_Server_set_read_timeout);
-	ring_vm_funcregister("server_set_read_timeout_2",ring_Server_set_read_timeout_2);
-	ring_vm_funcregister("server_set_write_timeout",ring_Server_set_write_timeout);
-	ring_vm_funcregister("server_set_write_timeout_2",ring_Server_set_write_timeout_2);
-	ring_vm_funcregister("server_set_idle_interval",ring_Server_set_idle_interval);
-	ring_vm_funcregister("server_set_idle_interval_2",ring_Server_set_idle_interval_2);
-	ring_vm_funcregister("server_set_payload_max_length",ring_Server_set_payload_max_length);
-	ring_vm_funcregister("server_bind_to_port",ring_Server_bind_to_port);
-	ring_vm_funcregister("server_bind_to_port_2",ring_Server_bind_to_port_2);
-	ring_vm_funcregister("server_bind_to_any_port",ring_Server_bind_to_any_port);
-	ring_vm_funcregister("server_bind_to_any_port_2",ring_Server_bind_to_any_port_2);
-	ring_vm_funcregister("server_listen_after_bind",ring_Server_listen_after_bind);
-	ring_vm_funcregister("server_is_running",ring_Server_is_running);
-	ring_vm_funcregister("server_stop",ring_Server_stop);
-	ring_vm_funcregister("server_wget",ring_Server_wget);
-	ring_vm_funcregister("server_response",ring_Server_response);
-	ring_vm_funcregister("server_request",ring_Server_request);
+	ring_vm_funcregister("httplib_server_listen",ring_HTTPLib_Server_listen);
+	ring_vm_funcregister("httplib_server_listen_2",ring_HTTPLib_Server_listen_2);
+	ring_vm_funcregister("httplib_server_set_base_dir",ring_HTTPLib_Server_set_base_dir);
+	ring_vm_funcregister("httplib_server_set_base_dir_2",ring_HTTPLib_Server_set_base_dir_2);
+	ring_vm_funcregister("httplib_server_set_mount_point",ring_HTTPLib_Server_set_mount_point);
+	ring_vm_funcregister("httplib_server_set_mount_point_2",ring_HTTPLib_Server_set_mount_point_2);
+	ring_vm_funcregister("httplib_server_remove_mount_point",ring_HTTPLib_Server_remove_mount_point);
+	ring_vm_funcregister("httplib_server_set_file_extension_and_mimetype_mapping",ring_HTTPLib_Server_set_file_extension_and_mimetype_mapping);
+	ring_vm_funcregister("httplib_server_set_tcp_nodelay",ring_HTTPLib_Server_set_tcp_nodelay);
+	ring_vm_funcregister("httplib_server_set_address_family",ring_HTTPLib_Server_set_address_family);
+	ring_vm_funcregister("httplib_server_set_keep_alive_max_count",ring_HTTPLib_Server_set_keep_alive_max_count);
+	ring_vm_funcregister("httplib_server_set_keep_alive_timeout",ring_HTTPLib_Server_set_keep_alive_timeout);
+	ring_vm_funcregister("httplib_server_set_read_timeout",ring_HTTPLib_Server_set_read_timeout);
+	ring_vm_funcregister("httplib_server_set_read_timeout_2",ring_HTTPLib_Server_set_read_timeout_2);
+	ring_vm_funcregister("httplib_server_set_write_timeout",ring_HTTPLib_Server_set_write_timeout);
+	ring_vm_funcregister("httplib_server_set_write_timeout_2",ring_HTTPLib_Server_set_write_timeout_2);
+	ring_vm_funcregister("httplib_server_set_idle_interval",ring_HTTPLib_Server_set_idle_interval);
+	ring_vm_funcregister("httplib_server_set_idle_interval_2",ring_HTTPLib_Server_set_idle_interval_2);
+	ring_vm_funcregister("httplib_server_set_payload_max_length",ring_HTTPLib_Server_set_payload_max_length);
+	ring_vm_funcregister("httplib_server_bind_to_port",ring_HTTPLib_Server_bind_to_port);
+	ring_vm_funcregister("httplib_server_bind_to_port_2",ring_HTTPLib_Server_bind_to_port_2);
+	ring_vm_funcregister("httplib_server_bind_to_any_port",ring_HTTPLib_Server_bind_to_any_port);
+	ring_vm_funcregister("httplib_server_bind_to_any_port_2",ring_HTTPLib_Server_bind_to_any_port_2);
+	ring_vm_funcregister("httplib_server_listen_after_bind",ring_HTTPLib_Server_listen_after_bind);
+	ring_vm_funcregister("httplib_server_is_running",ring_HTTPLib_Server_is_running);
+	ring_vm_funcregister("httplib_server_stop",ring_HTTPLib_Server_stop);
+	ring_vm_funcregister("httplib_server_wget",ring_HTTPLib_Server_wget);
+	ring_vm_funcregister("httplib_server_response",ring_HTTPLib_Server_response);
+	ring_vm_funcregister("httplib_server_request",ring_HTTPLib_Server_request);
 	ring_vm_funcregister("response_set_content",ring_Response_set_content);
 	ring_vm_funcregister("response_set_content_2",ring_Response_set_content_2);
 	ring_vm_funcregister("response_set_redirect",ring_Response_set_redirect);
@@ -1221,10 +1221,10 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("request_get_param_value_count",ring_Request_get_param_value_count);
 	ring_vm_funcregister("request_is_multipart_form_data",ring_Request_is_multipart_form_data);
 	ring_vm_funcregister("request_has_file",ring_Request_has_file);
-	ring_vm_funcregister("server_new",ring_Server_new);
+	ring_vm_funcregister("httplib_server_new",ring_HTTPLib_Server_new);
 	ring_vm_funcregister("response_new",ring_Response_new);
 	ring_vm_funcregister("request_new",ring_Request_new);
-	ring_vm_funcregister("server_delete",ring_Server_delete);
+	ring_vm_funcregister("httplib_server_delete",ring_HTTPLib_Server_delete);
 	ring_vm_funcregister("response_delete",ring_Response_delete);
 	ring_vm_funcregister("request_delete",ring_Request_delete);
 	ring_vm_funcregister("get_cpphttplib_keepalive_timeout_second",ring_get_cpphttplib_keepalive_timeout_second);

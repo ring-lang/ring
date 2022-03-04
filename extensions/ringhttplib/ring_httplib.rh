@@ -19,109 +19,109 @@ CPPHTTPLIB_LISTEN_BACKLOG = get_CPPHTTPLIB_LISTEN_BACKLOG()
 
 load "codegenlib.ring"
 
-Class Server
+Class HTTPLib_Server
 
 	pObject
 
 	Func init 
-		pObject = Server_new()
+		pObject = HTTPLib_Server_new()
 		return self
 
 	Func delete
-		pObject = Server_delete(pObject)
+		pObject = HTTPLib_Server_delete(pObject)
 
 	Func ObjectPointer
 		return pObject
 
 	Func listen P1,P2
-		return Server_listen(pObject,P1,P2)
+		return HTTPLib_Server_listen(pObject,P1,P2)
 
 	Func listen_2 P1,P2,P3
-		return Server_listen_2(pObject,P1,P2,P3)
+		return HTTPLib_Server_listen_2(pObject,P1,P2,P3)
 
 	Func set_base_dir P1
-		return Server_set_base_dir(pObject,P1)
+		return HTTPLib_Server_set_base_dir(pObject,P1)
 
 	Func set_base_dir_2 P1,P2
-		return Server_set_base_dir_2(pObject,P1,P2)
+		return HTTPLib_Server_set_base_dir_2(pObject,P1,P2)
 
 	Func set_mount_point P1,P2
-		return Server_set_mount_point(pObject,P1,P2)
+		return HTTPLib_Server_set_mount_point(pObject,P1,P2)
 
 	Func set_mount_point_2 P1,P2,P3
-		return Server_set_mount_point_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
+		return HTTPLib_Server_set_mount_point_2(pObject,P1,P2,GetObjectPointerFromRingObject(P3))
 
 	Func remove_mount_point P1
-		return Server_remove_mount_point(pObject,P1)
+		return HTTPLib_Server_remove_mount_point(pObject,P1)
 
 	Func set_file_extension_and_mimetype_mapping P1,P2
-		return Server_set_file_extension_and_mimetype_mapping(pObject,P1,P2)
+		return HTTPLib_Server_set_file_extension_and_mimetype_mapping(pObject,P1,P2)
 
 	Func set_tcp_nodelay P1
-		return Server_set_tcp_nodelay(pObject,P1)
+		return HTTPLib_Server_set_tcp_nodelay(pObject,P1)
 
 	Func set_address_family P1
-		return Server_set_address_family(pObject,P1)
+		return HTTPLib_Server_set_address_family(pObject,P1)
 
 	Func set_keep_alive_max_count P1
-		return Server_set_keep_alive_max_count(pObject,P1)
+		return HTTPLib_Server_set_keep_alive_max_count(pObject,P1)
 
 	Func set_keep_alive_timeout P1
-		return Server_set_keep_alive_timeout(pObject,P1)
+		return HTTPLib_Server_set_keep_alive_timeout(pObject,P1)
 
 	Func set_read_timeout P1
-		return Server_set_read_timeout(pObject,P1)
+		return HTTPLib_Server_set_read_timeout(pObject,P1)
 
 	Func set_read_timeout_2 P1,P2
-		return Server_set_read_timeout_2(pObject,P1,P2)
+		return HTTPLib_Server_set_read_timeout_2(pObject,P1,P2)
 
 	Func set_write_timeout P1
-		return Server_set_write_timeout(pObject,P1)
+		return HTTPLib_Server_set_write_timeout(pObject,P1)
 
 	Func set_write_timeout_2 P1,P2
-		return Server_set_write_timeout_2(pObject,P1,P2)
+		return HTTPLib_Server_set_write_timeout_2(pObject,P1,P2)
 
 	Func set_idle_interval P1
-		return Server_set_idle_interval(pObject,P1)
+		return HTTPLib_Server_set_idle_interval(pObject,P1)
 
 	Func set_idle_interval_2 P1,P2
-		return Server_set_idle_interval_2(pObject,P1,P2)
+		return HTTPLib_Server_set_idle_interval_2(pObject,P1,P2)
 
 	Func set_payload_max_length P1
-		return Server_set_payload_max_length(pObject,P1)
+		return HTTPLib_Server_set_payload_max_length(pObject,P1)
 
 	Func bind_to_port P1,P2
-		return Server_bind_to_port(pObject,P1,P2)
+		return HTTPLib_Server_bind_to_port(pObject,P1,P2)
 
 	Func bind_to_port_2 P1,P2,P3
-		return Server_bind_to_port_2(pObject,P1,P2,P3)
+		return HTTPLib_Server_bind_to_port_2(pObject,P1,P2,P3)
 
 	Func bind_to_any_port P1
-		return Server_bind_to_any_port(pObject,P1)
+		return HTTPLib_Server_bind_to_any_port(pObject,P1)
 
 	Func bind_to_any_port_2 P1,P2
-		return Server_bind_to_any_port_2(pObject,P1,P2)
+		return HTTPLib_Server_bind_to_any_port_2(pObject,P1,P2)
 
 	Func listen_after_bind 
-		return Server_listen_after_bind(pObject)
+		return HTTPLib_Server_listen_after_bind(pObject)
 
 	Func is_running 
-		return Server_is_running(pObject)
+		return HTTPLib_Server_is_running(pObject)
 
 	Func stop 
-		return Server_stop(pObject)
+		return HTTPLib_Server_stop(pObject)
 
 	Func wget P1,P2
-		return Server_wget(pObject,P1,P2)
+		return HTTPLib_Server_wget(pObject,P1,P2)
 
 	Func response 
 		pTempObj = new Response
-		pTempObj.pObject = Server_response(pObject)
+		pTempObj.pObject = HTTPLib_Server_response(pObject)
 		return pTempObj
 
 	Func request 
 		pTempObj = new Request
-		pTempObj.pObject = Server_request(pObject)
+		pTempObj.pObject = HTTPLib_Server_request(pObject)
 		return pTempObj
 
 Class Response
