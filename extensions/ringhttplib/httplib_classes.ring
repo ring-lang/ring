@@ -19,6 +19,9 @@ class Server from HTTPLib_Server
 		pTempObj.pObject = HTTPLib_Server_request(pObject)
 		return pTempObj
 
+	func setContent p1,p2
+		return response().set_Content(p1,p2)
+
 class Response from HTTPLib_Response
 
 	func setContent p1,p2
