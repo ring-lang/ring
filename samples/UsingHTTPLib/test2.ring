@@ -12,4 +12,4 @@ oServer.listen("0.0.0.0", 8080)
 ? "End of program!"
 
 func mytest 
-	oServer.response().setContent("Hello World!", "text/plain")
+	oServer.response.setContent("Hello World!", "text/plain")
