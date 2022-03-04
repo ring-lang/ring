@@ -4,8 +4,6 @@ class Server from HTTPLib_Server
 
 	func route cURL,cCode
 		# **Support anonymous functions - Also support normal Ring code**
-		# Because () after function name will call the function
-		# and () after normal code does nothing 
 		if ! substr(cCode,"(")
 			cCode += " ()"
 		ok
