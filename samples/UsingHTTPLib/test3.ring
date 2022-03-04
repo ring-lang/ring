@@ -12,7 +12,7 @@ oServer.route("/two",:two)
 oServer.listen("0.0.0.0", 8080)
 
 func one
-	oServer.response.setContent("one", "text/plain")
+	oServer.response().setContent("one", "text/plain")
 
 func two
-	oServer.response.setContent("two", "text/plain")
+	oServer.response().setContent("two", "text/plain")
