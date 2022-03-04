@@ -10,4 +10,4 @@ oServer.route("/hi",:mytest)
 oServer.listen("0.0.0.0", 8080)
 
 func mytest 
-	oServer.response().setContent("Hello World!", "text/plain")
+	oServer.setContent("Hello World!", "text/plain")

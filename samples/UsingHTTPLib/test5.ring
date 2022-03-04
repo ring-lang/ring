@@ -6,7 +6,7 @@ load "httplib.ring"
 oServer = new Server {
 
 	route("/hi",'? "Wow, I love Ring programming!"')
-	route("/hello",'oServer.response().setContent("Hello, World!", "text/plain")')
+	route("/hello",'oServer.setContent("Hello, World!", "text/plain")')
 
 	listen("0.0.0.0", 8080)
 
