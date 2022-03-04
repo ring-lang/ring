@@ -1,6 +1,4 @@
-mergemethods(:Server,:HTTPLib_Server)
-
-class Server 
+class Server from HTTPLib_Server
 
 	pObject init()
 
