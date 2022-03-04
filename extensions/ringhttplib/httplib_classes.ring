@@ -2,8 +2,12 @@ class Server from HTTPLib_Server
 
 	init()
 
-	func route p1,p2
-		return wGet(p1,p2)
+	func route cURL,cCode
+		# **Support anonymous functions - Also support normal Ring code**
+		# Because () after function name will call the function
+		# and () after normal code does nothing 
+		cCode += " ()"
+		return wGet(cURL,cCode)
 
 	func response 
 		pTempObj = new Response
