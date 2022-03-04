@@ -665,7 +665,7 @@ RING_FUNC(ring_HTTPLib_Server_response)
 	}
 
 	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
-	RING_API_RETCPOINTER(pObject->oResponse,"response");
+	RING_API_RETCPOINTER(pObject->oResponse,"HTTPLib_Response");
 
 }
 
@@ -684,12 +684,12 @@ RING_FUNC(ring_HTTPLib_Server_request)
 	}
 
 	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
-	RING_API_RETCPOINTER(pObject->oRequest,"request");
+	RING_API_RETCPOINTER(pObject->oRequest,"HTTPLib_Request");
 
 }
 
 
-RING_FUNC(ring_Response_set_content)
+RING_FUNC(ring_HTTPLib_Response_set_content)
 {
 	Response *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -701,7 +701,7 @@ RING_FUNC(ring_Response_set_content)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+	pObject = (Response *) RING_API_GETCPOINTER(1,"HTTPLib_Response");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -714,7 +714,7 @@ RING_FUNC(ring_Response_set_content)
 }
 
 
-RING_FUNC(ring_Response_set_content_2)
+RING_FUNC(ring_HTTPLib_Response_set_content_2)
 {
 	Response *pObject ;
 	if ( RING_API_PARACOUNT != 4 ) {
@@ -726,7 +726,7 @@ RING_FUNC(ring_Response_set_content_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+	pObject = (Response *) RING_API_GETCPOINTER(1,"HTTPLib_Response");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -743,7 +743,7 @@ RING_FUNC(ring_Response_set_content_2)
 }
 
 
-RING_FUNC(ring_Response_set_redirect)
+RING_FUNC(ring_HTTPLib_Response_set_redirect)
 {
 	Response *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -755,7 +755,7 @@ RING_FUNC(ring_Response_set_redirect)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+	pObject = (Response *) RING_API_GETCPOINTER(1,"HTTPLib_Response");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -764,7 +764,7 @@ RING_FUNC(ring_Response_set_redirect)
 }
 
 
-RING_FUNC(ring_Response_set_redirect_2)
+RING_FUNC(ring_HTTPLib_Response_set_redirect_2)
 {
 	Response *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -776,7 +776,7 @@ RING_FUNC(ring_Response_set_redirect_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+	pObject = (Response *) RING_API_GETCPOINTER(1,"HTTPLib_Response");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -789,7 +789,7 @@ RING_FUNC(ring_Response_set_redirect_2)
 }
 
 
-RING_FUNC(ring_Response_set_header)
+RING_FUNC(ring_HTTPLib_Response_set_header)
 {
 	Response *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -801,7 +801,7 @@ RING_FUNC(ring_Response_set_header)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+	pObject = (Response *) RING_API_GETCPOINTER(1,"HTTPLib_Response");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -814,7 +814,7 @@ RING_FUNC(ring_Response_set_header)
 }
 
 
-RING_FUNC(ring_Response_get_header_value_count)
+RING_FUNC(ring_HTTPLib_Response_get_header_value_count)
 {
 	Response *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -826,7 +826,7 @@ RING_FUNC(ring_Response_get_header_value_count)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+	pObject = (Response *) RING_API_GETCPOINTER(1,"HTTPLib_Response");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -835,7 +835,7 @@ RING_FUNC(ring_Response_get_header_value_count)
 }
 
 
-RING_FUNC(ring_Response_has_header)
+RING_FUNC(ring_HTTPLib_Response_has_header)
 {
 	Response *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -847,7 +847,7 @@ RING_FUNC(ring_Response_has_header)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Response *) RING_API_GETCPOINTER(1,"Response");
+	pObject = (Response *) RING_API_GETCPOINTER(1,"HTTPLib_Response");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -856,7 +856,7 @@ RING_FUNC(ring_Response_has_header)
 }
 
 
-RING_FUNC(ring_Request_has_header)
+RING_FUNC(ring_HTTPLib_Request_has_header)
 {
 	Request *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -868,7 +868,7 @@ RING_FUNC(ring_Request_has_header)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -877,7 +877,7 @@ RING_FUNC(ring_Request_has_header)
 }
 
 
-RING_FUNC(ring_Request_get_header_value_count)
+RING_FUNC(ring_HTTPLib_Request_get_header_value_count)
 {
 	Request *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -889,7 +889,7 @@ RING_FUNC(ring_Request_get_header_value_count)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -898,7 +898,7 @@ RING_FUNC(ring_Request_get_header_value_count)
 }
 
 
-RING_FUNC(ring_Request_set_header)
+RING_FUNC(ring_HTTPLib_Request_set_header)
 {
 	Request *pObject ;
 	if ( RING_API_PARACOUNT != 3 ) {
@@ -910,7 +910,7 @@ RING_FUNC(ring_Request_set_header)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -923,7 +923,7 @@ RING_FUNC(ring_Request_set_header)
 }
 
 
-RING_FUNC(ring_Request_has_param)
+RING_FUNC(ring_HTTPLib_Request_has_param)
 {
 	Request *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -935,7 +935,7 @@ RING_FUNC(ring_Request_has_param)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -944,7 +944,7 @@ RING_FUNC(ring_Request_has_param)
 }
 
 
-RING_FUNC(ring_Request_get_param_value_count)
+RING_FUNC(ring_HTTPLib_Request_get_param_value_count)
 {
 	Request *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -956,7 +956,7 @@ RING_FUNC(ring_Request_get_param_value_count)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -965,7 +965,7 @@ RING_FUNC(ring_Request_get_param_value_count)
 }
 
 
-RING_FUNC(ring_Request_is_multipart_form_data)
+RING_FUNC(ring_HTTPLib_Request_is_multipart_form_data)
 {
 	Request *pObject ;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -977,12 +977,12 @@ RING_FUNC(ring_Request_is_multipart_form_data)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
 	RING_API_RETNUMBER(pObject->is_multipart_form_data());
 }
 
 
-RING_FUNC(ring_Request_has_file)
+RING_FUNC(ring_HTTPLib_Request_has_file)
 {
 	Request *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -994,7 +994,7 @@ RING_FUNC(ring_Request_has_file)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pObject = (Request *) RING_API_GETCPOINTER(1,"Request");
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
 	if ( ! RING_API_ISSTRING(2) ) {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
@@ -1103,7 +1103,7 @@ RING_FUNC(ring_HTTPLib_Server_new)
 	RING_API_RETCPOINTER(pObject,"HTTPLib_Server");
 }
 
-RING_FUNC(ring_Response_new)
+RING_FUNC(ring_HTTPLib_Response_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -1111,10 +1111,10 @@ RING_FUNC(ring_Response_new)
 		return ;
 	}
 	Response *pObject = new Response();
-	RING_API_RETCPOINTER(pObject,"Response");
+	RING_API_RETCPOINTER(pObject,"HTTPLib_Response");
 }
 
-RING_FUNC(ring_Request_new)
+RING_FUNC(ring_HTTPLib_Request_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
 	if ( RING_API_PARACOUNT != 0 ) {
@@ -1122,7 +1122,7 @@ RING_FUNC(ring_Request_new)
 		return ;
 	}
 	Request *pObject = new Request();
-	RING_API_RETCPOINTER(pObject,"Request");
+	RING_API_RETCPOINTER(pObject,"HTTPLib_Request");
 }
 
 RING_FUNC(ring_HTTPLib_Server_delete)
@@ -1142,7 +1142,7 @@ RING_FUNC(ring_HTTPLib_Server_delete)
 	}
 }
 
-RING_FUNC(ring_Response_delete)
+RING_FUNC(ring_HTTPLib_Response_delete)
 {
 	Response *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
@@ -1159,7 +1159,7 @@ RING_FUNC(ring_Response_delete)
 	}
 }
 
-RING_FUNC(ring_Request_delete)
+RING_FUNC(ring_HTTPLib_Request_delete)
 {
 	Request *pObject ; 
 	RING_API_IGNORECPOINTERTYPE ;
@@ -1207,26 +1207,26 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("httplib_server_wget",ring_HTTPLib_Server_wget);
 	ring_vm_funcregister("httplib_server_response",ring_HTTPLib_Server_response);
 	ring_vm_funcregister("httplib_server_request",ring_HTTPLib_Server_request);
-	ring_vm_funcregister("response_set_content",ring_Response_set_content);
-	ring_vm_funcregister("response_set_content_2",ring_Response_set_content_2);
-	ring_vm_funcregister("response_set_redirect",ring_Response_set_redirect);
-	ring_vm_funcregister("response_set_redirect_2",ring_Response_set_redirect_2);
-	ring_vm_funcregister("response_set_header",ring_Response_set_header);
-	ring_vm_funcregister("response_get_header_value_count",ring_Response_get_header_value_count);
-	ring_vm_funcregister("response_has_header",ring_Response_has_header);
-	ring_vm_funcregister("request_has_header",ring_Request_has_header);
-	ring_vm_funcregister("request_get_header_value_count",ring_Request_get_header_value_count);
-	ring_vm_funcregister("request_set_header",ring_Request_set_header);
-	ring_vm_funcregister("request_has_param",ring_Request_has_param);
-	ring_vm_funcregister("request_get_param_value_count",ring_Request_get_param_value_count);
-	ring_vm_funcregister("request_is_multipart_form_data",ring_Request_is_multipart_form_data);
-	ring_vm_funcregister("request_has_file",ring_Request_has_file);
+	ring_vm_funcregister("httplib_response_set_content",ring_HTTPLib_Response_set_content);
+	ring_vm_funcregister("httplib_response_set_content_2",ring_HTTPLib_Response_set_content_2);
+	ring_vm_funcregister("httplib_response_set_redirect",ring_HTTPLib_Response_set_redirect);
+	ring_vm_funcregister("httplib_response_set_redirect_2",ring_HTTPLib_Response_set_redirect_2);
+	ring_vm_funcregister("httplib_response_set_header",ring_HTTPLib_Response_set_header);
+	ring_vm_funcregister("httplib_response_get_header_value_count",ring_HTTPLib_Response_get_header_value_count);
+	ring_vm_funcregister("httplib_response_has_header",ring_HTTPLib_Response_has_header);
+	ring_vm_funcregister("httplib_request_has_header",ring_HTTPLib_Request_has_header);
+	ring_vm_funcregister("httplib_request_get_header_value_count",ring_HTTPLib_Request_get_header_value_count);
+	ring_vm_funcregister("httplib_request_set_header",ring_HTTPLib_Request_set_header);
+	ring_vm_funcregister("httplib_request_has_param",ring_HTTPLib_Request_has_param);
+	ring_vm_funcregister("httplib_request_get_param_value_count",ring_HTTPLib_Request_get_param_value_count);
+	ring_vm_funcregister("httplib_request_is_multipart_form_data",ring_HTTPLib_Request_is_multipart_form_data);
+	ring_vm_funcregister("httplib_request_has_file",ring_HTTPLib_Request_has_file);
 	ring_vm_funcregister("httplib_server_new",ring_HTTPLib_Server_new);
-	ring_vm_funcregister("response_new",ring_Response_new);
-	ring_vm_funcregister("request_new",ring_Request_new);
+	ring_vm_funcregister("httplib_response_new",ring_HTTPLib_Response_new);
+	ring_vm_funcregister("httplib_request_new",ring_HTTPLib_Request_new);
 	ring_vm_funcregister("httplib_server_delete",ring_HTTPLib_Server_delete);
-	ring_vm_funcregister("response_delete",ring_Response_delete);
-	ring_vm_funcregister("request_delete",ring_Request_delete);
+	ring_vm_funcregister("httplib_response_delete",ring_HTTPLib_Response_delete);
+	ring_vm_funcregister("httplib_request_delete",ring_HTTPLib_Request_delete);
 	ring_vm_funcregister("get_cpphttplib_keepalive_timeout_second",ring_get_cpphttplib_keepalive_timeout_second);
 	ring_vm_funcregister("get_cpphttplib_keepalive_max_count",ring_get_cpphttplib_keepalive_max_count);
 	ring_vm_funcregister("get_cpphttplib_connection_timeout_second",ring_get_cpphttplib_connection_timeout_second);

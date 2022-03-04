@@ -1,6 +1,7 @@
 <class>
-name: Request
+name: HTTPLib_Request
 para: void
+codename: Request
 </class>
 
 bool has_header(const char *key)

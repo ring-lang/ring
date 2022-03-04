@@ -1,6 +1,7 @@
 <class>
-name: Response
+name: HTTPLib_Response
 para: void
+codename: Response
 </class>
 
 void set_content(const char *s, const char *content_type)

@@ -51,8 +51,8 @@ void stop(void)
 
 <register>
 void wget(const char *pattern, const char *cCode)
-const Response *response(void)
-const Request *request(void)
+const HTTPLib_Response *response(void)
+const HTTPLib_Request *request(void)
 </register>
 
 <code>
@@ -127,7 +127,7 @@ RING_FUNC(ring_HTTPLib_Server_response)
 	}
 
 	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
-	RING_API_RETCPOINTER(pObject->oResponse,"response");
+	RING_API_RETCPOINTER(pObject->oResponse,"HTTPLib_Response");
 
 }
 
@@ -146,7 +146,7 @@ RING_FUNC(ring_HTTPLib_Server_request)
 	}
 
 	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
-	RING_API_RETCPOINTER(pObject->oRequest,"request");
+	RING_API_RETCPOINTER(pObject->oRequest,"HTTPLib_Request");
 
 }
 
