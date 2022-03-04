@@ -1,6 +1,6 @@
 class Server from HTTPLib_Server
 
-	pObject init()
+	init()
 
 	func route p1,p2
 		return wGet(p1,p2)
