@@ -1,7 +1,7 @@
 load "httplib.ring"
 
 ? "Start the server..."
-oServer = new Server() 
+oServer = new Server 
 
 ? "Define /one"
 oServer.route("/one",:one)

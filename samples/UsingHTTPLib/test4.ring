@@ -2,7 +2,7 @@ load "httplib.ring"
 
 ? "Try localhost:8080/hello"
 
-oServer = new Server()  {
+oServer = new Server {
 
 	route("/hello",func {
 		oServer.response().setContent("Hello, World!", "text/plain")
