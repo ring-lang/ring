@@ -14,7 +14,7 @@ oServer.listen("0.0.0.0", 8080)
 ? "End of program!"
 
 func one
-	oServer.response().set_content("one", "text/plain")
+	oServer.response().setContent("one", "text/plain")
 
 func two
-	oServer.response().set_content("two", "text/plain")
+	oServer.response().setContent("two", "text/plain")
