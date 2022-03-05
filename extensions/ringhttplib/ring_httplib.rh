@@ -209,6 +209,4 @@ Class HTTPLib_Client
 		return pObject
 
 	Func download P1
-		pTempObj = new HTTPLib_Response
-		pTempObj.pObject = HTTPLib_Client_download(pObject,P1)
-		return pTempObj
+		return HTTPLib_Client_download(pObject,P1)

@@ -5,7 +5,7 @@ codename: Client
 </class>
 
 <register>
-const HTTPLib_Response *download(const char *cURL)
+const char*download(const char *cURL)
 </register>
 
 <code>
