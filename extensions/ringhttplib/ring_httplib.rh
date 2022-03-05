@@ -193,3 +193,22 @@ Class HTTPLib_Request
 
 	Func has_file P1
 		return HTTPLib_Request_has_file(pObject,P1)
+
+Class HTTPLib_Client
+
+	pObject
+
+	Func init P1
+		pObject = HTTPLib_Client_new(P1)
+		return self
+
+	Func delete
+		pObject = HTTPLib_Client_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func download P1
+		pTempObj = new HTTPLib_Response
+		pTempObj.pObject = HTTPLib_Client_download(pObject,P1)
+		return pTempObj

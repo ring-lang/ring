@@ -994,6 +994,20 @@ RING_FUNC(ring_HTTPLib_Request_has_file)
 	RING_API_RETNUMBER(pObject->has_file(RING_API_GETSTRING(2)));
 }
 
+
+RING_FUNC(ring_HTTPLib_Client_download)
+{
+	Client *pObject ;
+
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	RING_API_RETSTRING(pObject->Get(RING_API_GETSTRING(2))->body.c_str());
+}
+
 RING_FUNC(ring_get_cpphttplib_keepalive_timeout_second)
 {
 	RING_API_RETNUMBER(CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND);
@@ -1117,6 +1131,21 @@ RING_FUNC(ring_HTTPLib_Request_new)
 	RING_API_RETCPOINTER(pObject,"HTTPLib_Request");
 }
 
+RING_FUNC(ring_HTTPLib_Client_new)
+{
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	Client *pObject = new Client(RING_API_GETSTRING(1));
+	RING_API_RETCPOINTER(pObject,"HTTPLib_Client");
+}
+
 RING_FUNC(ring_HTTPLib_Server_delete)
 {
 	RingServer *pObject ; 
@@ -1168,6 +1197,23 @@ RING_FUNC(ring_HTTPLib_Request_delete)
 	}
 }
 
+RING_FUNC(ring_HTTPLib_Client_delete)
+{
+	Client *pObject ; 
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( RING_API_PARACOUNT != 1 )
+	{
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	if ( RING_API_ISCPOINTER(1) )
+	{
+		pObject = (Client *) RING_API_GETCPOINTER(1,"Client");
+		delete pObject ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
 RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("httplib_server_listen",ring_HTTPLib_Server_listen);
@@ -1213,12 +1259,15 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("httplib_request_get_param_value_count",ring_HTTPLib_Request_get_param_value_count);
 	ring_vm_funcregister("httplib_request_is_multipart_form_data",ring_HTTPLib_Request_is_multipart_form_data);
 	ring_vm_funcregister("httplib_request_has_file",ring_HTTPLib_Request_has_file);
+	ring_vm_funcregister("httplib_client_download",ring_HTTPLib_Client_download);
 	ring_vm_funcregister("httplib_server_new",ring_HTTPLib_Server_new);
 	ring_vm_funcregister("httplib_response_new",ring_HTTPLib_Response_new);
 	ring_vm_funcregister("httplib_request_new",ring_HTTPLib_Request_new);
+	ring_vm_funcregister("httplib_client_new",ring_HTTPLib_Client_new);
 	ring_vm_funcregister("httplib_server_delete",ring_HTTPLib_Server_delete);
 	ring_vm_funcregister("httplib_response_delete",ring_HTTPLib_Response_delete);
 	ring_vm_funcregister("httplib_request_delete",ring_HTTPLib_Request_delete);
+	ring_vm_funcregister("httplib_client_delete",ring_HTTPLib_Client_delete);
 	ring_vm_funcregister("get_cpphttplib_keepalive_timeout_second",ring_get_cpphttplib_keepalive_timeout_second);
 	ring_vm_funcregister("get_cpphttplib_keepalive_max_count",ring_get_cpphttplib_keepalive_max_count);
 	ring_vm_funcregister("get_cpphttplib_connection_timeout_second",ring_get_cpphttplib_connection_timeout_second);

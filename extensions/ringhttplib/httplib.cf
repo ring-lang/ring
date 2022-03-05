@@ -23,6 +23,7 @@ extern "C" {
 <loadfile> classes/server.cf
 <loadfile> classes/response.cf
 <loadfile> classes/request.cf
+<loadfile> classes/client.cf
 
 <constant>
 CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND
