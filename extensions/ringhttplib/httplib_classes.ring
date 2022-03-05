@@ -28,3 +28,5 @@ class Response from HTTPLib_Response
 		return set_content(p1,p2)
 
 class Request from HTTPLib_Request
+
+class Client from HTTPLib_Client
