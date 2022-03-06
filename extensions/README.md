@@ -70,3 +70,5 @@ The RingTilengine folder contains the Ring binding to Tilengine
 The RingThreads folder contains the Ring binding to TinyCThread
 
 The RingCJSON folder contains the Ring binding to CJSON library
+
+The RingHTTPLib folder contains the Ring binding to CPPHTTPLib library
