@@ -4,16 +4,16 @@
 */
 #include "ring.h"
 #ifdef _WIN32
-	/* Windows only */
-	#include <direct.h>
-	#define GetCurrentDir _getcwd
+    /* Windows only */
+    #include <direct.h>
+    #define GetCurrentDir _getcwd
 #else
-	#include <unistd.h>
-	#define GetCurrentDir getcwd
-	#if __MACH__
-		/* Mac OS X */
-		#include <mach-o/dyld.h>
-	#endif
+    #include <unistd.h>
+    #define GetCurrentDir getcwd
+    #if __MACH__
+        /* Mac OS X */
+        #include <mach-o/dyld.h>
+    #endif
 #endif
 /* General Functions */
 
