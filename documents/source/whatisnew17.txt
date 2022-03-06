@@ -396,3 +396,4 @@ More Improvements
 * Ring VM - State management - Better Performance (when creating new objects)
 * Ring Compiler - Better Code - Using ring_general_addosfileseparator()
 * Ring Compiler - Better Code - Using ring_general_folderexistinfilename()
+* Ring Source Code - Better Format
