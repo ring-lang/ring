@@ -29,4 +29,12 @@ bool is_valid(void)
 
 size_t is_socket_open(void)
 
-
+void stop(void)
+void set_address_family(int family)
+void set_tcp_nodelay(bool on)
+void set_connection_timeout(time_t sec)
+void set_connection_timeout@2(time_t sec, time_t usec)
+void set_read_timeout(time_t sec)
+void set_read_timeout@2(time_t sec, time_t usec)
+void set_write_timeout(time_t sec)
+void set_write_timeout@2(time_t sec, time_t usec)

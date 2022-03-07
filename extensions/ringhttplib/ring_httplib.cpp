@@ -1494,6 +1494,203 @@ RING_FUNC(ring_HTTPLib_Client_is_socket_open)
 	RING_API_RETNUMBER(pObject->is_socket_open());
 }
 
+
+RING_FUNC(ring_HTTPLib_Client_stop)
+{
+	Client *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	pObject->stop();
+}
+
+
+RING_FUNC(ring_HTTPLib_Client_set_address_family)
+{
+	Client *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_address_family( (int ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_HTTPLib_Client_set_tcp_nodelay)
+{
+	Client *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_tcp_nodelay( (bool ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_HTTPLib_Client_set_connection_timeout)
+{
+	Client *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_connection_timeout( (time_t ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_HTTPLib_Client_set_connection_timeout_2)
+{
+	Client *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_connection_timeout( (time_t ) RING_API_GETNUMBER(2), (time_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_HTTPLib_Client_set_read_timeout)
+{
+	Client *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_read_timeout( (time_t ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_HTTPLib_Client_set_read_timeout_2)
+{
+	Client *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_read_timeout( (time_t ) RING_API_GETNUMBER(2), (time_t ) RING_API_GETNUMBER(3));
+}
+
+
+RING_FUNC(ring_HTTPLib_Client_set_write_timeout)
+{
+	Client *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_write_timeout( (time_t ) RING_API_GETNUMBER(2));
+}
+
+
+RING_FUNC(ring_HTTPLib_Client_set_write_timeout_2)
+{
+	Client *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject->set_write_timeout( (time_t ) RING_API_GETNUMBER(2), (time_t ) RING_API_GETNUMBER(3));
+}
+
 RING_FUNC(ring_HTTPLib_Server_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -1665,6 +1862,15 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("httplib_client_download",ring_HTTPLib_Client_download);
 	ring_vm_funcregister("httplib_client_is_valid",ring_HTTPLib_Client_is_valid);
 	ring_vm_funcregister("httplib_client_is_socket_open",ring_HTTPLib_Client_is_socket_open);
+	ring_vm_funcregister("httplib_client_stop",ring_HTTPLib_Client_stop);
+	ring_vm_funcregister("httplib_client_set_address_family",ring_HTTPLib_Client_set_address_family);
+	ring_vm_funcregister("httplib_client_set_tcp_nodelay",ring_HTTPLib_Client_set_tcp_nodelay);
+	ring_vm_funcregister("httplib_client_set_connection_timeout",ring_HTTPLib_Client_set_connection_timeout);
+	ring_vm_funcregister("httplib_client_set_connection_timeout_2",ring_HTTPLib_Client_set_connection_timeout_2);
+	ring_vm_funcregister("httplib_client_set_read_timeout",ring_HTTPLib_Client_set_read_timeout);
+	ring_vm_funcregister("httplib_client_set_read_timeout_2",ring_HTTPLib_Client_set_read_timeout_2);
+	ring_vm_funcregister("httplib_client_set_write_timeout",ring_HTTPLib_Client_set_write_timeout);
+	ring_vm_funcregister("httplib_client_set_write_timeout_2",ring_HTTPLib_Client_set_write_timeout_2);
 	ring_vm_funcregister("httplib_server_new",ring_HTTPLib_Server_new);
 	ring_vm_funcregister("httplib_response_new",ring_HTTPLib_Response_new);
 	ring_vm_funcregister("httplib_request_new",ring_HTTPLib_Request_new);

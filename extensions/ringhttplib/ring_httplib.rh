@@ -237,3 +237,30 @@ Class HTTPLib_Client
 
 	Func is_socket_open 
 		return HTTPLib_Client_is_socket_open(pObject)
+
+	Func stop 
+		return HTTPLib_Client_stop(pObject)
+
+	Func set_address_family P1
+		return HTTPLib_Client_set_address_family(pObject,P1)
+
+	Func set_tcp_nodelay P1
+		return HTTPLib_Client_set_tcp_nodelay(pObject,P1)
+
+	Func set_connection_timeout P1
+		return HTTPLib_Client_set_connection_timeout(pObject,P1)
+
+	Func set_connection_timeout_2 P1,P2
+		return HTTPLib_Client_set_connection_timeout_2(pObject,P1,P2)
+
+	Func set_read_timeout P1
+		return HTTPLib_Client_set_read_timeout(pObject,P1)
+
+	Func set_read_timeout_2 P1,P2
+		return HTTPLib_Client_set_read_timeout_2(pObject,P1,P2)
+
+	Func set_write_timeout P1
+		return HTTPLib_Client_set_write_timeout(pObject,P1)
+
+	Func set_write_timeout_2 P1,P2
+		return HTTPLib_Client_set_write_timeout_2(pObject,P1,P2)
