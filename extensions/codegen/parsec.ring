@@ -803,7 +803,7 @@ Func GenStruct	aFunc
 			C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
 			C_TABS_2 + "return ;" + nl + 
 			C_TABS_1 + "}" + nl +
-			C_TABS_1 + "pMyPointer = RING_API_GETCPOINTER(1," +
+			C_TABS_1 + "pMyPointer = ("+ cStruct + "*) RING_API_GETCPOINTER(1," +
 			'"'+cStruct  +'");' + nl +
 			C_TABS_1 + "if (pMyPointer != NULL) {" + nl +
 			C_TABS_2 + "ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;" + nl +		
