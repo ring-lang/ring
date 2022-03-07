@@ -15,7 +15,5 @@ size_t get_header_value_count(const char *key)
 
 bool has_header(const char *key)
 
-<comment>
-char *get_header_value(const char *key)
-char *get_header_value@2(const char *key, size_t id)
-</comment>
+std::string get_header_value(const char *key)
+std::string get_header_value@2(const char *key, size_t id)

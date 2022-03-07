@@ -159,6 +159,12 @@ Class HTTPLib_Response
 	Func has_header P1
 		return HTTPLib_Response_has_header(pObject,P1)
 
+	Func get_header_value P1
+		return HTTPLib_Response_get_header_value(pObject,P1)
+
+	Func get_header_value_2 P1,P2
+		return HTTPLib_Response_get_header_value_2(pObject,P1,P2)
+
 Class HTTPLib_Request
 
 	pObject
