@@ -995,6 +995,62 @@ RING_FUNC(ring_HTTPLib_Request_has_file)
 }
 
 
+RING_FUNC(ring_HTTPLib_Request_get_param_value)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		std::string *pValue ; 
+		pValue = (std::string *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(std::string)) ;
+		*pValue = pObject->get_param_value(RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"std::string",ring_state_free);
+	}
+}
+
+
+RING_FUNC(ring_HTTPLib_Request_get_param_value_2)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		std::string *pValue ; 
+		pValue = (std::string *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(std::string)) ;
+		*pValue = pObject->get_param_value(RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3));
+		RING_API_RETMANAGEDCPOINTER(pValue,"std::string",ring_state_free);
+	}
+}
+
+
 RING_FUNC(ring_HTTPLib_Client_download)
 {
 	Client *pObject ;
@@ -1259,6 +1315,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("httplib_request_get_param_value_count",ring_HTTPLib_Request_get_param_value_count);
 	ring_vm_funcregister("httplib_request_is_multipart_form_data",ring_HTTPLib_Request_is_multipart_form_data);
 	ring_vm_funcregister("httplib_request_has_file",ring_HTTPLib_Request_has_file);
+	ring_vm_funcregister("httplib_request_get_param_value",ring_HTTPLib_Request_get_param_value);
+	ring_vm_funcregister("httplib_request_get_param_value_2",ring_HTTPLib_Request_get_param_value_2);
 	ring_vm_funcregister("httplib_client_download",ring_HTTPLib_Client_download);
 	ring_vm_funcregister("httplib_server_new",ring_HTTPLib_Server_new);
 	ring_vm_funcregister("httplib_response_new",ring_HTTPLib_Response_new);

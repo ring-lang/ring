@@ -12,4 +12,5 @@ size_t get_param_value_count(const char *key)
 bool is_multipart_form_data(void)
 bool has_file(const char *key)
 
-
+std::string get_param_value(const char *key)
+std::string get_param_value@2(const char *key, size_t id)

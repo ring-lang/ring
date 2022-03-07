@@ -194,6 +194,12 @@ Class HTTPLib_Request
 	Func has_file P1
 		return HTTPLib_Request_has_file(pObject,P1)
 
+	Func get_param_value P1
+		return HTTPLib_Request_get_param_value(pObject,P1)
+
+	Func get_param_value_2 P1,P2
+		return HTTPLib_Request_get_param_value_2(pObject,P1,P2)
+
 Class HTTPLib_Client
 
 	pObject
