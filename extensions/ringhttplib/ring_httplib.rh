@@ -234,3 +234,6 @@ Class HTTPLib_Client
 
 	Func is_valid 
 		return HTTPLib_Client_is_valid(pObject)
+
+	Func is_socket_open 
+		return HTTPLib_Client_is_socket_open(pObject)

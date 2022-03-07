@@ -1477,6 +1477,23 @@ RING_FUNC(ring_HTTPLib_Client_is_valid)
 	RING_API_RETNUMBER(pObject->is_valid());
 }
 
+
+RING_FUNC(ring_HTTPLib_Client_is_socket_open)
+{
+	Client *pObject ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Client *) RING_API_GETCPOINTER(1,"HTTPLib_Client");
+	RING_API_RETNUMBER(pObject->is_socket_open());
+}
+
 RING_FUNC(ring_HTTPLib_Server_new)
 {
 	RING_API_IGNORECPOINTERTYPE ;
@@ -1647,6 +1664,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("httplib_request_get_file_value",ring_HTTPLib_Request_get_file_value);
 	ring_vm_funcregister("httplib_client_download",ring_HTTPLib_Client_download);
 	ring_vm_funcregister("httplib_client_is_valid",ring_HTTPLib_Client_is_valid);
+	ring_vm_funcregister("httplib_client_is_socket_open",ring_HTTPLib_Client_is_socket_open);
 	ring_vm_funcregister("httplib_server_new",ring_HTTPLib_Server_new);
 	ring_vm_funcregister("httplib_response_new",ring_HTTPLib_Response_new);
 	ring_vm_funcregister("httplib_request_new",ring_HTTPLib_Request_new);
