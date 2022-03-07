@@ -24,3 +24,7 @@ RING_FUNC(ring_HTTPLib_Client_download)
 }
 
 </code>
+
+bool is_valid(void)
+
+

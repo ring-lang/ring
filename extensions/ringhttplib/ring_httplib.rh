@@ -231,3 +231,6 @@ Class HTTPLib_Client
 
 	Func download P1
 		return HTTPLib_Client_download(pObject,P1)
+
+	Func is_valid 
+		return HTTPLib_Client_is_valid(pObject)
