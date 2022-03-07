@@ -65,3 +65,4 @@ MultipartFormData {string name,string content,string filename,string content_typ
 <loadfile> classes/response.cf
 <loadfile> classes/request.cf
 <loadfile> classes/client.cf
+<loadfile> classes/result.cf

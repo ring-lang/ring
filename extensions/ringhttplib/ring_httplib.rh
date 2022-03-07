@@ -324,3 +324,29 @@ Class HTTPLib_Client
 
 	Func Options_2 P1,P2
 		return HTTPLib_Client_Options_2(pObject,P1,GetObjectPointerFromRingObject(P2))
+
+Class HTTPLib_Result
+
+	pObject
+
+	Func init 
+		pObject = HTTPLib_Result_new()
+		return self
+
+	Func delete
+		pObject = HTTPLib_Result_delete(pObject)
+
+	Func ObjectPointer
+		return pObject
+
+	Func has_request_header P1
+		return HTTPLib_Result_has_request_header(pObject,P1)
+
+	Func get_request_header_value P1
+		return HTTPLib_Result_get_request_header_value(pObject,P1)
+
+	Func get_request_header_value_2 P1,P2
+		return HTTPLib_Result_get_request_header_value_2(pObject,P1,P2)
+
+	Func get_request_header_value_count P1
+		return HTTPLib_Result_get_request_header_value_count(pObject,P1)
