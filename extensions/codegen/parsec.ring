@@ -814,6 +814,64 @@ Func GenStruct	aFunc
 	for x in aStructMembers
 		cItem = substr(x,".","_")
 		nPointer = substr(cItem,"*")
+		# Check if the Item is a String
+		cItemLower = lower(cItem)
+		lTypeIsString = False
+		if startswith(cItemLower,"const char * ") 
+			lTypeIsString = True
+			cMemberName = substr(cItem,len("const char * ")+1)
+		but startsWith(cItemLower,"string ")
+			lTypeIsString = True		
+			cMemberName = substr(cItem,len("string ")+1)
+		ok
+		if lTypeIsString
+			# Generate Functions to Get Struct Members Values
+			cFuncName = $cFuncStart+"get_"+lower(cStruct)+"_"+cMemberName
+			$aStructFuncs + cFuncName
+			cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
+				"{" + nl + 
+				C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
+				C_TABS_1 + "if ( RING_API_PARACOUNT != 1 ) {" + nl +
+				C_TABS_2 +"RING_API_ERROR(RING_API_MISS1PARA) ;" + nl +
+				C_TABS_2 + "return ;" + nl +
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "if ( ! RING_API_ISCPOINTER(1) ) { " + nl +
+				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				C_TABS_2 + "return ;" + nl + 
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "pMyPointer = ("+cStruct + " *) RING_API_GETCPOINTER(1," +
+				'"'+cStruct  +'");' + nl 			
+			if startswith(cItemLower,"const char * ") 
+				cCode += C_TABS_1 + "RING_API_RETSTRING(pMyPointer->"+cMemberName+");" + nl 
+			else
+				cCode += C_TABS_1 + "RING_API_RETSTRING(pMyPointer->"+cMemberName+".c_str());" + nl 
+			ok
+			cCode += "}" + nl + nl
+			# Generate Functions to Set Struct Members Value
+			cFuncName = $cFuncStart+"set_"+lower(cStruct)+"_"+cMemberName
+			$aStructFuncs + cFuncName
+			cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
+				"{" + nl + 
+				C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
+				C_TABS_1 + "if ( RING_API_PARACOUNT != 2 ) {" + nl +
+				C_TABS_2 +"RING_API_ERROR(RING_API_MISS2PARA) ;" + nl +
+				C_TABS_2 + "return ;" + nl +
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "if ( ! RING_API_ISCPOINTER(1) ) { " + nl +
+				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				C_TABS_2 + "return ;" + nl + 
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "if ( ! RING_API_ISNUMBER(2) ) { " + nl +
+				C_TABS_2 + "RING_API_ERROR(RING_API_BADPARATYPE);" + nl +
+				C_TABS_2 + "return ;" + nl + 
+				C_TABS_1 + "}" + nl +
+				C_TABS_1 + "pMyPointer = ("+ cStruct +" *) RING_API_GETCPOINTER(1," +
+				'"'+cStruct  +'");' + nl +			
+				C_TABS_1 + "pMyPointer->"+cMemberName+" = "+"RING_API_GETSTRING(2);" + nl +
+				"}" + nl + nl
+
+			loop		
+		ok
 		if not nPointer	# The item is number - not pointer
 			# Generate Functions to Get Struct Members Values
 			cFuncName = $cFuncStart+"get_"+lower(cStruct)+"_"+cItem
