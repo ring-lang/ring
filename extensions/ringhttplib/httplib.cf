@@ -20,11 +20,6 @@ extern "C" {
 
 </code>
 
-<loadfile> classes/server.cf
-<loadfile> classes/response.cf
-<loadfile> classes/request.cf
-<loadfile> classes/client.cf
-
 <constant>
 CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND
 CPPHTTPLIB_KEEPALIVE_MAX_COUNT
@@ -57,5 +52,13 @@ aNumberTypes + "time_t"
 aEnumTypes + "HandlerResponse"
 aEnumTypes + "Error"
 aEnumTypes + "EncodingType"
+
+aStringTypes + "std::QString"
+
+aBeforeReturn + ["std::QString",".c_str()"]
 </runcode>
 
+<loadfile> classes/server.cf
+<loadfile> classes/response.cf
+<loadfile> classes/request.cf
+<loadfile> classes/client.cf
