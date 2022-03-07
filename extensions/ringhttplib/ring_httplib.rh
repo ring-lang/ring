@@ -264,3 +264,36 @@ Class HTTPLib_Client
 
 	Func set_write_timeout_2 P1,P2
 		return HTTPLib_Client_set_write_timeout_2(pObject,P1,P2)
+
+	Func set_basic_auth P1,P2
+		return HTTPLib_Client_set_basic_auth(pObject,P1,P2)
+
+	Func set_bearer_token_auth P1
+		return HTTPLib_Client_set_bearer_token_auth(pObject,P1)
+
+	Func set_keep_alive P1
+		return HTTPLib_Client_set_keep_alive(pObject,P1)
+
+	Func set_follow_location P1
+		return HTTPLib_Client_set_follow_location(pObject,P1)
+
+	Func set_url_encode P1
+		return HTTPLib_Client_set_url_encode(pObject,P1)
+
+	Func set_compress P1
+		return HTTPLib_Client_set_compress(pObject,P1)
+
+	Func set_decompress P1
+		return HTTPLib_Client_set_decompress(pObject,P1)
+
+	Func set_interface P1
+		return HTTPLib_Client_set_interface(pObject,P1)
+
+	Func set_proxy P1,P2
+		return HTTPLib_Client_set_proxy(pObject,P1,P2)
+
+	Func set_proxy_basic_auth P1,P2
+		return HTTPLib_Client_set_proxy_basic_auth(pObject,P1,P2)
+
+	Func set_proxy_bearer_token_auth P1
+		return HTTPLib_Client_set_proxy_bearer_token_auth(pObject,P1)
