@@ -9,7 +9,7 @@
 #
 #============================================================================#
 
-load "tokenslib.ring"
+load "cjson.ring"
 load "stdlibcore.ring"
 
 #============================================================================#
@@ -20,96 +20,16 @@ func JSON2List cJSON
 		raise("Bad parameter type! - The JSON2List() function expect a String")
 	}
 
-	# convert \" to '
-		cJSON = substr(cJSON,'\"',"'")
+	oJSON = cJSON_Parse(cJSON)	
 
-	# Get the Tokens
-		oTokens = new RingTokens {
-			fromString(cJson)
-			aList = GetTokens()
-		}
+	if isNULL(oJSON)
+		raise("Parsing Error (JSONLib) : Can't parse the content " + nl +
+			cJSON_GetErrorPtr() )
+	ok
 
-	# Convert Json Tokens to Ring Tokens 	
-		aList = JsonTokens2RingTokens(aList)
+	aList = cJSON_ToRingList(oJSON)
 
-	# Get Ring Code from Ring Tokens 
-		cCode = RingTokens2Code(aList)
-
-	# Get Ring List
-		eval("aJson2List_TempList = " + cCode)
-
-	return aJson2List_TempList
-
-
-func JSONTokens2RingTokens aList
-	for nIndex = 1 to len(aList) 
-		aToken = aList[nIndex]
-		switch aToken[C_TOKENTYPE] 
-			on C_OPERATOR 
-				switch aToken[C_TOKENVALUE] 
-				on "{"
-					aList[nIndex][C_TOKENVALUE] = "["
-					aList[nIndex][C_TOKENINDEX] = 17
-				on "}"
-					aList[nIndex][C_TOKENVALUE] = "]"
-					aList[nIndex][C_TOKENINDEX] = 15
-				on ":"
-					# Add '[' 
-						insert(aList,nIndex-2,[C_OPERATOR,"[",17])
-						nIndex++
-					# Change ':' to ','
-						aList[nIndex][C_TOKENVALUE] = ","
-						aList[nIndex][C_TOKENINDEX] = 10
-					# Add ']'
-						nCounter = 0
-						lInsert = False
-						for t=nIndex+1 to len(aList) 
-							aToken2 = aList[t]
-							if aToken2[C_TOKENTYPE] = C_OPERATOR 
-								if (nCounter = 0) and (aToken2[C_TOKENVALUE] = "," or
-								    aToken2[C_TOKENVALUE] = "]" or aToken2[C_TOKENVALUE] = "}" ) 
-									insert(aList,t-1,[C_OPERATOR,"]",15])
-									t++
-									lInsert = True
-									exit
-								but aToken2[C_TOKENVALUE] = "[" or aToken2[C_TOKENVALUE] = "{"
-									aList[t][C_TOKENVALUE] = "["
-									aList[t][C_TOKENINDEX] = 17
-									nCounter++
-								but aToken2[C_TOKENVALUE] = "]" or aToken2[C_TOKENVALUE] = "}"
-									aList[t][C_TOKENVALUE] = "]"
-									aList[t][C_TOKENINDEX] = 15
-									nCounter--
-								ok
-							ok
-						next
-						if lInsert = False 
-							? "Index = " + nIndex
-							Raise("wrong JSON string")
-						ok
-				off
-		off
-	next
 	return aList
-
-func RingTokens2Code aList 
-	cCode = ""
-	for nIndex = 1 to len(aList) 
-		aToken = aList[nIndex]
-		switch aToken[C_TOKENTYPE] 
-			on C_OPERATOR 
-				cCode += aToken[C_TOKENVALUE] 
-			on C_LITERAL
-				cCode += Char(34) + aToken[C_TOKENVALUE] + Char(34)
-			on C_NUMBER
-				cCode += aToken[C_TOKENVALUE] 
-			on C_IDENTIFIER
-				if trim(Upper(aToken[C_TOKENVALUE])) = "NULL"
-					cCode += Char(34) + Char(34)
-				ok
-		off
-	next
-	return cCode
 
 #============================================================================#
 

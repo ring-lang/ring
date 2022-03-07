@@ -174,6 +174,10 @@ aApplications = [
 				'<img src="fifteen2.png" width="100%">'
 			],
 			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/game2048" >2048 Game</a>',
+				'<img src="game2048.png" width="100%">'
+			],
+			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/tictactoe" >TicTacToe</a>',
 				'<img src="tictactoe.jpg" width="100%">'
 			],
@@ -366,22 +370,28 @@ aApplications = [
 	],
 	["Online Applications (WebAssembly)",[
 				[
-					'<a href="web/matching/project.html" >The Matching Game</a>'
+					'<a href="web/matching/project.html" >The Matching Game</a>',
+					'<img src="wasm_matching.png" width="100%">'
 				],
 				[
-					'<a href="web/othello/project.html" >The Othello Game</a>'
+					'<a href="web/othello/project.html" >The Othello Game</a>',
+					'<img src="wasm_othello.png" width="100%">'
 				],
 				[
-					'<a href="web/gameoflife/project.html" >The Game of Life</a>'
+					'<a href="web/gameoflife/project.html" >The Game of Life</a>',
+					'<img src="wasm_gameoflife.png" width="100%">'
 				],
 				[
-					'<a href="web/pairs/project.html" >The Pairs Game</a>'
+					'<a href="web/pairs/project.html" >The Pairs Game</a>',
+					'<img src="wasm_pairs.png" width="100%">'
 				],
 				[
-					'<a href="web/word/project.html" >The Word Game</a>'
+					'<a href="web/word/project.html" >The Word Game</a>',
+					'<img src="wasm_word.png" width="100%">'
 				],
 				[
-					'<a href="web/formdesigner/project.html" >The Form Designer</a>'
+					'<a href="web/formdesigner/project.html" >The Form Designer</a>',
+					'<img src="wasm_formdesigner.png" width="100%">'
 				]
 	]
 	]

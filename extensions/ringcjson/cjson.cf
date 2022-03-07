@@ -1,0 +1,262 @@
+<ignorecpointertype>
+
+<code>
+/* Copyright (c) 2022 Mahmoud Fayed <msfclipper@yahoo.com> */
+
+#include "lib/cJSON.h"
+#include "lib/cJSON_Utils.h"
+</code>
+
+<constant>
+CJSON_VERSION_MAJOR
+CJSON_VERSION_MINOR
+CJSON_VERSION_PATCH
+cJSON_Invalid
+cJSON_False
+cJSON_True
+cJSON_NULL
+cJSON_Number
+cJSON_String
+cJSON_Array
+cJSON_Object
+cJSON_Raw
+cJSON_IsReference
+cJSON_StringIsConst
+CJSON_NESTING_LIMIT
+</constant>
+
+<struct>
+cJSON {cJSON *next, cJSON *prev, cJSON *child,type,char *valuestring,valueint,valuedouble}
+</struct>
+
+<runcode>
+aNumberTypes + "size_t"
+aNumberTypes + "char"
+aNumberTypes + "cJSON_bool"
+</runcode>
+
+const char *cJSON_Version(void)
+void cJSON_InitHooks(cJSON_Hooks *hooks)
+
+cJSON *cJSON_Parse(const char *value)
+cJSON *cJSON_ParseWithLength(const char *value, size_t buffer_length)
+
+cJSON *cJSON_ParseWithOpts(const char *value, const char **return_parse_end, cJSON_bool require_null_terminated)
+cJSON *cJSON_ParseWithLengthOpts(const char *value, size_t buffer_length, const char **return_parse_end, cJSON_bool require_null_terminated)
+
+char *cJSON_Print(const cJSON *item)
+char *cJSON_PrintUnformatted(const cJSON *item)
+char *cJSON_PrintBuffered(const cJSON *item, int prebuffer, cJSON_bool fmt)
+cJSON_bool cJSON_PrintPreallocated(cJSON *item, char *buffer, const int length, const cJSON_bool format)
+void cJSON_Delete(cJSON *item)
+
+int cJSON_GetArraySize(const cJSON *array)
+cJSON *cJSON_GetArrayItem(const cJSON *array, int index)
+cJSON *cJSON_GetObjectItem(const cJSON *object, const char *string)
+cJSON *cJSON_GetObjectItemCaseSensitive(const cJSON *object, const char *string)
+cJSON_bool cJSON_HasObjectItem(const cJSON *object, const char *string)
+const char *cJSON_GetErrorPtr(void)
+
+char *cJSON_GetStringValue(const cJSON *item)
+double cJSON_GetNumberValue(const cJSON *item)
+
+cJSON_bool cJSON_IsInvalid(const cJSON *item)
+cJSON_bool cJSON_IsFalse(const cJSON *item)
+cJSON_bool cJSON_IsTrue(const cJSON *item)
+cJSON_bool cJSON_IsBool(const cJSON *item)
+cJSON_bool cJSON_IsNull(const cJSON *item)
+cJSON_bool cJSON_IsNumber(const cJSON *item)
+cJSON_bool cJSON_IsString(const cJSON *item)
+cJSON_bool cJSON_IsArray(const cJSON *item)
+cJSON_bool cJSON_IsObject(const cJSON *item)
+cJSON_bool cJSON_IsRaw(const cJSON *item)
+
+cJSON *cJSON_CreateNull(void)
+cJSON *cJSON_CreateTrue(void)
+cJSON *cJSON_CreateFalse(void)
+cJSON *cJSON_CreateBool(cJSON_bool boolean)
+cJSON *cJSON_CreateNumber(double num)
+cJSON *cJSON_CreateString(const char *string)
+cJSON *cJSON_CreateRaw(const char *raw)
+cJSON *cJSON_CreateArray(void)
+cJSON *cJSON_CreateObject(void)
+
+cJSON *cJSON_CreateStringReference(const char *string)
+cJSON *cJSON_CreateObjectReference(const cJSON *child)
+cJSON *cJSON_CreateArrayReference(const cJSON *child)
+
+cJSON *cJSON_CreateIntArray(const int *numbers, int count)
+cJSON *cJSON_CreateFloatArray(const float *numbers, int count)
+cJSON *cJSON_CreateDoubleArray(const double *numbers, int count)
+
+cJSON_bool cJSON_AddItemToArray(cJSON *array, cJSON *item)
+cJSON_bool cJSON_AddItemToObject(cJSON *object, const char *string, cJSON *item)
+cJSON_bool cJSON_AddItemToObjectCS(cJSON *object, const char *string, cJSON *item)
+cJSON_bool cJSON_AddItemReferenceToArray(cJSON *array, cJSON *item)
+cJSON_bool cJSON_AddItemReferenceToObject(cJSON *object, const char *string, cJSON *item)
+
+cJSON * cJSON_DetachItemViaPointer(cJSON *parent, cJSON * const item)
+cJSON * cJSON_DetachItemFromArray(cJSON *array, int which)
+void cJSON_DeleteItemFromArray(cJSON *array, int which)
+cJSON * cJSON_DetachItemFromObject(cJSON *object, const char *string)
+cJSON * cJSON_DetachItemFromObjectCaseSensitive(cJSON *object, const char *string)
+void cJSON_DeleteItemFromObject(cJSON *object, const char *string)
+void cJSON_DeleteItemFromObjectCaseSensitive(cJSON *object, const char *string)
+
+cJSON_bool cJSON_InsertItemInArray(cJSON *array, int which, cJSON *newitem) 
+cJSON_bool cJSON_ReplaceItemViaPointer(cJSON * const parent, cJSON * const item, cJSON * replacement)
+cJSON_bool cJSON_ReplaceItemInArray(cJSON *array, int which, cJSON *newitem)
+cJSON_bool cJSON_ReplaceItemInObject(cJSON *object,const char *string,cJSON *newitem)
+cJSON_bool cJSON_ReplaceItemInObjectCaseSensitive(cJSON *object,const char *string,cJSON *newitem)
+
+cJSON * cJSON_Duplicate(const cJSON *item, cJSON_bool recurse)
+cJSON_bool cJSON_Compare(const cJSON *a, const cJSON *b, const cJSON_bool case_sensitive)
+
+void cJSON_Minify(char *json)
+
+cJSON *cJSON_AddNullToObject(cJSON * const object, const char *name)
+cJSON *cJSON_AddTrueToObject(cJSON * const object, const char *name)
+cJSON *cJSON_AddFalseToObject(cJSON * const object, const char *name)
+cJSON *cJSON_AddBoolToObject(cJSON * const object, const char *name, const cJSON_bool boolean)
+cJSON *cJSON_AddNumberToObject(cJSON * const object, const char *name, const double number)
+cJSON *cJSON_AddStringToObject(cJSON * const object, const char *name, const char *string)
+cJSON *cJSON_AddRawToObject(cJSON * const object, const char *name, const char *raw)
+cJSON *cJSON_AddObjectToObject(cJSON * const object, const char *name)
+cJSON *cJSON_AddArrayToObject(cJSON * const object, const char *name)
+
+double cJSON_SetNumberHelper(cJSON *object, double number)
+char *cJSON_SetValuestring(cJSON *object, const char *valuestring)
+
+void *cJSON_malloc(size_t size)
+void cJSON_free(void *object)
+
+void cJSON_SetIntValue(cJSON *object, double number) 
+void cJSON_SetBoolValue(cJSON *object, cJSON_bool boolValue)
+
+<register>
+cJSON *cJSON_CreateStringArray(const char *, int count)
+</register>
+
+<code>
+RING_FUNC(ring_cJSON_CreateStringArray)
+{
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISSTRING(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETCPOINTER(cJSON_CreateStringArray((const char *const *) RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2)),"cJSON");
+}
+</code>
+
+
+cJSON *cJSONUtils_GetPointer(cJSON *object, const char *pointer)
+cJSON *cJSONUtils_GetPointerCaseSensitive(cJSON *object, const char *pointer)
+cJSON *cJSONUtils_GeneratePatches(cJSON *from, cJSON *to)
+cJSON *cJSONUtils_GeneratePatchesCaseSensitive(cJSON *from, cJSON *to)
+void cJSONUtils_AddPatchToArray(cJSON *array, const char *operation, const char *path, const cJSON *value)
+int cJSONUtils_ApplyPatches(cJSON *object, const cJSON *patches)
+int cJSONUtils_ApplyPatchesCaseSensitive(cJSON *object, const cJSON *patches)
+cJSON *cJSONUtils_MergePatch(cJSON *target, const cJSON *patch)
+cJSON *cJSONUtils_MergePatchCaseSensitive(cJSON *target, const cJSON *patch)
+cJSON *cJSONUtils_GenerateMergePatch(cJSON *from, cJSON *to)
+cJSON *cJSONUtils_GenerateMergePatchCaseSensitive(cJSON *from, cJSON *to)
+char *cJSONUtils_FindPointerFromObjectTo(const cJSON *object, const cJSON *target)
+void cJSONUtils_SortObject(cJSON *object)
+void cJSONUtils_SortObjectCaseSensitive(cJSON *object)
+
+<register>
+List *cJSON_ToRingList(cJSON *object)
+</register>
+
+<code>
+
+void cJSON_ProcessList(cJSON *pJSON,List *pOutputList);
+
+RING_FUNC(ring_cJSON_ToRingList)
+{
+	List *pOutputList;
+	cJSON *pJSON ;
+	pOutputList = ring_list_new(0);
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	// TODO: Implement the function
+	pJSON = RING_API_GETCPOINTER(1,"cJSON");
+	if (pJSON == NULL) {
+		RING_API_RETLIST(pOutputList);		
+		return ;
+	}
+	cJSON_ProcessList(pJSON,pOutputList);
+	RING_API_RETLIST(pOutputList);		
+}
+
+void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
+{
+	List *pList, *pList2;
+	cJSON *pJSONChild;
+	while ( pJSON != NULL) {
+		pList = pOutputList;
+		if (pJSON->string != NULL) {
+			pOutputList = ring_list_newlist(pOutputList);
+			ring_list_addstring(pOutputList,pJSON->string);
+		}
+		switch ((pJSON->type) & 0xFF)
+		{
+			case cJSON_NULL:
+				ring_list_addstring(pOutputList,"null");
+				break;
+			case cJSON_False:
+				ring_list_addstring(pOutputList,"false");
+				break;
+			case cJSON_True:
+				ring_list_addstring(pOutputList,"true");
+				break;
+			case cJSON_Number:
+				ring_list_adddouble(pOutputList,cJSON_GetNumberValue(pJSON));
+				break;
+			case cJSON_Raw:
+				ring_list_addstring(pOutputList,pJSON->valuestring);
+				break;
+			case cJSON_String:
+				if (pJSON->valuestring != NULL)
+					ring_list_addstring(pOutputList,cJSON_GetStringValue(pJSON));
+				break;
+			case cJSON_Array:
+				pOutputList = ring_list_newlist(pOutputList);
+				pJSONChild = pJSON->child;
+				while ( pJSONChild != NULL) {
+					pList2 = ring_list_newlist(pOutputList);
+					cJSON_ProcessList(pJSONChild,pList2);
+					pJSONChild = pJSONChild->next;
+				}
+				break;
+			case cJSON_Object:
+				if (pJSON->string != NULL) {
+					pOutputList = ring_list_newlist(pOutputList);
+				} else {
+					pJSON = pJSON->child;
+					continue ;
+				}
+				cJSON_ProcessList(pJSON->child,pOutputList);
+				break;
+		}
+		pOutputList = pList;
+		pJSON = pJSON->next;
+	}
+}
+</code>

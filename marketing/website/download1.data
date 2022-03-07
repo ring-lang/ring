@@ -2,22 +2,22 @@ aDownload = [
 		["Ring 1.0 Binary Release",[
 				 [
 					'Ring 1.0 for Microsoft Windows',
-					'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_win32_binary_release.zip/download" target="_blank">Download</a>',
+					'<a href="https://github.com/ring-lang/ring/releases/download/v1.0/Fayed_Ring_1.0_win32_binary_release.zip">Download</a>',
 					'<img src="ringwin.jpg" width="40%">'
 				 ],
 				 [
 					'Ring 1.0 for Ubuntu Linux',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_Ubuntu_32bit_binary_release.zip/download" target="_blank">Download</a>',
+					'<a href="https://github.com/ring-lang/ring/releases/download/v1.0/Fayed_Ring_1.0_Ubuntu_32bit_binary_release.zip">Download</a>',
 					'<img src="ringubuntu.jpg" width="40%">'
 				 ],
 				 [
 					'Ring 1.0 for MacOS X',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_MacOSX_64bit_binary_release.zip/download" target="_blank">Download</a>',
+					'<a href="https://github.com/ring-lang/ring/releases/download/v1.0/Fayed_Ring_1.0_MacOSX_64bit_binary_release.zip">Download</a>',
 					'<img src="ringmac.png" width="40%">'
 				 ],
 				 [
 					'Ring 1.0 for Mobile App Development using Qt',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_MobileAppDevelopment_Qt_Project.zip/download" target="_blank">Download</a>',
+					'<a href="https://github.com/ring-lang/ring/releases/download/v1.0/Fayed_Ring_1.0_MobileAppDevelopment_Qt_Project.zip">Download</a>',
 					'<img src="ringandroid.png" width="40%">'
 				 ]
 				]
@@ -25,7 +25,7 @@ aDownload = [
 		["Ring 1.0 Source Code",[
 						 [
 							'Ring 1.0 Source Code',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_Ring_1.0_Source_Code.zip/download" target="_blank">Download</a>',
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.0/Fayed_Ring_1.0_Source_Code.zip">Download</a>',
 							'<img src="ringvisualsrc1.jpg" width="40%">'
 						 ]
 					      ]
@@ -33,12 +33,12 @@ aDownload = [
 		["Ring 1.0 Documentation",[
 						 [
 							'Ring 1.0 Documentation (PDF)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_RingDoc_1.0.pdf/download" target="_blank">Download</a>',
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.0/Fayed_RingDoc_1.0.pdf">Download</a>',
 							'<img src="book1.jpg" width="40%">'
 						 ],
 						 [
 							'Ring 1.0 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_RingDoc_1.0.chm/download" target="_blank">Download</a>',
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.0/Fayed_RingDoc_1.0.chm">Download</a>',
 							'<img src="book2.jpg" width="40%">'
 						 ]
 					      ]
@@ -46,32 +46,32 @@ aDownload = [
 		["Ring 1.0 Libraries and Tools",[
 				 [
 					'WebLib 1.0 source code (CGI Library for Ring)',
-					'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_WebLib_1.0_source_code_release.zip/download" target="_blank">Download</a>',
+					'<a href="https://github.com/ring-lang/ring/releases/download/v1.0/Fayed_WebLib_1.0_source_code_release.zip">Download</a>',
 					'<img src="weblib.jpg" width="40%">'
 				 ],
 				 [
 					'Ring extension for Notepad++',
-					'<a href="https://github.com/AbdelrahmanGIT/Ring_for_NotePad_plus_plus" target="_blank">Download</a>',
+					'<a href="https://github.com/AbdelrahmanGIT/Ring_for_NotePad_plus_plus">Download</a>',
 					'<img src="notepadpp.png" width="40%">'
 				 ],
 				 [
 					'Ring extension for Visual Studio',
-					'<a href="https://github.com/ahmadomar/RingForVS" target="_blank">Download</a>',
+					'<a href="https://github.com/ahmadomar/RingForVS">Download</a>',
 					'<img src="ringvs.png" width="40%">'
 				 ],
 				 [
 					'Ring extension for Sublime Text 2',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_SublimeText2_ SyntaxColoringForRing.zip/download" target="_blank">Download</a>',
+					'<a href="https://github.com/ring-lang/ring/releases/download/v1.0/Fayed_SublimeText2_.SyntaxColoringForRing.zip">Download</a>',
 					'<img src="ringsublime.jpg" width="40%">'
 				 ],
 				 [
 					'Ring extension for Geany',
-					'<a href="https://github.com/magdy-ragab/Geany-support-for-Ring-programming-language" target="_blank">Download</a>',
+					'<a href="https://github.com/magdy-ragab/Geany-support-for-Ring-programming-language">Download</a>',
 					'<img src="ringgeany.png" width="40%">'
 				 ],
 				 				 [
 					'Ring extension for Atom',
-					'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.0/Fayed_AtomEditor_Language_Ring.zip/download" target="_blank">Download</a>',
+					'<a href="https://github.com/ring-lang/ring/releases/download/v1.0/Fayed_AtomEditor_Language_Ring.zip">Download</a>',
 					'<img src="ringatom.jpg" width="40%">'
 				 ]
 				]

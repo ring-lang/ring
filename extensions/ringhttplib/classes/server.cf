@@ -1,0 +1,153 @@
+<class>
+name: HTTPLib_Server
+para: void
+codename: RingServer
+</class>
+
+bool listen(const char *host, int port)
+bool listen@2(const char *host, int port, int socket_flags)
+
+bool set_base_dir(const char *dir)
+bool set_base_dir@2(const char *dir,const char *mount_point)
+bool set_mount_point(const char *mount_point, const char *dir)
+bool set_mount_point@2(const char *mount_point, const char *dir,Headers headers)
+
+bool remove_mount_point(const char *mount_point)
+
+void set_file_extension_and_mimetype_mapping(const char *ext,const char *mime)
+
+void set_tcp_nodelay(bool on)
+void set_address_family(int family)
+
+<comment>
+  Server &set_expect_100_continue_handler(Expect100ContinueHandler handler);
+  Server &set_logger(Logger logger);
+  Server &set_socket_options(SocketOptions socket_options);
+  Server &set_default_headers(Headers headers);
+</comment>
+
+void set_keep_alive_max_count(size_t count)
+void set_keep_alive_timeout(time_t sec)
+
+void set_read_timeout(time_t sec)
+void set_read_timeout@2(time_t sec, time_t usec)
+
+void set_write_timeout(time_t sec)
+void set_write_timeout@2(time_t sec, time_t usec)
+
+void set_idle_interval(time_t sec)
+void set_idle_interval@2(time_t sec, time_t usec)
+
+void set_payload_max_length(size_t length)
+
+bool bind_to_port(const char *host, int port)
+bool bind_to_port@2(const char *host, int port, int socket_flags)
+int bind_to_any_port(const char *host)
+int bind_to_any_port@2(const char *host, int socket_flags)
+bool listen_after_bind(void)
+
+bool is_running(void)
+void stop(void)
+
+<register>
+void wget(const char *pattern, const char *cCode)
+const HTTPLib_Response *response(void)
+const HTTPLib_Request *request(void)
+</register>
+
+<code>
+
+int ring_httplib_checkpara(void *pPointer) 
+{
+
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return 1;
+	}
+
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return 1;
+	}
+
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return 1;
+	}
+
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return 1;
+	}
+
+	// Check Ring Code size
+	if ( strlen(RING_API_GETSTRING(3)) > RINGHTTPLIB_MAXRINGCODE ) {
+		RING_API_ERROR(RINGHTTPLIB_ERRORINCODESIZE);
+		return 1;
+	}
+
+	return 0;
+}
+
+RING_FUNC(ring_HTTPLib_Server_wget)
+{
+	RingServer *pObject ;
+	VM *pVMHTTPLib;
+	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
+	pVMHTTPLib = (VM *) pPointer;
+
+	RING_API_IGNORECPOINTERTYPE ;
+
+	if (ring_httplib_checkpara(pPointer)) return ;
+
+	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
+	pObject->Get(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
+		ringhttplibmtx.lock();
+		pObject->oRequest = &req;
+		pObject->oResponse = &res;
+		ring_vm_runcode(pVMHTTPLib, (char *) cHTTPLibRingCode);
+		ringhttplibmtx.unlock();
+	});
+}
+
+RING_FUNC(ring_HTTPLib_Server_response)
+{
+	RingServer *pObject ;
+
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
+	RING_API_RETCPOINTER(pObject->oResponse,"HTTPLib_Response");
+
+}
+
+RING_FUNC(ring_HTTPLib_Server_request)
+{
+	RingServer *pObject ;
+
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
+	RING_API_RETCPOINTER(pObject->oRequest,"HTTPLib_Request");
+
+}
+
+</code>

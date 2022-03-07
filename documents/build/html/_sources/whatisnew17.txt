@@ -15,34 +15,15 @@ List of changes and new features
 
 Ring 1.17 comes with the next features!
 
-* Citations Prediction
 * Merge Two Files 
 * Poetry Analysis 
+* Citations Prediction
 * CSVLib Library
 * JSONLib Library
+* RingCJSON Extension
 * TokensLib Library
 * Better GUILib
 * More Improvements
-
-.. index:: 
-	pair: What is new in Ring  1.17; Citations Prediction
-
-Citations Prediction
-====================
-
-An applicaiton to predict the research paper citations using title, abstract or authors.
-
-The applications uses Microsoft Azure Machine Learning for the Models
-
-The Models are trained using a Dataset for a specific domain and specific journal
-
-This application comes with 3 samples to see how it works!
-
-It's an example about using Ring, RingQt, RingLibCurl and JSONLib
-
-.. image:: predictionapp1.png
-	:alt: citations
-
 
 .. index:: 
 	pair: What is new in Ring  1.17; Merge Two Files
@@ -72,6 +53,25 @@ The source code is explained in a printed book about the subject
 
 .. image:: poetryanalysis.png
 	:alt: arabicpoetry
+
+.. index:: 
+	pair: What is new in Ring  1.17; Citations Prediction
+
+Citations Prediction
+====================
+
+An applicaiton to predict the research paper citations using title, abstract or authors.
+
+The applications uses Microsoft Azure Machine Learning for the Models
+
+The Models are trained using a Dataset for a specific domain and specific journal
+
+This application comes with 3 samples to see how it works!
+
+It's an example about using Ring, RingQt, RingLibCurl and JSONLib
+
+.. image:: predictionapp1.png
+	:alt: citations
 
 .. index:: 
 	pair: What is new in Ring  1.17; CSVLib Library
@@ -237,6 +237,18 @@ Output:
 	}
 
 .. index:: 
+	pair: What is new in Ring  1.17; RingCJSON Extension
+
+RingCJSON Extension
+===================
+
+This extension support the CJSON library
+
+CJSON URL: https://github.com/DaveGamble/cJSON
+
+JSONLib uses RingCJSON to read JSON files at high-performance
+
+.. index:: 
 	pair: What is new in Ring  1.17; TokensLib Library
 
 TokensLib Library
@@ -319,6 +331,38 @@ Screen Shot:
 .. image:: addlisttotablewidget.png
 	:alt: addlisttotablewidget
 
+
+(3) Added: toList() method to the tableWidget class 
+
+Example:
+
+.. code-block:: ring
+
+	aList = oView.tablewidget1.toList()
+	? aList
+
+(4) Added: AddList() method to the ListWidget class 
+
+.. tip:: ListWidget class is a subclass of QListWidget class
+
+.. note:: To use ListWidget class, import system.gui after loading guilib.ring or lightguilib.ring
+
+Example:
+
+.. code-block:: ring
+
+		aList = [ 1:10, "one", "two", "three"]
+		oView.listWidget1.addList(aList)
+
+(5) Added: toList() method to the ListWidget class 
+
+Example:
+
+.. code-block:: ring
+
+	aList = oView.listwidget1.toList()
+	? aList
+
 .. index:: 
 	pair: What is new in Ring  1.17; More Improvements
 
@@ -331,10 +375,15 @@ More Improvements
 * Many applications are updated to use LightGUILib 
 * Calendar application - Better code to detect the current year
 * JulianDayCalendar application - Better code to detect the current year
+* 2048 Game - Added window icon
 * Added: samples/Drawing/Mandelbrot/Mandelbrot_Fast.ring
+* Added: samples/AQuickStart/MySQL/mysql10.ring
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20
 * RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
 * RingLibCurl - Better support for Ring2EXE
+* Code generator for extensions - Better output messages 
+* Code generator for extensions - Avoid generating the delete method twice 
+* Code generator for extensions - Using codegenlib.ring for common functions 
 * Ring Object File - ring_objfile_writeCfile() - Better Code
 * Eval() function - Return NULL if the Return command is not used
 * SetPointer()/GetPointer() functions - Better Code
@@ -343,3 +392,8 @@ More Improvements
 * Ring VM - ICO_JUMPZ Instruction - Treat empty lists as Zero
 * Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero
 * Ring VM - The result of using the Not (!) operator then List will be False
+* Ring VM - State Management - Better Code - ring_vm_newobjectstackpointer() 
+* Ring VM - State management - Better Performance (when creating new objects)
+* Ring Compiler - Better Code - Using ring_general_addosfileseparator()
+* Ring Compiler - Better Code - Using ring_general_folderexistinfilename()
+* Ring Source Code - Better Format

@@ -199,11 +199,12 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Release Notes: Version 1.17</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#list-of-changes-and-new-features">List of changes and new features</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#citations-prediction">Citations Prediction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#merge-two-files">Merge Two Files</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#poetry-analysis">Poetry Analysis</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#citations-prediction">Citations Prediction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#csvlib-library">CSVLib Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#jsonlib-library">JSONLib Library</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#ringcjson-extension">RingCJSON Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tokenslib-library">TokensLib Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-guilib">Better GUILib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
@@ -285,37 +286,38 @@
 <span id="index-1"></span><h2>List of changes and new features<a class="headerlink" href="#list-of-changes-and-new-features" title="Permalink to this headline">¶</a></h2>
 <p>Ring 1.17 comes with the next features!</p>
 <ul class="simple">
-<li><p>Citations Prediction</p></li>
 <li><p>Merge Two Files</p></li>
 <li><p>Poetry Analysis</p></li>
+<li><p>Citations Prediction</p></li>
 <li><p>CSVLib Library</p></li>
 <li><p>JSONLib Library</p></li>
+<li><p>RingCJSON Extension</p></li>
 <li><p>TokensLib Library</p></li>
 <li><p>Better GUILib</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </div>
+<div class="section" id="merge-two-files">
+<span id="index-2"></span><h2>Merge Two Files<a class="headerlink" href="#merge-two-files" title="Permalink to this headline">¶</a></h2>
+<p>An application to merge two text files line by line</p>
+<p>Development Time: 30 minutes (Includes user interface design, coding, testing and distribution)</p>
+<img alt="merge" src="_images/mergetwofiles.png" />
+</div>
+<div class="section" id="poetry-analysis">
+<span id="index-3"></span><h2>Poetry Analysis<a class="headerlink" href="#poetry-analysis" title="Permalink to this headline">¶</a></h2>
+<p>An application to analysis the Arabic poetry</p>
+<p>The application is over 4000 lines of Ring code</p>
+<p>The source code is explained in a printed book about the subject</p>
+<img alt="arabicpoetry" src="_images/poetryanalysis.png" />
+</div>
 <div class="section" id="citations-prediction">
-<span id="index-2"></span><h2>Citations Prediction<a class="headerlink" href="#citations-prediction" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>Citations Prediction<a class="headerlink" href="#citations-prediction" title="Permalink to this headline">¶</a></h2>
 <p>An applicaiton to predict the research paper citations using title, abstract or authors.</p>
 <p>The applications uses Microsoft Azure Machine Learning for the Models</p>
 <p>The Models are trained using a Dataset for a specific domain and specific journal</p>
 <p>This application comes with 3 samples to see how it works!</p>
 <p>It’s an example about using Ring, RingQt, RingLibCurl and JSONLib</p>
 <img alt="citations" src="_images/predictionapp1.png" />
-</div>
-<div class="section" id="merge-two-files">
-<span id="index-3"></span><h2>Merge Two Files<a class="headerlink" href="#merge-two-files" title="Permalink to this headline">¶</a></h2>
-<p>An application to merge two text files line by line</p>
-<p>Development Time: 30 minutes (Includes user interface design, coding, testing and distribution)</p>
-<img alt="merge" src="_images/mergetwofiles.png" />
-</div>
-<div class="section" id="poetry-analysis">
-<span id="index-4"></span><h2>Poetry Analysis<a class="headerlink" href="#poetry-analysis" title="Permalink to this headline">¶</a></h2>
-<p>An application to analysis the Arabic poetry</p>
-<p>The application is over 4000 lines of Ring code</p>
-<p>The source code is explained in a printed book about the subject</p>
-<img alt="arabicpoetry" src="_images/poetryanalysis.png" />
 </div>
 <div class="section" id="csvlib-library">
 <span id="index-5"></span><h2>CSVLib Library<a class="headerlink" href="#csvlib-library" title="Permalink to this headline">¶</a></h2>
@@ -445,8 +447,14 @@ fax
 </pre></div>
 </div>
 </div>
+<div class="section" id="ringcjson-extension">
+<span id="index-7"></span><h2>RingCJSON Extension<a class="headerlink" href="#ringcjson-extension" title="Permalink to this headline">¶</a></h2>
+<p>This extension support the CJSON library</p>
+<p>CJSON URL: <a class="reference external" href="https://github.com/DaveGamble/cJSON">https://github.com/DaveGamble/cJSON</a></p>
+<p>JSONLib uses RingCJSON to read JSON files at high-performance</p>
+</div>
 <div class="section" id="tokenslib-library">
-<span id="index-7"></span><h2>TokensLib Library<a class="headerlink" href="#tokenslib-library" title="Permalink to this headline">¶</a></h2>
+<span id="index-8"></span><h2>TokensLib Library<a class="headerlink" href="#tokenslib-library" title="Permalink to this headline">¶</a></h2>
 <p>Using this library we can get Ring tokens from source code files or strings.</p>
 <p>Example:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;tokenslib.ring&quot;</span>
@@ -475,7 +483,7 @@ EndLine
 </div>
 </div>
 <div class="section" id="better-guilib">
-<span id="index-8"></span><h2>Better GUILib<a class="headerlink" href="#better-guilib" title="Permalink to this headline">¶</a></h2>
+<span id="index-9"></span><h2>Better GUILib<a class="headerlink" href="#better-guilib" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li><p>Many deprecated methods are removed from RingQt</p></li>
 <li><p>Added: AddList() method to the TableWidget class</p></li>
@@ -512,9 +520,41 @@ EndLine
 </div>
 <p>Screen Shot:</p>
 <img alt="addlisttotablewidget" src="_images/addlisttotablewidget.png" />
+<ol class="arabic simple" start="3">
+<li><p>Added: toList() method to the tableWidget class</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">oView</span><span class="p">.</span><span class="n">tablewidget1</span><span class="p">.</span><span class="n">toList</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="4">
+<li><p>Added: AddList() method to the ListWidget class</p></li>
+</ol>
+<div class="admonition tip">
+<p class="admonition-title">Tip</p>
+<p>ListWidget class is a subclass of QListWidget class</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>To use ListWidget class, import system.gui after loading guilib.ring or lightguilib.ring</p>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="o">[</span> <span class="mi">1</span><span class="p">:</span><span class="mi">10</span><span class="p">,</span> <span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="s">&quot;two&quot;</span><span class="p">,</span> <span class="s">&quot;three&quot;</span><span class="o">]</span>
+<span class="n">oView</span><span class="p">.</span><span class="n">listWidget1</span><span class="p">.</span><span class="n">addList</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+</pre></div>
+</div>
+<ol class="arabic simple" start="5">
+<li><p>Added: toList() method to the ListWidget class</p></li>
+</ol>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">aList</span> <span class="o">=</span> <span class="n">oView</span><span class="p">.</span><span class="n">listwidget1</span><span class="p">.</span><span class="n">toList</span><span class="p">()</span>
+<span class="o">?</span> <span class="n">aList</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-9"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring Notepad (Web Browser) - Support URLs without “http” in the start</p></li>
 <li><p>Form Designer - Default TextColor is Empty (Better when changing styles)</p></li>
@@ -522,10 +562,15 @@ EndLine
 <li><p>Many applications are updated to use LightGUILib</p></li>
 <li><p>Calendar application - Better code to detect the current year</p></li>
 <li><p>JulianDayCalendar application - Better code to detect the current year</p></li>
+<li><p>2048 Game - Added window icon</p></li>
 <li><p>Added: samples/Drawing/Mandelbrot/Mandelbrot_Fast.ring</p></li>
+<li><p>Added: samples/AQuickStart/MySQL/mysql10.ring</p></li>
 <li><p>RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20</p></li>
 <li><p>RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1</p></li>
 <li><p>RingLibCurl - Better support for Ring2EXE</p></li>
+<li><p>Code generator for extensions - Better output messages</p></li>
+<li><p>Code generator for extensions - Avoid generating the delete method twice</p></li>
+<li><p>Code generator for extensions - Using codegenlib.ring for common functions</p></li>
 <li><p>Ring Object File - ring_objfile_writeCfile() - Better Code</p></li>
 <li><p>Eval() function - Return NULL if the Return command is not used</p></li>
 <li><p>SetPointer()/GetPointer() functions - Better Code</p></li>
@@ -534,6 +579,11 @@ EndLine
 <li><p>Ring VM - ICO_JUMPZ Instruction - Treat empty lists as Zero</p></li>
 <li><p>Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero</p></li>
 <li><p>Ring VM - The result of using the Not (!) operator then List will be False</p></li>
+<li><p>Ring VM - State Management - Better Code - ring_vm_newobjectstackpointer()</p></li>
+<li><p>Ring VM - State management - Better Performance (when creating new objects)</p></li>
+<li><p>Ring Compiler - Better Code - Using ring_general_addosfileseparator()</p></li>
+<li><p>Ring Compiler - Better Code - Using ring_general_folderexistinfilename()</p></li>
+<li><p>Ring Source Code - Better Format</p></li>
 </ul>
 </div>
 </div>

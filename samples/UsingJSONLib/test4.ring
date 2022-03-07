@@ -5,8 +5,8 @@ cJSON =`
 	"name": "Ring",
 	"year": 2016,
 	"license": "MIT",
-	"other": NULL,
-	"more": null
+	"other": null,
+	"more": true
 }
 `
 

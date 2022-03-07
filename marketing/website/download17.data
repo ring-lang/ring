@@ -2,39 +2,39 @@
 		["Ring 1.7 All Platforms",[			
 						 [
 							'Ring 1.7 For Windows (32bit and 64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_Ring_1.7_All_Platforms.exe/download" target="_blank">Download  (109 MB)</a>'						
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.7/Fayed_Ring_1.7_All_Platforms_Windows.exe">Download  (109 MB)</a>'						
 						 ],
 						 [
 							'Ring 1.7 For Ubuntu Linux (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_Ring_1.7_All_Platforms_Ubuntu.zip/download" target="_blank">Download  (191 MB)</a>'						
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.7/Fayed_Ring_1.7_All_Platforms_Ubuntu.zip">Download  (191 MB)</a>'						
 						 ],
 						 [
 							'Ring 1.7 For Fedora Linux (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_Ring_1.7_All_Platforms_Fedora.zip/download" target="_blank">Download  (191 MB)</a>'						
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.7/Fayed_Ring_1.7_All_Platforms_Fedora.zip">Download  (191 MB)</a>'						
 						 ],						 
 						 [
 							'Ring 1.7 For macOS (64bit)<br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_Ring_1.7_All_Platforms_macOS.zip/download" target="_blank">Download  (194 MB)</a>'						
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.7/Fayed_Ring_1.7_All_Platforms_macOS.zip">Download  (194 MB)</a>'						
 						 ],						 
 						 [
 							'Ring 1.7 (Light Release - Source Code - All Platforms) <br>',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_Ring_1.7_LightRelease_SourceCode.zip/download" target="_blank">Download (147 KB) </a>'
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.7/Fayed_Ring_1.7_LightRelease_SourceCode.zip">Download (147 KB) </a>'
 						 ],
 						 [
 							'Ring 1.7 (Light Release - Windows Binary) <br> ',
-							'<a href="http://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_Ring_1.7_LightRelease_Windows_Binary.zip/download" target="_blank">Download (517 KB)</a>'
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.7/Fayed_Ring_1.7_LightRelease_Windows_Binary.zip">Download (517 KB)</a>'
 						 ],						 
 						 [
 							'Ring 1.7 Documentation (PDF) ',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_RingDoc_1.7.pdf/download" target="_blank">Download (18.9 MB)</a>'
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.7/Fayed_RingDoc_1.7.pdf">Download (18.9 MB)</a>'
 						 ],
 						 [
 							'Ring 1.7 Documentation (CHM)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_RingDoc_1.7.chm/download" target="_blank">Download (15.4 MB)</a>'							
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.7/Fayed_RingDoc_1.7.chm">Download (15.4 MB)</a>'							
 						 ],
 						 [
 							'Ring 1.7 Documentation (HTML)',
-							'<a href="https://sourceforge.net/projects/ring-lang/files/Ring%201.7/Fayed_RingDoc_1.7.zip/download" target="_blank">Download (15.6 MB)</a>'							
+							'<a href="https://github.com/ring-lang/ring/releases/download/v1.7/Fayed_RingDoc_1.7.zip">Download (15.6 MB)</a>'							
 						 ]
 						 
 			]
