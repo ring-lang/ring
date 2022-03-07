@@ -41,9 +41,6 @@ CPPHTTPLIB_RECV_FLAGS
 CPPHTTPLIB_LISTEN_BACKLOG
 </constant>
 
-<struct>
-</struct>
-
 <runcode>
 aNumberTypes + "size_t"
 aNumberTypes + "char"
@@ -54,9 +51,15 @@ aEnumTypes + "Error"
 aEnumTypes + "EncodingType"
 
 aStringTypes + "std::string"
+aStringTypes + "string"
 
 aBeforeReturn + ["std::string",".c_str()"]
+aBeforeReturn + ["string",".c_str()"]
 </runcode>
+
+<struct>
+MultipartFormData {string name,string content,string filename,string content_type}
+</struct>
 
 <loadfile> classes/server.cf
 <loadfile> classes/response.cf

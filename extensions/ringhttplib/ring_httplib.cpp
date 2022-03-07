@@ -104,6 +104,184 @@ RING_FUNC(ring_get_cpphttplib_listen_backlog)
 	RING_API_RETNUMBER(CPPHTTPLIB_LISTEN_BACKLOG);
 }
 
+RING_FUNC(ring_new_multipartformdata)
+{
+	MultipartFormData *pMyPointer ;
+	pMyPointer = (MultipartFormData *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(MultipartFormData)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETCPOINTER(pMyPointer,"MultipartFormData");
+}
+
+RING_FUNC(ring_new_managed_multipartformdata)
+{
+	MultipartFormData *pMyPointer ;
+	pMyPointer = (MultipartFormData *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(MultipartFormData)) ;
+	if (pMyPointer == NULL) 
+	{
+		RING_API_ERROR(RING_OOM);
+		return ;
+	}
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"MultipartFormData",ring_state_free);
+}
+
+RING_FUNC(ring_destroy_multipartformdata)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData*) RING_API_GETCPOINTER(1,"MultipartFormData");
+	if (pMyPointer != NULL) {
+		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_SETNULLPOINTER(1);
+	}
+}
+
+RING_FUNC(ring_get_multipartformdata_name)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(1,"MultipartFormData");
+	RING_API_RETSTRING(pMyPointer->name.c_str());
+}
+
+RING_FUNC(ring_set_multipartformdata_name)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(1,"MultipartFormData");
+	pMyPointer->name = RING_API_GETSTRING(2);
+}
+
+RING_FUNC(ring_get_multipartformdata_content)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(1,"MultipartFormData");
+	RING_API_RETSTRING(pMyPointer->content.c_str());
+}
+
+RING_FUNC(ring_set_multipartformdata_content)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(1,"MultipartFormData");
+	pMyPointer->content = RING_API_GETSTRING(2);
+}
+
+RING_FUNC(ring_get_multipartformdata_filename)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(1,"MultipartFormData");
+	RING_API_RETSTRING(pMyPointer->filename.c_str());
+}
+
+RING_FUNC(ring_set_multipartformdata_filename)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(1,"MultipartFormData");
+	pMyPointer->filename = RING_API_GETSTRING(2);
+}
+
+RING_FUNC(ring_get_multipartformdata_content_type)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(1,"MultipartFormData");
+	RING_API_RETSTRING(pMyPointer->content_type.c_str());
+}
+
+RING_FUNC(ring_set_multipartformdata_content_type)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(1,"MultipartFormData");
+	pMyPointer->content_type = RING_API_GETSTRING(2);
+}
+
 
 RING_FUNC(ring_HTTPLib_Server_listen)
 {
@@ -1046,6 +1224,52 @@ RING_FUNC(ring_HTTPLib_Request_has_param)
 }
 
 
+RING_FUNC(ring_HTTPLib_Request_get_param_value)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->get_param_value(RING_API_GETSTRING(2)).c_str());
+}
+
+
+RING_FUNC(ring_HTTPLib_Request_get_param_value_2)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 3 ) {
+		RING_API_ERROR(RING_API_MISS3PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->get_param_value(RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3)).c_str());
+}
+
+
 RING_FUNC(ring_HTTPLib_Request_get_param_value_count)
 {
 	Request *pObject ;
@@ -1105,7 +1329,7 @@ RING_FUNC(ring_HTTPLib_Request_has_file)
 }
 
 
-RING_FUNC(ring_HTTPLib_Request_get_param_value)
+RING_FUNC(ring_HTTPLib_Request_get_file_value)
 {
 	Request *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -1122,32 +1346,12 @@ RING_FUNC(ring_HTTPLib_Request_get_param_value)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	RING_API_RETSTRING(pObject->get_param_value(RING_API_GETSTRING(2)).c_str());
-}
-
-
-RING_FUNC(ring_HTTPLib_Request_get_param_value_2)
-{
-	Request *pObject ;
-	if ( RING_API_PARACOUNT != 3 ) {
-		RING_API_ERROR(RING_API_MISS3PARA);
-		return ;
+	{
+		MultipartFormData *pValue ; 
+		pValue = (MultipartFormData *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(MultipartFormData)) ;
+		*pValue = pObject->get_file_value(RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"MultipartFormData",ring_state_free);
 	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
-	if ( ! RING_API_ISSTRING(2) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	if ( ! RING_API_ISNUMBER(3) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	RING_API_RETSTRING(pObject->get_param_value(RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3)).c_str());
 }
 
 
@@ -1322,11 +1526,12 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("httplib_request_get_header_value_count",ring_HTTPLib_Request_get_header_value_count);
 	ring_vm_funcregister("httplib_request_set_header",ring_HTTPLib_Request_set_header);
 	ring_vm_funcregister("httplib_request_has_param",ring_HTTPLib_Request_has_param);
+	ring_vm_funcregister("httplib_request_get_param_value",ring_HTTPLib_Request_get_param_value);
+	ring_vm_funcregister("httplib_request_get_param_value_2",ring_HTTPLib_Request_get_param_value_2);
 	ring_vm_funcregister("httplib_request_get_param_value_count",ring_HTTPLib_Request_get_param_value_count);
 	ring_vm_funcregister("httplib_request_is_multipart_form_data",ring_HTTPLib_Request_is_multipart_form_data);
 	ring_vm_funcregister("httplib_request_has_file",ring_HTTPLib_Request_has_file);
-	ring_vm_funcregister("httplib_request_get_param_value",ring_HTTPLib_Request_get_param_value);
-	ring_vm_funcregister("httplib_request_get_param_value_2",ring_HTTPLib_Request_get_param_value_2);
+	ring_vm_funcregister("httplib_request_get_file_value",ring_HTTPLib_Request_get_file_value);
 	ring_vm_funcregister("httplib_client_download",ring_HTTPLib_Client_download);
 	ring_vm_funcregister("httplib_server_new",ring_HTTPLib_Server_new);
 	ring_vm_funcregister("httplib_response_new",ring_HTTPLib_Response_new);
@@ -1354,4 +1559,15 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("get_cpphttplib_thread_pool_count",ring_get_cpphttplib_thread_pool_count);
 	ring_vm_funcregister("get_cpphttplib_recv_flags",ring_get_cpphttplib_recv_flags);
 	ring_vm_funcregister("get_cpphttplib_listen_backlog",ring_get_cpphttplib_listen_backlog);
+	ring_vm_funcregister("new_multipartformdata",ring_new_multipartformdata);
+	ring_vm_funcregister("new_managed_multipartformdata",ring_new_managed_multipartformdata);
+	ring_vm_funcregister("destroy_multipartformdata",ring_destroy_multipartformdata);
+	ring_vm_funcregister("get_multipartformdata_name",ring_get_multipartformdata_name);
+	ring_vm_funcregister("set_multipartformdata_name",ring_set_multipartformdata_name);
+	ring_vm_funcregister("get_multipartformdata_content",ring_get_multipartformdata_content);
+	ring_vm_funcregister("set_multipartformdata_content",ring_set_multipartformdata_content);
+	ring_vm_funcregister("get_multipartformdata_filename",ring_get_multipartformdata_filename);
+	ring_vm_funcregister("set_multipartformdata_filename",ring_set_multipartformdata_filename);
+	ring_vm_funcregister("get_multipartformdata_content_type",ring_get_multipartformdata_content_type);
+	ring_vm_funcregister("set_multipartformdata_content_type",ring_set_multipartformdata_content_type);
 }
