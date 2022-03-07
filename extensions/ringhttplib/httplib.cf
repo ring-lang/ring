@@ -53,9 +53,9 @@ aEnumTypes + "HandlerResponse"
 aEnumTypes + "Error"
 aEnumTypes + "EncodingType"
 
-aStringTypes + "std::QString"
+aStringTypes + "std::string"
 
-aBeforeReturn + ["std::QString",".c_str()"]
+aBeforeReturn + ["std::string",".c_str()"]
 </runcode>
 
 <loadfile> classes/server.cf

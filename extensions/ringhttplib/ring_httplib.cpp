@@ -1122,12 +1122,7 @@ RING_FUNC(ring_HTTPLib_Request_get_param_value)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		std::string *pValue ; 
-		pValue = (std::string *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(std::string)) ;
-		*pValue = pObject->get_param_value(RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"std::string",ring_state_free);
-	}
+	RING_API_RETSTRING(pObject->get_param_value(RING_API_GETSTRING(2)).c_str());
 }
 
 
@@ -1152,12 +1147,7 @@ RING_FUNC(ring_HTTPLib_Request_get_param_value_2)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	{
-		std::string *pValue ; 
-		pValue = (std::string *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(std::string)) ;
-		*pValue = pObject->get_param_value(RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3));
-		RING_API_RETMANAGEDCPOINTER(pValue,"std::string",ring_state_free);
-	}
+	RING_API_RETSTRING(pObject->get_param_value(RING_API_GETSTRING(2), (size_t ) RING_API_GETNUMBER(3)).c_str());
 }
 
 
