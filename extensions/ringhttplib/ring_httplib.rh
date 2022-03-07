@@ -138,24 +138,6 @@ Class HTTPLib_Response
 	Func ObjectPointer
 		return pObject
 
-	Func set_content P1,P2
-		return HTTPLib_Response_set_content(pObject,P1,P2)
-
-	Func set_content_2 P1,P2,P3
-		return HTTPLib_Response_set_content_2(pObject,P1,P2,P3)
-
-	Func set_redirect P1
-		return HTTPLib_Response_set_redirect(pObject,P1)
-
-	Func set_redirect_2 P1,P2
-		return HTTPLib_Response_set_redirect_2(pObject,P1,P2)
-
-	Func set_header P1,P2
-		return HTTPLib_Response_set_header(pObject,P1,P2)
-
-	Func get_header_value_count P1
-		return HTTPLib_Response_get_header_value_count(pObject,P1)
-
 	Func has_header P1
 		return HTTPLib_Response_has_header(pObject,P1)
 
@@ -164,6 +146,24 @@ Class HTTPLib_Response
 
 	Func get_header_value_2 P1,P2
 		return HTTPLib_Response_get_header_value_2(pObject,P1,P2)
+
+	Func get_header_value_count P1
+		return HTTPLib_Response_get_header_value_count(pObject,P1)
+
+	Func set_header P1,P2
+		return HTTPLib_Response_set_header(pObject,P1,P2)
+
+	Func set_redirect P1
+		return HTTPLib_Response_set_redirect(pObject,P1)
+
+	Func set_redirect_2 P1,P2
+		return HTTPLib_Response_set_redirect_2(pObject,P1,P2)
+
+	Func set_content P1,P2
+		return HTTPLib_Response_set_content(pObject,P1,P2)
+
+	Func set_content_2 P1,P2,P3
+		return HTTPLib_Response_set_content_2(pObject,P1,P2,P3)
 
 Class HTTPLib_Request
 
