@@ -2089,7 +2089,7 @@ RING_FUNC(ring_HTTPLib_Client_Patch_2)
 }
 
 
-RING_FUNC(ring_HTTPLib_Client_Delete)
+RING_FUNC(ring_HTTPLib_Client_Delete_2)
 {
 	Client *pObject ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -2115,7 +2115,7 @@ RING_FUNC(ring_HTTPLib_Client_Delete)
 }
 
 
-RING_FUNC(ring_HTTPLib_Client_Delete_2)
+RING_FUNC(ring_HTTPLib_Client_Delete_3)
 {
 	Client *pObject ;
 	if ( RING_API_PARACOUNT != 5 ) {
@@ -2490,8 +2490,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("httplib_client_post_2",ring_HTTPLib_Client_Post_2);
 	ring_vm_funcregister("httplib_client_patch",ring_HTTPLib_Client_Patch);
 	ring_vm_funcregister("httplib_client_patch_2",ring_HTTPLib_Client_Patch_2);
-	ring_vm_funcregister("httplib_client_delete",ring_HTTPLib_Client_Delete);
 	ring_vm_funcregister("httplib_client_delete_2",ring_HTTPLib_Client_Delete_2);
+	ring_vm_funcregister("httplib_client_delete_3",ring_HTTPLib_Client_Delete_3);
 	ring_vm_funcregister("httplib_client_options",ring_HTTPLib_Client_Options);
 	ring_vm_funcregister("httplib_client_options_2",ring_HTTPLib_Client_Options_2);
 	ring_vm_funcregister("httplib_result_has_request_header",ring_HTTPLib_Result_has_request_header);

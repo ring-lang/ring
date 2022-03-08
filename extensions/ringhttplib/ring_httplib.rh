@@ -313,11 +313,11 @@ Class HTTPLib_Client
 	Func Patch_2 P1,P2,P3,P4
 		return HTTPLib_Client_Patch_2(pObject,P1,P2,P3,P4)
 
-	Func Delete P1
-		return HTTPLib_Client_Delete(pObject,P1)
+	Func Delete_2 P1
+		return HTTPLib_Client_Delete_2(pObject,P1)
 
-	Func Delete_2 P1,P2,P3,P4
-		return HTTPLib_Client_Delete_2(pObject,P1,P2,P3,P4)
+	Func Delete_3 P1,P2,P3,P4
+		return HTTPLib_Client_Delete_3(pObject,P1,P2,P3,P4)
 
 	Func Options P1
 		return HTTPLib_Client_Options(pObject,P1)
