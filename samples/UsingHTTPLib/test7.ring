@@ -14,6 +14,7 @@ oServer.listen("0.0.0.0", 8080)
 func report
 	oPage = New HTMLPage
 	{
+		nRowsCount = 10
 		title = "Report"
 		h1 { text("Customers Report") }
 		Table
@@ -22,7 +23,7 @@ func report
 			TR
 			{
 				TD { WIDTH="10%" text("Customers Count : " )  }
-							TD { text (100) }
+							TD { text (nRowsCount) }
 			}
 		}
 		Table
@@ -37,7 +38,7 @@ func report
 				TD { text("Job" ) }	
 				TD { text("Company" ) }
 			}
-			for x =  1 to 10
+			for x =  1 to nRowsCount
 				TR
 				{
 					TD { text("Test" )  }
