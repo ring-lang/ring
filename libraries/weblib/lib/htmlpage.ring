@@ -6,3 +6,6 @@ Package System.Web
 
 	class HtmlPage from WebPage
 		NoOutput()
+
+	class HtmlPageFunctions from Page
+		NoOutput()
