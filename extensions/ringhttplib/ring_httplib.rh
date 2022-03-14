@@ -114,6 +114,9 @@ Class HTTPLib_Server
 	Func wget P1,P2
 		return HTTPLib_Server_wget(pObject,P1,P2)
 
+	Func wpost P1,P2
+		return HTTPLib_Server_wpost(pObject,P1,P2)
+
 	Func response 
 		pTempObj = new HTTPLib_Response
 		pTempObj.pObject = HTTPLib_Server_response(pObject)

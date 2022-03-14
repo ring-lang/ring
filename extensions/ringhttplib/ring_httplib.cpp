@@ -930,6 +930,30 @@ RING_FUNC(ring_HTTPLib_Server_wget)
 	});
 }
 
+RING_FUNC(ring_HTTPLib_Server_wpost)
+{
+	RingServer *pObject ;
+	VM *pVMHTTPLib;
+	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
+	pVMHTTPLib = (VM *) pPointer;
+
+	RING_API_IGNORECPOINTERTYPE ;
+
+	if (ring_httplib_checkpara(pPointer)) return ;
+
+	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
+	pObject->Post(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
+		ringhttplibmtx.lock();
+		pObject->oRequest = &req;
+		pObject->oResponse = &res;
+		ring_vm_runcode(pVMHTTPLib, (char *) cHTTPLibRingCode);
+		ringhttplibmtx.unlock();
+	});
+}
+
+
 RING_FUNC(ring_HTTPLib_Server_response)
 {
 	RingServer *pObject ;
@@ -2439,6 +2463,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("httplib_server_is_running",ring_HTTPLib_Server_is_running);
 	ring_vm_funcregister("httplib_server_stop",ring_HTTPLib_Server_stop);
 	ring_vm_funcregister("httplib_server_wget",ring_HTTPLib_Server_wget);
+	ring_vm_funcregister("httplib_server_wpost",ring_HTTPLib_Server_wpost);
 	ring_vm_funcregister("httplib_server_response",ring_HTTPLib_Server_response);
 	ring_vm_funcregister("httplib_server_request",ring_HTTPLib_Server_request);
 	ring_vm_funcregister("httplib_response_has_header",ring_HTTPLib_Response_has_header);

@@ -2,12 +2,20 @@ class Server from HTTPLib_Server
 
 	init()
 
-	func route cURL,cCode
-		# **Support anonymous functions - Also support normal Ring code**
+	func processEvent cCode 
 		if ! substr(cCode,"(")
 			cCode += " ()"
 		ok
+		return cCode	
+
+	func route cURL,cCode
+		# **Support anonymous functions - Also support normal Ring code**
+		cCode = processEvent(cCode)
 		return wGet(cURL,cCode)
+
+	func post cURL,cCode
+		cCode = processEvent(cCode)
+		return wPost(cURL,cCode)
 
 	func response 
 		pTempObj = new Response
