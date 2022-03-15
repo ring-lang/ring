@@ -381,6 +381,7 @@ More Improvements
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20
 * RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
 * RingLibCurl - Better support for Ring2EXE
+* RingQt - QString Class - Another version for the Replace() Method
 * Code generator for Extensions - Better output messages 
 * Code generator for Extensions - Avoid generating the delete method twice 
 * Code generator for Extensions - Using codegenlib.ring for common functions
