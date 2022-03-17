@@ -706,6 +706,10 @@ aPackagesRegistry = [
 	[ :name = "regex",
 	  :description = "An easy to use pattern matching",
 	  :ProviderUserName = "thexxiv"
+	],
+	[ :name = "softanzalib",
+	  :description = "Softanza Library for the Ring programming language",
+	  :ProviderUserName = "mayouni"
 	]
 
 ]
