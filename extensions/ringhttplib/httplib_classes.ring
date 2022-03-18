@@ -39,7 +39,7 @@ class Server from HTTPLib_Server
 
 	func variable cPara
 		if ! isString (cPara)
-			raise("Bad parameter value!")
+			raise("Bad parameter type!")
 		ok
 		return request().get_param_value(cPara)
 
