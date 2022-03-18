@@ -38,8 +38,8 @@ func form
 
 func formresponse
 	aPageVars = []
-	aPageVars["Number1"] = oServer.Variable("Number1")
-	aPageVars["Number2"] = oServer.Variable("Number2")
+	aPageVars["Number1"] = oServer["Number1"]
+	aPageVars["Number2"] = oServer["Number2"]
 
 	oPage = New HTMLPageFunctions
 	{

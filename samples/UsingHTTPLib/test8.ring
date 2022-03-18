@@ -120,13 +120,13 @@ func form
 func formresponse
 
 	aPageVars = []
-	aPageVars["Name"] = oServer.Variable("Name")
-	aPageVars["Address"] = oServer.Variable("Address")
-	aPageVars["Phone"] = oServer.Variable("Phone")
-	aPageVars["Age"] = oServer.Variable("Age")
-	aPageVars["City"] = oServer.Variable("City")
-	aPageVars["Country"] = oServer.Variable("Country")
-	aPageVars["Notes"] = oServer.Variable("Notes")
+	aPageVars["Name"] = oServer["Name"]
+	aPageVars["Address"] = oServer["Address"]
+	aPageVars["Phone"] = oServer["Phone"]
+	aPageVars["Age"] = oServer["Age"]
+	aPageVars["City"] = oServer["City"]
+	aPageVars["Country"] = oServer["Country"]
+	aPageVars["Notes"] = oServer["Notes"]
 
 	oPage = New HTMLPageFunctions
 	{
