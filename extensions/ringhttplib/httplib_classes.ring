@@ -43,6 +43,11 @@ class Server from HTTPLib_Server
 		ok
 		return request().get_param_value(cPara)
 
+	func operator cOperator, cValue
+		if cOperator = "[]"
+			return Variable(cValue)
+		ok
+
 class Response from HTTPLib_Response
 
 	func setContent p1,p2
