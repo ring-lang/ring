@@ -119,15 +119,6 @@ func form
 
 func formresponse
 
-	aPageVars = []
-	aPageVars["Name"] = oServer["Name"]
-	aPageVars["Address"] = oServer["Address"]
-	aPageVars["Phone"] = oServer["Phone"]
-	aPageVars["Age"] = oServer["Age"]
-	aPageVars["City"] = oServer["City"]
-	aPageVars["Country"] = oServer["Country"]
-	aPageVars["Notes"] = oServer["Notes"]
-
 	oPage = New HTMLPageFunctions
 	{
 		divstart([ :style = styledivcenter("800px","500px") ])
@@ -159,19 +150,19 @@ func formresponse
 				divend()
 				divstart([ :style = stylefloatleft() + stylewidth("95%") ])
 					newline()
-					text ( aPageVars["Name"] )
+					text ( oServer["Name"] )
 					newline() newline()
-					text ( aPageVars["Address"] )
+					text ( oServer["Address"] )
 					newline() newline()
-					text ( aPageVars["Phone"] )
+					text ( oServer["Phone"] )
 					newline() newline()
-					text (  aPageVars["Age"] )
+					text (  oServer["Age"] )
 					newline() newline()
-					text ( aPageVars["City"] )
+					text ( oServer["City"] )
 					newline() newline()
-					text (aPageVars["Country"] )
+					text (oServer["Country"] )
 					newline() newline()
-					text ( aPageVars["Notes"] )
+					text ( oServer["Notes"] )
 					newline() newline()
 				divend()
 			divend()

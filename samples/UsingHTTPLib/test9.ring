@@ -37,9 +37,6 @@ func form
 	oServer.setContent(oPage.Output(),"text/html")
 
 func formresponse
-	aPageVars = []
-	aPageVars["Number1"] = oServer["Number1"]
-	aPageVars["Number2"] = oServer["Number2"]
 
 	oPage = New HTMLPageFunctions
 	{
@@ -49,11 +46,11 @@ func formresponse
 		boxend()
 		divstart([ :style = styleFloatLeft()+styleWidth("200px") ])
 			newline()
-			text( "Number1 : " + aPageVars["Number1"] )  	
+			text( "Number1 : " + oServer["Number1"] )  	
 			newline() newline()
-			text( "Number2 : " + aPageVars["Number2"] )  	
+			text( "Number2 : " + oServer["Number2"] )  	
 			newline() newline()
-			text( "Sum : " + (0 + aPageVars["Number1"] + aPageVars["Number2"] ) )
+			text( "Sum : " + (0 + oServer["Number1"] + oServer["Number2"] ) )
 			newline()
 		divend()		
 	}	
