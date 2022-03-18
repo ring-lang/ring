@@ -8,10 +8,17 @@ class Server from HTTPLib_Server
 		ok
 		return cCode	
 
-	func route cURL,cCode
+	func route cURL,cType,cCode
 		# **Support anonymous functions - Also support normal Ring code**
 		cCode = processEvent(cCode)
-		return wGet(cURL,cCode)
+		switch lower(cType)
+			on :Get
+				return wGet(cURL,cCode)
+			on :Post 
+				return wPost(cURL,cCode)
+			other 
+				raise("Undefined type!")
+		off
 
 	func post cURL,cCode
 		cCode = processEvent(cCode)
