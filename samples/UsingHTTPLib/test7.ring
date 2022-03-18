@@ -6,7 +6,7 @@ import System.Web
 oServer = new Server 
 
 ? "Try localhost:8080/report"
-oServer.route("/report",:report)
+oServer.route("/report",:Get,:report)
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)
