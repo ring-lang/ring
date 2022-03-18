@@ -120,13 +120,13 @@ func form
 func formresponse
 
 	aPageVars = []
-	aPageVars["Name"] = oServer.Request().get_param_value("Name")
-	aPageVars["Address"] = oServer.Request().get_param_value("Address")
-	aPageVars["Phone"] = oServer.Request().get_param_value("Phone")
-	aPageVars["Age"] = oServer.Request().get_param_value("Age")
-	aPageVars["City"] = oServer.Request().get_param_value("City")
-	aPageVars["Country"] = oServer.Request().get_param_value("Country")
-	aPageVars["Notes"] = oServer.Request().get_param_value("Notes")
+	aPageVars["Name"] = oServer.Variable("Name")
+	aPageVars["Address"] = oServer.Variable("Address")
+	aPageVars["Phone"] = oServer.Variable("Phone")
+	aPageVars["Age"] = oServer.Variable("Age")
+	aPageVars["City"] = oServer.Variable("City")
+	aPageVars["Country"] = oServer.Variable("Country")
+	aPageVars["Notes"] = oServer.Variable("Notes")
 
 	oPage = New HTMLPageFunctions
 	{
