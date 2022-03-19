@@ -446,13 +446,12 @@ void ring_scanner_checktoken ( Scanner *pScanner )
     if ( pScanner->pRingState->lNotCaseSensitive ) {
         ring_string_tolower(pScanner->ActiveToken);
         cActiveStr = ring_string_get(pScanner->ActiveToken) ;
+        nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),cActiveStr);
     }
     else {
         cActiveStr = ring_string_strdup(pScanner->pRingState,ring_string_get(pScanner->ActiveToken));
         cActiveStr = ring_string_lower(cActiveStr);
-    }
-    nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),cActiveStr);
-    if ( !pScanner->pRingState->lNotCaseSensitive ) {
+        nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),cActiveStr);
         ring_state_free(pScanner->pRingState,cActiveStr);
     }
     if ( nResult > 0 ) {
