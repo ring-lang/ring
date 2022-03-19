@@ -443,13 +443,19 @@ void ring_scanner_checktoken ( Scanner *pScanner )
     /* This function determine if the TOKEN is a Keyword or Identifier or Number */
     assert(pScanner != NULL);
     /* Not Case Sensitive */
-    cActiveStr = ring_string_strdup(pScanner->pRingState,ring_string_get(pScanner->ActiveToken));
-    cActiveStr = ring_string_lower(cActiveStr);
     if ( pScanner->pRingState->lNotCaseSensitive ) {
         ring_string_tolower(pScanner->ActiveToken);
+        cActiveStr = ring_string_get(pScanner->ActiveToken);
+    }
+    else {
+        cActiveStr = ring_string_strdup(pScanner->pRingState, ring_string_get(pScanner->ActiveToken));
+        cActiveStr = ring_string_lower(cActiveStr);
     }
     nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),cActiveStr);
-    ring_state_free(pScanner->pRingState,cActiveStr);
+    if (!pScanner->pRingState->lNotCaseSensitive) {
+        /* free allocated string in case of lNotCaseSensitive is FALSE */
+        ring_state_free(pScanner->pRingState, cActiveStr);
+    }
     if ( nResult > 0 ) {
         #if RING_SCANNEROUTPUT
             printf( "\nTOKEN (Keyword) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;
