@@ -445,16 +445,15 @@ void ring_scanner_checktoken ( Scanner *pScanner )
     /* Not Case Sensitive */
     if ( pScanner->pRingState->lNotCaseSensitive ) {
         ring_string_tolower(pScanner->ActiveToken);
-        cActiveStr = ring_string_get(pScanner->ActiveToken);
+        cActiveStr = ring_string_get(pScanner->ActiveToken) ;
     }
     else {
-        cActiveStr = ring_string_strdup(pScanner->pRingState, ring_string_get(pScanner->ActiveToken));
+        cActiveStr = ring_string_strdup(pScanner->pRingState,ring_string_get(pScanner->ActiveToken));
         cActiveStr = ring_string_lower(cActiveStr);
     }
     nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),cActiveStr);
-    if (!pScanner->pRingState->lNotCaseSensitive) {
-        /* free allocated string in case of lNotCaseSensitive is FALSE */
-        ring_state_free(pScanner->pRingState, cActiveStr);
+    if ( !pScanner->pRingState->lNotCaseSensitive ) {
+        ring_state_free(pScanner->pRingState,cActiveStr);
     }
     if ( nResult > 0 ) {
         #if RING_SCANNEROUTPUT
