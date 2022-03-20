@@ -34,6 +34,7 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
     ring_vm_funcregister("fexists",ring_vm_file_fexists);
     ring_vm_funcregister("direxists",ring_vm_file_direxists);
     ring_vm_funcregister("getpathtype",ring_vm_file_getpathtype);
+    ring_vm_funcregister("getfilesize",ring_vm_file_getfilesize);
     ring_vm_funcregister("int2bytes",ring_vm_file_int2bytes);
     ring_vm_funcregister("float2bytes",ring_vm_file_float2bytes);
     ring_vm_funcregister("double2bytes",ring_vm_file_double2bytes);
@@ -102,6 +103,19 @@ int ring_getpathtype ( const char *cDirPath )
         return -1 ;
     }
     return 0 ;
+}
+
+RING_LONGLONG ring_getfilesize ( const char *cFilePath )
+{
+    struct stat sb  ;
+    if ( stat(cFilePath, &sb) == 0 ) {
+        if ( S_ISREG(sb.st_mode) ) {
+            /* Path exists and it is a regular file */
+            return (RING_LONGLONG) sb.st_size ;
+        }
+    }
+    /* Doesn't exist or not a file */
+    return (RING_LONGLONG) -1 ;
 }
 
 void ring_vm_file_fopen ( void *pPointer )
@@ -801,6 +815,20 @@ void ring_vm_file_getpathtype ( void *pPointer )
     }
     if ( RING_API_ISSTRING(1) ) {
         RING_API_RETNUMBER(ring_getpathtype(RING_API_GETSTRING(1)));
+    }
+    else {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+    }
+}
+
+void ring_vm_file_getfilesize ( void *pPointer )
+{
+    if ( RING_API_PARACOUNT != 1 ) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return ;
+    }
+    if ( RING_API_ISSTRING(1) ) {
+        RING_API_RETNUMBER(ring_getfilesize(RING_API_GETSTRING(1)));
     }
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);
