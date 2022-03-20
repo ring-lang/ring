@@ -33,6 +33,10 @@ sb
 ring_getpathtype
 Type: struct stat
 sb
+ring_getfilesize
+Type: struct stat
+sb
+ring_vm_file_getfilesize
 ring_vm_file_fopen
 Type: FILE *
 fp

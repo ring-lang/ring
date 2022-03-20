@@ -34,7 +34,7 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
     ring_vm_funcregister("fexists",ring_vm_file_fexists);
     ring_vm_funcregister("direxists",ring_vm_file_direxists);
     ring_vm_funcregister("getpathtype",ring_vm_file_getpathtype);
-	ring_vm_funcregister("getfilesize",ring_vm_file_getfilesize);
+    ring_vm_funcregister("getfilesize",ring_vm_file_getfilesize);
     ring_vm_funcregister("int2bytes",ring_vm_file_int2bytes);
     ring_vm_funcregister("float2bytes",ring_vm_file_float2bytes);
     ring_vm_funcregister("double2bytes",ring_vm_file_double2bytes);
@@ -114,7 +114,7 @@ RING_LONGLONG ring_getfilesize ( const char *cFilePath )
             return (RING_LONGLONG) sb.st_size ;
         }
     }
-	/* doesn't exist or not a file */
+    /* Doesn't exist or not a file */
     return (RING_LONGLONG) -1 ;
 }
 
