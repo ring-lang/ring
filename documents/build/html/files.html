@@ -136,6 +136,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#fexists-function">Fexists() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#direxists-function">Direxists() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#getpathtype-function">Getpathtype() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getfilesize-function">Getfilesize() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#numbers-and-bytes">Numbers and Bytes</a></li>
 </ul>
@@ -335,6 +336,7 @@
 <li><p>fexists()</p></li>
 <li><p>direxists()</p></li>
 <li><p>getpathtype()</p></li>
+<li><p>getfilesize()</p></li>
 <li><p>Numbers and Bytes</p></li>
 </ul>
 <div class="section" id="read-function">
@@ -750,8 +752,30 @@ function</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="getfilesize-function">
+<span id="index-31"></span><h2>Getfilesize() Function<a class="headerlink" href="#getfilesize-function" title="Permalink to this headline">¶</a></h2>
+<p>We can get the size in bytes of a given file using the Getfilesize() function</p>
+<p>Syntax:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>Getfilesize(cFilePath) ---&gt; file size in bytes as a positive Number
+                            or -1 in case of failure
+                            (e.g. path doesn&#39;t exist or not a regular file)
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">?</span> <span class="n">Getfilesize</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing</span><span class="se">\b</span><span class="s">in</span><span class="se">\r</span><span class="s">ing.exe&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+  <span class="n">Getfilesize</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+  <span class="n">Getfilesize</span><span class="p">(</span><span class="s">&quot;b:</span><span class="se">\r</span><span class="s">ing</span><span class="se">\r</span><span class="s">ing2.exe&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Output:</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>80384
+-1
+-1
+</pre></div>
+</div>
+</div>
 <div class="section" id="example">
-<span id="index-31"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
+<span id="index-32"></span><h2>Example<a class="headerlink" href="#example" title="Permalink to this headline">¶</a></h2>
 <p>The next program test some of the file functions</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;testing file functions&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
@@ -842,7 +866,7 @@ function</p>
 </div>
 </div>
 <div class="section" id="numbers-and-bytes">
-<span id="index-32"></span><h2>Numbers and Bytes<a class="headerlink" href="#numbers-and-bytes" title="Permalink to this headline">¶</a></h2>
+<span id="index-33"></span><h2>Numbers and Bytes<a class="headerlink" href="#numbers-and-bytes" title="Permalink to this headline">¶</a></h2>
 <p>The next functions to convert between Numbers and Bytes.</p>
 <ul class="simple">
 <li><p>Int2Bytes()</p></li>
