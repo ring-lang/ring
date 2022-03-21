@@ -5,10 +5,6 @@ Items * ring_items_new_gc ( void *pState )
 {
     Items *pItems  ;
     pItems = (Items *) ring_state_malloc(pState,sizeof(Items));
-    if ( pItems == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     pItems->pValue = ring_item_new_gc(pState,ITEMTYPE_NOTHING) ;
     pItems->pNext = NULL ;
     pItems->pPrev = NULL ;

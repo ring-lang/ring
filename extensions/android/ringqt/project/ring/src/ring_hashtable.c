@@ -6,18 +6,10 @@ HashTable * ring_hashtable_new_gc ( void *pRingState )
 {
     HashTable *pHashTable  ;
     pHashTable = (HashTable *) ring_state_malloc(pRingState,sizeof(HashTable));
-    if ( pHashTable == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     pHashTable->nItems = 0 ;
     pHashTable->nLinkedLists = 10 ;
     pHashTable->nRebuildSize = 7 ;
     pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState,pHashTable->nLinkedLists,sizeof(HashItem *));
-    if ( pHashTable->pArray == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     return pHashTable ;
 }
 
@@ -46,10 +38,6 @@ HashItem * ring_hashtable_newitem_gc ( void *pRingState,HashTable *pHashTable,co
         }
         pItem->pNext = (HashItem *) ring_state_malloc(pRingState,sizeof(HashItem));
         pItem = pItem->pNext ;
-    }
-    if ( pItem == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
     }
     /* Store Copy from The Key */
     pItem->cKey = ring_string_strdup(pRingState,cKey) ;
@@ -176,10 +164,6 @@ void ring_hashtable_rebuild_gc ( void *pRingState,HashTable *pHashTable )
     pHashTable->nRebuildSize *= 10 ;
     pHashTable->nLinkedLists *= 10 ;
     pHashTable->pArray = (HashItem **) ring_state_calloc(pRingState,pHashTable->nLinkedLists,sizeof(HashItem *));
-    if ( pHashTable->pArray == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     for ( x = 0 ; x < nLinkedLists ; x++ ) {
         pItem = pArray[x] ;
         while ( pItem != NULL ) {

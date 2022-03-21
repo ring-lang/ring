@@ -9,10 +9,6 @@ RING_API List * ring_list_new_gc ( void *pState,int nSize )
 {
     List *pList  ;
     pList = (List *) ring_state_malloc(pState,sizeof(List));
-    if ( pList == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     return ring_list_new2_gc(pState,pList,nSize) ;
 }
 
@@ -1047,10 +1043,6 @@ RING_API void ring_list_genarray_gc ( void *pState,List *pList )
     **  And ring_list_getitem() check for using pList->pItemsArray 
     */
     pArray = (Item **) ring_state_malloc(pState,ring_list_getsize(pList) * sizeof(Item *));
-    if ( pArray == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     for ( x = 1 ; x <= ring_list_getsize(pList) ; x++ ) {
         pArray[x-1] = ring_list_getitem(pList,x);
     }

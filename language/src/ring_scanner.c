@@ -6,10 +6,6 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 {
     Scanner *pScanner  ;
     pScanner = (Scanner *) ring_state_malloc(pRingState,sizeof(Scanner));
-    if ( pScanner == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     pScanner->pRingState = pRingState ;
     pScanner->state = SCANNER_STATE_GENERAL ;
     pScanner->ActiveToken = ring_string_new_gc(pRingState,"");
