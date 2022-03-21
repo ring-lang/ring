@@ -402,3 +402,4 @@ More Improvements
 * Ring Compiler - Better Code - Using ring_general_folderexistinfilename()
 * Ring Compiler - ring_scanner_checktoken() - Faster & Better Code
 * Ring Source Code - Better Format
+* Ring Source Code - Check out of memory at the Callee side instead of the Caller
