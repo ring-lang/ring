@@ -64,6 +64,8 @@
     void ring_vm_file_direxists ( void *pPointer ) ;
 
     void ring_vm_file_getpathtype ( void *pPointer ) ;
+
+    void ring_vm_file_getfilesize ( void *pPointer ) ;
     /* Number & Bytes */
 
     void ring_vm_file_int2bytes ( void *pPointer ) ;

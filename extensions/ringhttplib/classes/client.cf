@@ -24,3 +24,39 @@ RING_FUNC(ring_HTTPLib_Client_download)
 }
 
 </code>
+
+bool is_valid(void)
+
+size_t is_socket_open(void)
+
+void stop(void)
+void set_address_family(int family)
+void set_tcp_nodelay(bool on)
+void set_connection_timeout(time_t sec)
+void set_connection_timeout@2(time_t sec, time_t usec)
+void set_read_timeout(time_t sec)
+void set_read_timeout@2(time_t sec, time_t usec)
+void set_write_timeout(time_t sec)
+void set_write_timeout@2(time_t sec, time_t usec)
+
+void set_basic_auth(const char *username, const char *password)
+void set_bearer_token_auth(const char *token)
+void set_keep_alive(bool on)
+void set_follow_location(bool on)
+void set_url_encode(bool on)
+void set_compress(bool on)
+void set_decompress(bool on)
+void set_interface(const char *intf)
+void set_proxy(const char *host, int port)
+void set_proxy_basic_auth(const char *username, const char *password)
+void set_proxy_bearer_token_auth(const char *token)
+
+Result Head(const char *path)
+Result Post(const char *path)
+Result Post@2(const char *path, const char *body, size_t content_length,const char *content_type)
+Result Patch(const char *path)
+Result Patch@2(const char *path, const char *body, size_t content_length,const char *content_type)
+Result Delete@2(const char *path)
+Result Delete@3(const char *path, const char *body, size_t content_length,const char *content_type)
+Result Options(const char *path)
+Result Options@2(const char *path, const Headers &headers)

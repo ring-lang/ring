@@ -34,6 +34,7 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
     ring_vm_funcregister("fexists",ring_vm_file_fexists);
     ring_vm_funcregister("direxists",ring_vm_file_direxists);
     ring_vm_funcregister("getpathtype",ring_vm_file_getpathtype);
+    ring_vm_funcregister("getfilesize",ring_vm_file_getfilesize);
     ring_vm_funcregister("int2bytes",ring_vm_file_int2bytes);
     ring_vm_funcregister("float2bytes",ring_vm_file_float2bytes);
     ring_vm_funcregister("double2bytes",ring_vm_file_double2bytes);
@@ -102,6 +103,19 @@ int ring_getpathtype ( const char *cDirPath )
         return -1 ;
     }
     return 0 ;
+}
+
+RING_LONGLONG ring_getfilesize ( const char *cFilePath )
+{
+    struct stat sb  ;
+    if ( stat(cFilePath, &sb) == 0 ) {
+        if ( S_ISREG(sb.st_mode) ) {
+            /* Path exists and it is a regular file */
+            return (RING_LONGLONG) sb.st_size ;
+        }
+    }
+    /* Doesn't exist or not a file */
+    return (RING_LONGLONG) -1 ;
 }
 
 void ring_vm_file_fopen ( void *pPointer )
@@ -283,11 +297,7 @@ void ring_vm_file_fgetpos ( void *pPointer )
     if ( RING_API_ISPOINTER(1) ) {
         fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
         if ( fp != NULL ) {
-            pos = (fpos_t *) malloc(sizeof(fpos_t)) ;
-            if ( pos == NULL ) {
-                RING_API_ERROR(RING_OOM);
-                return ;
-            }
+            pos = (fpos_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(fpos_t));
             nResult = fgetpos(fp,pos);
             if ( nResult == 0 ) {
                 RING_API_RETMANAGEDCPOINTER(pos,RING_VM_POINTER_FILEPOS,ring_state_free);
@@ -468,10 +478,6 @@ void ring_vm_file_fgets ( void *pPointer )
             }
             nSize++ ;
             cStr = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nSize);
-            if ( cStr == NULL ) {
-                RING_API_ERROR(RING_OOM);
-                return ;
-            }
             cResult = fgets(cStr,nSize,fp);
             if ( cResult != NULL ) {
                 RING_API_RETSTRING(cStr);
@@ -581,10 +587,6 @@ void ring_vm_file_fread ( void *pPointer )
                 return ;
             }
             cStr = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nSize);
-            if ( cStr == NULL ) {
-                RING_API_ERROR(RING_OOM);
-                return ;
-            }
             nResult = fread(cStr,1,nSize,fp);
             if ( nResult == 0 ) {
                 RING_API_RETNUMBER(nResult);
@@ -723,10 +725,6 @@ void ring_vm_file_read ( void *pPointer )
         nSize = ftell(fp);
         fseek( fp , 0 , SEEK_SET );
         cBuffer = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nSize);
-        if ( cBuffer == NULL ) {
-            RING_API_ERROR(RING_OOM);
-            return ;
-        }
         fread( cBuffer , 1 , nSize , fp );
         fclose( fp ) ;
         RING_API_RETSTRING2(cBuffer,nSize);
@@ -801,6 +799,20 @@ void ring_vm_file_getpathtype ( void *pPointer )
     }
     if ( RING_API_ISSTRING(1) ) {
         RING_API_RETNUMBER(ring_getpathtype(RING_API_GETSTRING(1)));
+    }
+    else {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+    }
+}
+
+void ring_vm_file_getfilesize ( void *pPointer )
+{
+    if ( RING_API_PARACOUNT != 1 ) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return ;
+    }
+    if ( RING_API_ISSTRING(1) ) {
+        RING_API_RETNUMBER(ring_getfilesize(RING_API_GETSTRING(1)));
     }
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);

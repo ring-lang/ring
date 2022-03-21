@@ -15405,6 +15405,35 @@ RING_FUNC(ring_QString2_replace)
 }
 
 
+RING_FUNC(ring_QString2_replace_2)
+{
+	QString *pObject ;
+	if ( RING_API_PARACOUNT != 4 ) {
+		RING_API_ERROR(RING_API_MISS4PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (QString *) RING_API_GETCPOINTER(1,"QString2");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISSTRING(3) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISNUMBER(4) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	RING_API_RETSTRING(pObject->replace(RING_API_GETSTRING(2),RING_API_GETSTRING(3), (Qt::CaseSensitivity)  (int) RING_API_GETNUMBER(4)).toStdString().c_str());
+}
+
+
 RING_FUNC(ring_QString2_startsWith)
 {
 	QString *pObject ;
@@ -141244,6 +141273,7 @@ RING_API void ring_qt_start(RingState *pRingState)
 	ring_vm_funcregister("qstring2_isrighttoleft",ring_QString2_isRightToLeft);
 	ring_vm_funcregister("qstring2_repeated",ring_QString2_repeated);
 	ring_vm_funcregister("qstring2_replace",ring_QString2_replace);
+	ring_vm_funcregister("qstring2_replace_2",ring_QString2_replace_2);
 	ring_vm_funcregister("qstring2_startswith",ring_QString2_startsWith);
 	ring_vm_funcregister("qstring2_endswith",ring_QString2_endsWith);
 	ring_vm_funcregister("qstring2_tohtmlescaped",ring_QString2_toHtmlEscaped);

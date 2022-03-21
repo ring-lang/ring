@@ -2935,6 +2935,9 @@ Class QString2
 	Func replace P1,P2,P3
 		return QString2_replace(pObject,P1,P2,P3)
 
+	Func replace_2 P1,P2,P3
+		return QString2_replace_2(pObject,P1,P2,P3)
+
 	Func startsWith P1,P2
 		return QString2_startsWith(pObject,P1,P2)
 

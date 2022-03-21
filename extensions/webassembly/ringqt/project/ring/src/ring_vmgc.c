@@ -204,7 +204,14 @@ void ring_vm_gc_setfreefunc ( Item *pItem, void (* pFreeFunc)(void *,void *) )
 
 RING_API void * ring_malloc ( size_t size )
 {
-    return malloc(size) ;
+    void *pMemory  ;
+    pMemory = malloc(size) ;
+    /* Check Memory */
+    if ( pMemory == NULL ) {
+        printf( RING_OOM ) ;
+        exit(0);
+    }
+    return pMemory ;
 }
 
 RING_API void ring_free ( void *ptr )
@@ -214,12 +221,26 @@ RING_API void ring_free ( void *ptr )
 
 RING_API void * ring_calloc ( size_t nitems, size_t size )
 {
-    return calloc(nitems,size) ;
+    void *pMemory  ;
+    pMemory = calloc(nitems,size) ;
+    /* Check Memory */
+    if ( pMemory == NULL ) {
+        printf( RING_OOM ) ;
+        exit(0);
+    }
+    return pMemory ;
 }
 
 RING_API void * ring_realloc ( void *ptr, size_t size )
 {
-    return realloc(ptr,size) ;
+    void *pMemory  ;
+    pMemory = realloc(ptr,size) ;
+    /* Check Memory */
+    if ( pMemory == NULL ) {
+        printf( RING_OOM ) ;
+        exit(0);
+    }
+    return pMemory ;
 }
 /* Memory Functions (RingState Aware) */
 
@@ -314,11 +335,6 @@ RING_API void * ring_state_realloc ( void *pState,void *ptr,size_t nAllocatedSiz
                     else {
                         /* Allocate new buffer, copy data to it and then free existing pointer from pool */
                         pMemory = ring_malloc(size);
-                        /* Check Memory */
-                        if ( pMemory == NULL ) {
-                            printf( RING_OOM ) ;
-                            exit(0);
-                        }
                         /* Copy existing data */
                         for ( x = 0 ; x < nAllocatedSize ; x++ ) {
                             ((unsigned char*) pMemory)[x] = ((unsigned char*) ptr)[x] ;
@@ -388,11 +404,6 @@ void ring_poolmanager_newblock ( RingState *pRingState )
     int x  ;
     /* Get Block Memory */
     pMemory = (PoolData *) ring_calloc(pRingState->vPoolManager.nItemsInBlock,sizeof(PoolData));
-    /* Check Memory */
-    if ( pMemory == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     /* Set Linked Lists (pNext values) */
     for ( x = 0 ; x < pRingState->vPoolManager.nItemsInBlock - 1 ; x++ ) {
         pMemory[x].pNext = pMemory+x+1 ;
@@ -429,11 +440,6 @@ void * ring_poolmanager_allocate ( RingState *pRingState,size_t size )
     /* If no free items, Allocate new item */
     else {
         pMemory = ring_malloc(size);
-        /* Check Memory */
-        if ( pMemory == NULL ) {
-            printf( RING_OOM ) ;
-            exit(0);
-        }
     }
     #if RING_TRACKALLOCATIONS
         pRingState->vPoolManager.nSmallAllocCount++ ;

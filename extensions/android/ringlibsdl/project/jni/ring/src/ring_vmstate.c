@@ -10,10 +10,6 @@ void ring_vm_savestate ( VM *pVM,List *pList )
     pList = ring_list_newlist_gc(pVM->pRingState,pList);
     /* Using VMState */
     pVMState = (VMState *) ring_state_malloc(pVM->pRingState,sizeof(VMState));
-    if ( pVMState == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     /* Save the state as Managed C Pointer */
     ring_list_addpointer_gc(pVM->pRingState,pList,pVMState);
     ring_list_addstring_gc(pVM->pRingState,pList,"VMState");
@@ -160,10 +156,6 @@ void ring_vm_savestate2 ( VM *pVM,List *pList )
     Item *pItem  ;
     /* Using VMState */
     pVMState = (VMState *) ring_state_malloc(pVM->pRingState,sizeof(VMState));
-    if ( pVMState == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     pList = ring_list_newlist_gc(pVM->pRingState,pList);
     pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
     /* Save the state as Managed C Pointer */
@@ -283,10 +275,6 @@ void ring_vm_savestate3 ( VM *pVM )
     /* Using VMState */
     pList = ring_list_newlist_gc(pVM->pRingState,pVM->aScopeNewObj);
     pVMState = (VMState *) ring_state_malloc(pVM->pRingState,sizeof(VMState));
-    if ( pVMState == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     /* Save the state as Managed C Pointer */
     ring_list_addpointer_gc(pVM->pRingState,pList,pVMState);
     ring_list_addstring_gc(pVM->pRingState,pList,"VMState");

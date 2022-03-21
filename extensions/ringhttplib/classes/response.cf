@@ -4,18 +4,21 @@ para: void
 codename: Response
 </class>
 
-void set_content(const char *s, const char *content_type)
-void set_content@2(const char *s, size_t n, const char *content_type)
+bool has_header(const char *key)
+
+std::string get_header_value(const char *key)
+std::string get_header_value@2(const char *key, size_t id)
+
+size_t get_header_value_count(const char *key)
+
+void set_header(const char *key, const char *val)
 
 void set_redirect(const char *url);
 void set_redirect@2(const char *url, int status)
 
-void set_header(const char *key, const char *val)
-size_t get_header_value_count(const char *key)
+void set_content(const char *s, const char *content_type)
+void set_content@2(const char *s, size_t n, const char *content_type)
 
-bool has_header(const char *key)
 
-<comment>
-char *get_header_value(const char *key)
-char *get_header_value@2(const char *key, size_t id)
-</comment>
+
+

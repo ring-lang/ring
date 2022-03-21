@@ -6,10 +6,6 @@ Scanner * ring_scanner_new ( RingState *pRingState )
 {
     Scanner *pScanner  ;
     pScanner = (Scanner *) ring_state_malloc(pRingState,sizeof(Scanner));
-    if ( pScanner == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     pScanner->pRingState = pRingState ;
     pScanner->state = SCANNER_STATE_GENERAL ;
     pScanner->ActiveToken = ring_string_new_gc(pRingState,"");
@@ -443,13 +439,17 @@ void ring_scanner_checktoken ( Scanner *pScanner )
     /* This function determine if the TOKEN is a Keyword or Identifier or Number */
     assert(pScanner != NULL);
     /* Not Case Sensitive */
-    cActiveStr = ring_string_strdup(pScanner->pRingState,ring_string_get(pScanner->ActiveToken));
-    cActiveStr = ring_string_lower(cActiveStr);
     if ( pScanner->pRingState->lNotCaseSensitive ) {
         ring_string_tolower(pScanner->ActiveToken);
+        cActiveStr = ring_string_get(pScanner->ActiveToken) ;
+        nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),cActiveStr);
     }
-    nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),cActiveStr);
-    ring_state_free(pScanner->pRingState,cActiveStr);
+    else {
+        cActiveStr = ring_string_strdup(pScanner->pRingState,ring_string_get(pScanner->ActiveToken));
+        cActiveStr = ring_string_lower(cActiveStr);
+        nResult = ring_hashtable_findnumber(ring_list_gethashtable(pScanner->Keywords),cActiveStr);
+        ring_state_free(pScanner->pRingState,cActiveStr);
+    }
     if ( nResult > 0 ) {
         #if RING_SCANNEROUTPUT
             printf( "\nTOKEN (Keyword) = %s  \n",ring_string_get(pScanner->ActiveToken) ) ;

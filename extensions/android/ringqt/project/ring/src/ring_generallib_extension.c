@@ -181,10 +181,6 @@ void ring_vm_generallib_input ( void *pPointer )
     }
     if ( nSize > 0 ) {
         cLine = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nSize);
-        if ( cLine == NULL ) {
-            RING_API_ERROR(RING_OOM);
-            return ;
-        }
         /* Get Input From the User and save it in the variable */
         nOutput = RING_SETBINARY ;
         fread( cLine , sizeof(char) , nSize , stdin );
@@ -995,10 +991,6 @@ void ring_vm_generallib_str2hexcstyle ( void *pPointer )
         cString = (unsigned char *) RING_API_GETSTRING(1) ;
         nMax = RING_API_GETSTRINGSIZE(1) ;
         cString2 = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nMax*5);
-        if ( cString2 == NULL ) {
-            RING_API_ERROR(RING_OOM);
-            return ;
-        }
         for ( x = 1 ; x <= nMax ; x++ ) {
             sprintf( cStr , "%x" , (unsigned char) cString[x-1] ) ;
             /* Separator */
@@ -1247,10 +1239,6 @@ void ring_vm_generallib_substr ( void *pPointer )
             if ( (nNum1 > 0) && ( nNum1 <= nSize ) ) {
                 if ( (nNum2 > 0) && ( (nNum1+nNum2-1) <= nSize ) ) {
                     cString = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nNum2);
-                    if ( cString == NULL ) {
-                        RING_API_ERROR(RING_OOM);
-                        return ;
-                    }
                     for ( x = 0 ; x < nNum2 ; x++ ) {
                         cString[x] = cStr[((int) nNum1) + x - 1 ] ;
                     }
@@ -1618,10 +1606,6 @@ void ring_vm_generallib_space ( void *pPointer )
         }
         nStrSize = (unsigned int) RING_API_GETNUMBER(1) ;
         pString = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nStrSize);
-        if ( pString == NULL ) {
-            printf( RING_OOM ) ;
-            exit(0);
-        }
         memset(pString,' ',nStrSize);
         RING_API_RETSTRING2(pString,nStrSize);
         ring_state_free(((VM *) pPointer)->pRingState,pString);

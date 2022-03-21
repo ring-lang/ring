@@ -14,15 +14,7 @@ RING_API String * ring_string_new2_gc ( void *pState,const char *str,int nStrSiz
     String *pString  ;
     int x  ;
     pString = (struct String *) ring_state_malloc(pState,sizeof(struct String));
-    if ( pString == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     pString->cStr = (char *) ring_state_malloc(pState,nStrSize+1);
-    if ( pString->cStr  == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     /* if str is NULL then the caller wants to adjust the preallocated memory */
     if ( str ) {
         /* Copy String */
@@ -73,10 +65,6 @@ RING_API void ring_string_set2_gc ( void *pState,String *pString,const char *str
     if ( pString->nSize != nStrSize ) {
         ring_state_free(pState,pString->cStr);
         pString->cStr = (char *) ring_state_malloc(pState,nStrSize+1);
-        if ( pString->cStr  == NULL ) {
-            printf( RING_OOM ) ;
-            exit(0);
-        }
     }
     /* if str is NULL then the caller wants to adjust the preallocated memory */
     if ( str ) {
@@ -106,10 +94,6 @@ RING_API void ring_string_add2_gc ( void *pState,String *pString,const char *str
     nOriginalSize = ring_string_size(pString) ;
     x2 = nStrSize+nOriginalSize ;
     pString->cStr = (char *) ring_state_realloc(pState,pString->cStr,nOriginalSize+1,x2+1);
-    if ( pString->cStr  == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     /* Copy String */
     RING_MEMCPY(pString->cStr + nOriginalSize, str, nStrSize);
     pString->cStr[x2] = '\0' ;
@@ -222,10 +206,6 @@ RING_API char * ring_string_find3_gc ( void *pState,char *cStr1,int nStrSize1,ch
     /* Copy Strings and convert to lower case */
     cStr3 = (char *) ring_state_malloc(pState,nStrSize1+1);
     cStr4 = (char *) ring_state_malloc(pState,nStrSize2+1);
-    if ( (cStr3==NULL) || (cStr4==NULL) ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     RING_MEMCPY(cStr3,cStr1,nStrSize1);
     RING_MEMCPY(cStr4,cStr2,nStrSize2);
     ring_string_lower2(cStr3,nStrSize1);
@@ -262,10 +242,6 @@ RING_API char * ring_string_strdup ( void *pState,const char *cStr )
     int x,nSize  ;
     nSize = strlen(cStr) ;
     cString = (char *) ring_state_malloc(pState,nSize+1);
-    if ( cString == NULL ) {
-        printf( RING_OOM ) ;
-        exit(0);
-    }
     RING_MEMCPY(cString, cStr, nSize);
     cString[nSize] = '\0' ;
     return cString ;

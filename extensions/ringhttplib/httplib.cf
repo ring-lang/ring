@@ -20,11 +20,6 @@ extern "C" {
 
 </code>
 
-<loadfile> classes/server.cf
-<loadfile> classes/response.cf
-<loadfile> classes/request.cf
-<loadfile> classes/client.cf
-
 <constant>
 CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND
 CPPHTTPLIB_KEEPALIVE_MAX_COUNT
@@ -46,9 +41,6 @@ CPPHTTPLIB_RECV_FLAGS
 CPPHTTPLIB_LISTEN_BACKLOG
 </constant>
 
-<struct>
-</struct>
-
 <runcode>
 aNumberTypes + "size_t"
 aNumberTypes + "char"
@@ -57,5 +49,20 @@ aNumberTypes + "time_t"
 aEnumTypes + "HandlerResponse"
 aEnumTypes + "Error"
 aEnumTypes + "EncodingType"
+
+aStringTypes + "std::string"
+aStringTypes + "string"
+
+aBeforeReturn + ["std::string",".c_str()"]
+aBeforeReturn + ["string",".c_str()"]
 </runcode>
 
+<struct>
+MultipartFormData {string name,string content,string filename,string content_type}
+</struct>
+
+<loadfile> classes/server.cf
+<loadfile> classes/response.cf
+<loadfile> classes/request.cf
+<loadfile> classes/client.cf
+<loadfile> classes/result.cf

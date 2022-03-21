@@ -437,8 +437,6 @@ nPC,nCont,nLastPC,nRunVM,x,nSize
 Type: Scanner *
 pScanner
 aPara
-Type: ByteCode *
-pByteCode
 ring_vm_tobytecode
 Type: List *
 pIR

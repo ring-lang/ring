@@ -51,6 +51,7 @@ void stop(void)
 
 <register>
 void wget(const char *pattern, const char *cCode)
+void wpost(const char *pattern, const char *cCode)
 const HTTPLib_Response *response(void)
 const HTTPLib_Request *request(void)
 </register>
@@ -111,6 +112,30 @@ RING_FUNC(ring_HTTPLib_Server_wget)
 		ringhttplibmtx.unlock();
 	});
 }
+
+RING_FUNC(ring_HTTPLib_Server_wpost)
+{
+	RingServer *pObject ;
+	VM *pVMHTTPLib;
+	char cHTTPLibRingCode[RINGHTTPLIB_RINGCODESIZE];
+	pVMHTTPLib = (VM *) pPointer;
+
+	RING_API_IGNORECPOINTERTYPE ;
+
+	if (ring_httplib_checkpara(pPointer)) return ;
+
+	strcpy(cHTTPLibRingCode,RING_API_GETSTRING(3));
+
+	pObject = (RingServer *) RING_API_GETCPOINTER(1,"HTTPLib_Server");
+	pObject->Post(RING_API_GETSTRING(2), [pObject,pVMHTTPLib,cHTTPLibRingCode](const Request &req, Response &res) {
+		ringhttplibmtx.lock();
+		pObject->oRequest = &req;
+		pObject->oResponse = &res;
+		ring_vm_runcode(pVMHTTPLib, (char *) cHTTPLibRingCode);
+		ringhttplibmtx.unlock();
+	});
+}
+
 
 RING_FUNC(ring_HTTPLib_Server_response)
 {

@@ -130,17 +130,9 @@ void ring_vm_listfuncs_list ( void *pPointer )
                 **  Because we may delete the first item (And we need to avoid deleting the block too) 
                 */
                 pItems = (Items *) ring_calloc(nSize+1,sizeof(Items));
-                if ( pItems == NULL ) {
-                    printf( RING_OOM ) ;
-                    exit(0);
-                }
                 pList->pItemsBlock = pItems ;
                 ring_state_registerblock(pVM->pRingState,pItems+1,pItems+nSize);
                 pItem = (Item *) ring_calloc(nSize+1,sizeof(Item));
-                if ( pItem == NULL ) {
-                    printf( RING_OOM ) ;
-                    exit(0);
-                }
                 pList->pItemBlock = pItem ;
                 ring_state_registerblock(pVM->pRingState,pItem+1,pItem+nSize);
                 for ( x = 1 ; x <=nSize ; x++ ) {
@@ -183,17 +175,9 @@ void ring_vm_listfuncs_list ( void *pPointer )
                 pList = RING_API_NEWLIST ;
                 /* Allocate Memory */
                 pItems = (Items *) ring_calloc((nSize*nSize2)+1,sizeof(Items));
-                if ( pItems == NULL ) {
-                    printf( RING_OOM ) ;
-                    exit(0);
-                }
                 pList->pItemsBlock = pItems ;
                 ring_state_registerblock(pVM->pRingState,pItems+1,pItems+(nSize*nSize2));
                 pItem = (Item *) ring_calloc((nSize*nSize2)+1,sizeof(Item));
-                if ( pItem == NULL ) {
-                    printf( RING_OOM ) ;
-                    exit(0);
-                }
                 pList->pItemBlock = pItem ;
                 ring_state_registerblock(pVM->pRingState,pItem+1,pItem+(nSize*nSize2));
                 for ( x = 1 ; x <=nSize ; x++ ) {
