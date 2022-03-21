@@ -48,6 +48,9 @@ class Server from HTTPLib_Server
 			return Variable(cValue)
 		ok
 
+	func shareFolder cFolder 
+		set_mount_point("/"+cFolder, "./"+cFolder);
+
 class Response from HTTPLib_Response
 
 	func setContent p1,p2
