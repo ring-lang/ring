@@ -18,25 +18,25 @@ func play
 
 	oPage = New HTMLPage
 	{
-	    Title = "Welcome"
-	    h1 { text("Play sound and video!") }
-	    div 
-	    {
-	      audio
-	      {
-	        src = "res/horse.ogg"
-	        type = "audio/ogg"
-	      }
+		Title = "Welcome"
+		h1 { text("Play sound and video!") }
+		div 
+		{
+			audio
+			{
+				src = "res/horse.ogg"
+				type = "audio/ogg"
+			}
 	
-	      video
-	      {
-	         width = 320
-	         height = 240
-	         src = "res/movie.mp4"
-	         type = "video/mp4" 
-	      }
+			video
+			{
+				width = 320
+				height = 240
+				src = "res/movie.mp4"
+				type = "video/mp4" 
+			}
 	
-	    }
+		}
 	}		
 	oServer.setContent(oPage.Output(),"text/html")
 
