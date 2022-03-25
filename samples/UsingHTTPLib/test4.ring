@@ -4,7 +4,7 @@ load "httplib.ring"
 
 oServer = new Server {
 
-	route("/hello",:Get,func {
+	route(:Get,"/hello",func {
 		oServer.setContent("Hello, World!", "text/plain")
 	})
 

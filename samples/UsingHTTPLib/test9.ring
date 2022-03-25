@@ -6,8 +6,8 @@ import System.Web
 oServer = new Server 
 
 ? "Try localhost:8080/form"
-oServer.route("/form",:Get,:form)
-oServer.route("/formresponse",:Post,:formresponse)
+oServer.route(:Get,"/form",:form)
+oServer.route(:Post,"/formresponse",:formresponse)
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)
