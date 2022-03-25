@@ -8,7 +8,7 @@ class Server from HTTPLib_Server
 		ok
 		return cCode	
 
-	func route cURL,cType,cCode
+	func route cType,cURL,cCode
 		# **Support anonymous functions - Also support normal Ring code**
 		cCode = processEvent(cCode)
 		switch lower(cType)
