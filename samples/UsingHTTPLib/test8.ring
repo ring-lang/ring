@@ -115,7 +115,7 @@ func form
 			divend()
 		divend()
 	}
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)
 
 func formresponse
 
@@ -169,4 +169,4 @@ func formresponse
 		divend()
 	}
 
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)

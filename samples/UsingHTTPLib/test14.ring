@@ -38,5 +38,5 @@ func play
 	
 		}
 	}		
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)
 

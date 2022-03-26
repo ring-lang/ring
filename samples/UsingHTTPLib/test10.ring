@@ -35,7 +35,7 @@ func hash
 			divend()
 		formend()
 	}		
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)
 
 func hashresponse
 
@@ -64,4 +64,4 @@ func hashresponse
 		divend()
 	}	
 
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)

@@ -31,5 +31,5 @@ func table
 			tableend()
 		divend()
 	}		
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)
 
