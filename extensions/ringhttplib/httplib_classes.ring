@@ -37,6 +37,9 @@ class Server from HTTPLib_Server
 	func setContent p1,p2
 		return response().set_Content(p1,p2)
 
+	func setHTMLPage oPage
+		setContent(oPage.Output(),"text/html")
+
 	func variable cPara
 		if ! isString (cPara)
 			raise("Bad parameter type!")
