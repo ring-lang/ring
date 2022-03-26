@@ -988,7 +988,6 @@ void uiControlVerifySetParent(uiControl *, uiControl *)
 int uiControlEnabledToUser(uiControl *)
 void uiUserBugCannotSetParentOnToplevel(const char *type)
 
-char *uiWindowTitle(uiWindow *w)
 void uiWindowSetTitle(uiWindow *w, const char *title)
 void uiWindowContentSize(uiWindow *w, int *width, int *height)
 void uiWindowSetContentSize(uiWindow *w, int width, int height)
@@ -1001,7 +1000,6 @@ int uiWindowMargined(uiWindow *w)
 void uiWindowSetMargined(uiWindow *w, int margined)
 uiWindow *uiNewWindow(const char *title, int width, int height, int hasMenubar)
 
-char *uiButtonText(uiButton *b)
 void uiButtonSetText(uiButton *b, const char *text)
 uiButton *uiNewButton(const char *text)
 
@@ -1012,13 +1010,11 @@ void uiBoxSetPadded(uiBox *b, int padded)
 uiBox *uiNewHorizontalBox(void)
 uiBox *uiNewVerticalBox(void)
 
-char *uiCheckboxText(uiCheckbox *c)
 void uiCheckboxSetText(uiCheckbox *c, const char *text)
 int uiCheckboxChecked(uiCheckbox *c)
 void uiCheckboxSetChecked(uiCheckbox *c, int checked)
 uiCheckbox *uiNewCheckbox(const char *text)
 
-char *uiEntryText(uiEntry *e)
 void uiEntrySetText(uiEntry *e, const char *text)
 int uiEntryReadOnly(uiEntry *e)
 void uiEntrySetReadOnly(uiEntry *e, int readonly)
@@ -1026,7 +1022,6 @@ uiEntry *uiNewEntry(void)
 uiEntry *uiNewPasswordEntry(void)
 uiEntry *uiNewSearchEntry(void)
 
-char *uiLabelText(uiLabel *l)
 void uiLabelSetText(uiLabel *l, const char *text)
 uiLabel *uiNewLabel(const char *text)
 
@@ -1038,7 +1033,6 @@ int uiTabMargined(uiTab *t, int page)
 void uiTabSetMargined(uiTab *t, int page, int margined)
 uiTab *uiNewTab(void)
 
-char *uiGroupTitle(uiGroup *g)
 void uiGroupSetTitle(uiGroup *g, const char *title)
 void uiGroupSetChild(uiGroup *g, uiControl *c)
 int uiGroupMargined(uiGroup *g)
@@ -1066,7 +1060,6 @@ void uiComboboxSetSelected(uiCombobox *c, int n)
 uiCombobox *uiNewCombobox(void)
 
 void uiEditableComboboxAppend(uiEditableCombobox *c, const char *text)
-char *uiEditableComboboxText(uiEditableCombobox *c)
 void uiEditableComboboxSetText(uiEditableCombobox *c, const char *text)
 uiEditableCombobox *uiNewEditableCombobox(void)
 
@@ -1081,7 +1074,6 @@ uiDateTimePicker *uiNewDateTimePicker(void)
 uiDateTimePicker *uiNewDatePicker(void)
 uiDateTimePicker *uiNewTimePicker(void)
 
-char *uiMultilineEntryText(uiMultilineEntry *e)
 void uiMultilineEntrySetText(uiMultilineEntry *e, const char *text)
 void uiMultilineEntryAppend(uiMultilineEntry *e, const char *text)
 int uiMultilineEntryReadOnly(uiMultilineEntry *e)
@@ -1249,13 +1241,187 @@ void uiAreaSetSize(uiArea *a, int width, int height)
 
 uintptr_t uiControlHandle(uiControl *)
 
-void uiFreeText(char *text)
-
 <register>
+char *uiWindowTitle(uiWindow *w)
+char *uiButtonText(uiButton *b)
+char *uiCheckboxText(uiCheckbox *c)
+char *uiEntryText(uiEntry *e)
+char *uiMultilineEntryText(uiMultilineEntry *e)
+char *uiLabelText(uiLabel *l)
+char *uiGroupTitle(uiGroup *g)
+char *uiEditableComboboxText(uiEditableCombobox *c)
 char *uiOpenFile(uiWindow *parent)
 char *uiSaveFile(uiWindow *parent)
 <register>
 <code>
+RING_FUNC(ring_uiWindowTitle)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiWindowTitle((uiWindow *) RING_API_GETCPOINTER(1,"uiWindow"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiButtonText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiButtonText((uiButton *) RING_API_GETCPOINTER(1,"uiButton"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiCheckboxText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiCheckboxText((uiCheckbox *) RING_API_GETCPOINTER(1,"uiCheckbox"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiEntryText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiEntryText((uiEntry *) RING_API_GETCPOINTER(1,"uiEntry"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiMultilineEntryText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiMultilineEntryText((uiMultilineEntry *) RING_API_GETCPOINTER(1,"uiMultilineEntry"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiLabelText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiLabelText((uiLabel *) RING_API_GETCPOINTER(1,"uiLabel"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiGroupTitle)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiGroupTitle((uiGroup *) RING_API_GETCPOINTER(1,"uiGroup"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
+RING_FUNC(ring_uiEditableComboboxText)
+{
+	char *cOut;
+	if ( RING_API_PARACOUNT != 1 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	cOut = uiEditableComboboxText((uiEditableCombobox *) RING_API_GETCPOINTER(1,"uiEditableCombobox"));
+	if (cOut == NULL) {
+		RING_API_RETSTRING("");
+	} else {
+		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
+	}
+}
+
 RING_FUNC(ring_uiOpenFile)
 {
 	char *cOut;
@@ -1273,6 +1439,7 @@ RING_FUNC(ring_uiOpenFile)
 		RING_API_RETSTRING("");
 	} else {
 		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
 	}
 }
 
@@ -1293,6 +1460,7 @@ RING_FUNC(ring_uiSaveFile)
 		RING_API_RETSTRING("");
 	} else {
 		RING_API_RETSTRING(cOut);
+		uiFreeText(cOut);
 	}
 }
 </code>
