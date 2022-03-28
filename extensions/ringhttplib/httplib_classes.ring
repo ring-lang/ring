@@ -54,6 +54,31 @@ class Server from HTTPLib_Server
 	func shareFolder cFolder 
 		set_mount_point("/"+cFolder, "./"+cFolder);
 
+	func setCookie cStr 
+		response().set_header("Set-Cookie",cStr)
+
+	func cookies 
+		aOutput = [] 	 
+		if ! request().has_header("Cookie")
+			return aOutput
+		ok
+		cStr = request().get_header_value("Cookie")
+		if cStr = "NULL" return aOutput 	OK 
+		# var1=value; var2=value; var3=value
+		cStr += ";"
+		nPos = substr(cStr,";")
+		While nPos > 0
+			nPos2 = substr(cStr,"=") 
+			if nPos2 = 0 exit ok
+			aRes = []
+			aRes + trim(left(cStr,nPos2-1))
+			aRes + substr(cStr,nPos2+1,nPos-nPos2-1)
+			aOutput + aRes 
+			cStr = substr(cStr,nPos+1)
+			nPos = substr(cStr,";")
+		end
+		return aOutput
+
 class Response from HTTPLib_Response
 
 	func setContent p1,p2
