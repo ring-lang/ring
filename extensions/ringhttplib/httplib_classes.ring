@@ -44,7 +44,11 @@ class Server from HTTPLib_Server
 		if ! isString (cPara)
 			raise("Bad parameter type!")
 		ok
-		return request().get_param_value(cPara)
+		if request().has_param(cPara)
+			return request().get_param_value(cPara)
+		but request().has_file(cPara)
+			return getFileContent(cPara)
+		ok
 
 	func operator cOperator, cValue
 		if cOperator = "[]"
