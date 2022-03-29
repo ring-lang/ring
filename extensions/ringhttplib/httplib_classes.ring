@@ -79,6 +79,11 @@ class Server from HTTPLib_Server
 		end
 		return aOutput
 
+	func getFileContent cFile
+		if request().has_file(cFile)
+			return get_multipartformdata_content( request().get_file_value(cFile) )
+		ok
+
 class Response from HTTPLib_Response
 
 	func setContent p1,p2
