@@ -48,7 +48,7 @@ func uploadresponse
 		boxend()			
 		newline() 
 		divstart([ :style=  styleFloatLeft() + styleWidth("100px") ])
-			text( "Name : " + oServer.getFileContent("custname") )
+			text( "Name : " + oServer["custname"] )
 			newline()
 		divend()
 		getuploadedfile(self,"file1")
