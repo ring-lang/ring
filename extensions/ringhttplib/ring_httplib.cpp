@@ -1445,6 +1445,11 @@ RING_FUNC(ring_HTTPLib_Request_has_file)
 }
 
 
+void ring_MultipartFormData_free(void *pState,void *pValue)
+{
+	delete (MultipartFormData *) pValue;
+}
+
 RING_FUNC(ring_HTTPLib_Request_get_file_value)
 {
 	Request *pObject ;
@@ -1463,10 +1468,12 @@ RING_FUNC(ring_HTTPLib_Request_get_file_value)
 		return ;
 	}
 	{
-		MultipartFormData *pValue ; 
-		pValue = (MultipartFormData *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(MultipartFormData)) ;
+		MultipartFormData *pValue ;
+		// Since MultipartFormData is a C++ structure
+		// We use New/Delete instead of malloc()/free()
+		pValue = new MultipartFormData;
 		*pValue = pObject->get_file_value(RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"MultipartFormData",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"MultipartFormData",ring_MultipartFormData_free);
 	}
 }
 
