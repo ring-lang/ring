@@ -18,6 +18,7 @@ bool has_file(const char *key)
 
 <register>
 MultipartFormData get_file_value(const char *key)
+const char *get_multipartformdata_content2(MultipartFormData *)
 </register>
 
 <code>
@@ -52,6 +53,25 @@ RING_FUNC(ring_HTTPLib_Request_get_file_value)
 		*pValue = pObject->get_file_value(RING_API_GETSTRING(2));
 		RING_API_RETMANAGEDCPOINTER(pValue,"MultipartFormData",ring_MultipartFormData_free);
 	}
+}
+
+RING_FUNC(ring_HTTPLib_Request_get_multipartformdata_content2)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(2,"MultipartFormData");
+	RING_API_RETSTRING2(pMyPointer->content.c_str(),pMyPointer->content.size());
 }
 
 </code>

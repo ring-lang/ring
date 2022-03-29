@@ -1477,6 +1477,25 @@ RING_FUNC(ring_HTTPLib_Request_get_file_value)
 	}
 }
 
+RING_FUNC(ring_HTTPLib_Request_get_multipartformdata_content2)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(2,"MultipartFormData");
+	RING_API_RETSTRING2(pMyPointer->content.c_str(),pMyPointer->content.size());
+}
+
 
 RING_FUNC(ring_HTTPLib_Client_download)
 {
@@ -2494,6 +2513,7 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("httplib_request_is_multipart_form_data",ring_HTTPLib_Request_is_multipart_form_data);
 	ring_vm_funcregister("httplib_request_has_file",ring_HTTPLib_Request_has_file);
 	ring_vm_funcregister("httplib_request_get_file_value",ring_HTTPLib_Request_get_file_value);
+	ring_vm_funcregister("httplib_request_get_multipartformdata_content2",ring_HTTPLib_Request_get_multipartformdata_content2);
 	ring_vm_funcregister("httplib_client_download",ring_HTTPLib_Client_download);
 	ring_vm_funcregister("httplib_client_is_valid",ring_HTTPLib_Client_is_valid);
 	ring_vm_funcregister("httplib_client_is_socket_open",ring_HTTPLib_Client_is_socket_open);

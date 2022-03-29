@@ -81,7 +81,7 @@ class Server from HTTPLib_Server
 
 	func getFileContent cFile
 		if request().has_file(cFile)
-			return get_multipartformdata_content( request().get_file_value(cFile) )
+			return request().get_multipartformdata_content2( request().get_file_value(cFile) )
 		ok
 
 	func getFileName cFile
