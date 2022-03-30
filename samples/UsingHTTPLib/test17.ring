@@ -6,14 +6,10 @@ import System.Web
 oServer = new Server 
 
 ? "Try localhost:8080/template"
-oServer.route(:Get,"/template",:testtemplate)
+oServer.route(:Get,"/template"," new numbersController { start() } ")
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)
-
-func testTemplate
-
-	new numbersController { start() }
 
 class numbersController
 
