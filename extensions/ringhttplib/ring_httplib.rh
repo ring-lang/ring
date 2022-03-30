@@ -221,6 +221,9 @@ Class HTTPLib_Request
 	Func get_multipartformdata_content2 P1
 		return HTTPLib_Request_get_multipartformdata_content2(pObject,GetObjectPointerFromRingObject(P1))
 
+	Func matches P1
+		return HTTPLib_Request_matches(pObject,P1)
+
 Class HTTPLib_Client
 
 	pObject
