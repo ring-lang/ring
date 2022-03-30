@@ -1,4 +1,4 @@
-# RingHTTPLib Extension (Under Development)
+# RingHTTPLib Extension
 
 ## Introduction
 
