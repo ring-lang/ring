@@ -3,7 +3,7 @@
 # Author : Gal Zsolt (~ CalmoSoft ~)
 # Email   : <calmosoft@gmail.com>
  
-limit = 2200
+limit = 22
 pq = list(limit)
 for n = 1 to limit
       for m = 1 to limit
