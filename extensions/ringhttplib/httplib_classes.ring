@@ -93,6 +93,9 @@ class Server from HTTPLib_Server
 			return get_multipartformdata_filename( request().get_file_value(cFile) )
 		ok
 
+	func match nIndex
+		return request().matches(nIndex)
+
 class Response from HTTPLib_Response
 
 	func setContent p1,p2
