@@ -3,8 +3,8 @@
 # Email   : <calmosoft@gmail.com>
 
 load "stdlib.ring"
-i = null
-o = null
+i = 1
+o = NULL
 path = list(3)
  
 path[1] = "/home/user1/tmp/coverage/test"
