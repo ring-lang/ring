@@ -11,6 +11,6 @@ oServer.route(:Get,"(/numbers/(\d+))",:mytest)
 oServer.listen("0.0.0.0", 8080)
 
 func mytest 
-	cOutput = "Match(1): " + oServer.Request().matches(1) + nl
-	cOutput += "Match(2): " + oServer.Request().matches(2) + nl
+	cOutput = "Match(1): " + oServer.Match(1) + nl
+	cOutput += "Match(2): " + oServer.Match(2) + nl
 	oServer.setContent(cOutput, "text/plain")
