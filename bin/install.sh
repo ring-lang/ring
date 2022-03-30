@@ -559,7 +559,7 @@ ln -sf "`pwd`/lib/libring_cjson.dylib" /usr/local/lib
 xattr -d com.apple.quarantine /usr/local/lib/libring_cjson.dylib
 fi
 
-if [ -f lib/libring_libui.so ];
+if [ -f lib/libring_cjson.so ];
 then
 sudo ln -sf "`pwd`/lib/libring_cjson.so" /usr/lib
 sudo ln -sf "`pwd`/lib/libring_cjson.so" /usr/lib64
