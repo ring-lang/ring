@@ -43,7 +43,7 @@ func sortsecond(alist)
                       alist[m] = temp ok
              next
        next
-       return aLi
+       return aList
 /*
 Output:
 
