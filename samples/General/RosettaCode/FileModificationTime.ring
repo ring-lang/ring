@@ -1,5 +1,5 @@
 load "stdlib.ring"
-see GetFileInfo( "test.ring" )
+see GetFileInfo( filename() )
 
 func GetFileInfo cFile
      cOutput = systemcmd("dir /T:W " + cFile )
