@@ -1,7 +1,7 @@
-#include "..\httplib.h"
+#include "../httplib.h"
 using namespace httplib;
 
-int main(int argc, char *argv)
+int main(int argc, char *argv[])
 {
 
 	Server svr;
