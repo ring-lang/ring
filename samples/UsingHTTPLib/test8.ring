@@ -6,8 +6,8 @@ import System.Web
 oServer = new Server 
 
 ? "Try localhost:8080/form"
-oServer.route("/form",:Get,:form)
-oServer.route("/formresponse",:Get,:formresponse)
+oServer.route(:Get,"/form",:form)
+oServer.route(:Get,"/formresponse",:formresponse)
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)
@@ -115,7 +115,7 @@ func form
 			divend()
 		divend()
 	}
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)
 
 func formresponse
 
@@ -169,4 +169,4 @@ func formresponse
 		divend()
 	}
 
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)

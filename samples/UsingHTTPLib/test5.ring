@@ -5,8 +5,8 @@ load "httplib.ring"
 
 oServer = new Server {
 
-	route("/hi",:Get,'? "Wow, I love Ring programming!"')
-	route("/hello",:Get,'oServer.setContent("Hello, World!", "text/plain")')
+	route(:Get,"/hi",'? "Wow, I love Ring programming!"')
+	route(:Get,"/hello",'oServer.setContent("Hello, World!", "text/plain")')
 
 	listen("0.0.0.0", 8080)
 

@@ -6,7 +6,7 @@ import System.Web
 oServer = new Server 
 
 ? "Try localhost:8080/play"
-oServer.route("/play",:Get,:play)
+oServer.route(:Get,"/play",:play)
 
 ? "We support files in the res folder like res/horse.ogg and res/movie.mp4"
 oServer.shareFolder("res")
@@ -38,5 +38,5 @@ func play
 	
 		}
 	}		
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)
 

@@ -7,8 +7,8 @@ import System.Web
 oServer = new Server 
 
 ? "Try localhost:8080/hash"
-oServer.route("/hash",:Get,:hash)
-oServer.route("/hashresponse",:Post,:hashresponse)
+oServer.route(:Get,"/hash",:hash)
+oServer.route(:Post,"/hashresponse",:hashresponse)
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)
@@ -35,7 +35,7 @@ func hash
 			divend()
 		formend()
 	}		
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)
 
 func hashresponse
 
@@ -64,4 +64,4 @@ func hashresponse
 		divend()
 	}	
 
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)

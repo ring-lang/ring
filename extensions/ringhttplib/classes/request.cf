@@ -15,4 +15,87 @@ std::string get_param_value@2(const char *key, size_t id)
 size_t get_param_value_count(const char *key)
 bool is_multipart_form_data(void)
 bool has_file(const char *key)
+
+<register>
 MultipartFormData get_file_value(const char *key)
+const char *get_multipartformdata_content2(MultipartFormData *)
+const char *matches(int nIndex)
+</register>
+
+<code>
+
+void ring_MultipartFormData_free(void *pState,void *pValue)
+{
+	delete (MultipartFormData *) pValue;
+}
+
+RING_FUNC(ring_HTTPLib_Request_get_file_value)
+{
+	Request *pObject ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA);
+		return ;
+	}
+	RING_API_IGNORECPOINTERTYPE ;
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
+	if ( ! RING_API_ISSTRING(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	{
+		MultipartFormData *pValue ; 
+		// Since MultipartFormData is a C++ structure
+		// We use New/Delete instead of malloc()/free()
+		pValue = new MultipartFormData;
+		*pValue = pObject->get_file_value(RING_API_GETSTRING(2));
+		RING_API_RETMANAGEDCPOINTER(pValue,"MultipartFormData",ring_MultipartFormData_free);
+	}
+}
+
+RING_FUNC(ring_HTTPLib_Request_get_multipartformdata_content2)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(2,"MultipartFormData");
+	RING_API_RETSTRING2(pMyPointer->content.c_str(),pMyPointer->content.size());
+}
+
+RING_FUNC(ring_HTTPLib_Request_matches)
+{
+	Request *pObject ;
+	int nIndex;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
+	if ( ! RING_API_ISNUMBER(2) ) { 
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	nIndex = (int) RING_API_GETNUMBER(2);
+	std::string cString = pObject->matches[nIndex];
+	RING_API_RETSTRING(cString.c_str());
+}
+
+
+</code>

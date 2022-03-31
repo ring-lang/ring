@@ -8,7 +8,11 @@ for trial = 1 to 3
     start = clock()
     tasktomeasure()
     finish = clock()
-    see "rate = " + 100 / (finish-start) + " per second" + nl
+    if finish-start != 0
+        see "rate = " + 100 / (finish-start) + " per second" + nl
+    else
+        ? "So Fast!"
+    ok
 next 
  
 see "method 2: count completed tasks in one second:" + nl

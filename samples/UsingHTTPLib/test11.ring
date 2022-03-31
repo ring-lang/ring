@@ -6,7 +6,7 @@ import System.Web
 oServer = new Server 
 
 ? "Try localhost:8080/gradient"
-oServer.route("/gradient",:Get,:gradient)
+oServer.route(:Get,"/gradient",:gradient)
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)
@@ -27,5 +27,5 @@ func gradient
 			divend()
  		next
 	}		
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)
 

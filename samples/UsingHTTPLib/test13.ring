@@ -6,7 +6,7 @@ import System.Web
 oServer = new Server 
 
 ? "Try localhost:8080/table"
-oServer.route("/table",:Get,:table)
+oServer.route(:Get,"/table",:table)
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)
@@ -31,5 +31,5 @@ func table
 			tableend()
 		divend()
 	}		
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)
 

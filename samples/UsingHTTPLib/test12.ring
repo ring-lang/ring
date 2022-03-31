@@ -6,7 +6,7 @@ import System.Web
 oServer = new Server 
 
 ? "Try localhost:8080/lists"
-oServer.route("/lists",:Get,:lists)
+oServer.route(:Get,"/lists",:lists)
 
 ? "Listen to port 8080"
 oServer.listen("0.0.0.0", 8080)
@@ -35,5 +35,5 @@ func lists
 			next
 		ulend()
 	}		
-	oServer.setContent(oPage.Output(),"text/html")
+	oServer.setHTMLPage(oPage)
 

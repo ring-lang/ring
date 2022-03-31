@@ -9,6 +9,7 @@ std::mutex ringhttplibmtx;
 
 extern "C" {
 	#include "ring.h"
+
 	RING_API void ringlib_init(RingState *pRingState);
 }
 
@@ -1445,6 +1446,11 @@ RING_FUNC(ring_HTTPLib_Request_has_file)
 }
 
 
+void ring_MultipartFormData_free(void *pState,void *pValue)
+{
+	delete (MultipartFormData *) pValue;
+}
+
 RING_FUNC(ring_HTTPLib_Request_get_file_value)
 {
 	Request *pObject ;
@@ -1463,12 +1469,56 @@ RING_FUNC(ring_HTTPLib_Request_get_file_value)
 		return ;
 	}
 	{
-		MultipartFormData *pValue ; 
-		pValue = (MultipartFormData *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(MultipartFormData)) ;
+		MultipartFormData *pValue ;
+		// Since MultipartFormData is a C++ structure
+		// We use New/Delete instead of malloc()/free()
+		pValue = new MultipartFormData;
 		*pValue = pObject->get_file_value(RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"MultipartFormData",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"MultipartFormData",ring_MultipartFormData_free);
 	}
 }
+
+RING_FUNC(ring_HTTPLib_Request_get_multipartformdata_content2)
+{
+	MultipartFormData *pMyPointer ;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pMyPointer = (MultipartFormData *) RING_API_GETCPOINTER(2,"MultipartFormData");
+	RING_API_RETSTRING2(pMyPointer->content.c_str(),pMyPointer->content.size());
+}
+
+RING_FUNC(ring_HTTPLib_Request_matches)
+{
+	Request *pObject ;
+	int nIndex;
+	if ( RING_API_PARACOUNT != 2 ) {
+		RING_API_ERROR(RING_API_MISS2PARA) ;
+		return ;
+	}
+	if ( ! RING_API_ISCPOINTER(1) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	pObject = (Request *) RING_API_GETCPOINTER(1,"HTTPLib_Request");
+	if ( ! RING_API_ISNUMBER(2) ) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return ;
+	}
+	nIndex = (int) RING_API_GETNUMBER(2);
+	std::string cString = pObject->matches[nIndex];
+	RING_API_RETSTRING(cString.c_str());
+}
+
 
 
 RING_FUNC(ring_HTTPLib_Client_download)
@@ -2487,6 +2537,8 @@ RING_API void ringlib_init(RingState *pRingState)
 	ring_vm_funcregister("httplib_request_is_multipart_form_data",ring_HTTPLib_Request_is_multipart_form_data);
 	ring_vm_funcregister("httplib_request_has_file",ring_HTTPLib_Request_has_file);
 	ring_vm_funcregister("httplib_request_get_file_value",ring_HTTPLib_Request_get_file_value);
+	ring_vm_funcregister("httplib_request_get_multipartformdata_content2",ring_HTTPLib_Request_get_multipartformdata_content2);
+	ring_vm_funcregister("httplib_request_matches",ring_HTTPLib_Request_matches);
 	ring_vm_funcregister("httplib_client_download",ring_HTTPLib_Client_download);
 	ring_vm_funcregister("httplib_client_is_valid",ring_HTTPLib_Client_is_valid);
 	ring_vm_funcregister("httplib_client_is_socket_open",ring_HTTPLib_Client_is_socket_open);

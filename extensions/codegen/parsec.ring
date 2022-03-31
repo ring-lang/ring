@@ -314,6 +314,8 @@ Func WriteFile cFileName,cCode
 Func ThreeParts cLine
 	# Get three parts (output - function name - parameters)
 	nPos1 = substr(cLine,"(")
+	nPos2 = 0
+	cFuncName = ""
 	for x = nPos1 to 1 step -1
 		switch cLine[x] 	
 		on " " 
@@ -326,7 +328,9 @@ Func ThreeParts cLine
 			exit
 		off
 	next
-
+	if nPos2 = 0 or cFuncName = ""
+		Raise("Can't parse this line in the configuration file")
+	ok
 	cFuncOutput = left(cLine,nPos2-1)
 	cFuncPara = substr(cLine,nPos1+1,len(cLine)-nPos1-1)
 	return [C_INS_FUNCTION,cFuncOutput,cFuncName,ParaList(cFuncPara)]
