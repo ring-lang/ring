@@ -1,3 +1,4 @@
+<libinitfunc> ring_httplib_start
 <ignorecpointertype>
 <nodllstartup>
 
@@ -13,7 +14,13 @@ std::mutex ringhttplibmtx;
 
 extern "C" {
 	#include "ring.h"
-	RING_API void ringlib_init(RingState *pRingState);
+
+	RING_API void ring_httplib_start(RingState *pRingState);
+
+	RING_API void ringlib_init(RingState *pRingState)
+	{
+		ring_httplib_start(pRingState) ;
+	}
 }
 
 #include "ringhttplib.h"
