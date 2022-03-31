@@ -10,12 +10,7 @@ std::mutex ringhttplibmtx;
 extern "C" {
 	#include "ring.h"
 
-	RING_API void ring_httplib_start(RingState *pRingState);
-
-	RING_API void ringlib_init(RingState *pRingState)
-	{
-		ring_httplib_start(pRingState) ;
-	}
+	RING_API void ringlib_init(RingState *pRingState);
 }
 
 #include "ringhttplib.h"
@@ -2489,7 +2484,7 @@ RING_FUNC(ring_HTTPLib_Client_delete)
 	}
 }
 
-RING_API void ring_httplib_start(RingState *pRingState)
+RING_API void ringlib_init(RingState *pRingState)
 {
 	ring_vm_funcregister("httplib_server_listen",ring_HTTPLib_Server_listen);
 	ring_vm_funcregister("httplib_server_listen_2",ring_HTTPLib_Server_listen_2);
