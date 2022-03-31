@@ -1,4 +1,5 @@
 aNews = [
+  ["March 31, 2022",'<a href="https://github.com/ring-lang/ring/tree/master/extensions/ringhttplib"> RingHTTPLib Extension</a>'],
   ["January 23, 2022",'<a href="https://rosettacode.org/wiki/Category:Ring"> Over 800 samples in RosettaCode </a>'],
   ["January 11, 2022",'<a href="https://github.com/ring-lang/ring/tree/master/applications/poetryanalysis"> Arabic Poetry Analysis Application</a>'],
   ["January 7, 2022",'<a href="https://github.com/ring-lang/ring/tree/master/applications/mergetwofiles"> Merge Two Files</a>'],
