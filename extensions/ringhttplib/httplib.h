@@ -3752,10 +3752,11 @@ public:
   bool parse(const char *buf, size_t n, const ContentReceiver &content_callback,
              const MultipartContentHeader &header_callback) {
 
+    // TODO: support 'filename*'
     static const std::regex re_content_disposition(
-        "^Content-Disposition:\\s*form-data;\\s*name=\"(.*?)\"(?:;\\s*filename="
-        "\"(.*?)\")?\\s*$",
+        R"~(^Content-Disposition:\s*form-data;\s*name="(.*?)"(?:;\s*filename="(.*?)")?(?:;\s*filename\*=\S+)?\s*$)~",
         std::regex_constants::icase);
+
     static const std::string dash_ = "--";
     static const std::string crlf_ = "\r\n";
 
@@ -4965,6 +4966,14 @@ inline bool Server::parse_request_line(const char *s, Request &req) {
   if (req.version != "HTTP/1.1" && req.version != "HTTP/1.0") { return false; }
 
   {
+    // Skip URL fragment
+    for (size_t i = 0; i < req.target.size(); i++) {
+      if (req.target[i] == '#') {
+        req.target.erase(i);
+        break;
+      }
+    }
+
     size_t count = 0;
 
     detail::split(req.target.data(), req.target.data() + req.target.size(), '?',
@@ -6162,7 +6171,7 @@ inline bool ClientImpl::write_request(Stream &strm, Request &req,
 
 #ifndef CPPHTTPLIB_NO_DEFAULT_USER_AGENT
   if (!req.has_header("User-Agent")) {
-    req.headers.emplace("User-Agent", "cpp-httplib/0.10.3");
+    req.headers.emplace("User-Agent", "cpp-httplib/0.10.4");
   }
 #endif
 
@@ -7269,8 +7278,9 @@ inline SSLServer::SSLServer(const char *cert_path, const char *private_key_path,
     SSL_CTX_set_min_proto_version(ctx_, TLS1_1_VERSION);
 
     // add default password callback before opening encrypted private key
-    if (private_key_password != nullptr && (private_key_password[0] != '\0') ) {
-      SSL_CTX_set_default_passwd_cb_userdata(ctx_, (char *)private_key_password);
+    if (private_key_password != nullptr && (private_key_password[0] != '\0')) {
+      SSL_CTX_set_default_passwd_cb_userdata(ctx_,
+                                             (char *)private_key_password);
     }
 
     if (SSL_CTX_use_certificate_chain_file(ctx_, cert_path) != 1 ||
