@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.0",
+	:version = "1.0.1",
 	:ringversion = "1.16",
 	:versions = 	[
 		[
-			:version = "1.0.0",
+			:version = "1.0.1",
 			:branch = "master"
 		]
 	],
@@ -39,8 +39,6 @@ aPackageInfo = [
 		"extensions/ringhttplib/cpptest/buildgcc.sh",
 		"extensions/ringhttplib/cpptest/buildvc.bat",
 		"extensions/ringhttplib/cpptest/test.cpp",
-		"extensions/ringhttplib/cpptest/test.exe",
-		"extensions/ringhttplib/cpptest/test.obj",
 		"extensions/ringhttplib/gencode.bat",
 		"extensions/ringhttplib/gencode.sh",
 		"extensions/ringhttplib/httplib.cf",
