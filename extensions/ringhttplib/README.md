@@ -6,6 +6,10 @@ This extension provides support for the httplib library
 
 URL: https://github.com/yhirose/cpp-httplib
 
+## Install
+
+	ringpm install httplib from ringpackages
+
 ## Example
 
 	load "httplib.ring"
