@@ -710,6 +710,9 @@ aPackagesRegistry = [
 	[ :name = "softanzalib",
 	  :description = "Softanza Library for the Ring programming language",
 	  :ProviderUserName = "mayouni"
+	],
+	[ :name = "httplib",
+	  :description = "RingHTTPLib package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
-
 ]
