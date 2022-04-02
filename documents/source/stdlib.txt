@@ -144,7 +144,6 @@ Example:
 
 	Load "stdlib.ring"
 
-	# Application Path
 	Puts("Test IsAppCompiled()")
 	if IsAppCompiled() see "Application has been compiled using Ring2EXE"
 	else see "Application is running under Ring interpreter" ok
