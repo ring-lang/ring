@@ -127,12 +127,35 @@ Func GetNumber
 	return 0 + _temp_get_number
 
 /*
+	Function Name	: isappcompiled
+	Usage		: check whether the application has been compiled using Ring2EXE
+	Parameters	: no Parameters
+	Output		: the result of the test (0,1)
+*/
+Func IsAppCompiled
+	# when running under the interpreter, we have at least two arguments
+	# and the second argument is equal to filename() output
+	if (Len(sysargv) >= 2) and (sysargv[2] = filename())
+		return false
+	else
+		return true
+	ok
+
+/*
 	Function Name	: apppath
 	Usage		: get the path of the application folder
 	Parameters	: no Parameters
 */
 Func AppPath
-	cfile = sysargv[2] # the main file
+	appfileindex = 2 # main file index in sysargv when interpreted
+	if IsAppCompiled()
+		appfileindex = 1 # exe file index in sysargv when compiled
+	ok
+	# get native path separator
+	cpathseparator = "/"
+	if isWindows() cpathseparator = "\" ok
+
+	cfile = sysargv[appfileindex] # the main or exe file
 	update = false
 	for x = len(cfile) to 1 step -1
 		if cfile[x] = "\" or cfile[x] = "/"
@@ -143,14 +166,14 @@ Func AppPath
 	next
 	if update = true
 		if cfile[1] != "/" and cfile[2] != ":"
-			cpath = currentdir() + "\" + cfile
+			cpath = currentdir() + cpathseparator + cfile
 		else
 			cpath = cfile
 		ok
 	else
 		cpath = currentdir()
 	ok
-	if right(cpath,1) != "\" and right(cpath,1) != "/" cpath += "/" ok
+	if right(cpath,1) != "\" and right(cpath,1) != "/" cpath += cpathseparator ok
 	return cpath
 
 /*
