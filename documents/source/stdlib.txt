@@ -125,6 +125,31 @@ Get input from the keyboard - return value as number
 	getnumber() ---> number
 
 .. index:: 
+	pair: Stdlib Functions; isappcompiled()
+
+IsAppCompiled() function
+==================
+
+check whether the application has been compiled using Ring2EXE
+
+Syntax:
+
+.. code-block:: ring
+
+	IsAppCompiled() ---> True/False
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Application Path
+	Puts("Test IsAppCompiled()")
+	if IsAppCompiled() see "Application has been compiled using Ring2EXE"
+	else see "Application is running under Ring interpreter" ok
+
+.. index:: 
 	pair: Stdlib Functions; apppath()
 
 AppPath() function
