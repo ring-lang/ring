@@ -1,5 +1,5 @@
 echo off
-setlocal
+setlocal enableextensions enabledelayedexpansion
 call locatevc.bat %1 %2
 
 cls 

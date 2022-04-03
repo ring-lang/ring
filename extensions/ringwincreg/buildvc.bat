@@ -1,6 +1,6 @@
 echo off
-
-call ../../language/src/locatevc.bat
+setlocal enableextensions enabledelayedexpansion
+call ../../language/src/locatevc.bat auto %1
 
 cl /c /DEBUG /EHsc creg_registry.cpp ring_wincreg.cpp -I"..\..\language\include"
 
@@ -17,4 +17,4 @@ del ring_wincreg.pdb
 del ring_wincreg.dll
 del ring_wincreg.lib
 
-
+endlocal

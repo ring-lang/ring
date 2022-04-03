@@ -1,5 +1,5 @@
 cls
-setlocal 
+setlocal enableextensions enabledelayedexpansion
 rem buildvc.bat [debug]
 rem we pass the parameter as second parameter to locatevc.bat
 call ../../language/src/locatevc.bat auto %1

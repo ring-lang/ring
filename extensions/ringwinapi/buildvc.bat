@@ -1,6 +1,6 @@
 echo off
-
-call ../../language/src/locatevc.bat
+setlocal enableextensions enabledelayedexpansion
+call ../../language/src/locatevc.bat auto %1
 
 cl /c /DEBUG ring_winapi.c -I"..\..\language\include"
 
@@ -15,5 +15,5 @@ del ring_winapi.pdb
 del ring_winapi.lib
 del ring_winapi.dll
 
-
+endlocal
 
