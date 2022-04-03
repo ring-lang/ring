@@ -56,7 +56,7 @@ ring_vm_os_uptime
 Type: double
 nTime
 Type: LARGE_INTEGER
-ElapsedMicroseconds
+PerformanceCounterTicks, PerformanceCounterFrequency
 Type: struct timespec
 ts
 ring_vm_os_randomize

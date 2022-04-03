@@ -297,11 +297,11 @@ void ring_vm_os_uptime ( void *pPointer )
 {
     double nTime  ;
     #ifdef _WIN32
-        LARGE_INTEGER PerformanceCounterTicks, PerformanceCounterFrequency ;
-		QueryPerformanceFrequency(&PerformanceCounterFrequency);
+        LARGE_INTEGER PerformanceCounterTicks, PerformanceCounterFrequency  ;
+        QueryPerformanceFrequency(&PerformanceCounterFrequency);
         QueryPerformanceCounter(&PerformanceCounterTicks);
-		/* return the elapsed time in units of 0.1 microseconds for backward compatibility */ 
-        nTime = ((double) PerformanceCounterTicks.QuadPart / (double) PerformanceCounterFrequency.QuadPart) * (double) 10000000.0;
+        /* Return the elapsed time in units of 0.1 microseconds for backward compatibility */
+        nTime = ((double) PerformanceCounterTicks.QuadPart / (double) PerformanceCounterFrequency.QuadPart) * (double) 10000000.0 ;
     #else
         struct timespec ts  ;
         ring_vm_os_gettime(CLOCK_UPTIME, &ts);
