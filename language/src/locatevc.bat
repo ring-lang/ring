@@ -29,7 +29,7 @@ if /I ["%1"]==["auto"] (
 	if exist %RINGEXEPATH% (
 		rem run buildarch.ring to get ring.exe architecture
 		rem we use trick documented at https://devblogs.microsoft.com/oldnewthing/20120731-00/?p=7003
-		for /f %%i in ('%RINGEXEPATH% %RINGARCHPATH%') do set ringbuildtarget=%%i
+		for /f %%i in ('call %RINGEXEPATH% %RINGARCHPATH%') do set ringbuildtarget=%%i
 	)
 )
 

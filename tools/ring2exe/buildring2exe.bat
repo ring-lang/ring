@@ -1,4 +1,4 @@
-setlocal
+setlocal enableextensions enabledelayedexpansion
 
 set RINGSCRIPTPATH=%~dp0
 set RINGEXEPATH="%RINGSCRIPTPATH%..\..\bin\ring.exe"
