@@ -1115,7 +1115,6 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
     /* Print Calling Information */
     cOldFile = NULL ;
     lFunctionCall = 0 ;
-    cStr = "" ;
     for ( x = ring_list_getsize(pVM->pFuncCallList) ; x >= 1 ; x-- ) {
         pList = ring_list_getlist(pVM->pFuncCallList,x);
         /*
@@ -1128,7 +1127,7 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
         }
         if ( ring_list_getint(pList,RING_FUNCCL_TYPE) == RING_FUNCTYPE_SCRIPT ) {
             cStr2 = ring_list_getstring(pList,RING_FUNCCL_NAME) ;
-            if ( strcmp(cStr,cStr2) == 0 ) {
+            if ( strcmp("",cStr2) == 0 ) {
                 break ;
             }
             /*
