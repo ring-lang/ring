@@ -5,19 +5,19 @@ aPackageInfo = [
 	:developer = "",
 	:email = "",
 	:license = "MIT License",
-	:version = "1.0.4",
+	:version = "1.0.5",
 	:ringversion = "1.16",
 	:versions = 	[
 		[
-			:version = "1.0.4",
+			:version = "1.0.5",
 			:branch = "master"
 		]
 	],
 	:libs = 	[
 		[
-			:name = "",
-			:version = "",
-			:providerusername = ""
+			:name = "weblib",
+			:version = "1.0",
+			:providerusername = "ringpackages"
 		]
 	],
 	:files = 	[
