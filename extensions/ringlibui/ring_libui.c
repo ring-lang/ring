@@ -645,7 +645,7 @@ RING_FUNC(ring_get_uitablevaluetypecolor)
 RING_FUNC(ring_new_uiinitoptions)
 {
 	uiInitOptions *pMyPointer ;
-	pMyPointer = (uiInitOptions *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiInitOptions)) ;
+	pMyPointer = (uiInitOptions *) RING_API_MALLOC(sizeof(uiInitOptions)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -657,13 +657,13 @@ RING_FUNC(ring_new_uiinitoptions)
 RING_FUNC(ring_new_managed_uiinitoptions)
 {
 	uiInitOptions *pMyPointer ;
-	pMyPointer = (uiInitOptions *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiInitOptions)) ;
+	pMyPointer = (uiInitOptions *) RING_API_MALLOC(sizeof(uiInitOptions)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiInitOptions",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiInitOptions",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uiinitoptions)
@@ -679,7 +679,7 @@ RING_FUNC(ring_destroy_uiinitoptions)
 	}
 	pMyPointer = (uiInitOptions*) RING_API_GETCPOINTER(1,"uiInitOptions");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -687,7 +687,7 @@ RING_FUNC(ring_destroy_uiinitoptions)
 RING_FUNC(ring_new_uicontrol)
 {
 	uiControl *pMyPointer ;
-	pMyPointer = (uiControl *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiControl)) ;
+	pMyPointer = (uiControl *) RING_API_MALLOC(sizeof(uiControl)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -699,13 +699,13 @@ RING_FUNC(ring_new_uicontrol)
 RING_FUNC(ring_new_managed_uicontrol)
 {
 	uiControl *pMyPointer ;
-	pMyPointer = (uiControl *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiControl)) ;
+	pMyPointer = (uiControl *) RING_API_MALLOC(sizeof(uiControl)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiControl",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiControl",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uicontrol)
@@ -721,7 +721,7 @@ RING_FUNC(ring_destroy_uicontrol)
 	}
 	pMyPointer = (uiControl*) RING_API_GETCPOINTER(1,"uiControl");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -831,7 +831,7 @@ RING_FUNC(ring_set_uicontrol_TypeSignature)
 RING_FUNC(ring_new_uiareadrawparams)
 {
 	uiAreaDrawParams *pMyPointer ;
-	pMyPointer = (uiAreaDrawParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaDrawParams)) ;
+	pMyPointer = (uiAreaDrawParams *) RING_API_MALLOC(sizeof(uiAreaDrawParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -843,13 +843,13 @@ RING_FUNC(ring_new_uiareadrawparams)
 RING_FUNC(ring_new_managed_uiareadrawparams)
 {
 	uiAreaDrawParams *pMyPointer ;
-	pMyPointer = (uiAreaDrawParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaDrawParams)) ;
+	pMyPointer = (uiAreaDrawParams *) RING_API_MALLOC(sizeof(uiAreaDrawParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaDrawParams",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaDrawParams",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uiareadrawparams)
@@ -865,7 +865,7 @@ RING_FUNC(ring_destroy_uiareadrawparams)
 	}
 	pMyPointer = (uiAreaDrawParams*) RING_API_GETCPOINTER(1,"uiAreaDrawParams");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1111,7 +1111,7 @@ RING_FUNC(ring_set_uiareadrawparams_ClipHeight)
 RING_FUNC(ring_new_uidrawmatrix)
 {
 	uiDrawMatrix *pMyPointer ;
-	pMyPointer = (uiDrawMatrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawMatrix)) ;
+	pMyPointer = (uiDrawMatrix *) RING_API_MALLOC(sizeof(uiDrawMatrix)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1123,13 +1123,13 @@ RING_FUNC(ring_new_uidrawmatrix)
 RING_FUNC(ring_new_managed_uidrawmatrix)
 {
 	uiDrawMatrix *pMyPointer ;
-	pMyPointer = (uiDrawMatrix *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawMatrix)) ;
+	pMyPointer = (uiDrawMatrix *) RING_API_MALLOC(sizeof(uiDrawMatrix)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawMatrix",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawMatrix",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uidrawmatrix)
@@ -1145,7 +1145,7 @@ RING_FUNC(ring_destroy_uidrawmatrix)
 	}
 	pMyPointer = (uiDrawMatrix*) RING_API_GETCPOINTER(1,"uiDrawMatrix");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1357,7 +1357,7 @@ RING_FUNC(ring_set_uidrawmatrix_M32)
 RING_FUNC(ring_new_uitabletextcolumnoptionalparams)
 {
 	uiTableTextColumnOptionalParams *pMyPointer ;
-	pMyPointer = (uiTableTextColumnOptionalParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableTextColumnOptionalParams)) ;
+	pMyPointer = (uiTableTextColumnOptionalParams *) RING_API_MALLOC(sizeof(uiTableTextColumnOptionalParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1369,13 +1369,13 @@ RING_FUNC(ring_new_uitabletextcolumnoptionalparams)
 RING_FUNC(ring_new_managed_uitabletextcolumnoptionalparams)
 {
 	uiTableTextColumnOptionalParams *pMyPointer ;
-	pMyPointer = (uiTableTextColumnOptionalParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableTextColumnOptionalParams)) ;
+	pMyPointer = (uiTableTextColumnOptionalParams *) RING_API_MALLOC(sizeof(uiTableTextColumnOptionalParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableTextColumnOptionalParams",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableTextColumnOptionalParams",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uitabletextcolumnoptionalparams)
@@ -1391,7 +1391,7 @@ RING_FUNC(ring_destroy_uitabletextcolumnoptionalparams)
 	}
 	pMyPointer = (uiTableTextColumnOptionalParams*) RING_API_GETCPOINTER(1,"uiTableTextColumnOptionalParams");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1433,7 +1433,7 @@ RING_FUNC(ring_set_uitabletextcolumnoptionalparams_ColorModelColumn)
 RING_FUNC(ring_new_uidrawbrush)
 {
 	uiDrawBrush *pMyPointer ;
-	pMyPointer = (uiDrawBrush *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawBrush)) ;
+	pMyPointer = (uiDrawBrush *) RING_API_MALLOC(sizeof(uiDrawBrush)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1445,13 +1445,13 @@ RING_FUNC(ring_new_uidrawbrush)
 RING_FUNC(ring_new_managed_uidrawbrush)
 {
 	uiDrawBrush *pMyPointer ;
-	pMyPointer = (uiDrawBrush *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawBrush)) ;
+	pMyPointer = (uiDrawBrush *) RING_API_MALLOC(sizeof(uiDrawBrush)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawBrush",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawBrush",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uidrawbrush)
@@ -1467,7 +1467,7 @@ RING_FUNC(ring_destroy_uidrawbrush)
 	}
 	pMyPointer = (uiDrawBrush*) RING_API_GETCPOINTER(1,"uiDrawBrush");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -1849,7 +1849,7 @@ RING_FUNC(ring_set_uidrawbrush_NumStops)
 RING_FUNC(ring_new_uidrawbrushgradientstop)
 {
 	uiDrawBrushGradientStop *pMyPointer ;
-	pMyPointer = (uiDrawBrushGradientStop *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawBrushGradientStop)) ;
+	pMyPointer = (uiDrawBrushGradientStop *) RING_API_MALLOC(sizeof(uiDrawBrushGradientStop)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -1861,13 +1861,13 @@ RING_FUNC(ring_new_uidrawbrushgradientstop)
 RING_FUNC(ring_new_managed_uidrawbrushgradientstop)
 {
 	uiDrawBrushGradientStop *pMyPointer ;
-	pMyPointer = (uiDrawBrushGradientStop *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawBrushGradientStop)) ;
+	pMyPointer = (uiDrawBrushGradientStop *) RING_API_MALLOC(sizeof(uiDrawBrushGradientStop)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawBrushGradientStop",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawBrushGradientStop",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uidrawbrushgradientstop)
@@ -1883,7 +1883,7 @@ RING_FUNC(ring_destroy_uidrawbrushgradientstop)
 	}
 	pMyPointer = (uiDrawBrushGradientStop*) RING_API_GETCPOINTER(1,"uiDrawBrushGradientStop");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2061,7 +2061,7 @@ RING_FUNC(ring_set_uidrawbrushgradientstop_A)
 RING_FUNC(ring_new_uidrawstrokeparams)
 {
 	uiDrawStrokeParams *pMyPointer ;
-	pMyPointer = (uiDrawStrokeParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawStrokeParams)) ;
+	pMyPointer = (uiDrawStrokeParams *) RING_API_MALLOC(sizeof(uiDrawStrokeParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2073,13 +2073,13 @@ RING_FUNC(ring_new_uidrawstrokeparams)
 RING_FUNC(ring_new_managed_uidrawstrokeparams)
 {
 	uiDrawStrokeParams *pMyPointer ;
-	pMyPointer = (uiDrawStrokeParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawStrokeParams)) ;
+	pMyPointer = (uiDrawStrokeParams *) RING_API_MALLOC(sizeof(uiDrawStrokeParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawStrokeParams",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawStrokeParams",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uidrawstrokeparams)
@@ -2095,7 +2095,7 @@ RING_FUNC(ring_destroy_uidrawstrokeparams)
 	}
 	pMyPointer = (uiDrawStrokeParams*) RING_API_GETCPOINTER(1,"uiDrawStrokeParams");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2307,7 +2307,7 @@ RING_FUNC(ring_set_uidrawstrokeparams_DashPhase)
 RING_FUNC(ring_new_uitablemodelhandler)
 {
 	uiTableModelHandler *pMyPointer ;
-	pMyPointer = (uiTableModelHandler *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableModelHandler)) ;
+	pMyPointer = (uiTableModelHandler *) RING_API_MALLOC(sizeof(uiTableModelHandler)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2319,13 +2319,13 @@ RING_FUNC(ring_new_uitablemodelhandler)
 RING_FUNC(ring_new_managed_uitablemodelhandler)
 {
 	uiTableModelHandler *pMyPointer ;
-	pMyPointer = (uiTableModelHandler *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableModelHandler)) ;
+	pMyPointer = (uiTableModelHandler *) RING_API_MALLOC(sizeof(uiTableModelHandler)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableModelHandler",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableModelHandler",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uitablemodelhandler)
@@ -2341,7 +2341,7 @@ RING_FUNC(ring_destroy_uitablemodelhandler)
 	}
 	pMyPointer = (uiTableModelHandler*) RING_API_GETCPOINTER(1,"uiTableModelHandler");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2349,7 +2349,7 @@ RING_FUNC(ring_destroy_uitablemodelhandler)
 RING_FUNC(ring_new_uiareakeyevent)
 {
 	uiAreaKeyEvent *pMyPointer ;
-	pMyPointer = (uiAreaKeyEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaKeyEvent)) ;
+	pMyPointer = (uiAreaKeyEvent *) RING_API_MALLOC(sizeof(uiAreaKeyEvent)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2361,13 +2361,13 @@ RING_FUNC(ring_new_uiareakeyevent)
 RING_FUNC(ring_new_managed_uiareakeyevent)
 {
 	uiAreaKeyEvent *pMyPointer ;
-	pMyPointer = (uiAreaKeyEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaKeyEvent)) ;
+	pMyPointer = (uiAreaKeyEvent *) RING_API_MALLOC(sizeof(uiAreaKeyEvent)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaKeyEvent",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaKeyEvent",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uiareakeyevent)
@@ -2383,7 +2383,7 @@ RING_FUNC(ring_destroy_uiareakeyevent)
 	}
 	pMyPointer = (uiAreaKeyEvent*) RING_API_GETCPOINTER(1,"uiAreaKeyEvent");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2561,7 +2561,7 @@ RING_FUNC(ring_set_uiareakeyevent_Up)
 RING_FUNC(ring_new_uitableparams)
 {
 	uiTableParams *pMyPointer ;
-	pMyPointer = (uiTableParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableParams)) ;
+	pMyPointer = (uiTableParams *) RING_API_MALLOC(sizeof(uiTableParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2573,13 +2573,13 @@ RING_FUNC(ring_new_uitableparams)
 RING_FUNC(ring_new_managed_uitableparams)
 {
 	uiTableParams *pMyPointer ;
-	pMyPointer = (uiTableParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiTableParams)) ;
+	pMyPointer = (uiTableParams *) RING_API_MALLOC(sizeof(uiTableParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableParams",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiTableParams",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uitableparams)
@@ -2595,7 +2595,7 @@ RING_FUNC(ring_destroy_uitableparams)
 	}
 	pMyPointer = (uiTableParams*) RING_API_GETCPOINTER(1,"uiTableParams");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -2671,7 +2671,7 @@ RING_FUNC(ring_set_uitableparams_RowBackgroundColorModelColumn)
 RING_FUNC(ring_new_uiareamouseevent)
 {
 	uiAreaMouseEvent *pMyPointer ;
-	pMyPointer = (uiAreaMouseEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaMouseEvent)) ;
+	pMyPointer = (uiAreaMouseEvent *) RING_API_MALLOC(sizeof(uiAreaMouseEvent)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -2683,13 +2683,13 @@ RING_FUNC(ring_new_uiareamouseevent)
 RING_FUNC(ring_new_managed_uiareamouseevent)
 {
 	uiAreaMouseEvent *pMyPointer ;
-	pMyPointer = (uiAreaMouseEvent *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiAreaMouseEvent)) ;
+	pMyPointer = (uiAreaMouseEvent *) RING_API_MALLOC(sizeof(uiAreaMouseEvent)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaMouseEvent",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiAreaMouseEvent",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uiareamouseevent)
@@ -2705,7 +2705,7 @@ RING_FUNC(ring_destroy_uiareamouseevent)
 	}
 	pMyPointer = (uiAreaMouseEvent*) RING_API_GETCPOINTER(1,"uiAreaMouseEvent");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -3019,7 +3019,7 @@ RING_FUNC(ring_set_uiareamouseevent_Held1To64)
 RING_FUNC(ring_new_uidrawtextlayoutparams)
 {
 	uiDrawTextLayoutParams *pMyPointer ;
-	pMyPointer = (uiDrawTextLayoutParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawTextLayoutParams)) ;
+	pMyPointer = (uiDrawTextLayoutParams *) RING_API_MALLOC(sizeof(uiDrawTextLayoutParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -3031,13 +3031,13 @@ RING_FUNC(ring_new_uidrawtextlayoutparams)
 RING_FUNC(ring_new_managed_uidrawtextlayoutparams)
 {
 	uiDrawTextLayoutParams *pMyPointer ;
-	pMyPointer = (uiDrawTextLayoutParams *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiDrawTextLayoutParams)) ;
+	pMyPointer = (uiDrawTextLayoutParams *) RING_API_MALLOC(sizeof(uiDrawTextLayoutParams)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawTextLayoutParams",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiDrawTextLayoutParams",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uidrawtextlayoutparams)
@@ -3053,7 +3053,7 @@ RING_FUNC(ring_destroy_uidrawtextlayoutparams)
 	}
 	pMyPointer = (uiDrawTextLayoutParams*) RING_API_GETCPOINTER(1,"uiDrawTextLayoutParams");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -3197,7 +3197,7 @@ RING_FUNC(ring_set_uidrawtextlayoutparams_Align)
 RING_FUNC(ring_new_uifontdescriptor)
 {
 	uiFontDescriptor *pMyPointer ;
-	pMyPointer = (uiFontDescriptor *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiFontDescriptor)) ;
+	pMyPointer = (uiFontDescriptor *) RING_API_MALLOC(sizeof(uiFontDescriptor)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -3209,13 +3209,13 @@ RING_FUNC(ring_new_uifontdescriptor)
 RING_FUNC(ring_new_managed_uifontdescriptor)
 {
 	uiFontDescriptor *pMyPointer ;
-	pMyPointer = (uiFontDescriptor *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uiFontDescriptor)) ;
+	pMyPointer = (uiFontDescriptor *) RING_API_MALLOC(sizeof(uiFontDescriptor)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiFontDescriptor",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"uiFontDescriptor",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_uifontdescriptor)
@@ -3231,7 +3231,7 @@ RING_FUNC(ring_destroy_uifontdescriptor)
 	}
 	pMyPointer = (uiFontDescriptor*) RING_API_GETCPOINTER(1,"uiFontDescriptor");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -7135,7 +7135,7 @@ RING_FUNC(ring_uiOpenTypeFeaturesForEach)
 	}
 	uiOpenTypeFeaturesForEach((uiOpenTypeFeatures *) RING_API_GETCPOINTER(1,"uiOpenTypeFeatures"),* (uiOpenTypeFeaturesForEachFunc  *) RING_API_GETCPOINTER(2,"uiOpenTypeFeaturesForEachFunc"),(void *) RING_API_GETCPOINTER(3,"void"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uiOpenTypeFeaturesForEachFunc"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uiOpenTypeFeaturesForEachFunc"));
 }
 
 
@@ -7338,7 +7338,7 @@ RING_FUNC(ring_uiAttributedStringForEachAttribute)
 	}
 	uiAttributedStringForEachAttribute((uiAttributedString *) RING_API_GETCPOINTER(1,"uiAttributedString"),* (uiAttributedStringForEachAttributeFunc  *) RING_API_GETCPOINTER(2,"uiAttributedStringForEachAttributeFunc"),(void *) RING_API_GETCPOINTER(3,"void"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(2))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(2,"uiAttributedStringForEachAttributeFunc"));
+		RING_API_FREE(RING_API_GETCPOINTER(2,"uiAttributedStringForEachAttributeFunc"));
 }
 
 
@@ -8492,9 +8492,9 @@ RING_FUNC(ring_uiControlHandle)
 	}
 	{
 		uintptr_t *pValue ; 
-		pValue = (uintptr_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(uintptr_t)) ;
+		pValue = (uintptr_t *) RING_API_MALLOC(sizeof(uintptr_t)) ;
 		*pValue = uiControlHandle((uiControl *) RING_API_GETCPOINTER(1,"uiControl"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"uintptr_t",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"uintptr_t",RING_API_FREEFUNC);
 	}
 }
 
