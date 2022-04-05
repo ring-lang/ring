@@ -6,21 +6,21 @@
 
 RING_API void ringlib_init ( RingState *pRingState )
 {
-	ring_vm_funcregister("mysql_info",ring_vm_mysql_get_client_info);
-	ring_vm_funcregister("mysql_init",ring_vm_mysql_init);
-	ring_vm_funcregister("mysql_error",ring_vm_mysql_error);
-	ring_vm_funcregister("mysql_connect",ring_vm_mysql_real_connect);
-	ring_vm_funcregister("mysql_close",ring_vm_mysql_close);
-	ring_vm_funcregister("mysql_query",ring_vm_mysql_query);
-	ring_vm_funcregister("mysql_result",ring_vm_mysql_result);
-	ring_vm_funcregister("mysql_insert_id",ring_vm_mysql_insert_id);
-	ring_vm_funcregister("mysql_columns",ring_vm_mysql_columns);
-	ring_vm_funcregister("mysql_result2",ring_vm_mysql_result2);
-	ring_vm_funcregister("mysql_next_result",ring_vm_mysql_next_result);
-	ring_vm_funcregister("mysql_escape_string",ring_vm_mysql_real_escape_string);
-	ring_vm_funcregister("mysql_autocommit",ring_vm_mysql_autocommit);
-	ring_vm_funcregister("mysql_commit",ring_vm_mysql_commit);
-	ring_vm_funcregister("mysql_rollback",ring_vm_mysql_rollback);
+	RING_API_REGISTER("mysql_info",ring_vm_mysql_get_client_info);
+	RING_API_REGISTER("mysql_init",ring_vm_mysql_init);
+	RING_API_REGISTER("mysql_error",ring_vm_mysql_error);
+	RING_API_REGISTER("mysql_connect",ring_vm_mysql_real_connect);
+	RING_API_REGISTER("mysql_close",ring_vm_mysql_close);
+	RING_API_REGISTER("mysql_query",ring_vm_mysql_query);
+	RING_API_REGISTER("mysql_result",ring_vm_mysql_result);
+	RING_API_REGISTER("mysql_insert_id",ring_vm_mysql_insert_id);
+	RING_API_REGISTER("mysql_columns",ring_vm_mysql_columns);
+	RING_API_REGISTER("mysql_result2",ring_vm_mysql_result2);
+	RING_API_REGISTER("mysql_next_result",ring_vm_mysql_next_result);
+	RING_API_REGISTER("mysql_escape_string",ring_vm_mysql_real_escape_string);
+	RING_API_REGISTER("mysql_autocommit",ring_vm_mysql_autocommit);
+	RING_API_REGISTER("mysql_commit",ring_vm_mysql_commit);
+	RING_API_REGISTER("mysql_rollback",ring_vm_mysql_rollback);
 }
 
 void ring_vm_mysql_get_client_info ( void *pPointer )
