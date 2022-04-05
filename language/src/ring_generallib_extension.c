@@ -180,13 +180,13 @@ void ring_vm_generallib_input ( void *pPointer )
         return ;
     }
     if ( nSize > 0 ) {
-        cLine = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nSize);
+        cLine = (char *) RING_API_MALLOC(nSize);
         /* Get Input From the User and save it in the variable */
         nOutput = RING_SETBINARY ;
         fread( cLine , sizeof(char) , nSize , stdin );
         /* Return String */
         RING_API_RETSTRING2(cLine,nSize);
-        ring_state_free(((VM *) pPointer)->pRingState,cLine);
+        RING_API_FREE(cLine);
     }
     else {
         RING_API_ERROR("Error in first parameter,  input size < 1 !");
@@ -990,7 +990,7 @@ void ring_vm_generallib_str2hexcstyle ( void *pPointer )
     if ( RING_API_ISSTRING(1) ) {
         cString = (unsigned char *) RING_API_GETSTRING(1) ;
         nMax = RING_API_GETSTRINGSIZE(1) ;
-        cString2 = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nMax*5);
+        cString2 = (char *) RING_API_MALLOC(nMax*5);
         for ( x = 1 ; x <= nMax ; x++ ) {
             sprintf( cStr , "%x" , (unsigned char) cString[x-1] ) ;
             /* Separator */
@@ -1010,7 +1010,7 @@ void ring_vm_generallib_str2hexcstyle ( void *pPointer )
         RING_API_RETSTRING2(cString2,nMax*5-1);
         /* When we call free() we use the original pointer */
         cString2-- ;
-        ring_state_free(((VM *) pPointer)->pRingState,cString2);
+        RING_API_FREE(cString2);
     }
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);
@@ -1238,12 +1238,12 @@ void ring_vm_generallib_substr ( void *pPointer )
             nNum2 = RING_API_GETNUMBER(3) ;
             if ( (nNum1 > 0) && ( nNum1 <= nSize ) ) {
                 if ( (nNum2 > 0) && ( (nNum1+nNum2-1) <= nSize ) ) {
-                    cString = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nNum2);
+                    cString = (char *) RING_API_MALLOC(nNum2);
                     for ( x = 0 ; x < nNum2 ; x++ ) {
                         cString[x] = cStr[((int) nNum1) + x - 1 ] ;
                     }
                     RING_API_RETSTRING2(cString,nNum2);
-                    ring_state_free(((VM *) pPointer)->pRingState,cString);
+                    RING_API_FREE(cString);
                 }
             }
         }
@@ -1605,10 +1605,10 @@ void ring_vm_generallib_space ( void *pPointer )
             return ;
         }
         nStrSize = (unsigned int) RING_API_GETNUMBER(1) ;
-        pString = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nStrSize);
+        pString = (char *) RING_API_MALLOC(nStrSize);
         memset(pString,' ',nStrSize);
         RING_API_RETSTRING2(pString,nStrSize);
-        ring_state_free(((VM *) pPointer)->pRingState,pString);
+        RING_API_FREE(pString);
     }
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);
@@ -1796,15 +1796,15 @@ void ring_vm_generallib_state_main ( void *pPointer )
     char *cStr  ;
     int argc  ;
     char *argv[2]  ;
-    argv[0] = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,100);
-    argv[1] = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,100);
+    argv[0] = (char *) RING_API_MALLOC(100);
+    argv[1] = (char *) RING_API_MALLOC(100);
     cStr = RING_API_GETSTRING(1);
     argc = 2 ;
     strcpy(argv[0],"ring");
     strcpy(argv[1],cStr);
     ring_state_execute(cStr,0,1,0,0,0,0,0,0,0,0,argc,argv);
-    ring_state_free(((VM *) pPointer)->pRingState,argv[0]);
-    ring_state_free(((VM *) pPointer)->pRingState,argv[1]);
+    RING_API_FREE(argv[0]);
+    RING_API_FREE(argv[1]);
 }
 
 void ring_vm_generallib_state_setvar ( void *pPointer )
@@ -1860,8 +1860,8 @@ void ring_vm_generallib_state_mainfile ( void *pPointer )
     char *cStr  ;
     int argc  ;
     char *argv[2]  ;
-    argv[0] = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,100);
-    argv[1] = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,100);
+    argv[0] = (char *) RING_API_MALLOC(100);
+    argv[1] = (char *) RING_API_MALLOC(100);
     if ( RING_API_PARACOUNT != 2 ) {
         RING_API_ERROR(RING_API_MISS2PARA);
         return ;
