@@ -21,5 +21,5 @@ RING_FUNC(ring_Beep)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("beep",ring_Beep);
+	RING_API_REGISTER("beep",ring_Beep);
 }
