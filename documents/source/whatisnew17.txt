@@ -18,10 +18,11 @@ Ring 1.17 comes with the next features!
 * Merge Two Files 
 * Poetry Analysis 
 * Citations Prediction
+* TokensLib Library
 * CSVLib Library
 * JSONLib Library
 * RingCJSON Extension
-* TokensLib Library
+* RingHTTPLib Extension
 * Better GUILib
 * Better Ring API
 * Better Code Generator for Extensions
@@ -74,6 +75,43 @@ It's an example about using Ring, RingQt, RingLibCurl and JSONLib
 
 .. image:: predictionapp1.png
 	:alt: citations
+
+.. index:: 
+	pair: What is new in Ring  1.17; TokensLib Library
+
+TokensLib Library
+=================
+
+Using this library we can get Ring tokens from source code files or strings.
+
+Example:
+
+.. code-block:: ring
+
+	load "tokenslib.ring"
+
+	func main
+		oTokens = new RingTokens {
+			fromFile("hello.ring")
+			PrintTokens()
+			? Copy("=",50)
+			fromString("? 1+1")
+			PrintTokens()
+		}
+
+Output:
+
+.. code-block:: none
+
+	Keyword     : SEE
+	Literal     : Hello, World!
+	EndLine
+	==================================================
+	Operator    : ? (23)
+	Number      : 1
+	Operator    : + (1)
+	Number      : 1
+	EndLine
 
 .. index:: 
 	pair: What is new in Ring  1.17; CSVLib Library
@@ -250,43 +288,36 @@ CJSON URL: https://github.com/DaveGamble/cJSON
 
 JSONLib uses RingCJSON to read JSON files at high-performance
 
+
 .. index:: 
-	pair: What is new in Ring  1.17; TokensLib Library
+	pair: What is new in Ring  1.17; RingHTTPLib Extension
 
-TokensLib Library
-=================
+RingHTTPLib Extension
+=====================
 
-Using this library we can get Ring tokens from source code files or strings.
+This extension provides support for the httplib library
+
+URL: https://github.com/yhirose/cpp-httplib
 
 Example:
 
 .. code-block:: ring
 
-	load "tokenslib.ring"
+	load "httplib.ring"
+	
+	? "Start the server..."
+	oServer = new Server 
+	
+	? "Try localhost:8080/hi"
+	oServer.route(:Get,"/hi",:mytest)
+	
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+	
+	func mytest 
+		oServer.setContent("Hello World!", "text/plain")
 
-	func main
-		oTokens = new RingTokens {
-			fromFile("hello.ring")
-			PrintTokens()
-			? Copy("=",50)
-			fromString("? 1+1")
-			PrintTokens()
-		}
-
-Output:
-
-.. code-block:: none
-
-	Keyword     : SEE
-	Literal     : Hello, World!
-	EndLine
-	==================================================
-	Operator    : ? (23)
-	Number      : 1
-	Operator    : + (1)
-	Number      : 1
-	EndLine
-
+The other examples exist in this folder: ring/samples/UsingHTTPLib
 
 .. index:: 
 	pair: What is new in Ring  1.17; Better GUILib
