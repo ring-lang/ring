@@ -73,7 +73,6 @@
     #define RING_API_PUSHPVALUE(x) ((VM *) pPointer)->nSP++ ; ring_itemarray_setpointer(((VM *) pPointer)->aStack, ((VM *) pPointer)->nSP , x )
     #define RING_API_OBJTYPE ((VM *) pPointer)->aStack[((VM *) pPointer)->nSP].nObjectType
     #define RING_API_GETSTRINGRAW ring_itemarray_getstringraw(((VM *) pPointer)->aStack,((VM *) pPointer)->nSP)
-    #define RING_FUNC(x) void x(void *pPointer)
     #define RING_API_GETSTRINGSIZE(x) (ring_list_getstringsize(ring_list_getlist(RING_API_PARALIST,x),3))
     #define RING_API_SETNULLPOINTER(x) (ring_vm_api_setcpointernull((VM *) pPointer,x))
     #define RING_API_GETCPOINTERSTATUS(x) ring_list_getint(RING_API_GETLIST(x),RING_CPOINTER_STATUS)
@@ -96,6 +95,8 @@
     #define RING_API_REALLOC(x,y,z) ring_state_realloc(((VM *) pPointer)->pRingState,x,y,z)
     #define RING_API_FREE(x) ring_state_free(((VM *) pPointer)->pRingState,x)
     #define RING_API_FREEFUNC ring_state_free
+    #define RING_FUNC(x) void x(void *pPointer)
+    #define RING_LIBINIT RING_API void ringlib_init(RingState *pRingState)
     /* Constants/MACRO */
     #define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
     #define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"
