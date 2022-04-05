@@ -23,6 +23,8 @@ Ring 1.17 comes with the next features!
 * RingCJSON Extension
 * TokensLib Library
 * Better GUILib
+* Better Ring API
+* Better Code Generator for Extensions
 * More Improvements
 
 .. index:: 
@@ -364,6 +366,38 @@ Example:
 	? aList
 
 .. index:: 
+	pair: What is new in Ring  1.17; Better Ring API
+
+Better Ring API
+===============
+
+The next functions are added to Ring API
+
+* RING_LIBINIT
+* RING_API_REGISTER
+* RING_API_MALLOC
+* RING_API_CALLOC
+* RING_API_REALLOC
+* RING_API_FREE
+* RING_API_FREEFUNC
+
+
+.. index:: 
+	pair: What is new in Ring  1.17; Code Generator for Extensions
+
+Better Code Generator for Extensions
+====================================
+
+The code generator is updated to include the next features
+
+* Better output messages 
+* Avoid generating the delete method twice 
+* Using codegenlib.ring for common functions
+* Use casting in functions that destroy the structures
+* Support C/C++ strings in structures
+* Clean error message when we can't parse a line
+
+.. index:: 
 	pair: What is new in Ring  1.17; More Improvements
 
 More Improvements
@@ -387,24 +421,11 @@ More Improvements
 * RingLibUI - The function uiFreeText() is removed from the library API
 * RingLibUI - Better implementation for functions that require uiFreeText()
 * RingQt - QString Class - Another version for the Replace() Method
-* Code Generator for Extensions - Better output messages 
-* Code Generator for Extensions - Avoid generating the delete method twice 
-* Code Generator for Extensions - Using codegenlib.ring for common functions
-* Code Generator For Extensions - Use casting in functions that destroy the structures
-* Code Generator For Extensions - Support C/C++ strings in structures
-* Code Generator For Extensions - Clean error message when we can't parse a line
 * Ring Object File - ring_objfile_writeCfile() - Better Code
 * Eval() function - Return NULL if the Return command is not used
 * SetPointer()/GetPointer() functions - Better Code
 * Fexists() function - Support UTF-8 file names
 * GetFileSize() function - Get the file size without requiring any I/O
-* Ring API - Added: RING_LIBINIT
-* Ring API - Added: RING_API_REGISTER
-* Ring API - Added: RING_API_MALLOC
-* Ring API - Added: RING_API_CALLOC
-* Ring API - Added: RING_API_REALLOC
-* Ring API - Added: RING_API_FREE
-* Ring API - Added: RING_API_FREEFUNC
 * Ring VM - Better code when copying lists
 * Ring VM - ICO_JUMPZ Instruction - Treat empty lists as Zero
 * Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero

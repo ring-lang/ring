@@ -207,6 +207,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#ringcjson-extension">RingCJSON Extension</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#tokenslib-library">TokensLib Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-guilib">Better GUILib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-code-generator-for-extensions">Better Code Generator for Extensions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#more-improvements">More Improvements</a></li>
 </ul>
 </li>
@@ -294,6 +296,8 @@
 <li><p>RingCJSON Extension</p></li>
 <li><p>TokensLib Library</p></li>
 <li><p>Better GUILib</p></li>
+<li><p>Better Ring API</p></li>
+<li><p>Better Code Generator for Extensions</p></li>
 <li><p>More Improvements</p></li>
 </ul>
 </div>
@@ -553,8 +557,33 @@ EndLine
 </pre></div>
 </div>
 </div>
+<div class="section" id="better-ring-api">
+<span id="index-10"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
+<p>The next functions are added to Ring API</p>
+<ul class="simple">
+<li><p>RING_LIBINIT</p></li>
+<li><p>RING_API_REGISTER</p></li>
+<li><p>RING_API_MALLOC</p></li>
+<li><p>RING_API_CALLOC</p></li>
+<li><p>RING_API_REALLOC</p></li>
+<li><p>RING_API_FREE</p></li>
+<li><p>RING_API_FREEFUNC</p></li>
+</ul>
+</div>
+<div class="section" id="better-code-generator-for-extensions">
+<span id="index-11"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<p>The code generator is updated to include the next features</p>
+<ul class="simple">
+<li><p>Better output messages</p></li>
+<li><p>Avoid generating the delete method twice</p></li>
+<li><p>Using codegenlib.ring for common functions</p></li>
+<li><p>Use casting in functions that destroy the structures</p></li>
+<li><p>Support C/C++ strings in structures</p></li>
+<li><p>Clean error message when we can’t parse a line</p></li>
+</ul>
+</div>
 <div class="section" id="more-improvements">
-<span id="index-10"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring Notepad (Web Browser) - Support URLs without “http” in the start</p></li>
 <li><p>Form Designer - Default TextColor is Empty (Better when changing styles)</p></li>
@@ -574,24 +603,11 @@ EndLine
 <li><p>RingLibUI - The function uiFreeText() is removed from the library API</p></li>
 <li><p>RingLibUI - Better implementation for functions that require uiFreeText()</p></li>
 <li><p>RingQt - QString Class - Another version for the Replace() Method</p></li>
-<li><p>Code Generator for Extensions - Better output messages</p></li>
-<li><p>Code Generator for Extensions - Avoid generating the delete method twice</p></li>
-<li><p>Code Generator for Extensions - Using codegenlib.ring for common functions</p></li>
-<li><p>Code Generator For Extensions - Use casting in functions that destroy the structures</p></li>
-<li><p>Code Generator For Extensions - Support C/C++ strings in structures</p></li>
-<li><p>Code Generator For Extensions - Clean error message when we can’t parse a line</p></li>
 <li><p>Ring Object File - ring_objfile_writeCfile() - Better Code</p></li>
 <li><p>Eval() function - Return NULL if the Return command is not used</p></li>
 <li><p>SetPointer()/GetPointer() functions - Better Code</p></li>
 <li><p>Fexists() function - Support UTF-8 file names</p></li>
 <li><p>GetFileSize() function - Get the file size without requiring any I/O</p></li>
-<li><p>Ring API - Added: RING_LIBINIT</p></li>
-<li><p>Ring API - Added: RING_API_REGISTER</p></li>
-<li><p>Ring API - Added: RING_API_MALLOC</p></li>
-<li><p>Ring API - Added: RING_API_CALLOC</p></li>
-<li><p>Ring API - Added: RING_API_REALLOC</p></li>
-<li><p>Ring API - Added: RING_API_FREE</p></li>
-<li><p>Ring API - Added: RING_API_FREEFUNC</p></li>
 <li><p>Ring VM - Better code when copying lists</p></li>
 <li><p>Ring VM - ICO_JUMPZ Instruction - Treat empty lists as Zero</p></li>
 <li><p>Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero</p></li>
