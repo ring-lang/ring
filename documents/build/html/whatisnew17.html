@@ -569,6 +569,21 @@ EndLine
 <li><p>RING_API_FREE</p></li>
 <li><p>RING_API_FREEFUNC</p></li>
 </ul>
+<p>The next example demonstrates using RING_LIBINIT and RING_API_REGISTER</p>
+<div class="highlight-c notranslate"><div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&quot;ring.h&quot;</span><span class="cp"></span>
+<span class="cp">#include</span> <span class="cpf">&quot;stdlib.h&quot;</span><span class="cp"></span>
+
+<span class="n">RING_FUNC</span><span class="p">(</span><span class="n">ring_myfunction</span><span class="p">)</span>
+<span class="p">{</span>
+        <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
+<span class="p">}</span>
+
+<span class="n">RING_LIBINIT</span>
+<span class="p">{</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;myfunction&quot;</span><span class="p">,</span><span class="n">ring_myfunction</span><span class="p">);</span>
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 <div class="section" id="better-code-generator-for-extensions">
 <span id="index-11"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>

@@ -381,6 +381,23 @@ The next functions are added to Ring API
 * RING_API_FREE
 * RING_API_FREEFUNC
 
+The next example demonstrates using RING_LIBINIT and RING_API_REGISTER
+
+.. code-block:: c
+
+	#include "ring.h"
+	#include "stdlib.h"
+
+	RING_FUNC(ring_myfunction)
+	{	
+		printf("Hello, World!");
+	}
+
+	RING_LIBINIT
+	{
+		RING_API_REGISTER("myfunction",ring_myfunction);
+	}
+
 
 .. index:: 
 	pair: What is new in Ring  1.17; Code Generator for Extensions
