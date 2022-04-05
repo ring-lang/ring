@@ -99,7 +99,7 @@ RING_FUNC(ring_destroy_thrd_t)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"thrd_t");
+	pMyPointer = (thrd_t*) RING_API_GETCPOINTER(1,"thrd_t");
 	if (pMyPointer != NULL) {
 		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
@@ -141,7 +141,7 @@ RING_FUNC(ring_destroy_mtx_t)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"mtx_t");
+	pMyPointer = (mtx_t*) RING_API_GETCPOINTER(1,"mtx_t");
 	if (pMyPointer != NULL) {
 		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
@@ -183,7 +183,7 @@ RING_FUNC(ring_destroy_cnd_t)
 		RING_API_ERROR(RING_API_BADPARATYPE);
 		return ;
 	}
-	pMyPointer = RING_API_GETCPOINTER(1,"cnd_t");
+	pMyPointer = (cnd_t*) RING_API_GETCPOINTER(1,"cnd_t");
 	if (pMyPointer != NULL) {
 		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
@@ -590,48 +590,48 @@ RING_FUNC(ring_tss_set)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("mtx_init",ring_mtx_init);
-	ring_vm_funcregister("mtx_destroy",ring_mtx_destroy);
-	ring_vm_funcregister("mtx_lock",ring_mtx_lock);
-	ring_vm_funcregister("mtx_timedlock",ring_mtx_timedlock);
-	ring_vm_funcregister("mtx_trylock",ring_mtx_trylock);
-	ring_vm_funcregister("mtx_unlock",ring_mtx_unlock);
-	ring_vm_funcregister("cnd_init",ring_cnd_init);
-	ring_vm_funcregister("cnd_destroy",ring_cnd_destroy);
-	ring_vm_funcregister("cnd_signal",ring_cnd_signal);
-	ring_vm_funcregister("cnd_broadcast",ring_cnd_broadcast);
-	ring_vm_funcregister("cnd_wait",ring_cnd_wait);
-	ring_vm_funcregister("cnd_timedwait",ring_cnd_timedwait);
-	ring_vm_funcregister("thrd_create",ring_thrd_create);
-	ring_vm_funcregister("thrd_current",ring_thrd_current);
-	ring_vm_funcregister("thrd_detach",ring_thrd_detach);
-	ring_vm_funcregister("thrd_equal",ring_thrd_equal);
-	ring_vm_funcregister("thrd_exit",ring_thrd_exit);
-	ring_vm_funcregister("thrd_join",ring_thrd_join);
-	ring_vm_funcregister("thrd_sleep",ring_thrd_sleep);
-	ring_vm_funcregister("thrd_yield",ring_thrd_yield);
-	ring_vm_funcregister("tss_delete",ring_tss_delete);
-	ring_vm_funcregister("tss_get",ring_tss_get);
-	ring_vm_funcregister("tss_set",ring_tss_set);
-	ring_vm_funcregister("get_time_utc",ring_get_time_utc);
-	ring_vm_funcregister("get_tinycthread_version_major",ring_get_tinycthread_version_major);
-	ring_vm_funcregister("get_tinycthread_version_minor",ring_get_tinycthread_version_minor);
-	ring_vm_funcregister("get_tinycthread_version",ring_get_tinycthread_version);
-	ring_vm_funcregister("get_thrd_error",ring_get_thrd_error);
-	ring_vm_funcregister("get_thrd_success",ring_get_thrd_success);
-	ring_vm_funcregister("get_thrd_timedout",ring_get_thrd_timedout);
-	ring_vm_funcregister("get_thrd_busy",ring_get_thrd_busy);
-	ring_vm_funcregister("get_thrd_nomem",ring_get_thrd_nomem);
-	ring_vm_funcregister("get_mtx_plain",ring_get_mtx_plain);
-	ring_vm_funcregister("get_mtx_timed",ring_get_mtx_timed);
-	ring_vm_funcregister("get_mtx_recursive",ring_get_mtx_recursive);
-	ring_vm_funcregister("new_thrd_t",ring_new_thrd_t);
-	ring_vm_funcregister("new_managed_thrd_t",ring_new_managed_thrd_t);
-	ring_vm_funcregister("destroy_thrd_t",ring_destroy_thrd_t);
-	ring_vm_funcregister("new_mtx_t",ring_new_mtx_t);
-	ring_vm_funcregister("new_managed_mtx_t",ring_new_managed_mtx_t);
-	ring_vm_funcregister("destroy_mtx_t",ring_destroy_mtx_t);
-	ring_vm_funcregister("new_cnd_t",ring_new_cnd_t);
-	ring_vm_funcregister("new_managed_cnd_t",ring_new_managed_cnd_t);
-	ring_vm_funcregister("destroy_cnd_t",ring_destroy_cnd_t);
+	RING_API_REGISTER("mtx_init",ring_mtx_init);
+	RING_API_REGISTER("mtx_destroy",ring_mtx_destroy);
+	RING_API_REGISTER("mtx_lock",ring_mtx_lock);
+	RING_API_REGISTER("mtx_timedlock",ring_mtx_timedlock);
+	RING_API_REGISTER("mtx_trylock",ring_mtx_trylock);
+	RING_API_REGISTER("mtx_unlock",ring_mtx_unlock);
+	RING_API_REGISTER("cnd_init",ring_cnd_init);
+	RING_API_REGISTER("cnd_destroy",ring_cnd_destroy);
+	RING_API_REGISTER("cnd_signal",ring_cnd_signal);
+	RING_API_REGISTER("cnd_broadcast",ring_cnd_broadcast);
+	RING_API_REGISTER("cnd_wait",ring_cnd_wait);
+	RING_API_REGISTER("cnd_timedwait",ring_cnd_timedwait);
+	RING_API_REGISTER("thrd_create",ring_thrd_create);
+	RING_API_REGISTER("thrd_current",ring_thrd_current);
+	RING_API_REGISTER("thrd_detach",ring_thrd_detach);
+	RING_API_REGISTER("thrd_equal",ring_thrd_equal);
+	RING_API_REGISTER("thrd_exit",ring_thrd_exit);
+	RING_API_REGISTER("thrd_join",ring_thrd_join);
+	RING_API_REGISTER("thrd_sleep",ring_thrd_sleep);
+	RING_API_REGISTER("thrd_yield",ring_thrd_yield);
+	RING_API_REGISTER("tss_delete",ring_tss_delete);
+	RING_API_REGISTER("tss_get",ring_tss_get);
+	RING_API_REGISTER("tss_set",ring_tss_set);
+	RING_API_REGISTER("get_time_utc",ring_get_time_utc);
+	RING_API_REGISTER("get_tinycthread_version_major",ring_get_tinycthread_version_major);
+	RING_API_REGISTER("get_tinycthread_version_minor",ring_get_tinycthread_version_minor);
+	RING_API_REGISTER("get_tinycthread_version",ring_get_tinycthread_version);
+	RING_API_REGISTER("get_thrd_error",ring_get_thrd_error);
+	RING_API_REGISTER("get_thrd_success",ring_get_thrd_success);
+	RING_API_REGISTER("get_thrd_timedout",ring_get_thrd_timedout);
+	RING_API_REGISTER("get_thrd_busy",ring_get_thrd_busy);
+	RING_API_REGISTER("get_thrd_nomem",ring_get_thrd_nomem);
+	RING_API_REGISTER("get_mtx_plain",ring_get_mtx_plain);
+	RING_API_REGISTER("get_mtx_timed",ring_get_mtx_timed);
+	RING_API_REGISTER("get_mtx_recursive",ring_get_mtx_recursive);
+	RING_API_REGISTER("new_thrd_t",ring_new_thrd_t);
+	RING_API_REGISTER("new_managed_thrd_t",ring_new_managed_thrd_t);
+	RING_API_REGISTER("destroy_thrd_t",ring_destroy_thrd_t);
+	RING_API_REGISTER("new_mtx_t",ring_new_mtx_t);
+	RING_API_REGISTER("new_managed_mtx_t",ring_new_managed_mtx_t);
+	RING_API_REGISTER("destroy_mtx_t",ring_destroy_mtx_t);
+	RING_API_REGISTER("new_cnd_t",ring_new_cnd_t);
+	RING_API_REGISTER("new_managed_cnd_t",ring_new_managed_cnd_t);
+	RING_API_REGISTER("destroy_cnd_t",ring_destroy_cnd_t);
 }
