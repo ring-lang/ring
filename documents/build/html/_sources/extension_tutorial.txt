@@ -30,7 +30,7 @@ The file mylib.c contains
 
 	RING_API void ringlib_init(RingState *pRingState)
 	{
-		ring_vm_funcregister("myfunction",ring_myfunction);
+		RING_API_REGISTER("myfunction",ring_myfunction);
 	}
 
 As we see in the source code, we start with including the ring.h file which contains the definitions for Ring API
@@ -39,7 +39,7 @@ Then we use the RING_FUNC macro to define new functions, it's a good idea to sta
 
 Then we have the function ringlib_init that will be called when the extension is loaded by the Ring VM
 
-In this function we use the ring_vm_funcregister() function to register the new functions in Ring VM
+In this function we use the RING_API_REGISTER() function to register the new functions in Ring VM
 
 Then we build the extension using :
 
@@ -196,7 +196,7 @@ Then we register the new function
 
 .. code-block:: c
 
-	ring_vm_funcregister("sumtwonumbers",ring_sumtwonumbers);
+	RING_API_REGISTER("sumtwonumbers",ring_sumtwonumbers);
 
 The previous code is written to check errors, and to be easy to understand
 
@@ -271,7 +271,7 @@ Then we register the new function
 
 .. code-block:: c
 
-	ring_vm_funcregister("sayhello",ring_sayhello);
+	RING_API_REGISTER("sayhello",ring_sayhello);
 
 The file test.ring contains
 
@@ -354,7 +354,7 @@ Then we register the new function
 
 .. code-block:: c
 
-	ring_vm_funcregister("sumlist",ring_sumlist);
+	RING_API_REGISTER("sumlist",ring_sumlist);
 
 The file test.ring contains
 
@@ -445,7 +445,7 @@ Then we register the new function
 
 .. code-block:: c
 
-	ring_vm_funcregister("inclist",ring_inclist);
+	RING_API_REGISTER("inclist",ring_inclist);
 
 The file test.ring contains
 
@@ -546,7 +546,7 @@ Then we register the new function
 
 .. code-block:: c
 
-	ring_vm_funcregister("filterlist",ring_filterlist);
+	RING_API_REGISTER("filterlist",ring_filterlist);
 
 The file test.ring contains
 
@@ -664,7 +664,7 @@ Then we register the new function
 
 .. code-block:: c
 
-	ring_vm_funcregister("replicatelist",ring_replicatelist);
+	RING_API_REGISTER("replicatelist",ring_replicatelist);
 
 The file test.ring contains
 
@@ -798,7 +798,7 @@ Then we register the new function
 
 .. code-block:: c
 
-	ring_vm_funcregister("generatelist",ring_generatelist);
+	RING_API_REGISTER("generatelist",ring_generatelist);
 
 The file test.ring contains
 
@@ -947,7 +947,7 @@ Then we register the new function
 
 .. code-block:: c
 
-	ring_vm_funcregister("displaylist",ring_displaylist);
+	RING_API_REGISTER("displaylist",ring_displaylist);
 
 The file test.ring contains
 
@@ -1132,7 +1132,7 @@ Then we register the new function
 
 .. code-block:: c
 
-	ring_vm_funcregister("updatetable",ring_updatetable);
+	RING_API_REGISTER("updatetable",ring_updatetable);
 
 The file test.ring contains
 
@@ -1330,7 +1330,7 @@ Then we register the new function
 
 .. code-block:: c
 
-	ring_vm_funcregister("createtable",ring_createtable);
+	RING_API_REGISTER("createtable",ring_createtable);
 
 The file test.ring contains
 
