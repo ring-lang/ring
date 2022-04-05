@@ -9,5 +9,5 @@ RING_FUNC(ring_myfunction)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("myfunction",ring_myfunction);
+	RING_API_REGISTER("myfunction",ring_myfunction);
 }

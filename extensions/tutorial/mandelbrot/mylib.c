@@ -79,5 +79,5 @@ RING_FUNC(ring_mandel)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("mandel",ring_mandel);
+	RING_API_REGISTER("mandel",ring_mandel);
 }

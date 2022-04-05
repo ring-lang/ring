@@ -151,11 +151,11 @@ RING_FUNC(ring_replicatelist)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("myfunction",ring_myfunction);
-	ring_vm_funcregister("sumtwonumbers",ring_sumtwonumbers);
-	ring_vm_funcregister("sayhello",ring_sayhello);
-	ring_vm_funcregister("sumlist",ring_sumlist);
-	ring_vm_funcregister("inclist",ring_inclist);
-	ring_vm_funcregister("filterlist",ring_filterlist);
-	ring_vm_funcregister("replicatelist",ring_replicatelist);
+	RING_API_REGISTER("myfunction",ring_myfunction);
+	RING_API_REGISTER("sumtwonumbers",ring_sumtwonumbers);
+	RING_API_REGISTER("sayhello",ring_sayhello);
+	RING_API_REGISTER("sumlist",ring_sumlist);
+	RING_API_REGISTER("inclist",ring_inclist);
+	RING_API_REGISTER("filterlist",ring_filterlist);
+	RING_API_REGISTER("replicatelist",ring_replicatelist);
 }

@@ -71,8 +71,8 @@ RING_FUNC(ring_sumlist)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("myfunction",ring_myfunction);
-	ring_vm_funcregister("sumtwonumbers",ring_sumtwonumbers);
-	ring_vm_funcregister("sayhello",ring_sayhello);
-	ring_vm_funcregister("sumlist",ring_sumlist);
+	RING_API_REGISTER("myfunction",ring_myfunction);
+	RING_API_REGISTER("sumtwonumbers",ring_sumtwonumbers);
+	RING_API_REGISTER("sayhello",ring_sayhello);
+	RING_API_REGISTER("sumlist",ring_sumlist);
 }
