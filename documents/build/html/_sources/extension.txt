@@ -613,15 +613,15 @@ Dynamic library example in C
 		printf("Message from dlfunc");
 	}
 
-	RING_DLL void ringlib_init(RingState *pRingState)
+	RING_LIBINIT
 	{
 		RING_API_REGISTER("dlfunc",ring_ringlib_dlfunc); 
 	}
 
-the idea is to create the ringlib_init() function, this function will be called by the RingVM when we use the generated DLL 
+the idea is to create the RING_LIBINIT function, this function will be called by the RingVM when we use the generated DLL 
 file though the LoadLib() function.
 
-Inside the ringlib_init() function we can register the module function or call a function that do the registration process
+Inside the RING_LIBINIT function we can register the module function or call a function that do the registration process
 for all of the module functions.
 
 The next Ring code demonstrates how to use the DLL library during the runtime.

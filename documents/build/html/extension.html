@@ -765,15 +765,15 @@ a DLL/So/Dylib file and dynamically use the functions provided by this file in t
         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Message from dlfunc&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="n">RING_DLL</span> <span class="kt">void</span> <span class="nf">ringlib_init</span><span class="p">(</span><span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">)</span>
+<span class="n">RING_LIBINIT</span>
 <span class="p">{</span>
         <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;dlfunc&quot;</span><span class="p">,</span><span class="n">ring_ringlib_dlfunc</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
-<p>the idea is to create the ringlib_init() function, this function will be called by the RingVM when we use the generated DLL
+<p>the idea is to create the RING_LIBINIT function, this function will be called by the RingVM when we use the generated DLL
 file though the LoadLib() function.</p>
-<p>Inside the ringlib_init() function we can register the module function or call a function that do the registration process
+<p>Inside the RING_LIBINIT function we can register the module function or call a function that do the registration process
 for all of the module functions.</p>
 <p>The next Ring code demonstrates how to use the DLL library during the runtime.</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Dynamic DLL&quot;</span> <span class="o">+</span> <span class="n">NL</span>

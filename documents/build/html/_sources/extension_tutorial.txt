@@ -28,7 +28,7 @@ The file mylib.c contains
 		printf("Hello, World!");
 	}
 
-	RING_API void ringlib_init(RingState *pRingState)
+	RING_LIBINIT
 	{
 		RING_API_REGISTER("myfunction",ring_myfunction);
 	}
@@ -37,7 +37,7 @@ As we see in the source code, we start with including the ring.h file which cont
 
 Then we use the RING_FUNC macro to define new functions, it's a good idea to start the function definition with ring_ to make these definitions unique and different than normal C functions
 
-Then we have the function ringlib_init that will be called when the extension is loaded by the Ring VM
+Then we have the function RING_LIBINIT that will be called when the extension is loaded by the Ring VM
 
 In this function we use the RING_API_REGISTER() function to register the new functions in Ring VM
 

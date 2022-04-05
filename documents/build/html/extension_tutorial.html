@@ -297,7 +297,7 @@
         <span class="n">printf</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">);</span>
 <span class="p">}</span>
 
-<span class="n">RING_API</span> <span class="kt">void</span> <span class="n">ringlib_init</span><span class="p">(</span><span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">)</span>
+<span class="n">RING_LIBINIT</span>
 <span class="p">{</span>
         <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;myfunction&quot;</span><span class="p">,</span><span class="n">ring_myfunction</span><span class="p">);</span>
 <span class="p">}</span>
@@ -305,7 +305,7 @@
 </div>
 <p>As we see in the source code, we start with including the ring.h file which contains the definitions for Ring API</p>
 <p>Then we use the RING_FUNC macro to define new functions, it’s a good idea to start the function definition with <a href="#id1"><span class="problematic" id="id2">ring_</span></a> to make these definitions unique and different than normal C functions</p>
-<p>Then we have the function ringlib_init that will be called when the extension is loaded by the Ring VM</p>
+<p>Then we have the function RING_LIBINIT that will be called when the extension is loaded by the Ring VM</p>
 <p>In this function we use the RING_API_REGISTER() function to register the new functions in Ring VM</p>
 <p>Then we build the extension using :</p>
 <p>buildvc.bat</p>
