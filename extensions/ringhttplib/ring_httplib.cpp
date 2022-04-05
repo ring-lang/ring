@@ -108,7 +108,7 @@ RING_FUNC(ring_get_cpphttplib_listen_backlog)
 RING_FUNC(ring_new_multipartformdata)
 {
 	MultipartFormData *pMyPointer ;
-	pMyPointer = (MultipartFormData *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(MultipartFormData)) ;
+	pMyPointer = (MultipartFormData *) RING_API_MALLOC(sizeof(MultipartFormData)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
@@ -120,13 +120,13 @@ RING_FUNC(ring_new_multipartformdata)
 RING_FUNC(ring_new_managed_multipartformdata)
 {
 	MultipartFormData *pMyPointer ;
-	pMyPointer = (MultipartFormData *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(MultipartFormData)) ;
+	pMyPointer = (MultipartFormData *) RING_API_MALLOC(sizeof(MultipartFormData)) ;
 	if (pMyPointer == NULL) 
 	{
 		RING_API_ERROR(RING_OOM);
 		return ;
 	}
-	RING_API_RETMANAGEDCPOINTER(pMyPointer,"MultipartFormData",ring_state_free);
+	RING_API_RETMANAGEDCPOINTER(pMyPointer,"MultipartFormData",RING_API_FREEFUNC);
 }
 
 RING_FUNC(ring_destroy_multipartformdata)
@@ -142,7 +142,7 @@ RING_FUNC(ring_destroy_multipartformdata)
 	}
 	pMyPointer = (MultipartFormData*) RING_API_GETCPOINTER(1,"MultipartFormData");
 	if (pMyPointer != NULL) {
-		ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;
+		RING_API_FREE(pMyPointer) ;
 		RING_API_SETNULLPOINTER(1);
 	}
 }
@@ -432,7 +432,7 @@ RING_FUNC(ring_HTTPLib_Server_set_mount_point_2)
 	}
 	RING_API_RETNUMBER(pObject->set_mount_point(RING_API_GETSTRING(2),RING_API_GETSTRING(3),* (Headers  *) RING_API_GETCPOINTER(4,"Headers")));
 	if (RING_API_ISCPOINTERNOTASSIGNED(4))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(4,"Headers"));
+		RING_API_FREE(RING_API_GETCPOINTER(4,"Headers"));
 }
 
 
@@ -2028,9 +2028,9 @@ RING_FUNC(ring_HTTPLib_Client_Head)
 	}
 	{
 		Result *pValue ; 
-		pValue = (Result *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Result)) ;
+		pValue = (Result *) RING_API_MALLOC(sizeof(Result)) ;
 		*pValue = pObject->Head(RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Result",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Result",RING_API_FREEFUNC);
 	}
 }
 
@@ -2054,9 +2054,9 @@ RING_FUNC(ring_HTTPLib_Client_Post)
 	}
 	{
 		Result *pValue ; 
-		pValue = (Result *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Result)) ;
+		pValue = (Result *) RING_API_MALLOC(sizeof(Result)) ;
 		*pValue = pObject->Post(RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Result",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Result",RING_API_FREEFUNC);
 	}
 }
 
@@ -2092,9 +2092,9 @@ RING_FUNC(ring_HTTPLib_Client_Post_2)
 	}
 	{
 		Result *pValue ; 
-		pValue = (Result *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Result)) ;
+		pValue = (Result *) RING_API_MALLOC(sizeof(Result)) ;
 		*pValue = pObject->Post(RING_API_GETSTRING(2),RING_API_GETSTRING(3), (size_t ) RING_API_GETNUMBER(4),RING_API_GETSTRING(5));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Result",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Result",RING_API_FREEFUNC);
 	}
 }
 
@@ -2118,9 +2118,9 @@ RING_FUNC(ring_HTTPLib_Client_Patch)
 	}
 	{
 		Result *pValue ; 
-		pValue = (Result *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Result)) ;
+		pValue = (Result *) RING_API_MALLOC(sizeof(Result)) ;
 		*pValue = pObject->Patch(RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Result",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Result",RING_API_FREEFUNC);
 	}
 }
 
@@ -2156,9 +2156,9 @@ RING_FUNC(ring_HTTPLib_Client_Patch_2)
 	}
 	{
 		Result *pValue ; 
-		pValue = (Result *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Result)) ;
+		pValue = (Result *) RING_API_MALLOC(sizeof(Result)) ;
 		*pValue = pObject->Patch(RING_API_GETSTRING(2),RING_API_GETSTRING(3), (size_t ) RING_API_GETNUMBER(4),RING_API_GETSTRING(5));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Result",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Result",RING_API_FREEFUNC);
 	}
 }
 
@@ -2182,9 +2182,9 @@ RING_FUNC(ring_HTTPLib_Client_Delete_2)
 	}
 	{
 		Result *pValue ; 
-		pValue = (Result *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Result)) ;
+		pValue = (Result *) RING_API_MALLOC(sizeof(Result)) ;
 		*pValue = pObject->Delete(RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Result",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Result",RING_API_FREEFUNC);
 	}
 }
 
@@ -2220,9 +2220,9 @@ RING_FUNC(ring_HTTPLib_Client_Delete_3)
 	}
 	{
 		Result *pValue ; 
-		pValue = (Result *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Result)) ;
+		pValue = (Result *) RING_API_MALLOC(sizeof(Result)) ;
 		*pValue = pObject->Delete(RING_API_GETSTRING(2),RING_API_GETSTRING(3), (size_t ) RING_API_GETNUMBER(4),RING_API_GETSTRING(5));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Result",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Result",RING_API_FREEFUNC);
 	}
 }
 
@@ -2246,9 +2246,9 @@ RING_FUNC(ring_HTTPLib_Client_Options)
 	}
 	{
 		Result *pValue ; 
-		pValue = (Result *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Result)) ;
+		pValue = (Result *) RING_API_MALLOC(sizeof(Result)) ;
 		*pValue = pObject->Options(RING_API_GETSTRING(2));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Result",ring_state_free);
+		RING_API_RETMANAGEDCPOINTER(pValue,"Result",RING_API_FREEFUNC);
 	}
 }
 
@@ -2272,11 +2272,11 @@ RING_FUNC(ring_HTTPLib_Client_Options_2)
 	}
 	{
 		Result *pValue ; 
-		pValue = (Result *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(Result)) ;
+		pValue = (Result *) RING_API_MALLOC(sizeof(Result)) ;
 		*pValue = pObject->Options(RING_API_GETSTRING(2),* (const Headers  *) RING_API_GETCPOINTER(3,"const Headers"));
 	if (RING_API_ISCPOINTERNOTASSIGNED(3))
-		ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER(3,"Headers"));
-		RING_API_RETMANAGEDCPOINTER(pValue,"Result",ring_state_free);
+		RING_API_FREE(RING_API_GETCPOINTER(3,"Headers"));
+		RING_API_RETMANAGEDCPOINTER(pValue,"Result",RING_API_FREEFUNC);
 	}
 }
 
