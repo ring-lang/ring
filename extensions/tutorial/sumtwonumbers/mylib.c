@@ -28,7 +28,7 @@ RING_FUNC(ring_sumtwonumbers)
 		RING_API_RETNUMBER(nSum);
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("myfunction",ring_myfunction);
 	RING_API_REGISTER("sumtwonumbers",ring_sumtwonumbers);
