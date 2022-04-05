@@ -5,21 +5,21 @@
 RING_API void ringlib_init(RingState *pRingState)
 {
     /* MurmurHash1 functions */
-    ring_vm_funcregister("murmurhash1", ring_murmurhash1);
-    ring_vm_funcregister("murmurhash1_aligned", ring_murmurhash1_aligned);
+    RING_API_REGISTER("murmurhash1", ring_murmurhash1);
+    RING_API_REGISTER("murmurhash1_aligned", ring_murmurhash1_aligned);
 
     /* MurmurHash2 functions */
-    ring_vm_funcregister("murmurhash2", ring_murmurhash2);
-    ring_vm_funcregister("murmurhash2a", ring_murmurhash2a);
-    ring_vm_funcregister("murmurhash64a", ring_murmurhash64a);
-    ring_vm_funcregister("murmurhash64b", ring_murmurhash64b);
-    ring_vm_funcregister("murmurhash_neutral2", ring_murmurhash_neutral2);
-    ring_vm_funcregister("murmurhash_aligned2", ring_murmurhash_aligned2);
+    RING_API_REGISTER("murmurhash2", ring_murmurhash2);
+    RING_API_REGISTER("murmurhash2a", ring_murmurhash2a);
+    RING_API_REGISTER("murmurhash64a", ring_murmurhash64a);
+    RING_API_REGISTER("murmurhash64b", ring_murmurhash64b);
+    RING_API_REGISTER("murmurhash_neutral2", ring_murmurhash_neutral2);
+    RING_API_REGISTER("murmurhash_aligned2", ring_murmurhash_aligned2);
 
     /* MurmurHash3 functions */
-    ring_vm_funcregister("murmurhash3_x86_32", ring_murmurhash3_x86_32);
-    ring_vm_funcregister("murmurhash3_x86_128", ring_murmurhash3_x86_128);
-    ring_vm_funcregister("murmurhash3_x64_128", ring_murmurhash3_x64_128);
+    RING_API_REGISTER("murmurhash3_x86_32", ring_murmurhash3_x86_32);
+    RING_API_REGISTER("murmurhash3_x86_128", ring_murmurhash3_x86_128);
+    RING_API_REGISTER("murmurhash3_x64_128", ring_murmurhash3_x64_128);
 }
 
 /* MurmurHash1 functions */
