@@ -297,10 +297,10 @@ void ring_vm_file_fgetpos ( void *pPointer )
     if ( RING_API_ISPOINTER(1) ) {
         fp = (FILE *) RING_API_GETCPOINTER(1,RING_VM_POINTER_FILE) ;
         if ( fp != NULL ) {
-            pos = (fpos_t *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(fpos_t));
+            pos = (fpos_t *) RING_API_MALLOC(sizeof(fpos_t));
             nResult = fgetpos(fp,pos);
             if ( nResult == 0 ) {
-                RING_API_RETMANAGEDCPOINTER(pos,RING_VM_POINTER_FILEPOS,ring_state_free);
+                RING_API_RETMANAGEDCPOINTER(pos,RING_VM_POINTER_FILEPOS,RING_API_FREEFUNC);
             }
             else {
                 RING_API_RETNUMBER(nResult);
@@ -477,7 +477,7 @@ void ring_vm_file_fgets ( void *pPointer )
                 return ;
             }
             nSize++ ;
-            cStr = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nSize);
+            cStr = (char *) RING_API_MALLOC(nSize);
             cResult = fgets(cStr,nSize,fp);
             if ( cResult != NULL ) {
                 RING_API_RETSTRING(cStr);
@@ -485,7 +485,7 @@ void ring_vm_file_fgets ( void *pPointer )
             else {
                 RING_API_RETNUMBER(0);
             }
-            ring_state_free(((VM *) pPointer)->pRingState,cStr);
+            RING_API_FREE(cStr);
         }
     }
     else {
@@ -586,7 +586,7 @@ void ring_vm_file_fread ( void *pPointer )
                 RING_API_ERROR(RING_VM_FILE_BUFFERSIZE);
                 return ;
             }
-            cStr = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nSize);
+            cStr = (char *) RING_API_MALLOC(nSize);
             nResult = fread(cStr,1,nSize,fp);
             if ( nResult == 0 ) {
                 RING_API_RETNUMBER(nResult);
@@ -594,7 +594,7 @@ void ring_vm_file_fread ( void *pPointer )
             else {
                 RING_API_RETSTRING2(cStr,nResult);
             }
-            ring_state_free(((VM *) pPointer)->pRingState,cStr);
+            RING_API_FREE(cStr);
         }
     }
     else {
@@ -724,11 +724,11 @@ void ring_vm_file_read ( void *pPointer )
         fseek( fp , 0 , SEEK_END );
         nSize = ftell(fp);
         fseek( fp , 0 , SEEK_SET );
-        cBuffer = (char *) ring_state_malloc(((VM *) pPointer)->pRingState,nSize);
+        cBuffer = (char *) RING_API_MALLOC(nSize);
         fread( cBuffer , 1 , nSize , fp );
         fclose( fp ) ;
         RING_API_RETSTRING2(cBuffer,nSize);
-        ring_state_free(((VM *) pPointer)->pRingState,cBuffer);
+        RING_API_FREE(cBuffer);
     }
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);
