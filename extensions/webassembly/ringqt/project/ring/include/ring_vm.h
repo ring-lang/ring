@@ -337,7 +337,7 @@
     /* Extra Size (for eval) */
     #define RING_VM_EXTRASIZE 2
     #define RING_VM_MINVMINSTRUCTIONS 100000
-    #define MAX(a,b) (((a)>(b))?(a):(b))
+    #define RING_MAX(a,b) (((a)>(b))?(a):(b))
     /* Variables Location */
     #define RING_VM_STATICVAR_THIS 12
     /*
