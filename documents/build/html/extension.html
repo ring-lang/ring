@@ -291,7 +291,7 @@
 <p>We can extend the Ring Virtual Machine (RingVM) by adding new functions written in the C programming language or C++.
 The RingVM comes with many functions written in C that we can call like any Ring function.</p>
 <p>We can extend the language by writing new functions then rebuilding the RingVM again, or we can create shared
-library (DLL/So) file to extend the RingVM without the need to rebuild it.</p>
+library (DLL/So/Dylib) file to extend the RingVM without the need to rebuild it.</p>
 <p>The Ring language source code comes with two files to add new modules to the RingVM, ring_ext.h and ring_ext.c</p>
 <div class="section" id="ring-ext-h">
 <span id="index-1"></span><h2>ring_ext.h<a class="headerlink" href="#ring-ext-h" title="Permalink to this headline">¶</a></h2>
@@ -772,7 +772,7 @@ a DLL/So/Dylib file and dynamically use the functions provided by this file in t
 </pre></div>
 </div>
 <p>the idea is to create the RING_LIBINIT function, this function will be called by the RingVM when we use the generated DLL
-file though the LoadLib() function.</p>
+file through the LoadLib() function.</p>
 <p>Inside the RING_LIBINIT function we can register the module function or call a function that do the registration process
 for all of the module functions.</p>
 <p>The next Ring code demonstrates how to use the DLL library during the runtime.</p>
