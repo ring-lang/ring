@@ -20,33 +20,33 @@
 
 RING_API void ringlib_init ( RingState *pRingState )
 {
-	ring_vm_funcregister("md5init",ring_vm_openssl_md5_init);
-	ring_vm_funcregister("md5update",ring_vm_openssl_md5_update);
-	ring_vm_funcregister("md5final",ring_vm_openssl_md5_final);
-	ring_vm_funcregister("md5",ring_vm_openssl_md5);
-	ring_vm_funcregister("sha1init",ring_vm_openssl_sha1_init);
-	ring_vm_funcregister("sha1update",ring_vm_openssl_sha1_update);
-	ring_vm_funcregister("sha1final",ring_vm_openssl_sha1_final);
-	ring_vm_funcregister("sha1",ring_vm_openssl_sha1);
-	ring_vm_funcregister("sha256init",ring_vm_openssl_sha256_init);
-	ring_vm_funcregister("sha256update",ring_vm_openssl_sha256_update);
-	ring_vm_funcregister("sha256final",ring_vm_openssl_sha256_final);
-	ring_vm_funcregister("sha256",ring_vm_openssl_sha256);
-	ring_vm_funcregister("sha512init",ring_vm_openssl_sha512_init);
-	ring_vm_funcregister("sha512update",ring_vm_openssl_sha512_update);
-	ring_vm_funcregister("sha512final",ring_vm_openssl_sha512_final);
-	ring_vm_funcregister("sha512",ring_vm_openssl_sha512);
-	ring_vm_funcregister("sha384init",ring_vm_openssl_sha384_init);
-	ring_vm_funcregister("sha384update",ring_vm_openssl_sha384_update);
-	ring_vm_funcregister("sha384final",ring_vm_openssl_sha384_final);
-	ring_vm_funcregister("sha384",ring_vm_openssl_sha384);
-	ring_vm_funcregister("sha224init",ring_vm_openssl_sha224_init);
-	ring_vm_funcregister("sha224update",ring_vm_openssl_sha224_update);
-	ring_vm_funcregister("sha224final",ring_vm_openssl_sha224_final);
-	ring_vm_funcregister("sha224",ring_vm_openssl_sha224);
-	ring_vm_funcregister("encrypt",ring_vm_openssl_encrypt);
-	ring_vm_funcregister("decrypt",ring_vm_openssl_decrypt);
-	ring_vm_funcregister("randbytes",ring_vm_openssl_randbytes);
+	RING_API_REGISTER("md5init",ring_vm_openssl_md5_init);
+	RING_API_REGISTER("md5update",ring_vm_openssl_md5_update);
+	RING_API_REGISTER("md5final",ring_vm_openssl_md5_final);
+	RING_API_REGISTER("md5",ring_vm_openssl_md5);
+	RING_API_REGISTER("sha1init",ring_vm_openssl_sha1_init);
+	RING_API_REGISTER("sha1update",ring_vm_openssl_sha1_update);
+	RING_API_REGISTER("sha1final",ring_vm_openssl_sha1_final);
+	RING_API_REGISTER("sha1",ring_vm_openssl_sha1);
+	RING_API_REGISTER("sha256init",ring_vm_openssl_sha256_init);
+	RING_API_REGISTER("sha256update",ring_vm_openssl_sha256_update);
+	RING_API_REGISTER("sha256final",ring_vm_openssl_sha256_final);
+	RING_API_REGISTER("sha256",ring_vm_openssl_sha256);
+	RING_API_REGISTER("sha512init",ring_vm_openssl_sha512_init);
+	RING_API_REGISTER("sha512update",ring_vm_openssl_sha512_update);
+	RING_API_REGISTER("sha512final",ring_vm_openssl_sha512_final);
+	RING_API_REGISTER("sha512",ring_vm_openssl_sha512);
+	RING_API_REGISTER("sha384init",ring_vm_openssl_sha384_init);
+	RING_API_REGISTER("sha384update",ring_vm_openssl_sha384_update);
+	RING_API_REGISTER("sha384final",ring_vm_openssl_sha384_final);
+	RING_API_REGISTER("sha384",ring_vm_openssl_sha384);
+	RING_API_REGISTER("sha224init",ring_vm_openssl_sha224_init);
+	RING_API_REGISTER("sha224update",ring_vm_openssl_sha224_update);
+	RING_API_REGISTER("sha224final",ring_vm_openssl_sha224_final);
+	RING_API_REGISTER("sha224",ring_vm_openssl_sha224);
+	RING_API_REGISTER("encrypt",ring_vm_openssl_encrypt);
+	RING_API_REGISTER("decrypt",ring_vm_openssl_decrypt);
+	RING_API_REGISTER("randbytes",ring_vm_openssl_randbytes);
 }
 
 static void ring_vm_openssl_buf2hex (const unsigned char* pData, int nLen, char* cStr)
