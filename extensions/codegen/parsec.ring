@@ -473,8 +473,12 @@ Func GenDLLStart
 	return 	'#include "ring.h"' + nl + nl
 
 Func GenFuncPrototype aList
-	cCode = "RING_API void "+$cLibInitFunc+"(RingState *pRingState)" + nl +
-		"{" + nl
+	if $cLibInitFunc = "ringlib_init"
+		cCode = "RING_LIBINIT" + nl 
+	else
+		cCode = "RING_API void "+$cLibInitFunc+"(RingState *pRingState)" + nl 		
+	ok
+	cCode += "{" + nl
 	nMax = len(aList)
 	for t=1 to nMax 
 		aFunc = aList[t]
