@@ -730,17 +730,17 @@ RING_FUNC(ring_winapi_rwaenvirvarstring) {
 =================================================================================================
 */
 RING_API void ringlib_init ( RingState *pRingState ) {
-	ring_vm_funcregister("rwaisrunasadmin", ring_winapi_rwaisrunasadmin);
-	ring_vm_funcregister("rwaelevate", ring_winapi_rwaelevate);
-	ring_vm_funcregister("rwasyserrormsg", ring_winapi_rwasyserrormsg);
-	ring_vm_funcregister("rshellexecute", ring_winapi_rshellexecute);
-	ring_vm_funcregister("rwaiswow64process", ring_winapi_rwaiswow64process);
-	ring_vm_funcregister("rwausersid", ring_winapi_rwausersid);
-	ring_vm_funcregister("rwausername", ring_winapi_rwausername);
-	ring_vm_funcregister("rgetlasterror", ring_winapi_rgetlasterror);
-	ring_vm_funcregister("rwow64enablewow64fsredirection", ring_winapi_rwow64enablewow64fsredirection);
-	ring_vm_funcregister("rwadisablewow64fsredirection", ring_winapi_rwadisablewow64fsredirection);
-	ring_vm_funcregister("rwarevertwow64fsredirection", ring_winapi_rwarevertwow64fsredirection);
-	ring_vm_funcregister("rwaenvirvarstring", ring_winapi_rwaenvirvarstring);
+	RING_API_REGISTER("rwaisrunasadmin", ring_winapi_rwaisrunasadmin);
+	RING_API_REGISTER("rwaelevate", ring_winapi_rwaelevate);
+	RING_API_REGISTER("rwasyserrormsg", ring_winapi_rwasyserrormsg);
+	RING_API_REGISTER("rshellexecute", ring_winapi_rshellexecute);
+	RING_API_REGISTER("rwaiswow64process", ring_winapi_rwaiswow64process);
+	RING_API_REGISTER("rwausersid", ring_winapi_rwausersid);
+	RING_API_REGISTER("rwausername", ring_winapi_rwausername);
+	RING_API_REGISTER("rgetlasterror", ring_winapi_rgetlasterror);
+	RING_API_REGISTER("rwow64enablewow64fsredirection", ring_winapi_rwow64enablewow64fsredirection);
+	RING_API_REGISTER("rwadisablewow64fsredirection", ring_winapi_rwadisablewow64fsredirection);
+	RING_API_REGISTER("rwarevertwow64fsredirection", ring_winapi_rwarevertwow64fsredirection);
+	RING_API_REGISTER("rwaenvirvarstring", ring_winapi_rwaenvirvarstring);
 
 }
