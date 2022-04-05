@@ -484,7 +484,7 @@ Func GenFuncPrototype aList
 			else
 				cClassName = $cClassName
 			ok
-			cCode += C_TABS_1 + 'ring_vm_funcregister("' 
+			cCode += C_TABS_1 + 'RING_API_REGISTER("' 
 			cFuncName = aFunc[C_FUNC_NAME]
 			cFuncName = SubStr(cFuncName,"@","_")
 			if cClassName != ""
@@ -499,7 +499,7 @@ Func GenFuncPrototype aList
 		ok
 	next
 	for cFunc in $aStructFuncs
-			cCode += C_TABS_1 + 'ring_vm_funcregister("' + lower(cFunc) + '",' +
+			cCode += C_TABS_1 + 'RING_API_REGISTER("' + lower(cFunc) + '",' +
 				  "ring_"+cFunc + ");" + nl
 	next
 	cCode += "}" + nl
