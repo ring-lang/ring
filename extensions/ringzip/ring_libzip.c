@@ -307,16 +307,16 @@ free(buf.data);
 }
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("zip_openfile",ring_zip_openfile);
-	ring_vm_funcregister("zip_entry_open",ring_zip_entry_open);
-	ring_vm_funcregister("zip_entry_write",ring_zip_entry_write);
-	ring_vm_funcregister("zip_entry_fwrite",ring_zip_entry_fwrite);
-	ring_vm_funcregister("zip_entry_read",ring_zip_entry_read);
-	ring_vm_funcregister("zip_entry_fread",ring_zip_entry_fread);
-	ring_vm_funcregister("zip_entry_close",ring_zip_entry_close);
-	ring_vm_funcregister("zip_extract_allfiles",ring_zip_extract_allfiles);
-	ring_vm_funcregister("zip_close",ring_zip_close);
-	ring_vm_funcregister("zip_filescount",ring_zip_filescount);
-	ring_vm_funcregister("zip_getfilenamebyindex",ring_zip_getfilenamebyindex);
-	ring_vm_funcregister("zip_extract_file",ring_zip_extract_file);
+	RING_API_REGISTER("zip_openfile",ring_zip_openfile);
+	RING_API_REGISTER("zip_entry_open",ring_zip_entry_open);
+	RING_API_REGISTER("zip_entry_write",ring_zip_entry_write);
+	RING_API_REGISTER("zip_entry_fwrite",ring_zip_entry_fwrite);
+	RING_API_REGISTER("zip_entry_read",ring_zip_entry_read);
+	RING_API_REGISTER("zip_entry_fread",ring_zip_entry_fread);
+	RING_API_REGISTER("zip_entry_close",ring_zip_entry_close);
+	RING_API_REGISTER("zip_extract_allfiles",ring_zip_extract_allfiles);
+	RING_API_REGISTER("zip_close",ring_zip_close);
+	RING_API_REGISTER("zip_filescount",ring_zip_filescount);
+	RING_API_REGISTER("zip_getfilenamebyindex",ring_zip_getfilenamebyindex);
+	RING_API_REGISTER("zip_extract_file",ring_zip_extract_file);
 }
