@@ -89,6 +89,13 @@
     #define RING_API_GETCPOINTER2POINTER(x,y) (ring_vm_api_getcpointer2pointer((VM *) pPointer,x,y))
     #define RING_API_RETMANAGEDCPOINTER(x,y,z) (ring_vm_api_retcpointer2((VM *) pPointer,(void *) x,y,z))
     #define RING_API_RETLISTBYREF(x) ring_vm_api_retlist2((VM *) pPointer,x,1)
+    #define ring_vm_funcregister(x,y) ring_vm_funcregister2(pRingState,x,y)
+    #define RING_API_REGISTER(x,y) ring_vm_funcregister2(pRingState,x,y)
+    #define RING_API_MALLOC(x) ring_state_malloc(((VM *) pPointer)->pRingState,x)
+    #define RING_API_CALLOC(x,y) ring_state_calloc(((VM *) pPointer)->pRingState,x,y)
+    #define RING_API_REALLOC(x,y,z) ring_state_realloc(((VM *) pPointer)->pRingState,x,y,z)
+    #define RING_API_FREE(x) ring_state_free(((VM *) pPointer)->pRingState,x)
+    #define RING_API_FREEFUNC ring_state_free
     /* Constants/MACRO */
     #define RING_API_MISS1PARA "Bad parameters count, the function expect one parameter"
     #define RING_API_MISS2PARA "Bad parameters count, the function expect two parameters"
@@ -103,8 +110,6 @@
     #define RING_API_NULLPOINTER "Error in parameter, NULL pointer!"
     #define RING_API_EMPTYLIST "Bad parameter, empty list!"
     #define RING_API_INTERNALFAILURE "Internal function call failed!"
-    #define ring_vm_funcregister(x,y) ring_vm_funcregister2(pRingState,x,y)
-    #define RING_API_REGISTER(x,y) ring_vm_funcregister2(pRingState,x,y)
     /*
     **  Note : The C Function Get Lists as pointers because of (List Pass by Reference) 
     **  The List Maybe a Variable/ListItem or may represent Object or C Pointer inside a List 
