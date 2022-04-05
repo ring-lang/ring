@@ -20,21 +20,21 @@ typedef struct ring_odbc {
 
 RING_API void ringlib_init ( RingState *pRingState )
 {
-	ring_vm_funcregister("odbc_init",ring_vm_odbc_init);
-	ring_vm_funcregister("odbc_drivers",ring_vm_odbc_drivers);
-	ring_vm_funcregister("odbc_datasources",ring_vm_odbc_datasources);
-	ring_vm_funcregister("odbc_close",ring_vm_odbc_close);
-	ring_vm_funcregister("odbc_connect",ring_vm_odbc_connect);
-	ring_vm_funcregister("odbc_disconnect",ring_vm_odbc_disconnect);
-	ring_vm_funcregister("odbc_execute",ring_vm_odbc_execute);
-	ring_vm_funcregister("odbc_colcount",ring_vm_odbc_colcount);
-	ring_vm_funcregister("odbc_fetch",ring_vm_odbc_fetch);
-	ring_vm_funcregister("odbc_getdata",ring_vm_odbc_getdata);
-	ring_vm_funcregister("odbc_tables",ring_vm_odbc_tables);
-	ring_vm_funcregister("odbc_columns",ring_vm_odbc_columns);
-	ring_vm_funcregister("odbc_autocommit",ring_vm_odbc_autocommit);
-	ring_vm_funcregister("odbc_commit",ring_vm_odbc_commit);
-	ring_vm_funcregister("odbc_rollback",ring_vm_odbc_rollback);
+	RING_API_REGISTER("odbc_init",ring_vm_odbc_init);
+	RING_API_REGISTER("odbc_drivers",ring_vm_odbc_drivers);
+	RING_API_REGISTER("odbc_datasources",ring_vm_odbc_datasources);
+	RING_API_REGISTER("odbc_close",ring_vm_odbc_close);
+	RING_API_REGISTER("odbc_connect",ring_vm_odbc_connect);
+	RING_API_REGISTER("odbc_disconnect",ring_vm_odbc_disconnect);
+	RING_API_REGISTER("odbc_execute",ring_vm_odbc_execute);
+	RING_API_REGISTER("odbc_colcount",ring_vm_odbc_colcount);
+	RING_API_REGISTER("odbc_fetch",ring_vm_odbc_fetch);
+	RING_API_REGISTER("odbc_getdata",ring_vm_odbc_getdata);
+	RING_API_REGISTER("odbc_tables",ring_vm_odbc_tables);
+	RING_API_REGISTER("odbc_columns",ring_vm_odbc_columns);
+	RING_API_REGISTER("odbc_autocommit",ring_vm_odbc_autocommit);
+	RING_API_REGISTER("odbc_commit",ring_vm_odbc_commit);
+	RING_API_REGISTER("odbc_rollback",ring_vm_odbc_rollback);
 }
 
 void ring_vm_odbc_init ( void *pPointer )
