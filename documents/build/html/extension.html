@@ -370,8 +370,8 @@ library (DLL/So) file to extend the RingVM without the need to rebuild it.</p>
 <p>Each module starts by include the ring header file (ring.h).
 This files contains the Ring API that we can use to extend the RingVM.</p>
 <p>Each module comes with a function to register the module functions in the RingVM
-The registration is done by using ring_vm_funcregister() function.</p>
-<p>The ring_vm_funcregister() function takes two parameters, the first is the function name
+The registration is done by using RING_API_REGISTER() function.</p>
+<p>The RING_API_REGISTER() function takes two parameters, the first is the function name
 that will be used by Ring programs to call the function. The second parameter is the
 function pointer in the C program.</p>
 <p>for example, the ring_vmmath.c module contains the next code to register the module functions</p>
@@ -379,27 +379,27 @@ function pointer in the C program.</p>
 
 <span class="kt">void</span> <span class="nf">ring_vm_math_loadfunctions</span> <span class="p">(</span> <span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span> <span class="p">)</span>
 <span class="p">{</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sin&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sin</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;cos&quot;</span><span class="p">,</span><span class="n">ring_vm_math_cos</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;tan&quot;</span><span class="p">,</span><span class="n">ring_vm_math_tan</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;asin&quot;</span><span class="p">,</span><span class="n">ring_vm_math_asin</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;acos&quot;</span><span class="p">,</span><span class="n">ring_vm_math_acos</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;atan&quot;</span><span class="p">,</span><span class="n">ring_vm_math_atan</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;atan2&quot;</span><span class="p">,</span><span class="n">ring_vm_math_atan2</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sinh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sinh</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;cosh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_cosh</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;tanh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_tanh</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;exp&quot;</span><span class="p">,</span><span class="n">ring_vm_math_exp</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;log&quot;</span><span class="p">,</span><span class="n">ring_vm_math_log</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;log10&quot;</span><span class="p">,</span><span class="n">ring_vm_math_log10</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;ceil&quot;</span><span class="p">,</span><span class="n">ring_vm_math_ceil</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;floor&quot;</span><span class="p">,</span><span class="n">ring_vm_math_floor</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;fabs&quot;</span><span class="p">,</span><span class="n">ring_vm_math_fabs</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;pow&quot;</span><span class="p">,</span><span class="n">ring_vm_math_pow</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;sqrt&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sqrt</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;unsigned&quot;</span><span class="p">,</span><span class="n">ring_vm_math_unsigned</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;decimals&quot;</span><span class="p">,</span><span class="n">ring_vm_math_decimals</span><span class="p">);</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;murmur3hash&quot;</span><span class="p">,</span><span class="n">ring_vm_math_murmur3hash</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;sin&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sin</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;cos&quot;</span><span class="p">,</span><span class="n">ring_vm_math_cos</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;tan&quot;</span><span class="p">,</span><span class="n">ring_vm_math_tan</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;asin&quot;</span><span class="p">,</span><span class="n">ring_vm_math_asin</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;acos&quot;</span><span class="p">,</span><span class="n">ring_vm_math_acos</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;atan&quot;</span><span class="p">,</span><span class="n">ring_vm_math_atan</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;atan2&quot;</span><span class="p">,</span><span class="n">ring_vm_math_atan2</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;sinh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sinh</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;cosh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_cosh</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;tanh&quot;</span><span class="p">,</span><span class="n">ring_vm_math_tanh</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;exp&quot;</span><span class="p">,</span><span class="n">ring_vm_math_exp</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;log&quot;</span><span class="p">,</span><span class="n">ring_vm_math_log</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;log10&quot;</span><span class="p">,</span><span class="n">ring_vm_math_log10</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;ceil&quot;</span><span class="p">,</span><span class="n">ring_vm_math_ceil</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;floor&quot;</span><span class="p">,</span><span class="n">ring_vm_math_floor</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;fabs&quot;</span><span class="p">,</span><span class="n">ring_vm_math_fabs</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;pow&quot;</span><span class="p">,</span><span class="n">ring_vm_math_pow</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;sqrt&quot;</span><span class="p">,</span><span class="n">ring_vm_math_sqrt</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;unsigned&quot;</span><span class="p">,</span><span class="n">ring_vm_math_unsigned</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;decimals&quot;</span><span class="p">,</span><span class="n">ring_vm_math_decimals</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;murmur3hash&quot;</span><span class="p">,</span><span class="n">ring_vm_math_murmur3hash</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -767,7 +767,7 @@ a DLL/So/Dylib file and dynamically use the functions provided by this file in t
 
 <span class="n">RING_DLL</span> <span class="kt">void</span> <span class="nf">ringlib_init</span><span class="p">(</span><span class="n">RingState</span> <span class="o">*</span><span class="n">pRingState</span><span class="p">)</span>
 <span class="p">{</span>
-        <span class="n">ring_vm_funcregister</span><span class="p">(</span><span class="s">&quot;dlfunc&quot;</span><span class="p">,</span><span class="n">ring_ringlib_dlfunc</span><span class="p">);</span>
+        <span class="n">RING_API_REGISTER</span><span class="p">(</span><span class="s">&quot;dlfunc&quot;</span><span class="p">,</span><span class="n">ring_ringlib_dlfunc</span><span class="p">);</span>
 <span class="p">}</span>
 </pre></div>
 </div>
