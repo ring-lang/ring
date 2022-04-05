@@ -7,29 +7,29 @@
 
 void ring_vm_os_loadfunctions ( RingState *pRingState )
 {
-    ring_vm_funcregister("ismsdos",ring_vm_os_ismsdos);
-    ring_vm_funcregister("iswindows",ring_vm_os_iswindows);
-    ring_vm_funcregister("iswindows64",ring_vm_os_iswindows64);
-    ring_vm_funcregister("isunix",ring_vm_os_isunix);
-    ring_vm_funcregister("ismacosx",ring_vm_os_ismacosx);
-    ring_vm_funcregister("islinux",ring_vm_os_islinux);
-    ring_vm_funcregister("isfreebsd",ring_vm_os_isfreebsd);
-    ring_vm_funcregister("isandroid",ring_vm_os_isandroid);
-    ring_vm_funcregister("windowsnl",ring_vm_os_windowsnl);
-    ring_vm_funcregister("currentdir",ring_vm_os_currentdir);
-    ring_vm_funcregister("exefilename",ring_vm_os_exefilename);
-    ring_vm_funcregister("chdir",ring_vm_os_chdir);
-    ring_vm_funcregister("exefolder",ring_vm_os_exefolder);
-    ring_vm_funcregister("getarch",ring_vm_os_getarch);
-    ring_vm_funcregister("system",ring_vm_os_system);
-    ring_vm_funcregister("shutdown",ring_vm_os_shutdown);
-    ring_vm_funcregister("nofprocessors",ring_vm_os_nofprocessors);
-    ring_vm_funcregister("uptime",ring_vm_os_uptime);
-    ring_vm_funcregister("randomize",ring_vm_os_randomize);
+    RING_API_REGISTER("ismsdos",ring_vm_os_ismsdos);
+    RING_API_REGISTER("iswindows",ring_vm_os_iswindows);
+    RING_API_REGISTER("iswindows64",ring_vm_os_iswindows64);
+    RING_API_REGISTER("isunix",ring_vm_os_isunix);
+    RING_API_REGISTER("ismacosx",ring_vm_os_ismacosx);
+    RING_API_REGISTER("islinux",ring_vm_os_islinux);
+    RING_API_REGISTER("isfreebsd",ring_vm_os_isfreebsd);
+    RING_API_REGISTER("isandroid",ring_vm_os_isandroid);
+    RING_API_REGISTER("windowsnl",ring_vm_os_windowsnl);
+    RING_API_REGISTER("currentdir",ring_vm_os_currentdir);
+    RING_API_REGISTER("exefilename",ring_vm_os_exefilename);
+    RING_API_REGISTER("chdir",ring_vm_os_chdir);
+    RING_API_REGISTER("exefolder",ring_vm_os_exefolder);
+    RING_API_REGISTER("getarch",ring_vm_os_getarch);
+    RING_API_REGISTER("system",ring_vm_os_system);
+    RING_API_REGISTER("shutdown",ring_vm_os_shutdown);
+    RING_API_REGISTER("nofprocessors",ring_vm_os_nofprocessors);
+    RING_API_REGISTER("uptime",ring_vm_os_uptime);
+    RING_API_REGISTER("randomize",ring_vm_os_randomize);
     /* Environment Variables */
-    ring_vm_funcregister("sysget",ring_vm_os_sysget);
-    ring_vm_funcregister("sysset",ring_vm_os_sysset);
-    ring_vm_funcregister("sysunset",ring_vm_os_sysunset);
+    RING_API_REGISTER("sysget",ring_vm_os_sysget);
+    RING_API_REGISTER("sysset",ring_vm_os_sysset);
+    RING_API_REGISTER("sysunset",ring_vm_os_sysunset);
 }
 
 void ring_vm_os_ismsdos ( void *pPointer )

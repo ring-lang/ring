@@ -4,8 +4,8 @@
 
 void ring_vm_dll_loadfunctions ( RingState *pRingState )
 {
-    ring_vm_funcregister("loadlib",ring_vm_dll_loadlib);
-    ring_vm_funcregister("closelib",ring_vm_dll_closelib);
+    RING_API_REGISTER("loadlib",ring_vm_dll_loadlib);
+    RING_API_REGISTER("closelib",ring_vm_dll_closelib);
 }
 
 void ring_vm_dll_loadlib ( void *pPointer )

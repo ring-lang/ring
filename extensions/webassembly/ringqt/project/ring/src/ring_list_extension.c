@@ -8,19 +8,19 @@
 void ring_vm_listfuncs_loadfunctions ( RingState *pRingState )
 {
     /* Lists */
-    ring_vm_funcregister("add",ring_vm_listfuncs_add);
-    ring_vm_funcregister("del",ring_vm_listfuncs_del);
-    ring_vm_funcregister("swap",ring_vm_listfuncs_swap);
-    ring_vm_funcregister("list",ring_vm_listfuncs_list);
-    ring_vm_funcregister("find",ring_vm_listfuncs_find);
-    ring_vm_funcregister("min",ring_vm_listfuncs_min);
-    ring_vm_funcregister("max",ring_vm_listfuncs_max);
-    ring_vm_funcregister("insert",ring_vm_listfuncs_insert);
-    ring_vm_funcregister("sort",ring_vm_listfuncs_sort);
-    ring_vm_funcregister("reverse",ring_vm_listfuncs_reverse);
-    ring_vm_funcregister("binarysearch",ring_vm_listfuncs_binarysearch);
+    RING_API_REGISTER("add",ring_vm_listfuncs_add);
+    RING_API_REGISTER("del",ring_vm_listfuncs_del);
+    RING_API_REGISTER("swap",ring_vm_listfuncs_swap);
+    RING_API_REGISTER("list",ring_vm_listfuncs_list);
+    RING_API_REGISTER("find",ring_vm_listfuncs_find);
+    RING_API_REGISTER("min",ring_vm_listfuncs_min);
+    RING_API_REGISTER("max",ring_vm_listfuncs_max);
+    RING_API_REGISTER("insert",ring_vm_listfuncs_insert);
+    RING_API_REGISTER("sort",ring_vm_listfuncs_sort);
+    RING_API_REGISTER("reverse",ring_vm_listfuncs_reverse);
+    RING_API_REGISTER("binarysearch",ring_vm_listfuncs_binarysearch);
     /* Instead of NewList() function from StdLib (Just to support Old Code until converting it to List() ) */
-    ring_vm_funcregister("newlist",ring_vm_listfuncs_list);
+    RING_API_REGISTER("newlist",ring_vm_listfuncs_list);
 }
 /* Functions */
 

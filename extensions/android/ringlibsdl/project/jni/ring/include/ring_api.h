@@ -104,6 +104,7 @@
     #define RING_API_EMPTYLIST "Bad parameter, empty list!"
     #define RING_API_INTERNALFAILURE "Internal function call failed!"
     #define ring_vm_funcregister(x,y) ring_vm_funcregister2(pRingState,x,y)
+    #define RING_API_REGISTER(x,y) ring_vm_funcregister2(pRingState,x,y)
     /*
     **  Note : The C Function Get Lists as pointers because of (List Pass by Reference) 
     **  The List Maybe a Variable/ListItem or may represent Object or C Pointer inside a List 
