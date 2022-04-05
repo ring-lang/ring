@@ -3363,7 +3363,7 @@ RING_FUNC(ring_PQisthreadsafe)
 	RING_API_RETNUMBER(PQisthreadsafe());
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("pqconnectdbparams",ring_PQconnectdbParams);
 	RING_API_REGISTER("pqconnectdb",ring_PQconnectdb);

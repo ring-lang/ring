@@ -2099,7 +2099,7 @@ void cJSON_ProcessList(cJSON *pJSON,List *pOutputList)
 		pJSON = pJSON->next;
 	}
 }
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("cjson_version",ring_cJSON_Version);
 	RING_API_REGISTER("cjson_inithooks",ring_cJSON_InitHooks);

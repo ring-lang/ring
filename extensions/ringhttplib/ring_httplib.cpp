@@ -2484,7 +2484,7 @@ RING_FUNC(ring_HTTPLib_Client_delete)
 	}
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("httplib_server_listen",ring_HTTPLib_Server_listen);
 	RING_API_REGISTER("httplib_server_listen_2",ring_HTTPLib_Server_listen_2);

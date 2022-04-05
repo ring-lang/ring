@@ -32,7 +32,7 @@ RING_FUNC(ring_mouse_event)
 	mouse_event( (DWORD ) RING_API_GETNUMBER(1), (DWORD ) RING_API_GETNUMBER(2), (DWORD ) RING_API_GETNUMBER(3), (DWORD ) RING_API_GETNUMBER(4), (ULONG_PTR ) RING_API_GETNUMBER(5));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("mouse_event",ring_mouse_event);
 }

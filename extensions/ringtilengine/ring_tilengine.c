@@ -6071,7 +6071,7 @@ RING_FUNC(ring_TLN_GetSDLEvent)
 {
 	RING_API_RETCPOINTER(pSDLEvent,"SDL_Event *");
 }
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("tln_init",ring_TLN_Init);
 	RING_API_REGISTER("tln_deinit",ring_TLN_Deinit);

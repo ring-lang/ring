@@ -588,7 +588,7 @@ RING_FUNC(ring_tss_set)
 		RING_API_FREE(RING_API_GETCPOINTER(1,"tss_t"));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("mtx_init",ring_mtx_init);
 	RING_API_REGISTER("mtx_destroy",ring_mtx_destroy);

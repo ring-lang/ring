@@ -18294,7 +18294,7 @@ RING_FUNC(ring_SDL_UnlockMutex)
 	RING_API_RETNUMBER(SDL_UnlockMutex((SDL_mutex *) RING_API_GETCPOINTER(1,"SDL_mutex")));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("sdl_rendercopy2",ring_SDL_RenderCopy2);
 	RING_API_REGISTER("sdl_delay",ring_SDL_Delay);

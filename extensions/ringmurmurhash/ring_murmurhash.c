@@ -2,7 +2,7 @@
 #include "ring_murmurhash.h"
 
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
     /* MurmurHash1 functions */
     RING_API_REGISTER("murmurhash1", ring_murmurhash1);

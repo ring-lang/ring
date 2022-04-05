@@ -18736,7 +18736,7 @@ RING_FUNC(ring_getimagepixela_2) {
 }
 
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("initwindow",ring_InitWindow);
 	RING_API_REGISTER("windowshouldclose",ring_WindowShouldClose);

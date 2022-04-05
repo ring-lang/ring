@@ -305,7 +305,7 @@ RING_API_RETSTRING2(buf.data,buf.size);
 
 free(buf.data);
 }
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("zip_openfile",ring_zip_openfile);
 	RING_API_REGISTER("zip_entry_open",ring_zip_entry_open);

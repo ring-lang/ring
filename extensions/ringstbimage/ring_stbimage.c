@@ -826,7 +826,7 @@ RING_FUNC(ring_stbi_zlib_decode_noheader_buffer)
 	RING_API_RETNUMBER(stbi_zlib_decode_noheader_buffer(RING_API_GETSTRING(1), (int ) RING_API_GETNUMBER(2),RING_API_GETSTRING(3), (int ) RING_API_GETNUMBER(4)));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("stbi_load_from_memory",ring_stbi_load_from_memory);
 	RING_API_REGISTER("stbi_load",ring_stbi_load);

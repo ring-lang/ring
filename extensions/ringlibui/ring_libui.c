@@ -8707,7 +8707,7 @@ RING_FUNC(ring_uiSaveFile)
 		uiFreeText(cOut);
 	}
 }
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("uiinit_2",ring_uiInit_2);
 	RING_API_REGISTER("uiinit",ring_uiInit);

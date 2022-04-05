@@ -12269,7 +12269,7 @@ RING_FUNC(ring_al_get_default_shader_source)
 	RING_API_RETSTRING(al_get_default_shader_source( (ALLEGRO_SHADER_PLATFORM )  (int) RING_API_GETNUMBER(1), (ALLEGRO_SHADER_TYPE )  (int) RING_API_GETNUMBER(2)));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("al_exit",ring_al_exit);
 	RING_API_REGISTER("al_run_main",ring_al_run_main);

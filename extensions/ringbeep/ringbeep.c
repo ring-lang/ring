@@ -19,7 +19,7 @@ RING_FUNC(ring_Beep)
 	RING_API_RETNUMBER(Beep( (int ) RING_API_GETNUMBER(1), (int ) RING_API_GETNUMBER(2)));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("beep",ring_Beep);
 }

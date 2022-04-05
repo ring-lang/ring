@@ -10825,7 +10825,7 @@ RING_FUNC(ring_glewGetString)
 	RING_API_RETSTRING(glewGetString( (GLenum )  (int) RING_API_GETNUMBER(1)));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("glaccum",ring_glAccum);
 	RING_API_REGISTER("glalphafunc",ring_glAlphaFunc);

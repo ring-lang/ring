@@ -729,7 +729,7 @@ RING_FUNC(ring_winapi_rwaenvirvarstring) {
 			Note: This function has to be at the bottom of this library				
 =================================================================================================
 */
-RING_API void ringlib_init ( RingState *pRingState ) {
+RING_LIBINIT {
 	RING_API_REGISTER("rwaisrunasadmin", ring_winapi_rwaisrunasadmin);
 	RING_API_REGISTER("rwaelevate", ring_winapi_rwaelevate);
 	RING_API_REGISTER("rwasyserrormsg", ring_winapi_rwasyserrormsg);

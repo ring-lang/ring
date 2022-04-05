@@ -12,7 +12,7 @@ extern "C" {
 
 extern "C" {
 
-RING_API void ringlib_init ( RingState *pRingState )
+RING_LIBINIT
 {
 	RING_API_REGISTER("cregopenkey",ring_vm_creg_cregopenkey);
 	RING_API_REGISTER("cregclosekey",ring_vm_creg_cregclosekey);

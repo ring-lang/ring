@@ -2192,7 +2192,7 @@ RING_FUNC(ring_curl_easy_unescape)
 	RING_API_ACCEPTINTVALUE(4) ;
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("curl_global_init",ring_curl_global_init);
 	RING_API_REGISTER("curl_easy_init",ring_curl_easy_init);

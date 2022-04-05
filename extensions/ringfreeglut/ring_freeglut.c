@@ -3185,7 +3185,7 @@ RING_FUNC(ring_glutSetVertexAttribTexCoord2)
 	glutSetVertexAttribTexCoord2( (GLint ) RING_API_GETNUMBER(1));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("glutinit",ring_glutInit);
 	RING_API_REGISTER("glutdisplayfunc",ring_glutDisplayFunc);

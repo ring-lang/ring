@@ -11,7 +11,7 @@ typedef struct ring_sqlite {
 } ring_sqlite ;
 /* Functions */
 
-RING_API void ringlib_init ( RingState *pRingState )
+RING_LIBINIT
 {
 	RING_API_REGISTER("sqlite_init",ring_vm_sqlite_init);
 	RING_API_REGISTER("sqlite_close",ring_vm_sqlite_close);

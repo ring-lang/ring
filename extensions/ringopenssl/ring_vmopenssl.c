@@ -18,7 +18,7 @@
 #endif
 /* Functions */
 
-RING_API void ringlib_init ( RingState *pRingState )
+RING_LIBINIT
 {
 	RING_API_REGISTER("md5init",ring_vm_openssl_md5_init);
 	RING_API_REGISTER("md5update",ring_vm_openssl_md5_update);

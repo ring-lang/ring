@@ -207,7 +207,7 @@ RING_FUNC(ring_cc_print)
 	cc_print( (int ) RING_API_GETNUMBER(1),RING_API_GETSTRING(2));
 }
 
-RING_API void ringlib_init(RingState *pRingState)
+RING_LIBINIT
 {
 	RING_API_REGISTER("cc_print",ring_cc_print);
 	RING_API_REGISTER("get_cc_fg_none",ring_get_cc_fg_none);
