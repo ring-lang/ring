@@ -34,5 +34,5 @@ RING_FUNC(ring_mouse_event)
 
 RING_API void ringlib_init(RingState *pRingState)
 {
-	ring_vm_funcregister("mouse_event",ring_mouse_event);
+	RING_API_REGISTER("mouse_event",ring_mouse_event);
 }
