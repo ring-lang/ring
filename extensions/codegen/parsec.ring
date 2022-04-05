@@ -602,7 +602,7 @@ Func GenFuncCodeCallFunc aList
 			cCode += "{" + nl + 
 				C_TABS_2 + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
 				C_TABS_2 + "pValue = (" + aList[C_FUNC_OUTPUT] + 
-				" *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
+				" *) RING_API_MALLOC(sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
 				C_TABS_2 + "*pValue = " 
 			lRet = false
 			lUNKNOWN = true
@@ -626,7 +626,7 @@ Func GenFuncCodeCallFunc aList
 	cCode += GenFuncCodeFreeNotAssignedPointers(aList)
 	if lUNKNOWN 	# Generate code to convert struct to struct *
 		cCode += C_TABS_2 + 'RING_API_RETMANAGEDCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
-			'",ring_state_free' +
+			'",RING_API_FREEFUNC' +
 			 ');' + nl + C_TABS_1 + "}" + nl
 
 	ok
@@ -705,7 +705,7 @@ Func GenFuncCodeFreeNotAssignedPointers aList
 			x = aPara[t]
 			if VarTypeID(x) = C_TYPE_UNKNOWN
 				cCode += C_TABS_1 + "if (RING_API_ISCPOINTERNOTASSIGNED(" + t + "))" + nl
-				cCode += C_TABS_2 + "ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER("+t+',"'+GenPointerType(x)+'"));' + nl
+				cCode += C_TABS_2 + "RING_API_FREE(RING_API_GETCPOINTER("+t+',"'+GenPointerType(x)+'"));' + nl
 			ok
 		next
 	ok
@@ -767,7 +767,7 @@ Func GenStruct	aFunc
 	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 			"{" + nl + 
 			C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
-			C_TABS_1 + "pMyPointer = (" + cStruct + " *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(" +
+			C_TABS_1 + "pMyPointer = (" + cStruct + " *) RING_API_MALLOC(sizeof(" +
 			cStruct + ")) ;" + nl +
 			C_TABS_1 + "if (pMyPointer == NULL) " + nl +
 			C_TABS_1 + "{" + nl +
@@ -783,7 +783,7 @@ Func GenStruct	aFunc
 	cCode += "RING_FUNC(ring_"+cFuncName+")" + nl +
 			"{" + nl + 
 			C_TABS_1 + cStruct + " *pMyPointer ;" + nl +
-			C_TABS_1 + "pMyPointer = (" + cStruct + " *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof(" +
+			C_TABS_1 + "pMyPointer = (" + cStruct + " *) RING_API_MALLOC(sizeof(" +
 			cStruct + ")) ;" + nl +
 			C_TABS_1 + "if (pMyPointer == NULL) " + nl +
 			C_TABS_1 + "{" + nl +
@@ -791,7 +791,7 @@ Func GenStruct	aFunc
 			C_TABS_2 + "return ;" + nl +
 			C_TABS_1 + "}" + nl +
 			C_TABS_1 + "RING_API_RETMANAGEDCPOINTER(pMyPointer,"+
-			'"'+cStruct  +'",ring_state_free);' + nl +
+			'"'+cStruct  +'",RING_API_FREEFUNC);' + nl +
 			"}" + nl + nl
 	# Generate Functions to Destroy the Struct
 	cFuncName = $cFuncStart+"destroy_"+lower(cStruct)
@@ -810,7 +810,7 @@ Func GenStruct	aFunc
 			C_TABS_1 + "pMyPointer = ("+ cStruct + "*) RING_API_GETCPOINTER(1," +
 			'"'+cStruct  +'");' + nl +
 			C_TABS_1 + "if (pMyPointer != NULL) {" + nl +
-			C_TABS_2 + "ring_state_free(((VM *) pPointer)->pRingState,pMyPointer) ;" + nl +		
+			C_TABS_2 + "RING_API_FREE(pMyPointer) ;" + nl +		
 			C_TABS_2 + "RING_API_SETNULLPOINTER(1);" + nl +
 			C_TABS_1 + "}" + nl +				
 			"}" + nl + nl
@@ -1149,7 +1149,7 @@ Func GenMethodCodeCallFunc aList
 				cCode += "{" + nl + 
 				C_TABS_2 + aList[C_FUNC_OUTPUT] + " *pValue ; " + nl +
 				C_TABS_2 + "pValue = (" + aList[C_FUNC_OUTPUT] + 
-				" *) ring_state_malloc(((VM *) pPointer)->pRingState,sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
+				" *) RING_API_MALLOC(sizeof("+aList[C_FUNC_OUTPUT]+")) ;" + nl +
 				C_TABS_2 + "*pValue = " 
 			ok
 			lRet = false
@@ -1189,7 +1189,7 @@ Func GenMethodCodeCallFunc aList
 				 ');' + nl + C_TABS_1 + "}" + nl
 		else 
 			cCode += C_TABS_2 + 'RING_API_RETMANAGEDCPOINTER(pValue,"' + trim(aList[C_FUNC_OUTPUT]) +
-				'",ring_state_free' +
+				'",RING_API_FREEFUNC' +
 				 ');' + nl + C_TABS_1 + "}" + nl
 		ok
 	ok
@@ -1208,7 +1208,7 @@ Func GenMethodCodeFreeNotAssignedPointers aList
 			t++ # avoid the object pointer
 			if VarTypeID(x) = C_TYPE_UNKNOWN
 				cCode += C_TABS_1 + "if (RING_API_ISCPOINTERNOTASSIGNED(" + t + "))" + nl
-				cCode += C_TABS_2 + "ring_state_free(((VM *) pPointer)->pRingState,RING_API_GETCPOINTER("+t+',"'+GenPointerType(x)+'"));' + nl
+				cCode += C_TABS_2 + "RING_API_FREE(RING_API_GETCPOINTER("+t+',"'+GenPointerType(x)+'"));' + nl
 			ok
 			t-- # Ignore the effect of avoiding the object pointer
 		next
