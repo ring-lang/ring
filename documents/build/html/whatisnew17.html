@@ -593,9 +593,15 @@ EndLine
 <li><p>Avoid generating the delete method twice</p></li>
 <li><p>Using codegenlib.ring for common functions</p></li>
 <li><p>Use casting in functions that destroy the structures</p></li>
-<li><p>Support C/C++ strings in structures</p></li>
 <li><p>Clean error message when we can’t parse a line</p></li>
+<li><p>Support C/C++ strings in structures</p></li>
 </ul>
+<p>Example from RingHTTPLib extension</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>&lt;struct&gt;
+MultipartFormData {string name,string content,string filename,string content_type}
+&lt;/struct&gt;
+</pre></div>
+</div>
 </div>
 <div class="section" id="more-improvements">
 <span id="index-12"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>

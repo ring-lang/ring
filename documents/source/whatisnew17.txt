@@ -411,8 +411,16 @@ The code generator is updated to include the next features
 * Avoid generating the delete method twice 
 * Using codegenlib.ring for common functions
 * Use casting in functions that destroy the structures
-* Support C/C++ strings in structures
 * Clean error message when we can't parse a line
+* Support C/C++ strings in structures
+
+Example from RingHTTPLib extension
+
+.. code-block:: none
+
+	<struct>
+	MultipartFormData {string name,string content,string filename,string content_type}
+	</struct>
 
 .. index:: 
 	pair: What is new in Ring  1.17; More Improvements
