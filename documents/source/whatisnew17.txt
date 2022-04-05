@@ -387,9 +387,9 @@ More Improvements
 * RingLibUI - The function uiFreeText() is removed from the library API
 * RingLibUI - Better implementation for functions that require uiFreeText()
 * RingQt - QString Class - Another version for the Replace() Method
-* Code generator for Extensions - Better output messages 
-* Code generator for Extensions - Avoid generating the delete method twice 
-* Code generator for Extensions - Using codegenlib.ring for common functions
+* Code Generator for Extensions - Better output messages 
+* Code Generator for Extensions - Avoid generating the delete method twice 
+* Code Generator for Extensions - Using codegenlib.ring for common functions
 * Code Generator For Extensions - Use casting in functions that destroy the structures
 * Code Generator For Extensions - Support C/C++ strings in structures
 * Code Generator For Extensions - Clear error message when we can't parse a line
