@@ -398,6 +398,7 @@ More Improvements
 * SetPointer()/GetPointer() functions - Better Code
 * Fexists() function - Support UTF-8 file names
 * GetFileSize() function - Get the file size without requiring any I/O
+* Ring API - Added: RING_LIBINIT
 * Ring API - Added: RING_API_REGISTER
 * Ring API - Added: RING_API_MALLOC
 * Ring API - Added: RING_API_CALLOC
