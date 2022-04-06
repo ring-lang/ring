@@ -140,6 +140,25 @@ Func IsAppCompiled
 	else
 		return true
 	ok
+	
+/*
+	Function Name	: apparguments
+	Usage		: get effective arguments passed to the Ring script 
+	Parameters	: no Parameters
+	Output		: list of strings. Empty list if no arguments passed to the Ring script
+*/
+Func AppArguments
+	argsstartindex = 3 # starting index of arguments in sysargv when interpreted
+	if IsAppCompiled()
+		argsstartindex = 2 # starting index of arguments in sysargv  when compiled
+	ok
+
+	appArgsList = []
+	sysargcount = Len(sysargv)
+	for i=argsstartindex to sysargcount
+		appArgsList + sysargv[i]
+	next
+	return appArgsList
 
 /*
 	Function Name	: apppath
