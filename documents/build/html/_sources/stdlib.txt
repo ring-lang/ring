@@ -149,6 +149,33 @@ Example:
 	else see "Application is running under Ring interpreter" ok
 
 .. index:: 
+	pair: Stdlib Functions; apparguments()
+
+AppArguments() function
+=======================
+
+Get the effective arguments passed to the Ring script
+
+Syntax:
+
+.. code-block:: ring
+
+	AppArguments() ---> The arguments as a list of strings
+
+Example:
+
+.. code-block:: ring
+
+	Load "stdlib.ring"
+
+	# Application Arguments
+	Puts("Test AppArguments()")
+	argsList = AppArguments()
+	argsCount = Len(argsList)
+	if argsCount = 0 see "No arguments passed to the Ring script" + nl
+	else see "Ring script arguments = " + nl + list2str(argsList) + nl ok
+
+.. index:: 
 	pair: Stdlib Functions; apppath()
 
 AppPath() function

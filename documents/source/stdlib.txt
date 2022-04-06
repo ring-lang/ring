@@ -152,7 +152,7 @@ Example:
 	pair: Stdlib Functions; apparguments()
 
 AppArguments() function
-==================
+=======================
 
 Get the effective arguments passed to the Ring script
 
