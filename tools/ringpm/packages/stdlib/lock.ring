@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "stdlib",
 		:branch = "master",
-		:version = "1.0.11",
+		:version = "1.0.12",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
@@ -16,7 +16,7 @@ aLockInfo = [
 	[
 		:name = "ringcurl",
 		:branch = "master",
-		:version = "1.0.6",
+		:version = "1.0.7",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
