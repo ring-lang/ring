@@ -12323,7 +12323,7 @@ Class QWidget from QObject
 		pTempObj.pObject = QWidget_createWindowContainer(pObject,GetObjectPointerFromRingObject(P1),GetObjectPointerFromRingObject(P2),P3)
 		return pTempObj
 
-Class QLabel from QWidget
+Class QLabel from QFrame
 
 	pObject
 

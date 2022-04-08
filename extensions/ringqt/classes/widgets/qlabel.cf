@@ -1,7 +1,7 @@
 <class>
 name: QLabel
 para: QWidget *
-parent: QWidget
+parent: QFrame
 </class>
 
 <comment>
