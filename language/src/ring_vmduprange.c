@@ -9,8 +9,8 @@ void ring_vm_dup ( VM *pVM )
     void *pPointer  ;
     int nType  ;
     if ( RING_VM_STACK_ISSTRING ) {
-        pString = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
-        RING_VM_STACK_PUSHCVALUE(ring_string_get(pString));
+        pString = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+        RING_VM_STACK_PUSHCVALUE(ring_string_get(pString),ring_string_size(pString));
         ring_string_delete_gc(pVM->pRingState,pString);
     }
     else if ( RING_VM_STACK_ISNUMBER ) {
@@ -54,11 +54,11 @@ void ring_vm_range ( VM *pVM )
         }
     }
     else if ( RING_VM_STACK_ISSTRING ) {
-        pString1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+        pString1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
         RING_VM_STACK_POP ;
         if ( ring_string_size(pString1) == 1 ) {
             if ( RING_VM_STACK_ISSTRING ) {
-                pString2 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+                pString2 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
                 RING_VM_STACK_POP ;
                 if ( ring_string_size(pString2)  == 1 ) {
                     cStr[1] = '\0' ;
