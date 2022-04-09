@@ -22,7 +22,7 @@ void ring_vm_string_assignment ( VM *pVM )
     String *cStr1  ;
     char *newstr  ;
     if ( RING_VM_STACK_ISSTRING ) {
-        cStr1 = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+        cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
         RING_VM_STACK_POP ;
         if ( ring_string_size(cStr1) == 1 ) {
             newstr = (char *) RING_VM_STACK_READP ;

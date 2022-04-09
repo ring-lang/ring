@@ -87,7 +87,7 @@ void ring_vm_listitem ( VM *pVM )
     Item *pItem  ;
     pList = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
     if ( RING_VM_STACK_ISSTRING ) {
-        ring_list_addstring_gc(pVM->pRingState,pList, RING_VM_STACK_READC);
+        ring_list_addstring2_gc(pVM->pRingState,pList, RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
         RING_VM_STACK_POP ;
     }
     else if ( RING_VM_STACK_ISNUMBER ) {
@@ -214,7 +214,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
         RING_VM_STACK_OBJTYPE = RING_OBJTYPE_LISTITEM ;
     }
     else if ( RING_VM_STACK_ISSTRING ) {
-        pString = ring_string_new_gc(pVM->pRingState,RING_VM_STACK_READC);
+        pString = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
         RING_VM_STACK_POP ;
         /* Use String to find the item */
         if ( RING_VM_STACK_ISPOINTER ) {

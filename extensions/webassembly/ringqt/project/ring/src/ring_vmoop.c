@@ -951,8 +951,8 @@ void ring_vm_oop_setproperty ( VM *pVM )
         }
         else if ( RING_VM_STACK_ISSTRING ) {
             ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_TYPE,RING_VM_STRING);
-            ring_list_setstring_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_VM_STACK_READC);
-            ring_list_addstring_gc(pVM->pRingState,pList,RING_VM_STACK_READC);
+            ring_list_setstring2_gc(pVM->pRingState,pList2,RING_VAR_VALUE,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+            ring_list_addstring2_gc(pVM->pRingState,pList,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
         }
         else if ( RING_VM_STACK_ISPOINTER ) {
             ring_list_setint_gc(pVM->pRingState,pList2,RING_VAR_TYPE,RING_VM_POINTER);
@@ -1012,7 +1012,7 @@ void ring_vm_oop_setproperty ( VM *pVM )
                 RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pList,6));
             }
             else if ( ring_list_isstring(pList,6) ) {
-                RING_VM_STACK_PUSHCVALUE(ring_list_getstring(pList,6));
+                RING_VM_STACK_PUSHCVALUE2(ring_list_getstring(pList,6),ring_list_getstringsize(pList,6));
             }
             else if ( ring_list_ispointer(pList,6) ) {
                 RING_VM_STACK_PUSHPVALUE(ring_list_getpointer(pList,6));
