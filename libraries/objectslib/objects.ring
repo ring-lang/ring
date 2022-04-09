@@ -41,6 +41,9 @@
 	
 	func GetWindowPos nID
 		return Get_Window_Pos( nID )
+
+	func GetWindowByID nID 
+		return Get_Window_ByID(nID)
 	
 /*
 	The next function create new object, add the object to the $RingQt_ObjectsList
@@ -214,6 +217,14 @@ func Get_Window_Pos nID
 	return find($RingQt_ObjectsList,nID,C_RINGQT_OBJECTSLIST_ID)
 
 /*
+	Return the window object using the Window ID
+*/
+
+func Get_Window_ByID nID
+	nPos = Get_Window_Pos(nID)
+	return $RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT]
+
+/*
 	The next class is the parent class for Windows/Forms Classes
 	Don't Use this class directly!
 	When you create a new class, just use from WindowsControllerParent
@@ -248,8 +259,7 @@ class ObjectsParent
 		return RingQt_nParentID
 
 	func GetObjectByID nID
-		nPos = Get_Window_Pos(nID)
-		return $RingQt_ObjectsList[nPos][C_RINGQT_OBJECTSLIST_OBJECT]
+		return Get_Window_ByID(nID)
 
 	func ObjectID
 		return RingQt_nID
