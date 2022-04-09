@@ -10,7 +10,7 @@ void ring_vm_dup ( VM *pVM )
     int nType  ;
     if ( RING_VM_STACK_ISSTRING ) {
         pString = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
-        RING_VM_STACK_PUSHCVALUE(ring_string_get(pString),ring_string_size(pString));
+        RING_VM_STACK_PUSHCVALUE2(ring_string_get(pString),ring_string_size(pString));
         ring_string_delete_gc(pVM->pRingState,pString);
     }
     else if ( RING_VM_STACK_ISNUMBER ) {

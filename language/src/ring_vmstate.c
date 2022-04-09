@@ -523,7 +523,7 @@ void ring_vm_restorestack ( VM *pVM,List *pList )
     }
     for ( x = ring_list_getsize(pList) ; x >= 1 ; x-- ) {
         if ( ring_list_isstring(pList,x) ) {
-            RING_VM_STACK_PUSHCVALUE(ring_list_getstring(pList,x),ring_list_getstringsize(pList,x));
+            RING_VM_STACK_PUSHCVALUE2(ring_list_getstring(pList,x),ring_list_getstringsize(pList,x));
         }
         else if ( ring_list_isnumber(pList,x) ) {
             RING_VM_STACK_PUSHNVALUE(ring_list_getdouble(pList,x));
