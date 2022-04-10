@@ -57,7 +57,7 @@
 <br />	 
 
     <div class="panel panel-default">
-      <div class="panel-heading"><h4>Special Thanks for your support and spreading the word! <span class="badge"><%= len(aManyThanks) %></span></h4></div>
+      <div class="panel-heading"><h4>Special Thanks for Spreading the Word! <span class="badge"><%= len(aManyThanks) %></span></h4></div>
       <div class="panel-body">
 
 			<table class="table table-striped">
