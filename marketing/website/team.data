@@ -22,10 +22,6 @@
 ]
 aManyThanks = [
 				  [
-					'Prof. Dr. Atif M. Alamri',
-					'<img src="dratif.png" width="150" height="170">'
-				  ],
-				  [
 					'Gal Zsolt',
 					'<img src="GalZsolt.png" width="150" height="170">'
 				  ],
@@ -41,10 +37,6 @@ aManyThanks = [
 					'Mona Kamel',
 					'<img src="mona.png" width="150" height="170">'
 				  ],
-				  [
-					'Hebat Alla Ismail',
-					'<img src="heba.jpg" width="150" height="170">'
-				  ],
   				  [
 					'Abdelrahman Mahmoud',
 					'<img src="abdelrahman.jpg" width="150" height="170">'
@@ -54,13 +46,9 @@ aManyThanks = [
 					'<img src="amine.jpg" width="150" height="170">'
                   		  ],				  
 				  [
-					'Nouran M. Radwan',
-					'<img src="nouran.png" width="150" height="170">'
-				  ],				  
-				  [
-                    			'Heba Omran',
-					'<img src="hebaomran.png" width="150" height="170">'
-                  		  ],
+					'Hebat Alla Ismail',
+					'<img src="heba.jpg" width="150" height="170">'
+				  ],
 		  		  [
                     			'Ahmed Baryyan',
 		    			'<img src="ahmedbarayan1.jpg" width="150" height="170">'
@@ -137,6 +125,11 @@ aTeam2 = [
 				  ],
 				  [
 					'Ashraf Nagy',
+					'Graphic Designer'
+					
+				  ],
+				  [
+					'Nouran M. Radwan',
 					'Graphic Designer'
 					
 				  ],
@@ -822,12 +815,17 @@ aTeam2 = [
                     'Tester'
                     
                   ],
-				  [
+		  [
                     'Shimoo Ali',
                     'Tester'
                     
                   ],
-				  [
+		  [
+                    'Heba Omran',
+                    'Tester'
+                    
+                  ],
+		  [
                     'John Storm (SienSystem)',
                     'Tester'
                     
