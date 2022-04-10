@@ -127,9 +127,8 @@ Func DrawWidget()
 
 
      oDesktop     = new qDesktopWidget()
-     oRect        = oDesktop.screenGeometry( oDesktop.primaryScreen() )
-     ScreenWidth  = oRect.width()
-     ScreenHeight = oRect.Height()
+     ScreenWidth  = oDesktop.width()
+     ScreenHeight = oDesktop.Height()
 
      SqHeight = Floor( (ScreenHeight -40) / (Size +2) )
      See "Screen: "+ ScreenWidth +"-"+ScreenHeight +" SqHeight "+ SqHeight +" Size "+ Size +nl
