@@ -27,33 +27,6 @@
 
 	<br />	 
 
-    <div class="panel panel-default">
-      <div class="panel-heading"><h4>Special Thanks for your support and spreading the word! <span class="badge"><%= len(aManyThanks) %></span></h4></div>
-      <div class="panel-body">
-
-			<table class="table table-striped">
-				<thead>
-				  <tr>
-					<th width="85%">Name</th>
-					<th width="15%"></th>
-				  </tr>
-
-				</thead>
-				<tbody>
-				  <% for x in aManyThanks %>
-				  <tr>
-					<% for x2 in x %>
-						<th><%= x2 %></th>					
-					<% next %>
-				  </tr>
-				  <% next %>
-				</tbody>
-			</table>
-
-      </div>
-     </div>  
-
-	<br />	 
 
     <div id="topcontributors" class="panel panel-default">
       <div class="panel-heading"><h4>Top Contributors <span class="badge"><%= len(aTopContributors) %></span></h4></div>
@@ -83,6 +56,33 @@
 
 <br />	 
 
+    <div class="panel panel-default">
+      <div class="panel-heading"><h4>Special Thanks for your support and spreading the word! <span class="badge"><%= len(aManyThanks) %></span></h4></div>
+      <div class="panel-body">
+
+			<table class="table table-striped">
+				<thead>
+				  <tr>
+					<th width="85%">Name</th>
+					<th width="15%"></th>
+				  </tr>
+
+				</thead>
+				<tbody>
+				  <% for x in aManyThanks %>
+				  <tr>
+					<% for x2 in x %>
+						<th><%= x2 %></th>					
+					<% next %>
+				  </tr>
+				  <% next %>
+				</tbody>
+			</table>
+
+      </div>
+     </div>  
+
+	<br />	 
 
     <div id="halloffame" class="panel panel-default">
       <div class="panel-heading"><h4>Thanks for your support, testing Ring and sending Bug Reports to Ring Team <span class="badge"><%= len(aTeam2) %></span></h4></div>
