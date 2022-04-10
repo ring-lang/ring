@@ -18,16 +18,16 @@
 				  [
 					'Majdi Sobain<br/>Software Developer (Extensions Master)',
 					'<img src="majdi.jpg" width="150" height="170">'
-				  ],
-				  [
-					'Gal Zsolt (CalmoSoft)<br/>Software Developer (Samples Master)',
-					'<img src="GalZsolt.png" width="150" height="170">'
 				  ]
 ]
 aManyThanks = [
 				  [
 					'Prof. Dr. Atif M. Alamri',
 					'<img src="dratif.png" width="150" height="170">'
+				  ],
+				  [
+					'Gal Zsolt',
+					'<img src="GalZsolt.png" width="150" height="170">'
 				  ],
 				  [
                     			'José Rosado',
