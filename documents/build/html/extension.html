@@ -194,6 +194,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#mysql-columns-function-implementation">MySQL_Columns() Function Implementation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#dynamic-shared-libraries-dll-so-dylib-and-loadlib-function">Dynamic/Shared Libraries (DLL/So/Dylib) and LoadLib() function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-ring-api-retmanagedcpointer">Using RING_API_RETMANAGEDCPOINTER()</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#memory-functions">Memory Functions</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="embedding.html">Embedding Ring Language in C/C++ Programs</a></li>
@@ -851,6 +852,25 @@ pointer to Ring. This pointer can be controlled by the Ring VM using reference c
 }
 </pre></div>
 </div>
+</div>
+<div class="section" id="memory-functions">
+<span id="index-18"></span><h2>Memory Functions<a class="headerlink" href="#memory-functions" title="Permalink to this headline">¶</a></h2>
+<p>Ring API provides the next functions for Memory Management</p>
+<p>These functions uses the Memory pool provided by Ring VM</p>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>RING_API_MALLOC(nSize)
+RING_API_CALLOC(nItems,nItemSize)
+RING_API_REALLOC(pPointer,nSize)
+RING_API_FREE(pPointer)
+RING_API_FREEFUNC
+</pre></div>
+</div>
+<ul class="simple">
+<li><p>Use RING_API_MALLOC() instead of the malloc() function.</p></li>
+<li><p>Use RING_API_CALLOC() instead of the calloc() function.</p></li>
+<li><p>Use RING_API_REALLOC() instead of the realloc() function.</p></li>
+<li><p>Use RING_API_FREE() instead of the free() function.</p></li>
+<li><p>RING_API_FREEFUNC provides a function pointer to the ring_state_free() function</p></li>
+</ul>
 </div>
 </div>
 

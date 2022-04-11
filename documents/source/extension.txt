@@ -719,3 +719,29 @@ Example:
 		delete pObject ;
 	}
 
+
+.. index:: 
+	pair: Extension; Memory Functions
+
+Memory Functions
+================
+
+Ring API provides the next functions for Memory Management
+
+These functions uses the Memory pool provided by Ring VM
+
+.. code-block:: none
+
+	RING_API_MALLOC(nSize)
+	RING_API_CALLOC(nItems,nItemSize)
+	RING_API_REALLOC(pPointer,nSize)
+	RING_API_FREE(pPointer)
+	RING_API_FREEFUNC
+
+* Use RING_API_MALLOC() instead of the malloc() function.
+* Use RING_API_CALLOC() instead of the calloc() function.
+* Use RING_API_REALLOC() instead of the realloc() function.
+* Use RING_API_FREE() instead of the free() function.
+* RING_API_FREEFUNC provides a function pointer to the ring_state_free() function
+
+
