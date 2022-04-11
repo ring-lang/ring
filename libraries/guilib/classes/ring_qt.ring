@@ -11629,6 +11629,37 @@ Class QApp from QGuiApplication
 		pTempObj.pObject = QApp_clipboard()
 		return pTempObj
 
+	Func style 
+		pTempObj = new QStyle
+		pTempObj.pObject = QApp_style()
+		return pTempObj
+
+	Func aboutQt 
+		return QApp_aboutQt()
+
+	Func activeModalWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QApp_activeModalWidget()
+		return pTempObj
+
+	Func activePopupWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QApp_activePopupWidget()
+		return pTempObj
+
+	Func activeWindow 
+		pTempObj = new QWidget
+		pTempObj.pObject = QApp_activeWindow()
+		return pTempObj
+
+	Func focusWidget 
+		pTempObj = new QWidget
+		pTempObj.pObject = QApp_focusWidget()
+		return pTempObj
+
+	Func titlebarHeight 
+		return QApp_titlebarHeight()
+
 Class QWidget from QObject
 
 	pObject

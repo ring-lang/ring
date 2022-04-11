@@ -16,6 +16,13 @@ void styleFusionCustom(QColor,QColor,QColor,QColor,QColor,QColor,QColor,QColor,Q
 void closeAllWindows(void)
 Qt::KeyboardModifiers keyboardModifiers(void)
 QClipboard *clipboard(void)
+QStyle *style(void)
+void aboutQt(void)
+QWidget *activeModalWidget(void)
+QWidget *activePopupWidget(void)
+QWidget *activeWindow(void)
+QWidget *focusWidget(void)
+double titlebarHeight(void)
 </register>
 
 <code>
@@ -144,7 +151,74 @@ RING_FUNC(ring_QApp_keyboardModifiers)
 
 RING_FUNC(ring_QApp_clipboard)
 {
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
 	RING_API_RETCPOINTER(qApp->clipboard(),"QClipboard");
+}
+
+RING_FUNC(ring_QApp_style)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(qApp->style(),"QStyle");
+}
+
+RING_FUNC(ring_QApp_aboutQt)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	qApp->aboutQt();
+}
+
+RING_FUNC(ring_QApp_activeModalWidget)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(qApp->activeModalWidget(),"QWidget");
+}
+
+RING_FUNC(ring_QApp_activePopupWidget)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(qApp->activePopupWidget(),"QWidget");
+}
+
+RING_FUNC(ring_QApp_activeWindow)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(qApp->activeWindow(),"QWidget");
+}
+
+RING_FUNC(ring_QApp_focusWidget)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(qApp->focusWidget(),"QWidget");
+}
+
+RING_FUNC(ring_QApp_titlebarHeight)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(qApp->style()->pixelMetric(QStyle::PM_TitleBarHeight));
 }
 
 </code>
