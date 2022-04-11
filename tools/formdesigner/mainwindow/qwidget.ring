@@ -341,7 +341,7 @@ class FormDesigner_QWidget from QWidget
 		cOutput = substr(cOutput,"#{f1}",""+max(parentwidget().x(),0))
 		cOutput = substr(cOutput,"#{f2}",""+max(parentwidget().y(),0))
 		cOutput = substr(cOutput,"#{f3}",""+parentwidget().width())
-		cOutput = substr(cOutput,"#{f4}",""+parentwidget().height())
+		cOutput = substr(cOutput,"#{f4}",""+max(parentwidget().height()-26,0))
 		cOutput = substr(cOutput,"#{f5}",windowtitle())
 		cOutput = substr(cOutput,"#{f6}",backcolor())
 		cOutput = substr(cOutput,"#{f7}",WindowFlagsValue())
