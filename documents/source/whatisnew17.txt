@@ -406,11 +406,11 @@ Better Ring API
 The next functions are added to Ring API
 
 * RING_LIBINIT
-* RING_API_REGISTER
-* RING_API_MALLOC
-* RING_API_CALLOC
-* RING_API_REALLOC
-* RING_API_FREE
+* RING_API_REGISTER(cFunctionName,pFunction)
+* RING_API_MALLOC(nSize)
+* RING_API_CALLOC(nItems,nItemSize)
+* RING_API_REALLOC(pPointer,nSize)
+* RING_API_FREE(pPointer)
 * RING_API_FREEFUNC
 
 The next example demonstrates using RING_LIBINIT and RING_API_REGISTER
