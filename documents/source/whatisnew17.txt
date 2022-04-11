@@ -462,6 +462,7 @@ More Improvements
 
 * Ring Notepad (Web Browser) - Support URLs without "http" in the start
 * Form Designer - Default TextColor is Empty (Better when changing styles)
+* Form Designer - Generating Code - Form Height - Better Code
 * Many documents and samples are revised (Better English)
 * Many applications are updated to use LightGUILib 
 * Calendar application - Better code to detect the current year
