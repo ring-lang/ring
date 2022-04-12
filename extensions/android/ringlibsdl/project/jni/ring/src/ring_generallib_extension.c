@@ -2034,7 +2034,8 @@ void ring_vm_generallib_print ( void *pPointer )
     List *pList  ;
     char cStr[100]  ;
     char *cString  ;
-    int x,nSize  ;
+    int x,nSize,nPos  ;
+    char cCode[256]  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
     if ( RING_API_PARACOUNT != 1 ) {
@@ -2069,27 +2070,44 @@ void ring_vm_generallib_print ( void *pPointer )
                     switch ( cString[x+1] ) {
                         case 'r' :
                             printf( "\r" ) ;
-                            x += 1 ;
+                            x++ ;
                             continue ;
                         case 'n' :
                             printf( "\n" ) ;
-                            x += 1 ;
+                            x++ ;
                             continue ;
                         case 't' :
                             printf( "\t" ) ;
-                            x += 1 ;
+                            x++ ;
                             continue ;
                         case '\\' :
                             printf( "\\" ) ;
-                            x += 1 ;
+                            x++ ;
                             continue ;
                         case '#' :
                             printf( "#" ) ;
-                            x += 1 ;
+                            x++ ;
                             continue ;
                     }
                     break ;
                 case '#' :
+                    if ( cString[x+1] == '{' ) {
+                        strcpy(cCode,"see ");
+                        x += 2 ;
+                        nPos = 4 ;
+                        while ( (x < nSize) && (cString[x] != '}') && (nPos <= C_EXPRCODESIZE ) ) {
+                            cCode[nPos] = cString[x] ;
+                            nPos++ ;
+                            x++ ;
+                        }
+                        if ( nPos > C_EXPRCODESIZE ) {
+                            RING_API_ERROR("The Expression is too large, The size must be <= 200 characters!");
+                            return ;
+                        }
+                        cCode[nPos] = '\0' ;
+                        printf( "CODE: %s",cCode ) ;
+                        continue ;
+                    }
                     break ;
             }
         }

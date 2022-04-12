@@ -200,4 +200,6 @@
     void ring_vm_generallib_addsublistsbymove ( void *pPointer ) ;
 
     void ring_vm_generallib_addsublistsbyfastcopy ( void *pPointer ) ;
+    /* Constants */
+    #define C_EXPRCODESIZE 200
 #endif
