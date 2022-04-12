@@ -50,3 +50,100 @@ Samples
 =======
 
 The samples exist in ring/samples/UsingHTTPLib folder
+
+.. index:: 
+	pair: Using HTTPLib; Printing Constants
+
+Printing Constants
+==================
+
+The next example print the constants defined by the extension
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Constants:"
+
+	? CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND
+	? CPPHTTPLIB_KEEPALIVE_MAX_COUNT
+	? CPPHTTPLIB_CONNECTION_TIMEOUT_SECOND
+	? CPPHTTPLIB_CONNECTION_TIMEOUT_USECOND
+	? CPPHTTPLIB_READ_TIMEOUT_SECOND
+	? CPPHTTPLIB_READ_TIMEOUT_USECOND
+	? CPPHTTPLIB_WRITE_TIMEOUT_SECOND
+	? CPPHTTPLIB_WRITE_TIMEOUT_USECOND
+	? CPPHTTPLIB_IDLE_INTERVAL_SECOND
+	? CPPHTTPLIB_IDLE_INTERVAL_USECOND
+	? CPPHTTPLIB_REQUEST_URI_MAX_LENGTH
+	? CPPHTTPLIB_REDIRECT_MAX_COUNT
+	? CPPHTTPLIB_PAYLOAD_MAX_LENGTH
+	? CPPHTTPLIB_TCP_NODELAY
+	? CPPHTTPLIB_COMPRESSION_BUFSIZ
+	? CPPHTTPLIB_THREAD_POOL_COUNT
+	? CPPHTTPLIB_RECV_FLAGS
+	? CPPHTTPLIB_LISTEN_BACKLOG
+
+Using HTTP GET
+==============
+
+Example(1):
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/hi"
+	oServer.route(:Get,"/hi",:mytest)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func mytest 
+		oServer.setContent("Hello World!", "text/plain")
+
+Example(2):
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/one"
+	oServer.route(:Get,"/one",:one)
+	? "Try localhost:8080/two"
+	oServer.route(:Get,"/two",:two)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func one
+		oServer.setContent("one", "text/plain")
+
+	func two
+		oServer.setContent("two", "text/plain")
+
+Example(3):
+
+In this example we will use anonymous function
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Try localhost:8080/hello"
+
+	oServer = new Server {
+
+		route(:Get,"/hello",func {
+			oServer.setContent("Hello, World!", "text/plain")
+		})
+
+		listen("0.0.0.0", 8080)
+
+	}

@@ -159,6 +159,8 @@
 <li class="toctree-l2"><a class="reference internal" href="#introduction">Introduction</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#samples">Samples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#printing-constants">Printing Constants</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-http-get">Using HTTP GET</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
@@ -303,6 +305,91 @@
 <div class="section" id="samples">
 <span id="index-3"></span><h2>Samples<a class="headerlink" href="#samples" title="Permalink to this headline">¶</a></h2>
 <p>The samples exist in ring/samples/UsingHTTPLib folder</p>
+</div>
+<div class="section" id="printing-constants">
+<span id="index-4"></span><h2>Printing Constants<a class="headerlink" href="#printing-constants" title="Permalink to this headline">¶</a></h2>
+<p>The next example print the constants defined by the extension</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Constants:&quot;</span>
+
+<span class="o">?</span> <span class="n">CPPHTTPLIB_KEEPALIVE_TIMEOUT_SECOND</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_KEEPALIVE_MAX_COUNT</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_CONNECTION_TIMEOUT_SECOND</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_CONNECTION_TIMEOUT_USECOND</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_READ_TIMEOUT_SECOND</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_READ_TIMEOUT_USECOND</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_WRITE_TIMEOUT_SECOND</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_WRITE_TIMEOUT_USECOND</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_IDLE_INTERVAL_SECOND</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_IDLE_INTERVAL_USECOND</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_REQUEST_URI_MAX_LENGTH</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_REDIRECT_MAX_COUNT</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_PAYLOAD_MAX_LENGTH</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_TCP_NODELAY</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_COMPRESSION_BUFSIZ</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_THREAD_POOL_COUNT</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_RECV_FLAGS</span>
+<span class="o">?</span> <span class="n">CPPHTTPLIB_LISTEN_BACKLOG</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="using-http-get">
+<h2>Using HTTP GET<a class="headerlink" href="#using-http-get" title="Permalink to this headline">¶</a></h2>
+<p>Example(1):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+
+<span class="o">?</span> <span class="s">&quot;Try localhost:8080/hi&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/hi&quot;</span><span class="p">,:</span><span class="n">mytest</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">mytest</span>
+        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Hello World!&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example(2):</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Start the server...&quot;</span>
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span>
+
+<span class="o">?</span> <span class="s">&quot;Try localhost:8080/one&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/one&quot;</span><span class="p">,:</span><span class="n">one</span><span class="p">)</span>
+<span class="o">?</span> <span class="s">&quot;Try localhost:8080/two&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/two&quot;</span><span class="p">,:</span><span class="n">two</span><span class="p">)</span>
+
+<span class="o">?</span> <span class="s">&quot;Listen to port 8080&quot;</span>
+<span class="n">oServer</span><span class="p">.</span><span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">one</span>
+        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;one&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+
+<span class="k">func</span> <span class="n">two</span>
+        <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;two&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Example(3):</p>
+<p>In this example we will use anonymous function</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;httplib.ring&quot;</span>
+
+<span class="o">?</span> <span class="s">&quot;Try localhost:8080/hello&quot;</span>
+
+<span class="n">oServer</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Server</span> <span class="p">{</span>
+
+        <span class="n">route</span><span class="p">(:</span><span class="k">Get</span><span class="p">,</span><span class="s">&quot;/hello&quot;</span><span class="p">,</span><span class="k">func</span> <span class="p">{</span>
+                <span class="n">oServer</span><span class="p">.</span><span class="n">setContent</span><span class="p">(</span><span class="s">&quot;Hello, World!&quot;</span><span class="p">,</span> <span class="s">&quot;text/plain&quot;</span><span class="p">)</span>
+        <span class="p">})</span>
+
+        <span class="n">listen</span><span class="p">(</span><span class="s">&quot;0.0.0.0&quot;</span><span class="p">,</span> <span class="mi">8080</span><span class="p">)</span>
+
+<span class="p">}</span>
+</pre></div>
+</div>
 </div>
 </div>
 
