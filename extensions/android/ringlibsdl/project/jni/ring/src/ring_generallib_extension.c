@@ -2063,6 +2063,28 @@ void ring_vm_generallib_print ( void *pPointer )
     cString = RING_API_GETSTRING(1) ;
     nSize = RING_API_GETSTRINGSIZE(1) ;
     for ( x = 0 ; x < nSize ; x++ ) {
+        if ( x != nSize-1 ) {
+            switch ( cString[x] ) {
+                case '\\' :
+                    switch ( cString[x+1] ) {
+                        case 'r' :
+                            printf( "\r" ) ;
+                            x += 1 ;
+                            continue ;
+                        case 'n' :
+                            printf( "\n" ) ;
+                            x += 1 ;
+                            continue ;
+                        case 't' :
+                            printf( "\t" ) ;
+                            x += 1 ;
+                            continue ;
+                    }
+                    break ;
+                case '#' :
+                    break ;
+            }
+        }
         printf( "%c",cString[x] ) ;
     }
 }
