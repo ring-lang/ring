@@ -310,6 +310,84 @@ Screen Shot:
 	:alt: Objects Library Example - Shot 3
 
 .. index:: 
+	pair: Objects Library for RingQt Application; Using ObjectID() and OpenWindowAndLink()
+
+Using ObjectID() and OpenWindowAndLink()
+========================================
+
+The next example demonstrates using OpenWindowAndLink() instead of GetWindowByID()
+
+This introduce an interesting question: When to use OpenWindowAndLink()?
+
+If the parent window will call one object of the sub window then use OpenWindowAndLink()
+
+i.e. the relationship between the parent window and the sub window is one-to-one.
+
+If the parent window will call many objects of the sub window at different times 
+
+Then use GetWindowByID() to determine which object to use 
+
+i.e. the relationship between the parent window and the sub window is one-to-many.
+
+Example:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+			openWindow( :MainWindowController )
+			exec()
+	}
+
+	class MainWindowController from WindowsControllerParent
+			oView = new MainWindowView
+			func SubWindowAction
+				openWindowAndLink( :SubWindowController,self)
+				subWindow().oView.win {
+					move(50,100)
+					setStyleSheet("background-color:yellow;")
+				}
+		
+	class MainWindowView from WindowsViewParent
+			win = new qWidget() {
+					setWindowTitle("Main Window")
+					resize(500,400)
+					btnSub = new qPushButton(win) {
+							setText("Sub Window")
+							setClickEvent( Method( :SubWindowAction ) )
+					}
+			}
+
+	class SubWindowController from WindowsControllerParent
+			oView = new SubWindowView
+			func SetMainWindowTitleAction
+				MainWindow().oView.win.SetWindowTitle(
+					"Message from the Sub Window - Window ID = " + ObjectID()
+				)
+					oView.win.SetWindowTitle("Click Event Done!")
+
+	class SubWindowView from WindowsViewParent
+			win = new qWidget() {
+					setWindowTitle("Sub Window")
+					resize(300,400)
+					btnMsg = new qPushButton(win) {
+							setText("Set Main Window Title")
+							setClickEvent( Method( :SetMainWindowTitleAction ) )
+					}
+					btnClose = new qPushButton(win) {
+							Move(200,0)
+							setText("Close")
+							setClickEvent( Method( :CloseAction ) )
+					}
+			}
+
+Screen Shot:
+
+.. image:: objectslib4.png
+	:alt: Objects Library Example - Shot 4
+
+.. index:: 
 	pair: Objects Library for RingQt Application; Object Library Source Code
 
 Objects Library Source Code
