@@ -1,4 +1,5 @@
 ring_generallib_extension_h
+C_EXPRCODESIZE
 ring_vm_generallib_loadfunctions
 ring_vm_generallib_len
 Type: VM *
@@ -356,7 +357,8 @@ cStr
 Type: char *
 cString
 Type: int
-x,nSize
+x,nSize,nPos
+cCode
 Type: VM *
 pVM
 ring_vm_generallib_checkoverflow
