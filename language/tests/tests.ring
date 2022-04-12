@@ -385,6 +385,7 @@ aTests = [
 	[ :name = "General Tests (Part 170)", :Command = "ring general/listandnull2.ring" ],
 	[ :name = "General Tests (Part 171)", :Command = "ring general/testraiseinclass.ring" ],
 	[ :name = "General Tests (Part 172)", :Command = "ring general/binarystringinstack.ring" ],
-	[ :name = "General Tests (Part 172)", :Command = "ring general/testprint.ring" ]
+	[ :name = "General Tests (Part 173)", :Command = "ring general/testprint.ring" ],
+	[ :name = "General Tests (Part 174)", :Command = "ring general/testprint2str.ring" ]
 
 ]
