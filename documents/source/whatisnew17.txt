@@ -466,6 +466,9 @@ More Improvements
 * Added: samples/Drawing/Mandelbrot/Mandelbrot_Fast.ring
 * Added: samples/AQuickStart/MySQL/mysql10.ring
 * Added: samples/UsingQt/Process/processoutput.ring
+* Added: samples/UsingObjectsLib/test1.ring
+* Added: samples/UsingObjectsLib/test2.ring
+* Added: samples/UsingObjectsLib/test3.ring
 * StdLib - AppPath() function - Better Code
 * StdLib - New Function: IsAppCompiled()
 * StdLib - New Function: AppArguments()
