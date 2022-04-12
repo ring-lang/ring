@@ -215,6 +215,101 @@ The Window Flags window uses the FormDesigner and System.GUI packages.
 	])
 
 .. index:: 
+	pair: Objects Library for RingQt Application; Using ObjectID() and GetWindowByID()
+
+Using ObjectID() and GetWindowByID()
+====================================
+
+Each window created using the Objects Library have a unique ID
+
+We can get the window ID using the ObjectID() Method in the Controller Class
+
+The Objects Library comes with the GetWindowByID() function
+
+Using this function we can get the controller object of a window using the ID
+
+Example:
+
+.. code-block:: ring
+
+	load "guilib.ring"
+
+	new qApp {
+		openWindow( :MainWindowController )
+		exec()
+	}
+
+	class MainWindowController from WindowsControllerParent
+
+		oView = new MainWindowView
+
+		nFirstWindowID  nSecondWindowID  nThirdWindowID
+
+			func CreateThreeWindowsAction
+
+				openWindow( :SubWindowController )
+				nFirstWindowID = lastWindow().ObjectID()
+				openWindow( :SubWindowController )
+				nSecondWindowID = lastWindow().ObjectID()
+				openWindow( :SubWindowController )
+				nThirdWindowID = lastWindow().ObjectID()
+
+				FirstWindow().oView.win { 
+					setWindowTitle("One")
+					move(100,100)
+				}
+				SecondWindow().oView.win {
+					setWindowTitle("Two")
+					move(200,200)
+				}
+				ThirdWindow().oView.win {
+					setWindowTitle("Three")
+					move(300,300)
+				}
+			
+		func FirstWindow
+			return GetWindowByID(nFirstWindowID)
+
+		func SecondWindow
+			return GetWindowByID(nSecondWindowID)
+
+		func ThirdWindow
+			return GetWindowByID(nThirdWindowID)
+
+	class MainWindowView from WindowsViewParent
+
+		win = new qWidget() {
+			setWindowTitle("Main Window")
+			move(500,100)
+			btnSub = new qPushButton(win) {
+				setText("Create Three Windows")
+				setClickEvent( Method( :CreateThreeWindowsAction ) )
+			}
+			resize(400,400)
+		}
+
+	class SubWindowController from WindowsControllerParent
+
+		oView = new SubWindowView
+
+	class SubWindowView from WindowsViewParent
+
+		win = new qWidget() {
+			setWindowTitle("Sub Window")
+			btnClose = new qPushButton(win) {
+				move(200,0)
+				setText("Close")
+				setClickEvent( Method( :CloseAction ) )
+			}
+			resize(400,400)
+		}
+
+Screen Shot:
+
+.. image:: objectslib3.png
+	:alt: Objects Library Example - Shot 3
+
+.. index:: 
 	pair: Objects Library for RingQt Application; Object Library Source Code
 
 Objects Library Source Code

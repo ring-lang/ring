@@ -136,6 +136,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#example">Example</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#openwindowandlink-function">openWindowAndLink() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#openwindowinpackages-function">openWindowInPackages() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#using-objectid-and-getwindowbyid">Using ObjectID() and GetWindowByID()</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#objects-library-source-code">Objects Library Source Code</a></li>
 </ul>
 </li>
@@ -162,6 +163,7 @@
 <li class="toctree-l1"><a class="reference internal" href="bignumber.html">BigNumber Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="csvlib.html">CSVLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="jsonlib.html">JSONLib Functions Reference</a></li>
+<li class="toctree-l1"><a class="reference internal" href="httplib.html">HTTPLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="tokenslib.html">TokensLib Functions Reference</a></li>
 <li class="toctree-l1"><a class="reference internal" href="libcurl.html">Using RingLibCurl</a></li>
 <li class="toctree-l1"><a class="reference internal" href="ringlibcurlfuncsdoc.html">RingLibCurl Functions Reference</a></li>
@@ -436,8 +438,91 @@ using the openWindowInPackages() function.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="using-objectid-and-getwindowbyid">
+<span id="index-5"></span><h2>Using ObjectID() and GetWindowByID()<a class="headerlink" href="#using-objectid-and-getwindowbyid" title="Permalink to this headline">¶</a></h2>
+<p>Each window created using the Objects Library have a unique ID</p>
+<p>We can get the window ID using the ObjectID() Method in the Controller Class</p>
+<p>The Objects Library comes with the GetWindowByID() function</p>
+<p>Using this function we can get the controller object of a window using the ID</p>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">load</span> <span class="s">&quot;guilib.ring&quot;</span>
+
+<span class="k">new</span> <span class="n">qApp</span> <span class="p">{</span>
+        <span class="n">openWindow</span><span class="p">(</span> <span class="p">:</span><span class="n">MainWindowController</span> <span class="p">)</span>
+        <span class="n">exec</span><span class="p">()</span>
+<span class="p">}</span>
+
+<span class="k">class</span> <span class="n">MainWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
+
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">MainWindowView</span>
+
+        <span class="n">nFirstWindowID</span>  <span class="n">nSecondWindowID</span>  <span class="n">nThirdWindowID</span>
+
+                <span class="k">func</span> <span class="n">CreateThreeWindowsAction</span>
+
+                        <span class="n">openWindow</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowController</span> <span class="p">)</span>
+                        <span class="n">nFirstWindowID</span> <span class="o">=</span> <span class="n">lastWindow</span><span class="p">().</span><span class="n">ObjectID</span><span class="p">()</span>
+                        <span class="n">openWindow</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowController</span> <span class="p">)</span>
+                        <span class="n">nSecondWindowID</span> <span class="o">=</span> <span class="n">lastWindow</span><span class="p">().</span><span class="n">ObjectID</span><span class="p">()</span>
+                        <span class="n">openWindow</span><span class="p">(</span> <span class="p">:</span><span class="n">SubWindowController</span> <span class="p">)</span>
+                        <span class="n">nThirdWindowID</span> <span class="o">=</span> <span class="n">lastWindow</span><span class="p">().</span><span class="n">ObjectID</span><span class="p">()</span>
+
+                        <span class="n">FirstWindow</span><span class="p">().</span><span class="n">oView</span><span class="p">.</span><span class="n">win</span> <span class="p">{</span>
+                                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;One&quot;</span><span class="p">)</span>
+                                <span class="n">move</span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                        <span class="p">}</span>
+                        <span class="n">SecondWindow</span><span class="p">().</span><span class="n">oView</span><span class="p">.</span><span class="n">win</span> <span class="p">{</span>
+                                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Two&quot;</span><span class="p">)</span>
+                                <span class="n">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">200</span><span class="p">)</span>
+                        <span class="p">}</span>
+                        <span class="n">ThirdWindow</span><span class="p">().</span><span class="n">oView</span><span class="p">.</span><span class="n">win</span> <span class="p">{</span>
+                                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Three&quot;</span><span class="p">)</span>
+                                <span class="n">move</span><span class="p">(</span><span class="mi">300</span><span class="p">,</span><span class="mi">300</span><span class="p">)</span>
+                        <span class="p">}</span>
+
+        <span class="k">func</span> <span class="n">FirstWindow</span>
+                <span class="k">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nFirstWindowID</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">SecondWindow</span>
+                <span class="k">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nSecondWindowID</span><span class="p">)</span>
+
+        <span class="k">func</span> <span class="n">ThirdWindow</span>
+                <span class="k">return</span> <span class="n">GetWindowByID</span><span class="p">(</span><span class="n">nThirdWindowID</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="n">MainWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
+
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Main Window&quot;</span><span class="p">)</span>
+                <span class="n">move</span><span class="p">(</span><span class="mi">500</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+                <span class="n">btnSub</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Create Three Windows&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">CreateThreeWindowsAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="p">}</span>
+
+<span class="k">class</span> <span class="n">SubWindowController</span> <span class="k">from</span> <span class="n">WindowsControllerParent</span>
+
+        <span class="n">oView</span> <span class="o">=</span> <span class="k">new</span> <span class="n">SubWindowView</span>
+
+<span class="k">class</span> <span class="n">SubWindowView</span> <span class="k">from</span> <span class="n">WindowsViewParent</span>
+
+        <span class="n">win</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qWidget</span><span class="p">()</span> <span class="p">{</span>
+                <span class="n">setWindowTitle</span><span class="p">(</span><span class="s">&quot;Sub Window&quot;</span><span class="p">)</span>
+                <span class="n">btnClose</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qPushButton</span><span class="p">(</span><span class="n">win</span><span class="p">)</span> <span class="p">{</span>
+                        <span class="n">move</span><span class="p">(</span><span class="mi">200</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+                        <span class="n">setText</span><span class="p">(</span><span class="s">&quot;Close&quot;</span><span class="p">)</span>
+                        <span class="n">setClickEvent</span><span class="p">(</span> <span class="n">Method</span><span class="p">(</span> <span class="p">:</span><span class="n">CloseAction</span> <span class="p">)</span> <span class="p">)</span>
+                <span class="p">}</span>
+                <span class="n">resize</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span><span class="mi">400</span><span class="p">)</span>
+        <span class="p">}</span>
+</pre></div>
+</div>
+<p>Screen Shot:</p>
+<img alt="Objects Library Example - Shot 3" src="_images/objectslib3.png" />
+</div>
 <div class="section" id="objects-library-source-code">
-<span id="index-5"></span><h2>Objects Library Source Code<a class="headerlink" href="#objects-library-source-code" title="Permalink to this headline">¶</a></h2>
+<span id="index-6"></span><h2>Objects Library Source Code<a class="headerlink" href="#objects-library-source-code" title="Permalink to this headline">¶</a></h2>
 <p>The library source code is very simple, You can check the source code files</p>
 <p>The source code for the Objects Library (can be used without GUILib)</p>
 <ul class="simple">
@@ -449,7 +534,7 @@ using the openWindowInPackages() function.</p>
 <li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/libraries/guilib/mvc/controllerparent.ring">https://github.com/ring-lang/ring/blob/master/libraries/guilib/mvc/controllerparent.ring</a></p></li>
 <li><p><a class="reference external" href="https://github.com/ring-lang/ring/blob/master/libraries/guilib/mvc/viewparent.ring">https://github.com/ring-lang/ring/blob/master/libraries/guilib/mvc/viewparent.ring</a></p></li>
 </ul>
-<span class="target" id="index-6"></span></div>
+<span class="target" id="index-7"></span></div>
 </div>
 
 
