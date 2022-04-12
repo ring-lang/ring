@@ -84,6 +84,9 @@ The next example print the constants defined by the extension
 	? HTTPLIB_RECV_FLAGS
 	? HTTPLIB_LISTEN_BACKLOG
 
+.. index:: 
+	pair: Using HTTPLib; Using HTTP Get
+
 Using HTTP GET
 ==============
 
@@ -147,3 +150,857 @@ In this example we will use anonymous function
 		listen("0.0.0.0", 8080)
 
 	}
+
+Example(4):
+
+.. code-block:: ring 
+
+	load "httplib.ring"
+
+	? "Try localhost:8080/hi - See output in console at Server-Side"
+	? "Try localhost:8080/hello - See output in web browser at Client-Side"
+
+	oServer = new Server {
+
+		route(:Get,"/hi",'? "Wow, I love Ring programming!"')
+		route(:Get,"/hello",'oServer.setContent("Hello, World!", "text/plain")')
+
+		listen("0.0.0.0", 8080)
+
+	}
+
+Example(5):
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	new Client("localhost:8080") {
+		? download("/one")
+		? download("/two")
+	}
+
+.. tip:: Using the Download() method in the InternetLib is faster
+
+.. index:: 
+	pair: Using HTTPLib; Using WebLib
+
+Using WebLib
+============
+
+Example(1):
+
+.. code-block:: ring 
+
+	load "httplib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/report"
+	oServer.route(:Get,"/report",:report)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func report
+		oPage = New HTMLPage
+		{
+			nRowsCount = 10
+			title = "Report"
+			h1 { text("Customers Report") }
+			Table
+			{
+				style = stylewidth("100%") + stylegradient(4)
+				TR
+				{
+					TD { WIDTH="10%" text("Customers Count : " )  }
+								TD { text (nRowsCount) }
+				}
+			}
+			Table
+			{
+				style = stylewidth("100%") + stylegradient(26)
+				TR
+				{
+					style = stylewidth("100%") + stylegradient(24)
+					TD { text("Name " )  }
+					TD { text("Age" ) }
+					TD { text("Country" ) }
+					TD { text("Job" ) }	
+					TD { text("Company" ) }
+				}
+				for x =  1 to nRowsCount
+					TR
+					{
+						TD { text("Test" )  }
+						TD { text("30" ) }
+						TD { text("Egypt" ) }
+						TD { text("Sales" ) }	
+						TD { text("Future" ) }
+					}
+				next
+			}
+		}
+
+		oServer.setHTMLPage(oPage)
+
+
+Example(2):
+
+.. code-block:: ring 
+
+	load "httplib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/form"
+	oServer.route(:Get,"/form",:form)
+	oServer.route(:Get,"/formresponse",:formresponse)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func form
+
+		oPage = New HTMLPageFunctions
+		{
+			Title = "Test HTTP Get"
+			divstart([ :style = StyleSizeFull() ] )
+				boxstart()
+					text( "Test HTTP GET" )
+					newline()
+				boxend()
+				divstart([ :style = Styledivcenter("600px","550px") +
+							StyleGradient(21) ])
+					divstart([:style = stylefloatleft() + stylesize("100px","100%") +
+								StyleColor("black") + StyleGradient(58)])
+						formstart("/formresponse")
+							tablestart([ :style = stylesize("65%","90%") +
+										stylemarginleft("35%") +
+										stylemargintop("30%") ])
+								rowstart([])
+									cellstart([ ])
+										text ( "Name : "  )
+									cellend()
+									cellstart([])
+										cTextboxStyle = StyleMarginLeft("5%") +
+												StyleWidth("250px") +
+												StyleColor("black") +
+												StyleBackColor("white")
+										textbox([ :name = "Name", :style = cTextboxStyle ] )
+									cellend()
+								rowend()
+								rowstart([])
+									cellstart([])
+										text ( "Address : " )
+									cellend()
+									cellstart([ ])
+										textbox([ :name = "Address", :style = cTextboxStyle] )
+									cellend()
+								rowend()
+								rowstart([])
+									cellstart([])
+									text ( "Phone : " )
+									cellend()
+								cellstart([  ])
+									textbox([ :name = "Phone", :style = cTextboxStyle ])
+								cellend()
+								rowend()
+								rowstart([])
+									cellstart([])
+										text ( "Age : "  )
+									cellend()
+									cellstart([  ])
+										textbox([ :name = "Age", :style = cTextboxStyle ])
+										cellend()
+								rowend()
+								rowstart([])
+									cellstart([])
+										text ( "City: " )
+									cellend()
+									cellstart([  ])
+										listbox([ :name = "City", :items = ["Cairo","Riyadh","Jeddah"],
+												 :style = stylemarginleft("5%") + stylewidth("400px") ] )
+									cellend()
+								rowend()
+								rowstart([])
+									cellstart([])
+										text ( "Country : " )
+									cellend()
+									cellstart([   ])
+										combobox([ :name = "Country",
+												 :items = ["Egypt","Saudi Arabia","USA"],
+												 :style = stylemarginleft("5%") +
+														  stylewidth("400px")+
+														  stylecolor("black")+
+														  stylebackcolor("white")+
+														  stylefontsize("14px") ])
+									cellend()
+								rowend()
+								rowstart([])
+									cellstart([])
+										text ( "Note : " )
+										cellend()
+										cellstart([   ])
+											editbox([ :name = "Notes",
+												:style = stylemarginleft("5%") +
+														 stylesize("400px","100px")+
+														 stylecolor("black")+
+														 stylebackcolor("white") ,
+												:value = "write comments here..." ] )
+										cellend()
+									rowend()
+								rowstart([])
+									cellstart([])
+									cellend()
+									cellstart([   ])
+										submit([ :value = "Send" , :Style = stylemarginleft("5%") ])
+									cellend()
+								rowend()
+							tableend()
+						formend()
+					divend()
+				divend()
+			divend()
+		}
+		oServer.setHTMLPage(oPage)
+
+	func formresponse
+
+		oPage = New HTMLPageFunctions
+		{
+			divstart([ :style = styledivcenter("800px","500px") ])
+				boxstart()
+					text ( "HTTP GET Response" )  newline()
+				boxend()
+				divstart([ :style = stylefloatleft()+stylewidth("10%")+
+						  stylecolor("black")+stylegradient(58) ])
+					newline()
+					text ( "Name : "   )
+					newline() newline()
+					text ( "Address : "  )
+					newline() newline()
+					text ( "Phone : "   )
+					newline() newline()
+					text ( "Age : "   )
+					newline() newline()
+					text ( "City : "   )
+					newline() newline()
+					text ( "Country : "   )
+					newline() newline()
+					text ( "Note : "   )
+					newline() newline()
+				divend()
+				divstart([ :style = stylefloatleft()+stylewidth("90%")+
+						  stylecolor("black")+stylegradient(47) ])
+					divstart([ :style = stylefloatleft() + stylewidth("1%") ])
+						newline()
+					divend()
+					divstart([ :style = stylefloatleft() + stylewidth("95%") ])
+						newline()
+						text ( oServer["Name"] )
+						newline() newline()
+						text ( oServer["Address"] )
+						newline() newline()
+						text ( oServer["Phone"] )
+						newline() newline()
+						text (  oServer["Age"] )
+						newline() newline()
+						text ( oServer["City"] )
+						newline() newline()
+						text (oServer["Country"] )
+						newline() newline()
+						text ( oServer["Notes"] )
+						newline() newline()
+					divend()
+				divend()
+			divend()
+		}
+
+		oServer.setHTMLPage(oPage)
+
+.. index:: 
+	pair: Using HTTPLib; Using HTTP Post
+
+Using HTTP Post
+===============
+		
+Example(1):
+
+.. code-block:: ring
+
+	load "httplib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/form"
+	oServer.route(:Get,"/form",:form)
+	oServer.route(:Post,"/formresponse",:formresponse)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func form
+
+		oPage = New HTMLPageFunctions
+		{
+			boxstart()
+				text( "Post Test")
+				newline()
+			boxend()
+			divstart([:style=StyleFloatLeft()+StyleWidth("100px") ])
+				newline()
+				text( "Number1 : " )  	newline() newline()
+				text( "Number2 : " ) 	newline() newline()
+			divend()
+			formpost("formresponse")
+				divstart([ :style = styleFloatLeft()+StyleWidth("200px") ])
+					newline()
+					textbox([ :name = "Number1" ]) 	newline() newline()
+					textbox([ :name = "Number2" ]) 	newline() newline()
+					submit([ :value = "Send" ] )
+				divend()
+			formend()
+		}		
+		oServer.setHTMLPage(oPage)
+
+	func formresponse
+
+		oPage = New HTMLPageFunctions
+		{
+			boxstart()
+				text( "Post Result" )
+				newline()
+			boxend()
+			divstart([ :style = styleFloatLeft()+styleWidth("200px") ])
+				newline()
+				text( "Number1 : " + oServer["Number1"] )  	
+				newline() newline()
+				text( "Number2 : " + oServer["Number2"] )  	
+				newline() newline()
+				text( "Sum : " + (0 + oServer["Number1"] + oServer["Number2"] ) )
+				newline()
+			divend()		
+		}	
+
+		oServer.setHTMLPage(oPage)
+
+Example(2):
+
+.. code-block:: ring
+
+	load "httplib.ring"
+	Load "openssllib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/hash"
+	oServer.route(:Get,"/hash",:hash)
+	oServer.route(:Post,"/hashresponse",:hashresponse)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func hash
+
+		oPage = New HTMLPageFunctions
+		{
+			boxstart()
+				text( "Hash Test")
+				newline()
+			boxend()
+			divstart([:style = StyleFloatLeft() + StyleWidth("100px") ])
+				newline()
+				text( "Value : " )  	
+				newline() newline()
+			divend()
+			formpost("/hashresponse")
+				divstart([:style = StyleFloatLeft() + StyleWidth("300px") ])
+					newline()
+					textbox([ :name = "Value" ]) 	
+					newline() newline()
+					submit([ :value = "Send" ])
+				divend()
+			formend()
+		}		
+		oServer.setHTMLPage(oPage)
+
+	func hashresponse
+
+		oPage = New HTMLPageFunctions
+		{
+			boxstart()
+				text( "Hash Result" )
+				newline()
+			boxend()
+			divstart([:style = styleFloatLeft() + styleWidth("100%") ])
+				newline()
+				text( "Value : " + oServer["Value"] )  	
+				newline()
+				text( "MD5 : " + md5(oServer["Value"]) )  	
+				newline()
+				text( "SHA1 : " + SHA1(oServer["Value"]) )
+				newline()
+				text( "SHA256 : " + SHA256(oServer["Value"]) )
+				newline()
+				text( "SHA224 : " + SHA224(oServer["Value"]) )
+				newline()
+				text( "SHA384 : " + SHA384(oServer["Value"]) )
+				newline()
+				text( "SHA512 : " + SHA512(oServer["Value"]) )
+				newline()
+			divend()
+		}	
+
+		oServer.setHTMLPage(oPage)
+
+.. index:: 
+	pair: Using HTTPLib; More Samples
+		
+More Samples
+============
+
+Using Gradients:
+
+.. code-block:: ring
+
+	load "httplib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/gradient"
+	oServer.route(:Get,"/gradient",:gradient)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func gradient
+
+		oPage = New HTMLPageFunctions
+		{
+			boxstart()
+				text("StyleGradient() Function")
+			boxend()		 
+			for x = 1 to 60
+				divstart([ :id = x , :align = "center" , 
+					   :style = stylefloatleft() + 
+								stylesize(string(100/60*6)+"%","50px") + 
+								stylegradient(x) ])
+					h3(x)
+				divend()
+			next
+		}		
+		oServer.setHTMLPage(oPage)
+
+Using Lists:
+
+.. code-block:: ring 
+
+	load "httplib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/lists"
+	oServer.route(:Get,"/lists",:lists)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func lists
+
+		oPage = New HTMLPageFunctions
+		{
+			ulstart([])
+				for x = 1 to 10
+					listart([])
+						text(x)
+					liend()
+				next
+			ulend()
+
+			list2ul(["one","two","three","four","five"])
+
+			ulstart([])
+				for x = 1 to 10
+					listart([])
+						cFuncName = "btn"+x+"()"
+						button([ :onclick = cFuncName , :value = x])
+						script(scriptfuncalert(cFuncName,string(x)))
+					liend()
+				next
+			ulend()
+		}		
+		oServer.setHTMLPage(oPage)
+
+Using Tables:
+
+.. code-block:: ring 
+
+	load "httplib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/table"
+	oServer.route(:Get,"/table",:table)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func table
+
+		oPage = New HTMLPageFunctions
+		{
+			divstart([ :style = styledivcenter("400px","500px") ] )
+				style(styletable() + styletablerows("t01"))
+				tablestart([ :id = :t01 , :style = stylewidth("100%") ])
+					rowstart([]) 
+						headerstart([]) text("Number") headerend()
+						headerstart([]) text("square") headerend()
+					rowend() 
+					for x = 1 to 10
+						rowstart([])
+							cellstart([]) text(x) cellend()
+							cellstart([]) text(x*x) cellend()
+						rowend()
+					next
+				tableend()
+			divend()
+		}		
+		oServer.setHTMLPage(oPage)
+
+Play Video:
+
+.. code-block:: ring
+
+	load "httplib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/play"
+	oServer.route(:Get,"/play",:play)
+
+	? "We support files in the res folder like res/horse.ogg and res/movie.mp4"
+	oServer.shareFolder("res")
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func play
+
+		oPage = New HTMLPage
+		{
+			Title = "Welcome"
+			h1 { text("Play sound and video!") }
+			div 
+			{
+				audio
+				{
+					src = "res/horse.ogg"
+					type = "audio/ogg"
+				}
+		
+				video
+				{
+					width = 320
+					height = 240
+					src = "res/movie.mp4"
+					type = "video/mp4" 
+				}
+		
+			}
+		}		
+		oServer.setHTMLPage(oPage)
+
+.. index:: 
+	pair: Using HTTPLib; Using Cookies
+		
+Using Cookies
+=============
+
+Example:
+
+.. code-block:: ring
+
+	load "httplib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/cookie"
+	oServer.route(:Get,"/cookie",:cookie)
+	oServer.route(:Get,"/cookieresponse",:cookieresponse)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func cookie
+
+		oPage = New HTMLPageFunctions
+		{
+			boxstart()
+				text( "Cookie Test" )
+				newline()
+			boxend()
+			link([ :url = "/cookieresponse", :title = "Use Cookies" ]) 	
+		}		
+
+		oServer.setCookie("programminglanguage=Ring")
+		oServer.setCookie("library=HTTPLib")
+
+		oServer.setHTMLPage(oPage)
+
+	func cookieresponse
+
+		aCookies = oServer.Cookies()
+
+		oPage = New HTMLPageFunctions
+		{
+			boxstart()
+				text( "Cookies Values" )
+				newline()
+			boxend()
+			link([ :url = "cookie", :title = "back" ]) 			
+			newline() 
+			divstart([:style="float:left;width:200px"])
+				text( "Programming Language : " + aCookies[:programminglanguage] )
+				newline()
+				text( "Library : " + aCookies[:library] )
+				newline()
+			divend()
+		}	
+		oServer.setHTMLPage(oPage)
+
+.. index:: 
+	pair: Using HTTPLib; Uploading Files
+		
+Uploading Files
+===============
+
+Example:
+
+.. code-block:: ring 
+
+	load "httplib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	cUploadFolder = "upload/"
+	oServer.shareFolder(cUploadFolder)
+
+	? "Try localhost:8080/upload"
+	oServer.route(:Get,"/upload",:upload)
+	oServer.route(:Post,"/uploadresponse",:uploadresponse)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func upload
+
+		oPage = New HTMLPageFunctions
+		{
+			boxstart()
+				text( "Upload File" )
+				newline()
+			boxend()
+			for x = 1 to 3 newline() next
+			formupload("/uploadresponse")		
+				text( "Customer Name : " )
+				textbox([ :name = "custname" ]) 	
+				newline() newline()		
+				divstart([ :style = styleFloatLeft() + styleWidth("90px") ])
+					uploadfile("file1")  newline() newline()
+					uploadfile("file2") newline() newline()
+					submit([ :value = "Send" ])
+				divend()		
+			formend()
+		}		
+
+		oServer.setHTMLPage(oPage)
+
+	func uploadresponse
+
+		oPage = New HTMLPageFunctions
+		{
+			boxstart()
+				text( "Upload Result" )
+				newline()
+			boxend()			
+			newline() 
+			divstart([ :style=  styleFloatLeft() + styleWidth("100px") ])
+				text( "Name : " + oServer["custname"] )
+				newline()
+			divend()
+			getuploadedfile(self,"file1")
+			getuploadedfile(self,"file2")
+		}	
+
+		oServer.setHTMLPage(oPage)
+
+
+	Func getUploadedFile oObj,cFile
+		cNewFileName = oServer.getfilename(cFile)
+		if cNewFileName = NULL return ok
+		cNewFileContent = oServer.getFileContent(cFile)
+		/*
+			Here we use object.property instead of object { } 
+			To avoid executing braceend() method
+		*/
+		cFileName = cUploadFolder + cNewFileName
+		write(cFileName,cNewFileContent)
+		if isLinux()
+			system("chmod a+x "+cFileName)
+		ok
+		oObj.newline() 
+		oObj.text( "File "+cFileName+ " Uploaded ..." ) 
+		oObj.newline() 
+		imageURL = cFileName
+		oObj.link([ :url = imageURL, :title = "Download" ]) 
+		oObj.newline()
+		oObj.image( [ :url = imageURL , :alt = :image  ] )
+		oObj.newline()
+
+.. index:: 
+	pair: Using HTTPLib; Using Templates
+		
+Using Templates
+===============
+
+Example:
+
+.. code-block:: ring
+
+	load "httplib.ring"
+	load "weblib.ring"
+	import System.Web
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/template"
+	oServer.route(:Get,"/template"," new numbersController { start() } ")
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	class numbersController
+
+		MyHeader aNumbers		
+
+		func Start
+
+			MyHeader = New Header
+			{
+				cColumn1 = "Number" cColumn2 = "Square"
+			}
+
+			aNumbers = list(20)
+
+			for x = 1 to len(aNumbers)
+				aNumbers[x] = new number
+				{
+					nValue  = x   nSquare = x*x
+				}
+			next	  
+
+			cTemp = Template("templates/mynumbers.html",self)
+
+			oPage = new HTMLPageFunctions
+			{ 			
+				boxstart()
+					text( "Test Templates" )  			
+					newline()
+				boxend()
+				html(cTemp)  
+			} 
+
+			oServer.setHTMLPage(oPage)
+
+	Class Header cColumn1 cColumn2
+
+	Class Number nValue   nSquare
+
+.. index:: 
+	pair: Using HTTPLib; Regular Expressions
+	
+Regular Expressions
+===================
+
+Example:
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/numbers/<number>"
+	? "Example: localhost:8080/numbers/123"
+	oServer.route(:Get,"(/numbers/(\d+))",:mytest)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func mytest 
+		cOutput = "Match(1): " + oServer.Match(1) + nl
+		cOutput += "Match(2): " + oServer.Match(2) + nl
+		oServer.setContent(cOutput, "text/plain")
+
+
+.. index:: 
+	pair: Using HTTPLib; Stop the Server
+		
+Stop the Server
+===============
+
+Example:
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	? "Start the server..."
+	oServer = new Server 
+
+	? "Try localhost:8080/time"
+	? "Try localhost:8080/stop"
+	oServer.route(:Get,"/time",:gettime)
+	oServer.route(:Get,"/stop",:stop)
+
+	? "Listen to port 8080"
+	oServer.listen("0.0.0.0", 8080)
+
+	func gettime
+		oServer.setContent("Time: " + time(), "text/plain")
+
+	func stop
+		oServer.stop()
