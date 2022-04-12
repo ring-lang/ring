@@ -17,18 +17,6 @@ Func Puts vvalue
 	see nl
 
 /*
-	Function Name	: print
-	Usage		: print string - support \n \t \r \\ #{variable}
-	Parameters	: the string
-*/
-Func Print vValue
-	if isstring(vValue)
-		see _Print2Str(vValue,3)
-	else
-		see vValue 
-	ok
-
-/*
 	Function Name	: print2str
 	Usage		: print to string - support \n \t \r \\ #{variable}
 	Parameters	: the string
