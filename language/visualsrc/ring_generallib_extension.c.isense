@@ -349,6 +349,16 @@ ring_vm_generallib_give
 Type: int
 x
 cLine
+ring_vm_generallib_print
+Type: List *
+pList
+cStr
+Type: char *
+cString
+Type: int
+x,nSize
+Type: VM *
+pVM
 ring_vm_generallib_checkoverflow
 ring_vm_generallib_addsublistsbymove
 ring_vm_generallib_addsublistsbyfastcopy
