@@ -7,7 +7,6 @@ Using HTTPLib
 
 In this chapter we will learn how to use the HTTPLib library.
 
-
 .. index:: 
 	pair: Using HTTPLib; Introduction
 
@@ -18,6 +17,21 @@ This extension provides support for the httplib library
 
 URL: https://github.com/yhirose/cpp-httplib
 
+
+.. index:: 
+	pair: Using HTTPLib; Server Class Methods
+
+Server Class Methods
+====================
+
+* route(cType,cURL,cCode)
+* setContent(cContent,cType)
+* setHTMLPage(oPage)
+* shareFolder(cFolder)
+* setCookie(cStr)
+* cookies() -> aList
+* getFileContent(cFile) -> cString
+* getFileName(cFile) -> cString
 
 .. index:: 
 	pair: Using HTTPLib; Example
@@ -1004,3 +1018,4 @@ Example:
 
 	func stop
 		oServer.stop()
+
