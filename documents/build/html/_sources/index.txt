@@ -82,6 +82,7 @@ Contents:
    BigNumber Functions Reference <bignumber>
    CSVLib Functions Reference <csvlib>
    JSONLib Functions Reference <jsonlib>
+   HTTPLib Functions Reference <httplib>
    TokensLib Functions Reference <tokenslib>
    Using RingLibCurl <libcurl>
    RingLibCurl Functions Reference <ringlibcurlfuncsdoc>

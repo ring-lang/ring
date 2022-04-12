@@ -1,0 +1,52 @@
+.. index:: 
+	Single: Using HTTPLib;  Introduction
+
+=============
+Using HTTPLib
+=============
+
+In this chapter we will learn how to use the HTTPLib library.
+
+
+.. index:: 
+	pair: Using HTTPLib; Introduction
+
+Introduction
+============
+
+This extension provides support for the httplib library
+
+URL: https://github.com/yhirose/cpp-httplib
+
+
+.. index:: 
+	pair: Using HTTPLib; Example
+
+Example
+=======
+
+.. code-block:: ring
+
+	load "httplib.ring"
+
+	oServer = new Server {
+
+		? "Try localhost:8080/hi"
+		route(:Get,"/hi",:mytest)
+
+		? "Listen to port 8080"
+		listen("0.0.0.0", 8080)
+
+	}
+
+	func mytest 
+		oServer.setContent("Hello World!", "text/plain")
+
+
+.. index:: 
+	pair: Using HTTPLib; Samples
+
+Samples
+=======
+
+The samples exist in ring/samples/UsingHTTPLib folder
