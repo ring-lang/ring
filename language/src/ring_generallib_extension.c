@@ -2105,7 +2105,8 @@ void ring_vm_generallib_print ( void *pPointer )
                             return ;
                         }
                         cCode[nPos] = '\0' ;
-                        printf( "CODE: %s",cCode ) ;
+                        /* Evaluate the Expression */
+                        ring_vm_runcode(pVM,cCode);
                         continue ;
                     }
                     break ;
