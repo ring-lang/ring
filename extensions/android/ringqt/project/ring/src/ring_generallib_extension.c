@@ -2079,6 +2079,14 @@ void ring_vm_generallib_print ( void *pPointer )
                             printf( "\t" ) ;
                             x += 1 ;
                             continue ;
+                        case '\\' :
+                            printf( "\\" ) ;
+                            x += 1 ;
+                            continue ;
+                        case '#' :
+                            printf( "#" ) ;
+                            x += 1 ;
+                            continue ;
                     }
                     break ;
                 case '#' :
