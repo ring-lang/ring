@@ -4,7 +4,7 @@ cStr3 = print2str("one\ntwo\nthree\n")
 cStr4 = print2str("one\n\ttwo\n\t\tthree\n")
 age = 6
 cStr5 = print2str("Ring is #{age} years old!") 
-cStr6 = print2str("I know that 2+2=#{2+2} and 3+3=#{4+4}")
+cStr6 = print2str("I know that 2+2=#{2+2} and 3+3=#{3+3}")
 ? cStr1
 ? cStr2
 ? cStr3
