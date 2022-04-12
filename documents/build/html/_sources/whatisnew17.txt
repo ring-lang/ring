@@ -21,8 +21,7 @@ Ring 1.17 comes with the next features!
 * TokensLib Library
 * CSVLib Library
 * JSONLib Library
-* RingCJSON Extension
-* RingHTTPLib Extension
+* HTTPLib Library
 * Better GUILib
 * Better Ring API
 * Better Code Generator for Extensions
@@ -276,26 +275,20 @@ Output:
 	        "year": 2016
 	}
 
-.. index:: 
-	pair: What is new in Ring  1.17; RingCJSON Extension
-
-RingCJSON Extension
-===================
-
-This extension support the CJSON library
-
-CJSON URL: https://github.com/DaveGamble/cJSON
 
 JSONLib uses RingCJSON to read JSON files at high-performance
 
+This RingCJSON extension support the CJSON library
+
+CJSON URL: https://github.com/DaveGamble/cJSON
 
 .. index:: 
-	pair: What is new in Ring  1.17; RingHTTPLib Extension
+	pair: What is new in Ring  1.17; HTTPLib Library
 
-RingHTTPLib Extension
-=====================
+HTTPLib Library
+===============
 
-This extension provides support for the httplib library
+This library provides support for HTTP based on cpp-httplib
 
 URL: https://github.com/yhirose/cpp-httplib
 
@@ -319,6 +312,8 @@ Example:
 		oServer.setContent("Hello World!", "text/plain")
 
 The other examples exist in this folder: ring/samples/UsingHTTPLib
+
+See the (Using HTTPLib) chapter for more information.
 
 .. index:: 
 	pair: What is new in Ring  1.17; Better GUILib
