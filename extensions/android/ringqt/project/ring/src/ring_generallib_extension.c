@@ -122,6 +122,7 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("ring_see",ring_vm_generallib_see);
     RING_API_REGISTER("ring_give",ring_vm_generallib_give);
     RING_API_REGISTER("print",ring_vm_generallib_print);
+    RING_API_REGISTER("print2str",ring_vm_generallib_print2str);
 }
 /*
 **  Library Functions 
@@ -2114,6 +2115,99 @@ void ring_vm_generallib_print ( void *pPointer )
         }
         printf( "%c",cString[x] ) ;
     }
+}
+
+void ring_vm_generallib_print2str ( void *pPointer )
+{
+    char cStr[100]  ;
+    int x,nSize,nPos  ;
+    char cCode[256]  ;
+    char *cString  ;
+    String *pRingCode  ;
+    VM *pVM  ;
+    pVM = (VM *) pPointer ;
+    if ( RING_API_PARACOUNT != 1 ) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return ;
+    }
+    if ( RING_API_ISNUMBER(1) ) {
+        ring_vm_numtostring(pVM,RING_API_GETNUMBER(1),cStr);
+        RING_API_RETSTRING(cStr);
+        return ;
+    }
+    if ( ! RING_API_ISSTRING(1) ) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return ;
+    }
+    cString = RING_API_GETSTRING(1) ;
+    nSize = RING_API_GETSTRINGSIZE(1) ;
+    pRingCode = ring_string_new_gc(pVM->pRingState,"return ''");
+    for ( x = 0 ; x < nSize ; x++ ) {
+        if ( x != nSize-1 ) {
+            switch ( cString[x] ) {
+                case '\\' :
+                    switch ( cString[x+1] ) {
+                        case 'r' :
+                            ring_string_add_gc(pVM->pRingState,pRingCode,"+'\r'");
+                            x++ ;
+                            continue ;
+                        case 'n' :
+                            ring_string_add_gc(pVM->pRingState,pRingCode,"+'\n'");
+                            x++ ;
+                            continue ;
+                        case 't' :
+                            ring_string_add_gc(pVM->pRingState,pRingCode,"+'\t'");
+                            x++ ;
+                            continue ;
+                        case '\\' :
+                            ring_string_add_gc(pVM->pRingState,pRingCode,"+'\\'");
+                            x++ ;
+                            continue ;
+                        case '#' :
+                            ring_string_add_gc(pVM->pRingState,pRingCode,"+'#'");
+                            x++ ;
+                            continue ;
+                    }
+                    break ;
+                case '#' :
+                    if ( cString[x+1] == '{' ) {
+                        strcpy(cCode,"");
+                        x += 2 ;
+                        nPos = 0 ;
+                        while ( (x < nSize) && (cString[x] != '}') && (nPos <= C_EXPRCODESIZE ) ) {
+                            cCode[nPos] = cString[x] ;
+                            nPos++ ;
+                            x++ ;
+                        }
+                        if ( nPos > C_EXPRCODESIZE ) {
+                            RING_API_ERROR("The Expression is too large, The size must be <= 200 characters!");
+                            ring_string_delete_gc(pVM->pRingState,pRingCode);
+                            return ;
+                        }
+                        cCode[nPos] = '\0' ;
+                        ring_string_add_gc(pVM->pRingState,pRingCode,"+(");
+                        ring_string_add_gc(pVM->pRingState,pRingCode,cCode);
+                        ring_string_add_gc(pVM->pRingState,pRingCode,")");
+                        continue ;
+                    }
+                    break ;
+            }
+        }
+        ring_string_add_gc(pVM->pRingState,pRingCode,"+'");
+        cStr[0] = cString[x] ;
+        cStr[1] = '\0' ;
+        ring_string_add_gc(pVM->pRingState,pRingCode,cStr);
+        ring_string_add_gc(pVM->pRingState,pRingCode,"'");
+    }
+    /* Evaluate the code */
+    pVM->nEvalCalledFromRingCode = 1 ;
+    if ( pVM->lInsideEval == 0 ) {
+        pVM->nRetEvalDontDelete = 0 ;
+    }
+    if ( ring_vm_eval(pVM,ring_string_get(pRingCode) ) == 0 ) {
+        pVM->nEvalCalledFromRingCode = 0 ;
+    }
+    ring_string_delete_gc(pVM->pRingState,pRingCode);
 }
 /* Performance */
 
