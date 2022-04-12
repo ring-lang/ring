@@ -121,6 +121,7 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("ringvm_give",ring_vm_generallib_give);
     RING_API_REGISTER("ring_see",ring_vm_generallib_see);
     RING_API_REGISTER("ring_give",ring_vm_generallib_give);
+    RING_API_REGISTER("print",ring_vm_generallib_print);
 }
 /*
 **  Library Functions 
@@ -2026,6 +2027,44 @@ void ring_vm_generallib_give ( void *pPointer )
         }
     }
     RING_API_RETSTRING(cLine);
+}
+
+void ring_vm_generallib_print ( void *pPointer )
+{
+    List *pList  ;
+    char cStr[100]  ;
+    char *cString  ;
+    int x,nSize  ;
+    VM *pVM  ;
+    pVM = (VM *) pPointer ;
+    if ( RING_API_PARACOUNT != 1 ) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return ;
+    }
+    if ( RING_API_ISNUMBER(1) ) {
+        ring_vm_numtostring(pVM,RING_API_GETNUMBER(1),cStr);
+        printf( "%s",cStr ) ;
+        return ;
+    }
+    if ( RING_API_ISLIST(1) ) {
+        pList = RING_API_GETLIST(1);
+        if ( ring_vm_oop_isobject(pList) ) {
+            ring_vm_oop_printobj(pVM,pList);
+        }
+        else {
+            ring_list_print2(pList, ((VM *)pPointer)->nDecimals);
+        }
+        return ;
+    }
+    if ( ! RING_API_ISSTRING(1) ) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return ;
+    }
+    cString = RING_API_GETSTRING(1) ;
+    nSize = RING_API_GETSTRINGSIZE(1) ;
+    for ( x = 0 ; x < nSize ; x++ ) {
+        printf( "%c",cString[x] ) ;
+    }
 }
 /* Performance */
 
