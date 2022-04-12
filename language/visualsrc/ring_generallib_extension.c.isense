@@ -361,6 +361,17 @@ x,nSize,nPos
 cCode
 Type: VM *
 pVM
+ring_vm_generallib_print2str
+cStr
+Type: int
+x,nSize,nPos
+cCode
+Type: char *
+cString
+Type: String *
+pRingCode
+Type: VM *
+pVM
 ring_vm_generallib_checkoverflow
 ring_vm_generallib_addsublistsbymove
 ring_vm_generallib_addsublistsbyfastcopy
