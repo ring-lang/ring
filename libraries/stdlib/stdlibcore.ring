@@ -8,15 +8,6 @@ Load "stdlib.rh"
 Load "stdfunctions.ring"
 
 /*
-	Function Name	: puts
-	Usage		: print the value then print new line (nl)
-	Parameters	: the value
-*/
-Func Puts vvalue
-	see vvalue
-	see nl
-
-/*
 	Function Name	: getstring
 	Usage		: get input using the keyboard
 	Parameters	: no Parameters
