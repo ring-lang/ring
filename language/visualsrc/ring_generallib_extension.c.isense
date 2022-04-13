@@ -372,6 +372,7 @@ Type: String *
 pRingCode
 Type: VM *
 pVM
+ring_vm_generallib_puts
 ring_vm_generallib_checkoverflow
 ring_vm_generallib_addsublistsbymove
 ring_vm_generallib_addsublistsbyfastcopy

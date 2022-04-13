@@ -195,6 +195,8 @@
     void ring_vm_generallib_print ( void *pPointer ) ;
 
     void ring_vm_generallib_print2str ( void *pPointer ) ;
+
+    void ring_vm_generallib_puts ( void *pPointer ) ;
     /* Performance */
 
     void ring_vm_generallib_checkoverflow ( void *pPointer ) ;
