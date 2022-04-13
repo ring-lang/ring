@@ -4,7 +4,7 @@ puts("one\ntwo\nthree")
 puts("one\n\ttwo\n\t\tthree")
 age = 6
 puts("Ring is #{age} years old!") 
-puts("I know that 2+2=#{2+2} and 3+3=#{4+4}")
+puts("I know that 2+2=#{2+2} and 3+3=#{3+3}")
 happy()
 
 func happy
