@@ -123,6 +123,7 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("ring_give",ring_vm_generallib_give);
     RING_API_REGISTER("print",ring_vm_generallib_print);
     RING_API_REGISTER("print2str",ring_vm_generallib_print2str);
+    RING_API_REGISTER("puts",ring_vm_generallib_puts);
 }
 /*
 **  Library Functions 
@@ -2208,6 +2209,12 @@ void ring_vm_generallib_print2str ( void *pPointer )
         pVM->nEvalCalledFromRingCode = 0 ;
     }
     ring_string_delete_gc(pVM->pRingState,pRingCode);
+}
+
+void ring_vm_generallib_puts ( void *pPointer )
+{
+    ring_vm_generallib_print(pPointer);
+    printf( "\n" ) ;
 }
 /* Performance */
 
