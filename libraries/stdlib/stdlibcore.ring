@@ -8,25 +8,6 @@ Load "stdlib.rh"
 Load "stdfunctions.ring"
 
 /*
-	Function Name	: getstring
-	Usage		: get input using the keyboard
-	Parameters	: no Parameters
-*/
-Func GetString
-	Give _temp_get_string
-	return _temp_get_string
-
-
-/*
-	Function Name	: getnumber
-	Usage		: get input using the keyboard - return number
-	Parameters	: no Parameters
-*/
-Func GetNumber
-	Give _temp_get_number
-	return 0 + _temp_get_number
-
-/*
 	Function Name	: isappcompiled
 	Usage		: check whether the application has been compiled using Ring2EXE
 	Parameters	: no Parameters
