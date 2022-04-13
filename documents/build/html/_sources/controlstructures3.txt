@@ -36,8 +36,6 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
-
 	print(" 
 		Main Menu
 		---------
@@ -79,8 +77,6 @@ Syntax:
 Example:
 
 .. code-block:: ring
-
-	Load "stdlib.ring"
 
 	print(" 
 		Main Menu
@@ -130,8 +126,6 @@ Example:
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
-
 	While True {
 
 		print(" 
@@ -178,7 +172,6 @@ Example:
 .. code-block:: ring
 
 	# print numbers from 1 to 10
-	load "stdlib.ring"
 	for x = 1 to 10	 { 
 		print("#{x}\n") 
 	}
@@ -186,8 +179,6 @@ Example:
 Example:
 
 .. code-block:: ring
-
-	load "stdlib.ring"
 
 	# Dynamic loop
 	print("Start : ") nStart = getnumber()
@@ -201,8 +192,6 @@ Example:
 
 .. code-block:: ring
 
-	load "stdlib.ring"
-
 	# print even numbers from 0 to 10
 	for x = 0 to 10 step 2 {
 		print("#{x}\n") 
@@ -211,8 +200,6 @@ Example:
 Example:
 
 .. code-block:: ring
-
-	load "stdlib.ring"
 
 	# print even numbers from 10 to 0
 	for x = 10 to 0 step -2 {
@@ -237,16 +224,12 @@ Example:
 
 .. code-block:: ring
 
-	load "stdlib.ring"
-
 	aList = 1:10	# create list contains numbers from 1 to 10
 	for x in aList { print("#{x}\n") }  # print numbers from 1 to 10
 
 Example:
 
 .. code-block:: ring
-
-	load "stdlib.ring"
 
 	aList = 1:10	# create list contains numbers from 1 to 10
 	# print odd items inside the list
@@ -261,8 +244,6 @@ This means that we can read/edit items inside the loop.
 Example:
 
 .. code-block:: ring
-
-	load "stdlib.ring"
 
 	aList = 1:5	# create list contains numbers from 1 to 5
 	# replace list numbers with strings

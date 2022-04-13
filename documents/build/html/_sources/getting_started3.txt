@@ -15,9 +15,7 @@ The next program prints the Hello World message on the screen (std-out).
 
 .. code-block:: ring
 
-	load "stdlib.ring"
-
-	print("Hello World")
+	print("Hello, World!\n")
 
 .. index:: 
 	pair: Getting Started - Third Style; Run the program
@@ -46,24 +44,6 @@ Using Ring2EXE we can create executable file for our application
 
 The -static option will avoid the need to ring.dll|ring.so|ring.dylib
 
-But since the stdlib.ring load libraries like (LibCurl, OpenSSL, MySQL, etc)
-
-You will need these libraries!
-
-To avoid the need to these libraries (If you don't need stdlib classes)
-
-Use stdlibcore.ring instead of stdlib.ring as in the next example
-
-.. code-block:: ring
-
-	load "stdlibcore.ring"
-
-	print("Hello World")
-
-Using stdlibcore.ring You can access the stdlib functions but not the stdlib classes.
-
-if you want to use stdlib.ring and distribute your application
-
 .. code-block:: ring
 
 	ring2exe hello.ring -dist -allruntime -noqt -noallegro
@@ -81,12 +61,10 @@ be written in different styles
 
 .. code-block:: ring
 
-	LOAD "stdlib.ring"
 	PRINT("Hello World")
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
 	Print("Hello World")
 
 
@@ -100,7 +78,6 @@ Using Ring we can write multi-line literal, see the next example
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
 	Print("
 		Hello 
 		Welcome to the Ring programming language
@@ -114,7 +91,6 @@ and you can use #{variable_name} to insert variables values.
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
 	Print( "Hello\nWelcome to the Ring programming language\nHow are you?")
 
 .. index:: 
@@ -127,7 +103,6 @@ You can get the input from the user using the getstring() function
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
 	Print("What is your name? ")
 	cName = GetString()
 	Print("Hello #{cName}")
@@ -143,7 +118,6 @@ The previous program can be written in one line.
 
 .. code-block:: ring
 
-	Load "stdlib.ring"
 	Print("What is your name? ") cName=getstring() print("Hello #{cName}")
 
 .. index:: 
@@ -166,8 +140,6 @@ Multi-lines comments are written between /* and */
 		Date         : 2016.09.09
 		Author       : Mahmoud Fayed
 	*/
-
-	Load "stdlib.ring"
 
 	Print("What is your name? ") 	# print message on screen
 	cName=GetString()		# get input from the user
