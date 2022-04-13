@@ -124,6 +124,8 @@ RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("print",ring_vm_generallib_print);
     RING_API_REGISTER("print2str",ring_vm_generallib_print2str);
     RING_API_REGISTER("puts",ring_vm_generallib_puts);
+    RING_API_REGISTER("getstring",ring_vm_generallib_give);
+    RING_API_REGISTER("getnumber",ring_vm_generallib_getnumber);
 }
 /*
 **  Library Functions 
@@ -2215,6 +2217,22 @@ void ring_vm_generallib_puts ( void *pPointer )
 {
     ring_vm_generallib_print(pPointer);
     printf( "\n" ) ;
+}
+
+void ring_vm_generallib_getnumber ( void *pPointer )
+{
+    int x  ;
+    char cLine[256]  ;
+    double nNum  ;
+    fgets(cLine , 256 , stdin );
+    for ( x = 0 ; x <= 255 ; x++ ) {
+        if ( cLine[x] == '\n' ) {
+            cLine[x] = '\0' ;
+            break ;
+        }
+    }
+    nNum = ring_vm_stringtonum((VM *) pPointer,cLine);
+    RING_API_RETNUMBER(nNum);
 }
 /* Performance */
 
