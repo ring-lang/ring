@@ -149,3 +149,103 @@ Multi-lines comments are written between /* and */
 
 .. note:: Using // to comment a lines of code is just a code style.
 
+.. index:: 
+	pair: Stdlib Functions; puts()
+
+Puts() function
+===============
+
+print the value then print new line (nl)
+
+Syntax:
+
+.. code-block:: ring
+
+	puts(expr)
+
+Example:
+
+.. code-block:: ring
+
+	Puts("Hello, World!")
+
+.. index:: 
+	pair: Getting Started - Third Style; print()
+
+Print() function
+=================
+
+print string - support \\n,\\t and \\r
+
+Also we can use #{variable_name} to insert variables values.
+
+Syntax:
+
+.. code-block:: ring
+
+	print(string) ---> String
+
+Example:
+
+.. code-block:: ring
+
+	print("\nHello, World\n\nHow are you? \t\t I'm fine!\n")
+	x=10 y=20
+	print("\nx value = #{x} , y value = #{y} \n")
+
+
+.. index:: 
+	pair: Getting Started - Third Style; Print2Str() Function
+
+Print2Str() Function
+====================
+
+Syntax:
+
+.. code-block:: ring
+
+	print2Str(string) ---> String
+
+
+Example:
+
+.. code-block:: ring
+
+	world = "World!"
+	mystring = print2str("Hello, #{world} \nIn Year \n#{2000+17} \n")
+
+	see mystring + nl
+
+Output:
+
+.. code-block:: ring
+
+	Hello, World!
+	In Year
+	2017
+
+
+.. index:: 
+	pair: Getting Started - Third Style; getstring()
+
+GetString() function
+====================
+
+Get input from the keyboard - return value as string
+
+.. code-block:: ring
+
+	getstring() ---> string
+
+
+.. index:: 
+	pair: Getting Started - Third Style; getnumber()
+
+GetNumber() function
+====================
+
+Get input from the keyboard - return value as number
+
+.. code-block:: ring
+
+	getnumber() ---> number
