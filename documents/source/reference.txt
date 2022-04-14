@@ -79,7 +79,7 @@ Keywords Count : 49
 Language Functions
 ==================
 
-Functions Count : 239
+Functions Count : 244
 
 .. code-block:: ring
 
@@ -156,9 +156,11 @@ Functions Count : 239
         getattribute()
         getchar()
         getfilesize()
+	getnumber()
         getpathtype()
         getpointer()
         getptr()
+	getstring()
         globals()
         hex()
         hex2str()
@@ -236,9 +238,12 @@ Functions Count : 239
         pointercompare()
         pow()
         prevfilename()
+	print()
+	print2str()
         ptr2obj()
         ptr2str()
         ptrcmp()
+	puts()
         raise()
         random()
         randomize()
