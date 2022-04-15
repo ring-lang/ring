@@ -73,14 +73,14 @@
         K_ENDFUNC ,
         K_ENDCLASS ,
         K_ENDPACKAGE ,
-        K_CHANGERINGKEYWORD ,
-        K_CHANGERINGIOPERATOR ,
-        K_LOADSYNTAX ,
         K_ENDIF ,
         K_ENDFOR ,
         K_ENDWHILE ,
         K_ENDSWITCH ,
-        K_ENDTRY 
+        K_ENDTRY ,
+        K_CHANGERINGKEYWORD ,
+        K_CHANGERINGIOPERATOR ,
+        K_LOADSYNTAX 
     } SCANNER_KEYWORD ;
     /* Keywords String */
     static const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC", 
@@ -93,9 +93,9 @@
     
     "PUT","GET","CASE","DEF","ENDFUNC","ENDCLASS","ENDPACKAGE", 
     
-    "CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX", 
+    "ENDIF","ENDFOR","ENDWHILE","ENDSWITCH","ENDTRY", 
     
-    "ENDIF","ENDFOR","ENDWHILE","ENDSWITCH","ENDTRY"} ;
+    "CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX"} ;
     /* Operators */
     typedef enum SCANNER_OPERATOR {
         OP_PLUS = 1 ,
@@ -145,9 +145,9 @@
     #define SCANNER_STATE_CHANGEOPERATOR 5
     #define SCANNER_STATE_LOADSYNTAX 6
     /* Change Ring Keyword/Operator */
-    #define RING_SCANNER_CHANGERINGKEYWORD 47
-    #define RING_SCANNER_CHANGERINGOPERATOR 48
-    #define RING_SCANNER_LOADSYNTAX 49
+    #define RING_SCANNER_CHANGERINGKEYWORD 52
+    #define RING_SCANNER_CHANGERINGOPERATOR 53
+    #define RING_SCANNER_LOADSYNTAX 54
     /* MACRO */
     #define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem_gc(pScanner->pRingState,pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
     /* Functions */
