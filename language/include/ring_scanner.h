@@ -75,7 +75,12 @@
         K_ENDPACKAGE ,
         K_CHANGERINGKEYWORD ,
         K_CHANGERINGIOPERATOR ,
-        K_LOADSYNTAX 
+        K_LOADSYNTAX ,
+        K_ENDIF ,
+        K_ENDFOR ,
+        K_ENDWHILE ,
+        K_ENDSWITCH ,
+        K_ENDTRY 
     } SCANNER_KEYWORD ;
     /* Keywords String */
     static const char * RING_KEYWORDS[] = {"IF","TO","OR","AND","NOT","FOR","NEW","FUNC", 
@@ -88,7 +93,9 @@
     
     "PUT","GET","CASE","DEF","ENDFUNC","ENDCLASS","ENDPACKAGE", 
     
-    "CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX"} ;
+    "CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX", 
+    
+    "ENDIF","ENDFOR","ENDWHILE","ENDSWITCH","ENDTRY"} ;
     /* Operators */
     typedef enum SCANNER_OPERATOR {
         OP_PLUS = 1 ,
