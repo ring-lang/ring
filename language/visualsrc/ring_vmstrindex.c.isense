@@ -4,10 +4,12 @@ newstr
 Type: char
 cStr[2]
 ring_vm_string_assignment
-Type: String *
-cStr1
 Type: char *
 newstr
+Type: char
+cChar
+Type: int
+nSize
 ring_vm_string_index
 Type: char *
 newstr

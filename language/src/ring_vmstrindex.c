@@ -20,13 +20,13 @@ void ring_vm_string_pushv ( VM *pVM )
 void ring_vm_string_assignment ( VM *pVM )
 {
     char *newstr  ;
-	char cChar ;
-	int nSize ;
+    char cChar  ;
+    int nSize  ;
     if ( RING_VM_STACK_ISSTRING ) {
-		nSize = RING_VM_STACK_STRINGSIZE;
-		if ( nSize == 1 ) {
-			cChar = RING_VM_STACK_READC[0];
-		}
+        nSize = RING_VM_STACK_STRINGSIZE ;
+        if ( nSize == 1 ) {
+            cChar = RING_VM_STACK_READC[0] ;
+        }
         RING_VM_STACK_POP ;
         if ( nSize == 1 ) {
             newstr = (char *) RING_VM_STACK_READP ;
