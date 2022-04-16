@@ -229,7 +229,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
                         ring_vm_expr_spoo(pVM,"[]",ring_string_get(pString),ring_string_size(pString));
                     }
                     else {
-                        ring_vm_listgetvalue(pVM, pVar, ring_string_get(pString));
+                        ring_vm_listgetvalue(pVM,pVar,ring_string_get(pString));
                     }
                 }
                 else {
@@ -247,7 +247,7 @@ void ring_vm_loadindexaddress ( VM *pVM )
                         ring_vm_expr_spoo(pVM,"[]",ring_string_get(pString),ring_string_size(pString));
                     }
                     else {
-                        ring_vm_listgetvalue(pVM, pVar, ring_string_get(pString));
+                        ring_vm_listgetvalue(pVM,pVar,ring_string_get(pString));
                     }
                 }
                 else {
