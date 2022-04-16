@@ -587,6 +587,9 @@ More Improvements
 * Ring VM - State Management - Better Code - ring_vm_newobjectstackpointer() 
 * Ring VM - State management - Better Performance (when creating new objects)
 * Ring VM - Adding binary strings to the Stack - Better Code
+* Ring VM - ring_vm_loadindexaddress() function - Better Code
+* Ring VM - ring_vm_range() function - Better Code
+* Ring VM - ring_vm_string_assignment() function - Better Code
 * Ring Compiler - Better Code - Using ring_general_addosfileseparator()
 * Ring Compiler - Better Code - Using ring_general_folderexistinfilename()
 * Ring Compiler - ring_scanner_checktoken() - Faster & Better Code
