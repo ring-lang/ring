@@ -113,7 +113,7 @@ int ring_parser_class ( Parser *pParser )
         }
     }
     /* Statement --> Func|Def Identifier [PARALIST] */
-    if ( ring_parser_iskeyword(pParser,K_FUNC) || ring_parser_iskeyword(pParser,K_DEF) ) {
+    if ( ring_parser_iskeyword(pParser,K_FUNC) || ring_parser_iskeyword(pParser,K_FUNCTION) || ring_parser_iskeyword(pParser,K_DEF) ) {
         ring_parser_nexttoken(pParser);
         RING_PARSER_IGNORENEWLINE ;
         if ( ring_parser_isidentifier(pParser) ) {
@@ -1050,7 +1050,7 @@ int ring_parser_stmt ( Parser *pParser )
         return 1 ;
     }
     /* Statement --> Exit (Go to outside the loop) */
-    if ( ring_parser_iskeyword(pParser,K_EXIT) ) {
+    if ( ring_parser_iskeyword(pParser,K_EXIT) || ring_parser_iskeyword(pParser,K_BREAK) ) {
         ring_parser_nexttoken(pParser);
         #if RING_PARSERTRACE
         RING_STATE_CHECKPRINTRULES 
@@ -1079,7 +1079,7 @@ int ring_parser_stmt ( Parser *pParser )
         return 1 ;
     }
     /* Statement --> Loop (Continue) */
-    if ( ring_parser_iskeyword(pParser,K_LOOP) ) {
+    if ( ring_parser_iskeyword(pParser,K_LOOP) || ring_parser_iskeyword(pParser,K_CONTINUE) ) {
         ring_parser_nexttoken(pParser);
         #if RING_PARSERTRACE
         RING_STATE_CHECKPRINTRULES 
@@ -1528,7 +1528,7 @@ int ring_parser_bracesandend ( Parser *pParser,int lClass,SCANNER_KEYWORD nKeywo
             break ;
         }
     }
-    if ( ring_parser_iskeyword(pParser,K_END) || ring_parser_iskeyword(pParser,nKeyword) ) {
+    if ( ring_parser_iskeyword(pParser,K_END) || ring_parser_iskeyword(pParser,nKeyword) || ( (nKeyword == K_ENDFUNC) && ring_parser_iskeyword(pParser,K_ENDFUNCTION)) ) {
         ring_parser_nexttoken(pParser);
         #if RING_PARSERTRACE
         RING_STATE_CHECKPRINTRULES 
