@@ -21,7 +21,7 @@ In this chapter we will learn about
 Language Keywords
 =================
 
-Keywords Count : 49
+Keywords Count : 58
 
 * again
 * and
@@ -72,6 +72,15 @@ Keywords Count : 49
 * endfunc
 * endclass
 * endpackage
+* endif
+* endfor
+* endwhile
+* endswitch
+* endtry
+* function
+* endfunction
+* break
+* continue
 
 .. index:: 
 	pair: Language Specification; Language Functions
