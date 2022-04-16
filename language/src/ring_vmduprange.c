@@ -28,9 +28,8 @@ void ring_vm_dup ( VM *pVM )
 void ring_vm_range ( VM *pVM )
 {
     double nNum1,nNum2  ;
-    int x  ;
+    int x,nSize1,nSize2  ;
     char cStr[2]  ;
-    String *pString1,*pString2  ;
     List *pVar  ;
     if ( RING_VM_STACK_ISNUMBER ) {
         nNum1 = RING_VM_STACK_READN ;
@@ -54,16 +53,20 @@ void ring_vm_range ( VM *pVM )
         }
     }
     else if ( RING_VM_STACK_ISSTRING ) {
-        pString1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+		nSize1 = RING_VM_STACK_STRINGSIZE;
+		if ( nSize1 == 1) {
+			nNum1 = RING_VM_STACK_READC[0] ;
+		}
         RING_VM_STACK_POP ;
-        if ( ring_string_size(pString1) == 1 ) {
+        if ( nSize1 == 1 ) {
             if ( RING_VM_STACK_ISSTRING ) {
-                pString2 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+				nSize2 = RING_VM_STACK_STRINGSIZE;
+				if ( nSize2 == 1) {
+					nNum2 = RING_VM_STACK_READC[0] ;
+				}
                 RING_VM_STACK_POP ;
-                if ( ring_string_size(pString2)  == 1 ) {
+                if ( nSize2 == 1 ) {
                     cStr[1] = '\0' ;
-                    nNum1 = pString1->cStr[0] ;
-                    nNum2 = pString2->cStr[0] ;
                     /* Create List Variable */
                     pVar = ring_vm_range_newlist(pVM);
                     /* Create List */
@@ -80,10 +83,8 @@ void ring_vm_range ( VM *pVM )
                         }
                     }
                 }
-                ring_string_delete_gc(pVM->pRingState,pString2);
             }
         }
-        ring_string_delete_gc(pVM->pRingState,pString1);
     }
 }
 
