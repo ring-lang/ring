@@ -53,19 +53,19 @@ void ring_vm_range ( VM *pVM )
         }
     }
     else if ( RING_VM_STACK_ISSTRING ) {
-		nSize1 = RING_VM_STACK_STRINGSIZE;
-		if ( nSize1 == 1) {
-			nNum1 = RING_VM_STACK_READC[0] ;
-		}
+        nSize1 = RING_VM_STACK_STRINGSIZE ;
+        if ( nSize1 == 1 ) {
+            nNum1 = RING_VM_STACK_READC[0] ;
+        }
         RING_VM_STACK_POP ;
         if ( nSize1 == 1 ) {
             if ( RING_VM_STACK_ISSTRING ) {
-				nSize2 = RING_VM_STACK_STRINGSIZE;
-				if ( nSize2 == 1) {
-					nNum2 = RING_VM_STACK_READC[0] ;
-				}
-                RING_VM_STACK_POP ;
+                nSize2 = RING_VM_STACK_STRINGSIZE ;
                 if ( nSize2 == 1 ) {
+                    nNum2 = RING_VM_STACK_READC[0] ;
+                }
+                RING_VM_STACK_POP ;
+                if ( nSize2  == 1 ) {
                     cStr[1] = '\0' ;
                     /* Create List Variable */
                     pVar = ring_vm_range_newlist(pVM);
