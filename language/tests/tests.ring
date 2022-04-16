@@ -388,6 +388,8 @@ aTests = [
 	[ :name = "General Tests (Part 173)", :Command = "ring general/testprint.ring" ],
 	[ :name = "General Tests (Part 174)", :Command = "ring general/testprint2str.ring" ],
 	[ :name = "General Tests (Part 175)", :Command = "ring general/testputs.ring" ],
-	[ :name = "General Tests (Part 176)", :Command = "ring general/styleno4.ring" ]
+	[ :name = "General Tests (Part 176)", :Command = "ring general/styleno4.ring" ],
+	[ :name = "General Tests (Part 177)", :Command = "ring general/usingbreak.ring" ],
+	[ :name = "General Tests (Part 178)", :Command = "ring general/usingfunction.ring" ]
 
 ]
