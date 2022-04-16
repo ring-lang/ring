@@ -78,6 +78,10 @@
         K_ENDWHILE ,
         K_ENDSWITCH ,
         K_ENDTRY ,
+        K_FUNCTION ,
+        K_ENDFUNCTION ,
+        K_BREAK ,
+        K_CONTINUE ,
         K_CHANGERINGKEYWORD ,
         K_CHANGERINGIOPERATOR ,
         K_LOADSYNTAX 
@@ -94,6 +98,8 @@
     "PUT","GET","CASE","DEF","ENDFUNC","ENDCLASS","ENDPACKAGE", 
     
     "ENDIF","ENDFOR","ENDWHILE","ENDSWITCH","ENDTRY", 
+    
+    "FUNCTION","ENDFUNCTION","BREAK","CONTINUE", 
     
     "CHANGERINGKEYWORD","CHANGERINGOPERATOR","LOADSYNTAX"} ;
     /* Operators */
@@ -145,9 +151,9 @@
     #define SCANNER_STATE_CHANGEOPERATOR 5
     #define SCANNER_STATE_LOADSYNTAX 6
     /* Change Ring Keyword/Operator */
-    #define RING_SCANNER_CHANGERINGKEYWORD 52
-    #define RING_SCANNER_CHANGERINGOPERATOR 53
-    #define RING_SCANNER_LOADSYNTAX 54
+    #define RING_SCANNER_CHANGERINGKEYWORD 56
+    #define RING_SCANNER_CHANGERINGOPERATOR 57
+    #define RING_SCANNER_LOADSYNTAX 58
     /* MACRO */
     #define RING_SCANNER_DELETELASTTOKEN ring_list_deleteitem_gc(pScanner->pRingState,pScanner->Tokens,ring_list_getsize(pScanner->Tokens))
     /* Functions */

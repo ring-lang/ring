@@ -410,6 +410,10 @@ void ring_scanner_keywords ( Scanner *pScanner )
     ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"endwhile");
     ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"endswitch");
     ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"endtry");
+    ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"function");
+    ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"endfunction");
+    ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"break");
+    ring_list_addstring_gc(pScanner->pRingState,pScanner->Keywords,"continue");
     /*
     **  The next keywords are sensitive to the order and keywords count 
     **  if you will add new keywords revise constants and ring_scanner_checktoken() 
