@@ -227,9 +227,10 @@ void ring_vm_loadindexaddress ( VM *pVM )
                     if ( ring_vm_oop_isobject(pVar) == 1 ) {
                         pVM->nSP++ ;
                         ring_vm_expr_spoo(pVM,"[]",ring_string_get(pString),ring_string_size(pString));
-                        return ;
                     }
-                    ring_vm_listgetvalue(pVM,pVar,ring_string_get(pString));
+                    else {
+                        ring_vm_listgetvalue(pVM, pVar, ring_string_get(pString));
+                    }
                 }
                 else {
                     ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
@@ -244,9 +245,10 @@ void ring_vm_loadindexaddress ( VM *pVM )
                     if ( ring_vm_oop_isobject(pVar) == 1 ) {
                         pVM->nSP++ ;
                         ring_vm_expr_spoo(pVM,"[]",ring_string_get(pString),ring_string_size(pString));
-                        return ;
                     }
-                    ring_vm_listgetvalue(pVM,pVar,ring_string_get(pString));
+                    else {
+                        ring_vm_listgetvalue(pVM, pVar, ring_string_get(pString));
+                    }
                 }
                 else {
                     ring_vm_error(pVM,RING_VM_ERROR_OBJECTISNOTLIST);
