@@ -23,6 +23,7 @@ Ring 1.17 comes with the next features!
 * JSONLib Library
 * HTTPLib Library
 * Better GUILib
+* Better Syntax Flexibility
 * Better I/O functions
 * Better Ring API
 * Better Code Generator for Extensions
@@ -393,6 +394,34 @@ Example:
 	aList = oView.listwidget1.toList()
 	? aList
 
+.. index:: 
+	pair: What is new in Ring  1.17; Better Syntax Flexibility
+
+Better Syntax Flexibility
+=========================
+
+The next keywords are added to the language
+
+* endif
+* endfor
+* endwhile
+* endswitch
+* endtry
+* function
+* endfunction
+* break
+* continue
+
+Example:
+
+.. code-block:: ring
+
+	for t=1 to 10
+		? t
+		if t=3 
+			? :three
+		endif
+	endfor
 
 .. index:: 
 	pair: What is new in Ring  1.17; Better I/O Functions

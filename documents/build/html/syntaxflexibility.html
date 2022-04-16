@@ -317,11 +317,11 @@ compiler for syntax flexibility.</p>
 </pre></div>
 </div>
 <p>Example:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span>  <span class="k">func</span> <span class="n">function</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span>  <span class="k">func</span> <span class="k">function</span>
 <span class="k">ChangeRingKeyword</span>  <span class="k">see</span>  <span class="n">print</span>
-<span class="k">ChangeRingKeyword</span>  <span class="k">ok</span>   <span class="n">endif</span>
-<span class="k">ChangeRingKeyword</span>  <span class="k">next</span> <span class="n">endfor</span>
-<span class="k">ChangeRingKeyword</span>  <span class="k">end</span>  <span class="n">endwhile</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">ok</span>   <span class="k">endif</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">next</span> <span class="k">endfor</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">end</span>  <span class="k">endwhile</span>
 
 <span class="n">x</span> <span class="o">=</span> <span class="mi">10</span>
 <span class="k">while</span> <span class="n">x</span> <span class="o">&gt;</span> <span class="mi">0</span>
@@ -329,22 +329,22 @@ compiler for syntax flexibility.</p>
         <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                 <span class="k">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">3</span>
                         <span class="n">print</span> <span class="s">&quot;number three&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="n">endif</span>
-        <span class="n">endfor</span>
+                <span class="k">endif</span>
+        <span class="k">endfor</span>
 
 <span class="n">x</span><span class="o">--</span>
-<span class="n">endwhile</span>
+<span class="k">endwhile</span>
 
 <span class="n">test</span><span class="p">()</span>
 
-<span class="n">function</span> <span class="n">test</span>
+<span class="k">function</span> <span class="n">test</span>
         <span class="n">print</span> <span class="s">&quot;message from test&quot;</span> <span class="o">+</span> <span class="n">nl</span>
 
-<span class="k">ChangeRingKeyword</span>  <span class="n">function</span> <span class="k">func</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">function</span> <span class="k">func</span>
 <span class="k">ChangeRingKeyword</span>  <span class="n">print</span> <span class="k">see</span>
-<span class="k">ChangeRingKeyword</span>  <span class="n">endif</span> <span class="k">ok</span>
-<span class="k">ChangeRingKeyword</span>  <span class="n">endfor</span> <span class="k">next</span>
-<span class="k">ChangeRingKeyword</span>  <span class="n">endwhile</span> <span class="k">end</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">endif</span> <span class="k">ok</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">endfor</span> <span class="k">next</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">endwhile</span> <span class="k">end</span>
 </pre></div>
 </div>
 </div>
@@ -404,16 +404,16 @@ in many source files. You can’t use the Load command to call these files becau
 <p>Example:</p>
 <p>File : StyleBasicOn.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span>       <span class="k">see</span>     <span class="n">print</span>
-<span class="k">ChangeRingKeyword</span>       <span class="k">ok</span>      <span class="n">endif</span>
-<span class="k">ChangeRingKeyword</span>       <span class="k">next</span>    <span class="n">endfor</span>
-<span class="k">ChangeRingKeyword</span>       <span class="k">end</span>     <span class="n">endwhile</span>
+<span class="k">ChangeRingKeyword</span>       <span class="k">ok</span>      <span class="k">endif</span>
+<span class="k">ChangeRingKeyword</span>       <span class="k">next</span>    <span class="k">endfor</span>
+<span class="k">ChangeRingKeyword</span>       <span class="k">end</span>     <span class="k">endwhile</span>
 </pre></div>
 </div>
 <p>File : StyleBasicOff.ring</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">ChangeRingKeyword</span>  <span class="n">print</span>        <span class="k">see</span>
-<span class="k">ChangeRingKeyword</span>  <span class="n">endif</span>        <span class="k">ok</span>
-<span class="k">ChangeRingKeyword</span>  <span class="n">endfor</span>       <span class="k">next</span>
-<span class="k">ChangeRingKeyword</span>  <span class="n">endwhile</span>     <span class="k">end</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">endif</span>        <span class="k">ok</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">endfor</span>       <span class="k">next</span>
+<span class="k">ChangeRingKeyword</span>  <span class="k">endwhile</span>     <span class="k">end</span>
 </pre></div>
 </div>
 <p>File : UseStyleBasic.ring</p>
@@ -425,10 +425,10 @@ in many source files. You can’t use the Load command to call these files becau
         <span class="k">for</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">10</span>
                 <span class="k">if</span> <span class="n">t</span> <span class="o">=</span> <span class="mi">3</span>
                         <span class="n">print</span> <span class="s">&quot;number three&quot;</span> <span class="o">+</span> <span class="n">nl</span>
-                <span class="n">endif</span>
-        <span class="n">endfor</span>
+                <span class="k">endif</span>
+        <span class="k">endfor</span>
         <span class="n">x</span><span class="o">--</span>
-<span class="n">endwhile</span>
+<span class="k">endwhile</span>
 
 <span class="k">LoadSyntax</span> <span class="s">&quot;stylebasicoff.ring&quot;</span>
 
@@ -811,7 +811,7 @@ Then you can use the ‘else’ keyword.</p>
         <span class="o">?</span>
         <span class="s">&quot;</span>
 
-        <span class="n">Hello</span> <span class="k">from</span> <span class="n">the</span> <span class="n">Test</span> <span class="n">function</span>
+        <span class="n">Hello</span> <span class="k">from</span> <span class="n">the</span> <span class="n">Test</span> <span class="k">function</span>
 
         <span class="s">&quot;</span>
 </pre></div>
