@@ -19,20 +19,22 @@ void ring_vm_string_pushv ( VM *pVM )
 
 void ring_vm_string_assignment ( VM *pVM )
 {
-    String *cStr1  ;
     char *newstr  ;
+    char cChar  ;
+    int nSize  ;
     if ( RING_VM_STACK_ISSTRING ) {
-        cStr1 = ring_string_new2_gc(pVM->pRingState,RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+        nSize = RING_VM_STACK_STRINGSIZE ;
+        if ( nSize == 1 ) {
+            cChar = RING_VM_STACK_READC[0] ;
+        }
         RING_VM_STACK_POP ;
-        if ( ring_string_size(cStr1) == 1 ) {
+        if ( nSize == 1 ) {
             newstr = (char *) RING_VM_STACK_READP ;
             RING_VM_STACK_POP ;
-            newstr[0] = ring_string_get(cStr1)[0] ;
-            ring_string_delete_gc(pVM->pRingState,cStr1);
+            newstr[0] = cChar ;
             return ;
         }
         else {
-            ring_string_delete_gc(pVM->pRingState,cStr1);
             ring_vm_error(pVM,RING_VM_ERROR_VALUEMORETHANONECHAR);
             return ;
         }
