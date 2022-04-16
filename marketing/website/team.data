@@ -34,21 +34,9 @@ aManyThanks = [
 					'<img src="marino.jpg" width="150" height="170">'
                   		  ],
 				  [
-					'Mona Kamel',
-					'<img src="mona.png" width="150" height="170">'
-				  ],
-  				  [
-					'Abdelrahman Mahmoud',
-					'<img src="abdelrahman.jpg" width="150" height="170">'
-				  ],				  
-				  [
                     			'Amin Najah',
 					'<img src="amine.jpg" width="150" height="170">'
                   		  ],				  
-				  [
-					'Hebat Alla Ismail',
-					'<img src="heba.jpg" width="150" height="170">'
-				  ],
 		  		  [
                     			'Ahmed Baryyan',
 		    			'<img src="ahmedbarayan1.jpg" width="150" height="170">'
@@ -64,16 +52,16 @@ aTopContributors = [
                     'Ring VM Master'                    
                   ],
 		  [
+                    'isVowel / GreenWing',
+                    'Translation Master'                    
+		  ],
+		  [
                     'Azzeddine Remmal',
                     'Qt3D Master'                    
 		  ],
 		  [
                     'Ahmad Zakaria',
                     'RayLib Master'                    
-		  ],
-		  [
-                    'isVowel / GreenWing',
-                    'Translation Master'                    
 		  ]
 ]
 aTeam2 = [
@@ -822,6 +810,21 @@ aTeam2 = [
                   ],
 		  [
                     'Heba Omran',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Mona Kamel',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Hebat Alla Ismail',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Abdelrahman Mahmoud',
                     'Tester'
                     
                   ],
