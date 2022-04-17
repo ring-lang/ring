@@ -228,9 +228,9 @@ Output:
 	pair: Security and Internet Functions; SupportedCiphers()
 
 SupportedCiphers() Function
-==================
+===========================
 
-The function SupportedCiphers() retrieves the list of all algorithm supported by Encrypt()/Decrypt() functions.
+The function SupportedCiphers() retrieves the list of all algorithms supported by Encrypt()/Decrypt() functions.
 
 Syntax:
 

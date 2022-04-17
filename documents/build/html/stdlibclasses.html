@@ -2089,8 +2089,8 @@ Egypt
 <p>Methods:</p>
 <table class="docutils align-default">
 <colgroup>
-<col style="width: 35%" />
-<col style="width: 65%" />
+<col style="width: 31%" />
+<col style="width: 69%" />
 </colgroup>
 <thead>
 <tr class="row-odd"><th class="head"><p>Method</p></th>
@@ -2117,13 +2117,22 @@ Egypt
 <td><p>Calculate the SHA224 hash.</p></td>
 </tr>
 <tr class="row-even"><td><p>encrypt(cString,cKey,cIV)</p></td>
-<td><p>Encrypts the data using the Blowfish algorithm.</p></td>
+<td><p>Encrypts the data using the Blowfish algorithm in CBC mode.</p></td>
 </tr>
 <tr class="row-odd"><td><p>decrypt(cString,cKey,cIV)</p></td>
-<td><p>Decrypt the data encrypted using the Encrypt() method.</p></td>
+<td><p>Decrypt the encrypted data using the Blowfish algorithm in CBC mode.</p></td>
 </tr>
-<tr class="row-even"><td><p>randbytes(nSize)</p></td>
-<td><p>Generate a string of pseudo-random bytes.</p></td>
+<tr class="row-even"><td><p>encrypt_ex(cString,cKey,cIV,cCipher)</p></td>
+<td><p>Encrypts the data using the given cipher algorithm.</p></td>
+</tr>
+<tr class="row-odd"><td><p>decrypt_ex(cString,cKey,cIV,cCipher)</p></td>
+<td><p>Decrypt the encrypted data using the given cipher algorithm.</p></td>
+</tr>
+<tr class="row-even"><td><p>supportedciphers()</p></td>
+<td><p>List all supported cipher algorithms for encryption/decryption.</p></td>
+</tr>
+<tr class="row-odd"><td><p>randbytes(nSize)</p></td>
+<td><p>Generate a string of cryptographically secure pseudo-random bytes.</p></td>
 </tr>
 </tbody>
 </table>

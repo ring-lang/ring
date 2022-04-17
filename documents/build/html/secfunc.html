@@ -120,6 +120,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#sha512-function">SHA512() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sha384-function">SHA384() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#sha224-function">SHA224() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#supportedciphers-function">SupportedCiphers() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#encrypt-function">Encrypt() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#decrypt-function">Decrypt() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#encryption-and-decryption-example">Encryption and Decryption Example</a></li>
@@ -300,6 +301,7 @@ for Hashing, Encryption &amp; Decryption.</p>
 <li><p>SHA512()</p></li>
 <li><p>SHA384()</p></li>
 <li><p>SHA224()</p></li>
+<li><p>SupportedCiphers()</p></li>
 <li><p>Encrypt()</p></li>
 <li><p>Decrypt()</p></li>
 <li><p>Randbytes()</p></li>
@@ -439,32 +441,46 @@ sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522
 </pre></div>
 </div>
 </div>
-<div class="section" id="encrypt-function">
-<span id="index-7"></span><h2>Encrypt() Function<a class="headerlink" href="#encrypt-function" title="Permalink to this headline">¶</a></h2>
-<p>We can use the Encrypt() function to encrypts the data using the Blowfish algorithm.</p>
+<div class="section" id="supportedciphers-function">
+<span id="index-7"></span><h2>SupportedCiphers() Function<a class="headerlink" href="#supportedciphers-function" title="Permalink to this headline">¶</a></h2>
+<p>The function SupportedCiphers() retrieves the list of all algorithms supported by Encrypt()/Decrypt() functions.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Encrypt</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Encrypted</span> <span class="kt">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SupportedCiphers</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">names</span> <span class="n">of</span> <span class="n">cipher</span> <span class="n">algorithms</span> <span class="n">supported</span> <span class="n">by</span> <span class="n">Encrypt</span><span class="p">()</span><span class="o">/</span><span class="n">Decrypt</span><span class="p">()</span> <span class="n">functions</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="encrypt-function">
+<span id="index-8"></span><h2>Encrypt() Function<a class="headerlink" href="#encrypt-function" title="Permalink to this headline">¶</a></h2>
+<p>We can use the Encrypt() function to encrypt the data using the specified algorithm.
+If no algorithm is specified, Blowfish algorithm is used in CBC mode.
+Typical algorithm values: “bf”, “des”, “des3”, “aes128”, “aes192”, “aes256” which all use CBC mode.
+The function CipherAlgorithms() return the list of all supported cipher algorithms.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Encrypt</span><span class="p">(</span><span class="n">cString</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="o">[</span><span class="p">,</span> <span class="n">cCipherAlgorithmName</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Encrypted</span> <span class="kt">string</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="decrypt-function">
-<span id="index-8"></span><h2>Decrypt() Function<a class="headerlink" href="#decrypt-function" title="Permalink to this headline">¶</a></h2>
-<p>We can use the Decrypt() function to decrypt the data encrypted using the Encrypt() function.</p>
+<span id="index-9"></span><h2>Decrypt() Function<a class="headerlink" href="#decrypt-function" title="Permalink to this headline">¶</a></h2>
+<p>We can use the Decrypt() function to decrypt the data encrypted using the Encrypt() function.
+If no algorithm is specified, Blowfish algorithm is used in CBC mode.
+Typical algorithm values: “bf”, “des”, “des3”, “aes128”, “aes192”, “aes256” which all use CBC mode.
+The function CipherAlgorithms() return the list of all supported cipher algorithms.</p>
 <p>Syntax:</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decrypt</span><span class="p">(</span><span class="n">cCipher</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Decrypted</span> <span class="kt">string</span>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Decrypt</span><span class="p">(</span><span class="n">cCipher</span><span class="p">,</span> <span class="n">cKey</span><span class="p">,</span> <span class="n">cIV</span><span class="o">[</span><span class="p">,</span> <span class="n">cCipherAlgorithm</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Decrypted</span> <span class="kt">string</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="encryption-and-decryption-example">
-<span id="index-9"></span><h2>Encryption and Decryption Example<a class="headerlink" href="#encryption-and-decryption-example" title="Permalink to this headline">¶</a></h2>
+<span id="index-10"></span><h2>Encryption and Decryption Example<a class="headerlink" href="#encryption-and-decryption-example" title="Permalink to this headline">¶</a></h2>
 <p>The next example demonstrates how to use the Encrypt() and Decrypt() functions.</p>
-<p>These functions use the Blowfish algorithm.</p>
+<p>These functions use the AES-128 algorithm (AES with 128-bits key)</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
 <span class="kt">list</span> <span class="o">=</span> <span class="mi">0</span><span class="p">:</span><span class="mi">15</span>  <span class="n">cKey</span><span class="o">=</span><span class="s">&quot;&quot;</span>    <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cKey</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
-<span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">8</span>   <span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>   <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
-<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
+<span class="kt">list</span> <span class="o">=</span> <span class="mi">1</span><span class="p">:</span><span class="mi">16</span>  <span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>   <span class="k">for</span> <span class="n">x</span> <span class="k">in</span> <span class="kt">list</span> <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="k">next</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
 <span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 <p>We can write the same example using normal for loop</p>
@@ -476,31 +492,43 @@ sha224(&#39;hello world&#39;) : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522
 <span class="k">next</span>
 
 <span class="n">cIV</span> <span class="o">=</span> <span class="s">&quot;&quot;</span>
-<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">8</span>
+<span class="k">for</span> <span class="n">x</span> <span class="o">=</span> <span class="mi">1</span> <span class="k">to</span> <span class="mi">16</span>
         <span class="n">cIV</span> <span class="o">+=</span> <span class="n">char</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
 <span class="k">next</span>
 
 
-<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
 <span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
-<p>Also we can write the password and the IV directly using strings</p>
+<p>Also we can write the key and the IV directly using strings</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
 
-<span class="c"># Note: Don&#39;t use simple password in real applications!</span>
+<span class="c"># Note: Don&#39;t use simple key in real applications!</span>
 <span class="n">cKey</span> <span class="o">=</span> <span class="s">&quot;1234567890@#$%^&amp;&quot;</span>
-<span class="n">cIV</span>  <span class="o">=</span> <span class="s">&quot;87654321&quot;</span>
+<span class="n">cIV</span>  <span class="o">=</span> <span class="s">&quot;FEDCBA0987654321&quot;</span>
 
-<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span>
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
 <span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
-    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
+</pre></div>
+</div>
+<p>Finally we can specify the key and the IV values using hexadecimal notation</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">See</span> <span class="s">&quot;Enter a string : &quot;</span> <span class="k">give</span> <span class="n">cStr</span>
+
+<span class="c"># Note: Don&#39;t use simple key in real applications!</span>
+<span class="n">cKey</span> <span class="o">=</span> <span class="n">hex2str</span><span class="p">(</span><span class="s">&quot;A0A1A2A3A5A6A7A8AAABACADAFB0B1B2&quot;</span><span class="p">)</span>
+<span class="n">cIV</span>  <span class="o">=</span> <span class="n">hex2str</span><span class="p">(</span><span class="s">&quot;00112233445566778899AABBCCDDEEFF&quot;</span><span class="p">)</span>
+
+<span class="n">cStr</span> <span class="o">=</span> <span class="n">Encrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span>
+<span class="k">See</span> <span class="s">&quot;Cipher Text    : &quot;</span> <span class="o">+</span> <span class="n">cStr</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
+    <span class="s">&quot;Plain Text     : &quot;</span> <span class="o">+</span> <span class="n">Decrypt</span><span class="p">(</span><span class="n">cStr</span><span class="p">,</span><span class="n">cKey</span><span class="p">,</span><span class="n">cIV</span><span class="p">,</span><span class="s">&quot;aes128&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="file-hash">
-<span id="index-10"></span><h2>File Hash<a class="headerlink" href="#file-hash" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>File Hash<a class="headerlink" href="#file-hash" title="Permalink to this headline">¶</a></h2>
 <p>The next example demonstrates how to calculate the hash functions for files</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">cStr</span> <span class="o">=</span> <span class="n">read</span><span class="p">(</span><span class="s">&quot;myapp.exe&quot;</span><span class="p">)</span>
 <span class="k">see</span> <span class="s">&quot;Size : &quot;</span> <span class="o">+</span> <span class="n">len</span><span class="p">(</span><span class="n">cStr</span><span class="p">)</span> <span class="o">+</span> <span class="n">nl</span> <span class="o">+</span>
@@ -526,8 +554,8 @@ cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 </div>
 </div>
 <div class="section" id="randbytes-function">
-<span id="index-11"></span><h2>Randbytes() Function<a class="headerlink" href="#randbytes-function" title="Permalink to this headline">¶</a></h2>
-<p>We can generate a string of pseudo-random bytes using the Randbytes() function.</p>
+<span id="index-12"></span><h2>Randbytes() Function<a class="headerlink" href="#randbytes-function" title="Permalink to this headline">¶</a></h2>
+<p>We can generate a string of cryptographically secure pseudo-random bytes using the Randbytes() function.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Randbytes</span><span class="p">(</span><span class="n">nSize</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">random</span> <span class="n">bytes</span> <span class="p">(</span><span class="n">bytes</span> <span class="n">count</span> <span class="o">=</span> <span class="n">nSize</span><span class="p">)</span>
 </pre></div>
@@ -541,7 +569,7 @@ cd53dcab1167bdca0b82fec5071971ac17c76479d76985ced4ab0d18e
 </div>
 </div>
 <div class="section" id="large-files-hash">
-<span id="index-12"></span><h2>Large Files Hash<a class="headerlink" href="#large-files-hash" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Large Files Hash<a class="headerlink" href="#large-files-hash" title="Permalink to this headline">¶</a></h2>
 <p>These functions compute the hash of large files/data without the need to load all of the content in a single string.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>md5init() -&gt; MD5_CTX
 md5update (MD5_CTX, string) -&gt; 1 for success or 0 for failure
@@ -570,7 +598,7 @@ sha512final (SHA512_CTX) -&gt; string
 </div>
 </div>
 <div class="section" id="download-function">
-<span id="index-13"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Download</span><span class="p">(</span><span class="n">cURL</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">server</span> <span class="n">response</span>
 </pre></div>
@@ -583,7 +611,7 @@ sha512final (SHA512_CTX) -&gt; string
 </div>
 </div>
 <div class="section" id="sendemail-function">
-<span id="index-14"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SendEmail</span><span class="p">(</span><span class="n">cSMTPServer</span><span class="p">,</span><span class="n">cEmail</span><span class="p">,</span><span class="n">cPassword</span><span class="p">,</span><span class="n">cSender</span><span class="p">,</span><span class="n">cReceiver</span><span class="p">,</span><span class="n">cCC</span><span class="p">,</span><span class="n">cTitle</span><span class="p">,</span><span class="n">cContent</span><span class="p">)</span>
 </pre></div>

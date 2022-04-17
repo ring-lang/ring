@@ -21,6 +21,7 @@ Before using the next functions load the openssllib.ring library
 * SHA512()
 * SHA384()
 * SHA224()
+* SupportedCiphers()
 * Encrypt()
 * Decrypt()
 * Randbytes()
@@ -224,18 +225,35 @@ Output:
 	sha224('hello world') : 2f05477fc24bb4faefd86517156dafdecec45b8ad3cf2522a563582b
 
 .. index:: 
-	pair: Security and Internet Functions; Encrypt()
+	pair: Security and Internet Functions; SupportedCiphers()
 
-Encrypt() Function
-==================
+SupportedCiphers() Function
+===========================
 
-We can use the Encrypt() function to encrypts the data using the Blowfish algorithm.
+The function SupportedCiphers() retrieves the list of all algorithms supported by Encrypt()/Decrypt() functions.
 
 Syntax:
 
 .. code-block:: ring
 
-	Encrypt(cString, cKey, cIV) ---> Encrypted string
+	SupportedCiphers() ---> List of names of cipher algorithms supported by Encrypt()/Decrypt() functions
+
+.. index:: 
+	pair: Security and Internet Functions; Encrypt()
+
+Encrypt() Function
+==================
+
+We can use the Encrypt() function to encrypt the data using the specified algorithm.
+If no algorithm is specified, Blowfish algorithm is used in CBC mode.
+Typical algorithm values: "bf", "des", "des3", "aes128", "aes192", "aes256" which all use CBC mode.
+The function CipherAlgorithms() return the list of all supported cipher algorithms.
+
+Syntax:
+
+.. code-block:: ring
+
+	Encrypt(cString, cKey, cIV[, cCipherAlgorithmName]) ---> Encrypted string
 
 .. index:: 
 	pair: Security and Internet Functions; Decrypt()
@@ -244,12 +262,15 @@ Decrypt() Function
 ==================
 
 We can use the Decrypt() function to decrypt the data encrypted using the Encrypt() function.
+If no algorithm is specified, Blowfish algorithm is used in CBC mode.
+Typical algorithm values: "bf", "des", "des3", "aes128", "aes192", "aes256" which all use CBC mode.
+The function CipherAlgorithms() return the list of all supported cipher algorithms.
 
 Syntax:
 
 .. code-block:: ring
 
-	Decrypt(cCipher, cKey, cIV) ---> Decrypted string
+	Decrypt(cCipher, cKey, cIV[, cCipherAlgorithm]) ---> Decrypted string
 
 .. index:: 
 	pair: Security and Internet Functions; Example
@@ -259,16 +280,16 @@ Encryption and Decryption Example
 
 The next example demonstrates how to use the Encrypt() and Decrypt() functions.
 
-These functions use the Blowfish algorithm.
+These functions use the AES-128 algorithm (AES with 128-bits key)
 
 .. code-block:: ring
 
 	See "Enter a string : " give cStr
 	list = 0:15  cKey=""    for x in list cKey += char(x) next
-	list = 1:8   cIV = ""   for x in list cIV += char(x) next
-	cStr = Encrypt(cStr,cKey,cIV) 
+	list = 1:16  cIV = ""   for x in list cIV += char(x) next
+	cStr = Encrypt(cStr,cKey,cIV,"aes128") 
 	See "Cipher Text    : " + cStr + nl +
-	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV,"aes128") + nl
 
 We can write the same example using normal for loop
 
@@ -282,28 +303,42 @@ We can write the same example using normal for loop
 	next
 
 	cIV = ""   
-	for x = 1 to 8
+	for x = 1 to 16
 		cIV += char(x) 
 	next
 
 
-	cStr = Encrypt(cStr,cKey,cIV)
+	cStr = Encrypt(cStr,cKey,cIV,"aes128")
 	See "Cipher Text    : " + cStr + nl +
-	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV,"aes128") + nl
 
-Also we can write the password and the IV directly using strings
+Also we can write the key and the IV directly using strings
 
 .. code-block:: ring
 
 	See "Enter a string : " give cStr
 
-	# Note: Don't use simple password in real applications!
+	# Note: Don't use simple key in real applications!
 	cKey = "1234567890@#$%^&"		
-	cIV  = "87654321"			
+	cIV  = "FEDCBA0987654321"			
 
-	cStr = Encrypt(cStr,cKey,cIV)
+	cStr = Encrypt(cStr,cKey,cIV,"aes128")
 	See "Cipher Text    : " + cStr + nl +
-	    "Plain Text     : " + Decrypt(cStr,cKey,cIV) + nl
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV,"aes128") + nl
+
+Finally we can specify the key and the IV values using hexadecimal notation
+
+.. code-block:: ring
+
+	See "Enter a string : " give cStr
+
+	# Note: Don't use simple key in real applications!
+	cKey = hex2str("A0A1A2A3A5A6A7A8AAABACADAFB0B1B2")		
+	cIV  = hex2str("00112233445566778899AABBCCDDEEFF")			
+
+	cStr = Encrypt(cStr,cKey,cIV,"aes128")
+	See "Cipher Text    : " + cStr + nl +
+	    "Plain Text     : " + Decrypt(cStr,cKey,cIV,"aes128") + nl
 
 
 .. index:: 
@@ -346,7 +381,7 @@ Output:
 Randbytes() Function
 ====================
 
-We can generate a string of pseudo-random bytes using the Randbytes() function.
+We can generate a string of cryptographically secure pseudo-random bytes using the Randbytes() function.
 
 Syntax:
 

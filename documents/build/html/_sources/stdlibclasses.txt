@@ -1449,9 +1449,12 @@ sha256(cString)						Calculate the SHA256 hash.
 sha512(cString)						Calculate the SHA512 hash.
 sha384(cString)						Calculate the SHA384 hash.
 sha224(cString)						Calculate the SHA224 hash.
-encrypt(cString,cKey,cIV)				Encrypts the data using the Blowfish algorithm.
-decrypt(cString,cKey,cIV)				Decrypt the data encrypted using the Encrypt() method.
-randbytes(nSize)					Generate a string of pseudo-random bytes.
+encrypt(cString,cKey,cIV)				Encrypts the data using the Blowfish algorithm in CBC mode.
+decrypt(cString,cKey,cIV)				Decrypt the encrypted data using the Blowfish algorithm in CBC mode.
+encrypt_ex(cString,cKey,cIV,cCipher)			Encrypts the data using the given cipher algorithm.
+decrypt_ex(cString,cKey,cIV,cCipher)			Decrypt the encrypted data using the given cipher algorithm.
+supportedciphers()					List all supported cipher algorithms for encryption/decryption.
+randbytes(nSize)					Generate a string of cryptographically secure pseudo-random bytes.
 ======================================	======================================================================
 
 example:
