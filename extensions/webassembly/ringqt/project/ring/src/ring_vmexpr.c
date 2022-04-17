@@ -565,7 +565,7 @@ void ring_vm_notequal ( VM *pVM )
         if ( RING_VM_STACK_ISSTRING ) {
             cStr2 = RING_VM_STACK_GETSTRINGRAW ;
             /* Compare */
-            if ( strcmp(ring_string_get(cStr1),ring_string_get(cStr2)) == 0 ) {
+            if ( (ring_string_size(cStr1) == ring_string_size(cStr2)) && (memcmp(ring_string_get(cStr1), ring_string_get(cStr2), ring_string_size(cStr1)) == 0) ) {
                 RING_VM_STACK_FALSE ;
             }
             else {
