@@ -10,13 +10,18 @@
 #include "openssl/rand.h"
 #include "ring_vmopenssl.h"
 /* Functions Depend on the Library Version */
-#if OPENSSL_VERSION_NUMBER >= 0x10100000L
-/* OpenSSL 1.1 and later */
+#if OPENSSL_VERSION_NUMBER >= 0x00908000L
+/* OpenSSL 0.98 and later */
 #include "encrypt_v2.c"
 #else
 #include "encrypt_v1.c"
 #endif
 /* Functions */
+
+typedef struct ListCipherArg {
+	void *pPointer;
+	List *pList;
+} ListCipherArg;
 
 RING_LIBINIT
 {
@@ -47,6 +52,12 @@ RING_LIBINIT
 	RING_API_REGISTER("encrypt",ring_vm_openssl_encrypt);
 	RING_API_REGISTER("decrypt",ring_vm_openssl_decrypt);
 	RING_API_REGISTER("randbytes",ring_vm_openssl_randbytes);
+	RING_API_REGISTER("supportedciphers",ring_vm_openssl_list_ciphers);
+	/* Before OpenSSL 1.1, calling OpenSSL_add_all_algorithms is required */
+	/* Ref: https://wiki.openssl.org/index.php/Library_Initialization */
+	#if OPENSSL_VERSION_NUMBER < 0x10100000L
+	OpenSSL_add_all_algorithms();
+	#endif
 }
 
 static void ring_vm_openssl_buf2hex (const unsigned char* pData, int nLen, char* cStr)
@@ -610,3 +621,42 @@ void ring_vm_openssl_randbytes ( void *pPointer )
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
 }
+
+static void list_ciphers_fn(const OBJ_NAME *name, void *arg)
+{
+	const char *cStr = name->name ;
+	const EVP_CIPHER *cipher;
+    ListCipherArg* pCipherArg = (ListCipherArg*) arg;
+
+    if (!islower((unsigned char)*cStr))
+        return;
+	
+    /* Filter out ciphers that we cannot use */
+    cipher = EVP_get_cipherbyname(cStr);
+    if (cipher == NULL)
+        return;
+
+	/* add only if the string doesn't already exist in the list*/
+	if ( (ring_list_getsize(pCipherArg->pList) == 0) || (ring_list_findstring(pCipherArg->pList,cStr,0) < 1) ) {
+		ring_list_addstring_gc(((VM *) pCipherArg->pPointer)->pRingState,pCipherArg->pList,cStr);
+	}
+
+}
+
+void ring_vm_openssl_list_ciphers ( void *pPointer )
+{
+	List *pList  ;
+	ListCipherArg cipherArg;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	else {
+		pList = RING_API_NEWLIST ;
+		cipherArg.pList = pList;
+		cipherArg.pPointer = pPointer;
+		OBJ_NAME_do_all_sorted(OBJ_NAME_TYPE_CIPHER_METH, list_ciphers_fn, &cipherArg);
+		RING_API_RETLIST(pList);
+	}
+}
+

@@ -58,6 +58,8 @@ void ring_vm_openssl_encrypt ( void *pPointer ) ;
 void ring_vm_openssl_decrypt ( void *pPointer ) ;
 
 void ring_vm_openssl_randbytes ( void *pPointer ) ;
+
+void ring_vm_openssl_list_ciphers ( void *pPointer ) ;
 /* Constants */
 #define RING_VM_POINTER_OPENSSL "openssl"
 #endif

@@ -469,9 +469,18 @@ Func std_sha224 cString
 
 Func std_encrypt cString,cKey,cIV
 	return encrypt(cString,cKey,cIV)
+	
+Func std_encrypt_ex cString,cKey,cIV,cCipher
+	return encrypt(cString,cKey,cIV,cCipher)
 
 Func std_decrypt cString,cKey,cIV
 	return decrypt(cString,cKey,cIV)
+	
+Func std_decrypt_ex cString,cKey,cIV,cCipher
+	return decrypt(cString,cKey,cIV,cCipher)
+
+Func std_supportedciphers
+	return supportedciphers()
 
 Func std_randbytes nSize
 	return randbytes(nSize)
