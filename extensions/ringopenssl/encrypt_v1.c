@@ -1,4 +1,4 @@
-/* Versions before OpenSSL 1.1 */
+/* Versions before OpenSSL 0.98 */
 
 void ring_vm_openssl_encrypt ( void *pPointer )
 {
