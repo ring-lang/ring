@@ -57,6 +57,9 @@ RING_LIBINIT
 	/* Ref: https://wiki.openssl.org/index.php/Library_Initialization */
 	#if OPENSSL_VERSION_NUMBER < 0x10100000L
 	OpenSSL_add_all_algorithms();
+    #else
+    /* Ref: https://www.openssl.org/docs/man1.1.1/man3/OPENSSL_init_crypto.html */
+    OPENSSL_init_crypto(OPENSSL_INIT_ADD_ALL_CIPHERS | OPENSSL_INIT_ADD_ALL_DIGESTS | OPENSSL_INIT_LOAD_CRYPTO_STRINGS, NULL);
 	#endif
 }
 
