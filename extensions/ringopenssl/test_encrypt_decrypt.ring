@@ -60,8 +60,10 @@ aes128_cbc_vectors = [
 aes128_cfb_vectors = [
 	[:key = hex2str("2B7E151628AED2A6ABF7158809CF4F3C"),:data = hex2str("6BC1BEE22E409F96E93D7E117393172AAE2D8A571E03AC9C9EB76FAC45AF8E5130C81C46A35CE411E5FBC1191A0A52EFF69F2445DF4F9B17AD2B417BE66C3710"),:iv = hex2str("000102030405060708090A0B0C0D0E0F"), :result = hex2str("3B3FD92EB72DAD20333449F8E83CFB4AC8A64537A0B3A93FCDE3CDAD9F1CE58B26751F67A3CBB140B1808CF187A4F4DFC04B05357C5D1C0EEAC4C66F9FF7F2E6")]]
 
+// OpenSSL 1.1.1 rejects duplicated XTS keys, so we ensure that our test vectors follow this
+// https://github.com/openssl/openssl/blob/c39352/crypto/evp/e_aes.c#L3119
 aes128_xts_vectors = [
-	[:key = hex2str("0000000000000000000000000000000000000000000000000000000000000000"),:data = hex2str("0000000000000000000000000000000000000000000000000000000000000000"),:iv = hex2str("00000000000000000000000000000000"), :result = hex2str("917CF69EBD68B2EC9B9FE9A3EADDA692CD43D2F59598ED858C02C2652FBF922E")],
+	[:key = hex2str("1111111111111111111111111111111122222222222222222222222222222222"),:data = hex2str("4444444444444444444444444444444444444444444444444444444444444444"),:iv = hex2str("33333333330000000000000000000000"), :result = hex2str("C454185E6A16936E39334038ACEF838BFB186FFF7480ADC4289382ECD6D394F0")],
 	[:key = hex2str("FFFEFDFCFBFAF9F8F7F6F5F4F3F2F1F022222222222222222222222222222222"),:data = hex2str("4444444444444444444444444444444444444444444444444444444444444444"),:iv = hex2str("33333333330000000000000000000000"), :result = hex2str("AF85336B597AFC1A900B2EB21EC949D292DF4C047E0B21532186A5971A227A89")],
 	[:key = hex2str("a1b90cba3f06ac353b2c343876081762090923026e91771815f29dab01932f2f"),:data = hex2str("ebabce95b14d3c8d6fb350390790311c"),:iv = hex2str("4faef7117cda59c66e4b92013e768ad5"), :result = hex2str("778ae8b43cb98d5a825081d5be471c63")]]
 
@@ -160,17 +162,22 @@ func ValidateTestVectors (cipherName, testDescription, testVectors)
 		count = Len(testVectors)
 		for i=1 to count
 			vect = testVectors[i]
-			encryptResult = encrypt(vect[:data], vect[:key], vect[:iv], cipherName)
-			if isnull(cipherName)
-				/* we check that not specifying cipherName is equivalent to passing NULL */
-				encryptResult2 = encrypt(vect[:data], vect[:key], vect[:iv])
+			/* catch any internal failure */
+			try
+				encryptResult = encrypt(vect[:data], vect[:key], vect[:iv], cipherName)
+				if isnull(cipherName)
+					/* we check that not specifying cipherName is equivalent to passing NULL */
+					encryptResult2 = encrypt(vect[:data], vect[:key], vect[:iv])
 
-				if encryptResult != encryptResult2
-					See testDescription + " failing encryption test with NULL cipherName" + nl
-					testResult="FAILED"
-					exit
+					if encryptResult != encryptResult2
+						See testDescription + " failing encryption test with NULL cipherName" + nl
+						testResult="FAILED"
+						exit
+					ok
 				ok
-			ok
+			catch
+				encryptResult = ""
+			done
 
 			if encryptResult != vect[:result]
 				See testDescription + " failing encryption test vector: " + nl
@@ -183,18 +190,23 @@ func ValidateTestVectors (cipherName, testDescription, testVectors)
 				exit 
 			ok
 			
-			/* here we test passing cipherName as NULL */
-			decryptResult = decrypt(vect[:result], vect[:key], vect[:iv], cipherName)
-			if isnull(cipherName)
-				/* we check that not specifying cipherName is equivalent to passing NULL */
-				decryptResult2 = decrypt(vect[:result], vect[:key], vect[:iv])
+			/* catch any internal failure */
+			try
+				/* here we test passing cipherName as NULL */
+				decryptResult = decrypt(vect[:result], vect[:key], vect[:iv], cipherName)
+				if isnull(cipherName)
+					/* we check that not specifying cipherName is equivalent to passing NULL */
+					decryptResult2 = decrypt(vect[:result], vect[:key], vect[:iv])
 
-				if decryptResult != decryptResult2
-					See testDescription + " failing decryption test with NULL cipherName" + nl
-					testResult="FAILED"
-					exit
+					if decryptResult != decryptResult2
+						See testDescription + " failing decryption test with NULL cipherName" + nl
+						testResult="FAILED"
+						exit
+					ok
 				ok
-			ok
+			catch
+				decryptResult = ""
+			done
 
 			if decryptResult != vect[:data]
 				See testDescription + " failing decryption test vector: " + nl
