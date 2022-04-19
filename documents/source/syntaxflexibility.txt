@@ -591,6 +591,35 @@ Example:
 	}
 
 .. index:: 
+	pair: Syntax Flexibility; Using 'break'/'continue' keywords
+
+Using 'break'/'continue' keywords
+=================================
+
+Instead of using Exit/Loop commands we can use Break/Continue
+
+Example:
+
+.. code-block:: ring
+
+	for t=1 to 10 {
+		if t=3 {
+			continue
+		elseif t=5
+			break
+		}
+		? t
+	}
+
+Output:
+
+.. code-block:: none
+
+	1
+	2
+	4
+
+.. index:: 
 	pair: Syntax Flexibility; Using 'end' keyword after Packages/Classes/Functions
 
 Using 'end' keyword after Packages/Classes/Functions
@@ -613,6 +642,45 @@ Example:
 			end
 		end
 	end
+
+.. index:: 
+	pair: Syntax Flexibility; Using 'function'/'endfunction' keywords
+
+Using 'function'/'endfunction' keywords
+=======================================
+
+Example:
+
+.. code-block:: ring
+
+	one() two() three()
+	function one 
+		? :one 
+	endfunction
+	function two
+		? :two
+	endfunction
+	function three
+		? :three
+	endfunction
+
+
+.. index:: 
+	pair: Syntax Flexibility; Using 'endif'/'endfor'/'endwhile'/'endswitch'/'endtry' keywords
+
+Using 'endif'/'endfor'/'endwhile'/'endswitch'/'endtry' keywords
+===============================================================
+
+Example:
+
+.. code-block:: ring
+
+	for t=1 to 10 
+		if t=3 
+			? :three
+		endif
+	endfor
+
 
 .. index:: 
 	pair: Syntax Flexibility; Using 'endpackage'/'endclass'/'endfunc' keywords after Packages/Classes/Functions
