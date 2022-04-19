@@ -56,6 +56,7 @@ void ring_vm_refmeta_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("ringvm_callfunc",ring_vm_refmeta_ringvmcallfunc);
     RING_API_REGISTER("ringvm_info",ring_vm_refmeta_ringvminfo);
     RING_API_REGISTER("ringvm_genarray",ring_vm_refmeta_ringvmgenarray);
+    RING_API_REGISTER("ringvm_codelist",ring_vm_refmeta_ringvmcodelist);
 }
 /* Functions */
 
@@ -1177,4 +1178,15 @@ void ring_vm_refmeta_ringvmgenarray ( void *pPointer )
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);
     }
+}
+
+void ring_vm_refmeta_ringvmcodelist ( void *pPointer )
+{
+    VM *pVM  ;
+    List *pList  ;
+    pVM = (VM *) pPointer ;
+    pList = ring_list_new_gc(pVM->pRingState,0);
+    ring_list_copy_gc(pVM->pRingState,pList,pVM->pCode);
+    RING_API_RETLIST(pList);
+    ring_list_delete_gc(pVM->pRingState,pList);
 }

@@ -99,4 +99,6 @@
     void ring_vm_refmeta_ringvminfo ( void *pPointer ) ;
 
     void ring_vm_refmeta_ringvmgenarray ( void *pPointer ) ;
+
+    void ring_vm_refmeta_ringvmcodelist ( void *pPointer ) ;
 #endif
