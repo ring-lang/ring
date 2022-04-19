@@ -591,6 +591,7 @@ More Improvements
 * Ring VM - ring_vm_range() function - Better Code
 * Ring VM - ring_vm_string_assignment() function - Better Code
 * Ring VM - ring_vm_notequal() function - Better Code
+* Ring VM - ring_item_getnumber() - support different types (int/double) 
 * Ring Compiler - Better Code - Using ring_general_addosfileseparator()
 * Ring Compiler - Better Code - Using ring_general_folderexistinfilename()
 * Ring Compiler - ring_scanner_checktoken() - Faster & Better Code
