@@ -89,3 +89,4 @@ ring_item_setdouble
 ring_item_setpointer
 ring_item_setint
 ring_item_setstring2
+ring_item_getnumber

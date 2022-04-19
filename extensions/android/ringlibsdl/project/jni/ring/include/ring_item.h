@@ -36,7 +36,6 @@
     #define ITEM_NUMBERFLAG_DOUBLE 2
     /* Macro */
     #define ring_item_getstring(x) x->data.pString
-    #define ring_item_getnumber(x) x->data.dNumber
     #define ring_item_getdouble(x) x->data.dNumber
     #define ring_item_getint(x) x->data.iNumber
     #define ring_item_getlist(x) x->data.pList
@@ -131,4 +130,7 @@
     RING_API void ring_item_setint ( Item *pItem,int x ) ;
 
     RING_API void ring_item_setstring2 ( Item *pItem,const char *cStr,int nStrSize ) ;
+    /* Functions to deal with numbers (int/double) */
+
+    RING_API double ring_item_getnumber ( Item *pItem ) ;
 #endif

@@ -284,3 +284,14 @@ RING_API void ring_item_setstring2 ( Item *pItem,const char *cStr,int nStrSize )
 {
     ring_item_setstring2_gc(NULL,pItem,cStr,nStrSize);
 }
+/* Functions to deal with Numbers (int/double) */
+
+RING_API double ring_item_getnumber ( Item *pItem )
+{
+    if ( pItem->NumberFlag == ITEM_NUMBERFLAG_INT ) {
+        return (double) pItem->data.iNumber ;
+    }
+    else {
+        return pItem->data.dNumber ;
+    }
+}
