@@ -288,3 +288,8 @@ pList
 ring_vm_refmeta_ringvmgenarray
 Type: VM *
 pVM
+ring_vm_refmeta_ringvmcodelist
+Type: VM *
+pVM
+Type: List *
+pList
