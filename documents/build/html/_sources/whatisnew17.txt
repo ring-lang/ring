@@ -578,6 +578,7 @@ More Improvements
 * SetPointer()/GetPointer() functions - Better Code
 * Fexists() function - Support UTF-8 file names
 * GetFileSize() function - Get the file size without requiring any I/O
+* ringvm_codelist() function - Return the Byte Code of the current program
 * Ring VM - Better code when copying lists
 * Ring VM - ICO_JUMPZ Instruction - Treat empty lists as Zero
 * Ring VM - ICO_JUMPZ Instruction - Treat empty strings (NULL) as Zero
