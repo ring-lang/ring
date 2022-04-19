@@ -110,23 +110,26 @@ aGraphicDesigners = [
 					
 				  ]
 ]
+aTutorials = [
+		[
+			'Sara Hamdy Mohamed',
+			'Tutorials'
+		],
+		[
+			'Alaa Mohammed Elockle',
+			'Tutorials'
+		],
+		[
+			'Amr Essam',
+			'Tutorials'
+		]
+]
+
 aTeam2 = [
 				  [
 					'Mohammed Fayed',
 					'Domain'								
 				  ],
-					[
-						'Sara Hamdy Mohamed',
-						'Tutorials'
-					],
-					[
-						'Alaa Mohammed Elockle',
-						'Tutorials'
-					],
-					[
-						'Amr Essam',
-						'Tutorials'
-					],
 				  [
 					'Magdy Ragab',
 					'Tester'				
