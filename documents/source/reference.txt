@@ -88,7 +88,7 @@ Keywords Count : 58
 Language Functions
 ==================
 
-Functions Count : 244
+Functions Count : 245
 
 .. code-block:: ring
 
@@ -282,6 +282,7 @@ Functions Count : 244
         ringvm_calllist()
         ringvm_cfunctionslist()
         ringvm_classeslist()
+	ringvm_codelist()
         ringvm_evalinscope()
         ringvm_fileslist()
         ringvm_functionslist()
