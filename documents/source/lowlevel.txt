@@ -40,6 +40,7 @@ In this chapter we will learn about the low level functions provided by Ring
 	* ringvm_see()
 	* ringvm_give()
 	* ringvm_info()
+	* ringvm_codelist()
 
 .. index:: 
 	pair: Low Level Functions; callgc()
@@ -1607,6 +1608,18 @@ Output:
 	Hello Mahmoud
 
 .. index:: 
+	pair: Low Level Functions; RingVM_CodeList()
+
+ringvm_codelist() function
+==========================
+
+The Function return a list contains the Byte Code of the current program.
+
+Each item is a sub list that represent an instruction
+
+This sub list starts with the operation code (A Number) then the parameters
+
+.. index:: 
 	pair: Low Level Functions; ringvm_info()
 
 ringvm_info() function
@@ -1621,4 +1634,3 @@ Syntax:
 .. code-block:: ring
 
 	ringvm_info() ---> List of information about the VM structure
-
