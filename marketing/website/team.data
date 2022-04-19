@@ -75,11 +75,6 @@ aGraphicDesigners = [
 					
 				  ],			
 				  [
-					'Ahmad Fayed',
-					'Graphic Designer'
-					
-				  ],				  
-				  [
 					'Muhammad Wael',
 					'Graphic Designer'
 					
@@ -125,11 +120,18 @@ aTutorials = [
 		]
 ]
 
+aSuccessPartners = [
+			[
+				'Mohammed Fayed',
+				'Ring Domain'								
+			],
+			[
+				'Ahmad Fayed',
+				'Ring Logo'		
+			]			
+]
+
 aTeam2 = [
-				  [
-					'Mohammed Fayed',
-					'Domain'								
-				  ],
 				  [
 					'Magdy Ragab',
 					'Tester'				
