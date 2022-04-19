@@ -68,23 +68,7 @@ aTopContributors = [
                     'RayLib Master'                    
 		  ]
 ]
-aTeam2 = [
-				  [
-					'Mohammed Fayed',
-					'Domain'								
-				  ],
-					[
-						'Sara Hamdy Mohamed',
-						'Tutorials'
-					],
-					[
-						'Alaa Mohammed Elockle',
-						'Tutorials'
-					],
-					[
-						'Amr Essam',
-						'Tutorials'
-					],
+aGraphicDesigners = [
 				  [
 					'Mohammed Ali Haggag',
 					'Graphic Designer'
@@ -124,7 +108,25 @@ aTeam2 = [
 					'Nouran M. Radwan',
 					'Graphic Designer'
 					
+				  ]
+]
+aTeam2 = [
+				  [
+					'Mohammed Fayed',
+					'Domain'								
 				  ],
+					[
+						'Sara Hamdy Mohamed',
+						'Tutorials'
+					],
+					[
+						'Alaa Mohammed Elockle',
+						'Tutorials'
+					],
+					[
+						'Amr Essam',
+						'Tutorials'
+					],
 				  [
 					'Magdy Ragab',
 					'Tester'				
