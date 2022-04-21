@@ -113,7 +113,7 @@ Functions Count : 245
         callgc()
         ceil(x) ---> The smallest integer value greater than or equal to x
         cfunctions()
-        char()
+        char(ASCII Code) ---> character
         chdir()
         checkoverflow()
         classes()
@@ -127,7 +127,7 @@ Functions Count : 245
         cosh(x) ---> The hyperbolic cosine of x radians
         currentdir()
         date() ---> String represent the date "dd/mm/yyyy"
-        dec()
+        dec(hexadecimal) ---> decimal
         decimals(n) ---> Determine the decimals digits after the point in float/double numbers
         del()
         diffdays(cDate1,cDate2) ---> number of days (Date1 - Date2)
@@ -171,48 +171,48 @@ Functions Count : 245
         getptr()
 	getstring()
         globals()
-        hex()
-        hex2str()
+        hex(decimal) ---> hexadecimal
+        hex2str(Hexadecimal string) ---> string
         input()
         insert()
         int2bytes()
         intvalue()
-        isalnum()
-        isalpha()
+        isalnum(value) ---> 1 if the value is digit/letter or 0 if not
+        isalpha(value) ---> 1 if the value is a letter or 0 if not
         isandroid()
         isattribute()
         iscfunction()
         isclass()
-        iscntrl()
-        isdigit()
+        iscntrl(value) ---> 1 if the value is a control character or 0 if not
+        isdigit(value) ---> 1 if the value is a digit or 0 if not
         isfreebsd()
         isfunction()
         isglobal()
-        isgraph()
+        isgraph(value) ---> 1 if the value can be printed (Except space) or 0 if not
         islinux()
-        islist()
+        islist(value) ---> 1 if the value is a list or 0 if not
         islocal()
-        islower()
+        islower(value) ---> 1 if the value is lowercase letter or 0 if not
         ismacosx()
         ismethod()
         ismsdos()
-        isnull()
-        isnumber()
+        isnull(value) ---> 1 if the value is NULL or 0 if not
+        isnumber(value) ---> 1 if the value is a number or 0 if not
         isobject()
         ispackage()
         ispackageclass()
         ispointer()
-        isprint()
+        isprint(value) ---> 1 if the value occupies a printing position or 0 if not
         isprivateattribute()
         isprivatemethod()
-        ispunct()
-        isspace()
-        isstring()
+        ispunct(value) ---> 1 if the value is a punctuation character or 0 if not
+        isspace(value) ---> 1 if the value is a white-space or 0 if not
+        isstring(value) ---> 1 if the value is a string or 0 if not
         isunix()
-        isupper()
+        isupper(value) ---> 1 if the value is an uppercase alphabetic letter or 0 if not
         iswindows()
         iswindows64()
-        isxdigit()
+        isxdigit(value) ---> 1 if the value is a hexadecimal digit character or 0 if not
         left()
         len()
         lines()
@@ -235,7 +235,7 @@ Functions Count : 245
         nofprocessors()
         nullpointer()
         nullptr()
-        number()
+        number(string) ---> Number
         obj2ptr()
         object2pointer()
         objectid()
@@ -310,11 +310,11 @@ Functions Count : 245
         space()
         sqrt(x) ---> The square root of x
         srandom(x) ---> Initialize random number generator
-        str2hex()
+        str2hex(string) ---> hexadecimal string
         str2hexcstyle()
         str2list()
         strcmp()
-        string()
+        string(number) ---> String
         substr()
         swap()
         sysget()
@@ -328,7 +328,7 @@ Functions Count : 245
         time() ---> The system time as String
         timelist() ---> List contains the time and date information.
         trim()
-        type()
+        type(value) ---> The Type as String
         ungetc()
         unsigned(nNum1,nNum2,cOperator) ---> Perform operation using unsigned numbers
         upper()
