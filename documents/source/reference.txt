@@ -97,8 +97,8 @@ Functions Count : 245
         addattribute(Object,cAttributeName|aAttributesList)
         adddays(cDate,nDays) ---> Date from cDate and after nDays
         addmethod(Object,cNewMethodName,cMethodName|AnonymousFunction)
-        addsublistsbyfastcopy()
-        addsublistsbymove()
+        addsublistsbyfastcopy(lFlag)
+        addsublistsbymove(lFlag)
         ascii(character) ---> ASCII Code
         asin(x) ---> The principal value of the arc sine of x, expressed in radians
         assert(condition)
@@ -116,13 +116,13 @@ Functions Count : 245
         cfunctions() ---> a list contains functions names
         char(ASCII Code) ---> character
         chdir(cNewPath)
-        checkoverflow()
+        checkoverflow(lFlag)
         classes() ---> a list contains classes names
         classname(object) ---> Returns the object class name
         clearerr(FileHandle)
         clock() ---> The number of clock ticks from program start
         clockspersecond() ---> Number of clocks in one second
-        closelib()
+        closelib(pDLL)
 	copy(string,nCount) ---> string replicated nCount times
         cos(x) ---> The cosine of an angle of x radians
         cosh(x) ---> The hyperbolic cosine of x radians
@@ -179,7 +179,7 @@ Functions Count : 245
         input(nCount) ---> string
 	insert(List,Index,Item)
         int2bytes(nNumber) ---> cBytes
-        intvalue()
+        intvalue(cVariableName)
         isalnum(value) ---> 1 if the value is digit/letter or 0 if not
         isalpha(value) ---> 1 if the value is a letter or 0 if not
         isandroid() ---> Returns 1 if the operating system is Android, Returns 0 if it's not
@@ -220,25 +220,29 @@ Functions Count : 245
 	len(string) ---> String length
         len(List) ---> The list size
 	lines(string) ---> Number of lines inside the string
-        list()
+        list(nSize) ---> aList
+        list(nRows,nCols) ---> aList
 	list2str(list) ---> string contains the list items
-        loadlib()
+        loadlib(cDLLFileName) ---> pDLL
         locals() ---> a list contains the variables names in the current scope
         log(x) ---> The natural logarithm of x (the base of e)
 	log(x,b) ---> The logarithm of x to the base of b
         log10(x) ---> The common logarithm (base-10 logarithm) of x
 	lower(string) ---> convert string letters to lower c
-        max()
+        max(nNumber1,nNumber) ---> Maximum number
+        max(aList) ---> Maximum number inside the list
         memcpy(pDestinationPointer,cSourceString,nSize)
         memorycopy(pDestinationPointer,cSourceString,nSize)
         mergemethods(cClassNameDestination,cClassNameSource)
         methods(object) ---> Returns a list contains the object methods
-        min()
-        murmur3hash()
-        newlist()
+        min(nNumber,nNumber2) ---> Minimum number
+	min(aList) ---> Minimum number inside the list
+        murmur3hash(cString,nNumber) ---> nNumber
+        newlist(nSize) ---> aList
+        newlist(nRows,nCols) ---> aList
         nofprocessors() ---> nProcessors
-        nullpointer()
-        nullptr()
+        nullpointer() ---> pPointer
+        nullptr() ---> pPointer
         number(string) ---> Number
         obj2ptr(List|Object) --> Low Level Object ( C Pointer )
         object2pointer(List|Object) --> Low Level Object ( C Pointer )
@@ -253,22 +257,22 @@ Functions Count : 245
         pow(x,y) ---> x raised to the power of y
         prevfilename() ---> String contains the previous source file name.
 	print(cString)
-	print2str()
+	print2str(cString) ---> String
         ptr2obj(Low Level Object) ---> List|Object     
         ptr2str(pointer,nStart,nCount) ---> cString   
         ptrcmp(oObject1,oObject2) ---> lResult
 	puts(cString)
         raise(cErrorMessage)
         random(x) ---> A random number in the range [0,x]
-        randomize()
+        randomize(nNumber) ---> nNumber
 	read(cFileName) ---> String contains the file content
 	Remove(cFileName)
 	rename(cOldFileName,cNewFileName) ---> Zero for Success or -1 for Error
 	reverse(List) ---> Reversed List
         rewind(FileHandle)
 	right(string,count) ---> get characters starting from the right
-        ring_give()
-        ring_see()
+        ring_give(cVariable)
+        ring_see(cMessage)
         ring_state_delete(oState)
         ring_state_filetokens(oState,cRingFileName) ---> aTokens
         ring_state_findvar(oState,cVariableName) ---> aVariableList
@@ -318,7 +322,7 @@ Functions Count : 245
         sqrt(x) ---> The square root of x
         srandom(x) ---> Initialize random number generator
         str2hex(string) ---> hexadecimal string
-        str2hexcstyle()
+        str2hexcstyle(string) ---> hexadecimal string
 	str2list(string) ---> list contains the string lines
 	strcmp(cString1,cString2) ---> value = 0 if cString1 = cString2
         string(number) ---> String
@@ -327,7 +331,7 @@ Functions Count : 245
 	substr(string,position,count)  ---> Get characters starting from position
 	substr(string,substring,newsubstring)  ---> Transformed string (Match case)
 	substr(string,substring,newsubstring,1) ---> Transformed string (Ignore case)
-        swap()
+        swap(aList,nItem1,nItem2)
         sysget(cVariable)
         sysset(cVariable,cValue) ---> Returns 1 for success and return 0 for failure
         system(cCommand)
@@ -343,7 +347,7 @@ Functions Count : 245
         ungetc(FileHandle,character)
         unsigned(nNum1,nNum2,cOperator) ---> Perform operation using unsigned numbers
 	upper(string) ---> convert string letters to UPPER case
-        uptime()
+        uptime() ---> nTime
         variablepointer(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
         varptr(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
         version() ---> String contains the Ring version

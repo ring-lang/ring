@@ -15,7 +15,7 @@ In this chapter we will learn about the low level functions provided by Ring
 	* nullpointer()		| nullptr()
 	* object2pointer()	| obj2ptr()
 	* pointer2object()	| ptr2obj()
-	* ispointer()		| isptr()
+	* ispointer()
 	* pointercompare()	| ptrcmp()
 	* setpointer()		| setptr()
 	* getpointer()		| getptr()
@@ -308,7 +308,6 @@ Syntax:
 
 .. code-block:: none
 
-	IsPtr(vPara) ---> True|False		# Short name
 	IsPointer(vPara) ---> True|False	# Long name	
 
 Example :
