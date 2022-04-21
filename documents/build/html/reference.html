@@ -434,8 +434,8 @@
 <span class="n">getfilesize</span><span class="p">(</span><span class="n">cFilePath</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nSize</span>
 <span class="n">getnumber</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Number</span>
 <span class="n">getpathtype</span><span class="p">(</span><span class="n">cPath</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nStatus</span>
-<span class="n">getpointer</span><span class="p">()</span>
-<span class="n">getptr</span><span class="p">()</span>
+<span class="n">getpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>
+<span class="n">getptr</span><span class="p">(</span><span class="n">pointer</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nAddress</span>
 <span class="n">getstring</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span>
 <span class="n">globals</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">variables</span> <span class="n">names</span> <span class="k">in</span> <span class="n">the</span> <span class="n">global</span> <span class="n">scope</span>
 <span class="n">hex</span><span class="p">(</span><span class="n">decimal</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">hexadecimal</span>
@@ -468,7 +468,7 @@
 <span class="n">isobject</span><span class="p">(</span><span class="n">variable</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="kp">True</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s an object, False if it&#39;</span><span class="n">s</span> <span class="ow">not</span>
 <span class="n">ispackage</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">Package</span> <span class="n">is</span> <span class="n">defined</span>
 <span class="n">ispackageclass</span><span class="p">(</span><span class="n">cPackageName</span><span class="p">,</span><span class="n">cClassName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="k">Class</span> <span class="n">is</span> <span class="n">defined</span>
-<span class="n">ispointer</span><span class="p">()</span>
+<span class="n">ispointer</span><span class="p">(</span><span class="n">vPara</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kp">True</span><span class="o">|</span><span class="kp">False</span>
 <span class="n">isprint</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">occupies</span> <span class="n">a</span> <span class="n">printing</span> <span class="n">position</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">isprivateattribute</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">lResult</span>
 <span class="n">isprivatemethod</span><span class="p">(</span><span class="n">object</span><span class="p">,</span><span class="n">cMethodName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">lResult</span>
@@ -493,8 +493,8 @@
 <span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">common</span> <span class="n">logarithm</span> <span class="p">(</span><span class="n">base</span><span class="o">-</span><span class="mi">10</span> <span class="n">logarithm</span><span class="p">)</span> <span class="n">of</span> <span class="n">x</span>
 <span class="n">lower</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">convert</span> <span class="kt">string</span> <span class="n">letters</span> <span class="k">to</span> <span class="n">lower</span> <span class="n">c</span>
 <span class="n">max</span><span class="p">()</span>
-<span class="n">memcpy</span><span class="p">()</span>
-<span class="n">memorycopy</span><span class="p">()</span>
+<span class="n">memcpy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>
+<span class="n">memorycopy</span><span class="p">(</span><span class="n">pDestinationPointer</span><span class="p">,</span><span class="n">cSourceString</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>
 <span class="n">mergemethods</span><span class="p">(</span><span class="n">cClassNameDestination</span><span class="p">,</span><span class="n">cClassNameSource</span><span class="p">)</span>
 <span class="n">methods</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">object</span> <span class="n">methods</span>
 <span class="n">min</span><span class="p">()</span>
@@ -504,23 +504,23 @@
 <span class="n">nullpointer</span><span class="p">()</span>
 <span class="n">nullptr</span><span class="p">()</span>
 <span class="n">number</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span>
-<span class="n">obj2ptr</span><span class="p">()</span>
-<span class="n">object2pointer</span><span class="p">()</span>
+<span class="n">obj2ptr</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>
+<span class="n">object2pointer</span><span class="p">(</span><span class="kt">List</span><span class="o">|</span><span class="n">Object</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span> <span class="n">C</span> <span class="n">Pointer</span> <span class="p">)</span>
 <span class="n">objectid</span><span class="p">(</span><span class="n">object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">object</span> <span class="n">id</span>
 <span class="n">packageclasses</span><span class="p">()</span> <span class="n">cPackageName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">classes</span> <span class="n">names</span> <span class="n">inside</span> <span class="n">the</span> <span class="n">package</span>
 <span class="n">packagename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="n">the</span> <span class="n">package</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">latest</span> <span class="n">successful</span> <span class="k">import</span>
 <span class="n">packages</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">a</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">packages</span> <span class="n">names</span>
 <span class="n">perror</span><span class="p">(</span><span class="n">cErrorMessage</span><span class="p">)</span>
-<span class="n">pointer2object</span><span class="p">()</span>
-<span class="n">pointer2string</span><span class="p">()</span>
-<span class="n">pointercompare</span><span class="p">()</span>
+<span class="n">pointer2object</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span><span class="o">|</span><span class="n">Object</span>
+<span class="n">pointer2string</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>
+<span class="n">pointercompare</span><span class="p">(</span><span class="n">oObject1</span><span class="p">,</span><span class="n">oObject2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">lResult</span>
 <span class="n">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">x</span> <span class="n">raised</span> <span class="k">to</span> <span class="n">the</span> <span class="n">power</span> <span class="n">of</span> <span class="n">y</span>
 <span class="n">prevfilename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">source</span> <span class="n">file</span> <span class="n">name</span><span class="p">.</span>
 <span class="n">print</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span>
 <span class="n">print2str</span><span class="p">()</span>
-<span class="n">ptr2obj</span><span class="p">()</span>
-<span class="n">ptr2str</span><span class="p">()</span>
-<span class="n">ptrcmp</span><span class="p">()</span>
+<span class="n">ptr2obj</span><span class="p">(</span><span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span><span class="o">|</span><span class="n">Object</span>
+<span class="n">ptr2str</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nStart</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cString</span>
+<span class="n">ptrcmp</span><span class="p">(</span><span class="n">oObject1</span><span class="p">,</span><span class="n">oObject2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">lResult</span>
 <span class="n">puts</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span>
 <span class="n">raise</span><span class="p">(</span><span class="n">cErrorMessage</span><span class="p">)</span>
 <span class="n">random</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">A</span> <span class="n">random</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">range</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="o">]</span>
@@ -548,37 +548,37 @@
 <span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">Value</span><span class="p">)</span>
 <span class="n">ring_state_stringtokens</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cRingFileName</span><span class="p">)</span>
 <span class="n">ring_state_stringtokens</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cRingFileName</span><span class="p">,</span><span class="n">lCaseSensitive</span><span class="p">)</span>
-<span class="n">ringvm_callfunc</span><span class="p">()</span>
-<span class="n">ringvm_calllist</span><span class="p">()</span>
-<span class="n">ringvm_cfunctionslist</span><span class="p">()</span>
-<span class="n">ringvm_classeslist</span><span class="p">()</span>
-<span class="n">ringvm_codelist</span><span class="p">()</span>
-<span class="n">ringvm_evalinscope</span><span class="p">()</span>
-<span class="n">ringvm_fileslist</span><span class="p">()</span>
-<span class="n">ringvm_functionslist</span><span class="p">()</span>
-<span class="n">ringvm_genarray</span><span class="p">()</span>
-<span class="n">ringvm_give</span><span class="p">()</span>
-<span class="n">ringvm_hideerrormsg</span><span class="p">()</span>
-<span class="n">ringvm_info</span><span class="p">()</span>
-<span class="n">ringvm_memorylist</span><span class="p">()</span>
-<span class="n">ringvm_packageslist</span><span class="p">()</span>
+<span class="n">ringvm_callfunc</span><span class="p">(</span><span class="n">cFuncName</span><span class="p">)</span>
+<span class="n">ringvm_calllist</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<span class="n">ringvm_cfunctionslist</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<span class="n">ringvm_classeslist</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<span class="n">ringvm_codelist</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<span class="n">ringvm_evalinscope</span><span class="p">(</span><span class="n">nScope</span><span class="p">,</span><span class="n">cCode</span><span class="p">)</span>
+<span class="n">ringvm_fileslist</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<span class="n">ringvm_functionslist</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<span class="n">ringvm_genarray</span><span class="p">(</span><span class="n">aList</span><span class="p">)</span>
+<span class="n">ringvm_give</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">)</span>
+<span class="n">ringvm_hideerrormsg</span><span class="p">(</span><span class="n">lStatus</span><span class="p">)</span>
+<span class="n">ringvm_info</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">of</span> <span class="n">information</span> <span class="n">about</span> <span class="n">the</span> <span class="n">VM</span> <span class="n">structure</span>
+<span class="n">ringvm_memorylist</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
+<span class="n">ringvm_packageslist</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span>
 <span class="n">ringvm_passerror</span><span class="p">()</span>
-<span class="n">ringvm_scopescount</span><span class="p">()</span>
-<span class="n">ringvm_see</span><span class="p">()</span>
-<span class="n">ringvm_settrace</span><span class="p">()</span>
-<span class="n">ringvm_tracedata</span><span class="p">()</span>
-<span class="n">ringvm_traceevent</span><span class="p">()</span>
-<span class="n">ringvm_tracefunc</span><span class="p">()</span>
+<span class="n">ringvm_scopescount</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nScopes</span>
+<span class="n">ringvm_see</span><span class="p">(</span><span class="n">cMessage</span><span class="p">)</span>
+<span class="n">ringvm_settrace</span><span class="p">(</span><span class="n">cCode</span><span class="p">)</span>
+<span class="n">ringvm_tracedata</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">aDataList</span>
+<span class="n">ringvm_traceevent</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nTraceEvent</span>
+<span class="n">ringvm_tracefunc</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">cCode</span>
 <span class="n">setattribute</span><span class="p">(</span><span class="n">oObject</span><span class="p">,</span><span class="n">cAttributeName</span><span class="p">,</span><span class="n">Value</span><span class="p">)</span>
-<span class="n">setpointer</span><span class="p">()</span>
-<span class="n">setptr</span><span class="p">()</span>
+<span class="n">setpointer</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>
+<span class="n">setptr</span><span class="p">(</span><span class="n">pointer</span><span class="p">,</span><span class="n">nNewAddress</span><span class="p">)</span>
 <span class="n">shutdown</span><span class="p">(</span><span class="n">nStatus</span><span class="p">)</span>
 <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">sine</span> <span class="n">of</span> <span class="n">an</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">hyperbolic</span> <span class="n">sine</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">sort</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span>
 <span class="n">sort</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">nColumn</span>
 <span class="n">sort</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">Object</span> <span class="n">Attribute</span>
-<span class="n">space</span><span class="p">()</span>
+<span class="n">space</span><span class="p">(</span><span class="n">nBytesCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span>
 <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">square</span> <span class="n">root</span> <span class="n">of</span> <span class="n">x</span>
 <span class="n">srandom</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Initialize</span> <span class="n">random</span> <span class="n">number</span> <span class="n">generator</span>
 <span class="n">str2hex</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">hexadecimal</span> <span class="kt">string</span>
@@ -608,8 +608,8 @@
 <span class="n">unsigned</span><span class="p">(</span><span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Perform</span> <span class="n">operation</span> <span class="n">using</span> <span class="n">unsigned</span> <span class="n">numbers</span>
 <span class="n">upper</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">convert</span> <span class="kt">string</span> <span class="n">letters</span> <span class="k">to</span> <span class="n">UPPER</span> <span class="k">case</span>
 <span class="n">uptime</span><span class="p">()</span>
-<span class="n">variablepointer</span><span class="p">()</span>
-<span class="n">varptr</span><span class="p">()</span>
+<span class="n">variablepointer</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
+<span class="n">varptr</span><span class="p">(</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">cPointerType</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Low</span> <span class="n">Level</span> <span class="n">Object</span> <span class="p">(</span><span class="n">C</span> <span class="n">Pointer</span><span class="p">)</span>
 <span class="n">version</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">version</span>
 <span class="n">windowsnl</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">CR</span><span class="o">+</span><span class="n">LF</span> <span class="o">=</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">write</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>

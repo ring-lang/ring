@@ -170,8 +170,8 @@ Functions Count : 245
         getfilesize(cFilePath) ---> nSize
 	getnumber() ---> Number
         getpathtype(cPath) ---> nStatus
-        getpointer()
-        getptr()
+        getpointer(pointer) ---> nAddress 
+        getptr(pointer) ---> nAddress 
 	getstring() ---> String
         globals() ---> a list contains variables names in the global scope
         hex(decimal) ---> hexadecimal
@@ -204,7 +204,7 @@ Functions Count : 245
         isobject(variable) ---> Returns True if it's an object, False if it's not
         ispackage(cPackageName) ---> returns 1 if the Package is defined
         ispackageclass(cPackageName,cClassName) ---> returns 1 if the Class is defined
-        ispointer()
+        ispointer(vPara) ---> True|False 
         isprint(value) ---> 1 if the value occupies a printing position or 0 if not
         isprivateattribute(object,cAttributeName) ---> lResult
         isprivatemethod(object,cMethodName) ---> lResult
@@ -229,8 +229,8 @@ Functions Count : 245
         log10(x) ---> The common logarithm (base-10 logarithm) of x
 	lower(string) ---> convert string letters to lower c
         max()
-        memcpy()
-        memorycopy()
+        memcpy(pDestinationPointer,cSourceString,nSize)
+        memorycopy(pDestinationPointer,cSourceString,nSize)
         mergemethods(cClassNameDestination,cClassNameSource)
         methods(object) ---> Returns a list contains the object methods
         min()
@@ -240,23 +240,23 @@ Functions Count : 245
         nullpointer()
         nullptr()
         number(string) ---> Number
-        obj2ptr()
-        object2pointer()
+        obj2ptr(List|Object) --> Low Level Object ( C Pointer )
+        object2pointer(List|Object) --> Low Level Object ( C Pointer )
         objectid(object) ---> Returns the object id
         packageclasses() cPackageName) ---> a list contains classes names inside the package
         packagename() ---> Returns the package name of the latest successful import
         packages() ---> a list contains packages names
         perror(cErrorMessage)
-        pointer2object()
-        pointer2string()
-        pointercompare()
+        pointer2object(Low Level Object) ---> List|Object
+        pointer2string(pointer,nStart,nCount) ---> cString   
+        pointercompare(oObject1,oObject2) ---> lResult
         pow(x,y) ---> x raised to the power of y
         prevfilename() ---> String contains the previous source file name.
 	print(cString)
 	print2str()
-        ptr2obj()
-        ptr2str()
-        ptrcmp()
+        ptr2obj(Low Level Object) ---> List|Object     
+        ptr2str(pointer,nStart,nCount) ---> cString   
+        ptrcmp(oObject1,oObject2) ---> lResult
 	puts(cString)
         raise(cErrorMessage)
         random(x) ---> A random number in the range [0,x]
@@ -284,37 +284,37 @@ Functions Count : 245
         ring_state_setvar(oState,cVariableName,Value)
         ring_state_stringtokens(oState,cRingFileName)
         ring_state_stringtokens(oState,cRingFileName,lCaseSensitive)
-        ringvm_callfunc()
-        ringvm_calllist()
-        ringvm_cfunctionslist()
-        ringvm_classeslist()
-	ringvm_codelist()
-        ringvm_evalinscope()
-        ringvm_fileslist()
-        ringvm_functionslist()
-        ringvm_genarray()
-        ringvm_give()
-        ringvm_hideerrormsg()
-        ringvm_info()
-        ringvm_memorylist()
-        ringvm_packageslist()
+        ringvm_callfunc(cFuncName)
+        ringvm_calllist() ---> List
+        ringvm_cfunctionslist() ---> List
+        ringvm_classeslist() ---> List
+	ringvm_codelist() ---> List
+        ringvm_evalinscope(nScope,cCode)
+        ringvm_fileslist() ---> List
+        ringvm_functionslist() ---> List
+        ringvm_genarray(aList)
+        ringvm_give(cVariableName)
+        ringvm_hideerrormsg(lStatus)
+        ringvm_info() ---> List of information about the VM structure
+        ringvm_memorylist() ---> List
+        ringvm_packageslist() ---> List
         ringvm_passerror()
-        ringvm_scopescount()
-        ringvm_see()
-        ringvm_settrace()
-        ringvm_tracedata()
-        ringvm_traceevent()
-        ringvm_tracefunc()
+        ringvm_scopescount() ---> nScopes
+        ringvm_see(cMessage)
+        ringvm_settrace(cCode)
+        ringvm_tracedata() ---> aDataList
+        ringvm_traceevent() ---> nTraceEvent
+        ringvm_tracefunc() ---> cCode
         setattribute(oObject,cAttributeName,Value)
-        setpointer()
-        setptr()
+        setpointer(pointer,nNewAddress)  
+        setptr(pointer,nNewAddress)  
         shutdown(nStatus)
         sin(x) ---> The sine of an angle of x radians
         sinh(x) ---> The hyperbolic sine of x radians
 	sort(List) ---> Sorted List
 	sort(List,nColumn) ---> Sorted List based on nColumn
 	sort(List,nColumn,cAttribute) ---> Sorted List based on Object Attribute
-        space()
+        space(nBytesCount) ---> String
         sqrt(x) ---> The square root of x
         srandom(x) ---> Initialize random number generator
         str2hex(string) ---> hexadecimal string
@@ -344,8 +344,8 @@ Functions Count : 245
         unsigned(nNum1,nNum2,cOperator) ---> Perform operation using unsigned numbers
 	upper(string) ---> convert string letters to UPPER case
         uptime()
-        variablepointer()
-        varptr()
+        variablepointer(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
+        varptr(cVariableName,cPointerType) ---> Low Level Object (C Pointer)
         version() ---> String contains the Ring version
         windowsnl() ---> Returns a string contains CR+LF = CHAR(13) + CHAR(10)
 	write(cFileName,cString)
