@@ -163,17 +163,17 @@ Functions Count : 245
         fwrite()
         getarch()
         getattribute()
-        getchar()
+        getchar() ---> Character
         getfilesize()
-	getnumber()
+	getnumber() ---> Number
         getpathtype()
         getpointer()
         getptr()
-	getstring()
+	getstring() ---> String
         globals()
         hex(decimal) ---> hexadecimal
         hex2str(Hexadecimal string) ---> string
-        input()
+        input(nCount) ---> string
         insert()
         int2bytes()
         intvalue()
@@ -248,12 +248,12 @@ Functions Count : 245
         pointercompare()
         pow(x,y) ---> x raised to the power of y
         prevfilename()
-	print()
+	print(cString)
 	print2str()
         ptr2obj()
         ptr2str()
         ptrcmp()
-	puts()
+	puts(cString)
         raise()
         random(x) ---> A random number in the range [0,x]
         randomize()
