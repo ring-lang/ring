@@ -371,9 +371,9 @@
 <span class="n">attributes</span><span class="p">()</span>
 <span class="n">binarysearch</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
 <span class="n">binarysearch</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
-<span class="n">bytes2double</span><span class="p">()</span>
-<span class="n">bytes2float</span><span class="p">()</span>
-<span class="n">bytes2int</span><span class="p">()</span>
+<span class="n">bytes2double</span><span class="p">(</span><span class="n">cBytes</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nNumber</span>
+<span class="n">bytes2float</span><span class="p">(</span><span class="n">cBytes</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nNumber</span>
+<span class="n">bytes2int</span><span class="p">(</span><span class="n">cBytes</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nNumber</span>
 <span class="n">callgarbagecollector</span><span class="p">()</span>
 <span class="n">callgc</span><span class="p">()</span>
 <span class="n">ceil</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">smallest</span> <span class="n">integer</span> <span class="n">value</span> <span class="n">greater</span> <span class="n">than</span> <span class="ow">or</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">x</span>
@@ -383,7 +383,7 @@
 <span class="n">checkoverflow</span><span class="p">()</span>
 <span class="n">classes</span><span class="p">()</span>
 <span class="n">classname</span><span class="p">()</span>
-<span class="n">clearerr</span><span class="p">()</span>
+<span class="n">clearerr</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span>
 <span class="n">clock</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">clock</span> <span class="n">ticks</span> <span class="k">from</span> <span class="n">program</span> <span class="n">start</span>
 <span class="n">clockspersecond</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">clocks</span> <span class="k">in</span> <span class="n">one</span> <span class="n">second</span>
 <span class="n">closelib</span><span class="p">()</span>
@@ -396,44 +396,44 @@
 <span class="n">decimals</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Determine</span> <span class="n">the</span> <span class="n">decimals</span> <span class="n">digits</span> <span class="n">after</span> <span class="n">the</span> <span class="n">point</span> <span class="k">in</span> <span class="n">float</span><span class="o">/</span><span class="n">double</span> <span class="n">numbers</span>
 <span class="n">del</span><span class="p">(</span><span class="kt">list</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
 <span class="n">diffdays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span> <span class="n">of</span> <span class="n">days</span> <span class="p">(</span><span class="n">Date1</span> <span class="o">-</span> <span class="n">Date2</span><span class="p">)</span>
-<span class="n">dir</span><span class="p">()</span>
-<span class="n">direxists</span><span class="p">()</span>
-<span class="n">double2bytes</span><span class="p">()</span>
+<span class="n">dir</span><span class="p">(</span><span class="n">cFolderPath</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">files</span> <span class="o">&amp;</span> <span class="n">sub</span> <span class="n">folders</span><span class="p">.</span>
+<span class="n">direxists</span><span class="p">(</span><span class="n">cDirPath</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">directory</span> <span class="n">exists</span>
+<span class="n">double2bytes</span><span class="p">(</span><span class="n">nNumber</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cBytes</span>
 <span class="n">eval</span><span class="p">()</span>
 <span class="n">exefilename</span><span class="p">()</span>
 <span class="n">exefolder</span><span class="p">()</span>
 <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">value</span> <span class="n">of</span> <span class="n">e</span> <span class="n">raised</span> <span class="k">to</span> <span class="n">the</span> <span class="n">xth</span> <span class="n">power</span>
 <span class="n">fabs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">absolute</span> <span class="n">value</span> <span class="n">of</span> <span class="n">x</span>
-<span class="n">fclose</span><span class="p">()</span>
-<span class="n">feof</span><span class="p">()</span>
-<span class="n">ferror</span><span class="p">()</span>
-<span class="n">fexists</span><span class="p">()</span>
-<span class="n">fflush</span><span class="p">()</span>
-<span class="n">fgetc</span><span class="p">()</span>
-<span class="n">fgetpos</span><span class="p">()</span>
-<span class="n">fgets</span><span class="p">()</span>
+<span class="n">fclose</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span>
+<span class="n">feof</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">EOF</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+<span class="n">ferror</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">error</span> <span class="ow">and</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
+<span class="n">fexists</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">file</span> <span class="n">exists</span>
+<span class="n">fflush</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span>
+<span class="n">fgetc</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="n">character</span> <span class="ow">or</span> <span class="n">EOF</span>
+<span class="n">fgetpos</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">position</span> <span class="n">handle</span>
+<span class="n">fgets</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
 <span class="n">filename</span><span class="p">()</span>
 <span class="n">find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
 <span class="n">find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
 <span class="n">find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
-<span class="n">float2bytes</span><span class="p">()</span>
+<span class="n">float2bytes</span><span class="p">(</span><span class="n">nNumber</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cBytes</span>
 <span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">largest</span> <span class="n">integer</span> <span class="n">value</span> <span class="n">less</span> <span class="n">than</span> <span class="ow">or</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">x</span>
-<span class="n">fopen</span><span class="p">()</span>
-<span class="n">fputc</span><span class="p">()</span>
-<span class="n">fputs</span><span class="p">()</span>
-<span class="n">fread</span><span class="p">()</span>
-<span class="n">freopen</span><span class="p">()</span>
-<span class="n">fseek</span><span class="p">()</span>
-<span class="n">fsetpos</span><span class="p">()</span>
-<span class="n">ftell</span><span class="p">()</span>
+<span class="n">fopen</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cMode</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">FileHandle</span>
+<span class="n">fputc</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">,</span><span class="n">cChar</span><span class="p">)</span>
+<span class="n">fputs</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>
+<span class="n">fread</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span>
+<span class="n">freopen</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cMode</span><span class="p">,</span><span class="n">file</span> <span class="n">handle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">FileHandle</span>
+<span class="n">fseek</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">,</span><span class="n">nOffset</span><span class="p">,</span><span class="n">nWhence</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">zero</span> <span class="k">if</span> <span class="n">successful</span>
+<span class="n">fsetpos</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">,</span><span class="n">PositionHandle</span><span class="p">)</span>
+<span class="n">ftell</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">file</span> <span class="n">position</span> <span class="n">as</span> <span class="n">number</span>
 <span class="n">functions</span><span class="p">()</span>
-<span class="n">fwrite</span><span class="p">()</span>
+<span class="n">fwrite</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>
 <span class="n">getarch</span><span class="p">()</span>
 <span class="n">getattribute</span><span class="p">()</span>
 <span class="n">getchar</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Character</span>
-<span class="n">getfilesize</span><span class="p">()</span>
+<span class="n">getfilesize</span><span class="p">(</span><span class="n">cFilePath</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nSize</span>
 <span class="n">getnumber</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Number</span>
-<span class="n">getpathtype</span><span class="p">()</span>
+<span class="n">getpathtype</span><span class="p">(</span><span class="n">cPath</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nStatus</span>
 <span class="n">getpointer</span><span class="p">()</span>
 <span class="n">getptr</span><span class="p">()</span>
 <span class="n">getstring</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span>
@@ -442,7 +442,7 @@
 <span class="n">hex2str</span><span class="p">(</span><span class="n">Hexadecimal</span> <span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
 <span class="n">input</span><span class="p">(</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
 <span class="n">insert</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">Index</span><span class="p">,</span><span class="n">Item</span><span class="p">)</span>
-<span class="n">int2bytes</span><span class="p">()</span>
+<span class="n">int2bytes</span><span class="p">(</span><span class="n">nNumber</span><span class="p">)</span> <span class="o">--&gt;</span> <span class="n">cBytes</span>
 <span class="n">intvalue</span><span class="p">()</span>
 <span class="n">isalnum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">digit</span><span class="o">/</span><span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">isalpha</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
@@ -510,7 +510,7 @@
 <span class="n">packageclasses</span><span class="p">()</span>
 <span class="n">packagename</span><span class="p">()</span>
 <span class="n">packages</span><span class="p">()</span>
-<span class="n">perror</span><span class="p">()</span>
+<span class="n">perror</span><span class="p">(</span><span class="n">cErrorMessage</span><span class="p">)</span>
 <span class="n">pointer2object</span><span class="p">()</span>
 <span class="n">pointer2string</span><span class="p">()</span>
 <span class="n">pointercompare</span><span class="p">()</span>
@@ -525,11 +525,11 @@
 <span class="n">raise</span><span class="p">()</span>
 <span class="n">random</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">A</span> <span class="n">random</span> <span class="n">number</span> <span class="k">in</span> <span class="n">the</span> <span class="n">range</span> <span class="o">[</span><span class="mi">0</span><span class="p">,</span><span class="n">x</span><span class="o">]</span>
 <span class="n">randomize</span><span class="p">()</span>
-<span class="n">read</span><span class="p">()</span>
-<span class="n">remove</span><span class="p">()</span>
-<span class="n">rename</span><span class="p">()</span>
+<span class="n">read</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">file</span> <span class="n">content</span>
+<span class="n">Remove</span><span class="p">(</span><span class="n">cFileName</span><span class="p">)</span>
+<span class="n">rename</span><span class="p">(</span><span class="n">cOldFileName</span><span class="p">,</span><span class="n">cNewFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Zero</span> <span class="k">for</span> <span class="n">Success</span> <span class="ow">or</span> <span class="o">-</span><span class="mi">1</span> <span class="k">for</span> <span class="n">Error</span>
 <span class="n">reverse</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Reversed</span> <span class="kt">List</span>
-<span class="n">rewind</span><span class="p">()</span>
+<span class="n">rewind</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span>
 <span class="n">right</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">count</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">get</span> <span class="n">characters</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">right</span>
 <span class="n">ring_give</span><span class="p">()</span>
 <span class="n">ring_see</span><span class="p">()</span>
@@ -597,13 +597,13 @@
 <span class="n">sysunset</span><span class="p">()</span>
 <span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Tangent</span> <span class="n">of</span> <span class="n">an</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">hyperbolic</span> <span class="n">tangent</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
-<span class="n">tempfile</span><span class="p">()</span>
-<span class="n">tempname</span><span class="p">()</span>
+<span class="n">tempfile</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">FileHandle</span>
+<span class="n">tempname</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">generated</span> <span class="n">file</span> <span class="n">name</span> <span class="n">as</span> <span class="kt">string</span>
 <span class="n">time</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">system</span> <span class="n">time</span> <span class="n">as</span> <span class="kt">String</span>
 <span class="n">timelist</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">time</span> <span class="ow">and</span> <span class="n">date</span> <span class="n">information</span><span class="p">.</span>
 <span class="n">trim</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Remove</span> <span class="n">spaces</span> <span class="k">from</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">left</span>
 <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">Type</span> <span class="n">as</span> <span class="kt">String</span>
-<span class="n">ungetc</span><span class="p">()</span>
+<span class="n">ungetc</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">,</span><span class="n">character</span><span class="p">)</span>
 <span class="n">unsigned</span><span class="p">(</span><span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Perform</span> <span class="n">operation</span> <span class="n">using</span> <span class="n">unsigned</span> <span class="n">numbers</span>
 <span class="n">upper</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">convert</span> <span class="kt">string</span> <span class="n">letters</span> <span class="k">to</span> <span class="n">UPPER</span> <span class="k">case</span>
 <span class="n">uptime</span><span class="p">()</span>
@@ -611,7 +611,7 @@
 <span class="n">varptr</span><span class="p">()</span>
 <span class="n">version</span><span class="p">()</span>
 <span class="n">windowsnl</span><span class="p">()</span>
-<span class="n">write</span><span class="p">()</span>
+<span class="n">write</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>

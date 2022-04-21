@@ -107,9 +107,9 @@ Functions Count : 245
         attributes()
 	binarysearch(List,ItemValue) ---> Item Index
 	binarysearch(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index
-        bytes2double()
-        bytes2float()
-        bytes2int()
+        bytes2double(cBytes) ---> nNumber
+        bytes2float(cBytes) ---> nNumber
+        bytes2int(cBytes) ---> nNumber
         callgarbagecollector()
         callgc()
         ceil(x) ---> The smallest integer value greater than or equal to x
@@ -119,7 +119,7 @@ Functions Count : 245
         checkoverflow()
         classes()
         classname()
-        clearerr()
+        clearerr(FileHandle)
         clock() ---> The number of clock ticks from program start
         clockspersecond() ---> Number of clocks in one second
         closelib()
@@ -132,44 +132,44 @@ Functions Count : 245
         decimals(n) ---> Determine the decimals digits after the point in float/double numbers
         del(list,index)
         diffdays(cDate1,cDate2) ---> number of days (Date1 - Date2)
-        dir()
-        direxists()
-        double2bytes()
+	dir(cFolderPath) ---> List contains files & sub folders.
+        direxists(cDirPath) ---> returns 1 if the directory exists
+        double2bytes(nNumber) ---> cBytes
         eval()
         exefilename()
         exefolder()
         exp(x) ---> The value of e raised to the xth power
         fabs(x) ---> The absolute value of x
-        fclose()
-        feof()
-        ferror()
-        fexists()
-        fflush()
-        fgetc()
-        fgetpos()
-        fgets()
+	fclose(FileHandle)
+        feof(FileHandle) ---> returns 1 if EOF and 0 if not
+        ferror(FileHandle) ---> returns 1 if error and 0 if not
+        fexists(cFileName) ---> returns 1 if the file exists
+        fflush(FileHandle)
+        fgetc(FileHandle) ---> returns character or EOF
+        fgetpos(FileHandle) ---> position handle
+        fgets(FileHandle,nSize) ---> string
         filename()
 	find(List,ItemValue) ---> Item Index
 	find(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index
 	find(List,ItemValue,nColumn,cAttribute) ---> Item Index
-        float2bytes()
+        float2bytes(nNumber) ---> cBytes
         floor(x) ---> The largest integer value less than or equal to x
-        fopen()
-        fputc()
-        fputs()
-        fread()
-        freopen()
-        fseek()
-        fsetpos()
-        ftell()
+	fopen(cFileName,cMode) ---> FileHandle
+        fputc(FileHandle,cChar)
+        fputs(FileHandle,cString)
+        fread(FileHandle,nSize)
+        freopen(cFileName,cMode,file handle) ---> FileHandle
+        fseek(FileHandle,nOffset,nWhence) ---> zero if successful
+        fsetpos(FileHandle,PositionHandle)
+        ftell(FileHandle) ---> file position as number
         functions()
-        fwrite()
+        fwrite(FileHandle,cString)
         getarch()
         getattribute()
         getchar() ---> Character
-        getfilesize()
+        getfilesize(cFilePath) ---> nSize
 	getnumber() ---> Number
-        getpathtype()
+        getpathtype(cPath) ---> nStatus
         getpointer()
         getptr()
 	getstring() ---> String
@@ -178,7 +178,7 @@ Functions Count : 245
         hex2str(Hexadecimal string) ---> string
         input(nCount) ---> string
 	insert(List,Index,Item)
-        int2bytes()
+        int2bytes(nNumber) --> cBytes
         intvalue()
         isalnum(value) ---> 1 if the value is digit/letter or 0 if not
         isalpha(value) ---> 1 if the value is a letter or 0 if not
@@ -246,7 +246,7 @@ Functions Count : 245
         packageclasses()
         packagename()
         packages()
-        perror()
+        perror(cErrorMessage)
         pointer2object()
         pointer2string()
         pointercompare()
@@ -261,11 +261,11 @@ Functions Count : 245
         raise()
         random(x) ---> A random number in the range [0,x]
         randomize()
-        read()
-        remove()
-        rename()
+	read(cFileName) ---> String contains the file content
+	Remove(cFileName)
+	rename(cOldFileName,cNewFileName) ---> Zero for Success or -1 for Error
 	reverse(List) ---> Reversed List
-        rewind()
+        rewind(FileHandle)
 	right(string,count) ---> get characters starting from the right
         ring_give()
         ring_see()
@@ -333,13 +333,13 @@ Functions Count : 245
         sysunset()
         tan(x) ---> Tangent of an angle of x radians 
         tanh(x) ---> The hyperbolic tangent of x radians
-        tempfile()
-        tempname()
+        tempfile() ---> FileHandle
+        tempname() ---> generated file name as string
         time() ---> The system time as String
         timelist() ---> List contains the time and date information.
 	trim(string) ---> Remove spaces from right and left
         type(value) ---> The Type as String
-        ungetc()
+        ungetc(FileHandle,character)
         unsigned(nNum1,nNum2,cOperator) ---> Perform operation using unsigned numbers
 	upper(string) ---> convert string letters to UPPER case
         uptime()
@@ -347,7 +347,7 @@ Functions Count : 245
         varptr()
         version()
         windowsnl()
-        write()
+	write(cFileName,cString)
 	
 .. index:: 
 	pair: Language Specification; Compiler Errors
