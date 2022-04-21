@@ -105,7 +105,8 @@ Functions Count : 245
         atan(x) ---> The principal value of the arc tangent of x, expressed in radians
         atan2(y,x) ---> The principal arc tangent of y/x, in the interval [-pi,+pi] radians
         attributes()
-        binarysearch()
+	binarysearch(List,ItemValue) ---> Item Index
+	binarysearch(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index
         bytes2double()
         bytes2float()
         bytes2int()
@@ -129,7 +130,7 @@ Functions Count : 245
         date() ---> String represent the date "dd/mm/yyyy"
         dec(hexadecimal) ---> decimal
         decimals(n) ---> Determine the decimals digits after the point in float/double numbers
-        del()
+        del(list,index)
         diffdays(cDate1,cDate2) ---> number of days (Date1 - Date2)
         dir()
         direxists()
@@ -148,7 +149,9 @@ Functions Count : 245
         fgetpos()
         fgets()
         filename()
-        find()
+	find(List,ItemValue) ---> Item Index
+	find(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index
+	find(List,ItemValue,nColumn,cAttribute) ---> Item Index
         float2bytes()
         floor(x) ---> The largest integer value less than or equal to x
         fopen()
@@ -174,7 +177,7 @@ Functions Count : 245
         hex(decimal) ---> hexadecimal
         hex2str(Hexadecimal string) ---> string
         input(nCount) ---> string
-        insert()
+	insert(List,Index,Item)
         int2bytes()
         intvalue()
         isalnum(value) ---> 1 if the value is digit/letter or 0 if not
@@ -214,7 +217,7 @@ Functions Count : 245
         iswindows64()
         isxdigit(value) ---> 1 if the value is a hexadecimal digit character or 0 if not
         left()
-        len()
+        len(List) ---> The list size
         lines()
         list()
         list2str()
@@ -260,7 +263,7 @@ Functions Count : 245
         read()
         remove()
         rename()
-        reverse()
+	reverse(List) ---> Reversed List
         rewind()
         right()
         ring_give()
@@ -306,7 +309,9 @@ Functions Count : 245
         shutdown()
         sin(x) ---> The sine of an angle of x radians
         sinh(x) ---> The hyperbolic sine of x radians
-        sort()
+	sort(List) ---> Sorted List
+	sort(List,nColumn) ---> Sorted List based on nColumn
+	sort(List,nColumn,cAttribute) ---> Sorted List based on Object Attribute
         space()
         sqrt(x) ---> The square root of x
         srandom(x) ---> Initialize random number generator

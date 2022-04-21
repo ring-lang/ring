@@ -369,7 +369,8 @@
 <span class="n">atan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">principal</span> <span class="n">value</span> <span class="n">of</span> <span class="n">the</span> <span class="n">arc</span> <span class="n">tangent</span> <span class="n">of</span> <span class="n">x</span><span class="p">,</span> <span class="n">expressed</span> <span class="k">in</span> <span class="n">radians</span>
 <span class="n">atan2</span><span class="p">(</span><span class="n">y</span><span class="p">,</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">principal</span> <span class="n">arc</span> <span class="n">tangent</span> <span class="n">of</span> <span class="n">y</span><span class="o">/</span><span class="n">x</span><span class="p">,</span> <span class="k">in</span> <span class="n">the</span> <span class="n">interval</span> <span class="o">[-</span><span class="n">pi</span><span class="p">,</span><span class="o">+</span><span class="n">pi</span><span class="o">]</span> <span class="n">radians</span>
 <span class="n">attributes</span><span class="p">()</span>
-<span class="n">binarysearch</span><span class="p">()</span>
+<span class="n">binarysearch</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
+<span class="n">binarysearch</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
 <span class="n">bytes2double</span><span class="p">()</span>
 <span class="n">bytes2float</span><span class="p">()</span>
 <span class="n">bytes2int</span><span class="p">()</span>
@@ -393,7 +394,7 @@
 <span class="n">date</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">date</span> <span class="s">&quot;dd/mm/yyyy&quot;</span>
 <span class="n">dec</span><span class="p">(</span><span class="n">hexadecimal</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">decimal</span>
 <span class="n">decimals</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Determine</span> <span class="n">the</span> <span class="n">decimals</span> <span class="n">digits</span> <span class="n">after</span> <span class="n">the</span> <span class="n">point</span> <span class="k">in</span> <span class="n">float</span><span class="o">/</span><span class="n">double</span> <span class="n">numbers</span>
-<span class="n">del</span><span class="p">()</span>
+<span class="n">del</span><span class="p">(</span><span class="kt">list</span><span class="p">,</span><span class="n">index</span><span class="p">)</span>
 <span class="n">diffdays</span><span class="p">(</span><span class="n">cDate1</span><span class="p">,</span><span class="n">cDate2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">number</span> <span class="n">of</span> <span class="n">days</span> <span class="p">(</span><span class="n">Date1</span> <span class="o">-</span> <span class="n">Date2</span><span class="p">)</span>
 <span class="n">dir</span><span class="p">()</span>
 <span class="n">direxists</span><span class="p">()</span>
@@ -412,7 +413,9 @@
 <span class="n">fgetpos</span><span class="p">()</span>
 <span class="n">fgets</span><span class="p">()</span>
 <span class="n">filename</span><span class="p">()</span>
-<span class="n">find</span><span class="p">()</span>
+<span class="n">find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
+<span class="n">find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
+<span class="n">find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
 <span class="n">float2bytes</span><span class="p">()</span>
 <span class="n">floor</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">largest</span> <span class="n">integer</span> <span class="n">value</span> <span class="n">less</span> <span class="n">than</span> <span class="ow">or</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">x</span>
 <span class="n">fopen</span><span class="p">()</span>
@@ -438,7 +441,7 @@
 <span class="n">hex</span><span class="p">(</span><span class="n">decimal</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">hexadecimal</span>
 <span class="n">hex2str</span><span class="p">(</span><span class="n">Hexadecimal</span> <span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
 <span class="n">input</span><span class="p">(</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
-<span class="n">insert</span><span class="p">()</span>
+<span class="n">insert</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">Index</span><span class="p">,</span><span class="n">Item</span><span class="p">)</span>
 <span class="n">int2bytes</span><span class="p">()</span>
 <span class="n">intvalue</span><span class="p">()</span>
 <span class="n">isalnum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">digit</span><span class="o">/</span><span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
@@ -478,7 +481,7 @@
 <span class="n">iswindows64</span><span class="p">()</span>
 <span class="n">isxdigit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">hexadecimal</span> <span class="n">digit</span> <span class="n">character</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">left</span><span class="p">()</span>
-<span class="n">len</span><span class="p">()</span>
+<span class="n">len</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="kt">list</span> <span class="n">size</span>
 <span class="n">lines</span><span class="p">()</span>
 <span class="kt">list</span><span class="p">()</span>
 <span class="n">list2str</span><span class="p">()</span>
@@ -524,7 +527,7 @@
 <span class="n">read</span><span class="p">()</span>
 <span class="n">remove</span><span class="p">()</span>
 <span class="n">rename</span><span class="p">()</span>
-<span class="n">reverse</span><span class="p">()</span>
+<span class="n">reverse</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Reversed</span> <span class="kt">List</span>
 <span class="n">rewind</span><span class="p">()</span>
 <span class="n">right</span><span class="p">()</span>
 <span class="n">ring_give</span><span class="p">()</span>
@@ -570,7 +573,9 @@
 <span class="n">shutdown</span><span class="p">()</span>
 <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">sine</span> <span class="n">of</span> <span class="n">an</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">hyperbolic</span> <span class="n">sine</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
-<span class="n">sort</span><span class="p">()</span>
+<span class="n">sort</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span>
+<span class="n">sort</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">nColumn</span>
+<span class="n">sort</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span> <span class="n">based</span> <span class="k">on</span> <span class="n">Object</span> <span class="n">Attribute</span>
 <span class="n">space</span><span class="p">()</span>
 <span class="n">sqrt</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">square</span> <span class="n">root</span> <span class="n">of</span> <span class="n">x</span>
 <span class="n">srandom</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Initialize</span> <span class="n">random</span> <span class="n">number</span> <span class="n">generator</span>
