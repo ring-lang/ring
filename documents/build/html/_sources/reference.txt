@@ -269,20 +269,21 @@ Functions Count : 245
 	right(string,count) ---> get characters starting from the right
         ring_give()
         ring_see()
-        ring_state_delete()
-        ring_state_filetokens()
-        ring_state_findvar()
-        ring_state_init()
-        ring_state_main()
-        ring_state_mainfile()
-        ring_state_new()
-        ring_state_newvar()
-        ring_state_runcode()
-        ring_state_runfile()
-        ring_state_runobjectfile()
-        ring_state_scannererror()
-        ring_state_setvar()
-        ring_state_stringtokens()
+        ring_state_delete(oState)
+        ring_state_filetokens(oState,cRingFileName) ---> aTokens
+        ring_state_findvar(oState,cVariableName) ---> aVariableList
+        ring_state_init() ---> oState
+        ring_state_main(cRingFileName)
+        ring_state_mainfile(oState,cRingFileName)
+        ring_state_new() ---> oState
+        ring_state_newvar(oState,cVariableName) ---> aVariableList
+        ring_state_runcode(oState,cCode)
+        ring_state_runfile(oState,cRingFileName)
+        ring_state_runobjectfile(oState,cRingObjectFileName)
+        ring_state_scannererror(oState) ---> nStatus
+        ring_state_setvar(oState,cVariableName,Value)
+        ring_state_stringtokens(oState,cRingFileName)
+        ring_state_stringtokens(oState,cRingFileName,lCaseSensitive)
         ringvm_callfunc()
         ringvm_calllist()
         ringvm_cfunctionslist()

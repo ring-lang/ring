@@ -533,20 +533,21 @@
 <span class="n">right</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">count</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">get</span> <span class="n">characters</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">right</span>
 <span class="n">ring_give</span><span class="p">()</span>
 <span class="n">ring_see</span><span class="p">()</span>
-<span class="n">ring_state_delete</span><span class="p">()</span>
-<span class="n">ring_state_filetokens</span><span class="p">()</span>
-<span class="n">ring_state_findvar</span><span class="p">()</span>
-<span class="n">ring_state_init</span><span class="p">()</span>
-<span class="n">ring_state_main</span><span class="p">()</span>
-<span class="n">ring_state_mainfile</span><span class="p">()</span>
-<span class="n">ring_state_new</span><span class="p">()</span>
-<span class="n">ring_state_newvar</span><span class="p">()</span>
-<span class="n">ring_state_runcode</span><span class="p">()</span>
-<span class="n">ring_state_runfile</span><span class="p">()</span>
-<span class="n">ring_state_runobjectfile</span><span class="p">()</span>
-<span class="n">ring_state_scannererror</span><span class="p">()</span>
-<span class="n">ring_state_setvar</span><span class="p">()</span>
-<span class="n">ring_state_stringtokens</span><span class="p">()</span>
+<span class="n">ring_state_delete</span><span class="p">(</span><span class="n">oState</span><span class="p">)</span>
+<span class="n">ring_state_filetokens</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cRingFileName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aTokens</span>
+<span class="n">ring_state_findvar</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cVariableName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aVariableList</span>
+<span class="n">ring_state_init</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">oState</span>
+<span class="n">ring_state_main</span><span class="p">(</span><span class="n">cRingFileName</span><span class="p">)</span>
+<span class="n">ring_state_mainfile</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cRingFileName</span><span class="p">)</span>
+<span class="n">ring_state_new</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">oState</span>
+<span class="n">ring_state_newvar</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cVariableName</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">aVariableList</span>
+<span class="n">ring_state_runcode</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cCode</span><span class="p">)</span>
+<span class="n">ring_state_runfile</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cRingFileName</span><span class="p">)</span>
+<span class="n">ring_state_runobjectfile</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cRingObjectFileName</span><span class="p">)</span>
+<span class="n">ring_state_scannererror</span><span class="p">(</span><span class="n">oState</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nStatus</span>
+<span class="n">ring_state_setvar</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cVariableName</span><span class="p">,</span><span class="n">Value</span><span class="p">)</span>
+<span class="n">ring_state_stringtokens</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cRingFileName</span><span class="p">)</span>
+<span class="n">ring_state_stringtokens</span><span class="p">(</span><span class="n">oState</span><span class="p">,</span><span class="n">cRingFileName</span><span class="p">,</span><span class="n">lCaseSensitive</span><span class="p">)</span>
 <span class="n">ringvm_callfunc</span><span class="p">()</span>
 <span class="n">ringvm_calllist</span><span class="p">()</span>
 <span class="n">ringvm_cfunctionslist</span><span class="p">()</span>
