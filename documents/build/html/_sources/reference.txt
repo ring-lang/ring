@@ -101,7 +101,7 @@ Functions Count : 245
         addsublistsbymove()
         ascii(character) ---> ASCII Code
         asin(x) ---> The principal value of the arc sine of x, expressed in radians
-        assert()
+        assert(condition)
         atan(x) ---> The principal value of the arc tangent of x, expressed in radians
         atan2(y,x) ---> The principal arc tangent of y/x, in the interval [-pi,+pi] radians
         attributes()
@@ -135,7 +135,7 @@ Functions Count : 245
 	dir(cFolderPath) ---> List contains files & sub folders.
         direxists(cDirPath) ---> returns 1 if the directory exists
         double2bytes(nNumber) ---> cBytes
-        eval()
+        eval(cCode)
         exefilename() ---> String contains the Ring executable file name
         exefolder() ---> String contains the Ring executable path
         exp(x) ---> The value of e raised to the xth power
@@ -258,7 +258,7 @@ Functions Count : 245
         ptr2str()
         ptrcmp()
 	puts(cString)
-        raise()
+        raise(cErrorMessage)
         random(x) ---> A random number in the range [0,x]
         randomize()
 	read(cFileName) ---> String contains the file content
