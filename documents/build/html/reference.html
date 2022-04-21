@@ -387,7 +387,7 @@
 <span class="n">clock</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">number</span> <span class="n">of</span> <span class="n">clock</span> <span class="n">ticks</span> <span class="k">from</span> <span class="n">program</span> <span class="n">start</span>
 <span class="n">clockspersecond</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">clocks</span> <span class="k">in</span> <span class="n">one</span> <span class="n">second</span>
 <span class="n">closelib</span><span class="p">()</span>
-<span class="n">copy</span><span class="p">()</span>
+<span class="n">copy</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">replicated</span> <span class="n">nCount</span> <span class="n">times</span>
 <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">cosine</span> <span class="n">of</span> <span class="n">an</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">cosh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">hyperbolic</span> <span class="n">cosine</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">currentdir</span><span class="p">()</span>
@@ -480,17 +480,18 @@
 <span class="n">iswindows</span><span class="p">()</span>
 <span class="n">iswindows64</span><span class="p">()</span>
 <span class="n">isxdigit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">hexadecimal</span> <span class="n">digit</span> <span class="n">character</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
-<span class="n">left</span><span class="p">()</span>
+<span class="n">left</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">count</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">Get</span> <span class="n">characters</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">left</span>
+<span class="n">len</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">length</span>
 <span class="n">len</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="kt">list</span> <span class="n">size</span>
-<span class="n">lines</span><span class="p">()</span>
+<span class="n">lines</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span> <span class="n">of</span> <span class="n">lines</span> <span class="n">inside</span> <span class="n">the</span> <span class="kt">string</span>
 <span class="kt">list</span><span class="p">()</span>
-<span class="n">list2str</span><span class="p">()</span>
+<span class="n">list2str</span><span class="p">(</span><span class="kt">list</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">the</span> <span class="kt">list</span> <span class="n">items</span>
 <span class="n">loadlib</span><span class="p">()</span>
 <span class="n">locals</span><span class="p">()</span>
 <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">natural</span> <span class="n">logarithm</span> <span class="n">of</span> <span class="n">x</span> <span class="p">(</span><span class="n">the</span> <span class="n">base</span> <span class="n">of</span> <span class="n">e</span><span class="p">)</span>
 <span class="n">log</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">b</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">logarithm</span> <span class="n">of</span> <span class="n">x</span> <span class="k">to</span> <span class="n">the</span> <span class="n">base</span> <span class="n">of</span> <span class="n">b</span>
 <span class="n">log10</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">common</span> <span class="n">logarithm</span> <span class="p">(</span><span class="n">base</span><span class="o">-</span><span class="mi">10</span> <span class="n">logarithm</span><span class="p">)</span> <span class="n">of</span> <span class="n">x</span>
-<span class="n">lower</span><span class="p">()</span>
+<span class="n">lower</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">convert</span> <span class="kt">string</span> <span class="n">letters</span> <span class="k">to</span> <span class="n">lower</span> <span class="n">c</span>
 <span class="n">max</span><span class="p">()</span>
 <span class="n">memcpy</span><span class="p">()</span>
 <span class="n">memorycopy</span><span class="p">()</span>
@@ -529,7 +530,7 @@
 <span class="n">rename</span><span class="p">()</span>
 <span class="n">reverse</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Reversed</span> <span class="kt">List</span>
 <span class="n">rewind</span><span class="p">()</span>
-<span class="n">right</span><span class="p">()</span>
+<span class="n">right</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">count</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">get</span> <span class="n">characters</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">right</span>
 <span class="n">ring_give</span><span class="p">()</span>
 <span class="n">ring_see</span><span class="p">()</span>
 <span class="n">ring_state_delete</span><span class="p">()</span>
@@ -581,10 +582,14 @@
 <span class="n">srandom</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Initialize</span> <span class="n">random</span> <span class="n">number</span> <span class="n">generator</span>
 <span class="n">str2hex</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">hexadecimal</span> <span class="kt">string</span>
 <span class="n">str2hexcstyle</span><span class="p">()</span>
-<span class="n">str2list</span><span class="p">()</span>
-<span class="n">strcmp</span><span class="p">()</span>
+<span class="n">str2list</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">list</span> <span class="n">contains</span> <span class="n">the</span> <span class="kt">string</span> <span class="n">lines</span>
+<span class="n">strcmp</span><span class="p">(</span><span class="n">cString1</span><span class="p">,</span><span class="n">cString2</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">value</span> <span class="o">=</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">cString1</span> <span class="o">=</span> <span class="n">cString2</span>
 <span class="kt">string</span><span class="p">(</span><span class="n">number</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span>
-<span class="n">substr</span><span class="p">()</span>
+<span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">substring</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">the</span> <span class="n">starting</span> <span class="n">position</span> <span class="n">of</span> <span class="n">substring</span> <span class="k">in</span> <span class="kt">string</span>
+<span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">position</span><span class="p">)</span>  <span class="o">---&gt;</span> <span class="k">Get</span> <span class="n">substring</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">position</span> <span class="k">to</span> <span class="k">end</span>
+<span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">position</span><span class="p">,</span><span class="n">count</span><span class="p">)</span>  <span class="o">---&gt;</span> <span class="k">Get</span> <span class="n">characters</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">position</span>
+<span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">substring</span><span class="p">,</span><span class="n">newsubstring</span><span class="p">)</span>  <span class="o">---&gt;</span> <span class="n">Transformed</span> <span class="kt">string</span> <span class="p">(</span><span class="n">Match</span> <span class="k">case</span><span class="p">)</span>
+<span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">substring</span><span class="p">,</span><span class="n">newsubstring</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Transformed</span> <span class="kt">string</span> <span class="p">(</span><span class="n">Ignore</span> <span class="k">case</span><span class="p">)</span>
 <span class="n">swap</span><span class="p">()</span>
 <span class="n">sysget</span><span class="p">()</span>
 <span class="n">sysset</span><span class="p">()</span>
@@ -596,11 +601,11 @@
 <span class="n">tempname</span><span class="p">()</span>
 <span class="n">time</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">system</span> <span class="n">time</span> <span class="n">as</span> <span class="kt">String</span>
 <span class="n">timelist</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">List</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">time</span> <span class="ow">and</span> <span class="n">date</span> <span class="n">information</span><span class="p">.</span>
-<span class="n">trim</span><span class="p">()</span>
+<span class="n">trim</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Remove</span> <span class="n">spaces</span> <span class="k">from</span> <span class="n">right</span> <span class="ow">and</span> <span class="n">left</span>
 <span class="n">type</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">Type</span> <span class="n">as</span> <span class="kt">String</span>
 <span class="n">ungetc</span><span class="p">()</span>
 <span class="n">unsigned</span><span class="p">(</span><span class="n">nNum1</span><span class="p">,</span><span class="n">nNum2</span><span class="p">,</span><span class="n">cOperator</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Perform</span> <span class="n">operation</span> <span class="n">using</span> <span class="n">unsigned</span> <span class="n">numbers</span>
-<span class="n">upper</span><span class="p">()</span>
+<span class="n">upper</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">convert</span> <span class="kt">string</span> <span class="n">letters</span> <span class="k">to</span> <span class="n">UPPER</span> <span class="k">case</span>
 <span class="n">uptime</span><span class="p">()</span>
 <span class="n">variablepointer</span><span class="p">()</span>
 <span class="n">varptr</span><span class="p">()</span>

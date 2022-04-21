@@ -123,7 +123,7 @@ Functions Count : 245
         clock() ---> The number of clock ticks from program start
         clockspersecond() ---> Number of clocks in one second
         closelib()
-        copy()
+	copy(string,nCount) ---> string replicated nCount times
         cos(x) ---> The cosine of an angle of x radians
         cosh(x) ---> The hyperbolic cosine of x radians
         currentdir()
@@ -216,17 +216,18 @@ Functions Count : 245
         iswindows()
         iswindows64()
         isxdigit(value) ---> 1 if the value is a hexadecimal digit character or 0 if not
-        left()
+	left(string,count) ---> Get characters starting from the left
+	len(string) ---> String length
         len(List) ---> The list size
-        lines()
+	lines(string) ---> Number of lines inside the string
         list()
-        list2str()
+	list2str(list) ---> string contains the list items
         loadlib()
         locals()
         log(x) ---> The natural logarithm of x (the base of e)
 	log(x,b) ---> The logarithm of x to the base of b
         log10(x) ---> The common logarithm (base-10 logarithm) of x
-        lower()
+	lower(string) ---> convert string letters to lower c
         max()
         memcpy()
         memorycopy()
@@ -265,7 +266,7 @@ Functions Count : 245
         rename()
 	reverse(List) ---> Reversed List
         rewind()
-        right()
+	right(string,count) ---> get characters starting from the right
         ring_give()
         ring_see()
         ring_state_delete()
@@ -317,10 +318,14 @@ Functions Count : 245
         srandom(x) ---> Initialize random number generator
         str2hex(string) ---> hexadecimal string
         str2hexcstyle()
-        str2list()
-        strcmp()
+	str2list(string) ---> list contains the string lines
+	strcmp(cString1,cString2) ---> value = 0 if cString1 = cString2
         string(number) ---> String
-        substr()
+	substr(string,substring) ---> the starting position of substring in string
+	substr(string,position)  ---> Get substring starting from position to end
+	substr(string,position,count)  ---> Get characters starting from position
+	substr(string,substring,newsubstring)  ---> Transformed string (Match case)
+	substr(string,substring,newsubstring,1) ---> Transformed string (Ignore case)
         swap()
         sysget()
         sysset()
@@ -332,11 +337,11 @@ Functions Count : 245
         tempname()
         time() ---> The system time as String
         timelist() ---> List contains the time and date information.
-        trim()
+	trim(string) ---> Remove spaces from right and left
         type(value) ---> The Type as String
         ungetc()
         unsigned(nNum1,nNum2,cOperator) ---> Perform operation using unsigned numbers
-        upper()
+	upper(string) ---> convert string letters to UPPER case
         uptime()
         variablepointer()
         varptr()
