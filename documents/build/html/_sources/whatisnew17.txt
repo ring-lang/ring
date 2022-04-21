@@ -565,6 +565,7 @@ More Improvements
 * StdLib - New Function: IsAppCompiled()
 * StdLib - New Function: AppArguments()
 * ObjectsLib - New Function: GetWindowByID()
+* RingOpenSSL - Enhancements to support all cipher algorithms
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20
 * RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
 * RingLibCurl - Better support for Ring2EXE
