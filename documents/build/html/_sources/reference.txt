@@ -266,7 +266,7 @@ Functions Count : 245
         random(x) ---> A random number in the range [0,x]
         randomize(nNumber) ---> nNumber
 	read(cFileName) ---> String contains the file content
-	Remove(cFileName)
+	remove(cFileName)
 	rename(cOldFileName,cNewFileName) ---> Zero for Success or -1 for Error
 	reverse(List) ---> Reversed List
         rewind(FileHandle)

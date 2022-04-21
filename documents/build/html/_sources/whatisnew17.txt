@@ -550,6 +550,7 @@ More Improvements
 * Form Designer - Default TextColor is Empty (Better when changing styles)
 * Form Designer - Generating Code - Form Height - Better Code
 * Many documents and samples are revised (Better English)
+* Documentation - Language Reference - Functions - Parameters & Output
 * Many applications are updated to use LightGUILib 
 * Calendar application - Better code to detect the current year
 * JulianDayCalendar application - Better code to detect the current year
