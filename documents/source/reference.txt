@@ -119,18 +119,18 @@ Functions Count : 245
         classes()
         classname()
         clearerr()
-        clock()
-        clockspersecond()
+        clock() ---> The number of clock ticks from program start
+        clockspersecond() ---> Number of clocks in one second
         closelib()
         copy()
         cos(x) ---> The cosine of an angle of x radians
         cosh(x) ---> The hyperbolic cosine of x radians
         currentdir()
-        date()
+        date() ---> String represent the date "dd/mm/yyyy"
         dec()
         decimals(n) ---> Determine the decimals digits after the point in float/double numbers
         del()
-        diffdays()
+        diffdays(cDate1,cDate2) ---> number of days (Date1 - Date2)
         dir()
         direxists()
         double2bytes()
@@ -325,8 +325,8 @@ Functions Count : 245
         tanh(x) ---> The hyperbolic tangent of x radians
         tempfile()
         tempname()
-        time()
-        timelist()
+        time() ---> The system time as String
+        timelist() ---> List contains the time and date information.
         trim()
         type()
         ungetc()
