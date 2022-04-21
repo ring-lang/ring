@@ -115,7 +115,7 @@ Functions Count : 245
         ceil(x) ---> The smallest integer value greater than or equal to x
         cfunctions()
         char(ASCII Code) ---> character
-        chdir()
+        chdir(cNewPath)
         checkoverflow()
         classes()
         classname()
@@ -126,7 +126,7 @@ Functions Count : 245
 	copy(string,nCount) ---> string replicated nCount times
         cos(x) ---> The cosine of an angle of x radians
         cosh(x) ---> The hyperbolic cosine of x radians
-        currentdir()
+        currentdir() ---> String contains the path of the current directory
         date() ---> String represent the date "dd/mm/yyyy"
         dec(hexadecimal) ---> decimal
         decimals(n) ---> Determine the decimals digits after the point in float/double numbers
@@ -136,8 +136,8 @@ Functions Count : 245
         direxists(cDirPath) ---> returns 1 if the directory exists
         double2bytes(nNumber) ---> cBytes
         eval()
-        exefilename()
-        exefolder()
+        exefilename() ---> String contains the Ring executable file name
+        exefolder() ---> String contains the Ring executable path
         exp(x) ---> The value of e raised to the xth power
         fabs(x) ---> The absolute value of x
 	fclose(FileHandle)
@@ -148,7 +148,7 @@ Functions Count : 245
         fgetc(FileHandle) ---> returns character or EOF
         fgetpos(FileHandle) ---> position handle
         fgets(FileHandle,nSize) ---> string
-        filename()
+        filename() ---> String contains the active source file name
 	find(List,ItemValue) ---> Item Index
 	find(List,ItemValue,nColumn) ---> Search in nColumn, returns the Item Index
 	find(List,ItemValue,nColumn,cAttribute) ---> Item Index
@@ -164,7 +164,7 @@ Functions Count : 245
         ftell(FileHandle) ---> file position as number
         functions()
         fwrite(FileHandle,cString)
-        getarch()
+        getarch() ---> cString (The name of the architecture of the Ring executable)
         getattribute()
         getchar() ---> Character
         getfilesize(cFilePath) ---> nSize
@@ -182,23 +182,23 @@ Functions Count : 245
         intvalue()
         isalnum(value) ---> 1 if the value is digit/letter or 0 if not
         isalpha(value) ---> 1 if the value is a letter or 0 if not
-        isandroid()
+        isandroid() ---> Returns 1 if the operating system is Android, Returns 0 if it's not
         isattribute()
         iscfunction()
         isclass()
         iscntrl(value) ---> 1 if the value is a control character or 0 if not
         isdigit(value) ---> 1 if the value is a digit or 0 if not
-        isfreebsd()
+        isfreebsd() ---> Returns 1 if the operating system is FreeBSD, Returns 0 if it's not
         isfunction()
         isglobal()
         isgraph(value) ---> 1 if the value can be printed (Except space) or 0 if not
-        islinux()
+        islinux() ---> Returns 1 if the operating system is Linux, Returns 0 if it's not
         islist(value) ---> 1 if the value is a list or 0 if not
         islocal()
         islower(value) ---> 1 if the value is lowercase letter or 0 if not
-        ismacosx()
+        ismacosx() ---> Returns 1 if the operating system is Mac OS X, Returns 0 if it's not
         ismethod()
-        ismsdos()
+        ismsdos() ---> Returns 1 if the operating system is MS-DOS, Returns 0 if it's not
         isnull(value) ---> 1 if the value is NULL or 0 if not
         isnumber(value) ---> 1 if the value is a number or 0 if not
         isobject()
@@ -211,10 +211,10 @@ Functions Count : 245
         ispunct(value) ---> 1 if the value is a punctuation character or 0 if not
         isspace(value) ---> 1 if the value is a white-space or 0 if not
         isstring(value) ---> 1 if the value is a string or 0 if not
-        isunix()
+        isunix() ---> Returns 1 if the operating system is Unix, Returns 0 if it's not
         isupper(value) ---> 1 if the value is an uppercase alphabetic letter or 0 if not
-        iswindows()
-        iswindows64()
+        iswindows() ---> Returns 1 if the operating system is Windows, Returns 0 if it's not
+        iswindows64() ---> Returns 1 if the operating system is Windows64, Returns 0 if it's not
         isxdigit(value) ---> 1 if the value is a hexadecimal digit character or 0 if not
 	left(string,count) ---> Get characters starting from the left
 	len(string) ---> String length
@@ -236,7 +236,7 @@ Functions Count : 245
         min()
         murmur3hash()
         newlist()
-        nofprocessors()
+        nofprocessors() ---> nProcessors
         nullpointer()
         nullptr()
         number(string) ---> Number
@@ -251,7 +251,7 @@ Functions Count : 245
         pointer2string()
         pointercompare()
         pow(x,y) ---> x raised to the power of y
-        prevfilename()
+        prevfilename() ---> String contains the previous source file name.
 	print(cString)
 	print2str()
         ptr2obj()
@@ -307,7 +307,7 @@ Functions Count : 245
         setattribute()
         setpointer()
         setptr()
-        shutdown()
+        shutdown(nStatus)
         sin(x) ---> The sine of an angle of x radians
         sinh(x) ---> The hyperbolic sine of x radians
 	sort(List) ---> Sorted List
@@ -327,10 +327,10 @@ Functions Count : 245
 	substr(string,substring,newsubstring)  ---> Transformed string (Match case)
 	substr(string,substring,newsubstring,1) ---> Transformed string (Ignore case)
         swap()
-        sysget()
-        sysset()
-        system()
-        sysunset()
+        sysget(cVariable)
+        sysset(cVariable,cValue) ---> Returns 1 for success and return 0 for failure
+        system(cCommand)
+        sysunset(cVariable) ---> Returns 1 for success and return 0 for failure
         tan(x) ---> Tangent of an angle of x radians 
         tanh(x) ---> The hyperbolic tangent of x radians
         tempfile() ---> FileHandle
@@ -345,8 +345,8 @@ Functions Count : 245
         uptime()
         variablepointer()
         varptr()
-        version()
-        windowsnl()
+        version() ---> String contains the Ring version
+        windowsnl() ---> Returns a string contains CR+LF = CHAR(13) + CHAR(10)
 	write(cFileName,cString)
 	
 .. index:: 

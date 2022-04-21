@@ -379,7 +379,7 @@
 <span class="n">ceil</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">smallest</span> <span class="n">integer</span> <span class="n">value</span> <span class="n">greater</span> <span class="n">than</span> <span class="ow">or</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">x</span>
 <span class="n">cfunctions</span><span class="p">()</span>
 <span class="n">char</span><span class="p">(</span><span class="n">ASCII</span> <span class="n">Code</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">character</span>
-<span class="n">chdir</span><span class="p">()</span>
+<span class="n">chdir</span><span class="p">(</span><span class="n">cNewPath</span><span class="p">)</span>
 <span class="n">checkoverflow</span><span class="p">()</span>
 <span class="n">classes</span><span class="p">()</span>
 <span class="n">classname</span><span class="p">()</span>
@@ -390,7 +390,7 @@
 <span class="n">copy</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">nCount</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span> <span class="n">replicated</span> <span class="n">nCount</span> <span class="n">times</span>
 <span class="n">cos</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">cosine</span> <span class="n">of</span> <span class="n">an</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">cosh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">hyperbolic</span> <span class="n">cosine</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
-<span class="n">currentdir</span><span class="p">()</span>
+<span class="n">currentdir</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">path</span> <span class="n">of</span> <span class="n">the</span> <span class="n">current</span> <span class="n">directory</span>
 <span class="n">date</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">represent</span> <span class="n">the</span> <span class="n">date</span> <span class="s">&quot;dd/mm/yyyy&quot;</span>
 <span class="n">dec</span><span class="p">(</span><span class="n">hexadecimal</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">decimal</span>
 <span class="n">decimals</span><span class="p">(</span><span class="n">n</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Determine</span> <span class="n">the</span> <span class="n">decimals</span> <span class="n">digits</span> <span class="n">after</span> <span class="n">the</span> <span class="n">point</span> <span class="k">in</span> <span class="n">float</span><span class="o">/</span><span class="n">double</span> <span class="n">numbers</span>
@@ -400,8 +400,8 @@
 <span class="n">direxists</span><span class="p">(</span><span class="n">cDirPath</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">directory</span> <span class="n">exists</span>
 <span class="n">double2bytes</span><span class="p">(</span><span class="n">nNumber</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">cBytes</span>
 <span class="n">eval</span><span class="p">()</span>
-<span class="n">exefilename</span><span class="p">()</span>
-<span class="n">exefolder</span><span class="p">()</span>
+<span class="n">exefilename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span> <span class="n">file</span> <span class="n">name</span>
+<span class="n">exefolder</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span> <span class="n">path</span>
 <span class="n">exp</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">value</span> <span class="n">of</span> <span class="n">e</span> <span class="n">raised</span> <span class="k">to</span> <span class="n">the</span> <span class="n">xth</span> <span class="n">power</span>
 <span class="n">fabs</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">absolute</span> <span class="n">value</span> <span class="n">of</span> <span class="n">x</span>
 <span class="n">fclose</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span>
@@ -412,7 +412,7 @@
 <span class="n">fgetc</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="n">character</span> <span class="ow">or</span> <span class="n">EOF</span>
 <span class="n">fgetpos</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">position</span> <span class="n">handle</span>
 <span class="n">fgets</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">,</span><span class="n">nSize</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">string</span>
-<span class="n">filename</span><span class="p">()</span>
+<span class="n">filename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">active</span> <span class="n">source</span> <span class="n">file</span> <span class="n">name</span>
 <span class="n">find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
 <span class="n">find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Search</span> <span class="k">in</span> <span class="n">nColumn</span><span class="p">,</span> <span class="n">returns</span> <span class="n">the</span> <span class="n">Item</span> <span class="n">Index</span>
 <span class="n">find</span><span class="p">(</span><span class="kt">List</span><span class="p">,</span><span class="n">ItemValue</span><span class="p">,</span><span class="n">nColumn</span><span class="p">,</span><span class="n">cAttribute</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Item</span> <span class="n">Index</span>
@@ -428,7 +428,7 @@
 <span class="n">ftell</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">file</span> <span class="n">position</span> <span class="n">as</span> <span class="n">number</span>
 <span class="n">functions</span><span class="p">()</span>
 <span class="n">fwrite</span><span class="p">(</span><span class="n">FileHandle</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>
-<span class="n">getarch</span><span class="p">()</span>
+<span class="n">getarch</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">cString</span> <span class="p">(</span><span class="n">The</span> <span class="n">name</span> <span class="n">of</span> <span class="n">the</span> <span class="n">architecture</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">executable</span><span class="p">)</span>
 <span class="n">getattribute</span><span class="p">()</span>
 <span class="n">getchar</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Character</span>
 <span class="n">getfilesize</span><span class="p">(</span><span class="n">cFilePath</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">nSize</span>
@@ -446,23 +446,23 @@
 <span class="n">intvalue</span><span class="p">()</span>
 <span class="n">isalnum</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">digit</span><span class="o">/</span><span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">isalpha</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
-<span class="n">isandroid</span><span class="p">()</span>
+<span class="n">isandroid</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Android</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 <span class="n">isattribute</span><span class="p">()</span>
 <span class="n">iscfunction</span><span class="p">()</span>
 <span class="n">isclass</span><span class="p">()</span>
 <span class="n">iscntrl</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">control</span> <span class="n">character</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">isdigit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">digit</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
-<span class="n">isfreebsd</span><span class="p">()</span>
+<span class="n">isfreebsd</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">FreeBSD</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 <span class="n">isfunction</span><span class="p">()</span>
 <span class="n">isglobal</span><span class="p">()</span>
 <span class="n">isgraph</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">can</span> <span class="n">be</span> <span class="n">printed</span> <span class="p">(</span><span class="n">Except</span> <span class="n">space</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
-<span class="n">islinux</span><span class="p">()</span>
+<span class="n">islinux</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Linux</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 <span class="n">islist</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="kt">list</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">islocal</span><span class="p">()</span>
 <span class="n">islower</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">lowercase</span> <span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
-<span class="n">ismacosx</span><span class="p">()</span>
+<span class="n">ismacosx</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Mac</span> <span class="n">OS</span> <span class="n">X</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 <span class="n">ismethod</span><span class="p">()</span>
-<span class="n">ismsdos</span><span class="p">()</span>
+<span class="n">ismsdos</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">MS</span><span class="o">-</span><span class="n">DOS</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 <span class="n">isnull</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="kp">NULL</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">isnumber</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">number</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">isobject</span><span class="p">()</span>
@@ -475,10 +475,10 @@
 <span class="n">ispunct</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">punctuation</span> <span class="n">character</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">isspace</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">white</span><span class="o">-</span><span class="n">space</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">isstring</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="kt">string</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
-<span class="n">isunix</span><span class="p">()</span>
+<span class="n">isunix</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Unix</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 <span class="n">isupper</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">an</span> <span class="n">uppercase</span> <span class="n">alphabetic</span> <span class="n">letter</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
-<span class="n">iswindows</span><span class="p">()</span>
-<span class="n">iswindows64</span><span class="p">()</span>
+<span class="n">iswindows</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Windows</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
+<span class="n">iswindows64</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">operating</span> <span class="n">system</span> <span class="n">is</span> <span class="n">Windows64</span><span class="p">,</span> <span class="n">Returns</span> <span class="mi">0</span> <span class="k">if</span> <span class="n">it</span><span class="sc">&#39;s not</span>
 <span class="n">isxdigit</span><span class="p">(</span><span class="n">value</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">the</span> <span class="n">value</span> <span class="n">is</span> <span class="n">a</span> <span class="n">hexadecimal</span> <span class="n">digit</span> <span class="n">character</span> <span class="ow">or</span> <span class="mi">0</span> <span class="k">if</span> <span class="ow">not</span>
 <span class="n">left</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">count</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">Get</span> <span class="n">characters</span> <span class="n">starting</span> <span class="k">from</span> <span class="n">the</span> <span class="n">left</span>
 <span class="n">len</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">length</span>
@@ -500,7 +500,7 @@
 <span class="n">min</span><span class="p">()</span>
 <span class="n">murmur3hash</span><span class="p">()</span>
 <span class="n">newlist</span><span class="p">()</span>
-<span class="n">nofprocessors</span><span class="p">()</span>
+<span class="n">nofprocessors</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">nProcessors</span>
 <span class="n">nullpointer</span><span class="p">()</span>
 <span class="n">nullptr</span><span class="p">()</span>
 <span class="n">number</span><span class="p">(</span><span class="kt">string</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Number</span>
@@ -515,7 +515,7 @@
 <span class="n">pointer2string</span><span class="p">()</span>
 <span class="n">pointercompare</span><span class="p">()</span>
 <span class="n">pow</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">x</span> <span class="n">raised</span> <span class="k">to</span> <span class="n">the</span> <span class="n">power</span> <span class="n">of</span> <span class="n">y</span>
-<span class="n">prevfilename</span><span class="p">()</span>
+<span class="n">prevfilename</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">previous</span> <span class="n">source</span> <span class="n">file</span> <span class="n">name</span><span class="p">.</span>
 <span class="n">print</span><span class="p">(</span><span class="n">cString</span><span class="p">)</span>
 <span class="n">print2str</span><span class="p">()</span>
 <span class="n">ptr2obj</span><span class="p">()</span>
@@ -571,7 +571,7 @@
 <span class="n">setattribute</span><span class="p">()</span>
 <span class="n">setpointer</span><span class="p">()</span>
 <span class="n">setptr</span><span class="p">()</span>
-<span class="n">shutdown</span><span class="p">()</span>
+<span class="n">shutdown</span><span class="p">(</span><span class="n">nStatus</span><span class="p">)</span>
 <span class="n">sin</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">sine</span> <span class="n">of</span> <span class="n">an</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">sinh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">hyperbolic</span> <span class="n">sine</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">sort</span><span class="p">(</span><span class="kt">List</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Sorted</span> <span class="kt">List</span>
@@ -591,10 +591,10 @@
 <span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">substring</span><span class="p">,</span><span class="n">newsubstring</span><span class="p">)</span>  <span class="o">---&gt;</span> <span class="n">Transformed</span> <span class="kt">string</span> <span class="p">(</span><span class="n">Match</span> <span class="k">case</span><span class="p">)</span>
 <span class="n">substr</span><span class="p">(</span><span class="kt">string</span><span class="p">,</span><span class="n">substring</span><span class="p">,</span><span class="n">newsubstring</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Transformed</span> <span class="kt">string</span> <span class="p">(</span><span class="n">Ignore</span> <span class="k">case</span><span class="p">)</span>
 <span class="n">swap</span><span class="p">()</span>
-<span class="n">sysget</span><span class="p">()</span>
-<span class="n">sysset</span><span class="p">()</span>
-<span class="n">system</span><span class="p">()</span>
-<span class="n">sysunset</span><span class="p">()</span>
+<span class="n">sysget</span><span class="p">(</span><span class="n">cVariable</span><span class="p">)</span>
+<span class="n">sysset</span><span class="p">(</span><span class="n">cVariable</span><span class="p">,</span><span class="n">cValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">success</span> <span class="ow">and</span> <span class="k">return</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">failure</span>
+<span class="n">system</span><span class="p">(</span><span class="n">cCommand</span><span class="p">)</span>
+<span class="n">sysunset</span><span class="p">(</span><span class="n">cVariable</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="mi">1</span> <span class="k">for</span> <span class="n">success</span> <span class="ow">and</span> <span class="k">return</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">failure</span>
 <span class="n">tan</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">Tangent</span> <span class="n">of</span> <span class="n">an</span> <span class="n">angle</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">tanh</span><span class="p">(</span><span class="n">x</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">The</span> <span class="n">hyperbolic</span> <span class="n">tangent</span> <span class="n">of</span> <span class="n">x</span> <span class="n">radians</span>
 <span class="n">tempfile</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">FileHandle</span>
@@ -609,8 +609,8 @@
 <span class="n">uptime</span><span class="p">()</span>
 <span class="n">variablepointer</span><span class="p">()</span>
 <span class="n">varptr</span><span class="p">()</span>
-<span class="n">version</span><span class="p">()</span>
-<span class="n">windowsnl</span><span class="p">()</span>
+<span class="n">version</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">Ring</span> <span class="n">version</span>
+<span class="n">windowsnl</span><span class="p">()</span> <span class="o">---&gt;</span> <span class="n">Returns</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">contains</span> <span class="n">CR</span><span class="o">+</span><span class="n">LF</span> <span class="o">=</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">13</span><span class="p">)</span> <span class="o">+</span> <span class="n">CHAR</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
 <span class="n">write</span><span class="p">(</span><span class="n">cFileName</span><span class="p">,</span><span class="n">cString</span><span class="p">)</span>
 </pre></div>
 </div>
