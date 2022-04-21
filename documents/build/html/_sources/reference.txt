@@ -92,18 +92,18 @@ Functions Count : 245
 
 .. code-block:: ring
 
-        acos()
-        add()
-        addattribute()
-        adddays()
-        addmethod()
+        acos(x) ---> The principal value of the arc cosine of x, expressed in radians
+        add(List,Item)
+        addattribute(Object,cAttributeName|aAttributesList)
+        adddays(cDate,nDays) ---> Date from cDate and after nDays
+        addmethod(Object,cNewMethodName,cMethodName|AnonymousFunction)
         addsublistsbyfastcopy()
         addsublistsbymove()
-        ascii()
-        asin()
+        ascii(character) ---> ASCII Code
+        asin(x) ---> The principal value of the arc sine of x, expressed in radians
         assert()
-        atan()
-        atan2()
+        atan(x) ---> The principal value of the arc tangent of x, expressed in radians
+        atan2(y,x) ---> The principal arc tangent of y/x, in the interval [-pi,+pi] radians
         attributes()
         binarysearch()
         bytes2double()
@@ -111,7 +111,7 @@ Functions Count : 245
         bytes2int()
         callgarbagecollector()
         callgc()
-        ceil()
+        ceil(x) ---> The smallest integer value greater than or equal to x
         cfunctions()
         char()
         chdir()
@@ -123,12 +123,12 @@ Functions Count : 245
         clockspersecond()
         closelib()
         copy()
-        cos()
-        cosh()
+        cos(x) ---> The cosine of an angle of x radians
+        cosh(x) ---> The hyperbolic cosine of x radians
         currentdir()
         date()
         dec()
-        decimals()
+        decimals(n) ---> Determine the decimals digits after the point in float/double numbers
         del()
         diffdays()
         dir()
@@ -137,8 +137,8 @@ Functions Count : 245
         eval()
         exefilename()
         exefolder()
-        exp()
-        fabs()
+        exp(x) ---> The value of e raised to the xth power
+        fabs(x) ---> The absolute value of x
         fclose()
         feof()
         ferror()
@@ -150,7 +150,7 @@ Functions Count : 245
         filename()
         find()
         float2bytes()
-        floor()
+        floor(x) ---> The largest integer value less than or equal to x
         fopen()
         fputc()
         fputs()
@@ -220,8 +220,9 @@ Functions Count : 245
         list2str()
         loadlib()
         locals()
-        log()
-        log10()
+        log(x) ---> The natural logarithm of x (the base of e)
+	log(x,b) ---> The logarithm of x to the base of b
+        log10(x) ---> The common logarithm (base-10 logarithm) of x
         lower()
         max()
         memcpy()
@@ -245,7 +246,7 @@ Functions Count : 245
         pointer2object()
         pointer2string()
         pointercompare()
-        pow()
+        pow(x,y) ---> x raised to the power of y
         prevfilename()
 	print()
 	print2str()
@@ -254,7 +255,7 @@ Functions Count : 245
         ptrcmp()
 	puts()
         raise()
-        random()
+        random(x) ---> A random number in the range [0,x]
         randomize()
         read()
         remove()
@@ -303,12 +304,12 @@ Functions Count : 245
         setpointer()
         setptr()
         shutdown()
-        sin()
-        sinh()
+        sin(x) ---> The sine of an angle of x radians
+        sinh(x) ---> The hyperbolic sine of x radians
         sort()
         space()
-        sqrt()
-        srandom()
+        sqrt(x) ---> The square root of x
+        srandom(x) ---> Initialize random number generator
         str2hex()
         str2hexcstyle()
         str2list()
@@ -320,8 +321,8 @@ Functions Count : 245
         sysset()
         system()
         sysunset()
-        tan()
-        tanh()
+        tan(x) ---> Tangent of an angle of x radians 
+        tanh(x) ---> The hyperbolic tangent of x radians
         tempfile()
         tempname()
         time()
@@ -329,7 +330,7 @@ Functions Count : 245
         trim()
         type()
         ungetc()
-        unsigned()
+        unsigned(nNum1,nNum2,cOperator) ---> Perform operation using unsigned numbers
         upper()
         uptime()
         variablepointer()
