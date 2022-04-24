@@ -2,7 +2,7 @@
 
 <div dir="rtl"> 
 <h1> تعلم لغة البرمجة رينج عن بعد </h1> 
-<h2> (انتهت المنحة لكن يمكنك مشاهدة الدروس فى اى وقت) </h2> 
+<h2> (انتهت المنحة ... شكرا لكم جميعا) </h2> 
 
 <table>
 	<tr>
@@ -88,23 +88,19 @@
 
 <h1 id="lessons"> الدروس التعليمية </h1> 
 
-سيتم اضافة روابط الدروس التعليمية هنا بمجرد نشرها 
+تم تقديم 18 درس لشرح أساسيات اللغة وإستخدام أنماط البرمجة المختلفة المتاحة بها
 
-دروس تشرح أساسيات اللغة وإستخدام أنماط البرمجة المختلفة المتاحة بها
+<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد الدرس الأول</a>
 
 <table>
 	<tr>	
 		<th>رقم المحاضرة</th>
 		<th>المحتوي</th>
-		<th>روابط المشاهدة</th>
 	</tr>
 	<tr>
 		<td id="lesson1">1</td>
 		<td>
 			مقدمة بسيطة وايضا نتعرف على كيفية تحميل اخر اصدار من اللغة وكيفية تطبيق الدروس التعليمية وارسالها للمراجعة من خلال دمجها فى موقع المشروع		
-		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=UCoXewxgvbI&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
@@ -112,17 +108,11 @@
 		<td>
 			نتعرف على الطرق المختلفة لل Input وال Output فى اللغة بالاضافة الى كيفية كتابة التعليقات وكذلك تحويل العبارات الحرفية الى ارقام للقيام بالعمليات الحسابية وايضا نتعرف على الطرق المختلفة للتعبير عن العبارات الحرفية.
 		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=XNpbuz0SPmM&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=2">شاهد على اليوتيوب</a>
-		</td>
 	</tr>
 	<tr>
 		<td>3</td>
 		<td>
 			نكمل تعرفنا على الـ Strings ونتحدث عن استخدامها مع ال Binary Data وكذلك استخدامها للتعبير عن ال NULL ثم نتحدث عن النوع الرقمي وكيف يستخدم للتعبير عن الارقام بصورها المختلفة بالاضافة للنوع المنطقى ثم نتعرف على ال List ونري مثال عملي لتطبيق يقبل من المستخدم اى عدد من الارقام ثم يقوم بجمعها عند الطلب
-		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=6duxGi78Qyo&index=3&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
@@ -130,17 +120,11 @@
 		<td>
 			نكمل تعرفنا على انواع المتغيرات الاساسية فى اللغة ونتعرف على التعامل مع ال Date وال Time واستخدام الـ List كـ Hash Table او Dictionary ثم نتعرف على الانواع الاخري كـ Object و ايضا C Object 
 		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=LhUXYS3BsB8&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=4">شاهد على اليوتيوب</a>
-		</td>
 	</tr>
 	<tr>
 		<td>5</td>
 		<td>
 			نكمل تعرفنا على الاساسيات واستخدام ال NL وال TAB وال CR ومفهوم ال Expression ثم نتابع ونتعرف على جمل التحكم Control Structures مثل ال if وال for وال while وال do وايضا نتعرف على مفهوم الشرط Condition 
-		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=Hu9lKrYTSvg&index=5&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
@@ -148,9 +132,6 @@
 		<td>
 			نتعرف على الدوال Functions ومفهوم ال Scope وال Pass by value وال Pass by reference وال Deep Copy وتقسيم المشروع لاكثر من ملف من خلال Load 
 			وتم طرح سؤال عن تعليقات بعض المطورين عن اللغة على موقع Quora وتم الرد على هذه التعليقات
-		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=PB1feNRRfqw&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=6">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
@@ -160,18 +141,12 @@
 			التى تتعامل مع مجموعة من الملفات بالاضافة الى التنقل من مجلد الى اخر ونري كيفية عمل تطبيق يعرض الملفات فى مجلد ثم يسمح للمستخدم باختيار ملف لطباعة محتواه 
 			وايضا نتعرف على كيفية انشاء ملف EXE للتطبيق الخاص بنا من خلال الاداة Ring2EXE التى تأتى مع لغة الرينج 
 		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=xAH4OTASbDQ&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=7">شاهد على اليوتيوب</a>
-		</td>
 	</tr>
 	<tr>
 		<td>8</td>
 		<td>
 			نتعرف على الدالة Eval وكيفية استخدامها لتنفيذ كود مكتوب فى عبارة حرفية وقت التشغيل وكيفية استغلال تلك الميزة لعمل RingREPL وندرس ايضا كيفية استخدام Return
 			مع الدالة Eval لارجاع قيمة ونتعلم ايضا تاثير مكان تنفيذ Eval على ال Scope الخاص بالمتغيرات التى ستعرف بداخلها وننبه لاهمية الانتباه لل Security عند استخدام Eval
-		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=8TyfzmUlrDc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=8">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
@@ -180,9 +155,6 @@
 			نتابع رحلتنا فى التعرف على اللغة ونقوم اولا بعمل تعديلات بسيطة على دروس سابقة للتعرف على مفهوم التحقق من المدخلات ثم بعد ذلك نتعرف على دوال خاصة بالامان مثل دوال ال Hash
 			ودوال خاصة بالتشفير Encryption وايضا نتعرف على كيفية تحميل ملفات من الانترنت من خلال Download وارسال ايميل من خلال SendMail ويحتوي الدرس على توضيح لفكرة
 			استخدام ال List اثناء تعريفها وهى ايضا من الخصائص التى تميز لغة الرينج.
-		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=KXLQRHgti3w&index=9&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
@@ -193,18 +165,12 @@
 			نري امكانية تخزين الصور فى قاعدة البيانات ... الشرح يعتمد ان المستمع لديه معرفة مسبقة بقواعد البيانات ومفاهيمها واستخدام SQL وفى حالة عدم توفر تلك المعرفة ستجد الكثير من المصادر بالبحث 
 			فى الانترنت.
 		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=Z68Bi3zNqEM&index=10&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
-		</td>
 	</tr>
 	<tr>
 		<td>11</td>
 		<td>
 			نتعرف على مفهوم أنماط البرمجة Programming Paradigm والفكرة الاساسية خلف ال OOP او ال Object Oriented Programming ثم نتعلم كيفية تعريف ال Class فى لغة الرينج وعمل
 			الكائنات منها Objects ونرى اساليب اللغة المتميزة فى تعديل الخصائص واستدعاء الميثود بطرق مرنة تتفوق على بقية اللغات الاخري.
-		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=kZRqCL-dmio&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=11">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
@@ -214,17 +180,11 @@
 			فى دعم ال Declarative Programming فى صورة ال Nested Structures اعتمادا على ال Classes مما يعطى مرونة كبيرة فى اللغة فى عمل لغات متخصصة Domain Specific Languages
 			تشبه فى شكلها العام لغات مثل QML و REBOL 
 		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=ryhlKHaBp2c&index=12&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
-		</td>
 	</tr>
 	<tr>
 		<td>13</td>
 		<td>
 			نتعرف على مبادىء استخدام ال Natural Programming فى لغة ال Ring وماتشمله اللغة من خصائص متميزة فى هذا الجانب.
-		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=Okt2JKOhCIA&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=13">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
@@ -232,17 +192,11 @@
 		<td>
 			نتابع تعرفنا على ال Natural Programming فى اللغة ونري امثلة أكثر تقدما ثم نتعرف على ال Natural Library وكيف انها تسهل العمل فى اللغة.
 		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=wTiZPonemFU&index=14&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC">شاهد على اليوتيوب</a>
-		</td>
 	</tr>
 	<tr>
 		<td>15</td>
 		<td>
 			نتعرف على البرمجة الوظيفية Functional Programming 
-		</td>
-		<td>
-		<a href="https://www.youtube.com/watch?v=AW9aYYARHG0&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=15">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 	<tr>
@@ -250,26 +204,17 @@
 		<td>
 			نتعرف على ال Reflection وال Metaprogramming 
 		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=Zd6wP9CYu-E&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=16">شاهد على اليوتيوب</a>
-		</td>
 	</tr>
 	<tr>
 		<td>17</td>
 		<td>
 			نتعرف على مجال رؤية المتغيرات Variables Scope
 		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=XXhd9TkoaZs&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=17">شاهد على اليوتيوب</a>
-		</td>
 	</tr>
 	<tr>
 		<td>18</td>
 		<td>
 			نتعرف على ال Functions Scope وال Type Hints وال Trace Library
-		</td>
-		<td>
-			<a href="https://www.youtube.com/watch?v=XvIIxPYmpmc&list=PLpQiqjcu7CuFc027iGHaBLPCZHuzCHkBC&index=18">شاهد على اليوتيوب</a>
 		</td>
 	</tr>
 </table>
