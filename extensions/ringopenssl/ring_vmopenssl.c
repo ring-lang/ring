@@ -7,7 +7,11 @@
 #include "openssl/md5.h"
 #include "openssl/sha.h"
 #include "openssl/evp.h"
+#include "openssl/err.h"
+#include "openssl/pem.h"
 #include "openssl/rand.h"
+#include "openssl/rsa.h"
+#include "openssl/bn.h"
 #include "ring_vmopenssl.h"
 /* Functions Depend on the Library Version */
 #if OPENSSL_VERSION_NUMBER >= 0x00908000L
@@ -16,6 +20,7 @@
 #else
 #include "encrypt_v1.c"
 #endif
+#include "openssl_rsa.c"
 /* Functions */
 
 typedef struct ListCipherArg {
@@ -53,13 +58,26 @@ RING_LIBINIT
 	RING_API_REGISTER("decrypt",ring_vm_openssl_decrypt);
 	RING_API_REGISTER("randbytes",ring_vm_openssl_randbytes);
 	RING_API_REGISTER("supportedciphers",ring_vm_openssl_list_ciphers);
+	RING_API_REGISTER("rsa_generate",ring_vm_openssl_rsa_generate);
+	RING_API_REGISTER("rsa_is_privatekey",ring_vm_openssl_rsa_is_privatekey);
+	RING_API_REGISTER("rsa_export_params",ring_vm_openssl_rsa_export_params);
+	RING_API_REGISTER("rsa_import_params",ring_vm_openssl_rsa_import_params);
+	RING_API_REGISTER("rsa_export_pem",ring_vm_openssl_rsa_export_pem);
+	RING_API_REGISTER("rsa_import_pem",ring_vm_openssl_rsa_import_pem);
+	RING_API_REGISTER("rsa_encrypt_pkcs",ring_vm_openssl_rsa_encrypt_pkcs);
+	RING_API_REGISTER("rsa_decrypt_pkcs",ring_vm_openssl_rsa_decrypt_pkcs);
+	RING_API_REGISTER("rsa_encrypt_oaep",ring_vm_openssl_rsa_encrypt_oaep);
+	RING_API_REGISTER("rsa_decrypt_oaep",ring_vm_openssl_rsa_decrypt_oaep);
+	RING_API_REGISTER("openssl_versiontext",ring_vm_openssl_versiontext);
+	RING_API_REGISTER("openssl_version",ring_vm_openssl_version);
 	/* Before OpenSSL 1.1, calling OpenSSL_add_all_algorithms is required */
 	/* Ref: https://wiki.openssl.org/index.php/Library_Initialization */
 	#if OPENSSL_VERSION_NUMBER < 0x10100000L
 	OpenSSL_add_all_algorithms();
-    #else
-    /* Ref: https://www.openssl.org/docs/man1.1.1/man3/OPENSSL_init_crypto.html */
-    OPENSSL_init_crypto(OPENSSL_INIT_ADD_ALL_CIPHERS | OPENSSL_INIT_ADD_ALL_DIGESTS | OPENSSL_INIT_LOAD_CRYPTO_STRINGS, NULL);
+	ERR_load_crypto_strings();
+	#else
+	/* Ref: https://www.openssl.org/docs/man1.1.1/man3/OPENSSL_init_crypto.html */
+	OPENSSL_init_crypto(OPENSSL_INIT_ADD_ALL_CIPHERS | OPENSSL_INIT_ADD_ALL_DIGESTS | OPENSSL_INIT_LOAD_CRYPTO_STRINGS, NULL);
 	#endif
 }
 
@@ -592,6 +610,36 @@ void ring_vm_openssl_sha224 ( void *pPointer )
 	} else {
 		RING_API_ERROR(RING_API_BADPARATYPE);
 	}
+}
+
+void ring_vm_openssl_versiontext ( void *pPointer )
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	
+	RING_API_RETSTRING(OPENSSL_VERSION_TEXT);
+}
+
+void ring_vm_openssl_version ( void *pPointer )
+{
+	unsigned char *cStr  ;
+	int nMajor,nMinor,nFix  ;
+	List *pList  ;
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_MISS1PARA);
+		return ;
+	}
+	nMajor = (int) ((OPENSSL_VERSION_NUMBER >> 28) & 0x000000FF);
+	nMinor = (int) ((OPENSSL_VERSION_NUMBER >> 20) & 0x000000FF);
+	nFix   = (int) ((OPENSSL_VERSION_NUMBER >> 12) & 0x000000FF);
+	/* return a list: [major,minor, fix] */
+	pList = RING_API_NEWLIST ;
+	ring_list_addint_gc(((VM *) pPointer)->pRingState, pList, nMajor);
+	ring_list_addint_gc(((VM *) pPointer)->pRingState, pList, nMinor);
+	ring_list_addint_gc(((VM *) pPointer)->pRingState, pList, nFix);
+	RING_API_RETLIST(pList);
 }
 
 void ring_vm_openssl_randbytes ( void *pPointer )

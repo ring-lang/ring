@@ -57,9 +57,42 @@ void ring_vm_openssl_encrypt ( void *pPointer ) ;
 
 void ring_vm_openssl_decrypt ( void *pPointer ) ;
 
+void ring_vm_openssl_versiontext ( void *pPointer ) ;
+
+void ring_vm_openssl_version ( void *pPointer ) ;
+
 void ring_vm_openssl_randbytes ( void *pPointer ) ;
 
 void ring_vm_openssl_list_ciphers ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_new ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_generate ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_is_privatekey ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_export_params ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_import_params ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_export_pem ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_import_pem ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_encrypt_pkcs ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_decrypt_pkcs ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_encrypt_oaep ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_decrypt_oaep ( void *pPointer ) ;
 /* Constants */
 #define RING_VM_POINTER_OPENSSL "openssl"
+
+#define OSSL_OAEP_MD5		0
+#define OSSL_OAEP_SHA1		1
+#define OSSL_OAEP_SHA256	2
+#define OSSL_OAEP_SHA384	3
+#define OSSL_OAEP_SHA512	4
+
 #endif
