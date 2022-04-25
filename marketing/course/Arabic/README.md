@@ -88,6 +88,9 @@
 
 الدروس الأربعة الأولي متاحة اون لاين للمشاهدة
 
+وحاليا هناك اكثر من 400 درس تعليمي لتعلم اللغة من البداية حتى الاحتراف فى أكاديمية حسونة 
+<a href="https://www.youtube.com/playlist?list=PLHIfW1KZRIfl6KzfLziFl650MmThnQ0jT">(شاهد الدروس) </a>
+
 <table>
 	<tr>	
 		<th>رقم المحاضرة</th>
@@ -97,28 +100,28 @@
 		<td id="lesson1">1</td>
 		<td>
 			مقدمة بسيطة وايضا نتعرف على كيفية تحميل اخر اصدار من اللغة وكيفية تطبيق الدروس التعليمية وارسالها للمراجعة من خلال دمجها فى موقع المشروع		
-			<a href="https://www.youtube.com/watch?v=UCoXewxgvbI">شاهد الدرس</a>
+			<a href="https://www.youtube.com/watch?v=UCoXewxgvbI">(شاهد الدرس) </a>
 		</td>
 	</tr>
 	<tr>
 		<td>2</td>
 		<td>
 			نتعرف على الطرق المختلفة لل Input وال Output فى اللغة بالاضافة الى كيفية كتابة التعليقات وكذلك تحويل العبارات الحرفية الى ارقام للقيام بالعمليات الحسابية وايضا نتعرف على الطرق المختلفة للتعبير عن العبارات الحرفية.
-			<a href="https://www.youtube.com/watch?v=XNpbuz0SPmM">شاهد الدرس</a>
+			<a href="https://www.youtube.com/watch?v=XNpbuz0SPmM"> (شاهد الدرس) </a>
 		</td>
 	</tr>
 	<tr>
 		<td>3</td>
 		<td>
 			نكمل تعرفنا على الـ Strings ونتحدث عن استخدامها مع ال Binary Data وكذلك استخدامها للتعبير عن ال NULL ثم نتحدث عن النوع الرقمي وكيف يستخدم للتعبير عن الارقام بصورها المختلفة بالاضافة للنوع المنطقى ثم نتعرف على ال List ونري مثال عملي لتطبيق يقبل من المستخدم اى عدد من الارقام ثم يقوم بجمعها عند الطلب
-			<a href="https://www.youtube.com/watch?v=6duxGi78Qyo">شاهد الدرس</a>
+			<a href="https://www.youtube.com/watch?v=6duxGi78Qyo"> (شاهد الدرس) </a>
 		</td>
 	</tr>
 	<tr>
 		<td>4</td>
 		<td>
 			نكمل تعرفنا على انواع المتغيرات الاساسية فى اللغة ونتعرف على التعامل مع ال Date وال Time واستخدام الـ List كـ Hash Table او Dictionary ثم نتعرف على الانواع الاخري كـ Object و ايضا C Object 
-			<a href="https://www.youtube.com/watch?v=LhUXYS3BsB8">شاهد الدرس</a>
+			<a href="https://www.youtube.com/watch?v=LhUXYS3BsB8"> (شاهد الدرس) </a>
 		</td>
 	</tr>
 	<tr>
