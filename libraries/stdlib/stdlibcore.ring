@@ -1061,3 +1061,38 @@ func RandomItem aList
 	if ! isList(aList) raise(C_ERROR_EXPECTLIST) return ok
 	if len(aList) <= 0  raise(C_ERROR_EMPTYLIST) return ok
 	return aList[ random( len(aList) - 1 ) + 1 ]
+
+/*
+	Check if two items are equal.
+	Deep comparison is performed if the two items are lists
+	Return 1 if both items are equal and 0 otherwise
+*/
+func CheckEquality aItem1, aItem2
+	if islist(aItem1) and islist(aItem2)
+		/* both items are list. perform deep comparison */
+		if Len(aItem1) = Len(aItem2)
+			aItem1Len = Len(aItem1)
+			/* same length for both lists so we call CheckEquality on each item pair */
+			for aItemIndex=1 to aItem1Len
+				if not CheckEquality(aItem1[aItemIndex],aItem2[aItemIndex])
+					return false
+				ok
+			next
+			/* all lists elements are equal, return 1 */
+			return true
+		else
+			/* the two lists have different lengths */
+			return false
+		ok
+	but isnull(aItem1) and isnull(aItem2)
+		return true
+	but (isstring(aItem1) and isstring(aItem2)) or (isnumber(aItem1) and isnumber(aItem2)) or (ispointer(aItem1) and ispointer(aItem2))
+		/* if both items are strings or numbers or pointers, use = operator */
+		if aItem1 = aItem2
+			return true
+		else
+			return false
+		ok
+	else
+		return false
+	ok
