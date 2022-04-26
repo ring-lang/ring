@@ -1521,3 +1521,30 @@ Example:
 	load "stdlib.ring"
 	aList = 1:5
 	? RandomItem(aList)
+
+.. index:: 
+	pair: Stdlib Functions; CheckEquality()
+
+CheckEquality()
+===============
+
+Check if two items are equal.
+Deep comparison is performed if the two items are lists
+Return 1 if both items are equal and 0 otherwise
+
+Syntax:
+
+.. code-block:: none
+
+	CheckEquality(aItem1,aItem2) --> value = 1 if aItem1 = aItem2
+				       value = 0 if aItem1 != aItem2
+
+Example:
+
+.. code-block:: ring
+
+	load "stdlib.ring"
+	aList1 = ["one", 2, [3]]
+	aList2 = ["one", 2]
+	aList2 + [3]
+	? CheckEquality(aList1,aList2)

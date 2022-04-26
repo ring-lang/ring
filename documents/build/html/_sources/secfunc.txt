@@ -25,6 +25,18 @@ Before using the next functions load the openssllib.ring library
 * Encrypt()
 * Decrypt()
 * Randbytes()
+* rsa_generate
+* rsa_export_params
+* rsa_import_params
+* rsa_export_pem
+* rsa_import_pem
+* rsa_is_privatekey
+* rsa_encrypt_pkcs
+* rsa_decrypt_pkcs
+* rsa_encrypt_oaep
+* rsa_decrypt_oaep
+* openssl_versiontext
+* openssl_version
 * MD5Init(), MD5Update(), MD5Final()
 * SHA1Init(), SHA1Update(), SHA1Final()
 * SHA256Init(), SHA256Update(), SHA256Final()
@@ -397,6 +409,517 @@ Example:
 	password = "SecretPassWord@$%123"
 	see salt + nl
 	see sha256("test" + salt) + nl
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_generate()
+
+rsa_generate() Function
+====================
+
+We can generate a random RSA key pair using the rsa_generate() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_generate(nBits[,nPublicExponent]) ---> a random RSA key pair with nBits as size in bits
+			If nPublicExponent is omited, then the standard public exponent value 65537 is used.
+
+Example:
+
+.. code-block:: ring
+
+	/* generate a new 2048-bit RSA key pair */
+	try
+		rsaKey = rsa_generate(2048)
+		rsaKeyParams = rsa_export_params(rsaKey)
+		See "Modulus = " + rsaKeyParams[:n] + nl
+	catch
+		See "Failed to generate the RSA key pair: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_export_params()
+
+rsa_export_params() Function
+====================
+
+We can export the parameters of an RSA key to a string-indexed list using the rsa_export_params() function.
+The list contains the following string indexes:
+ - "type" for the key type as a string equal to "RSA" in our case
+ - "bits" for the bot length of the key as an integer
+ - "n" for the Modulus as a hexadecimal string
+ - "e" for the Public Exponent as a hexadecimal string
+ - "d" for the Private Exponent as a hexadecimal string
+ - "p" for the first prime as a hexadecimal string
+ - "q" for the second prime as a hexadecimal string
+ - "dmp1" for the first CRT exponent as a hexadecimal string
+ - "dmq1" for the second CRT exponent as a hexadecimal string
+ - "iqmp" for the CRT coefficent as a hexadecimal string
+
+If the key contains only the public part, then "d", "p", "q", "dmp1", "dmq1" and "iqmp" will be empty strings.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_export_params(pRsaKey) ---> list of the key parameters
+
+Example:
+
+.. code-block:: ring
+
+	/* generate a new 2048-bit RSA key pair */
+	try
+		rsaKey = rsa_generate(2048)
+		rsaKeyParams = rsa_export_params(rsaKey)
+		See "Key Type = " + rsaKeyParams[:type] + nl
+		See "Key Size = " + rsaKeyParams[:bits] + " bits" + nl
+		See "Modulus = " + rsaKeyParams[:n] + nl
+		See "Public Exponent = " + rsaKeyParams[:e] + nl
+		See "Private Exponent = " + rsaKeyParams[:d] + nl
+		See "Prime 1 = " + rsaKeyParams[:p] + nl
+		See "Prime 2 = " + rsaKeyParams[:q] + nl
+		See "CRT Exponent 1 = " + rsaKeyParams[:dmp1] + nl
+		See "CRT Exponent 2 = " + rsaKeyParams[:dmq1] + nl
+		See "CRT Coefficient = " + rsaKeyParams[:iqmp] + nl
+	catch
+		See "Failed to generate the RSA key pair: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_import_params()
+
+rsa_import_params() Function
+====================
+
+We can create a new RSA key from parameters stored in a string-indexed list using the rsa_import_params() function.
+The format of the input list is the one described in the function rsa_export_params
+
+The indexes "n" and "e" must not be empty, otherwise an exception is thrown.
+If we need to import only an RSA public key, then the indexes "d", "p", "q", "dmp1", "dmq1" and "iqmp" must be empty.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_import_params(pParamsList) ---> a new RSA key
+
+Example:
+
+.. code-block:: ring
+
+	/* create an RSA public key from a generated RSA key pair */
+	try
+		rsaKey = rsa_generate(2048)
+		rsaKeyParams = rsa_export_params(rsaKey)
+
+		/* create parameters of public key: modulus and public exponent */
+		rsaPublicKeyParam = [:n = rsaKeyParams[:n], :e = rsaKeyParams[:e]]
+		/* create the public key using rsa_import_params */
+		rsaPublicKey = rsa_import_params(rsaPublicKeyParam)
+
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_export_pem()
+
+rsa_export_pem() Function
+====================
+
+We can export an RSA key to a string in PEM format using the rsa_export_pem() function.
+If the RSA key contains both public and private parts, then returned string  will start with "-----BEGIN PRIVATE KEY-----"
+If the RSA key contains only the public part, then returned string will start with "-----BEGIN PUBLIC KEY-----"
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_export_pem(pRsaKey) ---> string encoding of the key in PEM format
+
+Example:
+
+.. code-block:: ring
+
+	/* generate an RSA key and save it to a file in PEM format */
+	try
+		rsaKey = rsa_generate(2048)
+		rsaKeyPEM = rsa_export_pem(rsaKey)
+		/* save private key to a file */
+		write ("privateKey.pem", rsaKeyPEM)
+		
+		/* save public key to a file */
+		rsaKeyParams = rsa_export_params(rsaKey)
+		rsaPublicKeyParam = [:n = rsaKeyParams[:n], :e = rsaKeyParams[:e]]
+		rsaPublicKey = rsa_import_params(rsaPublicKeyParam)
+		rsaPublicKeyPEM = rsa_export_pem(rsaPublicKey)
+		write ("publicKey.pem", rsaPublicKeyPEM)
+
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_import_pem()
+
+rsa_import_pem() Function
+====================
+
+We can create an RSA key from PEM encoded string using the rsa_import_pem() function.
+If the PEM string starts with "-----BEGIN PRIVATE KEY-----", then a full RSA key pair will be created.
+if the PEM string starts with "-----BEGIN PUBLIC KEY-----", then an RSA public key will be created.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_import_pem(cStrPEM) ---> a new RSA key
+
+Example:
+
+.. code-block:: ring
+
+	/* create an RSA key from a PEM file */
+	try
+		rsaKeyPEM = Read("privateKey.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		rsaPublicKeyPEM = Read("publicKey.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_is_privatekey()
+
+rsa_is_privatekey() Function
+====================
+
+We can check whether an RSA key is a private key or public key using the rsa_is_privatekey() function.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_is_privatekey(pRsaKey) ---> returns 1 if pRsaKey is an RSA private key and 0 if it is an RSA public key
+
+Example:
+
+.. code-block:: ring
+
+	/* create an RSA key from a PEM file and check if it is a private key */
+	try
+		rsaKeyPEM = Read("key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		if rsa_is_privatekey(rsaKey)
+			See "an RSA private key was loaded" + nl
+		else
+			See "an RSA public key was loaded" + nl
+		ok
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_encrypt_pkcs()
+
+rsa_encrypt_pkcs() Function
+====================
+
+We can encrypt data with an RSA key and PKCS#1 v1.5 padding using the rsa_encrypt_pkcs() function.
+The maximum size of data that can be encrypted by rsa_encrypt_pkcs is (modulusLen - 11), with modulusLen
+the length of the RSA key modulus is bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
+of data that can be encrypted is 256 - 11 = 245 bytes.
+RSA encryption is usually applied to a symmetric key (e.g. AES) which is used to encrypt much larger data.
+RSA encryption needs only the public part of an RSA key, so rsa_encrypt_pkcs can be used with both RSA private
+key and RSA public key
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_encrypt_pkcs(pRsaKey,cPlainData) ---> return a string containing the encryption of cPlainData
+
+Example:
+
+.. code-block:: ring
+
+	/* encrypt a file using AES key and then encrypt the AES key using an RSA public key */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* encrypt file with random AES-128 key */
+		cData = Read ("secret_document.txt")
+		cKey = RandBytes(16)
+		cIV = RandBytes(16)
+		cEncryptedData = Encrypt(cData,cKey,cIV,"aes128") 
+		
+		/* encrypt the AES-128 key with the RSA public key */
+		cEncryptedKey = rsa_encrypt_pkcs(rsaPublicKey,cKey)
+		
+		/* store IV, encrypted AES key and encrypted data in a file to be sent to Alice*/
+		Write("encrypted_document.enc", cIV + cEncryptedKey + cEncryptedData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_decrypt_pkcs()
+
+rsa_decrypt_pkcs() Function
+====================
+
+We can decrypt data encrypted with an RSA key and PKCS#1 v1.5 padding using the rsa_decrypt_pkcs() function.
+The size of data that can be decrypted by rsa_decrypt_pkcs must be equal to modulusLen which is the length 
+of the RSA key modulus is bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data 
+that can be decrypted must be 256 bytes.
+For RSA decryption, the RSA key must contain the private key part.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_decrypt_pkcs(pRsaKey,cEncryptedData) ---> return a string containing the decryption of cEncryptedData
+
+Example:
+
+.. code-block:: ring
+
+	/* decrypt a file by first decrypting AES key that was used to encrypt it 
+	 * and then decrypt the whole content using the AES key
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* calculate the modulus length */
+		rsaKeyParams = rsa_export_params(rsaKey)
+		modulusLen = rsaKeyParams[:bits]/ 8
+		
+		/* read encrypted file */
+		cEncryptedContent = Read ("encrypted_document.enc")
+		
+		/* IV is the first 16 bytes if the file */
+		cIV = substr(cEncryptedContent, 1, 16)
+		
+		/* encrypted key follows IV and its length is modulusLen */
+		cEncryptedKey = substr(cEncryptedContent, 17, modulusLen)
+		
+		/* encrypted data follows the key */
+		cEncryptedData = substr(cEncryptedContent, 17 + modulusLen)
+		
+		/* decrypt the AES-128 key */
+		cKey = rsa_decrypt_pkcs(rsaKey,cEncryptedKey)
+		
+		/* decrypt the data using the AES-128 key */
+		
+		cPlainData = Decrypt(cEncryptedData,cKey,cIV,"aes128") 
+
+		/* store the decrypted data to a file */
+		Write("decrypted_document.txt", cPlainData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_encrypt_oaep()
+
+rsa_encrypt_oaep() Function
+====================
+
+We can encrypt data with an RSA key and OAEP padding using the rsa_encrypt_oaep() function.
+The maximum size of data that can be encrypted by rsa_encrypt_oaep is (modulusLen - 2*hashLen -2), 
+with modulusLen the length of the RSA key modulus is bytes and hashLen and the length of hash algorithm used.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
+of data that can be encrypted using OAEP padding with SHA-1 is 256 - 2*20 - 2 = 214 bytes.
+RSA encryption is usually applied to a symmetric key (e.g. AES) which is used to encrypt much larger data.
+RSA encryption needs only the public part of an RSA key, so rsa_encrypt_oaep can be used with both RSA private
+key and RSA public key.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_encrypt_oaep(pRsaKey,cPlainData[,nHashAlgorithm]) ---> return a string containing the OAEP encryption of cPlainData
+		nHashAlgorithm indicates the hash algorithm to use for OAEP padding. If omited, SHA-1 is used by default.
+		Possible values for nHashAlgorithm argument are:
+		 - $OSSL_HASH_MD5 which is equal to 0
+		 - $OSSL_HASH_SHA1 which is equal to 1
+		 - $OSSL_HASH_SHA256 which is equal to 2
+		 - $OSSL_HASH_SHA384 which is equal to 3
+		 - $OSSL_HASH_SHA512 which is equal to 4
+
+Example:
+
+.. code-block:: ring
+
+	/* encrypt a file using AES key and then encrypt the AES key using an RSA public key using OAEP padding */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* encrypt file with random AES-128 key */
+		cData = Read ("secret_document.txt")
+		cKey = RandBytes(16)
+		cIV = RandBytes(16)
+		cEncryptedData = Encrypt(cData,cKey,cIV,"aes128") 
+		
+		/* encrypt the AES-128 key with the RSA public key */
+		cEncryptedKey = rsa_encrypt_oaep(rsaPublicKey,cKey)
+		
+		/* store IV, encrypted AES key and encrypted data in a file to be sent to Alice*/
+		Write("oaep_encrypted_document.enc", cIV + cEncryptedKey + cEncryptedData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_decrypt_oaep()
+
+rsa_decrypt_oaep() Function
+====================
+
+We can decrypt data encrypted with an RSA key and OAEP padding using the rsa_decrypt_oaep() function.
+The size of data that can be decrypted by rsa_decrypt_oaep must be equal to modulusLen which is the length 
+of the RSA key modulus is bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data 
+that can be decrypted must be 256 bytes.
+For RSA decryption, the RSA key must contain the private key part.
+The hash algorithm specified in rsa_decrypt_oaep() call must be the same as the one used during OAEP encryption.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_decrypt_oaep(pRsaKey,cEncryptedData[,nHashAlgorithm]) ---> return a string containing the decryption of cEncryptedData
+		nHashAlgorithm indicates the hash algorithm to use for OAEP padding. If omited, SHA-1 is used by default.
+		Possible values for nHashAlgorithm argument are:
+		 - $OSSL_HASH_MD5 which is equal to 0
+		 - $OSSL_HASH_SHA1 which is equal to 1
+		 - $OSSL_HASH_SHA256 which is equal to 2
+		 - $OSSL_HASH_SHA384 which is equal to 3
+		 - $OSSL_HASH_SHA512 which is equal to 4
+
+Example:
+
+.. code-block:: ring
+
+	/* decrypt a file by first decrypting AES key that was used to encrypt it 
+	 * and then decrypt the whole content using the AES key
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* calculate the modulus length */
+		rsaKeyParams = rsa_export_params(rsaKey)
+		modulusLen = rsaKeyParams[:bits]/ 8
+		
+		/* read encrypted file */
+		cEncryptedContent = Read ("oaep_encrypted_document.enc")
+		
+		/* IV is the first 16 bytes if the file */
+		cIV = substr(cEncryptedContent, 1, 16)
+		
+		/* encrypted key follows IV and its length is modulusLen */
+		cEncryptedKey = substr(cEncryptedContent, 17, modulusLen)
+		
+		/* encrypted data follows the key */
+		cEncryptedData = substr(cEncryptedContent, 17 + modulusLen)
+		
+		/* decrypt the AES-128 key */
+		cKey = rsa_decrypt_oaep(rsaKey,cEncryptedKey)
+		
+		/* decrypt the data using the AES-128 key */
+		
+		cPlainData = Decrypt(cEncryptedData,cKey,cIV,"aes128") 
+
+		/* store the decrypted data to a file */
+		Write("oaep_decrypted_document.txt", cPlainData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; openssl_versiontext()
+
+openssl_versiontext() Function
+====================
+
+We can get the full version text of the OpenSSL library using the function openssl_versiontext().
+The returned string is equal to the value returned by the command "openssl.exe version"
+
+Syntax:
+
+.. code-block:: ring
+
+	openssl_versiontext() ---> return a string containing the full version text of OpenSSL library
+
+Example:
+
+.. code-block:: ring
+
+	/* Display the version of OpenSSL library used by Ring
+	 */
+	See "Ring is using " + openssl_versionText() + nl
+
+
+.. index:: 
+	pair: Security and Internet Functions; openssl_version()
+
+openssl_version() Function
+====================
+
+We can get the version numbers (Major,Minor,Fix) of the OpenSSL library using the function openssl_version().
+The returned list contains three items corresponding to the the three part of the version.
+For example, for OpenSSL 1.0.2, openssl_version() returns the list [1,0,2]
+
+Syntax:
+
+.. code-block:: ring
+
+	openssl_version() ---> return a list containing the version numbers of the OpenSSL library
+		First list item holds the version major number
+		Second list item holds the version minor number
+		Third list item holds the version fix number
+
+Example:
+
+.. code-block:: ring
+
+	/* Display the version number of OpenSSL library used by Ring
+	 */
+	ver = openssl_version()
+	OpenSSLVersionMajor = ver[1] 
+	OpenSSLVersionMinor = ver[2] 
+	OpenSSLVersionFix = ver[3] 
+	See "Ring is using OpenSSL version " + OpenSSLVersionMajor + "." + OpenSSLVersionMinor + "." + OpenSSLVersionFix + nl
 
 
 .. index:: 

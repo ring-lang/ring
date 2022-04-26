@@ -564,6 +564,7 @@ More Improvements
 * StdLib - AppPath() function - Better Code
 * StdLib - New Function: IsAppCompiled()
 * StdLib - New Function: AppArguments()
+* StdLib - New Function: CheckEquality()
 * ObjectsLib - New Function: GetWindowByID()
 * RingOpenSSL - Enhancements to support all cipher algorithms
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20
