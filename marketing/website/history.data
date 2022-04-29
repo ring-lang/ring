@@ -1,5 +1,5 @@
 aNews = [
-  ["April 29, 2022",'<a href="https://github.com/idrassi/MonoRing"> MonoRing (Monolithic Distribution )</a>'],
+  ["April 29, 2022",'<a href="https://github.com/idrassi/MonoRing"> MonoRing (Monolithic Distribution)</a>'],
   ["April 22, 2022",'<a href="https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology_20/"> PWCT 2.0 (Steam)</a>'],
   ["March 31, 2022",'<a href="https://github.com/ring-lang/ring/blob/master/extensions/ringhttplib/README.md"> RingHTTPLib Extension</a>'],
   ["January 23, 2022",'<a href="https://rosettacode.org/wiki/Category:Ring"> Over 800 samples in RosettaCode </a>'],

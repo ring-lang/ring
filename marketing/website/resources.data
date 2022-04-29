@@ -71,7 +71,7 @@
 				]
 			]
 	     ],
-	     ["Languages influenced by Ring",[
+	     ["Languages & Projects influenced by Ring",[
 				[
 					'<a href="https://github.com/theratioproject/simple" >Simple programming language</a>'
 				],
@@ -80,6 +80,9 @@
 				],
 				[
 					'<a href="https://github.com/Ilir-Liburn/Ring2A" >Ring2A (Accelerated Ring VM)</a>'
+				],
+				[
+					'<a href="https://github.com/idrassi/MonoRing" >MonoRing (Monolithic Distribution)</a>'
 				]
 			]
 	     ]
