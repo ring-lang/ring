@@ -572,6 +572,7 @@ More Improvements
 * RingLibCurl - Better support for Ring2EXE
 * RingLibUI - The function uiFreeText() is removed from the library API
 * RingLibUI - Better implementation for functions that require uiFreeText()
+* RingWinAPI - Better Code
 * RingQt - QString Class - Another version for the Replace() Method
 * RingQt - QLabel Class inherits the QFrame Class
 * RingQt - Added: QStyle class
@@ -601,3 +602,4 @@ More Improvements
 * Ring Compiler - ring_scanner_checktoken() - Faster & Better Code
 * Ring Source Code - Better Format
 * Ring Source Code - Check out of memory at the Callee side instead of the Caller
+* Update: language/src/locatevc.bat - Support VS 2022
