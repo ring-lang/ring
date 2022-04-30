@@ -1166,7 +1166,6 @@ RING_API void ring_vm_showerrormessage ( VM *pVM,const char *cStr )
             printf( "In %s() ",ring_list_getstring(pList,RING_FUNCCL_NAME) ) ;
         }
         lFunctionCall = 1 ;
-        cStr = cStr2 ;
     }
     if ( lFunctionCall ) {
         printf( "in file %s ",ring_list_getstring(pVM->pRingState->pRingFilesList,1) ) ;
