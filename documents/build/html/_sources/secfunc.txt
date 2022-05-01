@@ -35,6 +35,10 @@ Before using the next functions load the openssllib.ring library
 * rsa_decrypt_pkcs
 * rsa_encrypt_oaep
 * rsa_decrypt_oaep
+* rsa_encrypt_raw
+* rsa_decrypt_raw
+* rsa_sign_pss
+* rsa_verify_pss
 * openssl_versiontext
 * openssl_version
 * MD5Init(), MD5Update(), MD5Final()
@@ -860,6 +864,278 @@ Example:
 
 		/* store the decrypted data to a file */
 		Write("oaep_decrypted_document.txt", cPlainData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_encrypt_raw()
+
+rsa_encrypt_raw() Function
+==========================
+
+We can perform raw RSA encryption on data using the function rsa_encrypt_raw()
+The size of data must be equal to the length of the RSA key modulus is bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input data
+that can be encrypted using raw RSA is 256 bytes.
+Raw RSA encryption needs only the public part of an RSA key, so rsa_encrypt_raw can be used with both 
+RSA private key and RSA public key.
+Raw RSA should only be used to implement secure cryptographic protocols. Encrypting user data directly with 
+raw RSA is insecure.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_encrypt_raw(pRsaKey,cPlainData) ---> return a string containing the raw RSA encryption of cPlainData
+
+Example:
+
+.. code-block:: ring
+
+	/* encrypt a file using AES key and then encrypt the AES key using an RSA public key using PKCS1 padding */
+	/* we manually add PKCS1 padding and then perform raw RSA encryption */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* encrypt file with random AES-128 key */
+		cData = Read ("secret_document.txt")
+		cKey = RandBytes(16)
+		cIV = RandBytes(16)
+		cEncryptedData = Encrypt(cData,cKey,cIV,"aes128") 
+		
+		/* encrypt the AES-128 key with the RSA public key */
+
+		/* calculate the modulus length */
+		rsaKeyParams = rsa_export_params(rsaPublicKey)
+		modulusLen = rsaKeyParams[:bits]/ 8
+		
+		/* we manually add PKCS1 padding */
+		paddingSize = modulusLen - Len(cKey) - 2 - 1
+		paddingStr = space (paddingSize)
+
+		/* encryption case. Add random bytes */
+		for i=1 to paddingSize
+			paddingStr[i] = Char (1 + Random(254))
+		next
+		
+		paddedData = Char(0) + Char(2) + paddingStr + Char (0) + cKey
+
+		cEncryptedKey = rsa_encrypt_raw(rsaPublicKey,paddedData)
+		
+		/* store IV, encrypted AES key and encrypted data in a file to be sent to Alice*/
+		Write("raw_encrypted_document.enc", cIV + cEncryptedKey + cEncryptedData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_decrypt_raw()
+
+rsa_decrypt_raw() Function
+==========================
+
+We can perform raw RSA decryption of data using the rsa_decrypt_pkcs() function.
+The size of data that can be decrypted by rsa_decrypt_raw must be equal to modulusLen which is the length 
+of the RSA key modulus is bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data 
+that can be decrypted must be 256 bytes.
+For raw RSA decryption, the RSA key must contain the private key part.
+The size of the result of raw RSA decryption is equal to the length of RSA modulus in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_decrypt_raw(pRsaKey,cEncryptedData) ---> return a string containing the decryption of cEncryptedData
+
+Example:
+
+.. code-block:: ring
+
+	/* decrypt a file by first decrypting AES key that was used to encrypt it 
+	 * and then decrypt the whole content using the AES key
+	 /* We decrypt AES using rsa_decrypt_raw and then remove padding manually
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* calculate the modulus length */
+		rsaKeyParams = rsa_export_params(rsaKey)
+		modulusLen = rsaKeyParams[:bits]/ 8
+		
+		/* read encrypted file */
+		cEncryptedContent = Read ("encrypted_document.enc")
+		
+		/* IV is the first 16 bytes if the file */
+		cIV = substr(cEncryptedContent, 1, 16)
+		
+		/* encrypted key follows IV and its length is modulusLen */
+		cEncryptedKey = substr(cEncryptedContent, 17, modulusLen)
+		
+		/* encrypted data follows the key */
+		cEncryptedData = substr(cEncryptedContent, 17 + modulusLen)
+		
+		/* decrypt the AES-128 key */
+		cPaddedKey = rsa_decrypt_raw(rsaKey,cEncryptedKey)
+		
+		/* remove PKCS1 padding */
+		paddedInputLength = len(cPaddedKey)
+		cKey = ""
+		if paddedInputLength > 11 AND Ascii(cPaddedKey[1]) = 0 AND Ascii(cPaddedKey[2]) = 2
+			zeroFound = false
+			for j = 3 to paddedInputLength
+				if Ascii(cPaddedKey[j]) = 0
+					i = j
+					zeroFound = true
+					exit
+				ok
+			next
+			
+			if zeroFound
+				if i = paddedInputLength
+					/* unpadded data is empty */
+					Raise("Empty data recovered from padding")
+				else
+					cKey = substr(cPaddedKey,i+1)
+				ok
+			else
+				Raise ("Invalid data padding")
+			ok
+		else
+			Raise("the decrypted data is invalid")
+		ok
+		
+		/* decrypt the data using the AES-128 key */
+		
+		cPlainData = Decrypt(cEncryptedData,cKey,cIV,"aes128") 
+
+		/* store the decrypted data to a file */
+		Write("decrypted_document.txt", cPlainData)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_sign_pss()
+
+rsa_sign_pss() Function
+=======================
+
+We can sign data with RSA PSS using the function rsa_sign_pss()
+The input data will be first hashed using the specified hash algorithm then RSA PSS signing will
+be applied to the computed hash value.
+For RSA PSS signature, the RSA key must contain the private key part.
+The size of the result of RSA PSS signature is equal to the length of RSA modulus in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_sign_pss(pRsaKey,cData,nHashAlgorithm[,nSaltLength]) ---> return a string containing RSA PSS signature
+		nHashAlgorithm indicates the hash algorithm to use for hashing and PSS padding.
+		nSaltLength indicates the length of PSS salt to use. If ommited, then maximum salt length is used.
+		nSaltLength can have the special values -1 and -2: -1 indicates that salt length is equal to hash size
+		and -2 indicates that maximum salt length is used.
+		Possible values for nHashAlgorithm argument are:
+		 - $OSSL_HASH_MD5 which is equal to 0
+		 - $OSSL_HASH_SHA1 which is equal to 1
+		 - $OSSL_HASH_SHA256 which is equal to 2
+		 - $OSSL_HASH_SHA384 which is equal to 3
+		 - $OSSL_HASH_SHA512 which is equal to 4
+
+Example:
+
+.. code-block:: ring
+
+	/* sign a document using  RSA-PSS with SHA256 and maximal salt length
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* perform PSS signing */
+		cSignature = rsa_sign_pss(rsaKey,cFileContent,$OSSL_HASH_SHA256)
+
+		/* store the signature */
+		Write("document.txt.sig", cSignature)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_verify_pss()
+
+rsa_verify_pss() Function
+=========================
+
+We can verify the RSA-PSS of using the function rsa_verify_pss()
+The input data will be first hashed using the specified hash algorithm then RSA PSS verification will
+be applied to the computed hash value and the given signature to check if they match or not.
+The size of signature must be equal to the length of the RSA key modulus is bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PSS is 256 bytes.
+RSA-PSS verification needs only the public part of an RSA key, so rsa_encrypt_raw can be used with both 
+RSA private key and RSA public key.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_verify_pss(pRsaKey,cData,cSignature,nHashAlgorithm[,nSaltLength]) ---> returns 1 if signature is valid and 0 otherwise
+		nHashAlgorithm indicates the hash algorithm to use for hashing and PSS padding.
+		nSaltLength indicates the length of PSS salt to use. If ommited, then maximum salt length is used.
+		nSaltLength can have the special values -1 and -2: -1 indicates that salt length is equal to hash size
+		and -2 indicates that maximum salt length is used.
+		Possible values for nHashAlgorithm argument are:
+		 - $OSSL_HASH_MD5 which is equal to 0
+		 - $OSSL_HASH_SHA1 which is equal to 1
+		 - $OSSL_HASH_SHA256 which is equal to 2
+		 - $OSSL_HASH_SHA384 which is equal to 3
+		 - $OSSL_HASH_SHA512 which is equal to 4
+
+Example:
+
+.. code-block:: ring
+
+	/* verify a document signature using RSA-PSS with SHA256 and maximal salt length
+	 */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* read file signature */
+		cSignature = Read ("document.txt.sig")
+		
+		/* perform PSS verification */
+		if rsa_verify_pss(rsaPublicKey,cFileContent,cSignature,$OSSL_HASH_SHA256)
+			See "file signature is valid" + nl
+		else
+			See "file signature is INVALID" + nl
+		ok
+
+		/* store the signature */
+		Write("document.txt.sig", cSignature)
 		
 	catch
 		See "Unexpected error occured: " + cCatchError + nl
