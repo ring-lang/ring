@@ -86,6 +86,14 @@ void ring_vm_openssl_rsa_decrypt_pkcs ( void *pPointer ) ;
 void ring_vm_openssl_rsa_encrypt_oaep ( void *pPointer ) ;
 
 void ring_vm_openssl_rsa_decrypt_oaep ( void *pPointer ) ;
+
+void ring_vm_openssl_rsa_encrypt_raw(void* pPointer);
+
+void ring_vm_openssl_rsa_decrypt_raw(void* pPointer);
+
+void ring_vm_openssl_rsa_sign_pss(void* pPointer);
+
+void ring_vm_openssl_rsa_verify_pss(void* pPointer);
 /* Constants */
 #define RING_VM_POINTER_OPENSSL "openssl"
 

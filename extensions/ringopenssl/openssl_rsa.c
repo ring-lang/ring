@@ -100,9 +100,6 @@ void ring_vm_openssl_rsa_is_privatekey ( void *pPointer )
 	EVP_PKEY *pKey = NULL;
 	RSA *pRsa  ;
 	const BIGNUM *p,*q,*dmp1,*dmq1,*iqmp,*n,*e,*d;
-	List *pList  ;
-	int nSize, nBits;
-	unsigned char* pBuf;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
 		return ;
@@ -190,7 +187,6 @@ static void ring_vm_openssl_add_bignum_to_list( void *pPointer, const char* cCom
 
 static void ring_vm_openssl_add_bits_to_list( void *pPointer, int nBits, List* pList )
 {
-	int nSize;
 	List* pSubList;
 	
 	pSubList = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
@@ -201,7 +197,6 @@ static void ring_vm_openssl_add_bits_to_list( void *pPointer, int nBits, List* p
 
 static void ring_vm_openssl_add_keytype_to_list( void *pPointer, const char* cKeyType, List* pList )
 {
-	int nSize;
 	List* pSubList;
 	
 	pSubList = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
@@ -216,7 +211,7 @@ void ring_vm_openssl_rsa_export_params ( void *pPointer )
 	RSA *pRsa  ;
 	const BIGNUM *p,*q,*dmp1,*dmq1,*iqmp,*n,*e,*d;
 	List *pList  ;
-	int nSize, nBits;
+	int nBits;
 	unsigned char* pBuf;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -397,7 +392,7 @@ void ring_vm_openssl_rsa_import_params ( void *pPointer )
 	BIGNUM *p=NULL,*q=NULL,*dmp1=NULL,*dmq1=NULL,*iqmp=NULL,*n=NULL,*e=NULL,*d=NULL;
 	BIGNUM **targetComponent;
 	List *pList,*pSubList  ;
-	int x,nSize,nBits,nFailed,nBufSize;
+	int x,nSize,nFailed,nBufSize;
 	char* cStrIndex;
 	unsigned char* pBuf;
 	if ( RING_API_PARACOUNT != 1 ) {
@@ -550,7 +545,7 @@ void ring_vm_openssl_rsa_import_pem ( void *pPointer )
 {
 	EVP_PKEY *pKey = NULL;
 	char* cStr;
-	int nSize,nStatus;
+	int nSize;
 	BIO *bio;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_BADPARACOUNT);
@@ -877,7 +872,6 @@ void ring_vm_openssl_rsa_decrypt_oaep ( void *pPointer )
 	const EVP_MD *md;
 	EVP_PKEY_CTX *ctx;
     size_t nOutput ;
-    int nStatus ;
 	#else
 	RSA *pRsa ;
     int nOutput ;
@@ -1000,4 +994,506 @@ void ring_vm_openssl_rsa_decrypt_oaep ( void *pPointer )
 	#else
 	RSA_free(pRsa);
 	#endif
+}
+
+void ring_vm_openssl_rsa_encrypt_raw(void* pPointer)
+{
+#if OPENSSL_VERSION_NUMBER >= 0x10000000L
+	EVP_PKEY_CTX* ctx;
+	size_t nOutput;
+	int nStatus;
+#else
+	RSA* pRsa;
+	int nOutput;
+#endif
+	EVP_PKEY* pKey;
+	int nSize, nModulusLen;
+	unsigned char* cInput, * cOutput;
+	if (RING_API_PARACOUNT != 2) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	if (!RING_API_ISCPOINTER(1) || !RING_API_ISSTRING(2)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	pKey = (EVP_PKEY*)RING_API_GETCPOINTER(1, "OSSL_PKEY");
+	if (pKey == NULL) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	/* check that this is indeed an RSA key */
+#if OPENSSL_VERSION_NUMBER >= 0x10000000L
+	if (EVP_PKEY_base_id(pKey) != EVP_PKEY_RSA) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+#else
+	if (EVP_PKEY_type(pKey->type) != EVP_PKEY_RSA) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+#endif
+
+	cInput = (unsigned char*)RING_API_GETSTRING(2);
+	nSize = RING_API_GETSTRINGSIZE(2);
+
+	nModulusLen = EVP_PKEY_size(pKey);
+
+	/* input size for RSA RAW must be equal to modulusLen */
+	if (nSize != nModulusLen) {
+		RING_API_ERROR(RING_API_BADPARAVALUE);
+		return;
+	}
+
+	cOutput = (unsigned char*)RING_API_MALLOC(nModulusLen);
+	if (cOutput == NULL) {
+		RING_API_ERROR(RING_OOM);
+		return;
+	}
+
+#if OPENSSL_VERSION_NUMBER >= 0x10000000L
+	nOutput = (size_t)nModulusLen;
+	ctx = EVP_PKEY_CTX_new(pKey, NULL);
+	if ((EVP_PKEY_encrypt_init(ctx) > 0)
+		&& (EVP_PKEY_CTX_set_rsa_padding(ctx, RSA_NO_PADDING) > 0)
+		) {
+		nStatus = EVP_PKEY_encrypt(ctx, cOutput, &nOutput, cInput, nSize);
+		if (nStatus <= 0) {
+			/* error occured */
+			RING_API_ERROR(ERR_reason_error_string(ERR_get_error()));
+		}
+		else {
+			RING_API_RETSTRING2((const char*)cOutput, nModulusLen);
+		}
+	}
+	else {
+		RING_API_ERROR(ERR_reason_error_string(ERR_get_error()));
+	}
+#else
+	pRsa = EVP_PKEY_get1_RSA(pKey);
+	nOutput = RSA_public_encrypt(nSize, cInput, cOutput, pRsa, RSA_NO_PADDING);
+	if (nOutput == nModulusLen) {
+		RING_API_RETSTRING2((const char*)cOutput, nModulusLen);
+	}
+	else {
+		/* error occured */
+		RING_API_ERROR(ERR_reason_error_string(ERR_get_error()));
+	}
+#endif
+
+
+	RING_API_FREE(cOutput);
+#if OPENSSL_VERSION_NUMBER >= 0x10000000L
+	EVP_PKEY_CTX_free(ctx);
+#else
+	RSA_free(pRsa);
+#endif
+}
+
+void ring_vm_openssl_rsa_decrypt_raw(void* pPointer)
+{
+#if OPENSSL_VERSION_NUMBER >= 0x10000000L
+	EVP_PKEY_CTX* ctx;
+	size_t nOutput;
+#else
+	RSA* pRsa;
+	int nOutput;
+#endif
+	EVP_PKEY* pKey;
+	int nSize, nModulusLen;
+	unsigned char* cInput, * cOutput;
+	if (RING_API_PARACOUNT != 2) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	if (!RING_API_ISCPOINTER(1) || !RING_API_ISSTRING(2)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	pKey = (EVP_PKEY*)RING_API_GETCPOINTER(1, "OSSL_PKEY");
+	if (pKey == NULL) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	/* check that this is indeed an RSA key */
+#if OPENSSL_VERSION_NUMBER >= 0x10000000L
+	if (EVP_PKEY_base_id(pKey) != EVP_PKEY_RSA) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+#else
+	if (EVP_PKEY_type(pKey->type) != EVP_PKEY_RSA) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+#endif
+
+	cInput = (unsigned char*)RING_API_GETSTRING(2);
+	nSize = RING_API_GETSTRINGSIZE(2);
+
+	nModulusLen = EVP_PKEY_size(pKey);
+
+	/* input size must be equal to modulusLen */
+	if (nSize != nModulusLen) {
+		RING_API_ERROR(RING_API_BADPARAVALUE);
+		return;
+	}
+
+	cOutput = (unsigned char*)RING_API_MALLOC(nModulusLen);
+	if (cOutput == NULL) {
+		RING_API_ERROR(RING_OOM);
+		return;
+	}
+
+#if OPENSSL_VERSION_NUMBER >= 0x10000000L
+	nOutput = (size_t)nModulusLen;
+	ctx = EVP_PKEY_CTX_new(pKey, NULL);
+	if ((EVP_PKEY_decrypt_init(ctx) > 0)
+		&& (EVP_PKEY_CTX_set_rsa_padding(ctx, RSA_NO_PADDING) > 0)
+		) {
+		if (EVP_PKEY_decrypt(ctx, cOutput, &nOutput, cInput, (size_t)nSize) <= 0) {
+			/* error occured */
+			RING_API_ERROR(ERR_reason_error_string(ERR_get_error()));
+		}
+		else {
+			RING_API_RETSTRING2((const char*)cOutput, (int)nOutput);
+		}
+	}
+	else {
+		/* error occured */
+		RING_API_ERROR(ERR_reason_error_string(ERR_get_error()));
+	}
+#else
+	pRsa = EVP_PKEY_get1_RSA(pKey);
+	nOutput = RSA_private_decrypt(nSize, cInput, cOutput, pRsa, RSA_NO_PADDING);
+	if (nOutput < 0) {
+		/* unexpected error */
+		RING_API_ERROR(ERR_reason_error_string(ERR_get_error()));
+	}
+	else {
+		RING_API_RETSTRING2((const char*)cOutput, nOutput);
+	}
+#endif
+
+	RING_API_FREE(cOutput);
+#if OPENSSL_VERSION_NUMBER >= 0x10000000L
+	EVP_PKEY_CTX_free(ctx);
+#else
+	RSA_free(pRsa);
+#endif
+}
+
+
+/* define PSS salt length configuration for older OpenSSL*/
+#if OPENSSL_VERSION_NUMBER < 0x10100000L
+/* Salt length matches digest */
+# define RSA_PSS_SALTLEN_DIGEST -1
+/* Verify only: auto detect salt length */
+# define RSA_PSS_SALTLEN_AUTO   -2
+/* Set salt length to maximum possible */
+# define RSA_PSS_SALTLEN_MAX    -3
+/* Old compatible max salt length for sign only */
+# define RSA_PSS_SALTLEN_MAX_SIGN    -2
+#endif
+
+void ring_vm_openssl_rsa_sign_pss(void* pPointer)
+{
+	const EVP_MD* md;
+	RSA* pRsa;
+	EVP_PKEY* pKey;
+#if OPENSSL_VERSION_NUMBER >= 0x10100001L
+	EVP_MD_CTX* md_ctx;
+#else
+	EVP_MD_CTX md_ctx;
+#endif
+	int nSize, nModulusLen, nSaltLen, nHashAlg, nStatus;
+	unsigned char* cInput, * cOutput, * cPaddedPss;
+	unsigned char CDigest[64]; /* enough for largest hash */
+	unsigned int nDigestLen = 64;
+	/* possible parameters: 
+		- key, dataToSign, hashAlgo
+		- key, dataToSign, hashAlgo, saltLen
+	*/
+	if (RING_API_PARACOUNT != 3 && RING_API_PARACOUNT != 4) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	if (!RING_API_ISCPOINTER(1) || !RING_API_ISSTRING(2) || !RING_API_ISNUMBER(3)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	if ((RING_API_PARACOUNT == 4) && !RING_API_ISNUMBER(4)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	pKey = (EVP_PKEY*)RING_API_GETCPOINTER(1, "OSSL_PKEY");
+	if (pKey == NULL) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	/* check that this is indeed an RSA key */
+#if OPENSSL_VERSION_NUMBER >= 0x10000000L
+	if (EVP_PKEY_base_id(pKey) != EVP_PKEY_RSA) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+#else
+	if (EVP_PKEY_type(pKey->type) != EVP_PKEY_RSA) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+#endif
+
+	nHashAlg = (int)RING_API_GETNUMBER(3);
+
+	switch (nHashAlg) {
+	case OSSL_OAEP_MD5: md = EVP_md5(); break;
+	case OSSL_OAEP_SHA1: md = EVP_sha1(); break;
+	case OSSL_OAEP_SHA256: md = EVP_sha256(); break;
+	case OSSL_OAEP_SHA384: md = EVP_sha384(); break;
+	case OSSL_OAEP_SHA512: md = EVP_sha512(); break;
+	default:
+		RING_API_ERROR(RING_API_BADPARAVALUE);
+		return;
+	}
+
+	if (RING_API_PARACOUNT == 4) {
+		nSaltLen = (int) RING_API_GETNUMBER(4);
+
+		if (nSaltLen <= -1 && (nSaltLen != RSA_PSS_SALTLEN_DIGEST && nSaltLen != RSA_PSS_SALTLEN_MAX_SIGN)) {
+			RING_API_ERROR(RING_API_BADPARAVALUE);
+			return;
+		}
+		#if OPENSSL_VERSION_NUMBER >= 0x10100000L
+		if (nSaltLen == RSA_PSS_SALTLEN_MAX_SIGN) {
+			nSaltLen = RSA_PSS_SALTLEN_MAX;
+		}
+		#endif
+	}
+	else {
+		/* by default we use maximum salt length */
+		#if OPENSSL_VERSION_NUMBER >= 0x10100000L
+		nSaltLen = RSA_PSS_SALTLEN_MAX;
+		#else
+		nSaltLen = RSA_PSS_SALTLEN_MAX_SIGN;
+		#endif
+	}
+
+	cInput = (unsigned char*)RING_API_GETSTRING(2);
+	nSize = RING_API_GETSTRINGSIZE(2);
+
+	/* hash the input */
+#if OPENSSL_VERSION_NUMBER >= 0x10100001L
+	md_ctx = EVP_MD_CTX_new();
+	EVP_DigestInit(md_ctx, md);
+	EVP_DigestUpdate(md_ctx, (const void*)cInput, (size_t) nSize);
+	EVP_DigestFinal(md_ctx, CDigest, &nDigestLen);
+	EVP_MD_CTX_free(md_ctx);
+#else
+	EVP_MD_CTX_init(&md_ctx);
+	EVP_DigestInit(&md_ctx, md);
+	EVP_DigestUpdate(&md_ctx, (const void*)cInput, (size_t)nSize);
+	EVP_DigestFinal(&md_ctx, CDigest, &nDigestLen);
+	EVP_MD_CTX_cleanup(&md_ctx);
+#endif
+
+	nModulusLen = EVP_PKEY_size(pKey);
+
+	cOutput = (unsigned char*)RING_API_MALLOC(nModulusLen);
+	if (cOutput == NULL) {
+		RING_API_ERROR(RING_OOM);
+		return;
+	}
+
+	cPaddedPss = (unsigned char*)RING_API_MALLOC(nModulusLen);
+	if (cPaddedPss == NULL) {
+		RING_API_FREE(cOutput);
+		RING_API_ERROR(RING_OOM);
+		return;
+	}
+
+
+	/* compute the PSS padded data */
+	pRsa = EVP_PKEY_get1_RSA(pKey);
+	nStatus = RSA_padding_add_PKCS1_PSS(pRsa, cPaddedPss, CDigest, md, nSaltLen);
+	if (!nStatus)
+	{
+		RING_API_FREE(cOutput);
+		RING_API_FREE(cPaddedPss);
+		RSA_free(pRsa);
+		RING_API_ERROR(ERR_reason_error_string(ERR_get_error()));
+		return;
+	}
+
+	/* perform digital signature */
+	nStatus = RSA_private_encrypt(nModulusLen, cPaddedPss, cOutput, pRsa, RSA_NO_PADDING);
+	if (nStatus == -1)
+	{
+		RING_API_FREE(cOutput);
+		RING_API_FREE(cPaddedPss);
+		RSA_free(pRsa);
+		RING_API_ERROR(ERR_reason_error_string(ERR_get_error()));
+		return;
+	}
+
+	RING_API_RETSTRING2((const char*)cOutput, nModulusLen);
+
+	RING_API_FREE(cOutput);
+	RING_API_FREE(cPaddedPss);
+	RSA_free(pRsa);
+}
+
+void ring_vm_openssl_rsa_verify_pss(void* pPointer)
+{
+	const EVP_MD* md;
+	RSA* pRsa;
+	EVP_PKEY* pKey;
+#if OPENSSL_VERSION_NUMBER >= 0x10100001L
+	EVP_MD_CTX* md_ctx;
+#else
+	EVP_MD_CTX md_ctx;
+#endif
+	int nSize, nModulusLen, nSaltLen, nHashAlg, nStatus, nSignatureSize;
+	unsigned char* cInput, * cPaddedPss, * cSignature;
+	unsigned char CDigest[64]; /* enough for largest hash */
+	unsigned int nDigestLen = 64;
+	/* possible parameters:
+		- key, data, signature, hashAlgo
+		- key, data, signature, hashAlgo, saltLen
+	*/
+	if (RING_API_PARACOUNT != 4 && RING_API_PARACOUNT != 5) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return;
+	}
+	if (!RING_API_ISCPOINTER(1) || !RING_API_ISSTRING(2) || !RING_API_ISSTRING(3) || !RING_API_ISNUMBER(4)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	if ((RING_API_PARACOUNT == 5) && !RING_API_ISNUMBER(5)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	pKey = (EVP_PKEY*)RING_API_GETCPOINTER(1, "OSSL_PKEY");
+	if (pKey == NULL) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	/* check that this is indeed an RSA key */
+#if OPENSSL_VERSION_NUMBER >= 0x10000000L
+	if (EVP_PKEY_base_id(pKey) != EVP_PKEY_RSA) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+#else
+	if (EVP_PKEY_type(pKey->type) != EVP_PKEY_RSA) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+#endif
+
+	nHashAlg = (int)RING_API_GETNUMBER(4);
+
+	switch (nHashAlg) {
+	case OSSL_OAEP_MD5: md = EVP_md5(); break;
+	case OSSL_OAEP_SHA1: md = EVP_sha1(); break;
+	case OSSL_OAEP_SHA256: md = EVP_sha256(); break;
+	case OSSL_OAEP_SHA384: md = EVP_sha384(); break;
+	case OSSL_OAEP_SHA512: md = EVP_sha512(); break;
+	default:
+		RING_API_ERROR(RING_API_BADPARAVALUE);
+		return;
+	}
+
+	if (RING_API_PARACOUNT == 5) {
+		nSaltLen = (int)RING_API_GETNUMBER(5);
+
+		if (nSaltLen <= -1 && (nSaltLen != RSA_PSS_SALTLEN_DIGEST && nSaltLen != RSA_PSS_SALTLEN_MAX_SIGN)) {
+			RING_API_ERROR(RING_API_BADPARAVALUE);
+			return;
+		}
+		#if OPENSSL_VERSION_NUMBER >= 0x10100000L
+		if (nSaltLen == RSA_PSS_SALTLEN_MAX_SIGN) {
+			nSaltLen = RSA_PSS_SALTLEN_MAX;
+		}
+		#endif
+	}
+	else {
+		/* by default we use maximum salt length */
+#if OPENSSL_VERSION_NUMBER >= 0x10100000L
+		nSaltLen = RSA_PSS_SALTLEN_MAX;
+#else
+		nSaltLen = RSA_PSS_SALTLEN_MAX_SIGN;
+#endif
+	}
+
+	cInput = (unsigned char*)RING_API_GETSTRING(2);
+	nSize = RING_API_GETSTRINGSIZE(2);
+
+	cSignature = (unsigned char*)RING_API_GETSTRING(3);
+	nSignatureSize = RING_API_GETSTRINGSIZE(3);
+
+	nModulusLen = EVP_PKEY_size(pKey);
+
+	/* signature size must be equal to modulus length*/
+	if (nSignatureSize != nModulusLen) {
+		RING_API_ERROR("rsa_verify_pss: signature size must be equal to the RSA key modulus length");
+		return;
+	}
+
+	cPaddedPss = (unsigned char*)RING_API_MALLOC(nModulusLen);
+	if (cPaddedPss == NULL) {
+		RING_API_ERROR(RING_OOM);
+		return;
+	}
+
+	/* hash the input */
+#if OPENSSL_VERSION_NUMBER >= 0x10100001L
+	md_ctx = EVP_MD_CTX_new();
+	EVP_DigestInit(md_ctx, md);
+	EVP_DigestUpdate(md_ctx, (const void*)cInput, (size_t)nSize);
+	EVP_DigestFinal(md_ctx, CDigest, &nDigestLen);
+	EVP_MD_CTX_free(md_ctx);
+#else
+	EVP_MD_CTX_init(&md_ctx);
+	EVP_DigestInit(&md_ctx, md);
+	EVP_DigestUpdate(&md_ctx, (const void*)cInput, (size_t)nSize);
+	EVP_DigestFinal(&md_ctx, CDigest, &nDigestLen);
+	EVP_MD_CTX_cleanup(&md_ctx);
+#endif
+
+	/* decrypt the PSS padded data */
+	pRsa = EVP_PKEY_get1_RSA(pKey);
+	nStatus = RSA_public_decrypt(nModulusLen, cSignature, cPaddedPss, pRsa, RSA_NO_PADDING);
+	if (nStatus == -1)
+	{
+		RING_API_FREE(cPaddedPss);
+		RSA_free(pRsa);
+		RING_API_ERROR(ERR_reason_error_string(ERR_get_error()));
+		return;
+	}
+
+	/* verify the data */
+	nStatus = RSA_verify_PKCS1_PSS(pRsa, CDigest, md, cPaddedPss, nSaltLen);
+	if (nStatus == 1)
+	{
+		RING_API_RETNUMBER(1);
+	}
+	else
+	{
+		RING_API_RETNUMBER(0);
+	}
+
+	RING_API_FREE(cPaddedPss);
+	RSA_free(pRsa);
 }

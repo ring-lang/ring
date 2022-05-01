@@ -68,6 +68,10 @@ RING_LIBINIT
 	RING_API_REGISTER("rsa_decrypt_pkcs",ring_vm_openssl_rsa_decrypt_pkcs);
 	RING_API_REGISTER("rsa_encrypt_oaep",ring_vm_openssl_rsa_encrypt_oaep);
 	RING_API_REGISTER("rsa_decrypt_oaep",ring_vm_openssl_rsa_decrypt_oaep);
+	RING_API_REGISTER("rsa_encrypt_raw", ring_vm_openssl_rsa_encrypt_raw);
+	RING_API_REGISTER("rsa_decrypt_raw", ring_vm_openssl_rsa_decrypt_raw);
+	RING_API_REGISTER("rsa_sign_pss", ring_vm_openssl_rsa_sign_pss);
+	RING_API_REGISTER("rsa_verify_pss", ring_vm_openssl_rsa_verify_pss);
 	RING_API_REGISTER("openssl_versiontext",ring_vm_openssl_versiontext);
 	RING_API_REGISTER("openssl_version",ring_vm_openssl_version);
 	/* Before OpenSSL 1.1, calling OpenSSL_add_all_algorithms is required */
@@ -110,7 +114,7 @@ void ring_vm_openssl_md5_init ( void *pPointer )
 
 void ring_vm_openssl_md5_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	MD5_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -139,8 +143,6 @@ void ring_vm_openssl_md5_final ( void *pPointer )
 {
 	unsigned char digest[MD5_DIGEST_LENGTH]  ;
 	char cString[MD5_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	MD5_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -197,7 +199,7 @@ void ring_vm_openssl_sha1_init ( void *pPointer )
 
 void ring_vm_openssl_sha1_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	SHA_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -226,8 +228,6 @@ void ring_vm_openssl_sha1_final ( void *pPointer )
 {
 	unsigned char digest[SHA_DIGEST_LENGTH]  ;
 	char cString[SHA_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	SHA_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -283,7 +283,7 @@ void ring_vm_openssl_sha256_init ( void *pPointer )
 
 void ring_vm_openssl_sha256_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	SHA256_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -312,8 +312,6 @@ void ring_vm_openssl_sha256_final ( void *pPointer )
 {
 	unsigned char digest[SHA256_DIGEST_LENGTH]  ;
 	char cString[SHA256_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	SHA256_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -370,7 +368,7 @@ void ring_vm_openssl_sha512_init ( void *pPointer )
 
 void ring_vm_openssl_sha512_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	SHA512_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -399,8 +397,6 @@ void ring_vm_openssl_sha512_final ( void *pPointer )
 {
 	unsigned char digest[SHA512_DIGEST_LENGTH]  ;
 	char cString[SHA512_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	SHA512_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -456,7 +452,7 @@ void ring_vm_openssl_sha384_init ( void *pPointer )
 
 void ring_vm_openssl_sha384_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	SHA512_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -485,8 +481,6 @@ void ring_vm_openssl_sha384_final ( void *pPointer )
 {
 	unsigned char digest[SHA384_DIGEST_LENGTH]  ;
 	char cString[SHA384_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	SHA512_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -542,7 +536,7 @@ void ring_vm_openssl_sha224_init ( void *pPointer )
 
 void ring_vm_openssl_sha224_update ( void *pPointer )
 {
-	int x,nSize  ;
+	int nSize  ;
 	char *cInput  ;
 	SHA256_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 2 ) {
@@ -571,8 +565,6 @@ void ring_vm_openssl_sha224_final ( void *pPointer )
 {
 	unsigned char digest[SHA224_DIGEST_LENGTH]  ;
 	char cString[SHA224_DIGEST_LENGTH*2+1]  ;
-	int nSize  ;
-	char *cInput  ;
 	SHA256_CTX* pValue ;
 	if ( RING_API_PARACOUNT != 1 ) {
 		RING_API_ERROR(RING_API_MISS1PARA);
@@ -624,7 +616,6 @@ void ring_vm_openssl_versiontext ( void *pPointer )
 
 void ring_vm_openssl_version ( void *pPointer )
 {
-	unsigned char *cStr  ;
 	int nMajor,nMinor,nFix  ;
 	List *pList  ;
 	if ( RING_API_PARACOUNT != 0 ) {
