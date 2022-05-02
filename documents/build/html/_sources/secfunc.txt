@@ -643,7 +643,7 @@ rsa_encrypt_pkcs() Function
 
 We can encrypt data with an RSA key and PKCS#1 v1.5 padding using the rsa_encrypt_pkcs() function.
 The maximum size of data that can be encrypted by rsa_encrypt_pkcs is (modulusLen - 11), with modulusLen
-the length of the RSA key modulus is bytes.
+the length of the RSA key modulus in bytes.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
 of data that can be encrypted is 256 - 11 = 245 bytes.
 RSA encryption is usually applied to a symmetric key (e.g. AES) which is used to encrypt much larger data.
@@ -691,7 +691,7 @@ rsa_decrypt_pkcs() Function
 
 We can decrypt data encrypted with an RSA key and PKCS#1 v1.5 padding using the rsa_decrypt_pkcs() function.
 The size of data that can be decrypted by rsa_decrypt_pkcs must be equal to modulusLen which is the length 
-of the RSA key modulus is bytes.
+of the RSA key modulus in bytes.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data 
 that can be decrypted must be 256 bytes.
 For RSA decryption, the RSA key must contain the private key part.
@@ -753,7 +753,7 @@ rsa_encrypt_oaep() Function
 
 We can encrypt data with an RSA key and OAEP padding using the rsa_encrypt_oaep() function.
 The maximum size of data that can be encrypted by rsa_encrypt_oaep is (modulusLen - 2*hashLen -2), 
-with modulusLen the length of the RSA key modulus is bytes and hashLen and the length of hash algorithm used.
+with modulusLen the length of the RSA key modulus in bytes and hashLen and the length of hash algorithm used.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
 of data that can be encrypted using OAEP padding with SHA-1 is 256 - 2*20 - 2 = 214 bytes.
 RSA encryption is usually applied to a symmetric key (e.g. AES) which is used to encrypt much larger data.
@@ -808,7 +808,7 @@ rsa_decrypt_oaep() Function
 
 We can decrypt data encrypted with an RSA key and OAEP padding using the rsa_decrypt_oaep() function.
 The size of data that can be decrypted by rsa_decrypt_oaep must be equal to modulusLen which is the length 
-of the RSA key modulus is bytes.
+of the RSA key modulus in bytes.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data 
 that can be decrypted must be 256 bytes.
 For RSA decryption, the RSA key must contain the private key part.
@@ -877,7 +877,7 @@ rsa_encrypt_raw() Function
 ==========================
 
 We can perform raw RSA encryption on data using the function rsa_encrypt_raw()
-The size of data must be equal to the length of the RSA key modulus is bytes.
+The size of data must be equal to the length of the RSA key modulus in bytes.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input data
 that can be encrypted using raw RSA is 256 bytes.
 Raw RSA encryption needs only the public part of an RSA key, so rsa_encrypt_raw can be used with both 
@@ -943,7 +943,7 @@ rsa_decrypt_raw() Function
 
 We can perform raw RSA decryption of data using the rsa_decrypt_pkcs() function.
 The size of data that can be decrypted by rsa_decrypt_raw must be equal to modulusLen which is the length 
-of the RSA key modulus is bytes.
+of the RSA key modulus in bytes.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of encrypted data 
 that can be decrypted must be 256 bytes.
 For raw RSA decryption, the RSA key must contain the private key part.
@@ -1088,7 +1088,7 @@ rsa_verify_pss() Function
 We can verify the RSA-PSS of using the function rsa_verify_pss()
 The input data will be first hashed using the specified hash algorithm then RSA PSS verification will
 be applied to the computed hash value and the given signature to check if they match or not.
-The size of signature must be equal to the length of the RSA key modulus is bytes.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
 that can be verified using RSA-PSS is 256 bytes.
 RSA-PSS verification needs only the public part of an RSA key, so rsa_encrypt_raw can be used with both 
