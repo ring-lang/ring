@@ -138,8 +138,14 @@
 <li class="toctree-l2"><a class="reference internal" href="#rsa-decrypt-oaep-function">rsa_decrypt_oaep() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rsa-encrypt-raw-function">rsa_encrypt_raw() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rsa-decrypt-raw-function">rsa_decrypt_raw() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-sign-pkcs-function">rsa_sign_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-signhash-pkcs-function">rsa_signhash_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-verify-pkcs-function">rsa_verify_pkcs() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-verifyhash-pkcs-function">rsa_verifyhash_pkcs() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rsa-sign-pss-function">rsa_sign_pss() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-signhash-pss-function">rsa_signhash_pss() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#rsa-verify-pss-function">rsa_verify_pss() Function</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#rsa-verifyhash-pss-function">rsa_verifyhash_pss() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#openssl-versiontext-function">openssl_versiontext() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#openssl-version-function">openssl_version() Function</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#large-files-hash">Large Files Hash</a></li>
@@ -333,8 +339,14 @@ for Hashing, Encryption &amp; Decryption.</p>
 <li><p>rsa_decrypt_oaep</p></li>
 <li><p>rsa_encrypt_raw</p></li>
 <li><p>rsa_decrypt_raw</p></li>
+<li><p>rsa_sign_pkcs</p></li>
+<li><p>rsa_signhash_pkcs</p></li>
+<li><p>rsa_verify_pkcs</p></li>
+<li><p>rsa_verifyhash_pkcs</p></li>
 <li><p>rsa_sign_pss</p></li>
+<li><p>rsa_signhash_pss</p></li>
 <li><p>rsa_verify_pss</p></li>
+<li><p>rsa_verifyhash_pss</p></li>
 <li><p>openssl_versiontext</p></li>
 <li><p>openssl_version</p></li>
 <li><p>MD5Init(), MD5Update(), MD5Final()</p></li>
@@ -1105,8 +1117,180 @@ The size of the result of raw RSA decryption is equal to the length of RSA modul
 </pre></div>
 </div>
 </div>
+<div class="section" id="rsa-sign-pkcs-function">
+<span id="index-25"></span><h2>rsa_sign_pkcs() Function<a class="headerlink" href="#rsa-sign-pkcs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can sign data with RSA PKCS#1 v1.5 padding using the function rsa_sign_pkcs()
+The maximum size of data that can be signed by rsa_sign_pkcs is (modulusLen - 11), with modulusLen
+the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
+of data that can be signed is 256 - 11 = 245 bytes.
+For RSA PKCS signature, the RSA key must contain the private key part.
+The size of the result of RSA PKCS signature is equal to the length of RSA modulus in bytes.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_sign_pkcs</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cData</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">RSA</span> <span class="n">PKCS</span> <span class="n">signature</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">sign</span> <span class="n">a</span> <span class="n">document</span> <span class="n">using</span>  <span class="n">RSA</span><span class="o">-</span><span class="n">PKCS</span> <span class="n">with</span> <span class="n">SHA256</span><span class="p">.</span>
+ <span class="o">*</span> <span class="n">digest</span> <span class="n">OID</span> <span class="n">added</span> <span class="n">manually</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">digest</span> <span class="n">OID</span> <span class="n">of</span> <span class="n">SHA256</span> <span class="o">*/</span>
+        <span class="n">digestOID</span> <span class="o">=</span> <span class="n">hex2str</span><span class="p">(</span><span class="s">&quot;3031300d060960864801650304020105000420&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PKCS</span> <span class="n">signing</span> <span class="o">*/</span>
+        <span class="n">dataToSign</span> <span class="o">=</span> <span class="n">digestOID</span> <span class="o">+</span> <span class="n">digest</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">rsa_sign_pkcs</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">,</span><span class="n">dataToSign</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;document.txt.pkcs1.sig&quot;</span><span class="p">,</span> <span class="n">cSignature</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-signhash-pkcs-function">
+<span id="index-26"></span><h2>rsa_signhash_pkcs() Function<a class="headerlink" href="#rsa-signhash-pkcs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can sign a hash value with RSA PKCS#1 v1.5 padding using the function rsa_signhash_pkcs()
+This function infers the hash algorithm from hash value size and it automatically adds OID of hash
+algorithm before applying the PKCS#1 v1.5 padding.
+For RSA PKCS signature, the RSA key must contain the private key part.
+The size of the result of RSA PKCS signature is equal to the length of RSA modulus in bytes.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_signhash_pkcs</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cHashValue</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">RSA</span> <span class="n">PKCS</span> <span class="n">signature</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">sign</span> <span class="n">a</span> <span class="n">document</span> <span class="n">using</span>  <span class="n">RSA</span><span class="o">-</span><span class="n">PKCS</span> <span class="n">with</span> <span class="n">SHA256</span><span class="p">.</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PKCS</span> <span class="n">signing</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">rsa_signhash_pkcs</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">,</span><span class="n">digest</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;document.txt.pkcs1.sig&quot;</span><span class="p">,</span> <span class="n">cSignature</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-verify-pkcs-function">
+<span id="index-27"></span><h2>rsa_verify_pkcs() Function<a class="headerlink" href="#rsa-verify-pkcs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can verify an RSA-PKCS signature of data using the function rsa_verify_pkcs()
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PKCS is 256 bytes.
+RSA-PKCS verification needs only the public part of an RSA key, so rsa_verify_pkcs can be used with both
+RSA private key and RSA public key.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_verify_pkcs</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cData</span><span class="p">,</span><span class="n">cSignature</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">signature</span> <span class="n">is</span> <span class="n">valid</span> <span class="ow">and</span> <span class="mi">0</span> <span class="n">otherwise</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">verify</span> <span class="n">a</span> <span class="n">document</span> <span class="n">signature</span> <span class="n">using</span> <span class="n">RSA</span><span class="o">-</span><span class="n">PKCS</span> <span class="n">with</span> <span class="n">SHA256</span>
+ <span class="o">*</span> <span class="n">digest</span> <span class="n">OID</span> <span class="n">is</span> <span class="n">added</span> <span class="n">manually</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_public_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">digest</span> <span class="n">OID</span> <span class="n">of</span> <span class="n">SHA256</span> <span class="o">*/</span>
+        <span class="n">digestOID</span> <span class="o">=</span> <span class="n">hex2str</span><span class="p">(</span><span class="s">&quot;3031300d060960864801650304020105000420&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt.pkcs1.sig&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PKCS</span> <span class="n">verification</span> <span class="o">*/</span>
+        <span class="n">dataToVerify</span> <span class="o">=</span> <span class="n">digestOID</span> <span class="o">+</span> <span class="n">digest</span>
+        <span class="k">if</span> <span class="n">rsa_verify_pkcs</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">,</span><span class="n">dataToVerify</span><span class="p">,</span><span class="n">cSignature</span><span class="p">)</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is valid&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is INVALID&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">ok</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="rsa-verifyhash-pkcs-function">
+<span id="index-28"></span><h2>rsa_verifyhash_pkcs() Function<a class="headerlink" href="#rsa-verifyhash-pkcs-function" title="Permalink to this headline">¶</a></h2>
+<p>We can verify the RSA-PKCS signature of a hash value using the function rsa_verifyhash_pkcs()
+This function infers the hash algorithm from hash value size and it automatically uses the OID of hash
+algorithm during verification.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PKCS is 256 bytes.
+RSA-PKCS verification needs only the public part of an RSA key, so rsa_verifyhash_pkcs can be used with both
+RSA private key and RSA public key.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_verifyhash_pkcs</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cHashValue</span><span class="p">,</span><span class="n">cSignature</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">signature</span> <span class="n">is</span> <span class="n">valid</span> <span class="ow">and</span> <span class="mi">0</span> <span class="n">otherwise</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">verify</span> <span class="n">a</span> <span class="n">document</span> <span class="n">signature</span> <span class="n">using</span> <span class="n">RSA</span><span class="o">-</span><span class="n">PKCS</span> <span class="n">with</span> <span class="n">SHA256</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_public_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256</span><span class="p">(</span><span class="n">cFileContent</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt.pkcs1.sig&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PKCS</span> <span class="n">verification</span> <span class="o">*/</span>
+        <span class="k">if</span> <span class="n">rsa_verifyhash_pkcs</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">,</span><span class="n">digest</span><span class="p">,</span><span class="n">cSignature</span><span class="p">)</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is valid&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is INVALID&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">ok</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="rsa-sign-pss-function">
-<span id="index-25"></span><h2>rsa_sign_pss() Function<a class="headerlink" href="#rsa-sign-pss-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-29"></span><h2>rsa_sign_pss() Function<a class="headerlink" href="#rsa-sign-pss-function" title="Permalink to this headline">¶</a></h2>
 <p>We can sign data with RSA PSS using the function rsa_sign_pss()
 The input data will be first hashed using the specified hash algorithm then RSA PSS signing will
 be applied to the computed hash value.
@@ -1149,15 +1333,54 @@ The size of the result of RSA PSS signature is equal to the length of RSA modulu
 </pre></div>
 </div>
 </div>
+<div class="section" id="rsa-signhash-pss-function">
+<span id="index-30"></span><h2>rsa_signhash_pss() Function<a class="headerlink" href="#rsa-signhash-pss-function" title="Permalink to this headline">¶</a></h2>
+<p>We can sign a hash value with RSA PSS using the function rsa_signhash_pss()
+This function infers the hash algorithm from hash value size.
+For RSA PSS signature, the RSA key must contain the private key part.
+The size of the result of RSA PSS signature is equal to the length of RSA modulus in bytes.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_signhash_pss</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cHashValue</span><span class="o">[</span><span class="p">,</span><span class="n">nSaltLength</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="k">return</span> <span class="n">a</span> <span class="kt">string</span> <span class="n">containing</span> <span class="n">RSA</span> <span class="n">PSS</span> <span class="n">signature</span>
+        <span class="n">nSaltLength</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">PSS</span> <span class="n">salt</span> <span class="k">to</span> <span class="n">use</span><span class="p">.</span> <span class="k">If</span> <span class="n">ommited</span><span class="p">,</span> <span class="n">then</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+        <span class="n">nSaltLength</span> <span class="n">can</span> <span class="n">have</span> <span class="n">the</span> <span class="n">special</span> <span class="n">values</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">hash</span> <span class="n">size</span>
+        <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">sign</span> <span class="n">a</span> <span class="n">document</span> <span class="n">using</span>  <span class="n">RSA</span><span class="o">-</span><span class="n">PSS</span> <span class="n">with</span> <span class="n">SHA256</span> <span class="ow">and</span> <span class="n">maximal</span> <span class="n">salt</span> <span class="n">length</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">private</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_private_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">SHA256Init</span><span class="p">()</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+        <span class="n">SHA256Update</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">cFileContent</span><span class="p">)</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256Final</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PSS</span> <span class="n">signing</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">rsa_signhash_pss</span><span class="p">(</span><span class="n">rsaKey</span><span class="p">,</span><span class="n">digest</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">store</span> <span class="n">the</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">Write</span><span class="p">(</span><span class="s">&quot;document.txt.sig&quot;</span><span class="p">,</span> <span class="n">cSignature</span><span class="p">)</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="rsa-verify-pss-function">
-<span id="index-26"></span><h2>rsa_verify_pss() Function<a class="headerlink" href="#rsa-verify-pss-function" title="Permalink to this headline">¶</a></h2>
-<p>We can verify the RSA-PSS of using the function rsa_verify_pss()
+<span id="index-31"></span><h2>rsa_verify_pss() Function<a class="headerlink" href="#rsa-verify-pss-function" title="Permalink to this headline">¶</a></h2>
+<p>We can verify the RSA-PSS signature of data using the function rsa_verify_pss()
 The input data will be first hashed using the specified hash algorithm then RSA PSS verification will
 be applied to the computed hash value and the given signature to check if they match or not.
 The size of signature must be equal to the length of the RSA key modulus in bytes.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
 that can be verified using RSA-PSS is 256 bytes.
-RSA-PSS verification needs only the public part of an RSA key, so rsa_encrypt_raw can be used with both
+RSA-PSS verification needs only the public part of an RSA key, so rsa_verify_pss can be used with both
 RSA private key and RSA public key.</p>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_verify_pss</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cData</span><span class="p">,</span><span class="n">cSignature</span><span class="p">,</span><span class="n">nHashAlgorithm</span><span class="o">[</span><span class="p">,</span><span class="n">nSaltLength</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">signature</span> <span class="n">is</span> <span class="n">valid</span> <span class="ow">and</span> <span class="mi">0</span> <span class="n">otherwise</span>
@@ -1203,8 +1426,54 @@ RSA private key and RSA public key.</p>
 </pre></div>
 </div>
 </div>
+<div class="section" id="rsa-verifyhash-pss-function">
+<span id="index-32"></span><h2>rsa_verifyhash_pss() Function<a class="headerlink" href="#rsa-verifyhash-pss-function" title="Permalink to this headline">¶</a></h2>
+<p>We can verify the RSA-PSS signature of a hash value using the function rsa_verifyhash_pss()
+This function infers the hash algorithm from hash value size.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PSS is 256 bytes.
+RSA-PSS verification needs only the public part of an RSA key, so rsa_verifyhash_pss can be used with both
+RSA private key and RSA public key.</p>
+<p>Syntax:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">rsa_verifyhash_pss</span><span class="p">(</span><span class="n">pRsaKey</span><span class="p">,</span><span class="n">cHashValue</span><span class="p">,</span><span class="n">cSignature</span><span class="o">[</span><span class="p">,</span><span class="n">nSaltLength</span><span class="o">]</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="n">returns</span> <span class="mi">1</span> <span class="k">if</span> <span class="n">signature</span> <span class="n">is</span> <span class="n">valid</span> <span class="ow">and</span> <span class="mi">0</span> <span class="n">otherwise</span>
+        <span class="n">nSaltLength</span> <span class="n">indicates</span> <span class="n">the</span> <span class="n">length</span> <span class="n">of</span> <span class="n">PSS</span> <span class="n">salt</span> <span class="k">to</span> <span class="n">use</span><span class="p">.</span> <span class="k">If</span> <span class="n">ommited</span><span class="p">,</span> <span class="n">then</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+        <span class="n">nSaltLength</span> <span class="n">can</span> <span class="n">have</span> <span class="n">the</span> <span class="n">special</span> <span class="n">values</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span><span class="p">:</span> <span class="o">-</span><span class="mi">1</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">equal</span> <span class="k">to</span> <span class="n">hash</span> <span class="n">size</span>
+        <span class="ow">and</span> <span class="o">-</span><span class="mi">2</span> <span class="n">indicates</span> <span class="n">that</span> <span class="n">maximum</span> <span class="n">salt</span> <span class="n">length</span> <span class="n">is</span> <span class="n">used</span><span class="p">.</span>
+</pre></div>
+</div>
+<p>Example:</p>
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="o">/*</span> <span class="n">verify</span> <span class="n">a</span> <span class="n">document</span> <span class="n">signature</span> <span class="n">using</span> <span class="n">RSA</span><span class="o">-</span><span class="n">PSS</span> <span class="n">with</span> <span class="n">SHA256</span> <span class="ow">and</span> <span class="n">maximal</span> <span class="n">salt</span> <span class="n">length</span>
+ <span class="o">*/</span>
+<span class="k">try</span>
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">Alice</span> <span class="n">public</span> <span class="n">key</span> <span class="o">*/</span>
+        <span class="n">rsaPublicKeyPEM</span> <span class="o">=</span> <span class="n">Read</span><span class="p">(</span><span class="s">&quot;alice_public_key.pem&quot;</span><span class="p">)</span>
+        <span class="n">rsaPublicKey</span> <span class="o">=</span> <span class="n">rsa_import_pem</span><span class="p">(</span><span class="n">rsaPublicKeyPEM</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">hash</span> <span class="n">file</span> <span class="n">content</span> <span class="o">*/</span>
+        <span class="n">ctx</span> <span class="o">=</span> <span class="n">SHA256Init</span><span class="p">()</span>
+        <span class="n">cFileContent</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt&quot;</span><span class="p">)</span>
+        <span class="n">SHA256Update</span><span class="p">(</span><span class="n">ctx</span><span class="p">,</span> <span class="n">cFileContent</span><span class="p">)</span>
+        <span class="n">digest</span> <span class="o">=</span> <span class="n">SHA256Final</span><span class="p">(</span><span class="n">ctx</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">read</span> <span class="n">file</span> <span class="n">signature</span> <span class="o">*/</span>
+        <span class="n">cSignature</span> <span class="o">=</span> <span class="n">Read</span> <span class="p">(</span><span class="s">&quot;document.txt.sig&quot;</span><span class="p">)</span>
+
+        <span class="o">/*</span> <span class="n">perform</span> <span class="n">PSS</span> <span class="n">verification</span> <span class="o">*/</span>
+        <span class="k">if</span> <span class="n">rsa_verifyhash_pss</span><span class="p">(</span><span class="n">rsaPublicKey</span><span class="p">,</span><span class="n">digest</span><span class="p">,</span><span class="n">cSignature</span><span class="p">)</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is valid&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">else</span>
+                <span class="k">See</span> <span class="s">&quot;file signature is INVALID&quot;</span> <span class="o">+</span> <span class="n">nl</span>
+        <span class="k">ok</span>
+
+<span class="k">catch</span>
+        <span class="k">See</span> <span class="s">&quot;Unexpected error occured: &quot;</span> <span class="o">+</span> <span class="n">cCatchError</span> <span class="o">+</span> <span class="n">nl</span>
+<span class="k">done</span>
+</pre></div>
+</div>
+</div>
 <div class="section" id="openssl-versiontext-function">
-<span id="index-27"></span><h2>openssl_versiontext() Function<a class="headerlink" href="#openssl-versiontext-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-33"></span><h2>openssl_versiontext() Function<a class="headerlink" href="#openssl-versiontext-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the full version text of the OpenSSL library using the function openssl_versiontext().
 The returned string is equal to the value returned by the command “openssl.exe version”</p>
 <p>Syntax:</p>
@@ -1219,7 +1488,7 @@ The returned string is equal to the value returned by the command “openssl.exe
 </div>
 </div>
 <div class="section" id="openssl-version-function">
-<span id="index-28"></span><h2>openssl_version() Function<a class="headerlink" href="#openssl-version-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-34"></span><h2>openssl_version() Function<a class="headerlink" href="#openssl-version-function" title="Permalink to this headline">¶</a></h2>
 <p>We can get the version numbers (Major,Minor,Fix) of the OpenSSL library using the function openssl_version().
 The returned list contains three items corresponding to the the three part of the version.
 For example, for OpenSSL 1.0.2, openssl_version() returns the list [1,0,2]</p>
@@ -1242,7 +1511,7 @@ For example, for OpenSSL 1.0.2, openssl_version() returns the list [1,0,2]</p>
 </div>
 </div>
 <div class="section" id="large-files-hash">
-<span id="index-29"></span><h2>Large Files Hash<a class="headerlink" href="#large-files-hash" title="Permalink to this headline">¶</a></h2>
+<span id="index-35"></span><h2>Large Files Hash<a class="headerlink" href="#large-files-hash" title="Permalink to this headline">¶</a></h2>
 <p>These functions compute the hash of large files/data without the need to load all of the content in a single string.</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>md5init() -&gt; MD5_CTX
 md5update (MD5_CTX, string) -&gt; 1 for success or 0 for failure
@@ -1271,7 +1540,7 @@ sha512final (SHA512_CTX) -&gt; string
 </div>
 </div>
 <div class="section" id="download-function">
-<span id="index-30"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-36"></span><h2>Download() Function<a class="headerlink" href="#download-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">Download</span><span class="p">(</span><span class="n">cURL</span><span class="p">)</span> <span class="o">---&gt;</span> <span class="kt">String</span> <span class="n">contains</span> <span class="n">the</span> <span class="n">server</span> <span class="n">response</span>
 </pre></div>
@@ -1284,7 +1553,7 @@ sha512final (SHA512_CTX) -&gt; string
 </div>
 </div>
 <div class="section" id="sendemail-function">
-<span id="index-31"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
+<span id="index-37"></span><h2>SendEmail() Function<a class="headerlink" href="#sendemail-function" title="Permalink to this headline">¶</a></h2>
 <p>Syntax:</p>
 <div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="n">SendEmail</span><span class="p">(</span><span class="n">cSMTPServer</span><span class="p">,</span><span class="n">cEmail</span><span class="p">,</span><span class="n">cPassword</span><span class="p">,</span><span class="n">cSender</span><span class="p">,</span><span class="n">cReceiver</span><span class="p">,</span><span class="n">cCC</span><span class="p">,</span><span class="n">cTitle</span><span class="p">,</span><span class="n">cContent</span><span class="p">)</span>
 </pre></div>
