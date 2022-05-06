@@ -105,8 +105,23 @@ func TestRsa bitLength, pubExp
 		for hashAlgo in hashAlgorithms
 			try
 				data = randbytes(1000)
+				digest = HashData(data,hashAlgo)
 				signature = rsa_sign_pss(rsaKey, data, hashAlgo)
-				if rsa_verify_pss(rsaPubKey,data,signature,hashAlgo)
+				testSuccess = false
+				/* rsa_verifyhash_pss/rsa_signhash_pss accept both raw digest and its hexadecimal string 
+				 * so we test both by using hex2str to transform digest into raw hash value
+				 */
+				if rsa_verify_pss(rsaPubKey,data,signature,hashAlgo) AND rsa_verifyhash_pss(rsaPubKey,digest,signature) AND rsa_verifyhash_pss(rsaPubKey,hex2str(digest),signature) 
+					signature = rsa_signhash_pss(rsaKey, digest)
+					if rsa_verify_pss(rsaPubKey,data,signature,hashAlgo) AND rsa_verifyhash_pss(rsaPubKey,digest,signature) AND rsa_verifyhash_pss(rsaPubKey,hex2str(digest),signature)
+						/* we test also rsa_signhash_pss with raw hash value */
+						signature = rsa_signhash_pss(rsaKey, hex2str(digest))
+						if rsa_verify_pss(rsaPubKey,data,signature,hashAlgo) AND rsa_verifyhash_pss(rsaPubKey,digest,signature) AND rsa_verifyhash_pss(rsaPubKey,hex2str(digest),signature)
+							testSuccess = true
+						ok
+					ok
+				ok
+				if testSuccess
 					See "  PSS-" + GetHashName(hashAlgo) + " signature (default salt) OK" + nl
 				else
 					See "  PSS-" + GetHashName(hashAlgo) + " signature (default salt) failed!!" + nl
@@ -121,8 +136,23 @@ func TestRsa bitLength, pubExp
 			else
 				try
 					data = randbytes(1000)
+					digest = HashData(data,hashAlgo)
 					signature = rsa_sign_pss(rsaKey, data, hashAlgo, -1)
-					if rsa_verify_pss(rsaPubKey,data,signature,hashAlgo, -1)
+					testSuccess = false
+					/* rsa_verifyhash_pss/rsa_signhash_pss accept both raw digest and its hexadecimal string 
+					 * so we test both by using hex2str to transform digest into raw hash value
+					 */
+					if rsa_verify_pss(rsaPubKey,data,signature,hashAlgo,-1) AND rsa_verifyhash_pss(rsaPubKey,digest,signature,-1) AND rsa_verifyhash_pss(rsaPubKey,hex2str(digest),signature,-1) 
+						signature = rsa_signhash_pss(rsaKey, digest,-1)
+						if rsa_verify_pss(rsaPubKey,data,signature,hashAlgo,-1) AND rsa_verifyhash_pss(rsaPubKey,digest,signature,-1) AND rsa_verifyhash_pss(rsaPubKey,hex2str(digest),signature,-1)
+							/* we test also rsa_signhash_pss with raw hash value */
+							signature = rsa_signhash_pss(rsaKey, hex2str(digest),-1)
+							if rsa_verify_pss(rsaPubKey,data,signature,hashAlgo,-1) AND rsa_verifyhash_pss(rsaPubKey,digest,signature,-1) AND rsa_verifyhash_pss(rsaPubKey,hex2str(digest),signature,-1)
+								testSuccess = true
+							ok
+						ok
+					ok
+					if testSuccess
 						See "  PSS-" + GetHashName(hashAlgo) + " signature (salt len = hash len) OK" + nl
 					else
 						See "  PSS-" + GetHashName(hashAlgo) + " signature (salt len = hash len) failed!!" + nl
@@ -136,6 +166,50 @@ func TestRsa bitLength, pubExp
 		See "  PSS signature tests SKIPPED"
 	ok
 	
+	/* Testing RSA PKCS signature */
+	testSuccess = false
+	data = randbytes(32)
+	signature = rsa_sign_pkcs(rsaKey, data)
+	paddedData = rsa_encrypt_raw (rsaPubKey, signature)
+	extractedData = RemovePKCS1Padding(paddedData, 1)
+	if extractedData = data AND rsa_verify_pkcs(rsaPubKey, data, signature)
+		testSuccess = true
+	ok
+	if testSuccess
+		? "  RSA Sign PKCS OK"
+	else
+		? "  RSA Sign PKCS FAILED"
+	ok
+	
+	for hashAlgo in hashAlgorithms
+		try
+			data = randbytes(1000)
+			digest = HashData(data,hashAlgo)
+			testSuccess = false
+			signature = rsa_signhash_pkcs(rsaKey, digest)
+			if rsa_verifyhash_pkcs(rsaPubKey,digest,signature) AND rsa_verifyhash_pkcs(rsaPubKey,hex2str(digest),signature)
+				/* we test also rsa_signhash_pss with raw hash value */
+				signature = rsa_signhash_pkcs(rsaKey, hex2str(digest))
+				if rsa_verifyhash_pkcs(rsaPubKey,digest,signature) AND rsa_verifyhash_pkcs(rsaPubKey,hex2str(digest),signature)
+					/* last check: manually remove padding and check that digest is at the end */
+					paddedData = rsa_encrypt_raw (rsaPubKey, signature)
+					digestInfo = RemovePKCS1Padding(paddedData, 1)
+					/* get the binary string of the hash */
+					digestBin = hex2str(digest)
+					if len(digestInfo) > len(digestBin) AND Right(digestInfo,len(digestBin)) = digestBin
+						testSuccess = true
+					ok
+				ok
+			ok
+			if testSuccess
+				See "  RSA Sign PKCS-" + GetHashName(hashAlgo) + " signature OK" + nl
+			else
+				See "  RSA Sign PKCS-" + GetHashName(hashAlgo) + " signature failed!!" + nl
+			ok
+		catch
+			See "  RSA Sign PKCS-" + GetHashName(hashAlgo) + " signature exception = " + cCatchError + nl
+		done
+	next
 	/* Testing RSA RAW */
 	data = randbytes(32)
 	ciphered = rsa_encrypt_pkcs(rsaKey, data)
@@ -160,6 +234,16 @@ func TestRsa bitLength, pubExp
 	See nl
 	
 /* helper functions */
+
+func HashData (data,hashAlgo)
+	switch hashAlgo
+	on $OSSL_HASH_MD5 	 return MD5(data)
+	on $OSSL_HASH_SHA1 	 return SHA1(data)
+	on $OSSL_HASH_SHA256 return SHA256(data)
+	on $OSSL_HASH_SHA384 return SHA384(data)
+	on $OSSL_HASH_SHA512 return SHA512(data)
+	other return NULL
+	off	
 
 func AddPKCS1Padding(inputData,modulusLen,paddingIndicator)
 	paddedData = NULL

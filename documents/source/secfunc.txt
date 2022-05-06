@@ -37,8 +37,14 @@ Before using the next functions load the openssllib.ring library
 * rsa_decrypt_oaep
 * rsa_encrypt_raw
 * rsa_decrypt_raw
+* rsa_sign_pkcs
+* rsa_signhash_pkcs
+* rsa_verify_pkcs
+* rsa_verifyhash_pkcs
 * rsa_sign_pss
+* rsa_signhash_pss
 * rsa_verify_pss
+* rsa_verifyhash_pss
 * openssl_versiontext
 * openssl_version
 * MD5Init(), MD5Update(), MD5Final()
@@ -1027,6 +1033,214 @@ Example:
 
 
 .. index:: 
+	pair: Security and Internet Functions; rsa_sign_pkcs()
+
+rsa_sign_pkcs() Function
+========================
+
+We can sign data with RSA PKCS#1 v1.5 padding using the function rsa_sign_pkcs()
+The maximum size of data that can be signed by rsa_sign_pkcs is (modulusLen - 11), with modulusLen
+the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the maximum size
+of data that can be signed is 256 - 11 = 245 bytes.
+For RSA PKCS signature, the RSA key must contain the private key part.
+The size of the result of RSA PKCS signature is equal to the length of RSA modulus in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_sign_pkcs(pRsaKey,cData) ---> return a string containing RSA PKCS signature
+
+Example:
+
+.. code-block:: ring
+
+	/* sign a document using  RSA-PKCS with SHA256. 
+	 * digest OID added manually
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* hash content */
+		digest = SHA256(cFileContent)
+		
+		/* digest OID of SHA256 */
+		digestOID = hex2str("3031300d060960864801650304020105000420")
+		
+		/* perform PKCS signing */
+		dataToSign = digestOID + digest
+		cSignature = rsa_sign_pkcs(rsaKey,dataToSign)
+
+		/* store the signature */
+		Write("document.txt.pkcs1.sig", cSignature)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_signhash_pkcs()
+
+rsa_signhash_pkcs() Function
+============================
+
+We can sign a hash value with RSA PKCS#1 v1.5 padding using the function rsa_signhash_pkcs()
+This function infers the hash algorithm from hash value size and it automatically adds OID of hash
+algorithm before applying the PKCS#1 v1.5 padding.
+For RSA PKCS signature, the RSA key must contain the private key part.
+The size of the result of RSA PKCS signature is equal to the length of RSA modulus in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_signhash_pkcs(pRsaKey,cHashValue) ---> return a string containing RSA PKCS signature
+
+Example:
+
+.. code-block:: ring
+
+	/* sign a document using  RSA-PKCS with SHA256.
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* hash content */
+		digest = SHA256(cFileContent)
+		
+		/* perform PKCS signing */
+		cSignature = rsa_signhash_pkcs(rsaKey,digest)
+
+		/* store the signature */
+		Write("document.txt.pkcs1.sig", cSignature)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_verify_pkcs()
+
+rsa_verify_pkcs() Function
+==========================
+
+We can verify an RSA-PKCS signature of data using the function rsa_verify_pkcs()
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PKCS is 256 bytes.
+RSA-PKCS verification needs only the public part of an RSA key, so rsa_verify_pkcs can be used with both 
+RSA private key and RSA public key.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_verify_pkcs(pRsaKey,cData,cSignature) ---> returns 1 if signature is valid and 0 otherwise
+
+Example:
+
+.. code-block:: ring
+
+	/* verify a document signature using RSA-PKCS with SHA256
+	 * digest OID is added manually
+	 */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* hash content */
+		digest = SHA256(cFileContent)
+		
+		/* digest OID of SHA256 */
+		digestOID = hex2str("3031300d060960864801650304020105000420")
+
+		/* read file signature */
+		cSignature = Read ("document.txt.pkcs1.sig")
+		
+		/* perform PKCS verification */
+		dataToVerify = digestOID + digest
+		if rsa_verify_pkcs(rsaPublicKey,dataToVerify,cSignature)
+			See "file signature is valid" + nl
+		else
+			See "file signature is INVALID" + nl
+		ok
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_verifyhash_pkcs()
+
+rsa_verifyhash_pkcs() Function
+==========================
+
+We can verify the RSA-PKCS signature of a hash value using the function rsa_verifyhash_pkcs()
+This function infers the hash algorithm from hash value size and it automatically uses the OID of hash
+algorithm during verification.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PKCS is 256 bytes.
+RSA-PKCS verification needs only the public part of an RSA key, so rsa_verifyhash_pkcs can be used with both 
+RSA private key and RSA public key.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_verifyhash_pkcs(pRsaKey,cHashValue,cSignature) ---> returns 1 if signature is valid and 0 otherwise
+
+Example:
+
+.. code-block:: ring
+
+	/* verify a document signature using RSA-PKCS with SHA256
+	 */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* read file content */
+		cFileContent = Read ("document.txt")
+		
+		/* hash content */
+		digest = SHA256(cFileContent)
+
+		/* read file signature */
+		cSignature = Read ("document.txt.pkcs1.sig")
+		
+		/* perform PKCS verification */
+		if rsa_verifyhash_pkcs(rsaPublicKey,digest,cSignature)
+			See "file signature is valid" + nl
+		else
+			See "file signature is INVALID" + nl
+		ok
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
 	pair: Security and Internet Functions; rsa_sign_pss()
 
 rsa_sign_pss() Function
@@ -1080,18 +1294,66 @@ Example:
 
 
 .. index:: 
+	pair: Security and Internet Functions; rsa_signhash_pss()
+
+rsa_signhash_pss() Function
+===========================
+
+We can sign a hash value with RSA PSS using the function rsa_signhash_pss()
+This function infers the hash algorithm from hash value size.
+For RSA PSS signature, the RSA key must contain the private key part.
+The size of the result of RSA PSS signature is equal to the length of RSA modulus in bytes.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---> return a string containing RSA PSS signature
+		nSaltLength indicates the length of PSS salt to use. If ommited, then maximum salt length is used.
+		nSaltLength can have the special values -1 and -2: -1 indicates that salt length is equal to hash size
+		and -2 indicates that maximum salt length is used.
+
+Example:
+
+.. code-block:: ring
+
+	/* sign a document using  RSA-PSS with SHA256 and maximal salt length
+	 */
+	try
+		/* read Alice private key */
+		rsaKeyPEM = Read("alice_private_key.pem")
+		rsaKey = rsa_import_pem(rsaKeyPEM)
+		
+		/* hash file content */
+		ctx = SHA256Init()
+		cFileContent = Read ("document.txt")
+		SHA256Update(ctx, cFileContent)
+		digest = SHA256Final(ctx)
+		
+		/* perform PSS signing */
+		cSignature = rsa_signhash_pss(rsaKey,digest)
+
+		/* store the signature */
+		Write("document.txt.sig", cSignature)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
 	pair: Security and Internet Functions; rsa_verify_pss()
 
 rsa_verify_pss() Function
 =========================
 
-We can verify the RSA-PSS of using the function rsa_verify_pss()
+We can verify the RSA-PSS signature of data using the function rsa_verify_pss()
 The input data will be first hashed using the specified hash algorithm then RSA PSS verification will
 be applied to the computed hash value and the given signature to check if they match or not.
 The size of signature must be equal to the length of the RSA key modulus in bytes.
 For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
 that can be verified using RSA-PSS is 256 bytes.
-RSA-PSS verification needs only the public part of an RSA key, so rsa_encrypt_raw can be used with both 
+RSA-PSS verification needs only the public part of an RSA key, so rsa_verify_pss can be used with both 
 RSA private key and RSA public key.
 
 Syntax:
@@ -1136,6 +1398,61 @@ Example:
 
 		/* store the signature */
 		Write("document.txt.sig", cSignature)
+		
+	catch
+		See "Unexpected error occured: " + cCatchError + nl
+	done
+
+
+.. index:: 
+	pair: Security and Internet Functions; rsa_verifyhash_pss()
+
+rsa_verifyhash_pss() Function
+=============================
+
+We can verify the RSA-PSS signature of a hash value using the function rsa_verifyhash_pss()
+This function infers the hash algorithm from hash value size.
+The size of signature must be equal to the length of the RSA key modulus in bytes.
+For example, for 2048-bit RSA key, the length of modulus is 2048/8 = 256 bytes and so the size of input signature
+that can be verified using RSA-PSS is 256 bytes.
+RSA-PSS verification needs only the public part of an RSA key, so rsa_verifyhash_pss can be used with both 
+RSA private key and RSA public key.
+
+Syntax:
+
+.. code-block:: ring
+
+	rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---> returns 1 if signature is valid and 0 otherwise
+		nSaltLength indicates the length of PSS salt to use. If ommited, then maximum salt length is used.
+		nSaltLength can have the special values -1 and -2: -1 indicates that salt length is equal to hash size
+		and -2 indicates that maximum salt length is used.
+
+Example:
+
+.. code-block:: ring
+
+	/* verify a document signature using RSA-PSS with SHA256 and maximal salt length
+	 */
+	try
+		/* read Alice public key */
+		rsaPublicKeyPEM = Read("alice_public_key.pem")
+		rsaPublicKey = rsa_import_pem(rsaPublicKeyPEM)
+		
+		/* hash file content */
+		ctx = SHA256Init()
+		cFileContent = Read ("document.txt")
+		SHA256Update(ctx, cFileContent)
+		digest = SHA256Final(ctx)
+		
+		/* read file signature */
+		cSignature = Read ("document.txt.sig")
+		
+		/* perform PSS verification */
+		if rsa_verifyhash_pss(rsaPublicKey,digest,cSignature)
+			See "file signature is valid" + nl
+		else
+			See "file signature is INVALID" + nl
+		ok
 		
 	catch
 		See "Unexpected error occured: " + cCatchError + nl
