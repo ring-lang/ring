@@ -70,8 +70,14 @@ RING_LIBINIT
 	RING_API_REGISTER("rsa_decrypt_oaep",ring_vm_openssl_rsa_decrypt_oaep);
 	RING_API_REGISTER("rsa_encrypt_raw", ring_vm_openssl_rsa_encrypt_raw);
 	RING_API_REGISTER("rsa_decrypt_raw", ring_vm_openssl_rsa_decrypt_raw);
+	RING_API_REGISTER("rsa_sign_pkcs", ring_vm_openssl_rsa_sign_pkcs);
+	RING_API_REGISTER("rsa_verify_pkcs", ring_vm_openssl_rsa_verify_pkcs);
+	RING_API_REGISTER("rsa_signhash_pkcs", ring_vm_openssl_rsa_signhash_pkcs);
+	RING_API_REGISTER("rsa_verifyhash_pkcs", ring_vm_openssl_rsa_verifyhash_pkcs);
 	RING_API_REGISTER("rsa_sign_pss", ring_vm_openssl_rsa_sign_pss);
 	RING_API_REGISTER("rsa_verify_pss", ring_vm_openssl_rsa_verify_pss);
+	RING_API_REGISTER("rsa_signhash_pss", ring_vm_openssl_rsa_signhash_pss);
+	RING_API_REGISTER("rsa_verifyhash_pss", ring_vm_openssl_rsa_verifyhash_pss);
 	RING_API_REGISTER("openssl_versiontext",ring_vm_openssl_versiontext);
 	RING_API_REGISTER("openssl_version",ring_vm_openssl_version);
 	/* Before OpenSSL 1.1, calling OpenSSL_add_all_algorithms is required */
