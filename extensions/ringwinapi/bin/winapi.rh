@@ -25,7 +25,42 @@ SW_SHOWNA          = 8
 SW_RESTORE         = 9
 SW_SHOWDEFAULT     = 10
 
+/* predefined resource types that can be used in rwaReadBinaryResource */
+RT_CURSOR           = 1
+RT_BITMAP           = 2
+RT_ICON             = 3
+RT_MENU             = 4
+RT_DIALOG           = 5
+RT_STRING           = 6
+RT_FONTDIR          = 7
+RT_FONT             = 8
+RT_ACCELERATOR      = 9
+RT_RCDATA           = 10
+RT_MESSAGETABLE     = 11
+RT_GROUP_CURSOR 	= RT_CURSOR + 11
+RT_GROUP_ICON   	= RT_ICON + 11
+RT_VERSION      	= 16
+RT_DLGINCLUDE   	= 17
+RT_PLUGPLAY     	= 19
+RT_VXD         		= 20
+RT_ANICURSOR    	= 21
+RT_ANIICON      	= 22
+RT_HTML         	= 23
+RT_MANIFEST     	= 24
 
-
+/* ShellExecute error codes */
+SE_ERR_OSOOM			= 0		// The operating system is out of memory or resources. 
+SE_ERR_FNF          	= 2       // file not found
+SE_ERR_PNF          	= 3       // path not found
+SE_ERR_ACCESSDENIED 	= 5       // access denied
+SE_ERR_OOM          	= 8       // out of memory
+SE_ERR_DLLNOTFOUND  	= 32
+SE_ERR_SHARE            = 26
+SE_ERR_ASSOCINCOMPLETE  = 27
+SE_ERR_DDETIMEOUT       = 28
+SE_ERR_DDEFAIL          = 29
+SE_ERR_DDEBUSY          = 30
+SE_ERR_NOASSOC          = 31
+ERROR_BAD_FORMAT  		= 11 // The .exe file is invalid (non-Win32 .exe or error in .exe image).
 
 
