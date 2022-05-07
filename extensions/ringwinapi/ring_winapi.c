@@ -23,11 +23,211 @@ Ext. Rules : There are some rules that have been followed in here to make this l
 #include "ring.h"
 #include "windows.h"
 #include "WinBase.h"
+#include <shellapi.h>
 #include <stdio.h>
 #include <ctype.h>
 #include "Sddl.h"		// added to get User SID by ConvertSidToStringSid()
 #include <strsafe.h>
+#include <Rpc.h>
 
+#pragma comment(lib, "Rpcrt4.lib")
+#pragma comment(lib, "Gdi32.lib")
+#pragma comment(lib, "User32.lib")
+
+/* Reference : https://stackoverflow.com/questions/20729156/find-out-number-of-icons-in-an-icon-resource-using-win32-api/20731449#20731449
+ */
+#pragma pack( push )
+#pragma pack( 2 )
+typedef struct
+{
+	BYTE   bWidth;               // Width, in pixels, of the image
+	BYTE   bHeight;              // Height, in pixels, of the image
+	BYTE   bColorCount;          // Number of colors in image (0 if >=8bpp)
+	BYTE   bReserved;            // Reserved
+	WORD   wPlanes;              // Color Planes
+	WORD   wBitCount;            // Bits per pixel
+	DWORD  dwBytesInRes;         // how many bytes in this resource?
+	WORD   nID;                  // the ID
+} GRPICONDIRENTRY, * LPGRPICONDIRENTRY;
+
+typedef struct
+{
+	WORD            idReserved;   // Reserved (must be 0)
+	WORD            idType;       // Resource type (1 for icons)
+	WORD            idCount;      // How many images?
+	GRPICONDIRENTRY idEntries[1]; // The entries for each image
+} GRPICONDIR, * LPGRPICONDIR;
+#pragma pack( pop )
+
+
+/* Modified from reference code: https://stackoverflow.com/questions/2289894/how-can-i-save-hicon-to-an-ico-file/59253425#59253425 
+*/
+#pragma pack( push )
+#pragma pack( 2 )
+typedef struct _ICONDIRENTRY
+{
+	UCHAR nWidth;
+	UCHAR nHeight;
+	UCHAR nNumColorsInPalette; // 0 if no palette
+	UCHAR nReserved; // should be 0
+	WORD nNumColorPlanes; // 0 or 1
+	WORD nBitsPerPixel;
+	ULONG nDataLength; // length in bytes
+	ULONG nOffset; // offset of BMP or PNG data from beginning of file
+} ICONDIRENTRY;
+#pragma pack( pop )
+
+static BOOL GetIconData(HICON hIcon, int nColorBits, unsigned char* buff, int* pLen)
+{
+	int index = 0;
+	HDC dc;
+	char icoHeader[6] = { 0, 0, 1, 0, 1, 0 }; // ICO file with 1 image
+	ICONINFO iconInfo;
+	BITMAPINFO bmInfo = { 0 };
+	int nBmInfoSize;
+	unsigned char* bitmapInfo;
+	BITMAPINFO* pBmInfo;
+	unsigned char* bits;
+	BITMAPINFO maskInfo = { 0 };
+	unsigned char* maskBits;
+	unsigned char* maskInfoBytes;
+	BITMAPINFO* pMaskInfo;
+	ICONDIRENTRY dir;
+	int nBitsSize;
+
+	// ASSERT(nColorBits == 4 || nColorBits == 8 || nColorBits == 24 || nColorBits == 32);
+
+	if (offsetof(ICONDIRENTRY, nOffset) != 12)
+	{
+		return FALSE;
+	}
+
+	dc = CreateCompatibleDC(NULL);
+
+	// Write header:
+	index = sizeof(icoHeader);
+	if (buff)
+	{
+		memcpy(buff, icoHeader, sizeof(icoHeader));
+		buff += sizeof(icoHeader);
+	}
+
+	// Get information about icon:
+	GetIconInfo(hIcon, &iconInfo);
+	bmInfo.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+	bmInfo.bmiHeader.biBitCount = 0;    // don't get the color table     
+	if (!GetDIBits(dc, iconInfo.hbmColor, 0, 0, NULL, &bmInfo, DIB_RGB_COLORS))
+	{
+		return FALSE;
+	}
+
+	// Get bitmap data:
+	if (!bmInfo.bmiHeader.biSizeImage)
+		return FALSE;
+
+	// Allocate size of bitmap info header plus space for color table:
+	nBmInfoSize = sizeof(BITMAPINFOHEADER);
+	if (nColorBits < 24)
+	{
+		nBmInfoSize += sizeof(RGBQUAD) * (int)(1 << nColorBits);
+	}
+
+	bitmapInfo = (unsigned char*) malloc(nBmInfoSize);
+	pBmInfo = (BITMAPINFO*)bitmapInfo;
+	memcpy(pBmInfo, &bmInfo, sizeof(BITMAPINFOHEADER));
+
+	bits = (unsigned char*) malloc(bmInfo.bmiHeader.biSizeImage);
+	pBmInfo->bmiHeader.biBitCount = nColorBits;
+	pBmInfo->bmiHeader.biCompression = BI_RGB;
+	if (!GetDIBits(dc, iconInfo.hbmColor, 0, bmInfo.bmiHeader.biHeight, bits, pBmInfo, DIB_RGB_COLORS))
+	{
+		free(bitmapInfo);
+		free(bits);
+		return FALSE;
+	}
+
+	// Get mask data:
+	maskInfo.bmiHeader.biSize = sizeof(BITMAPINFOHEADER);
+	maskInfo.bmiHeader.biBitCount = 0;  // don't get the color table     
+	if (!GetDIBits(dc, iconInfo.hbmMask, 0, 0, NULL, &maskInfo, DIB_RGB_COLORS) || maskInfo.bmiHeader.biBitCount != 1)
+	{
+		free(bitmapInfo);
+		free(bits);
+		return FALSE;
+	}
+
+	maskBits = (unsigned char* ) malloc(maskInfo.bmiHeader.biSizeImage);
+	maskInfoBytes = (unsigned char*) malloc(sizeof(BITMAPINFO) + 2 * sizeof(RGBQUAD));
+	pMaskInfo = (BITMAPINFO*)maskInfoBytes;
+	memcpy(pMaskInfo, &maskInfo, sizeof(maskInfo));
+	if (!GetDIBits(dc, iconInfo.hbmMask, 0, maskInfo.bmiHeader.biHeight, maskBits, pMaskInfo, DIB_RGB_COLORS))
+	{
+		free(bitmapInfo);
+		free(bits);
+		free(maskBits);
+		free(maskInfoBytes);
+		return FALSE;
+	}
+
+	// Write directory entry:
+	dir.nWidth = (UCHAR)pBmInfo->bmiHeader.biWidth;
+	dir.nHeight = (UCHAR)pBmInfo->bmiHeader.biHeight;
+	dir.nNumColorsInPalette = (nColorBits == 4 ? 16 : 0);
+	dir.nReserved = 0;
+	dir.nNumColorPlanes = 0;
+	dir.nBitsPerPixel = pBmInfo->bmiHeader.biBitCount;
+	dir.nDataLength = pBmInfo->bmiHeader.biSizeImage + pMaskInfo->bmiHeader.biSizeImage + nBmInfoSize;
+	dir.nOffset = sizeof(dir) + sizeof(icoHeader);
+
+	index += sizeof(dir);
+	if (buff)
+	{
+		memcpy(buff, &dir, sizeof(dir));
+		buff += sizeof(dir);
+	}
+
+	// Write DIB header (including color table):
+	nBitsSize = pBmInfo->bmiHeader.biSizeImage;
+	pBmInfo->bmiHeader.biHeight *= 2; // because the header is for both image and mask
+	pBmInfo->bmiHeader.biCompression = 0;
+	pBmInfo->bmiHeader.biSizeImage += pMaskInfo->bmiHeader.biSizeImage; // because the header is for both image and mask
+
+	index += nBmInfoSize;
+	if (buff) {
+		memcpy(buff, &pBmInfo->bmiHeader, nBmInfoSize);
+		buff += nBmInfoSize;
+	}
+
+	// Write image data:
+	index += nBitsSize;
+	if (buff)
+	{
+		memcpy(buff, bits, nBitsSize);
+		buff += nBitsSize;
+	}
+
+	// Write mask data:
+	index += pMaskInfo->bmiHeader.biSizeImage;
+	if (buff)
+	{
+		memcpy(buff, maskBits, pMaskInfo->bmiHeader.biSizeImage);
+		buff += pMaskInfo->bmiHeader.biSizeImage;
+	}
+
+	DeleteObject(iconInfo.hbmColor);
+	DeleteObject(iconInfo.hbmMask);
+
+	DeleteDC(dc);
+
+	free(bitmapInfo);
+	free(bits);
+	free(maskBits);
+	free(maskInfoBytes);
+
+	*pLen = index;
+
+	return TRUE;
+}
 
 /*
 ===================================================================================== 
@@ -764,7 +964,242 @@ RING_FUNC(ring_winapi_rwaenvirvarstring) {
 	
 }
 
+/*
+Function Name : rGetTempPath
+Func. Purpose : Retrieves the path of the directory designated for temporary files.
+Func. Params  : ()
+Func. Return  : the value that returned by GetTempPathA() function
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+*/
+RING_FUNC(ring_winapi_rgettemppath) {
+	char szPath[MAX_PATH + 2];
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR("Error: Bad parameter count, this function does not accept parameters");
+		return;
+	}
 
+	if (GetTempPathA(MAX_PATH + 2, szPath)) {
+		RING_API_RETSTRING(szPath);
+	}
+	else {
+		char errmsg[200];
+		RING_API_ERROR(rwaGetErrorMsg(GetLastError(), errmsg, 200));
+	}
+}
+
+/*
+Function Name : rGetTempFileName
+Func. Purpose : Creates a name for a temporary file inside the specified directory
+Func. Params  : (LPCSTR lpPathName, LPCSTR lpPrefixString, UINT   uUnique)
+Func. Return  : the value that returned by GetTempFileNameA() function
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+*/
+RING_FUNC(ring_winapi_rgettempfilename) {
+	char szPath[MAX_PATH + 1];
+	if (RING_API_PARACOUNT != 3) {
+		RING_API_ERROR("Error: Bad parameter count, this function accepts 3 parameters");
+		return;
+	}
+
+	if (!RING_API_ISSTRING(1) || !RING_API_ISSTRING(2) || !RING_API_ISNUMBER(3)) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	if (GetTempFileNameA(RING_API_GETSTRING(1), RING_API_GETSTRING(2), (UINT)RING_API_GETNUMBER(3), szPath)) {
+		RING_API_RETSTRING(szPath);
+	}
+	else {
+		char errmsg[200];
+		RING_API_ERROR(rwaGetErrorMsg(GetLastError(), errmsg, 200));
+	}
+}
+
+/*
+Function Name : rwaCreateUUID
+Func. Purpose : Creates a Universally Unique Identifier (UUID)
+Func. Params  : ()
+Func. Return  : a string containing the value of the generated UUID
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+*/
+RING_FUNC(ring_winapi_rwacreateuuid) {
+	RPC_STATUS nStatus;
+	UUID uuid;
+	RPC_CSTR cStringUuid;
+
+	if (RING_API_PARACOUNT != 0) {
+		RING_API_ERROR("Error: Bad parameter count, this function does not accept parameters");
+		return;
+	}
+
+	nStatus = UuidCreate(&uuid);
+	if (nStatus != RPC_S_OK) {
+		char errmsg[128];
+		StringCbPrintfA(errmsg, ARRAYSIZE(errmsg), "Error: UuidCreate failed with error %d", nStatus);
+		RING_API_ERROR(errmsg);
+		return;
+	}
+
+	nStatus = UuidToStringA(&uuid, &cStringUuid);
+	if (nStatus != RPC_S_OK) {
+		char errmsg[128];
+		StringCbPrintfA(errmsg, ARRAYSIZE(errmsg), "Error: UuidToStringA failed with error %d", nStatus);
+		RING_API_ERROR(errmsg);
+		return;
+	}
+	
+	RING_API_RETSTRING((const char*) cStringUuid);
+
+	RpcStringFreeA(&cStringUuid);
+}
+
+/*
+Function Name : rwaReadBinaryResource
+Func. Purpose : Read the content bytes of the given resource embedded into our executable
+Func. Params  : (modulePath, resourceName, resourceType), 
+				modulePath is the path of the exe that contains the resources. If modulePath is NULL, then current exe is used.
+				resourceName/resourceType are either a string or an integer, they should match the identifiers set in the .rc file
+Func. Return  : a string containing the bytes of the requested resource or an empty string in case of failure.
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+*/
+RING_FUNC(ring_winapi_rwareadbinaryresource) {
+	LPCSTR  lpName;
+	LPCSTR  lpType;
+	int nID, nColorDepth, i;
+	HRSRC hSrc;
+	HGLOBAL hRes;
+	LPVOID pData;
+	DWORD nSize;
+	HICON hIcon;
+	BOOL bIsIcon, bFreeData, bTypeIsNumber;
+	HMODULE hModule;
+	GRPICONDIR* lpGrpIconDir;
+	if (RING_API_PARACOUNT != 3) {
+		RING_API_ERROR("Error: Bad parameter count, this function accepts 3 parameters");
+		return;
+	}
+
+	if (!RING_API_ISSTRING(1) || (!RING_API_ISSTRING(2) && !RING_API_ISNUMBER(2)) || (!RING_API_ISSTRING(3) && !RING_API_ISNUMBER(3))) {
+		RING_API_ERROR(RING_API_BADPARATYPE);
+		return;
+	}
+
+	if (RING_API_ISSTRING(2)) {
+		lpName = RING_API_GETSTRING(2);
+	}
+	else {
+		lpName = MAKEINTRESOURCEA((int)RING_API_GETNUMBER(2));
+	}
+
+	if (RING_API_ISSTRING(3)) {
+		bTypeIsNumber = FALSE;
+		lpType = RING_API_GETSTRING(3);
+	}
+	else {
+		bTypeIsNumber = TRUE;
+		lpType = MAKEINTRESOURCEA((int)RING_API_GETNUMBER(3));
+	}
+
+	if (RING_API_GETSTRINGSIZE(1) > 0) {
+		hModule = LoadLibraryA(RING_API_GETSTRING(1));
+		if (hModule == NULL) {
+			char errmsg[200];
+			RING_API_ERROR(rwaGetErrorMsg(GetLastError(), errmsg, 200));
+			return;
+		}
+	}
+	else {
+		hModule = NULL;
+	}
+
+	bFreeData = FALSE;
+	pData = NULL;
+	nSize = 0;
+	hSrc = FindResourceA(hModule, lpName, lpType);
+	if (hSrc)
+	{
+		hRes = LoadResource(hModule, hSrc);
+		if (hRes && bTypeIsNumber && (lpType == RT_GROUP_ICON || lpType == RT_GROUP_CURSOR)) {
+			/* special case of icon */
+			/* Reference: https://docs.microsoft.com/en-us/windows/win32/menurc/using-icons#sharing-icon-resources */
+			bIsIcon = lpType == RT_GROUP_ICON ? TRUE : FALSE;
+			pData = LockResource(hRes);
+			if (pData) {
+				// Get the identifier of the icon that is most appropriate 
+				// for the video display. 
+				lpGrpIconDir = (GRPICONDIR*) pData;
+				nID = LookupIconIdFromDirectoryEx((PBYTE)pData, bIsIcon,
+					0, 0, LR_DEFAULTCOLOR);
+				pData = NULL;
+				if (nID) {
+					// Find the bits for the nID icon. 
+					hSrc = FindResource(hModule,
+						MAKEINTRESOURCE(nID),
+						MAKEINTRESOURCE(RT_ICON));
+					if (hSrc) {
+						// Load and lock the icon. 
+						hRes = LoadResource(hModule, hSrc);
+						if (hRes) {
+							// Create a handle to the icon. 
+							hIcon = CreateIconFromResourceEx((PBYTE)LockResource(hRes),
+								SizeofResource(NULL, hSrc), bIsIcon, 0x00030000,
+								0, 0, LR_DEFAULTCOLOR);
+							if (hIcon) {
+								/* try to find the original color depth */
+								nColorDepth = 32;
+								if (bIsIcon)
+								{
+									for (i = 0; i < lpGrpIconDir->idCount; i++) {
+										if (nID == lpGrpIconDir->idEntries[i].nID)
+										{
+											if (lpGrpIconDir->idEntries[i].bColorCount != 0)
+											{
+												/* color depth <= 8bpp
+												 * we only support value 4 for depth in this range (color count = 16)
+												 */
+												nColorDepth = 4;
+											}
+											break;
+										}
+									}
+								}
+								if (GetIconData(hIcon, nColorDepth, NULL, &nSize)) {
+									pData = malloc(nSize);
+									if (!GetIconData(hIcon, nColorDepth, pData, &nSize)) {
+										free(pData);
+										pData = NULL;
+										nSize = 0;
+									}
+								}
+
+								DestroyIcon(hIcon);
+							}
+						}
+					}
+				}
+			}
+		}
+		else if (hRes) {
+			nSize = SizeofResource(hModule, hSrc);
+			if (nSize) {
+				pData = LockResource(hRes);
+				if (!pData) {
+					nSize = 0;
+				}
+			}
+		}
+	}
+
+	RING_API_RETSTRING2((const char*)pData, (int)nSize);
+
+	if (bFreeData) {
+		free(pData);
+	}
+
+	if (hModule) {
+		FreeLibrary(hModule);
+	}
+}
 /*
 =================================================================================================
 			This Function Is Needed for Registration Of This Library 
@@ -785,5 +1220,8 @@ RING_LIBINIT {
 	RING_API_REGISTER("rwadisablewow64fsredirection", ring_winapi_rwadisablewow64fsredirection);
 	RING_API_REGISTER("rwarevertwow64fsredirection", ring_winapi_rwarevertwow64fsredirection);
 	RING_API_REGISTER("rwaenvirvarstring", ring_winapi_rwaenvirvarstring);
-
+	RING_API_REGISTER("rgettemppath", ring_winapi_rgettemppath);
+	RING_API_REGISTER("rgettempfilename", ring_winapi_rgettempfilename);
+	RING_API_REGISTER("rwacreateuuid", ring_winapi_rwacreateuuid);
+	RING_API_REGISTER("rwareadbinaryresource", ring_winapi_rwareadbinaryresource);
 }

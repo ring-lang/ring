@@ -4,10 +4,10 @@
 /
 /	Authors : 
 /		1- Majdi Sobain <MajdiSobain@Gmail.com>
-/		2- 
+/		2- Mounir IDRASSI <mounir@idrix.fr>
 /
 /
-/			Copyright (c) 2016-2017
+/			Copyright (c) 2016-2022
 /------------------------------------------------------------------------------------------------------------------*/
 
 
@@ -280,5 +280,82 @@ Minimum supported Win client\server : Win2000Pro(Desktop_apps)\Server2000(Deskto
 Load "WINAPI.ring"
 
 See rwaEnvirVarString("%SystemRoot%")
+
+/*=========================================================*/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function Name : rGetTempPath
+Func. Purpose : Retrieves the path of the directory designated for temporary files.
+Func. Params  : ()
+Func. Return  : the value that returned by GetTempPathA() function
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+Func. Source  : https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-gettemppatha
+
+ - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
+
+Load "WINAPI.ring"
+
+See rGetTempPath()
+
+/*=========================================================*/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function Name : rGetTempFileName
+Func. Purpose : Creates a name for a temporary file inside the specified directory
+Func. Params  : (LPCSTR lpPathName, LPCSTR lpPrefixString, UINT   uUnique)
+Func. Return  : the value that returned by GetTempFileNameA() function
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+Func. Source  : https://docs.microsoft.com/en-us/windows/win32/api/fileapi/nf-fileapi-gettempfilenamea
+
+ - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
+
+Load "WINAPI.ring"
+
+tempDir = rGetTempPath()
+/* we use a custom prefix "xyz". Any letters combination is ok*/
+tempFilePath = rGetTempFileNametempDir, "xyz", 0)
+See tempFilePath 
+
+/*=========================================================*/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function Name : rwaCreateUUID
+Func. Purpose : Creates a Universally Unique Identifier (UUID)
+Func. Params  : ()
+Func. Return  : a string containing the value of the generated UUID
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+Func. Source  : https://docs.microsoft.com/en-us/windows/win32/api/rpcdce/nf-rpcdce-uuidcreate
+
+ - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
+
+Load "WINAPI.ring"
+
+/* create a unique UUID string */
+uuid = rwaCreateUUID()
+
+See "UUID = " + uuid + nl
+
+/*=========================================================*/
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+Function Name : rwaReadBinaryResource
+Func. Purpose : Read the content bytes of the given resource embedded into our executable
+Func. Params  : (modulePath, resourceName, resourceType), 
+				modulePath is the path of the exe that contains the resources. If modulePath is NULL, then current exe is used.
+				resourceName/resourceType are either a string or an integer, they should match the identifiers set in the .rc file
+Func. Return  : a string containing the bytes of the requested resource or an empty string in case of failure.
+Func. Author  : Mounir IDRASSI <mounir@idrix.fr>
+
+ - - - - - - - - - - - - - - - - - - EXAMPLE - - - - - - - - - - - - - - - */
+
+Load "WINAPI.ring"
+
+/* read the resource identified by its name and its type */
+data = rwaReadBinaryResource("RESOURCENAME", "RESOURCETYPE")
+if len(data) = 0
+	See "resource could not be found" + nl
+ok
+
+
 
 
