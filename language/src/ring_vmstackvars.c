@@ -212,7 +212,14 @@ void ring_vm_assignment ( VM *pVM )
     }
     pVM->nBeforeEqual = 0 ;
     /* Clear Assignment Pointer */
-    pVM->pAssignment = NULL ;
+	if ( RING_VM_IR_READIAT(pVM->nPC) == ICO_ASSIGNMENT ) {
+		pVM->pAssignment = RING_VM_STACK_READP ;
+		RING_VM_STACK_PUSH ;
+		ring_vm_pushv(pVM);
+	}
+	else {
+		pVM->pAssignment = NULL ;
+	}
 }
 
 void ring_vm_inc ( VM *pVM )
