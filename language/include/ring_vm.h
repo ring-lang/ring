@@ -153,6 +153,7 @@
     #define RING_VM_STACK_READP ring_itemarray_getpointer(pVM->aStack,pVM->nSP)
     #define RING_VM_STACK_OBJTYPE pVM->aStack[pVM->nSP].nObjectType
     #define RING_VM_STACK_PREVOBJTYPE pVM->aStack[pVM->nSP-1].nObjectType
+	#define RING_VM_STACK_PUSH pVM->nSP++
     /* Delete */
     #define RING_VM_STACK_POP pVM->nSP--
     /* Objects/Pointer  - Type */
@@ -192,6 +193,7 @@
     #define RING_VM_IR_LOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 1
     #define RING_VM_IR_UNLOAD pVM->pByteCodeIR = pVM->pByteCode + pVM->nPC - 2
     #define RING_VM_IR_TEMPITEM (&((pVM->pByteCode + pVM->nPC - 2)->vTempItem))
+	#define RING_VM_IR_READIAT(x) ((pVM->pByteCode+x-1)->aData[0]->data.iNumber)
     /*
     **  Calling Functions 
     **  Note : When you insert items check performance functions for update too! 
