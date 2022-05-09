@@ -23,6 +23,7 @@ Ring 1.17 comes with the next features!
 * JSONLib Library
 * HTTPLib Library
 * Better GUILib
+* Better RingOpenSSL
 * Better Syntax Flexibility
 * Better I/O functions
 * Better Ring API
@@ -394,6 +395,25 @@ Example:
 	aList = oView.listwidget1.toList()
 	? aList
 
+
+.. index:: 
+	pair: What is new in Ring  1.17; Better RingOpenSSL
+
+Better RingOpenSSL
+==================
+
+* Enhancements to support all cipher algorithms
+* New Functions:
+
+.. code-block:: none
+
+    rsa_sign_pkcs(pRsaKey,cData) ---> String
+    rsa_signhash_pkcs(pRsaKey,cHashValue) ---> String
+    rsa_verify_pkcs(pRsaKey,cData,cSignature) ---> Bool
+    rsa_verifyhash_pkcs(pRsaKey,cHashValue,cSignature) ---> Bool
+    rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---> String
+    rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---> Bool
+
 .. index:: 
 	pair: What is new in Ring  1.17; Better Syntax Flexibility
 
@@ -566,7 +586,6 @@ More Improvements
 * StdLib - New Function: AppArguments()
 * StdLib - New Function: CheckEquality()
 * ObjectsLib - New Function: GetWindowByID()
-* RingOpenSSL - Enhancements to support all cipher algorithms
 * RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20
 * RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1
 * RingLibCurl - Better support for Ring2EXE

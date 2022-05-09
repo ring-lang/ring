@@ -208,6 +208,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#jsonlib-library">JSONLib Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#httplib-library">HTTPLib Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-guilib">Better GUILib</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringopenssl">Better RingOpenSSL</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-syntax-flexibility">Better Syntax Flexibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-i-o-functions">Better I/O Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
@@ -299,6 +300,7 @@
 <li><p>JSONLib Library</p></li>
 <li><p>HTTPLib Library</p></li>
 <li><p>Better GUILib</p></li>
+<li><p>Better RingOpenSSL</p></li>
 <li><p>Better Syntax Flexibility</p></li>
 <li><p>Better I/O functions</p></li>
 <li><p>Better Ring API</p></li>
@@ -583,8 +585,23 @@ fax
 </pre></div>
 </div>
 </div>
+<div class="section" id="better-ringopenssl">
+<span id="index-10"></span><h2>Better RingOpenSSL<a class="headerlink" href="#better-ringopenssl" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Enhancements to support all cipher algorithms</p></li>
+<li><p>New Functions:</p></li>
+</ul>
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rsa_sign_pkcs(pRsaKey,cData) ---&gt; String
+rsa_signhash_pkcs(pRsaKey,cHashValue) ---&gt; String
+rsa_verify_pkcs(pRsaKey,cData,cSignature) ---&gt; Bool
+rsa_verifyhash_pkcs(pRsaKey,cHashValue,cSignature) ---&gt; Bool
+rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---&gt; String
+rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---&gt; Bool
+</pre></div>
+</div>
+</div>
 <div class="section" id="better-syntax-flexibility">
-<span id="index-10"></span><h2>Better Syntax Flexibility<a class="headerlink" href="#better-syntax-flexibility" title="Permalink to this headline">¶</a></h2>
+<span id="index-11"></span><h2>Better Syntax Flexibility<a class="headerlink" href="#better-syntax-flexibility" title="Permalink to this headline">¶</a></h2>
 <p>The next keywords are added to the language</p>
 <ul class="simple">
 <li><p>endif</p></li>
@@ -608,7 +625,7 @@ fax
 </div>
 </div>
 <div class="section" id="better-i-o-functions">
-<span id="index-11"></span><h2>Better I/O Functions<a class="headerlink" href="#better-i-o-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Better I/O Functions<a class="headerlink" href="#better-i-o-functions" title="Permalink to this headline">¶</a></h2>
 <p>The next functions can be used without the need to load stdlib.ring</p>
 <ul class="simple">
 <li><p>print(cString)</p></li>
@@ -660,7 +677,7 @@ done
 </div>
 </div>
 <div class="section" id="better-ring-api">
-<span id="index-12"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to Ring API</p>
 <ul class="simple">
 <li><p>RING_LIBINIT</p></li>
@@ -688,7 +705,7 @@ done
 </div>
 </div>
 <div class="section" id="better-code-generator-for-extensions">
-<span id="index-13"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
 <p>The code generator is updated to include the next features</p>
 <ul class="simple">
 <li><p>Better output messages</p></li>
@@ -706,7 +723,7 @@ MultipartFormData {string name,string content,string filename,string content_typ
 </div>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-14"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring Notepad (Web Browser) - Support URLs without “http” in the start</p></li>
 <li><p>Form Designer - Default TextColor is Empty (Better when changing styles)</p></li>
@@ -728,7 +745,6 @@ MultipartFormData {string name,string content,string filename,string content_typ
 <li><p>StdLib - New Function: AppArguments()</p></li>
 <li><p>StdLib - New Function: CheckEquality()</p></li>
 <li><p>ObjectsLib - New Function: GetWindowByID()</p></li>
-<li><p>RingOpenSSL - Enhancements to support all cipher algorithms</p></li>
 <li><p>RingLibSDL - LibSDL version is updated from 2.0.14 to 2.0.20</p></li>
 <li><p>RingAllegro - Allegro version is updated from 5.2.4 to 5.2.7.1</p></li>
 <li><p>RingLibCurl - Better support for Ring2EXE</p></li>
