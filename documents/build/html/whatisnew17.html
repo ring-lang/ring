@@ -209,6 +209,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#httplib-library">HTTPLib Library</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-guilib">Better GUILib</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ringopenssl">Better RingOpenSSL</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#better-ringwinapi">Better RingWinAPI</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-syntax-flexibility">Better Syntax Flexibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-i-o-functions">Better I/O Functions</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#better-ring-api">Better Ring API</a></li>
@@ -301,6 +302,7 @@
 <li><p>HTTPLib Library</p></li>
 <li><p>Better GUILib</p></li>
 <li><p>Better RingOpenSSL</p></li>
+<li><p>Better RingWinAPI</p></li>
 <li><p>Better Syntax Flexibility</p></li>
 <li><p>Better I/O functions</p></li>
 <li><p>Better Ring API</p></li>
@@ -604,8 +606,15 @@ rsa_verify_pss(pRsaKey,cData,cSignature,nHashAlgorithm[,nSaltLength]) ---&gt; Bo
 </pre></div>
 </div>
 </div>
+<div class="section" id="better-ringwinapi">
+<span id="index-11"></span><h2>Better RingWinAPI<a class="headerlink" href="#better-ringwinapi" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Better Code</p></li>
+<li><p>New functions for resources, temp files and uuid</p></li>
+</ul>
+</div>
 <div class="section" id="better-syntax-flexibility">
-<span id="index-11"></span><h2>Better Syntax Flexibility<a class="headerlink" href="#better-syntax-flexibility" title="Permalink to this headline">¶</a></h2>
+<span id="index-12"></span><h2>Better Syntax Flexibility<a class="headerlink" href="#better-syntax-flexibility" title="Permalink to this headline">¶</a></h2>
 <p>The next keywords are added to the language</p>
 <ul class="simple">
 <li><p>endif</p></li>
@@ -629,7 +638,7 @@ rsa_verify_pss(pRsaKey,cData,cSignature,nHashAlgorithm[,nSaltLength]) ---&gt; Bo
 </div>
 </div>
 <div class="section" id="better-i-o-functions">
-<span id="index-12"></span><h2>Better I/O Functions<a class="headerlink" href="#better-i-o-functions" title="Permalink to this headline">¶</a></h2>
+<span id="index-13"></span><h2>Better I/O Functions<a class="headerlink" href="#better-i-o-functions" title="Permalink to this headline">¶</a></h2>
 <p>The next functions can be used without the need to load stdlib.ring</p>
 <ul class="simple">
 <li><p>print(cString)</p></li>
@@ -681,7 +690,7 @@ done
 </div>
 </div>
 <div class="section" id="better-ring-api">
-<span id="index-13"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
+<span id="index-14"></span><h2>Better Ring API<a class="headerlink" href="#better-ring-api" title="Permalink to this headline">¶</a></h2>
 <p>The next functions are added to Ring API</p>
 <ul class="simple">
 <li><p>RING_LIBINIT</p></li>
@@ -709,7 +718,7 @@ done
 </div>
 </div>
 <div class="section" id="better-code-generator-for-extensions">
-<span id="index-14"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
+<span id="index-15"></span><h2>Better Code Generator for Extensions<a class="headerlink" href="#better-code-generator-for-extensions" title="Permalink to this headline">¶</a></h2>
 <p>The code generator is updated to include the next features</p>
 <ul class="simple">
 <li><p>Better output messages</p></li>
@@ -727,7 +736,7 @@ MultipartFormData {string name,string content,string filename,string content_typ
 </div>
 </div>
 <div class="section" id="more-improvements">
-<span id="index-15"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
+<span id="index-16"></span><h2>More Improvements<a class="headerlink" href="#more-improvements" title="Permalink to this headline">¶</a></h2>
 <ul class="simple">
 <li><p>Ring Notepad (Web Browser) - Support URLs without “http” in the start</p></li>
 <li><p>Form Designer - Default TextColor is Empty (Better when changing styles)</p></li>
@@ -754,7 +763,6 @@ MultipartFormData {string name,string content,string filename,string content_typ
 <li><p>RingLibCurl - Better support for Ring2EXE</p></li>
 <li><p>RingLibUI - The function uiFreeText() is removed from the library API</p></li>
 <li><p>RingLibUI - Better implementation for functions that require uiFreeText()</p></li>
-<li><p>RingWinAPI - Better Code</p></li>
 <li><p>RingSockets - Better Code</p></li>
 <li><p>RingQt - QString Class - Another version for the Replace() Method</p></li>
 <li><p>RingQt - QLabel Class inherits the QFrame Class</p></li>

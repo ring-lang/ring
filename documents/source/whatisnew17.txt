@@ -24,6 +24,7 @@ Ring 1.17 comes with the next features!
 * HTTPLib Library
 * Better GUILib
 * Better RingOpenSSL
+* Better RingWinAPI
 * Better Syntax Flexibility
 * Better I/O functions
 * Better Ring API
@@ -419,6 +420,15 @@ Better RingOpenSSL
 	rsa_verify_pss(pRsaKey,cData,cSignature,nHashAlgorithm[,nSaltLength]) ---> Bool
 
 .. index:: 
+	pair: What is new in Ring  1.17; Better RingWinAPI
+
+Better RingWinAPI
+=================
+
+* Better Code
+* New functions for resources, temp files and uuid
+
+.. index:: 
 	pair: What is new in Ring  1.17; Better Syntax Flexibility
 
 Better Syntax Flexibility
@@ -595,7 +605,6 @@ More Improvements
 * RingLibCurl - Better support for Ring2EXE
 * RingLibUI - The function uiFreeText() is removed from the library API
 * RingLibUI - Better implementation for functions that require uiFreeText()
-* RingWinAPI - Better Code
 * RingSockets - Better Code
 * RingQt - QString Class - Another version for the Replace() Method
 * RingQt - QLabel Class inherits the QFrame Class
