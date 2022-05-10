@@ -60,6 +60,13 @@ RING_LIBINIT
 	
 }
 
+static void ring_vm_creg_cregfree(void* pRingState, void* pPointer)
+{
+	CRegistry* pCR;
+	pCR = (CRegistry*)pPointer;
+	delete pCR;
+}
+
 // CRegistry cregopenkey ( RootHkey index /*like HKEY_CURRENT_USER*/ , string keyname , \optional int flags, \optional boolean access64tree )
 void ring_vm_creg_cregopenkey(void *pPointer){
 	CRegistry *pCR = new CRegistry;
@@ -129,7 +136,7 @@ void ring_vm_creg_cregopenkey(void *pPointer){
 	}
 	lResult = pCR->Open(RING_API_GETSTRING(2), hkey);
 	if ( lResult == ERROR_SUCCESS ) {
-		RING_API_RETCPOINTER(pCR, "CRegistry");
+		RING_API_RETMANAGEDCPOINTER(pCR, "CRegistry", ring_vm_creg_cregfree);
 		return;
 	} else {
 		TCHAR msgBuf[200];
