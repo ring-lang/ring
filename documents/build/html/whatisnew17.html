@@ -597,6 +597,10 @@ rsa_verify_pkcs(pRsaKey,cData,cSignature) ---&gt; Bool
 rsa_verifyhash_pkcs(pRsaKey,cHashValue,cSignature) ---&gt; Bool
 rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---&gt; String
 rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---&gt; Bool
+rsa_encrypt_raw(pRsaKey,cPlainData) ---&gt; String
+rsa_decrypt_raw(pRsaKey,cEncryptedData) ---&gt; String
+rsa_sign_pss(pRsaKey,cData,nHashAlgorithm[,nSaltLength]) ---&gt; String
+rsa_verify_pss(pRsaKey,cData,cSignature,nHashAlgorithm[,nSaltLength]) ---&gt; Bool
 </pre></div>
 </div>
 </div>

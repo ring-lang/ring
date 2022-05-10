@@ -407,12 +407,16 @@ Better RingOpenSSL
 
 .. code-block:: none
 
-    rsa_sign_pkcs(pRsaKey,cData) ---> String
-    rsa_signhash_pkcs(pRsaKey,cHashValue) ---> String
-    rsa_verify_pkcs(pRsaKey,cData,cSignature) ---> Bool
-    rsa_verifyhash_pkcs(pRsaKey,cHashValue,cSignature) ---> Bool
-    rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---> String
-    rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---> Bool
+	rsa_sign_pkcs(pRsaKey,cData) ---> String
+	rsa_signhash_pkcs(pRsaKey,cHashValue) ---> String
+	rsa_verify_pkcs(pRsaKey,cData,cSignature) ---> Bool
+	rsa_verifyhash_pkcs(pRsaKey,cHashValue,cSignature) ---> Bool
+	rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---> String
+	rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---> Bool
+	rsa_encrypt_raw(pRsaKey,cPlainData) ---> String
+	rsa_decrypt_raw(pRsaKey,cEncryptedData) ---> String
+	rsa_sign_pss(pRsaKey,cData,nHashAlgorithm[,nSaltLength]) ---> String
+	rsa_verify_pss(pRsaKey,cData,cSignature,nHashAlgorithm[,nSaltLength]) ---> Bool
 
 .. index:: 
 	pair: What is new in Ring  1.17; Better Syntax Flexibility
