@@ -441,6 +441,12 @@ Better RingWinAPI
 * Better Code
 * New functions for resources, temp files and uuid
 
+.. code-block:: none
+
+	rGetTempFileName(LPCSTR lpPathName, LPCSTR lpPrefixString, UINT   uUnique)
+	rwaCreateUUID() ---> a string containing the value of the generated UUID
+	rwaReadBinaryResource(modulePath, resourceName, resourceType) ---> String (Bytes)
+
 .. index:: 
 	pair: What is new in Ring  1.17; Better Syntax Flexibility
 
