@@ -711,7 +711,9 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
             pAssignmentPointerPos = ring_parser_icg_getactiveoperation(pParser) ;
             RING_PARSER_IGNORENEWLINE ;
             pParser->nNewObject = 0 ;
+            pParser->nAssignmentFlag = 0 ;
             x = ring_parser_expr(pParser);
+            pParser->nAssignmentFlag = 1 ;
             /* Check New Object and this.property or self.property to disable set property */
             if ( pParser->nNewObject && lSetProperty && nThisOrSelfLoadA ) {
                 lSetProperty = 0 ;
