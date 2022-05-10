@@ -408,16 +408,29 @@ Better RingOpenSSL
 
 .. code-block:: none
 
+	rsa_generate(nBits[,nPublicExponent]) ---> a random RSA key pair 
+	rsa_export_params(pRsaKey) ---> list of the key parameters
+	rsa_import_params(pParamsList) ---> a new RSA key
+	rsa_export_pem(pRsaKey) ---> string encoding of the key in PEM format
+	rsa_import_pem(cStrPEM) ---> a new RSA key
+	rsa_is_privatekey(pRsaKey) ---> Bool
+	rsa_encrypt_pkcs(pRsaKey,cPlainData) ---> String
+	rsa_decrypt_pkcs(pRsaKey,cEncryptedData) ---> String
+	rsa_encrypt_oaep(pRsaKey,cPlainData[,nHashAlgorithm]) ---> String
+	rsa_decrypt_oaep(pRsaKey,cEncryptedData[,nHashAlgorithm]) ---> String
+	rsa_encrypt_raw(pRsaKey,cPlainData) ---> String
+	rsa_decrypt_raw(pRsaKey,cEncryptedData) ---> String
 	rsa_sign_pkcs(pRsaKey,cData) ---> String
 	rsa_signhash_pkcs(pRsaKey,cHashValue) ---> String
 	rsa_verify_pkcs(pRsaKey,cData,cSignature) ---> Bool
 	rsa_verifyhash_pkcs(pRsaKey,cHashValue,cSignature) ---> Bool
-	rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---> String
-	rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---> Bool
-	rsa_encrypt_raw(pRsaKey,cPlainData) ---> String
-	rsa_decrypt_raw(pRsaKey,cEncryptedData) ---> String
 	rsa_sign_pss(pRsaKey,cData,nHashAlgorithm[,nSaltLength]) ---> String
+	rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---> String
 	rsa_verify_pss(pRsaKey,cData,cSignature,nHashAlgorithm[,nSaltLength]) ---> Bool
+	rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---> Bool
+	openssl_versiontext() ---> String
+	openssl_version() ---> List
+
 
 .. index:: 
 	pair: What is new in Ring  1.17; Better RingWinAPI

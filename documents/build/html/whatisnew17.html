@@ -593,16 +593,28 @@ fax
 <li><p>Enhancements to support all cipher algorithms</p></li>
 <li><p>New Functions:</p></li>
 </ul>
-<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rsa_sign_pkcs(pRsaKey,cData) ---&gt; String
+<div class="highlight-none notranslate"><div class="highlight"><pre><span></span>rsa_generate(nBits[,nPublicExponent]) ---&gt; a random RSA key pair
+rsa_export_params(pRsaKey) ---&gt; list of the key parameters
+rsa_import_params(pParamsList) ---&gt; a new RSA key
+rsa_export_pem(pRsaKey) ---&gt; string encoding of the key in PEM format
+rsa_import_pem(cStrPEM) ---&gt; a new RSA key
+rsa_is_privatekey(pRsaKey) ---&gt; Bool
+rsa_encrypt_pkcs(pRsaKey,cPlainData) ---&gt; String
+rsa_decrypt_pkcs(pRsaKey,cEncryptedData) ---&gt; String
+rsa_encrypt_oaep(pRsaKey,cPlainData[,nHashAlgorithm]) ---&gt; String
+rsa_decrypt_oaep(pRsaKey,cEncryptedData[,nHashAlgorithm]) ---&gt; String
+rsa_encrypt_raw(pRsaKey,cPlainData) ---&gt; String
+rsa_decrypt_raw(pRsaKey,cEncryptedData) ---&gt; String
+rsa_sign_pkcs(pRsaKey,cData) ---&gt; String
 rsa_signhash_pkcs(pRsaKey,cHashValue) ---&gt; String
 rsa_verify_pkcs(pRsaKey,cData,cSignature) ---&gt; Bool
 rsa_verifyhash_pkcs(pRsaKey,cHashValue,cSignature) ---&gt; Bool
-rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---&gt; String
-rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---&gt; Bool
-rsa_encrypt_raw(pRsaKey,cPlainData) ---&gt; String
-rsa_decrypt_raw(pRsaKey,cEncryptedData) ---&gt; String
 rsa_sign_pss(pRsaKey,cData,nHashAlgorithm[,nSaltLength]) ---&gt; String
+rsa_signhash_pss(pRsaKey,cHashValue[,nSaltLength]) ---&gt; String
 rsa_verify_pss(pRsaKey,cData,cSignature,nHashAlgorithm[,nSaltLength]) ---&gt; Bool
+rsa_verifyhash_pss(pRsaKey,cHashValue,cSignature[,nSaltLength]) ---&gt; Bool
+openssl_versiontext() ---&gt; String
+openssl_version() ---&gt; List
 </pre></div>
 </div>
 </div>
