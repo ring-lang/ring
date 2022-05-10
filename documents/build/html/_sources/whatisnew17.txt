@@ -625,6 +625,7 @@ More Improvements
 * RingLibUI - The function uiFreeText() is removed from the library API
 * RingLibUI - Better implementation for functions that require uiFreeText()
 * RingSockets - Better Code
+* RingWinCReg - Better Code
 * RingQt - QString Class - Another version for the Replace() Method
 * RingQt - QLabel Class inherits the QFrame Class
 * RingQt - Added: QStyle class
