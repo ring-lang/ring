@@ -837,6 +837,13 @@ Parent Class : QGuiApplication
 * void closeAllWindows(void)
 * Qt::KeyboardModifiers keyboardModifiers(void)
 * QClipboard *clipboard(void)
+* QStyle *style(void)
+* void aboutQt(void)
+* QWidget *activeModalWidget(void)
+* QWidget *activePopupWidget(void)
+* QWidget *activeWindow(void)
+* QWidget *focusWidget(void)
+* double titlebarHeight(void)
 
 .. index::
 	pair: RingQt Classes Reference; QAreaLegendMarker Class
@@ -5682,7 +5689,7 @@ C++ Reference : http://doc.qt.io/qt-5/qlabel.html
 Parameters : QWidget *
 
 
-Parent Class : QWidget
+Parent Class : QFrame
 
 * QPicture picture(void)
 * QPixmap pixmap(void)
@@ -10259,6 +10266,7 @@ Parameters : void
 * bool isRightToLeft(void)
 * QString repeated(int times)
 * QString replace(int position, int n,  QString  after)
+* QString replace_2(QString before, QString after, Qt::CaseSensitivity)
 * bool startsWith( QString  s, Qt::CaseSensitivity cs )
 * bool endsWith( QString  s, Qt::CaseSensitivity cs )
 * QString toHtmlEscaped(void)
@@ -10393,6 +10401,53 @@ Parameters : void
 * int compare_6(QStringRef s1, QLatin1String s2, Qt::CaseSensitivity cs)
 * int localeAwareCompare_3(QStringRef s1, QString s2)
 * int localeAwareCompare_4(QStringRef s1, QStringRef s2)
+
+.. index::
+	pair: RingQt Classes Reference; QStyle Class
+
+QStyle Class
+============
+
+
+C++ Reference : http://doc.qt.io/qt-5/qstyle.html
+
+
+Parameters : void
+
+
+Parent Class : QObject
+
+* int combinedLayoutSpacing(QSizePolicy::ControlTypes controls1, QSizePolicy::ControlTypes controls2, Qt::Orientation orientation, QStyleOption *option, QWidget *widget)
+* void drawComplexControl(QStyle::ComplexControl control, QStyleOptionComplex *option, QPainter *painter, QWidget *widget)
+* void drawControl(QStyle::ControlElement element, QStyleOption *option, QPainter *painter, QWidget *widget)
+* void drawItemPixmap(QPainter *painter, QRect rectangle, int alignment, QPixmap pixmap)
+* void drawItemText(QPainter *painter, QRect rectangle, int alignment, QPalette palette, bool enabled, QString text, QPalette::ColorRole textRole)
+* void drawPrimitive(QStyle::PrimitiveElement element, QStyleOption *option, QPainter *painter, QWidget *widget)
+* QPixmap generatedIconPixmap(QIcon::Mode iconMode, QPixmap pixmap, QStyleOption *option)
+* QStyle::SubControl hitTestComplexControl(QStyle::ComplexControl control, QStyleOptionComplex *option, QPoint position, QWidget *widget)
+* QRect itemPixmapRect(QRect rectangle, int alignment, QPixmap pixmap)
+* QRect itemTextRect(QFontMetrics metrics, QRect rectangle, int alignment, bool enabled, QString text)
+* int layoutSpacing(QSizePolicy::ControlType control1, QSizePolicy::ControlType control2, Qt::Orientation orientation, QStyleOption *option, QWidget *widget)
+* int pixelMetric(QStyle::PixelMetric metric)
+* int pixelMetric_2(QStyle::PixelMetric metric, QStyleOption *option, QWidget *widget)
+* void polish(QWidget *widget)
+* void polish_2(QApplication *application)
+* void polish_3(QPalette palette)
+* QStyle * proxy(void)
+* QSize sizeFromContents(QStyle::ContentsType type, QStyleOption *option, QSize contentsSize, QWidget *widget)
+* QIcon standardIcon(QStyle::StandardPixmap standardIcon, QStyleOption *option, QWidget *widget)
+* QPalette standardPalette(void)
+* int styleHint(QStyle::StyleHint hint, QStyleOption *option, QWidget *widget, QStyleHintReturn *returnData)
+* QRect subControlRect(QStyle::ComplexControl control, QStyleOptionComplex *option, QStyle::SubControl subControl, QWidget *widget)
+* QRect subElementRect(QStyle::SubElement element, QStyleOption *option, QWidget *widget)
+* void unpolish(QWidget *widget)
+* void unpolish_2(QApplication *application)
+* QRect alignedRect(Qt::LayoutDirection direction, Qt::Alignment alignment, QSize size, QRect rectangle)
+* int sliderPositionFromValue(int min, int max, int logicalValue, int span, bool upsideDown)
+* int sliderValueFromPosition(int min, int max, int position, int span, bool upsideDown)
+* Qt::Alignment visualAlignment(Qt::LayoutDirection direction, Qt::Alignment alignment)
+* QPoint visualPos(Qt::LayoutDirection direction, QRect boundingRectangle, QPoint logicalPosition)
+* QRect visualRect(Qt::LayoutDirection direction, QRect boundingRectangle, QRect logicalRectangle)
 
 .. index::
 	pair: RingQt Classes Reference; QSurfaceFormat Class
