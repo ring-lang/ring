@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "httplib",
 		:branch = "master",
-		:version = "1.0.5",
+		:version = "1.0.7",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],

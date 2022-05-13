@@ -314,5 +314,8 @@ aAllPackagesInfo = [
 	],
 	:jsonlib = 	[
 		"CitationsPrediction"
+	],
+	:weblib = 	[
+		"httplib"
 	]
 ]
