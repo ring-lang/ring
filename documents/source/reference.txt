@@ -183,7 +183,7 @@ Functions Count : 245
         isalnum(value) ---> 1 if the value is digit/letter or 0 if not
         isalpha(value) ---> 1 if the value is a letter or 0 if not
         isandroid() ---> Returns 1 if the operating system is Android, Returns 0 if it's not
-        isattribute(object,cAttributeName) ---> Returns True if the object contains the attribute
+        isattribute(object,cAttributeName) ---> Bool
         iscfunction(cFunctionName) ---> returns 1 if the C function is defined
         isclass(cClassName) ---> returns 1 if the Class is defined
         iscntrl(value) ---> 1 if the value is a control character or 0 if not
@@ -213,8 +213,8 @@ Functions Count : 245
         isstring(value) ---> 1 if the value is a string or 0 if not
         isunix() ---> Returns 1 if the operating system is Unix, Returns 0 if it's not
         isupper(value) ---> 1 if the value is an uppercase alphabetic letter or 0 if not
-        iswindows() ---> Returns 1 if the operating system is Windows, Returns 0 if it's not
-        iswindows64() ---> Returns 1 if the operating system is Windows64, Returns 0 if it's not
+        iswindows() ---> Returns 1 if the operating system is Windows
+        iswindows64() ---> Returns 1 if the operating system is Windows64
         isxdigit(value) ---> 1 if the value is a hexadecimal digit character or 0 if not
 	left(string,count) ---> Get characters starting from the left
 	len(string) ---> String length
