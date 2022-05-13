@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Mahmoud Fayed",
 	:email = "msfclipper@yahoo.com",
 	:license = "MIT License",
-	:version = "1.0.2",
+	:version = "1.0.3",
 	:ringversion = "1.13",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -31,6 +31,7 @@ aPackageInfo = [
 	],
 	:ringfolderfiles = 	[
 		"applications/game2048/game2048.ring",
+		"applications/game2048/2048_logo.png",
 		"applications/game2048/README.md"
 	],
 	:windowsfiles = 	[
