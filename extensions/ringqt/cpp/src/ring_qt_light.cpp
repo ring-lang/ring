@@ -69065,7 +69065,74 @@ RING_FUNC(ring_QApp_keyboardModifiers)
 
 RING_FUNC(ring_QApp_clipboard)
 {
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
 	RING_API_RETCPOINTER(qApp->clipboard(),"QClipboard");
+}
+
+RING_FUNC(ring_QApp_style)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(qApp->style(),"QStyle");
+}
+
+RING_FUNC(ring_QApp_aboutQt)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	qApp->aboutQt();
+}
+
+RING_FUNC(ring_QApp_activeModalWidget)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(qApp->activeModalWidget(),"QWidget");
+}
+
+RING_FUNC(ring_QApp_activePopupWidget)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(qApp->activePopupWidget(),"QWidget");
+}
+
+RING_FUNC(ring_QApp_activeWindow)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(qApp->activeWindow(),"QWidget");
+}
+
+RING_FUNC(ring_QApp_focusWidget)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETCPOINTER(qApp->focusWidget(),"QWidget");
+}
+
+RING_FUNC(ring_QApp_titlebarHeight)
+{
+	if ( RING_API_PARACOUNT != 0 ) {
+		RING_API_ERROR(RING_API_BADPARACOUNT);
+		return ;
+	}
+	RING_API_RETNUMBER(qApp->style()->pixelMetric(QStyle::PM_TitleBarHeight));
 }
 
 
@@ -132434,6 +132501,13 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qapp_closeallwindows",ring_QApp_closeAllWindows);
 	RING_API_REGISTER("qapp_keyboardmodifiers",ring_QApp_keyboardModifiers);
 	RING_API_REGISTER("qapp_clipboard",ring_QApp_clipboard);
+	RING_API_REGISTER("qapp_style",ring_QApp_style);
+	RING_API_REGISTER("qapp_aboutqt",ring_QApp_aboutQt);
+	RING_API_REGISTER("qapp_activemodalwidget",ring_QApp_activeModalWidget);
+	RING_API_REGISTER("qapp_activepopupwidget",ring_QApp_activePopupWidget);
+	RING_API_REGISTER("qapp_activewindow",ring_QApp_activeWindow);
+	RING_API_REGISTER("qapp_focuswidget",ring_QApp_focusWidget);
+	RING_API_REGISTER("qapp_titlebarheight",ring_QApp_titlebarHeight);
 	RING_API_REGISTER("qwidget_acceptdrops",ring_QWidget_acceptDrops);
 	RING_API_REGISTER("qwidget_accessibledescription",ring_QWidget_accessibleDescription);
 	RING_API_REGISTER("qwidget_accessiblename",ring_QWidget_accessibleName);
