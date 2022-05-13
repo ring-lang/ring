@@ -472,7 +472,7 @@ Statement ---> 'package' <Identifier> { '.' <Identifier> } ['{' {statement} '}']
 
 Statement ---> 'class' <Identifier> [ 'from'|':'|'<' <Identifier> ] ['{' {statement} '}']['end'|'endclass']
 
-Statement ---> 'func'|'def' <Identifier> [ParaList] ['{' {statement} '}']['end'|'endfunc']
+Statement ---> 'func'|'def'|'function' <Identifier> [ParaList] ['{' {statement} '}']['end'|'endfunc'|'endfunction']
 
 Statement ---> 'import' <Identifier> { '.' <Identifier> }
 
@@ -490,27 +490,27 @@ Statement ---> 'see'|'put' <Expr>
 
 Statement ---> 'give'|'get' <Identifier>
 
-Statement ---> 'if' <Expr> ['{'] {statement} [ {'but'|'elseif' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'|'end'|'}'
+Statement ---> 'if' <Expr> ['{'] {statement} [ {'but'|'elseif' <Expr> {Statement} } ] ['else' {Statement} ] 'ok'|'end'|'}'|'endif'
 
-Statement ---> 'Switch' <Expr> ['{'] { 'on'|'case' <Expr> {statement} } ['other' {Statement} ]  'off'|'end'|'}'
+Statement ---> 'Switch' <Expr> ['{'] { 'on'|'case' <Expr> {statement} } ['other' {Statement} ]  'off'|'end'|'}'|'endswitch'
 
-Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] ['{'] {Statement} 'next'|'end'|'}'
+Statement ---> 'for' <Identifier> '=' <Expr> 'to' <Expr> [ 'step' <Expr> ] ['{'] {Statement} 'next'|'end'|'}'|'endfor'
 
-Statement ---> 'for' <Identifier> 'in' <Expr>  [ 'step' <Expr> ] ['{'] {statement} 'next'|'end'|'}'
+Statement ---> 'for' <Identifier> 'in' <Expr>  [ 'step' <Expr> ] ['{'] {statement} 'next'|'end'|'}'|'endfor'
 
-Statement ---> 'while' <Expr> ['{'] {statement} 'end'|'}'
+Statement ---> 'while' <Expr> ['{'] {statement} 'end'|'}'|'endwhile'
 
 Statement ---> 'do' {statement} 'again' <Expr> 
 
-Statement ---> 'try' {statement} ['{'] 'catch' {statement} 'done'|'end'|'}'
+Statement ---> 'try' {statement} ['{'] 'catch' {statement} 'done'|'end'|'}'|'endtry'
 
 Statement ---> 'return' <Expr>
 
 Statement ---> 'bye'
 
-Statement ---> 'exit'
+Statement ---> 'exit'|'break'
 
-Statement ---> 'loop'
+Statement ---> 'loop'|'continue'
 
 Statement ---> <Expr>
 
@@ -570,7 +570,7 @@ Mixer ---> '(' [ <Expr> [ { ',' <Expr> }] ]  ')'
 
 Mixer ---> '{' {Statement} '}'
 
-AnonymousFunction ---> 'func'|'def'| [<ParaList>] '{' {Statement} '}'
+AnonymousFunction ---> 'func'|'def'|'function' [<ParaList>] '{' {Statement} '}'
 
 .. index:: 
 	pair: Language Specification; Virtual Machine Instructions

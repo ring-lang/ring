@@ -723,7 +723,7 @@
 <p>Program —&gt; {statement}</p>
 <p>Statement —&gt; ‘package’ &lt;Identifier&gt; { ‘.’ &lt;Identifier&gt; } [‘{‘ {statement} ‘}’] [‘end’|’endpackage’]</p>
 <p>Statement —&gt; ‘class’ &lt;Identifier&gt; [ ‘from’|’:’|’&lt;’ &lt;Identifier&gt; ] [‘{‘ {statement} ‘}’][‘end’|’endclass’]</p>
-<p>Statement —&gt; ‘func’|’def’ &lt;Identifier&gt; [ParaList] [‘{‘ {statement} ‘}’][‘end’|’endfunc’]</p>
+<p>Statement —&gt; ‘func’|’def’|’function’ &lt;Identifier&gt; [ParaList] [‘{‘ {statement} ‘}’][‘end’|’endfunc’|’endfunction’]</p>
 <p>Statement —&gt; ‘import’ &lt;Identifier&gt; { ‘.’ &lt;Identifier&gt; }</p>
 <p>Statement —&gt; ‘private’</p>
 <p>Statement —&gt; ‘load’ [‘package’|’again’] &lt;Literal&gt;</p>
@@ -732,17 +732,17 @@
 <p>Statement —&gt; ‘changeringoperator’ &lt;OldOperator&gt; &lt;NewOperator&gt;</p>
 <p>Statement —&gt; ‘see’|’put’ &lt;Expr&gt;</p>
 <p>Statement —&gt; ‘give’|’get’ &lt;Identifier&gt;</p>
-<p>Statement —&gt; ‘if’ &lt;Expr&gt; [‘{‘] {statement} [ {‘but’|’elseif’ &lt;Expr&gt; {Statement} } ] [‘else’ {Statement} ] ‘ok’|’end’|’}’</p>
-<p>Statement —&gt; ‘Switch’ &lt;Expr&gt; [‘{‘] { ‘on’|’case’ &lt;Expr&gt; {statement} } [‘other’ {Statement} ]  ‘off’|’end’|’}’</p>
-<p>Statement —&gt; ‘for’ &lt;Identifier&gt; ‘=’ &lt;Expr&gt; ‘to’ &lt;Expr&gt; [ ‘step’ &lt;Expr&gt; ] [‘{‘] {Statement} ‘next’|’end’|’}’</p>
-<p>Statement —&gt; ‘for’ &lt;Identifier&gt; ‘in’ &lt;Expr&gt;  [ ‘step’ &lt;Expr&gt; ] [‘{‘] {statement} ‘next’|’end’|’}’</p>
-<p>Statement —&gt; ‘while’ &lt;Expr&gt; [‘{‘] {statement} ‘end’|’}’</p>
+<p>Statement —&gt; ‘if’ &lt;Expr&gt; [‘{‘] {statement} [ {‘but’|’elseif’ &lt;Expr&gt; {Statement} } ] [‘else’ {Statement} ] ‘ok’|’end’|’}’|’endif’</p>
+<p>Statement —&gt; ‘Switch’ &lt;Expr&gt; [‘{‘] { ‘on’|’case’ &lt;Expr&gt; {statement} } [‘other’ {Statement} ]  ‘off’|’end’|’}’|’endswitch’</p>
+<p>Statement —&gt; ‘for’ &lt;Identifier&gt; ‘=’ &lt;Expr&gt; ‘to’ &lt;Expr&gt; [ ‘step’ &lt;Expr&gt; ] [‘{‘] {Statement} ‘next’|’end’|’}’|’endfor’</p>
+<p>Statement —&gt; ‘for’ &lt;Identifier&gt; ‘in’ &lt;Expr&gt;  [ ‘step’ &lt;Expr&gt; ] [‘{‘] {statement} ‘next’|’end’|’}’|’endfor’</p>
+<p>Statement —&gt; ‘while’ &lt;Expr&gt; [‘{‘] {statement} ‘end’|’}’|’endwhile’</p>
 <p>Statement —&gt; ‘do’ {statement} ‘again’ &lt;Expr&gt;</p>
-<p>Statement —&gt; ‘try’ {statement} [‘{‘] ‘catch’ {statement} ‘done’|’end’|’}’</p>
+<p>Statement —&gt; ‘try’ {statement} [‘{‘] ‘catch’ {statement} ‘done’|’end’|’}’|’endtry’</p>
 <p>Statement —&gt; ‘return’ &lt;Expr&gt;</p>
 <p>Statement —&gt; ‘bye’</p>
-<p>Statement —&gt; ‘exit’</p>
-<p>Statement —&gt; ‘loop’</p>
+<p>Statement —&gt; ‘exit’|’break’</p>
+<p>Statement —&gt; ‘loop’|’continue’</p>
 <p>Statement —&gt; &lt;Expr&gt;</p>
 <p>Statement —&gt; epsilon</p>
 <p>ParaList —&gt; epsilon</p>
@@ -772,7 +772,7 @@
 <p>Mixer —&gt; ‘[‘ &lt;Expr&gt; ‘]’</p>
 <p>Mixer —&gt; ‘(‘ [ &lt;Expr&gt; [ { ‘,’ &lt;Expr&gt; }] ]  ‘)’</p>
 <p>Mixer —&gt; ‘{‘ {Statement} ‘}’</p>
-<p>AnonymousFunction —&gt; ‘func’|’def’| [&lt;ParaList&gt;] ‘{‘ {Statement} ‘}’</p>
+<p>AnonymousFunction —&gt; ‘func’|’def’|’function’ [&lt;ParaList&gt;] ‘{‘ {Statement} ‘}’</p>
 </div>
 <div class="section" id="virtual-machine-vm-instructions">
 <span id="index-7"></span><h2>Virtual Machine (VM) Instructions<a class="headerlink" href="#virtual-machine-vm-instructions" title="Permalink to this headline">¶</a></h2>
