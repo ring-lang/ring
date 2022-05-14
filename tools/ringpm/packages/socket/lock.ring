@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "socket",
 		:branch = "master",
-		:version = "1.0.2",
+		:version = "1.0.3",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	]

@@ -5,11 +5,11 @@ aPackageInfo = [
 	:developer = "Abdallah Elsharif",
 	:email = "elsharifabdallah53@gmail.com",
 	:license = "MIT License",
-	:version = "1.0.2",
+	:version = "1.0.3",
 	:ringversion = "1.17",
 	:versions = 	[
 		[
-			:version = "1.0.2",
+			:version = "1.0.3",
 			:branch = "master"
 		]
 	],
@@ -31,8 +31,8 @@ aPackageInfo = [
 		"extensions/ringsockets/buildvc.bat",
 		"extensions/ringsockets/sockets.ring",
 		"extensions/ringsockets/lib/constants.ring",
-		"extensions/ringsockets/ext/socket.c",
-		"extensions/ringsockets/ext/socket.h",
+		"extensions/ringsockets/ext/sockets.c",
+		"extensions/ringsockets/ext/sockets.h",
 		"extensions/ringsockets/docs/docs.txt",
 		"tools/ring2exe/libs/sockets.ring"
 	],
