@@ -37,18 +37,24 @@ void ring_vm_socket_constant_ip_block_source(void *pPointer);
 void ring_vm_socket_constant_ip_drop_membership(void *pPointer);
 void ring_vm_socket_constant_ip_drop_source_membership(void *pPointer);
 void ring_vm_socket_constant_ip_hdrincl(void *pPointer);
+/*
 void ring_vm_socket_constant_ip_mtu(void *pPointer);
 void ring_vm_socket_constant_ip_mtu_discover(void *pPointer);
+*/
 void ring_vm_socket_constant_ip_multicast_loop(void *pPointer);
 void ring_vm_socket_constant_ip_multicast_ttl(void *pPointer);
 void ring_vm_socket_constant_ip_options(void *pPointer);
+/*
 void ring_vm_socket_constant_ip_pktinfo(void *pPointer);
+*/
 void ring_vm_socket_constant_ip_recvtos(void *pPointer);
 void ring_vm_socket_constant_ip_recvttl(void *pPointer);
 void ring_vm_socket_constant_ip_tos(void *pPointer);
 void ring_vm_socket_constant_ip_ttl(void *pPointer);
 void ring_vm_socket_constant_ip_unblock_source(void *pPointer);
+/*
 void ring_vm_socket_constant_ip_unicast_if(void *pPointer);
+*/
 void ring_vm_socket_constant_so_acceptconn(void *pPointer);
 void ring_vm_socket_constant_so_broadcast(void *pPointer);
 void ring_vm_socket_constant_so_dontroute(void *pPointer);
