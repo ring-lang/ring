@@ -1,0 +1,22 @@
+
+StringRegExp ("TIPO DI REGEXP ","TEXT","PATTERN","RETURN HOW MANYCHAR")
+
+TYPE OF REGEXP = WITH WORD C YOU CAN USE REGEXP IN STYLE C , IF  YOU USE WORD P , YOU USE STYLE LIKE PERL (PCRE)
+                    IF USE WORD S YOU CAN USE REGEXP LIKE C BUT SSCANF
+
+TIPO DI REGEXP = CON LA LETTERA C USI REGEXP IN STYLE C, SE METTI P USI REGEXP STYLE PERL (PCRE), 
+                 SE METTI S USI REGEXP IN STYLE SSCANF DI C
+
+TEXT =  TESTO DA ESAMINARE
+TEXT = TEXT TO EXAM
+
+PATTHERN = PATTERN REGEXP DA METTCHARE
+PATTHERN =  PATTERN FOR REGEXP
+
+RETURN HOW MANYCHAR = OPZIONE FUNZIONANTE SOLO CON SSCANF STYLE IMPOSTARE  QUANTI CHAR +1 TI ASPETTI CHE RITORNI LA REGEXP
+RETURN HOW MANYCHAR = THIS OPZION YOU MUST SET ONLY WHEN YOU USE S OPTION FOR  C OR P OPTION SET 0 
+
+EXAMPLE 
+zio=StringRegExp("p","move(123,12252)","move\(([^)]*)\)","0") // perl style with PCRE
+zio=StringRegExp("c","mik(ko mi)kko","\((.*)\)"."0")          // c style  with regex.h
+zio=StringRegExp("s","+PUBLISH:0,/a1FgtnpfTdI/deviceA/get,12, hello world\r\n","%*[^:]:%d,%*[^,],%d,%[^\n]","64")   // sscanf "style"  with sscanf , use C style for match or similar (set how many char return in this case 64)
