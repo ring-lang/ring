@@ -68,7 +68,7 @@
         unsigned int nScannerError  ;
     } RingState ;
     /* Constants */
-    #define RING_STATE_VERSION "1.17"
+    #define RING_STATE_VERSION "1.18"
     /* MACRO */
     #define RING_STATE_CHECKPRINTRULES if ( pParser->pRingState->nPrintRules )
     /* General Options (Only for ring_state_main()) */
