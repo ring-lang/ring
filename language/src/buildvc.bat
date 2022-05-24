@@ -32,7 +32,7 @@ ring_ext.obj ring_dll_extension.obj ring_objfile.obj
 
 copy ..\..\lib\ring.dll ..\..\bin\
 
-cl %ringcflags% ring.c ..\..\lib\ring.lib -I"..\include" /link /SUBSYSTEM:CONSOLE,"%ringsubsystem%" /OUT:..\..\bin\ring.exe 
+cl %ringcflags% ring.c ..\..\lib\ring.lib -I"..\include" /link /SUBSYSTEM:CONSOLE,"%ringsubsystem%" /STACK:8388608 /OUT:..\..\bin\ring.exe 
 
 del *.obj
 

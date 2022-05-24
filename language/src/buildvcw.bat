@@ -22,7 +22,7 @@ ring_ext.obj ring_dll_extension.obj ring_objfile.obj
 
 copy ..\..\lib\ring.dll ..\..\bin\
 
-cl %ringcflags% ringw.c ..\..\lib\ring.lib -I"..\include"  advapi32.lib shell32.lib /link /SUBSYSTEM:WINDOWS,"%ringsubsystem%" /OUT:..\..\bin\ringw.exe
+cl %ringcflags% ringw.c ..\..\lib\ring.lib -I"..\include"  advapi32.lib shell32.lib /link /SUBSYSTEM:WINDOWS,"%ringsubsystem%" /STACK:8388608 /OUT:..\..\bin\ringw.exe
 
 del *.obj
 
