@@ -38,18 +38,20 @@
     IP_DROP_MEMBERSHIP  = get_IP_DROP_MEMBERSHIP()
     IP_DROP_SOURCE_MEMBERSHIP = get_IP_DROP_SOURCE_MEMBERSHIP()
     IP_HDRINCL          = get_IP_HDRINCL()
+    /*
     IP_MTU              = get_IP_MTU()
     IP_MTU_DISCOVER     = get_IP_MTU_DISCOVER()
+    */
     IP_MULTICAST_LOOP   = get_IP_MULTICAST_LOOP()
     IP_MULTICAST_TTL    = get_IP_MULTICAST_TTL()
     IP_OPTIONS          = get_IP_OPTIONS()
-    IP_PKTINFO          = get_IP_PKTINFO()
+    # IP_PKTINFO          = get_IP_PKTINFO()
     IP_RECVTOS          = get_IP_RECVTOS()
     IP_RECVTTL          = get_IP_RECVTTL()
     IP_TOS              = get_IP_TOS()
     IP_TTL              = get_IP_TTL()
     IP_UNBLOCK_SOURCE   = get_IP_UNBLOCK_SOURCE()
-    IP_UNICAST_IF       = get_IP_UNICAST_IF()
+    # IP_UNICAST_IF       = get_IP_UNICAST_IF()
 
 
     SO_ACCEPTCONN       = get_SO_ACCEPTCONN()
