@@ -164,7 +164,7 @@ func BuildApp cFileName,aOptions
 		if find(aOptions,"-dist")
 			Distribute(cFile,aOptions)
 		else 
-			if CheckNoCCompiler(currentdir(),cFile)
+			if CheckNoCCompiler(currentdir(),cFile,aOptions)
 				if not find(aOptions,"-keep")
 					ClearTempFiles(2)
 				ok
@@ -362,7 +362,7 @@ func DistributeForWindows cBaseFolder,cFileName,aOptions
 	# copy the executable file 
 		msg("Copy the executable file to target/windows")
 		OSCopyFile(cBaseFolder+"\"+cFileName+".exe")
-		CheckNoCCompiler(cBaseFolder,cFileName)
+		CheckNoCCompiler(cBaseFolder,cFileName,aOptions)
 	# Check ring.dll
 		if not find(aOptions,"-static")	
 			msg("Copy ring.dll to target/windows")	
@@ -421,7 +421,7 @@ func DistributeForLinux cBaseFolder,cFileName,aOptions
 	# copy the executable file 
 		msg("Copy the executable file to target/linux/bin")
 		OSCopyFile(cBaseFolder+"/"+cFileName)
-		CheckNoCCompiler(cBaseFolder,cFileName)
+		CheckNoCCompiler(cBaseFolder,cFileName,aOptions)
 	# Copy Files (Images, etc) in Resources File
 		CheckQtResourceFile(cBaseFolder,cFileName,aOptions)
 	chdir(cDir)
@@ -570,7 +570,7 @@ func DistributeForMacOSX cBaseFolder,cFileName,aOptions
 	# copy the executable file 
 		msg("Copy the executable file to target/macosx/bin")
 		OSCopyFile(cBaseFolder+"/"+cFileName)
-		CheckNoCCompiler(cBaseFolder,cFileName)
+		CheckNoCCompiler(cBaseFolder,cFileName,aOptions)
 	# Copy Files (Images, etc) in Resources File
 		CheckQtResourceFile(cBaseFolder,cFileName,aOptions)
 	chdir(cDir)
@@ -743,7 +743,7 @@ func custom_OSCopyFile cBaseFolder,cFile
 
 
 
-func CheckNoCCompiler cBaseFolder,cFileName 
+func CheckNoCCompiler cBaseFolder,cFileName,aOptions 
 	# If we don't have a C compiler 
 	# We copy ring.exe to be app.exe 
 	# Then we change app.ringo to ring.ringo 
@@ -770,11 +770,20 @@ func CheckNoCCompiler cBaseFolder,cFileName
 	msg("Using the Ring Way to create executable file without a C Compiler!")
 	cRingExeFile = exefolder() + "/ring"
 	if isWindows() 
-		cRingExeFile += ".exe"
+		if find(aOptions,"-gui") 
+			# use ringw.exe if -gui specified
+			cRingExeFile += "w.exe"
+		else 
+			cRingExeFile += ".exe"
+		ok
 	ok
 	OSCopyFile(cRingExeFile)
 	if isWindows()
-		OSRenameFile("ring.exe",cFileName+".exe")
+		if find(aOptions,"-gui") 
+			OSRenameFile("ringw.exe",cFileName+".exe")
+		else
+			OSRenameFile("ring.exe",cFileName+".exe")
+		ok
 		OSCopyFile(cBaseFolder+"\"+cFileName+".ringo")
 	else 
 		OSRenameFile("ring",cFileName)
