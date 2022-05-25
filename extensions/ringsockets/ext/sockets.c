@@ -720,9 +720,9 @@ void ring_vm_socket_inet_addr(void *pPointer) {
             return;
         }
 
-        RING_API_RETSTRING2((char *) &address,sizeof(address));
     }
-    
+
+    RING_API_RETSTRING2((char *) &address,sizeof(address));    
 }
 
 void ring_vm_socket_inet_ntoa(void *pPointer) {
@@ -746,6 +746,112 @@ void ring_vm_socket_inet_ntoa(void *pPointer) {
 #endif
 
     RING_API_RETSTRING(inet_ntoa(*((struct in_addr *) address)));
+}
+
+void ring_vm_socket_inet_pton(void *pPointer) {
+
+    int nDomain, nSize, n;
+    unsigned char *pBuffer;
+
+#ifdef win
+    if(!g_bWinsockInitialized) {
+        RING_API_ERROR("WSAStartup failed");
+        return;
+    }
+#endif
+
+    if(RING_API_PARACOUNT != 2) {
+        RING_API_ERROR(RING_API_MISS2PARA);
+        return;
+    }
+
+    if(!RING_API_ISNUMBER(1) && !RING_API_ISSTRING(2)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    nDomain = RING_API_GETNUMBER(1);
+
+    switch (nDomain)
+    {
+    case AF_INET:
+        nSize = sizeof(struct in_addr);
+        pBuffer = (unsigned char *) RING_API_MALLOC(nSize);
+        break;
+
+    case AF_INET6:
+        nSize = sizeof(struct in6_addr);
+        pBuffer = (unsigned char *) RING_API_MALLOC(nSize);
+        break;
+    
+    default:
+        RING_API_ERROR("Invalid Addr Family");
+        return;
+    }
+
+    
+    if((n = inet_pton(nDomain, RING_API_GETSTRING(2), pBuffer)) == 0) {
+        RING_API_ERROR("Invalid IP Addr");
+        return;
+    }
+
+    else if(n < 0) {
+        RING_API_ERROR("inet_pton Error");
+        return;
+    }
+
+    RING_API_RETSTRING2(pBuffer, nSize);
+    RING_API_FREE(pBuffer);
+}
+
+void ring_vm_socket_inet_ntop(void *pPointer) {
+    int nDomain, nSize;
+    char *pAddr;
+
+#ifdef win
+    if(!g_bWinsockInitialized) {
+        RING_API_ERROR("WSAStartup failed");
+        return;
+    }
+#endif
+
+    if(RING_API_PARACOUNT != 2) {
+        RING_API_ERROR(RING_API_MISS2PARA);
+        return;
+    }
+
+    if(!RING_API_ISNUMBER(1) && !RING_API_ISSTRING(2)) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return;
+    }
+
+    nDomain = RING_API_GETNUMBER(1);
+
+    switch (nDomain)
+    {
+    case AF_INET:
+        nSize = INET_ADDRSTRLEN;
+        pAddr = (char *) RING_API_MALLOC(nSize);
+        break;
+
+    case AF_INET6:
+        nSize = INET6_ADDRSTRLEN;
+        pAddr = (char *) RING_API_MALLOC(nSize);
+        break;
+    
+    default:
+        RING_API_ERROR("Invalid Addr Family");
+        return;
+    }
+
+
+    if(inet_ntop(nDomain, RING_API_GETSTRING(2), pAddr, nSize) == NULL) {
+        RING_API_ERROR("inet_ntop Error");
+        return;
+    }
+
+    RING_API_RETSTRING(pAddr);
+    RING_API_FREE(pAddr);
 }
 
 
@@ -773,6 +879,8 @@ RING_API void ringlib_init(RingState *pRingState) {
     RING_API_REGISTER("htons",ring_vm_socket_htons);
     RING_API_REGISTER("inet_addr",ring_vm_socket_inet_addr);
     RING_API_REGISTER("inet_ntoa",ring_vm_socket_inet_ntoa); 
+    RING_API_REGISTER("inet_pton",ring_vm_socket_inet_pton);
+    RING_API_REGISTER("inet_ntop",ring_vm_socket_inet_ntop);
 
 
     /* Constants */

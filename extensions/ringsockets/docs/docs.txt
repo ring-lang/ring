@@ -28,6 +28,9 @@
 # convert ip address into binary data in network byte order
 - inet_addr(ip)                 ->  return  <packed_address>
 - inet_ntoa(packed_address)     ->  return  <ip>
+# convert ipv4|ipv6 address into binary data in network byte order
+- inet_pton(AdressFamily, ip)                 ->  return  <packed_address>
+- inet_ntop(AdressFamily, packed_address)     ->  return  <ip>
 
 ------------------------------------------------------------------------------------------
 
