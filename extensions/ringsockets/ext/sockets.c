@@ -720,9 +720,9 @@ void ring_vm_socket_inet_addr(void *pPointer) {
             return;
         }
 
-        RING_API_RETSTRING2((char *) &address,sizeof(address));
     }
-    
+
+    RING_API_RETSTRING2((char *) &address,sizeof(address));    
 }
 
 void ring_vm_socket_inet_ntoa(void *pPointer) {
