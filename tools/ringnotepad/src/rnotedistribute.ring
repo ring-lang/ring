@@ -28,6 +28,8 @@ class RNoteDistribute
 				cPara += ",-dist,-allruntime,-gui,-webassemblyqt"
 			on 9	# light guilib (QtCore, QtGui & QtWidgets)
 				cPara += ",-dist,-gui,-lightguilib"
+			on 10	# exe gui
+				cPara += ",-static,-gui"
 		off
 		oDockOutputWindow { show() raise() }		
 		oProcessEditbox.setplaintext("")
