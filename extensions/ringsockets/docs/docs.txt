@@ -34,6 +34,11 @@
 
 ------------------------------------------------------------------------------------------
 
+# terminates use of the Winsock (For Windows, should call when finish using the sockets)
+- socketsCleanup()
+
+------------------------------------------------------------------------------------------
+
 Protocol Families :
                 - PF_UNSPEC
                 - PF_UNIX

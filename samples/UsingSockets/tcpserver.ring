@@ -12,3 +12,5 @@ close(ns)
 close(sock)
 ? "Socket connection closed"
 
+# terminates use of the Winsock
+socketsCleanup()

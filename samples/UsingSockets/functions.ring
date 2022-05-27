@@ -27,5 +27,8 @@ line()
 addr = inet_pton(AF_INET6, "::1")
 ? inet_ntop(AF_INET6, addr)
 
+# terminates use of the Winsock
+socketsCleanup()
+
 func line ? copy("=",30)
 

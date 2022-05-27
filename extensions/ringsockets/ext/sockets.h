@@ -76,6 +76,8 @@ void ring_vm_socket_inet_ntoa(void *pPointer);
 void ring_vm_socket_inet_pton(void *pPointer);
 void ring_vm_socket_inet_ntop(void *pPointer);
 
+void ring_vm_socket_cleanup(void *pPointer);
+
 RING_API void ringlib_init(RingState *pRingState);
 
 // MACRO
