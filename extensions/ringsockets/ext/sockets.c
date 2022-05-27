@@ -855,6 +855,16 @@ void ring_vm_socket_inet_ntop(void *pPointer) {
 }
 
 
+void ring_vm_socket_cleanup(void *pPointer) 
+{
+
+#ifdef win
+    WSACleanup();
+#endif
+
+}
+
+
 RING_API void ringlib_init(RingState *pRingState) {
     RING_API_REGISTER("socket",ring_vm_socket_init);
     RING_API_REGISTER("setsockopt",ring_vm_socket_setsockopt);
@@ -945,6 +955,8 @@ RING_API void ringlib_init(RingState *pRingState) {
     RING_API_REGISTER("get_so_rcvlowat",ring_vm_socket_constant_so_rcvlowat);
     RING_API_REGISTER("get_so_sndlowat",ring_vm_socket_constant_so_sndlowat);
     RING_API_REGISTER("get_so_rcvtimeo",ring_vm_socket_constant_so_rcvtimeo);
+
+    RING_API_REGISTER("socketscleanup",ring_vm_socket_cleanup);
 	
 #ifdef _WIN32
 	{
