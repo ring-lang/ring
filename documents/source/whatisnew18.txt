@@ -15,7 +15,20 @@ List of changes and new features
 
 Ring 1.18 comes with the next features!
 
+* Better RingSockets
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.18; Better RingSockets
+
+Better RingSockets
+==================
+
+The next functions are added to the extension
+
+* inet_pton()
+* inet_ntop()
+* socketsCleanup()
 
 .. index:: 
 	pair: What is new in Ring  1.18; More Improvements
