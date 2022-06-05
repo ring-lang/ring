@@ -18,46 +18,46 @@ LOCAL_C_INCLUDES := $(LOCAL_PATH)/$(SDL_PATH)/include \
 # Add your application source files here...
 LOCAL_SRC_FILES := $(SDL_PATH)/src/main/android/SDL_android_main.c \
 	ringapp.c \
-	$(RING_PATH)/ring_string.c \
-	$(RING_PATH)/ring_list.c \
-	$(RING_PATH)/ring_item.c \
-	$(RING_PATH)/ring_items.c \
-	$(RING_PATH)/ring_hashtable.c \
-	$(RING_PATH)/ring_general.c \
-	$(RING_PATH)/ring_state.c \
-	$(RING_PATH)/ring_scanner.c \
-	$(RING_PATH)/ring_parser.c \
-	$(RING_PATH)/ring_hashlib.c \
-	$(RING_PATH)/ring_vmgc.c \
-	$(RING_PATH)/ring_stmt.c \
-	$(RING_PATH)/ring_expr.c \
-	$(RING_PATH)/ring_codegen.c \
-	$(RING_PATH)/ring_vm.c \
-	$(RING_PATH)/ring_vmexpr.c \
-	$(RING_PATH)/ring_vmvars.c \
-	$(RING_PATH)/ring_vmlists.c \
-	$(RING_PATH)/ring_vmfuncs.c \
-	$(RING_PATH)/ring_api.c \
-	$(RING_PATH)/ring_vmoop.c \
-	$(RING_PATH)/ring_vmcui.c \
-	$(RING_PATH)/ring_vmtrycatch.c \
-	$(RING_PATH)/ring_vmstrindex.c \
-	$(RING_PATH)/ring_vmjump.c \
-	$(RING_PATH)/ring_vmduprange.c \
-	$(RING_PATH)/ring_vmperformance.c \
-	$(RING_PATH)/ring_vmexit.c \
-	$(RING_PATH)/ring_vmstackvars.c \
-	$(RING_PATH)/ring_vmstate.c \
-	$(RING_PATH)/ring_generallib_extension.c \
-	$(RING_PATH)/ring_math_extension.c \
-	$(RING_PATH)/ring_file_extension.c \
-	$(RING_PATH)/ring_os_extension.c \
-	$(RING_PATH)/ring_list_extension.c \
-	$(RING_PATH)/ring_refmeta_extension.c \
-	$(RING_PATH)/ring_ext.c \
-	$(RING_PATH)/ring_dll_extension.c \
-	$(RING_PATH)/ring_objfile.c \
-	$(RING_PATH)/ring_libsdl.c 
+	$(RING_PATH)/rstring.c \
+	$(RING_PATH)/rlist.c \
+	$(RING_PATH)/ritem.c \
+	$(RING_PATH)/ritems.c \
+	$(RING_PATH)/rhtable.c \
+	$(RING_PATH)/general.c \
+	$(RING_PATH)/state.c \
+	$(RING_PATH)/scanner.c \
+	$(RING_PATH)/parser.c \
+	$(RING_PATH)/hashlib.c \
+	$(RING_PATH)/vmgc.c \
+	$(RING_PATH)/stmt.c \
+	$(RING_PATH)/expr.c \
+	$(RING_PATH)/codegen.c \
+	$(RING_PATH)/vm.c \
+	$(RING_PATH)/vmexpr.c \
+	$(RING_PATH)/vmvars.c \
+	$(RING_PATH)/vmlists.c \
+	$(RING_PATH)/vmfuncs.c \
+	$(RING_PATH)/ringapi.c \
+	$(RING_PATH)/vmoop.c \
+	$(RING_PATH)/vmcui.c \
+	$(RING_PATH)/vmtry.c \
+	$(RING_PATH)/vmstr.c \
+	$(RING_PATH)/vmjump.c \
+	$(RING_PATH)/vmrange.c \
+	$(RING_PATH)/vmperf.c \
+	$(RING_PATH)/vmexit.c \
+	$(RING_PATH)/vmstack.c \
+	$(RING_PATH)/vmstate.c \
+	$(RING_PATH)/genlib_e.c \
+	$(RING_PATH)/math_e.c \
+	$(RING_PATH)/file_e.c \
+	$(RING_PATH)/os_e.c \
+	$(RING_PATH)/list_e.c \
+	$(RING_PATH)/meta_e.c \
+	$(RING_PATH)/ext.c \
+	$(RING_PATH)/dll_e.c \
+	$(RING_PATH)/objfile.c \
+	$(RING_PATH)/libsdl.c 
 
 LOCAL_SHARED_LIBRARIES := SDL2 SDL2_image SDL2_mixer SDL2_ttf SDL2_net
 
