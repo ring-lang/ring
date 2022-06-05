@@ -105,45 +105,45 @@
     #define RING_USESEEFUNCTION 1
     #define RING_USEGIVEFUNCTION 1
     /* Include Ring Headers */
-    #include "ring_ext.h"
-    #include "ring_string.h"
-    #include "ring_vmgcdata.h"
-    #include "ring_item.h"
-    #include "ring_items.h"
-    #include "ring_list.h"
-    #include "ring_hashlib.h"
-    #include "ring_hashtable.h"
-    #include "ring_pooldata.h"
-    #include "ring_general.h"
-    #include "ring_state.h"
-    #include "ring_scanner.h"
-    #include "ring_parser.h"
-    #include "ring_codegen.h"
-    #include "ring_vm.h"
-    #include "ring_vmgc.h"
-    #include "ring_api.h"
-    #include "ring_generallib_extension.h"
-    #include "ring_objfile.h"
+    #include "ext.h"
+    #include "rstring.h"
+    #include "vmgcdata.h"
+    #include "ritem.h"
+    #include "ritems.h"
+    #include "rlist.h"
+    #include "hashlib.h"
+    #include "rhtable.h"
+    #include "pooldata.h"
+    #include "general.h"
+    #include "state.h"
+    #include "scanner.h"
+    #include "parser.h"
+    #include "codegen.h"
+    #include "vm.h"
+    #include "vmgc.h"
+    #include "ringapi.h"
+    #include "genlib_e.h"
+    #include "objfile.h"
     /* Extensions Headers */
     #ifndef RING_EXTENSION
         #define RING_EXTENSION
         #ifdef RING_VM_MATH
-            #include "ring_math_extension.h"
+            #include "math_e.h"
         #endif
         #ifdef RING_VM_FILE
-            #include "ring_file_extension.h"
+            #include "file_e.h"
         #endif
         #ifdef RING_VM_OS
-            #include "ring_os_extension.h"
+            #include "os_e.h"
         #endif
         #ifdef RING_VM_LISTFUNCS
-            #include "ring_list_extension.h"
+            #include "list_e.h"
         #endif
         #ifdef RING_VM_REFMETA
-            #include "ring_refmeta_extension.h"
+            #include "meta_e.h"
         #endif
         #ifdef RING_VM_DLL
-            #include "ring_dll_extension.h"
+            #include "dll_e.h"
         #endif
     #endif
 #endif

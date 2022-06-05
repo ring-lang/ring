@@ -3,7 +3,7 @@
 **  Include Files 
 */
 #include "ring.h"
-#include "ring_test.h"
+#include "test.h"
 /* Main Function */
 
 int main ( int argc, char *argv[] )
