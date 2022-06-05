@@ -57,7 +57,7 @@ LOCAL_SRC_FILES := $(SDL_PATH)/src/main/android/SDL_android_main.c \
 	$(RING_PATH)/ext.c \
 	$(RING_PATH)/dll_e.c \
 	$(RING_PATH)/objfile.c \
-	$(RING_PATH)/libsdl.c 
+	$(RING_PATH)/ring_libsdl.c 
 
 LOCAL_SHARED_LIBRARIES := SDL2 SDL2_image SDL2_mixer SDL2_ttf SDL2_net
 
