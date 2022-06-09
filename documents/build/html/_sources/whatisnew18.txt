@@ -41,3 +41,4 @@ More Improvements
 * Ring Notepad: New option to build GUI application using Ring2EXE
 * RingQt: Set the environment variable QT_QPA_PLATFORM_PLUGIN_PATH
 * Ring2EXE: Better code when distributing GUI applications
+* Ring Compiler/VM Source Code - Better File Names
