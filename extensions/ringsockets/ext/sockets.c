@@ -16,11 +16,20 @@
 
 #include "sockets.h"
 
-#ifdef win
+#ifdef _WIN32
 BOOL g_bWinsockInitialized = FALSE;
 #endif
 
 void ring_vm_socket_init(void *pPointer) {
+    RING_SOCKET *sock;
+    int nProto = 0;
+
+#ifdef _WIN32
+    if (!g_bWinsockInitialized) {
+		RING_API_ERROR("WSAStartup Failed");
+		return;
+	}
+#endif
 
     if(RING_API_PARACOUNT < 2) {
         RING_API_ERROR(RING_API_MISS2PARA);
@@ -32,58 +41,55 @@ void ring_vm_socket_init(void *pPointer) {
         return;
     }
 
-    int proto = 0;
-
     if(RING_API_PARACOUNT == 3) {
         if(!RING_API_ISNUMBER(3)) {
             RING_API_ERROR(RING_API_BADPARATYPE);
             return;
         }
 
-        proto = (int) RING_API_GETNUMBER(3);
+        nProto = (int) RING_API_GETNUMBER(3);
     }
 
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_MALLOC(sizeof(RING_SOCKET));
+    if(!(sock = (RING_SOCKET *) RING_API_MALLOC(sizeof(RING_SOCKET))))
+    {
+        RING_API_ERROR(RING_OOM);
+        return;
+    }
 
-#ifdef win
+
     sock->addr = NULL;
-	if (!g_bWinsockInitialized) {
-		RING_API_FREE(sock);
-		RING_API_ERROR("WSAStartup Failed");
-		return;
-	}
-
-	ZeroMemory(&sock->hints, sizeof(sock->hints));
+	memset(&sock->hints, 0, sizeof(sock->hints));
     sock->sockfd = INVALID_SOCKET;
     sock->hints.ai_family = (int) RING_API_GETNUMBER(1);
     sock->hints.ai_socktype = (int) RING_API_GETNUMBER(2);
-    sock->hints.ai_protocol = proto;
+    sock->hints.ai_protocol = nProto;
     sock->hints.ai_flags = AI_PASSIVE;
-
-    if((sock->sockfd = socket(sock->hints.ai_family,sock->hints.ai_socktype,sock->hints.ai_protocol)) == INVALID_SOCKET) {
-        RING_API_ERROR("Sock Init Failed");
-		RING_API_FREE(sock);
-        return;
-    }
-
-
-#else
-    sock->addr.sin_family = RING_API_GETNUMBER(1);
-    int type = RING_API_GETNUMBER(2), opt;
-
-    if((sock->sockfd = socket(sock->addr.sin_family,type,proto)) == 0) {
-        RING_API_ERROR("Sock Init Failed");
-		RING_API_FREE(sock);
-        return;
-    }
-
-#endif  
+    sock->hints.ai_canonname = NULL;
+    sock->hints.ai_addr = NULL;
+    sock->hints.ai_next = NULL;
     
-    RING_API_RETCPOINTER(sock,RING_VM_POINTER_SOCKET);
+    if((sock->sockfd = socket(sock->hints.ai_family, sock->hints.ai_socktype, sock->hints.ai_protocol)) == INVALID_SOCKET) {
+        RING_API_ERROR("Sock Init Failed");
+		RING_API_FREE(sock);
+        return;
+    }
+    
+    RING_API_RETCPOINTER(sock, RING_VM_POINTER_SOCKET);
     
 }
 
 void ring_vm_socket_setsockopt(void *pPointer) {
+
+    RING_SOCKET *sock;
+    int level, optname, value;
+
+#ifdef _WIN32
+	if (!g_bWinsockInitialized) {
+		RING_API_ERROR("WSAStartup failed");
+		return;
+	}
+#endif
+
     if(RING_API_PARACOUNT != 4) 
     {
         RING_API_ERROR(RING_API_MISS4PARA);
@@ -96,22 +102,12 @@ void ring_vm_socket_setsockopt(void *pPointer) {
         return;
     }
 
-    RING_SOCKET *sock;
-    int level, optname, value;
-
-#ifdef win
-	if (!g_bWinsockInitialized) {
-		RING_API_ERROR("WSAStartup failed");
-		return;
-	}
-#endif
-
-    sock = RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    sock = RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
     level = RING_API_GETNUMBER(2);
     optname = RING_API_GETNUMBER(3);
     value = RING_API_GETNUMBER(4);
 
-    if(setsockopt(sock->sockfd,level,optname,(const char *)&value,sizeof(value))) 
+    if(setsockopt(sock->sockfd, level, optname, (const char *)&value, sizeof(value))) 
     {
         RING_API_ERROR("Set Socket Option Failed");
         return;
@@ -120,6 +116,17 @@ void ring_vm_socket_setsockopt(void *pPointer) {
 }
 
 void ring_vm_socket_getsockopt(void *pPointer) {
+
+    RING_SOCKET *sock;
+    int level, optname, valsize, buffer = 0;
+
+#ifdef _WIN32
+	if (!g_bWinsockInitialized) {
+		RING_API_ERROR("WSAStartup failed");
+		return;
+	}
+#endif
+
     if(RING_API_PARACOUNT != 3) 
     {
         RING_API_ERROR(RING_API_MISS3PARA);
@@ -132,22 +139,12 @@ void ring_vm_socket_getsockopt(void *pPointer) {
         return;
     }
 
-    RING_SOCKET *sock;
-    int level, optname, valsize, buffer = 0;
-
-#ifdef win
-	if (!g_bWinsockInitialized) {
-		RING_API_ERROR("WSAStartup failed");
-		return;
-	}
-#endif
-
-    sock = RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    sock = RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
     level = RING_API_GETNUMBER(2);
     optname = RING_API_GETNUMBER(3);
     valsize = sizeof(buffer);
 
-    if(getsockopt(sock->sockfd,level,optname,(char *)&buffer,&valsize)) 
+    if(getsockopt(sock->sockfd, level, optname, (char *)&buffer, &valsize)) 
     {
         RING_API_ERROR("Get Socket option Failed");
         return;
@@ -157,6 +154,10 @@ void ring_vm_socket_getsockopt(void *pPointer) {
 }
 
 void ring_vm_socket_bind(void *pPointer) {
+
+    RING_SOCKET *sock;
+    char cPort[6] = {0};
+
     if(RING_API_PARACOUNT != 3) {
         RING_API_ERROR(RING_API_MISS3PARA);
         return;
@@ -167,38 +168,29 @@ void ring_vm_socket_bind(void *pPointer) {
         return;
     }
 
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    const char *host = RING_API_GETSTRING(2);
-    const int port = (int) RING_API_GETNUMBER(3);
+    sock = (RING_SOCKET *) RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
 
-#ifdef win
-    char sPort[10];
-    if(getaddrinfo(NULL,itoa(port,sPort,10),&sock->hints,&sock->addr) != 0) {
+    /* Read port number in string */
+    snprintf(cPort, 6, "%d", (int) RING_API_GETNUMBER(3));
+
+    if(getaddrinfo(RING_API_GETSTRING(2), cPort, &sock->hints, &sock->addr) != 0) {
         RING_API_ERROR("getaddrinfo Failed");
         return;
     }
 
-    if(bind(sock->sockfd ,sock->addr->ai_addr,(int) sock->addr->ai_addrlen) == SOCKET_ERROR) {
+    if(bind(sock->sockfd, sock->addr->ai_addr, sock->addr->ai_addrlen) == SOCKET_ERROR) {
         RING_API_ERROR("Bind Error");
         freeaddrinfo(sock->addr);
         return;
     }
 
-#else
-    sock->addr.sin_addr.s_addr = inet_addr(host);
-    sock->addr.sin_port = htons(port);
-
-    if(bind(sock->sockfd,(struct sockaddr *)&sock->addr,sizeof(sock->addr)) < 0) {
-        RING_API_ERROR("Bind Error");
-        return;
-    }
-
-#endif
-
 }
 
 void ring_vm_socket_listen(void *pPointer) {
  
+    RING_SOCKET *sock;
+    int n;
+
 
     if(RING_API_PARACOUNT < 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
@@ -210,7 +202,6 @@ void ring_vm_socket_listen(void *pPointer) {
         return;
     }
 
-    int n;
     if(RING_API_PARACOUNT == 1)
         n = 5;
 
@@ -225,24 +216,19 @@ void ring_vm_socket_listen(void *pPointer) {
 
     }
 
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
+    sock = (RING_SOCKET *) RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
 
-#ifdef win
-    if(listen(sock->sockfd,n) == SOCKET_ERROR) {
+    if(listen(sock->sockfd, n) == SOCKET_ERROR) {
         RING_API_ERROR("Listen Failed");
         return;
     }
-
-#else
-    if(listen(sock->sockfd,n) < 0) {
-        RING_API_ERROR("Listen Failed");
-        return;
-    }
-#endif
-    
+ 
 }
 
 void ring_vm_socket_accept(void *pPointer) {
+
+    RING_SOCKET *sock, *newsock;
+    int nSize;
 
     if(RING_API_PARACOUNT != 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
@@ -254,30 +240,29 @@ void ring_vm_socket_accept(void *pPointer) {
         return;
     }
 
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    RING_SOCKET *newsockfd = (RING_SOCKET *) RING_API_MALLOC(sizeof(RING_SOCKET));
+    sock = (RING_SOCKET *) RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
     
-#ifdef win
-    if((newsockfd->sockfd = accept(sock->sockfd,(struct sockaddr *) sock->addr,NULL)) == SOCKET_ERROR) {
-        RING_API_ERROR("Accept Failed");
-		RING_API_FREE(newsockfd);
-        return;
-    }
-
-    
-#else
-    int addr_len = sizeof(sock->addr);
-    if((newsockfd->sockfd = accept(sock->sockfd,(struct sockaddr *)&sock->addr,(socklen_t *)&addr_len)) < 0)
+    if(!(newsock = (RING_SOCKET *) RING_API_MALLOC(sizeof(RING_SOCKET))))
     {
-        RING_API_ERROR("Accept Failed");
+        RING_API_ERROR(RING_OOM);
         return;
     }
 
-#endif
-    RING_API_RETCPOINTER(newsockfd,RING_VM_POINTER_SOCKET);
+    nSize = sizeof(*sock->addr);
+
+    if((newsock->sockfd = accept(sock->sockfd, (struct sockaddr *) sock->addr, (socklen_t *)&nSize)) == SOCKET_ERROR) {
+        RING_API_ERROR("Accept Failed");
+		RING_API_FREE(newsock);
+        return;
+    }
+
+    
+    RING_API_RETCPOINTER(newsock, RING_VM_POINTER_SOCKET);
 }
 
 void ring_vm_socket_send(void *pPointer) {
+    RING_SOCKET *sock;
+
     if(RING_API_PARACOUNT != 2) {
         RING_API_ERROR(RING_API_MISS2PARA);
         return;
@@ -288,14 +273,14 @@ void ring_vm_socket_send(void *pPointer) {
         return;
     }
 
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    char *Msg = RING_API_GETSTRING(2);
-    
-    send(sock->sockfd,Msg,RING_API_GETSTRINGSIZE(2),0);
+    sock = (RING_SOCKET *) RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
+    send(sock->sockfd, RING_API_GETSTRING(2), RING_API_GETSTRINGSIZE(2), 0);
     
 }
 
 void ring_vm_socket_sendto(void *pPointer) {
+    RING_SOCKET *sock;
+
     if(RING_API_PARACOUNT != 2) {
         RING_API_ERROR(RING_API_MISS2PARA);
         return;
@@ -306,18 +291,17 @@ void ring_vm_socket_sendto(void *pPointer) {
         return;
     }
 
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    char *Msg = RING_API_GETSTRING(2);
-    int addr_len = sizeof(sock->addr);
-#ifdef win
-    sendto(sock->sockfd,Msg,RING_API_GETSTRINGSIZE(2),0,(const struct sockaddr *) sock->addr,(socklen_t) addr_len);
-#else
-    sendto(sock->sockfd,Msg,RING_API_GETSTRINGSIZE(2),0,(const struct sockaddr *) &sock->addr,(socklen_t) addr_len);
-#endif
+    sock = (RING_SOCKET *) RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
+
+    sendto(sock->sockfd, RING_API_GETSTRING(2), RING_API_GETSTRINGSIZE(2), 0, (const struct sockaddr *) sock->addr, sizeof(*sock->addr));
 
 }
 
 void ring_vm_socket_recv(void *pPointer) {
+    RING_SOCKET *sock;
+    char *msg;
+    int nBytes;
+
     if(RING_API_PARACOUNT != 2) {
         RING_API_ERROR(RING_API_MISS2PARA);
         return;
@@ -328,16 +312,24 @@ void ring_vm_socket_recv(void *pPointer) {
         return;
     }
 
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    size_t buffer = (size_t) RING_API_GETNUMBER(2);
-    char *Msg = (char *) malloc(buffer);
-    int bytes = recv(sock->sockfd,Msg,buffer,0);
+    if(!(msg = (char *) RING_API_MALLOC(RING_API_GETNUMBER(2))))
+    {
+        RING_API_ERROR(RING_OOM);
+        return;
+    }
 
-    RING_API_RETSTRING2(Msg,bytes);
-    free(Msg);
+    sock = (RING_SOCKET *) RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
+    nBytes = recv(sock->sockfd, msg, RING_API_GETNUMBER(2), 0);
+
+    RING_API_RETSTRING2(msg, nBytes);
+    RING_API_FREE(msg);
 }
 
 void ring_vm_socket_recvfrom(void *pPointer) {
+    RING_SOCKET *sock;
+    char *msg;
+    int nBytes, nSize;
+
     if(RING_API_PARACOUNT != 2) {
         RING_API_ERROR(RING_API_MISS2PARA);
         return;
@@ -348,20 +340,26 @@ void ring_vm_socket_recvfrom(void *pPointer) {
         return;
     }
 
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    size_t buffer = (size_t) RING_API_GETNUMBER(2);
-    char *Msg = (char *) malloc(buffer);
-    int addr_len = sizeof(sock->addr);
-#ifdef win
-    int bytes = (int) recvfrom(sock->sockfd,Msg,buffer,0,(struct sockaddr *) sock->addr,(socklen_t *)&addr_len);
-#else
-    int bytes = (int) recvfrom(sock->sockfd,Msg,buffer,0,(struct sockaddr *) &sock->addr,(socklen_t *)&addr_len);
-#endif
-    RING_API_RETSTRING2(Msg,bytes);
-    free(Msg);
+    if(!(msg = (char *) RING_API_MALLOC(RING_API_GETNUMBER(2))))
+    {
+        RING_API_ERROR(RING_OOM);
+        return;
+    }
+
+    sock = (RING_SOCKET *) RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
+    nSize = sizeof(*sock->addr);
+    nBytes = recvfrom(sock->sockfd, msg, RING_API_GETNUMBER(2), 0, (struct sockaddr *) sock->addr, (socklen_t *)&nSize);
+    
+    RING_API_RETSTRING2(msg, nBytes);
+    RING_API_FREE(msg);
 }
 
 void ring_vm_socket_connect(void *pPointer) {
+    RING_SOCKET *sock;
+    struct sockaddr_in addr;
+    char cPort[6];
+    int n;
+
     if(RING_API_PARACOUNT != 3) {
         RING_API_ERROR(RING_API_MISS3PARA);
         return;
@@ -372,41 +370,26 @@ void ring_vm_socket_connect(void *pPointer) {
         return;
     }
 
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-    char *host = RING_API_GETSTRING(2);
-    int port = (int) RING_API_GETNUMBER(3) , n;
+    sock = (RING_SOCKET *) RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
+
+    snprintf(cPort, 6, "%d", (int) RING_API_GETNUMBER(3));
     
-#ifdef win
-    char sPort[10];
-    if(getaddrinfo(host,itoa(port,sPort,10),&sock->hints,&sock->addr) != 0) {
+    if(getaddrinfo(RING_API_GETSTRING(2), cPort, &sock->hints, &sock->addr) != 0) {
         RING_API_ERROR("Invalid address");
         return;
     }
 
-    if((n = connect(sock->sockfd,sock->addr->ai_addr,(int) sock->addr->ai_addrlen)) == SOCKET_ERROR) {
+    if((n = connect(sock->sockfd, sock->addr->ai_addr, sock->addr->ai_addrlen)) == SOCKET_ERROR) {
         RING_API_ERROR("Connection Refused");
         return;
     }
-
-#else
-    sock->addr.sin_port = htons(port);
-
-    if(inet_pton(sock->addr.sin_family,host,&sock->addr.sin_addr) <= 0) {
-        RING_API_ERROR("Invalid address");
-        return;
-    }
-
-    if((n = connect(sock->sockfd,(struct sockaddr *) &sock->addr,sizeof(sock->addr))) < 0) {
-        RING_API_ERROR("Connection Refused");
-        return;
-    }
-
-#endif
 
     RING_API_RETNUMBER(n);
 }
 
 void ring_vm_socket_close(void *pPointer) {
+    RING_SOCKET *sock;
+
     if (RING_API_PARACOUNT != 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return;
@@ -417,17 +400,23 @@ void ring_vm_socket_close(void *pPointer) {
         return;
     }
 
-    RING_SOCKET *sock = (RING_SOCKET *) RING_API_GETCPOINTER(1,RING_VM_POINTER_SOCKET);
-
-#ifdef win
-    closesocket(sock->sockfd);
-#else
-    close(sock->sockfd);
-#endif
+    sock = (RING_SOCKET *) RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
+    CLOSESOCKET(sock->sockfd);
+    
+    RING_API_FREE(sock);
     RING_API_SETNULLPOINTER(1);
 }
 
 void ring_vm_socket_gethostbyname(void *pPointer) {
+    struct hostent *host_entry;
+
+#ifdef _WIN32
+    if(!g_bWinsockInitialized) {
+        RING_API_ERROR("WSAStartup failed");
+        return;
+    }
+#endif
+
     if(RING_API_PARACOUNT != 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return;
@@ -438,29 +427,30 @@ void ring_vm_socket_gethostbyname(void *pPointer) {
         return;
     }
 
-    const char *host;
-    struct hostent *host_entry;
-    const char *ringval;
-
-#ifdef win
-    if(!g_bWinsockInitialized) {
-        RING_API_ERROR("WSAStartup failed");
-        return;
-    }
-
-#endif
-    host = RING_API_GETSTRING(1);
-    if ((host_entry = gethostbyname(host)) == NULL) {
+    if ((host_entry = gethostbyname((const char *) RING_API_GETSTRING(1))) == NULL) {
         RING_API_ERROR("Host Not Valid");
         return;
     }
 
-    ringval = inet_ntoa(*((struct in_addr *) host_entry->h_addr_list[0]));
 
-    RING_API_RETSTRING(ringval);
+    RING_API_RETSTRING(inet_ntoa(*((struct in_addr *) host_entry->h_addr_list[0])));
 }
 
 void ring_vm_socket_gethostbyaddr(void *pPointer) {
+    List *ringval,*names;
+    char **temp;
+    struct hostent *host_entry;
+    struct addrinfo hints, *addr;
+    void *addr2;
+    int nSize;
+
+#ifdef _WIN32
+    if(!g_bWinsockInitialized) {
+        RING_API_ERROR("WSAStartup failed");
+        return;
+    }
+#endif
+
     if(RING_API_PARACOUNT != 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return;
@@ -470,56 +460,72 @@ void ring_vm_socket_gethostbyaddr(void *pPointer) {
         RING_API_ERROR(RING_API_BADPARATYPE);
         return;
     }
+
+    memset(&hints, 0, sizeof(hints));
+    hints.ai_family = AF_UNSPEC;
+    hints.ai_socktype = SOCK_DGRAM;
+    hints.ai_protocol = 0;
+    hints.ai_flags = AI_PASSIVE;
+
+    if(getaddrinfo(RING_API_GETSTRING(1), "0", &hints, &addr) != 0)
+    {
+        RING_API_ERROR("getaddrinfo failed");
+        freeaddrinfo(addr);
+        return;
+    }
     
-    List *ringval,*names;
-    const char *host;
-    char **temp;
-    struct hostent *host_entry;
-    struct in_addr addr;
+    switch (addr->ai_family)
+    {
+    case AF_INET:
+        nSize = sizeof(struct in_addr);
+        addr2 = (struct in_addr *) RING_API_MALLOC(nSize);
+        break;
 
-#ifdef win
-    if(!g_bWinsockInitialized) {
-        RING_API_ERROR("WSAStartup failed");
+    case AF_INET6:
+        nSize = sizeof(struct in6_addr);
+        addr2 = (struct in6_addrr *) RING_API_MALLOC(nSize);
+        break;
+    
+    default:
+        RING_API_ERROR("Invalid Addr Family");
         return;
     }
-#endif
 
-    host = RING_API_GETSTRING(1);
-    addr.s_addr = inet_addr(host);
-    if ((host_entry = gethostbyaddr((const char*)&addr,sizeof(addr),AF_INET)) == NULL) {
+    /* Check if allocation failed */
+    if(!addr2)
+    {
+        RING_API_ERROR(RING_OOM);
+        return;
+    }
+    
+    inet_pton(addr->ai_family, RING_API_GETSTRING(1), addr2);
+    
+    if ((host_entry = gethostbyaddr((const char*) addr2, nSize, addr->ai_family)) == NULL) {
         RING_API_ERROR("Host Not Valid");
+        freeaddrinfo(addr);
         return;
     }
+
+    freeaddrinfo(addr);
 
     ringval = RING_API_NEWLIST;
-    ring_list_addstring(ringval,host_entry->h_name);
+    ring_list_addstring(ringval, host_entry->h_name);
     names = ring_list_newlist(ringval);
     
     if(host_entry->h_aliases != NULL) {
         for(temp = host_entry->h_aliases; *temp; temp++) {
-            ring_list_addstring(names,*temp);
+            ring_list_addstring(names, *temp);
         }
     }
     
-    ring_list_addint(ringval,host_entry->h_addrtype);
-    
-#ifdef win
-    int i = 0;
-    while(host_entry->h_addr_list[i] != 0) {
-        ring_list_addstring(ringval,inet_ntoa(*((struct in_addr *) host_entry->h_addr_list[i++])));
-    }
-
-#else
-
+    ring_list_addint(ringval, host_entry->h_addrtype);
 
 #ifdef h_addr
     for(temp = host_entry->h_addr_list; *temp; temp++) {
-        ring_list_addstring(ringval,inet_ntoa(*((struct in_addr *) temp)));
+        ring_list_addstring(ringval, inet_ntoa(*((struct in_addr *) temp)));
     }
 #else
-    ring_list_addstring(ringval,inet_ntoa(*((struct in_addr *) host_entry->h_addr)));
-#endif
-
+    ring_list_addstring(ringval, inet_ntoa(*((struct in_addr *) host_entry->h_addr)));
 #endif
 
     RING_API_RETLIST(ringval);
@@ -527,27 +533,44 @@ void ring_vm_socket_gethostbyaddr(void *pPointer) {
 
 void ring_vm_socket_gethostname(void *pPointer) {
     int len = 1024;
-    char *hostname = (char *) malloc(len);
+    char *hostname;
 
-#ifdef win
+#ifdef _WIN32
     if(!g_bWinsockInitialized) {
         RING_API_ERROR("WSAStartup Failed");
         return;
     }
-
 #endif
 
-    if(gethostname(hostname,len) != 0) {
+    if(!(hostname = (char *) RING_API_MALLOC(len)))
+    {
+        RING_API_ERROR(RING_OOM);
+        return;
+    }
+
+    if(gethostname(hostname, len) != 0) {
         RING_API_ERROR("Get Hostname Failed");
         return;
     }
 
     RING_API_RETSTRING(hostname);
-    free(hostname);
+    RING_API_FREE(hostname);
 
 }
 
 void ring_vm_socket_getservbyname(void *pPointer) {
+
+    char *servName;
+    struct servent *s;
+    char *proto = "tcp";
+
+#ifdef _WIN32
+    if(!g_bWinsockInitialized) {
+        RING_API_ERROR("WSAStartup Failed");
+        return;
+    }
+#endif
+
     if(RING_API_PARACOUNT < 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return;
@@ -558,10 +581,6 @@ void ring_vm_socket_getservbyname(void *pPointer) {
         return;
     }
 
-    char *servName = RING_API_GETSTRING(1);
-    char *proto = "tcp";
-    struct servent *s;
-
     if(RING_API_PARACOUNT == 2) {
         if(RING_API_ISSTRING(2)) 
             proto = RING_API_GETSTRING(2);
@@ -571,15 +590,9 @@ void ring_vm_socket_getservbyname(void *pPointer) {
         }
     }
 
-#ifdef win
-    if(!g_bWinsockInitialized) {
-        RING_API_ERROR("WSAStartup Failed");
-        return;
-    }
+    servName = RING_API_GETSTRING(1);
 
-#endif
-
-    if(s = getservbyname(servName,proto)) {
+    if(s = getservbyname(servName, proto)) {
         RING_API_RETNUMBER(ntohs(s->s_port));
     }
 
@@ -590,6 +603,19 @@ void ring_vm_socket_getservbyname(void *pPointer) {
 }
 
 void ring_vm_socket_getservbyport(void *pPointer) {
+
+    int port;
+    struct servent *s;
+    char *proto = "tcp";
+
+#ifdef _WIN32
+    if(!g_bWinsockInitialized) {
+        RING_API_ERROR("WSAStartup Failed");
+        return;
+    }
+
+#endif
+
     if(RING_API_PARACOUNT < 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return;
@@ -600,10 +626,6 @@ void ring_vm_socket_getservbyport(void *pPointer) {
         return;
     }
 
-    int port = RING_API_GETNUMBER(1);
-    char *proto = "tcp";
-    struct servent *s;
-
     if(RING_API_PARACOUNT == 2) {
         if(RING_API_ISSTRING(2)) 
             proto = RING_API_GETSTRING(2);
@@ -613,15 +635,9 @@ void ring_vm_socket_getservbyport(void *pPointer) {
         }
     }
 
-#ifdef win
-    if(!g_bWinsockInitialized) {
-        RING_API_ERROR("WSAStartup Failed");
-        return;
-    }
+    port = RING_API_GETNUMBER(1);
 
-#endif
-
-    if(s = getservbyport(htons(port),proto)) {
+    if(s = getservbyport(htons(port), proto)) {
         RING_API_RETSTRING(s->s_name);
     }
 
@@ -642,8 +658,7 @@ void ring_vm_socket_ntohl(void *pPointer) {
         return;
     }
 
-    int n = (int) RING_API_GETNUMBER(1);
-    RING_API_RETNUMBER((int) ntohl(n));
+    RING_API_RETNUMBER((int) ntohl(RING_API_GETNUMBER(1)));
 }
 
 void ring_vm_socket_ntohs(void *pPointer) {
@@ -657,8 +672,7 @@ void ring_vm_socket_ntohs(void *pPointer) {
         return;
     }
 
-    int n = (int) RING_API_GETNUMBER(1);
-    RING_API_RETNUMBER((int) ntohs(n));
+    RING_API_RETNUMBER((int) ntohs(RING_API_GETNUMBER(1)));
 }
 
 void ring_vm_socket_htonl(void *pPointer) {
@@ -672,8 +686,7 @@ void ring_vm_socket_htonl(void *pPointer) {
         return;
     }
 
-    int n = (int) RING_API_GETNUMBER(1);
-    RING_API_RETNUMBER((int) htonl(n));
+    RING_API_RETNUMBER((int) htonl(RING_API_GETNUMBER(1)));
 }
 
 void ring_vm_socket_htons(void *pPointer) {
@@ -687,11 +700,21 @@ void ring_vm_socket_htons(void *pPointer) {
         return;
     }
 
-    int n = (int) RING_API_GETNUMBER(1);
-    RING_API_RETNUMBER((int) htons(n));
+    RING_API_RETNUMBER((int) htons(RING_API_GETNUMBER(1)));
 }
 
 void ring_vm_socket_inet_addr(void *pPointer) {
+
+    const char *ip;
+    unsigned long address;
+
+#ifdef _WIN32
+    if(!g_bWinsockInitialized) {
+        RING_API_ERROR("WSAStartup Failed");
+        return;
+    }
+#endif
+
     if(RING_API_PARACOUNT != 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return;
@@ -702,17 +725,11 @@ void ring_vm_socket_inet_addr(void *pPointer) {
         return;
     }
 
-    const char *ip = RING_API_GETSTRING(1);
-    unsigned long address;
+    ip = RING_API_GETSTRING(1);
 
-#ifdef win
-    if(!g_bWinsockInitialized) {
-        RING_API_ERROR("WSAStartup Failed");
-        return;
-    }
-#endif
-    if(strcmp(ip,"255.255.255.255") == 0) 
+    if(strcmp(ip, "255.255.255.255") == 0) 
         address = INADDR_BROADCAST; 
+    
     else {
         address = inet_addr(ip);
         if(address == INADDR_NONE) {
@@ -722,10 +739,18 @@ void ring_vm_socket_inet_addr(void *pPointer) {
 
     }
 
-    RING_API_RETSTRING2((char *) &address,sizeof(address));    
+    RING_API_RETSTRING2((char *) &address, sizeof(address));    
 }
 
 void ring_vm_socket_inet_ntoa(void *pPointer) {
+
+#ifdef _WIN32
+    if(!g_bWinsockInitialized) {
+        RING_API_ERROR("WSAStartup failed");
+        return;
+    }
+#endif
+
     if(RING_API_PARACOUNT != 1) {
         RING_API_ERROR(RING_API_MISS1PARA);
         return;
@@ -736,16 +761,7 @@ void ring_vm_socket_inet_ntoa(void *pPointer) {
         return;
     }
 
-    const char *address = RING_API_GETSTRING(1);
-
-#ifdef win
-    if(!g_bWinsockInitialized) {
-        RING_API_ERROR("WSAStartup failed");
-        return;
-    }
-#endif
-
-    RING_API_RETSTRING(inet_ntoa(*((struct in_addr *) address)));
+    RING_API_RETSTRING(inet_ntoa(*((struct in_addr *) RING_API_GETSTRING(1))));
 }
 
 void ring_vm_socket_inet_pton(void *pPointer) {
@@ -753,7 +769,7 @@ void ring_vm_socket_inet_pton(void *pPointer) {
     int nDomain, nSize, n;
     unsigned char *pBuffer;
 
-#ifdef win
+#ifdef _WIN32
     if(!g_bWinsockInitialized) {
         RING_API_ERROR("WSAStartup failed");
         return;
@@ -789,6 +805,12 @@ void ring_vm_socket_inet_pton(void *pPointer) {
         return;
     }
 
+    /* Check if allocation failed */
+    if(!pBuffer)
+    {
+        RING_API_ERROR(RING_OOM);
+        return;
+    }
     
     if((n = inet_pton(nDomain, RING_API_GETSTRING(2), pBuffer)) == 0) {
         RING_API_ERROR("Invalid IP Addr");
@@ -808,7 +830,7 @@ void ring_vm_socket_inet_ntop(void *pPointer) {
     int nDomain, nSize;
     char *pAddr;
 
-#ifdef win
+#ifdef _WIN32
     if(!g_bWinsockInitialized) {
         RING_API_ERROR("WSAStartup failed");
         return;
@@ -844,6 +866,12 @@ void ring_vm_socket_inet_ntop(void *pPointer) {
         return;
     }
 
+    /* Check if allocation failed */
+    if(!pAddr)
+    {
+        RING_API_ERROR(RING_OOM);
+        return;
+    }
 
     if(inet_ntop(nDomain, RING_API_GETSTRING(2), pAddr, nSize) == NULL) {
         RING_API_ERROR("inet_ntop Error");
@@ -858,7 +886,7 @@ void ring_vm_socket_inet_ntop(void *pPointer) {
 void ring_vm_socket_cleanup(void *pPointer) 
 {
 
-#ifdef win
+#ifdef _WIN32
     WSACleanup();
 #endif
 
@@ -970,6 +998,6 @@ RING_API void ringlib_init(RingState *pRingState) {
 		}
 	}
 #endif
-}
 
+}
 
