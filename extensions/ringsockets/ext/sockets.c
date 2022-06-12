@@ -248,6 +248,8 @@ void ring_vm_socket_accept(void *pPointer) {
         return;
     }
 
+    newsock->addr = NULL;
+
     nSize = sizeof(*sock->addr);
 
     if((newsock->sockfd = accept(sock->sockfd, (struct sockaddr *) sock->addr, (socklen_t *)&nSize)) == SOCKET_ERROR) {
@@ -403,6 +405,11 @@ void ring_vm_socket_close(void *pPointer) {
     sock = (RING_SOCKET *) RING_API_GETCPOINTER(1, RING_VM_POINTER_SOCKET);
     CLOSESOCKET(sock->sockfd);
     
+    if(sock->addr)
+    {
+        freeaddrinfo(sock->addr);
+    }
+
     RING_API_FREE(sock);
     RING_API_SETNULLPOINTER(1);
 }
