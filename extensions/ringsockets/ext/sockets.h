@@ -2,15 +2,9 @@
 #define ring_socket_h
 
 #include "constants.h"
-#include <stdlib.h>
-#include <string.h>
 
 
 #if defined _WIN32
-    #define win
-
-    #define WIN32_LEAN_AND_MEAN
-
     #pragma once
 
     #include <winsock2.h>
@@ -20,16 +14,12 @@
     #pragma comment (lib,"mswsock.lib")
     #pragma comment (lib,"advapi32.lib")
 
-    typedef struct ring_vm_socket_obj {
 
-        SOCKET sockfd;
-        struct addrinfo *addr;
-        struct addrinfo hints;
+    #define CLOSESOCKET closesocket
 
-    } RING_SOCKET;
+    #define SOCKET_T SOCKET
 
 #else
-
     #include <sys/socket.h>
     #include <sys/types.h>
     #include <netinet/in.h>
@@ -37,14 +27,23 @@
     #include <arpa/inet.h>
     #include <netdb.h>
 
+    #define CLOSESOCKET close
 
-    typedef struct ring_vm_socket_obj {
+    #define SOCKET_T int
 
-        int sockfd;
-        struct sockaddr_in addr;
-
-    } RING_SOCKET;
+    #define INVALID_SOCKET (SOCKET_T)(~0)
+    #define SOCKET_ERROR -1
+    
 #endif
+
+
+typedef struct 
+{
+    SOCKET_T sockfd;
+    struct addrinfo *addr;
+    struct addrinfo hints;
+} RING_SOCKET;
+
 
 
 #include "ring.h"
