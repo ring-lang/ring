@@ -39,6 +39,8 @@ More Improvements
 * Added: samples/UsingQt/TabActivate/simpleExample.ring 
 * Added: samples/UsingQt/TabActivate/TabActivateController.ring 
 * Ring Notepad: New option to build GUI application using Ring2EXE
+* WebLib - HTTP Post - Better Code
+* WebLib - Application Class - Redirect() Method
 * RingQt: Set the environment variable QT_QPA_PLATFORM_PLUGIN_PATH
 * Ring2EXE: Better code when distributing GUI applications
 * Ring Compiler/VM Source Code - Better File Names
