@@ -27,7 +27,7 @@ Func LoadVars
 				cInput = input(sysget("CONTENT_LENGTH"))
 			else
 				cInput = ""
-			end
+			ok
 		ok
 		
 		aPageVars = decode(cInput)
