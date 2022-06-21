@@ -162,6 +162,10 @@ Package System.Web
 				nPos = substr(cStr,";")
 			end
 			return aOutput
+			
+		Func Redirect cStr
+			see "Location: "+ cStr
+			# This function will redirect the webpage. parameter requires destination page name.
 
 		Func URLEncode cStr
 			cOut = ""
