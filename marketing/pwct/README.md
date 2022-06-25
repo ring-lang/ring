@@ -25,6 +25,7 @@ Programming Without Coding Technology (PWCT) 2.0
     - [Better Documentation](#better-documentation)
     - [Translation (Arabic Version)](#translation-arabic-version)
   - [The Release Date](#the-release-date)
+  - [Videos](#videos)
 
 # Introduction 
 
@@ -323,3 +324,9 @@ Since we already have the first generation of the product (PWCT 1.9) we decided 
 the second generation we will focus on the quality and accept the high costs (Development Time).
 
 Check the website: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology/
+
+## Videos
+
+* [Introduction to PWCT 2.0](https://cdn.akamai.steamstatic.com/steam/apps/256883333/movie_max_vp9.webm?t=1651208817)
+* [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie480_vp9.webm?t=1656153375)
+* [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie480_vp9.webm?t=1653734057)
