@@ -34,10 +34,6 @@ aManyThanks = [
 			'<img src="marino.jpg" width="150" height="170">'
 		],
 		[
-			'Mona Kamel',
-			'<img src="mona.png" width="150" height="170">'
-		],
-		[
 			'Amin Najah',
 			'<img src="amine.jpg" width="150" height="170">'
 		],				  
@@ -816,6 +812,11 @@ aTeam2 = [
                   ],
 		  [
                     'Shimoo Ali',
+                    'Tester'
+                    
+                  ],
+		  [
+                    'Mona Kamel',
                     'Tester'
                     
                   ],
