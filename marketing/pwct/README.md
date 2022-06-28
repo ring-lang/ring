@@ -335,4 +335,4 @@ Check the website: https://store.steampowered.com/app/1953110/Programming_Withou
 ## Publications
 
 * Fayed et al., PWCT: a novel general-purpose visual programming language in support of pervasive application development, CCF Transactions on Pervasive Computing and Interaction, 2020
-* Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM
+* Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM, 2017
