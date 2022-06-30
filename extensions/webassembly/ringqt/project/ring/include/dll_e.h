@@ -8,7 +8,10 @@
         #define CloseDLL FreeLibrary
         typedef HINSTANCE LpHandleType ;
     #else
-        #include <dlfcn.h>
+        #if RING_MSDOS
+        #else
+            #include <dlfcn.h>
+        #endif
         #define LoadDLL(x) dlopen(x, RTLD_LAZY)
         #define GetDLLFunc dlsym
         #define CloseDLL dlclose
