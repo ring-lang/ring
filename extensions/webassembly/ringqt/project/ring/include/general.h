@@ -8,7 +8,10 @@
     #include <direct.h>
     #define GetCurrentDir _getcwd
 #else
-    #include <unistd.h>
+    #if RING_MSDOS
+    #else
+        #include <unistd.h>
+    #endif
     #define GetCurrentDir getcwd
     #if __MACH__
         /* Mac OS X */

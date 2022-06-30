@@ -109,6 +109,9 @@
         #endif
     #else
         #include <dirent.h>
-        #include <unistd.h>
+        #if RING_MSDOS
+        #else
+            #include <unistd.h>
+        #endif
     #endif
 #endif
