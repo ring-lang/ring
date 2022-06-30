@@ -2,7 +2,11 @@
 #ifndef ring_generallib_extension_h
     #define ring_generallib_extension_h
     #ifndef _WIN32
-        #include <stdint.h>
+        #if RING_MSDOS
+            else {
+                #include <stdint.h>
+            }
+        #endif
     #endif
 
     RING_API void ring_vm_generallib_loadfunctions ( RingState *pRingState ) ;
