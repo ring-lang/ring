@@ -34,7 +34,7 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
 
 void ring_vm_os_ismsdos ( void *pPointer )
 {
-    #if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
+    #if RING_MSDOS
         RING_API_RETNUMBER(1);
     #else
         RING_API_RETNUMBER(0);
