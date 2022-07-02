@@ -180,7 +180,7 @@ void ring_general_showtime ( void )
 
 RING_FILE ring_custom_fopen ( const char*cFileName, const char*cMode )
 {
-    #ifdef _WIN32
+    #if defined(_WIN32) && ! defined(__TINYC__)
         /* Code For MS-Windows */
         RING_FILE fp  ;
         int nLen1,nLen2,nFileNameSize,nModeSize  ;
