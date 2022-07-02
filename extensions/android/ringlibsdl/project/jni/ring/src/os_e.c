@@ -210,7 +210,7 @@ void ring_vm_os_sysget ( void *pPointer )
     }
 }
 /* Visual C/C++ doesn't provide setenv() & unsetenv() functions */
-#ifdef _MSC_VER
+#ifdef _WIN32
 
     int setenv ( const char *name, const char *value, int overwrite )
     {
