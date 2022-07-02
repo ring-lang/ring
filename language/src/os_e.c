@@ -214,7 +214,7 @@ void ring_vm_os_sysget ( void *pPointer )
 
     int setenv ( const char *name, const char *value, int overwrite )
     {
-        errno_t errcode = 0 ;
+        int errcode = 0 ;
         size_t envsize = 0 ;
         if ( ! overwrite ) {
             errcode = getenv_s(&envsize, NULL, 0, name);
