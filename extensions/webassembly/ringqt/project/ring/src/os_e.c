@@ -343,11 +343,15 @@ void ring_vm_os_randomize ( void *pPointer )
             nNum1 = rand_r( (unsigned int *) &ts.tv_nsec ) | ( nNum1 << 32 ) ;
         #endif
     #else
-        LARGE_INTEGER ElapsedMicroseconds  ;
-        unsigned int nNum  ;
-        QueryPerformanceCounter(&ElapsedMicroseconds);
-        rand_s(&nNum);
-        nNum1 = (RING_UNSIGNEDLONGLONG ) nNum | ( ElapsedMicroseconds.QuadPart << 32 ) ;
+        #ifdef __BORLANDC__
+            RING_API_ERROR(RING_VM_UNSUPPORTEDFUNCTION);
+        #else
+            LARGE_INTEGER ElapsedMicroseconds  ;
+            unsigned int nNum  ;
+            QueryPerformanceCounter(&ElapsedMicroseconds);
+            rand_s(&nNum);
+            nNum1 = (RING_UNSIGNEDLONGLONG ) nNum | ( ElapsedMicroseconds.QuadPart << 32 ) ;
+        #endif
     #endif
     if ( RING_API_PARACOUNT == 0 ) {
         /* Double have Integer precision up to 2^53 */
