@@ -216,18 +216,28 @@ void ring_vm_os_sysget ( void *pPointer )
     {
         int errcode = 0 ;
         size_t envsize = 0 ;
-        if ( ! overwrite ) {
-            errcode = getenv_s(&envsize, NULL, 0, name);
-            if ( errcode || envsize ) {
-                return (int) errcode ;
+        #ifdef __BORLANDC__
+            puts(RING_VM_UNSUPPORTEDFUNCTION);
+            return 0 ;
+        #else
+            if ( ! overwrite ) {
+                errcode = getenv_s(&envsize, NULL, 0, name);
+                if ( errcode || envsize ) {
+                    return (int) errcode ;
+                }
             }
-        }
-        return (int) _putenv_s(name, value) ;
+            return (int) _putenv_s(name, value) ;
+        #endif
     }
 
     int unsetenv ( const char *name )
     {
-        return (int) _putenv_s(name, "") ;
+        #ifdef __BORLANDC__
+            puts(RING_VM_UNSUPPORTEDFUNCTION);
+            return 0 ;
+        #else
+            return (int) _putenv_s(name, "") ;
+        #endif
     }
 #endif
 

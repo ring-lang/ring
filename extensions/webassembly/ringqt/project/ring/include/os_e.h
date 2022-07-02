@@ -51,6 +51,7 @@
     void ring_vm_os_randomize ( void *pPointer ) ;
     /* Constants */
     #define RING_VM_POINTER_LIBNAME "os"
+    #define RING_VM_UNSUPPORTEDFUNCTION "Warning: This function is not supported in this build!"
     #ifdef _WIN32
         #include "windows.h"
         typedef int (WINAPI *LPFN_ISWOW64PROCESS) (HANDLE, PBOOL); ;
