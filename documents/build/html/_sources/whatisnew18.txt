@@ -46,3 +46,4 @@ More Improvements
 * Ring Functions - SetEnv()/UnSetEnv() - Better Code
 * Ring Compiler/VM Source Code - Better File Names
 * Ring Compiter/VM Source Code - Define RING_MSDOS
+* Support building Ring on windows using Tiny C Compiler
