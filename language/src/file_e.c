@@ -46,7 +46,7 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
 
 int ring_fexists_general ( const char *cFileName )
 {
-    #ifdef _WIN32
+    #if defined(_WIN32) && ! defined(__TINYC__)
         /* Windows Only */
         struct _stat sb  ;
         wchar_t cPath[MAX_PATH]  ;
