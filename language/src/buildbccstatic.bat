@@ -8,4 +8,4 @@ vmperf.c vmexit.c vmstack.c vmstate.c genlib_e.c math_e.c file_e.c os_e.c list_e
 ext.c dll_e.c objfile.c 
 
 del *.obj
-
+move ring.exe ..\..\bin
