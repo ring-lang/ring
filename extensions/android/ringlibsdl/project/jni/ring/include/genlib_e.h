@@ -207,9 +207,9 @@
 
     void ring_vm_generallib_checkoverflow ( void *pPointer ) ;
 
-    void ring_vm_generallib_addsublistsbymove ( void *pPointer ) ;
+    void ring_vm_generallib_bymoveaddsublists ( void *pPointer ) ;
 
-    void ring_vm_generallib_addsublistsbyfastcopy ( void *pPointer ) ;
+    void ring_vm_generallib_byfastcopyaddsublists ( void *pPointer ) ;
     /* Constants */
     #define C_EXPRCODESIZE 200
 #endif

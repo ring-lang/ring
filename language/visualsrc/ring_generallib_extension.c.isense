@@ -380,5 +380,5 @@ cLine
 Type: double
 nNum
 ring_vm_generallib_checkoverflow
-ring_vm_generallib_addsublistsbymove
-ring_vm_generallib_addsublistsbyfastcopy
+ring_vm_generallib_bymoveaddsublists
+ring_vm_generallib_byfastcopyaddsublists
