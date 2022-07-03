@@ -6,7 +6,11 @@
     #define RING_VM_MATH 1
     #define RING_VM_FILE 1
     #define RING_VM_OS 1
-    #define RING_VM_DLL 1
+    #if RING_MSDOS
+        #define RING_VM_DLL 0
+    #else
+        #define RING_VM_DLL 1
+    #endif
     #define RING_VM_REFMETA 1
     /* Compiler - Scanner - Reading Files Functions */
     #define RING_FILE FILE *
