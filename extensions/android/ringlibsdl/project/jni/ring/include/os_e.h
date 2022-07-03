@@ -36,19 +36,22 @@
     void ring_vm_os_system ( void *pPointer ) ;
 
     void ring_vm_os_shutdown ( void *pPointer ) ;
-    /* Environment Variables */
+    #if RING_MSDOS
+    #else
+        /* Environment Variables */
 
-    void ring_vm_os_sysget ( void *pPointer ) ;
+        void ring_vm_os_sysget ( void *pPointer ) ;
 
-    void ring_vm_os_sysset ( void *pPointer ) ;
+        void ring_vm_os_sysset ( void *pPointer ) ;
 
-    void ring_vm_os_sysunset ( void *pPointer ) ;
+        void ring_vm_os_sysunset ( void *pPointer ) ;
 
-    void ring_vm_os_nofprocessors ( void *pPointer ) ;
+        void ring_vm_os_nofprocessors ( void *pPointer ) ;
 
-    void ring_vm_os_uptime ( void *pPointer ) ;
+        void ring_vm_os_uptime ( void *pPointer ) ;
 
-    void ring_vm_os_randomize ( void *pPointer ) ;
+        void ring_vm_os_randomize ( void *pPointer ) ;
+    #endif
     /* Constants */
     #define RING_VM_POINTER_LIBNAME "os"
     #define RING_VM_UNSUPPORTEDFUNCTION "Warning: This function is not supported in this build!"

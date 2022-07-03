@@ -23,13 +23,16 @@ void ring_vm_os_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("getarch",ring_vm_os_getarch);
     RING_API_REGISTER("system",ring_vm_os_system);
     RING_API_REGISTER("shutdown",ring_vm_os_shutdown);
-    RING_API_REGISTER("nofprocessors",ring_vm_os_nofprocessors);
-    RING_API_REGISTER("uptime",ring_vm_os_uptime);
-    RING_API_REGISTER("randomize",ring_vm_os_randomize);
-    /* Environment Variables */
-    RING_API_REGISTER("sysget",ring_vm_os_sysget);
-    RING_API_REGISTER("sysset",ring_vm_os_sysset);
-    RING_API_REGISTER("sysunset",ring_vm_os_sysunset);
+    #if RING_MSDOS
+    #else
+        /* Environment Variables */
+        RING_API_REGISTER("sysget",ring_vm_os_sysget);
+        RING_API_REGISTER("sysset",ring_vm_os_sysset);
+        RING_API_REGISTER("sysunset",ring_vm_os_sysunset);
+        RING_API_REGISTER("nofprocessors",ring_vm_os_nofprocessors);
+        RING_API_REGISTER("uptime",ring_vm_os_uptime);
+        RING_API_REGISTER("randomize",ring_vm_os_randomize);
+    #endif
 }
 
 void ring_vm_os_ismsdos ( void *pPointer )
@@ -187,188 +190,191 @@ void ring_vm_os_shutdown ( void *pPointer )
     }
     exit(0);
 }
-/* Environment Variables */
+#if RING_MSDOS
+#else
+    /* Environment Variables */
 
-void ring_vm_os_sysget ( void *pPointer )
-{
-    char *pData  ;
-    if ( RING_API_PARACOUNT != 1 ) {
-        RING_API_ERROR(RING_API_MISS1PARA);
-        return ;
-    }
-    if ( RING_API_ISSTRING(1) ) {
-        pData = getenv(RING_API_GETSTRING(1));
-        if ( pData != NULL ) {
-            RING_API_RETSTRING(pData);
-        }
-        else {
-            RING_API_RETSTRING("");
-        }
-    }
-    else {
-        RING_API_ERROR(RING_API_BADPARATYPE);
-    }
-}
-/* Visual C/C++ doesn't provide setenv() & unsetenv() functions */
-#ifdef _WIN32
-
-    int setenv ( const char *name, const char *value, int overwrite )
+    void ring_vm_os_sysget ( void *pPointer )
     {
-        int errcode = 0 ;
-        size_t envsize = 0 ;
-        #ifdef __BORLANDC__
-            puts(RING_VM_UNSUPPORTEDFUNCTION);
-            return 0 ;
-        #else
-            if ( ! overwrite ) {
-                errcode = getenv_s(&envsize, NULL, 0, name);
-                if ( errcode || envsize ) {
-                    return (int) errcode ;
-                }
-            }
-            return (int) _putenv_s(name, value) ;
-        #endif
-    }
-
-    int unsetenv ( const char *name )
-    {
-        #ifdef __BORLANDC__
-            puts(RING_VM_UNSUPPORTEDFUNCTION);
-            return 0 ;
-        #else
-            return (int) _putenv_s(name, "") ;
-        #endif
-    }
-#endif
-
-void ring_vm_os_sysset ( void *pPointer )
-{
-    if ( RING_API_PARACOUNT != 2 ) {
-        RING_API_ERROR(RING_API_MISS2PARA);
-        return ;
-    }
-    if ( ! ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) ) {
-        RING_API_ERROR(RING_API_BADPARATYPE);
-        return ;
-    }
-    if ( setenv (RING_API_GETSTRING(1),RING_API_GETSTRING(2),1) == 0 ) {
-        RING_API_RETNUMBER(1);
-    }
-    else {
-        RING_API_RETNUMBER(0);
-    }
-}
-
-void ring_vm_os_sysunset ( void *pPointer )
-{
-    if ( RING_API_PARACOUNT != 1 ) {
-        RING_API_ERROR(RING_API_MISS1PARA);
-        return ;
-    }
-    if ( RING_API_ISSTRING(1) ) {
-        if ( unsetenv(RING_API_GETSTRING(1)) == 0 ) {
-            RING_API_RETNUMBER(1);
-        }
-        else {
-            RING_API_RETNUMBER(0);
-        }
-    }
-    else {
-        RING_API_ERROR(RING_API_BADPARATYPE);
-    }
-}
-
-void ring_vm_os_nofprocessors ( void *pPointer )
-{
-    #ifdef _WIN32
-        SYSTEM_INFO sysinfo  ;
-        GetSystemInfo(&sysinfo);
-        RING_API_RETNUMBER(sysinfo.dwNumberOfProcessors);
-    #else
-        RING_API_RETNUMBER((double)sysconf(_SC_NPROCESSORS_ONLN));
-    #endif
-}
-/*
-**  Mac OS doesn't provide clock_gettime function prior v. 10.12 
-**  Custom function is going to work on all Mac OS versions 
-*/
-#if defined __MACH__
-
-    int ring_vm_os_gettime ( int clk_id, struct timespec* ts )
-    {
-        uint64_t nsec = mach_absolute_time() ;
-        ts->tv_sec = nsec / NANOSEC ;
-        ts->tv_nsec = nsec % NANOSEC; ;
-        return 0 ;
-    }
-#endif
-
-void ring_vm_os_uptime ( void *pPointer )
-{
-    double nTime  ;
-    #ifdef _WIN32
-        LARGE_INTEGER PerformanceCounterTicks, PerformanceCounterFrequency  ;
-        QueryPerformanceFrequency(&PerformanceCounterFrequency);
-        QueryPerformanceCounter(&PerformanceCounterTicks);
-        /* Return the elapsed time in units of 0.1 microseconds for backward compatibility */
-        nTime = ((double) PerformanceCounterTicks.QuadPart / (double) PerformanceCounterFrequency.QuadPart) * (double) 10000000.0 ;
-    #else
-        struct timespec ts  ;
-        ring_vm_os_gettime(CLOCK_UPTIME, &ts);
-        /* Compensate to match 0.1 ms resolution on Windows */
-        nTime = ( ( ts.tv_sec * NANOSEC ) + ( ts.tv_nsec ) ) / 100 ;
-    #endif
-    RING_API_RETNUMBER(nTime);
-}
-/*
-**  Thread safe 
-**  53 bit thread safe random generator using high precision timer as seed on the Unix systems 
-**  Or using Windows Security Features by the CRT having the _s ("secure") suffix since XP 
-**  This random generator doesn't require a seed to be given by the user 
-*/
-
-void ring_vm_os_randomize ( void *pPointer )
-{
-    RING_UNSIGNEDLONGLONG nNum1,nNum2  ;
-    #if ! defined(_WIN32)
-        struct timespec ts  ;
-        ring_vm_os_gettime(CLOCK_UPTIME, &ts);
-        /* Compensate to match 0.1 ms resolution on Windows */
-        nNum1 = ( ( (RING_UNSIGNEDLONGLONG) ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / 100 ;
-        /* Randomize by using high precision timer */
-        #if defined(__ANDROID__)
-            RING_API_ERROR("The Randomize() function is not supported on Android");
+        char *pData  ;
+        if ( RING_API_PARACOUNT != 1 ) {
+            RING_API_ERROR(RING_API_MISS1PARA);
             return ;
-        #else
-            nNum1 = rand_r( (unsigned int *) &ts.tv_nsec ) | ( nNum1 << 32 ) ;
-        #endif
-    #else
-        #ifdef __BORLANDC__
-            RING_API_ERROR(RING_VM_UNSUPPORTEDFUNCTION);
-        #else
-            LARGE_INTEGER ElapsedMicroseconds  ;
-            unsigned int nNum  ;
-            QueryPerformanceCounter(&ElapsedMicroseconds);
-            rand_s(&nNum);
-            nNum1 = (RING_UNSIGNEDLONGLONG ) nNum | ( ElapsedMicroseconds.QuadPart << 32 ) ;
-        #endif
-    #endif
-    if ( RING_API_PARACOUNT == 0 ) {
-        /* Double have Integer precision up to 2^53 */
-        RING_API_RETNUMBER(nNum1 & 0x001FFFFFFFFFFFFF);
-    }
-    else if ( RING_API_PARACOUNT == 1 ) {
-        if ( RING_API_ISNUMBER(1) ) {
-            nNum2 = RING_API_GETNUMBER(1) ;
-            if ( nNum2 > 0 ) {
-                RING_API_RETNUMBER((nNum1 & 0x001FFFFFFFFFFFFF) % ++nNum2);
+        }
+        if ( RING_API_ISSTRING(1) ) {
+            pData = getenv(RING_API_GETSTRING(1));
+            if ( pData != NULL ) {
+                RING_API_RETSTRING(pData);
+            }
+            else {
+                RING_API_RETSTRING("");
             }
         }
         else {
             RING_API_ERROR(RING_API_BADPARATYPE);
         }
     }
-    else {
-        RING_API_ERROR(RING_API_BADPARACOUNT);
+    /* Visual C/C++ doesn't provide setenv() & unsetenv() functions */
+    #ifdef _WIN32
+
+        int setenv ( const char *name, const char *value, int overwrite )
+        {
+            int errcode = 0 ;
+            size_t envsize = 0 ;
+            #ifdef __BORLANDC__
+                puts(RING_VM_UNSUPPORTEDFUNCTION);
+                return 0 ;
+            #else
+                if ( ! overwrite ) {
+                    errcode = getenv_s(&envsize, NULL, 0, name);
+                    if ( errcode || envsize ) {
+                        return (int) errcode ;
+                    }
+                }
+                return (int) _putenv_s(name, value) ;
+            #endif
+        }
+
+        int unsetenv ( const char *name )
+        {
+            #ifdef __BORLANDC__
+                puts(RING_VM_UNSUPPORTEDFUNCTION);
+                return 0 ;
+            #else
+                return (int) _putenv_s(name, "") ;
+            #endif
+        }
+    #endif
+
+    void ring_vm_os_sysset ( void *pPointer )
+    {
+        if ( RING_API_PARACOUNT != 2 ) {
+            RING_API_ERROR(RING_API_MISS2PARA);
+            return ;
+        }
+        if ( ! ( RING_API_ISSTRING(1) && RING_API_ISSTRING(2) ) ) {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+            return ;
+        }
+        if ( setenv (RING_API_GETSTRING(1),RING_API_GETSTRING(2),1) == 0 ) {
+            RING_API_RETNUMBER(1);
+        }
+        else {
+            RING_API_RETNUMBER(0);
+        }
     }
-}
+
+    void ring_vm_os_sysunset ( void *pPointer )
+    {
+        if ( RING_API_PARACOUNT != 1 ) {
+            RING_API_ERROR(RING_API_MISS1PARA);
+            return ;
+        }
+        if ( RING_API_ISSTRING(1) ) {
+            if ( unsetenv(RING_API_GETSTRING(1)) == 0 ) {
+                RING_API_RETNUMBER(1);
+            }
+            else {
+                RING_API_RETNUMBER(0);
+            }
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+        }
+    }
+
+    void ring_vm_os_nofprocessors ( void *pPointer )
+    {
+        #ifdef _WIN32
+            SYSTEM_INFO sysinfo  ;
+            GetSystemInfo(&sysinfo);
+            RING_API_RETNUMBER(sysinfo.dwNumberOfProcessors);
+        #else
+            RING_API_RETNUMBER((double)sysconf(_SC_NPROCESSORS_ONLN));
+        #endif
+    }
+    /*
+    **  Mac OS doesn't provide clock_gettime function prior v. 10.12 
+    **  Custom function is going to work on all Mac OS versions 
+    */
+    #if defined __MACH__
+
+        int ring_vm_os_gettime ( int clk_id, struct timespec* ts )
+        {
+            uint64_t nsec = mach_absolute_time() ;
+            ts->tv_sec = nsec / NANOSEC ;
+            ts->tv_nsec = nsec % NANOSEC; ;
+            return 0 ;
+        }
+    #endif
+
+    void ring_vm_os_uptime ( void *pPointer )
+    {
+        double nTime  ;
+        #ifdef _WIN32
+            LARGE_INTEGER PerformanceCounterTicks, PerformanceCounterFrequency  ;
+            QueryPerformanceFrequency(&PerformanceCounterFrequency);
+            QueryPerformanceCounter(&PerformanceCounterTicks);
+            /* Return the elapsed time in units of 0.1 microseconds for backward compatibility */
+            nTime = ((double) PerformanceCounterTicks.QuadPart / (double) PerformanceCounterFrequency.QuadPart) * (double) 10000000.0 ;
+        #else
+            struct timespec ts  ;
+            ring_vm_os_gettime(CLOCK_UPTIME, &ts);
+            /* Compensate to match 0.1 ms resolution on Windows */
+            nTime = ( ( ts.tv_sec * NANOSEC ) + ( ts.tv_nsec ) ) / 100 ;
+        #endif
+        RING_API_RETNUMBER(nTime);
+    }
+    /*
+    **  Thread safe 
+    **  53 bit thread safe random generator using high precision timer as seed on the Unix systems 
+    **  Or using Windows Security Features by the CRT having the _s ("secure") suffix since XP 
+    **  This random generator doesn't require a seed to be given by the user 
+    */
+
+    void ring_vm_os_randomize ( void *pPointer )
+    {
+        RING_UNSIGNEDLONGLONG nNum1,nNum2  ;
+        #if ! defined(_WIN32)
+            struct timespec ts  ;
+            ring_vm_os_gettime(CLOCK_UPTIME, &ts);
+            /* Compensate to match 0.1 ms resolution on Windows */
+            nNum1 = ( ( (RING_UNSIGNEDLONGLONG) ts.tv_sec * NANOSEC ) + ts.tv_nsec ) / 100 ;
+            /* Randomize by using high precision timer */
+            #if defined(__ANDROID__)
+                RING_API_ERROR("The Randomize() function is not supported on Android");
+                return ;
+            #else
+                nNum1 = rand_r( (unsigned int *) &ts.tv_nsec ) | ( nNum1 << 32 ) ;
+            #endif
+        #else
+            #ifdef __BORLANDC__
+                RING_API_ERROR(RING_VM_UNSUPPORTEDFUNCTION);
+            #else
+                LARGE_INTEGER ElapsedMicroseconds  ;
+                unsigned int nNum  ;
+                QueryPerformanceCounter(&ElapsedMicroseconds);
+                rand_s(&nNum);
+                nNum1 = (RING_UNSIGNEDLONGLONG ) nNum | ( ElapsedMicroseconds.QuadPart << 32 ) ;
+            #endif
+        #endif
+        if ( RING_API_PARACOUNT == 0 ) {
+            /* Double have Integer precision up to 2^53 */
+            RING_API_RETNUMBER(nNum1 & 0x001FFFFFFFFFFFFF);
+        }
+        else if ( RING_API_PARACOUNT == 1 ) {
+            if ( RING_API_ISNUMBER(1) ) {
+                nNum2 = RING_API_GETNUMBER(1) ;
+                if ( nNum2 > 0 ) {
+                    RING_API_RETNUMBER((nNum1 & 0x001FFFFFFFFFFFFF) % ++nNum2);
+                }
+            }
+            else {
+                RING_API_ERROR(RING_API_BADPARATYPE);
+            }
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARACOUNT);
+        }
+    }
+#endif
