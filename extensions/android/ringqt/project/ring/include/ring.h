@@ -14,6 +14,7 @@
     #include <limits.h>
     #if defined(MSDOS) || defined(__MSDOS__) || defined(_MSDOS) || defined(__DOS__)
         #define RING_MSDOS 1
+        #include <dir.h>
     #else
         #define RING_MSDOS 0
     #endif
