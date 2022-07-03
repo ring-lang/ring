@@ -996,16 +996,20 @@ RING_API char * ring_vm_numtostring ( VM *pVM,double nNum1,char *cStr )
     }
     else {
         sprintf( cOptions , "%s%df" , "%.",pVM->nDecimals ) ;
-        /* Avoid buffer overrun by using snprint() function */
-        nNum2 = snprintf(cStr , 100, cOptions , nNum1);
-        if ( nNum2 >= 100 ) {
-            /* Result truncated so print in compact format with a precision of 90 */
-            nNum2 = snprintf(cStr , 100, "%.90e" , nNum1);
-        }
-        if ( nNum2 < 0 ) {
-            /* Error */
-            cStr[0] = 0 ;
-        }
+        #if RING_MSDOS
+            sprintf(cStr, cOptions, nNum1);
+        #else
+            /* Avoid buffer overrun by using snprint() function */
+            nNum2 = snprintf(cStr , 100, cOptions , nNum1);
+            if ( nNum2 >= 100 ) {
+                /* Result truncated so print in compact format with a precision of 90 */
+                nNum2 = snprintf(cStr , 100, "%.90e" , nNum1);
+            }
+            if ( nNum2 < 0 ) {
+                /* Error */
+                cStr[0] = 0 ;
+            }
+        #endif
     }
     return cStr ;
 }
