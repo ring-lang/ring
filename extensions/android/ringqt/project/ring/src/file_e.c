@@ -9,7 +9,6 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("fflush",ring_vm_file_fflush);
     RING_API_REGISTER("freopen",ring_vm_file_freopen);
     RING_API_REGISTER("tempfile",ring_vm_file_tempfile);
-    RING_API_REGISTER("tempname",ring_vm_file_tempname);
     RING_API_REGISTER("fseek",ring_vm_file_fseek);
     RING_API_REGISTER("ftell",ring_vm_file_ftell);
     RING_API_REGISTER("rewind",ring_vm_file_rewind);
@@ -44,6 +43,7 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
         RING_API_REGISTER("getpathtype",ring_vm_file_getpathtype);
         RING_API_REGISTER("getfilesize",ring_vm_file_getfilesize);
         RING_API_REGISTER("dir",ring_vm_file_dir);
+        RING_API_REGISTER("tempname",ring_vm_file_tempname);
     #endif
 }
 
@@ -128,34 +128,6 @@ void ring_vm_file_tempfile ( void *pPointer )
     FILE *fp  ;
     fp = tmpfile();
     RING_API_RETMANAGEDCPOINTER(fp,RING_VM_POINTER_FILE,ring_vm_file_freefunc);
-}
-
-void ring_vm_file_tempname ( void *pPointer )
-{
-    #ifdef _WIN32
-        /* Windows */
-        #ifdef _MSC_VER
-            /* Visual C/C++ */
-            char _tmpfile[L_tmpnam_s]  ;
-            errno_t error  ;
-            error = tmpnam_s(_tmpfile,L_tmpnam_s);
-            if ( error ) {
-                RING_API_ERROR(RING_VM_ERROR_TEMPFILENAME);
-            }
-            else {
-                RING_API_RETSTRING(_tmpfile);
-            }
-        #else
-            RING_API_RETSTRING(tmpnam(NULL));
-        #endif
-        /* Mac OS X */
-    #elif __MACH__
-        RING_API_RETSTRING(tmpnam(NULL));
-        /* Linux */
-    #else
-        char _tmpfile[20] = "/tmp/ringtempXXXXXX" ;
-        RING_API_RETSTRING(mkdtemp(_tmpfile));
-    #endif
 }
 
 void ring_vm_file_fseek ( void *pPointer )
@@ -939,5 +911,33 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
         else {
             RING_API_ERROR(RING_API_BADPARATYPE);
         }
+    }
+
+    void ring_vm_file_tempname ( void *pPointer )
+    {
+        #ifdef _WIN32
+            /* Windows */
+            #ifdef _MSC_VER
+                /* Visual C/C++ */
+                char _tmpfile[L_tmpnam_s]  ;
+                errno_t error  ;
+                error = tmpnam_s(_tmpfile,L_tmpnam_s);
+                if ( error ) {
+                    RING_API_ERROR(RING_VM_ERROR_TEMPFILENAME);
+                }
+                else {
+                    RING_API_RETSTRING(_tmpfile);
+                }
+            #else
+                RING_API_RETSTRING(tmpnam(NULL));
+            #endif
+            /* Mac OS X */
+        #elif __MACH__
+            RING_API_RETSTRING(tmpnam(NULL));
+            /* Linux */
+        #else
+            char _tmpfile[20] = "/tmp/ringtempXXXXXX" ;
+            RING_API_RETSTRING(mkdtemp(_tmpfile));
+        #endif
     }
 #endif

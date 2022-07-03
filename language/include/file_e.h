@@ -15,8 +15,6 @@
 
     void ring_vm_file_tempfile ( void *pPointer ) ;
 
-    void ring_vm_file_tempname ( void *pPointer ) ;
-
     void ring_vm_file_fseek ( void *pPointer ) ;
 
     void ring_vm_file_ftell ( void *pPointer ) ;
@@ -84,6 +82,8 @@
         void ring_vm_file_getfilesize ( void *pPointer ) ;
 
         void ring_vm_file_dir ( void *pPointer ) ;
+
+        void ring_vm_file_tempname ( void *pPointer ) ;
     #endif
     /* Constants */
     #define RING_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
