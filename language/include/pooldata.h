@@ -5,7 +5,11 @@
     **  Macro 
     **  Memory pool is thread safe because ring_vm_runcodefromthread() create new state 
     */
-    #define RING_USEPOOLMANAGER 1
+    #if RING_MSDOS
+        #define RING_USEPOOLMANAGER 0
+    #else
+        #define RING_USEPOOLMANAGER 1
+    #endif
     #define RING_TRACKALLOCATIONS 0
     #define RING_POOLMANAGER_ITEMSINBLOCK 2000000
     #define RING_POOLMANAGER_ITEMSIZE 64
