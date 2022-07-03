@@ -128,7 +128,11 @@ RING_API void ring_list_print2 ( List *pList,int nDecimals )
                 }
                 else {
                     sprintf(cOptions , "%s%df" , "%.",nDecimals);
-                    snprintf(cString , 100, cOptions , y);
+                    #if RING_MSDOS
+                        sprintf(cString, cOptions, y);
+                    #else
+                        snprintf(cString, 100, cOptions, y);
+                    #endif
                     printf("%s\n",cString);
                 }
             }
