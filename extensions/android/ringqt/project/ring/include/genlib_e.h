@@ -3,9 +3,8 @@
     #define ring_generallib_extension_h
     #ifndef _WIN32
         #if RING_MSDOS
-            else {
-                #include <stdint.h>
-            }
+        #else
+            #include <stdint.h>
         #endif
     #endif
 
