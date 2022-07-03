@@ -53,19 +53,9 @@
 
     void ring_vm_file_fwrite ( void *pPointer ) ;
 
-    void ring_vm_file_dir ( void *pPointer ) ;
-
     void ring_vm_file_read ( void *pPointer ) ;
 
     void ring_vm_file_write ( void *pPointer ) ;
-
-    void ring_vm_file_fexists ( void *pPointer ) ;
-
-    void ring_vm_file_direxists ( void *pPointer ) ;
-
-    void ring_vm_file_getpathtype ( void *pPointer ) ;
-
-    void ring_vm_file_getfilesize ( void *pPointer ) ;
     /* Number & Bytes */
 
     void ring_vm_file_int2bytes ( void *pPointer ) ;
@@ -81,6 +71,20 @@
     void ring_vm_file_bytes2double ( void *pPointer ) ;
 
     void ring_vm_file_freefunc ( void *pRingState,void *pPointer ) ;
+    #if RING_MSDOS
+    #else
+        /* Check File/Dir/Type */
+
+        void ring_vm_file_fexists ( void *pPointer ) ;
+
+        void ring_vm_file_direxists ( void *pPointer ) ;
+
+        void ring_vm_file_getpathtype ( void *pPointer ) ;
+
+        void ring_vm_file_getfilesize ( void *pPointer ) ;
+
+        void ring_vm_file_dir ( void *pPointer ) ;
+    #endif
     /* Constants */
     #define RING_VM_FILE_BUFFERSIZE "Buffer size must be >= 1"
     #define RING_VM_POINTER_FILE "file"

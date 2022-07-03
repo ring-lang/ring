@@ -28,94 +28,23 @@ void ring_vm_file_loadfunctions ( RingState *pRingState )
     RING_API_REGISTER("ungetc",ring_vm_file_ungetc);
     RING_API_REGISTER("fread",ring_vm_file_fread);
     RING_API_REGISTER("fwrite",ring_vm_file_fwrite);
-    RING_API_REGISTER("dir",ring_vm_file_dir);
     RING_API_REGISTER("read",ring_vm_file_read);
     RING_API_REGISTER("write",ring_vm_file_write);
-    RING_API_REGISTER("fexists",ring_vm_file_fexists);
-    RING_API_REGISTER("direxists",ring_vm_file_direxists);
-    RING_API_REGISTER("getpathtype",ring_vm_file_getpathtype);
-    RING_API_REGISTER("getfilesize",ring_vm_file_getfilesize);
     RING_API_REGISTER("int2bytes",ring_vm_file_int2bytes);
     RING_API_REGISTER("float2bytes",ring_vm_file_float2bytes);
     RING_API_REGISTER("double2bytes",ring_vm_file_double2bytes);
     RING_API_REGISTER("bytes2int",ring_vm_file_bytes2int);
     RING_API_REGISTER("bytes2float",ring_vm_file_bytes2float);
     RING_API_REGISTER("bytes2double",ring_vm_file_bytes2double);
-}
-/* Check File/Dir/Type */
-
-int ring_fexists_general ( const char *cFileName )
-{
-    #if defined(_WIN32) && ! defined(__TINYC__)
-        /* Windows Only */
-        struct _stat sb  ;
-        wchar_t cPath[MAX_PATH]  ;
-        int nLen1,nFileNameSize  ;
-        nFileNameSize = strlen(cFileName) ;
-        nLen1 = MultiByteToWideChar(CP_UTF8, 0, cFileName, nFileNameSize, cPath, nFileNameSize) ;
-        if ( nLen1 >= MAX_PATH ) {
-            return 0 ;
-        }
-        cPath[nLen1] = L'\0' ;
-        if ( _wstat(cPath, &sb) == 0 ) {
-            if ( S_ISREG(sb.st_mode) ) {
-                /* Path exists and it is a regular file */
-                return 1 ;
-            }
-        }
+    #if RING_MSDOS
     #else
-        struct stat sb  ;
-        if ( stat(cFileName, &sb) == 0 ) {
-            if ( S_ISREG(sb.st_mode) ) {
-                /* Path exists and it is a regular file */
-                return 1 ;
-            }
-        }
+        /* Check File/Dir/Type */
+        RING_API_REGISTER("fexists",ring_vm_file_fexists);
+        RING_API_REGISTER("direxists",ring_vm_file_direxists);
+        RING_API_REGISTER("getpathtype",ring_vm_file_getpathtype);
+        RING_API_REGISTER("getfilesize",ring_vm_file_getfilesize);
+        RING_API_REGISTER("dir",ring_vm_file_dir);
     #endif
-    return 0 ;
-}
-
-int ring_direxists ( const char *cDirPath )
-{
-    struct stat sb  ;
-    if ( stat(cDirPath, &sb) == 0 ) {
-        if ( S_ISDIR(sb.st_mode) ) {
-            /* Path exists and it is a directory */
-            return 1 ;
-        }
-    }
-    return 0 ;
-}
-
-int ring_getpathtype ( const char *cDirPath )
-{
-    struct stat sb  ;
-    if ( stat(cDirPath, &sb) == 0 ) {
-        if ( S_ISREG(sb.st_mode) ) {
-            /* Path exists and it is a regular file */
-            return 1 ;
-        }
-        if ( S_ISDIR(sb.st_mode) ) {
-            /* Path exists and it is a directory */
-            return 2 ;
-        }
-        /* Unknown Type */
-        return -1 ;
-    }
-    return 0 ;
-}
-
-RING_LONGLONG ring_getfilesize ( const char *cFilePath )
-{
-    struct stat sb  ;
-    if ( stat(cFilePath, &sb) == 0 ) {
-        if ( S_ISREG(sb.st_mode) ) {
-            /* Path exists and it is a regular file */
-            return (RING_LONGLONG) sb.st_size ;
-        }
-    }
-    /* Doesn't exist or not a file */
-    return (RING_LONGLONG) -1 ;
 }
 
 void ring_vm_file_fopen ( void *pPointer )
@@ -622,90 +551,6 @@ void ring_vm_file_fwrite ( void *pPointer )
     }
 }
 
-void ring_vm_file_dir ( void *pPointer )
-{
-    const char *cStr  ;
-    List *pList, *pList2  ;
-    #ifdef _WIN32
-        /* Windows Only */
-        WIN32_FIND_DATA fdFile  ;
-        HANDLE hFind  ;
-        String *pString  ;
-    #else
-        DIR *pDir  ;
-        struct dirent *pDirent  ;
-        struct stat st  ;
-        char cPath[FILENAME_MAX]  ;
-        char cCurrentDir[FILENAME_MAX]  ;
-    #endif
-    if ( RING_API_PARACOUNT != 1 ) {
-        RING_API_ERROR(RING_API_MISS1PARA);
-        return ;
-    }
-    if ( RING_API_ISSTRING(1) ) {
-        cStr = RING_API_GETSTRING(1);
-        pList = RING_API_NEWLIST ;
-        #ifdef _WIN32
-            /* Windows Only */
-            pString = ring_string_new_gc(((VM *) pPointer)->pRingState,cStr);
-            ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\\*.*");
-            cStr = ring_string_get(pString);
-            if ( ! ((hFind = FindFirstFile(cStr, &fdFile)) == INVALID_HANDLE_VALUE) ) {
-                do {
-                    if ( strcmp(fdFile.cFileName, ".") != 0 && strcmp(fdFile.cFileName, "..") != 0 ) {
-                        pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
-                        ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,fdFile.cFileName);
-                        if ( fdFile.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY ) {
-                            ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1.0);
-                        }
-                        else {
-                            ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,0.0);
-                        }
-                    }
-                } while (FindNextFile(hFind, &fdFile))  ;
-                FindClose(hFind);
-                RING_API_RETLIST(pList);
-            }
-            else {
-                RING_API_ERROR(RING_API_BADDIRECTORY);
-            }
-            ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
-        #else
-            pDir = opendir(cStr);
-            if ( pDir != NULL ) {
-                getcwd(cCurrentDir, FILENAME_MAX);
-                chdir(cStr);
-                while ( (pDirent = readdir(pDir)) ) {
-                    if ( strcmp(pDirent->d_name, ".") != 0 && strcmp(pDirent->d_name, "..") != 0 ) {
-                        pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
-                        ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,pDirent->d_name);
-                        /* Prepare Path */
-                        getcwd(cPath, FILENAME_MAX);
-                        strcat(cPath,"/");
-                        strcat(cPath,pDirent->d_name);
-                        stat(cPath,&st);
-                        if ( S_ISDIR(st.st_mode) ) {
-                            ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1.0);
-                        }
-                        else {
-                            ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,0.0);
-                        }
-                    }
-                }
-                closedir(pDir);
-                RING_API_RETLIST(pList);
-                chdir(cCurrentDir);
-            }
-            else {
-                RING_API_ERROR(RING_API_BADDIRECTORY);
-            }
-        #endif
-    }
-    else {
-        RING_API_ERROR(RING_API_BADPARATYPE);
-    }
-}
-
 void ring_vm_file_read ( void *pPointer )
 {
     FILE *fp  ;
@@ -757,62 +602,6 @@ void ring_vm_file_write ( void *pPointer )
             RING_API_ERROR("Error in second parameter, Function requires string !");
             return ;
         }
-    }
-    else {
-        RING_API_ERROR(RING_API_BADPARATYPE);
-    }
-}
-
-void ring_vm_file_fexists ( void *pPointer )
-{
-    if ( RING_API_PARACOUNT != 1 ) {
-        RING_API_ERROR(RING_API_MISS1PARA);
-        return ;
-    }
-    if ( RING_API_ISSTRING(1) ) {
-        RING_API_RETNUMBER(ring_fexists_general(RING_API_GETSTRING(1)));
-    }
-    else {
-        RING_API_ERROR(RING_API_BADPARATYPE);
-    }
-}
-
-void ring_vm_file_direxists ( void *pPointer )
-{
-    if ( RING_API_PARACOUNT != 1 ) {
-        RING_API_ERROR(RING_API_MISS1PARA);
-        return ;
-    }
-    if ( RING_API_ISSTRING(1) ) {
-        RING_API_RETNUMBER(ring_direxists(RING_API_GETSTRING(1)));
-    }
-    else {
-        RING_API_ERROR(RING_API_BADPARATYPE);
-    }
-}
-
-void ring_vm_file_getpathtype ( void *pPointer )
-{
-    if ( RING_API_PARACOUNT != 1 ) {
-        RING_API_ERROR(RING_API_MISS1PARA);
-        return ;
-    }
-    if ( RING_API_ISSTRING(1) ) {
-        RING_API_RETNUMBER(ring_getpathtype(RING_API_GETSTRING(1)));
-    }
-    else {
-        RING_API_ERROR(RING_API_BADPARATYPE);
-    }
-}
-
-void ring_vm_file_getfilesize ( void *pPointer )
-{
-    if ( RING_API_PARACOUNT != 1 ) {
-        RING_API_ERROR(RING_API_MISS1PARA);
-        return ;
-    }
-    if ( RING_API_ISSTRING(1) ) {
-        RING_API_RETNUMBER(ring_getfilesize(RING_API_GETSTRING(1)));
     }
     else {
         RING_API_ERROR(RING_API_BADPARATYPE);
@@ -934,3 +723,221 @@ void ring_vm_file_freefunc ( void *pRingState,void *pPointer )
     fp = (FILE *) pPointer ;
     fclose( fp ) ;
 }
+#if RING_MSDOS
+#else
+    /* Check File/Dir/Type */
+
+    int ring_fexists_general ( const char *cFileName )
+    {
+        #if defined(_WIN32) && ! defined(__TINYC__)
+            /* Windows Only */
+            struct _stat sb  ;
+            wchar_t cPath[MAX_PATH]  ;
+            int nLen1,nFileNameSize  ;
+            nFileNameSize = strlen(cFileName) ;
+            nLen1 = MultiByteToWideChar(CP_UTF8, 0, cFileName, nFileNameSize, cPath, nFileNameSize) ;
+            if ( nLen1 >= MAX_PATH ) {
+                return 0 ;
+            }
+            cPath[nLen1] = L'\0' ;
+            if ( _wstat(cPath, &sb) == 0 ) {
+                if ( S_ISREG(sb.st_mode) ) {
+                    /* Path exists and it is a regular file */
+                    return 1 ;
+                }
+            }
+        #else
+            struct stat sb  ;
+            if ( stat(cFileName, &sb) == 0 ) {
+                if ( S_ISREG(sb.st_mode) ) {
+                    /* Path exists and it is a regular file */
+                    return 1 ;
+                }
+            }
+        #endif
+        return 0 ;
+    }
+
+    int ring_direxists ( const char *cDirPath )
+    {
+        struct stat sb  ;
+        if ( stat(cDirPath, &sb) == 0 ) {
+            if ( S_ISDIR(sb.st_mode) ) {
+                /* Path exists and it is a directory */
+                return 1 ;
+            }
+        }
+        return 0 ;
+    }
+
+    int ring_getpathtype ( const char *cDirPath )
+    {
+        struct stat sb  ;
+        if ( stat(cDirPath, &sb) == 0 ) {
+            if ( S_ISREG(sb.st_mode) ) {
+                /* Path exists and it is a regular file */
+                return 1 ;
+            }
+            if ( S_ISDIR(sb.st_mode) ) {
+                /* Path exists and it is a directory */
+                return 2 ;
+            }
+            /* Unknown Type */
+            return -1 ;
+        }
+        return 0 ;
+    }
+
+    RING_LONGLONG ring_getfilesize ( const char *cFilePath )
+    {
+        struct stat sb  ;
+        if ( stat(cFilePath, &sb) == 0 ) {
+            if ( S_ISREG(sb.st_mode) ) {
+                /* Path exists and it is a regular file */
+                return (RING_LONGLONG) sb.st_size ;
+            }
+        }
+        /* Doesn't exist or not a file */
+        return (RING_LONGLONG) -1 ;
+    }
+
+    void ring_vm_file_fexists ( void *pPointer )
+    {
+        if ( RING_API_PARACOUNT != 1 ) {
+            RING_API_ERROR(RING_API_MISS1PARA);
+            return ;
+        }
+        if ( RING_API_ISSTRING(1) ) {
+            RING_API_RETNUMBER(ring_fexists_general(RING_API_GETSTRING(1)));
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+        }
+    }
+
+    void ring_vm_file_direxists ( void *pPointer )
+    {
+        if ( RING_API_PARACOUNT != 1 ) {
+            RING_API_ERROR(RING_API_MISS1PARA);
+            return ;
+        }
+        if ( RING_API_ISSTRING(1) ) {
+            RING_API_RETNUMBER(ring_direxists(RING_API_GETSTRING(1)));
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+        }
+    }
+
+    void ring_vm_file_getpathtype ( void *pPointer )
+    {
+        if ( RING_API_PARACOUNT != 1 ) {
+            RING_API_ERROR(RING_API_MISS1PARA);
+            return ;
+        }
+        if ( RING_API_ISSTRING(1) ) {
+            RING_API_RETNUMBER(ring_getpathtype(RING_API_GETSTRING(1)));
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+        }
+    }
+
+    void ring_vm_file_getfilesize ( void *pPointer )
+    {
+        if ( RING_API_PARACOUNT != 1 ) {
+            RING_API_ERROR(RING_API_MISS1PARA);
+            return ;
+        }
+        if ( RING_API_ISSTRING(1) ) {
+            RING_API_RETNUMBER(ring_getfilesize(RING_API_GETSTRING(1)));
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+        }
+    }
+
+    void ring_vm_file_dir ( void *pPointer )
+    {
+        const char *cStr  ;
+        List *pList, *pList2  ;
+        #ifdef _WIN32
+            /* Windows Only */
+            WIN32_FIND_DATA fdFile  ;
+            HANDLE hFind  ;
+            String *pString  ;
+        #else
+            DIR *pDir  ;
+            struct dirent *pDirent  ;
+            struct stat st  ;
+            char cPath[FILENAME_MAX]  ;
+            char cCurrentDir[FILENAME_MAX]  ;
+        #endif
+        if ( RING_API_PARACOUNT != 1 ) {
+            RING_API_ERROR(RING_API_MISS1PARA);
+            return ;
+        }
+        if ( RING_API_ISSTRING(1) ) {
+            cStr = RING_API_GETSTRING(1);
+            pList = RING_API_NEWLIST ;
+            #ifdef _WIN32
+                /* Windows Only */
+                pString = ring_string_new_gc(((VM *) pPointer)->pRingState,cStr);
+                ring_string_add_gc(((VM *) pPointer)->pRingState,pString,"\\*.*");
+                cStr = ring_string_get(pString);
+                if ( ! ((hFind = FindFirstFile(cStr, &fdFile)) == INVALID_HANDLE_VALUE) ) {
+                    do {
+                        if ( strcmp(fdFile.cFileName, ".") != 0 && strcmp(fdFile.cFileName, "..") != 0 ) {
+                            pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
+                            ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,fdFile.cFileName);
+                            if ( fdFile.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY ) {
+                                ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1.0);
+                            }
+                            else {
+                                ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,0.0);
+                            }
+                        }
+                    } while (FindNextFile(hFind, &fdFile))  ;
+                    FindClose(hFind);
+                    RING_API_RETLIST(pList);
+                }
+                else {
+                    RING_API_ERROR(RING_API_BADDIRECTORY);
+                }
+                ring_string_delete_gc(((VM *) pPointer)->pRingState,pString);
+            #else
+                pDir = opendir(cStr);
+                if ( pDir != NULL ) {
+                    getcwd(cCurrentDir, FILENAME_MAX);
+                    chdir(cStr);
+                    while ( (pDirent = readdir(pDir)) ) {
+                        if ( strcmp(pDirent->d_name, ".") != 0 && strcmp(pDirent->d_name, "..") != 0 ) {
+                            pList2 = ring_list_newlist_gc(((VM *) pPointer)->pRingState,pList);
+                            ring_list_addstring_gc(((VM *) pPointer)->pRingState,pList2,pDirent->d_name);
+                            /* Prepare Path */
+                            getcwd(cPath, FILENAME_MAX);
+                            strcat(cPath,"/");
+                            strcat(cPath,pDirent->d_name);
+                            stat(cPath,&st);
+                            if ( S_ISDIR(st.st_mode) ) {
+                                ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,1.0);
+                            }
+                            else {
+                                ring_list_adddouble_gc(((VM *) pPointer)->pRingState,pList2,0.0);
+                            }
+                        }
+                    }
+                    closedir(pDir);
+                    RING_API_RETLIST(pList);
+                    chdir(cCurrentDir);
+                }
+                else {
+                    RING_API_ERROR(RING_API_BADDIRECTORY);
+                }
+            #endif
+        }
+        else {
+            RING_API_ERROR(RING_API_BADPARATYPE);
+        }
+    }
+#endif
