@@ -35,11 +35,6 @@ fp2
 ring_vm_file_tempfile
 Type: FILE *
 fp
-ring_vm_file_tempname
-_tmpfile
-Type: errno_t
-error
-_tmpfile
 ring_vm_file_fseek
 Type: int
 nResult
@@ -201,3 +196,8 @@ Type: char
 cPath[FILENAME_MAX]
 Type: char
 cCurrentDir[FILENAME_MAX]
+ring_vm_file_tempname
+_tmpfile
+Type: errno_t
+error
+_tmpfile

@@ -112,9 +112,9 @@
             #define stat _stat
         #endif
     #else
-        #include <dirent.h>
         #if RING_MSDOS
         #else
+            #include <dirent.h>
             #include <unistd.h>
         #endif
     #endif
