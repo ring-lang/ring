@@ -33,7 +33,7 @@ void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATION
 void ring_parser_icg_newoperand ( Parser *pParser , const char *cStr )
 {
     assert(pParser != NULL);
-    assert(pParser->ActiveGenCodeList);
+    assert(pParser->ActiveGenCodeList != NULL);
     ring_list_addstring_gc(pParser->pRingState,pParser->ActiveGenCodeList,cStr);
     #if RING_SHOWIC
         printf( " Operand : %s ",cStr ) ;
@@ -43,7 +43,7 @@ void ring_parser_icg_newoperand ( Parser *pParser , const char *cStr )
 void ring_parser_icg_newoperandint ( Parser *pParser , int nValue )
 {
     assert(pParser != NULL);
-    assert(pParser->ActiveGenCodeList);
+    assert(pParser->ActiveGenCodeList != NULL);
     ring_list_addint_gc(pParser->pRingState,pParser->ActiveGenCodeList,nValue);
     #if RING_SHOWIC
         printf( " Operand : %d ",nValue ) ;
@@ -53,7 +53,7 @@ void ring_parser_icg_newoperandint ( Parser *pParser , int nValue )
 void ring_parser_icg_newoperanddouble ( Parser *pParser , double nValue )
 {
     assert(pParser != NULL);
-    assert(pParser->ActiveGenCodeList);
+    assert(pParser->ActiveGenCodeList  != NULL);
     ring_list_adddouble_gc(pParser->pRingState,pParser->ActiveGenCodeList,nValue);
     #if RING_SHOWIC
         printf( " Operand : %.5f ",nValue ) ;
@@ -63,7 +63,7 @@ void ring_parser_icg_newoperanddouble ( Parser *pParser , double nValue )
 void ring_parser_icg_newoperandpointer ( Parser *pParser , void *pValue )
 {
     assert(pParser != NULL);
-    assert(pParser->ActiveGenCodeList);
+    assert(pParser->ActiveGenCodeList != NULL);
     ring_list_addpointer_gc(pParser->pRingState,pParser->ActiveGenCodeList,pValue);
     #if RING_SHOWIC
         printf( " Operand : %p ",pValue ) ;
@@ -73,14 +73,14 @@ void ring_parser_icg_newoperandpointer ( Parser *pParser , void *pValue )
 List * ring_parser_icg_getactiveoperation ( Parser *pParser )
 {
     assert(pParser != NULL);
-    assert(pParser->ActiveGenCodeList);
+    assert(pParser->ActiveGenCodeList != NULL);
     return pParser->ActiveGenCodeList ;
 }
 
 Items * ring_parser_icg_getoperationpos ( Parser *pParser )
 {
     assert(pParser != NULL);
-    assert(pParser->GenCode);
+    assert(pParser->GenCode != NULL);
     return pParser->GenCode->pLast ;
 }
 
