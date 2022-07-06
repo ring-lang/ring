@@ -254,6 +254,9 @@ Quotes about Ring
 |		, Lijo Joseph (Canada)
 
 
+|	**"I am studying Ring (I am a senior programmer). I certainly never cease to be amazed about this language; it seems to be a wish from a marvellous lamp of computer genius"**
+|		, Antonio F.S. (Spain)
+
 .. index:: 
 	pair: Applications developed in a few hours; FetchStockData Application
 
