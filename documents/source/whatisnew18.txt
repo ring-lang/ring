@@ -26,7 +26,17 @@ Ring for MS-DOS
 ===============
 
 Starting from Ring 1.18, We can build Ring Compiler/VM on MS-DOS
-Tested using Watcom C 386 9.01 (1992)
+
+Tested using 
+
+* Watcom C 386 9.01 (1992)
+* Borland C 3.1 (1992)
+* DOSBox-x 0.83.22 (2022)
+* DOSBox 0.74
+
+.. tip:: We use Watcom C 386 as our formal compiler on this platform
+
+.. note:: Ring uses DOS/4GW (32-bit DOS extender) to eliminate the 640 KB conventional memory limit
 
 .. index:: 
 	pair: What is new in Ring  1.18; Better RingSockets
