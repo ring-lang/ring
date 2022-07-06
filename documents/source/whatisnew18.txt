@@ -15,8 +15,18 @@ List of changes and new features
 
 Ring 1.18 comes with the next features!
 
+* Ring for MS-DOS
 * Better RingSockets
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.18; Ring for MS-DOS
+
+Ring for MS-DOS
+===============
+
+Starting from Ring 1.18, We can build Ring Compiler/VM on MS-DOS
+Tested using Watcom C 386 9.01 (1992)
 
 .. index:: 
 	pair: What is new in Ring  1.18; Better RingSockets
