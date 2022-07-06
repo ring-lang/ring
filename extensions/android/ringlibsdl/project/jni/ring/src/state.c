@@ -220,8 +220,11 @@ RING_API void ring_state_main ( int argc, char *argv[] )
         puts("-norun    :  Don't run the program after compiling");
         puts("-ins      :  Print instruction operation code before execution");
         puts("-clock    :  Print clock before and after program execution");
-        puts("-go       :  Generate object file");
-        puts("-geo      :  Generate embedded object file (C source code)");
+        #if RING_MSDOS
+        #else
+            puts("-go       :  Generate object file");
+            puts("-geo      :  Generate embedded object file (C source code)");
+        #endif
         puts("-w        :  Display Warnings");
         ring_general_printline();
         exit(0);
