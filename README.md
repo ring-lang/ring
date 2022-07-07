@@ -60,7 +60,7 @@ Ring is a practical general-purpose multi-paradigm language.
 The supported programming paradigms are Imperative, Procedural, Object-Oriented, Functional,
 Metaprogramming, Declarative programming using nested structures, and Natural programming.
 
-The language is portable (Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create
+The language is portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create
 Console, GUI, Web, Games, and Mobile applications. 
 
 The language is designed to be Simple, Small, and Flexible. 
@@ -880,7 +880,7 @@ Also when we need more speed we can use C/C++ extensions!
 
 * No Global Interpreter Lock (No GIL)
 
-* Portable (Windows, Linux, macOS, Android, WebAssembly, etc.)
+* Portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, etc.)
 
 ## Simple
 
