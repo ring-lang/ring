@@ -11,7 +11,7 @@
 		<p align="justify">
 			The Ring is a practical general-purpose multi-paradigm language.
 			The supported programming paradigms are imperative, procedural, object-oriented, declarative using nested structures, functional, meta programming and natural programming.
-			The language is portable (Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create Console, GUI, Web, Games and Mobile applications.
+			The language is portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, etc.) and can be used to create Console, GUI, Web, Games and Mobile applications.
 			The language is designed to be simple, small and flexible. 					
 		</p>
 
@@ -1661,7 +1661,7 @@ aList = "nice"
 		<li>Developed using Visual Programming (PWCT)</li>
 		<li>Smart Garbage Collector suitable for Games (Automatic Memory Management using Escape Analysis and Reference Counting)</li>
 		<li>No Global Interpreter Lock (No GIL)</li>
-		<li>Portable (Windows, Linux, macOS, Android, WebAssembly, etc.)</li>
+		<li>Portable (MS-DOS, Windows, Linux, macOS, Android, WebAssembly, etc.)</li>
 		</ul>
 	       </div>
            </div>
