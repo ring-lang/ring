@@ -1,4 +1,6 @@
 aNews = [
+  ["July 9, 2022",'<a href="https://groups.google.com/g/ring-lang/c/Uio_dpdcbLU"> Ring For MS-DOS </a>'],
+  ["June 30, 2022",'<a href="https://groups.google.com/g/ring-lang/c/ofj7DLTG8HM/m/DXm6WvDLAQAJ"> Conference Paper uses Ring & Azure ML- Predicting Electrode Array Impedance</a>'],
   ["May 14, 2022",'<a href="doc1.17/whatisnew17.html"> Ring 1.17 Released!</a>'],
   ["April 29, 2022",'<a href="https://github.com/idrassi/MonoRing"> MonoRing (Monolithic Distribution)</a>'],
   ["April 22, 2022",'<a href="https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology/"> PWCT 2.0 (Steam)</a>'],
