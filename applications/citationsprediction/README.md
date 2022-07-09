@@ -9,7 +9,7 @@ The applications uses Microsoft Azure Machine Learning for the Models
 
 The ML Models are trained using a Dataset for a specific domain 
 
-This application comes with 3 samples only, Just to see how it works!
+This application comes with 500 samples.
 
 # Screen Shots
 
