@@ -335,7 +335,8 @@ PWCT 2.0 will comes with an Arabic version, other languages could be added in th
 
 ## The Release Date
 
-Since we already have the first generation of the product (PWCT 1.9) we decided that in
-the second generation we will focus on the quality and accept the high costs (Development Time).
+Since we already have the first generation of the product (PWCT 1.9) 
+
+We decided that in the second generation we will focus on the quality and accept the high costs (Development Time).
 
 Check the website: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology/
