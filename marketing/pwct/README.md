@@ -332,6 +332,8 @@ Check the website: https://store.steampowered.com/app/1953110/Programming_Withou
 * [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie480_vp9.webm?t=1656153375)
 * [Rich Comments](https://cdn.cloudflare.steamstatic.com/steam/apps/256895072/movie480_vp9.webm?t=1657119572)
 * [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie480_vp9.webm?t=1653734057)
+* [Program Visualization](https://cdn.cloudflare.steamstatic.com/steam/apps/256895306/movie480_vp9.webm?t=1657238526)
+* [Money Boxes Game](https://cdn.cloudflare.steamstatic.com/steam/apps/256895395/movie480_vp9.webm?t=1657375375)
 
 ## Publications
 
