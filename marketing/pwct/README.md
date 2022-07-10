@@ -7,6 +7,7 @@ Programming Without Coding Technology (PWCT) 2.0
 
 # Contents:
 
+- [Publications](#publications)
 - [Introduction](#introduction)
 - [The First Generation](#the-first-generation)
   - [The Concept of the First Generation](#the-concept-of-the-first-generation)
@@ -24,9 +25,13 @@ Programming Without Coding Technology (PWCT) 2.0
     - [Dark Theme](#dark-theme)
     - [Better Documentation](#better-documentation)
     - [Translation (Arabic Version)](#translation-arabic-version)
-  - [Publications](#publications)
   - [Videos](#videos)
   - [The Release Date](#the-release-date)
+
+## Publications
+
+* Fayed et al., PWCT: a novel general-purpose visual programming language in support of pervasive application development, CCF Transactions on Pervasive Computing and Interaction, 2020
+* Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM, 2017
 
 # Introduction 
 
@@ -318,11 +323,6 @@ One of the advantages of using Visual Programming and GUI over textual code edit
 PWCT 2.0 will comes with an Arabic version, other languages could be added in the future.
 
 ![arabicversion](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Arabic.jpg)
-
-## Publications
-
-* Fayed et al., PWCT: a novel general-purpose visual programming language in support of pervasive application development, CCF Transactions on Pervasive Computing and Interaction, 2020
-* Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM, 2017
 
 ## Videos
 
