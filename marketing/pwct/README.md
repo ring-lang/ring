@@ -24,9 +24,9 @@ Programming Without Coding Technology (PWCT) 2.0
     - [Dark Theme](#dark-theme)
     - [Better Documentation](#better-documentation)
     - [Translation (Arabic Version)](#translation-arabic-version)
-  - [The Release Date](#the-release-date)
-  - [Videos](#videos)
   - [Publications](#publications)
+  - [Videos](#videos)
+  - [The Release Date](#the-release-date)
 
 # Introduction 
 
@@ -319,23 +319,23 @@ PWCT 2.0 will comes with an Arabic version, other languages could be added in th
 
 ![arabicversion](https://raw.githubusercontent.com/ring-lang/ring/master/marketing/pwct/images/Arabic.jpg)
 
+## Publications
+
+* Fayed et al., PWCT: a novel general-purpose visual programming language in support of pervasive application development, CCF Transactions on Pervasive Computing and Interaction, 2020
+* Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM, 2017
+
+## Videos
+
+* [Introduction to PWCT 2.0](https://cdn.akamai.steamstatic.com/steam/apps/256883333/movie_max_vp9.webm?t=1657472871)
+* [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie_max_vp9.webm?t=1656153375)
+* [Rich Comments](https://cdn.cloudflare.steamstatic.com/steam/apps/256895072/movie_max_vp9.webm?t=1657119572)
+* [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie_max_vp9.webm?t=1657473295)
+* [Program Visualization](https://cdn.cloudflare.steamstatic.com/steam/apps/256895306/movie_max_vp9.webm?t=1657238526)
+* [Money Boxes Game](https://cdn.cloudflare.steamstatic.com/steam/apps/256895395/movie_max_vp9.webm?t=1657375375)
+
 ## The Release Date
 
 Since we already have the first generation of the product (PWCT 1.9) we decided that in
 the second generation we will focus on the quality and accept the high costs (Development Time).
 
 Check the website: https://store.steampowered.com/app/1953110/Programming_Without_Coding_Technology/
-
-## Videos
-
-* [Introduction to PWCT 2.0](https://cdn.akamai.steamstatic.com/steam/apps/256883333/movie_max_vp9.webm?t=1651208817)
-* [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie480_vp9.webm?t=1656153375)
-* [Rich Comments](https://cdn.cloudflare.steamstatic.com/steam/apps/256895072/movie480_vp9.webm?t=1657119572)
-* [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie480_vp9.webm?t=1653734057)
-* [Program Visualization](https://cdn.cloudflare.steamstatic.com/steam/apps/256895306/movie480_vp9.webm?t=1657238526)
-* [Money Boxes Game](https://cdn.cloudflare.steamstatic.com/steam/apps/256895395/movie480_vp9.webm?t=1657375375)
-
-## Publications
-
-* Fayed et al., PWCT: a novel general-purpose visual programming language in support of pervasive application development, CCF Transactions on Pervasive Computing and Interaction, 2020
-* Fayed et al., PWCT: visual language for IoT and cloud computing applications and systems, ACM, 2017
