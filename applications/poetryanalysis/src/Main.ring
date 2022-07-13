@@ -1,3 +1,4 @@
+load "lightguilib.ring"
 load "tracelib.ring"
 load "FrmQaseedah/FrmQaseedahController.ring"
 
