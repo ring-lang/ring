@@ -2,7 +2,7 @@ aLockInfo = [
 	[
 		:name = "ringnotepad",
 		:branch = "master",
-		:version = "1.0.19",
+		:version = "1.0.20",
 		:providerusername = "ringpackages",
 		:providerwebsite = ""
 	],
