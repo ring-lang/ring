@@ -60,6 +60,7 @@ More Improvements
 * Added: samples/UsingQt/TabActivate/TabActivateController.ring 
 * Ring Notepad: New option to build GUI application using Ring2EXE
 * Ring Notepad: Output Window - Correct cursor position while using unicode 
+* FindInFiles Application: Better Code (Check Read() function output)
 * WebLib: HTTP Post - Better Code
 * WebLib: Application Class - Redirect() Method
 * RingQt: Set the environment variable QT_QPA_PLATFORM_PLUGIN_PATH
