@@ -1,5 +1,5 @@
 ###----------------------------------------------------------
-### ReadBinaryController File
+### Read All Binary Files Application
 ### 2022-07-15  Ahmed Hassouna
 ### Video : Comming Soon in Hassouna Academy
 ###----------------------------------------------------------
@@ -24,15 +24,14 @@ class ReadBinaryController from windowsControllerParent
 
 	oView = new ReadBinaryView
 	bytes_str1 = "" bytes_str2 = '[ ' bytes_str3 = '[ ' cName = ''
-	f = ''   bList=[]   bytes_count=0   myLen=0   pages=0   pageSize=512
+	f = ''  myLen=0   pages=0   pageSize=512
 
 	func Choose_File
 		oView.Label1.SetText("0")  oView.Label2.SetText("0")  oView.Label3.SetText("0")
 		frm = oView.win
 		new fileDialog(frm) { cName = getOpenFileName(frm,"open file",'',"All Files(*.*)") }
 		if cName = "" ? 'Error when select file' return ok	
-		#f = upper(str2Hex(read(cName)))   bList=[]   bytes_count=0   myLen=len(f)
-		f = read(cName)   bList=[]   bytes_count=0   myLen=len(f)
+		f = read(cName)   myLen=len(f)
 		fSize = getFileSize(cName)
 		pages = ceil(fSize/pageSize)
 		oView.ListWidgetP.Clear()
@@ -41,7 +40,7 @@ class ReadBinaryController from windowsControllerParent
 		oView.Label2.SetText("" + (fSize/1024) + ' KB')
 		oView.Label3.SetText("" + (fSize/1024/1024) + ' MB')
 		oView.LabelcName.SetText(cName)
-		oView.ListWidgetP.setcurrentrow(1,1)
+		oView.ListWidgetP.setcurrentrow(1,3)
 
 	func ShowPage pNum
 		oView.win.blocksignals(True)
@@ -56,11 +55,10 @@ class ReadBinaryController from windowsControllerParent
 		for x=1 to pageSize*2 step 2
 			str = substr(fForPage, x, 2)
 			add(bList, str)
-			add(cList, hex2str(str))
+			add(cList, hex2str(str) )
 			bytes_str1 += str + ' '
 			bytes_str2 += '"' + str + '"'
 			bytes_str3 += '0x' + str
-			bytes_count++
 			bytes_str2 += ", "	  bytes_str3 += ", "
 		next
 		bytes_str2 = left(bytes_str2, len(bytes_str2)-2) + " ]"
@@ -70,8 +68,8 @@ class ReadBinaryController from windowsControllerParent
 		oView.ListWidget1{setViewMode(1) setSpacing(2) SetFont( new qfont("Consolas",14,-1,0) ) }
 		oView.ListWidget2{setViewMode(1) setSpacing(2) SetFont( new qfont("Consolas",14,-1,0) ) }
 		oView.win.blocksignals(False)
-		oView.ListWidget1.setcurrentrow(1,1)
-		oView.ListWidget2.setcurrentrow(1,1)
+		oView.ListWidget1.setcurrentrow(1,3)
+		oView.ListWidget2.setcurrentrow(1,3)
 
 	func ListWidgetP_ItemChanged
 		ShowPage(oView.ListWidgetP.currentRow())
@@ -94,3 +92,6 @@ class ReadBinaryController from windowsControllerParent
 	func Exit_Click
 		oView.win.close()
 		oApp.Quit()
+
+
+

@@ -16,7 +16,7 @@ aObjectsList = [
 	],
 	[ :name = "btnChooseFile" , :id = 2 , :classname = "formdesigner_qpushbutton" , :data = [
 		 :x = 10 , : y = 14  , 
-		 :width =  244 , :height = 35 , 
+		 :width =  158 , :height = 35 , 
 		 :textcolor =  "#dfdfdf" , 
 		 :backcolor =  "" , 
 		 :font =  "Consolas,14,-1,5,75,0,0,0,0,0,Bold" , 
