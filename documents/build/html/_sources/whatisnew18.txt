@@ -15,9 +15,21 @@ List of changes and new features
 
 Ring 1.18 comes with the next features!
 
+* Read Files application
 * Ring for MS-DOS
 * Better RingSockets
 * More Improvements
+
+.. index:: 
+	pair: What is new in Ring  1.18; Read Files application
+
+Read Files application
+======================
+
+Using this application we can display text/binary files using Hexadecimal
+
+.. image:: readfiles.png
+	:alt: readfiles
 
 .. index:: 
 	pair: What is new in Ring  1.18; Ring for MS-DOS
