@@ -1,4 +1,5 @@
 aNews = [
+  ["July 16, 2022",'<a href="https://github.com/ring-lang/ring/tree/master/applications/readfiles"> Application: Read Files </a>'],
   ["July 10, 2022",'<a href="https://github.com/ring-lang/ring/blob/master/marketing/pwct/README.md#videos"> PWCT 2.0 (Videos) </a>'],
   ["July 9, 2022",'<a href="https://groups.google.com/g/ring-lang/c/Uio_dpdcbLU"> Ring For MS-DOS </a>'],
   ["June 30, 2022",'<a href="https://groups.google.com/g/ring-lang/c/ofj7DLTG8HM/m/DXm6WvDLAQAJ"> Conference Paper uses Ring & Azure ML- Predicting Electrode Array Impedance</a>'],
