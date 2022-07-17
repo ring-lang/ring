@@ -328,10 +328,7 @@ PWCT 2.0 will comes with an Arabic version, other languages could be added in th
 
 * [Introduction to PWCT 2.0](https://cdn.akamai.steamstatic.com/steam/apps/256883333/movie_max_vp9.webm?t=1657472871)
 * [Templates & AutoRun](https://cdn.akamai.steamstatic.com/steam/apps/256893582/movie_max_vp9.webm?t=1656153375)
-* [Rich Comments](https://cdn.cloudflare.steamstatic.com/steam/apps/256895072/movie_max_vp9.webm?t=1657119572)
 * [Web Development](https://cdn.akamai.steamstatic.com/steam/apps/256883763/movie_max_vp9.webm?t=1657473295)
-* [Program Visualization](https://cdn.cloudflare.steamstatic.com/steam/apps/256895306/movie_max_vp9.webm?t=1657238526)
-* [Money Boxes Game](https://cdn.cloudflare.steamstatic.com/steam/apps/256895395/movie_max_vp9.webm?t=1657375375)
 
 ## The Release Date
 
