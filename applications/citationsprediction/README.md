@@ -15,4 +15,6 @@ This application comes with 500 samples.
 
 ![citationsprediction](https://raw.githubusercontent.com/ring-lang/ring/master/applications/citationsprediction/images/predictionapp1.png)
 
+# Journal Paper
 
+URL (PDF): https://downloads.hindawi.com/journals/bmri/2022/2239152.pdf
