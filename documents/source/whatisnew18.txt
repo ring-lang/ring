@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.18 comes with the next features!
 
 * Read Files application
+* Better Citations Prediction application
 * Ring for MS-DOS
 * Better RingSockets
 * More Improvements
@@ -30,6 +31,16 @@ Using this application we can display text/binary files using Hexadecimal
 
 .. image:: readfiles.png
 	:alt: readfiles
+
+.. index:: 
+	pair: What is new in Ring  1.18; Better Citations Prediction application
+
+Better Citations Prediction application
+=======================================
+
+(1) The application comes with 500 samples
+
+(2) Journal Paper: https://downloads.hindawi.com/journals/bmri/2022/2239152.pdf
 
 .. index:: 
 	pair: What is new in Ring  1.18; Ring for MS-DOS
