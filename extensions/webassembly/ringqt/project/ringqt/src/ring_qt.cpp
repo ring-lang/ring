@@ -100637,28 +100637,6 @@ RING_FUNC(ring_QMediaPlayer_currentMedia)
 }
 
 
-RING_FUNC(ring_QMediaPlayer_currentNetworkConfiguration)
-{
-	QMediaPlayer *pObject ;
-	if ( RING_API_PARACOUNT != 1 ) {
-		RING_API_ERROR(RING_API_MISS1PARA);
-		return ;
-	}
-	RING_API_IGNORECPOINTERTYPE ;
-	if ( ! RING_API_ISCPOINTER(1) ) {
-		RING_API_ERROR(RING_API_BADPARATYPE);
-		return ;
-	}
-	pObject = (QMediaPlayer *) RING_API_GETCPOINTER(1,"QMediaPlayer");
-	{
-		QNetworkConfiguration *pValue ; 
-		pValue = (QNetworkConfiguration *) RING_API_MALLOC(sizeof(QNetworkConfiguration)) ;
-		*pValue = pObject->currentNetworkConfiguration();
-		RING_API_RETMANAGEDCPOINTER(pValue,"QNetworkConfiguration",RING_API_FREEFUNC);
-	}
-}
-
-
 RING_FUNC(ring_QMediaPlayer_duration)
 {
 	QMediaPlayer *pObject ;
@@ -146401,7 +146379,6 @@ RING_API void ring_qt_start(RingState *pRingState)
 	RING_API_REGISTER("qtest_qsleep",ring_QTest_qsleep);
 	RING_API_REGISTER("qmediaplayer_bufferstatus",ring_QMediaPlayer_bufferStatus);
 	RING_API_REGISTER("qmediaplayer_currentmedia",ring_QMediaPlayer_currentMedia);
-	RING_API_REGISTER("qmediaplayer_currentnetworkconfiguration",ring_QMediaPlayer_currentNetworkConfiguration);
 	RING_API_REGISTER("qmediaplayer_duration",ring_QMediaPlayer_duration);
 	RING_API_REGISTER("qmediaplayer_error",ring_QMediaPlayer_error);
 	RING_API_REGISTER("qmediaplayer_errorstring",ring_QMediaPlayer_errorString);

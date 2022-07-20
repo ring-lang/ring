@@ -21186,9 +21186,6 @@ Class QMediaPlayer
 	Func currentMedia 
 		return QMediaPlayer_currentMedia(pObject)
 
-	Func currentNetworkConfiguration 
-		return QMediaPlayer_currentNetworkConfiguration(pObject)
-
 	Func duration 
 		return QMediaPlayer_duration(pObject)
 

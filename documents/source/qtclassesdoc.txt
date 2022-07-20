@@ -6504,7 +6504,6 @@ Parameters : void
 
 * int bufferStatus(void)
 * QMediaContent currentMedia(void)
-* QNetworkConfiguration currentNetworkConfiguration(void)
 * int duration(void)
 * int error(void)
 * QString errorString(void)
