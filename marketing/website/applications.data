@@ -126,6 +126,10 @@ aApplications = [
 				'<img src="mergetwofiles.png" width="100%">'
 			],
 			[
+				'<a href="https://github.com/ring-lang/ring/blob/master/applications/readfiles" >Read Files (Hexadeciamal/Characters)</a>',
+				'<img src="readfiles.png" width="100%">'
+			],
+			[
 				'<a href="https://github.com/ring-lang/ring/blob/master/applications/calculator" >Calculator</a>',
 				'<img src="newcalc2.png" width="100%">'
 			],
