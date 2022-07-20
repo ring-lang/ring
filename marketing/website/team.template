@@ -114,7 +114,7 @@
 
 
     <div id="graphicdesigners" class="panel panel-default">
-      <div class="panel-heading"><h4>Graphic Designers <span class="badge"><%= len(aGraphicDesigners) %></span></h4></div>
+      <div class="panel-heading"><h4>Tutorials Writing <span class="badge"><%= len(aTutorials) %></span></h4></div>
       <div class="panel-body">
 
 			<table class="table table-striped">
@@ -126,7 +126,7 @@
 
 				</thead>
 				<tbody>
-				  <% for x in aGraphicDesigners %>
+				  <% for x in aTutorials %>
 				  <tr>
 					<% for x2 in x %>
 						<th><%= x2 %></th>					
@@ -142,7 +142,7 @@
 <br />	 
 
     <div id="tutorials" class="panel panel-default">
-      <div class="panel-heading"><h4>Tutorials Writing <span class="badge"><%= len(aTutorials) %></span></h4></div>
+      <div class="panel-heading"><h4>Graphic Designers <span class="badge"><%= len(aGraphicDesigners) %></span></h4></div>
       <div class="panel-body">
 
 			<table class="table table-striped">
@@ -154,7 +154,7 @@
 
 				</thead>
 				<tbody>
-				  <% for x in aTutorials %>
+				  <% for x in aGraphicDesigners %>
 				  <tr>
 					<% for x2 in x %>
 						<th><%= x2 %></th>					
