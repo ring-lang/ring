@@ -42,6 +42,9 @@ Better Citations Prediction application
 
 (2) Journal Paper: https://downloads.hindawi.com/journals/bmri/2022/2239152.pdf
 
+.. image:: citationsdataset.png
+	:alt: citationsdataset
+
 .. index:: 
 	pair: What is new in Ring  1.18; Ring for MS-DOS
 
