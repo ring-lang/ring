@@ -13,8 +13,8 @@ This application comes with 500 samples.
 
 # Journal Paper
 
-* [https://downloads.hindawi.com/journals/bmri/2022/2239152.pdf PDF File]
-* [https://www.hindawi.com/journals/bmri/2022/2239152/ Online version]
+* [PDF File](https://downloads.hindawi.com/journals/bmri/2022/2239152.pdf)
+* [Online version](https://www.hindawi.com/journals/bmri/2022/2239152/)
 
 
 # Screen Shots
