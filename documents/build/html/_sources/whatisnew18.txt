@@ -90,6 +90,7 @@ More Improvements
 * WebLib: HTTP Post - Better Code
 * WebLib: Application Class - Redirect() Method
 * RingSQLite: Use SQLite 3.39.2.
+* RingHTTPLib: Use cpp-httplib 0.10.9
 * RingZip: Use zip 0.2.4 
 * RingCJSON: Update the version 
 * RingQt: Set the environment variable QT_QPA_PLATFORM_PLUGIN_PATH
