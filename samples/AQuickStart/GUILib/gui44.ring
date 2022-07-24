@@ -20,6 +20,5 @@ New qApp {
 
 Func pCenter
         oDesktop  = new qDesktopWidget()
-        oRect = oDesktop.screenGeometry( oDesktop.primaryScreen()  )
-        win1.move((oRect.width()-win1.width()) /2 , (oRect.Height()-win1.Height())/2 )
+        win1.move((oDesktop.width()-win1.width()) /2 , (oDesktop.Height()-win1.Height())/2 )
         win1.show()
