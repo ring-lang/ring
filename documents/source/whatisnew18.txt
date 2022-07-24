@@ -90,6 +90,7 @@ More Improvements
 * WebLib: HTTP Post - Better Code
 * WebLib: Application Class - Redirect() Method
 * RingSQLite: Use SQLite 3.39.2.
+* RingZip: Use zip 0.2.4 
 * RingQt: Set the environment variable QT_QPA_PLATFORM_PLUGIN_PATH
 * RingQt: Use Qt 5.15.2 instead of Qt 5.15.0
 * RingQt: QMediaPlayer Class - Remove currentNetworkConfiguration() Method
