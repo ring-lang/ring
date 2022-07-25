@@ -30,13 +30,18 @@ Install Qt for Android
 
 (2) Using Qt Creator, We can download these requirements
 
-* The Android SDK Tools
-* The Android NDK (Tested using android-ndk-r21)
+* The Android SDK Tools (Tested using version 2.1)
+* The Android NDK (Tested using version 21.3)
 * Java SE Development Kit (JDK) v6 or later
 
 (3) Update the Android SDK to get the API and tools packages required for development
 
 * Tested using Android 7.1 (API 25)
+
+Screen Shot:
+
+.. image:: qtmobiletools.png
+	:alt: Qt for Android
 
 .. index:: 
 	pair: Building RingQt Applications for Mobile; Using Ring2EXE
