@@ -19,6 +19,7 @@ Ring 1.18 comes with the next features!
 * Better Citations Prediction application
 * Ring for MS-DOS
 * Better RingSockets
+* Better Documentation
 * More Improvements
 
 .. index:: 
@@ -75,6 +76,18 @@ The next functions are added to the extension
 * inet_pton()
 * inet_ntop()
 * socketsCleanup()
+
+.. index:: 
+	pair: What is new in Ring  1.18; Better Documentation
+
+Better Documentation
+====================
+
+The next chapters are improved!
+
+(1) Building RingQt applications for Mobile
+(2) Building RingQt applications for WebAssembly
+
 
 .. index:: 
 	pair: What is new in Ring  1.18; More Improvements
