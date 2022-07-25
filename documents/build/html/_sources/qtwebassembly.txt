@@ -17,7 +17,7 @@ Check the next link : https://doc.qt.io/qt-5/wasm.html
 
 Tested using
 
-* Qt (5.15.0) : https://www.qt.io/blog/qt-5.15-released
+* Qt (5.15.2)
 
 * Emscripten (1.39.7) : https://emscripten.org/docs/getting_started/index.html
 
