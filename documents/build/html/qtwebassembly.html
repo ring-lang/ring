@@ -286,10 +286,11 @@
 <p>Tested using</p>
 <ul class="simple">
 <li><p>Qt (5.15.2)</p></li>
-<li><p>Emscripten (1.39.7) : <a class="reference external" href="https://emscripten.org/docs/getting_started/index.html">https://emscripten.org/docs/getting_started/index.html</a></p></li>
+<li><p>Qt Creator (6.0.1)</p></li>
+<li><p>Emscripten (1.39.8) : <a class="reference external" href="https://emscripten.org/docs/getting_started/index.html">https://emscripten.org/docs/getting_started/index.html</a></p></li>
 </ul>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emsdk install sdk-fastcomp-1.39.7-64bit
-emsdk activate sdk-fastcomp-1.39.7-64bit
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emsdk install sdk-fastcomp-1.39.8-64bit
+emsdk activate sdk-fastcomp-1.39.8-64bit
 </pre></div>
 </div>
 <p>Check Emscripten installation</p>
@@ -297,7 +298,7 @@ emsdk activate sdk-fastcomp-1.39.7-64bit
 </pre></div>
 </div>
 <p>Output</p>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emcc (Emscripten gcc/clang-like replacement) 1.39.7
+<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span>emcc (Emscripten gcc/clang-like replacement) 1.39.8
 (commit 24d88487f47629fac9d4acd231497a3a412bdee8)
 Copyright (C) 2014 the Emscripten authors (see AUTHORS.txt)
 This is free and open source software under the MIT license.
@@ -305,6 +306,11 @@ There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A
 PARTICULAR PURPOSE.
 </pre></div>
 </div>
+<ul class="simple">
+<li><p>Run Qt Creator</p></li>
+<li><p>Select Tools &gt; Options &gt; Devices &gt; WebAssembly</p></li>
+</ul>
+<img alt="Qt for WebAssembly" src="_images/qtwebasm_tools.png" />
 </div>
 <div class="section" id="using-ring2exe">
 <span id="index-2"></span><h2>Using Ring2EXE<a class="headerlink" href="#using-ring2exe" title="Permalink to this headline">¶</a></h2>

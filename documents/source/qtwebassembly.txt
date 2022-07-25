@@ -19,12 +19,14 @@ Tested using
 
 * Qt (5.15.2)
 
-* Emscripten (1.39.7) : https://emscripten.org/docs/getting_started/index.html
+* Qt Creator (6.0.1)
+
+* Emscripten (1.39.8) : https://emscripten.org/docs/getting_started/index.html
 
 .. code-block:: ring
 
-	emsdk install sdk-fastcomp-1.39.7-64bit
-	emsdk activate sdk-fastcomp-1.39.7-64bit
+	emsdk install sdk-fastcomp-1.39.8-64bit
+	emsdk activate sdk-fastcomp-1.39.8-64bit
 
 Check Emscripten installation
 
@@ -36,12 +38,18 @@ Output
 
 .. code-block:: ring
 
-	emcc (Emscripten gcc/clang-like replacement) 1.39.7 
+	emcc (Emscripten gcc/clang-like replacement) 1.39.8 
 	(commit 24d88487f47629fac9d4acd231497a3a412bdee8)
 	Copyright (C) 2014 the Emscripten authors (see AUTHORS.txt)
 	This is free and open source software under the MIT license.
 	There is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A 
 	PARTICULAR PURPOSE.
+
+* Run Qt Creator
+* Select Tools > Options > Devices > WebAssembly
+
+.. image:: qtwebasm_tools.png
+	:alt: Qt for WebAssembly
 
 .. index:: 
 	pair: Building RingQt Applications for WebAssembly; Using Ring2EXE
