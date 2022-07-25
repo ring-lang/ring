@@ -135,7 +135,6 @@
 <li class="toctree-l1"><a class="reference internal" href="multilanguage.html">Multi-language Applications</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Building RingQt Applications for Mobile</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#download-requirements">Download Requirements</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#update-the-android-sdk">Update the Android SDK</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#install-qt-for-android">Install Qt for Android</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#using-ring2exe">Using Ring2EXE</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#the-qt-project-for-your-ring-application">The Qt project for your Ring application</a></li>
@@ -207,6 +206,7 @@
 <li class="toctree-l1"><a class="reference internal" href="whatisnew15.html">Release Notes: Version 1.15</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew16.html">Release Notes: Version 1.16</a></li>
 <li class="toctree-l1"><a class="reference internal" href="whatisnew17.html">Release Notes: Version 1.17</a></li>
+<li class="toctree-l1"><a class="reference internal" href="whatisnew18.html">Release Notes: Version 1.18</a></li>
 <li class="toctree-l1"><a class="reference internal" href="codeeditors.html">Using Other Code Editors</a></li>
 <li class="toctree-l1"><a class="reference internal" href="faq.html">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="sourcecode.html">How to Compile Ring From Source Code?</a></li>
@@ -281,68 +281,38 @@
 <p>In this chapter we will learn about Building RingQt Applications for Mobile.</p>
 <div class="section" id="download-requirements">
 <span id="index-1"></span><h2>Download Requirements<a class="headerlink" href="#download-requirements" title="Permalink to this headline">¶</a></h2>
-<p>Check the next link : <a class="reference external" href="http://doc.qt.io/qt-5/androidgs.html">http://doc.qt.io/qt-5/androidgs.html</a></p>
-<p>Download</p>
-<ul>
-<li><p>The Android SDK Tools</p>
-<blockquote>
-<div><p><a class="reference external" href="https://developer.android.com/sdk/index.html">https://developer.android.com/sdk/index.html</a></p>
-</div></blockquote>
-</li>
-<li><p>The Android NDK (Tested using android-ndk-r21)</p>
-<blockquote>
-<div><p><a class="reference external" href="http://developer.android.com/tools/sdk/ndk/index.html">http://developer.android.com/tools/sdk/ndk/index.html</a></p>
-</div></blockquote>
-</li>
-<li><p>Java SE Development Kit (JDK) v6 or later</p>
-<blockquote>
-<div><p><a class="reference external" href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a></p>
-</div></blockquote>
-</li>
-</ul>
-</div>
-<div class="section" id="update-the-android-sdk">
-<span id="index-2"></span><h2>Update the Android SDK<a class="headerlink" href="#update-the-android-sdk" title="Permalink to this headline">¶</a></h2>
-<p>Update the Android SDK to get the API and tools packages required for development</p>
-<blockquote>
-<div><p>Tested using Android 4.4.2 (API 19)</p>
-</div></blockquote>
 <ul class="simple">
-<li><p>In Windows - Define the next Environment Variables based on your system.</p></li>
+<li><p>Install Qt 5.15.2</p></li>
+<li><p>Install Qt Creator (Tested using Qt Creator 6.0.1)</p></li>
 </ul>
-<ol class="arabic simple">
-<li><p>JAVA_HOME</p></li>
-</ol>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">For</span> <span class="n">Example</span> <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">\</span><span class="n">Program</span> <span class="n">Files</span> <span class="p">(</span><span class="n">x86</span><span class="p">)</span><span class="o">\</span><span class="n">Java</span><span class="o">\</span><span class="n">jdk1</span><span class="p">.</span><span class="mf">8.0_05</span>
-</pre></div>
-</div>
-<ol class="arabic simple" start="2">
-<li><p>ANDROID_HOME</p></li>
-</ol>
-<div class="highlight-ring notranslate"><div class="highlight"><pre><span></span><span class="k">For</span> <span class="n">Example</span> <span class="p">:</span> <span class="n">C</span><span class="p">:</span><span class="o">\</span><span class="n">JavaAndroid</span><span class="o">\</span><span class="n">AndroidSDK</span>
-</pre></div>
-</div>
 </div>
 <div class="section" id="install-qt-for-android">
-<span id="index-3"></span><h2>Install Qt for Android<a class="headerlink" href="#install-qt-for-android" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p>You can install Qt for Android from the next link</p>
-<blockquote>
-<div><p><a class="reference external" href="https://download.qt.io/archive/qt/5.12/5.12.6/">https://download.qt.io/archive/qt/5.12/5.12.6/</a></p>
-</div></blockquote>
-</li>
-<li><dl>
-<dt>Run Qt Creator, Select Tools &gt; Options &gt; Android to add the</dt><dd><p>Android NDK and SDK paths.</p>
-<blockquote>
-<div><p><a class="reference external" href="http://doc.qt.io/qtcreator/creator-developing-android.html">http://doc.qt.io/qtcreator/creator-developing-android.html</a></p>
-</div></blockquote>
-</dd>
-</dl>
-</li>
+<span id="index-2"></span><h2>Install Qt for Android<a class="headerlink" href="#install-qt-for-android" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li><p>Check the next link : <a class="reference external" href="http://doc.qt.io/qt-5/androidgs.html">http://doc.qt.io/qt-5/androidgs.html</a></p></li>
+</ol>
+<ul class="simple">
+<li><p>Run Qt Creator</p></li>
+<li><p>Select Tools &gt; Options &gt; Devices &gt; Android</p></li>
+<li><p>Set the path for JDK, Android NDK and Android SDK Tools</p></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li><p>Using Qt Creator, We can download these requirements</p></li>
+</ol>
+<ul class="simple">
+<li><p>The Android SDK Tools</p></li>
+<li><p>The Android NDK (Tested using android-ndk-r21)</p></li>
+<li><p>Java SE Development Kit (JDK) v6 or later</p></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li><p>Update the Android SDK to get the API and tools packages required for development</p></li>
+</ol>
+<ul class="simple">
+<li><p>Tested using Android 7.1 (API 25)</p></li>
 </ul>
 </div>
 <div class="section" id="using-ring2exe">
-<span id="index-4"></span><h2>Using Ring2EXE<a class="headerlink" href="#using-ring2exe" title="Permalink to this headline">¶</a></h2>
+<span id="index-3"></span><h2>Using Ring2EXE<a class="headerlink" href="#using-ring2exe" title="Permalink to this headline">¶</a></h2>
 <p>We can use Ring2EXE to quickly prepare Qt project for our application</p>
 <p>Example:</p>
 <div class="highlight-none notranslate"><div class="highlight"><pre><span></span>ring2exe myapp.ring -dist -mobileqt
@@ -358,7 +328,7 @@
 </div>
 </div>
 <div class="section" id="the-qt-project-for-your-ring-application">
-<span id="index-5"></span><h2>The Qt project for your Ring application<a class="headerlink" href="#the-qt-project-for-your-ring-application" title="Permalink to this headline">¶</a></h2>
+<span id="index-4"></span><h2>The Qt project for your Ring application<a class="headerlink" href="#the-qt-project-for-your-ring-application" title="Permalink to this headline">¶</a></h2>
 <p>After using Ring2EXE or the Distribute Menu in Ring Notepad</p>
 <ul>
 <li><p>Using the Qt Creator Open the generated Qt project</p>
@@ -400,7 +370,7 @@
 </div>
 </div>
 <div class="section" id="comments-about-developing-for-android-using-ringqt">
-<span id="index-6"></span><h2>Comments about developing for Android using RingQt<a class="headerlink" href="#comments-about-developing-for-android-using-ringqt" title="Permalink to this headline">¶</a></h2>
+<span id="index-5"></span><h2>Comments about developing for Android using RingQt<a class="headerlink" href="#comments-about-developing-for-android-using-ringqt" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p>The main project file is main.cpp</p>
 <blockquote>
@@ -426,7 +396,7 @@ add them (create projects with many files).</p>
 </ol>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
-<p>All of the missing libraries ((LibCurl, OpenSSL &amp; Allegro) can be compiled for Android, but they are not included in this Qt project.</p>
+<p>All of the missing libraries (LibCurl, OpenSSL &amp; Allegro) can be compiled for Android, but they are not included in this Qt project.</p>
 </div>
 <ol class="arabic simple" start="3">
 <li><p>use if isandroid() when you want to modify the code just for android</p></li>

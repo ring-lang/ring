@@ -7,52 +7,14 @@ Building RingQt Applications for Mobile
 
 In this chapter we will learn about Building RingQt Applications for Mobile.
 
-
 .. index:: 
 	pair: Building RingQt Applications for Mobile; Download Requirements
 
 Download Requirements
 =====================
 
-Check the next link : http://doc.qt.io/qt-5/androidgs.html
-
-Download 
-
-* The Android SDK Tools
-
-	https://developer.android.com/sdk/index.html
-
-* The Android NDK (Tested using android-ndk-r21)
-
-	http://developer.android.com/tools/sdk/ndk/index.html
-
-* Java SE Development Kit (JDK) v6 or later
-
-	https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html
-
-.. index:: 
-	pair: Building RingQt Applications for Mobile; Update the Android SDK
-
-Update the Android SDK
-======================
-
-Update the Android SDK to get the API and tools packages required for development
-
-	Tested using Android 4.4.2 (API 19)
-
-* In Windows - Define the next Environment Variables based on your system.
-
-(1) JAVA_HOME
-
-.. code-block:: ring
-	
-	For Example : C:\Program Files (x86)\Java\jdk1.8.0_05 
-
-(2) ANDROID_HOME	
-
-.. code-block:: ring
-
-	For Example : C:\JavaAndroid\AndroidSDK
+* Install Qt 5.15.2 
+* Install Qt Creator (Tested using Qt Creator 6.0.1)
 
 .. index:: 
 	pair: Building RingQt Applications for Mobile; Install Qt for Android
@@ -60,15 +22,21 @@ Update the Android SDK to get the API and tools packages required for developmen
 Install Qt for Android
 ======================
 
-* You can install Qt for Android from the next link
+(1) Check the next link : http://doc.qt.io/qt-5/androidgs.html
 
-		https://download.qt.io/archive/qt/5.12/5.12.6/
+* Run Qt Creator
+* Select Tools > Options > Devices > Android 
+* Set the path for JDK, Android NDK and Android SDK Tools
 
-* Run Qt Creator, Select Tools > Options > Android to add the 
-    Android NDK and SDK paths. 
+(2) Using Qt Creator, We can download these requirements
 
-		http://doc.qt.io/qtcreator/creator-developing-android.html
+* The Android SDK Tools
+* The Android NDK (Tested using android-ndk-r21)
+* Java SE Development Kit (JDK) v6 or later
 
+(3) Update the Android SDK to get the API and tools packages required for development
+
+* Tested using Android 7.1 (API 25)
 
 .. index:: 
 	pair: Building RingQt Applications for Mobile; Using Ring2EXE
@@ -160,7 +128,7 @@ Comments about developing for Android using RingQt
 
 	For database access use the QSqlDatabase Class
 
-.. note:: All of the missing libraries ((LibCurl, OpenSSL & Allegro) can be compiled for Android, but they are not included in this Qt project.
+.. note:: All of the missing libraries (LibCurl, OpenSSL & Allegro) can be compiled for Android, but they are not included in this Qt project.
 
 (3) use if isandroid() when you want to modify the code just for android
 
