@@ -87,7 +87,7 @@ The next chapters are improved!
 
 (1) Building RingQt applications for Mobile
 (2) Building RingQt applications for WebAssembly
-
+(3) How to compiler Ring from source code?
 
 .. index:: 
 	pair: What is new in Ring  1.18; More Improvements
