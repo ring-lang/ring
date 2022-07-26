@@ -4,6 +4,16 @@
 
 ## Building using Ubuntu Linux 
 
+This version is tested using Ubuntu 22.04 LTS
+
+### Install Git
+
+	sudo apt-get install git
+
+### Upgrade the packages 
+
+	sudo apt-get update && sudo apt-get upgrade
+
 ### Get the source code
 
 	git clone https://github.com/ring-lang/ring.git
