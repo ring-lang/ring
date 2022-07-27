@@ -1677,7 +1677,7 @@ In this example we will learn about using the QTimer class
 			setwindowtitle("Timer")
 			label1 = new qlabel(win1) {
 				setgeometry(10,10,200,30)
-				settext(thetime()) 
+				settext(theTime()) 
 			}
 			new qtimer(win1) {
 				setinterval(1000)
@@ -1689,10 +1689,10 @@ In this example we will learn about using the QTimer class
 		exec()
 	}
 
-	func ptime
+	func pTime
 		label1.settext(thetime())
 
-	Func thetime
+	func theTime
 		return "Time : " + Time()
 
 

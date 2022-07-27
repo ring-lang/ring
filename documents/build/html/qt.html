@@ -1715,7 +1715,7 @@ To use it just use the function setValueChangedEvent()</p>
                 <span class="n">setwindowtitle</span><span class="p">(</span><span class="s">&quot;Timer&quot;</span><span class="p">)</span>
                 <span class="n">label1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">qlabel</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">setgeometry</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">200</span><span class="p">,</span><span class="mi">30</span><span class="p">)</span>
-                        <span class="n">settext</span><span class="p">(</span><span class="n">thetime</span><span class="p">())</span>
+                        <span class="n">settext</span><span class="p">(</span><span class="n">theTime</span><span class="p">())</span>
                 <span class="p">}</span>
                 <span class="k">new</span> <span class="n">qtimer</span><span class="p">(</span><span class="n">win1</span><span class="p">)</span> <span class="p">{</span>
                         <span class="n">setinterval</span><span class="p">(</span><span class="mi">1000</span><span class="p">)</span>
@@ -1727,10 +1727,10 @@ To use it just use the function setValueChangedEvent()</p>
         <span class="n">exec</span><span class="p">()</span>
 <span class="p">}</span>
 
-<span class="k">func</span> <span class="n">ptime</span>
+<span class="k">func</span> <span class="n">pTime</span>
         <span class="n">label1</span><span class="p">.</span><span class="n">settext</span><span class="p">(</span><span class="n">thetime</span><span class="p">())</span>
 
-<span class="k">Func</span> <span class="n">thetime</span>
+<span class="k">func</span> <span class="n">theTime</span>
         <span class="k">return</span> <span class="s">&quot;Time : &quot;</span> <span class="o">+</span> <span class="n">Time</span><span class="p">()</span>
 </pre></div>
 </div>
