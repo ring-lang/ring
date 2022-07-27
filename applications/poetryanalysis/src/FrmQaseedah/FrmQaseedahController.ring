@@ -1,6 +1,6 @@
 # Form/Window Controller - Source Code File
 
-load "frmQaseedahView.ring"
+load "FrmQaseedahView.ring"
 load "../Analyzer.ring"
 
 import System.GUI
