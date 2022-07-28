@@ -632,6 +632,8 @@ Run Ring Notepad
 Building using MacOS X
 ======================
 
+This version is tested using macOS Catalina (version 10.15)
+
 Get the source code
 
 .. code-block:: none
