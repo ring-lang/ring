@@ -308,8 +308,8 @@ void ring_vm_mysql_real_escape_string ( void *pPointer )
 		if ( con == NULL ) {
 			return ;
 		}
-		nSize = RING_API_GETSTRINGSIZE(2) ;
-		nSize2 = 2*nSize+1 ;
+		nSize = RING_API_GETSTRINGSIZE(2) -1 ;
+		nSize2 = 2*nSize ;
 		cStr = (char *) malloc(nSize2) ;
 		if ( cStr == NULL ) {
 			RING_API_ERROR(RING_OOM);
