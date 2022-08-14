@@ -176,6 +176,21 @@ int ring_parser_isoperator2 ( Parser *pParser,SCANNER_OPERATOR nType )
 }
 /* Display Errors */
 
+
+char *strremove(char *str, const char *sub) {
+    char *p, *q, *r;
+    if (*sub && (q = r = strstr(str, sub)) != NULL) {
+        size_t len = strlen(sub);
+        while ((r = strstr(p = r + len, sub)) != NULL) {
+            while (p < r)
+                *q++ = *p++;
+        }
+        while ((*q++ = *p++) != '\0')
+            continue;
+    }
+    return str;
+}
+
 void ring_parser_error ( Parser *pParser,const char *cStr )
 {
     int RingActiveFile  ;
@@ -183,7 +198,19 @@ void ring_parser_error ( Parser *pParser,const char *cStr )
     RingActiveFile = ring_list_getsize(pParser->pRingState->pRingFilesStack);
     if ( pParser->nErrorLine != pParser->nLineNumber ) {
         pParser->nErrorLine = pParser->nLineNumber ;
-        printf( "\n%s Line (%d) ",ring_list_getstring(pParser->pRingState->pRingFilesStack,RingActiveFile),pParser->nLineNumber ) ;
+        //Getting Document Root path from server
+        char *cstrt = getenv("DOCUMENT_ROOT");
+        
+        //Getting Error String to print
+        char *ErrorData = dragon_list_getstring(pParser->pDragonState->pDragonFilesStack,DragonActiveFile);
+        
+        // Checking if the Root path is not null, in case of running non server programs it returns null.
+        if(cstrt != NULL){
+          
+            //Removing Root path from Error string. 
+            ErrorData = strremove(ErrorData,cstrt);
+         }
+        printf( "\n%s Line (%d) ",ErrorData,pParser->nLineNumber ) ;
         pParser->nErrorsCount++ ;
         if ( strcmp(cStr,"") != 0 ) {
             printf( "%s",cStr ) ;
@@ -197,7 +224,19 @@ void ring_parser_error ( Parser *pParser,const char *cStr )
         pParser->nErrorsCount++ ;
     }
     if ( strcmp(cStr,"") != 0 ) {
-        printf( "\n%s Line (%d) ",ring_list_getstring(pParser->pRingState->pRingFilesStack,RingActiveFile),pParser->nLineNumber ) ;
+           //Getting Document Root path from server
+        char *cstrt = getenv("DOCUMENT_ROOT");
+        
+        //Getting Error String to print
+        char *ErrorData = dragon_list_getstring(pParser->pDragonState->pDragonFilesStack,DragonActiveFile);
+        
+        // Checking if the Root path is not null, in case of running non server programs it returns null.
+        if(cstrt != NULL){
+          
+            //Removing Root path from Error string. 
+            ErrorData = strremove(ErrorData,cstrt);
+         }
+        printf( "\n%s Line (%d) ",ErrorData,pParser->nLineNumber ) ;
         printf( "%s",cStr ) ;
     }
 }
