@@ -2,6 +2,8 @@
 # Web Library
 # 2016-2018, Mahmoud Fayed <msfclipper@yahoo.com>
 
+load "stdlib.ring"
+
 Package System.Web
 			
 	Class Application
