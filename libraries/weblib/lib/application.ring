@@ -92,6 +92,15 @@ Package System.Web
 					nPos = substr(cInput,'"')  # end of the file name
 					cFile = left(cInput,nPos-1)	# File Name to be added to the List
 					
+					nPos2 = substr(cInput,"Content-Type") 
+					type = split(substr(cInput,nPos2)," ")
+					if(cFile != ""){
+						fileType = type[2] # File Content Type to be added to the list
+					else
+
+						fileType = ""
+					}
+					
 					for x = 1 to 3
 						nPos = substr(cInput,nl)
 						cInput = substr(cInput,nPos+1) # after new line
@@ -100,6 +109,7 @@ Package System.Web
 					nPos = substr(cInput,cMark) 
 					NewVar + left(cInput,nPos-2)    # Get File content
 					NewVar + cFile			# Add file Name
+					NewVar + fileType # Add file content type
 					cInput = substr(cInput,nPos)
 					
 				else
