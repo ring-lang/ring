@@ -25,6 +25,11 @@ Func LoadVars
 		else
 			if sysget("CONTENT_LENGTH") > 0
 				cInput = input(sysget("CONTENT_LENGTH"))
+				if sysget("QUERY_STRING") != null or sysget("QUERY_STRING") != ""
+					cInput2 = sysget("QUERY_STRING")
+					cInput += "&" +cInput2
+
+				end
 			else
 				cInput = ""
 			ok
