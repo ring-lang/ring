@@ -98,6 +98,7 @@ More Improvements
 * Added: samples/UsingQt/TabActivate/simpleExample.ring 
 * Added: samples/UsingQt/TabActivate/TabActivateController.ring 
 * Added: samples/UsingFormDesigner/centerwindow
+* Added: samples/AQuickStart/MySQL/mysql11.ring
 * Sample: samples/AQuickStart/GUILib/gui44.ring - Better Code
 * Ring Notepad: New option to build GUI application using Ring2EXE
 * Ring Notepad: Output Window - Correct cursor position while using unicode 
