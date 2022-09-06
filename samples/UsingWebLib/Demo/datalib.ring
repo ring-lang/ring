@@ -281,6 +281,7 @@ Class ControllerBase
 Class ViewBase
 
 	aSize = [100,200,100]
+	lShowOptions = True
 
 	Func HiddenVars	
 		# No hidden variables
@@ -395,6 +396,7 @@ Class ViewBase
 										text(x[x2]) 
 									cellend() 
 								next
+								if this.lShowOptions
 								cellstart([]) 						
 									combobox([ :id = "options"+nID,
 										   :name = "options",
@@ -406,6 +408,7 @@ Class ViewBase
 										   :value = "Select Option..." ] )						
 									nID++
 								cellend()
+								ok
 							rowend()
 						next
 					tableend()					
