@@ -280,6 +280,8 @@ Class ControllerBase
 
 Class ViewBase
 
+	aSize = [100,200,100]
+
 	Func HiddenVars	
 		# No hidden variables
 
@@ -375,7 +377,6 @@ Class ViewBase
 							for x in oTranslation.aColumnsTitles headerstart([]) text(x) headerend() next 
 							headerstart([]) text(oTranslation.cOptions) headerend()
 						rowend() 
-						aSize = [100,200,100]
 						nID = 1
 						for x in oController.oModel.aQueryResult
 							rowstart([ :id = "gridrow" + nID ])
@@ -387,7 +388,10 @@ Class ViewBase
 										ok
 									ok
 									nSizeIndex++
-									cellstart([ :style = stylewidth(""+aSize[nSizeIndex]+"px") ]) 
+									if nSizeIndex > len(this.aSize) 
+										this.aSize + 100
+									ok
+									cellstart([ :style = stylewidth(""+this.aSize[nSizeIndex]+"px") ]) 
 										text(x[x2]) 
 									cellend() 
 								next
