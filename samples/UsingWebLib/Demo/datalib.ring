@@ -376,7 +376,9 @@ Class ViewBase
 					tablestart([:id = :t01 , :style="width:100%"])		
 						rowstart([ :style = stylegradient(57) ]) 
 							for x in oTranslation.aColumnsTitles headerstart([]) text(x) headerend() next 
-							headerstart([]) text(oTranslation.cOptions) headerend()
+							if this.lShowOptions
+								headerstart([]) text(oTranslation.cOptions) headerend()
+							ok
 						rowend() 
 						nID = 1
 						for x in oController.oModel.aQueryResult
