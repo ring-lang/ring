@@ -19,6 +19,7 @@ Ring 1.18 comes with the next features!
 * Better Citations Prediction application
 * Ring for MS-DOS
 * Better RingSockets
+* Heroku (Better support)
 * Better Documentation
 * More Improvements
 
@@ -76,6 +77,18 @@ The next functions are added to the extension
 * inet_pton()
 * inet_ntop()
 * socketsCleanup()
+
+.. index:: 
+	pair: What is new in Ring  1.18; Heroku (Better support)
+
+Heroku (Better support)
+=======================
+
+In Ring 1.18 We updated the packages to use a modern Ring version
+
+The project is tested using Heroku-22 (Ubuntu 22.04)
+
+URL: https://github.com/ring-lang/RingWebAppOnHeroku
 
 .. index:: 
 	pair: What is new in Ring  1.18; Better Documentation
