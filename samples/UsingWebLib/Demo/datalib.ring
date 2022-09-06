@@ -520,7 +520,7 @@ Class ViewBase
 								cellstart([ :style = styletablenoborder() ])
 								cellend()
 								cellstart([ :style = StyleTableNoBorder() ])
-									submit([ :value = oTranslation.cSave , :style = stylewidth("15%")])
+									submit([ :value = oTranslation.cSave , :style = stylewidth("25%")])
 								cellend()
 							rowend()
 						tableend()			
