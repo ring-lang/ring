@@ -2037,9 +2037,6 @@ void ring_vm_generallib_print ( void *pPointer )
 {
     List *pList  ;
     char cStr[100]  ;
-    char *cString  ;
-    int x,nSize,nPos  ;
-    char cCode[256]  ;
     VM *pVM  ;
     pVM = (VM *) pPointer ;
     if ( RING_API_PARACOUNT != 1 ) {
@@ -2052,12 +2049,12 @@ void ring_vm_generallib_print ( void *pPointer )
         return ;
     }
     if ( RING_API_ISLIST(1) ) {
-        pList = RING_API_GETLIST(1);
+        pList = RING_API_GETLIST(1) ;
         if ( ring_vm_oop_isobject(pList) ) {
             ring_vm_oop_printobj(pVM,pList);
         }
         else {
-            ring_list_print2(pList, ((VM *)pPointer)->nDecimals);
+            ring_list_print2(pList, pVM->nDecimals);
         }
         return ;
     }
@@ -2065,62 +2062,63 @@ void ring_vm_generallib_print ( void *pPointer )
         RING_API_ERROR(RING_API_BADPARATYPE);
         return ;
     }
-    cString = RING_API_GETSTRING(1) ;
-    nSize = RING_API_GETSTRINGSIZE(1) ;
-    for ( x = 0 ; x < nSize ; x++ ) {
-        if ( x != nSize-1 ) {
-            switch ( cString[x] ) {
-                case '\\' :
-                    switch ( cString[x+1] ) {
-                        case 'r' :
-                            printf( "\r" ) ;
-                            x++ ;
-                            continue ;
-                        case 'n' :
-                            printf( "\n" ) ;
-                            x++ ;
-                            continue ;
-                        case 't' :
-                            printf( "\t" ) ;
-                            x++ ;
-                            continue ;
-                        case '\\' :
-                            printf( "\\" ) ;
-                            x++ ;
-                            continue ;
-                        case '#' :
-                            printf( "#" ) ;
-                            x++ ;
-                            continue ;
-                    }
-                    break ;
-                case '#' :
-                    if ( cString[x+1] == '{' ) {
-                        strcpy(cCode,"see ");
-                        x += 2 ;
-                        nPos = 4 ;
-                        while ( (x < nSize) && (cString[x] != '}') && (nPos <= C_EXPRCODESIZE ) ) {
-                            cCode[nPos] = cString[x] ;
-                            nPos++ ;
-                            x++ ;
-                        }
-                        if ( nPos > C_EXPRCODESIZE ) {
-                            RING_API_ERROR("The Expression is too large, The size must be <= 200 characters!");
-                            return ;
-                        }
-                        cCode[nPos] = '\0' ;
-                        /* Evaluate the Expression */
-                        ring_vm_runcode(pVM,cCode);
-                        continue ;
-                    }
-                    break ;
-            }
-        }
-        printf( "%c",cString[x] ) ;
-    }
+    ring_vm_generallib_customprint(pPointer,"see");
 }
 
 void ring_vm_generallib_print2str ( void *pPointer )
+{
+    ring_vm_generallib_customprint(pPointer,"return");
+}
+
+void ring_vm_generallib_puts ( void *pPointer )
+{
+    List *pList  ;
+    char cStr[100]  ;
+    VM *pVM  ;
+    pVM = (VM *) pPointer ;
+    if ( RING_API_PARACOUNT != 1 ) {
+        RING_API_ERROR(RING_API_MISS1PARA);
+        return ;
+    }
+    if ( RING_API_ISNUMBER(1) ) {
+        ring_vm_numtostring(pVM,RING_API_GETNUMBER(1),cStr);
+        printf( "%s\n",cStr ) ;
+        return ;
+    }
+    if ( RING_API_ISLIST(1) ) {
+        pList = RING_API_GETLIST(1) ;
+        if ( ring_vm_oop_isobject(pList) ) {
+            ring_vm_oop_printobj(pVM,pList);
+        }
+        else {
+            ring_list_print2(pList, pVM->nDecimals);
+        }
+        return ;
+    }
+    if ( ! RING_API_ISSTRING(1) ) {
+        RING_API_ERROR(RING_API_BADPARATYPE);
+        return ;
+    }
+    ring_vm_generallib_customprint(pPointer,"?");
+}
+
+void ring_vm_generallib_getnumber ( void *pPointer )
+{
+    int x  ;
+    char cLine[256]  ;
+    double nNum  ;
+    fgets(cLine , 256 , stdin );
+    for ( x = 0 ; x <= 255 ; x++ ) {
+        if ( cLine[x] == '\n' ) {
+            cLine[x] = '\0' ;
+            break ;
+        }
+    }
+    nNum = ring_vm_stringtonum((VM *) pPointer,cLine);
+    RING_API_RETNUMBER(nNum);
+}
+
+void ring_vm_generallib_customprint ( void *pPointer,const char *cCommand )
 {
     char cStr[100]  ;
     int x,nSize,nPos  ;
@@ -2144,7 +2142,8 @@ void ring_vm_generallib_print2str ( void *pPointer )
     }
     cString = RING_API_GETSTRING(1) ;
     nSize = RING_API_GETSTRINGSIZE(1) ;
-    pRingCode = ring_string_new_gc(pVM->pRingState,"return ''");
+    pRingCode = ring_string_new_gc(pVM->pRingState,cCommand);
+    ring_string_add_gc(pVM->pRingState,pRingCode," ''");
     for ( x = 0 ; x < nSize ; x++ ) {
         if ( x != nSize-1 ) {
             switch ( cString[x] ) {
@@ -2211,28 +2210,6 @@ void ring_vm_generallib_print2str ( void *pPointer )
         pVM->nEvalCalledFromRingCode = 0 ;
     }
     ring_string_delete_gc(pVM->pRingState,pRingCode);
-}
-
-void ring_vm_generallib_puts ( void *pPointer )
-{
-    ring_vm_generallib_print(pPointer);
-    printf( "\n" ) ;
-}
-
-void ring_vm_generallib_getnumber ( void *pPointer )
-{
-    int x  ;
-    char cLine[256]  ;
-    double nNum  ;
-    fgets(cLine , 256 , stdin );
-    for ( x = 0 ; x <= 255 ; x++ ) {
-        if ( cLine[x] == '\n' ) {
-            cLine[x] = '\0' ;
-            break ;
-        }
-    }
-    nNum = ring_vm_stringtonum((VM *) pPointer,cLine);
-    RING_API_RETNUMBER(nNum);
 }
 /* Performance */
 
