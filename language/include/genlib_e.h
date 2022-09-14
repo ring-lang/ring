@@ -202,6 +202,8 @@
     void ring_vm_generallib_puts ( void *pPointer ) ;
 
     void ring_vm_generallib_getnumber ( void *pPointer ) ;
+
+    void ring_vm_generallib_customprint ( void *pPointer,const char *cCommand ) ;
     /* Performance */
 
     void ring_vm_generallib_checkoverflow ( void *pPointer ) ;
