@@ -334,7 +334,7 @@ Class ViewBase
 				text( oTranslation.cTitle )
 			divend()
 
-			if oController.lShowBackLink
+			if this.lShowBackLink
 				divstart( [ :style = stylesize("100%","5%") + stylegradient(4) ] )
 					divstart( [ :style = stylesize("100%","5%") + stylegradient(13) ] )
 						link([ :url = website, :title = oTranslation.cBack] )				
