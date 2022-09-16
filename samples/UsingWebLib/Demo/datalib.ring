@@ -479,12 +479,17 @@ Class ViewBase
 			divend()
 			divend()
 
-			Script( oThisView.AddFuncScript(self,oController) + 
-				scriptfuncclean("myclean","result") +
-				scriptfuncselect("selectrecord",oTranslation.comboitems,
+			cScripts = oThisView.AddFuncScript(self,oController) + 
+				scriptfuncclean("myclean","result") 
+
+			if this.lShowOptions 
+				cScripts += scriptfuncselect("selectrecord",oTranslation.comboitems,
 						 "mysubpage","result","gridrow","myclean",3000,
 						 oController.cMainURL+oController.cOperation+"=edit&"+oController.cRecID+"=",
-						 oController.cMainURL+oController.cOperation+"=delete&"+oController.cRecID+"=") )	
+						 oController.cMainURL+oController.cOperation+"=delete&"+oController.cRecID+"=") 
+			ok
+
+			Script( cScripts )	
 
 		}
 
