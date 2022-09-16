@@ -20,6 +20,7 @@ Ring 1.18 comes with the next features!
 * Ring for MS-DOS
 * Better RingSockets
 * Heroku (Better support)
+* Better WebLib
 * Better Documentation
 * More Improvements
 
@@ -91,6 +92,24 @@ The project is tested using Heroku-22 (Ubuntu 22.04)
 URL: https://github.com/ring-lang/RingWebAppOnHeroku
 
 .. index:: 
+	pair: What is new in Ring  1.18; Better WebLib
+
+Better WebLib
+=============
+
+(1) HTTP Post - Better Code
+
+(2) Application Class - Redirect() Method
+
+(3) Page Class - More Methods:
+	* theadStart(aOptions)
+	* theadEnd()
+	* tbodyStart(aOptions)
+	* tbodyEnd()
+	* tfootStart(aOptions)
+	* tfootEnd() 
+
+.. index:: 
 	pair: What is new in Ring  1.18; Better Documentation
 
 Better Documentation
@@ -117,8 +136,6 @@ More Improvements
 * Ring Notepad: New option to build GUI application using Ring2EXE
 * Ring Notepad: Output Window - Correct cursor position while using unicode 
 * FindInFiles Application: Better Code (Check Read() function output)
-* WebLib: HTTP Post - Better Code
-* WebLib: Application Class - Redirect() Method
 * RingSQLite: Use SQLite 3.39.2.
 * RingHTTPLib: Use cpp-httplib 0.10.9
 * RingZip: Use zip 0.2.4 
