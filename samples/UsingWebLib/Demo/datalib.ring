@@ -182,6 +182,9 @@ Class ModelBase from Database
 
 Class ControllerBase
 	
+	lAllowEdit   = True
+	lAllowDelete = True
+
 	nRecordsPerPage = 5
 	nRecordsCount = 0
 	nPagesCount = 0
@@ -261,16 +264,17 @@ Class ControllerBase
 		oView.SaveView(self)
 
 	func EditRecord
-
+		if !lAllowEdit return ok
 		oModel.Find( aPageVars[cRecID] )
 		oView.FormViewEdit(Self,:update,true) # true mean include record id
 
 	func UpdateRecord
+		if !lAllowEdit return ok
 		oModel.update( aPageVars[cRecID] )
 		oView.UpdateView(self)
 
 	func DeleteRecord
-
+		if !lAllowDelete return ok
 		oModel.Delete( aPageVars[cRecID] )
 		oView.DeleteView()
 
