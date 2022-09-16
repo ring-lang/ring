@@ -421,5 +421,35 @@ Package System.Web
 			TabPOP()
 			cOutput += nl+GetTabs()+"</th>" + nl
 
+		Func theadstart aPara
+			cOutput += nl+GetTabs()+'<thead '
+			addattributes(aPara)
+			cOutput += '>'
+			TabPush()
+
+		Func theadend
+			TabPOP()
+			cOutput += nl+GetTabs()+"</thead>" + nl
+
+		Func tbodystart aPara
+			cOutput += nl+GetTabs()+'<tbody '
+			addattributes(aPara)
+			cOutput += '>'
+			TabPush()
+
+		Func tbodyend
+			TabPOP()
+			cOutput += nl+GetTabs()+"</tbody>" + nl
+
+		Func tfootstart aPara
+			cOutput += nl+GetTabs()+'<tfoot '
+			addattributes(aPara)
+			cOutput += '>'
+			TabPush()
+
+		Func tfootend
+			TabPOP()
+			cOutput += nl+GetTabs()+"</tfoot>" + nl
+
 		Func braceend 
 			print() 
