@@ -282,6 +282,7 @@ Class ViewBase
 
 	aSize = [100,200,100]
 	lShowOptions = True
+	lShowBackLink = True
 
 	Func HiddenVars	
 		# No hidden variables
@@ -333,11 +334,13 @@ Class ViewBase
 				text( oTranslation.cTitle )
 			divend()
 
-			divstart( [ :style = stylesize("100%","5%") + stylegradient(4) ] )
-				divstart( [ :style = stylesize("100%","5%") + stylegradient(13) ] )
-					link([ :url = website, :title = oTranslation.cBack] )				
+			if oController.lShowBackLink
+				divstart( [ :style = stylesize("100%","5%") + stylegradient(4) ] )
+					divstart( [ :style = stylesize("100%","5%") + stylegradient(13) ] )
+						link([ :url = website, :title = oTranslation.cBack] )				
+					divend()
 				divend()
-			divend()
+			ok
 
 			divstart( [ :style = stylesize("100%","10%") + stylegradient(11) ] )
 				divstart([ :style= stylewidth("30%") + styleHorizontalCenter() ])
