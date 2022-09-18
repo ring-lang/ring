@@ -20,6 +20,10 @@ Package System.Web
 
 		lContentType = True
 
+		cJSJQueryPath = "https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"
+		cJSBootstrapPath = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
+		cCSSBootstrapPath = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
+
 		func WebPrint cStr
 			if lPrint
 				see cStr
@@ -183,11 +187,11 @@ Package System.Web
 		Func ScriptLibs
 			if lBootstrap
 				cStr = nl+'<meta name="viewport" content="width=device-width, initial-scale=1">' + nl +
-  				       '<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">'+nl+
-				       '<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>'+nl+
-			 	       '<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>'+nl
+  				       '<link rel="stylesheet" href="'+cCSSBootstrapPath+'">'+nl+
+				       '<script src="'+cJSJQueryPath+'"></script>'+nl+
+			 	       '<script src="'+cJSBootstrapPath+'"></script>'+nl
 			else
-				cStr = nl+'<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>'+nl
+				cStr = nl+'<script src="'+cJSJQueryPath+'"></script>'+nl
 			ok	
 			return TabMLString(cStr)
 
