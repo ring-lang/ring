@@ -111,6 +111,11 @@ Better WebLib
 
 (4) WebPage Class - Support (THead, TBody & TFoot)
 
+(5) Application Class - Attributes for JavaScript Libraries 
+	* cJSJQueryPath
+	* cJSBootstrapPath
+	* cCSSBootstrapPath
+
 .. index:: 
 	pair: What is new in Ring  1.18; Better Documentation
 
