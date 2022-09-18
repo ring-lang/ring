@@ -223,6 +223,11 @@ Package System.Web
 				return ""
 			ok
 
+		Func UseLocalFiles
+			cJSJQueryPath = "js/jquery.min.js"
+			cJSBootstrapPath = "js/bootstrap.min.js"
+			cCSSBootstrapPath = "css/bootstrap.min.css"
+
 		Private
 
 			nTabs = 1
