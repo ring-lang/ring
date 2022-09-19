@@ -24,6 +24,8 @@ Package System.Web
 		cJSBootstrapPath = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"
 		cCSSBootstrapPath = "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"
 
+		lNoJavaScript = False
+
 		func WebPrint cStr
 			if lPrint
 				see cStr
@@ -183,8 +185,12 @@ Package System.Web
 				ok
 			next
 			return cOut	
-		
+	
+		Func NoJavaScript
+			lNoJavaScript = True
+	
 		Func ScriptLibs
+			if lNoJavaScript return ok
 			if lBootstrap
 				cStr = nl+'<meta name="viewport" content="width=device-width, initial-scale=1">' + nl +
   				       '<link rel="stylesheet" href="'+cCSSBootstrapPath+'">'+nl+
