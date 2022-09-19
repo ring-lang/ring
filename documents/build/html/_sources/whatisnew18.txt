@@ -99,9 +99,17 @@ Better WebLib
 
 (1) HTTP Post - Better Code
 
-(2) Application Class - Redirect() Method
+(2) Application Class - More Methods:
+	* Redirect()
+	* NoJavaScript()
 
-(3) Page Class - More Methods:
+(3) Application Class - Attributes for JavaScript Libraries 
+	* cJSJQueryPath
+	* cJSBootstrapPath
+	* cCSSBootstrapPath
+	* lNoJavaScript
+
+(4) Page Class - More Methods:
 	* theadStart(aOptions)
 	* theadEnd()
 	* tbodyStart(aOptions)
@@ -109,12 +117,7 @@ Better WebLib
 	* tfootStart(aOptions)
 	* tfootEnd() 
 
-(4) WebPage Class - Support (THead, TBody & TFoot)
-
-(5) Application Class - Attributes for JavaScript Libraries 
-	* cJSJQueryPath
-	* cJSBootstrapPath
-	* cCSSBootstrapPath
+(5) WebPage Class - Support (THead, TBody & TFoot)
 
 .. index:: 
 	pair: What is new in Ring  1.18; Better Documentation
