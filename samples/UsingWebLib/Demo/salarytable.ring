@@ -55,7 +55,7 @@ Class SalaryLanguageArabic
 	aColumnsTitles = ["الكود","الإسم","الراتب"]
 	cOptions = "خيارات"
 	cSearch = "بحث"
-	cSearchColumn = "الراتب"
+	cSearchColumn = "الإسم"
 	comboitems = ["فضلا إختار...","تعديل","حذف"]
 	cAddRecord = "إضافة سجل"
 	cEditRecord = "تعديل سجل"
