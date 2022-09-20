@@ -1,6 +1,7 @@
 Import System.Web
 
 Class SalaryModel from ModelBase
+	cSearchColumn = "Name"
 
 Class SalaryController From ControllerBase
 	cMainURL = website+"?page=16&"
