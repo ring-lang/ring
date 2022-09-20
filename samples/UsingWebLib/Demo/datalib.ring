@@ -357,7 +357,7 @@ Class ViewBase
 						tablestart([ :style = styletablenoborder() ])
 						rowstart([])
 						cellstart([ :style = styletablenoborder() + stylewidth("10%") ])
-							text(oTranslation.aColumnsTitles[2]+" : ")
+							text(oTranslation.cSearchColumn+" : ")
 						cellend()
 						cellstart([ :style = styletablenoborder() + stylewidth("70%") ])
 							textbox([ :name = oController.cSearchName , 
@@ -391,19 +391,17 @@ Class ViewBase
 						for x in oController.oModel.aQueryResult
 							rowstart([ :id = "gridrow" + nID ])
 								nSizeIndex = 0
-								for x2=1 to len(x)
-									if x2 > 1 and x2 <= len(oController.oModel.aColumns) + 1
-										if find(oController.aColumnsNames,oController.oModel.aColumns[x2-1]) = 0
-											loop
-										ok
-									ok
+								for x2=1 to len(oController.aColumnsNames)
 									nSizeIndex++
 									if nSizeIndex > len(this.aSize) 
 										this.aSize + 100
 									ok
-									cellstart([ :style = stylewidth(""+this.aSize[nSizeIndex]+"px") ]) 
-										text(x[x2]) 
-									cellend() 
+									nIndex = find(oController.oModel.aColumns,oController.aColumnsNames[x2])
+									if nIndex > 0 or lower(oController.aColumnsNames[x2]) = "id"
+										cellstart([ :style = stylewidth(""+this.aSize[nSizeIndex]+"px") ]) 
+											text(x[nIndex+1]) 
+										cellend() 
+									ok
 								next
 								if this.lShowOptions
 								cellstart([]) 						
