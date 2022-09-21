@@ -82,9 +82,13 @@ Class ModelBase from Database
 				 cValues + ")" )
 
 	Func Update nID
+		UpdateColumns(nID,aColumns)
 
+	Func UpdateColumns nID,aColumnsList
 		cStr = ""
-		for x in aColumns
+		for x in aColumnsList
+			x = lower(x)
+			if x = "id" loop ok
 			cStr += x + " = '" + EscapeString(aPageVars[x]) + "' , " # the space after comma is necessary
 		Next
 		cStr = left(cStr,len(cStr)-2)  		
@@ -270,7 +274,7 @@ Class ControllerBase
 
 	func UpdateRecord
 		if !lAllowEdit return ok
-		oModel.update( aPageVars[cRecID] )
+		oModel.updateColumns( aPageVars[cRecID], aColumnsNames )
 		oView.UpdateView(self)
 
 	func DeleteRecord
