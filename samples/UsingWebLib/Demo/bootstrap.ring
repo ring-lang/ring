@@ -185,6 +185,7 @@ Func testbootstrap2
 				}
 			}
 
+			newline
 			table {
 				classname = "table table-striped"
 				thead {
