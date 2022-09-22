@@ -32,7 +32,7 @@ Func testbootstrap
 			newline()
 			divstart([ :class = :row ])	
 				tableStart([ :class = "table table-striped" ])
-					theadStart([ :style = "color:white;"+stylegradient(54) ])
+					theadStart([ :style = stylecolor("white")+stylegradient(54) ])
 						rowStart([])
 							cellStart([]) text("#") cellEnd()
 							cellStart([]) text("Language") cellEnd()
@@ -188,7 +188,7 @@ Func testbootstrap2
 			table {
 				classname = "table table-striped"
 				thead {
-					style = "color:white;"+stylegradient(54)
+					style = stylecolor("white")+stylegradient(54)
 					tr {
 						td { text("#") }
 						td { text("Language") }
