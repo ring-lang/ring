@@ -74,7 +74,7 @@ Package System.Web
 			cOutput = nl+GetTabs() + "<a href='" + Link + "'> "+ Title + " </a> " + nl			
 
 	Class NewLine from ObjsBase
-		cOutput = GetTabs() + "<br />"
+		cOutput = "<br />"
 
 	Class Div from ObjsBase 
 		Func braceend
