@@ -29,6 +29,7 @@ Func testbootstrap
 
 			divend() 	
 
+			newline()
 			divstart([ :class = :row ])	
 				tableStart([ :class = "table table-striped" ])
 					theadStart([ :style = "color:white;"+stylegradient(54) ])
