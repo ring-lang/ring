@@ -12,3 +12,9 @@ Developed using Ring and RingQt by Ahmed Hassouna
 Screen Shot:
 
 ![readfiles](https://raw.githubusercontent.com/ring-lang/ring/master/applications/readfiles/screenshot.png)
+
+Arabic Video: 
+
+This video demonstrates how to create the application step-by-step
+
+URL: https://www.youtube.com/watch?v=JQ7Am0LDi-g
