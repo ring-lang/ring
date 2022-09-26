@@ -49,7 +49,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
         if ( pList2 != NULL ) {
             /* Error when the method is private */
             if ( ring_list_getint(pList2,RING_FUNCMAP_PRIVATEFLAG) == 1 ) {
-                if ( ring_vm_oop_callmethodinsideclass(pVM) == 0 ) {
+                if ( (ring_vm_oop_callmethodinsideclass(pVM) == 0) && (pVM->nInClassRegion==0) ) {
                     ring_vm_error2(pVM,RING_VM_ERROR_CALLINGPRIVATEMETHOD,cStr);
                     return 0 ;
                 }
