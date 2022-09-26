@@ -1237,3 +1237,47 @@ void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM )
     /* Create the Temp Variable for the new object */
     ring_list_setint_gc(pVM->pRingState,pThis,RING_VAR_PVALUETYPE,ring_list_getint(pList,RING_VAR_PVALUETYPE));
 }
+
+int ring_vm_oop_callingclassmethodfromclassregion ( VM *pVM, List *pMethods )
+{
+    List *pList, *pThis, *pClass, *pVar  ;
+    Item *pItem  ;
+    pItem = NULL ;
+    if ( pVM->nInClassRegion != 0 ) {
+        pThis = ring_list_getlist(ring_vm_getglobalscope(pVM),RING_VM_STATICVAR_THIS) ;
+        if ( pThis == NULL ) {
+            return 0 ;
+        }
+        if ( ring_list_getint(pThis,RING_VAR_PVALUETYPE) == RING_OBJTYPE_VARIABLE ) {
+            pVar = (List *) ring_list_getpointer(pThis,RING_VAR_VALUE ) ;
+            pList = ring_list_getlist(pVar,RING_VAR_VALUE);
+        }
+        else if ( ring_list_getint(pThis,RING_VAR_PVALUETYPE) == RING_OBJTYPE_LISTITEM ) {
+            pItem = (Item *) ring_list_getpointer(pThis,RING_VAR_VALUE ) ;
+            if ( pItem == NULL ) {
+                return 0 ;
+            }
+            pList = ring_item_getlist(pItem) ;
+        }
+        else {
+            return 0 ;
+        }
+        if ( pList == NULL ) {
+            return 0 ;
+        }
+        /* Get Object Class */
+        pClass = (List *) ring_list_getpointer(pList,RING_OBJECT_CLASSPOINTER);
+        if ( pClass == NULL ) {
+            return 0 ;
+        }
+        if ( ring_list_getsize(pClass) == 0 ) {
+            return 0 ;
+        }
+        /* Get Class Methods */
+        pList = ring_list_getlist(pClass,RING_CLASSMAP_METHODSLIST);
+        if ( pList == pMethods ) {
+            return 1 ;
+        }
+    }
+    return 0 ;
+}
