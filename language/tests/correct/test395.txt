@@ -1,21 +1,7 @@
-test1
-good
-wow
-NULL
-great
-test1
-test1
-test1
-test1
-wow
-wow
-wow
-wow
-good
-good
-good
-good
-child
-test1
-pass1
-pass2
+Hello, World!
+Using Ring language
+Hello, World!
+Using **Ring** language
+Using **Ring** language
+I love Programming!
+Using **Ring** language
