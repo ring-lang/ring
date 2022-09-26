@@ -162,3 +162,8 @@ pList, *pThis
 ring_vm_oop_setthethisvariableinclassregion
 Type: List *
 pList, *pThis
+ring_vm_oop_callingclassmethodfromclassregion
+Type: List *
+pList, *pThis, *pClass, *pVar
+Type: Item *
+pItem
