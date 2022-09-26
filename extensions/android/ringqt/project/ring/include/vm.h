@@ -679,6 +679,8 @@
     void ring_vm_oop_setthethisvariable ( VM *pVM ) ;
 
     void ring_vm_oop_setthethisvariableinclassregion ( VM *pVM ) ;
+
+    int ring_vm_oop_callingclassmethodfromclassregion ( VM *pVM, List *pMethods ) ;
     /* For Better Performance */
 
     void ring_vm_pushp ( VM *pVM ) ;
