@@ -1,30 +1,15 @@
-1
-2
-3
-three
-4
-5
-6
-7
-8
-9
-10
-1
-2
-3
-three
-4
-5
-6
-7
-8
-9
-10
-good
+Hello, World!
+2022
 one
-10
-11
-12
-13
-14
-15
+two
+three
+one
+	two
+		three
+Ring is 6 years old!
+I know that 2+2=4 and 3+3=6
+Language Name = Ring
+x=10
+y=20
+z=30
+done

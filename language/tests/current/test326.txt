@@ -1,4 +1,2 @@
-Hello
-
-Line 4 Error (R24) : Using uninitialized variable : noobject 
-in file general/test115.ring 
+Error (S1) In file: general/test114.ring 
+In Line (2) Literal not closed 

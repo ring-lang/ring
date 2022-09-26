@@ -161,6 +161,7 @@ aTests = [
 	[ :name = "Private Attributes and Methods (Part 7)", :Command = "ring private/private7.ring" ],
 	[ :name = "Private Attributes and Methods (Part 8)", :Command = "ring private/private8.ring" ],
 	[ :name = "Private Attributes and Methods (Part 9)", :Command = "ring private/private9.ring" ],
+	[ :name = "Private Attributes and Methods (Part 10)", :Command = "ring private/private10.ring" ],
 	[ :name = "Class Region (Part 1)", :Command = "ring classregion/test.ring" ],
 	[ :name = "Class Region (Part 2)", :Command = "ring classregion/test2.ring" ],
 	[ :name = "Class Region (Part 3)", :Command = "ring classregion/test3.ring" ],
@@ -395,6 +396,5 @@ aTests = [
 	[ :name = "General Tests (Part 178)", :Command = "ring general/usingfunction.ring" ],
 	[ :name = "General Tests (Part 179)", :Command = "ring general/binequal.ring" ],
 	[ :name = "General Tests (Part 180)", :Command = "ring general/assignmentandisequal.ring" ],
-	[ :name = "General Tests (Part 181)", :Command = "ring general/testprint2.ring" ],
-	[ :name = "Private Attributes and Methods (Part 10)", :Command = "ring private/private10.ring" ]
+	[ :name = "General Tests (Part 181)", :Command = "ring general/testprint2.ring" ]
 ]
