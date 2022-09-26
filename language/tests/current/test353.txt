@@ -1,12 +1,24 @@
-Number to String
-Number: 1234567890
-Number: 1234567890
-String to Number
-String: 123456790
-Number plus one: 123456791
-Number to String
-Number: 123456789012345
-Number: 123456789012345
-String to Number
-String: 123456789012345
-Number plus one: 123456789012346
+0
+1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+11259375
+1193046

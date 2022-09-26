@@ -1,1 +1,1 @@
-True
+Can't divide by Zero!

@@ -1,2 +1,3 @@
-nindex: 1
-nindex: 2
+name: mahmoud
+address: Egypt
+phone: 0
