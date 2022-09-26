@@ -161,3 +161,4 @@ More Improvements
 * Ring Compiler/VM Source Code - Define RING_MSDOS
 * Support building Ring on windows using Tiny C Compiler
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
+* Ring VM - Support calling private methods from the class region
