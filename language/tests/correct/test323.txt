@@ -1,2 +1,3 @@
-Error (S1) In file: general/test114.ring 
-In Line (2) Literal not closed 
+x: 10.12
+y: 20.12
+

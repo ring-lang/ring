@@ -1,5 +1,7 @@
-test1
-good
-wow
-NULL
-child
+Hello, World!
+Using Ring language
+Hello, World!
+Using **Ring** language
+Using **Ring** language
+I love Programming!
+Using **Ring** language
