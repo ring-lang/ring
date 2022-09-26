@@ -395,5 +395,6 @@ aTests = [
 	[ :name = "General Tests (Part 178)", :Command = "ring general/usingfunction.ring" ],
 	[ :name = "General Tests (Part 179)", :Command = "ring general/binequal.ring" ],
 	[ :name = "General Tests (Part 180)", :Command = "ring general/assignmentandisequal.ring" ],
-	[ :name = "General Tests (Part 181)", :Command = "ring general/testprint2.ring" ]
+	[ :name = "General Tests (Part 181)", :Command = "ring general/testprint2.ring" ],
+	[ :name = "Private Attributes and Methods (Part 10)", :Command = "ring private/private10.ring" ]
 ]
