@@ -1,4 +1,7 @@
-test1
-
-Line 7 Error (R26) : Calling private method from outside the class : good 
-in file private/private9.ring 
+Hello, World!
+Using Ring language
+Hello, World!
+Using **Ring** language
+Using **Ring** language
+I love Programming!
+Using **Ring** language

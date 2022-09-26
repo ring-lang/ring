@@ -1,7 +1,14 @@
-STRING
+5
+3
 
-STRING
 
-STRING
+t
 
-Done
+3
+
+1
+2
+3
+4
+5
+
