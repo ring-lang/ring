@@ -27,7 +27,6 @@ class RandomUser from ObjectsParent
 			oPhotoLabel = new MyLabel(win) 
 			oNameLabel = new MyLabel(win) 
 			oEmailLabel = new MyLabel(win)
-			oGenderLabel = new MyLabel(win)
 
 			oNewUserDataButton = new MyButton(win) {
 				setText("New User Data")
@@ -42,7 +41,6 @@ class RandomUser from ObjectsParent
 				addWidget(oPhotoLabel)
 				addWidget(oNameLabel)
 				addWidget(oEmailLabel)
-				addWidget(oGenderLabel)
 				addWidget(oNewUserDataButton)
 				addWidget(oCloseButton)
 			}
@@ -78,7 +76,10 @@ class RandomUser from ObjectsParent
 
 		oNameLabel.setText(cFirstName + " " + cLastName)
 		oEmailLabel.setText("Email: " + cEmail)
-		oGenderLabel.setText("Gender: " + cGender)
+
+		cBackColor = "" 
+		if cGender = "female" cBackColor = "purple" ok
+		win.setStylesheet("background-color: " + cBackColor)
 
 	func DisplayThePhoto
 
