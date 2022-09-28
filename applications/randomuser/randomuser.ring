@@ -7,51 +7,49 @@ load "internetlib.ring"
 load "jsonlib.ring"
 load "guilib.ring"
 
-openWindow(:RandomUser)
+oApp = new QApp {
+	styleFusionBlack()
+	openObject(:RandomUser)
+	exec()
+}
 
-class RandomUser from WindowsControllerParent
+class RandomUser from ObjectsParent
 
 	cFirstName cLastName cEmail
 	cGender    cImageFile 
 
-	oApp = new QApp {
-	
-		styleFusionBlack()
-	
-		win = new QWidget() {
+	win = new QWidget() {
 
-			setWindowTitle("Random User Data")
-			setWinIcon(win, "images/appicon.png")
-			resize(400,370)
+		setWindowTitle("Random User Data")
+		setWinIcon(win, "images/appicon.png")
+		resize(400,370)
 
-			oPhotoLabel = new MyLabel(win) 
-			oNameLabel = new MyLabel(win) 
-			oEmailLabel = new MyLabel(win)
+		oPhotoLabel = new MyLabel(win) 
+		oNameLabel = new MyLabel(win) 
+		oEmailLabel = new MyLabel(win)
 
-			oNewUserDataButton = new MyButton(win) {
-				setText("New User Data")
-				setClickEvent(Method(:GetUserData))
-			}
-			oCloseButton = new MyButton(win) {
-				setText("Close Application")
-				setClickEvent(Method(:CloseApplication))
-			}
-
-			oLayout = new QVBoxLayout() {
-				addWidget(oPhotoLabel)
-				addWidget(oNameLabel)
-				addWidget(oEmailLabel)
-				addWidget(oNewUserDataButton)
-				addWidget(oCloseButton)
-			}
-
-			this.getUserData()
-
-			setLayout(oLayout)
-			show()
-
+		oNewUserDataButton = new MyButton(win) {
+			setText("New User Data")
+			setClickEvent(Method(:GetUserData))
 		}
-		exec()
+		oCloseButton = new MyButton(win) {
+			setText("Close Application")
+			setClickEvent(Method(:CloseApplication))
+		}
+
+		oLayout = new QVBoxLayout() {
+			addWidget(oPhotoLabel)
+			addWidget(oNameLabel)
+			addWidget(oEmailLabel)
+			addWidget(oNewUserDataButton)
+			addWidget(oCloseButton)
+		}
+
+		this.getUserData()
+
+		setLayout(oLayout)
+		show()
+
 	}
 
 	func getUserData 
