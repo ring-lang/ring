@@ -7,9 +7,9 @@ load "internetlib.ring"
 load "jsonlib.ring"
 load "guilib.ring"
 
-openObject(:RandomUser)
+openWindow(:RandomUser)
 
-class RandomUser from ObjectsParent
+class RandomUser from WindowsControllerParent
 
 	cFirstName cLastName cEmail
 	cGender    cImageFile 
