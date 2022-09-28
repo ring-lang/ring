@@ -7,9 +7,9 @@ load "internetlib.ring"
 load "jsonlib.ring"
 load "guilib.ring"
 
-new RandomUser
+openObject(:RandomUser)
 
-class RandomUser
+class RandomUser from ObjectsParent
 
 	cFirstName cLastName cEmail
 	cGender    cImageFile 
@@ -33,6 +33,7 @@ class RandomUser
 			}
 			oCloseButton = new QPushbutton(win) {
 				setText("Close Application")
+				setClickEvent(Method(:CloseApplication))
 			}
 
 			oLayout = new QVBoxLayout() {
@@ -87,3 +88,5 @@ class RandomUser
 			setpixmap(oPixmap)
 		}
 
+	func CloseApplication 
+		oApp.Quit()
