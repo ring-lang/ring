@@ -7,17 +7,7 @@ load "internetlib.ring"
 load "jsonlib.ring"
 load "guilib.ring"
 
-cData= download("https://randomuser.me/api")
-
-aList= JSON2List(cData)
-
-cFirstName = aList[:Results][1][:name][:first]
-cLastName  = aList[:Results][1][:name][:last]
-cEmail     = aList[:Results][1][:email]
-cGender    = aList[:Results][1][:gender]
-cImageFile = aList[:Results][1][:picture][:large]
-
-write("UserPhoto.jpg",download(cImageFile))
+getUserData()
 
 new QApp {
 
@@ -38,3 +28,18 @@ new QApp {
 
 	exec()
 }
+
+
+func getUserData 
+
+	cData= download("https://randomuser.me/api")
+
+	aList= JSON2List(cData)
+	
+	cFirstName = aList[:Results][1][:name][:first]
+	cLastName  = aList[:Results][1][:name][:last]
+	cEmail     = aList[:Results][1][:email]
+	cGender    = aList[:Results][1][:gender]
+	cImageFile = aList[:Results][1][:picture][:large]
+	
+	write("UserPhoto.jpg",download(cImageFile))
