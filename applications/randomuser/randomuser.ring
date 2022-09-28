@@ -76,7 +76,7 @@ class RandomUser from ObjectsParent
 
 	func DisplayTheData
 
-		oNameLabel.setText("Name: " + cFirstName + " " + cLastName)
+		oNameLabel.setText(cFirstName + " " + cLastName)
 		oEmailLabel.setText("Email: " + cEmail)
 		oGenderLabel.setText("Gender: " + cGender)
 
