@@ -21,23 +21,28 @@ class RandomUser
 		win = new QWidget() {
 
 			setWindowTitle("Random User Data")
-			resize(600,600)
+			resize(400,400)
 
-			oPhotoLabel = new QLabel(win) {
-				move(100,100)
+			oPhotoLabel = new QLabel(win) 
+			oNameLabel = new QLabel(win) 
+			oEmailLabel = new QLabel(win)
+			oGenderLabel = new QLabel(win)
+
+			oLayout = new QVBoxLayout() {
+				addWidget(oPhotoLabel)
+				addWidget(oNameLabel)
+				addWidget(oEmailLabel)
+				addWidget(oGenderLabel)
 			}
 
-			oNameLabel = new QLabel(win) { move(100,300) }
-			oEmailLabel = new QLabel(win) { move(100,330) }
-			oGenderLabel = new QLabel(win) { move(100,360) }
-
 			this.getUserData()
+
+			setLayout(oLayout)
 			show()
 
 		}
 		exec()
 	}
-
 
 	func getUserData 
 	
