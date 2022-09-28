@@ -53,6 +53,11 @@ class RandomUserView from WindowsViewParent
 
 	}
 
+	func Display oModel 
+		DisplayTheData(oModel)
+		StyleBasedOnGender(oModel)
+		DisplayThePhoto(oModel)
+
 	func DisplayTheData oModel
 
 		oNameLabel.setText(oModel.cFirstName + " " + oModel.cLastName)
@@ -83,10 +88,8 @@ class RandomUserController from WindowsControllerParent
 
 	func getUserData 
 	
-		DownloadUserData()		
-		oView.DisplayTheData(oModel)
-		oView.StyleBasedOnGender(oModel)
-		oView.DisplayThePhoto(oModel)
+		DownloadUserData()	
+		oView.Display(oModel)	
 
 	func DownloadUserData
 
