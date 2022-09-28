@@ -7,25 +7,19 @@ load "internetlib.ring"
 load "jsonlib.ring"
 load "guilib.ring"
 
-getUserData()
-
-new QApp {
+oApp = new QApp {
 
 	styleFusionBlack()
 
-	oPixmap = new QPixMap("UserPhoto.jpg")
-
-	w = new QWidget(){
+	win = new QWidget(){
 		setWindowTitle("Random User Data")
 		resize(600,600)
-		new QLabel(w) {
+		oPhotoLabel = new QLabel(win) {
 			move(100,100)
-			resize(oPixmap.width(),oPixmap.height())
-			setpixmap(oPixmap)
 		}
+		getUserData()
 		show()
 	}
-
 	exec()
 }
 
@@ -43,3 +37,9 @@ func getUserData
 	cImageFile = aList[:Results][1][:picture][:large]
 	
 	write("UserPhoto.jpg",download(cImageFile))
+
+	oPixmap = new QPixMap("UserPhoto.jpg")
+	oPhotoLabel { 
+		resize(oPixmap.width(),oPixmap.height())
+		setpixmap(oPixmap)
+	}
