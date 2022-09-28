@@ -21,6 +21,7 @@ class RandomUser from ObjectsParent
 		win = new QWidget() {
 
 			setWindowTitle("Random User Data")
+			setWinIcon(win, "appicon.png")
 			resize(400,400)
 
 			oPhotoLabel = new QLabel(win) 
