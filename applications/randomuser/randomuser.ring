@@ -24,10 +24,10 @@ class RandomUser from ObjectsParent
 			setWinIcon(win, "appicon.png")
 			resize(400,400)
 
-			oPhotoLabel = new QLabel(win) 
-			oNameLabel = new QLabel(win) 
-			oEmailLabel = new QLabel(win)
-			oGenderLabel = new QLabel(win)
+			oPhotoLabel = new MyLabel(win) 
+			oNameLabel = new MyLabel(win) 
+			oEmailLabel = new MyLabel(win)
+			oGenderLabel = new MyLabel(win)
 
 			oNewUserDataButton = new QPushbutton(win) {
 				setText("New User Data")
@@ -91,4 +91,13 @@ class RandomUser from ObjectsParent
 		}
 
 	func CloseApplication 
+
 		oApp.Quit()
+
+class MyLabel from QLabel 
+
+	func init oParent
+
+		Super.init(oParent)
+
+		setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
