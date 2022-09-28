@@ -79,6 +79,28 @@ class RandomUserView from WindowsViewParent
 		if oModel.cGender = "female" cBackColor = "purple" ok
 		win.setStylesheet("background-color: " + cBackColor)
 
+class MyLabel from QLabel 
+
+	func init oParent
+
+		Super.init(oParent)
+
+		setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
+		setStyleSheet("font-size: 14pt;")
+
+		return self
+
+class MyButton from QPushButton
+
+	func init oParent
+
+		Super.init(oParent)
+
+		setStyleSheet("font-size: 12pt;")
+		setMinimumHeight(50)
+
+		return self
+
 class RandomUserController from WindowsControllerParent
 
 	oModel = new RandomUserModel
@@ -108,25 +130,3 @@ class RandomUserController from WindowsControllerParent
 	func CloseApplication 
 
 		oApp.Quit()
-
-class MyLabel from QLabel 
-
-	func init oParent
-
-		Super.init(oParent)
-
-		setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
-		setStyleSheet("font-size: 14pt;")
-
-		return self
-
-class MyButton from QPushButton
-
-	func init oParent
-
-		Super.init(oParent)
-
-		setStyleSheet("font-size: 12pt;")
-		setMinimumHeight(50)
-
-		return self
