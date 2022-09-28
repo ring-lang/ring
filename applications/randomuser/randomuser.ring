@@ -7,39 +7,43 @@ load "internetlib.ring"
 load "jsonlib.ring"
 load "guilib.ring"
 
-oApp = new QApp {
+new RandomUser
 
-	styleFusionBlack()
+class RandomUser
 
-	win = new QWidget(){
-		setWindowTitle("Random User Data")
-		resize(600,600)
-		oPhotoLabel = new QLabel(win) {
-			move(100,100)
+	oApp = new QApp {
+	
+		styleFusionBlack()
+	
+		win = new QWidget(){
+			setWindowTitle("Random User Data")
+			resize(600,600)
+			oPhotoLabel = new QLabel(win) {
+				move(100,100)
+			}
+			this.getUserData()
+			show()
 		}
-		getUserData()
-		show()
+		exec()
 	}
-	exec()
-}
 
 
-func getUserData 
-
-	cData= download("https://randomuser.me/api")
-
-	aList= JSON2List(cData)
+	func getUserData 
 	
-	cFirstName = aList[:Results][1][:name][:first]
-	cLastName  = aList[:Results][1][:name][:last]
-	cEmail     = aList[:Results][1][:email]
-	cGender    = aList[:Results][1][:gender]
-	cImageFile = aList[:Results][1][:picture][:large]
+		cData= download("https://randomuser.me/api")
 	
-	write("UserPhoto.jpg",download(cImageFile))
-
-	oPixmap = new QPixMap("UserPhoto.jpg")
-	oPhotoLabel { 
-		resize(oPixmap.width(),oPixmap.height())
-		setpixmap(oPixmap)
-	}
+		aList= JSON2List(cData)
+		
+		cFirstName = aList[:Results][1][:name][:first]
+		cLastName  = aList[:Results][1][:name][:last]
+		cEmail     = aList[:Results][1][:email]
+		cGender    = aList[:Results][1][:gender]
+		cImageFile = aList[:Results][1][:picture][:large]
+		
+		write("UserPhoto.jpg",download(cImageFile))
+	
+		oPixmap = new QPixMap("UserPhoto.jpg")
+		oPhotoLabel { 
+			resize(oPixmap.width(),oPixmap.height())
+			setpixmap(oPixmap)
+		}
