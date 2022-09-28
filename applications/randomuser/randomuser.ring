@@ -29,11 +29,11 @@ class RandomUser from ObjectsParent
 			oEmailLabel = new MyLabel(win)
 			oGenderLabel = new MyLabel(win)
 
-			oNewUserDataButton = new QPushbutton(win) {
+			oNewUserDataButton = new MyButton(win) {
 				setText("New User Data")
 				setClickEvent(Method(:GetUserData))
 			}
-			oCloseButton = new QPushbutton(win) {
+			oCloseButton = new MyButton(win) {
 				setText("Close Application")
 				setClickEvent(Method(:CloseApplication))
 			}
@@ -101,3 +101,17 @@ class MyLabel from QLabel
 		Super.init(oParent)
 
 		setAlignment(Qt_AlignHCenter | Qt_AlignVCenter)
+		setStyleSheet("font-size: 14pt;")
+
+		return self
+
+class MyButton from QPushButton
+
+	func init oParent
+
+		Super.init(oParent)
+
+		setStyleSheet("font-size: 12pt;")
+		setMinimumHeight(50)
+
+		return self
