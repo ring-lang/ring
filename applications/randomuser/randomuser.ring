@@ -58,6 +58,7 @@ class RandomUser from ObjectsParent
 	
 		DownloadUserData()		
 		DisplayTheData()
+		StyleBasedOnGender()
 		DisplayThePhoto()
 
 	func DownloadUserData
@@ -77,10 +78,6 @@ class RandomUser from ObjectsParent
 		oNameLabel.setText(cFirstName + " " + cLastName)
 		oEmailLabel.setText("Email: " + cEmail)
 
-		cBackColor = "" 
-		if cGender = "female" cBackColor = "purple" ok
-		win.setStylesheet("background-color: " + cBackColor)
-
 	func DisplayThePhoto
 
 		write("UserPhoto.jpg",download(cImageFile))
@@ -90,6 +87,12 @@ class RandomUser from ObjectsParent
 			resize(oPixmap.width(),oPixmap.height())
 			setpixmap(oPixmap)
 		}
+
+	func StyleBasedOnGender
+
+		cBackColor = "" 
+		if cGender = "female" cBackColor = "purple" ok
+		win.setStylesheet("background-color: " + cBackColor)
 
 	func CloseApplication 
 
