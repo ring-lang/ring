@@ -33,6 +33,11 @@ class RandomUser
 
 	func getUserData 
 	
+		DownloadUserData()		
+		DisplayThePhoto()
+
+	func DownloadUserData
+
 		cData= download("https://randomuser.me/api")
 	
 		aList= JSON2List(cData)
@@ -42,8 +47,6 @@ class RandomUser
 		cEmail     = aList[:Results][1][:email]
 		cGender    = aList[:Results][1][:gender]
 		cImageFile = aList[:Results][1][:picture][:large]
-		
-		DisplayThePhoto()
 
 	func DisplayThePhoto
 
