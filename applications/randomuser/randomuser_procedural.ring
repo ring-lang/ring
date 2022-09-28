@@ -1,7 +1,8 @@
-#===========================#
-# Random User Application	 
+#===============================#
+# Random User Application
+# Using Procedural Programming	 
 # 2022, Mahmoud Fayed
-#===========================#
+#===============================#
 
 load "internetlib.ring"
 load "jsonlib.ring"
