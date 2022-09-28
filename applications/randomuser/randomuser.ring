@@ -18,14 +18,22 @@ class RandomUser
 	
 		styleFusionBlack()
 	
-		win = new QWidget(){
+		win = new QWidget() {
+
 			setWindowTitle("Random User Data")
 			resize(600,600)
+
 			oPhotoLabel = new QLabel(win) {
 				move(100,100)
 			}
+
+			oNameLabel = new QLabel(win) { move(100,300) }
+			oEmailLabel = new QLabel(win) { move(100,330) }
+			oGenderLabel = new QLabel(win) { move(100,360) }
+
 			this.getUserData()
 			show()
+
 		}
 		exec()
 	}
@@ -34,6 +42,7 @@ class RandomUser
 	func getUserData 
 	
 		DownloadUserData()		
+		DisplayTheData()
 		DisplayThePhoto()
 
 	func DownloadUserData
@@ -48,6 +57,12 @@ class RandomUser
 		cGender    = aList[:Results][1][:gender]
 		cImageFile = aList[:Results][1][:picture][:large]
 
+	func DisplayTheData
+
+		oNameLabel.setText("Name: " + cFirstName + " " + cLastName)
+		oEmailLabel.setText("Email: " + cEmail)
+		oGenderLabel.setText("Gender: " + cGender)
+
 	func DisplayThePhoto
 
 		write("UserPhoto.jpg",download(cImageFile))
@@ -57,3 +72,4 @@ class RandomUser
 			resize(oPixmap.width(),oPixmap.height())
 			setpixmap(oPixmap)
 		}
+
