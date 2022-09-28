@@ -21,7 +21,7 @@ class RandomUser from WindowsControllerParent
 		win = new QWidget() {
 
 			setWindowTitle("Random User Data")
-			setWinIcon(win, "appicon.png")
+			setWinIcon(win, "images/appicon.png")
 			resize(400,370)
 
 			oPhotoLabel = new MyLabel(win) 
