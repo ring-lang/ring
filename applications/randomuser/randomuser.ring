@@ -22,7 +22,7 @@ class RandomUser from ObjectsParent
 
 			setWindowTitle("Random User Data")
 			setWinIcon(win, "appicon.png")
-			resize(400,400)
+			resize(400,370)
 
 			oPhotoLabel = new MyLabel(win) 
 			oNameLabel = new MyLabel(win) 
