@@ -16,6 +16,7 @@ List of changes and new features
 Ring 1.18 comes with the next features!
 
 * Read Files application
+* Random User application
 * Better Citations Prediction application
 * Ring for MS-DOS
 * Better RingSockets
@@ -34,6 +35,20 @@ Using this application we can display text/binary files using Hexadecimal
 
 .. image:: readfiles.png
 	:alt: readfiles
+
+.. index:: 
+	pair: What is new in Ring  1.18; Random User application
+
+Random User application
+=======================
+
+A simple application as an example about using GUILib, InternetLib & JSONLib
+
+.. image:: user_male.png
+	:alt: randomuser
+
+.. image:: user_female.png
+	:alt: randomuser
 
 .. index:: 
 	pair: What is new in Ring  1.18; Better Citations Prediction application
