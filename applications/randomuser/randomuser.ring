@@ -11,6 +11,9 @@ new RandomUser
 
 class RandomUser
 
+	cFirstName cLastName cEmail
+	cGender    cImageFile 
+
 	oApp = new QApp {
 	
 		styleFusionBlack()
@@ -40,6 +43,10 @@ class RandomUser
 		cGender    = aList[:Results][1][:gender]
 		cImageFile = aList[:Results][1][:picture][:large]
 		
+		DisplayThePhoto()
+
+	func DisplayThePhoto
+
 		write("UserPhoto.jpg",download(cImageFile))
 	
 		oPixmap = new QPixMap("UserPhoto.jpg")
