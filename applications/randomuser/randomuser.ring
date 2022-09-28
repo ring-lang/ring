@@ -30,6 +30,7 @@ class RandomUser from ObjectsParent
 
 			oNewUserDataButton = new QPushbutton(win) {
 				setText("New User Data")
+				setClickEvent(Method(:GetUserData))
 			}
 			oCloseButton = new QPushbutton(win) {
 				setText("Close Application")
