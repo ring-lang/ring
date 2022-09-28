@@ -28,11 +28,20 @@ class RandomUser
 			oEmailLabel = new QLabel(win)
 			oGenderLabel = new QLabel(win)
 
+			oNewUserDataButton = new QPushbutton(win) {
+				setText("New User Data")
+			}
+			oCloseButton = new QPushbutton(win) {
+				setText("Close Application")
+			}
+
 			oLayout = new QVBoxLayout() {
 				addWidget(oPhotoLabel)
 				addWidget(oNameLabel)
 				addWidget(oEmailLabel)
 				addWidget(oGenderLabel)
+				addWidget(oNewUserDataButton)
+				addWidget(oCloseButton)
 			}
 
 			this.getUserData()
