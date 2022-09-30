@@ -6,3 +6,6 @@ func main
 	? "RandomUser Application package for the Ring programming language"
 	? "See the folder : ring/applications/randomuser"
 	? copy("=",C_LINESIZE)
+	cDir = currentdir()
+	chdir(exefolder()+"/../applications/randomuser")
+	system("ring randomuser.ring")
