@@ -212,6 +212,20 @@ Random User Application
 			31
 		</td>
 	</tr>
+	<tr>
+		<td>
+			15
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_httplibweblibtemplate.ring"> HTTPLib & WebLib Template </a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib, HTTPLib & WebLib
+		</td>
+		<td>
+			31
+		</td>
+	</tr>
 </table>
 
 # Screen Shots
