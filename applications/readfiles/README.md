@@ -9,11 +9,11 @@ Developed using Ring and RingQt by Ahmed Hassouna
 
 (3) Get the content as Ring list
 
-Screen Shot:
+# Screen Shot:
 
 ![readfiles](https://raw.githubusercontent.com/ring-lang/ring/master/applications/readfiles/screenshot.png)
 
-Arabic Video: 
+# Arabic Video: 
 
 This video demonstrates how to create the application step-by-step
 
