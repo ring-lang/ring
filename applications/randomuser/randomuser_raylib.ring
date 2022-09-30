@@ -19,7 +19,7 @@ GetUserData()
 screenWidth = 800
 screenHeight = 600
 
-InitWindow(screenWidth, screenHeight, "Random User application")
+InitWindow(screenWidth, screenHeight, "Random User application - Using RayLib")
 
 icon = LoadImage("images/appicon.png")
 
