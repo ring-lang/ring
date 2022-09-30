@@ -184,6 +184,20 @@ Random User Application
 			29
 		</td>
 	</tr>
+	<tr>
+		<td>
+			13
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_httplib.ring"> HTTPLib </a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib, WebLib & HTTPLib
+		</td>
+		<td>
+			44
+		</td>
+	</tr>
 </table>
 
 # Screen Shots
