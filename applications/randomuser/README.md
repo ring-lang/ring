@@ -111,7 +111,7 @@ Random User Application
 			Using InternetLib, JSONLib & GUILib (RingQtWeb)
 		</td>
 		<td>
-			70 (Without HTML Template)
+			70
 		</td>
 	</tr>
 	<tr>
