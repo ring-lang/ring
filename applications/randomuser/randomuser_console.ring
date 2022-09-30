@@ -19,6 +19,7 @@ cImageFile = aList[:Results][1][:picture][:large]
 
 write("UserPhoto.jpg",download(cImageFile))
 
+? "== Random User application =="
 ? "Name  : " + cFirstName + " " + cLastName
 ? "Email : " + cEmail
 ? "Gender: " + cGender

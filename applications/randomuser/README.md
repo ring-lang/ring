@@ -27,7 +27,7 @@ Random User Application
 			Using InternetLib & JSONLib
 		</td>
 		<td>
-			19
+			20
 		</td>
 	</tr>
 	<tr>
@@ -41,7 +41,7 @@ Random User Application
 			Using InternetLib, JSONLib & ConsoleColors
 		</td>
 		<td>
-			24
+			25
 		</td>
 	</tr>
 	<tr>

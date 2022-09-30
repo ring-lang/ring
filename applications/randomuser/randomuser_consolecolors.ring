@@ -22,6 +22,7 @@ cImageFile = aList[:Results][1][:picture][:large]
 
 write(C_FILENAME,download(cImageFile))
 
+? "== Random User application =="
 cc_print( CC_FG_BLACK|CC_BG_CYAN, "Name  : ") 
 cc_print( CC_FG_WHITE|CC_BG_BLUE, " " + cFirstName + " " + cLastName + " " + nl)
 cc_print( CC_FG_BLACK|CC_BG_CYAN, "Email : ") 
