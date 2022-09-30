@@ -20,6 +20,8 @@ load "guilib.ring"
 
 oApp = new QApp {
 
+	StyleFusionBlack()
+
 	oView = new Qt3dwindow() 
 
 	oWidget = new QWidget()	
@@ -29,7 +31,7 @@ oApp = new QApp {
 	oRootEntity = new QEntity(oContainer) 
 
 	oView.defaultframegraph().setclearcolor(
-			new QColor() { setRGB(200,150,150,255) }
+			new QColor() { setRGB(0,0,0,255) }
 	)
 
 	oInput = new QInputAspect(oRootEntity)
@@ -100,7 +102,7 @@ oApp = new QApp {
 
 	oTextTransform2 = new  QTransform(oTextEntity2)
 	oTextTransform2.setScale(1.5)
-	oTextTransform2.setTranslation(new QVector3D(-15, -7, -4))
+	oTextTransform2.setTranslation(new QVector3D(-15, -5, -4))
 
 	oTextMaterial2 = new QPhongMaterial(oTextEntity2);
 	oTextMaterial2.setDiffuse(new QColor() {setRGB(0,255,255,255)})
@@ -115,10 +117,14 @@ oApp = new QApp {
 	oNewUserDataButton = new QPushButton(oWidget) {
 		setText("New User Data")
 		setClickEvent("GetUserData()")
+		setMinimumHeight(50)
+		setStyleSheet("color:black;font-size:14pt;")
 	}
 	oCloseButton = new QPushButton(oWidget) {
 		setText("Close Application")
 		setClickEvent("CloseApplication()")
+		setMinimumHeight(50)
+		setStyleSheet("color:black;font-size:14pt;")
 	}
 
 	oLayout = new QVBoxLayout()
@@ -129,6 +135,7 @@ oApp = new QApp {
 	oWidget { 
 		setwindowtitle("Random User - Using Qt3D") 
 		setWinIcon(self, "images/appicon.png")
+		setStyleSheet("background-color: gray")
 		resize(800,600)
 		setLayout(oLayout) 
 		showMaximized() 
