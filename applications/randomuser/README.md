@@ -12,6 +12,8 @@ Random User Application
 		<td>
 			Libraries
 		</td>
+	</tr>
+	<tr>
 		<td>
 			1
 		</td>
@@ -20,6 +22,17 @@ Random User Application
 		</td>
 		<td>
 			Using InternetLib & JSONLib
+		</td>
+	</tr>
+	<tr>
+		<td>
+			2
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_procedural.ring"> Qt (Procedural) </a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib & GUILib
 		</td>
 	</tr>
 </table>
