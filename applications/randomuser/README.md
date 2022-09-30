@@ -76,7 +76,7 @@ Random User Application
 			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_gamelib.ring"> GameLib </a>
 		</td>
 		<td>
-			Using InternetLib, JSONLib & GameLib (RingAllegro)
+			Using InternetLib, JSONLib & GameEngine (RingAllegro)
 		</td>
 	</tr>
 
