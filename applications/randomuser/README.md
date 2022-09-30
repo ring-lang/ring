@@ -1,6 +1,12 @@
 Random User Application
 =======================
 
+# Install
+
+	ringpm install randomuser from ringpackages
+
+# Versions
+
 <table>
 	<tr>
 		<td>
