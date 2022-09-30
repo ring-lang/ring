@@ -147,7 +147,7 @@ Random User Application
 			10
 		</td>
 		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_raylib.ring"> RayLib</a>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_raylib.ring"> RayLib (Automatic Update)</a>
 		</td>
 		<td>
 			Using InternetLib, JSONLib & RayLib
