@@ -91,5 +91,5 @@ func GetUserData
 
 func CloseApplication 
 
+	oWebView.deleteLater()
 	win.close()
-	oApp.Quit()
