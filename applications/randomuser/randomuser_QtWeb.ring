@@ -16,7 +16,7 @@ load "guilib.ring"
 	cImageFile = ""
 	
 # Constants 
-	C_TEMPLATEFILE = "template/template.html"
+	C_TEMPLATEFILE = "template/qtwebview_template.html"
 	C_INDEXFILE    = "template/index.html"
 	C_INDEXFILEURL = "file:///"+substr(currentdir(),"\","/")+"/template/index.html"
 
