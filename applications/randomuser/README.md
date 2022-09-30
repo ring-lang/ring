@@ -13,7 +13,7 @@ Random User Application
 			Libraries
 		</td>
 		<td>
-			Lines of code (LOC),
+			Lines of code (LOC)
 		</td>
 	</tr>
 	<tr>
