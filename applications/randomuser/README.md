@@ -230,20 +230,34 @@ Random User Application
 
 # Screen Shots
 
+## Console
+
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/randomuser_consolecolors.png)
+
+## Using GUILib (RingQt)
 
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/user_male.png)
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/user_female.png)
 
+## Using Qt3D
+
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/randomuser_qt3d.png)
 
+## Using QtWebEngineView
+
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/randomuser_qtweb.png)
+
+## Using Ring Game Engine 
 
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/randomuser_gamelib.png)
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/randomuser_gamelibbuttons.png)
 
+## Using RayLib 
+
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/randomuser_raylib.png)
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/randomuser_raylibbuttons.png)
+
+## Using WebLib & HTTPLib 
 
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/randomuser_weblib.png)
 ![randomuser](https://raw.githubusercontent.com/ring-lang/ring/master/applications/randomuser/images/randomuser_httplibtemplate.png)
