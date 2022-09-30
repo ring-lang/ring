@@ -11,12 +11,6 @@ load "httplib.ring"
 
 import System.Web
 
-cFirstName = ""
-cLastName  = ""
-cEmail     = ""
-cGender    = ""
-cImageFile = ""
-
 ? "Start the server..."
 oServer = new Server
 
@@ -26,7 +20,7 @@ oServer.route(:Get,"/randomuser",:randomuser)
 ? "Listen to port 5000"
 oServer.listen("0.0.0.0", 5000)
 
-func GetUserData 
+func randomuser
 
 	cData= download("https://randomuser.me/api")
 		
@@ -36,10 +30,6 @@ func GetUserData
 	cLastName  = aList[:Results][1][:name][:last]
 	cEmail     = aList[:Results][1][:email]
 	cImageFile = aList[:Results][1][:picture][:large]
-
-func randomuser
-
-	GetUserData()
 
 	oPage = New HTMLPageFunctions
 	{
