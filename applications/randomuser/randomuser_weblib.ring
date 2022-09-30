@@ -23,15 +23,15 @@ cImageFile = aList[:Results][1][:picture][:large]
 
 new Page
 {
-		title = "Random User"
+	title = "Random User"
         h1("Random User Application")
-		image( [ :url = cImageFile , :alt = :image  ] )
-		NewLine()		NewLine()
-		NewLine()
-		Text(cFirstName + " " + cLastName)
-		NewLine()
-		Text("Email: " + cEmail)
-		NewLine() NewLine()
-		link([ :url = JustFileName(filename()), :title = "Get Random User" ])
+	image( [ :url = cImageFile , :alt = :image  ] )
+	NewLine() NewLine()
+	NewLine()
+	Text(cFirstName + " " + cLastName)
+	NewLine()
+	Text("Email: " + cEmail)
+	NewLine() NewLine()
+	link([ :url = JustFileName(filename()), :title = "Get Random User" ])
 }
 
