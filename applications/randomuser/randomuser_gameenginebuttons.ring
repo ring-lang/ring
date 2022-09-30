@@ -1,8 +1,8 @@
-#=====================================#
+#===========================================#
 # Random User Application	
-# Version using GameLib (Buttons)
+# Version using Ring Game Engine (Buttons)
 # 2022, Mahmoud Fayed
-#=====================================#
+#===========================================#
 
 load "internetlib.ring"
 load "jsonlib.ring"

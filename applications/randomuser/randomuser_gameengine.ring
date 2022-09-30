@@ -1,6 +1,6 @@
 #=====================================#
 # Random User Application	
-# Version using GameLib
+# Version using Ring Game Engine
 # 2022, Mahmoud Fayed
 #=====================================#
 
