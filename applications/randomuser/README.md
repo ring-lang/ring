@@ -105,10 +105,10 @@ Random User Application
 			7
 		</td>
 		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_QtWeb.ring"> QtWeb </a>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_QtWebEngineView.ring"> QtWebEngineView </a>
 		</td>
 		<td>
-			Using InternetLib, JSONLib & GUILib (RingQtWeb)
+			Using InternetLib, JSONLib & GUILib (RingQtWebEngineView)
 		</td>
 		<td>
 			70

@@ -1,6 +1,6 @@
 #========================================#
 # Random User Application
-# Version using QtWeb 
+# Version using QtWebEngineView 
 # 2022, Mahmoud Fayed
 #========================================#
 
