@@ -94,7 +94,7 @@ Random User Application
 			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_Qt3D.ring"> Qt3D </a>
 		</td>
 		<td>
-			Using InternetLib, JSONLib & GuiLib (RingQt3D)
+			Using InternetLib, JSONLib & GUILib (RingQt3D)
 		</td>
 		<td>
 			124
