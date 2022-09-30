@@ -114,7 +114,6 @@ Random User Application
 			70 (Without HTML Template)
 		</td>
 	</tr>
-
 	<tr>
 		<td>
 			8
@@ -143,7 +142,6 @@ Random User Application
 			106
 		</td>
 	</tr>
-
 </table>
 
 # Screen Shots
