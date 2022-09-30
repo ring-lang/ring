@@ -714,5 +714,9 @@ aPackagesRegistry = [
 	[ :name = "httplib",
 	  :description = "RingHTTPLib package for the Ring programming language",
 	  :ProviderUserName = "ringpackages"
+	],
+	[ :name = "randomuser",
+	  :description = "RandomUser package for the Ring programming language",
+	  :ProviderUserName = "ringpackages"
 	]
 ]
