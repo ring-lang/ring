@@ -1,4 +1,5 @@
 aNews = [
+  ["September 30, 2022",'<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/README.md"> Application: Random User</a>'],
   ["July 20, 2022",'<a href="https://downloads.hindawi.com/journals/bmri/2022/2239152.pdf"> Journal Paper uses PWCT, Ring & Azure ML- Predict Citation Counts in Otology Field</a>'],
   ["July 16, 2022",'<a href="https://github.com/ring-lang/ring/tree/master/applications/readfiles"> Application: Read Files </a>'],
   ["July 10, 2022",'<a href="https://github.com/ring-lang/ring/blob/master/marketing/pwct/README.md#videos"> PWCT 2.0 (Videos) </a>'],
