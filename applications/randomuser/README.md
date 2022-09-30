@@ -32,9 +32,54 @@ Random User Application
 			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_procedural.ring"> Qt (Procedural) </a>
 		</td>
 		<td>
-			Using InternetLib, JSONLib & GUILib
+			Using InternetLib, JSONLib & GUILib (RingQt)
 		</td>
 	</tr>
+	<tr>
+		<td>
+			3
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser.ring"> Qt (Classes) </a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib & GUILib (RingQt)
+		</td>
+	</tr>
+	<tr>
+		<td>
+			4
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_mvc.ring"> Qt (MVC) </a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib & GUILib (RingQt)
+		</td>
+	</tr>
+	<tr>
+		<td>
+			5
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_Qt3D.ring"> Qt3D </a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib & GuiLib (RingQt3D)
+		</td>
+	</tr>
+	<tr>
+		<td>
+			6
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_gamelib.ring"> GameLib </a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib & GameLib (RingAllegro)
+		</td>
+	</tr>
+
 </table>
 
 # Screen Shots
