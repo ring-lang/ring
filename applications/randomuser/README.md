@@ -12,6 +12,9 @@ Random User Application
 		<td>
 			Libraries
 		</td>
+		<td>
+			Lines of code (LOC),
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -22,6 +25,9 @@ Random User Application
 		</td>
 		<td>
 			Using InternetLib & JSONLib
+		</td>
+		<td>
+			19
 		</td>
 	</tr>
 	<tr>
@@ -34,6 +40,9 @@ Random User Application
 		<td>
 			Using InternetLib, JSONLib & GUILib (RingQt)
 		</td>
+		<td>
+			76
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -44,6 +53,9 @@ Random User Application
 		</td>
 		<td>
 			Using InternetLib, JSONLib & GUILib (RingQt)
+		</td>
+		<td>
+			83
 		</td>
 	</tr>
 	<tr>
@@ -56,6 +68,9 @@ Random User Application
 		<td>
 			Using InternetLib, JSONLib & GUILib (RingQt)
 		</td>
+		<td>
+			91
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -67,6 +82,9 @@ Random User Application
 		<td>
 			Using InternetLib, JSONLib & GuiLib (RingQt3D)
 		</td>
+		<td>
+			124
+		</td>
 	</tr>
 	<tr>
 		<td>
@@ -77,6 +95,9 @@ Random User Application
 		</td>
 		<td>
 			Using InternetLib, JSONLib & GameEngine (RingAllegro)
+		</td>
+		<td>
+			77
 		</td>
 	</tr>
 
