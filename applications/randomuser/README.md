@@ -35,6 +35,20 @@ Random User Application
 			2
 		</td>
 		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_consolecolors.ring"> Console (Colors)</a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib & ConsoleColors
+		</td>
+		<td>
+			24
+		</td>
+	</tr>
+	<tr>
+		<td>
+			3
+		</td>
+		<td>
 			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_procedural.ring"> Qt (Procedural) </a>
 		</td>
 		<td>
@@ -46,7 +60,7 @@ Random User Application
 	</tr>
 	<tr>
 		<td>
-			3
+			4
 		</td>
 		<td>
 			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser.ring"> Qt (Classes) </a>
@@ -60,7 +74,7 @@ Random User Application
 	</tr>
 	<tr>
 		<td>
-			4
+			5
 		</td>
 		<td>
 			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_mvc.ring"> Qt (MVC) </a>
@@ -74,7 +88,7 @@ Random User Application
 	</tr>
 	<tr>
 		<td>
-			5
+			6
 		</td>
 		<td>
 			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_Qt3D.ring"> Qt3D </a>
@@ -88,7 +102,7 @@ Random User Application
 	</tr>
 	<tr>
 		<td>
-			6
+			7
 		</td>
 		<td>
 			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_gamelib.ring"> GameLib </a>
