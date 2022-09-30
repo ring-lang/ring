@@ -24,7 +24,7 @@ cImageFile = aList[:Results][1][:picture][:large]
 new Page
 {
 	title = "Random User"
-        h1("Random User Application")
+	h1("Random User Application")
 	image( [ :url = cImageFile , :alt = :image  ] )
 	NewLine() NewLine()
 	NewLine()
