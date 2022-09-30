@@ -114,6 +114,20 @@ Random User Application
 			77
 		</td>
 	</tr>
+	<tr>
+		<td>
+			8
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_gamelibbuttons.ring"> GameLib </a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib & GameEngine (RingAllegro/RingLibSDL)
+		</td>
+		<td>
+			106
+		</td>
+	</tr>
 
 </table>
 
