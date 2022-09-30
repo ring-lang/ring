@@ -12,7 +12,6 @@ load "jsonlib.ring"
 	cFirstName = ""
 	cLastName  = ""
 	cEmail     = ""
-	cGender    = ""
 	cImageFile = ""
 
 # Constants
@@ -97,7 +96,6 @@ func LoadUserData
 	cFirstName = aList[:Results][1][:name][:first]
 	cLastName  = aList[:Results][1][:name][:last]
 	cEmail     = aList[:Results][1][:email]
-	cGender    = aList[:Results][1][:gender]
 	cImageFile = aList[:Results][1][:picture][:large]
 	
 	write(C_IMAGEFILENAME,download(cImageFile))
