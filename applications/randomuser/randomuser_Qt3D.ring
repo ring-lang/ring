@@ -7,45 +7,43 @@
 load "internetlib.ring"
 load "jsonlib.ring"
 
-cData= download("https://randomuser.me/api")
-	
-aList= JSON2List(cData)
-		
-cFirstName = aList[:Results][1][:name][:first]
-cLastName  = aList[:Results][1][:name][:last]
-cEmail     = aList[:Results][1][:email]
-cGender    = aList[:Results][1][:gender]
-cImageFile = aList[:Results][1][:picture][:large]
+cFirstName = ""
+cLastName  = ""
+cEmail     = ""
+cImageFile = ""
 
-write("UserPhoto.jpg",download(cImageFile))
+C_IMAGEPATH = "file:///"+currentdir()+"/UserPhoto.jpg"
+
+LoadUserData()
 
 load "guilib.ring"
 
-new qApp {
+oApp = new QApp {
 
 	oView = new Qt3dwindow() 
 
-	oWidget = new QWidget()	 {
-		setWinIcon(oWidget, "images/appicon.png")
-	}
+	oWidget = new QWidget()	
+
 	oContainer = oWidget.createWindowContainer(oView,oWidget,0)
 
 	oRootEntity = new QEntity(oContainer) 
 
-	oView.defaultframegraph().setclearcolor(new QColor() {setRGB(200,150,150,255)})
+	oView.defaultframegraph().setclearcolor(
+			new QColor() { setRGB(200,150,150,255) }
+	)
 
 	oInput = new QInputAspect(oRootEntity)
-        oView.registerAspect(oInput)
+	oView.registerAspect(oInput)
 
 	oCameraEntity = oView.Camera()
 
 	oCameraEntity.lens().setPerspectiveProjection(45.0, 16.0/9.0, 0.1, 1000.0)
-    	oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
-    	oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
-    	oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
+	oCameraEntity.setPosition(new QVector3D(0, 0, 20.0))
+	oCameraEntity.setUpVector(new QVector3D(0, 1, 0))
+	oCameraEntity.setViewCenter(new QVector3D(0, 0, 0))	
 
 	oLightEntity = new QEntity(oRootEntity)
-        oLight = new QPointLight(oLightEntity)
+	oLight = new QPointLight(oLightEntity)
 	oLight.setColor(new QColor() { setRGB(255,255,255,255) })
 	oLight.setIntensity(1)
 	oLightEntity.addComponent(oLight)
@@ -55,7 +53,7 @@ new qApp {
 	oLightEntity.addComponent(oLightTransform)
 
  	oCamController = new  QFirstPersonCameraController(oRootEntity)
-    	oCamController.setCamera(oCameraEntity)
+	oCamController.setCamera(oCameraEntity)
 
  	oCube = new  QCuboidMesh(oRootEntity) {
 		setXextent(2)
@@ -68,7 +66,7 @@ new qApp {
 	oCubeTransform.setTranslation(new QVector3D(0, 3, 4))
 
 	oTextureLoader = new  QTextureLoader(oCube);
-	oTextureLoader.setSource(new QUrl("file:///"+currentdir()+"/UserPhoto.jpg") )
+	oTextureLoader.setSource(new QUrl(C_IMAGEPATH) )
 	oCubeMaterial = new QTextureMaterial(oCube)
 	oCubeMaterial.setTexture(oTextureLoader)
 
@@ -85,7 +83,7 @@ new qApp {
 
 	oTextTransform = new  QTransform(oTextEntity)
 	oTextTransform.setScale(2)
-	oTextTransform.setTranslation(new QVector3D(-7.5, -4, 3))
+	oTextTransform.setTranslation(new QVector3D(-7.5, -2, -4))
 
 	oTextMaterial = new QPhongMaterial(oTextEntity);
 	oTextMaterial.setDiffuse(new QColor() {setRGB(0,0,255,255)})
@@ -94,13 +92,43 @@ new qApp {
 	oTextEntity.addComponent(oTextTransform)
 	oTextEntity.addComponent(oTextMaterial)
 
+	oTextEntity2 = new QEntity(oRootEntity)
+
+	oTextMesh2 = new  QExtrudedTextMesh(oTextEntity2) {
+		setText("Email: " + cEmail)
+	}
+
+	oTextTransform2 = new  QTransform(oTextEntity2)
+	oTextTransform2.setScale(1.5)
+	oTextTransform2.setTranslation(new QVector3D(-15, -7, -4))
+
+	oTextMaterial2 = new QPhongMaterial(oTextEntity2);
+	oTextMaterial2.setDiffuse(new QColor() {setRGB(0,255,255,255)})
+	
+	oTextEntity2.addComponent(oTextMesh2)
+	oTextEntity2.addComponent(oTextTransform2)
+	oTextEntity2.addComponent(oTextMaterial2)
+
 	oView.setRootEntity(oRootEntity)
+
+
+	oNewUserDataButton = new QPushButton(oWidget) {
+		setText("New User Data")
+		setClickEvent("GetUserData()")
+	}
+	oCloseButton = new QPushButton(oWidget) {
+		setText("Close Application")
+		setClickEvent("CloseApplication()")
+	}
 
 	oLayout = new QVBoxLayout()
 	oLayout.AddWidget(oContainer)
+	oLayout.AddWidget(oNewUserDataButton)
+	oLayout.AddWidget(oCloseButton)
 
 	oWidget { 
 		setwindowtitle("Random User - Using Qt3D") 
+		setWinIcon(self, "images/appicon.png")
 		resize(800,600)
 		setLayout(oLayout) 
 		showMaximized() 
@@ -108,4 +136,32 @@ new qApp {
 
 	exec()
 }
+
+func GetUserData	
+
+	LoadUserData()
+
+	oTextMesh.setText(cFirstName + " " + cLastName)
+	oTextMesh2.setText("Email: " + cEmail)
+
+	oTextureLoader = new  QTextureLoader(oCube);
+	oTextureLoader.setSource(new QUrl(C_IMAGEPATH) )
+	oCubeMaterial.setTexture(oTextureLoader)
+
+func LoadUserData
+
+	cData= download("https://randomuser.me/api")
+		
+	aList= JSON2List(cData)
+			
+	cFirstName = aList[:Results][1][:name][:first]
+	cLastName  = aList[:Results][1][:name][:last]
+	cEmail     = aList[:Results][1][:email]
+	cImageFile = aList[:Results][1][:picture][:large]
 	
+	write("UserPhoto.jpg",download(cImageFile))
+	
+
+func CloseApplication 
+
+	oApp.Quit()
