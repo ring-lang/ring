@@ -170,6 +170,20 @@ Random User Application
 			61
 		</td>
 	</tr>
+	<tr>
+		<td>
+			12
+		</td>
+		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_weblib.ring"> WebLib</a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib & WebLib
+		</td>
+		<td>
+			29
+		</td>
+	</tr>
 </table>
 
 # Screen Shots
