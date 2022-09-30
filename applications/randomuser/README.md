@@ -105,6 +105,21 @@ Random User Application
 			7
 		</td>
 		<td>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_QtWeb.ring"> QtWeb </a>
+		</td>
+		<td>
+			Using InternetLib, JSONLib & GUILib (RingQtWeb)
+		</td>
+		<td>
+			70 (Without HTML Template)
+		</td>
+	</tr>
+
+	<tr>
+		<td>
+			8
+		</td>
+		<td>
 			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_gamelib.ring"> GameLib (Automatic Update) </a>
 		</td>
 		<td>
@@ -116,7 +131,7 @@ Random User Application
 	</tr>
 	<tr>
 		<td>
-			8
+			9
 		</td>
 		<td>
 			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_gamelibbuttons.ring"> GameLib (Buttons)</a>
