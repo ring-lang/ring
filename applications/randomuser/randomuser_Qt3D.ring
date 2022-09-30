@@ -1,6 +1,6 @@
 #=====================================#
 # Random User Application	
-# Another version for the Console 
+# Another version using Qt3D
 # 2022, Mahmoud Fayed
 #=====================================#
 
