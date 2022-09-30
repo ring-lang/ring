@@ -26,7 +26,7 @@ oApp = new QApp {
 
 	win = new QWidget() {
 
-		setWindowTitle("Random User Data")
+		setWindowTitle("Random User Data - Using QtWeb")
 		setWinIcon(win, "images/appicon.png")
 		setStyleSheet("background-color: White")
 		resize(500,400)
