@@ -119,7 +119,7 @@ Random User Application
 			8
 		</td>
 		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_gamelib.ring"> GameLib (Automatic Update) </a>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_gameengine.ring"> GameEngine (Automatic Update) </a>
 		</td>
 		<td>
 			Using InternetLib, JSONLib & GameEngine (RingAllegro/RingLibSDL)
@@ -133,7 +133,7 @@ Random User Application
 			9
 		</td>
 		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_gamelibbuttons.ring"> GameLib (Buttons)</a>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_gameenginebuttons.ring"> GameEngine (Buttons)</a>
 		</td>
 		<td>
 			Using InternetLib, JSONLib & GameEngine (RingAllegro/RingLibSDL)
