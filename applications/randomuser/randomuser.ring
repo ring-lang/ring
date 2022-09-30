@@ -1,6 +1,6 @@
 #===========================#
 # Random User Application	 
-# Using Classes
+# Version using Classes
 # 2022, Mahmoud Fayed
 #===========================#
 

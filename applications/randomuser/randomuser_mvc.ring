@@ -1,6 +1,6 @@
 #===========================#
 # Random User Application	 
-# Another version using MVC
+# Version using MVC
 # 2022, Mahmoud Fayed
 #===========================#
 

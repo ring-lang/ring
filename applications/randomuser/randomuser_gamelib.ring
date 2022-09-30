@@ -1,6 +1,6 @@
 #=====================================#
 # Random User Application	
-# Another version using GameLib
+# Version using GameLib
 # 2022, Mahmoud Fayed
 #=====================================#
 

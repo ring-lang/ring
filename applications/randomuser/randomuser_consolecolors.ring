@@ -1,6 +1,6 @@
 #=====================================#
 # Random User Application	
-# Another version for the Console 
+# Version for the Console (Colors)
 # 2022, Mahmoud Fayed
 #=====================================#
 
