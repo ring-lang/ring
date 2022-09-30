@@ -33,7 +33,7 @@ func main					# Called by the Game Engine
 	oGame = New Game			# Create the Game Object
 	{
 
-		title = "Random User"
+		title = "Random User - Using GameLib"
 		icon  = "images/appicon.png"
 
 		sprite {
