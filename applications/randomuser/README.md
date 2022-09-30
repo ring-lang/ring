@@ -175,7 +175,7 @@ Random User Application
 			12
 		</td>
 		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_weblib.ring"> WebLib</a>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_weblib.ring"> WebLib (CGI)</a>
 		</td>
 		<td>
 			Using InternetLib, JSONLib & WebLib
@@ -189,7 +189,7 @@ Random User Application
 			13
 		</td>
 		<td>
-			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_httplib.ring"> HTTPLib </a>
+			<a href="https://github.com/ring-lang/ring/blob/master/applications/randomuser/randomuser_httplib.ring"> WebLib (HTTPLib) </a>
 		</td>
 		<td>
 			Using InternetLib, JSONLib, WebLib & HTTPLib
