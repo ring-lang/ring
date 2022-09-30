@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="template/style.css" />
+  <title>Random User</title>
+</head>
+<body>
+  <div id="app">
+    <img
+      src="<%= cImageFile %>"
+      alt="`Image`"
+      class="<%= cGender%>"
+    />
+    <h1><%= cFirstName + " " + cLastName %></h1>
+    <h3>Email: <%= cEmail %></h3>
+    <form action="/randomuser">
+      <input type="submit" value="Get Random User" />
+    </form>
+  </div>
+</body>
+</html>
