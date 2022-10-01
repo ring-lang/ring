@@ -274,7 +274,7 @@ RING_API void ring_vm_loadcode ( VM *pVM )
     #if RING_MSDOS
         nSize = ring_list_getsize(pVM->pCode) ;
     #else
-        nSize = (RING_MAX(ring_list_getsize(pVM->pCode),RING_VM_MINVMINSTRUCTIONS))*RING_VM_EXTRASIZE ;
+        nSize = (RING_MAX(ring_list_getsize(pVM->pCode),RING_VM_MINVMINSTRUCTIONS))+RING_VM_EXTRASIZE ;
     #endif
     pVM->pByteCode = (ByteCode *) ring_calloc(nSize,sizeof(ByteCode));
     for ( x = 1 ; x <= ring_list_getsize(pVM->pCode) ; x++ ) {

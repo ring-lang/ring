@@ -335,7 +335,7 @@
     #define RING_VM_ERROR_NUMERICUNDERFLOW "Error (R40) : Numeric underflow!"
     #define RING_VM_ERROR_NUMERICINVALID "Error (R41) : Invalid numeric string"
     /* Extra Size (for eval) */
-    #define RING_VM_EXTRASIZE 2
+    #define RING_VM_EXTRASIZE 1000
     #define RING_VM_MINVMINSTRUCTIONS 100000
     #define RING_MAX(a,b) (((a)>(b))?(a):(b))
     /* Variables Location */
