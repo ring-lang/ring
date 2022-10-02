@@ -1304,7 +1304,8 @@ int ring_parser_paralist ( Parser *pParser )
                     ring_parser_nexttoken(pParser);
                 }
                 /* Generate Code */
-                ring_parser_icg_newoperand(pParser,cToken);
+                ring_parser_icg_addtooperand(pParser," ");
+                ring_parser_icg_addtooperand(pParser,cToken);
             } else {
                 ring_parser_error(pParser,RING_PARSER_ERROR_PARALIST);
                 return 0 ;
