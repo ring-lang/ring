@@ -175,6 +175,8 @@ More Improvements
 * Ring Compiler/VM Source Code - Better File Names
 * Ring Compiler/VM Source Code - Define RING_MSDOS
 * Support building Ring on windows using Tiny C Compiler
+* Ring Compiler - Support unlimited number of function/method parameters
 * Ring VM - Memory Functions - Display the size when the memory allocation fail
 * Ring VM - Support calling private methods from the class region
 * Ring VM - Better code when loading the VM instructions (Uses less memory)
+* Ring VM - Fixed count for ByteCode items for the ICO_FUNC instruction
