@@ -430,8 +430,12 @@ void ring_vm_returnnull ( VM *pVM )
 
 void ring_vm_newfunc ( VM *pVM )
 {
-    int x,nSP  ;
+    int x,nSP,nMax  ;
     List *pList  ;
+    String *pParameter  ;
+    char *cParameters  ;
+    char cStr[2]  ;
+    List *aParameters  ;
     assert(pVM != NULL);
     ring_vm_newscope(pVM);
     /* Set the SP then Check Parameters */
@@ -440,28 +444,48 @@ void ring_vm_newfunc ( VM *pVM )
     nSP = ring_list_getint(pList,RING_FUNCCL_SP) ;
     pVM->nFuncSP = nSP ;
     if ( RING_VM_IR_PARACOUNT > 2 ) {
-        for ( x = RING_VM_IR_PARACOUNT ; x >= 3 ; x-- ) {
+        /* Read Parameters (Separated by Space) */
+        pParameter = ring_string_new_gc(pVM->pRingState,"");
+        cParameters = RING_VM_IR_READCVALUE(2) ;
+        nMax = strlen(cParameters) ;
+        cStr[1] = '\0' ;
+        aParameters = ring_list_new_gc(pVM->pRingState,0);
+        for ( x = 0 ; x < nMax ; x++ ) {
+            if ( cParameters[x] != ' ' ) {
+                cStr[0] = cParameters[x] ;
+                ring_string_add_gc(pVM->pRingState,pParameter,cStr);
+            }
+            if ( (cParameters[x] == ' ') || (x == nMax-1) ) {
+                ring_list_addstring_gc(pVM->pRingState,aParameters,ring_string_get(pParameter));
+                ring_string_set_gc(pVM->pRingState,pParameter,"");
+            }
+        }
+        ring_string_delete_gc(pVM->pRingState,pParameter);
+        /* Set Parameters Value */
+        for ( x = ring_list_getsize(aParameters) ; x >= 1 ; x-- ) {
             if ( nSP < pVM->nSP ) {
                 if ( RING_VM_STACK_ISSTRING ) {
-                    ring_vm_addnewstringvar2(pVM,RING_VM_IR_READCVALUE(x-1),RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
+                    ring_vm_addnewstringvar2(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
                     RING_VM_STACK_POP ;
                 }
                 else if ( RING_VM_STACK_ISNUMBER ) {
-                    ring_vm_addnewnumbervar(pVM,RING_VM_IR_READCVALUE(x-1),RING_VM_STACK_READN);
+                    ring_vm_addnewnumbervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READN);
                     RING_VM_STACK_POP ;
                 }
                 else if ( RING_VM_STACK_ISPOINTER ) {
-                    ring_vm_addnewpointervar(pVM,RING_VM_IR_READCVALUE(x-1),RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
+                    ring_vm_addnewpointervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
                     RING_VM_STACK_POP ;
                 }
             }
             else {
                 pVM->cFileName = pVM->cPrevFileName ;
                 ring_list_deleteitem_gc(pVM->pRingState,pVM->pFuncCallList,ring_list_getsize(pVM->pFuncCallList));
+                ring_list_delete_gc(pVM->pRingState,aParameters);
                 ring_vm_error(pVM,RING_VM_ERROR_LESSPARAMETERSCOUNT);
                 return ;
             }
         }
+        ring_list_delete_gc(pVM->pRingState,aParameters);
     }
     if ( nSP < pVM->nSP ) {
         pVM->cFileName = pVM->cPrevFileName ;
