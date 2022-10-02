@@ -8,6 +8,8 @@
     /* Embedded Object */
     #define RING_OBJFILE_ITEMSPERFUNCTION 1000
     #define RING_OBJFILE_ITEMSPERFUNCTION2 100
+    /* Version */
+    #define RING_OBJFILE_VERSION "# Version 1.1"
     /* Functions */
 
     void ring_objfile_writefile ( RingState *pRingState ) ;
