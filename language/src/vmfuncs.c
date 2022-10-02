@@ -466,16 +466,14 @@ void ring_vm_newfunc ( VM *pVM )
             if ( nSP < pVM->nSP ) {
                 if ( RING_VM_STACK_ISSTRING ) {
                     ring_vm_addnewstringvar2(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READC,RING_VM_STACK_STRINGSIZE);
-                    RING_VM_STACK_POP ;
                 }
                 else if ( RING_VM_STACK_ISNUMBER ) {
                     ring_vm_addnewnumbervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READN);
-                    RING_VM_STACK_POP ;
                 }
                 else if ( RING_VM_STACK_ISPOINTER ) {
                     ring_vm_addnewpointervar(pVM,ring_list_getstring(aParameters,x),RING_VM_STACK_READP,RING_VM_STACK_OBJTYPE);
-                    RING_VM_STACK_POP ;
                 }
+                RING_VM_STACK_POP ;
             }
             else {
                 pVM->cFileName = pVM->cPrevFileName ;
