@@ -173,6 +173,8 @@
 
     void ring_parser_icg_newoperand ( Parser *pParser , const char *cStr ) ;
 
+    void ring_parser_icg_addtooperand ( Parser *pParser , const char *cStr ) ;
+
     void ring_parser_icg_newoperandint ( Parser *pParser , int nValue ) ;
 
     void ring_parser_icg_newoperanddouble ( Parser *pParser , double nValue ) ;
