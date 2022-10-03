@@ -15,7 +15,9 @@
     typedef struct ByteCode {
         Item *aData[RING_VM_BC_ITEMS_COUNT]  ;
         char nSize  ;
-        List *pList  ;
+        #if RING_SHOWICFINAL
+            List *pList  ;
+        #endif
     } ByteCode ;
     typedef struct VM {
         int nPC  ;
