@@ -772,7 +772,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 ring_parser_icg_newoperandint(pParser,0);
                 /* Add Assignment position to the LoadAddress Instruction */
                 if ( pLoadAPos != NULL ) {
-                    ring_list_setint_gc(pParser->pRingState,pLoadAPos,4,ring_parser_icg_instructionscount(pParser));
+                    ring_parser_icg_loadaddressassignmentpos(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
                 }
             }
             else {
@@ -800,7 +800,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 ring_parser_icg_newoperandint(pParser,0);
                 /* Add Assignment position to the LoadAddress Instruction */
                 if ( pLoadAPos != NULL ) {
-                    ring_list_setint_gc(pParser->pRingState,pLoadAPos,4,ring_parser_icg_instructionscount(pParser));
+                    ring_parser_icg_loadaddressassignmentpos(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
                 }
             }
             return x ;
@@ -1385,7 +1385,7 @@ int ring_parser_ppmm ( Parser *pParser )
             ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
             ring_parser_icg_newoperandint(pParser,0);
             ring_parser_icg_newoperandint(pParser,0);
-            ring_list_setint_gc(pParser->pRingState,pMark,4,nMark);
+            ring_parser_icg_loadaddressassignmentpos(pParser,pMark,nMark);
             /* Keep the value on the Stack (Maybe required in expressions) */
             ring_parser_icg_newoperation(pParser,ICO_PUSHV);
             break ;

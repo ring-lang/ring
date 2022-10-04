@@ -207,4 +207,6 @@
     void ring_parser_icg_loadfunctionextraoperands ( Parser *pParser ) ;
 
     void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName ) ;
+
+    void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,int nPos ) ;
 #endif

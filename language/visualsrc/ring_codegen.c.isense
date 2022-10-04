@@ -153,3 +153,4 @@ x
 ring_parser_icg_loadaddress
 Type: int
 x
+ring_parser_icg_loadaddressassignmentpos

@@ -240,3 +240,8 @@ void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
         ring_parser_icg_newoperandint(pParser,0);
     }
 }
+
+void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,int nPos )
+{
+    ring_list_setint_gc(pParser->pRingState,pLoadAPos,4,nPos);
+}
