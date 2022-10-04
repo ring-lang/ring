@@ -200,4 +200,7 @@
     int ring_parser_icg_newlabel2 ( Parser *pParser ) ;
 
     void ring_parser_icg_insertoperation ( Parser *pParser , int nPos , IC_OPERATIONS opcode ) ;
+    /* Specific Instructions */
+
+    void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName ) ;
 #endif

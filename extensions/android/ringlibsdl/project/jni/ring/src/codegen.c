@@ -213,3 +213,10 @@ int ring_parser_icg_newlabel2 ( Parser *pParser )
     ring_parser_icg_newoperation(pParser,ICO_NEWLABEL);
     return ring_list_getsize(pParser->GenCode) ;
 }
+/* Specific Instructions */
+
+void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
+{
+    ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
+    ring_parser_icg_newoperand(pParser,cFunctionName);
+}
