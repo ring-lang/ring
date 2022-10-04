@@ -1443,8 +1443,7 @@ void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod )
     int nMark1  ;
     List *pMark  ;
     /* if ismethod(self,cMethod) cMethod() ok */
-    ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
-    ring_parser_icg_newoperand(pParser,"ismethod");
+    ring_parser_icg_loadfunction(pParser,"ismethod");
     ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
     ring_parser_icg_newoperand(pParser,"self");
     ring_parser_icg_newoperandint(pParser,0);
@@ -1457,8 +1456,7 @@ void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod )
     /* Jump */
     ring_parser_icg_newoperation(pParser,ICO_JUMPZERO);
     pMark = ring_parser_icg_getactiveoperation(pParser);
-    ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
-    ring_parser_icg_newoperand(pParser,cMethod);
+    ring_parser_icg_loadfunction(pParser,cMethod);
     ring_parser_icg_newoperation(pParser,ICO_CALL);
     ring_parser_icg_newoperation(pParser,ICO_NOOP);
     ring_parser_icg_newoperation(pParser,ICO_PUSHV);
