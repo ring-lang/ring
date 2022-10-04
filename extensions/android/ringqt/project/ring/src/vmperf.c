@@ -20,11 +20,6 @@ void ring_vm_pushplocal ( VM *pVM )
         RING_VM_IR_OPCODE = ICO_LOADADDRESS ;
         ring_list_deliteminsidelist_gc(pVM->pRingState,pVM->aNewByteCodeItems,RING_VM_IR_ITEM(3));
         ring_list_deliteminsidelist_gc(pVM->pRingState,pVM->aNewByteCodeItems,RING_VM_IR_ITEM(4));
-        #if RING_SHOWICFINAL
-            RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
-            ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-            ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-        #endif
         pVM->nPC-- ;
         return ;
     }
@@ -125,11 +120,6 @@ void ring_vm_inclpjump ( VM *pVM )
         RING_VM_IR_OPCODE = ICO_INCJUMP ;
         ring_list_deliteminsidelist_gc(pVM->pRingState,pVM->aNewByteCodeItems,RING_VM_IR_ITEM(3));
         ring_list_deliteminsidelist_gc(pVM->pRingState,pVM->aNewByteCodeItems,RING_VM_IR_ITEM(4));
-        #if RING_SHOWICFINAL
-            RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
-            ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-            ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-        #endif
         pVM->nPC-- ;
         return ;
     }
@@ -175,11 +165,6 @@ void ring_vm_jumpvarlenum ( VM *pVM )
         RING_VM_IR_OPCODE = ICO_JUMPVARLPLENUM ;
         ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(4),RING_VM_STACK_READP);
         ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(5),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
-        #if RING_SHOWICFINAL
-            RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 2 ;
-            ring_list_addpointer_gc(pVM->pRingState,RING_VM_IR_LIST,RING_VM_STACK_READP);
-            ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
-        #endif
     }
     pVar = (List *) RING_VM_STACK_READP ;
     RING_VM_STACK_POP ;
@@ -247,11 +232,6 @@ void ring_vm_jumpvarlplenum ( VM *pVM )
     /* Check Scope Life Time */
     if ( RING_VM_IR_READIVALUE(5)  != pVM->nActiveScopeID ) {
         RING_VM_IR_OPCODE = ICO_JUMPVARLENUM ;
-        #if RING_SHOWICFINAL
-            RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT - 2 ;
-            ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-            ring_list_deleteitem_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getsize(RING_VM_IR_LIST));
-        #endif
         pVM->nPC-- ;
         return ;
     }

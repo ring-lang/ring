@@ -91,11 +91,6 @@ void ring_vm_loadaddress ( VM *pVM )
             ring_vm_newbytecodeitem(pVM,4);
             ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_VM_STACK_READP);
             ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
-            #if RING_SHOWICFINAL
-                RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 2 ;
-                ring_list_addpointer_gc(pVM->pRingState,RING_VM_IR_LIST,RING_VM_STACK_READP);
-                ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
-            #endif
         }
     }
     /* Save Scope in nLoadAddressScope */

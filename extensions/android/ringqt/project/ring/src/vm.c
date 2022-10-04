@@ -864,9 +864,6 @@ void ring_vm_tobytecode ( VM *pVM,int x )
     pByteCode = pVM->pByteCode + x - 1 ;
     pIR = ring_list_getlist(pVM->pCode,x);
     pByteCode->nSize = ring_list_getsize(pIR) ;
-    #if RING_SHOWICFINAL
-        pByteCode->pList = pIR ;
-    #endif
     /* Check Instruction Size */
     if ( ring_list_getsize(pIR) > RING_VM_BC_ITEMS_COUNT ) {
         printf( RING_LONGINSTRUCTION ) ;

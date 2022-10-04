@@ -96,15 +96,6 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
                 ring_vm_newbytecodeitem(pVM,4);
                 ring_vm_newbytecodeitem(pVM,5);
                 ring_vm_newbytecodeitem(pVM,6);
-                #if RING_SHOWICFINAL
-                    /* Update generated code list, so the new items could appear */
-                    RING_VM_IR_PARACOUNT = RING_VM_IR_PARACOUNT + 5 ;
-                    ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pList2,RING_FUNCMAP_PC));
-                    ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,RING_FUNCTYPE_SCRIPT);
-                    ring_list_addpointer_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
-                    ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pList3,RING_FUNCCL_METHODORFUNC));
-                    ring_list_addint_gc(pVM->pRingState,RING_VM_IR_LIST,ring_list_getint(pList3,RING_FUNCCL_LINENUMBER));
-                #endif
                 ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(2),ring_list_getint(pList2,RING_FUNCMAP_PC));
                 ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_FUNCTYPE_SCRIPT);
                 ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));
