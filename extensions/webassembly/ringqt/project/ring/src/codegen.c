@@ -230,3 +230,13 @@ void ring_parser_icg_loadfunctionextraoperands ( Parser *pParser )
         ring_parser_icg_newoperandint(pParser,0);
     }
 }
+
+void ring_parser_icg_loadaddress ( Parser *pParser,const char *cVariableName )
+{
+    int x  ;
+    ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
+    ring_parser_icg_newoperand(pParser,cVariableName);
+    for ( x = 0 ; x < 3 ; x++ ) {
+        ring_parser_icg_newoperandint(pParser,0);
+    }
+}

@@ -150,3 +150,6 @@ ring_parser_icg_loadfunction
 ring_parser_icg_loadfunctionextraoperands
 Type: int
 x
+ring_parser_icg_loadaddress
+Type: int
+x
