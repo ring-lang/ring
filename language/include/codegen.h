@@ -203,4 +203,6 @@
     /* Specific Instructions */
 
     void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName ) ;
+
+    void ring_parser_icg_loadfunctionextraoperands ( Parser *pParser ) ;
 #endif

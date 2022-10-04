@@ -147,3 +147,4 @@ Type: int
 y,nCount2
 ring_parser_icg_newlabel2
 ring_parser_icg_loadfunction
+ring_parser_icg_loadfunctionextraoperands

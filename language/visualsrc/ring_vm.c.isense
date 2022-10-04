@@ -11,8 +11,6 @@ Type: Item *
 aData[RING_VM_BC_ITEMS_COUNT]
 Type: char
 nSize
-Type: List *
-pList
 END:
 Type: ByteCode
 struct ByteCode

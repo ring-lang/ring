@@ -1199,6 +1199,7 @@ int ring_parser_mixer ( Parser *pParser )
             ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
             /* Delete Locations for Getter */
             ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),3);
+            ring_parser_icg_loadfunctionextraoperands(pParser);
         }
         else if ( ring_parser_icg_getlastoperation(pParser) == ICO_LOADSUBADDRESS ) {
             ring_parser_icg_setlastoperation(pParser,ICO_LOADMETHOD);

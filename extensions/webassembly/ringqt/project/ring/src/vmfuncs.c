@@ -87,15 +87,7 @@ int ring_vm_loadfunc2 ( VM *pVM,const char *cStr,int nPerformance )
                 **  Replace Instruction with ICO_LOADFUNCP for better performance 
                 */
                 RING_VM_IR_OPCODE = ICO_LOADFUNCP ;
-                /*
-                **  Leave the first parameter (contains the function name as wanted) 
-                **  Create the items 
-                */
-                ring_vm_newbytecodeitem(pVM,2);
-                ring_vm_newbytecodeitem(pVM,3);
-                ring_vm_newbytecodeitem(pVM,4);
-                ring_vm_newbytecodeitem(pVM,5);
-                ring_vm_newbytecodeitem(pVM,6);
+                /* Leave the first parameter (contains the function name as wanted) */
                 ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(2),ring_list_getint(pList2,RING_FUNCMAP_PC));
                 ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_FUNCTYPE_SCRIPT);
                 ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getstring(pList2,RING_FUNCMAP_FILENAME));

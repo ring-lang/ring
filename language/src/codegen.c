@@ -219,4 +219,15 @@ void ring_parser_icg_loadfunction ( Parser *pParser,const char *cFunctionName )
 {
     ring_parser_icg_newoperation(pParser,ICO_LOADFUNC);
     ring_parser_icg_newoperand(pParser,cFunctionName);
+    ring_parser_icg_loadfunctionextraoperands(pParser);
+}
+
+void ring_parser_icg_loadfunctionextraoperands ( Parser *pParser )
+{
+    /* We Add these operands to allow changing ICO_LOADFUNC to ICO_LOADFUNCP */
+    ring_parser_icg_newoperandint(pParser,0);
+    ring_parser_icg_newoperandint(pParser,0);
+    ring_parser_icg_newoperandint(pParser,0);
+    ring_parser_icg_newoperandint(pParser,0);
+    ring_parser_icg_newoperandint(pParser,0);
 }
