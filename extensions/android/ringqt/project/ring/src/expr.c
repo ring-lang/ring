@@ -619,10 +619,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
     /* Factor --> Identifier  {mixer} [ '=' Expr ] */
     if ( ring_parser_isidentifier(pParser) ) {
         /* Generate Code */
-        ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
-        ring_parser_icg_newoperand(pParser,pParser->TokenText);
-        /* Generate Location for nPC of Getter */
-        ring_parser_icg_newoperandint(pParser,0);
+        ring_parser_icg_loadaddress(pParser,pParser->TokenText);
         /* Check Loading Self or This */
         if ( strcmp(pParser->TokenText,"self") == 0 || strcmp(pParser->TokenText ,"this") == 0 ) {
             pParser->nThisOrSelfLoadA = 1 ;
@@ -775,7 +772,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 ring_parser_icg_newoperandint(pParser,0);
                 /* Add Assignment position to the LoadAddress Instruction */
                 if ( pLoadAPos != NULL ) {
-                    ring_parser_icg_addoperandint(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
+                    ring_list_setint_gc(pParser->pRingState,pLoadAPos,4,ring_parser_icg_instructionscount(pParser));
                 }
             }
             else {
@@ -803,7 +800,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 ring_parser_icg_newoperandint(pParser,0);
                 /* Add Assignment position to the LoadAddress Instruction */
                 if ( pLoadAPos != NULL ) {
-                    ring_parser_icg_addoperandint(pParser,pLoadAPos,ring_parser_icg_instructionscount(pParser));
+                    ring_list_setint_gc(pParser->pRingState,pLoadAPos,4,ring_parser_icg_instructionscount(pParser));
                 }
             }
             return x ;
@@ -1039,10 +1036,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
                 ring_parser_icg_newoperation(pParser,ICO_CALLCLASSINIT);
                 ring_parser_icg_newoperandint(pParser,1);
                 /* Generate Code ( Call Function ) */
-                ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
-                ring_parser_icg_newoperand(pParser,"init");
-                /* Generate Location for nPC of Getter */
-                ring_parser_icg_newoperandint(pParser,0);
+                ring_parser_icg_loadaddress(pParser,"init");
                 /* Function Parameters */
                 pParser->nFuncCallOnly = 1 ;
                 ring_parser_mixer(pParser);
@@ -1125,10 +1119,7 @@ int ring_parser_factor ( Parser *pParser,int *nFlag )
         ring_parser_nexttoken(pParser);
         if ( ring_parser_isidentifier(pParser) ) {
             /* Generate Code */
-            ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
-            ring_parser_icg_newoperand(pParser,pParser->TokenText);
-            /* Generate Location for nPC of Getter */
-            ring_parser_icg_newoperandint(pParser,0);
+            ring_parser_icg_loadaddress(pParser,pParser->TokenText);
             ring_parser_nexttoken(pParser);
             /* Object Attributes */
             if ( ring_parser_objattributes(pParser) == 0 ) {
@@ -1197,7 +1188,9 @@ int ring_parser_mixer ( Parser *pParser )
         nCallMethod = 0 ;
         if ( ring_parser_icg_getlastoperation(pParser) == ICO_LOADADDRESS ) {
             ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
-            /* Delete Locations for Getter */
+            /* Delete Extra Locations */
+            ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),3);
+            ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),3);
             ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),3);
             ring_parser_icg_loadfunctionextraoperands(pParser);
         }
@@ -1392,7 +1385,7 @@ int ring_parser_ppmm ( Parser *pParser )
             ring_parser_icg_newoperation(pParser,ICO_ASSIGNMENT);
             ring_parser_icg_newoperandint(pParser,0);
             ring_parser_icg_newoperandint(pParser,0);
-            ring_parser_icg_addoperandint(pParser,pMark,nMark);
+            ring_list_setint_gc(pParser->pRingState,pMark,4,nMark);
             /* Keep the value on the Stack (Maybe required in expressions) */
             ring_parser_icg_newoperation(pParser,ICO_PUSHV);
             break ;
@@ -1445,9 +1438,7 @@ void ring_parser_gencallbracemethod ( Parser *pParser,const char *cMethod )
     List *pMark  ;
     /* if ismethod(self,cMethod) cMethod() ok */
     ring_parser_icg_loadfunction(pParser,"ismethod");
-    ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
-    ring_parser_icg_newoperand(pParser,"self");
-    ring_parser_icg_newoperandint(pParser,0);
+    ring_parser_icg_loadaddress(pParser,"self");
     ring_parser_icg_newoperation(pParser,ICO_PUSHV);
     ring_parser_icg_newoperation(pParser,ICO_PUSHC);
     ring_parser_icg_newoperand(pParser,cMethod);

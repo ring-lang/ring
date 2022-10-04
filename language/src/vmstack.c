@@ -87,8 +87,6 @@ void ring_vm_loadaddress ( VM *pVM )
         if ( pVM->lUsePushPLocal ) {
             /* Replace LoadAddress with PUSHPLOCAL for better performance */
             RING_VM_IR_OPCODE = ICO_PUSHPLOCAL ;
-            ring_vm_newbytecodeitem(pVM,3);
-            ring_vm_newbytecodeitem(pVM,4);
             ring_item_setpointer_gc(pVM->pRingState,RING_VM_IR_ITEM(3),RING_VM_STACK_READP);
             ring_item_setint_gc(pVM->pRingState,RING_VM_IR_ITEM(4),ring_list_getint(pVM->aScopeID,ring_list_getsize(pVM->aScopeID)));
         }

@@ -430,8 +430,7 @@ int ring_parser_stmt ( Parser *pParser )
         RING_PARSER_IGNORENEWLINE ;
         if ( ring_parser_isidentifier(pParser) ) {
             /* Generate Code */
-            ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
-            ring_parser_icg_newoperand(pParser,pParser->TokenText);
+            ring_parser_icg_loadaddress(pParser,pParser->TokenText);
             ring_parser_nexttoken(pParser);
             x = ring_parser_mixer(pParser);
             if ( x == 0 ) {
@@ -595,8 +594,7 @@ int ring_parser_stmt ( Parser *pParser )
                 /* Mark for Exit command to go to outside the loop */
                 ring_parser_icg_newoperation(pParser,ICO_EXITMARK);
                 pMark3 = ring_parser_icg_getactiveoperation(pParser);
-                ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
-                ring_parser_icg_newoperand(pParser,cStr);
+                ring_parser_icg_loadaddress(pParser,cStr);
                 ring_parser_icg_newoperation(pParser,ICO_PUSHN);
                 ring_parser_icg_newoperanddouble(pParser,1.0);
                 /* Before Equal ( = ) not += , -= ,... etc */
@@ -1223,9 +1221,7 @@ int ring_parser_stmt ( Parser *pParser )
         if ( pParser->nBraceFlag ) {
             /* if ismethod(self,"braceexpreval") braceexpreval() ok */
             ring_parser_icg_loadfunction(pParser,"ismethod");
-            ring_parser_icg_newoperation(pParser,ICO_LOADADDRESS);
-            ring_parser_icg_newoperand(pParser,"self");
-            ring_parser_icg_newoperandint(pParser,0);
+            ring_parser_icg_loadaddress(pParser,"self");
             ring_parser_icg_newoperation(pParser,ICO_PUSHV);
             ring_parser_icg_newoperation(pParser,ICO_PUSHC);
             ring_parser_icg_newoperand(pParser,"braceexpreval");
