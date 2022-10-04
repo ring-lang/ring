@@ -1187,12 +1187,7 @@ int ring_parser_mixer ( Parser *pParser )
         /* Generate Code */
         nCallMethod = 0 ;
         if ( ring_parser_icg_getlastoperation(pParser) == ICO_LOADADDRESS ) {
-            ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
-            /* Delete Extra Locations */
-            ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),3);
-            ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),3);
-            ring_list_deleteitem_gc(pParser->pRingState,ring_parser_icg_getactiveoperation(pParser),3);
-            ring_parser_icg_loadfunctionextraoperands(pParser);
+            ring_parser_icg_loadaddresstoloadfunction(pParser);
         }
         else if ( ring_parser_icg_getlastoperation(pParser) == ICO_LOADSUBADDRESS ) {
             ring_parser_icg_setlastoperation(pParser,ICO_LOADMETHOD);

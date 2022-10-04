@@ -245,3 +245,17 @@ void ring_parser_icg_loadaddressassignmentpos ( Parser *pParser,List *pLoadAPos,
 {
     ring_list_setint_gc(pParser->pRingState,pLoadAPos,4,nPos);
 }
+
+void ring_parser_icg_loadaddresstoloadfunction ( Parser *pParser )
+{
+    int x  ;
+    ring_parser_icg_setlastoperation(pParser,ICO_LOADFUNC);
+    /*
+    **  The ICO_LOADADDRESS uses 3 operands after the Variable Name 
+    **  While the ICO_LOADFUNC uses 5 operands after the function name 
+    **  So we add another two operands 
+    */
+    for ( x = 0 ; x < 2 ; x++ ) {
+        ring_parser_icg_newoperandint(pParser,0);
+    }
+}
