@@ -438,7 +438,7 @@ int ring_vm_isoperationaftersublist ( VM *pVM )
     int nOPCode  ;
     List *pParent, *pSub, *pVar  ;
     if ( pVM->nListStart > 0 ) {
-        nOPCode = (pVM->pByteCode + pVM->nPC - 3)->aData[0]->data.iNumber ;
+        nOPCode = RING_VM_IR_OPCODEVALUE(pVM->nPC - 3) ;
         if ( nOPCode == ICO_LISTEND ) {
             /* Get the Parent List */
             pParent = (List *) ring_list_getpointer(pVM->pNestedLists,ring_list_getsize(pVM->pNestedLists));
